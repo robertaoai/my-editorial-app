@@ -25672,3 +25672,46 @@ Any Resolution change or `Verified`; any `O5` clearance; execution of `GR-012`/`
 | Build Spec, packets, `Modular_PRD`, Fn Specs, SPECS, rule files, Phase Closure | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild at the final commit, re-merge, replay descriptions, content-checked labels |
+
+## 5.14e216 `D-391` — Screening Batch 3: the 75 Verified Transactions; Every Transaction Now Keyed; `GR-014` Received
+
+**Authority: the Judge, directly to Lane A, 2026-10-02**: *"Judge authorizes push of 2 commits and batch 3 as next
+unit"*. The D-390 range was pushed first. Read at `66ac1e7`.
+
+### The decision
+
+1. **The remaining 75 unkeyed transactions are keyed**, all already `Verified`. `SV-002` §2.3.2 now has one keyed row
+   for every non-turn-report transaction. Coverage of the review population is complete as accounting; it is not
+   semantic completion of every entry.
+2. **Structural screen of all 75**, by script and then by reading the results:
+   - verifier identity: 68 Lane B, 3 Lane B (Codex), 4 Lane C (Antigravity) on C-series entries Lane A answered — none
+     verified by the answering lane;
+   - every `Verified-At-Commit` exists;
+   - no Return is left without its Re-close;
+   - the `terminal-return` full-history walk is clean.
+3. **Semantic check of the five verified in the Issue #1 / PR #2 window** (`B-123`, `B-129`, `B-134`, `B-135`,
+   `B-137`). Each verified scope still holds:
+   - `B-135` expressly excluded the Parent 3 / State 2 work that `B-136` holds.
+   - `B-137` expressly deferred R6/A6 (now `D-381`) and **Improvement C**.
+4. **One orphan found and received.** Improvement C, the reference-validation check deferred by `D-265` item 4 and
+   pointed to by `B-085` and `B-137`, had no receiving row. It is now **`GR-014`**, held until the Judge commissions
+   or declines it.
+5. **Honest limit.** For the other 70, the verified premise was not re-read. Their rows say "Structural screen". A
+   later batch may re-read premises, by owner or theme, if the Judge wants semantic coverage beyond accounting.
+
+### Not given by this act
+
+Any Resolution change; any clearance; execution of `GR-014`; Gate 2.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e216 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ 75 ledger rows; every transaction keyed |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/GOV-RES-001.md`** | ✅ `GR-014` |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-391` paragraph; no file added or retired |
+| **`docs/handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md`** | ✅ Lane A application record, in its own commit |
+| Build Spec, packets, `Modular_PRD`, Fn Specs, SPECS, rule files, Phase Closure | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild at the final commit, re-merge, replay descriptions, content-checked labels |
