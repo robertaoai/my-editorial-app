@@ -25858,3 +25858,38 @@ A work order for P4a or P4b; any change to `scripts/`, `.claude/skills/` or host
 | Build Spec, packets, `Modular_PRD`, Fn Specs, SPECS, rule files, Phase Closure, `SV-002`, `.github/` | — unaffected (the template change is drafted, not applied) |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild at the final commit, verify the curated layer, fill descriptions last |
+
+## 5.14e220 `D-395` — `GR-015` Commissioned and Applied; Lane B Named Verifier for `B-115`, `B-114` and `GR-015`
+
+**Authority: the Judge, directly to Lane A, 2026-10-02**: *"commit all individually first, push after as last step;
+commission GR-015; Lane B verifies"*. Read at `5ede384`.
+
+### The decision
+
+1. **`GR-015` is commissioned and applied.** `.github/PULL_REQUEST_TEMPLATE/v1-mmf.md` §8 gains the two refusal
+   lines drafted in `D-394` item 3: a multi-child commit or missing red evidence, and an agent push or a missing
+   record of the human push actor and remote-tip equality. The template still grants no authority and builds no
+   check (`D-245`).
+2. **Lane B is the independent verifier** of `B-115` (its separation scope), then `B-114` (its Re-close
+   condition), and of `GR-015`'s application. This is Level 1 review of Lane A work (`D-324`). Lane A records no
+   `Verified` on any of them.
+3. **Push order.** Every commit of this act is made individually first. The push is the last step and covers the
+   range `5747585..` the final commit.
+
+### Not given by this act
+
+`Verified` on `B-115`, `B-114` or `GR-015`; any workflow or check; Gate 2.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e220 |
+| **`.github/PULL_REQUEST_TEMPLATE/v1-mmf.md`** | ✅ two refusal lines, in their own commit |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/GOV-RES-001.md`** | ✅ `GR-015`: applied, awaiting Lane B verification |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-395` paragraph; no file added or retired |
+| **`docs/handoff/B-115-separate-intent-build-and-devops-governance.md`** | ✅ verification request to Lane B, in its own commit |
+| **`docs/handoff/B-114-mmf-test-first-atomic-commit-and-human-push.md`** | ✅ verification request to Lane B, in its own commit |
+| Build Spec, packets, `Modular_PRD`, Fn Specs, SPECS, rule files, Phase Closure, `SV-002`, `.github/workflows/` | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild at the final commit, verify the curated layer, fill descriptions last |

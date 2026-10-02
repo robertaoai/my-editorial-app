@@ -466,6 +466,9 @@ its own one-path commit.
 **`D-394` (2026-10-02) — no file added or retired, stated explicitly.** `GR-015` in `GOV-RES-001.md`;
 `B-115` and `B-114` assessed, each in its own one-path commit.
 
+**`D-395` (2026-10-02) — no file added or retired, stated explicitly.** `.github/PULL_REQUEST_TEMPLATE/v1-mmf.md`
+changes in place (`GR-015`); `GOV-RES-001.md` `GR-015` row updated; `B-115` and `B-114` each in its own one-path commit.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |
