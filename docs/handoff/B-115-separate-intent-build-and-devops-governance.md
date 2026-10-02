@@ -266,3 +266,9 @@ not a verification (`D-102`).
 
 **Recommendation:** verifiable for its separation scope now, with the sixth step-8 condition transferred to
 `GR-015`. The verifier must be a lane other than Lane A. Lane A records no `Verified` here.
+
+## Lane A request — Lane B verification, `D-395`, 2026-10-02
+
+The Judge names **Lane B** as the independent verifier (`D-324` Level 1). Verify this entry's separation scope against the `D-394` assessment above; step 8's sixth condition is now carried by `GR-015`. Record the result in this entry's
+header (`Verified-By`, `Verified-At-Commit`), or reject it with the failing item and its source text. Lane A writes
+no `Verified`. `GR-015`'s two refusal lines are now in `.github/PULL_REQUEST_TEMPLATE/v1-mmf.md` §8.
