@@ -65,3 +65,21 @@ success criteria remain unmet.
 **Draft owner fix — Lane A:** run mutations in a disposable worktree or add a repository-local
 lock observed by both fixture writers and consistency readers, then add a two-process fixture that
 proves the second process stops without changing user work.
+
+## Terminal annotation record
+
+- **Current-Resolution:** Applied
+- **Annotation-Type:** cross-reference
+- **Annotation-Act:** `D-397`, 2026-10-02 — this entry's residual, received as `GOV-RES-001` `GR-013` (`D-390`), is delivered by `D-396`'s P4a work order: fixtures run in a disposable worktree; two concurrent runs pass 278/278 with the caller's bytes identical (`V1-DECISION-REGISTER.md` §5.14e222)
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** 63ce23dbf25417f0146e5f94f554b56b4787abab
+
+**Lane A request — Lane B verification (`D-324` Level 1).** This entry's success evidence is now met by `D-397`'s
+G13 results:
+- two invocations cannot mutate one tree;
+- a normal check never reads a transient mutation;
+- interruption leaves the caller's bytes unchanged and names leftovers;
+- the existing suites pass;
+- the tree is clean after the concurrency test.
+
+Verify at a named commit and record `Verified` here, or reject with the failing item. Lane A records no `Verified`.
