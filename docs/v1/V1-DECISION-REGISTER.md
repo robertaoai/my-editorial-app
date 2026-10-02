@@ -25629,3 +25629,46 @@ Any Resolution change or `Verified`; any clearance; later batches; Gate 2.
 | Build Spec, packets, `Modular_PRD`, Fn Specs, SPECS, rule files, Phase Closure | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild at the final commit, re-merge, replay descriptions, content-checked labels |
+
+## 5.14e215 `D-390` — Screening Batch 2: the 26 `O5` Transactions; `GR-012`, `GR-013` Received
+
+**Authority: the Judge, directly to Lane A, 2026-10-02**: *"Judge authorizes push of 3 commits and batch 2 as next
+unit"*. The D-389 range was pushed first. Read at `579266a`.
+
+### The decision
+
+1. **All 26 `O5` transactions are keyed** in `SV-002` §2.3.2, and each §2.3.1 row gains a screening note. No
+   Clearance cell changes: `O5` rows still each need the Judge's individual reason (`D-364` item 9). `B-110`'s row
+   counts closed through its Verified header.
+2. **Six entries had been kept `Applied` by the 2026-08-29 verification reviews.** Each was checked against the
+   live sources:
+   - `B-011` and `B-033` are fixed: the stale `Eligible` wording is gone (`D-152`/`D-156`).
+   - `B-015`'s steps are held by `SM06-P3-02`–`04`.
+   - `B-041`'s non-portable state is only in gitignored runtime files, and the review's clean-commit-set condition
+     holds.
+   - **`B-014` and `B-021` are still live** and are received:
+     - **`GR-012`:** the environment import that recreated an empty `.agents/skills/sync-docs/` on 2026-10-02.
+     - **`GR-013`:** the fixture concurrency lock, which `harness.mjs` itself calls unbuilt.
+3. **The other 20 entries are valid.**
+   - Superseded entries name their act.
+   - Applied entries' "Defer" lines are boundary routes to owners that exist, or work already done since: Issue #1
+     and PR #2 (`D-262`); Encyclopedia v15 (`D-256`); the A-channel withdrawal (`D-203`/`D-227`).
+   - Independent verification is still owed for the Applied ones.
+4. **Honest limit:** `B-011`'s long body was read through its sections and verdicts, not re-read in full.
+
+### Not given by this act
+
+Any Resolution change or `Verified`; any `O5` clearance; execution of `GR-012`/`GR-013`; Gate 2.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e215 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ 26 ledger rows; 26 tracker notes |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/GOV-RES-001.md`** | ✅ `GR-012`, `GR-013` |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-390` paragraph; no file added or retired |
+| **`docs/handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md`** | ✅ Lane A application record, in its own commit |
+| Build Spec, packets, `Modular_PRD`, Fn Specs, SPECS, rule files, Phase Closure | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild at the final commit, re-merge, replay descriptions, content-checked labels |
