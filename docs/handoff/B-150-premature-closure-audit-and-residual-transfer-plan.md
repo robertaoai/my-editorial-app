@@ -3807,3 +3807,13 @@ Judge authorization: "Judge authorizes push of 5 commits and D-387 corrected sco
 was pushed with the pre-push proof. Lane C's `B-115` read is preserved byte for byte under
 `docs/handoff/artifacts/B-115/` (hash verified) and cited in `B-115`. `SV-002` §2.3.3 now separates the D-278
 screen from the review ledger. Commits were made one path each.
+
+## Lane A application — D-388 — 2026-10-02
+
+Judge authorization: "yes". Applied:
+- the A6 Panel A11 sentence (GR-002);
+- the B-117 tracker clause (dissolved, `D-236`);
+- B-154 listed and keyed;
+- the tracker re-derived at `341dd04`.
+
+One-path commits. Pushed together with `9afd3d5`..`341dd04` as the Judge directed.
