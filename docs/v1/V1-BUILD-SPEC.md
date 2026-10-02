@@ -144,6 +144,10 @@ attempt (not a lane transition). The Lane B/C read-only measurement authorizatio
 take effect. Order: `SV2-U02` A/B/C → `SV2-U03` trial → `SV2-U04` classification → DoD, each row on its own proof. The
 PR #2 comment, `SV-002` acceptance and the `V1-SM05` unblock remain separate Judge acts.
 
+**`D-396` (2026-10-02) — P4a issued: `GR-013` disposable fixture isolation.** One bounded Lane A tooling unit on
+`scripts/fixtures/`, specified in `GR-012-013-SPEC.md` §§1 and 4 and verified by Lane B. It is Phase 1 tooling and does
+not unblock `V1-SM05`.
+
 **`D-393` (2026-10-02) — `GR-004`/`GR-002` Verified; `GR-012`/`GR-013` specified, not delivered.** Independent
 reviews by Lane B and Lane C verify both receiving rows. `GR-012-013-SPEC.md` drafts disposable fixture isolation
 (Judge-selected) and the sync-docs correction and writer investigation. Delivery needs its own work order; `V1-SM05`

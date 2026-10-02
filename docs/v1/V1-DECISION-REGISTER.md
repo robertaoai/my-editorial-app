@@ -25893,3 +25893,39 @@ commission GR-015; Lane B verifies"*. Read at `5ede384`.
 | Build Spec, packets, `Modular_PRD`, Fn Specs, SPECS, rule files, Phase Closure, `SV-002`, `.github/workflows/` | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild at the final commit, verify the curated layer, fill descriptions last |
+
+## 5.14e221 `D-396` — P4a Work Order Issued: `GR-013` Disposable Fixture Isolation
+
+**Authority: the Judge, directly to Lane A, 2026-10-02**: *"record as D-396 and start, commit individually, push
+last"*, issuing the P4a work order Lane A drafted. Read at `13adab2`.
+
+### The decision
+
+1. **One bounded unit is authorized:** `GR-013` → P4a, from `B-021`. Lane A, `Active`, executes it on
+   `scripts/fixtures/`, and on `scripts/checks/` only where needed. The specification is
+   `GR-012-013-SPEC.md` §1. The work order is §4 of that file. Lane B verifies (`D-324` Level 1).
+2. **Two facts found while preparing the order** are added to it:
+   - `.graphify` is a symlink to a shared folder (`D-297`). The target therefore receives a **copy** of the graph
+     files the checks read, never the link. A fixture must not be able to write to the shared graph.
+   - In a git worktree, `.git` is a pointer file, not a folder. The `lane-gate` suite's `.git/lane-gate-fixture`
+     path must be resolved through `git rev-parse --git-dir`.
+3. **Design refinement within scope.** The runner re-launches itself with the disposable worktree as its working
+   directory. The checks that resolve the repository through `process.cwd` then read the target without being
+   edited. If they work this way, the "explicit root" change to `scripts/checks/` is not needed.
+
+### Not given by this act
+
+`GR-012` / P4b; any host-tool change; a Resolution on `B-021`; Gate 2; changes outside the work order's files.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e221 |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ `D-396` paragraph |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/GR-012-013-SPEC.md`** | ✅ §4, the issued work order |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/GOV-RES-001.md`** | ✅ `GR-013`: work order issued |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-396` paragraph; no file added or retired |
+| Packets, `Modular_PRD`, Fn Specs, SPECS, rule files, Phase Closure, `SV-002`, `.github/` | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild at the final commit of the unit, verify the curated layer, fill descriptions last |

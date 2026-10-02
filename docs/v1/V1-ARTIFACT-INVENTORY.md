@@ -469,6 +469,9 @@ its own one-path commit.
 **`D-395` (2026-10-02) — no file added or retired, stated explicitly.** `.github/PULL_REQUEST_TEMPLATE/v1-mmf.md`
 changes in place (`GR-015`); `GOV-RES-001.md` `GR-015` row updated; `B-115` and `B-114` each in its own one-path commit.
 
+**`D-396` (2026-10-02) — no file added or retired, stated explicitly.** `GR-012-013-SPEC.md` gains §4 (the P4a work
+order); `GOV-RES-001.md` `GR-013` row updated. The unit's own changes are recorded when it lands.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |
