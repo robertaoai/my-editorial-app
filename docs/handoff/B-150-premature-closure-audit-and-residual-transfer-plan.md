@@ -3782,3 +3782,13 @@ The census is in `SV-002` §2.3.2 and the receipts in `GOV-RES-001`. Answer fiel
 | G5 as applied | Approve-with-conditions | Phase 1 — Lane B independent review of the census |
 | Applying `GR-002`, `GR-009`–`GR-011` | Defer | Phase 1 — bounded units; `GR-009`'s code side needs a Lane B work order |
 | Remaining unkeyed transactions; Gate 2 | Defer | Phase 1 → Gate 2 |
+
+## Lane A application — D-385, commit discipline and census corrections — 2026-10-02
+
+Judge authorization: "Yes. follow above latest updated plan". Recorded as `D-385` (§5.14e210).
+- P1: `README.md` clarifies that one-path handoff commits bind Active Lane A.
+- P2: `R33` Superseded; `R30` compared; Chief Journalist `A` dissolved; scope notes added; `B-153` keyed; tracker
+  re-derived at `799ad46`.
+
+Commits were made separately: canonical sources, then `B-153`'s answer alone, then this record alone. The push
+follows under the Judge's naming of the range.
