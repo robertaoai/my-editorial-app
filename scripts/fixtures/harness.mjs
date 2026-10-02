@@ -24,7 +24,7 @@
 
 import { execFileSync } from "node:child_process";
 import { readFileSync, writeFileSync, existsSync, rmSync, mkdirSync, lstatSync, readdirSync, rmdirSync } from "node:fs";
-import { resolve, sep } from "node:path";
+import { join, relative, resolve, sep } from "node:path";
 
 /**
  * `D-139`, raised against this session's own fixture run. **Not `B-021`'s
@@ -192,36 +192,112 @@ export function runScript(args, cwd = process.cwd()) {
  * `SKILL.md` but left `.agents/skills/sync-docs/` behind on every run.
  */
 export function snapshot(paths, { roots = [process.cwd()] } = {}) {
-  const bases = roots.map((r) => resolve(r));
-  const inside = (abs) => bases.some((b) => abs === b || abs.startsWith(b + sep));
+  // `D-398` (`B-155` F1). Containment is PHYSICAL, not a string prefix: every
+  // root and every existing component from root to leaf is recorded by object
+  // identity (volume + file ID) and must be an ordinary, non-link directory.
+  // Restore checks ALL entries before writing anything, then re-checks each
+  // entry immediately before its own write or delete. A late exception after an
+  // outside write is a failure, so nothing is written until every check passes.
+  //
+  // RACE BOUNDARY, stated honestly: check-then-write is not atomic. This guards
+  // the fixture's own mutations and any non-adversarial change inside the fresh,
+  // task-owned target; it does not claim immunity to a hostile process racing
+  // the window between a check and its write.
+  const rootRecs = roots.map((r) => {
+    const abs = resolve(r);
+    const st = lst(abs);
+    if (!st || st.isSymbolicLink() || !st.isDirectory()) throw new Error(`snapshot: root ${r} is not an ordinary directory`);
+    return { abs, id: idOf(st) };
+  });
+  const seen = new Map(); // component path → identity recorded at capture
   const entries = paths.map((p) => {
     const abs = resolve(p);
-    if (!inside(abs)) throw new Error(`snapshot: ${p} is outside the fixture target`);
-    if (!existsSync(abs)) return { p, abs, kind: "absent" };
-    const st = lstatSync(abs);
-    if (st.isSymbolicLink()) throw new Error(`snapshot: ${p} is a link; refusing to manage it`);
-    if (st.isDirectory()) return { p, abs, kind: "dir" };
-    return { p, abs, kind: "file", bytes: readFileSync(abs) };
+    const root = rootRecs.find((r) => abs === r.abs || abs.startsWith(r.abs + sep));
+    if (!root) throw new Error(`snapshot: ${p} is outside the fixture target`);
+    const chain = componentsBelow(root.abs, abs);
+    let absentFrom = chain.length;
+    for (let i = 0; i < chain.length; i++) {
+      const st = lst(chain[i]);
+      if (!st) { absentFrom = i; break; }
+      if (st.isSymbolicLink()) throw new Error(`snapshot: ${chain[i]} is a link; refusing to manage ${p}`);
+      if (i < chain.length - 1 && !st.isDirectory()) throw new Error(`snapshot: ${chain[i]} is not a directory; refusing to manage ${p}`);
+      seen.set(chain[i], idOf(st));
+    }
+    const leaf = absentFrom === chain.length ? lst(abs) : null;
+    const base = { p, abs, root, chain, absentFrom };
+    if (!leaf) return { ...base, kind: "absent" };
+    if (leaf.isDirectory()) return { ...base, kind: "dir" };
+    return { ...base, kind: "file", bytes: readFileSync(abs) };
   });
+
+  // Returns the reason this entry may not be restored now, or null. Reads only.
+  const unsafe = (e) => {
+    const r = lst(e.root.abs);
+    if (!r || r.isSymbolicLink() || !r.isDirectory() || idOf(r) !== e.root.id) return `${e.p}: its root ${e.root.abs} was replaced`;
+    for (let i = 0; i < e.chain.length; i++) {
+      const c = e.chain[i];
+      const st = lst(c);
+      const isLeaf = i === e.chain.length - 1;
+      if (i < e.absentFrom) {
+        // Existed at capture: must be the very same object, never a link.
+        if (!st) return isLeaf && e.kind === "file" ? null : `${e.p}: ${c} is gone`;
+        if (st.isSymbolicLink()) return `${e.p}: ${c} became a link`;
+        if (!isLeaf && idOf(st) !== seen.get(c)) return `${e.p}: ${c} was replaced by a different directory`;
+        if (isLeaf && e.kind === "dir" && idOf(st) !== seen.get(c)) return `${e.p}: was replaced by a different directory`;
+        if (isLeaf && e.kind === "file" && st.isDirectory()) return `${e.p}: was a file, is now a directory`;
+      } else if (st) {
+        // Absent at capture, created since: allowed only as an ordinary entry.
+        if (st.isSymbolicLink()) return `${e.p}: ${c} was created as a link`;
+        if (!isLeaf && !st.isDirectory()) return `${e.p}: ${c} is not a directory`;
+      } else {
+        break; // nothing exists below an absent component
+      }
+    }
+    return null;
+  };
+
   return () => {
+    // Phase 1 — check everything; write nothing if anything is unsafe.
+    const refused = entries.map(unsafe).filter(Boolean);
+    if (refused.length) throw new Error(`restore refused before any write: ${refused.join("; ")}`);
+    // Phase 2 — deepest first; each operation re-checks its own entry first.
     const problems = [];
-    // Deepest first, so a created file goes before the directory holding it.
     for (const e of [...entries].sort((a, b) => b.abs.length - a.abs.length)) {
-      const now = existsSync(e.abs) ? lstatSync(e.abs) : null;
+      const why = unsafe(e);
+      if (why) throw new Error(`restore stopped: ${why}`);
+      const now = lst(e.abs);
       if (e.kind === "file") {
-        if (now && now.isDirectory()) problems.push(`${e.p}: was a file, is now a directory; not restored`);
-        else withRetry(() => writeFileSync(e.abs, e.bytes));
-      } else if (e.kind === "dir") {
-        if (!now || !now.isDirectory()) problems.push(`${e.p}: pre-existing directory is gone`);
-      } else if (now) {
-        if (now.isSymbolicLink()) problems.push(`${e.p}: became a link; not removed`);
-        else if (!now.isDirectory()) withRetry(() => rmSync(e.abs));
+        withRetry(() => writeFileSync(e.abs, e.bytes));
+      } else if (e.kind === "absent" && now) {
+        if (!now.isDirectory()) withRetry(() => rmSync(e.abs));
         else if (readdirSync(e.abs).length) problems.push(`${e.p}: created by the fixture but not empty; not removed`);
         else withRetry(() => rmdirSync(e.abs));
       }
     }
     if (problems.length) throw new Error(problems.join("; "));
   };
+}
+
+/** lstat with object identity; null when the path (or an ancestor) is absent. */
+function lst(abs) {
+  try {
+    return lstatSync(abs, { bigint: true });
+  } catch (e) {
+    if (e.code === "ENOENT" || e.code === "ENOTDIR") return null;
+    throw e;
+  }
+}
+
+const idOf = (st) => `${st.dev}:${st.ino}`;
+
+/** Every path from just below `root` down to `abs`, inclusive; [] when abs is the root. */
+function componentsBelow(root, abs) {
+  const rel = relative(root, abs);
+  if (!rel) return [];
+  const out = [];
+  let cur = root;
+  for (const part of rel.split(sep)) out.push((cur = join(cur, part)));
+  return out;
 }
 
 export { existsSync, rmSync, mkdirSync };
