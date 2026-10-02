@@ -5,7 +5,12 @@
 - **Phase:** 1
 - **Blocks:** nothing, reporting only; no implementation or Gate 2 clearance claimed
 - **Status:** Open
-- **Lane A:**
+- **Lane A:** **Acknowledged 2026-10-02, receipt only**, read at `14b9f7b` (Lane B's single-path commit of this
+  entry). Lane A confirms the corrected accounting: 50 keyed ledger rows, which exclude the D-278 screen; 106
+  unkeyed against the 156 baseline, and 107 with this entry counted. Lane A also confirms the four supplied Lane C
+  `B-115` findings at `07d931e`; the attachment's SHA-256 `6aebe93c…` was re-computed and matches. Preserving that
+  evidence in the repository and separating the D-278 table await the Judge's act on `D-387`. No answer,
+  Resolution or canonical source is changed by this acknowledgement.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-386; B-150 and B-153; SV-002 §§2.3.1–2.3.2/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 07d931e1f284eeac71fd6c1ccb7667db5ea34c00
