@@ -217,3 +217,19 @@ verification waits for it. A Re-close record follows.
 - **Reclosed-At-Commit:** a82370bf08da65746b1ea91abceedb790fe75d2e
 
 `Applied` is Lane A's receiver disposition. `Verified` needs an independent read, after `B-115` is itself Verified.
+
+## Lane A assessment — Re-close condition, `D-394`, 2026-10-02
+
+Read at `5747585`. This is a completeness assessment, not a verification. It is recorded after the Re-close record,
+which it does not change.
+
+| Item | Result | Evidence |
+|---|---|---|
+| Completion-Condition: `B-115` separation applied; ownership framing corrected | Met | `D-242`; `B-115` assessment (`D-394`) |
+| Method content received | Met | `LANE-B-WORK-ORDER.md` §7 (method table, push language) |
+| B→C packet and Lane C workflow proof received | Met | `V1-SM06.md` `SM06-P3-06` (`D-382`) |
+| Step 9 detection conditions | Three of five carried by `v1-mmf` template: packet named, DoD evidence links, method rationale with failing-first evidence | — |
+| Step 9 multi-child commit; agent push; step 8 human push record of remote-tip equality | **No receiver found** | Received as `GR-015` (`D-394`), shared with `B-115` step 8 |
+
+**Recommendation:** verifiable for its Re-close condition once `B-115` is Verified, with the residual transferred
+to `GR-015`. It does not wait for `GR-015` delivery.
