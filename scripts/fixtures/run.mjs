@@ -30,6 +30,7 @@ import { dirtyPaths } from "./harness.mjs";
 
 const CHILD = "FIXTURES_TARGET_CHILD";
 const OWNER = "owner.pid";
+const DONE = "complete";
 
 /** Graph files the checks read. `.graphify` is a symlink to a shared folder
  * (`D-297`), so these are COPIED into the target, never linked: a fixture must
@@ -109,6 +110,13 @@ function orchestrate() {
       stdio: "inherit",
     });
     code = child.status ?? 1;
+    // A force-killed process on Windows exits 1, like a failing suite, so a
+    // marker written after the summary is what proves the run completed.
+    if (!existsSync(join(base, DONE))) {
+      console.error(`\n  fixtures: the suite process ended before completing (${child.signal ?? `exit ${child.status}`}); the run is INCOMPLETE.`);
+      code = code || 1;
+    }
+    rmSync(join(base, DONE), { force: true });
   } catch (e) {
     console.error(`\n  fixtures: setup failed — ${e.message.split("\n")[0]}`);
     code = 1;
@@ -154,6 +162,7 @@ function recoverDeadRuns() {
     try {
       execFileSync("git", ["worktree", "remove", "--force", wt], { stdio: "ignore" });
       rmSync(ownerFile, { force: true });
+      rmSync(join(base, DONE), { force: true });
       if (readdirSync(base).length === 0) rmdirSync(base);
       console.log(`  fixtures: removed the leftover worktree of dead run ${pid} (${wt})`);
     } catch (e) {
@@ -163,6 +172,19 @@ function recoverDeadRuns() {
   try {
     execFileSync("git", ["worktree", "prune"], { stdio: "ignore" });
   } catch { /* housekeeping */ }
+
+  // A cleanup that failed part-way (a locked file) can leave a dead run's files
+  // on disk with git no longer tracking them. These are NAMED, never deleted:
+  // there is no registered worktree to remove through git, and this runner does
+  // not delete recursively.
+  for (const name of readdirSync(tmp).filter((n) => /^fixtures-[^\\/]+$/.test(n))) {
+    const base = join(tmp, name);
+    const ownerFile = join(base, OWNER);
+    if (!existsSync(ownerFile)) continue;
+    const pids = readFileSync(ownerFile, "utf8").split(/\s+/).filter(Boolean).map(Number);
+    if (pids.some(pidAlive)) continue;
+    console.log(`  fixtures: a dead run left untracked files at ${base} — remove that folder by hand.`);
+  }
 }
 
 function pidAlive(pid) {
@@ -238,5 +260,6 @@ async function runSuites() {
     console.log("  The target is disposable, so your checkout is unaffected; the fixture is still defective.");
   }
   console.log("");
+  if (existsSync(ownerFile)) writeFileSync(resolve(process.cwd(), "..", DONE), "");
   process.exit(bad || failedSuite || !clean ? 1 : 0);
 }
