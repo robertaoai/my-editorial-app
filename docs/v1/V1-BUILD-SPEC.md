@@ -144,6 +144,11 @@ attempt (not a lane transition). The Lane B/C read-only measurement authorizatio
 take effect. Order: `SV2-U02` A/B/C → `SV2-U03` trial → `SV2-U04` classification → DoD, each row on its own proof. The
 PR #2 comment, `SV-002` acceptance and the `V1-SM05` unblock remain separate Judge acts.
 
+**`D-393` (2026-10-02) — `GR-004`/`GR-002` Verified; `GR-012`/`GR-013` specified, not delivered.** Independent
+reviews by Lane B and Lane C verify both receiving rows. `GR-012-013-SPEC.md` drafts disposable fixture isolation
+(Judge-selected) and the sync-docs correction and writer investigation. Delivery needs its own work order; `V1-SM05`
+stays `BLOCKED`.
+
 **`D-374` (2026-10-01) — homes for `B-150`'s accounting and residuals.** `SV-002` §2.3.2 is the review-accounting
 ledger (accounting, never clearance). `GOV-RES-001` is created at its first receipt (`B-104.O2`–`O4`) as the one
 governance residual packet. `B-106` is receipted as Product beside its owning `Modular_PRD` rows, with its `A6`

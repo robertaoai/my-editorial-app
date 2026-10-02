@@ -101,6 +101,7 @@
 | `docs/v1/work-packets/SETUP-SPIKE-000/SV-001.md` | `D-264` — retrospective wrapper over the completed `V1-SM05` pre-selection handoff validation; success-drift baseline | ✅ **Created 2026-09-25**, historical — never re-run |
 | `docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md` | `D-264` — setup-validation attempt, first run of `dor-dod-validation/v1`; units `SV2-U01`–`SV2-U04` | ✅ **Created 2026-09-25**, `DoR open` |
 | `docs/v1/work-packets/SETUP-SPIKE-000/GOV-RES-001.md` | `D-374` (`D-364` item 8) — the one bounded Lane A governance residual packet; custody of non-SM05 governance/documentation residuals, never clearance | ✅ **Created 2026-10-01** at its first receipt (`B-104.O2`–`O4`) |
+| `docs/v1/work-packets/SETUP-SPIKE-000/GR-012-013-SPEC.md` | `D-393` — draft specifications for `GR-013` disposable fixture isolation and `GR-012` sync-docs correction and writer investigation; specification, not delivery | ✅ **Created 2026-10-02** as a draft; P4a/P4b await work orders |
 | `docs/graph-fragments/frag142.json` | `D-374` — curated node for `GOV-RES-001` | ✅ **Created 2026-10-01** |
 | `docs/v1/work-packets/SETUP-SPIKE-000/SV2-U03-code-navigation-evaluation.md` | `D-264` — read-only `SV2-U03` evaluation (`ripwire` as candidate) | ✅ **Drafted 2026-09-25**; awaits Lane B evidence and the Judge's outcome |
 | `scripts/acceptance/` | `D-259` — cross-MMF customer-acceptance harness (§18.3) | ⏳ **Contract only — not created.** Built and run in a later Lane A `Active` turn after Lane B's handover |
@@ -457,6 +458,10 @@ sentence) and `SV-002.md`; `B-154`/`B-150` in their own one-path commits.
 
 **`D-392` (2026-10-02) — no file added or retired, stated explicitly.** `CR-14` row corrected in `Modular_PRD.md`
 §7.1 (`GR-004`); `GOV-RES-001.md` `GR-004` row updated; `B-154` answered in its own one-path commit.
+
+**`D-393` (2026-10-02) — one file added, none retired, stated explicitly.** `GR-012-013-SPEC.md` (draft) and its
+curated node `frag143.json`; `GOV-RES-001.md` rows `GR-002`, `GR-004`, `GR-012`, `GR-013` updated; `B-154` answered in
+its own one-path commit.
 
 ## Temporary / Draft Artifacts
 

@@ -25749,3 +25749,52 @@ selection of `GR-012`/`GR-013`; dispositions on `B-115`/`B-114`; Gate 2.
 | Build Spec, packets, Fn Specs, SPECS, rule files, Phase Closure, `SV-002` | — unaffected |
 | **Encyclopedia** | — unaffected (no entry depends on the §7.1 gap table) |
 | **Graphify** | Rebuild at the final commit, re-merge `docs/graph-fragments/` |
+
+## 5.14e218 `D-393` — `GR-004`/`GR-002` Verified; `GR-012` Evidence Split; `GR-013` Isolation Selected for Specification; Push Range Ratified
+
+**Authority: the Judge, directly to Lane A, 2026-10-02**, answering Lane A's four questions: *"yes"* to the `B-154`
+answer, these receipts and corrections, and the graph descriptions; *"isolation"* for `GR-013`; *"yes"* to drafting
+the P2/P3 specifications; *"yes; and push only after all commits"* to ratifying the earlier push. Read at `5bf15b4`.
+
+### The decision
+
+1. **`GR-004` and `GR-002` are Verified.** Lane B verified both at `53280ee` (read `72e6b27`). Lane C's Level 2
+   review verified both at `a1e8874`. Neither reviewer is Lane A, the lane that applied them (`D-102`). This is
+   receiving-row verification. It is not a Resolution on `B-095`, `B-104` or `B-117`.
+2. **`GR-012` evidence is split into three facts:**
+   - sync-docs is Lane A's project procedure (`D-80`, `7fbedf6`);
+   - the `syncDocs()` fixture restore in `scripts/fixtures/suites.mjs` leaves an empty `.agents/skills/sync-docs/`
+     when it reaches teardown. This is a confirmed mechanism, not a proven sole cause;
+   - SV-002 §3.4's Codex Desktop import is historical. The current host writer is **unknown**.
+   The supplied "C-011" analysis is not a C-series entry; its `Verified-At-Commit` is not a commit, and its
+   recursive-delete fix is rejected as unsafe.
+3. **`GR-013`: disposable isolation is selected as the design to specify.** `D-390`'s enforced-lock alternative is
+   not selected. Selection of a design is not a work order.
+4. **Draft specifications created:** `docs/v1/work-packets/SETUP-SPIKE-000/GR-012-013-SPEC.md` (P2 and P3). Delivery
+   (P4a, P4b) needs its own work order and the `Active` lane.
+5. **Correction to `D-392` item 3.** "Graph re-synced" held for structure only. The fast-hook rebuild left
+   `.graphify/.graphify_describe_pending`, so semantic descriptions were not filled. This act fills them at the final
+   commit.
+6. **Push range ratified.** The push recorded after `D-392` moved the remote from `45b2f0a` to `72e6b27`. That range
+   included Lane B's handoff-only `e0b7cd7` beside the two named Lane A commits. The Judge ratifies
+   `45b2f0a..72e6b27` as pushed. This act's commits are pushed only after all of them are made.
+
+### Not given by this act
+
+A work order for P4a or P4b; any change to `scripts/`, `.claude/skills/` or host tools; a Resolution on `B-154`,
+`B-014`, `B-021`, `B-115` or `B-114`; Gate 2.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e218 |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ `D-393` paragraph after `D-374` |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `GR-012-013-SPEC.md` row and `D-393` paragraph; one file added, none retired |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/GOV-RES-001.md`** | ✅ `GR-002`, `GR-004` Verified; `GR-012`, `GR-013` evidence and specification pointers |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/GR-012-013-SPEC.md`** | ✅ created as a draft specification |
+| **`docs/handoff/B-154-consolidated-parent-first-artifact-and-closure-plan.md`** | ✅ Lane A answer, own commit `f230bb5` |
+| **`docs/graph-fragments/frag143.json`** | ✅ curated node for the new specification |
+| `Modular_PRD`, Fn Specs, SPECS, packets other than above, rule files, Phase Closure, `SV-002`, `.claude/skills/sync-docs/SKILL.md` | — unaffected (the skill's correction is drafted, not applied) |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild at the final commit, merge `frag143`, fill descriptions last |
