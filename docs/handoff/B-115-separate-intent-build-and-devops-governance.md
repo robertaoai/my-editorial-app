@@ -213,3 +213,21 @@ an unnamed child, alter Product artifacts, expose data, build a workflow or depl
 | Reject | Lane C defining Product/editorial behavior or Lane A choosing implementation xDD | Keep each decision in its owning layer |
 | Defer | First executable MMF/build child and Lane C unit | Fresh bounded Judge authorization and lane selection |
 | Defer | Graphify synchronization | After Lane A's combined governed-source/control pass |
+
+## Lane A request — Lane C consumer read, `D-386`, 2026-10-02
+
+**Judge authorization:** "Judge authorizes Lane C B-115 read". Lane B's consumer read already passed (`B-153`, D-383
+outcomes, row 4). This entry's own completion condition also requires a **Lane C** consumer read, and none exists.
+
+**Lane C, please read at the current pushed revision and record the result in a `C-` entry or in this entry's
+body.** Confirm:
+1. `.github/WORKFLOWS-SPEC.md` §8 tells Lane C exactly when it may act: only after accepted Lane B evidence, with
+   allowlisted inputs.
+2. The `D-229`/`D-230` evidence contract gives Lane C enough to build a workflow that fails red on a missing or
+   malformed signal (`SM06-P3-06`).
+3. `docs/specs/SPECS-VERIFICATION-APPARATUS.md` §17 and `docs/README.md`'s layer map leave Lane C no Intent or
+   Build ownership.
+4. The deficiency-return path back to Lane B or Lane A is usable.
+
+**Accept** when all four are confirmed at a named commit. **Reject** with the failing item and its source text. This
+read is evidence for `B-115`, and then for `B-114`'s verification; it authorizes no workflow change or Phase 3 work.
