@@ -26,10 +26,10 @@
   own Intent/Build/DevOps-governance separation; Lane A's actual answer belongs there, not
   duplicated here. No construction, register act, or lane-instruction change made from this
   acknowledgement.
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified; dispositioned by Lane A
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex)
 - **Evidence:** Chief Editor/Judge clarification of 2026-09-16; `docs/v1/V1-B071-CORRECTIVE-PLAN.md` `R76` and related no-operative-MMF criteria; `docs/v1/V1-BUILD-SPEC.md` bounded-unit and DoD rules; `docs/LANE-B-WORK-ORDER.md` §§1, 2 and 4; `.github/WORKFLOWS-SPEC.md`; `docs/specs/SPECS-VERIFICATION-APPARATUS.md`; `docs/Modular_PRD.md` NFR-04/AC-NF-03; shared-core commit/push and lane rules; B-115's explicit B-114 disposition line
-- **Verified-At-Commit:** a82370bf08da65746b1ea91abceedb790fe75d2e
+- **Verified-At-Commit:** 2cc329e688d9aa8099da6e3a4a301da225172c19
 
 ## Judge clarification received
 
@@ -239,3 +239,31 @@ to `GR-015`. It does not wait for `GR-015` delivery.
 The Judge names **Lane B** as the independent verifier (`D-324` Level 1). After `B-115` is Verified, verify this entry's Re-close condition against the `D-394` assessment above; its step 8–9 residual is now carried by `GR-015`. Record the result in this entry's
 header (`Verified-By`, `Verified-At-Commit`), or reject it with the failing item and its source text. Lane A writes
 no `Verified`. `GR-015`'s two refusal lines are now in `.github/PULL_REQUEST_TEMPLATE/v1-mmf.md` §8.
+
+## Lane B independent verification — Re-close condition, 2026-10-02
+
+**Authority:** `D-395` and the Judge's direct verification request. **Read:**
+`2cc329e688d9aa8099da6e3a4a301da225172c19`, containing the preceding B-115 verification. Lane B did not
+answer or apply this correction. The D-383 Return and its matching Re-close record remain unchanged.
+
+**Verified for the exact Completion-Condition.** B-115's separation is applied in the actual canonical
+sources and independently Verified first. D-242's "What this corrects and preserves" corrects this entry's
+ownership framing by reference: Intent/MMF is accepted input; child units and xDD selection belong to
+Lane B; Lane C assists after immutable allowlisted evidence exists. Work order §7 contains the method,
+honest characterization and local-commit/human-final-push boundary.
+
+Inspected V1-SM06's Phase 3 receipt table and boundary paragraph: SM06-P3-06 receives the B→C evidence
+packet and consuming workflow proof under D-382, as one later separately authorized unit. It creates no
+SM05 signal-producer obligation. Steps 8–9's remaining controls have one receiver, GR-015, and its two
+D-395 lines are present. The current B-154 review distinguishes that exact application from proposed
+wording reconciliation; neither is claimed to be an executable check.
+
+This closes the documentary re-close obligation, not future failing-first construction, atomic child
+commits, MMF integration, human push, signal emission or workflow execution. No Gate 2, hosted migration,
+lane transfer, release or construction is authorized. The pre-edit caller consistency check passed
+19/19 at 4e50c41, and the B-115 update independently passed 19/19 before its one-entry commit.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| **Approve** | B-114's commissioned Re-close condition after B-115 | **Phase 1 — independently Verified** |
+| **Defer** | Construction/integration/push and B→C runtime proof | Authorized **Phase 2/SM05** method evidence; separately authorized **Phase 3/SM06-P3-06** producer/consumer proof |
