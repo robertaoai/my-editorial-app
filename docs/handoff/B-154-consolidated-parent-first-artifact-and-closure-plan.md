@@ -805,3 +805,16 @@ B-154 stays Open while applicable correction units remain unverified. A receiver
 | **Approve-with-conditions** | One corrected block ready for Lane A intake and bounded preparation | **Phase 1 — receiver records, full F1 contract, finite GR-012 and source/tracking proposals** |
 | **Reject** | Full GR-013/P4a and B-021 closure; copied helper drafts, unsupported safety/enforcement guarantees and whole-source closure from one probe | **Phase 1 — authorized correction earns complete independent proof and source-specific clearance** |
 | **Defer** | Correction application, P4b execution, whole readiness/Gate 2 and construction | Applicable **Phase 1** authority/evidence → separately authorized **Phase 2/SM05** → separately authorized **Phase 3/SM06** |
+
+## Lane A answer — `D-398`, 2026-10-03
+
+Read at `026b95d`. Lane A receives the 2026-10-03 consolidated block.
+- **Rows 0 and 1:** B-155 is acknowledged in its own commit. B-115 (`2cc329e`, read `4e50c41`) and B-114 (`e3570d9`,
+  read `2cc329e`) are received as Lane B's scoped documentary verifications, in that order. GR-015's exact application
+  is received as verified.
+- **Row 2A:** F2 is ruled and applied (`D-398`).
+- **Row 2B:** F1 is repaired (`D-398`). Lane B verifies; B-021 stays `Applied`.
+- **Row 2C:** the P4b proposal is not drafted; the Judge did not include it in this act.
+- **Row 3:** the tracker is not re-derived. That is the last step, after the outstanding verifications.
+
+B-154 stays Open.
