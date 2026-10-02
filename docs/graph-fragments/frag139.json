@@ -1,0 +1,53 @@
+{
+  "nodes": [
+    {
+      "id": "d264_setup_continues_sv002_sm05_blocked",
+      "label": "D-264: SETUP-SPIKE-000 continues for SV-002; V1-SM05 BLOCKED",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e89",
+      "description": "Judge ruling 2026-09-25. Supersedes D-258 item 2 and item 4's does-not-reopen clause, and D-257 item 3: setup continues as the container for validation attempt SV-002; S2-S4 stay terminally deferred with no DoD credit; the loader spike is commissioned as SV2-U02 and B-130 returns to Open. V1-SM05 packet status BLOCKED (not a lane state). SV-001 tags the completed pre-selection handoff validation as the success-drift baseline. Adds the closure transfer invariant and the reusable dor-dod-validation/v1 template."
+    },
+    {
+      "id": "template_dor_dod_validation_v1",
+      "label": "Template dor-dod-validation/v1",
+      "file_type": "concept",
+      "source_file": "docs/templates/dor-dod-validation/v1.md",
+      "source_location": "whole document",
+      "description": "Reusable, result-free DoR/DoD validation template (D-264). Six-scope coverage chain (Project, Product, execution scope, backlog refinement, historical dialogue and tooling, attempt lineage), closure transfer invariant, parent/child run rule, drift ledger and success-drift comparison. Immutable once used; attempts pin its SHA-256; a change creates v2. Lives outside docs/v1 because it serves every version."
+    },
+    {
+      "id": "attempt_sv001_preselection_handoff_validation",
+      "label": "Attempt SV-001: pre-selection handoff validation (historical)",
+      "file_type": "concept",
+      "source_file": "docs/v1/work-packets/SETUP-SPIKE-000/SV-001.md",
+      "source_location": "whole document",
+      "description": "Retrospective wrapper (D-264) over the completed V1-SM05 DOR-R1 to DOR-R7 pre-selection handoff validation and its Jev receipt. Complete at the time and the success-drift baseline; not a feature DoR/DoD run; its rows are never re-checked or copied. Later-observed limitation: setup gaps were not transferred into it."
+    },
+    {
+      "id": "attempt_sv002_setup_validation",
+      "label": "Attempt SV-002: setup validation",
+      "file_type": "concept",
+      "source_file": "docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md",
+      "source_location": "whole document",
+      "description": "First run of dor-dod-validation/v1 (D-264), DoR open. Units SV2-U01 governance application, SV2-U02 loader characterization (Lane B parent run tracker, Lane C child run tracker), SV2-U03 code navigation, SV2-U04 B-071/B-095/B-104 dependency map. Blocks V1-SM05 selection until accepted and the Judge lifts the block."
+    },
+    {
+      "id": "sv2_u03_code_navigation_evaluation",
+      "label": "SV2-U03 code-navigation evaluation (ripwire candidate)",
+      "file_type": "concept",
+      "source_file": "docs/v1/work-packets/SETUP-SPIKE-000/SV2-U03-code-navigation-evaluation.md",
+      "source_location": "whole document",
+      "description": "Read-only Lane A evaluation (D-264): ripwire cannot parse SQL, where most V1-SM05 logic lives; its Windows build is a preview; it is pre-1.0. Recommends the existing rg/tsc/test path and no ripwire for V1-SM05, pending Lane B consumer evidence and the Judge's outcome."
+    }
+  ],
+  "edges": [
+    { "source": "d264_setup_continues_sv002_sm05_blocked", "target": "v1_decision_register", "relation": "part_of", "confidence": "EXTRACTED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "section 5.14e89", "weight": 1 },
+    { "source": "d264_setup_continues_sv002_sm05_blocked", "target": "attempt_sv002_setup_validation", "relation": "references", "confidence": "EXTRACTED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "section 5.14e89", "weight": 1 },
+    { "source": "d264_setup_continues_sv002_sm05_blocked", "target": "work_packet_v1_sm05_mmf_v1_core", "relation": "references", "confidence": "EXTRACTED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "section 5.14e89", "weight": 1 },
+    { "source": "attempt_sv002_setup_validation", "target": "template_dor_dod_validation_v1", "relation": "references", "confidence": "EXTRACTED", "source_file": "docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md", "source_location": "section 1", "weight": 1 },
+    { "source": "attempt_sv002_setup_validation", "target": "attempt_sv001_preselection_handoff_validation", "relation": "references", "confidence": "EXTRACTED", "source_file": "docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md", "source_location": "section 1", "weight": 1 },
+    { "source": "attempt_sv001_preselection_handoff_validation", "target": "work_packet_v1_sm05_mmf_v1_core", "relation": "references", "confidence": "EXTRACTED", "source_file": "docs/v1/work-packets/SETUP-SPIKE-000/SV-001.md", "source_location": "whole document", "weight": 1 },
+    { "source": "sv2_u03_code_navigation_evaluation", "target": "attempt_sv002_setup_validation", "relation": "part_of", "confidence": "EXTRACTED", "source_file": "docs/v1/work-packets/SETUP-SPIKE-000/SV2-U03-code-navigation-evaluation.md", "source_location": "whole document", "weight": 1 }
+  ]
+}

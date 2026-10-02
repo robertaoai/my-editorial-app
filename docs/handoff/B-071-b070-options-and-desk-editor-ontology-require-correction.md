@@ -169,8 +169,9 @@
   `6fb32ea`) all consolidated below. No separate `B-072` *T5/T6 ontology* item was ever minted —
   `B-072` as filed is a distinct governance topic (handoff-only commit authority), not a duplicate of
   this thread.
-- **Verified-By:** — not independently verified; dispositioned by Lane A
-- **Verified-At-Commit:** 27ad43ddb068a9c17b95b57506c7f5e8b02d8cb3
+  *Pre-return audit fields, kept as history (`B-116` item 5, `D-375`, 2026-10-01). Before the Chief Editor's
+  2026-09-14 return, this header also carried `Verified-By: — not independently verified; dispositioned by Lane
+  A` and `Verified-At-Commit: 27ad43d`. The current audit fields are the single pair at the top of the header.*
 - **Evidence:** `docs/handoff/B-070-lane-b-work-order-stale-s2-instruction.md` Options A/B;
   `docs/v1/V1-DECISION-REGISTER.md` `D-171`, `D-175`–`D-181`;
   `docs/v1/V1-BUILD-SPEC.md` §"S2 — Line assignment and four-eyes";

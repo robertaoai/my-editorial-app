@@ -6,8 +6,10 @@
 - **Phase:** <1 | 2 | 3 — REQUIRED. The phase that owns the CORRECTION, not the one you work in and not the one you are blocked on; `Blocks:` already carries that. See `README.md` (`D-104`)>
 - **Blocks:** <what you cannot do until this is answered — or `nothing, reporting only`>
 - **Reopens-Phase:** <1 | 2 | 3, only if the work this needs belongs to a phase already closed — otherwise omit the line entirely>
+- **Receiver:** <`C-` entries ONLY: `Lane A` or `Lane B` — the lane that answers (`D-272`). `Lane B` by default; `Lane A` when the dependency sits on a Lane A surface or answers a Lane A request. Omit for `B-` entries, which Lane A always answers>
 - **Status:** Open
-- **Lane A:** <empty until acknowledged>
+- **Lane A:** <empty until acknowledged — the answer field for `B-` entries and for `C-` entries whose Receiver is `Lane A`>
+- **Lane B:** <`C-` entries whose Receiver is `Lane B` ONLY: Lane B's answer field, same dispositions; omit otherwise>
 - **Resolution:** <Applied | Verified | Deferred | Withdrawn | Superseded — omit while Open or merely Answered>
 - **Examined-By:** <optional: an actor who examined this and REJECTED it, naming the entry that records the rejection. There is no `Rejected` resolution yet, so the link is the record (`D-108`)>
 - **Verified-By:** <REQUIRED for Verified: the actor who confirmed it, and NOT the lane that answered. `Acknowledged` is a receipt, not a verifier (`D-102`, `B-013` item 4)>
@@ -27,6 +29,22 @@ disposition), and append this block. All four facts are required.
 - **Return-Trigger:** <the one exact condition previously named by Follow-up-Tier>
 - **Return-Act:** <the decision/Judge act, date and source locus that satisfied it>
 - **Returned-At-Commit:** <the existing commit whose state was read>
+-->
+
+<!-- OPTIONAL — only when a RETURNED entry's work is complete and it takes a
+disposition again (`D-364`). Append AFTER the Return record it completes;
+never remove or rewrite that Return record. Then set Status to Answered and
+record Resolution (normally Applied; Verified only by an independent actor).
+One per return episode: a later reopening needs a new Return record first.
+Every fact is required.
+
+## Re-close record
+
+- **Reclosed-Return:** <BOTH the Return-Act (every D-NNN it names, or its date if it names none) and the Returned-At-Commit of the episode this completes>
+- **Completion-Condition:** <the exact obligation whose completion permits the disposition>
+- **Completion-Evidence:** <the accepted act and the artifact/section proving each obligation>
+- **Reclose-Act:** <D-364 plus the receiver's dated disposition act and source locus>
+- **Reclosed-At-Commit:** <the existing commit read when recording the disposition — not the commit being written>
 -->
 
 <!-- OPTIONAL — only when a commit touches an already-terminal entry WITHOUT

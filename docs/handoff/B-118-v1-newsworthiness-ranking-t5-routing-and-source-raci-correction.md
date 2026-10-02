@@ -9,6 +9,7 @@
   independently confirmed and applied (source-RACI mislabeling), two items flagged for explicit
   Chief Editor confirmation before further propagation (`OP-FINAL-SIGNOFF` accountable party;
   the newsworthiness-ranking/routing reframing of `T5`).
+- **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Judge clarifications; supplied Sheet 1 and Sheet 2 CSVs; crosswalk, traceability
   map, RACI matrix, `FN-GATES`, storyboard, `Modular_PRD.md`, and encyclopedia sync ledger
 - **Verified-At-Commit:** `878da3a3792318979cf31175799c6c1f29bd7f27`

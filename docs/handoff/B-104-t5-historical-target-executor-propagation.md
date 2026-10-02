@@ -25,6 +25,9 @@
   remains Open: it closes only after the two-view T5/T6 correction is applied to the accepted
   A4/governed-source packet and independently verified at the exact commit read, not from this
   acknowledgement alone.
+  **Children received 2026-10-01 (`D-374`).** `B-104.O1` is SM05 input (`SM05-N6`, received in `SV-002` §2.3.1). The
+  non-SM05 `O2`/`O3`/`O4` are received into `GOV-RES-001` as `GR-001`–`GR-003`, with owner, hold, return and completion
+  criterion. A receipt is custody, not clearance (`D-364` item 4); this entry stays `Open`.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** `V1-DECISION-REGISTER.md` D-175/D-181; `Modular_PRD.md` historical and `decided_target_held` acceptance rows; `FN-GATES-01-05.md`; `raci-involvement-matrix.md`; storyboard Panel A5 and role table; ignored `A4-step5-same-article-journey-DRAFT.md`; Graphify branch metadata checked at the named commit
 - **Verified-At-Commit:** f170fb297fe39ead5fee903945bed1885e20a579

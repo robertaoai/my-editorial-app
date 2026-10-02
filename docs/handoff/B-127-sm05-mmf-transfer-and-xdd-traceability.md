@@ -18,7 +18,7 @@
   now also a row of `V1-SM05.md`'s DoR→DoD map (`DOR-R5`/`DOR-R6` → Accepted-contract traceability). `Applied`
   is non-terminal until an independent actor verifies it.
 - **Resolution:** Applied
-- **Verified-By:** — not yet dispositioned; raised by Lane B
+- **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Evidence:** `docs/v1/V1-BUILD-SPEC.md` §§1/4; `docs/v1/work-packets/SETUP-SPIKE-000/S2.md`–`S4.md`; `docs/v1/work-packets/V1/V1-SM05.md`; `docs/v1/work-packets/V1/V1-SM06.md`; storyboard Panels A9/A10; `docs/ENCYCLOPEDIA-SYNC.md`; `D-244`, `D-245`, `D-248`, `D-254`; `docs/handoff/B-124`–`B-126`
 - **Verified-At-Commit:** 967e685cbed78f9ee56a0f9f0f8861cde9f64a02
 

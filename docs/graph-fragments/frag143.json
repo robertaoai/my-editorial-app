@@ -1,0 +1,32 @@
+{
+  "nodes": [
+    {
+      "id": "gr_012_013_spec",
+      "label": "GR-012/GR-013 Draft Specifications (fixture isolation; sync-docs writer)",
+      "file_type": "document",
+      "source_file": "docs/v1/work-packets/SETUP-SPIKE-000/GR-012-013-SPEC.md",
+      "source_location": "whole file",
+      "description": "D-393 draft specifications, not delivery. GR-013: run negative fixtures in a disposable git worktree pinned to HEAD, with baseline-aware restore (no recursive delete) and per-run targets; Judge selected isolation over an enforced lock. GR-012: sync-docs is Lane A's project procedure (D-80); the syncDocs() fixture leaves an empty .agents/skills/sync-docs/; SV-002 section 3.4 Codex Desktop import is historical; current host writer unknown; drafts the D-337 SKILL.md prose correction and a read-only writer investigation. P4a/P4b need work orders."
+    }
+  ],
+  "edges": [
+    {
+      "source": "gr_012_013_spec",
+      "target": "gov_res_001_packet",
+      "relation": "part_of",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/work-packets/SETUP-SPIKE-000/GR-012-013-SPEC.md",
+      "source_location": "header",
+      "weight": 1
+    },
+    {
+      "source": "gr_012_013_spec",
+      "target": "v1_decision_register",
+      "relation": "references",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e218",
+      "weight": 1
+    }
+  ]
+}

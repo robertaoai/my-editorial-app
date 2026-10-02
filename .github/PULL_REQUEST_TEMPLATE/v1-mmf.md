@@ -77,3 +77,7 @@ Link each DoD item of the packet to the evidence that satisfies it. An unlinked 
 - A DoD item has no evidence link, or "merged" is offered as evidence
 - Only hosted CI is cited for the checks it skips
 - Paths fall outside the executing lane's surface, or an excluded item is present
+- A commit carries more than one child ID, or a child has no red evidence recorded before its implementation diff
+  (`B-114`; `GR-015`, `D-395`)
+- The push to the remote was made by an agent, or the pull request does not record the human push actor and that
+  the remote tip equals the accepted local MMF tip (`B-114`, `B-115`; `GR-015`, `D-395`)

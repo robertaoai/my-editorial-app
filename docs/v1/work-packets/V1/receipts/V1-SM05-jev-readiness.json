@@ -3,29 +3,29 @@
   "version": "1.0.0",
   "mode": "readiness",
   "packet": "V1-SM05",
-  "evaluatedAt": "719e72b17b14b5ebc66e1c777ab9df409521ed33",
+  "evaluatedAt": "31bcf3a2038e29edf0d05c47f32fe60dceebacaf",
   "treeClean": true,
-  "generatedAt": "2026-09-24T15:42:18.561Z",
+  "generatedAt": "2026-10-01T08:58:35.651Z",
   "manifest": {
     "path": "scripts/jev/manifests/V1-SM05.json",
-    "sha256": "03053a1647d9a1aaf79a00c6e754a41dd9a5c1b5878c500ec6a71653d4f86f69"
+    "sha256": "bd5cbae1ecf684b745a3f532991baf9f3591b4e27bf48612614749ee724fd5e7"
   },
   "sources": [
     {
       "path": "docs/Modular_PRD.md",
-      "sha256": "bf295c407a55678d167524609fd9dad1b163f09f361804086e7699437d80746a"
+      "sha256": "12e8a1d146b2ce3caf7b4cfedd579e588de3d8091506464c1df0b628adaa5749"
     },
     {
       "path": "docs/fn-specs/FN-GATES-01-05.md",
-      "sha256": "1d6bbc013f714b180e1b68d01ab5cd22adaa27aa457162c033643b772866d485"
+      "sha256": "ed9b93b93af0dd29750842365a65b62fb0e087cec7e88d46d7243ae1374d76e9"
     },
     {
       "path": "docs/v1/work-packets/V1/V1-SM05.md",
-      "sha256": "c237706be36242a714caef26df99de5c8c01c0755a1e86f865739b655549667f"
+      "sha256": "448ff69e5891a32a6d5af7420104a32618db8394c3883590311915880e6366dc"
     },
     {
       "path": "scripts/jev/manifests/V1-SM05.json",
-      "sha256": "03053a1647d9a1aaf79a00c6e754a41dd9a5c1b5878c500ec6a71653d4f86f69"
+      "sha256": "bd5cbae1ecf684b745a3f532991baf9f3591b4e27bf48612614749ee724fd5e7"
     }
   ],
   "results": [
@@ -69,7 +69,7 @@
       "rule": "dor-row-present",
       "subject": "DOR-R7",
       "ok": true,
-      "detail": "unchecked"
+      "detail": "checked"
     },
     {
       "rule": "dor-maps-once",
@@ -81,7 +81,7 @@
       "rule": "dor-maps-to-dod",
       "subject": "DOR-R1",
       "ok": true,
-      "detail": "Behaviour, by namespace; Acceptance cases pass against the real database; Persistence"
+      "detail": "Behaviour, by namespace; Acceptance cases pass against the real database; Intake source fixtures; Persistence"
     },
     {
       "rule": "evidence-class-named",
@@ -201,7 +201,7 @@
       "rule": "gwt-complete",
       "subject": "AC-02 @ docs/Modular_PRD.md",
       "ok": true,
-      "detail": "line 1020"
+      "detail": "line 1057"
     },
     {
       "rule": "row-pinned",
@@ -237,7 +237,7 @@
       "rule": "gwt-complete",
       "subject": "SM05-N1 @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
-      "detail": "line 351"
+      "detail": "line 365"
     },
     {
       "rule": "row-pinned",
@@ -309,7 +309,7 @@
       "rule": "gwt-complete",
       "subject": "SM05-N2 @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
-      "detail": "line 352"
+      "detail": "line 366"
     },
     {
       "rule": "row-pinned",
@@ -381,7 +381,7 @@
       "rule": "gwt-complete",
       "subject": "SM05-N3 @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
-      "detail": "line 353"
+      "detail": "line 367"
     },
     {
       "rule": "row-pinned",
@@ -453,7 +453,7 @@
       "rule": "gwt-complete",
       "subject": "SM05-N4 @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
-      "detail": "line 354"
+      "detail": "line 368"
     },
     {
       "rule": "row-pinned",
@@ -525,7 +525,7 @@
       "rule": "gwt-complete",
       "subject": "SM05-N5 @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
-      "detail": "line 355"
+      "detail": "line 369"
     },
     {
       "rule": "row-pinned",
@@ -597,7 +597,7 @@
       "rule": "gwt-complete",
       "subject": "SM05-N6 @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
-      "detail": "line 356"
+      "detail": "line 370"
     },
     {
       "rule": "row-pinned",
@@ -669,7 +669,7 @@
       "rule": "gwt-complete",
       "subject": "SM05-RV1 @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
-      "detail": "line 357"
+      "detail": "line 371"
     },
     {
       "rule": "row-pinned",
@@ -741,7 +741,7 @@
       "rule": "gwt-complete",
       "subject": "SM05-RV2 @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
-      "detail": "line 358"
+      "detail": "line 372"
     },
     {
       "rule": "row-pinned",
@@ -813,7 +813,7 @@
       "rule": "gwt-complete",
       "subject": "SM05-F1 @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
-      "detail": "line 359"
+      "detail": "line 373"
     },
     {
       "rule": "row-pinned",
@@ -885,7 +885,7 @@
       "rule": "gwt-complete",
       "subject": "SM05-X1 @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
-      "detail": "line 360"
+      "detail": "line 374"
     },
     {
       "rule": "row-pinned",
@@ -957,7 +957,7 @@
       "rule": "gwt-complete",
       "subject": "DOR-R2 positive @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
-      "detail": "line 310"
+      "detail": "line 324"
     },
     {
       "rule": "row-pinned",
@@ -1029,7 +1029,7 @@
       "rule": "gwt-complete",
       "subject": "DOR-R2 duplicate @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
-      "detail": "line 311"
+      "detail": "line 325"
     },
     {
       "rule": "row-pinned",
@@ -1101,7 +1101,7 @@
       "rule": "gwt-complete",
       "subject": "DOR-R2 failure @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
-      "detail": "line 312"
+      "detail": "line 326"
     },
     {
       "rule": "row-pinned",
@@ -1173,7 +1173,7 @@
       "rule": "gwt-complete",
       "subject": "DOR-R3 missing intake @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
-      "detail": "line 313"
+      "detail": "line 327"
     },
     {
       "rule": "row-pinned",
@@ -1245,7 +1245,7 @@
       "rule": "gwt-complete",
       "subject": "DOR-R3 duplicate EW @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
-      "detail": "line 314"
+      "detail": "line 328"
     },
     {
       "rule": "row-pinned",
@@ -1317,7 +1317,7 @@
       "rule": "gwt-complete",
       "subject": "DOR-R3 new work @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
-      "detail": "line 315"
+      "detail": "line 329"
     },
     {
       "rule": "row-pinned",
@@ -1389,7 +1389,7 @@
       "rule": "gwt-complete",
       "subject": "DOR-R4 executor @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
-      "detail": "line 316"
+      "detail": "line 330"
     },
     {
       "rule": "row-pinned",
@@ -1461,7 +1461,7 @@
       "rule": "gwt-complete",
       "subject": "DOR-R4 final sign-off @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
-      "detail": "line 317"
+      "detail": "line 331"
     },
     {
       "rule": "row-pinned",
@@ -1526,6 +1526,294 @@
     {
       "rule": "one-id-one-meaning",
       "subject": "DOR-R4 final sign-off @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "gwt-complete",
+      "subject": "SM05-IN1 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "line 446"
+    },
+    {
+      "rule": "row-pinned",
+      "subject": "SM05-IN1 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "row-in-scope",
+      "subject": "SM05-IN1 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "behaviour-maps-to-dod",
+      "subject": "SM05-IN1 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "Intake source fixtures"
+    },
+    {
+      "rule": "product-anchor-present",
+      "subject": "SM05-IN1 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "FR-15 / AC-23"
+    },
+    {
+      "rule": "product-requirement-live",
+      "subject": "SM05-IN1 @ docs/fn-specs/FN-GATES-01-05.md → FR-15",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "anchor-disposition-active",
+      "subject": "SM05-IN1 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "active"
+    },
+    {
+      "rule": "product-acceptance-live",
+      "subject": "SM05-IN1 @ docs/fn-specs/FN-GATES-01-05.md → AC-23",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "acceptance-owned-by-requirement",
+      "subject": "SM05-IN1 @ docs/fn-specs/FN-GATES-01-05.md → AC-23",
+      "ok": true,
+      "detail": "FR column: FR-15"
+    },
+    {
+      "rule": "product-row-pinned",
+      "subject": "SM05-IN1 @ docs/fn-specs/FN-GATES-01-05.md → AC-23",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "scenario-cites-anchor",
+      "subject": "SM05-IN1 @ docs/fn-specs/FN-GATES-01-05.md → AC-23",
+      "ok": true,
+      "detail": "the scenario row must name its Product acceptance ID"
+    },
+    {
+      "rule": "one-id-one-meaning",
+      "subject": "SM05-IN1 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "gwt-complete",
+      "subject": "SM05-IN2 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "line 447"
+    },
+    {
+      "rule": "row-pinned",
+      "subject": "SM05-IN2 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "row-in-scope",
+      "subject": "SM05-IN2 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "behaviour-maps-to-dod",
+      "subject": "SM05-IN2 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "Intake source fixtures"
+    },
+    {
+      "rule": "product-anchor-present",
+      "subject": "SM05-IN2 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "FR-15 / AC-23"
+    },
+    {
+      "rule": "product-requirement-live",
+      "subject": "SM05-IN2 @ docs/fn-specs/FN-GATES-01-05.md → FR-15",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "anchor-disposition-active",
+      "subject": "SM05-IN2 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "active"
+    },
+    {
+      "rule": "product-acceptance-live",
+      "subject": "SM05-IN2 @ docs/fn-specs/FN-GATES-01-05.md → AC-23",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "acceptance-owned-by-requirement",
+      "subject": "SM05-IN2 @ docs/fn-specs/FN-GATES-01-05.md → AC-23",
+      "ok": true,
+      "detail": "FR column: FR-15"
+    },
+    {
+      "rule": "product-row-pinned",
+      "subject": "SM05-IN2 @ docs/fn-specs/FN-GATES-01-05.md → AC-23",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "scenario-cites-anchor",
+      "subject": "SM05-IN2 @ docs/fn-specs/FN-GATES-01-05.md → AC-23",
+      "ok": true,
+      "detail": "the scenario row must name its Product acceptance ID"
+    },
+    {
+      "rule": "one-id-one-meaning",
+      "subject": "SM05-IN2 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "gwt-complete",
+      "subject": "SM05-IN3 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "line 448"
+    },
+    {
+      "rule": "row-pinned",
+      "subject": "SM05-IN3 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "row-in-scope",
+      "subject": "SM05-IN3 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "behaviour-maps-to-dod",
+      "subject": "SM05-IN3 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "Intake source fixtures"
+    },
+    {
+      "rule": "product-anchor-present",
+      "subject": "SM05-IN3 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "FR-15 / AC-26"
+    },
+    {
+      "rule": "product-requirement-live",
+      "subject": "SM05-IN3 @ docs/fn-specs/FN-GATES-01-05.md → FR-15",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "anchor-disposition-active",
+      "subject": "SM05-IN3 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "active"
+    },
+    {
+      "rule": "product-acceptance-live",
+      "subject": "SM05-IN3 @ docs/fn-specs/FN-GATES-01-05.md → AC-26",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "acceptance-owned-by-requirement",
+      "subject": "SM05-IN3 @ docs/fn-specs/FN-GATES-01-05.md → AC-26",
+      "ok": true,
+      "detail": "FR column: FR-15"
+    },
+    {
+      "rule": "product-row-pinned",
+      "subject": "SM05-IN3 @ docs/fn-specs/FN-GATES-01-05.md → AC-26",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "scenario-cites-anchor",
+      "subject": "SM05-IN3 @ docs/fn-specs/FN-GATES-01-05.md → AC-26",
+      "ok": true,
+      "detail": "the scenario row must name its Product acceptance ID"
+    },
+    {
+      "rule": "one-id-one-meaning",
+      "subject": "SM05-IN3 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "gwt-complete",
+      "subject": "SM05-IN4 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "line 449"
+    },
+    {
+      "rule": "row-pinned",
+      "subject": "SM05-IN4 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "row-in-scope",
+      "subject": "SM05-IN4 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "behaviour-maps-to-dod",
+      "subject": "SM05-IN4 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "Intake source fixtures"
+    },
+    {
+      "rule": "product-anchor-present",
+      "subject": "SM05-IN4 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "FR-15 / AC-26"
+    },
+    {
+      "rule": "product-requirement-live",
+      "subject": "SM05-IN4 @ docs/fn-specs/FN-GATES-01-05.md → FR-15",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "anchor-disposition-active",
+      "subject": "SM05-IN4 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "active"
+    },
+    {
+      "rule": "product-acceptance-live",
+      "subject": "SM05-IN4 @ docs/fn-specs/FN-GATES-01-05.md → AC-26",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "acceptance-owned-by-requirement",
+      "subject": "SM05-IN4 @ docs/fn-specs/FN-GATES-01-05.md → AC-26",
+      "ok": true,
+      "detail": "FR column: FR-15"
+    },
+    {
+      "rule": "product-row-pinned",
+      "subject": "SM05-IN4 @ docs/fn-specs/FN-GATES-01-05.md → AC-26",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "scenario-cites-anchor",
+      "subject": "SM05-IN4 @ docs/fn-specs/FN-GATES-01-05.md → AC-26",
+      "ok": true,
+      "detail": "the scenario row must name its Product acceptance ID"
+    },
+    {
+      "rule": "one-id-one-meaning",
+      "subject": "SM05-IN4 @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
       "detail": ""
     },

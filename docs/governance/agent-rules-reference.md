@@ -1,7 +1,153 @@
----
-description: graphify knowledge graph context
+# Agent rules reference — verbatim text of the pre-`D-324` rule files
+
+This file is **on demand**: no tool loads it automatically. It keeps, word for word, every rule the
+`D-324` refactor moved out of the automatically loaded files, so nothing was deleted. The operative
+rules are `AGENTS.md`, `CLAUDE.md` and `GEMINI.md`; where this historical text differs from them, or
+names the old file layout (for example the `SHARED CORE` comment or `.agents/rules/graphify.md` as
+Lane C's file), the operative files and the Register (`D-58`) decide.
+
+Source: `AGENTS.md` at `c06ddc3`, SHA-256 `f2bd6dae9f17a91eb6ab733c5a136769041aaf0cce6c19e90a6ed2e3b9557b0d`. The `CLAUDE.md` and
+`.agents/rules/graphify.md` lines not below are byte-identical to lines here (the shared core) or were
+moved verbatim to `CLAUDE.md` and `GEMINI.md`; see the coverage ledger (`SV-002` §3.6.6).
+
 ---
 
+# my-editorial-app
+
+AI-driven article tracker that logs URLs, runs a five-gate editorial pipeline with AI tagging, and publishes approved articles to WordPress or marks them LinkedIn-ready — with full audit logging of every gate transition.
+
+## ⚠️ READ THIS BEFORE ANY WORK
+
+Do **not** start from the project name, the summary above, or your own assumptions — those
+lead to the wrong thing (e.g. a marketing landing page).
+
+**Operative documents — `docs/v1/`:**
+- `V1-DECISION-REGISTER.md` — what is decided, conditions, gap dispositions
+- `V1-BUILD-SPEC.md` — what is built and in what order
+- `V1-ARTIFACT-INVENTORY.md` — what must exist
+
+**Governing set, in precedence order:** `docs/PRD.md` *(customer's frozen record)* →
+`docs/source/project-charter-v1.md` *(frozen)* → `v1-build-readiness-addendum.md` →
+`blueprint.md` → `business-case.md`. Then `docs/Modular_PRD.md` as the governed spec.
+
+**Intent hierarchy (`D-29`):** `PRD` → `Modular_PRD` → `Fn_Specs` → `SPECS`. A change lands
+in the tier that owns it, and only that document changes.
+
+**The plan pack** — `ARCHITECTURE.md`, `DATA_MODEL.md`, `AGENTIC_LAYER.md`,
+`INTELLIGENCE_LAYER.md`, `SECURITY.md`, `TASKS.md`, `TEST_PLAN.md` — was generated at
+scaffolding from the app name. It is **accurate about the substrate and wrong about
+governance** (`D5`). It is **not authoritative.**
+
+**Output contract.** Every analysis response ends with an Approve / Approve-with-conditions /
+Defer / Reject table in house vocabulary. Each condition names its follow-up phase.
+Rationale stays in the linked document.
+
+**Propagation (`D-54`).** A decision that creates, sequences, or retires an artifact lands in
+**all three** `docs/v1/` documents in the same pass — register (always), build spec (scope,
+sequence, DoD), artifact inventory (files) — plus `Modular_PRD` §8 when a sprint closes or a
+tier opens. State explicitly when a tier is unaffected. **An approve/reject row that names no
+tier is not evidence of completion.** Propagate the *fact*, never the *count*: a restated tally
+is the drift mechanism (`G55`, `G56`, `G58`).
+
+**Apply proposed text in full.** When executing a runbook, do not summarise or abbreviate —
+`G32` occurred because operative content was dropped that way.
+
+**Terminology.** `docs/PRD.md` is the **Project** Requirements Document — all scopes, not only
+product. `docs/Modular_PRD.md` is the **Product** Requirements Document. They are different
+artifacts; do not treat the shared acronym as a collision.
+
+**Spec tooling (`D-33`, amends `D-32`).** `spec-writing` is the standard. Use `specs-creator`'s
+`templates/PRD.md` as **structural input only** — despite the filename it is a feature-spec
+template, and its User Stories and Risks sections are worth keeping.
+
+**Tier mapping (`D-34`) — the tool's chain is a labelling map, not a blocker:**
+
+| `specs-creator` | This project |
+|---|---|
+| `app-vision.md` | `docs/Modular_PRD.md` — an app **is** a product |
+| `prd.md` | `docs/fn-specs/` — behaviour, per feature group |
+| `tech-specs.md` | `docs/specs/` — implementation big picture, incl. tech-stack |
+| `ux.md` | `docs/specs/ux/` — UI/UX **per tech-stack** (Vue vs Angular, same behaviour) |
+
+**Tracking versus specs (`D-36`).** `docs/v1/V1-*.md` are **tracking files** — they record what a
+sprint decided and **freeze** at sprint close. Specs under `docs/fn-specs/` and `docs/specs/` carry
+**no version prefix and never freeze**; later builds edit them. Each spec section is marked with the
+build version that introduced it — `[V1]`, `[V1→V2]`, `[V2]`. **An unmarked change to a `[V1]`
+section is a defect, not an update.**
+
+A stack change lands in `specs/`; a stack-specific UI consequence lands in `specs/ux/`. **Neither
+disturbs `fn-specs/`** — behaviour stays stable across a stack pivot.
+
+**Before recording any incompatibility, check what the unfamiliar label maps to.** Three prior
+"conflicts" (`D-31`, `D-33`, `pub_target`/`platform_type`) were all vocabulary, not structure.
+
+Merged structure: Overview · User Stories · Requirements · Behaviour · Acceptance Criteria ·
+Edge Cases · Dependencies · Risks · `SPECS` candidate filter.
+**Reference example:** `docs/fn-specs/FN-PUBLICATION-09-10-13.md`.
+
+Guardrails, all binding:
+1. Input must be a **`Modular_PRD` feature group, never a prose description** — anchors travel
+   with the input, and a description produces unanchored scope (`FB-04`).
+2. A feature group is features that **cannot function without each other**. Resolve the group's
+   internal dependencies before writing, or specs overlap and overlap is repetition.
+3. Tech content is a **`SPECS` candidate list**, not a `SPECS` document. Apply `D-30`'s
+   redundancy test; discard anything `Fn_Specs` already determines.
+4. **UI stays in `SPECS`.** `Fn_Specs` remains behaviour-focused.
+5. Omit Technical Stack — added only when the build starts (`D-30`).
+
+**Never edit:** `docs/PRD.md`, `docs/source/project-charter-v1.md`,
+`supabase/migrations/0001_init.sql`.
+
+## Build rules (binding — follow in order)
+1. **Read first:** `docs/v1/V1-BUILD-SPEC.md` and `docs/v1/V1-DECISION-REGISTER.md`, then the
+   relevant `docs/fn-specs/` for the feature you are touching. **Not the plan pack** — see the
+   header: `DATA_MODEL.md`, `ARCHITECTURE.md`, and `TASKS.md` are accurate about the substrate
+   and wrong about governance (`D5`).
+2. **Confirm the plan** back to me in 2–3 lines (the core objects + the one main workflow) BEFORE coding.
+3. **Build the ONE core engine/verb FIRST, working end-to-end.** Every app has a main action —
+   create a proposal, run the quote/simulation, log a change and act on it. Build THAT against the
+   real database in Sprint 1, then breadth. Then build straight through the sprints until the app
+   actually WORKS end-to-end. Do NOT stop after auth + an empty or "Connected" status dashboard, and
+   do NOT ship read-only screens of seeded data — **every button and form must persist to the
+   database and the UI must reflect it. NO dead buttons. Seeded rows are demo placeholders the user
+   can also create/edit/delete.** Commit + push after each sprint; pause for review only once a real
+   person can actually perform the core job.
+4. **Database-first, but don't stop at the database:** lay the data model + core CRUD first (the
+   core must work with the AI switched off), then build the real screens that make it usable.
+5. **This is the real working app** — real forms, lists, detail views, and the end-to-end flow from
+   the PRD's success scenario. Do **NOT** build a marketing/landing page, a front-end-only demo, or
+   a connection-status dashboard.
+6. **Demo-first — no login wall in v1.** The homepage IS the working app (with seed data), reachable by
+   anyone — do NOT redirect to /login or gate the app behind auth yet. Login/signup + per-user lockdown
+   is a LATER "Lock it down" sprint, before real users/data. (Keeps the app demoable + screenshot-able.)
+7. Never put secrets in frontend code.
+
+## Deploy & data (binding — this stack is already provisioned)
+- **Deploy by git, never by CLI.** `git add -A && git commit -m "…" && git push` to `main`;
+  Vercel auto-deploys from GitHub. Do NOT run `vercel deploy` / `vercel --prod` with local
+  files — it desyncs git, and the next push silently overwrites your live app.
+- **Commit + push every change.** Git is the source of truth; uncommitted work is lost on
+  the next deploy.
+- **The Supabase database is already provisioned** and its keys are in this project's Vercel
+  env. Pull them locally: `vercel link` then `vercel env pull .env.local`. Don't invent new ones.
+- **Your database is already set up.** The schema from your data model has been applied to
+  this project's Supabase database and committed at `supabase/migrations/0001_init.sql`. Build on
+  the existing tables — **do not recreate them**. To change the schema, add a NEW migration file
+  (`supabase/migrations/0002_*.sql`) and apply it; never edit `0001`.
+- **Commit as your GitHub identity, or Vercel will block the deploy.** Vercel verifies that
+  every commit's author email belongs to your GitHub account. Your machine's default git email
+  often isn't, so the very first local commit gets rejected. Pin this repo's identity once
+  (already correct for your account) — before your first commit:
+  ```
+  git config user.email "241258103+robertaoai@users.noreply.github.com"
+  git config user.name "robertaoai"
+  ```
+
+Kickoff prompt: "Read everything in /docs, confirm the plan in 3 lines, then build straight
+through the sprints until the app actually works end-to-end — the PRD's success scenario, not
+just auth + an empty dashboard. The schema is already applied, so pull env with vercel env pull
+and build on the existing tables; commit + push after each sprint to deploy. Stop only when a
+real user can do the core job."
 ## graphify
 
 <!-- SHARED CORE — identical in CLAUDE.md, AGENTS.md, and .agents/rules/graphify.md.
@@ -247,50 +393,73 @@ promotion rule. `docs/handoff/README.md` remains the sole transaction SOP;
 `docs/v1/V1-PHASE-CLOSURE.md` §5 keeps live lane state. **An `Approve` verdict on an analysis is
 not permission to apply it** (`D-183`, `B072-R64`): execution needs the Register's Judge act, a
 bounded unit with a DoD, and the `Active` lane — except `D-184`'s one-entry handoff commit.
-Gemini / Antigravity specifics:
+Codex specifics:
 
-**You are Lane C. Your work order is `.github/WORKFLOWS-SPEC.md`. Read it before editing a
-workflow.**
+**You are Lane B. Start here.**
 
-**You own `.github/workflows/` and nothing else.** Not `scripts/`, not `package.json`, not
-`.gitattributes` — `D-75`'s original map placed some of those here and **`D-84` corrected it.**
-Everything above this line is the shared core, identical in all three agents' rule files.
+**Your job is application code.** `app/`, `lib/`, `components/`, `supabase/`, `__tests__/`.
+Everything above this line is the shared core, identical in all three agents' rule files; the
+part that governs *you* is `D-75` (lanes), `D-86` (Lane A provisions, you build) and `D-90`
+(how you report a problem).
 
-**Phase 3 — last.** Lane A (orchestration) runs first, Lane B (application code) second. If
-Lane B's sprint has not closed, **your phase has not opened**; check `docs/v1/V1-BUILD-SPEC.md`
-rather than inferring from the state of `app/`.
+**Read `docs/LANE-B-WORK-ORDER.md` — it is the living source of what to do next, not this
+section** (`D-161`, closing `B-061`). This section's S0 steps below are **history**: S0 completed
+(`lib/config/build-config.ts`, `lib/config/flags.ts`, Stripe removal — all landed and
+`config-coupling` green), `0002_s1_editorial_schema.sql` is written and applied with `C-33`'s
+PostgreSQL trigger test passing, and `0002` is **not** blocked on `Q11` — `D-111` named the
+column `line_separation_status` and `D-112`/`D-114` closed its authorization unconditionally.
+**The next Lane B code unit is not yet defined** — `V1-BUILD-SPEC.md` §8 requires a fresh build
+authorization per sprint, and S2 is blocked on `Q12` (Line-exclusivity citation) and `Q1`, both
+still open Chief Editor decisions. Do not infer a next step from the steps below; read the work
+order for the current state.
 
-**Two items are queued for you**, both specified in `.github/WORKFLOWS-SPEC.md` §4:
-`fetch-depth: 0` so `source-sweep` runs in CI, and renaming the CI job to ASCII so the required
-status check cannot silently fail to match. **The second cannot be completed by you alone** —
-it needs a branch-protection change that is a repository-settings act, and doing half of it
-blocks every pull request. Raise it, do not push it.
+<details>
+<summary>Historical — S0's original three deliverables, completed and superseded, kept for
+provenance only</summary>
 
-**Four rules that will otherwise cost you a rejected commit or a false green:**
+1. `lib/config/build-config.ts` — implements every row of `docs/CONFIG_LOG.md`, with a
+   `PROVISIONAL` marker on each OD-derived value.
+2. `lib/config/flags.ts` — the flags named in `docs/CONFIG_LOG.md` §6.
+3. Remove the Stripe scaffolding — `app/api/stripe/*`, `lib/stripe/`, Stripe keys in
+   `.env.example` (`X8`, `NG-03`).
 
-- **Never add what a workflow calls.** Scripts, config files, tools and lockfile flags are
-  Lane A's (`D-84`). Need one? Raise a `docs/handoff/C-NNN-<slug>.md` entry of kind
-  `dependency` and stop. **Do not inline it in the workflow** — that produces a job which
-  passes while calling something nobody else can run.
-- **Never fix a SKIP by making a check pass vacuously.** `graph-coverage`, `docs-drift` and
-  `source-sweep` skip in CI because of what they read, not because they are broken. **A CI
-  total below the local total is correct.** A check that cannot fail is worse than no check.
-- **`bun run build` is not a verification gate.** `TC6` disables the type and lint gates at
-  build, so typecheck and lint stay **separate steps**.
-- **Never assert how many checks there are.** `D-92` removed those tallies from four documents
-  after they drifted; `bun run check` prints the total.
+`docs/DECISION_LOG.md` and `docs/CONFIG_LOG.md` were not Lane B's to write — Lane A wrote them
+ahead of Lane B (`D-91`) precisely so S0 was a single-lane sprint.
 
-**Deployment is GitHub's, not yours.** Vercel deploys from `main` on push; **no agent deploys**,
-and `main` lagging the working branch is expected until Phase 3 — not a defect to report.
+</details>
 
-**A real run, or it is not done.** A valid-looking YAML file is not evidence. `R3` required both
-a green run *and* a deliberately broken type turning CI red — **the second is the test of the
-tester.**
+**DoD for the completed S0 work:** every value in `CONFIG_LOG.md` exists as a named variable
+with its citation; `grep` finds no success-scenario literal in business logic; `0001_init.sql`
+unmodified; `bun test` and CI pass. **Met.**
+
+**Four rules that will otherwise cost you a rejected commit:**
+
+- **Never run `bun add`.** Dependencies are Lane A's (`D-86`). Need one? Raise a
+  `docs/handoff/` entry of kind `dependency` and stop. Lane A provisions it; you resume.
+- **Never edit build config** — `package.json`, `tsconfig.json`, `eslint.config.mjs`,
+  `next.config.ts`, lockfiles. Also Lane A's.
+- **Never edit `docs/` except `docs/handoff/`.** That is the one place you write prose.
+- **Run `bun run check` before committing.** `.githooks/commit-msg` blocks a commit spanning
+  two lanes unless it carries a `Lane-Crossing: <reason>` trailer (`D-88`). Activate the hook
+  once with `bun run hooks:install`.
+
+**Governance reaches you as a flag, not a document (`D-86`).** When a check fires, fix the code
+it names. You are **not** expected to read `V1-DECISION-REGISTER.md` or decide scope. If a check
+names something you cannot fix in your own lane, that is a `docs/handoff/` entry, not a
+workaround.
+
+**How to raise anything** — copy `docs/handoff/TEMPLATE.md` to `docs/handoff/B-NNN-<slug>.md`,
+kind `dependency` | `spec-defect` | `blocked-on-decision` | `finding` | `turn-report`, then stop and wait.
+**A blocked handoff is the correct outcome, not a failure** — `D-86` accepts a blocking wait
+over a split commit. Lane A must acknowledge every open entry; `bun run check` fails on one
+left unread.
 
 **Never edit:** `docs/PRD.md`, `docs/source/project-charter-v1.md`,
-`supabase/migrations/0001_init.sql`. **Never put a secret in a workflow file** — use repository
-secrets, and never echo one into a log.
+`supabase/migrations/0001_init.sql`. **Never put secrets in frontend code.**
 
 Graphify, for this agent:
-- The skill is installed at `~/.gemini/config/skills/graphify/SKILL.md`; the workflow trigger is `/graphify`
-- **Graph currency.** `.graphify/needs_update` is written only by graphify's git hook, and **no git hook is installed in this repo**, so its absence is *no signal at all* — do not read it as "synced" (`D-87`, `D-91`). The reliable check is `.graphify/branch.json`: compare `lastAnalyzedHead` against `git rev-parse HEAD` and read the `stale` flag. If they differ, run `/graphify . --update` before relying on semantic results.
+- The reliable explicit skill invocation is `$graphify ...`; do not rely on `/graphify ...`
+- `$graphify ...` is a Codex skill trigger, not a Bash subcommand like `graphify .`
+- A successful TypeScript-backed Codex build should leave `.graphify/.graphify_runtime.json` with `runtime: typescript`
+- If the user asks to build, update, query, path, or explain the graph, use the installed `graphify` skill instead of ad-hoc file traversal
+- **Graph currency.** `.graphify/needs_update` is written only by graphify's git hook, and **no git hook is installed in this repo**, so its absence is *no signal at all* — do not read it as "synced" (`D-87`, `D-91`). The reliable check is `.graphify/branch.json`: compare `lastAnalyzedHead` against `git rev-parse HEAD` and read the `stale` flag. If they differ, run the graphify skill with `--update` before relying on semantic results.

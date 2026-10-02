@@ -96,7 +96,7 @@ one moves a `CONFIG_LOG.md` row, and someone reading this file will look for the
 |---|---|---|
 | `Q1` — Line 1 roster shape | **Phase 0 decided** (`D-163`): one agent instance may hold multiple Line 1 roles if each gate records role and executor. **Production half needs `OD3`** | `LINE1_AGENT_ROSTER` stays `UNSET` |
 | `Q2` — Line 3 executor | **Answered `D-57`** — v1 has no independent assurance; `FR-11` not built | `LINE3_EXECUTOR_IDENTITY` stays `UNSET` and stays declared |
-| `Q5` — scheduler | Register, open (`TC7`) | `PUBLISH_RETRY_BACKOFF_MINUTES` has nothing to fire it |
+| `Q5` — scheduler | ~~Register, open (`TC7`)~~ **Corrected 2026-09-25 (`D-265`):** **decided** — `pg_cron` invoking the Edge Function (`D-143`/`D-146`) | `PUBLISH_RETRY_BACKOFF_MINUTES` has nothing to fire it until the scheduler is built |
 | `Q6` — re-enable build gates | Register, open (`TC6`) | Not a config value; `bun run build` is not a verification gate |
 | `Q10` — tenancy column | **Closed `D-73`, narrowed `D-79`** | Contributes a tenancy column to `0002` and nothing more |
 | `Q11` — judgment-independence field shape | **Decided** (`D-97`'s shape, `D-111`'s name — `line_separation_status`) *(corrected 2026-08-30, `D-161`/`B-061`)* | No longer blocks `0002` — written and applied in `0002_s1_editorial_schema.sql` |

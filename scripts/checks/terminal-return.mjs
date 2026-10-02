@@ -179,14 +179,34 @@ export function isRecordOnlyDiff(diffText) {
  * is returned unchanged — the common case for every non-disposition edit.
  */
 export function resolutionAfterDiff(diffText, priorResolution) {
-  const added = String(diffText)
-    .split("\n")
+  const lines = String(diffText).split("\n");
+  const added = lines
     .filter((l) => /^\+/.test(l) && !/^\+\+\+/.test(l))
     .map((l) => l.slice(1))
     .join("\n");
   const next = field(added, "Resolution");
-  return next !== null ? next : priorResolution;
+  if (next !== null) return next;
+  // `B-150` finding (Lane B, 2026-10-01; fixed under `D-368`). A diff that
+  // REMOVES the `Resolution` line and adds none — exactly what a return does
+  // (`B-097`: "omit Resolution") — ends the disposition. Returning the prior
+  // value here kept a returned entry inside its OLD terminal episode, so a
+  // later `Verified` never started a new one and the walk flagged the return
+  // and verification commits as uncovered work.
+  const removed = lines.some((l) => /^-(?!--)/.test(l) && /^-\s*\*\*Resolution:\*\*/.test(l.slice(1)));
+  return removed ? null : priorResolution;
 }
+
+/** The uncommitted working-copy diff of `path` against HEAD — empty when
+ * clean. Injectable like `diffAt`. */
+export function worktreeDiff(path, exec = execFileSync) {
+  return exec("git", ["diff", "HEAD", "--", toGitPath(path)], {
+    encoding: "utf8",
+    stdio: ["ignore", "pipe", "ignore"],
+  });
+}
+
+/** Marks the synthetic step that models an uncommitted change. */
+export const WORKTREE = "WORKTREE";
 
 /**
  * Every commit cited by a `Returned-At-Commit:` or `Annotated-At-Commit:`
@@ -277,6 +297,84 @@ export function diffAt(path, shaOld, shaNew, exec = execFileSync) {
   });
 }
 
+// `D-364` — the history half of the Re-close record. `handoff-response`
+// validates its FORM and its binding to the Return record before it; only
+// git can prove the two commits EXIST and that the completion was read AFTER
+// the return — a completion cannot predate the return it completes. The same
+// pass proves `Returned-At-Commit` exists, which the SOP and
+// `handoff-response` both said this check did and which no code did.
+//
+// Deliberately NOT added to `RECORD_HEADING_LINE`/`KNOWN_FIELD_LINE`: a
+// re-close always accompanies a Status/Resolution change on an `Open` entry,
+// so it is never a record-only diff inside a terminal episode. Accepting one
+// there would let a re-close appended to a terminal file exempt itself.
+const EPISODE_HEADING = /^##\s+(Return record|Re-close record)\s*$/gm;
+
+/** The full SHA `sha` names, or `null` if no such commit exists. */
+export function resolveCommit(sha, exec = execFileSync) {
+  try {
+    return exec("git", ["rev-parse", "--verify", "--quiet", `${sha}^{commit}`], {
+      encoding: "utf8",
+      stdio: ["ignore", "pipe", "ignore"],
+    }).trim() || null;
+  } catch {
+    return null;
+  }
+}
+
+/** `true` when `ancestor` is reachable from `descendant` (git's inclusive sense). */
+export function isAncestor(ancestor, descendant, exec = execFileSync) {
+  try {
+    exec("git", ["merge-base", "--is-ancestor", ancestor, descendant], { stdio: ["ignore", "ignore", "ignore"] });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * History findings for one file's Return and Re-close records. Each Re-close
+ * binds to the Return immediately before it (the same rule `handoff-response`
+ * enforces for form). Form defects — blank or non-hex values — are left to
+ * `handoff-response` and skipped here. `exec` is injectable so a fixture can
+ * drive every branch without a real repository.
+ */
+export function recloseHistoryFindings(text, path, exec = execFileSync) {
+  const real = stripFences(text);
+  const matches = [...real.matchAll(EPISODE_HEADING)];
+  const findings = [];
+  let lastReturn = null;
+  const hex = (v) => v && /^[0-9a-f]{7,40}$/i.test(v);
+  for (const m of matches) {
+    const rest = real.slice(m.index + m[0].length);
+    const next = rest.search(/^##[ \t]/m);
+    const body = rest.slice(0, next < 0 ? rest.length : next);
+    if (m[1] === "Return record") {
+      const at = field(body, "Returned-At-Commit");
+      const full = hex(at) ? resolveCommit(at, exec) : null;
+      if (hex(at) && !full) {
+        findings.push(`${path}: Return record **Returned-At-Commit:** \`${at}\` is not a commit in this repository (\`B-097\`, \`D-364\`)`);
+      }
+      lastReturn = { full };
+      continue;
+    }
+    const at = field(body, "Reclosed-At-Commit");
+    if (!hex(at)) continue; // form is handoff-response's finding
+    const full = resolveCommit(at, exec);
+    if (!full) {
+      findings.push(`${path}: Re-close record **Reclosed-At-Commit:** \`${at}\` is not a commit in this repository (\`D-364\`)`);
+      continue;
+    }
+    if (!lastReturn || !lastReturn.full) continue; // unbound or unprovable return: reported above or by handoff-response
+    if (full === lastReturn.full || !isAncestor(lastReturn.full, full, exec)) {
+      findings.push(
+        `${path}: Re-close record **Reclosed-At-Commit:** \`${at}\` does not come after the Returned-At-Commit \`${lastReturn.full.slice(0, 7)}\` it completes — a completion cannot be read before, or at, the return it closes (\`D-364\`)`,
+      );
+    }
+  }
+  return { findings, records: matches.length };
+}
+
 function isShallow() {
   try {
     return (
@@ -310,10 +408,31 @@ export function run() {
   const entries = readdirSync(DIR).filter((f) => ENTRY_FILE.test(f));
   const findings = [];
   let filesChecked = 0;
+  let episodeRecords = 0;
+  // One call for the whole channel: only files with an uncommitted change
+  // get a working-copy diff (`D-368`); process spawn is slow on this host.
+  let dirty = new Set();
+  try {
+    dirty = new Set(
+      execFileSync("git", ["diff", "HEAD", "--name-only", "--", DIR], { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] })
+        .split("\n")
+        .map((s) => s.trim())
+        .filter(Boolean),
+    );
+  } catch {
+    /* no HEAD or no git — committed history alone is walked */
+  }
 
   for (const file of entries) {
     const path = join(DIR, file);
     const text = readFileSync(path, "utf8");
+
+    // `D-364`: every Return/Re-close record, whatever the file's current
+    // Resolution — a re-closed entry is normally `Applied`, which the
+    // terminal walk below deliberately skips.
+    const episodes = recloseHistoryFindings(text, path);
+    episodeRecords += episodes.records;
+    findings.push(...episodes.findings);
 
     // Scoped to files whose CURRENT Resolution is terminal — this check
     // protects a live terminal header, not every ancient fluctuation
@@ -358,10 +477,35 @@ export function run() {
     }
     if (!ok) continue;
 
+    // `B-150` preview finding (`D-368`). The header above is read from the
+    // WORKING COPY, but the steps come from committed history. An uncommitted
+    // disposition (a pending `Verified`) was therefore invisible to the walk,
+    // which fell back to an older episode and alleged committed violations.
+    // The pending change is modelled as one final, labelled step instead.
+    try {
+      const pending = dirty.has(toGitPath(path)) ? worktreeDiff(path) : "";
+      if (pending.trim()) {
+        const resolutionAfter = resolutionAfterDiff(pending, priorResolution);
+        steps.push({
+          commit: WORKTREE,
+          resolutionAfter,
+          isAuditOnly: isAuditOnlyDiff(pending) || isRecordOnlyDiff(pending),
+        });
+      }
+    } catch {
+      /* no worktree diff available — committed history alone is walked */
+    }
+
     filesChecked++;
 
     const violations = walkEpisodes(steps, covered);
     for (const commit of violations) {
+      if (commit === WORKTREE) {
+        findings.push(
+          `${path}: the UNCOMMITTED working-copy change touches this file inside a terminal episode with no audit-only diff and no record covering it — a preview, not a committed violation. Commit it with the covering record, or keep it audit-only (\`B-113\`, \`D-368\`).`,
+        );
+        continue;
+      }
       findings.push(
         `${path}: ${commit.slice(0, 7)} touched this file inside a terminal episode with no audit-only diff and no Return/Terminal-annotation record citing it (\`B-113\`). Add a \`## Terminal annotation record\` citing \`${commit}\` if the episode's terminal state was preserved, or a \`## Return record\` if it genuinely returned.`,
       );
@@ -373,6 +517,7 @@ export function run() {
     filesChecked === 0
       ? "no file has ever entered a terminal episode"
       : `${filesChecked} file(s) with at least one terminal episode walked in full; ${filesChecked - violatingFiles.size} clean, ${violatingFiles.size} with an uncovered step`;
+  const episodeDetail = `; ${episodeRecords} return/re-close record(s) proven against history (D-364)`;
 
-  return { name: "terminal-return", findings, detail };
+  return { name: "terminal-return", findings, detail: detail + episodeDetail };
 }

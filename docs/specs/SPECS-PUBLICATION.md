@@ -79,7 +79,7 @@ select cron.schedule(
 
 | Dependency | Nature | Status |
 |---|---|---|
-| `publication_targets`/`publications` (`TR-DM-03`) | **Blocking** — the function reads and writes these | Drafted, `0002_s1_editorial_schema.sql`, not yet applied (`DEP-05`) |
+| `publication_targets`/`publications` (`TR-DM-03`) | **Blocking** — the function reads and writes these | Drafted, `0002_s1_editorial_schema.sql`, not yet applied (`DEP-05`). `[V1]` **Corrected 2026-09-25 (`D-265`):** written and replayed on disposable local PostgreSQL only; **not applied to hosted Supabase** (`D-252`; live behaviour unverified under `DEP-05`) |
 | `pg_cron`, `pg_net` extensions | **Blocking** — nothing fires the function without them | Not yet enabled — Lane B migration item |
 | Credential isolation design | **Blocking** — the function needs provider credentials to call WordPress/LinkedIn | **Open**, separate `SPECS` document not yet written |
 | `SUPABASE_SERVICE_ROLE_KEY` first use | **Blocking** — the function's own database access needs it, `TC1` amendment first | **Open** — governance finding, not this document's to resolve |

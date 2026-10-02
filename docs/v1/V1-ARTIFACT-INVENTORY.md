@@ -15,7 +15,14 @@
 |---|---|---|
 | `docs/governance/factory-route-operation-crosswalk.md` | `D-173`, `D-176`, `D-178`, `docs/handoff/B-068-*.md` `F4` | ✅ **Created 2026-08-31, route-operation join decided 2026-09-01 (`D-176`), row corrected 2026-09-02 (`D-178`).** Route master (Sheet 1, all 7 rows `VERIFIED`) and operation master (Sheet 2, 8 rows — 2 `VERIFIED`, 6 `UNVERIFIED`) from both attached CSVs. §3's join is **no longer empty** — `D-176` decided all 43 route-operation applicability rows plus per-operation sequencing (§3.2). §4's conservative operation-shape placeholders (multiple `R`, `OP-DRAFT`'s unknown `A`, undecomposed milestones) are **confirmed as a standing disposition**, not pending — they remain build-readiness holds (`D-177`, `B068-R40`), not open Chief Editor decisions. Reconciles, does not import, the CSVs |
 | `scripts/checks/retention-policy-coupling.mjs` | `D-134`, `D-135`, `B-040` §6 | ✅ **Created 2026-08-25.** `C-14` check — `RET-EDITORIAL` coupled across the four tiers that cite it (Alpha Portfolio, Business Case, Blueprint, `Modular_PRD`): version agreement, no `CHIEF-EDITOR-DECISION-REQUIRED` placeholder beside a closed claim, "archive" never directly equated with delete/dispose, no numeric period copied without a citation, queue cleanup never called archival, `0002`/Build Spec never gates on `C-32`, `AC-12a` cites its creating decision, and the reuse-eligibility/archival-absence surfaces stay independently sourced. Reads structure, not legal correctness — the same `C-22` limit named everywhere else. Two false positives caught and fixed on its own first runs: a proximity-only "archive"/"dispose" match, and a numeric-period scan that flagged unrelated scoring-formula day-counts |
-| `scripts/fixtures/` | `D-106`, `G80`, `D-113` `G83`/`G84`, `D-117` **`G91`**, `D-119` **`G93`**, `D-134` retention-policy-coupling suite, `D-139` bounded transient-lock retry | ✅ **Created 2026-08-24.** The negative fixtures, `bun run fixtures`. **The suite and fixture counts are NOT restated here** — this row carried *"six suites, thirty fixtures"* and was stale within a day, which is `G75`/`C-21`'s drift mechanism in the file that lists artifacts. **The runner prints both.** **Fourteen claims of "negative-tested N ways" existed with no fixture in the repository**, and §6.4d told the reader to run one from a session scratchpad. Positive control per suite; asserts the intended **finding**, not merely a failure; `expectDetail` asserts a check's summary line (`G83`); refuses a dirty tree and names what it damaged. **Lane-agnostic since `G91`** — every lane-state mutation used to name a lane letter, so the suite would have broken silently at the first Sprint boundary. **Count-agnostic since `G93`** — the detail-line fixtures asserted absolute literals and went stale as the channel grew; they now derive the baseline and assert `base` and `base + 1`. **Both are one rule: a fixture asserts a relationship, never a live value** |
+| `scripts/checks/text-integrity.mjs` | `D-297`, `B-140` | ✅ **Created 2026-09-27.** `C-14` check — every tracked or untracked markdown file carries no control character (a carriage return is legal only as part of CRLF) and no drive path in a code span that lost its separator. `docs/handoff/` is exempt from the path rule only, because an entry may quote the corrupted rendering as evidence. Exists because `B-140`'s defect **recurred after a manual repair** — `D-290`, `D-292` and `D-295` each wrote a corrupted kit path into `SV-002` with every check green. Runs in CI |
+| `scripts/checks/rule-budget.mjs` | `D-324`, `D-337` | ✅ **Created 2026-09-29.** `C-14` check replacing `shared-core-hash.mjs`: `AGENTS.md` within the 5,400-character working ceiling and under 24,000 bytes, `CLAUDE.md` under 300 lines, `GEMINI.md` under 24,000 bytes; `CLAUDE.md` carries a resolving `@AGENTS.md` import (a missing one fails silently, `D-327`); one copy of the core; no HTML comment; no live lane-state row. Runs in CI |
+| `scripts/checks/shared-core-hash.mjs` | `G67`; retired `D-337` | 🗑️ **Retired 2026-09-29.** Parity of three copies proved the files agreed, not that any tool received them (`D-318`); there is now one copy |
+| `GEMINI.md` | `D-324`, `D-337` | ✅ **Created 2026-09-29.** Lane C's rule file, injected by both Antigravity surfaces for every model measured (`D-325`, `D-328`, `D-331`); holds only Lane C's rules |
+| `.agents/rules/graphify.md` | `D-75`; retired `D-337` | 🗑️ **Retired 2026-09-29.** Its Lane C tail moved verbatim to `GEMINI.md`; its shared lines are duplicates of the original `AGENTS.md`, kept in the reference; four frontmatter lines retired (`D-336` ledger) |
+| `docs/governance/agent-rules-reference.md` | `D-324`, `D-337` | ✅ **Created 2026-09-29.** The original `AGENTS.md` (at `c06ddc3`) word for word, on demand; no tool loads it automatically |
+| `docs/graph-fragments/frag141.json` | `D-337` — curated node for the reference file | ✅ **Created 2026-09-29** |
+| `scripts/fixtures/` | `D-106`, `G80`, `D-113` `G83`/`G84`, `D-117` **`G91`**, `D-119` **`G93`**, `D-134` retention-policy-coupling suite, `D-139` bounded transient-lock retry, `D-297` text-integrity suite, `D-337` rule-budget suite | ✅ **Created 2026-08-24.** The negative fixtures, `bun run fixtures`. **The suite and fixture counts are NOT restated here** — this row carried *"six suites, thirty fixtures"* and was stale within a day, which is `G75`/`C-21`'s drift mechanism in the file that lists artifacts. **The runner prints both.** **Fourteen claims of "negative-tested N ways" existed with no fixture in the repository**, and §6.4d told the reader to run one from a session scratchpad. Positive control per suite; asserts the intended **finding**, not merely a failure; `expectDetail` asserts a check's summary line (`G83`); runs in a disposable git worktree pinned to `HEAD`, never writes the caller's checkout, recovers a dead run's leftovers and names any path a restore missed (`D-397`; it used to refuse a dirty tree). **Lane-agnostic since `G91`** — every lane-state mutation used to name a lane letter, so the suite would have broken silently at the first Sprint boundary. **Count-agnostic since `G93`** — the detail-line fixtures asserted absolute literals and went stale as the channel grew; they now derive the baseline and assert `base` and `base + 1`. **Both are one rule: a fixture asserts a relationship, never a live value** |
 | `scripts/lane-gate.mjs` | `D-88`, `D-105`, `G79` | ✅ **Created 2026-08-21, corrected 2026-08-24.** The commit-msg gate. It accepted `Lane-Crossing:` anywhere in the body while **git parses only the last paragraph as trailers** — so every declaration since installation was invisible to `git log --format='%(trailers)'`, three of three including the commit that installed it. Now asks `git interpret-trailers --parse`. Negative-tested three ways |
 | `scripts/checks/channel-docs.mjs` | `D-104`, `G78` | ✅ **Created 2026-08-24.** `C-14` check 16 — `docs/handoff/README.md` and `TEMPLATE.md` coupled to the check sources in **both directions**: resolution vocabulary, declared-versus-read fields, and no prose tallies. **These two files were the only part of the channel nothing read**, and the README had drifted three decisions behind the entries it governs. **Widened by `D-105`:** the document set is **derived by glob**, not listed — it had hard-coded two names while two work orders sat unread, one of them containing `F29` |
 | `scripts/checks/lane-state.mjs` | `D-103` | ✅ **Created 2026-08-24, enforcement inverted 2026-08-29 (`D-156`).** `C-14` check 15 — **the lane lock as a state machine**, originally `D-108` (raised as `B-033`): one `Active` with the rest `Blocked`, or none `Active` with the rest `Eligible`. **`D-156` corrected this**: zero `Active` now fails, `Eligible` beside `Active` no longer fails, more than one `Eligible` newly fails. **The four-state model had never been exercised**: Lane A was `Active` from the moment the table was written, so the invariant held by inertia. The first Sprint-boundary handover is two edits, and a half-applied one — two `Active` rows, or none — was invisible to every other check. Negative-tested six ways, fixtures inverted under `D-156` |
@@ -31,7 +38,7 @@
 | `scripts/checks/phase-manifest.mjs` | `D-94`, `D-95` | ✅ **Created 2026-08-22.** `C-14` check 11 — every manifest path exists and is tracked. **Negative-tested four ways**; a scope exclusion deliberately does not fire on presence |
 | `.agents/skills/sync-docs/SKILL.md` | `B-005` | ❌ **Removed 2026-08-22.** A divergent Codex-adapted duplicate of the tracked skill. Two copies of one procedure is the drift mechanism, and `D-54` propagation is Lane A work Lane B never performs (`D-86`) |
 | `.github/WORKFLOWS-SPEC.md` | `D-92`, `D-84` | ✅ **Created 2026-08-21.** Lane C's work order — the surface it owns, what Lane A guarantees CI can call, the SKIP contract, and two queued items. **`.github/` minus workflows is Lane A's**, so the spec sits one directory above what it governs |
-| `docs/v1/drafts/README.md` | `D-91`, `G27`, `D-17` | ✅ **Created 2026-08-21.** The hold location for migrations that must not be applied. **The path was asserted in `D-68`'s rationale and never decided**; `D-91` records it. `0002_three_lines.sql.draft` is **not yet written** — `G64`/`Q11` gate it |
+| `docs/v1/drafts/README.md` | `D-91`, `G27`, `D-17` | ✅ **Created 2026-08-21.** The hold location for migrations that must not be applied. **The path was asserted in `D-68`'s rationale and never decided**; `D-91` records it. ~~`0002_three_lines.sql.draft` is **not yet written** — `G64`/`Q11` gate it.~~ **Corrected 2026-09-25 (`D-265`):** superseded — no draft will be written; the delivered candidate is `supabase/migrations/0002_s1_editorial_schema.sql` |
 | `docs/handoff/README.md` | `D-90`, `D-75` | ✅ **Created 2026-08-21.** The handoff location `D-75` required and never named. **Unmapped by design** — Lane B raises, Lane A answers. |
 | `docs/handoff/TEMPLATE.md` | `D-90` | ✅ **Created 2026-08-21.** Entry template. One file per item, not a shared log — a log would mix append-only content with current-value status (`G63`). |
 | `docs/handoff/artifacts/B-119/` | `D-251`, `B-119` | ✅ **Created 2026-09-21 by Lane B; listed here by Lane A.** Evidence attachments for one handoff entry, **not entries**: a read-only preflight, a read-only aggregate assessment and a manual-run receipt. One directory per entry; unmapped like the channel. Not read by `handoff-response` and excluded from `graph-coverage` as `docs/handoff/`. **Current versions are named in `B-119`'s ledger, not here**, because a version bump would otherwise leave this row stale. The first submitted versions are history only and are not accepted for execution |
@@ -67,6 +74,9 @@
 | `docs/fn-specs/FN-AUDIT-VISIBILITY-07-08.md` | `G33a`, `FR-07`/`FR-08` | ✅ |
 | `docs/fn-specs/FN-EXCEPTIONS-06-11-12.md` | `G33a`, `FR-06`/`FR-11`/`FR-12` | ✅ |
 | `docs/specs/SPECS-TRANSITION-ENFORCEMENT.md` | `D-52`/`D-53` — **S1 precondition** | ✅ |
+| `docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md` | `D-271` — global Project scope `AIG-01`–`AIG-06`; platform-independent behaviour | ✅ **Created 2026-09-27** |
+| `docs/specs/SPECS-MULTI-LANE-AI-GOVERNANCE.md` | `D-271` — selected platforms, loader surfaces, measurement channels | ✅ **Created 2026-09-27** |
+| `docs/specs/ux/UX-MULTI-LANE-AI-GOVERNANCE.md` | `D-271` — platform interaction; **first file in `docs/specs/ux/`**, which it creates. The separate `/editorial` route UX row above stays ❌ | ✅ **Created 2026-09-27** |
 | `docs/specs/SPECS-BOARD-QUERY.md` | `D-52`, S3 | ❌ |
 | `docs/specs/SPECS-PUBLICATION.md` | `D-52`, S4 *(five components)* | ✅ **Created 2026-08-28 (`D-143`).** Two of the five: publish path (Edge Function) and retry scheduler (`pg_cron`). **Three remain unwritten**: credential isolation (`NFR-07`/`SEC-02`), the `TC1` privileged-write-path amendment, and `TR-DM-03`'s schema shape — the last already substantially answered by `0002_s1_editorial_schema.sql`, not restated here |
 | `docs/specs/SPECS-EXCEPTIONS.md` | `D-52`, S5 | ❌ |
@@ -86,6 +96,14 @@
 | `scripts/jev/manifests/V1-SM05.json` | `D-259` — `V1-SM05` scope manifest: DoR rows and row-hash-pinned behaviours | ✅ **Created 2026-09-24**; re-pinned by `D-260` to the Option A scope (held `T5`/`T6` rows out, `FN-GATES` §4.4 scenarios in) |
 | `docs/v1/work-packets/V1/receipts/` | `D-259` — Jev readiness receipts for V1 packets; evidence only | ✅ **Created 2026-09-24** with `V1-SM05-jev-readiness.json` — first receipt `fail` (the `AC-05a`/`AC-06a` scope finding, kept in git history at `e805fb9`); **replaced 2026-09-24 by a passing receipt after `D-260`**, same path |
 | `docs/handoff/artifacts/B-131/System_Encyclopedia_V15.txt` | `D-259`, `B-131` — Chief Editor-supplied export of hosted Encyclopedia v15; SHA-256 `bc97bebac0f3ac2d3f3d8fed32c3a9cb93684b60f829fee3604b08faf34ace9f`, matching `B-131` | ✅ **Added 2026-09-24.** Evidence attachment, not an entry — same treatment as `artifacts/B-119/` |
+| `docs/graph-fragments/frag139.json` | `D-264` — curated nodes for `D-264`, the v1 template, `SV-001`, `SV-002` and the `SV2-U03` evaluation | ✅ **Created 2026-09-25** |
+| `docs/templates/dor-dod-validation/v1.md` | `D-264` — reusable DoR/DoD validation template `dor-dod-validation/v1`; result-free, immutable once used (a change creates `v2`), outside `docs/v1/` per `D-36` | ✅ **Created 2026-09-25**; SHA-256 `ca605cd6d477ad9d3e9919569fe655d1ba98df3ee8c86dfe57945aec0587be90` |
+| `docs/v1/work-packets/SETUP-SPIKE-000/SV-001.md` | `D-264` — retrospective wrapper over the completed `V1-SM05` pre-selection handoff validation; success-drift baseline | ✅ **Created 2026-09-25**, historical — never re-run |
+| `docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md` | `D-264` — setup-validation attempt, first run of `dor-dod-validation/v1`; units `SV2-U01`–`SV2-U04` | ✅ **Created 2026-09-25**, `DoR open` |
+| `docs/v1/work-packets/SETUP-SPIKE-000/GOV-RES-001.md` | `D-374` (`D-364` item 8) — the one bounded Lane A governance residual packet; custody of non-SM05 governance/documentation residuals, never clearance | ✅ **Created 2026-10-01** at its first receipt (`B-104.O2`–`O4`) |
+| `docs/v1/work-packets/SETUP-SPIKE-000/GR-012-013-SPEC.md` | `D-393` — draft specifications for `GR-013` disposable fixture isolation and `GR-012` sync-docs correction and writer investigation; specification, not delivery | ✅ **Created 2026-10-02** as a draft; P4a/P4b await work orders |
+| `docs/graph-fragments/frag142.json` | `D-374` — curated node for `GOV-RES-001` | ✅ **Created 2026-10-01** |
+| `docs/v1/work-packets/SETUP-SPIKE-000/SV2-U03-code-navigation-evaluation.md` | `D-264` — read-only `SV2-U03` evaluation (`ripwire` as candidate) | ✅ **Drafted 2026-09-25**; awaits Lane B evidence and the Judge's outcome |
 | `scripts/acceptance/` | `D-259` — cross-MMF customer-acceptance harness (§18.3) | ⏳ **Contract only — not created.** Built and run in a later Lane A `Active` turn after Lane B's handover |
 
 **No broken internal document links** — the docs are self-consistent. The gaps are artifacts that were planned but never created, not references that dangle.
@@ -348,6 +366,114 @@ scenarios are a new section inside the already-tracked `FN-GATES-01-05.md`.
 **`D-261` (2026-09-24) — no file added or retired, stated explicitly.** `Modular_PRD.md` gains rows, not a file;
 the Jev engine, self-test and `V1-SM05` manifest change in place; the receipt at the same path is regenerated, with
 every earlier receipt kept in git history.
+
+**`D-262` (2026-09-25) — no file added or retired, stated explicitly.** GitHub Issue #1 and
+`features/feature-V1-SM05` are GitHub and Git objects. Per `D-253`, the Issue is recorded in the `V1-SM05`
+packet's traceability field and not restated here. The State-1 pull-request text is GitHub-side and
+has no repository file.
+
+**`D-264` (2026-09-25) — five files added, none retired, stated explicitly.** The reusable template, curated fragment `frag139.json` and three
+`SETUP-SPIKE-000` attempt files (rows above). `S2`–`S4` stay as history. `V1-SM05-FV-001` is **not** created yet: it is
+made only after selection. No row is retired.
+
+**`D-265` (2026-09-25) — no file added or retired, stated explicitly.** The `B-137` packet corrects clauses in place; the
+drafts row above gains a successor note (`0002_three_lines.sql.draft` will not be written).
+
+**`D-266` (2026-09-26) — no repository file added or retired, stated explicitly.** `SV-002.md` changes in place. The
+Graphify skill at `~/.gemini/config/skills/graphify/SKILL.md` and any trial `ripwire` binary live **outside** the
+repository and are not inventoried here; their evidence (sizes, SHA-256, removal) is recorded in `SV-002`.
+
+**`D-267` (2026-09-26) — no repository file added or retired, stated explicitly.** `SV-002.md` gains §2.2 in place;
+`Modular_PRD.md`, `FN-GATES-01-05.md` and `requirements-traceability-map.md` receive dated corrections in place. The
+external `dor-dod-lineage-model-consolidated.md` and *Ecosystem Context-Optimization Review* stay **outside** the
+repository; `D-267` is the governed statement of the tracking model, and no template `v2` is created.
+
+**`D-268` (2026-09-26) — no repository file added or retired, stated explicitly.** `SV-002.md` gains §3.3 in place and
+re-derives §2.1; `Modular_PRD.md` §0 gains a dated status note; `B-120`/`B-125` change disposition in place.
+
+**`D-269` (2026-09-26) — no repository file added or retired, stated explicitly.** `V1-SM05.md`, `SV-002.md`, `B-136`,
+`B-120` and `B-125` change in place.
+
+**`D-270` (2026-09-27) — no repository file added or retired, stated explicitly.** `SV-002.md` gains a unit-bounds
+table and §3.4 in place; the natural-sentinel method adds no file and edits no rule file.
+
+**`D-271` (2026-09-27) — three files added, none retired.** `FN-MULTI-LANE-AI-GOVERNANCE.md`, `SPECS-MULTI-LANE-AI-GOVERNANCE.md`
+and `ux/UX-MULTI-LANE-AI-GOVERNANCE.md` (rows above), creating `docs/specs/ux/`. `Modular_PRD.md`, `docs/specs/README.md`
+and `SV-002.md` change in place. Each new file has its own curated graph node.
+
+**`D-272` (2026-09-27) — no file added or retired, stated explicitly.** The handoff `README.md`, `TEMPLATE.md`,
+`handoff-response.mjs`, `suites.mjs`, `LANE-B-WORK-ORDER.md`, `.github/WORKFLOWS-SPEC.md`, the three governance
+control files, `SV-002.md` and `C-001` change in place.
+
+**`D-337` (2026-09-29) — four files added, two retired.** Added: `GEMINI.md`, `docs/governance/agent-rules-reference.md`,
+`scripts/checks/rule-budget.mjs` and `docs/graph-fragments/frag141.json`. Retired: `.agents/rules/graphify.md` and
+`scripts/checks/shared-core-hash.mjs` (rows above). `AGENTS.md`, `CLAUDE.md`, `check-consistency.mjs`,
+`lane-boundary.mjs`, `tier-sweep.mjs`, `suites.mjs`, the `sync-docs` skill, `V1-PHASE-CLOSURE.md`, two SPECS and
+`SV-002.md` change in place.
+
+**`D-374` (2026-10-01) — two files added, none retired, stated explicitly.** `GOV-RES-001.md` and its curated
+fragment `frag142.json`. `SV-002.md` (§2.3.2 ledger), `Modular_PRD.md` (a `B-106` intake receipt) and `B-150` change in
+place.
+
+**`D-381` (2026-10-02) — no file added or retired, but a sequencing disposition, stated explicitly.** It keeps `D-252`'s
+sequence above unchanged and names its receiver: the hosted `0002` migration and the A02 receipt move from "follow
+after `V1-SM05`" to `V1-SM06` (`SM06-P3-01`), and the queued Phase 3 CI items (`C-001`/`B-016`, `C-24`, `C-25`, `C-Q1`)
+are received there as `SM06-P3-02`–`05`. `V1-SM06.md`, `V1-SM05.md`, `SV-002.md`, `V1-BUILD-SPEC.md`,
+`.github/WORKFLOWS-SPEC.md`, `CONFIG_LOG.md`, `GOV-RES-001.md` and `scripts/checks/text-integrity.mjs` change in place.
+
+**`D-382` (2026-10-02) — no file added or retired, stated explicitly.** The sixteen-source review adds rows inside
+existing files: `SV-002.md` (§2.3.2 ledger, §2.3.1 anchors), `GOV-RES-001.md` (`GR-004`–`GR-008`), `V1-SM06.md`
+(`SM06-P3-06`), with pointers in `V1-BUILD-SPEC.md` and `.github/WORKFLOWS-SPEC.md`.
+
+**`D-383` (2026-10-02) — no file added or retired, stated explicitly.** `D-252`'s sequence above gains one named
+gate, unchanged in order: the accepted baseline-promotion PR is also `V1-SM06`'s entry prerequisite. Changed in
+place: `frag136.json` (two curated edges), `V1-SM05.md`, `V1-SM06.md`, `V1-BUILD-SPEC.md`, `.github/WORKFLOWS-SPEC.md`,
+`GOV-RES-001.md`, `SV-002.md`, and `B-102`, `B-103`, `B-114`, `B-150`.
+
+**`D-384` (2026-10-02) — no file added or retired, stated explicitly.** The `B-077`/`B-117` child census adds rows
+inside `SV-002.md` (§2.3.2) and `GOV-RES-001.md` (`GR-009`–`GR-011`).
+
+**`D-385` (2026-10-02) — no file added or retired, stated explicitly.** Changed in place: `docs/handoff/README.md`,
+`SV-002.md`, `docs/graph-fragments/frag5.json`, and `B-153`/`B-150` in their own one-path commits.
+
+**`D-386` (2026-10-02) — no file added or retired, stated explicitly.** Changed in place: the storyboard journal
+(three provenance markers) and `GOV-RES-001.md`; `B-115`/`B-150` in their own one-path commits.
+
+**`D-387` (2026-10-02) — one evidence file added, none retired.** Added:
+`docs/handoff/artifacts/B-115/lane-c-b154-review-with-b115-consumer-read-07d931e.txt`, a byte-identical copy of the
+Judge-supplied Lane C attachment, SHA-256 `6aebe93c197aa14f7db237fd13a926e43eddce642311e381866038fb2980a763`. It is
+evidence for `B-115`, like the `B-131` artifact. `SV-002.md` changes in place (§2.3.3 heading).
+
+**`D-388` (2026-10-02) — no file added or retired, stated explicitly.** Changed in place: the storyboard journal (A6
+sentence) and `SV-002.md`; `B-154`/`B-150` in their own one-path commits.
+
+**`D-389` (2026-10-02) — no file added or retired, stated explicitly.** Five ledger rows and tracker notes in
+`SV-002.md`; `B-061`/`B-150` in their own one-path commits.
+
+**`D-390` (2026-10-02) — no file added or retired, stated explicitly.** Twenty-six ledger rows and tracker notes in
+`SV-002.md`; `GR-012`/`GR-013` in `GOV-RES-001.md`; `B-150` in its own one-path commit.
+
+**`D-391` (2026-10-02) — no file added or retired, stated explicitly.** Seventy-five ledger rows in `SV-002.md`;
+`GR-014` in `GOV-RES-001.md`; `B-150` in its own one-path commit.
+
+**`D-392` (2026-10-02) — no file added or retired, stated explicitly.** `CR-14` row corrected in `Modular_PRD.md`
+§7.1 (`GR-004`); `GOV-RES-001.md` `GR-004` row updated; `B-154` answered in its own one-path commit.
+
+**`D-393` (2026-10-02) — one file added, none retired, stated explicitly.** `GR-012-013-SPEC.md` (draft) and its
+curated node `frag143.json`; `GOV-RES-001.md` rows `GR-002`, `GR-004`, `GR-012`, `GR-013` updated; `B-154` answered in
+its own one-path commit.
+
+**`D-394` (2026-10-02) — no file added or retired, stated explicitly.** `GR-015` in `GOV-RES-001.md`;
+`B-115` and `B-114` assessed, each in its own one-path commit.
+
+**`D-395` (2026-10-02) — no file added or retired, stated explicitly.** `.github/PULL_REQUEST_TEMPLATE/v1-mmf.md`
+changes in place (`GR-015`); `GOV-RES-001.md` `GR-015` row updated; `B-115` and `B-114` each in its own one-path commit.
+
+**`D-396` (2026-10-02) — no file added or retired, stated explicitly.** `GR-012-013-SPEC.md` gains §4 (the P4a work
+order); `GOV-RES-001.md` `GR-013` row updated. The unit's own changes are recorded when it lands.
+
+**`D-397` (2026-10-02) — no file added or retired, stated explicitly.** `scripts/fixtures/run.mjs`, `harness.mjs` and
+`suites.mjs` change in place; the `scripts/fixtures/` row is corrected; `B-021` annotated in its own commit.
 
 ## Temporary / Draft Artifacts
 

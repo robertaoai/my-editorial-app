@@ -6,8 +6,9 @@
 // useless as one that fails on nothing.
 
 import { execFileSync } from "node:child_process";
-import { fixture, read, write, withRetry, TRANSIENT_CODES, existsSync, rmSync, mkdirSync, runCheck } from "./harness.mjs";
-import { readdirSync, readFileSync } from "node:fs";
+import { fixture, read, write, withRetry, TRANSIENT_CODES, existsSync, rmSync, mkdirSync, runCheck, snapshot } from "./harness.mjs";
+import { join } from "node:path";
+import { readdirSync, readFileSync, rmdirSync } from "node:fs";
 import { field, ENTRY_FILE } from "../checks/handoff-fields.mjs";
 import { classify } from "../checks/lane-boundary.mjs";
 import { classifyChangedPaths } from "../checks/governed-intent.mjs";
@@ -21,6 +22,8 @@ import {
   walkEpisodes,
   fileHistory,
   diffAt,
+  recloseHistoryFindings,
+  WORKTREE,
 } from "../checks/terminal-return.mjs";
 
 const CHECK = (n) => new URL(`../checks/${n}`, import.meta.url).href;
@@ -32,6 +35,8 @@ const LANESTATE = "scripts/checks/lane-state.mjs";
 const CHANNEL = "scripts/checks/channel-docs.mjs";
 
 const ENTRY = "docs/handoff/B-001-s0-completion-boundary.md";
+// `D-272`: a `C-` entry names its receiver. `C-001` is the live example (Receiver: Lane A).
+const C_ENTRY = "docs/handoff/C-001-rename-required-check.md";
 const CLOSURE = "docs/v1/V1-PHASE-CLOSURE.md";
 const README = "docs/handoff/README.md";
 const TEMPLATE = "docs/handoff/TEMPLATE.md";
@@ -204,6 +209,47 @@ export async function handoffFields(results) {
     mutate: () => write(ENTRY, orig.replace(/^- \*\*Lane A:\*\*.*$\n/m, "")),
     restore,
     expect: "no **Lane A:** field",
+  });
+  // `D-272`. Each series has a receiver: `B-` is always Lane A; a `C-` entry
+  // names Lane A or Lane B in `Receiver:` and the check reads THAT lane's field.
+  // Four cases: missing receiver, invalid receiver, a Lane B receiver with no
+  // Lane B field (fail), and a Lane B receiver that has answered (pass).
+  const cOrig = read(C_ENTRY);
+  const cRestore = () => write(C_ENTRY, cOrig);
+  await fixture(results, {
+    name: "handoff: a C- entry with no Receiver is malformed (D-272)",
+    modulePath: CHECK("handoff-response.mjs"),
+    mutate: () => write(C_ENTRY, cOrig.replace(/^- \*\*Receiver:\*\*.*$\n/m, "")),
+    restore: cRestore,
+    expect: "no **Receiver:** field",
+  });
+  await fixture(results, {
+    name: "handoff: a C- entry may only name Lane A or Lane B as Receiver (D-272)",
+    modulePath: CHECK("handoff-response.mjs"),
+    mutate: () => write(C_ENTRY, cOrig.replace(/^- \*\*Receiver:\*\*.*$/m, "- **Receiver:** Lane C")),
+    restore: cRestore,
+    expect: "is not `Lane A` or `Lane B`",
+  });
+  await fixture(results, {
+    name: "handoff: a C- entry routed to Lane B is read from the Lane B field, not Lane A (D-272)",
+    modulePath: CHECK("handoff-response.mjs"),
+    mutate: () => write(C_ENTRY, cOrig.replace(/^- \*\*Receiver:\*\*.*$/m, "- **Receiver:** Lane B")),
+    restore: cRestore,
+    expect: "no **Lane B:** field",
+  });
+  await fixture(results, {
+    name: "handoff: a C- entry answered by its Lane B receiver passes (D-272)",
+    modulePath: CHECK("handoff-response.mjs"),
+    mutate: () =>
+      write(
+        C_ENTRY,
+        cOrig.replace(
+          /^- \*\*Receiver:\*\*.*$/m,
+          "- **Receiver:** Lane B\n- **Lane B:** Acknowledged and answered (fixture)",
+        ),
+      ),
+    restore: cRestore,
+    shouldPass: true,
   });
   // `G84`, `D-113`. A turn report can never carry a terminal `Resolution`, so
   // it must not be counted among the entries that lack one. Asserting the
@@ -515,6 +561,7 @@ export async function phaseScope(results) {
 export async function syncDocs(results) {
   const canon = read(CANON);
   const dupDir = ".agents/skills/sync-docs";
+  let undoDup;
 
   await fixture(results, {
     name: "sync-docs: the live repository, unmutated",
@@ -526,11 +573,14 @@ export async function syncDocs(results) {
   await fixture(results, {
     name: "sync-docs: an UNTRACKED duplicate runbook",
     modulePath: CHECK("sync-docs-uniqueness.mjs"),
+    // `D-396`: baseline restore. The old file-only restore removed SKILL.md and left
+    // `.agents/skills/sync-docs/` behind on every run (`GR-012`, `GR-013`).
     mutate: () => {
+      undoDup = snapshot([".agents", ".agents/skills", dupDir, `${dupDir}/SKILL.md`]);
       mkdirSync(dupDir, { recursive: true });
       write(`${dupDir}/SKILL.md`, "# duplicate\nAGENTS.md, AGENTS.md, graphify.md\n");
     },
-    restore: () => rmSync(`${dupDir}/SKILL.md`, { force: true }),
+    restore: () => undoDup?.(),
     expect: "duplicate sync-docs procedure",
   });
   await fixture(results, {
@@ -606,10 +656,21 @@ export async function laneState(results) {
   // `D-156` inverted three of these against `D-108` (`G110`). Kept as fixtures
   // rather than deleted: the pairs below are the proof the inversion took
   // effect, and a deleted negative test leaves no evidence either way.
+  // The third lane is set `Blocked` explicitly rather than inherited: when the
+  // live register already nominates it (`D-296` nominated C), inheriting its
+  // state made this "one Eligible" case two, and the fixture tested nothing.
   await fixture(results, {
     name: `lane-state: ONE Eligible beside Active is the nomination (${others[0]} offered while ${active} runs)`,
     modulePath: CHECK("lane-state.mjs"),
-    mutate: () => write(CLOSURE, setState(orig, others[0], "**`Eligible`**")),
+    mutate: () =>
+      write(
+        CLOSURE,
+        setState(
+          setState(orig, others[0], "**`Eligible`**"),
+          others[1],
+          `**\`Blocked\`** on the Lane ${active} run`,
+        ),
+      ),
     restore,
     shouldPass: true,
   });
@@ -638,7 +699,14 @@ export async function laneState(results) {
   await fixture(results, {
     name: `lane-state: NO lane is Active — ${active} steps out with others Blocked`,
     modulePath: CHECK("lane-state.mjs"),
-    mutate: () => write(CLOSURE, setState(orig, active, "**`Eligible`**")),
+    mutate: () =>
+      write(
+        CLOSURE,
+        others.reduce(
+          (t, L) => setState(t, L, `**\`Blocked\`** on the Lane ${active} run`),
+          setState(orig, active, "**`Eligible`**"),
+        ),
+      ),
     restore,
     expect: "NO lane is `Active`",
   });
@@ -876,10 +944,15 @@ export async function laneGate(results) {
   const CFG = "docs/CONFIG_LOG.md";
   const ci0 = read(CI);
   const cfg0 = read(CFG);
-  const msgDir = ".git/lane-gate-fixture";
-  const msgPath = `${msgDir}/msg`;
+  // `D-396`: in a git worktree `.git` is a pointer FILE, so the scratch folder is resolved
+  // through git and restored to its baseline instead of being deleted recursively.
+  const gitDir = execFileSync("git", ["rev-parse", "--absolute-git-dir"], { encoding: "utf8" }).trim();
+  const msgDir = join(gitDir, "lane-gate-fixture");
+  const msgPath = join(msgDir, "msg");
+  let undoMsg;
 
   const setup = () => {
+    undoMsg = snapshot([msgDir, msgPath], { roots: [gitDir] });
     mkdirSync(msgDir, { recursive: true });
     write(CI, `${ci0}\n# fixture\n`);
     write(CFG, `${cfg0}\n<!-- fixture -->\n`);
@@ -889,7 +962,7 @@ export async function laneGate(results) {
     try { execFileSync("git", ["restore", "--staged", CI, CFG]); } catch { /* nothing staged */ }
     write(CI, ci0);
     write(CFG, cfg0);
-    rmSync(msgDir, { recursive: true, force: true });
+    undoMsg?.();
   };
 
   const cases = [
@@ -1528,6 +1601,399 @@ export async function terminalAnnotationForm(results) {
 }
 
 /**
+ * `D-364` (P0a) — the Re-close record, its binding to exactly one return
+ * episode, the header it permits, and the `Verified-By` header rule
+ * (`U4-G8`). FORM cases run `handoff-response` against a mutated scratch
+ * entry; the history half runs `recloseHistoryFindings` against a mocked
+ * `exec`, so no fixture depends on which commits this clone happens to hold.
+ */
+export async function recloseRecordForm(results) {
+  const orig = read(ENTRY);
+  const restore = () => write(ENTRY, orig);
+  const RET1 = "67706ca";
+  const RET2 = "58072b5";
+
+  const block = (heading, f) =>
+    `## ${heading}\n\n${Object.entries(f)
+      .filter(([, v]) => v !== null)
+      .map(([k, v]) => `- **${k}:** ${v}`)
+      .join("\n")}\n`;
+  const ret = (at = RET1, act = "`D-264`, test act, Judge, 2026-09-30") =>
+    block("Return record", {
+      "Previous-Resolution": "Deferred",
+      "Return-Trigger": "test condition satisfied",
+      "Return-Act": act,
+      "Returned-At-Commit": at,
+    });
+  const reclose = (fields = {}) =>
+    block("Re-close record", {
+      "Reclosed-Return": `\`D-264\`, Returned-At-Commit ${RET1}`,
+      "Completion-Condition": "test obligation",
+      "Completion-Evidence": "test accepted act and artifact",
+      "Reclose-Act": "D-364; test disposition act, 2026-09-30",
+      "Reclosed-At-Commit": "d455af6",
+      ...fields,
+    });
+  // `resolution: null` removes the line; `verifiedBy: null` removes that line.
+  const header = ({ status = "Answered", resolution = "Applied", verifiedBy = "— not independently verified; dispositioned by Lane A" } = {}) => {
+    let s = orig.replace(/^- \*\*Status:\*\*.*$/m, `- **Status:** ${status}`);
+    s = verifiedBy === null
+      ? s.replace(/^- \*\*Verified-By:\*\*.*$\n?/m, "")
+      : s.replace(/^- \*\*Verified-By:\*\*.*$/m, `- **Verified-By:** ${verifiedBy}`);
+    s = resolution === null
+      ? s.replace(/^- \*\*Resolution:\*\*.*$\n?/m, "")
+      : s.replace(/^- \*\*Resolution:\*\*.*$/m, `- **Resolution:** ${resolution}`);
+    return s;
+  };
+  const entry = (h, ...blocks) => `${h}\n\n${blocks.join("\n")}`;
+  const openHeader = header({ status: "Open", resolution: null, verifiedBy: "— not yet dispositioned; raised by Lane B" });
+
+  const cases = [
+    { name: "re-close: return then complete re-close, Answered/Applied — passes", text: entry(header(), ret(), reclose()), shouldPass: true },
+    {
+      name: "re-close: two full cycles, each re-close citing its own return — passes",
+      text: entry(header(), ret(), reclose(), ret(RET2, "`D-300`, second act"), reclose({ "Reclosed-Return": `\`D-300\`, Returned-At-Commit ${RET2}` })),
+      shouldPass: true,
+    },
+    {
+      name: "re-close: completed and independently Verified by Lane B — passes (B-152 item 1)",
+      text: entry(header({ resolution: "Verified", verifiedBy: "Lane B (Codex), independent review 2026-09-30" }), ret(), reclose()),
+      shouldPass: true,
+    },
+    {
+      name: "re-close: date-only Return-Act (B-071's shape) cited by its date — passes",
+      text: entry(header(), ret(RET1, "Chief Editor/Judge, 2026-09-14 — `Judge Approved: decision-\n  planning and handoff correction only"), reclose({ "Reclosed-Return": `Chief Editor/Judge ruling 2026-09-14, Returned-At-Commit ${RET1}` })),
+      shouldPass: true,
+    },
+    {
+      name: "re-close: act token on a wrapped continuation line of Reclosed-Return — passes",
+      text: entry(header(), ret(), reclose({ "Reclosed-Return": `Returned-At-Commit ${RET1}, completing the return under\n  \`D-264\`` })),
+      shouldPass: true,
+    },
+    { name: "re-close F1: completed episode with Status Withdrawn (B-152)", text: entry(header({ status: "Withdrawn" }), ret(), reclose()), expect: "a completed return reads `Answered`" },
+    { name: "re-close F2: Reclosed-Return names only the SHA (B-152)", text: entry(header(), ret(), reclose({ "Reclosed-Return": `Returned-At-Commit ${RET1}` })), expect: "missing `D-264`" },
+    { name: "re-close F2: right SHA beside a different act (B-152)", text: entry(header(), ret(), reclose({ "Reclosed-Return": `\`D-999\`, Returned-At-Commit ${RET1}` })), expect: "missing `D-264`" },
+    { name: "re-close F2: right act, SHA missing (B-152)", text: entry(header(), ret(), reclose({ "Reclosed-Return": "`D-264` only" })), expect: "does not cite `67706ca`" },
+    { name: "re-close F2: date-only act not cited by its date", text: entry(header(), ret(RET1, "Chief Editor/Judge, 2026-09-14"), reclose({ "Reclosed-Return": `Chief Editor ruling, Returned-At-Commit ${RET1}` })), expect: "missing `2026-09-14`" },
+    { name: "re-close F2: Return-Act names no decision and no date", text: entry(header(), ret(RET1, "an act with no identifier"), reclose()), expect: "names no decision ID and no date" },
+    { name: "re-close: open return, no re-close, Open header — still passes (B-130 today)", text: entry(openHeader, ret()), shouldPass: true },
+    {
+      name: "re-close: an illustrative fenced EXAMPLE is not a live re-close",
+      text: `${orig}\n\n\`\`\`markdown\n## Re-close record\n\n- **Reclosed-Return:** <episode>\n- **Completion-Condition:** <c>\n- **Completion-Evidence:** <e>\n- **Reclose-Act:** <act>\n- **Reclosed-At-Commit:** <commit>\n\`\`\`\n`,
+      shouldPass: true,
+    },
+    {
+      name: "re-close: an old re-close does not cover a later reopening — Answered header fails",
+      text: entry(header(), ret(), reclose(), ret(RET2)),
+      expect: "is not `Open`",
+    },
+    { name: "re-close: no Return record before it", text: entry(header(), reclose()), expect: "no Return record before it" },
+    { name: "re-close: two re-closes for one return episode", text: entry(header(), ret(), reclose(), reclose()), expect: "second Re-close record for the same return episode" },
+    { name: "re-close: Reclosed-Return cites a different commit", text: entry(header(), ret(), reclose({ "Reclosed-Return": "`D-264`, Returned-At-Commit abcdef0" })), expect: "does not cite `67706ca`" },
+    { name: "re-close: blank Completion-Evidence", text: entry(header(), ret(), reclose({ "Completion-Evidence": "" })), expect: "**Completion-Evidence:** is present but BLANK" },
+    { name: "re-close: missing Reclose-Act (field absent, not merely blank)", text: entry(header(), ret(), reclose({ "Reclose-Act": null })), expect: "has no **Reclose-Act:**" },
+    { name: "re-close: Reclosed-At-Commit is not hexadecimal", text: entry(header(), ret(), reclose({ "Reclosed-At-Commit": "not-a-commit" })), expect: "is not a hexadecimal commit SHA" },
+    { name: "re-close: completed episode but Status still Open", text: entry(header({ status: "Open" }), ret(), reclose()), expect: "is still `Open`" },
+    { name: "re-close: completed episode but no Resolution", text: entry(header({ resolution: null }), ret(), reclose()), expect: "no **Resolution:**" },
+    { name: "header rule: an entry with no Verified-By line", text: header({ verifiedBy: null }), expect: "no **Verified-By:** field" },
+    { name: "header rule: Answered beside the raised pre-disposition Verified-By (U4-G8)", text: header({ verifiedBy: "— not yet dispositioned; raised by Lane B" }), expect: "still reads the raised" },
+  ];
+  for (const c of cases) {
+    await fixture(results, {
+      name: c.name,
+      modulePath: CHECK("handoff-response.mjs"),
+      mutate: () => write(ENTRY, c.text),
+      restore,
+      shouldPass: c.shouldPass ?? false,
+      expect: c.expect,
+    });
+  }
+
+  // A re-close is the answering side's record. It opens no path to a
+  // self-recorded `Verified`: `closure-readiness` still rejects it.
+  await fixture(results, {
+    name: "re-close: re-closed entry marked Verified by Lane A — closure-readiness rejects it",
+    modulePath: CHECK("closure-readiness.mjs"),
+    mutate: () => write(ENTRY, entry(header({ resolution: "Verified", verifiedBy: "Lane A" }), ret(), reclose())),
+    restore,
+    expect: "is the answering side",
+  });
+
+  // History half — mocked git. `graph` maps each commit to its ancestors.
+  const FULL = { a1: "a".repeat(40), b2: "b".repeat(40), c3: "c".repeat(40), d4: "d".repeat(40) };
+  const graph = { [FULL.a1]: [], [FULL.b2]: [FULL.a1], [FULL.c3]: [FULL.a1, FULL.b2], [FULL.d4]: [FULL.a1, FULL.b2, FULL.c3] };
+  const exec = (_cmd, args) => {
+    if (args[0] === "rev-parse") {
+      const short = args[3].replace("^{commit}", "");
+      const full = Object.values(FULL).find((f) => f.startsWith(short));
+      if (!full) throw new Error("unknown revision");
+      return `${full}\n`;
+    }
+    if (args[0] === "merge-base") {
+      const [, , anc, desc] = args;
+      if (anc === desc || graph[desc]?.includes(anc)) return "";
+      throw new Error("not ancestor");
+    }
+    throw new Error(`unexpected git ${args[0]}`);
+  };
+  const hist = (...blocks) => blocks.join("\n");
+  const r = (at) => block("Return record", { "Previous-Resolution": "Deferred", "Return-Trigger": "t", "Return-Act": "a", "Returned-At-Commit": at });
+  const c = (at) => block("Re-close record", { "Reclosed-Return": "x", "Completion-Condition": "c", "Completion-Evidence": "e", "Reclose-Act": "D-364", "Reclosed-At-Commit": at });
+  const A = "aaaaaaa";
+  const B = "bbbbbbb";
+  const C = "ccccccc";
+  const D = "ddddddd";
+  const history = [
+    { name: "re-close history: completion read after its return — no finding", text: hist(r(A), c(B)), expect: null },
+    { name: "re-close history: Reclosed-At-Commit is not a commit", text: hist(r(A), c("eeeeeee")), expect: "Reclosed-At-Commit:** `eeeeeee` is not a commit" },
+    { name: "re-close history: Returned-At-Commit is not a commit", text: hist(r("eeeeeee")), expect: "Returned-At-Commit:** `eeeeeee` is not a commit" },
+    { name: "re-close history: completion predates its return", text: hist(r(C), c(B)), expect: "does not come after" },
+    { name: "re-close history: completion read at the return commit itself", text: hist(r(B), c(B)), expect: "does not come after" },
+    { name: "re-close history: second episode binds to the LATEST return, not the first", text: hist(r(A), c(B), r(D), c(C)), expect: "does not come after" },
+    { name: "re-close history: two ordered episodes — no finding", text: hist(r(A), c(B), r(C), c(D)), expect: null },
+    { name: "re-close history: fenced example is not a live record", text: `\`\`\`markdown\n${hist(r("eeeeeee"), c("fffffff"))}\`\`\`\n`, expect: null },
+  ];
+  for (const h of history) {
+    let got;
+    try {
+      got = recloseHistoryFindings(h.text, "X.md", exec).findings;
+    } catch (e) {
+      results.push({ name: h.name, ok: false, detail: `threw: ${e.message}` });
+      continue;
+    }
+    const ok = h.expect === null ? got.length === 0 : got.some((f) => f.includes(h.expect));
+    results.push({ name: h.name, ok, detail: ok ? (h.expect === null ? "no finding" : "fails as intended") : `got: ${got[0] ?? "no finding"}` });
+  }
+}
+
+/**
+ * `B-116` item 5 (`D-375`) — singleton cardinality. A lifecycle or audit field
+ * appears at most once in the header; fenced examples and records below a
+ * `## ` heading stay repeatable.
+ */
+export async function singletonCardinality(results) {
+  const orig = read(ENTRY);
+  const restore = () => write(ENTRY, orig);
+  const firstHeading = orig.search(/^## /m);
+  const head = orig.slice(0, firstHeading);
+  const body = orig.slice(firstHeading);
+  const vac = (/^- \*\*Verified-At-Commit:\*\*.*$/m.exec(orig) || [])[0];
+  const status = (/^- \*\*Status:\*\*.*$/m.exec(orig) || [])[0];
+  const cases = [
+    { name: "cardinality: a second header Verified-At-Commit (the B-113 shape) FAILS", text: `${head.trimEnd()}\n- **Verified-At-Commit:** 33687530f36a0bd3fdd1b06f625404cb9efdf827\n\n${body}`, expect: "**Verified-At-Commit:** appears 2 times in the header" },
+    { name: "cardinality: a second header Status FAILS", text: `${head.trimEnd()}\n${status}\n\n${body}`, expect: "**Status:** appears 2 times in the header" },
+    { name: "cardinality: a stale Verified-By pair in the header (the B-071 shape) FAILS", text: `${head.trimEnd()}\n- **Verified-By:** — not independently verified; dispositioned by Lane A\n\n${body}`, expect: "**Verified-By:** appears 2 times in the header" },
+    { name: "cardinality: a fenced example repeating header fields stays green", text: `${head.trimEnd()}\n\n\`\`\`markdown\n${vac}\n${status}\n\`\`\`\n\n${body}`, shouldPass: true },
+    { name: "cardinality: the same field repeated BELOW a ## heading stays green", text: `${orig}\n\n## Example record\n\n${vac}\n`, shouldPass: true },
+  ];
+  // `D-378` (Lane B, `38c1cb4`): the reader is case-insensitive, so the rule must be. For each of the nine
+  // singletons, a lower-case copy with a DIFFERENT value is placed BEFORE the canonical line (reversed order);
+  // a name the scratch header lacks gets both copies, so every case is a real duplicate.
+  const NINE = ["Kind", "Phase", "Receiver", "Status", "Resolution", "Verified-By", "Verified-At-Commit", "Follow-up-Tier", "Superseded-By"];
+  const titleEnd = head.indexOf("\n") + 1;
+  for (const name of NINE) {
+    const present = new RegExp(`^- \\*\\*${name}:\\*\\*`, "m").test(head);
+    const lower = `- **${name.toLowerCase()}:** mixed-case value that differs\n`;
+    const added = present ? lower : `${lower}- **${name}:** canonical value\n`;
+    cases.push({
+      name: `cardinality: a mixed-case duplicate of ${name}, reversed order and differing value, FAILS (D-378)`,
+      text: `${head.slice(0, titleEnd)}${added}${head.slice(titleEnd)}${body}`,
+      expect: `**${name}:** appears 2 times in the header`,
+    });
+  }
+  for (const c of cases) {
+    await fixture(results, {
+      name: c.name,
+      modulePath: CHECK("handoff-response.mjs"),
+      mutate: () => write(ENTRY, c.text),
+      restore,
+      shouldPass: c.shouldPass ?? false,
+      expect: c.expect,
+    });
+  }
+}
+
+/**
+ * `D-364` U2 — the Gate 2 mode: reports always, fails only under a claim,
+ * and then fails on exactly item 7's conditions (`D-367` item 3).
+ */
+export async function gate2Mode(results) {
+  const { parseTracker, parseChildMatrix, parsePrepLabels, sm05Blocked, gate2Claimed, gate2Evaluate, TRACKER_PATH, SM05_PATH } = await import(CHECK("closure-readiness.mjs"));
+  const tOrig = read(TRACKER_PATH);
+  const sOrig = read(SM05_PATH);
+  const row = (entry, scope, clearance, order = "O1") => ({ key: entry, entry, order, scope, clearance });
+  const tr = (rows) => ({ derivedAt: "aa21f55", claim: "no", rows });
+  const live = (pairs) => new Map(pairs);
+  const n = (r) => r.findings.length;
+  const pure = [
+    { name: "gate2: the live tracker parses — rows, derivation commit, unclaimed", got: () => { const t = parseTracker(tOrig); return t && t.rows.length > 0 && /^[0-9a-f]{7}/.test(t.derivedAt) && t.claim === "no"; }, want: true },
+    { name: "gate2: the live SM05 packet still reads BLOCKED", got: () => sm05Blocked(sOrig), want: true },
+    { name: "gate2: unclaimed + BLOCKED is no claim", got: () => gate2Claimed(tr([]), true), want: null },
+    { name: "gate2: a claim line is a claim", got: () => typeof gate2Claimed({ ...tr([]), claim: "at `abc1234`" }, true), want: "string" },
+    { name: "gate2: SM05 leaving BLOCKED is a claim", got: () => typeof gate2Claimed(tr([]), false), want: "string" },
+    { name: "gate2: NO claim, unclosed non-SM05 row — report only, no failure", got: () => n(gate2Evaluate({ tracker: tr([row("B-1", "non-SM05", "open")]), live: live([["B-1", false]]), claimed: null, stale: true })), want: 0 },
+    { name: "gate2: claim + unclosed non-SM05 row FAILS", got: () => gate2Evaluate({ tracker: tr([row("B-1", "non-SM05", "open")]), live: live([["B-1", false]]), claimed: "x", stale: false }).findings.some((f) => f.includes("is not closed")), want: true },
+    { name: "gate2: claim + stale derivation FAILS even when every row is closed", got: () => gate2Evaluate({ tracker: tr([row("B-1", "non-SM05", "closed")]), live: live([["B-1", false]]), claimed: "x", stale: true }).findings.some((f) => f.includes("older than the newest")), want: true },
+    { name: "gate2: claim + all closed + current derivation passes", got: () => n(gate2Evaluate({ tracker: tr([row("B-1", "non-SM05", "closed"), row("B-2", "SM05", "received", "O2")]), live: live([["B-1", false], ["B-2", false]]), claimed: "x", stale: false })), want: 0 },
+    { name: "gate2: claim + a live unverified entry missing from the tracker FAILS", got: () => gate2Evaluate({ tracker: tr([]), live: live([["B-9", false]]), claimed: "x", stale: false }).findings.some((f) => f.includes("has no tracker row")), want: true },
+    { name: "gate2: claim + open row whose header is now independently Verified — closed, passes", got: () => n(gate2Evaluate({ tracker: tr([row("B-1", "non-SM05", "open")]), live: live([["B-1", true]]), claimed: "x", stale: false })), want: 0 },
+    { name: "gate2: claim + SM05 row not received — reported, not failed (item 7's bound)", got: () => n(gate2Evaluate({ tracker: tr([row("B-2", "SM05", "open", "O2")]), live: live([["B-2", false]]), claimed: "x", stale: false })), want: 0 },
+    { name: "gate2: claim + unprovable currency FAILS rather than passing silently", got: () => gate2Evaluate({ tracker: tr([]), live: live([]), claimed: "x", stale: null }).findings.some((f) => f.includes("cannot be proven")), want: true },
+    // `D-370` — Lane B's U2-F2: malformed Scope must not read as cleared. Parser to evaluator.
+    ...["nonSM05", ""].map((sc) => ({
+      name: `gate2 U2-F2: parsed Scope ${JSON.stringify(sc)} under a claim FAILS as unclassifiable`,
+      got: () => {
+        const t = parseTracker(`#### 2.3.1 Gate 2 tracker\n\n- **Derived at:** \`aa21f55\`\n- **Gate 2 clearance claimed:** no\n\n| Entry | Order | Scope | Clearance | Basis |\n|---|---|---|---|---|\n| \`B-1\` | O1 | ${sc} | open | x |\n`);
+        return gate2Evaluate({ tracker: t, live: live([["B-1", false]]), claimed: "x", stale: false }).findings.some((f) => f.includes("cannot be classified"));
+      },
+      want: true,
+    })),
+    { name: "gate2 U2-F2: an invalid row while UNCLAIMED is reported, not failed", got: () => { const r = gate2Evaluate({ tracker: tr([row("B-1", "nonSM05", "open")]), live: live([["B-1", false]]), claimed: null, stale: false }); return r.findings.length === 0 && r.report.includes("1 row(s) invalid"); }, want: true },
+    { name: "gate2 U2-F2: `received` on a non-SM05 row is invalid under a claim", got: () => gate2Evaluate({ tracker: tr([row("B-1", "non-SM05", "received")]), live: live([["B-1", false]]), claimed: "x", stale: false }).findings.some((f) => f.includes("SM05 receipt")), want: true },
+    // `D-370` — Lane B's U2-F1: a received SM05 child cannot hide an open non-SM05 sibling.
+    {
+      name: "gate2 U2-F1: SM05 child received, non-SM05 sibling open — the sibling FAILS under a claim",
+      got: () => {
+        const kids = [{ key: "B-9.O1", parent: "B-9", scope: "SM05" }, { key: "B-9.O2", parent: "B-9", scope: "non-SM05" }];
+        const rows = [{ ...row("B-9", "SM05", "received", "O2"), key: "B-9" }, { key: "B-9 (B-9.O1)", entry: "B-9", child: "B-9.O1", order: "O2", scope: "SM05", clearance: "received" }, { key: "B-9 (B-9.O2)", entry: "B-9", child: "B-9.O2", order: "O4", scope: "non-SM05", clearance: "open" }];
+        return gate2Evaluate({ tracker: tr(rows), live: live([["B-9", false]]), claimed: "x", stale: false, children: kids }).findings.some((f) => f.includes("B-9 (B-9.O2)") && f.includes("is not closed"));
+      },
+      want: true,
+    },
+    { name: "gate2 U2-F1: a §3.3 child with no tracker row FAILS under a claim", got: () => gate2Evaluate({ tracker: tr([row("B-9", "SM05", "received", "O2")]), live: live([["B-9", false]]), claimed: "x", stale: false, children: [{ key: "B-9.O2", parent: "B-9", scope: "non-SM05" }] }).findings.some((f) => f.includes("has no tracker row")), want: true },
+    { name: "gate2 U2-F1: a child row whose Scope disagrees with §3.3 is invalid", got: () => gate2Evaluate({ tracker: tr([{ key: "B-9 (B-9.O2)", entry: "B-9", child: "B-9.O2", order: "O2", scope: "SM05", clearance: "received" }]), live: live([["B-9", false]]), claimed: "x", stale: false, children: [{ key: "B-9.O2", parent: "B-9", scope: "non-SM05" }] }).findings.some((f) => f.includes("disagrees with §3.3")), want: true },
+    { name: "gate2 U2-F1: children of a Verified entry need no row", got: () => n(gate2Evaluate({ tracker: tr([]), live: live([["B-9", true]]), claimed: "x", stale: false, children: [{ key: "B-9.O2", parent: "B-9", scope: "non-SM05" }] })), want: 0 },
+    // `D-371` — Lane B's U2-F3: a child is bound to its own parent. Parser to evaluator.
+    ...[
+      ["unrelated Verified owner", true],
+      ["unverified owner", false],
+    ].map(([label, ownerVerified]) => ({
+      name: `gate2 U2-F3: \`B-130 (B-104.O2)\` with an ${label} FAILS under a claim and leaves B-104.O2 unreferenced`,
+      got: () => {
+        const t = parseTracker(`#### 2.3.1 Gate 2 tracker\n\n- **Derived at:** \`aa21f55\`\n- **Gate 2 clearance claimed:** no\n\n| Entry | Order | Scope | Clearance | Basis |\n|---|---|---|---|---|\n| \`B-104\` | O2 | SM05 | received | x |\n| \`B-130 (B-104.O2)\` | O4 | non-SM05 | open | x |\n`);
+        const r = gate2Evaluate({ tracker: t, live: live([["B-104", false], ["B-130", ownerVerified]]), claimed: "x", stale: false, children: [{ key: "B-104.O2", parent: "B-104", scope: "non-SM05" }] });
+        return r.findings.some((f) => f.includes("belongs to `B-104`, not `B-130`")) && r.findings.some((f) => f.includes("`B-104.O2`") && f.includes("has no tracker row"));
+      },
+      want: true,
+    })),
+    { name: "gate2 U2-F3: the valid parent/child row passes when closed", got: () => n(gate2Evaluate({ tracker: tr([{ key: "B-104 (B-104.O2)", entry: "B-104", child: "B-104.O2", order: "O4", scope: "non-SM05", clearance: "closed" }]), live: live([["B-104", false]]), claimed: "x", stale: false, children: [{ key: "B-104.O2", parent: "B-104", scope: "non-SM05" }] })), want: 0 },
+    { name: "gate2 U2-F3: an unknown child key is invalid even under a Verified owner", got: () => gate2Evaluate({ tracker: tr([{ key: "B-130 (B-999.X1)", entry: "B-130", child: "B-999.X1", order: "O4", scope: "non-SM05", clearance: "open" }]), live: live([["B-130", true]]), claimed: "x", stale: false, children: [] }).findings.some((f) => f.includes("is not a §3.3 child")), want: true },
+    { name: "gate2 U2-F3: an §2.2 preparation label such as `(P15)` is not a child identity error", got: () => n(gate2Evaluate({ tracker: tr([{ key: "B-136 (P15)", entry: "B-136", child: "P15", order: "O1", scope: "non-SM05", clearance: "closed" }]), live: live([["B-136", false]]), claimed: "x", stale: false, children: [], labels: new Set(["P15"]) })), want: 0 },
+    // `D-372` — Lane B's label finding (`b6ac8f1`): a label must BE an §2.2 key. Parser to evaluator.
+    ...[
+      ["`B-130 (P999)` under an unrelated Verified owner", "B-130 (P999)", "B-130", "is not an §2.2 preparation label"],
+      ["composite `B-130 (P14a/P999)` under an unrelated Verified owner", "B-130 (P14a/P999)", "B-130", "`P999` is not an §2.2 preparation label"],
+    ].map(([label, key, owner, expectText]) => ({
+      name: `gate2 D-372: ${label} FAILS under a claim`,
+      got: () => {
+        const t = parseTracker(`#### 2.3.1 Gate 2 tracker\n\n- **Derived at:** \`aa21f55\`\n- **Gate 2 clearance claimed:** no\n\n| Entry | Order | Scope | Clearance | Basis |\n|---|---|---|---|---|\n| \`${key}\` | O1 | non-SM05 | closed | x |\n`);
+        return gate2Evaluate({ tracker: t, live: live([[owner, true]]), claimed: "x", stale: false, labels: parsePrepLabels(tOrig) }).findings.some((f) => f.includes(expectText));
+      },
+      want: true,
+    })),
+    { name: "gate2 D-372: the exact composite `B-136 (P14a/P14b)` passes", got: () => n(gate2Evaluate({ tracker: tr([{ key: "B-136 (P14a/P14b)", entry: "B-136", child: "P14a/P14b", order: "O3", scope: "SM05", clearance: "received" }]), live: live([["B-136", false]]), claimed: "x", stale: false, labels: parsePrepLabels(tOrig) })), want: 0 },
+    { name: "gate2 D-372: the bare family name `(P14)` is not an §2.2 key", got: () => gate2Evaluate({ tracker: tr([{ key: "B-136 (P14)", entry: "B-136", child: "P14", order: "O3", scope: "SM05", clearance: "received" }]), live: live([["B-136", false]]), claimed: "x", stale: false, labels: parsePrepLabels(tOrig) }).findings.some((f) => f.includes("`P14` is not an §2.2 preparation label")), want: true },
+    { name: "gate2 D-372: unknown label + malformed Scope — the identity error persists under a Verified owner", got: () => gate2Evaluate({ tracker: tr([{ key: "B-130 (P999)", entry: "B-130", child: "P999", order: "O1", scope: "nonSM05", clearance: "closed" }]), live: live([["B-130", true]]), claimed: "x", stale: false, labels: parsePrepLabels(tOrig) }).findings.some((f) => f.includes("`P999` is not an §2.2 preparation label") && f.includes("nonSM05")), want: true },
+    { name: "gate2 D-372: an unknown label while UNCLAIMED is reported, not failed", got: () => { const r = gate2Evaluate({ tracker: tr([{ key: "B-130 (P999)", entry: "B-130", child: "P999", order: "O1", scope: "non-SM05", clearance: "closed" }]), live: live([["B-130", true]]), claimed: null, stale: false, labels: parsePrepLabels(tOrig) }); return r.findings.length === 0 && r.report.includes("1 row(s) invalid"); }, want: true },
+    { name: "gate2 D-372: §2.2 labels are read from the live table (P14a, P11-G1, P16 known; P14 not)", got: () => { const l = parsePrepLabels(tOrig); return l.has("P14a") && l.has("P11-G1") && l.has("P16") && !l.has("P14"); }, want: true },
+    { name: "gate2 U2-F3: a wrong-parent row while UNCLAIMED is reported, not failed", got: () => { const r = gate2Evaluate({ tracker: tr([{ key: "B-130 (B-104.O2)", entry: "B-130", child: "B-104.O2", order: "O4", scope: "non-SM05", clearance: "open" }]), live: live([["B-104", false], ["B-130", true]]), claimed: null, stale: false, children: [{ key: "B-104.O2", parent: "B-104", scope: "non-SM05" }] }); return r.findings.length === 0 && r.report.includes("1 row(s) invalid") && r.report.includes("1 §3.3 child(ren) unreferenced"); }, want: true },
+    { name: "gate2: the live §3.3 matrix parses with parents and scopes", got: () => { const c = parseChildMatrix(tOrig); const f = (k) => c.find((x) => x.key === k); return c.length > 0 && f("B071-R204")?.parent === "B-071" && f("B071-R204")?.scope === "SM05" && f("B-104.O2")?.scope === "non-SM05"; }, want: true },
+    { name: "gate2: the live tracker has no invalid row and no unreferenced child", got: () => { const t = parseTracker(tOrig); const r = gate2Evaluate({ tracker: t, live: new Map(t.rows.map((x) => [x.entry, false])), claimed: null, stale: false, children: parseChildMatrix(tOrig), labels: parsePrepLabels(tOrig) }); return r.report.includes("0 §3.3 child(ren) unreferenced, 0 row(s) invalid"); }, want: true },
+  ];
+  for (const c of pure) {
+    let got;
+    try {
+      got = c.got();
+    } catch (e) {
+      results.push({ name: c.name, ok: false, detail: `threw: ${e.message}` });
+      continue;
+    }
+    const ok = got === c.want;
+    results.push({ name: c.name, ok, detail: ok ? `= ${JSON.stringify(got)}` : `expected ${JSON.stringify(c.want)}, got ${JSON.stringify(got)}` });
+  }
+
+  await fixture(results, {
+    name: "gate2: the live repository, unclaimed — closure-readiness stays green and reports",
+    modulePath: CHECK("closure-readiness.mjs"),
+    mutate: () => {},
+    restore: () => {},
+    shouldPass: true,
+    expectDetail: "Gate 2 not claimed — reporting only",
+  });
+  await fixture(results, {
+    name: "gate2: claim line recorded on the live tracker — unclosed rows fail",
+    modulePath: CHECK("closure-readiness.mjs"),
+    mutate: () => write(TRACKER_PATH, tOrig.replace("- **Gate 2 clearance claimed:** no", "- **Gate 2 clearance claimed:** at `aa21f55`")),
+    restore: () => write(TRACKER_PATH, tOrig),
+    expect: "is not closed",
+  });
+  await fixture(results, {
+    name: "gate2: SM05 status no longer BLOCKED — counts as a claim and fails",
+    modulePath: CHECK("closure-readiness.mjs"),
+    mutate: () => write(SM05_PATH, sOrig.replace(/`BLOCKED —/, "`SELECTED —")),
+    restore: () => write(SM05_PATH, sOrig),
+    expect: "no longer reads BLOCKED",
+  });
+}
+
+/**
+ * `D-368` — episode boundaries after a return, and the uncommitted preview
+ * (Lane B's `B-150` finding, 2026-10-01). Pure: synthetic diffs and steps.
+ */
+export async function terminalEpisodeBoundaries(results) {
+  const del = "diff --git a/x b/x\n--- a/x\n+++ b/x\n@@ -7,2 +7,1 @@\n-- **Resolution:** Deferred\n-- **Status:** Answered\n+- **Status:** Open\n";
+  const noTouch = "diff --git a/x b/x\n--- a/x\n+++ b/x\n@@ -9 +9 @@\n-some prose\n+other prose\n";
+  const s = (commit, resolutionAfter, isAuditOnly = false) => ({ commit, resolutionAfter, isAuditOnly });
+  const cases = [
+    { name: "resolutionAfterDiff: a diff deleting Resolution ends the disposition", got: () => resolutionAfterDiff(del, "Deferred"), want: null },
+    { name: "resolutionAfterDiff: diff metadata `--- a/x` is not a removed Resolution", got: () => resolutionAfterDiff(noTouch, "Deferred"), want: "Deferred" },
+    {
+      name: "episode: Deferred -> returned (deleted) -> Verified starts a NEW episode at the verification",
+      got: () => currentEpisodeStart([s("a", "Deferred"), s("b", resolutionAfterDiff(del, "Deferred")), s("c", "Verified")]),
+      want: 2,
+    },
+    {
+      name: "episode: the return and verification commits are not flagged as uncovered work",
+      got: () => walkEpisodes([s("a", "Deferred"), s("b", null), s("c", "Verified")], new Set()).join(","),
+      want: "",
+    },
+    {
+      name: "episode: genuine substantive work after the terminal disposition is still flagged",
+      got: () => walkEpisodes([s("a", "Deferred"), s("b", null), s("c", "Verified"), s("d", "Verified")], new Set()).join(","),
+      want: "d",
+    },
+    {
+      name: "preview: Open -> Applied -> pending Verified does not resurrect the old episode",
+      got: () => walkEpisodes([s("a", "Deferred"), s("b", null), s("c", "Applied"), s(WORKTREE, "Verified")], new Set()).join(","),
+      want: "",
+    },
+    {
+      name: "preview: the committed verification agrees with its preview",
+      got: () =>
+        String(currentEpisodeStart([s("a", "Deferred"), s("b", null), s("c", "Applied"), s("e", "Verified")])) ===
+        String(currentEpisodeStart([s("a", "Deferred"), s("b", null), s("c", "Applied"), s(WORKTREE, "Verified")])),
+      want: true,
+    },
+    {
+      name: "preview: an uncommitted substantive edit to a terminal entry is flagged as the WORKTREE step",
+      got: () => walkEpisodes([s("a", "Verified"), s(WORKTREE, "Verified")], new Set()).join(","),
+      want: WORKTREE,
+    },
+  ];
+  for (const c of cases) {
+    let got;
+    try {
+      got = c.got();
+    } catch (e) {
+      results.push({ name: c.name, ok: false, detail: `threw: ${e.message}` });
+      continue;
+    }
+    const ok = got === c.want;
+    results.push({ name: c.name, ok, detail: ok ? `= ${JSON.stringify(got)}` : `expected ${JSON.stringify(c.want)}, got ${JSON.stringify(got)}` });
+  }
+}
+
+/**
  * `B-097`/`B-113` — `terminal-return`'s history-aware half, three kinds of case:
  *
  *   1. PURE decisions (`currentEpisodeStart`, `walkEpisodes`) against
@@ -1739,10 +2205,13 @@ export async function terminalReturnDecision(results) {
       expect: "Deferred",
     },
     {
-      name: "resolutionAfterDiff: a removed-line-only diff (blanked, no replacement) is a stated gap — prior carries forward, not corrected to blank",
+      // Was a stated gap ("prior carries forward"); `D-368` closes it. A return
+      // deletes Resolution (`B-097`), and carrying the old value kept the entry
+      // inside its old terminal episode (Lane B's `B-150` finding).
+      name: "resolutionAfterDiff: a removed-line-only diff ends the disposition — the former stated gap, closed by D-368",
       diff: "@@ -9 +9,0 @@\n-- **Resolution:** Deferred\n",
       prior: "Deferred",
-      expect: "Deferred", // documents the known limitation, not a claim it is right
+      expect: null,
     },
   ];
   for (const c of resolutionCases) {
@@ -1968,15 +2437,211 @@ export async function graphCoverageManifest(results) {
   );
 }
 
+const DOCS_README = "docs/README.md";
+const B140 = "docs/handoff/B-140-sv002-route-c-access-path-corruption.md";
+
+/**
+ * `D-297` — the `B-140` path corruption, which recurred after a manual repair.
+ *
+ * Built by `String.raw` and explicit `\r`, never through a shell, because a
+ * shell layer is exactly how the defect was produced both times.
+ */
+export async function textIntegrity(results) {
+  const readmeOrig = read(DOCS_README);
+  const b140Orig = read(B140);
+  const restoreAll = () => {
+    write(DOCS_README, readmeOrig);
+    write(B140, b140Orig);
+  };
+  const good = "`" + String.raw`C:\Users\example\kit\ `.trimEnd() + "`";
+
+  await fixture(results, {
+    name: "text-integrity: the live corpus, unmutated",
+    modulePath: CHECK("text-integrity.mjs"),
+    mutate: () => {},
+    restore: restoreAll,
+    shouldPass: true,
+  });
+  await fixture(results, {
+    name: "text-integrity: CRLF line endings are not a finding",
+    modulePath: CHECK("text-integrity.mjs"),
+    mutate: () => write(DOCS_README, readmeOrig.replace(/\r?\n/g, "\r\n")),
+    restore: restoreAll,
+    shouldPass: true,
+  });
+  await fixture(results, {
+    name: "text-integrity: an intact drive path is not a finding",
+    modulePath: CHECK("text-integrity.mjs"),
+    mutate: () => write(DOCS_README, readmeOrig + `\nThe kit lives at ${good}.\n`),
+    restore: restoreAll,
+    shouldPass: true,
+  });
+  await fixture(results, {
+    name: "text-integrity: a bare carriage return inside a path (the B-140 shape)",
+    modulePath: CHECK("text-integrity.mjs"),
+    mutate: () => write(DOCS_README, readmeOrig + "\nThe kit lives at `C:Users\robertkit`.\n"),
+    restore: restoreAll,
+    expect: "a bare carriage return",
+  });
+  await fixture(results, {
+    name: "text-integrity: another control character",
+    modulePath: CHECK("text-integrity.mjs"),
+    mutate: () => write(DOCS_README, readmeOrig + "\nA form feed \f here.\n"),
+    restore: restoreAll,
+    expect: "control character U+000C",
+  });
+  await fixture(results, {
+    name: "text-integrity: a drive path that lost its separators, no control character",
+    modulePath: CHECK("text-integrity.mjs"),
+    mutate: () => write(DOCS_README, readmeOrig + "\nThe checkout is `C:gitmy-editorial-app`.\n"),
+    restore: restoreAll,
+    expect: "has no separator after the colon",
+  });
+  await fixture(results, {
+    name: "text-integrity: a spliced undefined after a heading (the D-380 shape, rule 3 from D-381)",
+    modulePath: CHECK("text-integrity.mjs"),
+    mutate: () => write(DOCS_README, readmeOrig + "\n# Attempt record (setup validation)undefined; a note |\n"),
+    restore: restoreAll,
+    expect: 'spliced "undefined"',
+  });
+  await fixture(results, {
+    name: "text-integrity: prose that says undefined is not a finding",
+    modulePath: CHECK("text-integrity.mjs"),
+    mutate: () =>
+      write(DOCS_README, readmeOrig + '\nThe domain is **undefined**, the fallback "undefined" is gone, and x is undefined.\n'),
+    restore: restoreAll,
+    shouldPass: true,
+  });
+  await fixture(results, {
+    name: "text-integrity: docs/handoff/ may quote a spliced undefined as evidence",
+    modulePath: CHECK("text-integrity.mjs"),
+    mutate: () => write(B140, b140Orig + "\nQuoted evidence: (setup validation)undefined; a note\n"),
+    restore: restoreAll,
+    shouldPass: true,
+  });
+  await fixture(results, {
+    name: "text-integrity: docs/handoff/ may quote a lost-separator path as evidence",
+    modulePath: CHECK("text-integrity.mjs"),
+    mutate: () => write(B140, b140Orig + "\nQuoted evidence: `C:gitmy-editorial-app`.\n"),
+    restore: restoreAll,
+    shouldPass: true,
+  });
+  await fixture(results, {
+    name: "text-integrity: docs/handoff/ is NOT exempt from the control-character rule",
+    modulePath: CHECK("text-integrity.mjs"),
+    mutate: () => write(B140, b140Orig + "\nQuoted evidence: `C:\robertaoai`.\n"),
+    restore: restoreAll,
+    expect: "a bare carriage return",
+  });
+}
+
+/**
+ * `rule-budget` (`D-324`, applied by `D-337`) — replaces `shared-core-hash`. The one-core design fails
+ * in ways parity never saw: an over-budget `AGENTS.md`, an import Claude Code drops SILENTLY
+ * (`D-327`), a second copy of the core, a rule hidden in a stripped HTML comment.
+ */
+export async function ruleBudget(results) {
+  const A = "AGENTS.md", C = "CLAUDE.md", G = "GEMINI.md";
+  const a = read(A), c = read(C), g = read(G);
+  const restoreAll = () => { write(A, a); write(C, c); write(G, g); };
+  const core = a.split("\n").find((l) => l.trim().length >= 60);
+  const cases = [
+    ["the live rule files, unmutated", () => {}, null],
+    ["AGENTS.md over the 5,400-character working ceiling", () => write(A, a + "x".repeat(3000) + "\n"), "over the 5400-character working ceiling"],
+    ["CLAUDE.md without its @AGENTS.md line", () => write(C, c.replace(/^@AGENTS\.md\n/m, "")), "has no `@AGENTS.md` import line"],
+    ["CLAUDE.md importing a file that does not exist (the silent D-327 drop)", () => write(C, "@docs/no-such-rules.md\n" + c), "drops it SILENTLY"],
+    ["a copy of the shared core in GEMINI.md", () => write(G, g + "\n" + core + "\n"), "repeats 1 line(s) of the shared core"],
+    ["a rule inside an HTML comment", () => write(C, c + "\n<!-- a rule nobody receives -->\n"), "contains an HTML comment"],
+  ];
+  for (const [label, mutate, expect] of cases) {
+    await fixture(results, {
+      name: `rule-budget: ${label}`,
+      modulePath: CHECK("rule-budget.mjs"),
+      mutate,
+      restore: restoreAll,
+      ...(expect ? { expect } : { shouldPass: true }),
+    });
+  }
+}
+
+/**
+ * `D-396` (`GR-013`) — the restore puts each path back to its baseline and refuses
+ * rather than delete what it did not create. G13-2/3/4 from `GR-012-013-SPEC.md`
+ * §1.4, plus the two refusals. Works in an untracked probe folder it removes.
+ */
+export async function snapshotRestore(results) {
+  const probe = ".fixture-snapshot-probe";
+  const dir = `${probe}/skills/sync-docs`;
+  const file = `${dir}/SKILL.md`;
+  const tree = [probe, `${probe}/skills`, dir, file];
+  const push = (name, ok, detail) => results.push({ name, ok, detail });
+  // Probe cleanup removes only the names this suite creates — no recursive delete here either.
+  const clear = () => {
+    for (const f of [file, `${dir}/notes.md`, `${dir}/foreign.md`]) rmSync(f, { force: true });
+    for (const d of [dir, `${probe}/skills`, probe]) if (existsSync(d) && readdirSync(d).length === 0) rmdirSync(d);
+  };
+  clear();
+  try {
+    // G13-2: absent at start → absent after.
+    let undo = snapshot(tree);
+    mkdirSync(dir, { recursive: true });
+    write(file, "x");
+    undo();
+    push("restore: a directory absent at start is absent after (G13-2)", !existsSync(probe), existsSync(probe) ? "left behind" : "removed");
+
+    // G13-3: already empty at start → still there and empty.
+    mkdirSync(dir, { recursive: true });
+    undo = snapshot(tree);
+    write(file, "x");
+    undo();
+    const empty = existsSync(dir) && readdirSync(dir).length === 0;
+    push("restore: a directory empty at start stays, empty (G13-3)", empty, empty ? "kept, empty" : "changed");
+    clear();
+
+    // G13-4: user content at start → untouched; a user's own file keeps its bytes.
+    mkdirSync(dir, { recursive: true });
+    write(`${dir}/notes.md`, "user");
+    write(file, "user skill");
+    undo = snapshot(tree);
+    write(file, "# duplicate");
+    undo();
+    const kept = read(`${dir}/notes.md`) === "user" && read(file) === "user skill";
+    push("restore: user content and a user's own file are untouched (G13-4)", kept, kept ? "bytes preserved" : "user content changed");
+    clear();
+
+    // Refusal: a created directory that gains foreign content is not deleted.
+    undo = snapshot(tree);
+    mkdirSync(dir, { recursive: true });
+    write(`${dir}/foreign.md`, "not the fixture's");
+    let threw = "";
+    try { undo(); } catch (e) { threw = e.message; }
+    const refused = threw.includes("not empty") && existsSync(`${dir}/foreign.md`);
+    push("restore: a created directory holding foreign content is refused, not deleted", refused, refused ? "refused, content kept" : `threw="${threw}"`);
+    clear();
+
+    // Refusal: a path outside the target is never managed.
+    let outside = "";
+    try { snapshot(["../outside-the-target"]); } catch (e) { outside = e.message; }
+    push("restore: a path outside the target is refused", outside.includes("outside"), outside || "accepted");
+  } finally {
+    clear();
+  }
+}
+
 export const SUITES = [
   ["handoff metadata and closure fields (`D-102`)", handoffFields],
   ["return record form (`B-097`)", returnRecordForm],
   ["terminal annotation record form (`B-113`)", terminalAnnotationForm],
+  ["re-close record and Verified-By header rule (`D-364` U1)", recloseRecordForm],
+  ["singleton header cardinality (`B-116` item 5, `D-375`)", singletonCardinality],
   ["terminal-return history-aware detection (`B-097`)", terminalReturnDecision],
+  ["terminal-return episode boundaries and preview (`D-368`)", terminalEpisodeBoundaries],
+  ["Gate 2 mode: report always, fail only under a claim (`D-364` U2, `D-367`)", gate2Mode],
   ["tier sweep fallback (`G98`, raised as `B-054`)", tierSweep],
   ["retention policy coupling (`D-134`)", retentionPolicyCoupling],
   ["phase-scoped closure gating (`D-102`)", phaseScope],
   ["sync-docs uniqueness (`D-102`)", syncDocs],
+  ["baseline-aware restore (`D-396`, `GR-013`)", snapshotRestore],
   ["lane state (`D-103`)", laneState],
   ["channel documentation (`D-104`)", channelDocs],
   ["lane crossing declaration (`D-105`)", laneGate],
@@ -1987,4 +2652,6 @@ export const SUITES = [
   ["config coupling (`C-17`, raised as `B-024`)", configCoupling],
   ["reopens-phase (`C-19`, raised as `B-025`)", reopensPhase],
   ["fixture retry resilience (`D-139`, raised against this session's own run)", retryResilience],
+  ["text integrity (`D-297`, the `B-140` recurrence)", textIntegrity],
+  ["rule budget and single core (`D-324`, applied by `D-337`)", ruleBudget],
 ];

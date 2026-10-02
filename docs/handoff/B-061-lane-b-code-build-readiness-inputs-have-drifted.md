@@ -116,3 +116,16 @@ graph, confirmed Graphify was synchronized at `4264d0b`, and ran the full consis
 typecheck, lint, and tests successfully. Lane B changed no application code, migration, build
 configuration, governing document, or lane state. This docs-only review requires no run ID or turn
 report under `D-160`.
+
+## Forward cross-reference — screening finding, `D-389`, 2026-10-02
+
+This append-only notice stops `Resolution: Applied` from being read as covering every requested act.
+
+| B-061 item | Current disposition | Current record |
+|---|---|---|
+| 2, 3, 5, 6 — tracking tiers, living inputs, `B-060` record, semantic verification | **Applied** (`D-162`) | This entry |
+| 1 — define the next Lane B code unit | **Superseded.** The next unit is the `V1-SM05` packet and the `D-242` work order, pending Gate 2 | `V1-SM05.md`; `LANE-B-WORK-ORDER.md` §7 |
+| 4 — S2 UX-spec dependency | **Held** with S2 under `D-171` | `D-171` |
+| 7 — executable handover | Governed now by the Gate 2 / selection / work-order sequence (`D-364`) | `SV-002` §2.3.1 |
+
+No transferable residual. Independent verification of the applied items is still owed.

@@ -213,3 +213,62 @@ an unnamed child, alter Product artifacts, expose data, build a workflow or depl
 | Reject | Lane C defining Product/editorial behavior or Lane A choosing implementation xDD | Keep each decision in its owning layer |
 | Defer | First executable MMF/build child and Lane C unit | Fresh bounded Judge authorization and lane selection |
 | Defer | Graphify synchronization | After Lane A's combined governed-source/control pass |
+
+## Lane A request — Lane C consumer read, `D-386`, 2026-10-02
+
+**Judge authorization:** "Judge authorizes Lane C B-115 read". Lane B's consumer read already passed (`B-153`, D-383
+outcomes, row 4). This entry's own completion condition also requires a **Lane C** consumer read, and none exists.
+
+**Lane C, please read at the current pushed revision and record the result in a `C-` entry or in this entry's
+body.** Confirm:
+1. `.github/WORKFLOWS-SPEC.md` §8 tells Lane C exactly when it may act: only after accepted Lane B evidence, with
+   allowlisted inputs.
+2. The `D-229`/`D-230` evidence contract gives Lane C enough to build a workflow that fails red on a missing or
+   malformed signal (`SM06-P3-06`).
+3. `docs/specs/SPECS-VERIFICATION-APPARATUS.md` §17 and `docs/README.md`'s layer map leave Lane C no Intent or
+   Build ownership.
+4. The deficiency-return path back to Lane B or Lane A is usable.
+
+**Accept** when all four are confirmed at a named commit. **Reject** with the failing item and its source text. This
+read is evidence for `B-115`, and then for `B-114`'s verification; it authorizes no workflow change or Phase 3 work.
+
+## Lane A record — Lane C consumer read preserved, `D-387`, 2026-10-02
+
+Both consumer reads that this entry's completion condition names now exist:
+- **Lane B:** passed, recorded in `B-153` (D-383 outcomes, row 4).
+- **Lane C:** four CONFIRMED findings read at `07d931e`:
+  1. WORKFLOWS-SPEC §8 acting window;
+  2. the `D-229`/`D-230` failure-capable contract;
+  3. no Intent or Build ownership;
+  4. a usable deficiency return.
+
+  Preserved byte for byte as
+  `docs/handoff/artifacts/B-115/lane-c-b154-review-with-b115-consumer-read-07d931e.txt` (SHA-256
+  `6aebe93c197aa14f7db237fd13a926e43eddce642311e381866038fb2980a763`). Only those four findings are taken from it;
+  its other claims were corrected in `B-154`.
+
+**Next:** an independent actor assesses this entry's whole completion condition and records any `Verified`. Then
+`B-114` is assessed. Lane A records no verification here.
+
+## Lane A assessment — whole completion condition, `D-394`, 2026-10-02
+
+Read at `5747585`. Lane A answered this entry, so this is a **completeness assessment for an independent verifier**,
+not a verification (`D-102`).
+
+| Follow-up step | Result | Evidence |
+|---|---|---|
+| 1–3 Register act, `B-114` corrected by reference | Met | `D-242` §5.14e67, "What this corrects and preserves" |
+| 4–6 one canonical home per layer, request-to-execution map | Met | `docs/README.md` layer order; `LANE-B-WORK-ORDER.md` §7; `.github/WORKFLOWS-SPEC.md` §8; `SPECS-VERIFICATION-APPARATUS.md` §17; `V1-BUILD-SPEC.md` pointer |
+| 7 push language by layer | Met | Work order §7: local atomic commits, then human final push; `D-184` exception kept distinct |
+| 8 six readiness conditions | **Five of six.** Missing outcome or MMF anchor: template §1 and §8. Lane C without accepted Lane B artifact, or invented signal: WORKFLOWS-SPEC §8, `D-229`. Missing xDD rationale: template line 45. **Push with no accepted integration tip: rule only, not a refusal condition** | Transferred to `GR-015` (`D-394`) |
+| 9 graph sync | Met | Repeated since; current at `5747585` |
+| 10 Lane B and Lane C consumer reads | Met, and current | Lane B: `B-153` row 4 (read `8e6ab54`). Lane C: four findings, `D-387` artifact, SHA-256 `6aebe93c…` re-computed and matching (read `07d931e`). No read surface or the template changed after either read |
+
+**Recommendation:** verifiable for its separation scope now, with the sixth step-8 condition transferred to
+`GR-015`. The verifier must be a lane other than Lane A. Lane A records no `Verified` here.
+
+## Lane A request — Lane B verification, `D-395`, 2026-10-02
+
+The Judge names **Lane B** as the independent verifier (`D-324` Level 1). Verify this entry's separation scope against the `D-394` assessment above; step 8's sixth condition is now carried by `GR-015`. Record the result in this entry's
+header (`Verified-By`, `Verified-At-Commit`), or reject it with the failing item and its source text. Lane A writes
+no `Verified`. `GR-015`'s two refusal lines are now in `.github/PULL_REQUEST_TEMPLATE/v1-mmf.md` §8.

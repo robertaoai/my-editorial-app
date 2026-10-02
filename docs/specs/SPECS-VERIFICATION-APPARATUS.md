@@ -206,6 +206,9 @@ The rule was probed over **40 commits of real history before the check was writt
 
 ### Check 1 — `shared-core-hash`, preamble coverage `[V1]` (`G67`)
 
+*Retired `[V1]`, `D-337`:* replaced by `rule-budget` when the three rule-file copies became one imported
+core (`D-324`). The text below is history.
+
 `CLAUDE.md` lines **1–138** were byte-identical to `AGENTS.md` but sat outside the `<!-- SHARED CORE` marker, so nothing compared them. That region holds *"build straight through the sprints until the app works end-to-end"* — the instruction behind every crossing `D-75` records.
 
 Core and preamble now report as **separate hashes**. `.agents/rules/graphify.md` is **excluded by design**: a 6-line preamble that never carried the build rules, and including it would fail permanently.

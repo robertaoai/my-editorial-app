@@ -24,6 +24,10 @@
 
   No governed source, Product, Fn_Spec, storyboard, schema, workflow, runtime configuration
   metadata or Graphify action is taken by this acknowledgement.
+  **Product intake receipt 2026-10-01 (`D-374`).** The Judge classified this entry as Product. Its receipt sits beside
+  the owning `Modular_PRD.md` rows (the retention section, and `RK-05`), with no new capability and no value change.
+  The `A6` collision (90 days versus `D-134`'s 5 years) awaits the Register arbitration act this entry already
+  requires. This entry stays `Open`.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Verified-At-Commit:** ae5548c4a6f51dc3b5b1df9343769fa47f33cc00
 - **Evidence:** Chief Editor's 2026-09-15 direct act; `CONFIG_LOG.md` §2; `DECISION_LOG.md` §§1–3; `lib/config/build-config.ts`; Register `D-134`, `D-135`, `D-198`; `B-085` G-3 disposition.
@@ -331,3 +335,19 @@ the failure mode.
 | Approve | Cause of the earlier missing append recorded as unknown, not race-diagnosed | Current pass — standing record corrected |
 | Approve | One-entry-per-commit plus post-commit read as the standing control | Applies regardless of cause |
 | Defer | A4/A6 governed-source application and Graphify | Existing Judge act and verification conditions, unchanged |
+
+## Lane A application — `A6` arbitration recorded, `D-381` — 2026-10-02
+
+**Judge authorization:** "Judge authorizes P1 + P2 + P3 as one unit (D-381)". Read at `d044572`.
+
+Lane A recorded this entry's sequential `A6` model in the Register as `D-381` item 8, using Lane B's 2026-09-15
+draft wording above. Correction pointers were added at `D-134`, `D-135` and `D-198`, with their text kept. The
+`CONFIG_LOG.md` `A6` row and `Modular_PRD.md`'s `B-106` receipt each carry a dated note.
+
+**Still open in this entry**, as its own lines 137 and 145 require:
+- the literal rewrite of `Modular_PRD.md`'s retention paragraph and `AC-12a`, and the Business Case/Blueprint `A6`
+  wording (packet steps 2, 3 and 6);
+- `CONFIG_LOG.md`'s `A6` row moving to `Yes`, which waits for that rewrite; `A4` is unchanged;
+- Lane B's later code-metadata unit (step 7) and independent verification.
+
+This entry stays `Open`, with no Resolution. Its tracker row (`O4`) stays open.
