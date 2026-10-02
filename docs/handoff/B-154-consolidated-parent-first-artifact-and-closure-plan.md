@@ -19,6 +19,17 @@
   independent verification. Remaining, in parent-first order: (2) B-115, then B-114, independent completion review;
   GR-013 isolation-versus-locking and GR-012 importer attribution await the Judge's selection; then the P5 readiness
   docket. No Resolution is recorded; B-154 stays Open until its correction units are independently verified.
+  **Answered again 2026-10-02 (`D-393`), read at `5bf15b4`.** Lane A receives Lane B's "Project sync-docs ownership
+  and C-011 evidence challenge" and the two supplied Lane C documents (SHA-256 `f645e872…`, `e055a533…`, re-computed
+  and matching). (P0) Accepted: sync-docs is Lane A's project procedure (`D-80`); the `suites.mjs` `syncDocs()`
+  restore leaves an empty `.agents/skills/sync-docs/` when it reaches teardown — a confirmed mechanism, not proven sole
+  cause; the SV-002 §3.4 Codex Desktop import is historical evidence; the current host writer is **unknown**. The
+  "C-011" document is supplied analysis, not a C-series entry; its `Verified-At-Commit` is not a commit, and its
+  recursive-delete fix is rejected as unsafe. Lane C's §9 draft answer is not used: it reads at `a1e8874` and
+  abbreviates SM05. (P1) GR-004 and GR-002 are recorded Verified on Lane B's `53280ee` and Lane C's `a1e8874` reviews.
+  Lane A also corrects its own D-392 claim: the structural graph rebuild left semantic descriptions pending. (P2/P3)
+  The Judge selected disposable isolation for GR-013. Lane A drafts both specifications in `GR-012-013-SPEC.md`; they
+  are specifications, not delivery. P4a/P4b wait for their work orders. B-154 stays Open.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 07d931e1f284eeac71fd6c1ccb7667db5ea34c00
