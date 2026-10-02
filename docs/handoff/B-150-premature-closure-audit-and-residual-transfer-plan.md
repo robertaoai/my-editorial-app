@@ -3792,3 +3792,11 @@ Judge authorization: "Yes. follow above latest updated plan". Recorded as `D-385
 
 Commits were made separately: canonical sources, then `B-153`'s answer alone, then this record alone. The push
 follows under the Judge's naming of the range.
+
+## Lane A application — D-386, GR-002 and the B-115 request — 2026-10-02
+
+Judge authorization: "Judge authorizes Lane C B-115 read and GR-002 as next unit". Recorded as `D-386` (§5.14e211).
+- `GR-002`: storyboard Panels A3, A4 and A6 now carry provenance markers; awaiting independent verification.
+- `B-115`: Lane C's consumer read is requested there, with a four-point acceptance test.
+
+Commits were made one path each, separate from the canonical sources.
