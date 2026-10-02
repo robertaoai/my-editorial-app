@@ -3817,3 +3817,13 @@ Judge authorization: "yes". Applied:
 - the tracker re-derived at `341dd04`.
 
 One-path commits. Pushed together with `9afd3d5`..`341dd04` as the Judge directed.
+
+## Lane A application — D-389, screening batch 1 — 2026-10-02
+
+Judge authorization: "Judge authorizes first screening batch as next unit".
+- **Batch 1:** the five unkeyed `O3` transactions (`B-061`, `B-070`, `B-115`, `B-120`, `B-125`), all now keyed.
+- **One premature-closure finding:** `B-061`'s header overstates its unfinished items; a forward cross-reference
+  was added. The other four were confirmed valid.
+- Remaining unkeyed transactions are derived from `SV-002`, not restated here.
+
+One-path commits.
