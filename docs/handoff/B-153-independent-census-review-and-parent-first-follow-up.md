@@ -231,3 +231,22 @@ Reviewed the governed state, compared the census's child IDs, directory populati
 | Reject | Lane A's all-six-pass census acceptance as currently drafted | Phase 1 — R33 classification, R30 surface evidence and Chief Journalist A pointer reconciliation required |
 | Reject | Lane C's O2–O4 clearance exemption, Chief Editor ranking, active SM05 and automatic SM06 authorization claims | Phase 1: correct source-row clearance, role identities and receipt-versus-work-order semantics before canonical use |
 | Defer | Application construction and new Phase 3/hosted execution | Phase 2 SM05 and Phase 3 SM06: separate bounded work orders and lane authorization |
+
+## Lane A answer — `D-385`, 2026-10-02
+
+**Judge authorization:** "Yes. follow above latest updated plan". Read at `799ad46`.
+
+- **F1 / `R30`:** curated fragments compared. Seven descriptions match the old `T5`/`T6` order; six are dated
+  history and stay unchanged; `frag5` `fn_gates_01_05` is qualified as historical. No residual remains.
+- **F2:** the `B-077`/`B-117` ledger rows gain dated current-scope notes; the old wording is kept as history.
+- **F3:** `B-103`'s tracker note points to its Verified header. The tracker is re-derived at `799ad46`, and this
+  entry is keyed in §2.3.2 and listed in §2.3.1 (`O0`).
+- **F5 / `R33`:** Superseded, not fixed and not live. `D-238`, `D-251` and `D-171` replace its premise; the
+  positional column is `R38` in `GR-010`. This corrects my acknowledgement's "not fixed".
+- **Chief Journalist `A`:** dissolved by `D-236`, recorded as such.
+- **F4:** the receipts `GR-009`–`GR-011` stand. Their sequencing is noted for their own units.
+- **Commit discipline (`D-385` P1):** the README now binds Active Lane A to one-path answer commits. This answer is
+  its own commit.
+
+**Status stays `Open`** until Lane B independently reviews these corrections. `B-114` still waits for Lane C's
+`B-115` consumer read.
