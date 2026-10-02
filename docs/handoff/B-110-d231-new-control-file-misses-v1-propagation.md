@@ -27,10 +27,10 @@
   landing atomically with it. Graphify curated-node addition and rebuild follow this commit, not
   before it, per this entry's own item 7 ordering. Terminal verification pending Lane B's
   independent review.
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified; dispositioned by Lane A
+- **Resolution:** Verified
+- **Verified-By:** Lane B
 - **Evidence:** `D-54` in `AGENTS.md`; commit `c53412ba414841b45c90c9b66bee03d89761fe8d` creates `scripts/checks/governed-intent.mjs`; `docs/v1/V1-BUILD-SPEC.md` and `docs/v1/V1-ARTIFACT-INVENTORY.md` contain no D-231 propagation at that commit; propagation applied at `b5fbdfe`/`2d6cc93`; Lane B's independent review below names the two-edge residual
-- **Verified-At-Commit:** 02fe8b6498268c8026cbc0271c9ef0b0c72c9b18
+- **Verified-At-Commit:** 42dbbe6c94ad5c07f610390eeee215f566bb2288
 
 ## What happened
 
@@ -177,3 +177,16 @@ No receiver answer, header status/resolution, verification anchor or canonical g
 | Approve | Existing D-54 propagation and control behavior; current focused 8/8 and consistency 19/19 evidence | Phase 1 preserved proof |
 | Reject | B-110 terminal verification: two required direct curated references remain absent | Phase 1 Lane A correction, then independent re-review |
 | Defer | Source clearance relying on that verification; implementation or graph application by Lane B | Phase 1 receiver act; separately authorized later work |
+
+## Independent Lane B verification — D-383 direct references repaired — 2026-10-02
+
+Read `42dbbe6c94ad5c07f610390eeee215f566bb2288`, under the Judge's request to resolve Lane A's outstanding Lane B reviews. The earlier rejection was correct at its earlier baseline; D-383 repaired the two missing edges. Independently inspected frag136 and the merged graph: both contain direct `references` edges from `d231_governed_intent_exclusion_matcher` to `v1_build_spec` and `v1_artifact_inventory`. Exact-full-label Graphify explain exposes both document relationships. Register, Build Spec invariant 11 and the matcher Inventory row preserve the already-reviewed D-54 propagation.
+
+The pure governed-intent exclusion and Git argument-safety fixture groups pass 8/8 in this review, including governed/mixed-change refusal and unreachable-commit propagation. No file mutation was needed to run these cases. Graph extraction is pinned to the read HEAD. The full consistency result is reported in B-153 with its receiver-acknowledgement limitation; no clean whole-tree claim is inferred from the focused cases.
+
+The remaining completion condition is met. Lane B independently promotes this entry to Verified at the source commit read. The Lane A answer and historical rejected review remain unchanged; this is verification, not reopened implementation scope. Lane A may consume this header as B-110's source-clearance evidence and continue B-102's dependent verification. No Gate 2, runtime or release proof is granted.
+
+| Verdict | Item | Follow-up phase |
+|---|---|---|
+| Approve | B-110 correction and direct-reference completion | Phase 1 — independently Verified; existing tracker derives closure from the header |
+| Defer | Audit-parent completion, Gate 2 and construction | Phase 1 source/accounting reconciliation; separately authorized Phase 2/3 |
