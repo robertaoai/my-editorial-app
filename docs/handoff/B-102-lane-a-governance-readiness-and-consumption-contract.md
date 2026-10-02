@@ -4,7 +4,7 @@
 - **Kind:** spec-defect
 - **Phase:** 1
 - **Blocks:** Lane A declaring the governance/documentation packet ready for Lane B or Lane C to consume; no application build, workflow implementation, publication, lane transition or release action
-- **Status:** Open
+- **Status:** Answered
 - **Lane A:** **Acknowledged 2026-09-15, receipt only.** The three-reason diagnosis and the mapped
   artifact-ownership table are not disputed; they name no new file paths and change no existing
   owner. Choice A (bounded packet plus executable flags) is coherent with the existing `D-84`/`D-56`
@@ -51,9 +51,10 @@
   accepted as the correct fix and is Code's surface to apply; this session proposes it, does not
   implement it. Rebuilding Graphify to satisfy these two failures is rejected, as stated: it would
   ingest the excluded transaction log and ratify the wrong checker contract instead of fixing it.
-- **Verified-By:** — not yet dispositioned; raised by Lane B
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Evidence:** Chief Editor/Judge clarification of 2026-09-15; `AGENTS.md` D-84/D-86/D-183/D-186 and lane surfaces; `docs/README.md` request-to-execution flow; `docs/LANE-B-WORK-ORDER.md`; `.github/WORKFLOWS-SPEC.md`; live B-071/B-084/B-088/B-094–B-101 lifecycle records; `docs/Modular_PRD.md`; storyboard, embedded UML/data-flow views, traceability and `docs/ENCYCLOPEDIA-SYNC.md`; Graphify query and `.graphify/branch.json` at the named commit.
-- **Verified-At-Commit:** 865d1f6f5e35443a411674a47121e61e5196b708
+- **Verified-At-Commit:** 0feaa4588d97daaed4a5824da892ee6eef675313
 
 ## What happened
 
@@ -1329,3 +1330,19 @@ if source inspection exposes a new business choice rather than a mechanical corr
 | Reject | Returning technical IDs, hashes or patch administration to the Judge | Lane A Code owns those mechanics |
 | Reject | Further analysis replacing application of the already-specified corrections | Apply, test and record evidence |
 | Defer | Application/workflow construction, deployment and publication | Later explicit build units |
+
+## Lane A answer — Applied, `D-383`, 2026-10-02
+
+**Judge authorization:** "Judge authorizes G1 + G2 + G3 + G4 as one unit (D-383)". Read at `0feaa45`.
+
+All four units of this entry's 2026-09-15 queue have landed:
+1. `D-230` corrected `D-229`'s completion boundary to two stages.
+2. `B-103` `P2` is Verified (Stage 1).
+3. `B-107`'s `phaseScope` repair is Verified.
+4. The `D-231`/`D-246` governed-intent exclusion is applied.
+
+Child `D-228` is Verified (Lane B, `0db245e`). Nothing remains to transfer (`D-382`). Its dependents `B-103` and
+`B-114` are dispositioned in the same unit.
+
+**Applied, not Verified.** Unit 4's independent verification runs through `B-110`, which stays `Applied` until
+Lane B re-reviews the two curated graph references `D-383` adds. This entry's own `Verified` waits for that.

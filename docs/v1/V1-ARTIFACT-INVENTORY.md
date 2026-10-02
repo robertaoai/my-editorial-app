@@ -424,6 +424,11 @@ are received there as `SM06-P3-02`–`05`. `V1-SM06.md`, `V1-SM05.md`, `SV-002.m
 existing files: `SV-002.md` (§2.3.2 ledger, §2.3.1 anchors), `GOV-RES-001.md` (`GR-004`–`GR-008`), `V1-SM06.md`
 (`SM06-P3-06`), with pointers in `V1-BUILD-SPEC.md` and `.github/WORKFLOWS-SPEC.md`.
 
+**`D-383` (2026-10-02) — no file added or retired, stated explicitly.** `D-252`'s sequence above gains one named
+gate, unchanged in order: the accepted baseline-promotion PR is also `V1-SM06`'s entry prerequisite. Changed in
+place: `frag136.json` (two curated edges), `V1-SM05.md`, `V1-SM06.md`, `V1-BUILD-SPEC.md`, `.github/WORKFLOWS-SPEC.md`,
+`GOV-RES-001.md`, `SV-002.md`, and `B-102`, `B-103`, `B-114`, `B-150`.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

@@ -3739,3 +3739,28 @@ Based on Lane A's analysis: `refer docs/handoff; consolidate analysis before han
 | Approve | Corrected guide and substantive LC3-F1–F3 advice as ready for Lane A intake, using the two qualifications above | Phase 1 |
 | Approve-with-conditions | Lane A source application/disposition: provide the existing exact coverage, receiving and independent-clearance evidence | Phase 1 |
 | Defer | Whole-source closure, Gate 2 and construction/CI/hosted execution | Phase 1 gate acts → Phase 2 SM05 / Phase 3 SM06 |
+
+## Lane A application — D-383, G1 + G2 + G3 + G4 and the G6 O5 closures — 2026-10-02
+
+**Judge answers in Lane A's chat:** the timing rulings confirmed ("Yes"); the unit authorized ("yes"); the O5 reasons
+accepted ("O5 as written"). Read at `0feaa45`. Recorded as `D-383` (`V1-DECISION-REGISTER.md` §5.14e208).
+
+| Item | Applied | Remaining |
+|---|---|---|
+| G1 | Two curated `references` edges in `frag136.json`, merged after the final rebuild | Lane B re-review of `B-110` |
+| G2 | SM05 DoD by local validation alone; baseline-promotion PR as SM06 entry prerequisite (`V1-SM05`, `V1-SM06` DoR, Build Spec, `WORKFLOWS-SPEC`, Inventory) | — |
+| G3 | `B-102` `Applied`; `B-103`, `B-114` returned (commit A) then re-closed `Applied` (commit B) | Independent verification: `B-102` after `B-110`, `B-114` after `B-115` |
+| G4 | `GR-006`: optional execution never exempts its source rows from clearance | — |
+| G6 | `B-016`, `C-001`, `B-088`, `B-094` tracker rows `closed` by the Judge's individual reasons | Their receipts (`SM06-P3-02`–`04`, `GR-008`) stay open |
+
+**Corrections to the supplied Lane C review:**
+- `B-136` `P15` is `O1`, cleared at `SV2-DOD-06`, not by an `O5` reason.
+- `B-110` is `O5`, not `O0`.
+- `B-102` can be `Applied` before `B-110` is Verified.
+- `B-103`/`B-114` needed the Return then Re-close protocol, not a plain header change.
+
+| Decision | Verdict | Follow-up phase |
+|---|---|---|
+| D-383 as applied | Approve-with-conditions | Phase 1 — Lane B re-review of `B-110` and of the three dispositions |
+| G5: full child enumeration of `B-077`/`B-117` | Approve (authorized next) | Phase 1 — next unit |
+| Remaining non-SM05 rows; Gate 2 | Defer | Phase 1 → Gate 2 |

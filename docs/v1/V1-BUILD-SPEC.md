@@ -65,6 +65,10 @@ Project allocation under `NFR-04` → `AC-NF-03`, separate from `MMF-V1-USABLE`'
 pre-entry clearance check that cannot require `V1-SM06` execution, and existing repository CI is unchanged.
 **Added 2026-10-02 (`D-382`):** `D-230` Stage 2, the B→C signal and its consuming workflow from `B-103`/`B-114`, is
 `SM06-P3-06`; `B-114`'s build-method content stays in `LANE-B-WORK-ORDER.md` §7 for `V1-SM05`'s work order.
+**Timing (`D-383`, Judge rulings 2026-10-02).** `V1-SM05`'s DoD is met by local validation alone; a push-triggered
+CI result is not a DoD prerequisite. `AC-NF-03` still describes CI running on every push, and existing CI keeps
+running. The chain is: accepted local `V1-SM05` DoD → separately accepted baseline-promotion PR (`V1-SM06`'s entry
+prerequisite) → `V1-SM06` entry → separately authorized Phase 3 CI and hosted work.
 
 **State-1 lifecycle, branch name and sequencing (`D-253`, 2026-09-22).** The State-1 readiness PR is
 **documentation-only**: no implementation change, and DoD gates acceptance and merge rather than

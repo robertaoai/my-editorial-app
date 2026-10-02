@@ -25290,3 +25290,84 @@ likewise not given.
 | **Phase Closure** (`V1-PHASE-CLOSURE.md`) | — unaffected: no lane or phase state changes |
 | **Encyclopedia** | — unaffected: no file mapped to Entries 01–06 changed |
 | **Graphify** | Rebuild at this commit, re-merge fragments, then the semantic fill as the last act |
+
+## 5.14e208 `D-383` — `B-110`'s Curated Edges; SM05/SM06 Timing Rulings; `B-102`/`B-103`/`B-114` Dispositioned; Four `O5` Rows Closed by the Judge
+
+**Authority: the Judge, directly to Lane A, 2026-10-02.** Lane A asked three questions, and the Judge answered:
+- Lane A asked whether the two timing rulings quoted in `B-150` (`8548d3d`) were the Judge's. **Answer: "Yes".** The
+  rulings are *"Accept local validation alone for SM05 DoD"* and *"Make it an SM06 entry prerequisite."*
+- Lane A asked whether the Judge authorized G1 + G2 + G3 + G4 as one unit (`D-383`), with G5 next. **Answer: "yes".**
+- Lane A asked whether the four `O5` reasons drafted in G6 were accepted. **Answer: "O5 as written".**
+
+It answers Lane B's `B-110` re-review (`d46a354`) and the Lane C Level 2 review supplied by the Judge. Read at `0feaa45`.
+
+### The decision
+
+1. **G1 — `B-110`'s missing graph edges.** `frag136.json` gains two curated `references` edges from
+   `d231_governed_intent_exclusion_matcher` to `v1_build_spec` and `v1_artifact_inventory`. These are the two direct
+   references `B-110`'s own Lane A field named as its residual. They are merged after the final rebuild under
+   `G51`. `B-110` stays `Applied` until Lane B re-reviews.
+2. **G2 — timing.**
+   - **`V1-SM05` DoD is met by local validation alone:** typecheck, lint and tests; the full local consistency run;
+     the disposable local PostgreSQL replay of `0002`; and `V1-SM05-FV-001`'s failing-first and passing evidence.
+   - **A push-triggered CI result is not a DoD prerequisite.** `AC-NF-03` still describes CI running on every push,
+     and existing CI is not disabled.
+   - **A separately accepted baseline-promotion PR is `V1-SM06`'s entry prerequisite.** The chain is: accepted local
+     SM05 DoD → accepted baseline-promotion PR → SM06 entry → separately authorized Phase 3 CI and hosted work.
+     Entry is not a work order.
+   - The DoD box text is unchanged. The ruling sits in `V1-SM05`'s boundary note, so Jev's pinned DoD parse is
+     untouched.
+3. **G3 — dispositions.**
+   - **`B-102`: `Open` → `Answered`/`Applied`.** All four units of its 2026-09-15 queue landed, and child `D-228` is
+     Verified. Its `Verified` waits for `B-110`.
+   - **`B-103` and `B-114` were `Deferred` and their Follow-up-Tier conditions are met**:
+     - `B-103`: `B-097`'s controls are Verified, and all of `P0`–`P3` are Verified.
+     - `B-114`: `D-242` applied `B-115`'s separation to the governed sources and corrected its framing by reference.
+   - Under the `B-097`/`D-364` protocol, each is first **returned** (a Return record, commit A of this unit), then
+     **re-closed** (a Re-close record citing commit A as the commit read, commit B) as `Answered`/`Applied`. Two
+     commits are required because a re-close must be read strictly after its return.
+   - Their surviving obligation, `D-230` Stage 2, is `SM06-P3-06` (`D-382`). `B-114`'s verification also waits for
+     `B-115`.
+4. **G4 — `GR-006` wording.** Declining the optional partition leaves no execution residual. Its `SV-002` §2.3.1
+   source rows still need independent transfer verification or the Judge's individual reason. **Optional execution
+   never exempts a source row from clearance.**
+5. **G6 — four `O5` rows closed** by the Judge's individual acceptance (`D-364` item 9), each reason recorded in its
+   §2.3.1 Basis:
+   - `B-016` — its parent issue was settled by `D-102`; what remains is `C-001`'s required-check work, held by
+     `SM06-P3-02`.
+   - `C-001` — Phase 3 CI work, blocked by `C-24`/`C-25` and held whole by `SM06-P3-02`–`04`; Gate 2 cannot require
+     Phase 3 work.
+   - `B-088` — an optional repair, held by `GR-008` and **recorded as still unfixed**.
+   - `B-094` — it only routes work; every routed item has its own owner and row.
+   Closing a source row does not execute or close its receipt.
+6. **Corrections to the Lane C review recorded:**
+   - `B-136` `P15` is an `O1` row. It clears under `D-364` item 4 at `SV2-DOD-06`, not by an `O5` reason.
+   - `B-110` is an `O5` row, not an `O0` row.
+   - Lane A may record `B-102` as `Applied` now; only `Verified` waits for `B-110`.
+
+### Not given by this act
+
+Any `Verified`; Gate 2; `SM06` entry or any hosted or Phase 3 work order; G5, the full enumeration of `B-077` and
+`B-117`, which is authorized as the next unit; any change to `GR-008`'s defect status.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e208 |
+| **`docs/graph-fragments/frag136.json`** | ✅ two curated `references` edges |
+| **`docs/v1/work-packets/V1/V1-SM05.md`** | ✅ DoD-timing note; DoD box text unchanged |
+| **`docs/v1/work-packets/V1/V1-SM06.md`** | ✅ DoR entry-prerequisite box; `SM06-P3-01` entry note |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ timing paragraph |
+| **`.github/WORKFLOWS-SPEC.md`** | ✅ §4 timing note |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-383` paragraph; no file added or retired |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/GOV-RES-001.md`** | ✅ `GR-006` return-condition wording |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ four `O5` rows closed; `B-102`/`B-103`/`B-114` notes |
+| **`docs/handoff/B-102-lane-a-governance-readiness-and-consumption-contract.md`** | ✅ answered `Applied` |
+| **`docs/handoff/B-103-lane-b-c-interface-and-handoff-closure.md`** | ✅ Return record, then Re-close record |
+| **`docs/handoff/B-114-mmf-test-first-atomic-commit-and-human-push.md`** | ✅ Return record, then Re-close record |
+| **`docs/handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md`** | ✅ Lane A application record |
+| `docs/Modular_PRD.md` | — unaffected: `AC-NF-03` text is unchanged; its use as a DoD gate is a packet matter |
+| **Phase Closure** (`V1-PHASE-CLOSURE.md`), Fn Specs, SPECS, rule files | — unaffected |
+| **Encyclopedia** | — unaffected: no file mapped to Entries 01–06 changed |
+| **Graphify** | Rebuild at the final commit, re-merge `frag136`, then the semantic fill as the last act |

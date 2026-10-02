@@ -4,7 +4,7 @@
 - **Kind:** spec-defect
 - **Phase:** 1
 - **Blocks:** a truthful Lane A declaration that governance and documentation are ready for Lane B and Lane C; safe definition of the Lane B-to-Lane C evidence boundary and Lane C-to-Lane B monitoring feedback; no application build, workflow implementation, publication, lane transition or release action
-- **Status:** Answered
+- **Status:** Open
 - **Lane A:** **Acknowledged 2026-09-15, receipt only.** This entry is read as additive to, not a
   replacement of, B-102 (consumer model) and B-077 (lifecycle/failure-pattern history), consistent
   with its own framing; no duplicate readiness ledger is created. The P1 three-way workflow division
@@ -19,11 +19,9 @@
   the "Lane A disposition — 2026-09-15" section at the end of this entry** — that section records
   the evidence this line predates; this line is kept, not edited, per this channel's rule against
   rewriting history.
-- **Resolution:** Deferred
-- **Verified-By:** — not independently verified; dispositioned by Lane A
+- **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Chief Editor/Judge clarifications of 2026-09-15; B-077, B-101 and B-102; `AGENTS.md` D-56/D-75/D-84/D-86/D-100/D-183/D-186; `docs/handoff/README.md`; `.github/WORKFLOWS-SPEC.md`; `docs/LANE-B-WORK-ORDER.md`; `docs/Modular_PRD.md` FR-14/NFR-08/Q4; `docs/fn-specs/FN-GATES-01-05.md`; `docs/fn-specs/FN-AUDIT-VISIBILITY-07-08.md`; `docs/specs/SPECS-VERIFICATION-APPARATUS.md`; `docs/journal/2026-08-18-storyboard-business-and-digital-twin.md`; `docs/governance/requirements-traceability-map.md`; `docs/ENCYCLOPEDIA-SYNC.md`; Graphify query and `.graphify/branch.json`; `bun run check` at the named commit; `D-227`–`D-230`; the "Exact Lane A disposition draft" and "Lane A disposition — 2026-09-15" sections of this entry.
-- **Verified-At-Commit:** 3787821d231bc26e3e3bcf86f29ec55fc7fa6b40
-- **Follow-up-Tier:** Phase 1 — B-097 return-protocol controls own B-103 P3
+- **Verified-At-Commit:** 0feaa4588d97daaed4a5824da892ee6eef675313
 
 ## What happened
 
@@ -948,3 +946,15 @@ Judge ruling, read fresh rather than assumed unchanged:
   execution and `D-230` Stage 2 runtime proof are unchanged, and no other P0–P3 child moves
 - **No-Scope-Reopened:** true
 - **Annotated-At-Commit:** d47443e135e869bb07a9fb8b44cb8c24334345ee
+
+## Return record
+
+- **Previous-Resolution:** Deferred
+- **Return-Trigger:** Phase 1 — B-097 return-protocol controls own B-103 P3
+- **Return-Act:** `D-383`, Judge authorization 2026-10-02 (unit G3), `V1-DECISION-REGISTER.md` §5.14e208
+- **Returned-At-Commit:** 0feaa4588d97daaed4a5824da892ee6eef675313
+
+**Why the condition is met.** `B-097`'s return-protocol controls are independently Verified (Lane B, recorded
+`48aa964`), and `P3` itself is Verified (`D-380`). With `P0`, `P1` and `P2` (Stage 1) already Verified, no
+child holds this entry in Phase 1. The one surviving obligation, `D-230` Stage 2, is received by `V1-SM06` as
+`SM06-P3-06` (`D-382`). This return exists only to record that disposition; a Re-close record follows.
