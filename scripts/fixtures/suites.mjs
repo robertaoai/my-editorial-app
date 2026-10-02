@@ -6,8 +6,9 @@
 // useless as one that fails on nothing.
 
 import { execFileSync } from "node:child_process";
-import { fixture, read, write, withRetry, TRANSIENT_CODES, existsSync, rmSync, mkdirSync, runCheck } from "./harness.mjs";
-import { readdirSync, readFileSync } from "node:fs";
+import { fixture, read, write, withRetry, TRANSIENT_CODES, existsSync, rmSync, mkdirSync, runCheck, snapshot } from "./harness.mjs";
+import { join } from "node:path";
+import { readdirSync, readFileSync, rmdirSync } from "node:fs";
 import { field, ENTRY_FILE } from "../checks/handoff-fields.mjs";
 import { classify } from "../checks/lane-boundary.mjs";
 import { classifyChangedPaths } from "../checks/governed-intent.mjs";
@@ -560,6 +561,7 @@ export async function phaseScope(results) {
 export async function syncDocs(results) {
   const canon = read(CANON);
   const dupDir = ".agents/skills/sync-docs";
+  let undoDup;
 
   await fixture(results, {
     name: "sync-docs: the live repository, unmutated",
@@ -571,11 +573,14 @@ export async function syncDocs(results) {
   await fixture(results, {
     name: "sync-docs: an UNTRACKED duplicate runbook",
     modulePath: CHECK("sync-docs-uniqueness.mjs"),
+    // `D-396`: baseline restore. The old file-only restore removed SKILL.md and left
+    // `.agents/skills/sync-docs/` behind on every run (`GR-012`, `GR-013`).
     mutate: () => {
+      undoDup = snapshot([".agents", ".agents/skills", dupDir, `${dupDir}/SKILL.md`]);
       mkdirSync(dupDir, { recursive: true });
       write(`${dupDir}/SKILL.md`, "# duplicate\nAGENTS.md, AGENTS.md, graphify.md\n");
     },
-    restore: () => rmSync(`${dupDir}/SKILL.md`, { force: true }),
+    restore: () => undoDup?.(),
     expect: "duplicate sync-docs procedure",
   });
   await fixture(results, {
@@ -939,10 +944,15 @@ export async function laneGate(results) {
   const CFG = "docs/CONFIG_LOG.md";
   const ci0 = read(CI);
   const cfg0 = read(CFG);
-  const msgDir = ".git/lane-gate-fixture";
-  const msgPath = `${msgDir}/msg`;
+  // `D-396`: in a git worktree `.git` is a pointer FILE, so the scratch folder is resolved
+  // through git and restored to its baseline instead of being deleted recursively.
+  const gitDir = execFileSync("git", ["rev-parse", "--absolute-git-dir"], { encoding: "utf8" }).trim();
+  const msgDir = join(gitDir, "lane-gate-fixture");
+  const msgPath = join(msgDir, "msg");
+  let undoMsg;
 
   const setup = () => {
+    undoMsg = snapshot([msgDir, msgPath], { roots: [gitDir] });
     mkdirSync(msgDir, { recursive: true });
     write(CI, `${ci0}\n# fixture\n`);
     write(CFG, `${cfg0}\n<!-- fixture -->\n`);
@@ -952,7 +962,7 @@ export async function laneGate(results) {
     try { execFileSync("git", ["restore", "--staged", CI, CFG]); } catch { /* nothing staged */ }
     write(CI, ci0);
     write(CFG, cfg0);
-    rmSync(msgDir, { recursive: true, force: true });
+    undoMsg?.();
   };
 
   const cases = [
@@ -2554,6 +2564,70 @@ export async function ruleBudget(results) {
   }
 }
 
+/**
+ * `D-396` (`GR-013`) — the restore puts each path back to its baseline and refuses
+ * rather than delete what it did not create. G13-2/3/4 from `GR-012-013-SPEC.md`
+ * §1.4, plus the two refusals. Works in an untracked probe folder it removes.
+ */
+export async function snapshotRestore(results) {
+  const probe = ".fixture-snapshot-probe";
+  const dir = `${probe}/skills/sync-docs`;
+  const file = `${dir}/SKILL.md`;
+  const tree = [probe, `${probe}/skills`, dir, file];
+  const push = (name, ok, detail) => results.push({ name, ok, detail });
+  // Probe cleanup removes only the names this suite creates — no recursive delete here either.
+  const clear = () => {
+    for (const f of [file, `${dir}/notes.md`, `${dir}/foreign.md`]) rmSync(f, { force: true });
+    for (const d of [dir, `${probe}/skills`, probe]) if (existsSync(d) && readdirSync(d).length === 0) rmdirSync(d);
+  };
+  clear();
+  try {
+    // G13-2: absent at start → absent after.
+    let undo = snapshot(tree);
+    mkdirSync(dir, { recursive: true });
+    write(file, "x");
+    undo();
+    push("restore: a directory absent at start is absent after (G13-2)", !existsSync(probe), existsSync(probe) ? "left behind" : "removed");
+
+    // G13-3: already empty at start → still there and empty.
+    mkdirSync(dir, { recursive: true });
+    undo = snapshot(tree);
+    write(file, "x");
+    undo();
+    const empty = existsSync(dir) && readdirSync(dir).length === 0;
+    push("restore: a directory empty at start stays, empty (G13-3)", empty, empty ? "kept, empty" : "changed");
+    clear();
+
+    // G13-4: user content at start → untouched; a user's own file keeps its bytes.
+    mkdirSync(dir, { recursive: true });
+    write(`${dir}/notes.md`, "user");
+    write(file, "user skill");
+    undo = snapshot(tree);
+    write(file, "# duplicate");
+    undo();
+    const kept = read(`${dir}/notes.md`) === "user" && read(file) === "user skill";
+    push("restore: user content and a user's own file are untouched (G13-4)", kept, kept ? "bytes preserved" : "user content changed");
+    clear();
+
+    // Refusal: a created directory that gains foreign content is not deleted.
+    undo = snapshot(tree);
+    mkdirSync(dir, { recursive: true });
+    write(`${dir}/foreign.md`, "not the fixture's");
+    let threw = "";
+    try { undo(); } catch (e) { threw = e.message; }
+    const refused = threw.includes("not empty") && existsSync(`${dir}/foreign.md`);
+    push("restore: a created directory holding foreign content is refused, not deleted", refused, refused ? "refused, content kept" : `threw="${threw}"`);
+    clear();
+
+    // Refusal: a path outside the target is never managed.
+    let outside = "";
+    try { snapshot(["../outside-the-target"]); } catch (e) { outside = e.message; }
+    push("restore: a path outside the target is refused", outside.includes("outside"), outside || "accepted");
+  } finally {
+    clear();
+  }
+}
+
 export const SUITES = [
   ["handoff metadata and closure fields (`D-102`)", handoffFields],
   ["return record form (`B-097`)", returnRecordForm],
@@ -2567,6 +2641,7 @@ export const SUITES = [
   ["retention policy coupling (`D-134`)", retentionPolicyCoupling],
   ["phase-scoped closure gating (`D-102`)", phaseScope],
   ["sync-docs uniqueness (`D-102`)", syncDocs],
+  ["baseline-aware restore (`D-396`, `GR-013`)", snapshotRestore],
   ["lane state (`D-103`)", laneState],
   ["channel documentation (`D-104`)", channelDocs],
   ["lane crossing declaration (`D-105`)", laneGate],
