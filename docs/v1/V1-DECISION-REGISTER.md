@@ -25715,3 +25715,37 @@ Any Resolution change; any clearance; execution of `GR-014`; Gate 2.
 | Build Spec, packets, `Modular_PRD`, Fn Specs, SPECS, rule files, Phase Closure | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild at the final commit, re-merge, replay descriptions, content-checked labels |
+
+## 5.14e217 `D-392` — `GR-004` Applied: `CR-14` Row in `Modular_PRD` §7.1 Corrected; `B-154` Answered; Graph Re-synced
+
+**Authority: the Judge, directly to Lane A, 2026-10-02**: *"yes to all three, go ahead"* — answering Lane A's three
+questions: rebuild the graph, answer `B-154` and acknowledge `e0b7cd7`, and apply the `CR-14` correction. Read at
+`e0b7cd7`.
+
+### The decision
+
+1. **`GR-004` applied.** `Modular_PRD` §7.1's Product-scope gap row for `CR-14` still read "Missing functional
+   requirement — FB-05", contradicting `FR-01`'s own row and `D-194`/`D-197`. The row now records `CR-14` as covered by
+   the ratified manual-input contract, with future application-generated tagging held as `PBL-11`. The superseded
+   wording is kept struck through as history. No requirement, acceptance criterion or scope changes.
+2. **`B-154` answered** in its own one-path commit (`D-385`), including receipt of Lane B's `e0b7cd7` GR-012/GR-013
+   consolidated draft. The answer records which of its priorities `D-388`–`D-391` already applied and what remains.
+3. **Graph re-synced** at the final commit; `docs/graph-fragments/` re-merged (`G51`).
+
+### Not given by this act
+
+`Verified` for `GR-004` (needs an independent reviewer at this revision); a Resolution on `B-095` or `B-154`;
+selection of `GR-012`/`GR-013`; dispositions on `B-115`/`B-114`; Gate 2.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e217 |
+| **`docs/Modular_PRD.md`** §7.1 | ✅ `CR-14` row corrected, history retained |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/GOV-RES-001.md`** | ✅ `GR-004` row: applied, awaiting independent verification |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-392` paragraph; no file added or retired |
+| **`docs/handoff/B-154-consolidated-parent-first-artifact-and-closure-plan.md`** | ✅ Lane A answer, in its own commit |
+| Build Spec, packets, Fn Specs, SPECS, rule files, Phase Closure, `SV-002` | — unaffected |
+| **Encyclopedia** | — unaffected (no entry depends on the §7.1 gap table) |
+| **Graphify** | Rebuild at the final commit, re-merge `docs/graph-fragments/` |

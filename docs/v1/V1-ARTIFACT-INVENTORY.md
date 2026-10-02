@@ -455,6 +455,9 @@ sentence) and `SV-002.md`; `B-154`/`B-150` in their own one-path commits.
 **`D-391` (2026-10-02) — no file added or retired, stated explicitly.** Seventy-five ledger rows in `SV-002.md`;
 `GR-014` in `GOV-RES-001.md`; `B-150` in its own one-path commit.
 
+**`D-392` (2026-10-02) — no file added or retired, stated explicitly.** `CR-14` row corrected in `Modular_PRD.md`
+§7.1 (`GR-004`); `GOV-RES-001.md` `GR-004` row updated; `B-154` answered in its own one-path commit.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

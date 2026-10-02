@@ -829,7 +829,7 @@ rejected work (`D-134`) is its concrete v1 case.**
 | Customer request | Missing or incomplete Product Scope | Classification |
 |---|---|---|
 | CR-06 | Trend-signal scoring is not computable on the current schema | Partial non-functional/data requirement — FB-06 |
-| CR-14 | No FR requires AI topic, source, and trend-signal tagging at the Reporter gate | **Missing functional requirement — FB-05** |
+| CR-14 | ~~No FR requires AI topic, source, and trend-signal tagging at the Reporter gate~~ **Corrected 2026-10-02 (`D-392`, `GR-004`):** covered by `FR-01` as the ratified manual-input contract (`D-194`/`D-197`); application-generated tagging and scoring is future `PBL-11`, not a V1 gap | **Covered — no Product-scope gap** (historical: Missing functional requirement — FB-05) |
 
 ### 7.2 Project Scope Matrix
 
