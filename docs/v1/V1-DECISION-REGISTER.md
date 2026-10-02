@@ -25993,3 +25993,73 @@ then proceed to completion"*, continuing the `D-396` work order. Read at `63ce23
 | Packets, `Modular_PRD`, Fn Specs, SPECS, rule files, Phase Closure, `SV-002`, `.github/` | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild at the final commit, verify the curated layer, fill descriptions last |
+
+## 5.14e223 `D-398` — `B-155` F1 Repaired: Physical Containment in Restore; F2 Ruling Amends `D-395`; Source Corrections
+
+**Authority: the Judge, directly to Lane A, 2026-10-03**: *"Judge Approved: F1 repair, F2 wording, source
+corrections"*. Read at `026b95d`. Pushing and P4b drafting were not approved in this act and are not done.
+
+### The decision
+
+1. **F1 — containment repair (`GR-013`, `B-155`).**
+   - **The defect.** `snapshot()` in `scripts/fixtures/harness.mjs` checked containment by string prefix and
+     only on the leaf, and restored deepest-first. A parent replaced by a junction was written through before the
+     restore noticed. Lane B's probe showed `wroteOutside: true`.
+   - **The repair** records each root and every existing path component by object identity (volume and file ID)
+     and refuses links. It checks **all** entries before writing anything, then re-checks each entry immediately
+     before its own write or delete.
+   - **Continuity promise:** path, kind **and object identity**, the recommendation Lane A put to the Judge. A
+     same-name substituted directory is refused.
+   - **Race boundary, stated:** check-then-write is not atomic. The guarantee covers the fixture's own mutations and
+     non-adversarial changes inside the fresh task-owned target, not a hostile process racing the window.
+   - **Proof:** a new suite, "physical containment of restore", with two positive controls and eight escape
+     cases:
+     - an ancestor that is a link at capture;
+     - an ancestor replaced after capture (`B-155`'s case);
+     - a baseline file replaced by a link;
+     - a root replaced by a link;
+     - a root replaced by a file;
+     - an absent descendant under a later link;
+     - a same-name directory substituted;
+     - a path with no root record.
+
+     Each case passes only if the snapshot or restore refuses **and** the outside sentinel's bytes are unchanged.
+     Failing-first: against the old harness, five cases miss, including "outside bytes CHANGED".
+   - **Verifier:** Lane B independently verifies the repaired revision. `GR-013` stays unverified and `B-021`
+     stays `Applied` until then.
+2. **F2 — ruling under `D-58`, amending `D-395`.** The two `GR-015` refusal lines in
+   `.github/PULL_REQUEST_TEMPLATE/v1-mmf.md` §8 become Lane B's `B-155` wording:
+   - a new-construction child needs red evidence, and a characterization child needs honest existing-behavior
+     evidence and a rationale;
+   - the human-final-push refusal applies only to an implementation push governed by `B-114`; State-1, canonical
+     and handoff transport keep their own procedures.
+
+   No push authority and no executable check is created. `D-395`'s exact two-line application remains verified as
+   history.
+3. **Source corrections.**
+   - `GR-012-013-SPEC.md`'s status now reads: "GR-013/P4a delivered under D-397; independent verification
+     rejected at 4e50c41 for F1 (B-155); F1 repaired under D-398, awaiting Lane B verification. GR-012/P4b remains
+     draft and uncommissioned". Its §1.1 problem statement is labelled history.
+   - **Correction to `D-397` item 1:** the unit was delivered in **five** implementation commits (`12b9d2d`,
+     `1340703`, `ebd0bc8`, `fd5aad0`, `63ce23d`), plus the `D-396` order commit `1c6b350`. "Six" miscounted.
+     `D-397`'s text and process findings stay as written.
+
+### Not given by this act
+
+`Verified` for `GR-013`, `B-021` or `B-155`; P4b work or drafting; a push; tracker re-derivation; Gate 2.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e223 |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ `D-398` paragraph |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-398` paragraph; no file added or retired |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/GOV-RES-001.md`** | ✅ `GR-013` F1 repaired; `GR-015` amended wording |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/GR-012-013-SPEC.md`** | ✅ status corrected; §1.1 labelled history |
+| **`.github/PULL_REQUEST_TEMPLATE/v1-mmf.md`** | ✅ §8 `GR-015` lines, in their own commit |
+| **`docs/handoff/B-155-gr013-containment-verification-and-gr015-refusal-scope.md`** | ✅ Lane A answer, in its own commit |
+| **`docs/handoff/B-154-consolidated-parent-first-artifact-and-closure-plan.md`** | ✅ Lane A answer, in its own commit |
+| Packets, `Modular_PRD`, Fn Specs, SPECS, rule files, Phase Closure, `SV-002`, `.github/workflows/` | — unaffected (the tracker is re-derived later, not here) |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild at the final commit, verify the curated layer, fill descriptions last |

@@ -475,6 +475,10 @@ order); `GOV-RES-001.md` `GR-013` row updated. The unit's own changes are record
 **`D-397` (2026-10-02) — no file added or retired, stated explicitly.** `scripts/fixtures/run.mjs`, `harness.mjs` and
 `suites.mjs` change in place; the `scripts/fixtures/` row is corrected; `B-021` annotated in its own commit.
 
+**`D-398` (2026-10-03) — no file added or retired, stated explicitly.** `harness.mjs`, `suites.mjs` and the `v1-mmf`
+pull-request template change in place; `GR-012-013-SPEC.md` status corrected; `B-155` and `B-154` answered, each in its
+own one-path commit.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

@@ -144,6 +144,10 @@ attempt (not a lane transition). The Lane B/C read-only measurement authorizatio
 take effect. Order: `SV2-U02` A/B/C → `SV2-U03` trial → `SV2-U04` classification → DoD, each row on its own proof. The
 PR #2 comment, `SV-002` acceptance and the `V1-SM05` unblock remain separate Judge acts.
 
+**`D-398` (2026-10-03) — `B-155` F1 repaired; F2 ruling.** The fixture restore now enforces physical containment
+and refuses before any write; `GR-015`'s template wording is narrowed under `D-58`. Lane B verifies. `V1-SM05` stays
+`BLOCKED`.
+
 **`D-397` (2026-10-02) — `GR-013` delivered.** `bun run fixtures` runs in a disposable worktree pinned to `HEAD` and
 never writes the caller's checkout; concurrent runs are safe. Lane B verifies. `V1-SM05` stays `BLOCKED`.
 
