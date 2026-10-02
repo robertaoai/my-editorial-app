@@ -5,7 +5,12 @@
 - **Phase:** 1
 - **Blocks:** comprehensive census acceptance and Gate 2 clearance without source/child proof; no construction authorization
 - **Status:** Open
-- **Lane A:**
+- **Lane A:** **Acknowledged 2026-10-02, receipt only**, read at `8e6ab54`. Lane A confirms against the sources
+  that `R33` is not fixed (FN-GATES §11 still maps `EG5` → `T6` → `ACCESS-ROLE-CHIEF-EDITOR`); that the Chief
+  Journalist `A` question was dissolved by `D-236` (B-117 lines 3789–3797); and that `R30`'s curated surface is
+  unread. The census corrections, the keying of this entry and the commit-discipline finding go to the Judge as one
+  bounded unit before any canonical edit. No answer, Resolution or canonical source is changed by this
+  acknowledgement.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** D-364, D-158, D-381–D-384; SV-002 §2.3.1–§2.3.2 and §3.3; GOV-RES-001; B-077/B-117 source findings; B-104; V1-SM05/V1-SM06; independent directory/ledger/child-ID comparison; reviewed baseline bun run check 19/19 and draft 18/19; Graphify query, exact-label explain and check-update; Judge-supplied Lane C assessment received 2026-10-02, challenged in the consolidated section below
 - **Verified-At-Commit:** 42dbbe6c94ad5c07f610390eeee215f566bb2288
