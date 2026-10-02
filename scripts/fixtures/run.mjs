@@ -23,12 +23,13 @@
 
 import { execFileSync, spawnSync } from "node:child_process";
 import { createHash } from "node:crypto";
-import { copyFileSync, existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, realpathSync, rmdirSync, statSync } from "node:fs";
+import { appendFileSync, copyFileSync, existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, realpathSync, rmdirSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join, resolve, sep } from "node:path";
 import { dirtyPaths } from "./harness.mjs";
 
 const CHILD = "FIXTURES_TARGET_CHILD";
+const OWNER = "owner.pid";
 
 /** Graph files the checks read. `.graphify` is a symlink to a shared folder
  * (`D-297`), so these are COPIED into the target, never linked: a fixture must
@@ -52,10 +53,15 @@ function orchestrate() {
     console.log(`  The run uses commit ${head.slice(0, 7)}; your files are left exactly as they are.`);
   }
 
+  recoverDeadRuns();
+
   // A fresh, exclusively created base per run: a second run gets its own target
-  // and can never write into this one (G13-5).
+  // and can never write into this one (G13-5). The owner file lets a later run
+  // tell a dead run's leftovers from a live run's target.
   const base = mkdtempSync(join(tmpdir(), "fixtures-"));
   const target = join(base, "wt");
+  const ownerFile = join(base, OWNER);
+  writeFileSync(ownerFile, String(process.pid));
   const baseIsOurs = resolve(base).startsWith(resolve(tmpdir()) + sep);
   let cleaned = false;
 
@@ -72,6 +78,7 @@ function orchestrate() {
       execFileSync("git", ["worktree", "prune"], { stdio: "ignore" });
     } catch { /* prune is housekeeping; a leftover is reported below */ }
     if (existsSync(target) && !left.length) left.push(target);
+    if (!left.length) rmSync(ownerFile, { force: true });
     // Remove the base only if it is ours and empty — never recursively.
     try {
       if (baseIsOurs && existsSync(base) && readdirSync(base).length === 0) rmdirSync(base);
@@ -117,6 +124,57 @@ function orchestrate() {
   return code;
 }
 
+/**
+ * A hard kill (task manager, a stopped session) skips every cleanup handler, so
+ * a run can leave its worktree behind. Before starting, remove the leftovers of
+ * runs whose owner process is DEAD. A live run's target is never touched, and
+ * only registered worktrees at `<tmpdir>/fixtures-*\/wt` holding an owner file
+ * qualify. Removal goes through `git worktree remove`, then the empty base.
+ */
+function recoverDeadRuns() {
+  const tmp = resolve(tmpdir());
+  let list = "";
+  try {
+    list = execFileSync("git", ["worktree", "list", "--porcelain"], { encoding: "utf8" });
+  } catch {
+    return;
+  }
+  for (const line of list.split("\n")) {
+    if (!line.startsWith("worktree ")) continue;
+    const wt = resolve(line.slice(9).trim());
+    const base = resolve(wt, "..");
+    if (!(base.startsWith(tmp + sep) && /^fixtures-[^\\/]+$/.test(base.slice(tmp.length + 1)) && wt === join(base, "wt"))) continue;
+    const ownerFile = join(base, OWNER);
+    if (!existsSync(ownerFile)) continue;
+    // Parent and child PIDs: a hard-killed parent can leave its child running in
+    // the target, so the run is live while EITHER process is.
+    const pids = readFileSync(ownerFile, "utf8").split(/\s+/).filter(Boolean).map(Number);
+    if (pids.some(pidAlive)) continue;
+    const pid = pids.join("/");
+    try {
+      execFileSync("git", ["worktree", "remove", "--force", wt], { stdio: "ignore" });
+      rmSync(ownerFile, { force: true });
+      if (readdirSync(base).length === 0) rmdirSync(base);
+      console.log(`  fixtures: removed the leftover worktree of dead run ${pid} (${wt})`);
+    } catch (e) {
+      console.log(`  fixtures: could not remove the leftover of dead run ${pid} (${wt}): ${e.message.split("\n")[0]}`);
+    }
+  }
+  try {
+    execFileSync("git", ["worktree", "prune"], { stdio: "ignore" });
+  } catch { /* housekeeping */ }
+}
+
+function pidAlive(pid) {
+  if (!Number.isInteger(pid) || pid <= 0) return false;
+  try {
+    process.kill(pid, 0);
+    return true;
+  } catch (e) {
+    return e.code === "EPERM";
+  }
+}
+
 function copyGraphInputs(dest) {
   const src = ".graphify";
   const out = [];
@@ -143,6 +201,9 @@ function reportLeftovers(left) {
 
 /** Child: runs inside the disposable worktree, exactly as the runner always ran. */
 async function runSuites() {
+  // Register this process beside the parent's PID (see `recoverDeadRuns`).
+  const ownerFile = resolve(process.cwd(), "..", OWNER);
+  if (existsSync(ownerFile)) appendFileSync(ownerFile, `\n${process.pid}`);
   const { SUITES } = await import("./suites.mjs");
   const results = [];
   let failedSuite = false;
