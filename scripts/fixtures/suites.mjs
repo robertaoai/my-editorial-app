@@ -7,8 +7,8 @@
 
 import { execFileSync } from "node:child_process";
 import { fixture, read, write, withRetry, TRANSIENT_CODES, existsSync, rmSync, mkdirSync, runCheck, snapshot } from "./harness.mjs";
-import { join } from "node:path";
-import { readdirSync, readFileSync, rmdirSync } from "node:fs";
+import { join, resolve } from "node:path";
+import { readdirSync, readFileSync, rmdirSync, writeFileSync, symlinkSync, lstatSync, unlinkSync, renameSync } from "node:fs";
 import { field, ENTRY_FILE } from "../checks/handoff-fields.mjs";
 import { classify } from "../checks/lane-boundary.mjs";
 import { classifyChangedPaths } from "../checks/governed-intent.mjs";
@@ -2628,6 +2628,114 @@ export async function snapshotRestore(results) {
   }
 }
 
+/**
+ * `D-398` (`B-155` F1) — physical containment. Each case puts a sentinel
+ * OUTSIDE the snapshot root, tries one escape route, and passes only if the
+ * snapshot or restore refuses AND the sentinel's bytes are unchanged. A late
+ * exception after an outside write fails the case. Junctions need no admin
+ * rights on Windows. Cleanup removes only the exact names created here.
+ */
+export async function snapshotContainment(results) {
+  const P = resolve(".fixture-containment-probe");
+  const root = join(P, "root");
+  const outside = join(P, "outside");
+  const sentinel = join(outside, "file.txt");
+  const SENT = "EXTERNAL USER DATA";
+  const created = []; // exact paths to remove, in reverse order
+  const mk = (d) => { mkdirSync(d); created.push(d); };
+  const wf = (f, s) => { writeFileSync(f, s); if (!created.includes(f)) created.push(f); };
+  const junction = (link, to) => { symlinkSync(to, link, "junction"); created.push(link); };
+  const unlinkAny = (p) => {
+    let st; try { st = lstatSync(p); } catch { return; }
+    if (st.isSymbolicLink()) { try { unlinkSync(p); } catch { rmdirSync(p); } }
+    else if (st.isDirectory()) { if (readdirSync(p).length === 0) rmdirSync(p); }
+    else unlinkSync(p);
+  };
+  const tidy = () => { while (created.length) unlinkAny(created.pop()); };
+  const fresh = () => {
+    tidy();
+    mk(P); mk(root); mk(outside); wf(sentinel, SENT);
+  };
+  const outsideIntact = () => readFileSync(sentinel, "utf8") === SENT && readdirSync(outside).length === 1;
+  const caseOf = async (name, run) => {
+    fresh();
+    let refused = "";
+    try { await run(); } catch (e) { refused = e.message; }
+    const intact = outsideIntact();
+    results.push({ name, ok: Boolean(refused) && intact, detail: !refused ? "NOT refused" : intact ? `refused, outside unchanged — ${refused.slice(0, 90)}` : "outside bytes CHANGED" });
+  };
+
+  try {
+    // Positive control: an ordinary contained file, directory and absent descendant restore cleanly.
+    fresh();
+    mk(join(root, "parent")); wf(join(root, "parent", "file.txt"), "ORIGINAL");
+    let undo = snapshot([join(root, "parent"), join(root, "parent", "file.txt"), join(root, "new"), join(root, "new", "x.txt")], { roots: [root] });
+    writeFileSync(join(root, "parent", "file.txt"), "CHANGED");
+    mkdirSync(join(root, "new")); writeFileSync(join(root, "new", "x.txt"), "x");
+    undo();
+    const ok = readFileSync(join(root, "parent", "file.txt"), "utf8") === "ORIGINAL" && !existsSync(join(root, "new")) && outsideIntact();
+    results.push({ name: "containment: ordinary contained paths restore cleanly (positive control)", ok, detail: ok ? "restored" : "not restored" });
+    // The root itself as a managed path.
+    fresh();
+    undo = snapshot([root], { roots: [root] });
+    undo();
+    results.push({ name: "containment: the root as a managed path restores cleanly", ok: existsSync(root), detail: "root kept" });
+
+    await caseOf("containment: ancestor already a junction at capture is refused", () => {
+      junction(join(root, "parent"), outside);
+      snapshot([join(root, "parent", "file.txt")], { roots: [root] });
+    });
+    await caseOf("containment: ancestor replaced by a junction after capture is refused before any write (B-155 F1)", () => {
+      mk(join(root, "parent")); wf(join(root, "parent", "file.txt"), "ORIGINAL");
+      const u = snapshot([join(root, "parent"), join(root, "parent", "file.txt")], { roots: [root] });
+      unlinkAny(join(root, "parent", "file.txt")); created.splice(created.indexOf(join(root, "parent", "file.txt")), 1);
+      unlinkAny(join(root, "parent")); created.splice(created.indexOf(join(root, "parent")), 1);
+      junction(join(root, "parent"), outside);
+      u();
+    });
+    await caseOf("containment: a baseline file replaced by a junction is refused", () => {
+      wf(join(root, "file.txt"), "ORIGINAL");
+      const u = snapshot([join(root, "file.txt")], { roots: [root] });
+      unlinkAny(join(root, "file.txt")); created.splice(created.indexOf(join(root, "file.txt")), 1);
+      junction(join(root, "file.txt"), outside);
+      u();
+    });
+    await caseOf("containment: an allowed root replaced by a junction is refused", () => {
+      wf(join(root, "file.txt"), "ORIGINAL");
+      const u = snapshot([join(root, "file.txt")], { roots: [root] });
+      const moved = join(P, "root-moved");
+      renameSync(root, moved); created[created.indexOf(root)] = moved;
+      created.splice(created.indexOf(join(root, "file.txt")), 1, join(moved, "file.txt"));
+      junction(root, outside);
+      u();
+    });
+    await caseOf("containment: an allowed root replaced by a file is refused", () => {
+      const u = snapshot([join(root, "a.txt")], { roots: [root] });
+      rmdirSync(root); created.splice(created.indexOf(root), 1);
+      wf(root, "now a file");
+      u();
+    });
+    await caseOf("containment: an absent descendant under a later junction is refused before delete", () => {
+      const u = snapshot([join(root, "parent"), join(root, "parent", "file.txt")], { roots: [root] });
+      junction(join(root, "parent"), outside);
+      u(); // would delete outside/file.txt through the junction
+    });
+    await caseOf("containment: an ordinary directory substituted under the same name is refused", () => {
+      mk(join(root, "parent")); wf(join(root, "parent", "file.txt"), "ORIGINAL");
+      const u = snapshot([join(root, "parent", "file.txt")], { roots: [root] });
+      unlinkAny(join(root, "parent", "file.txt"));
+      rmdirSync(join(root, "parent"));
+      mkdirSync(join(root, "parent")); // same spelling, different object
+      u();
+    });
+    await caseOf("containment: a path outside every root has no record and is refused", () => {
+      snapshot([sentinel], { roots: [root] });
+    });
+  } finally {
+    tidy();
+  }
+}
+
 export const SUITES = [
   ["handoff metadata and closure fields (`D-102`)", handoffFields],
   ["return record form (`B-097`)", returnRecordForm],
@@ -2642,6 +2750,7 @@ export const SUITES = [
   ["phase-scoped closure gating (`D-102`)", phaseScope],
   ["sync-docs uniqueness (`D-102`)", syncDocs],
   ["baseline-aware restore (`D-396`, `GR-013`)", snapshotRestore],
+  ["physical containment of restore (`D-398`, `B-155` F1)", snapshotContainment],
   ["lane state (`D-103`)", laneState],
   ["channel documentation (`D-104`)", channelDocs],
   ["lane crossing declaration (`D-105`)", laneGate],
