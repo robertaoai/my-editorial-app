@@ -3827,3 +3827,13 @@ Judge authorization: "Judge authorizes first screening batch as next unit".
 - Remaining unkeyed transactions are derived from `SV-002`, not restated here.
 
 One-path commits.
+
+## Lane A application — D-390, screening batch 2 — 2026-10-02
+
+Judge authorization: "Judge authorizes push of 3 commits and batch 2 as next unit".
+- **Batch 2:** the 26 `O5` transactions, all now keyed.
+- **Live residuals received:** `B-014` → `GR-012` (the environment import recreating `.agents/skills/sync-docs/`);
+  `B-021` → `GR-013` (the unbuilt fixture concurrency lock).
+- The other 24 are valid. Each `O5` row still needs the Judge's individual reason to close.
+
+One-path commit.
