@@ -4,7 +4,7 @@
 - **Kind:** spec-defect
 - **Phase:** 1
 - **Blocks:** a truthful Lane A declaration that governance and documentation are ready for Lane B and Lane C; safe definition of the Lane B-to-Lane C evidence boundary and Lane C-to-Lane B monitoring feedback; no application build, workflow implementation, publication, lane transition or release action
-- **Status:** Open
+- **Status:** Answered
 - **Lane A:** **Acknowledged 2026-09-15, receipt only.** This entry is read as additive to, not a
   replacement of, B-102 (consumer model) and B-077 (lifecycle/failure-pattern history), consistent
   with its own framing; no duplicate readiness ledger is created. The P1 three-way workflow division
@@ -19,9 +19,10 @@
   the "Lane A disposition — 2026-09-15" section at the end of this entry** — that section records
   the evidence this line predates; this line is kept, not edited, per this channel's rule against
   rewriting history.
-- **Verified-By:** — not yet dispositioned; raised by Lane B
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Evidence:** Chief Editor/Judge clarifications of 2026-09-15; B-077, B-101 and B-102; `AGENTS.md` D-56/D-75/D-84/D-86/D-100/D-183/D-186; `docs/handoff/README.md`; `.github/WORKFLOWS-SPEC.md`; `docs/LANE-B-WORK-ORDER.md`; `docs/Modular_PRD.md` FR-14/NFR-08/Q4; `docs/fn-specs/FN-GATES-01-05.md`; `docs/fn-specs/FN-AUDIT-VISIBILITY-07-08.md`; `docs/specs/SPECS-VERIFICATION-APPARATUS.md`; `docs/journal/2026-08-18-storyboard-business-and-digital-twin.md`; `docs/governance/requirements-traceability-map.md`; `docs/ENCYCLOPEDIA-SYNC.md`; Graphify query and `.graphify/branch.json`; `bun run check` at the named commit; `D-227`–`D-230`; the "Exact Lane A disposition draft" and "Lane A disposition — 2026-09-15" sections of this entry.
-- **Verified-At-Commit:** 0feaa4588d97daaed4a5824da892ee6eef675313
+- **Verified-At-Commit:** a82370bf08da65746b1ea91abceedb790fe75d2e
 
 ## What happened
 
@@ -958,3 +959,14 @@ Judge ruling, read fresh rather than assumed unchanged:
 `48aa964`), and `P3` itself is Verified (`D-380`). With `P0`, `P1` and `P2` (Stage 1) already Verified, no
 child holds this entry in Phase 1. The one surviving obligation, `D-230` Stage 2, is received by `V1-SM06` as
 `SM06-P3-06` (`D-382`). This return exists only to record that disposition; a Re-close record follows.
+
+## Re-close record
+
+- **Reclosed-Return:** Return-Act `D-383` (2026-10-02), Returned-At-Commit 0feaa4588d97daaed4a5824da892ee6eef675313
+- **Completion-Condition:** Phase 1 — `B-097`'s return-protocol controls own `P3`; with `P3` Verified, every Phase 1 child (`P0`–`P3`) is Verified and the surviving obligation has a receiver
+- **Completion-Evidence:** `B-097` independently Verified (Lane B, recorded `48aa964`); `P3` Verified (`D-380`, annotation at `48aa964`); `P0`–`P2` Verified (Lane A disposition 2026-09-15, Judge ruling 2026-09-16); `D-230` Stage 2 received as `V1-SM06` `SM06-P3-06` (`D-382`)
+- **Reclose-Act:** `D-364` re-close form; Lane A disposition `D-383`, 2026-10-02, `V1-DECISION-REGISTER.md` §5.14e208
+- **Reclosed-At-Commit:** a82370bf08da65746b1ea91abceedb790fe75d2e
+
+`Applied` is Lane A's receiver disposition. `Verified` needs Lane B's independent read. `D-230` Stage 2 execution
+stays with `SM06-P3-06` and its own later work order.

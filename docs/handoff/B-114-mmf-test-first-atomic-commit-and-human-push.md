@@ -4,7 +4,7 @@
 - **Kind:** spec-defect
 - **Phase:** 1
 - **Blocks:** defining the next Lane B/C construction packet; claiming strict TDD or unit-by-unit validation; deciding when an authorized implementation commit may be pushed
-- **Status:** Open
+- **Status:** Answered
 - **Lane A:** **Acknowledged; returned for disposition 2026-10-02 (`D-383`)** — see the Return record at the end.
   **Surviving scope determined, 2026-09-16 (receipt of Lane B's B-117 backlog-aging
   review).** `B-115` itself already names the split, rather than declaring this entry superseded
@@ -26,9 +26,10 @@
   own Intent/Build/DevOps-governance separation; Lane A's actual answer belongs there, not
   duplicated here. No construction, register act, or lane-instruction change made from this
   acknowledgement.
-- **Verified-By:** — not yet dispositioned; raised by Lane B
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Evidence:** Chief Editor/Judge clarification of 2026-09-16; `docs/v1/V1-B071-CORRECTIVE-PLAN.md` `R76` and related no-operative-MMF criteria; `docs/v1/V1-BUILD-SPEC.md` bounded-unit and DoD rules; `docs/LANE-B-WORK-ORDER.md` §§1, 2 and 4; `.github/WORKFLOWS-SPEC.md`; `docs/specs/SPECS-VERIFICATION-APPARATUS.md`; `docs/Modular_PRD.md` NFR-04/AC-NF-03; shared-core commit/push and lane rules; B-115's explicit B-114 disposition line
-- **Verified-At-Commit:** 0feaa4588d97daaed4a5824da892ee6eef675313
+- **Verified-At-Commit:** a82370bf08da65746b1ea91abceedb790fe75d2e
 
 ## Judge clarification received
 
@@ -206,3 +207,13 @@ corrects and preserves"). This entry's
 method content lives in §7 for `V1-SM05`'s work order. Its B→C evidence packet and Lane C workflow proof are
 received by `V1-SM06` as `SM06-P3-06` (`D-382`). `B-115` is still `Applied`, not Verified, so this entry's own
 verification waits for it. A Re-close record follows.
+
+## Re-close record
+
+- **Reclosed-Return:** Return-Act `D-383` (2026-10-02), Returned-At-Commit 0feaa4588d97daaed4a5824da892ee6eef675313
+- **Completion-Condition:** Phase 1 — `B-115`'s Intent/Build/DevOps separation applied to governed sources, with this entry's ownership framing corrected there
+- **Completion-Evidence:** `D-242` (§5.14e67): `docs/README.md`, `LANE-B-WORK-ORDER.md` §7 and `.github/WORKFLOWS-SPEC.md` §8 carry the separation, and its "What this corrects and preserves" clause corrects this entry's MMF and build-ownership language by reference; method content received by `LANE-B-WORK-ORDER.md` §7; B→C packet and workflow proof received as `SM06-P3-06` (`D-382`)
+- **Reclose-Act:** `D-364` re-close form; Lane A disposition `D-383`, 2026-10-02, `V1-DECISION-REGISTER.md` §5.14e208
+- **Reclosed-At-Commit:** a82370bf08da65746b1ea91abceedb790fe75d2e
+
+`Applied` is Lane A's receiver disposition. `Verified` needs an independent read, after `B-115` is itself Verified.
