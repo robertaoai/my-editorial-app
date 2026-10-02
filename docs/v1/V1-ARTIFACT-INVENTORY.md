@@ -435,6 +435,9 @@ inside `SV-002.md` (§2.3.2) and `GOV-RES-001.md` (`GR-009`–`GR-011`).
 **`D-385` (2026-10-02) — no file added or retired, stated explicitly.** Changed in place: `docs/handoff/README.md`,
 `SV-002.md`, `docs/graph-fragments/frag5.json`, and `B-153`/`B-150` in their own one-path commits.
 
+**`D-386` (2026-10-02) — no file added or retired, stated explicitly.** Changed in place: the storyboard journal
+(three provenance markers) and `GOV-RES-001.md`; `B-115`/`B-150` in their own one-path commits.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

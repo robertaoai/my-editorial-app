@@ -25471,3 +25471,40 @@ The lane-gate control; any Product, code or stored-ID change; `B-114`'s verifica
 | **Build Spec**, packets, `Modular_PRD`, Fn Specs, SPECS, rule files, Phase Closure | — unaffected |
 | **Encyclopedia** | — unaffected: no file mapped to Entries 01–06 changed |
 | **Graphify** | Rebuild at the final commit, re-merge `frag5` and `frag136`, replay descriptions, then content-checked labels |
+
+## 5.14e211 `D-386` — `GR-002` Applied to Storyboard Panels A3, A4, A6; Lane C's `B-115` Consumer Read Requested
+
+**Authority: the Judge, directly to Lane A, 2026-10-02**: *"Judge authorizes Lane C B-115 read and GR-002 as next
+unit"*. Read at `e941de9`.
+
+### The decision
+
+1. **`GR-002` applied.** Storyboard Panels A3 (T2/T3), A4 (T4) and A6 (T6) each gain a "SUPERSEDED FOR CURRENT USE"
+   provenance marker, in the format A2 and A5 already use. Each cites:
+   - the `D-171` hold;
+   - the target in `FN-GATES-01-05.md` §11;
+   - Panel A11 as the current slice (`D-249`, `D-260`);
+   - for A6 only: `D-239` (`T6` outside V1) and `D-238`/`D-251` (human executor with `ACCESS-ROLE-CHIEF-EDITOR`).
+
+   Panel text is preserved; no panel is rewritten. This applies `B-104.O3` and `B117-R21`/`R35`/`R42`/`R50` within
+   the scope `D-384` identified. `GR-002` stays open until independently verified.
+2. **Lane C's `B-115` consumer read is requested** in `B-115`, with its acceptance test. Lane A cannot perform it.
+   `B-114`'s verification waits for it.
+
+### Not given by this act
+
+`GR-002` verification or clearance; any Lane C act; `B-114` or `B-115` verification; Gate 2.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e211 |
+| **`docs/journal/2026-08-18-storyboard-business-and-digital-twin.md`** | ✅ three provenance markers |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/GOV-RES-001.md`** | ✅ `GR-002` application note |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-386` paragraph; no file added or retired |
+| **`docs/handoff/B-115-separate-intent-build-and-devops-governance.md`** | ✅ Lane A request for Lane C's read, in its own commit |
+| **`docs/handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md`** | ✅ Lane A application record, in its own commit |
+| `Modular_PRD`, Fn Specs, SPECS, Build Spec, packets, rule files, Phase Closure | — unaffected |
+| **Encyclopedia** | — unaffected: the storyboard is not mapped to Entries 01–06 |
+| **Graphify** | Rebuild at the final commit, re-merge, replay descriptions, content-checked labels |
