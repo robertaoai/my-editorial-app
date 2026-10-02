@@ -335,3 +335,80 @@ The earlier repeated readiness conclusions overlooked G1/G2's durable handover p
 | B-115 → B-114 | Both consumer reads are durable (`B-153`, `D-387` artifact). Independent assessment is yours |
 
 **Status stays `Open`** until independent review of these corrections.
+
+## Lane B consolidated draft — GR-012/GR-013 and current closure plan, 2026-10-02
+
+**Purpose and readiness.** Lane B raises this consolidated planning review; Lane A answers in this existing template-based B-154. Read HEAD: `45b2f0a97049c9ee57765137c073e3c038f62571`; pre-review draft SHA-256: `5f4cf6049862cac249dc39929f0b6dcff0e51d7afd2a3829a03cb3639bf75d92`. This block replaces the accumulated uncommitted GR analysis, including LC-GR1–11, and preserves Lane A's earlier answer and the committed history above. **Ready for receipt, answer and bounded specification preparation.** No GR implementation, source verification, Gate 2 clearance or lane transition is granted. Existing authorized Phase 1 work follows its own act.
+
+**Consolidated request:** challenge the supplied Lane C assessments against governed evidence; retain supported scope and correct gaps; give Lane A one parent-first decision/acceptance plan, the critical construction/verification artifacts and the Chief Editor/Judge decisions. Do not build.
+
+**Evidence provenance.** The Judge supplied these Lane C assessments; their reported commands/verdicts are supplied evidence, not Lane C actions performed by Lane B. Original files remain in the chat attachments. If used as durable formal Level 2 evidence, Lane A preserves/cites the exact source through the authorized evidence workflow. A planning assessment does not verify an unbuilt fix.
+
+| Attachment directory under `C:/Users/rober_24syk4j/.codex/attachments/` (each file is `Pasted text.txt`) | SHA-256 |
+|---|---|
+| `ca150644-4bbe-4a8f-9852-f82e1c1e5adc` | `726f66ccaf25ce3dcec22c8b5c6a1379dc2bec5a82dedcf907804624e259a03a` |
+| `12f46535-c0d0-464c-92ea-c4b68f169c9d` | `4ed7bc6eb7cc8c2dc60f59b97a338e8775adfaf3e7d131070469b1863aedac8f` |
+| `723d9685-005f-436a-bed7-1ba3345e1326` | `ac31af3ccaa5f6ed89ec75922711a70fb8801e1810fd3c51972986ca5b2ab6b2` |
+| `67245499-e12a-4667-b49f-88faf262918d` (latest) | `5079f6be279a7fe747947d1e14d2ae32e03be84602d951c25219d8cef2c74fb6` |
+
+**Supported direction and remaining challenge.** Retain independent P1/P2/P3 preparation, correct O3 hold semantics, no self-verification, three separate tracking measures and SM05/SM06 allocation. The latest assessment adds no proven new blocker; its condensed summary is useful, but its “fully corrected” link claim conflicts with repeated nonexistent `docs/governance/GR-001.md`–`GR-003.md` links. These are receipt rows in `docs/v1/work-packets/SETUP-SPIKE-000/GOV-RES-001.md`. Selection of a design alone does not authorize P4a; execution also needs the Register act, bounded unit and Active owner. Gate 2 joins required source dispositions and setup evidence, not automatic completion of every later receiving task. D-390 permits isolation **or** reader/writer locking, and importer disabling **or** genuine single-source mapping. Reject remedy mandates, a guaranteed “next startup” failure, blanket work freezes and actor eligibility presented as completed review. These are development instruction/fixture hazards; no production, financial or quantified loss is proven. Another planning reassessment does not replace Lane A's answer, commissioning or completion proof.
+
+**Tracking and business boundary.** Existing homes remain `SV-002.md` §2.3.2 (review ledger), §2.3.1 (Gate 2 tracker), and typed receiving packets. Snapshot: 161 B/C files minus four turn reports = 157 eligible transactions; 157 unique keyed rows, zero unkeyed. D-391 leaves 70 Verified premises with structural-only screening, so keying is not full semantic review. The tracker reports 106 mixed source/child rows, 69 non-SM05 unclosed, zero SM05 unreceived and zero unlisted live entries/unreferenced children. Receiving-completion totals are **not derived** here; never report zero by assumption or add source and child populations.
+
+B-104 O1 is CR-09 + partial CR-19 → US-15/FR-15/AC-23–26 → FN-GATES SM05-N6 → MMF-V1-CORE/SM05 evidence. O2/O4 retain their target story/AC parents, D-171 hold and GR-001/003 custody; O3 is unheld historical-provenance labelling in GR-002, applied with D-388's A6 repair and awaiting independent review. These children already have main and receiving rows; the gap is proof, not missing tracking. No B-104.O5 exists. Global O0–O5 are closure-order groups with Product/Project authority, not new stories or increments. Consume the existing trace and sixteen-source routing tables above; keep historical cohort labels separate from current headers.
+
+D-381–D-383 remain binding: SM05 is local Phase 2 construction, disposable local `0002` replay and failing-first validation; hosted migration/Phase 3 CI are separately authorized SM06 Project receipts under NFR-04 → AC-NF-03. Existing CI and completed setup evidence remain. Accepted local SM05 DoD → separately accepted baseline promotion → SM06 entry → separately authorized Phase 3 work. Full CR-19, automated WordPress and Published are not promised by this V1 boundary.
+
+| Key / dependency | Lane A output and Judge Accept criterion | Reject criterion | Verdict / follow-up phase |
+|---|---|---|---|
+| **P0 — highest parent** | Answer this intake against current Register scope, actual artifact homes and actor boundaries; distinguish preparation, commissioned correction and independent acceptance | Review/Issue/PR/check green supplies execution authority; settled scope is reopened | Approve-with-conditions — Phase 1 intake/answer |
+| **P1 after P0 — GR-007** | Reconcile keyed review scope, source/child clearance and receiving completion separately; retain structural-only limits, owners/holds/return conditions and exact evidence | 157 keyed means 157 fixes; custody means clearance; historical terminal headers exempt residuals | Approve-with-conditions — Phase 1 reconciliation/review |
+| **P2 after P0 — GR-013 design** | Present isolation (recommended) versus bounded cooperative locking; specify files, callers/readers, process admission, interruption/cleanup, exclusions and DoD for Judge selection | Clean start, file retry or writer-only lock proves safety; preference supplies implementation permission | Approve-with-conditions — Phase 1 design/commissioning |
+| **P3 after P0 — GR-012** | Identify importer actor/configuration with before/after evidence; separately specify Lane A's canonical-language correction. Docs-only commissioning need not wait for writer discovery | Empty directory attributes/removes the writer; Lane A is assumed to control an unknown integration; independent docs work is blocked | Approve-with-conditions — Phase 1 environment investigation/docs plan |
+| **P4a after P2 plus its execution act** | Deliver safety in the selected bounded Active-lane unit; independently prove same-target second-writer refusal, baseline reader truth or enforced reader wait/refusal, caller byte preservation and correct current fixture outcomes | Mutation tests run before safety; GR-013 waits unnecessarily for GR-012; Lane A certifies its own fix | Defer — authorized Phase 1 tooling delivery, then independent proof |
+| **P4b after P3 remedy evidence and safe P4a testing, plus its act** | Attributed owner disables/maps the importer; Lane A normalizes the procedure; independent recurrence/semantic proof distinguishes valid discovery from duplicate/absent/unreadable canonical refusal | Detector green or deletion proves root-cause removal; copied editable skill counts as mapping | Defer — authorized Phase 1 environment/docs action and verification |
+| **P5 after required source dispositions and other SV-002 evidence** | Present D-364 clearance, SM05 receipts and remaining SV2-DOD-01/02/04/06 evidence; Judge separately accepts SV-002, lifts block, selects SM05, issues work order and records Active-lane act | Two GR fixes automatically unblock SM05; every later receiving implementation is demanded before Gate 2; source transfer is called completion | Defer — Phase 1 gate acts, then authorized Phase 2/SM05; Phase 3/SM06 later |
+
+P1, P2 and P3 share P0 authority and do not await each other's completion. P4a does not await importer attribution. A separately authorized docs-only correction can precede safety delivery; mutation-based verification requires safety. A permitted reasoned source disposition can retain later execution at its receiver without falsely claiming it complete. Keep these plan keys; adopt no second competing matrix.
+
+**Critical artifacts and success criteria.**
+
+| Owning artifact / parent | What builders and verifiers need |
+|---|---|
+| Existing trace matrix → FN acceptance contracts → SM05 packet/work-order/FV-001 | Accepted behavior, roles, persistence/refusal/exclusions and DoR→DoD linkage; later authorized Lane B supplies physical-store and failing-first/passing proof; independent review and Judge outcome acceptance follow |
+| GR-012 → canonical `.claude/skills/sync-docs/SKILL.md` and importer receipt | Replace conflicting frontmatter/introduction/§1 triple-edit/hash-core instructions with D-337's AGENTS.md single core/CLAUDE import, retaining labelled history. Record attributed actor/action, discovery paths/hashes and a normal import/startup trial; valid single-source discovery passes and injected duplicate/canonical absence/unreadability is refused |
+| GR-013 → `scripts/fixtures/run.mjs`, `harness.mjs` and adversarial evidence | Isolation preserves Git history and explicit graph inputs; reject same-target competing writer before writes, while original readers see baseline truth. Test overlapping writers/readers, failure, interruption/restoration failure; compare tracked/index/untracked user bytes and status without demanding a dirty caller become clean. Preserve all current fixture meanings; missing inputs are explicit failures/limits |
+| GR-013 alternative — cooperative lock, only if selected | Atomic acquisition before clean-tree inspection through verified restoration; writers, consistency and graph readers honor it. Define contention/stale-lock/interruption handling and enforced exclusions for noncooperating editors/importers. No general safety claim from a writer-only lock |
+| GR-007 → SV-002 ledger/tracker and receiving rows | Complete typed ownership and review scope, separate clearance/completion, and independent B-115 → B-114 assessment; GR-002 is a separate applied-repair review. Do not repeat D-388 corrections or create another backlog |
+
+Existing uniqueness fixtures wait for safe execution. Fixture failures exit nonzero and preserve diagnostics; cleanup removes only verified task-owned paths. No secrets are recorded in importer evidence. Lane A supplies its answer/application evidence; only an actor who neither answered nor applied records independent verification. Retain D-324's Level 1/Level 2 chain where applicable; routing to an eligible actor is not completed review.
+
+**Chief Editor/Judge responsibilities.**
+
+| Decision owner | What Lane A presents / Accept when | Reject or gap to avoid |
+|---|---|---|
+| Chief Editor — business intent | For genuinely undecided held Product intake, only when selected: customer problem, bounded outcome, story/AC limits and exclusions. Preserve partial CR-19 and already-decided roles/retention/provenance | Invented selected MMF/full delivery promise; repeat business vote on settled semantics; confuse Chief Editor access with ROLE-CHIEF-EDITORIAL-DESK authority |
+| Judge — P2/P3 commissioning | Concrete safety options and separately attributable environment/docs actions; each selected act names owner, files, tests, exclusions and DoD | Preference/Approve verdict as execution authority; Lane A presumed to control an unknown importer; unnecessary dependency between independent units |
+| Judge — source acceptance/P5 | Actual independent proof or permitted reasoned source disposition, separate review/clearance/receiver measures and remaining setup evidence; distinct unblock/selection/work-order/lane acts | Self-verification, blanket terminal closure, keying/receipt as completion, or demand that every deferred receiving implementation finish first |
+
+The attributable environment owner performs GR-012's external action; Lane A owns repository docs/tooling and records custody. No business promise, tooling selection or source clearance follows from this review alone.
+
+**Lane A follow-up, in order.**
+
+1. Answer the current block in B-154: accepted/rejected findings, owner/output and stop/return condition. Preserve the existing Lane A answer and supplied assessments; later answer commit is single-path under D-385. Do not label an unimplemented fix Applied or claim independent Verified.
+2. Refresh the three measures from canonical homes at the actual revision. Retain all source/child rows and structural-only review limits; expose only three pending priorities in the review summary.
+3. Prepare P2's concrete design choice and P3's two separate outputs; obtain the Judge's bounded act before applying canonical/tooling/environment changes. Unknown writer attribution does not stop unrelated commissioned Phase 1 work.
+4. Execute only each selected unit, then safe tests and exact evidence. Route B-115 first, then B-114, plus GR-002 independently, to Lane B or another eligible reviewer; Lane A cannot verify its own application. Record appropriate return/re-close/annotation/disposition per source episode, not bulk closure.
+5. For canonical changes, apply D-54; synchronize Graphify, re-merge curated fragments, verify affected fragment parity/semantic claims and run `bun run check`. A handoff-only edit is excluded from governed-intent coverage under D-231 and does not require a rebuild.
+6. Assemble P5 only on required clearance/receipts and remaining setup DoD, retaining held future execution at its receiver. Keep Judge acceptance/unblock/selection/work-order/lane acts separate.
+
+**Only three pending priorities:** GR-013 safety design/commissioning; GR-012 writer attribution and canonical docs plan; GR-007 source-clearance docket including B-115 → B-114 and GR-002 review.
+
+**Verification limits:** Graphify was queried first; check-update reports current. Prior full Lane B consistency runs passed 19/19 at this HEAD/draft series. The latest attachment repeats 19/19, but its supplied command transcript lists only status/diff/reads, so it does not establish a fresh Lane C consistency run. Validate this final draft before routing. Detector green does not cure canonical semantic drift. No shared-tree fixtures, canonical fix, build, commit, push, deployment or source/lane lifecycle change is performed by this planning turn.
+
+| Verdict | Consolidated conclusion | Condition / follow-up phase |
+|---|---|---|
+| Approve | Existing scope, trace, phase allocation and canonical tracking homes | Phase 1 — retain evidence and partial semantic-review limits |
+| Approve-with-conditions | One corrected block ready for Lane A receipt/answer/specification | Phase 1 — bounded design/action acts and appropriate independent proof for each dependent unit |
+| Reject | Broken GR file links, blanket blocks/holds, unsafe dependencies, self-verification, mandatory unselected remedies and keyed/check/Issue/PR/receipt as completion | Phase 1 — correct homes, actors, prerequisites and evidence |
+| Defer | GR implementation/completion, Gate 2 and software construction | Separate Phase 1 units/reviews/Judge acts → authorized Phase 2/SM05 → later separately authorized Phase 3/SM06 |
