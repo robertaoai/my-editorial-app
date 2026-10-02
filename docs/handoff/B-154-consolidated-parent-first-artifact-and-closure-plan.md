@@ -11,6 +11,14 @@
   `B-115` findings at `07d931e`; the attachment's SHA-256 `6aebe93c…` was re-computed and matches. Preserving that
   evidence in the repository and separating the D-278 table await the Judge's act on `D-387`. No answer,
   Resolution or canonical source is changed by this acknowledgement.
+  **Answered 2026-10-02 (`D-392`), read at `e0b7cd7`.** Lane A receives Lane B's `e0b7cd7` GR-012/GR-013 consolidated
+  draft (P0–P5) as a planning review, not an execution authority. Of the three priorities above: (1) the A6 / Panel A11
+  sentence is applied (`D-388`); GR-002 still needs independent verification at that revision. (3) The live B-117
+  clause is corrected and B-154 listed in the re-derived tracker (`D-385`/`D-388`); every transaction is keyed
+  (`D-389`–`D-391`) — keyed is scoped review, not clearance. `GR-004`'s `CR-14` row is applied (`D-392`), awaiting
+  independent verification. Remaining, in parent-first order: (2) B-115, then B-114, independent completion review;
+  GR-013 isolation-versus-locking and GR-012 importer attribution await the Judge's selection; then the P5 readiness
+  docket. No Resolution is recorded; B-154 stays Open until its correction units are independently verified.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 07d931e1f284eeac71fd6c1ccb7667db5ea34c00
