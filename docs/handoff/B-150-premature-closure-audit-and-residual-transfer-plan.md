@@ -3800,3 +3800,10 @@ Judge authorization: "Judge authorizes Lane C B-115 read and GR-002 as next unit
 - `B-115`: Lane C's consumer read is requested there, with a four-point acceptance test.
 
 Commits were made one path each, separate from the canonical sources.
+
+## Lane A application — D-387 — 2026-10-02
+
+Judge authorization: "Judge authorizes push of 5 commits and D-387 corrected scope". The range `ecdd512`..`544a014`
+was pushed with the pre-push proof. Lane C's `B-115` read is preserved byte for byte under
+`docs/handoff/artifacts/B-115/` (hash verified) and cited in `B-115`. `SV-002` §2.3.3 now separates the D-278
+screen from the review ledger. Commits were made one path each.
