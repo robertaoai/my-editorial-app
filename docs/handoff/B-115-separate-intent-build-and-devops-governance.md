@@ -249,3 +249,20 @@ Both consumer reads that this entry's completion condition names now exist:
 
 **Next:** an independent actor assesses this entry's whole completion condition and records any `Verified`. Then
 `B-114` is assessed. Lane A records no verification here.
+
+## Lane A assessment — whole completion condition, `D-394`, 2026-10-02
+
+Read at `5747585`. Lane A answered this entry, so this is a **completeness assessment for an independent verifier**,
+not a verification (`D-102`).
+
+| Follow-up step | Result | Evidence |
+|---|---|---|
+| 1–3 Register act, `B-114` corrected by reference | Met | `D-242` §5.14e67, "What this corrects and preserves" |
+| 4–6 one canonical home per layer, request-to-execution map | Met | `docs/README.md` layer order; `LANE-B-WORK-ORDER.md` §7; `.github/WORKFLOWS-SPEC.md` §8; `SPECS-VERIFICATION-APPARATUS.md` §17; `V1-BUILD-SPEC.md` pointer |
+| 7 push language by layer | Met | Work order §7: local atomic commits, then human final push; `D-184` exception kept distinct |
+| 8 six readiness conditions | **Five of six.** Missing outcome or MMF anchor: template §1 and §8. Lane C without accepted Lane B artifact, or invented signal: WORKFLOWS-SPEC §8, `D-229`. Missing xDD rationale: template line 45. **Push with no accepted integration tip: rule only, not a refusal condition** | Transferred to `GR-015` (`D-394`) |
+| 9 graph sync | Met | Repeated since; current at `5747585` |
+| 10 Lane B and Lane C consumer reads | Met, and current | Lane B: `B-153` row 4 (read `8e6ab54`). Lane C: four findings, `D-387` artifact, SHA-256 `6aebe93c…` re-computed and matching (read `07d931e`). No read surface or the template changed after either read |
+
+**Recommendation:** verifiable for its separation scope now, with the sixth step-8 condition transferred to
+`GR-015`. The verifier must be a lane other than Lane A. Lane A records no `Verified` here.
