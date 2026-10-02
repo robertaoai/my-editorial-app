@@ -25929,3 +25929,67 @@ last"*, issuing the P4a work order Lane A drafted. Read at `13adab2`.
 | Packets, `Modular_PRD`, Fn Specs, SPECS, rule files, Phase Closure, `SV-002`, `.github/` | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild at the final commit of the unit, verify the curated layer, fill descriptions last |
+
+## 5.14e222 `D-397` — P4a Delivered: `GR-013` Fixture Isolation Built and Evidenced; Lane B Verifies
+
+**Authority: the Judge, directly to Lane A, 2026-10-02**: *"consolidate analysis above and find gaps; first draft plan
+then proceed to completion"*, continuing the `D-396` work order. Read at `63ce23d`.
+
+### The decision
+
+1. **The unit is delivered**, in six atomic commits:
+   - `12b9d2d` — disposable worktree pinned to `HEAD`; graph inputs copied, never linked;
+   - `1340703` — baseline-aware snapshot restore, with no recursive delete;
+   - `ebd0bc8` — `syncDocs()` and `lane-gate` use it, plus a new restore suite;
+   - `fd5aad0` — recovery of dead runs' worktrees;
+   - `63ce23d` — an incomplete-run marker and the naming of untracked dead leftovers.
+
+   `scripts/checks/` is **unchanged**. The runner re-launches itself inside the target, so the checks that use
+   `process.cwd` read the target (`D-396` item 3, confirmed).
+2. **Evidence (`GR-012-013-SPEC.md` §1.4).** Failing proof before the fix, in a scratch worktree:
+   - G13-2: the folder was left behind;
+   - G13-5: two runs each scored 243/271, with false MISSes caused by each other, and left five tracked files damaged.
+
+   After the fix:
+
+| Case | Result |
+|---|---|
+| G13-1 ordinary run | 278/278 at `63ce23d`, the final runner, and at `fd5aad0`; caller status, index and untracked bytes identical before and after |
+| G13-2 / G13-3 / G13-4 | Restore suite passes all three, plus two refusal cases (foreign content, path outside the target) |
+| G13-5 two concurrent runs | Both 278/278, each in its own target; caller status, index and untracked bytes identical |
+| G13-6 check during a run | `bun run check` 19/19 while two runs were live; caller status clean |
+| G13-7 interrupted / failed cleanup | Suite process killed mid-run: reported INCOMPLETE, exit nonzero, target removed. Exclusive lock blocking cleanup: leftover named, under the temp folder only, exit nonzero; the next run named it as an untracked dead leftover |
+| Hard kill of parent and child | Leftover left as expected; the next run removed it ("dead run 12380/18884") and then passed |
+
+3. **Gaps found and fixed inside the unit:**
+   - a hard kill skips the cleanup handlers → dead-run recovery, and a live run is never touched;
+   - a failed cleanup can leave files git no longer tracks → they are named, not deleted;
+   - a force-killed process exits 1 on Windows, like a failing suite → a completion marker;
+   - `.git` is a pointer file in a worktree → the `lane-gate` folder is resolved through git;
+   - `.graphify` is a shared symlink → its files are copied into the target.
+4. **Process findings, recorded rather than deleted:**
+   - `1340703` and `ebd0bc8` were committed while `bun run check` was red. Only docs-drift failed: the graph was
+     stale after `12b9d2d`, and no content check was involved. Later commits are gated on a clean check.
+   - A throwaway commit in a scratch worktree used `--no-verify` and a placeholder identity. It was never on a
+     branch or pushed, and its worktree is removed. A file copy should have been used.
+   - Two shell heredocs mangled backslashes (`B-140`); the scripts were rewritten with the editor.
+5. **Not touched:** the caller's empty `.agents/skills/sync-docs/` stays. It is `GR-012`'s symptom. No fixture
+   recreates it in the caller any more, and its removal belongs to P4b.
+
+### Not given by this act
+
+`Verified` for `GR-013` or `B-021` (Lane B verifies, `D-324`); any `GR-012` / P4b work; Gate 2.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e222 |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ `D-397` paragraph |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `scripts/fixtures/` row: "refuses a dirty tree" replaced by the disposable-worktree fact; `D-397` paragraph; no file added or retired |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/GOV-RES-001.md`** | ✅ `GR-013`: delivered, awaiting Lane B verification |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/GR-012-013-SPEC.md`** | ✅ §1.3 records that `scripts/checks/` did not change |
+| **`docs/handoff/B-021-fixture-runner-has-no-concurrency-boundary.md`** | ✅ terminal annotation and Lane B request, in its own commit |
+| Packets, `Modular_PRD`, Fn Specs, SPECS, rule files, Phase Closure, `SV-002`, `.github/` | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild at the final commit, verify the curated layer, fill descriptions last |
