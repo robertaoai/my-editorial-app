@@ -24,10 +24,10 @@
   - **Token bases:** both are stated, at an assumed 4 bytes per token with global rules excluded. The cut `AGENTS.md` plus `graphify.md` is about 11,400 tokens, labelled **a hypothetical pair, since `graphify.md` was not delivered** (your correction of `C-008`'s "delivered pair"). The two full pinned files are about 13,400 tokens. The per-file cost line refers to both.
   - **List:** the candidate designs are their own top-level bullet, and the rendered list was read back.
   On `C-008`'s lifecycle: its F20/F21 requests are now applied, so its `Answered`/`Applied` header is accurate again. Its "delivered pair" term is superseded by §3.5's wording.
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified; dispositioned by Lane A
-- **Evidence:** `D-266`, `D-294`, `D-303`–`D-316`; `SV-002` §3.1/§3.3/§3.5/§7; `B-143`, `B-145`, `B-146`, `C-004`, `C-005`, `C-007`, revised `C-008` F15/F20/F21; installed Antigravity `agy-customizations/docs/rules.md` and `SKILL.md`; [Google Antigravity Rules](https://antigravity.google/docs/rules/); read-only local consistency and Graphify checks below
-- **Verified-At-Commit:** 72ccf32500419ad0e8eff0e457e8ad2a20b438d5
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), independent of Lane A's answer/application; scoped verification below
+- **Evidence:** Independent verification of Lane A recording/application, scoped below; inherited evidence: `D-266`, `D-294`, `D-303`–`D-316`; `SV-002` §3.1/§3.3/§3.5/§7; `B-143`, `B-145`, `B-146`, `C-004`, `C-005`, `C-007`, revised `C-008` F15/F20/F21; installed Antigravity `agy-customizations/docs/rules.md` and `SKILL.md`; [Google Antigravity Rules](https://antigravity.google/docs/rules/); read-only local consistency and Graphify checks below
+- **Verified-At-Commit:** 1a242890bc79a8d22a400c612d298afd0103ba0f
 
 ## What happened
 
@@ -118,3 +118,26 @@ Lane A's `D-316` answer above remains the record of the prior three corrections.
 | Comment delivery and `D-316` receipt, documentation and strict-under corrections | **Approve** | Preserve the measured scopes; optional line anchors in §3.5 (Gate 1B, P4) |
 | Judge-ready §3.5 | **Approve-with-conditions** | State both token-estimate bases without implying two-file delivery, and repair the list; Lane A records tier applicability and graph currency (Gate 1B, P4) |
 | Cause, remediation, `SV2-DOD-03` or `V1-SM05` release | **Defer** | Controlled run and separate Judge acts remain required (Gate 1B → Gate 2) |
+
+## Lane B independent source verification — 2026-10-03
+
+**Read revision:** 1a242890bc79a8d22a400c612d298afd0103ba0f. **Actor:** Lane B (Codex), independent of the Lane A receiver/application. The Judge's request to resolve Lane A's incident selects this source annotation through B-154's committed delivery correction. This is source-lifecycle verification, distinct from any historical Level 1/Level 2 experiment.
+
+**Observed comparison:** Compared all three Lane A applications (D-315/D-316/D-317) with SV-002 §3.5. The report scopes file selection to 'in these runs', measures characters and lines separately, bounds the earliest retained record without claiming onset, names G53, distinguishes C-004's document-only review from B-143's re-examination, and keeps causes as version-qualified hypotheses. Installed-documentation references, the raiser-recording column, strict-under costs, hypothetical token pair and separate candidate-design bullet are corrected. C-008's proposals have explicit adopted/partial/not-adopted dispositions.
+
+**Scope and surviving obligations:** Verified for applied report corrections and proposal dispositions. D-318 report acceptance and D-362 loader acceptance are inherited decisions; no new delivery experiment, causal explanation or activation/adherence proof is supplied. D-356 retains the separate Phase 1 behavioural follow-up.
+
+Lane A's answer is preserved. The source header moves from Applied to Verified for this bounded disposition; earlier Applied/unverified wording remains dated history. Lane A must receive this result in the existing SV-002 review/clearance and applicable residual homes. No tracker cell, canonical requirement, lane state or work order changes in this commit. Verified source headers are inputs to reconciliation, not whole Gate 2 clearance.
+
+| Verdict | Item | Follow-up phase |
+|---|---|---|
+| Approve | B-147 scoped source verification of Lane A's recording/application | Phase 1: Lane A receives the actual actor, revision, scope and source commit in the existing tracking homes |
+| Defer | Surviving obligations and wider parent closure | Follow-up phase and owner stated above; Gate 2 and construction retain their separate prerequisites |
+
+## Terminal annotation record
+
+- **Current-Resolution:** Verified
+- **Annotation-Type:** verification-evidence
+- **Annotation-Act:** Judge's 2026-10-03 Lane A incident-remediation request; B-154 delivery correction at 1a242890bc79a8d22a400c612d298afd0103ba0f; Lane B independent verification under D-364 item 4
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** 1a242890bc79a8d22a400c612d298afd0103ba0f
