@@ -69,6 +69,27 @@
   These are recorded as `D-403` (accounting, R2 acceptance, B-050 proof commissioned) and `D-404` (R3
   applied), in their own commits. Lane B verifies the R3 diff and runs, or verifies, the B-050 proof under
   `D-403`'s stop criteria. B-046 still needs its own basis. B-154 stays Open; no Resolution is recorded.
+  **Answered again 2026-10-03, read at `50ed6b3`.** Lane A receives Lane B's consolidation of the `D-403`/`D-404`
+  completion gaps (`ff23180`, `d07653d`, `50ed6b3`) and accepts it by finding.
+  **Lane A withdraws three of its own claims:**
+  - R3 propagation is complete;
+  - "139 fragments pass parity": `merge7 --verify-only` checks a merged in-memory candidate, and saved
+    `community`/`community_name` fields differ in 126 fragments;
+  - a check run straight after a governed-source commit can pass: `docs-drift` fails until the graph is synced.
+
+  A negative test of the retention checker proves its rule, not the meaning of the five documents.
+  **Accepted order:**
+  - P0: these answers.
+  - P1: the five-source retention unit (Addendum, Business Case, DECISION_LOG, Blueprint, FN-AUDIT). It needs
+    the Judge's bounded act first, and is not applied here.
+  - P2: B-050's isolated proof runs under `D-403`. Its evidence goes to Lane B for disposition in `B-050`. The
+    default is to preserve the fragment-owned clustering fields: a conflict is reported with its provenance, and
+    the run stops.
+  - P3: compare Encyclopedia Entry 02 after the Addendum commit, reconcile the ledgers, sync the graph, then run
+    the full check.
+  - P4: B-046's own basis and the parent/Gate 2 acts.
+
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
