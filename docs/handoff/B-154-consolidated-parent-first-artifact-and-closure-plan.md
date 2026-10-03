@@ -30,6 +30,15 @@
   Lane A also corrects its own D-392 claim: the structural graph rebuild left semantic descriptions pending. (P2/P3)
   The Judge selected disposable isolation for GR-013. Lane A drafts both specifications in `GR-012-013-SPEC.md`; they
   are specifications, not delivery. P4a/P4b wait for their work orders. B-154 stays Open.
+  **Answered again 2026-10-03 (`D-402`), read at `1f9bb6a`.** Lane A receives Lane B's "Lane B review — D-399 repair
+  and D-401 P4b, 2026-10-03" and the three independent verifications at `6bc0e99`: B-155 (`fcb63a0`), B-014
+  (`d0afbce`), B-021 (`ea29e04`). The Judge authorized Lane A's F1–F6 as one bounded Phase 1 unit. Applied: GR-012 and
+  GR-013 recorded Verified in GOV-RES-001, with the 31-minute, no-eradication, non-atomic and inherited-evidence limits
+  kept (P1/P2); SV-002 §2.3.2 rows and the §2.3.1 tracker re-derived at `1f9bb6a` (P3/G2); frag143's description
+  corrected (P4/G1); harness.mjs comments relabelled as history (G3). **G2 is corrected, not applied as proposed:**
+  B-155 gets no §2.3.1 row, because its header now carries an independent `Verified-By` and the row rule excludes it.
+  G4 holds: inherited D-397 evidence stays labelled inherited. P5 remains, so B-154 stays Open. No Resolution is
+  recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
