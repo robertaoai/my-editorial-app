@@ -43,6 +43,18 @@
   storyboard, UML/data-flow and traceability inspection, and the Encyclopedia Entry 02 comparison after the
   Addendum commit, follow it. A4, OD1–OD3 and the runtime metadata are unaffected. No Resolution is recorded;
   `B-106` stays Open.
+  **Answered again 2026-10-03 (`D-406`), read at `7395fde`.** Lane A receives Lane B's independent `D-405` review
+  (read `c0a925c`). **Accepted as supported:** the Addendum §2.4 `A6` receipt; the Business Case `Ratified?`
+  mirror; DECISION_LOG's intact event row and dated prose; the Blueprint citation; and `AC-12a`'s three normative
+  cases. **Accepted as conditions:**
+  - the FN-AUDIT §5 paragraph still leads with deletion and disposal;
+  - the Addendum §2.1 `A6` rationale still reads "Conservative default".
+
+  The Judge approved that two-source wording correction (Act 1, `D-406`), and Lane A applies Lane B's drafted
+  text in its own commit. Lane B reviews that diff here. **Accepted limit:** Lane B did not inspect every Mermaid
+  page, so `D-405`'s inspection keeps its own limit. Encyclopedia Entry 02 is compared after the Addendum commit
+  and recorded in `D-406`; any update or republication is its own act. The runtime-metadata child stays with a
+  later Lane B unit. No Resolution is recorded; `B-106` stays Open.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Verified-At-Commit:** ae5548c4a6f51dc3b5b1df9343769fa47f33cc00
 - **Evidence:** Chief Editor's 2026-09-15 direct act; `CONFIG_LOG.md` §2; `DECISION_LOG.md` §§1–3; `lib/config/build-config.ts`; Register `D-134`, `D-135`, `D-198`; `B-085` G-3 disposition.
