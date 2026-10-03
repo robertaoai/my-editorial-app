@@ -157,3 +157,11 @@ Lane A's answer is preserved. The source header moves from Applied to Verified f
 - **Annotation-Act:** Lane B post-receipt readback, 2026-10-03: remove the obsolete Applied-only continuation beneath Verified-At-Commit; verification scope and Lane A answer preserved
 - **No-Scope-Reopened:** true
 - **Annotated-At-Commit:** 5b62ae23da428ef747561b1108a12a0f4130148b
+
+## Terminal annotation record
+
+- **Current-Resolution:** Verified
+- **Annotation-Type:** metadata-normalization
+- **Annotation-Act:** Lane B's 2026-10-03 final terminal-return check at 679a0a6 requires explicit coverage of a502bb9's Applied-only continuation removal; the committed correction is reviewed without reopening scope or changing Lane A's answer
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** a502bb900e2e30138aed4c582dca25118cb1a530
