@@ -32,7 +32,7 @@
   are specifications, not delivery. P4a/P4b wait for their work orders. B-154 stays Open.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
-- **Verified-At-Commit:** f1a44e5ecb8fe2b7e841f6402a61ea707d2f0a31
+- **Verified-At-Commit:** 4633837ff166e3fe3665b54c510a4c890df7d94d
 
 ## What happened
 
@@ -897,7 +897,7 @@ replacement is overwritten despite D-398's identity promise. A missing baseline 
 B-155's latest section holds details and the bounded fix. These results corroborate the supplied analysis
 and add measured regular-file identity evidence. They do not close GR-013, B-021 or the whole B-155 entry.
 
-**Latest supplied Lane C assessment reconciled, 2026-10-03.** Attachment
+**Prior supplied Lane C assessment reconciled, 2026-10-03.** Attachment
 `c0a6eac9-9fe0-480f-9f4d-9092dbb42094/Pasted text.txt`, SHA-256
 `d20c50a6e804427950462811210ce4992af31919f587d46011d9a36ff7798e14`, reviews committed
 `f1a44e5ecb8fe2b7e841f6402a61ea707d2f0a31`. Lane B re-read that clean revision and the canonical residual
@@ -916,6 +916,28 @@ technical result changes F1 rejection or requires another probe cycle before tha
 the current review and records canonical receipts. This supplied assessment is textual Level 2 concurrence,
 not a filed C-series disposition, source closure or a Judge act commissioning repairs.
 
+**Current Lane C intake receipt and challenge, 2026-10-03.** The Judge supplied attachment
+`72667f36-d874-4a01-bc68-ac5f78c9ec44/Pasted text.txt`, SHA-256
+`2c7dfc4eb7eb39a317253993144c100edac8f2e90d83818f079a6d18a429dc94`. Lane B read clean
+`4633837ff166e3fe3665b54c510a4c890df7d94d`, the template, Register and current receiving rows.
+Accept Lane C's concurrence on durable raiser transactions, intake readiness, the pending GR-015 receipt,
+fixture audit and concrete proposal preparation. The assessment contains no new executable result or changed
+business requirement. Use the existing P0–P5 table and follow-up guide below, with these qualifications:
+
+| Lane C claim / omission | Accept / Reject disposition and draft correction | Follow-up phase |
+|---|---|---|
+| Read revision is `46338370725a2e57022197171eec8b7aa945b741`; check passes 19/19 | Reject that full revision as evidence: it does not exist in this checkout. The matching short prefix resolves locally to `4633837ff166e3fe3665b54c510a4c890df7d94d`, which Lane B actually read. The visible record lists status/history/doc reads, no fresh check invocation. Inherit the completed Lane B run in `latest-synthesis-check.log`; Lane C must correct its own pin before its supplied text is consumed as a formal revision-specific receipt | Phase 1 evidence provenance; no halt to intake |
+| Body says GR-015 receipt is pending; final table says recorded | Accept the body; reject the summary's completion claim. Canonical GR-015 still awaits the amended-wording receipt. Lane A records Lane B's actor, scope and observed repair revision from B-155; whole-entry closure does not follow | Phase 1 P1 reconciliation |
+| P4b has only writer-identified / no-writer branches and combines all delivery with safe-target proof | Retain the third outcome: incomplete coverage or inconclusive attribution. Read-only observation and separately authorized prose can proceed independently; only mutation proof depends on an accepted safe target. A bounded no-writer result neither proves eradication nor meets the current unconditional GR-012 criterion without its explicit amendment/disposition | Phase 1 P3 contract → selected P4b units |
+| Lane B must never self-verify its own proposals | Accept independent review of delivered work; reject a blanket disqualification of its raiser. Lane B may specify gaps and independently verify Lane A's actual repair, as D-395/D-396/D-398 name. Lane B cannot approve its own proposal as delivered, supply Lane A's answer, or grant Judge authority | Phase 1 delivery/review chain |
+| Repeated durable-Register-only authority, tracker freeze, literal numeric link test, artifact guarantees, V1/V2 allocation and nonexistent B-021 link | Retain the earlier corrections, not the repeated claims: bounded D-183 direct authority; truthful interim derivation; non-following, type-correct identity/link inspection; prose and derived tracker are not executable proof; SM05 plus SM06 and decided backlog boundaries; actual B-021 source path | Phase 1 intake/specification/propagation; separately authorized Phase 2/3 proof |
+
+No new Chief Editor decision is demonstrated by these Lane C claims. Lane A corrects source/provenance and
+prepares selectable contracts; the Judge assesses those concrete units and any changed completion criterion.
+The handoff remains Approve-with-conditions for intake/preparation, F1 remains rejected, and repair/build
+execution remains deferred. This receipt is Lane B's consolidation of supplied Level 2 analysis, not a Lane C
+filed disposition or an independent reproduction of the earlier technical probes.
+
 **Additional receiving-row drift:** GR-013's completion field still says the second process stops, inherited
 from the unselected locking alternative. D-393 selects disposable isolation and D-397 reports two successful
 distinct-target runs. Lane A should normalize that current criterion to: `Two concurrent runs use distinct
@@ -930,11 +952,11 @@ target. P1 begins with scoped receipts and finishes after actual dispositions; P
 
 | Order / prerequisite | Lane A artifact or action | Judge Accept when | Reject when | Follow-up phase |
 |---|---|---|---|---|
-| Before receiver commit — raiser durability, completed for the delivered package | B-155 evidence is committed alone at 44b3b7b; B-154 plan alone at f1a44e5. This latest raiser qualification is another B-154-only transaction; Lane A reads its resulting revision | Each raiser commit contains only its bound handoff path; receiver commits contain only subsequent receiver changes | Lane A commits a combined raiser/receiver diff, or pending durability freezes independent reading/preparation | Phase 1 Lane B local handover → Lane A receiver transaction |
+| Before receiver commit — raiser durability, completed for the delivered package | B-155 evidence is committed alone at 44b3b7b; B-154 plan/qualification alone at f1a44e5 and 4633837. This current receipt is another B-154-only transaction; Lane A reads its resulting revision | Each raiser commit contains only its bound handoff path; receiver commits contain only subsequent receiver changes | Lane A commits a combined raiser/receiver diff, or pending durability freezes independent reading/preparation | Phase 1 Lane B local handover → Lane A receiver transaction |
 | P0 — highest parent | Answer this review, its qualified Lane C concurrence and B-155 separately; identify read revision, accepted findings and remaining owners | Actual authority, delivery, independent review and closure are distinguished; no receiver history overwritten; explicit direct Judge authority is described under D-183 | An acknowledgement, pasted approval or green check substitutes for the actual result; or permitted preparation is halted solely because registration is pending | Phase 1 intake |
 | P1 intake after P0 | Record F2 wording receipt at GR-015; preserve completed B-115 → B-114 documentary receipts | Each receipt states scope, actor and observed revision | A wording receipt establishes executable enforcement or runtime DoD | Phase 1 reconciliation |
 | P2 → P4a follow-up after P0 | Concrete F1 diff and fixture audit under existing GR-013 | Hard-link capture/substitution and existing-file identity failures are refused before unsafe mutation; supported controls and applicable G13 proof are independently assessed | Passing junction cases alone closes GR-013/B-021; file-continuity promise is silently narrowed | Phase 1 tooling proposal → separately authorized repair → verification |
-| P3 → P4b preparation after P0 | Canonical prose diff, finite observation contract and both result branches below | Exact files, owner, triggers, window, evidence limits, DoD and stopping rules are agreed before execution | Unknown host writer/controller is guessed; absence of observation is universal absence | Phase 1 proposal / Judge commissioning |
+| P3 → P4b preparation after P0 | Canonical prose diff, finite observation contract and all three observation outcomes below | Exact files, owner, triggers, window, evidence limits, DoD and stopping rules are agreed before execution | Unknown host writer/controller is guessed; absence of observation is universal absence | Phase 1 proposal / Judge commissioning |
 | P4b delivery after its bounded act | Lane A applies selected prose and observes normal tool cycles; identified controller remedies only its own settings | Prose follows D-337/D-231/D-246; observed attribution or bounded no-writer result is reproducible | Delete symptom folder, copy an editable skill or assume fixtures explain every recurrence | Phase 1 docs / attributed environment owner |
 | P4b mutation proof after accepted isolation or another expressly authorized safe target | Uniqueness positive/refusal cases and, if applicable, post-remedy recurrence evidence | Discovery accepts only the canonical source and refuses duplicate/absent/unreadable cases; caller preserved; observation scope disclosed | Unsafe F1 mechanism reused; a fixture result proves an unknown host writer stopped | Phase 1 independent verification |
 | P1 final join after applicable dispositions | Reconcile source headers, receiving rows, review ledger and derived tracker | Every actual review/clearance has scope, revision and reason; B-155 is included; no copied totals | Keying or custody is counted as clearance; one verified child closes its parent | Phase 1 GR-007 |
@@ -1048,11 +1070,11 @@ intake. No such new business decision is demonstrated by F1/F2/GR-012. **Judge:*
 contract, P4b scope/window and any source-specific disposition/acceptance reason. Same person under D-158,
 different decision context. Do not ask the Chief Editor to resolve an unknown host process by business preference.
 
-| Decision required from the user | Required input / Lane A preparation | Gap to avoid |
+| Decision required from the user | Required input / Lane A preparation | Unsupported Lane C claim / gap to avoid |
 |---|---|---|
-| Chief Editor: genuinely new/held Product intake, only if raised | Customer outcome, boundary and observable acceptance; Lane A traces it to its owning Product/FN artifact. None is newly demonstrated by these tooling reviews | Reopening settled V1/role semantics or inventing publishing/version scope |
+| Chief Editor: genuinely new/held Product intake, only if raised | Customer outcome, boundary and observable acceptance; Lane A traces it to its owning Product/FN artifact. None is newly demonstrated by these tooling reviews | Lane C's Route-1-only V1 and blanket V2 publishing/five-gate allocation; reopening settled role/access semantics |
 | Judge: F1 regular-file continuity and repair unit | Lane A supplies concrete diff, fixture audit, preservation/refusal criteria and any explicit missing-file exception before selection | Assuming a repair preference is permission; asking a business vote on low-level link mechanics |
-| Judge: P4b commissioning | Select prose/observation scope, finite window, available attribution evidence, observer executor/log custodian and result-dependent completion rule; an identified writer keeps its actual settings controller | Guessing a host controller, assuming mandatory human tracing or claiming no-writer observation proves eradication |
+| Judge: P4b commissioning | Select prose/observation scope, finite window, available attribution evidence, observer executor/log custodian and all three result-dependent completion rules; an identified writer keeps its actual settings controller | Lane C's omitted incomplete-coverage outcome; guessed host controller, mandatory human tracing or no-writer observation claimed as eradication |
 | Judge: source-specific clearance/P5 | Actual independent proof or individual reason for the particular source, plus separate residual custody and remaining SV-002 evidence | Blanket closure, source acceptance completing a residual, or automatically authorizing SM05 |
 
 Requirements/AC/FN contracts, RACI and Panel A11 drive the later admitted SM05 business-stage/role/task/evidence
