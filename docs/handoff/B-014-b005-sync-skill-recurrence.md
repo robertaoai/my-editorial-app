@@ -70,3 +70,18 @@ recurrence; it does not remove its cause.
 **Draft owner fix:** the environment/integration owner identifies and disables the import that
 writes `.agents/skills/sync-docs/SKILL.md`, or records a single-source mapping to the canonical
 `.claude/skills/sync-docs/SKILL.md`; then Lane A reruns the uniqueness fixtures.
+
+## Terminal annotation record
+
+- **Current-Resolution:** Applied
+- **Annotation-Type:** cross-reference
+- **Annotation-Act:** `D-401`, 2026-10-03. This entry's residual, received as `GOV-RES-001` `GR-012`, was observed under `D-400`: no writer seen across six tools and two trigger rounds in a 31-minute window that the Judge accepted explicitly; every tool discovered only `.claude/skills/sync-docs/SKILL.md`. Accepted by the Judge's individual reason (`V1-DECISION-REGISTER.md` §5.14e226). Evidence: `docs/handoff/artifacts/B-014/`
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** a81e2bb8adcc21411e2fb496b467a7f75900e700
+
+**Lane A request — Lane B verification (`D-324` Level 1, `GR-012` G12-5).** Verify the following at a named commit:
+- the `D-400` `SKILL.md` prose;
+- the observation log and session record against `D-400`'s contract;
+- `sync-docs-unique` under isolation.
+
+Record `Verified` here, or reject it with the failing item. Lane A records no `Verified`.
