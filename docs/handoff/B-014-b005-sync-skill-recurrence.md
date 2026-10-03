@@ -6,10 +6,10 @@
 - **Blocks:** a reproducible instruction and Graphify-drift snapshot
 - **Status:** Answered
 - **Lane A:** **Answered `D-102`, 2026-08-24.** **Origin (your item 1):** an environment-level import — the same one that appended the empty `## Imported Claude Cowork project instructions` heading to `AGENTS.md`. **Item 6, the AGENTS tail: disposition is REMOVED**, recorded rather than silently kept or discarded; it carried no content and sits outside the shared-core hash, so no check can see it. **Item 2:** `.claude/skills/sync-docs/SKILL.md` stays canonical; the duplicate is gone. **Item 5:** installed as **check 14 `sync-docs-unique`**, covering **tracked and untracked** files across `.claude`, `.agents`, `.codex`, `.github`, and asserting the canonical procedure's triple actually names `CLAUDE.md` — the defect itself, not just the file count. **Item 3 is NOT fully answered and is why this stays `Open`:** the check detects the recurrence, it does not stop the import that causes it. **Removing the cause is an environment act outside every lane's surface**, and a detector is not a fix — your own framing, and it is right. **Your `B-018` was correct that the first version of this check proved nothing**; it is rewritten and negative-tested, including a fixture that caught a fourth defect review had missed.
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified; dispositioned by Lane A
-- **Evidence:** `sync-docs-unique` PASS and 4/4 fixtures prove detection and one canonical procedure; the environment-level import cause remains unremoved
-- **Verified-At-Commit:** d6d406a
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), independent of Lane A's correction
+- **Evidence:** D-400 canonical-procedure correction; D-401 bounded observation acceptance and docs/handoff/artifacts/B-014/; independent 19/19 checks and two isolated 293/293 fixture runs at 6bc0e99, including sync-docs uniqueness; C:/CoWork/outputs/lane-b-verification-2026-10-03-final/summary.json and check-during-runs.log. No eradication or identified-writer claim.
+- **Verified-At-Commit:** 6bc0e99ab8ad672a6ff6427c8f05e2ff27bc3c33
 
 ## What happened
 
@@ -85,3 +85,39 @@ writes `.agents/skills/sync-docs/SKILL.md`, or records a single-source mapping t
 - `sync-docs-unique` under isolation.
 
 Record `Verified` here, or reject it with the failing item. Lane A records no `Verified`.
+
+## Terminal annotation record
+
+- **Current-Resolution:** Verified
+- **Annotation-Type:** verification-evidence
+- **Annotation-Act:** Judge-authorized Lane B verification, 2026-10-03; D-400/D-401 completion contract and the independent review below
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** 6bc0e99ab8ad672a6ff6427c8f05e2ff27bc3c33
+
+## Independent D-401 verification — Lane B, 2026-10-03
+
+The Judge confirmed R-012 means GR-012 and authorized verification in the current conversation. At the read
+revision above, the canonical SKILL.md carries the D-337 single shared core/import, authoritative lane-map
+reference, governed-intent exclusions, per-fragment parity and descriptions-last sequence. Historical triple
+wording is explicitly history. D-400/D-401 amend the old importer-removal criterion; no second business
+choice is requested and no current writer/controller is invented.
+
+The observation log and session agree: 10:49:26–11:20:26 SGT, six tools, two rounds, no recorded change,
+empty symptom directory retained. Recomputed log SHA-256:
+`7d773745a56ca9e9d7ca722542f0eb377d1cdb69011f55b7050a077135c37017`.
+The Judge's trigger/discovery reports and individual acceptance of the shortened window are recorded by
+D-401. This review verifies those preserved records, not a replay of the human sessions. Two-second polling
+establishes recorded observations; it does not prove that no transient or future writer can exist.
+
+Fresh check: 19/19. Both isolated fixture runs pass 293/293, including all sync-docs cases. Distinct pinned
+targets are removed; caller tracked/index/untracked bytes and the pre-existing empty directory are unchanged.
+Evidence: `C:/CoWork/outputs/lane-b-verification-2026-10-03-final/` (summary, before/after manifests, concurrent
+logs and caller check). G12-1/G12-4/G12-5 independently supported; G12-2(b) is the Judge's recorded acceptance;
+G12-3 does not apply to outcome (b). The source header is Verified under that amended bounded contract.
+Lane A receives the result at GR-012 and SV-002's existing ledger/tracker; B-154 carries remaining reconciliation.
+No symptom deletion, settings change or application construction was performed.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | GR-012/P4b and B-014 bounded verification | Phase 1: Lane A receives actor/revision/scope at GR-012 and existing SV-002 tracking; retain the observation limits |
+| Reject | Eradication or construction-clearance claim | Phase 1 evidence is bounded; separate Phase 2/SM05 and Phase 3/SM06 authority/evidence remains required |
