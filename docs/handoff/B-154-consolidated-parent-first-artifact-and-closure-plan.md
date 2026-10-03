@@ -90,6 +90,25 @@
   - P4: B-046's own basis and the parent/Gate 2 acts.
 
   B-154 stays Open; no Resolution is recorded.
+  **Answered again 2026-10-03 (`D-406`), read at `7395fde`.** Lane A receives Lane B's consolidation of the `D-405`
+  and B-050 reviews (`63ffc29`) and its Lane C reconciliation (`7395fde`).
+  **Accepted:**
+  - P0–P1a stay settled. Nothing is re-asked.
+  - P1b's two wording conditions: approved by the Judge as Act 1 and applied under `D-406`.
+  - Entry 02: compared read-only after the Addendum commit.
+  - P1c: B-050 stays Applied. The run's stop is evidence, not Verified.
+  - P2: the caller graph is stale (`docs-drift` fails), and `check-update` "current" does not override it.
+  - P3: counts are derived from keys, never decremented to a target.
+
+  **Route choice:** Route 1, as an **isolated experiment only**, approved as Act 2 (`D-406`). Lane A operates and
+  Lane B verifies, using the six steps in dependency order. The experiment stops on any lost field, unresolved
+  batch, null or misbound metadata, misleading label or query, or caller change. Route 2 (a vague exception) is
+  rejected as specified. Route 3 does not count as semantic sync. Neither is a silent fallback, and no live graph
+  write follows from the experiment.
+  **Lane C points accepted as Lane B corrected them:** C-012 is an unfiled draft; the observed check was 18/19; the
+  manifest is one stopped run, not a harness; the 728 label-map disagreements are a pre-existing baseline, not a
+  bar to meet; there is no deletion and no abandoned requirement; `ACCESS-ROLE-CHIEF-EDITOR` is access, not sign-off.
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
