@@ -32,7 +32,7 @@
   are specifications, not delivery. P4a/P4b wait for their work orders. B-154 stays Open.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
-- **Verified-At-Commit:** fafa286e467189ce3f64579fed221057cbc3593d
+- **Verified-At-Commit:** c8d1c9989edcd12f8193a82087fcebf433257902
 
 ## What happened
 
@@ -938,7 +938,7 @@ The handoff remains Approve-with-conditions for intake/preparation, F1 remains r
 execution remains deferred. This receipt is Lane B's consolidation of supplied Level 2 analysis, not a Lane C
 filed disposition or an independent reproduction of the earlier technical probes.
 
-**Current supplied Lane C delta, 2026-10-03.** Attachment
+**Prior supplied Lane C delta, 2026-10-03.** Attachment
 `50e634ed-5f1e-494e-96ab-d178b963611a/Pasted text.txt`, SHA-256
 `76c32c849858da558a48ae8746b9975d121f09c1565db1bfb16af284d1f57eaa`, now explicitly retains all three
 observation outcomes. Accept that correction and its concurrence on intake, pending canonical F2 receipt and
@@ -954,6 +954,22 @@ of this planning review is a prerequisite to P0 intake: Lane A answers the commi
 scoped receipts and prepares P2/P3's concrete units using the single table and guide below. Repairs, source
 closure and build authority remain separate. Follow-up: Phase 1 intake/evidence/proposals, then selected proof.
 
+**Current Lane C consolidation receipt, 2026-10-03.** Attachment
+`b85791e5-59e4-4c3a-8619-1d5f52a88a5f/Pasted text.txt`, SHA-256
+`6afbe403c3cf2119c2781ced1bf011ddc6318fd9768694dff37a22ca54bfe254`, correctly pins
+`c8d1c9989edcd12f8193a82087fcebf433257902`, the clean revision Lane B also read. Accept that repaired pin,
+its three observation outcomes and its revised construction-input/verification-proof artifact table, including
+SM06. The visible status/history/revision/doc reads show no fresh check invocation or containment reproduction;
+the completed 19/19 run at this revision is Lane B's `lane-c-50e634ed-check.log`.
+GR-015 still awaits Lane A's amended-wording receipt: the assessment's pending-receipt body is supported,
+its `recorded` summary is not. The earlier corrections remain operative for D-183 direct authority, truthful
+interim tracker updates, safe-target dependency for mutation only, raiser independence, type-correct link
+metadata, actual B-021 filename and unsupported V2 allocation. No new repair or business decision is supplied.
+Use the single parent-first table, guide and artifact/Chief Editor matrix below. Lane A's next work is P0/P1
+intake and P2/P3 preparation; this qualified concurrence needs no additional repeat planning review before
+intake. Follow-up: Phase 1 receiver answers/scoped receipts/concrete proposals; execution and source-specific
+clearance require their own applicable authority and evidence. Lane B raises; Lane A alone answers.
+
 **Additional receiving-row drift:** GR-013's completion field still says the second process stops, inherited
 from the unselected locking alternative. D-393 selects disposable isolation and D-397 reports two successful
 distinct-target runs. Lane A should normalize that current criterion to: `Two concurrent runs use distinct
@@ -968,7 +984,7 @@ target. P1 begins with scoped receipts and finishes after actual dispositions; P
 
 | Order / prerequisite | Lane A artifact or action | Judge Accept when | Reject when | Follow-up phase |
 |---|---|---|---|---|
-| Before receiver commit — raiser durability, completed for the delivered package | B-155 evidence is committed alone at 44b3b7b; B-154 plan/qualifications alone at f1a44e5, 4633837 and fafa286. This current receipt is another B-154-only transaction; Lane A reads its resulting revision | Each raiser commit contains only its bound handoff path; receiver commits contain only subsequent receiver changes | Lane A commits a combined raiser/receiver diff, or pending durability freezes independent reading/preparation | Phase 1 Lane B local handover → Lane A receiver transaction |
+| Before receiver commit — raiser durability, completed for the delivered package | B-155 evidence is committed alone at 44b3b7b; B-154 plan/qualifications alone at f1a44e5, 4633837, fafa286 and c8d1c99. This current receipt is another B-154-only transaction; Lane A reads its resulting revision | Each raiser commit contains only its bound handoff path; receiver commits contain only subsequent receiver changes | Lane A commits a combined raiser/receiver diff, or pending durability freezes independent reading/preparation | Phase 1 Lane B local handover → Lane A receiver transaction |
 | P0 — highest parent | Answer this review, its qualified Lane C concurrence and B-155 separately; identify read revision, accepted findings and remaining owners | Actual authority, delivery, independent review and closure are distinguished; no receiver history overwritten; explicit direct Judge authority is described under D-183 | An acknowledgement, pasted approval or green check substitutes for the actual result; or permitted preparation is halted solely because registration is pending | Phase 1 intake |
 | P1 intake after P0 | Record F2 wording receipt at GR-015; preserve completed B-115 → B-114 documentary receipts | Each receipt states scope, actor and observed revision | A wording receipt establishes executable enforcement or runtime DoD | Phase 1 reconciliation |
 | P2 → P4a follow-up after P0 | Concrete F1 diff and fixture audit under existing GR-013 | Hard-link capture/substitution and existing-file identity failures are refused before unsafe mutation; supported controls and applicable G13 proof are independently assessed | Passing junction cases alone closes GR-013/B-021; file-continuity promise is silently narrowed | Phase 1 tooling proposal → separately authorized repair → verification |
