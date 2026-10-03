@@ -195,6 +195,7 @@ export function snapshot(paths, { roots = [process.cwd()] } = {}) {
   // `D-398` (`B-155` F1). Containment is PHYSICAL, not a string prefix: every
   // root and every existing component from root to leaf is recorded by object
   // identity (volume + file ID) and must be an ordinary, non-link directory.
+  // `D-399` extends identity to regular files and refuses hard links.
   // Restore checks ALL entries before writing anything, then re-checks each
   // entry immediately before its own write or delete. A late exception after an
   // outside write is a failure, so nothing is written until every check passes.
@@ -227,6 +228,10 @@ export function snapshot(paths, { roots = [process.cwd()] } = {}) {
     const base = { p, abs, root, chain, absentFrom };
     if (!leaf) return { ...base, kind: "absent" };
     if (leaf.isDirectory()) return { ...base, kind: "dir" };
+    // `D-399` (`B-155` F1, second repair): a hard link is an ordinary file to
+    // lstat, so writing to one writes to every other name of the same object —
+    // possibly outside the target. A multiply linked file is never managed.
+    if (leaf.nlink > 1n) throw new Error(`snapshot: ${p} has ${leaf.nlink} hard links; refusing to manage it`);
     return { ...base, kind: "file", bytes: readFileSync(abs) };
   });
 
@@ -245,6 +250,11 @@ export function snapshot(paths, { roots = [process.cwd()] } = {}) {
         if (!isLeaf && idOf(st) !== seen.get(c)) return `${e.p}: ${c} was replaced by a different directory`;
         if (isLeaf && e.kind === "dir" && idOf(st) !== seen.get(c)) return `${e.p}: was replaced by a different directory`;
         if (isLeaf && e.kind === "file" && st.isDirectory()) return `${e.p}: was a file, is now a directory`;
+        // `D-399`: an existing baseline file must be the SAME object, singly
+        // linked. A missing one may be recreated, because every parent above it
+        // was just proven to be the same, ordinary, non-link directory.
+        if (isLeaf && e.kind === "file" && st.nlink > 1n) return `${e.p}: now has ${st.nlink} hard links`;
+        if (isLeaf && e.kind === "file" && idOf(st) !== seen.get(c)) return `${e.p}: was replaced by a different file`;
       } else if (st) {
         // Absent at capture, created since: allowed only as an ordinary entry.
         if (st.isSymbolicLink()) return `${e.p}: ${c} was created as a link`;
