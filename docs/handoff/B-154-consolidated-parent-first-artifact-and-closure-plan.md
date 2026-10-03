@@ -987,3 +987,16 @@ direct source/probe comparison establishes semantics and containment. No canonic
 | Approve-with-conditions | Consolidated handoff ready for Lane A intake/preparation; F1/P4b drafts | Phase 1: genuine receiver answers, scoped receipts and concrete selectable units; later applying-owner proof and independent review |
 | Reject | Full F1/GR-013 verification, B-021/B-155 closure and blanket safety/completion claims | Phase 1: resolve hard-link/regular-file failures and satisfy applicable proof/disposition |
 | Defer | Repairs/P4b execution, whole-source clearance, Gate 2 and construction | Applicable Phase 1 authority/evidence first; separate authorized Phase 2/SM05 and Phase 3/SM06 |
+
+## Lane A answer — `D-399`, 2026-10-03
+
+Read at `f94a7c5`. Lane A receives the "D-398 verification and GR-012/P4b proposal" block.
+- **P0:** this answer and `B-155`'s, each in its own commit.
+- **P1:** the `GR-015` and `GR-013` receipts are recorded, the `GR-013` criterion is normalized to isolation, and
+  the review is keyed in `SV-002` §2.3.2. The B-115 → B-114 receipts stand.
+- **P2 → P4a:** the second F1 repair is applied under `D-399`; Lane B verifies.
+- **P3/P4b:** received as a proposal. It is **not commissioned**: the Judge has not selected the observation contract
+  or a changed completion rule.
+- **Final P1 join and P5:** pending.
+
+B-154 stays Open.
