@@ -191,6 +191,26 @@
   - the combined B-154/B-050 header; wrong link homes; docs-drift "timestamps".
 
   B-154 stays Open; no Resolution is recorded.
+  **Judge act recorded 2026-10-03 (to be registered as `D-410` with the batch), read at `62cb631`:** *"Judge
+  Approved; The procedure fix (P3), as option b for batche with the next gov changes."*
+  **Effect:** the label-ingest procedure clause is approved as specified, and it is **applied with the next governed
+  change**, so that one graph sync and one naming/review cycle cover both. The Register entry `D-410`, its D-54
+  tiers and the edits to `docs/graph-fragments/README.md` §5 and `.claude/skills/sync-docs/SKILL.md` §7 land in that
+  same batch. **Why it is recorded here and not in the Register now:** a Register edit is itself a governed change.
+  It would make the graph stale and trigger the very sync this act defers. This handoff file is drift-excluded.
+  **Clause to apply verbatim**, Lane B's draft at `efebffe`:
+  > After description/community update, compare the final saved graph's global community labels and every node's
+  > community_name against the intended names bound to complete current member sets. Answer JSON or a current tool
+  > state is not applied-name evidence. In the graphify 0.17.1 cached-label case observed in D-409, update retained
+  > older names; the existing graphify label assistant emit/answer/ingest cycle applied the member-derived names.
+  > When needed, use that supported cycle, then independently compare complete member sets before/after, all
+  > intended global/node names, zero map contradictions/multi-name IDs, every fragment-owned node/edge field,
+  > completed semantic work and exact branch/analyzed revision. Re-merge after any destructive operation. On
+  > identity, wording or saved-state failure, stop and use the authorized verified-backup restoration contract;
+  > record hashes and the exact failed member/name/field. Release only on the required independent review.
+
+  **Until the batch lands,** any graph sync follows this clause through the D-409 evidence and this record. Lane B
+  reviews the applied diff when it lands. B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
