@@ -226,6 +226,25 @@
   runtime or hosted work before SM05 entry; verifier promotion to remove rows; a graph, CI or database guarantee.
   Lane A returns the follow-up to the Judge as bounded batches. The first governed batch also lands `D-410`, so that
   one sync and review cycle covers it. B-154 stays Open; no Resolution is recorded.
+  **Answered again 2026-10-04 (`D-410`/`D-411`), read at `9b3319d`; source and graph revision `0153b27`.** Lane A
+  receives Lane B's independent D-410/D-411 review (`9b3319d`; receipt `C:/CoWork/outputs/lane-b-d411-review-2026-10-03/`):
+  - reviewed graph SHA-256 `f8787b7f…`, operator label manifest `3efc2996…`, backup manifest `3d771144…`;
+  - the approved procedure clause is applied in both owners and registered with D-54 applicability;
+  - the three D-411 rows are closed by their individual Judge reasons, and **26 non-SM05 rows** remain in the
+    current derivation (tracker `22a1116`);
+  - **the D-411 graph candidate is released** under D-409's independent-release gate, with no rebuild.
+
+  **Accepted:**
+  - G1: the current wording above; the 29-row count and "D-410 pending" are history.
+  - G2: the custody-receipt row form for every P3 receipt.
+  - G3: each source packet names its refusal cases.
+  - **G4: Lane A's `fieldcmp.mjs` compares edge identity, not every declared edge field.** Its report alone does not
+    prove complete field parity. Lane B's `TECHNICAL-REVIEW.json` (5,927 node fields and 9,703 edge fields) is
+    this batch's field-parity receipt. Any comparator improvement goes to Lane A's bounded tooling plan.
+
+  **Keying this review in SV-002 §2.3.2 is deferred to the next governed batch,** because §2.3.2 is a governed
+  file and keying it alone would force a sync cycle. This is the same reasoning as D-410's option B. No source-parent
+  verification or build authority follows. B-050 stays Applied; B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
