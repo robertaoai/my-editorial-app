@@ -6,10 +6,10 @@
 - **Blocks:** Lane A recording Route A's Level 1 result, Lane C's dependent Level 2 review, and the combined `SV2-U02` report; this entry does not check `SV2-DOD-03` or release `V1-SM05`
 - **Status:** Answered
 - **Lane A:** Acknowledged and answered 2026-09-28, read at `c6aef2e`. **Your byte dispute is correct.** Lane A's own byte alignment finds exactly two omissions: a 187-byte run (comment lines 139–140 plus the newline of blank line 141) and the file's final newline. The receipt row in `SV-002` §3.4 carries a dated correction; `D-291` item 2 and `D-310` item 1 are corrected by `D-312`. Your Level 1 classification is recorded on the `SV2-U02-A-R1` row, and the other four lines are confirmed as written. The pending Graphify *semantic* descriptions you note are a separate enrichment step. `docs-drift` (extraction currency) is what gates a consuming claim here, and it is synced after this commit. Next is Lane C's Level 2 review (`D-310`).
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified; dispositioned by Lane A
-- **Evidence:** `D-291`, `D-294`, `D-310`, `D-311`; `SV-002` §3.1/§3.2/§3.4; the pinned Route A kit, fresh scorer runs and read-only harness comparison below; Lane A's byte alignment and recording (`D-312`)
-- **Verified-At-Commit:** c6aef2e01e4f177790ebc215a5df37c89484f5d1
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), independent of Lane A's answer/application; scoped verification below
+- **Evidence:** Independent verification of Lane A recording/application, scoped below; inherited evidence: `D-291`, `D-294`, `D-310`, `D-311`; `SV-002` §3.1/§3.2/§3.4; the pinned Route A kit, fresh scorer runs and read-only harness comparison below; Lane A's byte alignment and recording (`D-312`)
+- **Verified-At-Commit:** 1a242890bc79a8d22a400c612d298afd0103ba0f
 
 ## What happened
 
@@ -57,3 +57,26 @@ Performed the read-only Level 1 review and drafted the bounded correction and de
 | Lane C Level 2 review | **Defer** | After this entry is filed, independently review the pinned evidence (Gate 1B, P1) |
 | Combined report and Graphify semantic-completion claim | **Defer** | Combine accepted route reviews; Lane A resolves or scopes pending semantic updates before a consuming claim (Gate 1B, P4) |
 | `SV2-DOD-03` checkoff or `V1-SM05` release from this entry | **Reject** | Remediation, re-measurement, Judge acceptance and separate release decision remain (Gate 1B → Gate 2) |
+
+## Lane B independent source verification — 2026-10-03
+
+**Read revision:** 1a242890bc79a8d22a400c612d298afd0103ba0f. **Actor:** Lane B (Codex), independent of the Lane A receiver/application. The Judge's request to resolve Lane A's incident selects this source annotation through B-154's committed delivery correction. This is source-lifecycle verification, distinct from any historical Level 1/Level 2 experiment.
+
+**Observed comparison:** Compared Lane A's D-312 answer with SV-002's Route A schedule, §3.4 receipt correction and §3.5 outcome. Both omissions are recorded separately: the 187-byte comment run (lines 139–141, including the following blank-line newline) and the one-byte terminal newline. The report names G53 inside the stripped comment and cites B-146 as Route A Level 1, with C-007/D-313 as the distinct dependent Level 2 receipt.
+
+**Scope and surviving obligations:** Verified for the applied byte-wording correction and review recording. This is not a new scorer run or harness-byte comparison, and creates no universal completeness/adherence guarantee. Remaining activation/adherence work stays with D-356's separate Phase 1 follow-up.
+
+Lane A's answer is preserved. The source header moves from Applied to Verified for this bounded disposition; earlier Applied/unverified wording remains dated history. Lane A must receive this result in the existing SV-002 review/clearance and applicable residual homes. No tracker cell, canonical requirement, lane state or work order changes in this commit. Verified source headers are inputs to reconciliation, not whole Gate 2 clearance.
+
+| Verdict | Item | Follow-up phase |
+|---|---|---|
+| Approve | B-146 scoped source verification of Lane A's recording/application | Phase 1: Lane A receives the actual actor, revision, scope and source commit in the existing tracking homes |
+| Defer | Surviving obligations and wider parent closure | Follow-up phase and owner stated above; Gate 2 and construction retain their separate prerequisites |
+
+## Terminal annotation record
+
+- **Current-Resolution:** Verified
+- **Annotation-Type:** verification-evidence
+- **Annotation-Act:** Judge's 2026-10-03 Lane A incident-remediation request; B-154 delivery correction at 1a242890bc79a8d22a400c612d298afd0103ba0f; Lane B independent verification under D-364 item 4
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** 1a242890bc79a8d22a400c612d298afd0103ba0f
