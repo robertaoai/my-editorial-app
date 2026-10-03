@@ -7,10 +7,10 @@
 - **Receiver:** Lane A
 - **Status:** Answered
 - **Lane A:** Acknowledged and answered 2026-09-28, read at `b3ad627` (receiver per `D-272`). **This meets `D-310` in full.** Lane A re-ran the pinned scorer on both probes, and the outputs are byte-identical to `score-v2-probe1.txt`/`score-v2-probe2.txt`. The cue mapping (C1/C2 `CLAUDE.md` tails, C3/C7 shared core, C5/C6 `AGENTS.md` tails, C4/C8/C9 negative control) matches the key. The byte alignment matches Lane A's own for `D-312`. Recorded on the `SV2-U02-A-R1` row (`D-313`). **Route A's review schedule is complete**, which completes all three routes. The combined report is next.
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified; dispositioned by Lane A
-- **Evidence:** `D-291`, `D-310`, `D-312`; `B-146` (at `44e4326`); `SV-002` §3.1/§3.2/§3.4; external kit `C:\Users\rober_24syk4j\sv2-route-a-kit\`; fresh scorer runs and byte alignment; Lane A's re-run and recording (`D-313`)
-- **Verified-At-Commit:** b3ad627590344304f9526c016a970b5e88bfaf3a
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), independent of Lane A's answer/application; scoped verification below
+- **Evidence:** Independent verification of Lane A recording/application, scoped below; inherited evidence: `D-291`, `D-310`, `D-312`; `B-146` (at `44e4326`); `SV-002` §3.1/§3.2/§3.4; external kit `C:\Users\rober_24syk4j\sv2-route-a-kit\`; fresh scorer runs and byte alignment; Lane A's re-run and recording (`D-313`)
+- **Verified-At-Commit:** 1a242890bc79a8d22a400c612d298afd0103ba0f
 
 ## What happened
 
@@ -60,3 +60,26 @@ Re-ran the pinned Route A scorer for both probes, verified the byte alignment of
 | Completion of Route A review schedule | **Approve** | Completes SV-002 §3.1 Level 2 for Route A (Gate 1B, P1) |
 | Combined Report compilation | **Defer** | Next step for Lane A in SV-002 §3 (Gate 1B, P4) |
 | Checking `SV2-DOD-03` or lifting the `V1-SM05` block | **Reject** | Precluded until Combined Report acceptance, P4 remediation, and separate Judge decisions (Gate 1B → Gate 2) |
+
+## Lane B independent source verification — 2026-10-03
+
+**Read revision:** 1a242890bc79a8d22a400c612d298afd0103ba0f. **Actor:** Lane B (Codex), independent of the Lane A receiver/application. The Judge's request to resolve Lane A's incident selects this source annotation through B-154's committed delivery correction. This is source-lifecycle verification, distinct from any historical Level 1/Level 2 experiment.
+
+**Observed comparison:** Independently compared Lane A's D-313 receiver answer with SV-002's Route A schedule, §§3.4/3.5 and D-312/D-313. C-007 is recorded as the distinct historical Level 2 review; B-146 remains Level 1. The recorded byte-identical scores and the two separate byte omissions agree with the inherited source receipt. The schedule completion is represented accurately and feeds the combined report.
+
+**Scope and surviving obligations:** Verified for Lane A's recording of the historical Level 2 receipt; not a replacement Level 2 review and not a new scorer/harness run. D-362's later acceptance and D-356's separate Phase 1 activation/adherence follow-up retain their original scope. Receiver is Lane A; Lane B is independent of that answer.
+
+Lane A's answer is preserved. The source header moves from Applied to Verified for this bounded disposition; earlier Applied/unverified wording remains dated history. Lane A must receive this result in the existing SV-002 review/clearance and applicable residual homes. No tracker cell, canonical requirement, lane state or work order changes in this commit. Verified source headers are inputs to reconciliation, not whole Gate 2 clearance.
+
+| Verdict | Item | Follow-up phase |
+|---|---|---|
+| Approve | C-007 scoped source verification of Lane A's recording/application | Phase 1: Lane A receives the actual actor, revision, scope and source commit in the existing tracking homes |
+| Defer | Surviving obligations and wider parent closure | Follow-up phase and owner stated above; Gate 2 and construction retain their separate prerequisites |
+
+## Terminal annotation record
+
+- **Current-Resolution:** Verified
+- **Annotation-Type:** verification-evidence
+- **Annotation-Act:** Judge's 2026-10-03 Lane A incident-remediation request; B-154 delivery correction at 1a242890bc79a8d22a400c612d298afd0103ba0f; Lane B independent verification under D-364 item 4
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** 1a242890bc79a8d22a400c612d298afd0103ba0f
