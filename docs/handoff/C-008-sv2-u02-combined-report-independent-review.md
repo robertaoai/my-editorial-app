@@ -21,10 +21,10 @@
   - A separate graph-path entry (F12): the paths are in ignored runtime files, and `graphify hook-rebuild` exists.
 
   One minor point: this entry's `Blocks:` says "nothing, reporting only" while its body asks for corrections before acceptance.
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified; dispositioned by Lane A
-- **Evidence:** `SV-002` §3.5 (`D-314`, `D-315`, `D-316`); `~/.gemini/antigravity/builtin/skills/agy-customizations/docs/rules.md` and `SKILL.md`; external EMS framework review (input, not a review level), kept in full in Appendices A to E of this file
-- **Verified-At-Commit:** b5bf0b88d0931dc79f5c073a13d78ac306755315
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), independent of Lane A's answer/application; scoped verification below
+- **Evidence:** Independent verification of Lane A recording/application, scoped below; inherited evidence: `SV-002` §3.5 (`D-314`, `D-315`, `D-316`); `~/.gemini/antigravity/builtin/skills/agy-customizations/docs/rules.md` and `SKILL.md`; external EMS framework review (input, not a review level), kept in full in Appendices A to E of this file
+- **Verified-At-Commit:** 1a242890bc79a8d22a400c612d298afd0103ba0f
 - **Absorbs:** C-009 and C-010 (withdrawn before acceptance)
 
 ## What happened
@@ -198,3 +198,26 @@ Not confirmed from the material available to this review:
 | Delivered pair | `AGENTS.md` as cut (23,962 bytes) plus `graphify.md` (21,750 bytes) = 45,712 bytes (~11,400 tokens) |
 | Pinned pair | Full-size files: 31,920 plus 21,750 bytes = 53,670 bytes (~13,400 tokens) |
 | Strictly under | Less than 24,000 bytes, so at most 23,999 bytes |
+
+## Lane B independent source verification — 2026-10-03
+
+**Read revision:** 1a242890bc79a8d22a400c612d298afd0103ba0f. **Actor:** Lane B (Codex), independent of the Lane A receiver/application. The Judge's request to resolve Lane A's incident selects this source annotation through B-154's committed delivery correction. This is source-lifecycle verification, distinct from any historical Level 1/Level 2 experiment.
+
+**Observed comparison:** Independently compared Lane A's proposal-by-proposal answer with D-315/D-316/D-317 and SV-002 §3.5. Applied report wording scopes file selection, separates units, names the G53 omission, limits the date and preserves causal hypotheses and alternate budgets. D-317 supplies the residual consequence-line, token-basis and list-format fixes; the hypothetical pair corrects 'delivered pair'. Rejected repository-wide renumbering/graph-path proposals are not silently applied. D-318 records acceptance of the corrected report.
+
+**Scope and surviving obligations:** Verified for Lane A's applied report correction and explicit dispositions, including the later residual fixes. The external advisory review's unresolved raw-record provenance and historical measured claims remain inherited. This annotation neither validates a cause nor re-files retired drafts; behavioural follow-up remains Phase 1 under D-356. Receiver is Lane A; Lane B is independent of that answer.
+
+Lane A's answer is preserved. The source header moves from Applied to Verified for this bounded disposition; earlier Applied/unverified wording remains dated history. Lane A must receive this result in the existing SV-002 review/clearance and applicable residual homes. No tracker cell, canonical requirement, lane state or work order changes in this commit. Verified source headers are inputs to reconciliation, not whole Gate 2 clearance.
+
+| Verdict | Item | Follow-up phase |
+|---|---|---|
+| Approve | C-008 scoped source verification of Lane A's recording/application | Phase 1: Lane A receives the actual actor, revision, scope and source commit in the existing tracking homes |
+| Defer | Surviving obligations and wider parent closure | Follow-up phase and owner stated above; Gate 2 and construction retain their separate prerequisites |
+
+## Terminal annotation record
+
+- **Current-Resolution:** Verified
+- **Annotation-Type:** verification-evidence
+- **Annotation-Act:** Judge's 2026-10-03 Lane A incident-remediation request; B-154 delivery correction at 1a242890bc79a8d22a400c612d298afd0103ba0f; Lane B independent verification under D-364 item 4
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** 1a242890bc79a8d22a400c612d298afd0103ba0f
