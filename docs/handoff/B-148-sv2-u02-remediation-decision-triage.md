@@ -6,10 +6,10 @@
 - **Blocks:** the separate `D-318` choice of no remediation or one bounded remediation, and any claim that `SV2-DOD-03` is met; read-only analysis may continue
 - **Status:** Answered
 - **Lane A:** Acknowledged and answered 2026-09-28, read at `ead012a` (`D-319`). *(The "Acknowledged" previously on this line was written by the raiser, not by Lane A. Only the receiver writes this field.)* **Every figure is verified by Lane A's own byte count:** the 8,915/18,460/4,545/2,334/68/3,222 map, the 45,835 redundant bytes, the cut of 3,412 shared-core bytes plus 4,545 tail bytes plus one newline equalling 7,958, and `AGENTS.md` at 31,649 characters and `CLAUDE.md` at 402 lines. **Your central point is accepted:** `D-266` item 3's binding targets (`AGENTS.md` under 6,000 characters; `CLAUDE.md` under 300 lines inheriting `@AGENTS.md`) govern any fix. The accepted report's under-24,000-byte discussion did not address them. The Judge has chosen **option B, one bounded fix** (`D-319`), with its scope still to be defined. Your parent item, the read-only rule-unit triage, becomes the scope proposal Lane A prepares for the Judge's scope act. The freeze holds until that act.
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified; dispositioned by Lane A
-- **Evidence:** `D-266`, `D-267`, `D-318`; `SV-002` §3.5 and §7; `AGENTS.md`, `CLAUDE.md`, `.agents/rules/graphify.md`; `C-005` and `B-147`; read-only byte inventory, `shared-core-hash.mjs`, and `bun run check`; [Codex AGENTS.md loading guide](https://learn.chatgpt.com/docs/agent-configuration/agents-md); external reviews as advisory input only
-- **Verified-At-Commit:** ead012a1342ec715c33da4921a9374852af972e1
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), independent of Lane A's answer/application; scoped verification below
+- **Evidence:** Independent verification of Lane A recording/application, scoped below; inherited evidence: `D-266`, `D-267`, `D-318`; `SV-002` §3.5 and §7; `AGENTS.md`, `CLAUDE.md`, `.agents/rules/graphify.md`; `C-005` and `B-147`; read-only byte inventory, `shared-core-hash.mjs`, and `bun run check`; [Codex AGENTS.md loading guide](https://learn.chatgpt.com/docs/agent-configuration/agents-md); external reviews as advisory input only
+- **Verified-At-Commit:** 1a242890bc79a8d22a400c612d298afd0103ba0f
 
 ## What happened
 
@@ -48,3 +48,26 @@ Read the accepted report, Register and two external analyses; verified file size
 | No remediation | **Defer** | Judge must disposition the known delivery gaps and reconcile `D-266` targets before `SV2-DOD-03` (Gate 1B, P4) |
 | One bounded remediation | **Approve-with-conditions** | Judge selects exact scope, owner and tests; Lane A applies atomically, then re-measures and obtains independent review (Gate 1B, P4) |
 | Immediate live `always_on` edit, generator build or `SV2-DOD-03` checkoff | **Reject** | Freeze and separate Judge act still govern; later closure needs measured proof (Gate 1B → Gate 2) |
+
+## Lane B independent source verification — 2026-10-03
+
+**Read revision:** 1a242890bc79a8d22a400c612d298afd0103ba0f. **Actor:** Lane B (Codex), independent of the Lane A receiver/application. The Judge's request to resolve Lane A's incident selects this source annotation through B-154's committed delivery correction. This is source-lifecycle verification, distinct from any historical Level 1/Level 2 experiment.
+
+**Observed comparison:** Compared Lane A's D-319 answer with its Register act and SV-002 §§3.6/3.6.6. The historical inventory and scope proposal are recorded, option B selects one bounded fix, and D-324 supplies the later composition scope. D-337 records the atomic rule-file/refactoring/check application: one AGENTS core, resolving CLAUDE import, GEMINI tail and rule-budget replacement. D-362 records later delivery-plus-review acceptance on the amended D-356 basis. These successive acts do not make the earlier proposal execution authority.
+
+**Scope and surviving obligations:** Verified for accurate triage, scope-selection recording and named successor disposition. The historical raw byte inventory and loader probes are inherited, not freshly reproduced. Current rule-budget is checked separately with the final consistency suite. Activation/adherence follow-up and any new scope remain Phase 1 Judge-owned decisions under D-356.
+
+Lane A's answer is preserved. The source header moves from Applied to Verified for this bounded disposition; earlier Applied/unverified wording remains dated history. Lane A must receive this result in the existing SV-002 review/clearance and applicable residual homes. No tracker cell, canonical requirement, lane state or work order changes in this commit. Verified source headers are inputs to reconciliation, not whole Gate 2 clearance.
+
+| Verdict | Item | Follow-up phase |
+|---|---|---|
+| Approve | B-148 scoped source verification of Lane A's recording/application | Phase 1: Lane A receives the actual actor, revision, scope and source commit in the existing tracking homes |
+| Defer | Surviving obligations and wider parent closure | Follow-up phase and owner stated above; Gate 2 and construction retain their separate prerequisites |
+
+## Terminal annotation record
+
+- **Current-Resolution:** Verified
+- **Annotation-Type:** verification-evidence
+- **Annotation-Act:** Judge's 2026-10-03 Lane A incident-remediation request; B-154 delivery correction at 1a242890bc79a8d22a400c612d298afd0103ba0f; Lane B independent verification under D-364 item 4
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** 1a242890bc79a8d22a400c612d298afd0103ba0f
