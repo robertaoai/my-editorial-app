@@ -109,6 +109,24 @@
   manifest is one stopped run, not a harness; the 728 label-map disagreements are a pre-existing baseline, not a
   bar to meet; there is no deletion and no abandoned requirement; `ACCESS-ROLE-CHIEF-EDITOR` is access, not sign-off.
   B-154 stays Open; no Resolution is recorded.
+  **Answered again 2026-10-03 (`D-407`), read at `87c9891`.** Lane A receives Lane B's consolidation (`87c9891`) and
+  its B-050 Route 1 review (`b677e69`).
+  **Accepted:**
+  - Route 1 is procedural progress with a correct stop: 471/420/51/27, and the CLI explain-by-id limit.
+  - The 105 reused labels came from the older caller graph, and 3 were named from their members.
+  - (a) is rejected as a full sync; (c) is deferred.
+
+  **The Judge selected (b) as the direction** (`D-407`). Lane A returns the exact migration packet for Accept or
+  Reject: `C:/CoWork/outputs/lane-a-route1-2026-10-03/B-MIGRATION-PACKET.md`. Its contents:
+  - an inventory of 126 fragments, 534 nodes and 35 names;
+  - a meaning map: all 534 nodes keep a label, description and edges; D-39–D-50 and GA5 are stable ids;
+  - a cause for the 51: `merge7.js` hard-codes labels 28–30;
+  - a dry run: 1068 lines, valid JSON, nothing else changed;
+  - a write set: fragments, `merge7.js`, README, a check rule and `D-54`;
+  - an isolated acceptance replay with 0 label contradictions required.
+
+  No tracked fragment or script is edited before the Judge's execution act. B-050 keeps Applied and Lane A's
+  `D-122` answer. B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
