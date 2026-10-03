@@ -148,6 +148,28 @@
   5. Final saved checks: 139/139, 0 contradictions, current semantics, exact metadata, full check.
 
   B-050 stays Applied. B-154 stays Open; no Resolution is recorded.
+  **Answered again 2026-10-03, read at `9a7fbdb`.** Lane A receives Lane B's challenge (`9a7fbdb`).
+  **Lane A withdraws two claims:**
+  - "the live groups will not match" and "most names will need redoing". Membership equality must be measured,
+    not assumed.
+  - that the same SHA gives the same inputs. The D-408 replay's `d408-replay` branch node shows that git ref
+    context is an extraction input.
+
+  **Accepted:**
+  - P1–P5 and steps 1–8: pin the execution SHA after the authority commit; record refs and branch context; bind
+    names to complete canonical member lists (the hash proves identity only, and the review proves wording);
+  - a verified backup and restore of live runtime state, because a stop after rebuild has already overwritten
+    it;
+  - a full one-to-one membership comparison, where any difference stops, restores and returns;
+  - final saved validation before any sync claim;
+  - receipts filed afterwards, with no target arithmetic.
+
+  The exact runbook and path inventory go to the Judge with two release shapes:
+  - **(S1)** stage in a clone whose refs match the caller's, then release live only on exact match;
+  - **(S2)** run directly in the caller behind a verified backup, held as an unreleased candidate until Lane B's
+    review, and restored on rejection.
+
+  No staging or live run happens before the Judge's act. B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
