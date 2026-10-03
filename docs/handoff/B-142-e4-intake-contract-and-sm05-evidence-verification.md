@@ -30,10 +30,10 @@
 
   Receipts are recorded on seven §3.3 rows. Every blocking row meets Gate 1B, and `SV2-DOD-05` is reviewable but not checked. Status stays Open: your Gate 2 conditions (items 3, 4 and 6) remain.
   **Second pass answered 2026-09-27 (`D-289`, `2ff8b6c`).** All four label corrections are applied as written. `SV2-DOD-05` is then checked by the Judge. Your E5 boundary is recorded in `D-289` item 3: E5 is Lane A-only, and the checkoff stands as the Judge's acceptance naming Entry 06. Status stays Open for your Gate 2 conditions (items 3, 4 and 6).
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified; dispositioned by Lane A
-- **Evidence:** `D-280`–`D-288`; `SV-002` §§1/2.3/3.3/3.4/7; `FN-GATES-01-05.md` §§2/3.1/4.5/4.6; `Modular_PRD.md` `FR-01`, `AC-02`, `TR-DM-07`; `V1-SM05.md` DoR→DoD map and DoD; `B-096`, `B-131`, Panel A11, `ENCYCLOPEDIA-SYNC.md` Entry 06; v15 export SHA-256; `scripts/jev/manifests/V1-SM05.json` and `scripts/jev/lib.mjs` completion rules; Graphify, Jev readiness and local consistency reads at the commit below
-- **Verified-At-Commit:** 91cc511950f3e9a10eae2f68d202b1e2b8ea2e53
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), independent of Lane A's answer/application; scoped verification below
+- **Evidence:** Independent verification of Lane A recording/application, scoped below; inherited evidence: `D-280`–`D-288`; `SV-002` §§1/2.3/3.3/3.4/7; `FN-GATES-01-05.md` §§2/3.1/4.5/4.6; `Modular_PRD.md` `FR-01`, `AC-02`, `TR-DM-07`; `V1-SM05.md` DoR→DoD map and DoD; `B-096`, `B-131`, Panel A11, `ENCYCLOPEDIA-SYNC.md` Entry 06; v15 export SHA-256; `scripts/jev/manifests/V1-SM05.json` and `scripts/jev/lib.mjs` completion rules; Graphify, Jev readiness and local consistency reads at the commit below
+- **Verified-At-Commit:** 1a242890bc79a8d22a400c612d298afd0103ba0f
 
 ## What happened and the governing boundary
 
@@ -97,3 +97,26 @@ Lane B compared the six E4 surfaces and drafted the return conditions here. No c
 | **Approve-with-conditions** | E4 source corrections, B-131 Judge-acceptance route and E5 record | Gate 1B — normalize the four current-state labels, then review `SV2-DOD-05` on its own evidence |
 | **Defer** | Gate 2 intake fixtures, physical store, work order and build | Gate 2 — four distinct real-database cases and the remaining setup acceptance are required |
 | **Reject** | Treating 18/18 checks or Jev 272/272 as execution or DoD proof | Gate 1B → Gate 2 — those results validate structure and readiness only |
+
+## Lane B independent source verification — 2026-10-03
+
+**Read revision:** 1a242890bc79a8d22a400c612d298afd0103ba0f. **Actor:** Lane B (Codex), independent of the Lane A receiver/application. The Judge's request to resolve Lane A's incident selects this source annotation through B-154's committed delivery correction. This is source-lifecycle verification, distinct from any historical Level 1/Level 2 experiment.
+
+**Observed comparison:** Compared D-377's applied/transfer disposition with FN-GATES §3.1's §4.6 pointer, §4.5's dated settled-retention note, §4.6 SM05-IN1–IN4 and the V1-SM05 DoD. Four distinct cases cover URL pass, admitted Markdown pass, missing-reference failure, and Markdown-without-original-URL refusal. The DoD requires a distinct artifact and failing-first proof per case. The Jev manifest pins all four behaviours and includes 'Intake source fixtures' in both negativeRequired and failingFirstRequired, discharging item 6 under D-373. D-288/D-289 record the accepted B-131 disposition and corrected labels.
+
+**Scope and surviving obligations:** Verified for the applied contract and enforcement specification and the explicit transfer of items 3–4. Executed database artifacts and failing-first/passing results remain V1-SM05-FV-001 under the D-242 work order (Phase 2); neither Jev readiness nor this receipt supplies them.
+
+Lane A's answer is preserved. The source header moves from Applied to Verified for this bounded disposition; earlier Applied/unverified wording remains dated history. Lane A must receive this result in the existing SV-002 review/clearance and applicable residual homes. No tracker cell, canonical requirement, lane state or work order changes in this commit. Verified source headers are inputs to reconciliation, not whole Gate 2 clearance.
+
+| Verdict | Item | Follow-up phase |
+|---|---|---|
+| Approve | B-142 scoped source verification of Lane A's recording/application | Phase 1: Lane A receives the actual actor, revision, scope and source commit in the existing tracking homes |
+| Defer | Surviving obligations and wider parent closure | Follow-up phase and owner stated above; Gate 2 and construction retain their separate prerequisites |
+
+## Terminal annotation record
+
+- **Current-Resolution:** Verified
+- **Annotation-Type:** verification-evidence
+- **Annotation-Act:** Judge's 2026-10-03 Lane A incident-remediation request; B-154 delivery correction at 1a242890bc79a8d22a400c612d298afd0103ba0f; Lane B independent verification under D-364 item 4
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** 1a242890bc79a8d22a400c612d298afd0103ba0f
