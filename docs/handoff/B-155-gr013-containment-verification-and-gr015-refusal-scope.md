@@ -24,7 +24,7 @@
   revision. Lane A records no `Verified`.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Judge verification request 2026-10-02; `D-242`, `D-395`–`D-397`; `GR-012-013-SPEC.md` §1.2(4), §1.4 and §4; `scripts/fixtures/harness.mjs` `snapshot()`; `.github/PULL_REQUEST_TEMPLATE/v1-mmf.md` §§4/8; independent temporary-junction reproduction described below and `C:/CoWork/outputs/b115-b114-gr013-review/link-probe.json`; existing parent plan `B-154`.
-- **Verified-At-Commit:** 4e50c4126a1c1468e98b9b3e9d3cde3bfb8f7298
+- **Verified-At-Commit:** bda08727e1bc3031d5c6ef1dd2333d6f69ee31d5
 
 ## What happened
 
@@ -89,3 +89,49 @@ Read the delivered scripts, sources, specification and independent consumer arti
 | **Approve-with-conditions** | F1 repair and F2 wording plan | **Phase 1 — Judge records the concrete bounded repair/reconciliation act; Lane A applies; independent verification follows** |
 | **Reject** | Full GR-013/P4a verification and B-021 closure at this revision | **Phase 1 — physical containment refuses before external writes and the existing G13 evidence remains valid** |
 | **Defer** | P4b, full source/readiness clearance and application construction | Separate **Phase 1** evidence/acts; later authorized **Phase 2/SM05**, then **Phase 3/SM06** |
+
+## Independent D-398 verification — Lane B, 2026-10-03
+
+**What happened.** Judge approval received in the current conversation for verification of F1/F2 and drafting
+the GR-012/P4b proposal, pending durable registration (`D-183`). Read clean revision
+`bda08727e1bc3031d5c6ef1dd2333d6f69ee31d5`. Earlier Lane A answers and the original `4e50c41` rejection remain
+history. This is the raiser's follow-up, not a Lane A answer or permission to repair.
+
+The supplied October 3 analysis's hard-link result is independently reproduced at this revision. New evidence:
+`C:/CoWork/outputs/lane-b-followup-2026-10-03/results.json` and `verify.mjs`. All mutations used disposable
+paths in that output directory; cleanup removed exact created names, without recursive deletion.
+
+| Child | Actual observation | Disposition / success criterion |
+|---|---|---|
+| F1 named repair | All ten physical-containment cases and all five baseline-restore cases pass | Supported within those cases; not full GR-013 acceptance |
+| F1 hard link at capture | A multiply linked regular file is accepted (`nlink=2`) | Missing capture refusal; outside bytes stayed unchanged in this capture-only probe |
+| F1 hard link substituted after capture | Restore does not refuse; disposable outside bytes change from `EXTERNAL USER DATA` to `ORIGINAL` | Reject containment. Refuse before any outside write; this is stable substitution, not a race |
+| F1 regular-file identity | Preserve the original file under another name and create a new ordinary file at its old name. Distinct file IDs are measured; restore accepts and overwrites the replacement | D-398 promises object identity but enforces it for directories only. Specify the regular-file rule explicitly before correction; this case establishes a contract mismatch, not an outside write |
+| F1 missing-file control | A deleted baseline file is recreated through its unchanged parent | Supported restoration behavior must remain possible, or an explicit changed contract and fixture audit are required |
+| F2 wording | Template §§4/8 agrees with D-398: new construction needs red evidence; characterization needs honest evidence/rationale; human final push is scoped to B-114 implementation transport; multi-child refusal remains | Independently verified wording only. No executable gate or push authority is established |
+
+**What you need.** Lane A appends its own response; records F2's scoped independent receipt at GR-015;
+records this failed F1 verification at GR-013 and SV-002 §2.3.2; keeps B-021 Applied and this entry Open.
+F1 remains one child of this entry, with no new handoff or GR identifier. Whole-entry closure follows the weakest
+unresolved child, not F2 alone.
+
+**Draft fix, specified not applied.** Reject multiply linked regular files at capture and during the all-entry
+restore preflight, then re-check before each write. For an existing regular file, enforce recorded identity;
+for a missing baseline file, permit recreation only through validated unchanged parents. Lane A must audit
+fixtures that deliberately replace ordinary files and present any intentional exception to the Judge rather
+than silently narrowing D-398. Preserve root/component/kind checks and the stated non-atomic race boundary.
+Acceptance requires both hard-link refusals, an ordinary replacement refusal, single-link and missing-file
+positive controls, the ten containment and five restoration cases, and applicable G13-1–G13-7 proof at the
+repaired revision. Disclose inherited versus freshly rerun evidence; independent verification follows delivery.
+
+**What you did instead.** Verified the bounded repair and wording, reproduced remaining failures and drafted
+the correction. Full fixture completion, concurrent runs, interruption and failed-cleanup recovery were not
+rerun in this turn; their earlier evidence retains its provenance. No production/user file was harmed.
+The parent proposal and follow-up sequence are in B-154's latest section.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | F2 amended wording | Phase 1: Lane A records the scoped independent receipt at GR-015 |
+| Approve-with-conditions | F1 correction draft | Phase 1: concrete Lane A diff/fixture audit, bounded Judge act, delivery and independent proof |
+| Reject | Full F1/GR-013 verification, B-021 and B-155 closure | Phase 1: outside-write and regular-file continuity failures must be resolved |
+| Defer | Tool correction execution and construction | Separate Phase 1 application authority/evidence; Phase 2/SM05 remains held |
