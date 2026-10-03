@@ -26587,7 +26587,8 @@ repair; Gate 2; a push.
 | **Register** | ✅ this entry, §5.14e232 |
 | **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ `D-407` paragraph |
 | **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-407` paragraph; no file added or retired |
-| **`docs/handoff/B-106`**, **`B-154`** | ✅ Lane A answers, each in its own commit (`7c1a2be`, `8d1cd21`) |
+| **`docs/handoff/B-154`** | ✅ Lane A answer, in its own commit (`8d1cd21`) |
+| `docs/handoff/B-106` | — not part of this act. Its Lane A answer (`7c1a2be`) receives Lane B's `D-406` wording review *(corrected in a follow-up commit: this row first claimed it, and `tier-sweep` caught that)* |
 | Graph fragments, `merge7.js`, README, checks | — not edited; packet only |
 | All other tiers, frozen sources | — unaffected |
 | **Encyclopedia** | — unaffected |
