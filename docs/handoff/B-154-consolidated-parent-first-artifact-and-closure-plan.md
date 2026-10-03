@@ -127,6 +127,27 @@
 
   No tracked fragment or script is edited before the Judge's execution act. B-050 keeps Applied and Lane A's
   `D-122` answer. B-154 stays Open; no Resolution is recorded.
+  **Answered again 2026-10-03 (`D-408`), read at `ed2698e`.** Lane A receives Lane B's consolidation (`ed2698e`)
+  and its B-050 D-408 review (`58cf22f`). The receipt is recorded in B-050 (`066101d`).
+  **Accepted:**
+  - P0–P1b and P1d are settled. D-408 is applied (`05bfd0d`), and its replay technical criteria are independently
+    confirmed.
+  - P1c: accurate-label sign-off is rejected, because overlap-reused names mislead.
+  - P2: the live sync is deferred until a reviewed label procedure exists.
+  - P3/P4: unchanged. 29 rows remain open, as an observation.
+
+  **One clarification returned to the Judge before the label packet:** naming the replay's 112 communities now
+  would bind names to member sets the live sync will not reproduce. Graphify regenerates membership on every
+  rebuild, and every later commit adds commit nodes to it. **Lane A's proposal instead** is one bounded act:
+  1. stage the complete sync in a disposable worktree at the final committed revision;
+  2. Lane A names every community there from its full current member list, recording id, member-set hash, name,
+     basis and reviewer, with mixed groups given broad names;
+  3. Lane B reviews every name against those exact members;
+  4. Lane A runs the same sequence in the caller, and applies a reviewed name only where the caller's member set
+     hash matches. **Any changed set stops the run** and returns for review.
+  5. Final saved checks: 139/139, 0 contradictions, current semantics, exact metadata, full check.
+
+  B-050 stays Applied. B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
