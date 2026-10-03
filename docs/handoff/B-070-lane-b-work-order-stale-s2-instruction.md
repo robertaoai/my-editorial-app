@@ -19,12 +19,12 @@
   plan for independent review": the two options are drafted here for Lane B's independent review,
   not yet selected or applied as a decision. Lane B remains `Eligible`, not `Active`
   (`V1-PHASE-CLOSURE.md` §5) — no lane-state transition is made by this handoff.
-- **Resolution:** Applied
-- **Verified-At-Commit:** 1f77cfc
+- **Resolution:** Verified
+- **Verified-At-Commit:** 1a242890bc79a8d22a400c612d298afd0103ba0f
   handoff; not a `Verified` claim (`Resolution` stays `Applied`), only the commit where this
   evidence is currently observable
-- **Verified-By:** — not independently verified; dispositioned by Lane A
-- **Evidence:** `docs/LANE-B-WORK-ORDER.md` §2.2d (historical/held notice added); `D-171` in
+- **Verified-By:** Lane B (Codex), independent of Lane A's answer/application; scoped verification below
+- **Evidence:** Independent verification of Lane A recording/application, scoped below; inherited evidence: `docs/LANE-B-WORK-ORDER.md` §2.2d (historical/held notice added); `D-171` in
   `V1-DECISION-REGISTER.md`; `V1-BUILD-SPEC.md` §"S2 — Line assignment and four-eyes"; `D-181` in
   `V1-DECISION-REGISTER.md` §5.14e7; `docs/handoff/B-068-*.md`/`B-069-*.md` (`Verified` status);
   `docs/governance/factory-route-operation-crosswalk.md` (six `UNVERIFIED` operation shapes,
@@ -128,3 +128,26 @@ one named route. Completing either feature alone does not activate a route, rele
 
 No `B-072` is required for this clarification. `B-071` is the sole current handoff record for the
 replacement model and its remaining corrections.
+
+## Lane B independent source verification — 2026-10-03
+
+**Read revision:** 1a242890bc79a8d22a400c612d298afd0103ba0f. **Actor:** Lane B (Codex), independent of the Lane A receiver/application. The Judge's request to resolve Lane A's incident selects this source annotation through B-154's committed delivery correction. This is source-lifecycle verification, distinct from any historical Level 1/Level 2 experiment.
+
+**Observed comparison:** Compared Lane A's applied correction and forward cross-reference with work-order §2.2d, D-171 and D-389. The historical human-T5/agent-T6 packet now has an explicit historical/held/not-next-code-unit warning; it grants no live instruction to build. The forward table routes the superseded A/B framing and replacement-model verification to B-071, while fresh S2 authorization remains deferred. Source verification therefore covers the removed instruction hazard, not the replacement model.
+
+**Scope and surviving obligations:** Verified only for the applied stale-instruction correction and accurate routing. B-071's model/verification work and D-171's hold survive; no S2 authorization, route activation, lane transition or current remote equality is certified. Lane A owns remaining Phase 1 reconciliation; later construction needs its distinct bounded Phase 2 authority.
+
+Lane A's answer is preserved. The source header moves from Applied to Verified for this bounded disposition; earlier Applied/unverified wording remains dated history. Lane A must receive this result in the existing SV-002 review/clearance and applicable residual homes. No tracker cell, canonical requirement, lane state or work order changes in this commit. Verified source headers are inputs to reconciliation, not whole Gate 2 clearance.
+
+| Verdict | Item | Follow-up phase |
+|---|---|---|
+| Approve | B-070 scoped source verification of Lane A's recording/application | Phase 1: Lane A receives the actual actor, revision, scope and source commit in the existing tracking homes |
+| Defer | Surviving obligations and wider parent closure | Follow-up phase and owner stated above; Gate 2 and construction retain their separate prerequisites |
+
+## Terminal annotation record
+
+- **Current-Resolution:** Verified
+- **Annotation-Type:** verification-evidence
+- **Annotation-Act:** Judge's 2026-10-03 Lane A incident-remediation request; B-154 delivery correction at 1a242890bc79a8d22a400c612d298afd0103ba0f; Lane B independent verification under D-364 item 4
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** 1a242890bc79a8d22a400c612d298afd0103ba0f
