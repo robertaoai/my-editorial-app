@@ -26223,3 +26223,64 @@ complete the analysis as plan"*. Read at `a81e2bb`. Pushing was not approved and
 | Packets, `Modular_PRD`, Fn Specs, SPECS, rule files, Phase Closure, `SV-002`, `.claude/`, `.github/` | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild at the final commit, verify the curated layer, fill descriptions last |
+
+## 5.14e227 `D-402` — `GR-012`/`GR-013` Verification Received; Records and Graph Brought Level with the Sources
+
+**Authority: the Judge, directly to Lane A, 2026-10-03**: *"Judge Approve: authorize F1–F6 as one bounded Phase 1
+correction unit"*. F1–F6 are Lane A's own drafts from its review of `B-154`'s "Lane B review — D-399 repair and D-401
+P4b, 2026-10-03", read at `1f9bb6a`. This act is a bounded Phase 1 correction unit. Pushing was not approved and is
+not done.
+
+### The decision
+
+1. **Verification received (F2).** Lane B (Codex) independently verified, at `6bc0e99`:
+   - `B-155` (`fcb63a0`): the `D-399` F1 repair, 24/24 containment and restore probes, including hard-link
+     substitution and regular-file replacement; F2 wording unchanged and scoped;
+   - `B-021` (`ea29e04`): the `D-396` isolation, two concurrent 293/293 runs with distinct targets removed and the
+     caller's bytes unchanged, plus a fresh interrupted run;
+   - `B-014` (`d0afbce`): `D-400`'s procedure and `D-401`'s observation, bounded by the 31-minute window.
+
+   `GOV-RES-001` records `GR-012` and `GR-013` **Verified**. The limits travel with the result:
+   - eradication is not claimed;
+   - check-then-write keeps its non-atomic race boundary;
+   - the forced-cleanup-failure case is inherited `D-397` evidence, applicable because `run.mjs` is unchanged since
+     `bda0872`.
+
+   `GR-012-013-SPEC.md`'s status says so. Its 60-minute contract stays as commissioned, beside `D-401`'s accepted
+   31 minutes.
+2. **Gate 2 tracker re-derived (F3).**
+   - `SV-002` §2.3.1 is derived at `1f9bb6a`. `B-014` and `B-021` count as closed under its Verified-header rule.
+     Their Clearance cell keeps `open`, which that rule reserves for Judge acceptances.
+   - **`B-154`'s G2 is corrected:** `B-155` gets no row, because the row rule excludes headers with an independent
+     `Verified-By`.
+   - §2.3.2 records the three Lane B re-reviews in the existing keyed rows. Every unrelated open row is unchanged.
+3. **Graph wording (F4).** `frag143.json`'s `gr_012_013_spec` description and label no longer say "draft, not
+   delivery … P4a/P4b need work orders". `D-393` stays as the origin.
+4. **Historical prose (F5).** `scripts/fixtures/harness.mjs`'s header now describes the `D-396` disposable target and
+   marks the shared-checkout, dirty-start refusal as history. Its retry comment no longer calls `B-021`'s control an
+   "unbuilt concurrency lock". Comments only; no runtime change. **Lane A's own F5 draft is corrected:** `run.mjs`
+   line 8 already described the isolated design and is unchanged.
+5. **Receipt (F1).** `B-154`'s Lane A answer records this review, in its own commit (`D-385`). `B-154` stays Open: its
+   P5 readiness docket remains.
+
+### Not given by this act
+
+Any disposition of `B-154`, `B-153`, `B-150` or `B-136`; Gate 2 clearance; `SV-002` acceptance; the `V1-SM05` unblock; a
+work order; Lane B activation; a push.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e227 |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ `D-402` paragraph |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-402` paragraph; no file added or retired |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/GOV-RES-001.md`** | ✅ `GR-012`, `GR-013` Verified |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/GR-012-013-SPEC.md`** | ✅ status |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §2.3.1 re-derived; §2.3.2 rows `B-014`, `B-021`, `B-155` |
+| **`docs/graph-fragments/frag143.json`** | ✅ `gr_012_013_spec` label and description |
+| **`scripts/fixtures/harness.mjs`** | ✅ comments only |
+| **`docs/handoff/B-154-consolidated-parent-first-artifact-and-closure-plan.md`** | ✅ Lane A answer, in its own commit |
+| Packets other than the above, `Modular_PRD`, Fn Specs, SPECS, version, rule files, Phase Closure, `.claude/`, `.github/` | — unaffected |
+| **Encyclopedia** | — unaffected (no entry depends on these files, per `docs/ENCYCLOPEDIA-SYNC.md`) |
+| **Graphify** | Rebuild at the final commit, merge and verify `frag143`, fill descriptions last |

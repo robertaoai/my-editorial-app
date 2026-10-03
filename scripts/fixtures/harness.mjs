@@ -11,14 +11,20 @@
 // test outlived the test.** Every claim these documents make about a check's
 // ability to FAIL rested on a file nobody else could run.
 //
-// A fixture mutates the real working tree, runs the real check, asserts the
-// intended finding, and restores. Two rules follow from that:
+// A fixture mutates a real working tree, runs the real check, asserts the
+// intended finding, and restores. Since `D-396` (`GR-013`, `B-021`) that tree
+// is a disposable git worktree pinned to `HEAD`, created and removed by
+// `run.mjs`; the caller's checkout is never opened for writing. Two rules follow:
 //
-//   * IT REFUSES TO RUN ON A DIRTY TREE. A crash mid-fixture would otherwise
-//     leave edits indistinguishable from the author's own work.
-//   * IT RESTORES IN `finally`, always, and verifies the tree is clean again
-//     before reporting success. A fixture suite that leaves damage behind
-//     costs more than it proves.
+//   * THE TARGET IS DISPOSABLE. Uncommitted changes in the caller's checkout
+//     are reported as untested, not refused. *(Historical, before `D-396`:
+//     fixtures mutated the shared checkout and refused to start on a dirty
+//     tree — a guard on a dirty START that never stopped a concurrent reader.
+//     Relabelled as history under `D-402`.)*
+//   * IT RESTORES IN `finally`, always, to each path's baseline, refusing
+//     before any write outside the target (`D-398`, `D-399`), and verifies the
+//     target is clean again before reporting success. A fixture suite that
+//     leaves damage behind costs more than it proves.
 //
 // Run with `bun run fixtures`.
 
@@ -50,7 +56,8 @@ function sleepSync(ms) {
  * Retries a synchronous filesystem op on a TRANSIENT error only, bounded.
  * A persistent lock still throws after `RETRY_ATTEMPTS` — this narrows a
  * false MISS on a millisecond-scale hiccup; it does not mask a real one, and
- * it is not `B-021`'s unbuilt concurrency lock. Exported so the fixture
+ * it is independent of `B-021`'s concurrency control, which is the `D-396`
+ * disposable-worktree isolation in `run.mjs`, not a lock. Exported so the fixture
  * suite can assert the three shapes directly: transient-then-succeeds,
  * transient-exhausted, and non-transient-immediate.
  */

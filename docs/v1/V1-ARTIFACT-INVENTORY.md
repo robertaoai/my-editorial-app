@@ -489,6 +489,10 @@ own one-path commit.
 `docs/handoff/artifacts/B-014/observation-2026-10-03.log` and `observation-2026-10-03-session.md`; `GOV-RES-001.md` and
 `GR-012-013-SPEC.md` change in place; `B-014` annotated in its own commit.
 
+**`D-402` (2026-10-03) — no file added or retired, stated explicitly.** `GOV-RES-001.md`, `GR-012-013-SPEC.md`,
+`SV-002.md`, `docs/graph-fragments/frag143.json` and the `scripts/fixtures/harness.mjs` comments change in place;
+`B-154` answered in its own commit.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |
