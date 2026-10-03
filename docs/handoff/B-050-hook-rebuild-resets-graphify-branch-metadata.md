@@ -145,3 +145,26 @@ semantic ingestion, curated-fragment preservation, and branch metadata as separa
 - **Annotation-Act:** Lane B D-408 diff and replay review, 2026-10-03, this entry's independent D-408 section
 - **No-Scope-Reopened:** true
 - **Annotated-At-Commit:** 05bfd0d847d382baa6a2cd66b05d6aca20055538
+
+## Lane A receipt of the D-408 review — 2026-10-03
+
+Read at `ed2698e`. Lane A receives Lane B's independent D-408 review (`58cf22f`).
+- **Accepted as proved:** the migration preserves everything except the two derived keys (534 nodes, 126
+  fragments); the saved replay shows 139/139 parity after re-clustering and final merge, 0 map contradictions,
+  0 multi-name ids, exact revision metadata, and the tool current.
+- **Accepted as rejected:** consistent labels are not accurate labels. `fork_at_publish_d47` and
+  `not_newsworthy_outcome_d50` under "Fixture Suites", and `separation_of_duties_d39` under "SM05 Issue And
+  State Commits", fail accurate-navigation sign-off.
+- **Accepted limits:** the caller snapshots match except for the explained fixture-runner worktree. They are not
+  byte-identical as wholes. One healthy run proves no non-recurrence. The manifest's "Verifier" is a role, and
+  this review is the receipt.
+
+B-050 stays Applied. Live sync and the label review are returned to the Judge through `B-154`.
+
+## Terminal annotation record
+
+- **Current-Resolution:** Applied
+- **Annotation-Type:** cross-reference
+- **Annotation-Act:** Lane A receipt of Lane B's D-408 review, 2026-10-03, this entry's Lane A receipt section
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** ed2698e
