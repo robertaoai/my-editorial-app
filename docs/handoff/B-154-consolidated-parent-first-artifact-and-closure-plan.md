@@ -57,6 +57,18 @@
   any tier that lacks it as a bounded gap. No deletion job or migration is inferred.
   Each request runs independently; none waits on another. Lane B also records why its earlier reviews missed these
   rows, so the review method closes the blind spot. B-154 stays Open; no Resolution is recorded.
+  **Answered again 2026-10-03 (`D-403`, `D-404`), read at `0f011da`.** Lane A receives Lane B's committed
+  consolidation (`1a24289`) and its Judge clarification docket (`0f011da`). Received: the 13 R1 source
+  verifications (B-141, B-142, B-144–B-148, C-002, C-007–C-009, B-061, B-070), each Verified at `1a24289` with
+  its scope limit. **Lane A corrects its own R3 premise:** B-106 propagation was not complete (`Modular_PRD`
+  §6.3 and `AC-12a`, `DECISION_LOG` and `CONFIG_LOG` still contradicted `D-381`). Lane B's rejection was right.
+  Lane A also accepts two corrections: graph synchronization follows any governed-document edit, not only R3;
+  and B-046 closes on its own basis, never by borrowing B-050's header.
+  The Judge's four answers, 2026-10-03: (1) Accept intake and accounting; (2) Accept all 23 R2 reasons as written
+  at `0f011da`; (3) Accept the four-document R3 correction as one bounded Phase 1 unit; (4) B-050: proof unit.
+  These are recorded as `D-403` (accounting, R2 acceptance, B-050 proof commissioned) and `D-404` (R3
+  applied), in their own commits. Lane B verifies the R3 diff and runs, or verifies, the B-050 proof under
+  `D-403`'s stop criteria. B-046 still needs its own basis. B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
