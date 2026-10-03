@@ -105,7 +105,7 @@ Article is logged by Reporter agent (Line 1)
 | A3 | Publication target for Week 1 | WordPress auto-publish + LinkedIn manual fallback | WordPress REST API is straightforward; LinkedIn depends on OAuth review. |
 | A4 | Trend scoring formula | Simple weighted sum (§5) | Starting assumption, not validated. Review after 50+ scored articles. |
 | A5 | Notification mechanism | In-app only for Week 1 | Email and Slack in Week 4–6. |
-| A6 | Data retention | *(History, superseded 2026-10-03 by `D-404`: "Auto-archive rejected/archived after 90 days; published articles kept indefinitely".)* Current: 90 days is the first UI-visible boundary; archival is external, acted on only when a valid fact is supplied; no V1 archive job (§2.4) | Conservative default. |
+| A6 | Data retention | *(History, superseded 2026-10-03 by `D-404`: "Auto-archive rejected/archived after 90 days; published articles kept indefinitely".)* Current: 90 days is the first UI-visible boundary; archival is external, acted on only when a valid fact is supplied; no V1 archive job (§2.4) | Ratified 2026-10-03 under `D-404`; see §2.4 for the current supplied-fact boundary *(history: "Conservative default.", replaced `D-406`)* |
 | A7 | Bookmarklet | Copy-paste URL form only for Week 1 | Bookmarklet in Week 2–3. |
 
 ### 2.2 Resolved via Three Lines Model

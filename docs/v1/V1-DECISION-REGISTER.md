@@ -26477,3 +26477,73 @@ Closure of `B-106` (Lane B reviews this diff); the Encyclopedia update or republ
 | `Modular_PRD`, `CONFIG_LOG`, SPECS, version, rule files, Phase Closure, `.claude/`, `.github/`, frozen PRD/Charter/`0001` | — unaffected |
 | **Encyclopedia** | **Entry 02 affected** (Addendum §2.4). Compare after this commit; update/republish only by its own opt-in act |
 | **Graphify** | Synchronize at the final commit, keeping fragment-owned clustering fields; descriptions last |
+
+## 5.14e231 `D-406` — Two-Source Wording Correction; Encyclopedia Entry 02 Compared; Route 1 Isolated Graph-Recovery Experiment Authorized
+
+**Authority: the Judge, directly to Lane A, 2026-10-03.** *"Act 1: Approval for the two-source wording correction
+(FN-AUDIT §5 and Addendum §2.1). Act 2: Authorization for a disposable-state-only Route 1 graph recovery experiment
+(Lane A operator, Lane B verifier)."* Both acts answer Lane B's `D-405` review in `B-106` (`f16c8d1`), the B-050
+proof review (`ac74420`) and the `B-154` consolidation (`63ffc29`, `7395fde`). They are bounded Phase 1 units.
+Pushing was not approved and is not done.
+
+### The decision
+
+1. **Act 1 — FN-AUDIT §5 paragraph after `AC-12a`.** It now leads with the V1 behaviour, in Lane B's drafted text:
+   - on a valid supplied archive or handoff fact, the audit surface names the policy and version, period and
+     destination, and the archived record stays retrievable externally;
+   - missing or invalid evidence, and elapsed time alone, establish neither archival nor disposal;
+   - V1 performs no archival, disposal or deletion.
+
+   The former "stay honest once deletion has happened" and "lawful disposal" text is kept as dated history of
+   broader external context. It is not a V1 deletion requirement or test. Its point survives as `G41`.
+2. **Act 1 — Addendum §2.1 `A6` rationale.** It reads "Ratified 2026-10-03 under `D-404`; see §2.4 for the current
+   supplied-fact boundary". "Conservative default" is kept as history. No neighbouring row changes: `A4` and
+   `OD1`–`OD3` still read No.
+3. **Encyclopedia Entry 02 compared, read-only.** The hosted artifact was read: version `1790228879-4b2d`, Revision
+   v15, updated 2026-09-24. It was compared with Addendum §2.4 as committed by `D-405`. Entry 02 holds no `A6` or
+   retention content. Its rules (ratification is a dated Chief Editor act recorded with an artifact in the §2.4 log;
+   no other document ratifies) agree with `D-405`'s `A6` receipt. **No update is required.** One **optional**
+   annotation candidate: `D-404`'s Business Case row that read "Ratified" beside `Ratified? No`, caught by Lane B and
+   corrected by `D-405`, is a sixth instance of the entry's "already fired five times" drift signal. Any annotation
+   or republication is its own opt-in act. The `docs/ENCYCLOPEDIA-SYNC.md` ledger is unchanged, because no update
+   was made.
+4. **Act 2 — Route 1 experiment authorized, in disposable state only.**
+   - **Input revision:** this act's own commit, which carries `D-405`'s sources plus items 1–2. It supersedes
+     `c0a925c` as the governed revision any live sync must later reach.
+   - **Operator:** Lane A (Claude Code). **Verifier:** Lane B (Codex), independent of the operator.
+   - **State:** a disposable worktree and branch with their own Graphify state root. The caller's `.graphify` is
+     only read (its dated backup, for the docs-layer restore).
+   - **Steps, in order:**
+     1. Pin the revision, and snapshot the caller's HEAD, index, working tree, branches and Graphify file hashes.
+     2. Rebuild, verify branch metadata, restore the docs layer, and merge all 139 mergeable fragments in README
+        order.
+     3. Complete the description and community-label answer/ingest cycle, using descriptions reused from existing
+        graphs and git, never invented.
+     4. After every operation that re-extracts or re-clusters, re-merge and compare the **saved** graph with
+        every fragment-declared node field and edge.
+     5. Check pending semantic work, representative curated queries, community-field versus global label-map
+        relations against the pre-existing baseline, and the analyzed revision.
+     6. Run the full check in the disposable checkout, and prove the caller unchanged by hashes.
+   - **Stop and return** on any lost field, unresolved batch, null or misbound metadata, misleading label or query
+     result, or caller change.
+   - **Not included:** a live graph write, tool repair, field exclusion, Route 2 or Route 3. The result goes to
+     Lane B in `B-050`. A live sync needs a later act.
+
+### Not given by this act
+
+A live caller graph sync (`docs-drift` stays red until one is authorized); the Encyclopedia annotation or
+republication; closure of `B-050`, `B-106` or `B-154`; Gate 2; a push.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e231 |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ `D-406` paragraph |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-406` paragraph; no file added or retired |
+| **`docs/fn-specs/FN-AUDIT-VISIBILITY-07-08.md`** | ✅ `[V1]` §5 paragraph after `AC-12a` |
+| **`docs/source/v1-build-readiness-addendum.md`** | ✅ §2.1 `A6` rationale |
+| **`docs/handoff/B-106`**, **`B-154`** | ✅ Lane A answers, each in its own commit (`bfab90c`, `5fe23ef`) |
+| `Modular_PRD`, Business Case, Blueprint, `CONFIG_LOG`, `DECISION_LOG`, SPECS, rule files, Phase Closure, frozen sources | — unaffected |
+| **Encyclopedia** | Entry 02 compared (item 3): no update required; optional annotation only |
+| **Graphify** | Live sync not authorized; Route 1 runs in disposable state only (item 4) |
