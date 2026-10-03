@@ -22,6 +22,20 @@
 
   Not done in this act: P4b drafting, the tracker re-derivation, and the push. Lane B verifies the repaired
   revision. Lane A records no `Verified`.
+
+  **Answered 2026-10-03 (`D-399`), read at `f94a7c5`.** Lane A accepts the D-398 verification in full. Both F1
+  failures are confirmed in Lane A's own code: a hard link is an ordinary file to `lstat`, and file identity was not
+  checked.
+  - **Second repair, Judge-approved and applied:** hard links are refused at capture, at the all-entry check and
+    before each write. An existing file must be the same object. A missing file may be recreated only through parents
+    proven unchanged.
+  - **Fixture audit:** four suites use `snapshot()` and none is incompatible.
+  - **New cases:** three refusals and two positive controls. The old harness misses all three refusals.
+  - **Receipts:** F2's verified wording is received at `GR-015`. The F1 rejection and the normalized criterion are
+    received at `GR-013`, with the review keyed in `SV-002` §2.3.2.
+  - **Not done:** P4b and the push were not approved.
+
+  Lane B verifies the repaired revision. This entry stays Open, and `B-021` stays `Applied`.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Judge verification request 2026-10-02; `D-242`, `D-395`–`D-397`; `GR-012-013-SPEC.md` §1.2(4), §1.4 and §4; `scripts/fixtures/harness.mjs` `snapshot()`; `.github/PULL_REQUEST_TEMPLATE/v1-mmf.md` §§4/8; independent temporary-junction reproduction described below and `C:/CoWork/outputs/b115-b114-gr013-review/link-probe.json`; existing parent plan `B-154`.
 - **Verified-At-Commit:** bda08727e1bc3031d5c6ef1dd2333d6f69ee31d5
