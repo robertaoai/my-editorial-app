@@ -147,6 +147,9 @@ PR #2 comment, `SV-002` acceptance and the `V1-SM05` unblock remain separate Jud
 **`D-401` (2026-10-03) — `GR-012` observation: no writer seen, accepted by Judge reason** (31-minute window accepted
 explicitly). Lane B verifies. `V1-SM05` stays `BLOCKED`.
 
+**`D-403` (2026-10-03) — 13 R1 receipts received; 23 `O5` reasons accepted; `B-050` proof commissioned.** `SV-002`
+§2.3.1 re-derived at `17741a8`. No scope, sequence or DoD moves; Gate 2 is not claimed. `V1-SM05` stays `BLOCKED`.
+
 **`D-402` (2026-10-03) — `GR-012`/`GR-013` Verified on Lane B's `6bc0e99` review; records and graph corrected.** `SV-002`
 §2.3.1 re-derived at `1f9bb6a`. No scope, sequence or DoD moves; Gate 2 is not claimed. `V1-SM05` stays `BLOCKED`.
 

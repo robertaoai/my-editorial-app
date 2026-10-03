@@ -26284,3 +26284,61 @@ work order; Lane B activation; a push.
 | Packets other than the above, `Modular_PRD`, Fn Specs, SPECS, version, rule files, Phase Closure, `.claude/`, `.github/` | — unaffected |
 | **Encyclopedia** | — unaffected (no entry depends on these files, per `docs/ENCYCLOPEDIA-SYNC.md`) |
 | **Graphify** | Rebuild at the final commit, merge and verify `frag143`, fill descriptions last |
+
+## 5.14e228 `D-403` — R1 Receipts Received; 23 `O5` Reasons Accepted; `B-050` Proof Commissioned
+
+**Authority: the Judge, directly to Lane A, 2026-10-03**, answering Lane A's four questions on `B-154`'s Judge
+clarification docket (`0f011da`): intake and accounting *"Accept"*; R2, all 23 reasons as written at `0f011da`,
+*"Accept"*; R3 *"Accept"* (recorded separately as `D-404`); `B-050` *"Proof unit"*. This act is a bounded Phase 1
+unit. Pushing was not approved and is not done.
+
+### The decision
+
+1. **R1 receipts received.** Lane B (Codex) independently verified 13 sources at `1a24289`, each in its own
+   single-file commit: `B-141` (`41a209e`), `B-142` (`f80a56e`), `B-144` (`ab7edf0`), `B-145` (`3a99a0e`), `B-146`
+   (`701f85b`), `B-147` (`51f436f`), `B-148` (`3f948ad`), `C-002` (`048293e`), `C-007` (`97635a1`), `C-008`
+   (`92a7624`), `C-009` (`4c1b01a`), `B-061` (`d6e2b00`) and `B-070` (`5b62ae2`, metadata `a502bb9`). Each
+   verification carries its scope limit; inherited loader runs and raw measurements stay inherited. `SV-002` §2.3.2
+   records each receipt in the entry's existing keyed row. The §2.3.1 rows count closed under the Verified-header rule.
+2. **23 `O5` reasons accepted (`D-364` item 9).** The Judge accepts each individual reason in `B-154`'s R2 table at
+   `0f011da`, as written, for `B-004`, `B-008`, `B-011`, `B-015`, `B-019`, `B-023`, `B-033`, `B-034`, `B-041`,
+   `B-043`, `B-062`, `B-065`, `B-066`, `B-067`, `B-072`, `B-073`, `B-074`, `B-075`, `B-076`, `B-086`, `B-098`,
+   `B-099` and `B-122`. Each acceptance covers only that row's stated source obligation. Every surviving owner the row
+   names keeps its work. The §2.3.1 rows read `closed`, with this act in Basis. **No source header changes:** Judge
+   acceptance does not create a `Verified-By`, and `Applied`/`Superseded` stay as they are.
+3. **`B-050` proof commissioned.** One bounded Phase 1 rebuild proof:
+   - **Where:** a disposable checkout of a named committed revision, with its own Graphify state root. The live
+     `.graphify/` and the caller's checkout are not touched.
+   - **Operator:** Lane A (Claude Code), which prepares the procedure and runs it. **Verifier:** Lane B (Codex),
+     independent of the operator.
+   - **Manifest:** revision; installed Graphify version; checkout and state paths; git context and `branch.json`
+     before and after; the update and ordered curated-merge sequence; per-fragment parity; pending-semantic status;
+     graph-coverage, docs-drift and full-check output; the caller unchanged.
+   - **Stop and return to Lane A if:** isolation cannot be shown; branch metadata goes null or misbound; curated
+     parity is lost; semantic batches stay undispositioned; or the caller changes. The unit is not widened into a
+     tool repair.
+   - **What a pass proves:** the observed procedure in that run. It does not prove that recurrence cannot happen,
+     or that graph bytes are identical. Lane B records `Verified` only if the criteria pass.
+4. **`B-046` is not closed by this act.** It needs its own basis: an independent check of its `B-050`/`D-122`
+   replacement in its own source, or a separate Judge reason.
+5. **Gate 2 tracker re-derived.** `SV-002` §2.3.1 is derived at `17741a8`. Every unrelated open row is unchanged.
+6. **Receipt.** `B-154`'s Lane A answer records this act, in its own commit (`17741a8`, `D-385`). `B-154` stays Open.
+
+### Not given by this act
+
+Any disposition of `B-154`, `B-153`, `B-150`, `B-136`, `B-071` or `B-046`; Gate 2 clearance; `SV-002` acceptance;
+the `V1-SM05` unblock; a work order; Lane B activation; a push.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e228 |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ `D-403` paragraph |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-403` paragraph; no file added or retired |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §2.3.1 re-derived; 23 `O5` rows closed; §2.3.2 rows for the 13 receipts and `B-050` |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/GOV-RES-001.md`** | — unaffected: no receipt fulfils a `GR-` criterion |
+| **`docs/handoff/B-154-consolidated-parent-first-artifact-and-closure-plan.md`** | ✅ Lane A answer, in its own commit |
+| Packets other than the above, `Modular_PRD`, Fn Specs, SPECS, version, rule files, Phase Closure, `.claude/`, `.github/` | — unaffected |
+| **Encyclopedia** | — unaffected (no entry depends on these files, per `docs/ENCYCLOPEDIA-SYNC.md`) |
+| **Graphify** | Synchronize after `D-404` at the final commit, merge curated fragments, fill descriptions last |

@@ -493,6 +493,9 @@ own one-path commit.
 `SV-002.md`, `docs/graph-fragments/frag143.json` and the `scripts/fixtures/harness.mjs` comments change in place;
 `B-154` answered in its own commit.
 
+**`D-403` (2026-10-03) — no file added or retired, stated explicitly.** `SV-002.md` changes in place; `B-154`
+answered in its own commit.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |
