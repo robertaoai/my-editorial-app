@@ -19,9 +19,10 @@ six remain unmet on purpose. **One correction not made**: `lib/config/build-conf
 `JUDGMENT_INDEPENDENCE_STATUS_VALUES` symbol keeps its name — a code-touching rename pass is
 outside this docs-only review's surface, noted rather than silently left inconsistent.
 
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified; dispositioned by Lane A
-- **Verified-At-Commit:** f7b3aeabc91592007a542e8ddae2c9398294e85a
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), independent of Lane A's answer/application; scoped verification below
+- **Evidence:** Independent source verification of D-162 applied items 2/3/5/6 and D-389 successor/held routing; see the dated scoped verification below.
+- **Verified-At-Commit:** 1a242890bc79a8d22a400c612d298afd0103ba0f
 - **Residual, open and named (`D-204`):** items 1 and 4 — the next Lane B code unit and the S2 UX-spec scoping. **`Q12` and `Q1` Phase-0 are CLOSED by `D-163`** and must not be re-asked; the live boundary is the **`D-171` hold**, extended by `D-172`/`D-175`/`D-177`. What remains is successor reconciliation against `D-163`/`D-171`/`D-178`, not a fresh decision
 
 ## What happened
@@ -129,3 +130,26 @@ This append-only notice stops `Resolution: Applied` from being read as covering 
 | 7 — executable handover | Governed now by the Gate 2 / selection / work-order sequence (`D-364`) | `SV-002` §2.3.1 |
 
 No transferable residual. Independent verification of the applied items is still owed.
+
+## Lane B independent source verification — 2026-10-03
+
+**Read revision:** 1a242890bc79a8d22a400c612d298afd0103ba0f. **Actor:** Lane B (Codex), independent of the Lane A receiver/application. The Judge's request to resolve Lane A's incident selects this source annotation through B-154's committed delivery correction. This is source-lifecycle verification, distinct from any historical Level 1/Level 2 experiment.
+
+**Observed comparison:** Compared Lane A's D-162 application and D-389 forward cross-reference with the current Build Spec/Inventory, Product §§7.4/8, FN-GATES, CONFIG_LOG/DECISION_LOG and work order. Delivered 0002 and Q11's line_separation_status are recorded rather than treated as blocked; local S1 proof retains DEP-05's hosted limit. B-060 is terminal. The later rule architecture supersedes the old shared-core copies under D-337. The D-389 table confines Applied to items 2/3/5/6, supersedes item 1 through V1-SM05/D-242, holds item 4 under D-171 and routes item 7 through Gate 2. Historical prose is read through those current dispositions.
+
+**Scope and surviving obligations:** Verified for the applied documentation correction and explicit successor/held routing only. No next executable unit, S2 UX completion, hosted proof, code-symbol rename or whole-feature readiness is certified. D-242/SM05 construction is Phase 2; held S2 remains under D-171; Lane A owns Phase 1 Gate 2 reconciliation.
+
+Lane A's answer is preserved. The source header moves from Applied to Verified for this bounded disposition; earlier Applied/unverified wording remains dated history. Lane A must receive this result in the existing SV-002 review/clearance and applicable residual homes. No tracker cell, canonical requirement, lane state or work order changes in this commit. Verified source headers are inputs to reconciliation, not whole Gate 2 clearance.
+
+| Verdict | Item | Follow-up phase |
+|---|---|---|
+| Approve | B-061 scoped source verification of Lane A's recording/application | Phase 1: Lane A receives the actual actor, revision, scope and source commit in the existing tracking homes |
+| Defer | Surviving obligations and wider parent closure | Follow-up phase and owner stated above; Gate 2 and construction retain their separate prerequisites |
+
+## Terminal annotation record
+
+- **Current-Resolution:** Verified
+- **Annotation-Type:** verification-evidence
+- **Annotation-Act:** Judge's 2026-10-03 Lane A incident-remediation request; B-154 delivery correction at 1a242890bc79a8d22a400c612d298afd0103ba0f; Lane B independent verification under D-364 item 4
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** 1a242890bc79a8d22a400c612d298afd0103ba0f
