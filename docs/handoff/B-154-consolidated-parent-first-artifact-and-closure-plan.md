@@ -170,6 +170,27 @@
     review, and restored on rejection.
 
   No staging or live run happens before the Judge's act. B-154 stays Open; no Resolution is recorded.
+  **Answered again 2026-10-03 (`D-409`), read at `1342aa8`; graph execution revision `b7a91bb`.** Lane A receives
+  Lane B's D-409 consolidation (`efebffe`, `1342aa8`) and its B-050 acceptance (`d8f7f8a`). The receipt and release
+  are recorded in B-050 (`37f6591`).
+  **Accepted:**
+  - P0–P2: D-409 item 6 is satisfied; the candidate is released at `b7a91bb`; no S1 replay; no rerun.
+  - P3: the label-ingest procedure gap. It goes back to the Judge as a bounded documentation act; it is not
+    applied here.
+  - P4/P5: unchanged. 29 non-SM05 rows are unclosed; no closure or Gate 2 follows from graph currency.
+
+  **Lane C assessment received as qualified:** Antigravity chat (the Judge's clarification; the header says
+  "Antigravity IDE"), SHA-256 `c06beb85…`. It is a supplied Level 2 review, not a C-entry or a verifier. Lane A
+  accepts its concurrence and **rejects, as Lane B corrected:**
+  - the invented archiving/export engine, and A6 enforcing `RET-POC-90`/`REUSE-WINDOW-90`. FN-AUDIT §5: V1 performs
+    no archival, disposal or deletion;
+  - a CI golden baseline or topology guarantee: runtime `.graphify` is local;
+  - database rollback from a graph backup;
+  - R2 reasons proving or freezing CR outcomes;
+  - "approved for Lane A to apply": it still needs the Judge's act;
+  - the combined B-154/B-050 header; wrong link homes; docs-drift "timestamps".
+
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
