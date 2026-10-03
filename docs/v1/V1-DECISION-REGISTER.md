@@ -26119,3 +26119,52 @@ corrections"*. Read at `026b95d`. Pushing and P4b drafting were not approved in 
 | Packets, `Modular_PRD`, Fn Specs, SPECS, rule files, Phase Closure, `.github/` | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild at the final commit, verify the curated layer, fill descriptions last |
+
+## 5.14e225 `D-400` — P4b Commissioned: `GR-012` Prose Corrected; One Observation Session; "No Writer Seen" Accepted as an Outcome
+
+**Authority: the Judge, directly to Lane A, 2026-10-03**: *"Judge Approved: P4b with 'no writer seen'"*. Read at
+`39f3bbd`. Pushing was not approved and is not done.
+
+### The decision
+
+1. **P4b is commissioned** on `GR-012` (source `B-014`), using Lane B's proposal in `B-154`.
+2. **Canonical prose.** `.claude/skills/sync-docs/SKILL.md` is corrected:
+   - **Frontmatter and introduction:** the single shared core in `AGENTS.md`, imported by `CLAUDE.md` (`D-337`).
+     The retired triple edit and hash-locked core are labelled history.
+   - **§1:** read the lane map from `AGENTS.md`.
+   - **§7:** apply the `D-231`/`D-246` coverage exclusions; give the ordered pass; verify each fragment with
+     `--verify-only`. Node counts and the `--all` audit do not prove parity.
+   - **Description replay:** a backup may hold no descriptions.
+   - **§8:** read the actual SKIP lines, and run `terminal-return` and `source-sweep` locally.
+   - **§9:** points to §7's order.
+3. **Observation contract.** One 60-minute session, times in Asia/Singapore:
+   - **Observer:** Lane A, which polls `.claude`, `.agents`, `.codex` and `.github` and logs entries, sizes, hashes
+     and a process snapshot per change.
+   - **Trigger operator:** the Judge, who performs one ordinary open/load and one skill-discovery cycle in each tool
+     actually used on this checkout.
+   - **Log custodian:** `docs/handoff/artifacts/B-014/`.
+   - **Excluded:** no settings write, reinstall or forced import, and no fixtures during the window.
+4. **Completion rule changed** (spec §2.4 G12-2/G12-3 and `GR-012`'s criterion, amended together). Three outcomes:
+   - **writer identified** → its actual controller's remedy, plus recurrence proof;
+   - **no writer observed under complete coverage** → **accepted** with the Judge's individual reason, bounded by
+     its window and not a claim of eradication;
+   - **coverage incomplete** → stays open.
+5. **The symptom folder** `.agents/skills/sync-docs/` (empty) is the observation's baseline and is not deleted.
+
+### Not given by this act
+
+The observation result; any host setting change; `Verified` for `GR-012` or `B-014`; a push; Gate 2.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e225 |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ `D-400` paragraph |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-400` paragraph; no file added or retired |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/GOV-RES-001.md`** | ✅ `GR-012` criterion amended; commissioned |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/GR-012-013-SPEC.md`** | ✅ status; §2.3 observation contract; §2.4 three outcomes |
+| **`.claude/skills/sync-docs/SKILL.md`** | ✅ prose corrected, in its own commit |
+| Packets, `Modular_PRD`, Fn Specs, SPECS, rule files, Phase Closure, `SV-002`, `.github/` | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild at the final commit, verify the curated layer, fill descriptions last |

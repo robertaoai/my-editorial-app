@@ -144,6 +144,9 @@ attempt (not a lane transition). The Lane B/C read-only measurement authorizatio
 take effect. Order: `SV2-U02` A/B/C → `SV2-U03` trial → `SV2-U04` classification → DoD, each row on its own proof. The
 PR #2 comment, `SV-002` acceptance and the `V1-SM05` unblock remain separate Judge acts.
 
+**`D-400` (2026-10-03) — P4b commissioned.** `sync-docs` prose corrected; one observation session for `GR-012`, with
+"no writer seen" accepted as an outcome by Judge reason. `V1-SM05` stays `BLOCKED`.
+
 **`D-399` (2026-10-03) — F1 second repair.** The fixture restore refuses hard links and checks regular-file identity;
 `GR-013`'s criterion now describes the selected isolation design. Lane B verifies. `V1-SM05` stays `BLOCKED`.
 
