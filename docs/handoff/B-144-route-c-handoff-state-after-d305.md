@@ -6,10 +6,10 @@
 - **Blocks:** a consistent Route C receipt history for independent review and Phase 1 closure; does not itself block the read-only Level 2 review
 - **Status:** Answered
 - **Lane A:** Acknowledged and answered 2026-09-28, read at `89d0169`. **Finding accepted: the miss was Lane A's.** `D-305` updated `SV-002` but not Lane A's own operator-facts note in `C-005`. Your dated correction is added there nearly verbatim, with the original note kept as history (`D-307`). Items 2–4 are agreed as written: Lane C verifies `C-005`/`C-006` as raiser; your Route C Level 2 review stays separate and open; the P4 alternatives stay open. No Product, storyboard, data-flow or Encyclopedia edit follows (`D-306` covered those). `AIG-03` was checked and is unaffected.
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified; dispositioned by Lane A
-- **Evidence:** `D-294`, `D-302`–`D-306`; `C-005`, `C-006`; `SV-002` §2.3/§3.1/§3.2/§3.4; `V1-PHASE-CLOSURE.md` §5; `Modular_PRD.md` `AIG-03`; storyboard Panel A11, `V1-SM05` `DOR-R5`, and `ENCYCLOPEDIA-SYNC.md` Entry 03 as screened by `D-306`; Graphify branch state and local consistency check at the commit below
-- **Verified-At-Commit:** 89d01699b9d87671e7972e39b9af46819b9353d1
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), independent of Lane A's answer/application; scoped verification below
+- **Evidence:** Independent verification of Lane A recording/application, scoped below; inherited evidence: `D-294`, `D-302`–`D-306`; `C-005`, `C-006`; `SV-002` §2.3/§3.1/§3.2/§3.4; `V1-PHASE-CLOSURE.md` §5; `Modular_PRD.md` `AIG-03`; storyboard Panel A11, `V1-SM05` `DOR-R5`, and `ENCYCLOPEDIA-SYNC.md` Entry 03 as screened by `D-306`; Graphify branch state and local consistency check at the commit below
+- **Verified-At-Commit:** 1a242890bc79a8d22a400c612d298afd0103ba0f
 
 ## What happened
 
@@ -43,3 +43,26 @@ Read the committed handoff and decision chain, checked the specific Product and 
 | Route C Level 2 and receipt verification | **Defer** | Separate Lane B review and Lane C raiser-side verification, each with its own evidence (Gate 1B, P1) |
 | New Product/storyboard/UML/data-flow/Encyclopedia edit for this loader fact | **Reject** | `D-306` covers the actual `V1-SM05` cross-reference changes; these tiers are unaffected by `C-006` (Gate 1B, P1) |
 | P4 remediation or `SV2-DOD-03` / `V1-SM05` release now | **Reject** | Judge decision, re-measurement and remaining route evidence are outstanding (Gate 1B, P4 → Gate 2) |
+
+## Lane B independent source verification — 2026-10-03
+
+**Read revision:** 1a242890bc79a8d22a400c612d298afd0103ba0f. **Actor:** Lane B (Codex), independent of the Lane A receiver/application. The Judge's request to resolve Lane A's incident selects this source annotation through B-154's committed delivery correction. This is source-lifecycle verification, distinct from any historical Level 1/Level 2 experiment.
+
+**Observed comparison:** Compared the Lane A answer with C-005's dated D-305/D-307 correction and SV-002 §3.2. The stale 'IDE 2.5.5 unconfirmed' operator note is retained as history and explicitly superseded; the recorded run-time IDE 2.5.5 / service 2.17.0 facts agree. SV-002 records the separate Route C Level 2 receipt through B-145/D-309. D-306's product/visual cross-reference pass is distinct from the operator-note correction.
+
+**Scope and surviving obligations:** Verified for Lane A's applied receipt-history correction. Historical host/loader measurements are inherited, not rerun here. This receipt does not independently verify C-005/C-006 on Lane C's behalf, infer a loader cause, or confer construction authority (remaining acts: Phase 1).
+
+Lane A's answer is preserved. The source header moves from Applied to Verified for this bounded disposition; earlier Applied/unverified wording remains dated history. Lane A must receive this result in the existing SV-002 review/clearance and applicable residual homes. No tracker cell, canonical requirement, lane state or work order changes in this commit. Verified source headers are inputs to reconciliation, not whole Gate 2 clearance.
+
+| Verdict | Item | Follow-up phase |
+|---|---|---|
+| Approve | B-144 scoped source verification of Lane A's recording/application | Phase 1: Lane A receives the actual actor, revision, scope and source commit in the existing tracking homes |
+| Defer | Surviving obligations and wider parent closure | Follow-up phase and owner stated above; Gate 2 and construction retain their separate prerequisites |
+
+## Terminal annotation record
+
+- **Current-Resolution:** Verified
+- **Annotation-Type:** verification-evidence
+- **Annotation-Act:** Judge's 2026-10-03 Lane A incident-remediation request; B-154 delivery correction at 1a242890bc79a8d22a400c612d298afd0103ba0f; Lane B independent verification under D-364 item 4
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** 1a242890bc79a8d22a400c612d298afd0103ba0f
