@@ -4,7 +4,7 @@
 - **Kind:** spec-defect
 - **Phase:** 1
 - **Blocks:** full independent verification of `GR-013` / P4a and closure of `B-021`; unqualified use of `GR-015` as the future construction refusal contract. Does not block unrelated authorized work or the scoped `B-115` / `B-114` documentary verification.
-- **Status:** Open
+- **Status:** Answered
 - **Lane A:** **Acknowledged and answered 2026-10-03 (`D-398`), read at `026b95d`.** F1 is confirmed in Lane A's own
   code: lexical containment, a leaf-only link check and deepest-first restore. The Judge approved the repair, and it is
   applied:
@@ -36,9 +36,10 @@
   - **Not done:** P4b and the push were not approved.
 
   Lane B verifies the repaired revision. This entry stays Open, and `B-021` stays `Applied`.
-- **Verified-By:** — not yet dispositioned; raised by Lane B
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), independent of Lane A's correction
 - **Evidence:** Judge verification request 2026-10-02; `D-242`, `D-395`–`D-397`; `GR-012-013-SPEC.md` §1.2(4), §1.4 and §4; `scripts/fixtures/harness.mjs` `snapshot()`; `.github/PULL_REQUEST_TEMPLATE/v1-mmf.md` §§4/8; independent temporary-junction reproduction described below and `C:/CoWork/outputs/b115-b114-gr013-review/link-probe.json`; existing parent plan `B-154`.
-- **Verified-At-Commit:** bda08727e1bc3031d5c6ef1dd2333d6f69ee31d5
+- **Verified-At-Commit:** 6bc0e99ab8ad672a6ff6427c8f05e2ff27bc3c33
 
 ## What happened
 
@@ -149,3 +150,44 @@ The parent proposal and follow-up sequence are in B-154's latest section.
 | Approve-with-conditions | F1 correction draft | Phase 1: concrete Lane A diff/fixture audit, bounded Judge act, delivery and independent proof |
 | Reject | Full F1/GR-013 verification, B-021 and B-155 closure | Phase 1: outside-write and regular-file continuity failures must be resolved |
 | Defer | Tool correction execution and construction | Separate Phase 1 application authority/evidence; Phase 2/SM05 remains held |
+
+## Independent D-399 verification — Lane B, 2026-10-03
+
+The Judge authorized this verification in the current conversation. Read revision:
+`6bc0e99ab8ad672a6ff6427c8f05e2ff27bc3c33`. Earlier failed verification and Lane A answers remain history.
+Lane B supplies this independent result; it does not write Lane A's answer or apply the proposed canonical fixes.
+
+**F1 verified within the selected isolation contract.** All 24 probes pass: fifteen current containment cases,
+five baseline-restore cases and four independent hard-link/identity/missing-file probes. Hard links are refused
+at capture and after substitution; outside sentinels stay unchanged. A distinct regular-file replacement is
+refused and retains its replacement bytes; single-link in-place editing and missing-file recreation through
+unchanged parents remain supported. Evidence and runnable probe:
+`C:/CoWork/outputs/lane-b-verification-2026-10-03-final/results.json` and `verify.mjs`.
+
+**Applicable G13 evidence.** Two full isolated runs each pass 293/293 at the read revision, use distinct pinned
+targets and remove them. A caller check passes 19/19 during the runs. Tracked file hashes, index hash,
+untracked file hashes, status, HEAD and the pre-existing empty symptom directory agree before/after.
+`summary.json`, `before.json`, `after.json`, `concurrent-a.log`, `concurrent-b.log` and `check-during-runs.log`
+are in that output directory. The current restore cases cover G13-2–G13-4. Fresh interruption evidence
+(`interruption.json`/`.log`) stops only this probe's own disposable suite child: nonzero exit, INCOMPLETE,
+target removed. The exclusive-lock failed-cleanup/dead-leftover case is inherited Lane A evidence from D-397,
+not rerun here. It remains applicable: run.mjs is unchanged from the previously reviewed bda0872 revision;
+its cleanup refuses failure, reports task-owned leftover paths and returns nonzero. This review accepts that
+bounded inherited case with its original actor/provenance; it claims no fresh forced-cleanup-failure run.
+Check-then-write remains non-atomic against a hostile racing filesystem writer.
+
+**F2 verified wording only.** Re-read template §§4/8 still matches D-398 and the existing D-399/GR-015
+receipt: honest characterization is distinct from new-construction red evidence; the human-final-push
+refusal is scoped to B-114 implementation transport. No executable gate or new push authority follows.
+
+Both children now meet this entry's correction conditions; the whole-entry header is independently Verified.
+GR-013/B-021 have their own receiving/source records. Lane A receives the actual revision/scope in
+GOV-RES-001 and SV-002 §2.3.2 and includes B-155 in the final §2.3.1 derivation. B-154's wider plan remains Open.
+The fresh graph/tracker/prose findings and exact correction drafts are consolidated in B-154's latest review;
+no duplicate handoff or GR key is created. Lane A alone answers and applies those canonical corrections.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | D-399 F1 repair and F2 wording; B-155 source verification | Phase 1: Lane A receives this scoped independent result at the existing GR-013/GR-015 and review ledger; inherited versus fresh evidence stays explicit |
+| Approve-with-conditions | Canonical graph/tracker/prose reconciliation plan in B-154 | Phase 1: Lane A applies the selected drafts, re-derives clearance and verifies semantic graph truth |
+| Defer | Wider B-154 closure, Gate 2 and product construction | Remaining Phase 1 prerequisites and separate Judge acts; later authorized Phase 2/SM05 and Phase 3/SM06 |
