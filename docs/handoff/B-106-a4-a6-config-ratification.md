@@ -55,6 +55,12 @@
   page, so `D-405`'s inspection keeps its own limit. Encyclopedia Entry 02 is compared after the Addendum commit
   and recorded in `D-406`; any update or republication is its own act. The runtime-metadata child stays with a
   later Lane B unit. No Resolution is recorded; `B-106` stays Open.
+  **Answered again 2026-10-03, read at `87c9891`.** Lane A receives Lane B's scoped review of `D-406`'s wording
+  (`8d56ef9`). **Accepted:** both source edits are supported, and `D-54` is recorded. **Accepted limit:** Lane B
+  did not open the hosted Encyclopedia page, so the Entry 02 no-update result stands as Lane A's own versioned
+  receipt, not a second verification. The optional annotation needs its own act. The runtime `UNRATIFIED` metadata,
+  the executed `AC-12a` cases and graph currency stay with their owners. No Resolution is recorded; `B-106` stays
+  Open.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Verified-At-Commit:** ae5548c4a6f51dc3b5b1df9343769fa47f33cc00
 - **Evidence:** Chief Editor's 2026-09-15 direct act; `CONFIG_LOG.md` §2; `DECISION_LOG.md` §§1–3; `lib/config/build-config.ts`; Register `D-134`, `D-135`, `D-198`; `B-085` G-3 disposition.
