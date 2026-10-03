@@ -451,3 +451,22 @@ The current parent docket and follow-up sequence are in B-154's single current c
 | Approve-with-conditions | Source prose and post-commit Encyclopedia comparison | Phase 1: bounded wording correction for FN-AUDIT paragraph/Addendum rationale; dated Entry 02 comparison and separate authority if publication is needed |
 | Reject | Whole B-106 Verified, application archive/deletion, or completed graph sync inferred from D-405 | Phase 1: retain source/runtime/graph obligations at their owners |
 | Defer | Runtime metadata, implemented AC-12a cases and whole-parent clearance | Later authorized Lane B unit and applicable SM05 verification; Phase 1 source/graph receipts first |
+
+## Lane B independent wording review — D-406, 2026-10-03
+
+**Read revision:** `D-406 at `5.14e231, committed in `761d7e93e0500164a6da9119a9fd693fd3e5e1f6`. Lane B compared the two committed source diffs with the Judge's Act 1 and the exact B-154 draft. This is a scoped verification of **source wording**, not whole B-106 Verified or feature-test evidence. Lane A wrote its own B-106 answer at `bfab90c`; this review does not replace it.
+
+| D-406 input | Independent result / limit |
+|---|---|
+| FN-AUDIT `5 paragraph after AC-12a | **Supported.** Current V1 prose now leads with valid supplied fact, visible policy/version/period/destination, external retrievability and the missing/invalid/elapsed-only refusal. The former deletion/disposal language is explicitly dated as broader external history and disclaims a V1 deletion requirement or test. The normative AC-12a row and Product parent were not changed by this act |
+| Addendum `2.1 A6 rationale | **Supported.** “Conservative default” is historical; the current rationale cites the 2026-10-03 D-404 ratification and `2.4. Neighboring A4 and OD1–OD3 rows remain outside this ratification |
+| D-54 and Entry 02 | Register/Build Spec/Inventory record the bounded source correction. D-406 records Lane A's read-only comparison of the accessible Entry 02 (v15, version 1790228879-4b2d) and its no-update result. Lane B did not independently access that hosted artifact, so the page-content observation is Lane A's receipt, not a second verification or publication act |
+
+**Construction/verification boundary:** The two corrected clauses now give builders and later test authors a consistent V1 supplied-fact contract; no automatic archive, disposal or deletion is authorized. This diff supplies no runtime `UNRATIFIED` metadata change, database persistence test, graph currency or executed AC-12a case. B-106 remains Open and its separate children keep their owners.
+
+| Verdict | Scope | Condition / follow-up phase |
+|---|---|---|
+| Approve | D-406's two-source wording application and D-54 receipt | Phase 1: Lane A receives this scoped source review; use the clauses as later construction/test inputs |
+| Approve-with-conditions | Entry 02 no-update receipt | Phase 1: retain Lane A's exact hosted version/content comparison as its own evidence; any optional annotation has a separate act |
+| Reject | Whole B-106 Verified, database deletion or implemented AC-12a tests inferred from D-406 | Phase 1: keep unbuilt behavior and runtime metadata at their named owners |
+| Defer | Runtime metadata, graph receipt and whole-parent closure | Later authorized Lane B/Phase 1 units and then applicable SM05 verification |
