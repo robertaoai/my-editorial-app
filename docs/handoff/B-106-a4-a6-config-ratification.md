@@ -28,6 +28,21 @@
   the owning `Modular_PRD.md` rows (the retention section, and `RK-05`), with no new capability and no value change.
   The `A6` collision (90 days versus `D-134`'s 5 years) awaits the Register arbitration act this entry already
   requires. This entry stays `Open`.
+  **Answered 2026-10-03, read at `50ed6b3`.** Lane A receives Lane B's applied-diff review of `D-404` (read
+  `eed4f4e`; tightened `4ea25dd`). **Accepted:** the core supplied-fact, 90-day correction is supported, and
+  whole-entry completion is not. **Accepted as Lane A's own defects in `D-404`:**
+  - the Business Case `A6` validation row reads "Ratified" in its Category cell beside `Ratified? No`;
+  - the Business Case line 269 blanket still says A1–A7 are unratified;
+  - the auto-archive labels are not marked as history;
+  - DECISION_LOG's dated note does not yet plainly date the "empty table" prose as pre-`D-404`. The event row
+    itself was left intact, as the append-only rule requires.
+
+  **Accepted as remaining propagation:** the Addendum §2.4 `A6` log row; Blueprint rows 71 and 122, with the
+  period cited from the Business Case (`4ea25dd`); FN-AUDIT `AC-12a` and its explanatory paragraph. These need
+  the Judge's bounded act before Lane A applies them (`D-183`/`D-186`); the drafted packet is in `B-154`. The
+  storyboard, UML/data-flow and traceability inspection, and the Encyclopedia Entry 02 comparison after the
+  Addendum commit, follow it. A4, OD1–OD3 and the runtime metadata are unaffected. No Resolution is recorded;
+  `B-106` stays Open.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Verified-At-Commit:** ae5548c4a6f51dc3b5b1df9343769fa47f33cc00
 - **Evidence:** Chief Editor's 2026-09-15 direct act; `CONFIG_LOG.md` §2; `DECISION_LOG.md` §§1–3; `lib/config/build-config.ts`; Register `D-134`, `D-135`, `D-198`; `B-085` G-3 disposition.
