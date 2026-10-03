@@ -33,10 +33,10 @@
     retained. Encyclopedia Entry 06 is flagged again, which reopens `B-095.D4`.
   - **Status stays Open.** `S15`, the `TR-DM-01` Gate 1B proof, `D-219.R1`, `B-131` verification and your review of
     the `D-280` corrections are each still pending, and each needs its own act.
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified; dispositioned by Lane A
-- **Evidence:** `D-279` and `SV-002` §3.3/§3.4 at `3541550`; `V1-SM05.md` DoR/DoD and `SM05-*` scope; `B-071`, `B-095`, `B-096`, `B-104`, `B-118`, `B-123`, `B-131`, `B-137`; `FN-GATES-01-05.md` §§2/3.1/4.3/4.4; `Modular_PRD.md` `FR-01`/`AC-02`; delivered `0001`/`0002` migrations; §2.3 Lane A-resolved handoff screen
-- **Verified-At-Commit:** 91cc511950f3e9a10eae2f68d202b1e2b8ea2e53
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), independent of Lane A's answer/application; scoped verification below
+- **Evidence:** Independent verification of Lane A recording/application, scoped below; inherited evidence: `D-279` and `SV-002` §3.3/§3.4 at `3541550`; `V1-SM05.md` DoR/DoD and `SM05-*` scope; `B-071`, `B-095`, `B-096`, `B-104`, `B-118`, `B-123`, `B-131`, `B-137`; `FN-GATES-01-05.md` §§2/3.1/4.3/4.4; `Modular_PRD.md` `FR-01`/`AC-02`; delivered `0001`/`0002` migrations; §2.3 Lane A-resolved handoff screen
+- **Verified-At-Commit:** 1a242890bc79a8d22a400c612d298afd0103ba0f
 
 ## What happened
 
@@ -97,3 +97,26 @@ Lane B reviewed the 27 mappings and drafted bounded corrections here. It changed
 | **Approve-with-conditions** | `FN-GATES` `B-095.D2a` and governance `B-096.S15` draft fixes | Gate 1B — distinct Judge acts, marked `[V1]` correction and accepted logical contract, then Lane B verification |
 | **Defer** | `B-096.TR-DM-01` physical design and `B-137.R1` first-child confirmation | Gate 2 / `D-242` — re-screen against the actual bounded work order before build |
 | **Reject** | `SV2-DOD-05` checkoff, `V1-SM05` unblock or code construction from E1/E2 alone | Gate 1B → Gate 2 — missing independent and real-database proofs |
+
+## Lane B independent source verification — 2026-10-03
+
+**Read revision:** 1a242890bc79a8d22a400c612d298afd0103ba0f. **Actor:** Lane B (Codex), independent of the Lane A receiver/application. The Judge's request to resolve Lane A's incident selects this source annotation through B-154's committed delivery correction. This is source-lifecycle verification, distinct from any historical Level 1/Level 2 experiment.
+
+**Observed comparison:** Compared Lane A's D-377 disposition with FN-GATES §§1/2.1/2.3/3.1/3.2/4/5, §§4.5/4.6, Product FR-01/AC-02/TR-DM-07, and D-281–D-289. The eight D-222 source-reference statements remain present and read through the accepted original-URL-plus-text-digest contract. AC-02 retains the same-submitter/same-brief/same-day surface guard; it does not impose global URL uniqueness. The logical version package and supplied-Markdown rules are applied. D-377 explicitly transfers the physical store and database proof to D-242 / SV-002 §2.2 P13/P14.
+
+**Scope and surviving obligations:** Verified only for Gate 1B logical corrections and the explicit Gate 2 transfer. No physical working store, migration, hosted comparison or executed database proof is certified. D-242/SM05 owns the transferred construction and database evidence (Phase 2).
+
+Lane A's answer is preserved. The source header moves from Applied to Verified for this bounded disposition; earlier Applied/unverified wording remains dated history. Lane A must receive this result in the existing SV-002 review/clearance and applicable residual homes. No tracker cell, canonical requirement, lane state or work order changes in this commit. Verified source headers are inputs to reconciliation, not whole Gate 2 clearance.
+
+| Verdict | Item | Follow-up phase |
+|---|---|---|
+| Approve | B-141 scoped source verification of Lane A's recording/application | Phase 1: Lane A receives the actual actor, revision, scope and source commit in the existing tracking homes |
+| Defer | Surviving obligations and wider parent closure | Follow-up phase and owner stated above; Gate 2 and construction retain their separate prerequisites |
+
+## Terminal annotation record
+
+- **Current-Resolution:** Verified
+- **Annotation-Type:** verification-evidence
+- **Annotation-Act:** Judge's 2026-10-03 Lane A incident-remediation request; B-154 delivery correction at 1a242890bc79a8d22a400c612d298afd0103ba0f; Lane B independent verification under D-364 item 4
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** 1a242890bc79a8d22a400c612d298afd0103ba0f
