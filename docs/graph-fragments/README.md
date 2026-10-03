@@ -166,6 +166,17 @@ Run all four. A merge is not done until each passes:
 
 **Back up `.graphify/graph.json` before merging.** Every merge in this project has been preceded by one.
 
+**Community names: prove them applied (`D-410`).** After description/community update, compare the final saved
+graph's global community labels and every node's community_name against the intended names bound to complete
+current member sets. Answer JSON or a current tool state is not applied-name evidence. In the graphify 0.17.1
+cached-label case observed in D-409, update retained older names; the existing graphify label assistant
+emit/answer/ingest cycle applied the member-derived names. When needed, use that supported cycle, then
+independently compare complete member sets before/after, all intended global/node names, zero map
+contradictions/multi-name IDs, every fragment-owned node/edge field, completed semantic work and exact
+branch/analyzed revision. Re-merge after any destructive operation. On identity, wording or saved-state failure,
+stop and use the authorized verified-backup restoration contract; record hashes and the exact failed
+member/name/field. Release only on the required independent review.
+
 ## 6. `G54` — closed, and what a swap would actually cost `[V1]`
 
 **Closed 2026-08-20 (`D-60`), verified from source with nothing installed.** The route previously recorded here — install `uv`, install `graphifyy` alongside, diff `graphify --help` — **was never necessary.**

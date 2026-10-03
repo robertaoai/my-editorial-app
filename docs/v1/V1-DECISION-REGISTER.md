@@ -26715,3 +26715,85 @@ B-046 or B-154; Gate 2; a push.
 | Fragments, scripts, Product, Fn Specs, SPECS, rule files, Phase Closure, frozen sources | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | This act is the sync; it is released only after Lane B's review |
+
+## 5.14e235 `D-410` — Label-Ingest Procedure Clause Applied (Batched Under the Judge's Option B)
+
+**Authority: the Judge, directly to Lane A, 2026-10-03**: *"Judge Approved; The procedure fix (P3), as option b
+for batche with the next gov changes."* The act was recorded in `B-154`'s Lane A answer (`b29fa3e`) and held out of
+this Register until a governed batch existed, because a Register edit alone would have forced a separate graph sync.
+It lands here with Batch 1 (`D-411`), as that act intended. Pushing is not authorized.
+
+### The decision
+
+1. **The clause** (Lane B's draft at `efebffe`, verbatim) is added to `docs/graph-fragments/README.md` §5 and to
+   `.claude/skills/sync-docs/SKILL.md` §7. After a description/community update, community names must be proven
+   applied:
+   - compare the saved global labels and every node's `community_name` with the intended names, bound to complete
+     member sets;
+   - if they were not applied, use the supported `graphify label` assistant emit/answer/ingest cycle;
+   - re-verify membership, names, fragment-owned fields, semantic completion and revision metadata;
+   - on failure, restore the verified backup;
+   - release only on independent review.
+2. **Basis:** graphify 0.17.1 observed in `D-409` (`update` kept older names on 100 of 113 groups). It is recorded as
+   that observation, not as universal tool behaviour. No tool repair.
+
+### Not given by this act
+
+A tool change; any sync other than Batch 1's; a push.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e235 |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ `D-410`/`D-411` paragraph |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-410`/`D-411` paragraph; no file added or retired |
+| **`docs/graph-fragments/README.md`** | ✅ §5 clause |
+| **`.claude/skills/sync-docs/SKILL.md`** | ✅ §7 clause |
+| Product, Fn Specs, SPECS, rule files, Phase Closure, frozen sources | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | One sync for Batch 1, under this clause, released after Lane B's review |
+
+## 5.14e236 `D-411` — Batch 1: Three Non-SM05 Rows Closed by Individual Judge Acceptance
+
+**Authority: the Judge, directly to Lane A, 2026-10-03**: *"Judge Approved: approve Batch 1, with the three reasons
+as drafted and the D-410 clause landing alongside, followed by one sync and Lane B review."* It answers Lane B's
+29-row completion brief (`B-154`, `30e8d36`), received by Lane A at `22a1116`. This act is a bounded Phase 1 unit.
+Pushing is not authorized.
+
+### The decision (`D-364` item 4: individual Judge acceptance with its own reason)
+
+1. **`B-046`** (O1): *superseded by `D-122`/`B-050`. The historical null-record observation remains valid, and the
+   premature withdrawal was corrected, not disproven. `B-050` owns the G97 diagnostic and the guarded sync
+   procedure. `D-409`'s accepted candidate establishes that observed snapshot only, with no permanent tool repair.
+   The Superseded disposition is preserved.* This grants no construction and no `B-050` completion.
+2. **`B-095 (B-095.D1)`** (O4): *the child's correction, `Modular_PRD` §7.1's `CR-14` row, was applied under
+   `D-392` and independently verified under `D-393` (`GR-004`). This child is complete.* Siblings D2b, D3 and S5
+   stay open with their own owners.
+3. **`B-104 (B-104.O3)`** (O4): *the child's correction, the storyboard Panel A3/A4/A6 historical-provenance notices
+   citing Panel A11, was applied under `D-388` and independently verified under `D-393` (`GR-002`). This child is
+   complete.* O2 and O4 stay held under `D-171` with `GR-001`/`GR-003`.
+4. **Tracker:** `SV-002` §2.3.1 is re-derived at `22a1116`, and the three rows read `closed` with this act in Basis.
+   No source header changes: Judge acceptance creates no `Verified-By`.
+5. **One sync follows**, under `D-409`'s contract and `D-410`'s clause:
+   - verified backup;
+   - reviewed names reused only for groups whose member-set hash is unchanged, and changed groups named from their
+     members;
+   - an unreleased candidate until Lane B's review.
+
+### Not given by this act
+
+Closure of `B-095`, `B-104`, `B-050` or any parent; Gate 2; construction; a push.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e236 |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ `D-410`/`D-411` paragraph |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-410`/`D-411` paragraph; no file added or retired |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §2.3.1 re-derived; three rows closed |
+| Handoff source headers (`B-046`, `B-095`, `B-104`) | — unchanged (acceptance is not verification) |
+| Product, Fn Specs, SPECS, rule files, Phase Closure, frozen sources | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | The `D-410` sync covers this batch |

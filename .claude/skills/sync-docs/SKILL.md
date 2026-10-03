@@ -130,6 +130,17 @@ regenerated `batch-*.json` files by id. Check that it does: a backup taken after
 none, and then descriptions are filled from the sources themselves (commit subjects, a symbol's own
 comment), never invented.
 
+**Community names must be proven applied, not assumed (`D-410`, observed in `D-409`).** After
+description/community update, compare the final saved graph's global community labels and every node's
+community_name against the intended names bound to complete current member sets. Answer JSON or a current tool
+state is not applied-name evidence. In the graphify 0.17.1 cached-label case observed in D-409, update retained
+older names; the existing graphify label assistant emit/answer/ingest cycle applied the member-derived names.
+When needed, use that supported cycle, then independently compare complete member sets before/after, all
+intended global/node names, zero map contradictions/multi-name IDs, every fragment-owned node/edge field,
+completed semantic work and exact branch/analyzed revision. Re-merge after any destructive operation. On
+identity, wording or saved-state failure, stop and use the authorized verified-backup restoration contract;
+record hashes and the exact failed member/name/field. Release only on the required independent review.
+
 ## 8. Verify — and negative-test
 
 ```bash

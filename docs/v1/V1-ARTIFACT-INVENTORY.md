@@ -515,6 +515,9 @@ in place.
 **`D-409` (2026-10-03) — no file added or retired, stated explicitly.** Only the untracked live graph state changes;
 its backup, label manifest and evidence live outside the repository.
 
+**`D-410`/`D-411` (2026-10-03) — no file added or retired, stated explicitly.** `docs/graph-fragments/README.md`,
+`.claude/skills/sync-docs/SKILL.md` and `SV-002.md` change in place.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |
