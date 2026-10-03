@@ -26063,3 +26063,59 @@ corrections"*. Read at `026b95d`. Pushing and P4b drafting were not approved in 
 | Packets, `Modular_PRD`, Fn Specs, SPECS, rule files, Phase Closure, `SV-002`, `.github/workflows/` | — unaffected (the tracker is re-derived later, not here) |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild at the final commit, verify the curated layer, fill descriptions last |
+
+## 5.14e224 `D-399` — `B-155` Intake; F2 and F1 Receipts; `GR-013` Criterion Normalized; F1 Second Repair (Hard Links, File Identity)
+
+**Authority: the Judge, directly to Lane A, 2026-10-03**: *"Judge Approved: P0, P1 and the F1 repair"*. Read at
+`f94a7c5`. P4b (`GR-012`) and pushing were not approved in this act and are not done.
+
+### The decision
+
+1. **P0 — intake.** Lane A answers `B-155`'s D-398 verification and `B-154`'s 2026-10-03 block, each in its own
+   commit.
+2. **P1 — receipts.**
+   - **`GR-015`:** Lane B verified the amended F2 wording at `bda0872`. This covers the wording only: no
+     executable gate and no push authority.
+   - **`GR-013`:** Lane B rejected F1 verification at `bda0872`, for two failures:
+     - a hard link substituted after capture changed a disposable outside file without refusal;
+     - `D-398`'s object-identity promise was enforced for directories only.
+   - **`GR-013`'s criterion is normalized** to the selected isolation design. The old text required a lock or "the
+     second process stops", which came from the unselected design. It now reads: concurrent runs use distinct pinned
+     targets, change neither each other's nor the caller's tracked, index or untracked bytes, and the restore refuses
+     before any outside write.
+   - **Review ledger:** `SV-002` §2.3.2 keys Lane B's `B-155` review.
+3. **F1 — second repair** (`scripts/fixtures/harness.mjs`).
+   - **Hard links:** a multiply linked regular file is refused at capture, at the all-entry check and before each
+     write.
+   - **File identity:** an existing baseline file must be the same object, by volume and file ID, so object identity
+     now covers regular files as well as directories.
+   - **Missing files:** a deleted baseline file may be recreated, because every parent above it has just been proven
+     the same ordinary, non-link directory. This is the Judge-approved rule, stated rather than silently narrowed.
+   - **Race boundary:** check-then-write is still not atomic; the race boundary stated in `D-398` stands.
+   - **Fixture audit:** only four suites use `snapshot()` (sync-docs, lane-gate, baseline-aware restore,
+     containment). None replaces an ordinary file it then expects restored, so no fixture is incompatible.
+   - **Proof:** five new cases. Three refuse with outside bytes unchanged: a hard link at capture, a hard link
+     substituted after capture, and an ordinary file replaced under the same name. Two positive controls restore: a
+     singly linked file edited in place, and a deleted file recreated through unchanged parents. Failing-first: the
+     `D-398` harness misses all three refusals. The full suite is rerun at the repaired revision.
+4. **`B-021` stays `Applied`; `B-155` and `B-154` stay Open.** Lane B independently verifies the repaired
+   revision.
+
+### Not given by this act
+
+`Verified` for `GR-013`, `B-021` or `B-155`; P4b; a push; the tracker re-derivation; Gate 2.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e224 |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ `D-399` paragraph |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-399` paragraph; no file added or retired |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/GOV-RES-001.md`** | ✅ `GR-013` criterion and rejection; `GR-015` receipt |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §2.3.2 `B-155` review row |
+| **`docs/handoff/B-155-gr013-containment-verification-and-gr015-refusal-scope.md`** | ✅ Lane A answer, in its own commit |
+| **`docs/handoff/B-154-consolidated-parent-first-artifact-and-closure-plan.md`** | ✅ Lane A answer, in its own commit |
+| Packets, `Modular_PRD`, Fn Specs, SPECS, rule files, Phase Closure, `.github/` | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild at the final commit, verify the curated layer, fill descriptions last |

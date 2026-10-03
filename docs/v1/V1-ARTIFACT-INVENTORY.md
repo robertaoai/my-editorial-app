@@ -479,6 +479,9 @@ order); `GOV-RES-001.md` `GR-013` row updated. The unit's own changes are record
 pull-request template change in place; `GR-012-013-SPEC.md` status corrected; `B-155` and `B-154` answered, each in its
 own one-path commit.
 
+**`D-399` (2026-10-03) — no file added or retired, stated explicitly.** `harness.mjs` and `suites.mjs` change in place;
+`GOV-RES-001.md` and `SV-002.md` §2.3.2 updated; `B-155` and `B-154` answered, each in its own one-path commit.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |
