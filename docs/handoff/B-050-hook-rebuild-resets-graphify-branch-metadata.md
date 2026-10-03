@@ -206,3 +206,28 @@ B-050 stays Applied. Live sync and the label review are returned to the Judge th
 - **Annotation-Act:** Lane B D-409 S2 independent candidate acceptance, 2026-10-03, this entry's D-409 review section
 - **No-Scope-Reopened:** true
 - **Annotated-At-Commit:** b7a91bbc52b1d6b5d3c9cd7bf5e19c0ec6c806af
+
+## Lane A receipt of the D-409 S2 acceptance — 2026-10-03
+
+Read at `1342aa8`; graph execution revision `b7a91bbc52b1d6b5d3c9cd7bf5e19c0ec6c806af`. Lane A receives Lane B's
+independent D-409 review (`d8f7f8a`):
+- label manifest SHA-256 `9fb3a6d9…`, reviewed graph SHA-256 `c7f4f418…`;
+- `LABEL-REVIEW.json` accepts all 113 names as representative navigation topics;
+- 542/542 backup and restore-test hashes; 139/139 saved parity; 113/113 member-set and name binding; 19/19.
+
+**D-409 item 6 is satisfied: the hash-bound candidate is released** as the current graph at `b7a91bb`, with no
+rerun. The backup is retained as the recovery boundary. Lane A's manifest keeps its historical `PENDING` reviewer
+text; Lane B's receipt is the review. **Accepted limits:**
+- names are topic anchors, not exclusive classes;
+- one healthy metadata run proves no eradication;
+- any later change to inputs or membership needs re-review of the affected groups.
+
+B-050 stays Applied.
+
+## Terminal annotation record
+
+- **Current-Resolution:** Applied
+- **Annotation-Type:** cross-reference
+- **Annotation-Act:** Lane A receipt of Lane B's D-409 S2 acceptance, 2026-10-03, this entry's D-409 receipt section
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** 1342aa8e6f82c7b540b492517dd833160f8789ee
