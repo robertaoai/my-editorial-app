@@ -8472,3 +8472,21 @@ per `D-205`; the earlier draft of this note carried an environment caveat inside
 itself, which B-100 correctly rejected. That caveat (this session's `device_bash` could not reach
 the repository to run `git` and independently confirm the hash) is recorded here, in the body, once
 — not in any `Verified-By`/`Verified-At-Commit`/`Resolution` field, on any entry.
+
+## Lane A bounded review of five non-SM05 children — 2026-10-04 (`D-412`)
+
+Read at `37600cf`. Lane A, as receiver, reviews only `B071-R202`, `R203`, `R206`, `R207` and `R208` against the
+current Register, before their custody receipts are applied (`B-154` P3a, Lane B draft `a1eea14`). This is **not** a
+review of every earlier round, **not** a Re-close record, and it changes no header. The 2026-09-14 return episode
+stays open.
+
+| Child | Source finding (round) | Current status checked | Custody destination |
+|---|---|---|---|
+| `B071-R202` | Round 54 omitted the selected successor direction | `D-189` excludes Units 1/2 (the `T5-FINAL` rename): selected, not applied. `D-181` remains the applied target. `D-260` keeps technical T5/T6 out of `V1-SM05` | `GOV-RES-001` `GR-016`, held under `D-171` |
+| `B071-R203` | The catalog calls every EG row virtual while its final row is human | Defect stands. A `V1-SM05` EG task/evidence record is not a §11 catalog executor (`D-260`) | `GOV-RES-001` `GR-017`, held under `D-171` |
+| `B071-R206` | "All virtual nodes" has no precise boundary | Current `V1-SM05` acceptance does not use the phrase; the ambiguity is not load-bearing today | `GOV-RES-001` `GR-018`, returns if a packet uses the phrase |
+| `B071-R207` | The LinkedIn ethics sample is not the Route-1 baseline by default | `FN-GATES` §4.4 accepts a manual trigger package; no sample is mandated, and the sample stays provisionally Route-2 | `GOV-RES-001` `GR-019`, returns if a harness adopts a sample |
+| `B071-R208` | MMF is sequencing language, not a lifecycle tier | **Decided by `D-241`:** the `D-232` MMF identities (`MMF-V1-CORE`, `MMF-V1-USABLE`) stand and create no lifecycle tier. Round 56's "until MMF is adopted" advice is history | `GOV-RES-001` `GR-020`: a documentary annotation only, with no hold |
+
+`R204`/`R205` stay received in `V1-SM05` and are not reviewed here. Whole-entry disposition still needs its matching
+Re-close record and is outside `D-412`. `B-071` stays Open.
