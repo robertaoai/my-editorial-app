@@ -39,6 +39,24 @@
   B-155 gets no §2.3.1 row, because its header now carries an independent `Verified-By` and the row rule excludes it.
   G4 holds: inherited D-397 evidence stays labelled inherited. P5 remains, so B-154 stays Open. No Resolution is
   recorded.
+  **Answered again 2026-10-03 (Judge direction in conversation), read at `a4e8058`.** Lane A re-derived SV-002 §2.3.1
+  at `a4e8058` (`bun run check` 19/19; docs-drift and graph current): 65 non-SM05 rows are unclosed. The work behind
+  these rows is complete, but Lane B's reviews did not detect that its closure evidence is missing. The Judge
+  therefore returns three requests to Lane B in this entry. Lane B drafts or verifies; Lane A then answers from
+  Lane B's feedback.
+  (R1, O1/O3) **Batch verification.** Independently verify the 14 Applied rows: B-050, B-141, B-142, B-144–B-148,
+  C-002, C-007, C-008, C-009 (O1), B-061 and B-070 (O3). Record each source's own `Verified-By`/`Verified-At-Commit`
+  at the revision read, or name the exact failing obligation. B-046 (Superseded) and B-136 (P15) are not in this
+  batch: they close by a Judge reason and by SV2-DOD-06 respectively.
+  (R2, O5) **Judge-reason draft.** For the 23 O5 rows (B-004, B-008, B-011, B-015, B-019, B-023, B-033, B-034,
+  B-041, B-043, B-062, B-065–B-067, B-072–B-076, B-086, B-098, B-099, B-122), draft one table under D-364 item 9:
+  entry, current Resolution, completed obligation and evidence, proposed individual reason, and residual owner or
+  "none". The Judge signs it; a blanket reason is rejected.
+  (R3, O4) **B-106 retention propagation.** Verify the completed A6 retention propagation (90-day editorial UI
+  boundary; external financial-retention distinction) across the named Product/Business Case/config tiers. Report
+  any tier that lacks it as a bounded gap. No deletion job or migration is inferred.
+  Each request runs independently; none waits on another. Lane B also records why its earlier reviews missed these
+  rows, so the review method closes the blind spot. B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
