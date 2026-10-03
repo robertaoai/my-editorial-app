@@ -364,7 +364,7 @@ The current parent docket and follow-up sequence are in B-154's single current c
 | Product §6.3 / AC-12a | Supported: first UI boundary is 90 days; valid supplied external fact is required; elapsed time alone proves no archival/disposal; invalid or missing evidence establishes neither. No application archive/deletion job or five-year UI clock is authorized |
 | Business Case RET-EDITORIAL | Supported: rejected/unpublished archive trigger is 90 days on supplied fact. Five-year house-policy minimum retained periods remain external under the exact D-404 act; they are not statutory rules for every editorial record (the source explicitly distinguishes them). RET-POC-90 and REUSE-WINDOW-90 remain distinct |
 | CONFIG_LOG / DECISION_LOG | Supported: D-404 receives A6 ratification, value unchanged at 90; the false 'never put to Chief Editor' statement is corrected. A4, OD1–OD3 and runtime metadata remain outside this application |
-| Completion of four-document semantics | **Conditions remain:** Business Case line 269 still says all A1–A7 are unratified; its A6 value cells still start with 'auto-archive'. DECISION_LOG keeps a current-looking 'No ratification has occurred' sentinel and 'empty table' finding next to the first actual event. Explicit current wording/history labels are needed |
+| Completion of four-document semantics | **Conditions remain:** Business Case line 269 still says all A1–A7 are unratified; its A6 mirror at line 278 has `Ratified? No` even while its Category cell says ratified, and its A6 value cells still start with 'auto-archive'. DECISION_LOG keeps a current-looking 'No ratification has occurred' sentinel and 'empty table' finding next to the first actual event. Explicit current wording/history labels are needed |
 | Completion of ratification receipt / downstream propagation | **Not supported:** Addendum §2.4 A6 still says Assumed / Ratified? No, with no date/artifact, contrary to Product §0.2's ratification-log rule. Blueprint A6 rows and FN-AUDIT AC-12a remain inconsistent. No downstream or runtime completion is earned |
 
 **Draft fixes — Lane A owns application, not Lane B:**
@@ -375,9 +375,13 @@ The current parent docket and follow-up sequence are in B-154's single current c
    Do not repeat the Judge's settled approval or ratify A4/OD rows by proximity. Also assess Addendum
    A6 default and G1 for current-versus-history wording; no automatic archival promise survives.
 2. Business Case: replace the current blanket with 'A1–A5 and A7 remain assumed/unratified; A6 is
-   ratified under D-404'. Mark old auto-archive labels explicitly historical or use the current
-   external-fact boundary in both A6 tables. DECISION_LOG: label the empty sentinel/finding as
-   pre-D-404 history and state that only A6 now has a ratification event. Preserve provenance.
+   ratified under D-404'. Set the A6 mirror's `Ratified?` cell to Yes, with its dated source pointing
+   to the Addendum receipt; a 'Ratified' Category beside 'No' cannot pass the status check. Mark old
+   auto-archive labels explicitly historical or use the current external-fact boundary in both A6
+   value cells. DECISION_LOG §3 says **never edit or delete a ratification-event row**: leave the
+   original no-event placeholder row byte-for-byte intact and add a dated note outside that table
+   identifying it as pre-D-404 history. Correct the current 'empty table' prose outside the table.
+   Preserve the first real A6 event and its provenance.
 3. Blueprint A6 rows 71/122: receive D-381/D-404's current meaning and retain D-134 as history;
    distinguish external retained period from first UI boundary. FN-AUDIT §5 AC-12a / its explanatory
    paragraph: archive means externally retrievable but absent here, not 'no longer retrievable'.
