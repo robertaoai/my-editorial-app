@@ -26797,3 +26797,52 @@ Closure of `B-095`, `B-104`, `B-050` or any parent; Gate 2; construction; a push
 | Product, Fn Specs, SPECS, rule files, Phase Closure, frozen sources | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | The `D-410` sync covers this batch |
+
+## 5.14e237 `D-412` — Batch 2: Eleven Custody Receipts Applied and Closed by Individual Judge Acceptance
+
+**Authority: the Judge, directly to Lane A, 2026-10-04**: *"approve D-412 under option A (apply the receipts and
+record your 11 reasons as drafted in one batch)"*. The receipts and reasons are Lane B's draft in `B-154`
+(`a1eea14`), accepted per key by Lane A (`37600cf`). This act is a bounded Phase 1 unit. Pushing is not authorized.
+
+### The decision
+
+1. **Prerequisite:** Lane A's bounded review of `B071-R202`, `R203` and `R206`–`R208` is recorded in `B-071`
+   (`68195b1`). It is not a Re-close record, and the 2026-09-14 return episode stays open.
+2. **Custody receipts applied (one row per source key, no duplicates):**
+   - `GOV-RES-001` gains `GR-016`–`GR-020` for those five children, and its "Next receipts" line becomes history;
+   - `B-095.D2b`/`S5` go to `B-084`'s A4 unit (`b1e2f13`), cross-referenced from `B-095` (`1847fee`), per `D-382`
+     item 5;
+   - `B-096.GA1`/`S16` go to `B-096`'s custody section (`5252200`);
+   - `B-104.O2`/`O4` stay in `GR-001`/`GR-003`, reaffirmed.
+
+   Each receipt names its scope, hold, return trigger and completion criterion with a refusal example. **Custody is
+   not delivery:** no field matrix, sample, rename, Model A adoption, report capability or allowlist is chosen.
+3. **Eleven rows closed by individual Judge acceptance (`D-364` item 4).** Each `SV-002` §2.3.1 row carries its own
+   reason, which is Lane B's drafted last-column text: `B-071 (B071-R202/R203/R206/R207/R208)`,
+   `B-095 (B-095.D2b/S5)`, `B-096 (B-096.GA1/S16)` and `B-104 (B-104.O2/O4)`. The tracker is re-derived at `5252200`.
+   No source header changes.
+4. **Review accounting (`SV-002` §2.3.2):**
+   - Lane B's `D-410`/`D-411` review (`9b3319d`) is keyed under `B-154`. It was deferred from `4ece485`, following
+     `D-410`'s batching logic;
+   - this batch's reviews are keyed under `B-071`, `B-095`, `B-096` and `B-104`.
+5. **One sync follows,** under `D-409`'s contract and `D-410`'s clause, and is released after Lane B's review. If
+   Lane B rejects any applied receipt, that row returns to open in the next batch.
+
+### Not given by this act
+
+Closure of any parent (`B-071`, `B-084`, `B-095`, `B-096`, `B-104`); any held capability; Gate 2; construction; a
+push.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e237 |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ `D-412` paragraph |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-412` paragraph; no file added or retired |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/GOV-RES-001.md`** | ✅ `GR-016`–`GR-020`; `GR-001`/`GR-003` reaffirmed; "Next receipts" historical |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §2.3.1: eleven rows closed and re-derived; §2.3.2: five keyed notes |
+| Handoffs `B-071`, `B-084`, `B-095`, `B-096` | Receiver records, each in its own commit (`68195b1`, `b1e2f13`, `1847fee`, `5252200`) |
+| Product, Fn Specs, SPECS, storyboard, rule files, Phase Closure, frozen sources | — unaffected (held behaviour edits belong to each later return packet) |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | One sync for this batch, released after Lane B's review |

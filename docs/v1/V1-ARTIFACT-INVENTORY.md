@@ -518,6 +518,9 @@ its backup, label manifest and evidence live outside the repository.
 **`D-410`/`D-411` (2026-10-03) — no file added or retired, stated explicitly.** `docs/graph-fragments/README.md`,
 `.claude/skills/sync-docs/SKILL.md` and `SV-002.md` change in place.
 
+**`D-412` (2026-10-04) — no file added or retired, stated explicitly.** `GOV-RES-001.md` and `SV-002.md` change in
+place; the receiver records are in existing handoff entries.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

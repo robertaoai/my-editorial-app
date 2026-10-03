@@ -147,6 +147,10 @@ PR #2 comment, `SV-002` acceptance and the `V1-SM05` unblock remain separate Jud
 **`D-401` (2026-10-03) — `GR-012` observation: no writer seen, accepted by Judge reason** (31-minute window accepted
 explicitly). Lane B verifies. `V1-SM05` stays `BLOCKED`.
 
+**`D-412` (2026-10-04) — Batch 2: eleven custody receipts applied and closed by individual Judge acceptance.**
+`GR-016`–`GR-020` hold `B-071`'s five children; `B-084` A4 holds `B-095` D2b/S5; `B-096` holds GA1/S16; `GR-001`/`GR-003`
+are reaffirmed. Custody, not delivery. No scope, sequence or DoD change. `V1-SM05` stays `BLOCKED`.
+
 **`D-410`/`D-411` (2026-10-03) — label-ingest procedure clause applied; Batch 1 closes three non-SM05 rows.**
 `B-046`, `B-095 (B-095.D1)` and `B-104 (B-104.O3)` are closed by individual Judge acceptance. One graph sync follows,
 released after Lane B's review. No scope, sequence or DoD change. `V1-SM05` stays `BLOCKED`.
