@@ -147,6 +147,10 @@ PR #2 comment, `SV-002` acceptance and the `V1-SM05` unblock remain separate Jud
 **`D-401` (2026-10-03) — `GR-012` observation: no writer seen, accepted by Judge reason** (31-minute window accepted
 explicitly). Lane B verifies. `V1-SM05` stays `BLOCKED`.
 
+**`D-404` (2026-10-03) — `A6` retention correction applied; `A6` ratified at 90 days.** `Modular_PRD` §6.3 and
+`AC-12a`, the Business Case, `CONFIG_LOG` and `DECISION_LOG` carry `D-381`'s meaning. No scope, sequence or DoD moves;
+no job, migration or runtime change. `V1-SM05` stays `BLOCKED`.
+
 **`D-403` (2026-10-03) — 13 R1 receipts received; 23 `O5` reasons accepted; `B-050` proof commissioned.** `SV-002`
 §2.3.1 re-derived at `17741a8`. No scope, sequence or DoD moves; Gate 2 is not claimed. `V1-SM05` stays `BLOCKED`.
 
@@ -515,7 +519,7 @@ so a rule about when a lane may begin belongs in the reader's line of sight.
 | 2 | `QA3` typed columns versus versioned JSON payload | Enforcement and filtering only work on typed columns |
 | 3 | Report record shape — identity, as-at, tenant, template + rule-set version, frozen snapshot | Audit Step 4 |
 | 4 | ✅ **RULED `D-114`.** Insert/read-only: `workflow_transitions` (already `NFR-02`), **`publications`/`publication_targets`** and the **report record**. `articles` **cannot** be — it mutates by design, which is *why* reports carry frozen snapshots. **Enforced by `REVOKE UPDATE, DELETE` AND a `BEFORE UPDATE OR DELETE` trigger** — `REVOKE` alone does not bind the owner or `service_role`, and `TR-API-03` introduces exactly that connection at S4 | Audit Step 5; `C-11` and `GA2` closed |
-| 5 | ✅ **DISPOSED `D-114`.** §5.3's **table-by-table classification is adopted** into `Modular_PRD` §6.3. The **floor is deferred with a named owner** and **`DATA_RETENTION_ARCHIVE_DAYS = 90` stays unratified** — because nobody has put it to the Chief Editor (`A6`), **not** because it is below the statutory floor. *(`D-114` said it was "twenty times below" that floor; **retracted by `D-115`** — the floor governs **disposal**, 90 days governs **archival**, and comparing them compares a move to a deletion.)* **5a is carried as `C-31`, now narrowed to one question, and does not block** — archival and disposal are **external** to this system. `C-12` closed: `publication_targets` rows are created **eagerly at approval**, so a non-attempt is a row with no events rather than an absence | Audit Step 9; `C-12` closed |
+| 5 | ✅ **DISPOSED `D-114`.** §5.3's **table-by-table classification is adopted** into `Modular_PRD` §6.3. The **floor is deferred with a named owner** and **`DATA_RETENTION_ARCHIVE_DAYS = 90` stays unratified** *(history: ratified 2026-10-03, `D-404`, under `D-381`'s meaning)* — because nobody has put it to the Chief Editor (`A6`), **not** because it is below the statutory floor. *(`D-114` said it was "twenty times below" that floor; **retracted by `D-115`** — the floor governs **disposal**, 90 days governs **archival**, and comparing them compares a move to a deletion.)* **5a is carried as `C-31`, now narrowed to one question, and does not block** — archival and disposal are **external** to this system. `C-12` closed: `publication_targets` rows are created **eagerly at approval**, so a non-attempt is a row with no events rather than an absence | Audit Step 9; `C-12` closed |
 | 6 | Cascade behaviour — **`on delete restrict`** (`D-07`) | Audit Step 11, `GA9` |
 | 7 | **`G19`** notice-as-article — notice type, notice→original reference, inherited targets, derived superseded status | `D-06` |
 | 8 | **`G20`** risk-tier dimension on articles | `D-11` |

@@ -20,7 +20,8 @@ Two things live here that the register deliberately does not carry:
    build decision. The register cannot close them — *"the evidence that answers them is what
    the build produces"* (sprint plan §11).
 2. **Unratified `A`-item values in operation** — a value the app runs on today that no one has
-   yet approved. `A4` and `A6` are in this position.
+   yet approved. `A4` is in this position. *(`A6` was too, until its ratification on 2026-10-03,
+   `D-404`; see §3.)*
 
 ## Who writes it — `D-91`
 
@@ -71,7 +72,7 @@ a visible choice rather than an oversight.
 
 | Variable | Value | Source | Why unratified |
 |---|---|---|---|
-| `DATA_RETENTION_ARCHIVE_DAYS` | 90 | `A6` | Assumption, never put to the Chief Editor |
+| ~~`DATA_RETENTION_ARCHIVE_DAYS`~~ | ~~90~~ | ~~`A6`~~ | ~~Assumption, never put to the Chief Editor~~ **Corrected 2026-10-03 (`D-404`):** the Chief Editor approved 90 days on 2026-09-15 (`B-106`); the meaning was arbitrated by `D-381` and ratified by `D-404` (§3) |
 | `SCORING_REVIEW_THRESHOLD_ARTICLES` | 50 | `A4` | Assumption, never put to the Chief Editor |
 
 ## 3. Ratification events
@@ -83,9 +84,11 @@ product's decisions.
 | Date | Decision | Answer | Evidence | Config effect |
 |---|---|---|---|---|
 | — | — | *No ratification has occurred.* | — | — |
+| 2026-10-03 | `A6` — `DATA_RETENTION_ARCHIVE_DAYS` | **Ratified at 90 days**, meaning `D-381`: the first UI-visible operational/PDPA boundary; archival is external, on a supplied fact, never inferred from elapsed time; TAX/ACRA five-year retention stays in the external financial workflow | Chief Editor act 2026-09-15 (`B-106`); `D-381` arbitration; Judge act `D-404` | `CONFIG_LOG.md` `A6` row reads Yes; value unchanged at 90 |
 
 **The empty table is the finding.** `OD1`–`OD3` have gated this build since the Charter, and
-none has been answered. Do not read the emptiness as a formatting placeholder.
+none has been answered. Do not read the emptiness as a formatting placeholder. *(2026-10-03, `D-404`:
+the first row is now `A6`. `OD1`–`OD3` and `A4` are still unratified, so the finding stands for them.)*
 
 ## 4. Related but not ratification — pointers only
 

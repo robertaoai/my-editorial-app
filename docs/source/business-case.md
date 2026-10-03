@@ -128,7 +128,7 @@ These are defaults applied so the document has something to build against. They 
 | A3 | Week 1 publication target | WordPress auto-publish + LinkedIn manual fallback |
 | A4 | Trend scoring formula | Simple weighted sum (trend_score v0 + editorial_priority v0) |
 | A5 | Notification mechanism | In-app only for Week 1 |
-| A6 | Data retention | Auto-archive rejected/archived after 90 days; published articles kept indefinitely |
+| A6 | Data retention | Auto-archive rejected/archived after 90 days; published articles kept indefinitely. **Ratified 2026-10-03 (`D-404`) under `D-381`'s meaning:** 90 days is the first UI-visible boundary, and archival is external, acted on a supplied fact; the application does not auto-archive |
 | A7 | Bookmarklet | Copy-paste URL form only for Week 1 |
 
 ### Resolved via Three Lines Model (this revision)
@@ -196,7 +196,11 @@ Guest platforms are tracked as publication targets with manual submission status
 ### RET-EDITORIAL 0.1-provisional — Retention, Archival, and Explainable Absence (`C-32`)
 
 **Status:** All operative values ruled by the Chief Editor, 2026-08-25 (`D-134`), written here in
-full by `D-135`.
+full by `D-135`. **Amended 2026-10-03 (`D-404`, applying `D-381`):** the first UI-visible archival
+boundary for rejected, abandoned and unpublished editorial work is `A6`'s 90 days, not five years. The
+five-year figures below stay as external minimum retained periods; for TAX/ACRA financial records the
+external system applies them after the 90-day handoff. No figure here is displayed in the editorial UI
+as a competing clock.
 
 **Accountable owner:** Chief Editor. A future Board assumes approval authority when constituted.
 The policy is reviewed at least annually and immediately on first external-counsel engagement,
@@ -214,12 +218,13 @@ platform-rule change.
   move is also recorded.
 - `RET-POC-90` / `REUSE-WINDOW-90`: two distinct 90-day windows (`D-127`, confirmed independent by
   `D-134`) — `RET-POC-90` is a PDPA data-deletion period (`D-43`); `REUSE-WINDOW-90` is an editorial
-  workflow permission, not a retention period. Neither is this policy's 5-year archival figure.
+  workflow permission, not a retention period. Neither is `A6`'s 90-day archival boundary (`D-381`), nor
+  this policy's 5-year minimum retained period.
 
 | Record class | Current-set rule | Archive trigger | Minimum retained period | Disposal authority |
 |---|---|---|---|---|
 | Published editorial records and correction/retraction evidence | Remain current while correction or retraction must remain possible; GRC always attaches | Not archived while current — no rejection event applies | RET-EDITORIAL: **5 years** (`D-134`, financial-policy default) | Chief Editor, sole operator; each act documented with a reason |
-| Rejected, abandoned, and unpublished editorial work | Moves out of current view once archived | RET-EDITORIAL: **5 years** — house-policy placeholder pending specific GRC rules, explicitly amendable (`D-134`). **Not** the reuse-eligibility window: `REUSE-WINDOW-90` (90 days) is confirmed independent, unaffected by this figure | RET-EDITORIAL: **5 years** (`D-134`) | Chief Editor, sole operator; each act documented with a reason |
+| Rejected, abandoned, and unpublished editorial work | Moves out of current view once archived | RET-EDITORIAL: **`A6`, 90 days** — the first UI-visible operational/PDPA boundary, acted on only when the external workflow supplies the archive or handoff fact; never inferred from elapsed time, never deletion (`D-381`, applied `D-404`; was 5 years under `D-134`). **Not** the reuse-eligibility window: `REUSE-WINDOW-90` (90 days) is a separate, independent clock | RET-EDITORIAL: **5 years**, held by the external system (`D-134`); a TAX/ACRA financial record keeps its five-year rule, and a financial or legal duty prevents disposal at day 90 (`D-381`) | Chief Editor, sole operator; each act documented with a reason |
 | Append-only transitions, reports, publication targets, and publication events | Remain linked to their originating editorial record | Follow the originating record without breaking the chain | RET-EDITORIAL: matches the originating record's class — 5 years either way (`D-134`) | Chief Editor, sole operator |
 | Sources and personal data supporting editorial work | Limited to the approved editorial and evidential purpose | Not a separate class — editorial-flow data carries no personal data (`D-42`); source references follow their article's own row above | RET-EDITORIAL: follows the originating article's class | Chief Editor, sole operator |
 | POC payment-confirmation/commercial records | Outside the v1 editorial migration; governed before commercial activation | Deferred to the commercial policy | RET-EDITORIAL: **5 years** (`D-134`, confirms `D-43`'s existing IRAS/ACRA rule — not a new number) | Deferred to commercial-activation policy |
@@ -270,7 +275,7 @@ Assumed defaults (A1–A7) remain unratified. OD1 and OD2 are **resolved** (via 
 | A3 | WordPress auto + LinkedIn manual | Assumed | N/A | No |
 | A4 | Simple weighted sum scoring | Assumed | N/A | No |
 | A5 | In-app notifications only | Assumed | N/A | No |
-| A6 | 90-day auto-archive | Assumed | N/A | No |
+| A6 | 90-day auto-archive | **Ratified 2026-10-03** (`D-404`): 90-day first UI-visible boundary; archival external (`D-381`) | N/A | No |
 | A7 | Copy-paste URL form only | Assumed | N/A | No |
 | OD1 | Chief Editor = Chief Journalist? | Resolved (Three Lines Model) | **Yes** — Chief Editor = Line 2, Chief Journalist = Line 1, no float | No |
 | OD2 | Agent judgment independence? | Resolved (Three Lines Model) | **Yes** — satisfied by Line separation | No |

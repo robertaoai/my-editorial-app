@@ -496,6 +496,9 @@ own one-path commit.
 **`D-403` (2026-10-03) — no file added or retired, stated explicitly.** `SV-002.md` changes in place; `B-154`
 answered in its own commit.
 
+**`D-404` (2026-10-03) — no file added or retired, stated explicitly.** `Modular_PRD.md`, `docs/source/business-case.md`,
+`CONFIG_LOG.md` and `DECISION_LOG.md` change in place.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

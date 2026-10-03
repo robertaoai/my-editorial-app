@@ -690,10 +690,16 @@ wording applied `D-135`).
 the word was used here and in `AC-12a` and defined nowhere)*. **Archival and disposal are both
 EXTERNAL to this system** — operations on the database substrate, not product behaviour. The
 application neither archives nor disposes; `DATA_RETENTION_ARCHIVE_DAYS` **describes an external
-archival boundary**, not a disposal date, and is **RATIFIED at 5 years** for rejected/unpublished
-editorial work (`D-134`, house-policy placeholder, amendable — `A6`). **Confirmed independent of
-the workflow's `REUSE-WINDOW-90`** (90 days) — not the same clock, `D-134` correcting `D-128`'s
-earlier guess.
+archival boundary**, not a disposal date, and is **RATIFIED at 90 days** (`A6`) as the first
+UI-visible operational/PDPA boundary *(corrected `[V1]` 2026-10-03, `D-404`, applying `D-381`; it read
+"5 years for rejected/unpublished editorial work" under `D-134`)*. At that boundary the application may
+consume a supplied external handoff or archive fact and remove the record from its current view. It
+never performs archival, disposal or deletion, and never infers them from elapsed time. Where the
+external record is a TAX/ACRA financial record, the external records system then applies the five-year
+rule, and a financial or legal retention duty prevents disposal at day 90. **The editorial UI shows no
+five-year value.** Other external retention follows its own record class in `RET-EDITORIAL`.
+**Confirmed independent of the workflow's `REUSE-WINDOW-90`** (also 90 days) — not the same clock,
+`D-134` correcting `D-128`'s earlier guess.
 
 > **Product intake receipt `[V1]`, 2026-10-01 (`D-374`, from `docs/handoff/B-106`).** This section, and `RK-05`
 > in §7.6, receive `B-106`'s configuration ratification as Product scope; the Judge classified it as Product. **No
@@ -712,6 +718,10 @@ earlier guess.
 > The editorial UI shows no five-year value. **The paragraph above and `AC-12a` are not yet rewritten**: that
 > literal correction is `B-106`'s remaining propagation. Until it lands, `D-381` governs where they conflict
 > (`D-58`).
+>
+> **Applied `[V1]`, 2026-10-03 (`D-404`).** The paragraph above and `AC-12a` now state `D-381`'s sequential model,
+> and `A6` is ratified at 90 days under that meaning. The sentence above saying they are not yet rewritten is kept as
+> history. Lane B verifies the applied diff (`B-106`); `B-106` is not closed by this application.
 
 **Rejected work archives; published work does not — and that is two regimes, not an inconsistency**
 *(resolved `D-115`)*. **GRC on retraction binds data while it is in the CURRENT set**, so:
@@ -1091,7 +1101,7 @@ real, scheduled work: its sequence and gates live in `docs/v1/V1-BUILD-SPEC.md` 
 | `AC-10` | FR-06 | AT-014 | An article has been returned to the same state `RETURN_LIMIT_BEFORE_ESCALATION` times | A further return is attempted | It auto-escalates to the Chief Editor for a reject-or-keep decision |
 | `AC-11` | FR-07 | AT-040 | Any transition occurs | It completes | Exactly one transition row precedes the state change, carrying article, executor, type, Line, from, to, decision, reason, timestamp, independence status — **no nulls** |
 | `AC-12` | FR-07 | AT-041 | A transition row exists | UPDATE or DELETE is attempted, including with the anon key | The database refuses. **Fails today** (`G-06`) |
-| `AC-12a` | FR-07 | — | Records for a period are **missing from a view** — in v1 this is the **5-year archival of rejected/unpublished editorial work** (ruled `D-134`), which is external to this system (`D-115`) | The board or audit surface is opened for that period | It states that records **existed and are not shown here**, and names the governing policy and version, the period, and where they went — the fields are fully specified in `RET-EDITORIAL`'s *"Supplied absence fact"* section. **It never renders absence as "nothing happened"** (`G41`). *(Promoted from `FN-AUDIT-VISIBILITY-07-08` by `D-116`: it was a `[V1]` commitment made in a derived tier with **no creating decision** — `G89`, still open. Its **archived** limb is the v1 requirement; its **disposed** limb has a ruled policy (`D-134`) but no v1 disposal act. **Testable acceptance criterion — not yet built or tested; the ruling supplies its input, not its implementation.**)* |
+| `AC-12a` | FR-07 | — | Records for a period are **missing from a view** — in v1 this is an applicable record **leaving the current view at the `A6` 90-day boundary on a supplied external archive or handoff fact** (`D-381`, applied `D-404`; it read "the 5-year archival of rejected/unpublished editorial work", `D-134`), which is external to this system (`D-115`) | The board or audit surface is opened for that period | It states that records **existed and are not shown here**, and names the governing policy and version, the period, and where they went — the fields are fully specified in `RET-EDITORIAL`'s *"Supplied absence fact"* section. **It never renders absence as "nothing happened"** (`G41`). **Elapsed time alone never establishes archival or disposal:** with no valid supplied fact, the record stays in its last proved state, and missing or invalid external evidence is shown as not established. No five-year financial value is shown (`D-381`). *(Promoted from `FN-AUDIT-VISIBILITY-07-08` by `D-116`: it was a `[V1]` commitment made in a derived tier with **no creating decision** — `G89`, still open. Its **archived** limb is the v1 requirement; its **disposed** limb has a ruled policy (`D-134`) but no v1 disposal act. **Testable acceptance criterion — not yet built or tested; the ruling supplies its input, not its implementation.**)* |
 | `AC-13` | FR-08 | AT-050…AT-053 | `SUCCESS_ARTICLES_LOGGED_MIN` articles span states, topics, categories, and Lines | The Chief Editor filters on each dimension | Only matching articles show; a no-match filter shows an explicit empty state |
 | `AC-14` | FR-09 | AT-020 | An article is `Approved` with a WordPress target | The publication job runs | The post is created; `published_url` is stored; the target is `Published`; the article becomes `Published`. **V1 current scope (`D-243`):** WordPress automation is a V2 target; this criterion is outside V1. `[V1]` origin retained |
 | `AC-15` | FR-09 | AT-021, AT-023 | An article has WordPress and LinkedIn targets and WordPress succeeds while LinkedIn does not | The job completes | WordPress is `Published`, LinkedIn is `Failed` or `ManualReady`, **both statuses held simultaneously**, article `Published`. **Not representable today** (TC2). **V1 current scope (`D-243`):** outside V1 — only the LinkedIn `ManualReady` event is in scope. `[V1]` origin retained |

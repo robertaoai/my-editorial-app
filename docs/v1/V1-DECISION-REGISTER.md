@@ -26342,3 +26342,66 @@ the `V1-SM05` unblock; a work order; Lane B activation; a push.
 | Packets other than the above, `Modular_PRD`, Fn Specs, SPECS, version, rule files, Phase Closure, `.claude/`, `.github/` | — unaffected |
 | **Encyclopedia** | — unaffected (no entry depends on these files, per `docs/ENCYCLOPEDIA-SYNC.md`) |
 | **Graphify** | Synchronize after `D-404` at the final commit, merge curated fragments, fill descriptions last |
+
+## 5.14e229 `D-404` — `A6` Retention Correction Applied; `A6` Ratified at 90 Days
+
+**Authority: the Judge, directly to Lane A, 2026-10-03**: R3 *"Accept"*, the four-document retention correction as
+one bounded Phase 1 unit (`B-154`'s R3, read at `0f011da`; `D-403` records the other three answers). It applies
+`D-381` item 8 and discharges the propagation `D-381` item 9 left open. Pushing was not approved and is not done.
+
+### The decision
+
+1. **`Modular_PRD.md` §6.3 retention paragraph.** `A6` reads ratified at 90 days as the first UI-visible
+   operational/PDPA boundary. The application may consume a supplied external archive or handoff fact and remove the
+   record from its current view. It never performs or infers archival, disposal or deletion from elapsed time. A
+   TAX/ACRA financial record keeps the external five-year rule, and a financial or legal duty prevents disposal at
+   day 90. The editorial UI shows no five-year value. The old "5 years" reading is kept inline as history, and the
+   `D-374`/`D-381` receipt notes stay, with an "Applied" note added.
+2. **`AC-12a`.** Its trigger is now an applicable record leaving the current view at the 90-day boundary on a
+   supplied fact. Its outcome adds: elapsed time alone never establishes archival or disposal; with no valid supplied
+   fact the record stays in its last proved state, and missing or invalid evidence shows as not established. The
+   `D-116` citation and the `RET-EDITORIAL` supplied-absence fields are unchanged. Still not built or tested.
+3. **Business Case (`RET-EDITORIAL`).** The Status line records the amendment. The rejected/unpublished row's archive
+   trigger is `A6`'s 90 days; its five-year minimum retained period stays with the external system. The definitions
+   keep `REUSE-WINDOW-90` and `RET-POC-90` separate from both. The policy ID and version (`0.1-provisional`) are
+   unchanged. The `A6` assumption and validation rows read ratified, and the application does not auto-archive.
+4. **`CONFIG_LOG.md`.** The `A6` row reads **Yes — ratified 2026-10-03**. The value stays 90. The runtime metadata in
+   `lib/config/` is Lane B's surface and moves only under a bounded work order.
+5. **`DECISION_LOG.md`.** §3 gains its first ratification row (`A6`). The "never put to the Chief Editor" row is struck
+   through with a correction: the Chief Editor approved it on 2026-09-15 (`B-106`). `A4` and `OD1`–`OD3` stay
+   unratified.
+6. **Build Spec** line 518's "stays unratified" gains a history note.
+
+### Remaining propagation, not in this unit
+
+`B-106`'s impact table also names tiers outside the four authorized documents. They still read the old model or have
+not been reviewed against it:
+- `docs/source/blueprint.md`: the `A6` rows at lines 71 and 122 still say "5 years" and "not a 90-day figure";
+- the FN audit-visibility spec;
+- the storyboard panel;
+- UML and data flow;
+- traceability;
+- the Encyclopedia.
+
+Each needs its own bounded unit. `D-381` governs where they conflict (`D-58`). Lane B verifies this unit's applied
+diff under `B-106`. `B-106` stays Open.
+
+### Not given by this act
+
+Closure of `B-106`; any job, migration, deletion, scoring engine or runtime configuration change; Gate 2 clearance;
+the `V1-SM05` unblock; a push.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e229 |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ `D-404` paragraph; line 518 history note |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-404` paragraph; no file added or retired |
+| **`Modular_PRD.md`** (`[V1]` §6.3, `AC-12a`) | ✅ corrected, with `[V1]` markers |
+| **`docs/source/business-case.md`** | ✅ `RET-EDITORIAL` Status, definitions, rejected/unpublished row; `A6` rows |
+| **`docs/CONFIG_LOG.md`**, **`docs/DECISION_LOG.md`** | ✅ `A6` ratified |
+| Blueprint, FN audit, storyboard, UML/data flow, traceability | — not in this unit; remaining propagation named above |
+| Fn Specs (other), SPECS, version, rule files, Phase Closure, `.claude/`, `.github/`, frozen PRD/Charter/`0001` | — unaffected |
+| **Encyclopedia** | — no mapped file changes (`docs/ENCYCLOPEDIA-SYNC.md`; Entry 02 maps `Modular_PRD` §0.2/§0.4/§12, not §6.3). Entry 02 "Resolved vs. ratified" is next to `A6` ratification in meaning; review is optional |
+| **Graphify** | Synchronize at the final commit, merge curated fragments, fill descriptions last |
