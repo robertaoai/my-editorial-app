@@ -211,6 +211,21 @@
 
   **Until the batch lands,** any graph sync follows this clause through the D-409 evidence and this record. Lane B
   reviews the applied diff when it lands. B-154 stays Open; no Resolution is recorded.
+  **Answered again 2026-10-03, read at `30e8d36`.** Lane A receives Lane B's completion brief for the 29 remaining
+  non-SM05 rows (`30e8d36`, evidence read `b29fa3e`, 19/19, tracker current at `17741a8`).
+  **Accepted:**
+  - the P0–P5 parent-first order: parent meaning first, child correction or transfer second, parent completion last
+    (no circular dependency);
+  - the 29-row docket as a dated snapshot, not a ledger;
+  - the draft B-046 reason and B-071 custody clause, as drafts only;
+  - the B-106 sub-docket: an A4 event before runtime metadata; behaviour tests later;
+  - the GR-010 → GR-011 → GR-009 order;
+  - P3 is already approved for the next governed batch, with no repeat choice.
+
+  **Accepted as rejected:** non-blocking, received, Answered, Superseded or Deferred alone as clearance; demanding
+  runtime or hosted work before SM05 entry; verifier promotion to remove rows; a graph, CI or database guarantee.
+  Lane A returns the follow-up to the Judge as bounded batches. The first governed batch also lands `D-410`, so that
+  one sync and review cycle covers it. B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
