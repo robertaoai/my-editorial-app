@@ -147,6 +147,9 @@ PR #2 comment, `SV-002` acceptance and the `V1-SM05` unblock remain separate Jud
 **`D-401` (2026-10-03) — `GR-012` observation: no writer seen, accepted by Judge reason** (31-minute window accepted
 explicitly). Lane B verifies. `V1-SM05` stays `BLOCKED`.
 
+**`D-407` (2026-10-03) — community-field ownership: option (b) selected as direction; migration packet
+commissioned.** No tracked edit, live sync, scope, sequence or DoD change. `V1-SM05` stays `BLOCKED`.
+
 **`D-406` (2026-10-03) — two-source wording correction; Route 1 isolated graph experiment authorized.** FN-AUDIT §5
 leads with V1 supplied-fact behaviour; Addendum §2.1 `A6` points to §2.4. Encyclopedia Entry 02 needs no update. No
 live graph sync, scope, sequence or DoD change. `V1-SM05` stays `BLOCKED`.

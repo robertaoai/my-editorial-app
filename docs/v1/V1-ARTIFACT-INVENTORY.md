@@ -505,6 +505,9 @@ answered in its own commit.
 **`D-406` (2026-10-03) — no file added or retired, stated explicitly.** `FN-AUDIT-VISIBILITY-07-08.md` and
 `v1-build-readiness-addendum.md` change in place; the Route 1 experiment's evidence lives outside the repository.
 
+**`D-407` (2026-10-03) — no file added, retired or changed beyond the Register, Build Spec and this paragraph,
+stated explicitly.** The (b) migration packet lives outside the repository until accepted.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

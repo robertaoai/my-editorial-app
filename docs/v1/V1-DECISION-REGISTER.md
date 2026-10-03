@@ -26547,3 +26547,48 @@ republication; closure of `B-050`, `B-106` or `B-154`; Gate 2; a push.
 | `Modular_PRD`, Business Case, Blueprint, `CONFIG_LOG`, `DECISION_LOG`, SPECS, rule files, Phase Closure, frozen sources | — unaffected |
 | **Encyclopedia** | Entry 02 compared (item 3): no update required; optional annotation only |
 | **Graphify** | Live sync not authorized; Route 1 runs in disposable state only (item 4) |
+
+## 5.14e232 `D-407` — Community-Field Ownership: Option (b) Selected as Direction; Migration Packet Commissioned
+
+**Authority: the Judge, directly to Lane A, 2026-10-03**: *"P1 - Community ID ownership; Recommend (b) as the
+direction. D-213 already treats stored clustering results as derived duplicates."* It answers the ownership
+question returned by `D-406`'s stopped Route 1 experiment and Lane B's reviews in `B-050` (`b677e69`) and `B-154`
+(`87c9891`). This act selects a **direction** and commissions a packet. It authorizes no fragment, script or
+README edit, no live graph write and no push.
+
+### The decision
+
+1. **Direction (b): graphify owns the derived clustering fields** `community` and `community_name`. This extends
+   `D-213`'s ruling (a clustering result stored in a curated fragment is a forbidden stored duplicate; applied to
+   `frag131` only) to the remaining fragments, subject to item 3. Option (a), fragments retaining numeric
+   communities, is **rejected** as a full semantic sync. Option (c), tool repair under `B-071`, is **deferred** to
+   the case where the (b) trial still fails.
+2. **Packet returned by Lane A, not applied:** `C:/CoWork/outputs/lane-a-route1-2026-10-03/B-MIGRATION-PACKET.md`,
+   read at `87c9891`. It contains:
+   - an inventory: 126 fragments, 534 nodes, 1068 lines, 35 names, and 5 ids already carrying several names;
+   - a meaning-preservation map: every affected node keeps its label, description and edges; D-39–D-50 and GA5
+     concepts are stable ids;
+   - the cause of the non-fragment disagreements: `merge7.js` hard-codes labels 28–30;
+   - an out-of-repository dry run: valid JSON, with nothing changed beyond the two keys;
+   - the exact write set (fragments, `merge7.js`, README, one check rule with fixtures, `D-54`);
+   - the isolated acceptance replay, which requires 0 node/label-map contradictions.
+3. **Execution needs the Judge's Accept of that packet** as a further bounded act. A live sync is a separate act
+   after Lane B's independent review of the isolated replay.
+
+### Not given by this act
+
+Any tracked edit under the packet; a live graph sync (`docs-drift` stays red); B-050 or B-154 disposition; tool
+repair; Gate 2; a push.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e232 |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ `D-407` paragraph |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-407` paragraph; no file added or retired |
+| **`docs/handoff/B-106`**, **`B-154`** | ✅ Lane A answers, each in its own commit (`7c1a2be`, `8d1cd21`) |
+| Graph fragments, `merge7.js`, README, checks | — not edited; packet only |
+| All other tiers, frozen sources | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | No live sync; packet replay later, in disposable state |
