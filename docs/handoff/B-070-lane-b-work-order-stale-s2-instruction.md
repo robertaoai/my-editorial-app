@@ -21,8 +21,6 @@
   (`V1-PHASE-CLOSURE.md` §5) — no lane-state transition is made by this handoff.
 - **Resolution:** Verified
 - **Verified-At-Commit:** 1a242890bc79a8d22a400c612d298afd0103ba0f
-  handoff; not a `Verified` claim (`Resolution` stays `Applied`), only the commit where this
-  evidence is currently observable
 - **Verified-By:** Lane B (Codex), independent of Lane A's answer/application; scoped verification below
 - **Evidence:** Independent verification of Lane A recording/application, scoped below; inherited evidence: `docs/LANE-B-WORK-ORDER.md` §2.2d (historical/held notice added); `D-171` in
   `V1-DECISION-REGISTER.md`; `V1-BUILD-SPEC.md` §"S2 — Line assignment and four-eyes"; `D-181` in
@@ -151,3 +149,11 @@ Lane A's answer is preserved. The source header moves from Applied to Verified f
 - **Annotation-Act:** Judge's 2026-10-03 Lane A incident-remediation request; B-154 delivery correction at 1a242890bc79a8d22a400c612d298afd0103ba0f; Lane B independent verification under D-364 item 4
 - **No-Scope-Reopened:** true
 - **Annotated-At-Commit:** 1a242890bc79a8d22a400c612d298afd0103ba0f
+
+## Terminal annotation record
+
+- **Current-Resolution:** Verified
+- **Annotation-Type:** metadata-normalization
+- **Annotation-Act:** Lane B post-receipt readback, 2026-10-03: remove the obsolete Applied-only continuation beneath Verified-At-Commit; verification scope and Lane A answer preserved
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** 5b62ae23da428ef747561b1108a12a0f4130148b
