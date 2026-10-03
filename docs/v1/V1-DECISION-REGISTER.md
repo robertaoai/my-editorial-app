@@ -26655,3 +26655,63 @@ push.
 | Product, Fn Specs, SPECS, version, rule files, Phase Closure, `.claude/`, `.github/`, frozen sources | — unaffected |
 | **Encyclopedia** | — unaffected (no entry maps the graph fragments, per `docs/ENCYCLOPEDIA-SYNC.md`) |
 | **Graphify** | Curated layer changed; isolated replay next; live sync only by a later act |
+
+## 5.14e234 `D-409` — Live Graph Sync Under S2: Verified Backup, Member-Named Labels, Unreleased Until Independent Review
+
+**Authority: the Judge, directly to Lane A, 2026-10-03**: *"Judge Approved: approve D-409 with S2"*. It answers
+Lane B's staged-sync challenge (`B-154`, `9a7fbdb`) and Lane A's runbook (`B-154`, `8e4a1eb`). This act is a
+bounded Phase 1 unit, and it amends `D-408`'s "live sync only by a later act" exclusion **for this unit only**.
+Pushing is not authorized.
+
+### The decision
+
+1. **Execution revision:** this act's own commit, pinned after it lands. Recorded before the run: clean status,
+   index, fragment hashes, graphify version, and all git refs (3 local, 4 remote). No tracked edit may land between
+   the pin and the final checks. If one does, the run stops and restores.
+2. **Runtime scope:** only the live graph state folder `C:/CoWork/myeditorialapp/.graphify` (the target of the
+   repository's `.graphify` link). Tracked files changed by this unit: the Register, Build Spec and Inventory, then
+   the receipts afterwards. No fragment, script or source edits.
+3. **Verified backup first:** the whole state folder is copied, with a SHA-256 manifest. The restore method is
+   tested before the live run, by restoring to a scratch location and matching every hash.
+4. **Procedure, in the caller at the pinned revision:**
+   1. rebuild;
+   2. restore the docs layer from the backup's graph, if the rebuild dropped it;
+   3. merge every mergeable fragment in README order;
+   4. `fill-missing`;
+   5. descriptions reused by id from the backup graph or from git, code symbols from their own source comments,
+      never invented;
+   6. **community names written from each group's full current member list**, not reused by overlap;
+   7. ingest;
+   8. final merge.
+5. **Label manifest:** for every group, record the current id, the sorted unique member ids, the SHA-256 of that
+   canonical list, the name, its basis and the reviewer. Mixed groups get truthful broad names. The hash proves
+   identity; Lane B's review proves the wording.
+6. **Unreleased candidate:** after the final checks the live graph is a **candidate**. `docs-drift` passing then
+   means currency, not semantic review. No "synced" claim, consuming use or closure follows until Lane B
+   independently accepts the label manifest and the saved checks.
+   - **If Lane B rejects**, Lane A restores the backup and verifies every hash.
+   - **If membership changes** after review (another rebuild, or a commit consumed by the graph), the review must be
+     repeated for the changed groups, or the backup restored.
+7. **Final checks before handing over:**
+   - 139/139 saved fragment parity, every declared edge field, and no lost curated nodes or links;
+   - every group named, with 0 node/label-map contradictions and no id carrying two names;
+   - `check-update` current;
+   - branch metadata naming the caller branch and the pinned revision;
+   - the full check 19/19.
+
+### Not given by this act
+
+A released or "synced" graph before Lane B's acceptance; tool repair; fragment edits; closure of B-050, B-071,
+B-046 or B-154; Gate 2; a push.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e234 |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ `D-409` paragraph |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-409` paragraph; no file added or retired |
+| Live graph runtime state (untracked) | Changed by item 4, behind item 3's backup |
+| Fragments, scripts, Product, Fn Specs, SPECS, rule files, Phase Closure, frozen sources | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | This act is the sync; it is released only after Lane B's review |

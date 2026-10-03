@@ -512,6 +512,9 @@ stated explicitly.** The (b) migration packet lives outside the repository until
 `merge7.js`, the fragments `README.md`, `scripts/checks/graph-coverage.mjs` and `scripts/fixtures/suites.mjs` change
 in place.
 
+**`D-409` (2026-10-03) — no file added or retired, stated explicitly.** Only the untracked live graph state changes;
+its backup, label manifest and evidence live outside the repository.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

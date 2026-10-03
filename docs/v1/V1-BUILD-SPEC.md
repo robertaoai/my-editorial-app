@@ -147,6 +147,10 @@ PR #2 comment, `SV-002` acceptance and the `V1-SM05` unblock remain separate Jud
 **`D-401` (2026-10-03) — `GR-012` observation: no writer seen, accepted by Judge reason** (31-minute window accepted
 explicitly). Lane B verifies. `V1-SM05` stays `BLOCKED`.
 
+**`D-409` (2026-10-03) — live graph sync under S2.** Verified backup, a run at the pinned revision, member-named
+community labels; the graph stays an unreleased candidate until Lane B's review. No scope, sequence or DoD change.
+`V1-SM05` stays `BLOCKED`.
+
 **`D-408` (2026-10-03) — option (b) migration applied.** 126 fragments no longer store `community`/`community_name`;
 `merge7.js` refuses them and no longer pins labels 28–30; `graph-coverage` enforces it. No live graph sync, scope,
 sequence or DoD change. `V1-SM05` stays `BLOCKED`.
