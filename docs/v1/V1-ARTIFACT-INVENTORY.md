@@ -499,6 +499,9 @@ answered in its own commit.
 **`D-404` (2026-10-03) — no file added or retired, stated explicitly.** `Modular_PRD.md`, `docs/source/business-case.md`,
 `CONFIG_LOG.md` and `DECISION_LOG.md` change in place.
 
+**`D-405` (2026-10-03) — no file added or retired, stated explicitly.** `v1-build-readiness-addendum.md`,
+`business-case.md`, `DECISION_LOG.md`, `blueprint.md` and `FN-AUDIT-VISIBILITY-07-08.md` change in place.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

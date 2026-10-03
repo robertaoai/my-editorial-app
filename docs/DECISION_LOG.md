@@ -86,9 +86,12 @@ product's decisions.
 | — | — | *No ratification has occurred.* | — | — |
 | 2026-10-03 | `A6` — `DATA_RETENTION_ARCHIVE_DAYS` | **Ratified at 90 days**, meaning `D-381`: the first UI-visible operational/PDPA boundary; archival is external, on a supplied fact, never inferred from elapsed time; TAX/ACRA five-year retention stays in the external financial workflow | Chief Editor act 2026-09-15 (`B-106`); `D-381` arbitration; Judge act `D-404` | `CONFIG_LOG.md` `A6` row reads Yes; value unchanged at 90 |
 
-**The empty table is the finding.** `OD1`–`OD3` have gated this build since the Charter, and
-none has been answered. Do not read the emptiness as a formatting placeholder. *(2026-10-03, `D-404`:
-the first row is now `A6`. `OD1`–`OD3` and `A4` are still unratified, so the finding stands for them.)*
+That placeholder records the pre-2026-10-03 state. `D-404`'s `A6` event below it is the first ratification;
+`A4` and `OD1`–`OD3` remain unratified (`D-405`).
+
+*History, until 2026-10-03:* "**The empty table is the finding.** `OD1`–`OD3` have gated this build since the
+Charter, and none has been answered. Do not read the emptiness as a formatting placeholder." The table is no
+longer empty. The finding still stands for `OD1`–`OD3` and `A4`, none of which has been answered.
 
 ## 4. Related but not ratification — pointers only
 

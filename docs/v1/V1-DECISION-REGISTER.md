@@ -26405,3 +26405,75 @@ the `V1-SM05` unblock; a push.
 | Fn Specs (other), SPECS, version, rule files, Phase Closure, `.claude/`, `.github/`, frozen PRD/Charter/`0001` | — unaffected |
 | **Encyclopedia** | — no mapped file changes (`docs/ENCYCLOPEDIA-SYNC.md`; Entry 02 maps `Modular_PRD` §0.2/§0.4/§12, not §6.3). Entry 02 "Resolved vs. ratified" is next to `A6` ratification in meaning; review is optional |
 | **Graphify** | Synchronize at the final commit, merge curated fragments, fill descriptions last |
+
+## 5.14e230 `D-405` — `A6` Retention Completion: Five Sources Receive `D-404`; Read-Only Impact Inspected
+
+**Authority: the Judge, directly to Lane A, 2026-10-03**: *"Judge Accept: Accept the five-source unit as Lane B
+drafted it in B-154 at 50ed6b3; the B-050 proof needs no further act"*. The packet is Lane B's drafted table in
+`B-154` at `50ed6b3`, answering the gaps Lane B's `B-106` review of `D-404` found (`9ac6237`, `fb5edf1`, `4ea25dd`).
+This act is a bounded Phase 1 unit. It completes the remaining propagation `D-404` named, except the Encyclopedia
+comparison below. Pushing was not approved and is not done.
+
+### The decision
+
+1. **Addendum §2.4 (the ratification log).** The `A6` row reads: item "90-day first UI-visible boundary; external
+   archive/handoff on a valid supplied fact"; Category "Ratified under `D-404`", with the old "Assumed" kept as
+   history; `Ratified?` **Yes**; date 2026-10-03; approval artifact `D-404`, with the Chief Editor's 2026-09-15 act
+   (`B-106`) and `D-381`'s meaning; build implication "no automatic archive, disposal or deletion; the application
+   consumes only a supplied external fact". The §2.1 `A6` default and the §9 `G1` row keep their old auto-archive
+   text only as dated history. **`A4` and `OD1`–`OD3` still read No.**
+2. **Business Case.** The blanket sentence reads "A1–A5 and A7 remain assumed and unratified. A6 is ratified at 90
+   days under `D-404`…", with the old sentence kept as history. The `A6` validation row's `Ratified?` cell reads
+   **Yes**, pointing to Addendum §2.4, so it agrees with its Category cell (this corrects `D-404`'s own defect).
+   Both `A6` auto-archive labels are marked as history.
+3. **DECISION_LOG §3.** The pre-`D-404` "No ratification has occurred" event row is left byte-for-byte intact, under
+   the section's append-only rule. Text outside the table now dates it as the pre-2026-10-03 state. The former
+   "empty table" finding is kept as dated history: it still holds for `A4` and `OD1`–`OD3`.
+4. **Blueprint `A6` rows (§ assumptions and the ratification table).** For rejected/unpublished editorial records,
+   `A6` is the first UI-visible boundary defined by Business Case `RET-EDITORIAL`, acted on only when a valid fact
+   is supplied. No number is restated: the period is cited from the Business Case (`D-54`). `D-134`'s former first
+   archival trigger is history; its external retained-period provenance is kept. "Not a 90-day figure" is replaced,
+   and kept as history. The `D8` and `G1` pointer rows are unaffected: they point to `A6` and assert no value.
+5. **FN-AUDIT §5 `AC-12a` and its explanatory paragraph.** Three cases:
+   - a valid supplied fact: the record existed and is not shown here, with policy and version, period and
+     destination;
+   - missing or invalid evidence: archival or disposal is not established, and the last proved state remains;
+   - elapsed time alone: the same as missing evidence.
+
+   Archived records stay externally retrievable. Disposal is a separate external case with no V1 act. "No longer
+   retrievable" is kept as history. The parent row is still `Modular_PRD` `AC-12a` (`D-116`).
+6. **Read-only impact inspection (no edits).**
+   - Storyboard (`docs/journal/2026-08-18-storyboard-business-and-digital-twin.md`): **unaffected**. It holds no
+     retention, archival or `A6` content; its "disposition" and `GA6` hits are editorial dispositions and a gap ID.
+   - UML and data flow: **no dedicated file exists.** Eight documents contain Mermaid diagrams. None models
+     archival; FN-GATES §4.6's "retention" is supplied-`.md` payload retention, a different subject. The
+     Alpha Portfolio §6.5 wording ("the product does not … perform archival or disposal") already agrees.
+   - Traceability (`docs/governance/requirements-traceability-map.md`): **unaffected**, with no `A6` or retention row.
+   - **Encyclopedia Entry 02** ("Resolved vs. ratified"): **affected.** It maps Addendum §2.4, which item 1 changes.
+     The entry is compared after this commit, and any update or republication returns with its own approval route.
+7. **The construction and verification inputs these clauses create.** `AC-12a`'s three cases become `V1-SM05-FV-001`
+   acceptance inputs (failing first, then passing) in later authorized construction. No job, migration, deletion,
+   runtime metadata or code change is authorized. The runtime `UNRATIFIED` metadata moves only under a bounded Lane B
+   work order.
+
+### Not given by this act
+
+Closure of `B-106` (Lane B reviews this diff); the Encyclopedia update or republication; ratification of `A4` or
+`OD1`–`OD3`; Gate 2; the `V1-SM05` unblock; a push.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e230 |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ `D-405` paragraph |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-405` paragraph; no file added or retired |
+| **`docs/source/v1-build-readiness-addendum.md`** | ✅ §2.4 `A6`; §2.1 `A6` and §9 `G1` history labels |
+| **`docs/source/business-case.md`** | ✅ blanket sentence; `A6` validation row; `A6` assumption label |
+| **`docs/DECISION_LOG.md`** | ✅ §3 prose outside the table; event row untouched |
+| **`docs/source/blueprint.md`** | ✅ `A6` assumption and ratification rows; `D8`/`G1` pointers unaffected |
+| **`docs/fn-specs/FN-AUDIT-VISIBILITY-07-08.md`** | ✅ `[V1]` §5 `AC-12a` and paragraph |
+| Storyboard, traceability, Mermaid/UML-bearing docs | — unaffected (inspected, item 6) |
+| `Modular_PRD`, `CONFIG_LOG`, SPECS, version, rule files, Phase Closure, `.claude/`, `.github/`, frozen PRD/Charter/`0001` | — unaffected |
+| **Encyclopedia** | **Entry 02 affected** (Addendum §2.4). Compare after this commit; update/republish only by its own opt-in act |
+| **Graphify** | Synchronize at the final commit, keeping fragment-owned clustering fields; descriptions last |

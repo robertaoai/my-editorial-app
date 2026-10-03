@@ -128,7 +128,7 @@ These are defaults applied so the document has something to build against. They 
 | A3 | Week 1 publication target | WordPress auto-publish + LinkedIn manual fallback |
 | A4 | Trend scoring formula | Simple weighted sum (trend_score v0 + editorial_priority v0) |
 | A5 | Notification mechanism | In-app only for Week 1 |
-| A6 | Data retention | Auto-archive rejected/archived after 90 days; published articles kept indefinitely. **Ratified 2026-10-03 (`D-404`) under `D-381`'s meaning:** 90 days is the first UI-visible boundary, and archival is external, acted on a supplied fact; the application does not auto-archive |
+| A6 | Data retention | *(History, superseded by `D-404`: "Auto-archive rejected/archived after 90 days; published articles kept indefinitely".)* **Ratified 2026-10-03 (`D-404`) under `D-381`'s meaning:** 90 days is the first UI-visible boundary, and archival is external, acted on a supplied fact; the application does not auto-archive |
 | A7 | Bookmarklet | Copy-paste URL form only for Week 1 |
 
 ### Resolved via Three Lines Model (this revision)
@@ -266,7 +266,7 @@ review/expiry event.
 
 ### Ratification Log
 
-Assumed defaults (A1–A7) remain unratified. OD1 and OD2 are **resolved** (via Three Lines Model mapping) but **unratified**. OD3 is **partially resolved** — framework accepted, exact headcount deferred — and remains **open**. A resolution is not a ratification; an open decision is not a resolution. The Chief Editor must sign off in a discrete, dated event for each to move from resolved/open to ratified. A recommendation, assumed default, or structural resolution does not become a ratified decision by being labeled one. The full ratification log is maintained in Addendum v1.4 §2.4.
+A1–A5 and A7 remain assumed and unratified. A6 is ratified at 90 days under `D-404` and `D-381`'s supplied-fact meaning *(until 2026-10-03 this sentence read "Assumed defaults (A1–A7) remain unratified")*. OD1 and OD2 are **resolved** (via Three Lines Model mapping) but **unratified**. OD3 is **partially resolved** — framework accepted, exact headcount deferred — and remains **open**. A resolution is not a ratification; an open decision is not a resolution. The Chief Editor must sign off in a discrete, dated event for each to move from resolved/open to ratified. A recommendation, assumed default, or structural resolution does not become a ratified decision by being labeled one. The full ratification log is maintained in Addendum v1.4 §2.4.
 
 | # | Item | Category | Resolved? | Ratified? |
 |---|------|----------|-----------|-----------|
@@ -275,7 +275,7 @@ Assumed defaults (A1–A7) remain unratified. OD1 and OD2 are **resolved** (via 
 | A3 | WordPress auto + LinkedIn manual | Assumed | N/A | No |
 | A4 | Simple weighted sum scoring | Assumed | N/A | No |
 | A5 | In-app notifications only | Assumed | N/A | No |
-| A6 | 90-day auto-archive | **Ratified 2026-10-03** (`D-404`): 90-day first UI-visible boundary; archival external (`D-381`) | N/A | No |
+| A6 | 90-day first UI-visible boundary; external archive on a supplied fact *(history: "90-day auto-archive")* | **Ratified 2026-10-03** (`D-404`): archival external (`D-381`) | N/A | **Yes** — 2026-10-03, Addendum §2.4 (corrected `D-405`) |
 | A7 | Copy-paste URL form only | Assumed | N/A | No |
 | OD1 | Chief Editor = Chief Journalist? | Resolved (Three Lines Model) | **Yes** — Chief Editor = Line 2, Chief Journalist = Line 1, no float | No |
 | OD2 | Agent judgment independence? | Resolved (Three Lines Model) | **Yes** — satisfied by Line separation | No |

@@ -147,6 +147,10 @@ PR #2 comment, `SV-002` acceptance and the `V1-SM05` unblock remain separate Jud
 **`D-401` (2026-10-03) — `GR-012` observation: no writer seen, accepted by Judge reason** (31-minute window accepted
 explicitly). Lane B verifies. `V1-SM05` stays `BLOCKED`.
 
+**`D-405` (2026-10-03) — `A6` retention completion.** Addendum §2.4 records `A6` ratified (`D-404`); the Business
+Case, DECISION_LOG, Blueprint and FN-AUDIT `AC-12a` agree. `AC-12a`'s valid / missing-or-invalid / elapsed-only cases
+are later `V1-SM05-FV-001` inputs. No scope, sequence or DoD moves; no code or job. `V1-SM05` stays `BLOCKED`.
+
 **`D-404` (2026-10-03) — `A6` retention correction applied; `A6` ratified at 90 days.** `Modular_PRD` §6.3 and
 `AC-12a`, the Business Case, `CONFIG_LOG` and `DECISION_LOG` carry `D-381`'s meaning. No scope, sequence or DoD moves;
 no job, migration or runtime change. `V1-SM05` stays `BLOCKED`.
