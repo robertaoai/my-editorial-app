@@ -245,6 +245,26 @@
   **Keying this review in SV-002 §2.3.2 is deferred to the next governed batch,** because §2.3.2 is a governed
   file and keying it alone would force a sync cycle. This is the same reasoning as D-410's option B. No source-parent
   verification or build authority follows. B-050 stays Applied; B-154 stays Open; no Resolution is recorded.
+  **Answered again 2026-10-04, read at `a1eea14`.** Lane A receives Lane B's eleven P3a/P3b custody-receipt draft.
+  **Routing checked against the sources:**
+  - `GOV-RES-001` line 39 lists `B071-R202`, `R203` and `R206`–`R208` as proposed next receipts;
+  - `D-382` items 4–5 keep `B-095.D2b`/`S5` with `B-084` A4 and `B-096.GA1`/`S16` with `B-096`, out of
+    `GOV-RES-001`;
+  - `GR-001`/`GR-003` already hold `B-104.O2`/`O4`.
+
+  **Per key:**
+
+  | Key | Home | Result |
+  |---|---|---|
+  | `B071-R202`, `R203`, `R206`, `R207`, `R208` | `GOV-RES-001` §Receipts | **Accepted for custody as drafted**, prerequisite included: Lane A's bounded five-child review in `B-071` comes first |
+  | `B-095.D2b`, `B-095.S5` | `B-084` A4 body | **Accepted as drafted**, cross-linked from `B-095` |
+  | `B-104.O2`, `B-104.O4` | `GR-001`, `GR-003` | **Accepted as drafted** as a reaffirmation, with no duplicate receipt |
+  | `B-096.GA1`, `B-096.S16` | `B-096` custody body | **Accepted as drafted** |
+
+  **Rejected with Lane B:** bulk closure; Product or report scope moved into `GOV-RES-001`; a premature rename; an
+  MMF re-ask; a sample treated as end-to-end proof; a snapshot treated as a client report; parent Verified promotion.
+  Application and clearance wait for the Judge's bounded act. The deferred `9b3319d` §2.3.2 entry rides that same
+  batch. No row is closed by this answer. B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
