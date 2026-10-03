@@ -26168,3 +26168,58 @@ The observation result; any host setting change; `Verified` for `GR-012` or `B-0
 | Packets, `Modular_PRD`, Fn Specs, SPECS, rule files, Phase Closure, `SV-002`, `.github/` | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild at the final commit, verify the curated layer, fill descriptions last |
+
+## 5.14e226 `D-401` — `GR-012` Observation Recorded: No Writer Seen; Accepted by the Judge, Including the Shorter Window
+
+**Authority: the Judge, directly to Lane A, 2026-10-03**: *"accept the shorter window explicitly in the reason and
+complete the analysis as plan"*. Read at `a81e2bb`. Pushing was not approved and is not done.
+
+### The decision
+
+1. **The session ran under `D-400`'s contract**, from 10:49:26 to 11:20:26 SGT.
+   - **Duration:** 31 minutes. The commissioned 60 minutes was **stopped early by the Judge**.
+   - **Log:** `docs/handoff/artifacts/B-014/observation-2026-10-03.log`, SHA-256 `7d773745a56ca9e9…`.
+   - **Session record:** `observation-2026-10-03-session.md`, which holds the standard trigger prompt and the
+     times.
+2. **Coverage.** The Judge ran both cycles, open/load and skill discovery, in all six tools used on this checkout:
+   Antigravity, Antigravity IDE, ChatGPT Chat/Work, ChatGPT Codex, Claude Cowork and Claude Code. There were two
+   rounds, the second using the standard prompt. Every tool reported exactly one `sync-docs` skill, the canonical
+   `.claude/skills/sync-docs/SKILL.md`.
+3. **Result:** **0 changes** in `.claude`, `.agents`, `.codex` and `.github`. The empty `.agents/skills/sync-docs/`
+   was unchanged from start to end. **Outcome (b): no writer observed, coverage complete.**
+4. **The Judge's individual reason** (spec §2.4 G12-2(b)). The outcome is accepted because:
+   - all six tools in use were triggered twice and none wrote to the watched roots;
+   - each discovered only the canonical skill;
+   - the one evidenced mechanism that recreated the folder, the `syncDocs()` fixture teardown, is removed by
+     `GR-013`'s isolation and baseline restore;
+   - the historical Codex Desktop import (`SV-002` §3.4) did not recur.
+
+   **The shorter 31-minute window is accepted explicitly.** Both trigger rounds fell inside it, and the remaining
+   minutes would have observed no further triggers. The acceptance is bounded by this window and these triggers. It
+   is not a claim of eradication.
+5. **`GR-012` remaining DoD.**
+   - **G12-1** is met (`D-400` prose; checks pass).
+   - **G12-2(b)** is met by this act.
+   - **G12-3** does not apply to outcome (b).
+   - **G12-4:** the `sync-docs-unique` negative fixtures pass under isolation, 293/293 at `39f3bbd`.
+   - **G12-5:** independent verification by Lane B is requested in `B-014`.
+6. **The symptom folder stays.** It is empty and untracked, and was not deleted. Removing it is not part of the
+   accepted remedy, because deletion was rejected as a fix.
+
+### Not given by this act
+
+`Verified` for `GR-012` or `B-014`; any host setting change; a push; Gate 2.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e226 |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ `D-401` paragraph |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-401` paragraph; two evidence files added under `docs/handoff/artifacts/B-014/` |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/GOV-RES-001.md`** | ✅ `GR-012` outcome (b) accepted |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/GR-012-013-SPEC.md`** | ✅ status |
+| **`docs/handoff/B-014-b005-sync-skill-recurrence.md`** | ✅ terminal annotation and Lane B request, in its own commit |
+| Packets, `Modular_PRD`, Fn Specs, SPECS, rule files, Phase Closure, `SV-002`, `.claude/`, `.github/` | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild at the final commit, verify the curated layer, fill descriptions last |

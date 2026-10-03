@@ -485,6 +485,10 @@ own one-path commit.
 **`D-400` (2026-10-03) — no file added or retired, stated explicitly.** `.claude/skills/sync-docs/SKILL.md`,
 `GR-012-013-SPEC.md` and `GOV-RES-001.md` change in place. The observation log lands under `docs/handoff/artifacts/B-014/`.
 
+**`D-401` (2026-10-03) — two evidence files added, none retired, stated explicitly.**
+`docs/handoff/artifacts/B-014/observation-2026-10-03.log` and `observation-2026-10-03-session.md`; `GOV-RES-001.md` and
+`GR-012-013-SPEC.md` change in place; `B-014` annotated in its own commit.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |
