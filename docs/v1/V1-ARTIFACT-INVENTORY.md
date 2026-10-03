@@ -508,6 +508,10 @@ answered in its own commit.
 **`D-407` (2026-10-03) — no file added, retired or changed beyond the Register, Build Spec and this paragraph,
 stated explicitly.** The (b) migration packet lives outside the repository until accepted.
 
+**`D-408` (2026-10-03) — no file added or retired, stated explicitly.** 126 `docs/graph-fragments/frag*.json` files,
+`merge7.js`, the fragments `README.md`, `scripts/checks/graph-coverage.mjs` and `scripts/fixtures/suites.mjs` change
+in place.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

@@ -17,7 +17,7 @@ The knowledge graph at `.graphify/` has **two layers**, and only one of them is 
 | **Extracted** | `graphify` reading `docs/` | **Yes** — re-run extraction |
 | **Curated** | Hand-authored fragments merged in by script | **No** — extraction cannot infer them |
 
-The curated layer carries the concepts that exist **because a human decided something**, not because a document happened to say it: `D-39`–`D-50`, the `GA5` retention/erasure resolution, the two-tier lifecycle, the fork at publish, and communities 28 and 29.
+The curated layer carries the concepts that exist **because a human decided something**, not because a document happened to say it: `D-39`–`D-50`, the `GA5` retention/erasure resolution, the two-tier lifecycle and the fork at publish. They are held by stable node ids (`separation_of_duties_d39` … `not_newsworthy_outcome_d50` in `frag6.json`, `two_tier_lifecycle_d44`, `fork_at_publish_d47`, `ga5_retention_erasure_conflict`), never by a community number. *History, until `D-408`: this sentence ended "and communities 28 and 29". Community ids and names are graphify-derived and re-assigned on every re-cluster, so fragments no longer store them (`D-213`, `D-407`, `D-408`).*
 
 **`.graphify/` is gitignored.** Before this directory existed, the curated layer lived **only** in a session-scoped temp directory. It was one session expiry — or one `npm uninstall` — from being gone, with no error and no warning. That is `G51`.
 
@@ -80,7 +80,7 @@ Merge **in this order** — later fragments reference nodes earlier ones introdu
 | 5 | `v1-fragment.json` | V1 tracking, sprints, artifacts |
 | 6 | `frag5.json` | `Fn_Specs` tier, gates and publication |
 | 7 | `frag6.json` | `D-39`–`D-50`, lifecycle and compliance |
-| 8 | `frag7.json` | Tooling provenance, graph durability, `D-51`, community 30 |
+| 8 | `frag7.json` | Tooling provenance, graph durability, `D-51` *(history: "community 30" removed by `D-408`; communities are graphify-derived)* |
 | 9 | `frag8.json` | Step 0 index integrity — `G55`, `G56`, `G40` detail |
 | 10 | `frag9.json` | Step 1 — `D-52`, `G33b` resolved, the four `SPECS` documents |
 | 11 | `frag10.json` | `D-53` — `SPECS-TRANSITION-ENFORCEMENT`, `G57` |
@@ -161,7 +161,7 @@ Run all four. A merge is not done until each passes:
 
 1. `bun run check`'s `graph-coverage` — every doc that requires a node has one whose `source_file` equals its path (`D-246`). `node docs/graph-fragments/missing.js` remains as a reference report, but it only tests whether a **basename appears anywhere** in the graph and is not evidence that a document has a node of its own — the older wording of this step relied on it. One exclusion is expected and correct: `docs/.graphify/GRAPH_REPORT.md` is a graphify artifact, not a source doc.
 2. `graphify path "<new node>" "<existing node>"` — the new nodes are **connected**, not orphaned. This is the check that catches the `edges`/`links` trap.
-3. `graphify explain "<new concept>"` — resolves, with the right community and a non-zero degree.
+3. `graphify explain "<new concept>"` — resolves by its label, with a non-zero degree. Its community is graphify-derived and is not checked against the fragment (`D-408`; until then this step read "with the right community"). `explain` matches labels, not ids: an id lookup returning "no match" is a CLI limit, not a missing node (`D-406`).
 4. `graphify portable-check .graphify` — commit-safe artifacts carry repo-relative paths.
 
 **Back up `.graphify/graph.json` before merging.** Every merge in this project has been preceded by one.

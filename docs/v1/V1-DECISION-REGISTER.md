@@ -26593,3 +26593,65 @@ repair; Gate 2; a push.
 | All other tiers, frozen sources | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | No live sync; packet replay later, in disposable state |
+
+## 5.14e233 `D-408` — Option (b) Migration Applied: Fragments No Longer Store Clustering Fields
+
+**Authority: the Judge, directly to Lane A, 2026-10-03**: *"Judge Approved: Accept the (b) migration packet as
+written."* The packet is `C:/CoWork/outputs/lane-a-route1-2026-10-03/B-MIGRATION-PACKET.md`, read at `87c9891` and
+commissioned by `D-407`. It extends `D-213`'s derived-duplicate ruling from `frag131` to every fragment. This act is
+a bounded Phase 1 unit, applied by Lane A while Active. A live graph sync and a push are not authorized.
+
+### The decision
+
+1. **126 fragments**: every node-level `community` and `community_name` line is removed (1068 lines on 534 nodes),
+   and a trailing comma is dropped only where the removed line was last (61 places). The applied files are byte-
+   identical to the dry-run output. That output parsed as JSON equal to the original minus those two keys, so no
+   label, description, edge or other field changed.
+2. **`merge7.js`**: the hard-coded `community_labels` for ids 28–30 are removed. Labels are graphify's, and the pins
+   re-imposed stale names on whatever graphify re-clustered into those ids (`D-406`'s 51 non-fragment
+   disagreements). `validateFragment` now **refuses** a fragment node that declares either field (fail closed).
+   The presence-based ownership rule, header item (d), is unchanged.
+3. **README**: §1 names the stable ids that hold the human-decided concepts (`separation_of_duties_d39` …
+   `not_newsworthy_outcome_d50`, `two_tier_lifecycle_d44`, `fork_at_publish_d47`,
+   `ga5_retention_erasure_conflict`) instead of "communities 28 and 29". The §4 `frag7` row drops "community 30".
+   §5 step 3 no longer checks "the right community", and records the CLI's label-not-id `explain` limit. Every old
+   phrase is kept as dated history.
+4. **Check:** `graph-coverage` gains a fragment derived-field rule (`derivedFieldFindings`). Because fragments are
+   tracked, it runs even where the graph is absent. A new fixture suite has 4 cases (clean passes; both fields
+   refused, naming fragment and node; `community_name` alone refused; a detect manifest ignored). **Negative test:**
+   reintroducing `community` on one `frag6` node made both the check and `merge7 --verify-only` fail by name, and
+   restoring returned 0 findings.
+5. **Meaning preserved, measured:** all 534 affected nodes keep a label, a description and at least one edge.
+   `frag6`'s 12 nodes still pass `merge7` semantic equality.
+6. **Next, as the packet requires:** an isolated replay at this act's commit (rebuild → restore → ordered merge →
+   semantic ingest → final merge). It passes only with:
+   - 139/139 saved parity under the revised contract;
+   - no curated node or link lost;
+   - `check-update` reporting current;
+   - branch metadata naming the tested revision;
+   - **0 node/label-map contradictions**, with no community id carrying two names;
+   - the named stable ids resolving;
+   - the full check passing;
+   - the caller unchanged.
+
+   Lane B reviews it in `B-050`. A live sync is a separate act after that review.
+
+### Not given by this act
+
+A live graph sync (`docs-drift` stays red); tool repair (option (c)); B-050, B-071 or B-154 disposition; Gate 2; a
+push.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e233 |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ `D-408` paragraph |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-408` paragraph; no file added or retired |
+| **`docs/graph-fragments/README.md`** | ✅ item 3 |
+| **`docs/graph-fragments/merge7.js`** | ✅ item 2 |
+| 126 graph-fragment JSON files | Changed by item 1. JSON carries no decision citation, so `tier-sweep` cannot map it; the commit diff and `graph-coverage`'s derived-field rule are the evidence |
+| **`scripts/checks/graph-coverage.mjs`**, **`scripts/fixtures/suites.mjs`** | ✅ item 4 |
+| Product, Fn Specs, SPECS, version, rule files, Phase Closure, `.claude/`, `.github/`, frozen sources | — unaffected |
+| **Encyclopedia** | — unaffected (no entry maps the graph fragments, per `docs/ENCYCLOPEDIA-SYNC.md`) |
+| **Graphify** | Curated layer changed; isolated replay next; live sync only by a later act |

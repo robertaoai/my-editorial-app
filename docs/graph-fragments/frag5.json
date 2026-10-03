@@ -6,9 +6,7 @@
       "file_type": "document",
       "source_file": "docs/fn-specs/FN-GATES-01-05.md",
       "source_location": "",
-      "description": "Functional specification for the five editorial gates. Covers intake, validation and investigation as two distinct transitions, drafting with meaning-invariance, Line 2 human review at T5 with a blind first pass, and independence classification with three outcomes and no silent fourth state. Its section 9 applies the D-30 redundancy filter and names five components that require SPECS. (Qualified 2026-10-02, D-385: Sections 1-10 are the historical documented-and-held contract, including the Line 2 human T5 review; the decided target in section 11 (D-171, D-175, D-238, D-251) and the V1-SM05 slice in sections 4.4-4.6 govern current use.)",
-      "community": 28,
-      "community_name": "V1 Functional Specifications"
+      "description": "Functional specification for the five editorial gates. Covers intake, validation and investigation as two distinct transitions, drafting with meaning-invariance, Line 2 human review at T5 with a blind first pass, and independence classification with three outcomes and no silent fourth state. Its section 9 applies the D-30 redundancy filter and names five components that require SPECS. (Qualified 2026-10-02, D-385: Sections 1-10 are the historical documented-and-held contract, including the Line 2 human T5 review; the decided target in section 11 (D-171, D-175, D-238, D-251) and the V1-SM05 slice in sections 4.4-4.6 govern current use.)"
     },
     {
       "id": "fn_publication_09_10_13",
@@ -16,9 +14,7 @@
       "file_type": "document",
       "source_file": "docs/fn-specs/FN-PUBLICATION-09-10-13.md",
       "source_location": "",
-      "description": "Functional specification for publishing, confirming a manual publish, and order-driven retraction. Grouped because a retraction is a publication and a notice inherits its targets from the original, so FR-13 cannot function without FR-09's target model. First spec written to the merged structure adding User Stories and Risks.",
-      "community": 28,
-      "community_name": "V1 Functional Specifications"
+      "description": "Functional specification for publishing, confirming a manual publish, and order-driven retraction. Grouped because a retraction is a publication and a notice inherits its targets from the original, so FR-13 cannot function without FR-09's target model. First spec written to the merged structure adding User Stories and Risks."
     },
     {
       "id": "t1_execution_runbook",
@@ -26,9 +22,7 @@
       "file_type": "document",
       "source_file": "docs/journal/2026-08-19-t1-execution-runbook.md",
       "source_location": "",
-      "description": "Step-by-step procedure for all 23 T1 items, fulfilling D-21. Orders the four-payload CLAUDE.md and AGENTS.md edit first as highest leverage, then verification apparatus, ratification, wording fixes, governance placement, the decision batch, and Fn_Specs. Carries the standing constraint to apply proposed text in full, which is the G32 countermeasure.",
-      "community": 28,
-      "community_name": "V1 Functional Specifications"
+      "description": "Step-by-step procedure for all 23 T1 items, fulfilling D-21. Orders the four-payload CLAUDE.md and AGENTS.md edit first as highest leverage, then verification apparatus, ratification, wording fixes, governance placement, the decision batch, and Fn_Specs. Carries the standing constraint to apply proposed text in full, which is the G32 countermeasure."
     },
     {
       "id": "intent_hierarchy_d29",
@@ -36,9 +30,7 @@
       "file_type": "concept",
       "source_file": "docs/v1/V1-DECISION-REGISTER.md",
       "source_location": "section 2.3",
-      "description": "PRD to Modular_PRD to Fn_Specs to SPECS. Intent flows downward; each tier elaborates the one above and may never contradict it. Change localization is the purpose: a change lands in the tier that owns it and only that document changes.",
-      "community": 28,
-      "community_name": "V1 Functional Specifications"
+      "description": "PRD to Modular_PRD to Fn_Specs to SPECS. Intent flows downward; each tier elaborates the one above and may never contradict it. Change localization is the purpose: a change lands in the tier that owns it and only that document changes."
     },
     {
       "id": "specs_redundancy_rule_d30",
@@ -46,9 +38,7 @@
       "file_type": "concept",
       "source_file": "docs/v1/V1-DECISION-REGISTER.md",
       "source_location": "section 2.3",
-      "description": "If a behaviour can be defined clearly enough in Fn_Specs, a SPECS document for it is redundant and must not be written. SPECS exists only where functional definition alone cannot determine implementation. This prevents SPECS becoming a restatement layer, which is the mechanism behind the project's recurring drift defect.",
-      "community": 28,
-      "community_name": "V1 Functional Specifications"
+      "description": "If a behaviour can be defined clearly enough in Fn_Specs, a SPECS document for it is redundant and must not be written. SPECS exists only where functional definition alone cannot determine implementation. This prevents SPECS becoming a restatement layer, which is the mechanism behind the project's recurring drift defect."
     },
     {
       "id": "spec_tier_mapping_d34",
@@ -56,9 +46,7 @@
       "file_type": "concept",
       "source_file": "docs/v1/V1-DECISION-REGISTER.md",
       "source_location": "section 2.3",
-      "description": "The specs-creator tool chain is a labelling map, not a blocker. app-vision.md maps to Modular_PRD because an app is a product; prd.md maps to docs/fn-specs; tech-specs.md maps to docs/specs; ux.md maps to docs/specs/ux for UI/UX per tech-stack. A stack change lands in specs and neither disturbs fn-specs.",
-      "community": 28,
-      "community_name": "V1 Functional Specifications"
+      "description": "The specs-creator tool chain is a labelling map, not a blocker. app-vision.md maps to Modular_PRD because an app is a product; prd.md maps to docs/fn-specs; tech-specs.md maps to docs/specs; ux.md maps to docs/specs/ux for UI/UX per tech-stack. A stack change lands in specs and neither disturbs fn-specs."
     },
     {
       "id": "two_progress_trackers_d35",
@@ -66,9 +54,7 @@
       "file_type": "concept",
       "source_file": "docs/Modular_PRD.md",
       "source_location": "section 8.0",
-      "description": "Modular_PRD section 8.0 tracks build versions and their sprints; the Alpha Portfolio plan tracks projects. A sprint stays inside one project and a new project is a portfolio event, so the two trackers do not overlap. Notation is mandatory: V1 and V2 are build versions, 1.7 and 1.8 are document revision lineage, and they are unrelated.",
-      "community": 28,
-      "community_name": "V1 Functional Specifications"
+      "description": "Modular_PRD section 8.0 tracks build versions and their sprints; the Alpha Portfolio plan tracks projects. A sprint stays inside one project and a new project is a portfolio event, so the two trackers do not overlap. Notation is mandatory: V1 and V2 are build versions, 1.7 and 1.8 are document revision lineage, and they are unrelated."
     },
     {
       "id": "tracking_vs_specs_d36",
@@ -76,9 +62,7 @@
       "file_type": "concept",
       "source_file": "docs/v1/V1-DECISION-REGISTER.md",
       "source_location": "D-36",
-      "description": "V1-*.md are tracking files that freeze at sprint close; specs carry no version prefix and never freeze. Specs moved out of the version-named directory so separation is by lifecycle rather than version. Each spec section is marked with the build version that introduced it, and an unmarked change to a V1 section is a defect rather than an update.",
-      "community": 28,
-      "community_name": "V1 Functional Specifications"
+      "description": "V1-*.md are tracking files that freeze at sprint close; specs carry no version prefix and never freeze. Specs moved out of the version-named directory so separation is by lifecycle rather than version. Each spec section is marked with the build version that introduced it, and an unmarked change to a V1 section is a defect rather than an update."
     },
     {
       "id": "plan_pack_reclassification_d37",
@@ -86,9 +70,7 @@
       "file_type": "concept",
       "source_file": "docs/v1/V1-DECISION-REGISTER.md",
       "source_location": "D-37",
-      "description": "DATA_MODEL, ARCHITECTURE and TASKS came from the original Q&A flow alongside PRD.md and are frozen candidate references of the same status class. D5's claim that they were generated from the app name is not supportable: they name the exact six gate roles, the full five-gate flow, and the correct provisioned stack. Accurate about the substrate, silent on governance rather than wrong about it.",
-      "community": 28,
-      "community_name": "V1 Functional Specifications"
+      "description": "DATA_MODEL, ARCHITECTURE and TASKS came from the original Q&A flow alongside PRD.md and are frozen candidate references of the same status class. D5's claim that they were generated from the app name is not supportable: they name the exact six gate roles, the full five-gate flow, and the correct provisioned stack. Accurate about the substrate, silent on governance rather than wrong about it."
     },
     {
       "id": "topic_semantics_d38",
@@ -96,9 +78,7 @@
       "file_type": "concept",
       "source_file": "docs/v1/V1-DECISION-REGISTER.md",
       "source_location": "D-38",
-      "description": "In an editorial business the topic is the subject, not a label. articles.topic_id is a single foreign key holding exactly one subject topic; trend_signals with signal_type topic_tag hold many analytical tags for trending and angle analysis. Two concepts sharing one word. The schema is correct as applied; FR-01's wording conflates them.",
-      "community": 28,
-      "community_name": "V1 Functional Specifications"
+      "description": "In an editorial business the topic is the subject, not a label. articles.topic_id is a single foreign key holding exactly one subject topic; trend_signals with signal_type topic_tag hold many analytical tags for trending and angle analysis. Two concepts sharing one word. The schema is correct as applied; FR-01's wording conflates them."
     },
     {
       "id": "one_word_two_concepts_pattern",
@@ -106,9 +86,7 @@
       "file_type": "concept",
       "source_file": "docs/v1/V1-DECISION-REGISTER.md",
       "source_location": "D-38",
-      "description": "Five recorded instances of a naming difference being mistaken for a structural incompatibility: Project versus Product PRD, app-vision.md versus Modular_PRD, pub_target versus platform_type, tracking files versus specs, and subject topic versus analytical tag. Countermeasure: before recording a contradiction, check what the unfamiliar label maps to and whether one word is carrying two concepts. D-22's dual financial terminology is the precedent.",
-      "community": 28,
-      "community_name": "V1 Functional Specifications"
+      "description": "Five recorded instances of a naming difference being mistaken for a structural incompatibility: Project versus Product PRD, app-vision.md versus Modular_PRD, pub_target versus platform_type, tracking files versus specs, and subject topic versus analytical tag. Countermeasure: before recording a contradiction, check what the unfamiliar label maps to and whether one word is carrying two concepts. D-22's dual financial terminology is the precedent."
     }
   ],
   "edges": [

@@ -8,8 +8,6 @@
       "source_file": "docs/v1/V1-DECISION-REGISTER.md",
       "source_location": "§5.14dx",
       "description": "Chief Editor decision correcting D-170's narrower stance, answering Lane B's independent completion review of B-068 (B068-R8). D-170 left V1-BUILD-SPEC.md's current T5/T6 order build-authorized (D-164/D-165) even though a different order was decided as target -- silence was not authorization, but nothing said so, and Lane B could have built the already-superseded order in good faith. D-171 places an explicit hold on BOTH the current and target order: no T5/T6-sensitive route, RPC, UI, migration, or test starts until F6 lands and a fresh build authorization selects one contract. Also drafts F6 content: a Line/executor matrix for EG1-EG5 plus Delivery, derived from raci-involvement-matrix.md Section 4's existing rule that Line 2/Accountable sits only with the Acting Chief Editor (so Chief Editorial Desk at target T5 must be Line 1, not Line 2); relocates the human-only canary from T5 to T6; defines the blind-review sequence as an ordered event pair (disposition sealed, then reveal-and-decide); redefines the T6-to-T5 return metric for the inverted actor direction; and defines which role/Line substitutions count as an override. Gate evidence/negative tests and delivery-node protection remain undrafted, pending F4's CSV crosswalk. F3 and F4 remain fully open.",
-      "community": 3,
-      "community_name": "Requirements Traceability",
       "source_url": null,
       "captured_at": null,
       "author": null,

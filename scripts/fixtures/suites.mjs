@@ -2328,6 +2328,28 @@ export async function terminalReturnDecision(results) {
  * They pin the six properties `docs/handoff/B-119` named, plus the reverse
  * reference, so a future edit that loosens any of them fails here by name.
  */
+/**
+ * `D-408`: fragments never store graphify-derived clustering fields. Pure, so no graph or mutation.
+ */
+export async function graphCoverageDerivedFields(results) {
+  const { derivedFieldFindings } = await import("../checks/graph-coverage.mjs");
+  const add = (name, ok, detail) => results.push({ name, ok, detail });
+  const clean = ["fragA.json", { nodes: [{ id: "a", label: "A" }], edges: [] }];
+  const both = ["fragB.json", { nodes: [{ id: "b", label: "B", community: 28, community_name: "X" }] }];
+  const nameOnly = ["fragC.json", { nodes: [{ id: "c", community_name: "Community 58" }] }];
+  const manifest = ["docs-fragment.json", { files: ["x.md"], total_files: 1 }];
+
+  add("derived fields: a fragment without clustering fields passes", derivedFieldFindings([clean, manifest]).length === 0,
+    JSON.stringify(derivedFieldFindings([clean, manifest])));
+  const f = derivedFieldFindings([both]);
+  add("derived fields: community and community_name are each refused, naming fragment and node",
+    f.length === 2 && f.every((x) => x.startsWith('fragB.json: node "b"')), JSON.stringify(f));
+  add("derived fields: community_name alone is refused", derivedFieldFindings([nameOnly]).length === 1,
+    JSON.stringify(derivedFieldFindings([nameOnly])));
+  add("derived fields: a detect manifest (no nodes array) is not a fragment and is ignored",
+    derivedFieldFindings([manifest]).length === 0, "manifest must not be read as a fragment");
+}
+
 export async function graphCoverageManifest(results) {
   const {
     COVERAGE_ONLY_MANIFEST,
@@ -2790,6 +2812,7 @@ export const SUITES = [
   ["lane-boundary tool-crossing retirement (`D-227`, applied by `D-228`)", laneBoundaryToolCrossing],
   ["governed-intent exclusion matcher (`D-231`)", governedIntentExclusion],
   ["graph-coverage manifest and exact source-path evidence (`D-246`)", graphCoverageManifest],
+  ["graph-coverage fragment derived-field rule (`D-408`)", graphCoverageDerivedFields],
   ["docs-drift argument safety (`B-109`)", docsDriftArgumentSafety],
   ["config coupling (`C-17`, raised as `B-024`)", configCoupling],
   ["reopens-phase (`C-19`, raised as `B-025`)", reopensPhase],
