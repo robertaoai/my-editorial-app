@@ -162,3 +162,16 @@ claims while the blocking check is open.
 | Reject | Treating `S12`'s schema read as independently confirmed | `E1` applies; a record is not a confirmation |
 | Reject | Any migration, application or publication act from this entry | Later authorization remains required |
 | Defer | Graphify synchronization | After the final tracked correction |
+
+## Child custody receipts — `GA1` and `S16`, 2026-10-04 (`D-412`)
+
+Received by Lane A in this entry, per `D-382` item 5: report scope is excluded by `SM05-X1` and stays with `B-096`,
+not with `GOV-RES-001`. Drafted by Lane B in `B-154` (`a1eea14`) and accepted by the Judge under `D-412`. The child
+dispositions above are unchanged: GA1 stays **Answered** (planning) and S16 stays **Open**. Custody is not delivery.
+
+| Child | Remaining scope | Hold | Return trigger | Completion criterion and refusal example |
+|---|---|---|---|---|
+| `GA1` | `editorial_reports` holds insert-only, transition-anchored explainability snapshots (`0002`), **not** the fifteen client-facing deliverables. The genuine client-artifact gap is retained. Two-actor corroboration is not independent verification of an applied spec | Report scope excluded by `SM05-X1` | The Judge selects the exact report/client-artifact specification, or an authorized `S17` correction claims the gap is obsolete | An authorized artifact-kind/delivery contract covers the named client deliverables and is independently reviewed; delivery is verified later and separately. **Refuses:** marking GA1 obsolete because a snapshot table exists; three duplicate storyboard documents |
+| `S16` | The explainable-report projection: an explicit field-visibility allowlist, the transition anchor, schema/template versions, and the relation to one metadata version. Earlier metadata is never mutated, and no descriptive field is public by default (Choice A, `D-281`/`D-282`) | Report scope excluded by `SM05-X1`; no automatic `V1-SM06` allocation | The Judge selects the bounded report contract **after** the relevant `S15` identity/version contract | The accepted logical projection names its inputs, anchor and visible fields. An independent documentary review checks private-field refusal, a wrong or missing anchor, and a metadata-version mismatch. Migration, UI and leak tests are later Lane B work under a separate order. **Refuses:** the bounded SM05 metadata version counted as S16; the report used as working storage; every field public |
+
+`B-096` stays Open.
