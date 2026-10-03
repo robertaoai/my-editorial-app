@@ -418,3 +418,24 @@ The current parent docket and follow-up sequence are in B-154's single current c
 | Approve-with-conditions | Four-document semantic completion | Phase 1: explicit current/history corrections and independent diff review |
 | Reject | Complete ratification-log receipt, all-consumer propagation or whole B-106 verification claimed from this diff | Phase 1: Addendum/Blueprint/FN receipts and evidence-backed impact assessment remain |
 | Defer | A4/runtime metadata, feature construction and B-106 whole-entry closure | Separate authorized Lane B unit / applicable later implementation phase; then whole-obligation disposition |
+
+## Lane B independent applied-diff review — D-405, 2026-10-03
+
+**Read revision:** `c0a925c8651928a0ede1ae01a23f128780600a04`. Lane B compared the committed five-source diff and D-405 Register act with the D-404 correction and this entry's outstanding propagation. This is an independent **scoped source review**, not a Verified disposition for B-106. Lane A owns its answer; the Open header and runtime-metadata child remain unchanged. B-154 holds the single current parent-first docket.
+
+| Source and construction/verification input | Independent result |
+|---|---|
+| Addendum §2.4 A6 and Business Case mirror | **Supported.** A6 now has Yes, 2026-10-03 and D-404/B-106/D-381 provenance in the ratification log; the Business Case's separate `Ratified?` cell also says Yes. A4 and OD1–OD3 still say No. The former auto-archive instructions are explicitly marked history, and Blueprint cites the Business Case for the current first UI boundary without copying the number. |
+| DECISION_LOG §3 | **Supported.** The old no-event row remains byte-for-byte intact; dated current prose identifies the A6 event and the remaining unratified items. |
+| FN-AUDIT §5 AC-12a | **Supported with a wording condition.** The normative row now distinguishes valid supplied fact, missing/invalid fact and elapsed-time-only; archive remains externally retrievable and disposal has no V1 act. The explanatory paragraph immediately below still leads with “once deletion has happened” and “lawful disposal,” placing the historical/broader case before the V1 archival case. Its parenthetical narrows V1 correctly, but a builder or test author can still read the lead as a current deletion requirement. Lane A should lead with the V1 supplied-fact/archive behavior and label any disposal example historical or external in a separately bounded Phase 1 source correction. No deletion test or job follows from D-405. |
+| Addendum §2.1 A6 rationale | **Minor wording condition.** Its current value points to the ratified §2.4 A6 boundary, but the rationale still reads “Conservative default.” Lane A should label that rationale historical or replace it with a pointer to the dated ratification in the same bounded wording correction; do not reopen A6 or infer ratification of neighboring rows. |
+| Impact inspection and Encyclopedia Entry 02 | D-405 records the storyboard and traceability map as unaffected and no dedicated UML/data-flow file; this review did not independently inspect every Mermaid page. Entry 02 maps the changed Addendum §2.4 and still needs Lane A's **post-commit comparison**. Any hosted edit/publication requires its own scope and authority. |
+
+**Acceptance boundary:** D-405 delivers the five-source specification inputs, not application behavior, runtime `UNRATIFIED` metadata, graph currency, full B-106 closure or Gate 2 clearance. AC-12a's cases become later authorized construction and failing-first/passing verification inputs. Lane A may accept the supported rows and answer the two wording conditions and Encyclopedia receipt in its own answer/act; no fresh Judge decision on A6's value is requested.
+
+| Verdict | Scope | Condition / follow-up phase |
+|---|---|---|
+| Approve | D-405's A6 ratification receipt, Business Case status mirror, dated event history, Blueprint citation and AC-12a's three normative cases | Phase 1: receive this scoped review in the Lane A answer; use as later construction/verification input only |
+| Approve-with-conditions | Source prose and post-commit Encyclopedia comparison | Phase 1: bounded wording correction for FN-AUDIT paragraph/Addendum rationale; dated Entry 02 comparison and separate authority if publication is needed |
+| Reject | Whole B-106 Verified, application archive/deletion, or completed graph sync inferred from D-405 | Phase 1: retain source/runtime/graph obligations at their owners |
+| Defer | Runtime metadata, implemented AC-12a cases and whole-parent clearance | Later authorized Lane B unit and applicable SM05 verification; Phase 1 source/graph receipts first |
