@@ -232,7 +232,7 @@
 
 ## What happened
 
-**Current review:** use the final **“Lane B completion brief — the remaining 29 non-SM05 rows, 2026-10-03”** block. It incorporates the D-409 acceptance and the subsequently recorded Judge choice to batch P3 with the next governed change. Its current results and proposals supersede pending-work statements in earlier review blocks; earlier evidence and Lane A answers remain history. B-014, B-021 and B-155 now carry independent source verification at 6bc0e99; this wider parent plan stays Open. Lane B raises; Lane A alone answers.
+**Current review:** use the final **“Lane B review — D-410/D-411 completion and remaining follow-up, 2026-10-04”** block. D-410 is now registered/applied; D-411 closes three specific tracker rows by Judge acceptance. The previous 29-row brief remains its dated evidence/draft baseline; the current derivation reports 26 remaining rows. Earlier evidence and Lane A answers remain history. This wider parent stays Open. Lane B raises; Lane A alone answers.
 
 The Judge requests one practical, parent-first Lane B analysis for Lane A to answer: consolidate the existing handoff review, business-to-system trace, residual custody and verification plan. Do not build. The Judge's Lane C B-115 consumer-read approval is already recorded by D-386. **Update:** the Judge has now supplied Lane C's four-condition consumer result; the October 2 challenge below records its provenance and distinguishes that evidence from source completion.
 
@@ -1578,3 +1578,103 @@ There is already a tracking layer; no additional live ledger is needed. The chec
 | Approve-with-conditions | Row-specific closure/custody drafts and parent-first implementation plan | Phase 1: exact receiver receipts/correction packets, independent assessment or individual Judge acceptance; P3 in next governed batch |
 | Reject | Automatic parent closure, non-blocking-as-clearance, cyclic pre-entry code/hosted requirements, graph/CI/database guarantees or full CR-19 completion | Phase 1: correct claims at their owning sources; no execution inferred |
 | Defer | Remaining source dispositions, DOD-01/02/04/06, Gate 2 and application construction | Remaining Phase 1 evidence and separate Judge acts; later authorized Phase 2/SM05 and Phase 3/SM06 |
+
+## Lane B review — D-410/D-411 completion and remaining follow-up, 2026-10-04
+
+**Lane B raises; Lane A alone answers.** Judge-authorized review, read at `0153b2743441fdd1af15c5392e82aeb67b581485`. The existing template header, Lane A answer, Open status and historical blocks are preserved. This is independent review plus draft follow-up, not a new handoff, whole-entry Verified disposition or build work order.
+
+**Request clarified:** review Lane A's committed response to the prior completion brief; accept or reject each delivered correction and graph candidate on actual evidence; identify the remaining source/child obligations; give Lane A concrete parent-first decision packets, construction/test inputs and closure criteria. Use existing tracking homes, preserve held scope and build nothing.
+
+### Delivered artifacts — independent Accept/Reject result
+
+| Parent → delivered child | Evidence examined / Lane B result | Completion boundary / follow-up phase |
+|---|---|---|
+| Judge option B → D-410 procedure application | **Accept.** Register, Build Spec and Inventory record D-410/D-411. Both README §5 and sync-docs §7 match the approved clause word-for-word after whitespace/quote normalization; only the authorized six Lane A source paths changed | Phase 1 procedure text delivered. It proves no permanent external-tool repair or newly executable control |
+| D-411 individual reasons → three tracker rows | **Accept.** B-046, B-095 (B-095.D1) and B-104 (B-104.O3) read closed with their own D-411 basis. Source headers are unchanged; Superseded is preserved on B-046 and siblings retain owners | Phase 1 source/child clearance only. B-050, B-095 and B-104 whole parents are not completed by these rows |
+| Authorized sync → backup/recovery evidence | **Accept.** All 545 actual backup and scratch test-restore files match the pre-state SHA-256 manifest; both saved copy manifests also agree | Phase 1 observed graph recovery. No database/schema rollback or zero-data-loss claim; this review does not replay a live restore |
+| Complete group membership → intended/saved names | **Accept.** 110/110 full member lists and canonical hashes match the saved graph and all four saved stages. The 82 reused names match actual prior Lane B acceptance and complete prior members; all 28 changed names were independently read against their full current member labels | Phase 1 candidate review. Representative topic names and numbered decision ranges are not exhaustive class or authority boundaries |
+| Final merge → persisted curated meaning | **Accept.** 139/139 fragments agree with saved graph, including all 5,927 declared node fields and 9,703 declared edge fields; no missing/different declared node or edge. All 110 global names and all 2,007 node names match; 110 distinct names | Phase 1 saved-state proof. Relation-key presence alone would not prove edge-field parity; that stronger comparison was performed independently here |
+| Pinned source revision → checks/tracker | **Accept.** Git-enabled bun run check passes 19/19; graphify check-update current; caller branch metadata names 0153b27 and stale=false. Tracker derivation 22a1116 is current: 106 rows, 26 non-SM05 unclosed, 0 SM05 not received, 0 unlisted live entries, 0 unreferenced children, 0 invalid rows | Phase 1 dated observation; reporting mode remains no Gate 2 claim. The old 29-row count and pending-D-410 statements are history |
+
+**Candidate decision:** Lane B accepts the exact D-411 item 5 candidate under D-409's independent-release contract and D-410's clause. No additional naming choice, rebuild, tool repair or Judge acceptance is needed for this already authorized release gate. Lane A records the receipt/release; this does not dispose B-050 or B-154. Later changed memberships/wording require their own review.
+
+**Reproducible independent evidence:** `C:/CoWork/outputs/lane-b-d411-review-2026-10-03/` contains TECHNICAL-REVIEW.json, LABEL-REVIEW.json (110 scoped outcomes, with a separate reason for each changed group), MEMBER-REVIEW.json, REMAINING-ROWS.json and the exact graph-reviewed.json. Lane A's execution evidence remains in `C:/CoWork/outputs/lane-a-d411-sync-2026-10-03/`; its PENDING reviewer cells are operator history, not the independent receipt and need not be overwritten by Lane B.
+
+- Reviewed graph SHA-256: `f8787b7fed4a1327b135d3a1bcd3f1d0abd5985810c8832eb6604a5715726f11`.
+- Operator label-manifest SHA-256: `3efc299626e498de13707daba0a733e7f1cca30f4b598bf5cf0a4bb4d0043645`.
+- Backup-manifest canonical SHA-256: `3d7711448552a53815108667b3d8011987068d254c2684a3c82798832ec99fde`.
+
+Review limits: no application/database behavior, hosted Encyclopedia contents, push or exhaustive historical-description truth was verified. The two undescribed graph nodes and historical descriptions are not promoted by label review; check-update's accepted completion boundary and the exact snapshot are preserved. Development Lane C review remains distinct from Product Line 3 assurance; no new Lane C assessment was supplied in this pass.
+
+### Remaining decisions — parent authority first, child proof second, parent completion last
+
+The previous docket supplies the exact per-key draft criteria. Use those rows **minus only the three D-411 accepted keys**; do not copy a second live ledger. The grouped keys below cover all 26 remaining rows once. Parallel conceptual branches can be prepared independently; actual authorized Lane A application remains governed by the single Active lane.
+
+| Order / prerequisite | Exact remaining keys or completed parent | Concrete packet Lane A prepares | Judge Accept / Reject criterion and follow-up phase |
+|---|---|---|---|
+| P0, completed authority | D-410/D-411 and Lane A intake 22a1116 | Receive this independent diff/candidate review with actor, read revision and hashes | **Accept** delivered artifacts at scoped evidence. **Reject** re-asking the settled clause or three reasons. Phase 1 receipt |
+| P1, depends P0, review complete | D-411 graph candidate | Record independent acceptance and release; preserve recovery evidence and graph bytes | **Accept** this snapshot; **Reject** a new rebuild simply to refresh handoff HEAD. Phase 1; later actual governed changes trigger sync |
+| P2a, depends P0 | B-050 | Source-specific assessment of original G97 diagnostic/procedure plus D-409/D-411 saved-state proof; if any obligation remains, name it and its owner | **Accept** complete source proof or an individually reasoned Judge disposition with intermittent-tool limit preserved. **Reject** permanent repair or automatic Verified from the graph receipt. Phase 1 |
+| P2b, parent meaning before its dependent code | B-106; B-117 | B-106: A4 presented-row event/ledger packet before runtime metadata; retain settled A6 reviews. B-117: GR-010 namespace meaning → GR-011 source-fidelity rule → GR-009 catalog/count semantics; code portions retained under their own unit | **Accept** exact source clauses, holds, custody and refusal examples. **Reject** new numerical selection, neighboring OD ratification, multi-R as automatic UNVERIFIED, or current code execution. Phase 1; later separately selected code unit |
+| P3a, depends classified scope; does not need held feature construction | B-071; B-071 (B071-R202), (B071-R203), (B071-R206), (B071-R207), (B071-R208) | Seven-child census includes received SM05 R204/R205; exact dated custody for five non-SM05 keys, actual earlier return episode and any unresolved older-round obligations | **Accept** verified custody/individual reasons with D-171/D-260 hold intact. **Reject** making target T5/T6 execution an SM05 prerequisite or whole closure from five receipts alone. Phase 1 |
+| P3b, same classified-custody parent | B-095 (B-095.D2b), (B-095.S5); B-096 (B-096.GA1), (B-096.S16); B-104 (B-104.O2), (B-104.O4) | Dated receipts at existing Product/source or GR-001/GR-003 owners, each with exact scope, hold, return and completion. Distinguish client artifacts from explainability snapshots and public allowlist from editable metadata | **Accept** independently verified custody/individual reasons. **Reject** source closure by receipt alone, invented V2 allocation, generic report-table-as-client-output, or applying held capability. Phase 1 custody |
+| P3c, optional and later-owned work | B-118 (B-118.RH1), (B-118.RH2), (B-118.RH3); B-119 | GR-006 keeps stable partition key → recursive controls → classification → moves, if ever selected. B-119 verifies applied topics and SM06 DoR/SM06-P3-01 residual custody | **Accept** scoped transfer/individual reason without running optional partition or hosted A02. **Reject** folder moves now, A01-as-SM05 proof or SM06 work as an earlier entry gate. Phase 1 custody; later separately selected units |
+| P4, actual documentary correction or accepted transfer | B-095 (B-095.D3) | GR-005 storyboard §4 roll-up clause matches B-080's decided panel supersession/current-use pointer; present exact diff and independent review, or preserve its exact remaining custody | **Accept** observed correction/verified transfer with source basis. **Reject** silently editing historical panels or claiming implementation from the notice. Phase 1 |
+| P5, depends constituent receipts/corrections | B-118 (B-118.RH4); B-077; B-150; B-153; B-154 | GR-007 closure half and source-specific independent assessments; preserve historical counts, weakest-child dispositions and B-097 return/re-close requirements | **Accept** exact correction-scope/transfer evidence or individual Judge reasons. **Reject** bulk promotion, tally subtraction, or making audit parent completion precede its own child evidence. Phase 1 |
+| P6, depends remaining attempt evidence, not just this docket | B-136 (P15) | SV2-DOD-01/02/04 proofs join checked DOD-03/05 in immutable index; Judge's DOD-06 act then supplies P15's own basis | **Accept** exact attempt acceptance when evidence exists. **Reject** green-reporting-as-Gate-2, premature unblock/work order or construction. Phase 1; later separate implementation acts |
+
+### Gaps and exact draft fixes for the next Lane A handback
+
+**G1 — current versus historical review wording.** D-410 is no longer pending and the graph is no longer at b7a91bb. The top current-review pointer now points here; earlier read-bound evidence stays unchanged. Lane A's next answer should say:
+
+> Receive Lane B's independent D-410/D-411 review at 0153b27. The approved procedure clause is applied in both owners and registered with D-54 applicability. The exact graph candidate is accepted under the existing independent-release gate. The three D-411 source/child rows are closed by their individual Judge reasons; 26 non-SM05 rows remain in the current derivation. No source-parent verification or build authority follows.
+
+This is **draft answer wording**, not Lane B writing Lane A's field. Add the actual review commit and external hash-bound receipt when Lane A answers.
+
+**G2 — closing a received obligation.** Each P3 receipt proposal must be concrete before approval. Lane A supplies one dated body row in its existing receiving home:
+
+> Exact source key | governing requirement/decision | completed correction OR remaining scope | existing owner/receiving anchor | hold | exact return trigger | measurable completion criterion | independent actor, read revision and examined custody scope OR individual Judge reason.
+
+Use the source header only for its whole disposition. A transfer can be verified while the future capability stays held; report those two facts separately. A proposed GOV-RES row is not already received, and genuine Product content belongs with its Product/source owner. No new receipt identifiers are minted by this Lane B draft.
+
+**G3 — an implementable requirement must name its refusal case.** For the next exact source packets, retain these examples: business:T*, EG task/evidence and technical transition:T* stay separate; faithful multi-R values alone do not fail source verification; catalog-derived counts distinguish gates from transitions and exclude publication-reaching claims from bounded V1; A4=50 means review/reassessment only; A6 requires valid supplied external fact, with missing/invalid and elapsed-only cases establishing neither archive nor disposal. The later code/test unit has its own owner, scope and authorization. Documentary correction completes only its documentary DoD.
+
+**G4 — stronger proof than the operator comparator.** Lane A's fieldcmp.mjs tests edge identity but not every declared edge field; that saved operator report alone cannot support complete field parity. The independent review here compared all declared edge fields and found no discrepancy. Carry TECHNICAL-REVIEW.json as the stronger receipt for this batch. Do not describe the operator report alone as proof of those fields or silently create a new tooling work order; any future comparator improvement belongs to Lane A's bounded tooling plan.
+
+### Chief Editor/Judge — decisions and unsupported claims to avoid
+
+| Topic | What is required now | What Lane B rejects as unsupported |
+|---|---|---|
+| Completed Batch 1 | Receive the independent review; no repeat choice on D-410 or the three D-411 reasons | Procedure awaiting approval; B-046 still unclosed; the old 29 count as live state |
+| Next custody/source batch | Lane A first presents the exact P2/P3/P4 write set/receipt and per-source reasons; Judge accepts/rejects those concrete artifacts | “Approve all remaining rows” without their proof, generic receiving placeholders or blanket Verified |
+| B-106 A4 | Judge assesses an event packet reflecting the already presented 50 approval; no new number needed | A6 proximity ratifies A4/OD1–03, source event activates code, or 50 proves scoring works |
+| Held target and optional partition | Preserve existing holds unless a separately bounded capability/partition unit is wanted. Accepting source custody does not require selecting execution | Chief Editor access makes that person every virtual executor; renaming EG/T fields constructs the target; moving handoffs now |
+| Future attempt/build | After exact remaining DoD evidence, decide DOD-06; unblock, selection, work order and Active transfer remain distinct acts | Graph/CI green proves full CR-19, data-loss-free rollback, Product assurance or construction readiness |
+
+Chief Editor/Judge remains the same natural person in different contexts (D-158); ACCESS-ROLE-CHIEF-EDITOR stays an access context, not a ranking role, requester authorization or sign-off event. No new business clarification is needed to finish this authorized review.
+
+### Lane A follow-up — three actions with explicit completion steps
+
+1. **Receive completed evidence.** Answer B-154 in Lane A's own exact-path commit; cite source 0153b27 and Lane B's actual recording commit. Record candidate release against the graph/manifest hashes; key actor/read/scope/result in SV-002 §2.3.2. Preserve B-050 Applied and B-154 Open until their own assessments; no rebuild for this excluded-only handoff receipt.
+2. **Prepare the next bounded decision artifacts.** P2 meaning/source branches and P3 custody packets use the previous exact-key criteria, excluding only D-411's three accepted keys. Present exact clauses/receipts, holds/returns, pass/refusal examples and D-54 applicability before application. Apply only selected Lane A units; independently review their actual diffs. P4 roll-up correction has its own observable evidence. Actual governed edits require the approved graph sync/re-merge/saved-name/independent-review contract; handoff-only drafts do not.
+3. **Roll up at existing tracking layers.** Source handoff owns lifecycle/return history; GOV-RES-001 owns governance custody; Product/SM06 owners retain Product/later work; SV-002 §2.3.2 owns review accounting and §2.3.1 alone owns clearance. Re-derive from actual dispositions/accepted reasons, not a desired count. Complete P5 parent assessments after children and prepare P6 attempt evidence last. Judge acceptance of this review closes none of the 26 rows by itself.
+
+### Critical artifacts and the construction/verification dependency
+
+| Parent → artifact | What a future builder consumes | What verification must prove |
+|---|---|---|
+| D-410/D-411 → two procedure clauses + independent graph receipt | Navigation to actual owning governed clauses with truthful representative names | Saved state, full member hashes, all declared fields and independent semantic review; not universal historical truth |
+| D-411 reasons → three closed tracker rows | Exact prerequisite disposition and surviving owner | Individual scope-specific accepted basis; no parent/sibling promotion |
+| Product/Fn contract → source/child custody receipt | Required behavior, exclusions, owner and later return | Actual custody versus future behavior delivery, distinguished at exact version/revision |
+| GR-010 → GR-011 → GR-009 clauses | Separate namespaces, source-faithful role mappings and catalog meanings | Positive/refusal examples without stored/API migration or cardinality-driven false failures |
+| B-106 event → later metadata/test unit | Ratification meaning before runtime status/citation; A6 supplied-fact contract | Unchanged numeric values, no gate auto-advance, valid/missing-invalid/elapsed-only outcomes after authorized construction |
+| Source reviews → SV-002 accounting → clearance → DOD index | Unambiguous accepted prerequisites for later work-order selection | Review receipt, clearance, attempt acceptance and delivered application behavior remain separate evidence |
+
+**Completion of this request:** independent Batch 1 source and graph review is complete; the practical remaining plan is concrete and uses the existing handoff/template/tracking layers. Canonical follow-up, source-parent dispositions, Gate 2 and implementation are subsequent bounded acts. No runtime graph change, application build, workflow, database, dependency, hosted publication or push was performed by Lane B.
+
+| Verdict | Scope | Condition / follow-up phase |
+|---|---|---|
+| Approve | D-410/D-411 source application, three scoped closures and exact graph candidate | Phase 1: Lane A receives independent hash/revision-bound acceptance under the existing release contract |
+| Approve-with-conditions | Next source/custody/correction plan | Phase 1: concrete per-key receipt/write set, actual correction/transfer proof and independent review or individual Judge acceptance |
+| Reject | Old pending/count narrative as current, blanket parent closure, operator identity-only report as full edge-field proof, or software/CI/database guarantees | Phase 1: carry this scoped evidence and preserve surviving obligations |
+| Defer | Remaining 26 source rows, attempt acceptance, Gate 2 and construction | Remaining Phase 1 evidence and separate Judge acts; later authorized Phase 2/SM05 and Phase 3/SM06 |
