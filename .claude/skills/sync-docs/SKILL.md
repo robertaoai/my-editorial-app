@@ -1,6 +1,6 @@
 ---
 name: sync-docs
-description: Propagate a bug fix, architecture-pattern change, or decision across this repository's governed document tiers under D-54 — including the shared-core triple edit, the curated-graph merge, and a negative test. Use after fixing a defect, changing a pattern, or recording a decision, and whenever asked to sync or update the docs.
+description: Propagate a bug fix, architecture-pattern change, or decision across this repository's governed document tiers under D-54 — including the single shared core in AGENTS.md imported by CLAUDE.md (D-337), the curated-graph merge, and a negative test. Use after fixing a defect, changing a pattern, or recording a decision, and whenever asked to sync or update the docs.
 ---
 
 # sync-docs
@@ -9,9 +9,12 @@ Propagate a change through the governed tiers so no derived document keeps asser
 what its source no longer supports.
 
 **Why this exists.** The generic instruction — *"update CLAUDE.md or the relevant .md
-files"* — misfires here in two specific ways. `CLAUDE.md` is one of **three** rule files
-sharing a hash-locked core, so editing it alone either fails `bun run check` or, if the
-edit lands in the unprotected preamble (`G67`), desyncs Codex silently. And *"relevant
+files"* — misfires here in two specific ways. The shared rules live **once**, in `AGENTS.md`;
+`CLAUDE.md` imports them with `@AGENTS.md` (`D-337`), and a missing import fails **silently**
+(`D-327`), so editing `CLAUDE.md` as if it held the core puts the rule where other agents never read
+it. *(History: before `D-337` there were three rule files sharing a hash-locked core; that model and
+its triple edit are retired — `docs/governance/agent-rules-reference.md`; this text corrected under
+`D-400`.)* And *"relevant
 .md files"* is precisely the vagueness `D-54` exists to remove: `D-76` corrected a stale
 CI tally in the shared core and left the identical claim standing in
 `V1-BUILD-SPEC.md`, with every check green.
@@ -21,7 +24,7 @@ CI tally in the shared core and left the identical claim standing in
 Name what changed — bug fix, architecture pattern, or decision — and identify the
 **lane** that owns the surface (`D-75`):
 
-**Read the lane map from the shared core in `CLAUDE.md`, never from here.** This section used to
+**Read the lane map from `AGENTS.md`, never from here.** This section used to
 restate it, and the restatement went stale: it kept `D-75`'s original map — which put
 `scripts/` and `.gitattributes` in Lane C — for four days after **`D-84` moved them to Lane A**,
 while every check stayed green. **A procedure that restates the map will drift from it; one that
@@ -100,15 +103,19 @@ node docs/graph-fragments/merge7.js docs/graph-fragments/fragNN.json
 
 Fragments declare relationships under `edges`; `graph.json` stores them under `links`.
 `graphify build --fragment` cannot merge and will produce silent degree-zero orphans.
-Confirm node count rises and **dangling stays 0**.
+Confirm **dangling stays 0** and the fragment's semantic equality check passes.
 
-**A NEW markdown file under `docs/` needs a curated node of its own, pointing at it via
-`source_file`.** `graph-coverage` reads the **curated** layer, so `hook-rebuild` alone never clears
-a new file no matter how many times it is run — and a fragment that merges cleanly while pointing
-somewhere else leaves the check red with nothing obviously wrong. Handoff entries are the usual
-case: each `docs/handoff/B-NNN-*.md` is covered by one hand-authored concept node. Order the pass
-**rebuild first, then merge** — a fragment cannot edge to a source file the extracted layer has not
-seen yet.
+**Decide coverage with the shared exclusion rules (`D-231`, `D-246`).** `docs/handoff/` and graphify
+scratch are excluded: a handoff-only change needs neither a curated node nor a governed-intent rebuild.
+An **included** new document under `docs/` needs source-path coverage — a curated node whose
+`source_file` points at it — because `graph-coverage` reads the curated layer and `hook-rebuild` alone
+never clears it. Curated concepts otherwise serve their actual semantic purpose, not a per-file quota.
+
+**Order of a pass:** final source commit → `hook-rebuild` (or `graphify update`) → restore any required
+inputs → merge each applicable named fragment in dependency order → **verify each claimed fragment with
+`node docs/graph-fragments/merge7.js <fragment> --verify-only`** → descriptions last → full checks.
+**Node totals and the `--all` conflict audit do not prove parity**; only the per-fragment semantic
+equality check does.
 
 **Semantic completion is the LAST action of a pass, because every rebuild undoes it.** `hook-rebuild`
 and `graphify update` both re-extract, and re-extraction **drops the ingested descriptions for
@@ -117,9 +124,11 @@ extracted nodes** — curated fragment descriptions survive, extracted ones do n
 fragments, then fill and ingest, then stop.** A rebuild after the ingest silently reverses it, and
 `docs-drift` will still say *synced*, because it compares heads and never reads the semantic state.
 
-**If a rebuild has already dropped them, do not re-author.** The newest dated backup —
-`.graphify/<date>/graph.json` — still holds the pre-rebuild descriptions, and they can be replayed
-into the regenerated `batch-*.json` files by id.
+**If a rebuild has already dropped them, do not re-author.** A dated backup —
+`.graphify/<date>/graph.json` — may still hold the pre-rebuild descriptions, replayable into the
+regenerated `batch-*.json` files by id. Check that it does: a backup taken after a fast rebuild holds
+none, and then descriptions are filled from the sources themselves (commit subjects, a symbol's own
+comment), never invented.
 
 ## 8. Verify — and negative-test
 
@@ -132,9 +141,9 @@ bun run check
 its own §6 two sections later.** The runner prints the total.
 
 **What determines CI coverage is what a check reads, not its number.** `graph-coverage` and
-`docs-drift` read gitignored `.graphify/`; `source-sweep` needs full history that a depth-1
-checkout lacks. Those three SKIP in CI and the rest run, so **a lower CI total is correct, not a
-regression.**
+`docs-drift` need the local graph (gitignored `.graphify/`); `source-sweep` and `terminal-return`
+need full history that a depth-1 checkout lacks. Those SKIP in CI, so **read the actual SKIP lines and
+run the skipped checks locally** before a closure claim relies on them.
 
 Then **break the new claim and confirm the check fails**, and restore. A green check is
 also what a check that cannot fail produces — `docs-drift` has reported `PASS synced`
@@ -148,8 +157,8 @@ npx graphify hook-rebuild
 
 `.graphify/needs_update` is written only by graphify's git hook, and **no git hook is
 installed here** — its absence is no signal. Compare `.graphify/branch.json`'s
-`lastAnalyzedHead` against `git rev-parse HEAD`. After rebuilding, confirm the curated
-nodes survived; re-merge fragments if the count drops (`G51`).
+`lastAnalyzedHead` against `git rev-parse HEAD`. After rebuilding, follow §7's order and verify each
+claimed fragment with `--verify-only`; a node count that holds steady proves nothing (`G51`).
 
 Close by stating explicitly what was **left untouched and why** — the deferred items,
 the other lanes' work, the claims you noticed but did not fix. A completion report that
