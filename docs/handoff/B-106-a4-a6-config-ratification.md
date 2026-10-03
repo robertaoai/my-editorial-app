@@ -383,7 +383,8 @@ The current parent docket and follow-up sequence are in B-154's single current c
    identifying it as pre-D-404 history. Correct the current 'empty table' prose outside the table.
    Preserve the first real A6 event and its provenance.
 3. Blueprint A6 rows 71/122: receive D-381/D-404's current meaning and retain D-134 as history;
-   distinguish external retained period from first UI boundary. FN-AUDIT §5 AC-12a / its explanatory
+   **cite the Business Case RET-EDITORIAL A6 period instead of copying a number into these rows**.
+   Distinguish its first UI boundary from the external retained period. FN-AUDIT §5 AC-12a / its explanatory
    paragraph: archive means externally retrievable but absent here, not 'no longer retrievable'.
    Require the policy/version/period/destination supplied absence fields and no valid fact → no
    established archive/disposal; preserve the separate disposed limb's lack of V1 disposal authority.
