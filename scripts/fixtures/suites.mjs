@@ -8,7 +8,7 @@
 import { execFileSync } from "node:child_process";
 import { fixture, read, write, withRetry, TRANSIENT_CODES, existsSync, rmSync, mkdirSync, runCheck, snapshot } from "./harness.mjs";
 import { join, resolve } from "node:path";
-import { readdirSync, readFileSync, rmdirSync, writeFileSync, symlinkSync, lstatSync, unlinkSync, renameSync } from "node:fs";
+import { readdirSync, readFileSync, rmdirSync, writeFileSync, symlinkSync, lstatSync, unlinkSync, renameSync, linkSync } from "node:fs";
 import { field, ENTRY_FILE } from "../checks/handoff-fields.mjs";
 import { classify } from "../checks/lane-boundary.mjs";
 import { classifyChangedPaths } from "../checks/governed-intent.mjs";
@@ -2728,6 +2728,39 @@ export async function snapshotContainment(results) {
       mkdirSync(join(root, "parent")); // same spelling, different object
       u();
     });
+    // `D-399` (`B-155` F1 second repair) — hard links and regular-file identity.
+    await caseOf("containment: a hard-linked file is refused at capture", () => {
+      linkSync(sentinel, join(root, "file.txt")); created.push(join(root, "file.txt"));
+      snapshot([join(root, "file.txt")], { roots: [root] });
+    });
+    await caseOf("containment: a file replaced by a hard link after capture is refused before any write", () => {
+      wf(join(root, "file.txt"), "ORIGINAL");
+      const u = snapshot([join(root, "file.txt")], { roots: [root] });
+      unlinkSync(join(root, "file.txt"));
+      linkSync(sentinel, join(root, "file.txt")); // same name, now another name of the outside object
+      u();
+    });
+    await caseOf("containment: an ordinary file replaced under the same name is refused", () => {
+      wf(join(root, "file.txt"), "ORIGINAL");
+      const u = snapshot([join(root, "file.txt")], { roots: [root] });
+      renameSync(join(root, "file.txt"), join(root, "kept.txt")); created.push(join(root, "kept.txt"));
+      writeFileSync(join(root, "file.txt"), "REPLACEMENT"); // different object, same spelling
+      u();
+    });
+    // Positive controls: a singly linked file edited in place, and a deleted one, both restore.
+    fresh();
+    wf(join(root, "file.txt"), "ORIGINAL");
+    undo = snapshot([join(root, "file.txt")], { roots: [root] });
+    writeFileSync(join(root, "file.txt"), "EDITED IN PLACE");
+    undo();
+    let back = readFileSync(join(root, "file.txt"), "utf8") === "ORIGINAL" && outsideIntact();
+    results.push({ name: "containment: a singly linked file edited in place restores (positive control)", ok: back, detail: back ? "restored" : "not restored" });
+    undo = snapshot([join(root, "file.txt")], { roots: [root] });
+    unlinkSync(join(root, "file.txt"));
+    undo();
+    back = existsSync(join(root, "file.txt")) && readFileSync(join(root, "file.txt"), "utf8") === "ORIGINAL" && outsideIntact();
+    results.push({ name: "containment: a deleted baseline file is recreated through unchanged parents (positive control)", ok: back, detail: back ? "recreated" : "not recreated" });
+
     await caseOf("containment: a path outside every root has no record and is refused", () => {
       snapshot([sentinel], { roots: [root] });
     });
