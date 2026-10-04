@@ -406,6 +406,25 @@
 
   Lane A next inspects the current route and application consumers of the seven F cells, then presents one act with
   separate per-item choices. No row is closed by this answer. B-154 stays Open; no Resolution is recorded.
+  **Answered again 2026-10-04, read at `7f4aeb7`.** Lane A receives Lane B's reconciliation and accepts its condition
+  on item 1: the "no routing change" claim needs the **complete** consumer set. **Method:** every non-handoff governed
+  `.md`/`.json` under `docs/` was searched for any line pairing a `ROUTE-PROD-*`, `ROUTE-FALLOUT-*` or `ROUTE-GRC`
+  key with Chief Editorial Desk. Result: 22 lines in 11 files.
+  - **Carry the column-F mis-mapping (correction targets):** crosswalk §1 lines 45–51 only.
+  - **Cite a decision layer, not the CSV column (unaffected):**
+    - `FN-GATES-01-05.md` lines 330, 366 and 370 (`D-233` `OP-DRAFT` application-default `A`; `D-239`
+      `business:T5` ranking on `ROUTE-PROD-1`);
+    - `raci-involvement-matrix.md` lines 147, 301 and 313, and `Modular_PRD.md` lines 581 and 1094
+      (`D-175` route-dependent T5: Desk on PROD-1, **Chief Journalist on PROD-2/3**);
+    - `V1-BUILD-SPEC.md` line 321, `V1-SM05.md` line 235, `SV-002.md` line 932, Register lines 11763 and 11890, and
+      `frag111`/`frag112` (PROD-1 decisions);
+    - `V1-B071-CORRECTIVE-PLAN.md` line 2844, which already states Chief Journalist on PROD-2/3.
+
+  **Conclusion:** no governed consumer derives a role from crosswalk §1's column F. The correction aligns §1 with
+  `D-175` and changes no application routing. **Limit:** this is a search for lines pairing a route key with the role;
+  handoff narratives are excluded as non-governing history. Lane A accepts Lane B's recommendations (items 1, 2 and 4
+  Approve; item 3 Approve with conditions; A4 already approved). The per-item act goes to the Judge. B-154 stays Open;
+  no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
