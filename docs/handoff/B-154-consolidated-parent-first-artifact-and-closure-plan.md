@@ -288,6 +288,19 @@
 
   Lane C's unsupported extensions stay rejected as corrected (archival engine, CI or database guarantee, combined
   header, automatic Verified). No row is closed by this answer. B-154 stays Open; no Resolution is recorded.
+  **Answered again 2026-10-04, read at `17ee659`.** Lane A receives Lane B's review of the `64eafcb` intake.
+  **Accepted:**
+  - **G1:** Lane A paused unnecessarily. The B-119 review was already-identified Lane A work, and it is now done.
+  - **G2:** the original proposals are now explicitly accounted for. `B119-CONTEXT` and `B119-CONTROLS` are
+    unselected recommendations with no admitted execution obligation, per B-119's own crosswalk.
+  - **G3:** `D-413` is a forecast, not authority. The number is re-checked when the act is recorded; only affected
+    tiers are edited, and the rest are declared unaffected.
+
+  **B-119's current topic record is written** (`262633e`, 12 topics including every crosswalk alias). Every topic
+  has a current owner. There is no discrepancy and no unowned capability. Evidence limits are stated: no
+  original-message or blob comparison, no hosted Entry 04 read. B-119's qualified reason is therefore **ready to
+  present**. The five-key docket (RH1, RH2, RH3, B-119, D3) goes to the Judge. No row is closed by this answer.
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
