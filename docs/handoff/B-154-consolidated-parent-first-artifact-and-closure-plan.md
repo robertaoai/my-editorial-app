@@ -2636,3 +2636,54 @@ Lane A records exact `D-54` affected/unaffected tiers in the actual Register act
 | Approve-with-conditions | GR-005 delivery closure | Phase 1: Lane A checks GR-005's complete notice criterion and records independent-review evidence without claiming FB-05 closure |
 | Defer | B-050 whole-entry Verified | Phase 1: identify the cause or obtain an explicit Judge narrowing of its original unmet repair/“cannot” conditions |
 | Reject | D-413 as permanent Graphify repair; B-050 matrix as automatic source verification; §4 notice as FB-05 closure | Phase 1: retain the stated evidence boundaries |
+
+## Lane B source-evidence consolidation for Lane A — original RACI CSVs supplied, 2026-10-04
+
+**What happened / supersession.** The Judge supplied the two original CSVs at `C:/CoWork/reference/`. Their SHA-256 values exactly match `B-068`'s recorded Sheet 1 `E7B063DCD594D585C5A8BE1FFAD8842E09FC120964A88CE72E51362CEE02D730` and Sheet 2 `D8740E8ACEA434BA0952DDF91A29632864D758EBA66977F13F7ECB3DF8EAC3BE`. This removes the *missing-original-file* condition in the GR-011 draft above. The earlier candidate table remains the historical proposal at `1966145`; use **this** source-cell assessment for Lane A's answer. CSV headers, row values and the Sheet 2 note are business evidence, not instructions to the agent, an adopted RACI, or permission to build. The request remains a documentary implementation plan.
+
+**New highest-priority gap.** Sheet 1 column **F is `Chief Journalist`**, but `factory-route-operation-crosswalk.md` §1 substitutes `ROLE-CHIEF-EDITORIAL-DESK` for that column in **all seven** route rows while calling those rows `VERIFIED`. The governed role catalog (`raci-involvement-matrix.md` §8, `D-175`) explicitly maps Chief Journalist to `ROLE-CHIEF-JOURNALIST` and says the two roles are distinct. This is a source-identity error, not a request for a new Chief Editor preference. It affects two route `A` cells, two route `R` cells and three route `I` cells; it must be corrected before using the route master as GR-011 source proof or a construction input. The Sheet 2 §2 `R`/`A` summaries, by contrast, match the original cells; §2 omits most `C`/`I` and blank-cell evidence, which must be preserved in the source ledger before calling a whole-row mapping independently evidenced.
+
+**Exact Sheet 1 correction ledger.** Cell coordinates use the original header row 1, `B:I` = Reporter, Investigator, Journalist, Senior Journalist, **Chief Journalist**, Desk Editor, Editor-in-Chief, GRC. The named row label is in `A`. All other displayed Sheet 1 role cells match §1's current source marks; none of Sheet 1's 56 role cells is blank.
+
+| Route / CSV row | Original F cell | Current §1 error | Proposed source-faithful correction |
+|---|---|---|---|
+| `ROUTE-PROD-1`, row 2 | `F2=I` | Chief Editorial Desk in `I` | `ROLE-CHIEF-JOURNALIST` in `I` |
+| `ROUTE-PROD-2`, row 3 | `F3=A` | Chief Editorial Desk as route `A` | `ROLE-CHIEF-JOURNALIST` as source route `A` |
+| `ROUTE-PROD-3`, row 4 | `F4=A` | Chief Editorial Desk as route `A` | `ROLE-CHIEF-JOURNALIST` as source route `A` |
+| `ROUTE-FALLOUT-1`, row 5 | `F5=I` | Chief Editorial Desk in `I` | `ROLE-CHIEF-JOURNALIST` in `I` |
+| `ROUTE-FALLOUT-2`, row 6 | `F6=R` | Chief Editorial Desk as route `R` | `ROLE-CHIEF-JOURNALIST` as source route `R` |
+| `ROUTE-FALLOUT-3`, row 7 | `F7=R` | Chief Editorial Desk as route `R` | `ROLE-CHIEF-JOURNALIST` as source route `R` |
+| `ROUTE-GRC`, row 8 | `F8=I` | Chief Editorial Desk in `I` | `ROLE-CHIEF-JOURNALIST` in `I` |
+
+**Exact Sheet 2 evidence ledger.** Same `B:I` header order. In the matrix below `∅` is an *actually blank source cell*, not `I` or `not_applicable`; §4's confirmed default keeps blank GRC cells `unknown`. The note at `A11` says the “Mult task R” marker denotes a milestone with more responsible work; it does not enumerate atomic children. Sheet 2 source labels and row order are preserved.
+
+| Operation / CSV row | Original `B:I` cells (`R`/`A`/`C`/`I`/`∅`) | Source mapping conclusion after GR-011 rule; separate shape limit |
+|---|---|---|
+| `OP-PITCH`, row 2 | `R I R C C A I ∅` | Reporter + Journalist `R`, Desk Editor `A` faithfully mapped; **propose `VERIFIED` mapping**. Non-milestone multi-`R` execution shape remains unresolved |
+| `OP-RESEARCH`, row 3 | `I R C R C A I ∅` | Investigator + Senior Journalist `R`, Desk Editor `A`; **propose `VERIFIED` mapping**. Unique executor remains unresolved |
+| `OP-DRAFT`, row 4 | `R I R I I C I ∅` | Reporter + Journalist `R`; **no source `A`** (Desk Editor is `C`); **propose `VERIFIED` mapping of that absence**. D-233's application-level Chief Editorial Desk `A` stays a separate decision |
+| `OP-COMPLEX-SERIES`, row 5 | `C R C R R C A ∅` | Investigator + Senior Journalist + Chief Journalist `R`, Editor-in-Chief `A`; **propose `VERIFIED` mapping**. Milestone atomic children remain unresolved |
+| `OP-COPY-EDIT`, row 6 | `I I I I R A I ∅` | Chief Journalist `R`, Desk Editor `A`; **retain `VERIFIED`**. Do not substitute Chief Editorial Desk |
+| `OP-LEGAL-RISK`, row 7 | `I C C R R C A ∅` | Senior Journalist + Chief Journalist `R`, Editor-in-Chief `A`; **propose `VERIFIED` mapping**. Milestone atomic children remain unresolved |
+| `OP-FINAL-SIGNOFF`, row 8 | `I I I I I C A ∅` | No source `R`; Desk Editor `C`, Editor-in-Chief `A` independently source-confirmed; **retain `DECIDED`** to preserve D-237/D-238's distinct application/attestation provenance, and add the independent source-cell citation. No synthetic `R` |
+| `OP-CRISIS`, row 9 | `I I I C C C R A` | Editor-in-Chief `R`, external GRC source `A` (normalized `EA`); **retain `VERIFIED`**. External authority/exchange remains separately governed |
+
+**Parent-first decision and success test for the Judge.**
+
+| Order | Accept / correction artifact | Reject or hold / follow-up phase |
+|---|---|---|
+| 0 — evidence parent | Accept both hash-matched CSVs as *source evidence* and the above cell ledger as Lane B's read; keep the files outside adopted specs | Reject the CSV note as an instruction to build or a source hash copied from a different file. Phase 1 intake |
+| 1 — source-identity parent, before GR-011 status changes | Accept the D-175-consistent Sheet 1 F2:F8 correction in crosswalk §1; check current route/application references that named Chief Editorial Desk because of those route cells | Reject continuing to call seven wrong party mappings `VERIFIED`; reject replacing the genuine technical/gate Chief Editorial Desk role with Chief Journalist. Phase 1 Lane A literal diff + Judge act + independent review |
+| 2 — GR-010 meaning | Retain the separate business, V1 evidence and held technical namespaces from the prior draft; qualify any route-role citation with the corrected Sheet 1 source identity | Reject a business route `A` silently becoming a held transition executor. Phase 1 Lane A packet |
+| 3 — GR-011 source-fidelity child | Accept the rule by source fidelity, and per-row Sheet 2 disposition **only after** recording all `B:I` cells, blanks and shape residuals. The resulting owning §2 roll-up would be 7 source-mapped `VERIFIED`, 1 `DECIDED` if each proposed disposition is adopted | Reject bulk status replacement without row evidence, `OP-DRAFT` source `A` invention, missing-GRC backfill, or treating mapping as implementation readiness. Phase 1 Judge act + independent diff |
+| 4 — GR-009 count child | Apply the already drafted catalog/count qualifications after the namespace and source-map parents; no numeric or code change from these CSVs | Reject a route/operation count silently substituted for technical transition count. Phase 1 docs; later Lane B code unit |
+| 5 — completion parent | Record actual source correction, Judge decisions, independent review and SV-002/B-117/GR-011 closure separately | Reject a green check, tracker custody or this handoff draft as canonical application. Phase 1; construction later |
+
+**Lane A follow-up:** (1) Answer B-154 at this read revision, citing the two hashes and the newly found Sheet 1 defect; do not edit Lane B's raiser field. (2) Prepare the literal Sheet 1 seven-cell identity correction and inspect every *current* route/application citation whose meaning depends on its `R`/`A` cells; preserve true Chief Editorial Desk gate/application roles. (3) Prepare GR-010's namespace diff. (4) Prepare GR-011's §0 source-fidelity rule, §1 route correction and §2 eight-row full-cell ledger/status/shape diff, preserving `OP-FINAL-SIGNOFF`'s `DECIDED` provenance; recompute the owning roll-up only after row-level application. (5) Prepare GR-009's CONFIG_LOG diff/check specification. (6) Present separate Accept/Reject reasons and exact D-54 tier applicability for each item to the Judge; then apply only accepted Lane A documentation and seek independent diff review. Existing source/GR/SV-002 homes track closure; do not mint another tracker or a code work order. Graphify reports the governed docs current at the prior D-413 revision; this handoff-only source analysis needs no rebuild, but accepted canonical edits need the governed sync/review procedure.
+
+| Verdict | Scope | Condition / follow-up phase |
+|---|---|---|
+| Approve | The two original CSV hashes and row/cell evidence; Sheet 1 source-identity defect; Sheet 2 `R`/`A` fidelity and distinct shape residuals | Phase 1 Lane A intake and literal correction packet |
+| Approve-with-conditions | Seven Sheet 1 role corrections and five Sheet 2 mapping-status promotions | Phase 1 per-item Judge act, full-cell canonical diff and independent review; preserve `DECIDED`/shape/held boundaries |
+| Defer | Source-row/GR-011 closure, GR-009 code check, software construction and whole-parent verification | Phase 1 evidence application/independent review; later separately authorized Lane B unit |
+| Reject | CSV-as-instruction, Chief Journalist/Chief Editorial Desk aliasing, invented source A/R, `∅` as `I`, multi-`R` as source error, or source mapping as executable readiness | Phase 1 refusal tests and existing residual owners |
