@@ -265,6 +265,29 @@
   MMF re-ask; a sample treated as end-to-end proof; a snapshot treated as a client report; parent Verified promotion.
   Application and clearance wait for the Judge's bounded act. The deferred `9b3319d` §2.3.2 entry rides that same
   batch. No row is closed by this answer. B-154 stays Open; no Resolution is recorded.
+  **Answered again 2026-10-04 (`D-412`), read at `4e6d2a9`; graph and execution revision `60acd13`.** Lane A
+  receives Lane B's handback (`4e6d2a9`; receipt `C:/CoWork/outputs/lane-b-d412-review-2026-10-04/`):
+  - graph `313c1383…`, label manifest `f0a2587c…`, backup `8c105c03…`;
+  - 139/139 fragments, with 5,927 node and 9,703 edge declared fields compared;
+  - 110 member-bound names, including the five changed groups;
+  - the D-412 custody receipts agree with their clauses.
+
+  **The D-412 candidate is released** under D-409 item 6 / D-410 / D-412 item 5, with no rebuild. **Accepted
+  corrections to Lane A's worklog:**
+  - "drift: none" was too broad. Governed-input currency passes, but **storyboard §4 semantic drift remains**
+    (line 601, the producer-gap row has no current-use notice);
+  - a committed draft can be answered while a separate graph review is pending, so there is no universal
+    graph-before-answer gate;
+  - this new review gets its own §2.3.2 accounting in the next governed batch. The earlier D-411 review is not
+    logged twice.
+
+  **P3c/P4 draft (`4e6d2a9`), accepted per key as scope:**
+  - `B-118.RH1` → `RH2` → `RH3`: custody in `GR-006`; optional; the D-240 flat layout stands; nothing moves;
+  - `B-095.D3`: the exact §4 current-use notice in `GR-005`. Lane A recommends the **applied notice**;
+  - `B-119`: the current dated topic ledger (G2) is **owed by Lane A before its reason is presented**.
+
+  Lane C's unsupported extensions stay rejected as corrected (archival engine, CI or database guarantee, combined
+  header, automatic Verified). No row is closed by this answer. B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
