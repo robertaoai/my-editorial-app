@@ -323,6 +323,40 @@
   later Lane B unit either way. **GR-010 → GR-011 → GR-009** packets will be prepared in that order. No row is
   closed by this answer. Lane B's review of the D-413 sync candidate is still pending, so that graph is unreleased.
   B-154 stays Open; no Resolution is recorded.
+  **Answered again 2026-10-04, read at `99750e8`.** Lane A receives Lane B's consolidated P2 handback (`f842a48`,
+  `99750e8`). **Accepted:**
+  - the P2-0 to P2-6 order;
+  - the A4 threshold/formula qualification, which matches Lane A's `c7c2f8d` correction;
+  - the GR-010, GR-011 and GR-009 clauses;
+  - batching as a scheduling choice only;
+  - the Lane C boundaries.
+
+  **P2-1, corrected:** B-050's matrix is rewritten run by run (`c8eef21`). The stopped D-403 and Route 1 runs and
+  the misleading-name D-408 replay stay on record as failures. D-409's final metadata pointer is fixed to `39`/`38`.
+  The criteria are claimed met only for the reviewed releases (D-409/D-411/D-412); D-413 is excluded; the limits are
+  explicit. It returns to Lane B for independent review.
+  **P2-2, the A4 literal packet** (for the Judge; the Register id is assigned on application):
+  - **Register:** Lane B's clause as drafted (threshold received; formula and weights unratified; no execution,
+    OD1–OD3 or metadata).
+  - **`CONFIG_LOG` line 61:** the status becomes *"**Yes — review threshold approved** 2026-09-15 (Chief Editor
+    presented-row act, B-106), received by `D-4xx`. Threshold only: the A4 weighted-sum formula and weights stay
+    unratified. Runtime metadata waits for its Lane B unit. History: No — unratified."*
+  - **`DECISION_LOG`:**
+    - line 23 becomes *"`A4`'s scoring formula is in this position; its review threshold (50) was approved
+      2026-09-15 and received under `D-4xx`"*;
+    - line 76 is struck through with a dated correction (as `D-404` did for A6);
+    - §3 appends one event (2026-09-15 approval, received `D-4xx`, evidence B-106, effect: CONFIG_LOG threshold
+      row);
+    - lines 90 and 94 read "the `A4` formula" in place of "`A4`".
+  - **Addendum** §2.1 (line 106) and §2.4 (line 137), **Business Case** (lines 129, 269, 276) and **Blueprint**
+    (lines 69, 120): the formula cells stay `No`, each gains a dated note *"review threshold 50 approved 2026-09-15
+    (`D-4xx`); formula unratified"*, and line 269's blanket sentence makes the same distinction.
+  - **Encyclopedia:** compare only the mapped entries (Entry 02 maps Addendum §2.4) on readable evidence.
+  - **Pass:** the ledgers and source notes agree on the two objects; the value stays 50 and the formula stays No.
+    **Refuse:** an unqualified "A4 Ratified: Yes"; 50 offered as proof of scoring.
+
+  **Next:** Lane A drafts GR-010, then GR-011, then GR-009. No row is closed by this answer. B-154 stays Open; no
+  Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
