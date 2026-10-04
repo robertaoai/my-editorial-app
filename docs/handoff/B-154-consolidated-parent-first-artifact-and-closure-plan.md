@@ -2282,3 +2282,205 @@ Lane B consolidated the current decision view into this existing handoff, inspec
 | Approve-with-conditions | Per-key clearance and selected notice application | Phase 1: actual individual Judge reasons/clearance basis, bounded Lane A writes, independent observed delivery/candidate review |
 | Reject | Ready-as-cleared, choice-as-delivery, blanket Verified, omitted accounting and Lane C guarantees beyond evidence | Phase 1: retain exact owners, artifact proof and evidence limits |
 | Defer | Whole-parent closure, optional partition execution, hosted fulfillment, Gate 2, software construction and push | Existing later owners; separately bounded Phase 1 / Phase 2-SM05 / Phase 3-SM06 acts |
+
+## Lane B draft — P2 only: B-050, A4 event and GR-010 → GR-011 → GR-009, 2026-10-04
+
+**Read revision:** `b351845be33a9d7aa492c62e9625d900b380d9ba`. **Raiser/draft author:** Lane B (Codex).
+**Receiver/answerer:** Lane A. This supplements this existing template-based handoff; it creates no duplicate
+entry and does not write Lane A's answer, source dispositions or canonical documents.
+
+**Clearer request used:** Review the existing P2 sources and Lane A responses; draft the remaining corrections
+and evidence requirements in dependency order; give Lane A a concrete Accept/Reject docket and follow-up
+procedure; distinguish custody, verification, clearance and completion; check governed-document/graph currency.
+Planning only: no construction, runtime metadata edit, source application, graph rebuild or push.
+
+**Authority boundary:** the Judge approved this Lane B draft in the current chat. Lane A records any subsequent
+bounded application act in the Register. This draft does not allocate a Register number or transfer the lock.
+Phase Closure §5 still places Lane A Active and Lane B Eligible; V1-SM05 remains BLOCKED.
+
+### 1. Parent-first decision docket
+
+Parent **meaning and authority** precede child work. Parent **completion** follows child proof; putting completion
+first would create a circular dependency. B-050 and A4 are independent branches; the GR chain is sequential.
+
+| Order / dependency | Concrete Lane A artifact for Judge review | Accept criterion | Reject criterion / follow-up phase |
+|---|---|---|---|
+| P2-0 — common parent | Receive this draft in B-154; identify exact clauses, source keys, write set, exclusions and evidence route in each bounded packet | Lane B remains raiser; Lane A answers; existing owners/holds survive; dated authority is explicit | A draft verdict treated as application authority, or a second backlog created. Phase 1 |
+| P2-1 — B-050 proof assessment | Obligation-to-evidence matrix for D-122/D-403 against the saved D-408 replay and D-409 accepted candidate/receipt | Every criterion tied to observed saved evidence and its revision/context; any uncovered criterion stays pending | Permanent tool repair inferred from one run; live candidate substituted for disposable/caller-invariance proof. Phase 1 |
+| P2-2 — A4 event, before metadata | Exact Register/CONFIG_LOG/DECISION_LOG packet recording the 2026-09-15 approval of SCORING_REVIEW_THRESHOLD_ARTICLES=50 | Presented-row approval received with review/reassessment meaning; value unchanged; current unratified claims corrected; OD1–OD3 unchanged | Another numerical choice, scoring activation, automatic advancement, or A6 approval used as A4 evidence. Phase 1 |
+| P2-3 — GR-010 namespace parent | Register clarification and literal namespace clauses for traceability §6.2, crosswalk and FN-GATES §11 | Business stages, V1 EG task/evidence and held technical nodes/transitions distinguished; KEEP stored/API identifiers | EG evidence equated with transition execution, T5 ranking with sign-off, or a rename/migration applied. Phase 1 |
+| P2-4 — GR-011, after P2-3 | Source-fidelity rule plus row-by-row crosswalk reclassification with source-cell citations | Multiple R or absent A preserved faithfully; source mapping verified only on evidence; operational shape/readiness separately qualified | Single R invented, missing A supplied, or all rows relabelled VERIFIED without source inspection. Phase 1 |
+| P2-5 — GR-009, after P2-4 | CONFIG_LOG count-meaning correction and specification for a later catalog-derived check/code unit | Each symbol names its namespace, catalog, inclusion rule and boundary; documentary/code owners separate | Silently replacing 6 with 5, inventing a V1 Published path, or counting business and technical families together. Phase 1 documentation; later bounded Phase 2 code |
+| P2-6 — child receipts, then parent assessment | Per-key correction/transfer evidence, SV-002 §2.3.2 accounting and §2.3.1 clearance basis | Each child has its own result; parent header reflects its weakest remaining child; D-364 reasons recorded individually where used | Custody or tracker closure called whole-source verification or fulfillment. Phase 1 |
+
+### 2. Exact proposed corrections and observable success
+
+#### B-050 — reconcile the original obligation with the accepted proof contract
+
+The source remains Answered/Applied. D-403 narrows proof to an **observed procedure**, rather than permanent
+non-recurrence; D-408/D-409 explicitly excluded automatic source disposition. D-411 closed B-046 only.
+No repeat rebuild is justified merely to obtain another green snapshot.
+
+Lane A's proposed assessment must cite the existing saved artifacts, then return them for Lane B's independent
+source-specific review. The prior review prose is evidence of a scoped review, not a fresh inspection here.
+
+| Source obligation | Existing evidence to inspect | Success / refusal |
+|---|---|---|
+| G97 truthful null-record diagnosis | scripts/checks/docs-drift.mjs null-record branch; D-122 | Null analyzed HEAD refuses currency even beside stale:false; never claim hook-rebuild alone establishes currency |
+| Isolated lifecycle and caller invariance | C:/CoWork/outputs/lane-a-d408-replay-2026-10-03/ manifest and saved metadata; B-050 D-408 review | Named revision/version/git context; metadata non-null and correctly bound; caller unchanged. Missing before/after or invariance evidence stays pending |
+| Curated preservation and semantic completion | Saved replay graph, final merge comparison and pending-batch results | Every mergeable fragment/node/declared edge field preserved; no unresolved semantic batch. A tool success message alone refuses completion |
+| Accurate navigation and accepted release | C:/CoWork/outputs/lane-b-d409-review-2026-10-03/ LABEL-REVIEW.json and reviewed graph; B-050 D-409 receipt | Names bound to complete member sets, saved global/node names agree, independently accepted wording; stable concepts resolve by supported label lookup |
+| Current governed revision | Fresh graphify check-update and full check including docs-drift | Current under the governed-source exclusion contract. Handoff-only HEAD movement does not demand a rebuild; null/misbound metadata still refuses |
+
+**Draft disposition wording for Lane A to present:** “B-050's selected proof concerns the observed guarded
+procedure and G97 diagnosis. The intermittent external-tool defect remains a documented limit. Source verification
+requires the independent obligation matrix and saved evidence; accepted graph release alone supplies no source
+Verified disposition.” If all criteria pass, Lane B may record the independently verified bounded result in B-050,
+using its existing lifecycle/audit form. If a criterion fails, retain Applied and name the missing proof; any new
+tool/procedure work needs its own bounded act. A Judge clearance reason is separately possible under D-364 and
+does not make the source Verified.
+
+#### B-106 — A4 event packet, with the settled A6 branch retained
+
+**Draft Register clause:** “Receive the Chief Editor's 2026-09-15 presented-row approval, recorded in B-106:
+SCORING_REVIEW_THRESHOLD_ARTICLES = 50 (A4). It ratifies the review/reassessment threshold only. It grants no
+scoring execution, gate advancement, OD1–OD3 ratification or runtime-metadata edit. A6's D-381/D-404–406 meaning
+and reviews remain intact. Later metadata work requires its own bounded Lane B work order.”
+
+Lane A assigns the real Register reference upon application; none is invented here.
+
+- CONFIG_LOG §2: replace A4's “No — unratified” with “Yes — presented-row approval 2026-09-15, received by
+  the recorded Register act; value unchanged at 50; review/reassessment only; runtime metadata pending its unit.”
+- DECISION_LOG §3: append one event with the actual receipt date, original approval date, B-106 evidence,
+  Register reference and CONFIG_LOG effect. Preserve existing event rows and dated history.
+- Correct DECISION_LOG's current A4 assertions in its introduction, §2 table and §3 trailing prose so none
+  continues to say “never put” or “none ... answered” for A4 after receipt. OD1–OD3 remain open.
+- Inspect the Business Case's A4 ratification mirror and current blanket assumptions statement; update only
+  the A4 consequence if present. Check mapped source/Encyclopedia consumers by ENCYCLOPEDIA-SYNC; record
+  comparison evidence or unaffected status, without claiming inspection of an unopened hosted page.
+- Record later metadata custody beside B-106's Product intake and in a bounded unit specification: exact
+  symbols A4=50/A6=90, metadata/citations only, no value/clock/job change, return on Judge work order and
+  lane activation, completion on independent review of the authorized diff. Do not assign a sprint silently.
+
+**Pass:** the event, current ledger and source mirrors agree; existing values stay 50/90; later code metadata is
+explicitly pending. **Refuse:** threshold=50 is used as proof of computed scoring, or a documentation review claims
+executed AC-12a tests. Valid/missing-invalid/elapsed-only supplied-fact cases remain later construction inputs.
+
+#### GR-010 — separate namespaces before checking mappings
+
+**Draft normative clause:** “business:T1–T5 names the business-stage family. V1 EG task/evidence records name
+their own family under their accepted V1 contract. transition:T* names the separate technical execution family;
+the EG logical-node references in the held target catalog describe that catalog only. A shared label or mapping
+is not identity or execution evidence. Documentary qualification keeps stored and API identifiers unchanged.”
+
+Apply after a Register act: split traceability §6.2's combined transition:T1–T6/EG1–EG5 row; qualify FN-GATES
+§11's heading/Transition mapping column as held technical-catalog context; distinguish its EG node labels from
+V1 task/evidence references. Qualify crosswalk references at their actual contexts and add dated clarification
+pointers to D-170/D-171's collapsed wording, preserving historical acts and D-171's hold. Do not rewrite the held
+executor topology, adopt Model A or execute the T5-FINAL rename; those belong to existing other owners.
+
+**Pass:** a business:T5 ranking record cannot satisfy technical transition:T5/T6 proof, and a V1 EG record cannot
+prove a held virtual executor ran. **Refuse:** a label-only map grants final sign-off or collapses source-RACI A
+into the application ranking/access context.
+
+#### GR-011 — verify fidelity, then separately assess operation shape
+
+**Draft rule:** “Source mapping is VERIFIED when each scoped role/code/subject mapping is supported by the
+named source cells and unambiguous identity. Multiple R values, no R, or no A do not independently make faithful
+source mapping UNVERIFIED. UNVERIFIED identifies actual source ambiguity or an unproven mapping and names the
+unresolved cell/identity. DECIDED identifies a supplied Chief Editor decision. Mapping status does not establish
+atomic shape, a unique executor, accountability completeness, milestone decomposition or execution readiness.”
+
+Keep every original R/A/C/I cell and source_code. Replace cardinality-only reasons in crosswalk §2 and its
+current roll-up; inspect §4 shape placeholders and D-170's repeated conclusion for dated qualification. For each
+affected OP row record source/hash/cell evidence, mapping result, unresolved shape and decision basis separately.
+Use no bulk Verified promotion. OP-FINAL-SIGNOFF keeps its accepted D-237/D-238 DECIDED provenance unless
+independent re-derivation actually occurs; missing milestone children remain missing.
+
+**Pass example:** OP-PITCH's two source R assignments may have verified mappings while its unique executor/shape
+is separately governed. **Refusal example:** an unsupported party alias stays unverified even with exactly one R
+and A. OP-DRAFT's absent source A is preserved and cannot be filled to make a row pass.
+
+#### GR-009 — name the catalog meaning; do not choose a new number here
+
+**Draft CONFIG_LOG clarification:** “PIPELINE_GATE_COUNT currently carries 6 from the held technical transition
+catalog; its legacy symbol name does not establish six judgment gates or the V1 evidence-slice scope.
+PIPELINE_TRANSITION_COUNT_TO_PUBLISHED carries the held publication-reaching target count; it is not a V1
+completion criterion. The current V1 boundary remains the supplied-fact slice and later bounded ManualReady
+event. Each future derived count must cite one owning catalog and inclusion rule.”
+
+Correct the explanatory paragraph as well as the two rows. D-171's judgment-gate/forward-transition symbol
+names remain future candidates, not approved replacements. Lane A's later check specification must enumerate
+catalog members and exclusions; no bare number suffices. Code and any symbol rename stay under a separate
+Lane B unit. The current coupling check passes these declarations and therefore does not prove their names
+have truthful business meaning.
+
+**Later check success:** catalog addition/removal changes the derived count or fails a mismatch check.
+**Refusal:** an EG/task count is compared with technical transitions, or Published is included in a V1 outcome.
+No check, catalog, configuration code or stored/API migration is built in this draft.
+
+### 3. Lane A follow-up and durable completion tracking
+
+1. Receive this P2 block in B-154's Lane A answer, in its own one-entry commit; cite the actual read/recording
+   revision and accept/reject each docket row. Do not replace earlier completed P3/P4 acts with this draft.
+2. Prepare the B-050 matrix and A4 literal diff independently. Prepare GR-010 first; only then finalize the
+   GR-011 row docket, and only after that the GR-009 catalog-meaning packet. Present exact paths/clauses,
+   exclusions, pass/refusal examples and D-54 tier applicability to the Judge before applying source changes.
+3. Record the selected bounded Register act. Propagate Register, Build Spec and Inventory together; explicitly
+   state unaffected tiers. No sprint closes, version opens, hold lifts or capability is added. Inventory changes
+   only if artifacts actually change; no duplicate tracker/file is needed.
+4. Apply selected Lane A documentation clauses; keep each handoff answer commit separate from canonical edits
+   under D-385. Return actual diffs and read revisions for independent Lane B review. Level 2 review by Lane C
+   adds only its evidenced scope and cannot substitute for missing implementation/runtime evidence.
+5. Account once per existing key in SV-002 §2.3.2 (actor/read revision/scope/result). Maintain GR-010/011/009
+   fulfillment evidence in GOV-RES-001; maintain B-106's Product/runtime custody in its existing home; B-050
+   retains its own source proof. Update §2.3.1 only with independent transfer verification or the Judge's
+   individual accepted reason under D-364. Re-derive from keys; never subtract a target number by hand.
+6. Use the handoff template's existing lifecycle forms: Applied is provisional; Verified requires an independent
+   actor/existing SHA; Deferred requires a named return/owner; returned terminal entries require Re-close records;
+   terminal audit-only touches require their annotation. Parent disposition follows the weakest remaining child.
+7. After canonical edits, perform the authorized D-409/D-410 sync contract: pinned revision/context, verified
+   backup/restore, rebuild and ordered curated re-merge, semantic completion, saved member-bound labels and final
+   re-merge/checks. Release the candidate only after independent review; changed memberships require fresh name
+   review. If a new sync is not covered by the bounded act, specify it for the Judge first.
+8. Report separately: draft complete; application pending/applied; independent review result; source clearance;
+   receiving fulfillment; parent lifecycle. No P2 result alone accepts SV-002, opens Gate 2, unblocks V1-SM05,
+   issues a construction work order or activates Lane B.
+
+### 4. Chief Editor/Judge: remaining choices and evidence limits
+
+The user is Chief Editor for lane selection and Judge for governance acceptance (D-158). The access entitlement
+ACCESS-ROLE-CHIEF-EDITOR does not supply a task executor, Senior Journalist request, final sign-off or Line 3 role.
+
+| Item requiring Accept/Reject | What Lane B highlights | Judge assesses after Lane A's concrete packet |
+|---|---|---|
+| B-050 | Accepted sync snapshots do not automatically complete source proof | Independent bounded proof/disposition, or an individual clearance reason retaining the intermittent-tool limit |
+| A4 | Existing direct approval has not reached current event/config sources | Receipt and propagation of the already-approved 50; no repeated number selection |
+| GR-010 | Collapsed namespaces allow evidence to masquerade as execution | Exact namespace clauses; no stored/API changes or target activation |
+| GR-011 | Cardinality-driven labels reject faithful source mappings | Evidence-based classification rule and per-row source proof; no invented R/A or operation readiness |
+| GR-009 | Names/counts imply gates/publication beyond their catalog and V1 boundary | Documentary meanings and later ownership; any symbol/code selection remains a separate bounded act |
+| Completion | Custody/source clearance can leave delivery and siblings open | Scope-specific reason/evidence; no blanket Verified, whole-parent closure or construction authority |
+
+These artifacts drive later construction and verification: the namespace contract determines what records can
+prove; the source crosswalk determines which role facts are defensible; the catalog determines count assertions;
+the A4 event determines truthful metadata; B-050 makes navigation evidence revision-bound. They do not guarantee
+business viability or eliminate financial risk. The guaranteed failures above are failures of named acceptance
+contracts when their stated refusal conditions occur.
+
+### 5. Currency, completion of this draft and verdict
+
+Read-only graphify query preceded detailed traversal; graphify check-update reported current. The full Git-aware
+consistency run at the read revision passed 19/19, including docs-drift (synced at b351845), graph coverage and ledger
+currency. The completed handoff draft also passed 19/19 with full Git/history access. Initial restricted execution had Git-spawn EPERM and did not
+establish consistency; that result is not counted as evidence. Current graph currency coexists with the known
+semantic defects owned by these residuals. No graph rebuild is needed for this excluded handoff-only draft.
+
+The draft is complete and ready for Lane A's answer; no new business clarification is needed to draft these
+bounded choices. No source application or closure is claimed. All source headers/receiver fields are unchanged.
+
+| Verdict | Scope | Condition / follow-up phase |
+|---|---|---|
+| Approve | Completed P2 review, exact proposed clauses and parent-first handback | Phase 1: Lane A receives this existing B-154 draft |
+| Approve-with-conditions | Source application, B-050 assessment and per-key clearance | Phase 1: recorded bounded act, actual diff/saved proof, independent review and individual clearance basis |
+| Reject | Blanket closure/Verified, cardinality-only rejection, namespace collapse, or green checks treated as business proof | Phase 1: apply the refusal criteria and retain unresolved owners |
+| Defer | Runtime metadata, catalog/check construction, whole-parent closure, Gate 2, V1 unblock and build | Later separately selected Phase 1 parent assessment / bounded Phase 2 implementation; held targets retain their existing allocation |
