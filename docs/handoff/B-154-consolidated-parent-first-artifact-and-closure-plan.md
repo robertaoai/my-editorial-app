@@ -2216,3 +2216,69 @@ The RH dependencies describe any future partition construction, not three forced
 | Approve-with-conditions | Individual custody reasons and recommended notice application | Phase 1: Judge's exact decisions/clearance basis, bounded application, independent delivery/candidate review |
 | Reject | Ready-as-clearance, notice-choice-as-delivery, blanket Verified, omitted accounting or A/B/C guarantees beyond evidence | Phase 1: explicit per-key basis, artifact proof and retained owners |
 | Defer | Source-parent closure, optional partition, hosted fulfillment, remaining attempt/Gate 2, construction and push | Existing later owners and separately bounded acts |
+
+## Consolidated Lane B handback for Lane A — five reasons, P4 choice and Lane C limits, 2026-10-04
+
+**Clarified request:** give Lane A one current, self-contained review block covering P3c/P4, the Judge's remaining choices, completion evidence and unsupported Lane C claims. **Raiser: Lane B. Answerer: Lane A. Kind: finding continuation. Phase: 1. Read baseline: c5e7eb5ee0cac28b82e34016931b183b2431773e.** This consolidates the preceding analysis for receiver intake; it introduces no new key, receipt or execution scope. Lane A writes its own answer in B-154; this body does not replace its answer or whole-entry audit fields.
+
+### What happened
+
+The latest preparation is **ready for Lane A intake and the Judge's decisions**. D-412's scoped graph release is already received in 64eafcb. Lane A's twelve-topic B-119 record at 262633e resolved the missing census; its B-154 answer at f486ce4 and Lane B's independent readiness review at c5e7eb5 are durable. No repeat topic review or D-412 release is owed. The Register still ends at D-412: none of the five proposed reasons or the additional notice choice is a new Judge act yet.
+
+The remaining gap is decision/completion precision: **custody accepted**, **source key cleared**, **correction applied**, **correction independently verified** and **software DoD accepted** are different facts. GR-005 already owns the decided correction; custody-only keeps its delivery pending. GR-006 already owns an optional, unselected partition; D-240's flat layout stands. B-119's surviving obligations stay with SM06 DoR/SM06-P3-01. No competing tracking layer is needed.
+
+### What you need — one parent-first decision and artifact docket
+
+The Chief Editor and Judge are the same user in these governance roles (D-158). Lane A presents **five individual reasons plus one separate P4 choice**. The following is proposed acceptance text, not acceptance recorded by Lane B.
+
+| Order / dependency | Decision or artifact | Accept criterion / proposed reason | Reject criterion and retained completion obligation |
+|---|---|---|---|
+| 0 — completed preparation parent | D-412 release; 262633e topic record; c5e7eb5 review | Receive the stated documentary/candidate scope and evidence limits | Reject whole-source historical verification, software assurance or a repeated release requirement; no original-message/SQL-blob/hosted comparison was performed in the topic record |
+| 1 — after 0; authority parent for any canonical writes | Actual bounded Phase 1 Register act | Judge decides each row 2a–2e and row 3; Lane A records the available actual ID, exact keys, reasons and write set | A review request, an Approve verdict or forecast D-413 is not the act; rejected keys retain their existing owner and open clearance |
+| 2a — custody decision under 1 | **B-118.RH1 → GR-006** | Accept custody because GR-006 retains the stable partition-key obligation, optionality and flat D-240 channel | Reject a draft key treated as selected. If later selected, an approved stable origin key is the parent construction input; no partition execution now |
+| 2b — custody under 1; future tooling depends on RH1 | **B-118.RH2 → GR-006** | Accept custody because recursive discovery/controls, global IDs, citations, rename history and exact-path proof precede moves | Reject root-only discovery or omitted lifecycle history. Later verification must detect an injected duplicate/broken citation and preserve every entry and episode |
+| 2c — custody under 1; future moves depend on RH1/RH2 | **B-118.RH3 → GR-006** | Accept custody because classification precedes moves, unknown origins stay shared and history is retained | Reject status-derived/guessed sprint placement or moving before controls pass. Later artifact: reviewed classification manifest and independently verified move/history proof |
+| 2d — under 1; independent of partition execution | **B-119 → SM06 DoR / SM06-P3-01** | Accept the qualified documentary custody reason against 262633e: current topics/owners are accounted for; revision mechanism and Entry 04 remain in SM06 DoR, hosted A02 in SM06-P3-01; A01 is setup baseline only | Reject unperformed historical/hosted comparisons as Verified, A01 as feature proof or A02 as an SM05 gate. Later Lane B mechanism specifies identity/replay/current-read behavior; tests refuse wrong requester/stale or invalid evidence, prevent a second effective replay outcome and prevent changed content inheriting readiness. Hosted migration/A02 retain D-252 ordering |
+| 2e — under 1; independent of 2a–2d execution | **B-095.D3 → GR-005** | Accept custody because GR-005 retains the exact §4 notice and independent-diff criterion; this reason claims no delivery | Reject FB-05 closure, historical-panel rewriting or correction completion from receipt alone. The notice is a current construction pointer; actual notice plus independent comparison proves its documentary delivery |
+| 3 — separate choice under 1, concerning 2e | **P4: apply the §4 notice (recommended), or custody only** | Apply: authorize Lane A's exact notice and bounded propagation. Custody only: retain the notice pending under GR-005. State whether D3 clears on the accepted custody reason or awaits verified correction delivery | Choice alone never proves delivery. On custody grounds, D3 may clear while GR-005 delivery stays pending; on delivery grounds, D3 stays open until actual application and independent review |
+| 4 — after actual decisions; closure accounting child | Existing source records; SV-002 §2.3.1/§2.3.2; governed sync | Each accepted key has its own actual basis; each unrecorded review/receiver transaction is keyed once; final canonical changes receive consistency and independent candidate review | Reject a copied/decremented count, a second ledger, blanket Verified or whole-parent closure. Source headers/Return/Re-close records keep their own lifecycle obligations |
+
+RH1 → RH2 → RH3 is **future execution order**, not a requirement for three sequential custody approvals. The Judge can decide all five reasons individually in one bounded act. B-119 and D3 do not depend on optional folder partition execution. Custody does not supply the future construction/verification artifacts named above.
+
+**Exact P4 notice, specified for Lane A and not applied:** insert immediately below storyboard §4's table, preserving the historical table and panels. Use the actual application date and cite the actual Register act when recording the application:
+
+> **Current-use notice — 2026-10-04 (GR-005 / B-095.D3).** This table is the historical storyboard roll-up, not the current construction contract. Panel A2's 2026-09-07 B-080 supersession corrects topic cardinality and audit-before-state ordering; it expressly did not close FB-05. The producer-gap row above is historical: D-194/D-197 now specify the ratified manual trigger package in FN-GATES-01-05 §3.1; current CR-14 coverage is recorded in Modular_PRD §7.1 (D-392 / GR-004). FB-05's specification-verification residual is separate from Product coverage, and this notice closes neither FB-05 nor its source handoff. For current V1-SM05 construction use Panel A11 (D-256/D-259/D-260), which records supplied business-stage evidence and claims no transition:T* execution. Other historical roll-up findings keep their own dispositions.
+
+**Chief Editor: Lane C's supported concern and unsupported extensions.** The supported concern is to connect each governing requirement to its owning construction artifact and observable success/refusal evidence. The previously supplied Antigravity chat Level 2 assessment (source SHA-256 c06beb85b0215f530f0e18c8df4a846bb154f15619d7b60a7a4e318fe982d0ad) is scoped concurrence; it is not a new review of this handback or independent D-412 recomputation.
+
+| Lane C claim / gap to avoid | Draft fix / what the Chief Editor is deciding |
+|---|---|
+| Archival/export engine inferred from A6 or supplied archive facts | Reject inferred capability: V1 consumes valid external facts; elapsed time alone proves neither archival nor disposal. No engine is admitted by this docket |
+| Graph as universal CI golden baseline or guarantee against false greens | Retain version-bound navigation/coverage evidence only; local runtime checks are skipped where the ignored graph is absent. No workflow guarantee or new CI gate is selected |
+| Graph backup as database rollback with zero data loss | Retain observed Graphify runtime recovery proof only. Database recovery remains unproved by that artifact |
+| Combined B-050/B-154 header, B-entry Receiver, automatic Verified or replacement verifier | Keep separate existing entries; Lane A answers B-154; only an independent actor may verify actual scoped evidence. No whole-parent promotion |
+| Level 2 owns all tests or concurrence grants canonical edit/build authority | Lane B owns application tests, Lane C workflows and scoped Level 2 review. Decide only the bounded Phase 1 docket above; later execution requires its own Judge act/work order/Active lane |
+
+No further Chief Editor business preference is needed to receive this analysis. New capabilities, optional partition execution, hosted work and full CR-19 fulfillment are not selected by the six current choices. ACCESS-ROLE-CHIEF-EDITOR remains distinct from the sole ManualReady requester ROLE-SENIOR-JOURNALIST.
+
+**Lane A follow-up, step by step:**
+
+1. Read this block against c5e7eb5 and receive it in B-154 with your own dated answer and separate single-path commit. Cite Lane B's actual recording commit; retain the settled preparation in order 0.
+2. Present rows 2a–2e and row 3 together. Record each Accept/Reject reason and D3's custody-versus-delivery clearance basis; do not repeat the topic census or graph release choice.
+3. After the actual Judge decision, record the available Register ID and exact bounded write set. Reuse GR-005/GR-006 and SM06 owners. State D-54 tier applicability; update Build Spec/Inventory only where actual scope/sequence/artifact facts are affected.
+4. Apply the notice only if selected. Account once in SV-002 §2.3.2 for all unrecorded actual transactions, including 4e6d2a9, 64eafcb, 17ee659, 262633e, f486ce4, c5e7eb5 and subsequent receiver/review records; do not duplicate the already logged D-411 review. Re-derive §2.3.1 at an actual revision; clear only accepted keys on the recorded basis.
+5. Check and commit the bounded canonical changes; synchronize their final governed revision under D-409/D-410's verified backup, fragment re-merge, saved-field/full-member/name review and unreleased-candidate contract. Handoff-only intake needs no rebuild. Obtain independent observed notice/candidate review before claiming the corresponding verification.
+6. Return a scoped result: accepted source custody/clearance, notice applied/verified or still pending, and remaining fulfillment owners. On delivery-based clearance, keep D3 open until proof passes. Keep whole-parent lifecycle, attempt/Gate 2 and later construction separate.
+
+### What you did instead
+
+Lane B consolidated the current decision view into this existing handoff, inspected the current B-119 record/GR owners and the still-unqualified storyboard §4 table, and queried graphify first. Graphify reports current; governed analysis remains at 60acd13 with only excluded handoff commits since. The known §4 semantic drift remains pending correction. No canonical source, application, workflow, hosted environment or live graph was changed. Consistency evidence is reported with the delivery of this recording commit; it proves its stated scope, not future runtime outcomes.
+
+### Approve / reject summary
+
+| Verdict | Scope | Condition / follow-up phase |
+|---|---|---|
+| Approve | One consolidated handback; completed preparation; five-reason docket plus separate P4 choice ready for Lane A/Judge | Phase 1: Lane A receives and presents the exact choices |
+| Approve-with-conditions | Per-key clearance and selected notice application | Phase 1: actual individual Judge reasons/clearance basis, bounded Lane A writes, independent observed delivery/candidate review |
+| Reject | Ready-as-cleared, choice-as-delivery, blanket Verified, omitted accounting and Lane C guarantees beyond evidence | Phase 1: retain exact owners, artifact proof and evidence limits |
+| Defer | Whole-parent closure, optional partition execution, hosted fulfillment, Gate 2, software construction and push | Existing later owners; separately bounded Phase 1 / Phase 2-SM05 / Phase 3-SM06 acts |
