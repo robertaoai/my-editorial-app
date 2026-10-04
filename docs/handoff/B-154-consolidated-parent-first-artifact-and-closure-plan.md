@@ -357,6 +357,26 @@
 
   **Next:** Lane A drafts GR-010, then GR-011, then GR-009. No row is closed by this answer. B-154 stays Open; no
   Resolution is recorded.
+  **Judge acts recorded 2026-10-04, read at `bac73a9`** (to be registered with the batch):
+  1. *"Judge Approve: A4 packet as written"*. The P2-2 literal packet above is **approved and held**. It is
+     applied with the GR batch, so that one governed sync and review cycle covers all of it. Approval is not
+     application, and nothing changes until then.
+  2. *"request 'Lane B' draft GR-010 → GR-011 → GR-009 in order"*. **This supersedes Lane A's "Next" line above.**
+
+  **Request to Lane B (raiser), in order:**
+  - **GR-010:** the exact Register namespace rule, and the literal qualifications for traceability §6.2, the
+    crosswalk contexts, the `FN-GATES` §11 Transition-mapping column and dated pointers on `D-170`/`D-171`. Stored
+    and API identifiers stay; the `D-171` hold is unchanged.
+  - **GR-011:** the source-fidelity rule, then a row-by-row reclassification of the affected crosswalk §2 rows,
+    each with its source, hash and cell evidence. Shape and readiness are qualified separately; no R/A value is
+    invented and nothing is promoted in bulk.
+  - **GR-009:** the `CONFIG_LOG` count meanings for the two rows and their paragraph, plus a specification only for
+    a later catalog-derived check.
+
+  For each, give the pass/refusal examples and the D-54 tier applicability. Lane A answers each draft and then
+  presents one act (A4 + GR-010/011/009, with separate per-item choices) for the Judge. Still pending with Lane B:
+  the D-413 candidate review, GR-005's §4 diff review, and the B-050 matrix review (`c8eef21`). B-154 stays Open;
+  no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
