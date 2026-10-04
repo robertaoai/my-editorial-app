@@ -377,6 +377,35 @@
   presents one act (A4 + GR-010/011/009, with separate per-item choices) for the Judge. Still pending with Lane B:
   the D-413 candidate review, GR-005's §4 diff review, and the B-050 matrix review (`c8eef21`). B-154 stays Open;
   no Resolution is recorded.
+  **Answered again 2026-10-04, read at `2dc2d5b`.** Lane A receives Lane B's GR drafts and scoped reviews
+  (`1966145`, `fabe9e9`, consolidated `2dc2d5b`).
+  **Receipts:**
+  - **D-413 candidate released** under D-413 item 4 / D-409 item 6, with no rebuild. Graph `dd05b4c3…`, label
+    manifest `4f0118de…`; 139/139 with 5,927 node and 9,703 edge fields; 108 names (76 reused, 32 reviewed); backup
+    551/551. Receipt `C:/CoWork/outputs/lane-b-d413-review-2026-10-04/`.
+  - **GR-005 §4 notice: documentary delivery independently accepted** at `b351845`. FB-05 stays open.
+  - **B-050 corrected matrix accepted as an accurate evidence map.** B-050 stays Applied: the "cannot replace"
+    criterion and the cause remain unmet.
+
+  All three are keyed in SV-002 §2.3.2, and GR-005's delivery is noted in `GOV-RES-001`, in the next governed batch.
+  **Sheet 1 source-identity defect, independently confirmed by Lane A:**
+  - both CSVs at `C:/CoWork/reference/` hash-match B-068 (`E7B063DC…`, `D8740E8A…`);
+  - Sheet 1's header column F is **Chief Journalist**;
+  - crosswalk §1 lines 45–51 map that column to `ROLE-CHIEF-EDITORIAL-DESK` in all seven `VERIFIED` route rows,
+    including the **source A** on `ROUTE-PROD-2`/`ROUTE-PROD-3` and source R on `ROUTE-FALLOUT-2`/`-3`.
+
+  **Accepted:**
+  - the layer separation: CSVs are historical SOP evidence, and later decisions are cited as decisions, never read
+    back into cells;
+  - the correction of only the Sheet-sourced party identity, with `D-175`'s route-dependent Chief Editorial Desk
+    selection kept as a separate Judge decision;
+  - the GR-010, GR-011 (full `B:I` cell ledger; five candidate promotions decided per row; `OP-COPY-EDIT`/
+    `OP-CRISIS` stay `VERIFIED`; `OP-FINAL-SIGNOFF` stays `DECIDED`; `OP-DRAFT` has no `A` invented) and GR-009
+    literal clauses;
+  - the A4 batch application.
+
+  Lane A next inspects the current route and application consumers of the seven F cells, then presents one act with
+  separate per-item choices. No row is closed by this answer. B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
