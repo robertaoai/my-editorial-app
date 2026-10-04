@@ -2506,3 +2506,75 @@ bounded choices. No source application or closure is claimed. All source headers
 | Approve-with-conditions | Source application, B-050 assessment and per-key clearance | Phase 1: recorded bounded act, actual diff/saved proof, independent review and individual clearance basis |
 | Reject | Blanket closure/Verified, cardinality-only rejection, namespace collapse, or green checks treated as business proof | Phase 1: apply the refusal criteria and retain unresolved owners |
 | Defer | Runtime metadata, catalog/check construction, whole-parent closure, Gate 2, V1 unblock and build | Later separately selected Phase 1 parent assessment / bounded Phase 2 implementation; held targets retain their existing allocation |
+
+## Lane B review — Lane A P2 worklog and A4 correction, 2026-10-04
+
+**Read revision:** `c7c2f8dc0912e581c2c84a97085fde1f11ee4b87`. Lane B compared the supplied worklog with
+Lane A's B-050 matrix (`9645d1a`), B-154 answer (`c7c2f8d`), the three governed A4 sources and the saved rebuild
+metadata/manifests. This is a scoped review and draft correction, not B-050 Verified or D-413 release.
+
+### Parent meaning first: threshold approval does not ratify the formula
+
+**Lane A's correction is accepted.** Addendum §2.1/§2.4, Business Case's A4 rows and Blueprint's A4 rows name
+the trend-scoring formula/simple weighted sum. B-106's presented-row act names the distinct configuration value
+SCORING_REVIEW_THRESHOLD_ARTICLES=50. Lane B's earlier P2-2 mirror-update instruction was too broad and is
+qualified by this current block: none of the three formula ratification cells moves from No to Yes.
+
+**Replacement event wording for Lane A's packet:** “Receive the Chief Editor's 2026-09-15 approval of the
+presented configuration row SCORING_REVIEW_THRESHOLD_ARTICLES=50. Ratification covers that review/reassessment
+threshold only. The A4 scoring formula and weights remain assumed and unratified. No scoring execution,
+gate advancement, OD1–OD3 ratification, numerical change or runtime-metadata edit follows.”
+
+CONFIG_LOG receives the threshold-row effect. DECISION_LOG appends the threshold event and qualifies current
+“A4 unratified/never put” assertions by object: the threshold was approved; the formula was not. Addendum,
+Business Case and Blueprint keep formula Ratified? No and add a dated threshold-only note; their current blanket
+assumptions prose keeps that distinction. Preserve old event rows, the settled A6 meaning and later metadata
+ownership. The actual Register reference and receipt date are supplied by Lane A's application act.
+
+### B-050 matrix: metadata evidence accepted; complete proof still qualified
+
+Lane B read the actual after-rebuild and final metadata for all seven named runs. Each has the named branch,
+non-null lastSeenHead/lastAnalyzedHead equal to its pinned revision and stale:false. G97's missing-analyzed-head
+refusal is present in docs-drift; `.graphify` is ignored and has no tracked entry. These observations support
+the matrix's metadata/detection claims. They do not prove eradication or identify the cause.
+
+**Two exact matrix corrections for Lane A:**
+
+| Gap | Required fix / evidence limit |
+|---|---|
+| “139/139 ... each run” and “every success criterion is met” can flatten failed history into success | Preserve the original D-403 run as STOPPED: semantic completion was not reached and parity was lost after update. Route 1 stopped on label/ownership contradictions; D-408 passed its revised technical criteria but misleading names remained. Later accepted D-409/D-411/D-412 snapshots provide their own scoped evidence. Seven healthy metadata records establish metadata observations only; D-413 remains an unreviewed candidate |
+| “each live sync's 31-branch-final.json” is not a valid universal locator | D-409's post-label-ingest final metadata is 39-branch-final.json and semantic check is 38-check-update-final.log; D-411/D-412/D-413 use 31-branch-final.json. Give exact per-run paths rather than one filename for every run |
+
+D-403 makes universal non-recurrence an evidence limit, not a requirement for tool repair in this proof unit.
+The remaining assessment must map its isolation/parity/semantics/caller-invariance criteria to the actual
+accepted evidence, including the later acts and the stated differences between isolated and live runs.
+This review does not recompute every graph field or review every D-413 label; no whole-source verifier field is
+changed. Keep B-050 Applied until that independent source-specific assessment is complete. A failed historical
+run is never converted into a pass by a later healthy run.
+
+### Lane A next steps and Judge choices
+
+1. Receive this scoped review in B-154; retain Lane B as raiser and Lane A as answerer. Correct B-050's matrix
+   in Lane A's separate one-entry answer commit; no source disposition or canonical edit is implied.
+2. Finish the corrected A4 literal packet. Prepare GR-010 → GR-011 → GR-009 in the accepted order. Present one
+   bounded batch with separately keyed clauses, exclusions, pass/refusal examples and D-54 applicability.
+   **Recommendation:** hold A4 application for that batch to share one sync/review cycle. This is advice,
+   not the Judge's selection; retain separate per-item Accept/Reject decisions within the batch.
+3. Keep D-413 candidate release and GR-005 independent diff review as outstanding Phase 1 work. A graph can
+   pass currency checks and still be unreleased under D-409 item 6. No new rebuild is needed to record these
+   handoff-only receipts. No additional consuming graph query is needed before release.
+4. After actual application/review, key each transaction once in SV-002 §2.3.2 and record the applicable
+   §2.3.1 clearance basis. GR fulfillment stays in GOV-RES-001; B-106's runtime child stays in its Product/unit
+   home. Source clearance, receiving fulfillment and parent completion remain separate.
+
+No new numerical or business clarification is needed for this review. Lane A's proposed batching question
+remains a Judge choice; the supplied worklog itself is not authorization to apply sources or release D-413.
+Full Git-aware consistency evidence is recorded with delivery; green checks do not resolve the stated semantic
+gaps. No canonical source, runtime, workflow, graph state or application was changed.
+
+| Verdict | Scope | Condition / follow-up phase |
+|---|---|---|
+| Approve | A4 threshold/formula correction; parent-first order; observed seven-run metadata evidence | Phase 1: Lane A receives this scoped review |
+| Approve-with-conditions | B-050 matrix and proposed combined source batch | Phase 1: exact evidence/history/path corrections, completed literal packets, bounded Judge act and independent review |
+| Reject | Formula ratification from threshold approval; every-run-success wording; current treated as released | Phase 1: preserve formula assumption, failed-run history and D-413 pending review |
+| Defer | B-050 Verified, D-413 release/GR-005 completion, source application, parent closure, build and push | Remaining Phase 1 proof/application acts; later separately authorized Phase 2 implementation |
