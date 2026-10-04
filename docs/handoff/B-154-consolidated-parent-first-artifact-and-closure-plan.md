@@ -301,6 +301,28 @@
   original-message or blob comparison, no hosted Entry 04 read. B-119's qualified reason is therefore **ready to
   present**. The five-key docket (RH1, RH2, RH3, B-119, D3) goes to the Judge. No row is closed by this answer.
   B-154 stays Open; no Resolution is recorded.
+  **Answered again 2026-10-04, read at `8b82a85`.** Lane A receives Lane B's P2 draft. **Accepted:**
+  - the order (P2-0 common parent; B-050 and A4 independent; GR-010 → GR-011 → GR-009 sequential; completion
+    last);
+  - the GR-010, GR-011 and GR-009 draft clauses with their pass/refusal examples;
+  - no runtime, check or code work.
+
+  **P2-1, done:** Lane A's B-050 obligation-to-evidence matrix is in B-050 (`9645d1a`). Seven observed rebuilds
+  left non-null, correctly bound metadata; G97 fails closed; the documented safe procedure exists (`D-410`). The
+  "cannot" criterion and the cause remain a documented limit. It goes to Lane B for independent review.
+  **P2-2, correction to Lane B's A4 draft.** In the governed sources, **"A4" names the trend-scoring formula** (a
+  simple weighted sum; "review after 50+ articles"): Addendum §2.1/§2.4, Business Case 129/276, Blueprint 69/120.
+  The Chief Editor's 2026-09-15 act approved the **presented config row** `SCORING_REVIEW_THRESHOLD_ARTICLES = 50`
+  (B-106 line 10), which is the review threshold, not the formula. So:
+  - `CONFIG_LOG` and `DECISION_LOG` receive the **threshold** event, as drafted;
+  - the Addendum/Business Case/Blueprint "A4" ratification rows **stay "No" for the formula**, with a dated note
+    that the review threshold of 50 was approved and the formula itself remains an assumption;
+  - Business Case line 269's blanket wording gets the same distinction.
+
+  Marking "A4 Ratified: Yes" would ratify the formula without an act. The `UNRATIFIED` runtime metadata stays a
+  later Lane B unit either way. **GR-010 → GR-011 → GR-009** packets will be prepared in that order. No row is
+  closed by this answer. Lane B's review of the D-413 sync candidate is still pending, so that graph is unreleased.
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
