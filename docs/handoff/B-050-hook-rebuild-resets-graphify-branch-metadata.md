@@ -232,24 +232,42 @@ B-050 stays Applied.
 - **No-Scope-Reopened:** true
 - **Annotated-At-Commit:** 1342aa8e6f82c7b540b492517dd833160f8789ee
 
-## Lane A obligation-to-evidence matrix — 2026-10-04 (B-154 P2-1)
+## Lane A obligation-to-evidence matrix — 2026-10-04 (B-154 P2-1), corrected
 
-Read at `8b82a85`. Lane A, as receiver, maps each of this entry's own success criteria and its "Required repair" to
-saved evidence, for Lane B's independent source-specific review. **It changes no header and claims no Verified.**
-D-403 narrowed the proof to an *observed procedure*, not permanent non-recurrence.
+Read at `99750e8`. **Corrected 2026-10-04 on Lane B's review (`f842a48`/`99750e8`):** the first version (`9645d1a`)
+merged four different run outcomes into "every success criterion met", claimed "139/139 each run", and cited
+`31-branch-final.json` for every sync. Those claims are withdrawn and the version is kept in Git history. Lane A, as
+receiver, maps this entry's own success criteria and "Required repair" to saved evidence **run by run**, for Lane B's
+independent source-specific review. **It changes no header and claims no Verified.** D-403 narrowed the proof to an
+*observed guarded procedure*, not permanent repair of the intermittent external tool.
 
-| Obligation (this entry) | Saved evidence | Assessment |
+### Run outcomes (each a separate result; a later pass does not turn a stopped run into a pass)
+
+| Run | Revision / state | Outcome | Evidence home |
+|---|---|---|---|
+| D-403 B-050 proof | `c0a925c`, disposable | Metadata non-null after rebuild. **STOPPED:** semantic update overwrote fragment-owned clustering fields (13/139); semantic completion never reached | `C:/CoWork/outputs/lane-a-b050-proof-2026-10-03/` (`03`, `13`, `MANIFEST.md`) |
+| D-406 Route 1 | `761d7e9`, disposable | Metadata non-null; parity restored by re-merge. **STOPPED:** 471 label-map contradictions, 27 ids with two names | `lane-a-route1-2026-10-03/` (`03`, `21`, `22`) |
+| D-408 replay | `05bfd0d`, disposable | Met its revised technical checks (139/139, 0 contradictions). **Reused names were misleading**, so no navigation sign-off | `lane-a-d408-replay-2026-10-03/`; Lane B review in this entry |
+| D-409 live | `b7a91bb` | Released after Lane B's review (`d8f7f8a`). Final metadata `39-branch-final.json`, semantic state `38-check-update-final.log` | `lane-a-d409-sync-2026-10-03/`; `lane-b-d409-review-2026-10-03/` |
+| D-411 live | `0153b27` | Released after Lane B's review (`9b3319d`). `31-branch-final.json`, `30-check-update-final.log` | `lane-a-d411-sync-2026-10-03/`; `lane-b-d411-review-2026-10-03/` |
+| D-412 live | `60acd13` | Released after Lane B's review (`4e6d2a9`). `31-branch-final.json`, `30-check-update-final.log` | `lane-a-d412-sync-2026-10-04/`; `lane-b-d412-review-2026-10-04/` |
+| D-413 live | `b351845` | **Unreviewed, unreleased candidate. Excluded from this assessment** | `lane-a-d413-sync-2026-10-04/` |
+
+### Obligation-to-evidence
+
+| Obligation (this entry) | Evidence, scoped to the runs where it was actually proved | Assessment |
 |---|---|---|
-| Rebuilding cannot replace a current non-null branch / analyzed HEAD with null | **Seven observed rebuilds, all non-null and correctly bound:** disposable `b050-proof` @ `c0a925c`, `route1-proof` @ `761d7e9`, `d408-replay` @ `05bfd0d`; live `features/feature-V1-SM05` @ `b7a91bb` (D-409), `0153b27` (D-411), `60acd13` (D-412), `b351845` (D-413) (`C:/CoWork/outputs/lane-a-*/0[389]-branch-after-rebuild.json`). Detection: `docs-drift` G97 branch (lines 110–126) refuses a null analyzed head even beside `stale: false` | **Met as an observed procedure plus fail-closed detection. Not met as a universal "cannot".** The intermittent external-tool cause is still unidentified (the documented limit) |
-| `lastAnalyzedHead` equals committed HEAD after the approved procedure | The same seven records, each equal to its pinned revision; each live sync's `31-branch-final.json` | **Met** for each observed run |
-| No pending semantic batch before "fully synchronized" is claimed | Each sync's `30-check-update-final.log` reports current. Release only after Lane B's review (`D-409` item 6, `D-410` clause) | **Met**, procedure enforced by `D-410` |
-| Queries still include the curated fragment layer | 139/139 saved fragment parity each run; Lane B's field-level receipts (`lane-b-d411-review`, `lane-b-d412-review`); named concept ids resolve (`40-named-ids.txt`, `22-named-ids.txt`) | **Met** for each released snapshot |
-| Runtime `.graphify` stays uncommitted | `.gitignore` lines 17–25 (`.graphify/` and the symlink form); `git check-ignore` matches; every sync left the tree clean | **Met** |
-| Required repair: reproduce against disposable state | `D-403` B-050 proof (`lane-a-b050-proof-2026-10-03/MANIFEST.md`): the null reset **did not reproduce** | Attempted; not reproduced |
-| Required repair: identify the cause | None | **Not met.** The cause in the installed distribution versus the invocation is unidentified |
-| Required repair: negative fixture **or** documented safe procedure | Documented safe procedure: `sync-docs` §7 and fragments README §5 (`D-410`), plus the G97 fail-closed check | **Met by the "documented safe procedure" branch.** No negative fixture was built |
+| Rebuilding cannot replace a current non-null branch / analyzed HEAD with null | After-rebuild metadata was non-null and correctly bound in all seven rebuilds above (`03`/`08`/`09` files). Detection: the `docs-drift` G97 branch (lines 110–126) refuses a null analyzed head even beside `stale: false` | **Observed procedure plus fail-closed detection.** Not a universal "cannot"; the cause is unknown |
+| `lastAnalyzedHead` equals committed HEAD after the approved procedure | Final records for the released runs: D-409 `39`, D-411/D-412 `31` | **Met for D-409, D-411 and D-412.** D-413 pending |
+| No pending semantic batch before "fully synchronized" is claimed | `check-update` current in the released runs' final logs (D-409 `38`, D-411/D-412 `30`). D-403 and Route 1 never reached semantic completion and made no sync claim | **Met where a sync was claimed.** Enforced from now on by `D-410` and independent release |
+| Queries still include the curated fragment layer | Final saved field parity **independently compared** by Lane B for D-411 and D-412 (all declared node and edge fields), and by the D-409 review. Lane A's `fieldcmp.mjs` checks edge identity only (G4) | **Met for the reviewed releases** (D-409, D-411, D-412) |
+| Runtime `.graphify` stays uncommitted | `.gitignore` lines 17–25; `git check-ignore` matches; tree clean after each live sync | **Met** |
+| Required repair: reproduce against disposable state | D-403 proof: the null reset **did not reproduce** | Attempted; not reproduced |
+| Required repair: identify the cause | None | **Not met.** Documented limit |
+| Required repair: negative fixture **or** documented safe procedure | Documented safe procedure: `sync-docs` §7 and fragments README §5 (`D-410`), plus the G97 check. No negative fixture | **Met by the documented-procedure branch only** |
 
-**Proposed disposition for Lane B's review:** every success criterion is met as an observed, fail-closed procedure.
-The "cannot" criterion and cause identification remain a documented limit, not a repair. Lane B may record a
-**bounded** Verified that states that limit, or keep the entry Applied and name the missing proof. Any tool repair
-needs its own act. `B-050` stays Applied until then.
+**Proposed disposition for Lane B's review:** the success criteria are met for the independently reviewed live
+releases (D-409, D-411, D-412), under an observed guarded procedure with fail-closed detection. The universal
+"cannot" and cause identification remain documented limits. The two stopped runs and the misleading-name replay stay
+on record as failures. Lane B may record a **bounded** Verified stating those limits, or keep Applied and name the
+missing proof. Any tool repair needs its own act. `B-050` stays Applied.
