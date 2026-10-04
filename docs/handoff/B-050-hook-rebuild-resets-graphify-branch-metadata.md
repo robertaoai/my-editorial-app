@@ -231,3 +231,25 @@ B-050 stays Applied.
 - **Annotation-Act:** Lane A receipt of Lane B's D-409 S2 acceptance, 2026-10-03, this entry's D-409 receipt section
 - **No-Scope-Reopened:** true
 - **Annotated-At-Commit:** 1342aa8e6f82c7b540b492517dd833160f8789ee
+
+## Lane A obligation-to-evidence matrix — 2026-10-04 (B-154 P2-1)
+
+Read at `8b82a85`. Lane A, as receiver, maps each of this entry's own success criteria and its "Required repair" to
+saved evidence, for Lane B's independent source-specific review. **It changes no header and claims no Verified.**
+D-403 narrowed the proof to an *observed procedure*, not permanent non-recurrence.
+
+| Obligation (this entry) | Saved evidence | Assessment |
+|---|---|---|
+| Rebuilding cannot replace a current non-null branch / analyzed HEAD with null | **Seven observed rebuilds, all non-null and correctly bound:** disposable `b050-proof` @ `c0a925c`, `route1-proof` @ `761d7e9`, `d408-replay` @ `05bfd0d`; live `features/feature-V1-SM05` @ `b7a91bb` (D-409), `0153b27` (D-411), `60acd13` (D-412), `b351845` (D-413) (`C:/CoWork/outputs/lane-a-*/0[389]-branch-after-rebuild.json`). Detection: `docs-drift` G97 branch (lines 110–126) refuses a null analyzed head even beside `stale: false` | **Met as an observed procedure plus fail-closed detection. Not met as a universal "cannot".** The intermittent external-tool cause is still unidentified (the documented limit) |
+| `lastAnalyzedHead` equals committed HEAD after the approved procedure | The same seven records, each equal to its pinned revision; each live sync's `31-branch-final.json` | **Met** for each observed run |
+| No pending semantic batch before "fully synchronized" is claimed | Each sync's `30-check-update-final.log` reports current. Release only after Lane B's review (`D-409` item 6, `D-410` clause) | **Met**, procedure enforced by `D-410` |
+| Queries still include the curated fragment layer | 139/139 saved fragment parity each run; Lane B's field-level receipts (`lane-b-d411-review`, `lane-b-d412-review`); named concept ids resolve (`40-named-ids.txt`, `22-named-ids.txt`) | **Met** for each released snapshot |
+| Runtime `.graphify` stays uncommitted | `.gitignore` lines 17–25 (`.graphify/` and the symlink form); `git check-ignore` matches; every sync left the tree clean | **Met** |
+| Required repair: reproduce against disposable state | `D-403` B-050 proof (`lane-a-b050-proof-2026-10-03/MANIFEST.md`): the null reset **did not reproduce** | Attempted; not reproduced |
+| Required repair: identify the cause | None | **Not met.** The cause in the installed distribution versus the invocation is unidentified |
+| Required repair: negative fixture **or** documented safe procedure | Documented safe procedure: `sync-docs` §7 and fragments README §5 (`D-410`), plus the G97 fail-closed check | **Met by the "documented safe procedure" branch.** No negative fixture was built |
+
+**Proposed disposition for Lane B's review:** every success criterion is met as an observed, fail-closed procedure.
+The "cannot" criterion and cause identification remain a documented limit, not a repair. Lane B may record a
+**bounded** Verified that states that limit, or keep the entry Applied and name the missing proof. Any tool repair
+needs its own act. `B-050` stays Applied until then.
