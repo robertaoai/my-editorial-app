@@ -147,6 +147,10 @@ PR #2 comment, `SV-002` acceptance and the `V1-SM05` unblock remain separate Jud
 **`D-401` (2026-10-03) — `GR-012` observation: no writer seen, accepted by Judge reason** (31-minute window accepted
 explicitly). Lane B verifies. `V1-SM05` stays `BLOCKED`.
 
+**`D-413` (2026-10-04) — P3c/P4: five rows closed by individual Judge acceptance; storyboard §4 current-use notice
+applied.** `B-118` RH1–RH3 (`GR-006`), `B-119` and `B-095.D3` (`GR-005`). FB-05 stays open. No scope, sequence or DoD
+change. `V1-SM05` stays `BLOCKED`.
+
 **`D-412` (2026-10-04) — Batch 2: eleven custody receipts applied and closed by individual Judge acceptance.**
 `GR-016`–`GR-020` hold `B-071`'s five children; `B-084` A4 holds `B-095` D2b/S5; `B-096` holds GA1/S16; `GR-001`/`GR-003`
 are reaffirmed. Custody, not delivery. No scope, sequence or DoD change. `V1-SM05` stays `BLOCKED`.

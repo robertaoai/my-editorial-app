@@ -521,6 +521,9 @@ its backup, label manifest and evidence live outside the repository.
 **`D-412` (2026-10-04) — no file added or retired, stated explicitly.** `GOV-RES-001.md` and `SV-002.md` change in
 place; the receiver records are in existing handoff entries.
 
+**`D-413` (2026-10-04) — no file added or retired, stated explicitly.** The storyboard journal (§4), `GOV-RES-001.md`
+and `SV-002.md` change in place.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

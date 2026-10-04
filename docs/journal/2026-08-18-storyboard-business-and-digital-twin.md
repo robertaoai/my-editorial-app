@@ -606,6 +606,8 @@ Reading both lanes end to end, the digital twin is incomplete in precisely the p
 | Deleting an article destroys its transition log | `GA9` | every panel writing `workflow_transitions` |
 | Tenant boundary is the isolation seam | `Q10` answered | B1 |
 
+> **Current-use notice — 2026-10-04 (GR-005 / B-095.D3, `D-413`).** This table is the historical storyboard roll-up, not the current construction contract. Panel A2's 2026-09-07 B-080 supersession corrects topic cardinality and audit-before-state ordering; it expressly did not close FB-05. The producer-gap row above is historical: D-194/D-197 now specify the ratified manual trigger package in FN-GATES-01-05 §3.1; current CR-14 coverage is recorded in Modular_PRD §7.1 (D-392 / GR-004). FB-05's specification-verification residual is separate from Product coverage, and this notice closes neither FB-05 nor its source handoff. For current V1-SM05 construction use Panel A11 (D-256/D-259/D-260), which records supplied business-stage evidence and claims no transition:T* execution. Other historical roll-up findings keep their own dispositions.
+
 ### How this supports T0
 
 The storyboard is **evidence for four of the six T0 items** — each becomes a statement about an observed flow rather than an assertion:

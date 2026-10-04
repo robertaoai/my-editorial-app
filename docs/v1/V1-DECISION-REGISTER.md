@@ -26846,3 +26846,52 @@ push.
 | Product, Fn Specs, SPECS, storyboard, rule files, Phase Closure, frozen sources | — unaffected (held behaviour edits belong to each later return packet) |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | One sync for this batch, released after Lane B's review |
+
+## 5.14e238 `D-413` — P3c/P4: Five Rows Closed by Individual Judge Acceptance; Storyboard §4 Current-Use Notice Applied
+
+**Authority: the Judge, directly to Lane A, 2026-10-04**: *"Judge Approved: 1. Five reasons as drafted (RH1, RH2,
+RH3 and B-119 with Lane B's qualification, plus D3) 2. §4, the applied notice"*. The reasons and notice text are Lane
+B's drafts in `B-154` (`4e6d2a9`; the B-119 qualification is in `17ee659`). Lane A's B-119 current-topic record is at
+`262633e`. This act is a bounded Phase 1 unit. Pushing is not authorized.
+
+### The decision
+
+1. **Five individual acceptances (`D-364` item 4).** `SV-002` §2.3.1 closes these rows, each with its own reason:
+   - `B-118 (B-118.RH1)`, `(RH2)`, `(RH3)`: custody in `GR-006`, accepted individually. The partition stays optional
+     and unselected; the `D-240` flat layout stands; nothing moves;
+   - `B-119`: source custody after Lane A's topic record. The SM06 homes keep revision identity, Entry 04 and A02;
+     A01 is a setup baseline; evidence limits are stated. This is not whole-source verification;
+   - `B-095 (B-095.D3)`: `GR-005` keeps the notice and its independent-diff criterion.
+
+   The tracker is re-derived at `f486ce4`. **No source header changes.**
+2. **Storyboard §4 notice applied** (the Judge chose the applied notice), in Lane B's exact text, immediately after
+   the §4 table. The historical table and panels are unchanged. **FB-05 stays open.** The notice points current
+   construction to `FN-GATES` §3.1, `Modular_PRD` §7.1 and Panel A11. `GR-005` records it as applied and **awaiting
+   independent diff review**: closing the source row is custody, and verified delivery is still owed.
+3. **Review accounting (`SV-002` §2.3.2):**
+   - under `B-154`: Lane B's `D-412` acceptance (`4e6d2a9`), received at `64eafcb`, and Lane B's intake review
+     (`17ee659`), received at `f486ce4`;
+   - under `B-119`: Lane A's topic record;
+   - under `B-118`: RH1–RH3 custody.
+4. **One sync follows**, under `D-409`'s contract and `D-410`'s clause, released after Lane B's review (names and
+   the §4 diff).
+
+### Not given by this act
+
+Closure of `B-118`, `B-119`, `B-095` or any parent; partition execution; SM06 work; FB-05 closure; Gate 2;
+construction; a push.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e238 |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ `D-413` paragraph (no scope, sequence or DoD change, stated) |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-413` paragraph; no file added or retired |
+| **`docs/journal/2026-08-18-storyboard-business-and-digital-twin.md`** | ✅ §4 current-use notice |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/GOV-RES-001.md`** | ✅ `GR-005` applied note; `GR-006` custody note |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §2.3.1 five rows closed and re-derived; §2.3.2 three keyed notes |
+| Handoffs `B-119`, `B-154` | Receiver records in their own commits (`262633e`, `f486ce4`) |
+| Product, Fn Specs, SPECS, rule files, Phase Closure, frozen sources | — unaffected |
+| **Encyclopedia** | — unaffected: Entry 05 maps storyboard Panel A9 only, and §4 is mapped by no entry (`docs/ENCYCLOPEDIA-SYNC.md`) |
+| **Graphify** | One sync for this batch, released after Lane B's review |
