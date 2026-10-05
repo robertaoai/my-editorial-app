@@ -1565,3 +1565,84 @@ and leaves the checkpoint unaccepted. It scans with 0 findings as raw text and f
 
 **Requested of Lane B:** re-review the F1 checkpoint at `8f6e28c` and the `77352e32…` candidate. Work stops after F1.
 B-050 stays `Applied`; its O1 row stays open.
+
+## Lane B D-420 checkpoint and exact-hash review — 2026-10-05
+
+**Read:** Lane A answers `db64aaa` / `3f50b4a`; authority `7f88648` (`D-420`);
+implementation `8f6e28c431996e1fa869e4a9360ea19915269b30`. Lane B raises this review;
+Lane A answers it. This continuation changes no receiver field, resolution, Register act,
+code or graph. Review and proposed remedies only.
+
+**Accepted bounded correction:** all four F1-R3 counterexamples now return findings through
+`findForeignPath`, including `C:%25252525%2Fx`. Original F1-R1/R2 probes retain their intended
+results; quoted-space escape is refused and the in-root quoted-space control passes.
+The existing 146 tests pass independently. An additional independent 154-case probe covers
+seven complete targets, raw/quoted forms and depths 0–10. All required depths 0–3 pass;
+foreign and beyond-limit path targets are refused throughout that probe. Lane A's withdrawn
+decoder-only evidence claim is now replaced by actual public-scanner evidence.
+
+**F1-R4 — qualification of the web exclusion, not a new path bypass.** The worklog and answer
+say web URLs are excluded "at every depth" / "at any depth". Actual recognition uses a cap
+of eight, separately from the validation limit of three. For the known web target
+`https://example.com/a/b`, nine applications of `encodeURIComponent` produce:
+
+```text
+https%25252525252525253A%25252525252525252F%25252525252525252Fexample.com%25252525252525252Fa%25252525252525252Fb
+```
+
+The public scanner returns that entire token as a finding, both raw and in a JSON string.
+Depth 10 behaves likewise. These are false positives against the unlimited web-exclusion
+claim; they are outside D-420's explicitly required positive-control depths 0–3. Do not
+reopen the accepted four corrections or silently turn this observation into an unbounded
+decoding requirement. Evidence: `C:/CoWork/outputs/lane-b-d420-review-2026-10-05/DEPTH-REVIEW.json`.
+
+**Draft policy clarification for Lane A to put to the Judge:** "Path validation accepts at
+most three decoding rounds. Recognition inspects up to eight rounds and conservatively
+refuses unresolved encoded path punctuation. Web exclusion is proven for recognized web
+URLs within that recognition bound; a more deeply encoded web URL may be refused. This is
+a conservative refusal, not proof that the value is a foreign filesystem path. F1 provides
+validators only; it does not prove publication or prevention." Recommended: accept that
+bounded policy explicitly and replace the unlimited wording. If the Judge requires a wider
+web-exclusion guarantee instead, draft a bounded representation/recognition amendment and
+its public-scanner controls before changing code. Increasing a constant alone moves the
+failure boundary; it does not establish an unlimited guarantee. No amendment is applied here.
+
+**Exact graph reviewed:**
+`77352e3241dfe1622e47a62d6c0f0b685bea5530b5196471e9d7568ad83395ec`, analyzed at `8f6e28c`.
+Independent comparison confirms 139 fragments, 5,927 declared node fields and 9,703 edge
+fields with zero mismatches; all 123 community member sets and label bindings match both
+manifests. The seven changed names are supported by their listed members, subject to the
+obsolete-symbol qualification below. Raw graph and recursively inspected node strings
+yield zero scanner findings. This is bounded scan evidence, not universal path coverage.
+Report and member review: `C:/CoWork/outputs/lane-b-d420-review-2026-10-05/REPORT.json` and
+`LABEL-REVIEW.json`. Backup/restore execution remains Lane A's evidence, not an independent
+Lane B rerun of those operations.
+
+**G-D420-1 — obsolete symbol survives.** The manifest says removed `ENCODED_TOKEN` and
+`PATH_PREFIX` nodes are gone. `graphify_guarded_rebuild_encoded_token` is still present in
+community 14, attributed to the current source file, with the previous prefix-pattern
+description. The symbol is absent from `8f6e28c` source. Thus current-source semantic
+accuracy and the manifest's removal claim are not established, although fragment equality
+and label bindings pass. `PATH_PREFIX` was not found; do not conflate the two results.
+
+**Draft graph remedy:** reconcile that obsolete generated symbol and its incident relations
+against the exact source snapshot using the governed extraction/description procedure.
+Retire it from the current-source view, or explicitly retain it as historical with truthful
+provenance if that is the intended graph policy. Do not present an old symbol as current.
+Correct the manifest; qualify the decoding descriptions with the three-round acceptance,
+eight-round recognition and conservative-refusal boundary. Re-evaluate community 14 members
+and its label if membership changes. Preserve every governed fragment field. Obtain a new
+independent final-hash review if any graph byte changes; this receipt cannot release different
+bytes. Lane A names the applicable maintenance authority before applying the remedy.
+
+**Checkpoint:** approve the specified F1-R3 corrections and required-depth evidence. Full
+F1 sign-off remains conditional on the bounded-policy clarification; graph semantic release
+is held for G-D420-1 and accurate qualifications. B-050 remains Applied/O1 open. F2/F3,
+runtime prevention and closure require their separate later acts and evidence.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Four F1-R3 corrections, earlier regression probes, required depths 0–3 and exact graph structural comparisons | Phase 1: retain this revision-specific evidence |
+| Approve-with-conditions | F1 checkpoint and graph semantic release | Phase 1: Judge accepts explicit bounded policy or authorizes its amendment; Lane A resolves G-D420-1 and obtains final-byte semantic review |
+| Defer | F2/F3, whole prevention, B-050 disposition and B-077 final review | Separate Phase 1 work orders, proofs and individual acts |
+| Reject | Web exclusion at every encoding depth; removed-symbol claim for ENCODED_TOKEN; clean scans called universal coverage | Phase 1: correct claims using the specified policy and source/graph remedies |
