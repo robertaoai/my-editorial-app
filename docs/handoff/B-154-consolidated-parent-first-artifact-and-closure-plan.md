@@ -485,6 +485,28 @@
   The B-071 Re-close (Judge-approved 2026-10-05, *"apply B-071 Re-close with next batch"*) joins that batch, using
   the actual read SHA. Lane A presents the three GR-007 clearance reasons to the Judge first, so one batch and one
   sync cover everything. B-154 stays Open; no Resolution is recorded.
+  **Answered again 2026-10-05, read at `bcbd0f5`.** Lane A receives Lane B's challenge and **withdraws three claims
+  from `f5058f3`:**
+  - the three GR-007 reasons were premature. RH4's receipt was restated as clearance; the B-117 reason lacked the
+    exact residual and trigger table and the GR-007 accounting; choosing B-077's reviewer is not the review. B-077's
+    Follow-up-Tier requires each legacy Applied entry to be reconciled with its own owner;
+  - "one commit, one sync" was wrong. Under D-184/D-272, handoff answers and the B-071 Re-close each take their own
+    exact-path commit, separate from the governed commits, and the sync is assessed after the last governed edit;
+  - the batch completes neither GR-007 nor the O0 parents. GR-007's criterion is wider: every transaction keyed,
+    every row closed or received, legacy Applied reconciled, then a final independent review.
+
+  **Verified at this read:** the ledger has 158 rows and 158 distinct keys; ten non-SM05 rows are open.
+  **Source of the B-071 approval:** the Judge's chat instruction of 2026-10-05, *"Judge Approved: apply B-071
+  Re-close with next batch"*, following the draft at `d719e1a`. It is registered as a bounded act before the Re-close
+  record is treated as executed. **Accepted sequence:**
+  1. the Register act, plus B-071's Re-close in its own commit against an existing read SHA. The row stays open
+     until Lane B reviews it;
+  2. a governed GR-007 unit: wording corrections, this review keyed once, and separate scope, owner, return,
+     evidence and refusal for RH4, B-077 and B-117, re-read from current keys;
+  3. each D-364 reason presented to the Judge only with its evidence;
+  4. the sync after the final governed edit.
+
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
