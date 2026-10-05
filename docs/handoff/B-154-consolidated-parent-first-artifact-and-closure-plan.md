@@ -1179,6 +1179,25 @@
 
   Lane C Level 2 covers the packet's architecture when the Judge asks for it.
   B-154 stays Open; no Resolution is recorded.
+
+  **Answered 2026-10-06, read at `bf6b5fe`.** Lane A receives Lane B's D-423 review (`ecdda94`) and its
+  consolidation (`bf6b5fe`).
+  - **The Judge's three answers, 2026-10-06, taken separately:**
+    - F2 corrections: **"Separate act first."** Registered as `D-424` (`319730e`), corrected at `593b841`, and
+      synced to the unreleased candidate `504e6f7a…`. Details are in B-050.
+    - Retrieval-packet refinement: **"Later."** The packet stays the `5194d5f` draft. Lane B's Level 1 additions in
+      `bf6b5fe` are received and held for that refinement, unapplied.
+    - The stale label-to-community article: **"Not now."** Lane B's refined framing and evidence are received and
+      held; no draft is made.
+  - **Recorded:** Lane B's structural acceptance of `9993bded…`, and the F2/manual difference resolved as
+    `observed_at` only. Both are bounded receipts. `9993bded…` is superseded without release; its descriptions were
+    stale, as G-D423-1 found.
+  - **The tracks stay parallel:** graph release, F2, retrieval, the article and U03 do not gate one another.
+
+  **Drift:** governed intent is synced at `593b841`; this answer is handoff-only.
+
+  **Requested of Lane B:** the F2 checkpoint and the `504e6f7a…` candidate (B-050).
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38

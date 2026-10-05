@@ -1934,3 +1934,45 @@ Keep B-050 Applied/O1 open; no F3, live recovery/publication, disposition or pus
 | Approve-with-conditions | F2 and candidate semantic release | Phase 1: fixture boundary, revision-bound name answers, full edge parity, locked source re-check, changed-description review and independent final-hash review |
 | Defer | F3, whole prevention, B-050 disposition and B-077 final review | Separate Phase 1 authority, independent proof and individual source acts |
 | Reject | Current full F2 sign-off; unbound integer answer; edge-key equality called field parity; stale F1 descriptions called current | Phase 1: apply only the bounded proposed corrections under named authority |
+
+## Lane A — D-424: F2 corrections R1–R4 and G-D423-1, 2026-10-06
+
+Read at `bf6b5fe` (Lane B's review `ecdda94`). **The Judge, 2026-10-06:** "Separate act first" — `D-424`
+(`319730e`). Lane A reproduced all four findings before fixing them. Corrected at `593b841`, in the guard and its
+tests only.
+
+| Finding | Answer at `593b841` | Proof (`bun test`) |
+|---|---|---|
+| **R1** fixture boundary | One preflight, `fixtureBoundary(root, roles)`, runs before any create, delete or rename in `publish`, `recover` and `composeCandidate`. It requires a declared fixture or work root that is unrelated to the live target. Every runtime path, in every role (target, staging, backup, old, journal, lock, recovery token, receipts), must sit strictly inside that root and must not alias, contain or sit inside the live target; paths are compared link-resolved. `isRealLiveTarget` now covers the live target's ancestors and descendants. `recover` also checks the journal's own target, old, backup and staging paths before acting. `composeCandidate` also requires staging to be disjoint from the candidate and baseline. The boolean `fixture: true` is gone: `fixture` is the root path | The live parent as target; the live target as staging; a junction alias of the live target as staging and as a target parent; a missing root; staging outside the root; `recover` without a root, on the live target, and with a journal whose old path is outside the root (recovery-required, journal kept); `compose` refusing before reading or deleting (a sentinel outside the root survives, as does the candidate as staging); a live-target probe refused **before** any candidate check. No journal, lock, token or receipt appears beside the live state |
+| **R2** integer answers | `proposeNames` binds supplied names by member-set hash only; a renumbered community id never binds | `{6: …, 7: …}` leaves community 6 pending |
+| **R3** edge parity | `fragmentParity` compares every declared edge field, with nested metadata compared by content regardless of key order. Parallel relations are matched by declared content, and each saved edge is used once per fragment | Altered `confidence` and omitted declared `evidence` are refused; extra saved fields and key order are not; two parallel relations match, a missing one and a duplicate declaration are each reported |
+| **R4** source at publication | `publish` takes `source: { repo, snapshot }` (no separate `sourceCommit`) and refuses a target or staging that overlaps the repository. It re-runs `snapshotMatches` **under the acquired lock, before the journal**. An unavailable source is a mismatch, not an exception. The journal and receipt bind `snapshot.head` | Through the real `publish` route: a HEAD, ref or config change after the snapshot, and a missing repository, are each refused with the live state unchanged and no journal or lock; the release receipt carries the snapshot HEAD |
+| **G-D423-1** changed symbols | `replayDescriptions` replays a baseline description only when the symbol's source file is unchanged since the baseline's `lastAnalyzedHead`; a changed or unprovable symbol is pending. The batch-line pattern no longer reads across line ends. The module comment, `refusal()` and the test header now describe F2 and D-424 | A changed file's symbol is pending until answered; an unprovable baseline leaves every file-backed symbol pending |
+
+**Gates:**
+- `bun test`: 200/200 (guard 136);
+- `bun run fixtures`: 297/297;
+- `bun run check`: 19/19 after the sync.
+
+**Sync at `593b841`** (`C:/CoWork/outputs/lane-a-d424-sync-2026-10-06/MANIFEST.md`):
+- candidate **`504e6f7a2f0f1c010a507da47954c69afe281f3328eda775a4508917bcc8a64f`**, **UNRELEASED**;
+- it supersedes `9993bded…`, which was never released.
+- **Descriptions under the D-424 rule:** 80 symbols in the two changed files were held. Lane A reviewed each against
+  current source: 14 rewritten (both module descriptions among them), 8 new, and 58 kept because their code is
+  unchanged. The basis for each is in `15b-description-basis.json`.
+- 0 retired; 139/139 field parity (both the sync check and the guard's full-edge `fragmentParity`); 126 groups;
+  0 label mismatches; scanner 0; 580 state files, 0 unknown.
+- **Names:**
+  - 109 reused from D-422, which Lane B accepted;
+  - 9 reused from D-423, Lane A names never reviewed;
+  - 8 new, named from their members.
+
+**Not done:** F3, B-050's disposition, any push. The F2 evidence runner in `f2-evidence-2026-10-06` predates the
+new `publish` signature (`fixture` root, `source`); a re-run would use it as amended. B-050 stays `Applied`; its O1
+row stays open.
+
+**Requested of Lane B:**
+- the F2 checkpoint against `D-424` item 2 and its DoD;
+- the 22 new or rewritten descriptions and the 58 "kept" judgments;
+- the 17 names Lane B has not accepted;
+- the exact hash `504e6f7a…`.
