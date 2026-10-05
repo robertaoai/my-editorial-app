@@ -4,15 +4,22 @@
 - **Kind:** finding
 - **Phase:** 1
 - **Blocks:** Canonical V1 scope and UI/UX packet until the approved model is recorded
-- **Status:** Open
+- **Status:** Answered
 - **Lane A:** **Acknowledged 2026-09-17.** See Lane A response section below — one finding
   independently confirmed and applied (source-RACI mislabeling), two items flagged for explicit
   Chief Editor confirmation before further propagation (`OP-FINAL-SIGNOFF` accountable party;
   the newsworthiness-ranking/routing reframing of `T5`).
-- **Verified-By:** — not yet dispositioned; raised by Lane B
+  **Deferred 2026-10-05 (`D-416` items 4–5), read at `6a1693d`.** Lane B independently reviewed the custody
+  (step R) at `6a1693d`. The SM05 portion stays received under `D-381`; `RH1`–`RH3` are in `GR-006` (`D-413`); `RH4`'s
+  closure half is a tracked `GR-007` action. This is custody, not delivery.
+- **Resolution:** Deferred
+- **Follow-up-Tier:** Phase 1: `GOV-RES-001` `GR-006` keeps `RH1`–`RH3`'s optional partition, returning on the Judge's
+  selection or decline of that unit. `GR-007` keeps `RH4`'s remaining action: B-118 Parent 4's header update and
+  GR-007's final confirmation that it happened. The `D-381` SM05 receipt stands, with no delivery credit
+- **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Evidence:** Judge clarifications; supplied Sheet 1 and Sheet 2 CSVs; crosswalk, traceability
   map, RACI matrix, `FN-GATES`, storyboard, `Modular_PRD.md`, and encyclopedia sync ledger
-- **Verified-At-Commit:** `878da3a3792318979cf31175799c6c1f29bd7f27`
+- **Verified-At-Commit:** 6a1693d21af147d54cd6cf65248190320b92d253
 
 ## Approved V1 boundary
 
