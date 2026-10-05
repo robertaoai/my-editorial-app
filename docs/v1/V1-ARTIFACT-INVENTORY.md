@@ -543,6 +543,8 @@ place.
 `scripts/fixtures/graphify-guard.test.mjs`, listed in the scripts table. `docs-drift.mjs` and `SV-002.md`
 change in place.
 
+**`D-419` (2026-10-05) — no file added or retired, stated explicitly.** The two F1 files change in place.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

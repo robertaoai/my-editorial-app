@@ -27249,3 +27249,49 @@ Gate 2; a push.
 | Modular_PRD, fn-specs, SPECS, storyboard, rule files, Phase Closure, frozen sources, `GOV-RES-001` | — unaffected |
 | **Encyclopedia** | unaffected: no mapped file, section or decision changes |
 | **Graphify** | One sync after the F1 commit, released after Lane B's review |
+
+## 5.14e244 `D-419` — B-050 F1-R2 Correction: Full-Value and Encoded Path Recognition
+
+**Authority: the Judge, directly to Lane A, 2026-10-05**, in chat, on Lane B's F1-R2 finding (`658aab2`): **"Separate act
+first"** — the correction gets its own bounded act before any code changes. The same answer set `SV-002` §5: apply it
+**later**, batched with the graph-release/DOD act. Lane A is `Active`. Pushing is not authorized.
+
+### The decision
+
+1. **Scope:** correct F1-R2 inside `D-418`'s F1 boundary only. The paths are the same three:
+   - `scripts/graphify/guarded-rebuild.mjs`
+   - `scripts/fixtures/graphify-guard.test.mjs`
+   - `scripts/checks/docs-drift.mjs` (unchanged unless the correction requires it)
+2. **Required behavior:**
+   - quoted JSON string values are read **whole**, escapes included, so a path containing spaces is canonicalized as
+     its complete value;
+   - encoded path and URI prefixes (an encoded `file:` scheme, encoded UNC) are recognized before the scanner declares
+     no path;
+   - path-like encoding that stays unresolved after a declared decode limit is refused, never treated as "no path";
+   - ordinary web URLs are not decoded into false findings;
+   - the supported representation grammar is stated in the code: raw unquoted values are whitespace-delimited, and a
+     full value with spaces is supported when it is quoted.
+3. **DoD:**
+   - Lane B's two F1-R2 inputs return findings through the **public scanner**;
+   - the in-root path-with-space control still passes;
+   - raw, quoted and JSON-escaped equivalents are tested at the declared boundary;
+   - every earlier F1 case keeps its result;
+   - `bun test`, `bun run fixtures` and `bun run check` pass;
+   - graph descriptions state the real pattern boundary, with no whole-value claim beyond what is implemented;
+   - **Lane B independently reviews the F1 checkpoint and the new graph candidate, then work stops.**
+4. **One sync** follows the code commit and covers this act and the code, under the `D-409`/`D-410` interim route. It
+   is released after Lane B's review.
+5. **Not given:** F2/F3; any other path; prevention or B-050 closure; `SV-002` §5 application or any DoD box (batched
+   later); U03; a push.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e244 |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ `D-419` paragraph (tooling correction; no V1 scope, sequence or DoD change) |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-419` paragraph; no file added or retired |
+| `SV-002.md`, `GOV-RES-001.md`, Modular_PRD, fn-specs, SPECS, rule files, Phase Closure, frozen sources | — unaffected (§5 is batched later; no tracker row changes) |
+| Source handoff `B-050` | Follow: the answer and evidence land in their own commit |
+| **Encyclopedia** | unaffected |
+| **Graphify** | One sync after the correction commit, released after Lane B's review |
