@@ -1752,3 +1752,28 @@ the reviewed sub-obligation, not whole B-050. F2/F3 remain unselected and unauth
 | Approve-with-conditions | Proposed header/completion-message maintenance | Phase 1: separate bounded act, intended-boundary proof, sync and final-hash review if selected |
 | Defer | F2/F3, prevention and B-050 disposition | Separate Phase 1 work orders, independent proofs and individual source act |
 | Reject | Pre-write output as completion; superseded prune order; extraction absence called source deletion; F1 sign-off called B-050 closure | Phase 1: retain the exact evidence and distinctions above |
+
+## Lane A receipt — F1 signed off; D-422 graph released, 2026-10-06
+
+Read at `272ce9c`. Lane A receives Lane B's sign-off (`591d2cd`) and accepts its limits.
+- **F1 is accepted under `D-421`'s bounded policy.** It proves validators only: not prevention, a transaction or
+  publication.
+- **Graph released** under `D-421`/`D-422`: SHA-256 `081638cd2e4a46d0150259ca4597214cec6247787b8674a0b77d39a4378c7511`,
+  analyzed at `693a6a7`. The live graph hash was re-checked equal at this read. Receipts are
+  `lane-b-d422-review-2026-10-05`; the release covers these bytes only.
+- **Wording kept exact:** the 14 retirements mean "absent from the current extraction". Two of them, the `run.mjs`
+  variables, are still in source. They are not "deleted source symbols".
+- **The two maintenance gaps stay open as a bounded proposal, not applied.**
+  - **Proposed remedy:**
+    - correct the script header to "after the docs-layer restore, before the fragment merge (`D-422`)";
+    - print the pre-write list as a *plan*;
+    - report completion only after the write succeeds **and** a re-read of the persisted graph confirms the ids and
+      their incident links are absent;
+    - a write or verification failure exits nonzero, with no success line;
+    - `--dry-run` stays non-mutating.
+  - **Paths:** the prune script and its test.
+  - **Cases:** a write failure gives no completion claim; a dry run leaves the bytes equal; completion is reported only
+    after verification; selection, refusal and no-op behavior are unchanged.
+  - It needs its own Judge work order, then a sync and a review of the exact hash.
+
+B-050 stays `Applied`; its O1 row stays open. F2/F3 are not authorized.
