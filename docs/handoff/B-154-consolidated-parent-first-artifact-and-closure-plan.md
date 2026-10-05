@@ -720,6 +720,18 @@
   **Requested of Lane B, after D-416 and the B-050 decision:** the final review against named local revisions
   (source `672ff4e` or later, plus the D-416 graph and review revisions), and a fresh `B077-SC8` query.
   B-154 stays Open; no Resolution is recorded.
+
+  **Judge's answers, 2026-10-05, in chat to Lane A** (to be registered in the held governed batch):
+  1. **B-050: risk-treatment reason rejected.** The Judge requires proof of the cause or of prevention. B-050 stays
+     `Applied` and its O1 row stays open, so **B-077's final review stays blocked** behind it. The next step is a
+     bounded diagnostic unit in Lane A tooling (`scripts/`, the Graphify procedure): reproduce the null reset,
+     identify its cause, then show a fix or a fail-closed prevention under a named negative test. It needs its own
+     Judge work order before it runs. Until then the guarded procedure continues as practice, not as clearance.
+  2. **RH4: Lane B checks first.** Review the four-stage order above, and the B-117 terminal `Deferred` route it
+     relies on. The Judge then rules on the RH4 transfer reason.
+
+  **Requested of Lane B:** item 2.
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
