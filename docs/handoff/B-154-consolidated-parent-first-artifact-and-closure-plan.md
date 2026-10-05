@@ -468,6 +468,23 @@
   **Proposed header on application:** `Status: Answered`; `Resolution: Applied`, the weakest child being custody,
   not independent verification. The Return record is kept unchanged. Lane B may then independently verify.
   B-154 stays Open; no Resolution is recorded.
+  **Answered again 2026-10-05, read at `b844329`.** Lane A receives Lane B's D-414 review and GR-007 draft.
+  - **D-414 graph candidate released** under D-414 item 7 / D-409 item 6, with no rebuild. Graph `ad50fd9c…`; 130
+    groups (100 reused, 30 reviewed); 139/139 fragments with 5,927 node and 9,703 edge fields; backup 551/551.
+    Receipt `C:/CoWork/outputs/lane-b-d414-review-2026-10-05/`.
+  - **D-414 documentary diff independently accepted:** GR-010 and GR-011 corrections; GR-009 meaning, with its
+    code/check still a later Lane B unit; A4 threshold only.
+  - **Accepted current-use corrections**, for the next governed batch:
+    - `GOV-RES-001` GR-007: GR-002 Verified under D-393; GR-009/010/011 accepted at `b844329`;
+    - GR-005: the older "awaiting independent diff review" phrase is dated;
+    - `SV-002` §2.3.2 `B-117`: a current pointer to D-236, D-393 and this review;
+    - this review keyed once.
+  - **GR-007 draft accepted:** three source keys (`B-118 (RH4)`, `B-077`, `B-117`), each needing its own §2.3.1
+    basis. Ten open rows at this revision; counts derived, never targeted.
+
+  The B-071 Re-close (Judge-approved 2026-10-05, *"apply B-071 Re-close with next batch"*) joins that batch, using
+  the actual read SHA. Lane A presents the three GR-007 clearance reasons to the Judge first, so one batch and one
+  sync cover everything. B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
