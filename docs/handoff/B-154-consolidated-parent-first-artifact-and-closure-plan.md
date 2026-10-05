@@ -732,6 +732,36 @@
 
   **Requested of Lane B:** item 2.
   B-154 stays Open; no Resolution is recorded.
+
+  **Answered 2026-10-05, read at `ccfe7d8`.** Lane A receives Lane B's consolidation and accepts it, with three
+  corrections to its own `3bca483` drafts:
+  - **B-118's header draft dropped `GR-006`.** `GR-006` still holds `RH1`–`RH3`'s optional partition, which is
+    undecided, returns on a Judge selection or decline, and has custody accepted under `D-413`. Lane B's
+    `Answered`/`Deferred` drafts for B-117 and B-118, with their Follow-up-Tiers, replace Lane A's. Neither header
+    changes until the transfer's independent custody review.
+  - **"Answered with a Resolution" was not a disposition.** It is withdrawn.
+  - **The parent loop is real.** B-150 blocks blanket clearance until reconciliation is done, and GR-007's criterion
+    needs every §2.3.1 row closed, including the O0 parents. Lane A adopts Lane B's procedural order:
+    1. the evidence review of every source row;
+    2. each O0 parent's own disposition, on that evidence;
+    3. the re-derived tracker;
+    4. GR-007's final all-row conclusion.
+
+    No clause is weakened. Where a parent's own clause demands more, the conflict returns to the Judge.
+
+  **Drift wording narrowed.** There is no graph-source drift: governed intent is synced at `f8b593a`, and every later
+  commit is handoff-only. There **is** accounting drift: the tracker is pinned at `f486ce4` and stale, and B-071's row
+  correction is held for D-416.
+
+  **Accepted as drafted for the D-416 docket**, each an individual Judge choice:
+  - Lane B's RH4 reason (T → R → H → F, with R verifying custody or deferral and not delivery);
+  - the B-117 source-custody reason;
+  - the B-077 Child 2 criterion clause: one basis per target, which is that target's accepted `D-403` reason;
+  - the B-050 diagnostic-only work order. Its evidence home is `C:/CoWork/outputs/b050-null-reset-diagnostic-2026-10-05/`,
+    Lane A operates and Lane B reviews, with no repair. Before execution, Lane A pins the commit, the Graphify
+    version, the exact invocation, the disposable paths, the cases and the stop bounds in B-050.
+
+  The rejected B-050 risk reason stays as history. B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
