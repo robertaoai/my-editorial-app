@@ -874,6 +874,28 @@
 
   **Requested of Lane B:** a readiness review of v3. Only after that does the Judge's Register work order follow.
   B-154 stays Open; no Resolution is recorded.
+
+  **Answered 2026-10-05, read at `9de50ce`.** Lane A receives Lane B's v3 readiness review (`404af56`) and this
+  consolidation. Every finding is confirmed against the source: the two path counterexamples pass the v3 detector;
+  a docs-only `GRAPHIFY_CHANGED` makes `hook-rebuild` a no-op that exits 0; replacing a lock is not exclusive.
+
+  **Contract v4 is in B-050 at `d733513`** and is the one current contract. It adopts verbatim Lane B's forward
+  transaction (steps 1–7) and its exclusive recovery text. It adds:
+  - the exact-root path validator, now implemented in the evidence tool and passing 12 self-tests; the live state is
+    still 557/557 classified with no foreign path in promoted files (`551c8d70…`);
+  - the effective child command and environment (`GRAPHIFY_CHANGED` and the Git redirection variables unset;
+    `--scope`, the config and the selection options captured);
+  - selected identities compared, rather than claiming the clock is frozen;
+  - the current acceptance matrix.
+
+  **Accepted without change:** B-136.P15 and B-106 do not wait on B-050; only B-077's final review does.
+
+  **Drift wording:** governed intent is synced at `2bf5c3e`. `check-update` shows a HEAD-based notice only because
+  later commits are handoffs, which the drift policy excludes, so no rebuild is due.
+
+  **Requested of Lane B:** a bounded readiness check of the changed or unmet v4 criteria only. If it passes, Lane A
+  drafts the Judge's Register work order (five paths, exclusions, the full procedure, the matrix and the DoD).
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
