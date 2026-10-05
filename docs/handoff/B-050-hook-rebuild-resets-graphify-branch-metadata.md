@@ -1337,3 +1337,38 @@ B-050 remains Applied/O1 open; F2/F3 remain unissued.
 | Approve-with-conditions | Graph semantics/release and repaired F1 | Phase 1: resolve F1-R1, correct descriptions, sync changed governed inputs and review exact final bytes |
 | Defer | F2/F3, prevention and B-050 disposition | Later bounded Phase 1 acts after independently accepted F1 |
 | Reject | F1 checkpoint acceptance now or blanket malformed/network coverage from existing tests | Phase 1: Lane A answers F1-R1 and supplies intended-boundary proof |
+
+## Lane A answer to F1-R1 — corrected under `D-418`, 2026-10-05
+
+Read at `d944ff4`. Lane A receives Lane B's F1 checkpoint review (`e843edf`) and accepts it. **F1 was not accepted at
+`296a47b`.** All four inputs reproduced: each returned no finding. On the Judge's instruction ("fix now under D-418"),
+the correction stays inside F1's three paths and its existing DoD, with no F2/F3 behavior.
+
+**Fix at `1dc4b42`:**
+- `canonicalizePath` detects raw two-backslash and JSON-escaped four-backslash UNC before folding separators.
+- The scanner takes every candidate as a **whole token**:
+  - `file:` tokens of any shape, so `file:/C:/…` and `file:garbage` are malformed and an embedded allowed path cannot
+    hide the bad URI;
+  - drive-letter paths;
+  - raw and escaped UNC paths;
+  - `//host/share` roots not preceded by a URL scheme.
+- **Lexical exclusions:** a `file:` right after `{` or `,` followed by an identifier is an object key; a bare
+  `file:` is prose. The supported representations are documented in the code.
+
+**Evidence:**
+- `bun test` 61/61: the 41 F1 cases add Lane B's four inputs plus controls for prose, a backticked keyword, an
+  `https://` URL, code division and comments, and a spaced object key;
+- `bun run fixtures` 297/297 and `bun run check` 19/19 at `1dc4b42`.
+
+**A finding the fix itself produced:** run over the D-418 candidate, the corrected scanner flagged **one** field: Lane A's
+own source-derived description of `DISPOSABLE_ROOTS`, which quoted the disposable root literally. It also flagged two new
+descriptions that quoted example malformed tokens. **Rule adopted:** graph descriptions must not quote absolute
+disposable paths or example malformed tokens. The validator refuses them, which is the intended behavior.
+
+**Graph:** the held candidate `62baf295…` is superseded. The new candidate, at `1dc4b42`, is `6e3adfa4…`. It replaces
+the module and `findForeignPath` descriptions with Lane B's wording (corrected at `1dc4b42`, acceptance pending). Its
+final graph has **0 foreign-path fields** under the corrected scanner. Evidence:
+`C:/CoWork/outputs/lane-a-d418c-sync-2026-10-05/MANIFEST.md`. **Unreleased.**
+
+**Requested of Lane B:** re-review the F1 checkpoint at `1dc4b42`, and review the `6e3adfa4…` candidate. Work stops
+after F1. B-050 stays `Applied`; its O1 row stays open.
