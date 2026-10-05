@@ -309,3 +309,47 @@ O1 row open until a separate act accepts evidence.
 
 A detection-only guard does not satisfy "rebuilding cannot replace a non-null current record with null". Any repair
 needs its own bounded proposal (exact paths, regression case, DoD) and its own act.
+
+## Diagnostic result — reproduced cause, 2026-10-05 (`D-416` item 7)
+
+Run under the contract above (pinned at `a0795a8`): 11 rebuilds in 5.3 minutes, three disposable clones of
+`1c9d59e`. The pins matched, and **every caller invariant held**: the repository HEAD, status and index tree, and the
+live `.graphify` hash. Evidence: `C:/CoWork/outputs/b050-null-reset-diagnostic-2026-10-05/` (`run.mjs`,
+`RESULTS.json`, `log-*.txt`, `c4a-branch.json`). The harness invokes the pinned `dist/cli.js` with `node`, which is
+what `graphify.ps1`/`npx` run, so that `PATH` can be controlled.
+
+**Outcome: reproduced cause.**
+- **Code path (case 1, static).** In `dist/cli.js`, `refreshLifecycleMetadata` (about line 8177) takes `head` and
+  `branchName` from `resolveGitContext`. Any git failure returns `null`, swallowed by `try/catch` and
+  `safeExecGit`. It then writes `branch.json` unconditionally. With `analyzed: true`, `lastAnalyzedHead` becomes
+  `head`, which is null, and `stale` is `false`. **There is no refusal when the Git context is missing.**
+- **Dynamic cases:**
+
+  | Case | Condition | Result |
+  |---|---|---|
+  | 2 | Valid context, two rebuilds | **Pass:** `diag`, `lastSeenHead` = `lastAnalyzedHead` = HEAD |
+  | 3 | Three repeats, valid context (3 of the 20 allowed) | 0 null transitions |
+  | 4a | Git not on `PATH` (synthetic) | **Exit 0; all three fields null, `stale: false`**, which is this entry's exact signature |
+  | 4b | `GIT_DIR` misbound (synthetic) | **Exit 0; all three fields null, `stale: false`** |
+  | 4c | Detached HEAD | `branchName` null by design; heads kept. Not the defect |
+  | 5 | Valid rebuild after 4a's nulls | Repaired to HEAD |
+
+- **Meaning.** The intermittent reset is any `hook-rebuild` run where git cannot be resolved from the tool's process.
+  Examples are git not on `PATH`, a spawn failure in a sandboxed shell (Lane B saw a sandboxed Git spawn fail at
+  `ccfe7d8`), or a misbound `GIT_DIR`. The next run with valid context silently repairs it, which is why it looked
+  intermittent. **Limit:** this proves the mechanism and its triggers; which trigger hit the 2026-08-25 run is not
+  recoverable.
+
+**Not met by this unit (no repair was authorized):**
+- "rebuilding cannot replace a non-null current record with null" still fails in the tool;
+- no prevention predicate is installed.
+
+**Draft repair proposal for a separate act:** a repository wrapper in Lane A tooling that **refuses before writing**.
+It runs the same four `git rev-parse` queries in the same `cwd`/environment and does not invoke `hook-rebuild` if any
+fails. As a second guard, it snapshots `branch.json` and restores it, failing the run, if a non-null record comes
+back null.
+- **Regression cases:** 4a and 4b must refuse and leave the record unchanged; case 2 must pass.
+- **Paths, if selected:** a `scripts/` wrapper plus a fixture and a `sync-docs` §7 line. A fix upstream in the
+  Graphify package is outside this repository.
+
+B-050 stays `Applied`; its O1 row stays open pending Lane B's review of this result and any later act.
