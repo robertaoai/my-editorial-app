@@ -2,7 +2,9 @@
 //
 //   node docs/graph-fragments/prune-stale-symbols.js <fresh-state-dir> [--dry-run]
 //
-// Run from the repo root, AFTER `npx graphify hook-rebuild` and BEFORE the docs-layer restore.
+// Run from the repo root, AFTER `npx graphify hook-rebuild` AND the docs-layer restore, BEFORE the
+// fragment merge (`D-422`: the restore re-adds generated code hosted under docs/, so pruning first is
+// partly undone).
 // <fresh-state-dir> is the `.graphify` directory of a FROM-EMPTY extraction of the SAME commit,
 // made in a disposable clone whose `origin` is the caller's (README section 4 shows how).
 //
@@ -19,6 +21,12 @@
 // Its incident links go with it. Every retired id is listed. A `code` node that a fragment declares
 // and the fresh extraction lacks is REFUSED (exit 1), never pruned: a curated node has drifted and
 // needs a person. It writes .graphify/graph.json in place, so back that file up first (section 5).
+//
+// COMPLETION IS PROVEN, NOT PRINTED (`D-423`). The list is printed first as a PLAN. "retired" is
+// printed only after the write succeeded AND the persisted graph, re-read from disk, no longer holds
+// any planned id or incident link. A write or verification failure exits nonzero with no success
+// line: a process stopped mid-run (the `D-422` operator error) can never look complete.
+// `--dry-run` prints the plan and never writes.
 const fs = require('fs');
 const path = require('path');
 
@@ -63,32 +71,76 @@ function pruneGraph(graph, ids) {
   };
 }
 
-module.exports = { findStale, pruneGraph, fragmentIds };
+/** Pure check of a persisted graph: ids still present and links still touching them. */
+function residue(graph, ids) {
+  const drop = new Set(ids);
+  const links = graph.links || graph.edges || [];
+  return {
+    nodes: graph.nodes.filter((n) => drop.has(n.id)).map((n) => n.id),
+    links: links.filter((l) => drop.has(l.source) || drop.has(l.target)).length,
+  };
+}
+
+/**
+ * Runs the step. Returns `{ code, lines }`: exit code and the exact output lines. `io` is injectable
+ * so a test can make the write fail or the persisted bytes come back wrong.
+ */
+function runPrune({ freshDir, dryRun = false, gpath = GPATH, branchPath = BRANCH, fragmentsDir = FRAGMENTS_DIR, io = fs }) {
+  const out = [];
+  const head = (p) => JSON.parse(io.readFileSync(p, 'utf8')).lastAnalyzedHead;
+  const curHead = head(branchPath);
+  const freshHead = head(path.join(freshDir, 'branch.json'));
+  if (!curHead || curHead !== freshHead) {
+    out.push(`refused: the fresh extraction analyzed ${freshHead || '(none)'} but this graph analyzed ${curHead || '(none)'}; they must be the same commit`);
+    return { code: 1, lines: out };
+  }
+  const current = JSON.parse(io.readFileSync(gpath, 'utf8'));
+  const fresh = JSON.parse(io.readFileSync(path.join(freshDir, 'graph.json'), 'utf8'));
+  const { retire, refuse } = findStale(current, fresh, fragmentIds(fragmentsDir));
+  if (refuse.length > 0) {
+    out.push(`refused: ${refuse.length} curated fragment node(s) typed as code are absent from the fresh extraction:`);
+    for (const r of refuse) out.push(`  ${r.id} | ${r.source_file}`);
+    return { code: 1, lines: out };
+  }
+  const ids = retire.map((r) => r.id);
+  const { graph, linksRemoved } = pruneGraph(current, ids);
+  out.push(`plan: retire ${retire.length} stale generated code node(s) and ${linksRemoved} link(s) at ${curHead.slice(0, 7)}:`);
+  for (const r of retire) out.push(`  ${r.id} | ${r.source_file} ${r.source_location || ''} | absent from the fresh extraction`);
+  if (dryRun) {
+    out.push('dry run: nothing written');
+    return { code: 0, lines: out };
+  }
+  try {
+    io.writeFileSync(gpath, JSON.stringify(graph, null, 2));
+  } catch (e) {
+    out.push(`FAILED: the write did not complete (${e.code || e.message}); nothing is retired`);
+    return { code: 1, lines: out };
+  }
+  let persisted;
+  try {
+    persisted = JSON.parse(io.readFileSync(gpath, 'utf8'));
+  } catch (e) {
+    out.push(`FAILED: the persisted graph could not be re-read (${e.code || e.message}); retirement is unverified`);
+    return { code: 1, lines: out };
+  }
+  const left = residue(persisted, ids);
+  if (left.nodes.length > 0 || left.links > 0) {
+    out.push(`FAILED: the persisted graph still holds ${left.nodes.length} planned id(s) and ${left.links} incident link(s); retirement is unverified`);
+    return { code: 1, lines: out };
+  }
+  out.push(`retired ${ids.length} node(s) and ${linksRemoved} link(s): verified absent in the persisted graph`);
+  return { code: 0, lines: out };
+}
+
+module.exports = { findStale, pruneGraph, fragmentIds, residue, runPrune };
 
 if (require.main === module) {
   const freshDir = process.argv[2];
-  const dryRun = process.argv.includes('--dry-run');
   if (!freshDir) {
     console.error('usage: node docs/graph-fragments/prune-stale-symbols.js <fresh-state-dir> [--dry-run]');
     process.exit(2);
   }
-  const head = (p) => JSON.parse(fs.readFileSync(p, 'utf8')).lastAnalyzedHead;
-  const curHead = head(BRANCH);
-  const freshHead = head(path.join(freshDir, 'branch.json'));
-  if (!curHead || curHead !== freshHead) {
-    console.error(`refused: the fresh extraction analyzed ${freshHead || '(none)'} but this graph analyzed ${curHead || '(none)'}; they must be the same commit`);
-    process.exit(1);
-  }
-  const current = JSON.parse(fs.readFileSync(GPATH, 'utf8'));
-  const fresh = JSON.parse(fs.readFileSync(path.join(freshDir, 'graph.json'), 'utf8'));
-  const { retire, refuse } = findStale(current, fresh, fragmentIds());
-  if (refuse.length > 0) {
-    console.error(`refused: ${refuse.length} curated fragment node(s) typed as code are absent from the fresh extraction:`);
-    for (const r of refuse) console.error(`  ${r.id} | ${r.source_file}`);
-    process.exit(1);
-  }
-  const { graph, linksRemoved } = pruneGraph(current, retire.map((r) => r.id));
-  console.log(`${dryRun ? 'would retire' : 'retired'} ${retire.length} stale generated code node(s) and ${linksRemoved} link(s) at ${curHead.slice(0, 7)}:`);
-  for (const r of retire) console.log(`  ${r.id} | ${r.source_file} ${r.source_location || ''} | absent from the fresh extraction`);
-  if (!dryRun) fs.writeFileSync(GPATH, JSON.stringify(graph, null, 2));
+  const { code, lines } = runPrune({ freshDir, dryRun: process.argv.includes('--dry-run') });
+  for (const l of lines) (code === 0 ? console.log : console.error)(l);
+  process.exit(code);
 }
