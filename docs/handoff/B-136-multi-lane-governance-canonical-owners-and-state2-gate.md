@@ -671,3 +671,16 @@ P15-R1/R2 are resolved. **Holds, annotated:**
 
 **The Judge, 2026-10-05:** apply `SV-002` §5 **later**, batched with the graph-release/DOD act (`D-419`). Nothing here
 checks a box. B-136 stays Open; P15 stays open.
+
+## Lane A — `SV-002` §5 applied under `D-423`, 2026-10-06
+
+Read at `434129c`. **The Judge, 2026-10-06:** "Apply now" (`D-423` item 3).
+- **§5 is applied (`8554511`):** the accepted comparisons in template v1 §6 vocabulary, a separate "Criterion
+  satisfaction now" column, and evidence pointers.
+- **The U03 evaluation §2 "Overlap" claim is corrected:** the graph holds generated code (434 at `693a6a7`). Measured
+  graph coverage is not proven caller completeness. The U03 trial is unchanged.
+- **No DoD box is checked.** `DOD-01`'s graph-currency proof now waits on this batch's own candidate (`9993bded…`,
+  pending Lane B review) and its release; `DOD-01` can then be checked only by a later act citing it.
+- DOD-02/04/06 and P15 are unchanged, and U03 stays unselected.
+
+B-136 stays Open; P15 stays open.
