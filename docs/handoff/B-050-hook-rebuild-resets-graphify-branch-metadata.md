@@ -353,3 +353,57 @@ back null.
   Graphify package is outside this repository.
 
 B-050 stays `Applied`; its O1 row stays open pending Lane B's review of this result and any later act.
+
+
+## Lane B independent diagnostic review — D-416 result, 2026-10-05
+
+**Read:** `9839d9c1ed1d95e21d1625e0941076fb63f9be36`. Reviewed the pinned contract, `run.mjs`,
+`RESULTS.json`, the raw case logs and saved `c4a-branch.json` in
+`C:/CoWork/outputs/b050-null-reset-diagnostic-2026-10-05/`, and the installed CLI source.
+The three installed-file hashes still match the harness pins. This is an independent source/evidence
+review, not a new execution of the diagnostic or an independent reconstruction of the caller's past state.
+
+**Accepted mechanism evidence.** In the pinned CLI, `resolveGitContext` catches failure of its required
+Git-context queries and returns null. `refreshLifecycleMetadata` then writes both `worktree.json` and
+`branch.json`; when `analyzed` is true, a null head is written beside `stale: false`. The saved case 4a
+branch record and case 4a/4b raw rebuild logs agree with the result table: controlled missing Git and
+misbound GIT_DIR yield exit 0 and null head fields. Valid-context controls and the recovery case support
+this mechanism. Detached HEAD is a different case: the branch name is null by design while heads remain
+valid. An absent upstream is likewise not, by itself, the null-head defect.
+
+**Draft wording correction:** “The diagnostic reproduces a null-metadata write mechanism under two
+controlled Git-context failures. It does not identify which failure affected the original August run,
+nor establish that every Git-command failure has the same effect.” In particular, the four context
+queries are followed by separate HEAD/branch lookups; a preflight cannot guarantee their later success.
+
+**Contract deviations / evidence limits.**
+
+| Pinned requirement | What the harness actually proves | Required follow-up |
+|---|---|---|
+| Stop at the first null transition and preserve that state | Case 4a records the first null transition and saves its branch record, but does not set the stop flag. The harness continues through fresh-clone cases 4b/4c and then rewrites clone-01 in case 5 | Lane A acknowledges this deviation. The Judge may accept the bounded mechanism evidence with this limit, or request a short conforming evidence run; do not call the entire contract followed |
+| Before/after each run: full branch/state status/check-update and Git context records | RESULTS stores four selected branch fields and logs rebuild stdout/stderr; only case 4a's full branch record is saved. The prescribed per-run state-status/check-update/context bundle is absent | Name the missing records; do not backfill observations as if contemporaneous. A replacement run, if selected, writes the full bundle and stops |
+| Caller unchanged | The operator's start/end aggregate hashes, HEAD/status/index-tree comparisons report unchanged; the preserved caller HEAD is a0795a8, before the result commit | Accept as recorded operator evidence. A verifier cannot freshly re-observe the old pre-run caller; the current graph hash independently still matches the D-416 candidate |
+| Prevention / complete B-050 success | The negative cases still corrupt metadata. No prevention code or negative fixture was installed | B-050 remains Applied; the O1 row remains open |
+
+These deviations do not erase the static path or synthetic counterexamples; they do preclude claiming
+a fully compliant diagnostic transaction. No rerun or cleanup is performed by this review.
+
+**Repair-plan challenge.** The proposed preflight plus branch-only restoration is insufficient for the
+original “cannot replace” criterion: Git can fail between preflight and the tool's own lookups; restoration
+occurs after a bad write; the tool also writes worktree metadata and graph/report files. Restoring only
+branch.json can present an old analyzed head beside a different saved graph. A detached branch should
+not be confused with a missing head, and optional upstream lookup failure should not be silently
+promoted into a mandatory-context failure.
+
+Lane A must specify either a guarded repository procedure with isolated candidate generation and
+verified publication/recovery, explicitly scoped by the Judge, or a separate fix to the external writer.
+A repository wrapper cannot claim that unwrapped Graphify calls are repaired. The exact draft unit,
+write set, positive/negative acceptance cases and Judge scope choices are consolidated in B-154's
+“D-416 completion review and prevention docket” continuation. No global-package edit is authorized.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Static null-write mechanism and the two controlled counterexamples | Phase 1: preserve source/tool pins and distinguish mechanism from original incident attribution |
+| Approve-with-conditions | Diagnostic result as a bounded completed evidence unit | Phase 1: disclose stop/log deviations; Judge accepts that qualification or selects replacement evidence |
+| Defer | B-050 clearance/Verified, prevention implementation and B-077 final acceptance | Phase 1: separately selected repair scope and intended negative/positive proof |
+| Reject | Full contract-compliance claim, all-Git-failures claim, branch-only restoration as pre-write prevention, or inferred original sandbox cause | Phase 1: apply the exact wording and evidence limits above |
