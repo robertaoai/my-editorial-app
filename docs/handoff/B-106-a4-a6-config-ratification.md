@@ -4,7 +4,7 @@
 - **Kind:** spec-defect
 - **Phase:** 1
 - **Blocks:** truthful configuration readiness for the two named values; no unrelated planning or build work
-- **Status:** Open
+- **Status:** Answered
 - **Lane A:** **Acknowledged 2026-09-15 at read commit `ebd3c29`** (per Lane B's report; not
   independently git-verified from this session). The Chief Editor's direct decision-tree act is
   accepted as recorded: `SCORING_REVIEW_THRESHOLD_ARTICLES = 50` (A4) and
@@ -61,8 +61,18 @@
   receipt, not a second verification. The optional annotation needs its own act. The runtime `UNRATIFIED` metadata,
   the executed `AC-12a` cases and graph currency stay with their owners. No Resolution is recorded; `B-106` stays
   Open.
-- **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Verified-At-Commit:** ae5548c4a6f51dc3b5b1df9343769fa47f33cc00
+  **Deferred 2026-10-05 (`D-418` item 2), read at `d86b354`.** The Judge accepted B-106's individual O4 custody reason
+  in Lane B's text (`9f8a872` D2). Each remaining child keeps a named owner and trigger. This is custody, not delivery,
+  and it verifies nothing.
+- **Resolution:** Deferred
+- **Follow-up-Tier:** (a) the two-path Lane B metadata unit (`lib/config/build-config.ts`, `__tests__/build-config.test.ts`:
+  registry `RATIFIED` with citations and limitations; values 90 and 50 unchanged; no new consumer) returns only on a
+  named Judge work order and Lane B `Active`; (b) executed `AC-12a` behavior and refusal evidence stays with Product
+  retention/`AC-12a` → `FN-AUDIT-VISIBILITY-07-08` §5, returning on a selected consuming implementation unit; (c) the
+  A4 scoring formula and weights stay unratified at their Product owner, returning on their own ratification or
+  selection; (d) Encyclopedia Entry 02's no-update result keeps its recorded operator/version limit (`D-406`)
+- **Verified-By:** — not independently verified; dispositioned by Lane A
+- **Verified-At-Commit:** d86b35484a0fdcb9c51c266b2a5d63ab5003c2c8
 - **Evidence:** Chief Editor's 2026-09-15 direct act; `CONFIG_LOG.md` §2; `DECISION_LOG.md` §§1–3; `lib/config/build-config.ts`; Register `D-134`, `D-135`, `D-198`; `B-085` G-3 disposition.
 
 ## What happened
