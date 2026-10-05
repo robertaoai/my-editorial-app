@@ -578,6 +578,16 @@
     **Proposed basis:** an individual Judge D-364 custody reason for the B-117 row, with this table as its
     evidence. It is custody, not completion; GR-007 stays open.
 
+  **Judge's answers, 2026-10-05, in chat to Lane A** (to be registered in the next governed act):
+  1. **B-071 batch: held.** The B-071 chronology fix, its §2.3.1 row closure and the re-derivation ride the same
+     governed batch as the RH4/B-117 decisions: one Register act, one sync, one Lane B review.
+  2. **RH4: wait for Lane B.** Review the RH4 evidence above before the Judge rules on its reason.
+  3. **B-117: wait for Lane B.** Review the 51-child table and the proposed re-point of the held children to the
+     `D-171` hold before the Judge rules.
+  4. **B-077: final independent review requested now.** Lane B, named by `D-415`, performs B-077 Child 5's final
+     review on the 17-entry table above and records its own outcome.
+
+  **Requested of Lane B:** items 2–4, in B-154 or the source entries in their own one-path commits.
   B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
