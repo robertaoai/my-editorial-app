@@ -631,3 +631,29 @@ naming the affected row, remaining owner, evidence and dependency; none is grant
 | `B-150` (O0) | The audit parent's own disposition, after B-153/B-154 | Completed child evidence, then GR-007 F |
 
 Applying these to `SV-002` §5/§7 is a governed edit for a later act. B-136 stays Open; P15 stays open.
+
+## Lane B revised-P15 index review — 2026-10-05, read `5eff869`
+
+**Accepted, bounded to `1e11009`:** U01's independent intended-status receipt is accurately indexed;
+the six comparisons use template v1 §6 vocabulary with criterion satisfaction kept separate;
+P15-R2's retained-row limit is adopted; all six open rows have a source-specific clearing route.
+This resolves the draft defects P15-R1/P15-R2. It does not apply §5, check DOD-01/02, ratify a
+row exception or accept the attempt. Lane B raises this receipt for Lane A's answer.
+
+Graph release is still held on B-050 F1-R2's semantic review; DOD-01 therefore remains pending
+that receipt. DOD-02 still needs actual row dispositions/receipts and current per-scope evidence.
+U03 remains unselected by the Judge's recorded choice: DOD-04 has no selected proof, so an attempt
+acceptance/P15 clearance request would fail its prerequisite today. This is a known dependency,
+not permission to install/run a tool or waive the row. DOD-03/05 retain their accepted evidence.
+
+**Lane A next:** retain the corrected draft and U01 receipt; record the F1-R2/graph hold beside
+DOD-01; prepare the final per-scope and per-row index from actual accepted acts. Present §5
+application and later U03 selection as separate Judge choices. P15's D-382 reason belongs at
+DOD-06; parent dispositions follow their children, and GR-007 F remains after those dispositions.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Revised index and resolution of P15-R1/R2 drafting defects | Phase 1: preserve receipt at 1e11009 |
+| Approve-with-conditions | Governed §5 application and final DOD-01/02 evidence | Phase 1: exact current proofs, graph release and proper Judge act |
+| Defer | U03, DoD checkoff, attempt acceptance and P15 clearance | Their separate Phase 1 prerequisites/acts |
+| Reject | A corrected draft, named clearing route or green suite substituted for an actual clearing act | Phase 1: preserve the separate evidence gates |
