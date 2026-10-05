@@ -47,7 +47,8 @@ export function canonicalizePath(raw) {
   let p = String(raw);
   // UNC before any separator folding: raw `\\host\share` or JSON-escaped `\\\\host\\share` (F1-R1).
   if (/^(?:\\\\|\\\\\\\\)[^\\/]/.test(p)) return { network: true };
-  // Decode first, so an encoded drive colon or separator becomes visible.
+  // Decode first, so an encoded drive colon or separator becomes visible. The
+  // limit is three rounds; encoding still present after it is refused (F1-R2).
   for (let i = 0; i < 3 && /%[0-9A-Fa-f]{2}/.test(p); i++) {
     try {
       p = decodeURIComponent(p);
@@ -55,6 +56,8 @@ export function canonicalizePath(raw) {
       return { malformed: true };
     }
   }
+  if (/%[0-9A-Fa-f]{2}/.test(p)) return { malformed: true };
+  if (/^\\\\[^\\/]/.test(p)) return { network: true }; // a UNC that was encoded
   const uri = /^file:\/\/([^/]*)(\/.*)?$/i.exec(p.replace(/\\/g, "/"));
   if (uri) {
     const host = uri[1].toLowerCase();
@@ -85,22 +88,37 @@ export function isWithin(path, root) {
   return path === root || path.startsWith(`${root}/`);
 }
 
-// Absolute-path candidates, each taken as a WHOLE token so an allowed path
-// embedded in a bad URI cannot hide it (F1-R1, Lane B `e843edf`). Supported
-// representations, raw or inside JSON strings:
-//   * `file:` tokens of any shape — `file://host/…`, `file:///C:/…`, and
-//     malformed ones such as `file:/C:/…` or `file:garbage`;
-//   * drive-letter paths with raw, JSON-escaped or percent-encoded `:`/separators;
-//   * UNC paths, raw `\\host\share` or JSON-escaped `\\\\host\\share`;
-//   * forward-slash network roots `//host/share` not preceded by a URL scheme.
-// Lexical exclusions: a `file:` directly after `{` or `,` followed by a plain
-// identifier is an object key (minified `{file:o,…}`), and `file:` followed by
-// nothing is prose. `https://…` is never a path.
+// SUPPORTED REPRESENTATION GRAMMAR (F1-R1 `e843edf`, F1-R2 `658aab2`, `D-419`).
+//
+// 1. Quoted JSON string values are read WHOLE, escapes decoded. A value that
+//    BEGINS with a path or URI prefix is canonicalized as its complete value,
+//    spaces included — so `"C:/root/a b/../../x"` is judged where it lands.
+// 2. Everywhere else, path candidates are whitespace-delimited lexical tokens,
+//    each taken whole so an allowed path inside a bad URI cannot hide it:
+//    * `file:` tokens of any shape (malformed ones such as `file:/C:/…` or a
+//      bare `file:word` are refused);
+//    * drive-letter paths with raw, JSON-escaped, percent-encoded or
+//      double-encoded `:`/separators;
+//    * UNC paths, raw `\\host\share` or JSON-escaped `\\\\host\\share`;
+//    * forward-slash network roots `//host/share` not preceded by a URL scheme;
+//    * percent-encoded prefixes: an encoded `file:` scheme, encoded UNC, and an
+//      encoded `//host` not preceded by an encoded scheme.
+//    A raw UNQUOTED value containing spaces is NOT read whole; only its first
+//    whitespace-delimited token is. Quote it to have it judged in full.
+// 3. Lexical exclusions: a `file:` right after `{` or `,` followed by a plain
+//    identifier is an object key (minified `{file:o,…}`); `file:` followed by
+//    nothing is prose; `https://…` and its encoded form are web URLs, not paths.
+// 4. Decoding stops after three rounds; path-like encoding still present after
+//    that is refused, never read as "no path".
 const FILE_TOKEN = String.raw`(?<![A-Za-z0-9_$.-])file:[^\s"'<>|\x60]+`;
-const DRIVE_TOKEN = String.raw`(?<![A-Za-z0-9+.-])[A-Za-z](?::|%3[aA])(?:\\\\|\\|\/|%5[cC]|%2[fF])[^"'\s<>|\x60]*`;
+const DRIVE_TOKEN = String.raw`(?<![A-Za-z0-9+.-])[A-Za-z](?::|%3[aA]|%253[aA])(?:\\\\|\\|\/|%5[cC]|%2[fF]|%255[cC]|%252[fF])[^"'\s<>|\x60]*`;
 const UNC_TOKEN = String.raw`(?<![\\\w])(?:\\\\\\\\|\\\\)[A-Za-z0-9._$-]+(?:\\\\|\\)[^"'\s<>|\x60]+`;
 const NETWORK_TOKEN = String.raw`(?<![:\w/\\])\/\/[A-Za-z0-9][A-Za-z0-9._-]*\/[^"'\s<>|\x60]+`;
-const CANDIDATE = new RegExp([FILE_TOKEN, DRIVE_TOKEN, UNC_TOKEN, NETWORK_TOKEN].join("|"), "g");
+const ENCODED_TOKEN = String.raw`(?<![A-Za-z0-9_$.%-])(?:file%3[aA]|%5[cC]%5[cC]|%2[fF]%2[fF](?=[A-Za-z0-9]))[^\s"'<>|\x60]+`;
+const CANDIDATE = new RegExp([FILE_TOKEN, DRIVE_TOKEN, UNC_TOKEN, NETWORK_TOKEN, ENCODED_TOKEN].join("|"), "g");
+// A complete value that starts like a path or URI (rule 1).
+const PATH_PREFIX = /^(?:[A-Za-z](?::|%3[aA]|%253[aA])(?:[\\/]|%5[cC]|%2[fF]|%255[cC]|%252[fF])|file(?::|%3[aA])|\\\\|%5[cC]%5[cC]|\/\/[A-Za-z0-9]|%2[fF]%2[fF][A-Za-z0-9])/;
+const QUOTED = /"((?:[^"\\\n]|\\.)*)"/g;
 
 /** A `file:` token that is really a minified/JSON object key, e.g. `{file:o,…}`. */
 function isObjectKey(text, index, token) {
@@ -114,17 +132,45 @@ function isObjectKey(text, index, token) {
  * candidates are always foreign.
  */
 export function findForeignPath(text, { allowedRoot = CALLER_ROOT, disposableRoots = DISPOSABLE_ROOTS } = {}) {
-  const root = allowedRoot.toLowerCase();
+  const opts = { root: allowedRoot.toLowerCase(), disposable: disposableRoots.map((d) => d.toLowerCase()) };
   const src = String(text);
+  // Rule 1: every quoted JSON string value, whole.
+  for (const q of src.matchAll(QUOTED)) {
+    let value;
+    try {
+      value = JSON.parse(`"${q[1]}"`);
+    } catch {
+      continue; // not a JSON string literal; rule 2 still scans the raw text
+    }
+    const hit = foreignInValue(value, opts);
+    if (hit) return hit;
+  }
+  // Rule 2: lexical tokens across the raw text.
+  return foreignInTokens(src, opts);
+}
+
+/** Judges one decoded value: in full when it starts like a path (rule 1), then
+ * by its embedded tokens (rule 2). */
+function foreignInValue(value, opts) {
+  const v = value.trim();
+  if (PATH_PREFIX.test(v) && judge(v, opts)) return v;
+  return foreignInTokens(value, opts);
+}
+
+function foreignInTokens(src, opts) {
   for (const m of src.matchAll(CANDIDATE)) {
     if (/^file:/i.test(m[0]) && isObjectKey(src, m.index, m[0])) continue;
-    const c = canonicalizePath(m[0]);
-    if (c.network || c.malformed) return m[0];
-    if (disposableRoots.some((d) => isWithin(c.path, d.toLowerCase()))) return m[0];
-    if (isWithin(c.path, root)) continue;
-    return m[0];
+    if (judge(m[0], opts)) return m[0];
   }
   return null;
+}
+
+/** True when a candidate is foreign: network, malformed, disposable, or outside the root. */
+function judge(candidate, { root, disposable }) {
+  const c = canonicalizePath(candidate);
+  if (c.network || c.malformed) return true;
+  if (disposable.some((d) => isWithin(c.path, d))) return true;
+  return !isWithin(c.path, root);
 }
 
 // ---------------------------------------------------------------------------

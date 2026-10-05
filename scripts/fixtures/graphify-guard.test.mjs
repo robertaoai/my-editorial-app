@@ -56,7 +56,24 @@ describe("canonical path validation (v4 condition 1)", () => {
     [`https://example.com/a/b`, false], // URL, not a network root
     [`x=a//b; // comment`, false], // code division and comment
     [`{ file:loader, mode:1 }`, false], // object key with spacing
+    // F1-R2 (Lane B 658aab2), through the public scanner: quoted values are read whole
+    [`{"path":"C:/robertaoai/my-editorial-app/a b/../../../CoWork/outputs/leak"}`, true], // space, then escape
+    [`file%3A%2F%2Fserver%2Fshare%2Fleak`, true], // fully encoded network file URI
+    [`{"path":"C:/robertaoai/my-editorial-app/a b/file"}`, false], // in-root path with a space
+    // equivalent representations at the declared boundary
+    [String.raw`{"path":"C:\\robertaoai\\my-editorial-app\\a b\\..\\..\\..\\CoWork\\outputs\\leak"}`, true], // JSON-escaped
+    [`C:/robertaoai/my-editorial-app/a/../../../CoWork/outputs/leak`, true], // raw, no space
+    [`"file%3A%2F%2Fserver%2Fshare%2Fleak"`, true], // quoted encoded
+    [`%5C%5Cserver%5Cshare%5Cleak`, true], // encoded UNC
+    [`C:%252Frobertaoai%252F..%252F..`, true], // double-encoded escape above the drive
+    // web URLs stay out of scope, encoded or not
+    [`https%3A%2F%2Fexample.com%2Fa`, false],
+    [`{"url":"https://example.com/a b/c"}`, false],
   ];
+
+  test("encoding left after the decode limit is refused, not read as 'no path'", () => {
+    expect(canonicalizePath("C:%25252525%2Fx")).toEqual({ malformed: true });
+  });
   for (const [input, foreign] of cases) {
     test(`${foreign ? "refuses" : "allows"} ${input}`, () => {
       expect(findForeignPath(input) !== null).toBe(foreign);
