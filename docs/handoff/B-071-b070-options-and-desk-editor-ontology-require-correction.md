@@ -5,9 +5,10 @@
 - **Phase:** 1
 - **Blocks:** terminal verification of `B-070`; any fresh S2 authorization; Lane B beginning
   `T5`/`T6`, route-readiness, judgment-packet, or publication-decision implementation
-- **Status:** Open
-- **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Verified-At-Commit:** e0e1c857d4750f2b3fb0ba7b6f4e17526fee37f6
+- **Status:** Answered
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified; dispositioned by Lane A
+- **Verified-At-Commit:** 69c01a20f92bd6915ee7f7fae346d7cbae25e453
 - **Lane A:** Acknowledged 2026-09-02. **Approval-provenance corrected retroactively per the Judge's
   provenance rule** (§"Judge ruling — approval-provenance for direct instructions," below): every
   "the Judge approved Draft N" statement previously written in this field is corrected to the precise
@@ -8490,3 +8491,15 @@ stays open.
 
 `R204`/`R205` stay received in `V1-SM05` and are not reviewed here. Whole-entry disposition still needs its matching
 Re-close record and is outside `D-412`. `B-071` stays Open.
+
+## Re-close record
+
+- **Reclosed-Return:** Return-Act Chief Editor/Judge, 2026-09-14 — `Judge Approved: decision-tree decision`; Returned-At-Commit `9e03bb349147971f622080b8fae57eb47c88d36b`
+- **Completion-Condition:** every non-SM05 child of the returned ontology-correction episode has a receiving owner and accepted clearance, and the SM05 children are received; no target T5/T6 execution is implied
+- **Completion-Evidence:** `B071-R204`/`R205` received in `V1-SM05` (`D-381`); `R202`, `R203`, `R206`–`R208` received as `GOV-RES-001` `GR-016`–`GR-020` after Lane A's bounded review (`68195b1`), and closed by individual Judge custody acceptance (`D-412`). Custody is not delivery. The `D-171` hold on the technical target is unchanged
+- **Reclose-Act:** `D-364` (the re-close form); Judge act `D-415`, 2026-10-05, `V1-DECISION-REGISTER.md` §5.14e240; Lane A disposition recorded here
+- **Reclosed-At-Commit:** 69c01a20f92bd6915ee7f7fae346d7cbae25e453
+
+This record completes only the 2026-09-14 return episode. It is the answering side's record and verifies nothing:
+the `SV-002` §2.3.1 `B-071` row stays open until Lane B independently reviews this record, or a later individual
+Judge `D-364` reason closes it (`D-415` item 1).
