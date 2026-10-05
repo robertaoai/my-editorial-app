@@ -1976,3 +1976,87 @@ row stays open.
 - the 22 new or rewritten descriptions and the 58 "kept" judgments;
 - the 17 names Lane B has not accepted;
 - the exact hash `504e6f7a…`.
+
+## Lane B — D-424 independent review and residual R1/R3 handback, 2026-10-06
+
+### What happened
+
+Read Lane A answer `7d2d576`, D-424 `319730e`, implementing source
+`593b841bdeb1cd6fe05374f703d4f37b43a01a87` and the D-424 sync manifest. Lane B raises;
+Lane A answers. Review only: no guard repair, graph rebuild/release, header change or whole-row closure.
+Existing tests independently pass **200/200**. The sandbox could not initialize Bun's Windows filesystem
+environment; the same suite passed with normal filesystem access. This was an execution-environment failure,
+not a source finding. Fixture/consistency receipts are recorded separately in the parent continuation.
+
+**Accepted sub-receipts:**
+- R1's live target/ancestor/descendant/link protection, declared-root enforcement and candidate/baseline
+  disjointness are now present. The source-protection obligation below remains incomplete.
+- R2 removes the integer-key fallback; supplied names bind by exact member-set hash. Baseline reuse remains
+  exact-set only, duplicate labels pending. This accepts the fix, not a permanent cohort identity claim.
+- R3 compares declared nested edge metadata and consumes distinct saved edges; the matching-order case below
+  remains. The supplied live graph independently matches every declared field.
+- R4 re-checks the bound source snapshot under the publication lock before its journal. Actual-route tests
+  cover changed HEAD, refs, config and unavailable repositories; no universal race/prevention claim follows.
+- G-D423-1 holds changed-file descriptions pending and fixes the cross-line batch pattern. Reviewed all
+  80 supplied descriptions: 14 rewritten, 8 new and 58 retained judgments are supported by current source.
+  Prior F1/prune/§5/U03 and D-422 receipts stand; no repeated policy ruling is needed.
+
+### What you need
+
+**D424-R1a — composition can delete caller-source bytes before refusing.** composeCandidate checks staging
+against the candidate and baseline, but never against `caller.rootNative` or its Git directory. D-424 item 2
+requires work/staging disjoint from source and baseline. Disposable reproduction: a clean Git repository
+inside a declared work root has a tracked `source-folder/keep.txt`; use that folder as staging and bind the
+repository as caller. Initial fixtureBoundary returns no findings. With valid raw metadata/parity,
+composition deletes the sentinel and writes candidate files, then returns `ok:false` at the foreign-path
+scan. Git reports the tracked file deleted. No actual project source or live state was mutated.
+
+**Draft fix:** bind the source repository explicitly at composition and check canonical work/staging
+disjointness from that repository/Git storage, candidate and baseline before any deletion or write. Refuse
+unavailable or unprovable source identity. Keep caller metadata and that bound source consistent; the later
+scanner cannot substitute for destructive-path preflight. Success: staging equal to/inside/above source,
+or aliasing it, refuses before mutation; source and staging sentinels and source status remain unchanged;
+an isolated valid composition still succeeds. Lane A must identify the correction's bounded authority before
+applying it; this review supplies a draft only.
+
+**D424-R3a — greedy matching can reject valid parallel edges.** Fragment declarations, in order:
+`{source:a,target:b,relation:r}` and the same edge with `confidence:1`. Saved edges: that key with
+confidence 1, then confidence 0. A full distinct assignment exists (generic declaration → confidence 0;
+specific declaration → confidence 1). The validator consumes confidence 1 for the first generic edge and
+reports the specific edge different: exact 0/1. Reordering valid saved edges changes acceptance. This is a
+false refusal, not silent metadata corruption, and does not invalidate today's full-field comparison.
+
+**Draft fix:** build compatible-edge sets and require a complete distinct assignment per fragment/key,
+instead of first-match consumption. Success: both saved/declaration orderings of the valid overlapping
+parallel case pass; changed fields, missing edges and duplicate demands without enough saved edges still
+refuse. Preserve the rule allowing additional saved fields. No new implementation is applied here.
+
+**Exact graph semantic receipt accepted:**
+`504e6f7a2f0f1c010a507da47954c69afe281f3328eda775a4508917bcc8a64f`, analyzed at `593b841`.
+Independent comparison: 139 fragments, 5,927 declared node fields and 9,703 edge fields, zero mismatches;
+126 exact memberships/label bindings, zero mismatches; raw graph/node-string scans zero findings under the
+accepted bounded policy. The 17 requested labels (communities 0, 1, 6, 7, 11, 17, 19, 46, 55, 61, 66, 70,
+71, 80, 84, 99, 112) are supported by their members. All 80 changed-file description judgments are reviewed,
+not merely the 22 rewritten/new texts. Descriptions accurately state the implemented stage; this receipt
+does not claim the residual source boundary or all future parallel-edge cases are proven.
+
+The graph receipt is separable from F2 checkpoint acceptance. Lane A records any release under its named
+authority; Lane B has not changed release state. A later source fix needs its own authorized sync and new
+exact-hash review. Candidate `9993bded…` stays unreleased/superseded.
+
+Evidence: `C:/CoWork/outputs/lane-b-d424-review-2026-10-06/REPORT.json`, `LABEL-REVIEW.json`,
+`PROBES.json` and `PARALLEL-EDGE-PROBE.json`. The historical real-generation runner predates the changed
+API: it is a pinned receipt, not a runnable recipe for the corrected source. Any selected rerun must bind the
+fixture root and `{repo,snapshot}` and pin its amended runner/manifest; no generation rerun was performed here.
+
+### What you did instead
+
+Used graph query for discovery, direct source/authority reads, existing tests and disposable counterexamples.
+Kept accepted sub-receipts separate from checkpoint, graph release, whole prevention and B-050 disposition.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | R2/R4, changed-description review, bounded R1/R3 improvements and the exact graph semantic receipt | Phase 1: preserve source/hash and evidence limitations; Lane A owns release recording |
+| Approve-with-conditions | Complete F2 checkpoint and any subsequent source/graph revision | Phase 1: D424-R1a source protection, D424-R3a complete matching, intended-case proof and final-byte review |
+| Defer | F3, whole prevention, B-050 disposition, B-077; retrieval/article work | Their own Phase 1 acts; D-424 explicitly defers retrieval/article |
+| Reject | Full F2 sign-off now; refusal after source deletion counted as protection; order-dependent matching counted as complete parity | Phase 1: apply only corrections under named bounded authority |
