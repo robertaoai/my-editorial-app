@@ -537,6 +537,10 @@ place; the `B-050` diagnostic evidence lives outside the repository.
 **`D-417` (2026-10-05) — no file added or retired, stated explicitly.** `GOV-RES-001.md` and `SV-002.md` change in
 place.
 
+**`D-418` (2026-10-05) — two files to be added by the F1 commit:** `scripts/graphify/guarded-rebuild.mjs` and
+`scripts/fixtures/graphify-guard.test.mjs`, listed in the scripts table when they land. `docs-drift.mjs` and `SV-002.md`
+change in place.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

@@ -27174,3 +27174,78 @@ Gate 2; a push.
 | Modular_PRD, fn-specs, SPECS, storyboard, rule files, Phase Closure, frozen sources | — unaffected (accounting only) |
 | **Encyclopedia** | unaffected: no mapped file, section or decision changes |
 | **Graphify** | One sync after this edit, released after Lane B's review |
+
+## 5.14e243 `D-418` — B-050 Stage F1 Work Order; B-106 Row Closed by Individual Custody Reason; P15 Evidence Index Directed
+
+**Authority: the Judge, directly to Lane A, 2026-10-05**, in chat, on Lane B's three drafts (`9f8a872`) as reviewed
+by Lane A (`3488206`): **"F1 only"** for B-050; **"Custody reason"** for B-106; **"Index DOD-01/02 now"** for
+B-136.P15. Earlier acts in the same chain, registered here:
+- *"Judge Approved: add docs-drift.mjs as fifth path"* (B-050 `d8330f5`);
+- the hold on the unphased work order (`4ed6754`), now superseded by this staged act.
+
+Lane A is `Active` (Phase Closure §5). Pushing is not authorized.
+
+### The decision
+
+1. **B-050 stage F1 work order (Lane A).**
+   - **Paths:** three of the five approved paths:
+     - `scripts/graphify/guarded-rebuild.mjs`
+     - `scripts/fixtures/graphify-guard.test.mjs`
+     - `scripts/checks/docs-drift.mjs`
+   - **Allowed work:** pure parsing and validation, and an explicit refusal entry point:
+     - canonical path validation (`file:` URIs parsed first, decoding and dot-segment canonicalization, network
+       authorities and malformed forms refused, component boundaries, disposable roots refused);
+     - containment of runtime paths against the live target, in both directions;
+     - schema-specific lifecycle validation with raw-null refusal;
+     - transaction-journal detection;
+     - in `docs-drift.mjs`, the journal finding placed **before** the absent-`branch.json` and git-unavailable skips.
+   - **DoD:**
+     - the v4 F1 cases (`b97f93f`) reach their intended boundaries, including Lane B's three path inputs and the
+       earlier controls, journal-with-missing-live-path, ordinary local success and the no-state CI skip;
+     - invalid input never yields a healthy result;
+     - `bun test` and `bun run check` pass;
+     - **Lane B independently reviews F1, then work stops.**
+   - **Not authorized:** live generation, swaps or publication; F2 and F3; the two runbook paths; any other path;
+     dependencies; the global Graphify package; a claim of prevention or B-050 closure.
+   - **Interim graph maintenance:** until F3 is accepted, governed-edit syncs use the existing `D-409`/`D-410`
+     procedure, and no guarded release is claimed.
+2. **`B-106` row closed by the Judge's individual custody reason** (`D-364` item 4), in Lane B's text (`9f8a872` D2).
+   - **Settled:** `D-381`/`D-404` settle A6's value and supplied-fact meaning; `D-405`/`D-406` supply the reviewed
+     propagation; `D-414` receives only A4's review threshold.
+   - **Retained children, each with an owner and trigger:**
+     - **(a) Metadata unit** — the two-path Lane B unit (`lib/config/build-config.ts`, `__tests__/build-config.test.ts`):
+       registry status `RATIFIED` with citations and limitations; values unchanged. It returns only on a named Judge
+       work order **and** Lane B `Active`.
+     - **(b) Executed AC-12a behavior** — with Product retention/AC-12a → `FN-AUDIT-VISIBILITY-07-08` §5. It returns
+       on a selected consuming implementation unit.
+     - **(c) The A4 formula** — unratified at its Product owner. It returns on its own ratification or selection.
+     - **(d) Entry 02's no-update result** — keeps its recorded operator/version limit.
+   - Custody earns no runtime or feature delivery, and verifies no B-106 header. The header may become
+     `Answered`/`Deferred` with these children.
+3. **B-136.P15: direction only.** Lane A assembles the `SV2-DOD-01`/`-02` evidence index now. `SV2-U03` (DOD-04) stays
+   unselected. P15 stays open: it clears only by the Judge's act at `SV2-DOD-06` (`D-382` item 6). The prospective
+   reason (`9f8a872` D1) is held for that act.
+4. **Accounting.**
+   - `SV-002` §2.3.2 keys Lane B's reviews once: on B-050, `0fc8a94`, `0da9001`, `404af56` and `2b60cde`; on B-154,
+     `7deb459`, `aebad9e`, `9de50ce`, `a4da703` and `9f8a872`. It adds the B-106 child homes.
+   - `SV-002` §2.3.1 is re-derived at `3488206`: only B-106 closes.
+5. **One sync follows**, after the F1 code commit and covering both, under `D-409`/`D-410`. It is released after Lane
+   B's review.
+
+### Not given by this act
+
+F2 or F3; the runbook paths; any Lane B code or lane change; closure of B-050, B-077, P15 or any O0 row; SM05 unblock;
+Gate 2; a push.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e243 |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ `D-418` paragraph (no scope, sequence or DoD change to V1; tooling only) |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-418` paragraph; two files are added by the F1 commit and listed there with it |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §2.3.1 re-derived (B-106 closed); §2.3.2 keyed notes |
+| Source handoffs (`B-050`, `B-106`, `B-136`) | Follow: the B-106 header and the P15 index draft land in their own commits |
+| Modular_PRD, fn-specs, SPECS, storyboard, rule files, Phase Closure, frozen sources, `GOV-RES-001` | — unaffected |
+| **Encyclopedia** | unaffected: no mapped file, section or decision changes |
+| **Graphify** | One sync after the F1 commit, released after Lane B's review |
