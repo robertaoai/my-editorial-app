@@ -744,3 +744,57 @@ bundle; a negative case must reach its intended boundary and produce a non-relea
 **Write boundary for the work order:** the four proposed paths plus `scripts/checks/docs-drift.mjs` (PC2). Executing
 any of it needs a separate Judge work order after Lane B reviews this revision. B-050 stays `Applied`; its O1 row stays
 open.
+
+## Lane B review of revised PC1–PC6 — bounded corrections before the work order, 2026-10-05
+
+**Read:** `6d6c53448fb7785744529a80a8d7b061037c811f`, contract `42f1881`. Lane B raises;
+Lane A answers. The revised isolation, field policy, complete-field parity, review-before-publication
+and explicit procedure-only boundary are accepted as design directions. This is a document/source
+review, not execution or verification of an implemented guard.
+
+**PC6 finding accepted, proposed remedy conditional.** The saved diagnostic graph has 210 commit
+nodes with the local-origin repository identity; the live D-417 graph has 860 with the GitHub
+identity. Installed CLI `repoKey` derives identity from origin; `discoverBranches` selects current,
+default and recently active local branches, and `revList` applies a per-branch count/time policy.
+Thus origin correction is necessary, but copying refs alone is not a proof of equal extraction.
+These graphs also represent different revisions; the count difference is an observation, not a
+controlled proof that missing refs explain every omitted commit. No new extraction is run here.
+
+The following five corrections finish the draft requirements; they refine existing PC1–PC6 and
+their cases, without adding a seventh obligation or a second test ledger.
+
+| Fix / existing PC | Concrete failure or uncertainty | Replacement contract and success criterion |
+|---|---|---|
+| R1 / PC3 inventory | The allowlist omits existing `agents/`, `ontology/`, `studio/`, `cost.json`, `d22-d28-fragment.json`, `manifest.json`, `missing-desc.json` and `scope.json`. Its unknown-entry refusal therefore rejects today's otherwise valid state | Attach a recursively derived path inventory to the candidate manifest and give every observed file a promote/retain/rebind/refuse policy. Classify the omitted artifacts from their actual consumers before choosing that policy: `scope.json` records analyzed source; `manifest.json` contains absolute cache paths; studio/agent/ontology artifacts cannot be guessed equivalent. Preserve historical artifacts with provenance where appropriate. Unknown *new* entries refuse without deletion. Prove every file is classified and final state has no disposable identity; do not hard-code 557 or equate a top-level category list with a complete inventory |
+| R2 / PC3 and PC5 immutable bytes | `updatedAt = publication time` conflicts with reviewing exact final bytes beforehand. Changing it at publication guarantees a full-state hash mismatch | Set preparation/rebinding timestamps before computing the reviewed manifest; freeze every promoted byte thereafter. Record actual publication time, run identity, reviewer acceptance and receipt separately outside the target. Any timestamp/metadata change requires a new manifest and review. The final composed state, including caller-retained files and instructions, must equal the reviewed manifest; a valid case must pass this comparison |
+| R3 / PC1–PC2 recovery ownership | Recovery runs first, but no exclusive recovery ownership is specified. A dead owner's lock plus a journal fails the stated stale-lock rule; recovering without exclusion can race a still-live publisher. Journal write durability and corrupt/missing-journal handling are unspecified | Distinguish active publication, proven-dead recovery and unresolved ownership. A live owner is refused without recovery. For a proven-dead owner, specify an exclusive recovery transition tied to the original run token and verified backup, without stealing a live/unknown lock; otherwise return an explicit recovery-required result. Bind journal to canonical target, run, source, manifests and backup/staging/old paths. Make journal updates durable and replace them safely; infer only verified recoverable states after a crash between rename and journal update. Corrupt/unreadable journal or unexplained missing target fails closed and preserves evidence. Test a live-owner restart, dead-owner-with-journal, malformed journal, termination around each rename/journal update and failed restoration |
+| R4 / PC6 and PC1 reproducible identity | HEAD alone does not freeze origin, other branch tips, default symbolic ref, branch-selection clock, extraction options or uncommitted source. Ref changes at unchanged HEAD can alter the graph | Capture origin identity, analyzed namespaces, ref names/types/object IDs and symbolic targets, source cleanliness/content binding, tool pins and branch/count/time options. Copy from the local captured source into the disposable checkout with explicit namespace mapping; do not fetch changing GitHub refs to stand in for the caller snapshot. Remove clone-created extra refs from analyzed namespaces and verify the resulting map. Derive expected commit/branch IDs using the pinned tool's actual selection rules, not every copied ref or the old released node count. Compare the snapshot again under PC1 before and after publication; mismatch refuses/recovers without a healthy release. Pin branch selection or explicitly account for the time cutoff; tests cover a changed non-HEAD ref, wrong origin, missing/extra analyzed ref and dirty governed source |
+| R5 / fifth checker path | Existing docs-drift returns SKIPPED immediately when branch.json is absent; that is exactly possible between the two renames. A journal check inserted after that branch would miss the interrupted swap | Test the transaction marker before the absent-branch and Git-unavailable skip paths, using the resolved target's parent even when its final component is absent. Journal present, unreadable or malformed means a finding/non-health result. Preserve fresh-checkout/CI skip only for the explicitly documented no-local-state/no-transaction case. Define journal removal after a durable release receipt; until removal this checker stays non-green, even at journal stage verified. Test the missing-live-path/journal case against the actual checker, plus ordinary local success and CI skip |
+
+**Review and recovery boundaries:** a retained caller file is part of the final reviewed composition;
+do not silently copy a changed caller cache after review. A lock coordinates guarded state writers,
+not Git users or raw Graphify. Snapshot comparisons detect those changes; they do not promise global
+serialization. This guard's recovery promise must state which interrupted states it automatically
+recovers and which require an evidenced manual recovery step. Neither an unreadable journal nor a
+dead lock may be silently called healthy or silently deleted. Abrupt process termination and
+power-loss durability are different claims; prove only the explicitly selected boundary.
+
+**Five-path boundary reviewed as necessary for the proposal:**
+`scripts/graphify/guarded-rebuild.mjs`, `scripts/fixtures/graphify-guard.test.mjs`,
+`.claude/skills/sync-docs/SKILL.md` §7, `docs/graph-fragments/README.md` §5, and
+`scripts/checks/docs-drift.mjs`. These are all Lane A surfaces. The fifth path is justified by R5;
+it is proposed, not authorized by this review. Keep journal/evidence/receipt state outside the live
+target as runtime artifacts. A further repository path needs an explicitly revised bounded proposal.
+
+**Judge-ready work-order condition:** Lane A supplies one consolidated contract incorporating
+R1–R5, the complete classification manifest, the exact recovery state transitions, selected crash
+boundary and expanded existing acceptance matrix. Independent review then determines readiness;
+the Judge's Register act names the five paths, exclusions, tests and DoD before any build. No need
+to reselect the already recorded repository-procedure scope or rerun accepted diagnostic evidence.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | PC6 identity finding; corrected PC1–PC5 design directions; fifth-path necessity | Phase 1: preserve observation limits and the explicit five-path proposal |
+| Approve-with-conditions | Revised prevention contract | Phase 1: Lane A incorporates R1–R5 into one complete contract; independent review precedes work-order readiness |
+| Defer | Repair execution, independent proof and B-050 source disposition/clearance | Phase 1: separate bounded Judge act and intended positive/negative evidence |
+| Reject | Complete-inventory claim, publication-time mutation of reviewed bytes, refs-only equality proof, unowned recovery or SKIPPED health during a transaction | Phase 1: apply the replacement criteria above |
