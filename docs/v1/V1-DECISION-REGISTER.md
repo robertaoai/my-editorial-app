@@ -27442,3 +27442,88 @@ drafted `D-421` step. `D-421`'s own re-sync found them. Lane A is `Active`. Push
 | Other tiers | — unaffected |
 | **Encyclopedia** | unaffected |
 | **Graphify** | One sync after the implementing commit, released after Lane B's review |
+
+## 5.14e248 `D-423` — Batch: Prune-Step Maintenance; B-050 Stage F2 Work Order; SV-002 §5 Applied with the U03-Evaluation Correction
+
+**Authority: the Judge, directly to Lane A, 2026-10-06**, in chat, on Lane B's `591d2cd`, `ccf71c1` and `272ce9c`:
+- **"Issue now"** — the prune-step maintenance;
+- **"Issue F2"**;
+- **"Apply now"** — the `SV-002` §5/DOD batch with the U03-evaluation correction;
+- **"Draft packet now"** — the reference-retrieval design packet. That is handoff drafting only; this act applies none
+  of it.
+
+Lane A is `Active`. The `D-422` graph `081638cd…` was released at `1a0bf23` on Lane B's review (`591d2cd`). Pushing is
+not authorized.
+
+### The decision
+
+1. **Prune-step maintenance (Lane A).**
+   - **Paths:** `docs/graph-fragments/prune-stale-symbols.js` and its test.
+   - **Changes:**
+     - correct the header to "after the docs-layer restore, before the fragment merge (`D-422`)";
+     - print the pre-write list as a **plan**;
+     - report completion only after the write succeeds and a re-read of the persisted graph confirms the ids and their
+       incident links are absent;
+     - a write or verification failure exits nonzero, with no success line;
+     - `--dry-run` stays non-mutating.
+   - **DoD:** a write failure yields no completion claim; a dry run leaves the graph bytes equal; completion is
+     reported only after verification; selection, fragment refusal and no-op behavior are unchanged.
+2. **B-050 stage F2 work order (Lane A).**
+   - **Paths:** `scripts/graphify/guarded-rebuild.mjs` and `scripts/fixtures/graphify-guard.test.mjs` only.
+   - **Normative inputs:** contract v4 (`d733513`), its two conditions (`b97f93f`), and the accepted F1 bounded policy
+     (`D-421`).
+   - **Scope:** forward steps 1–5 in isolation, plus the step 6–7 publication and owned-recovery state machine,
+     **exercised only on disposable fixture targets**:
+     - inspection and the ref/identity snapshot;
+     - baseline capture under an exclusive lock;
+     - isolated generation in a disposable checkout carrying the caller's `origin` and ref map, with sanitized
+       environment, raw-metadata refusal before rebinding, no-op refusal, docs-layer restore, prune, ordered fragment
+       merge and fill;
+     - validation and composition: inventory, fragment-field parity, member/name binding, R2 field policy, foreign-path
+       scan, frozen timestamps;
+     - the candidate manifest and graph SHA-256.
+
+     Semantic work that needs the assistant cycle (new community names, new descriptions) is **reported as pending**,
+     never invented.
+   - **Refusal:** publishing to the real live target (`C:/CoWork/myeditorialapp/.graphify`) is refused. That is F3.
+   - **DoD:** the existing v4 case families pass, on disposable targets only:
+     - a valid isolated candidate;
+     - post-preflight Git failure, raw null and no-op refusal;
+     - source, ref, config and baseline invalidation;
+     - fragment parity;
+     - concurrent owner, peer and recoverer cases;
+     - synthetic termination around each rename and journal update;
+     - rollback, failed restore, receipt/cleanup failure and retry.
+
+     Then `bun test`, `bun run fixtures` and `bun run check` pass, and **Lane B reviews F2, then work stops.**
+   - **Not given:** F3, live publication, runbook adoption, any other path, B-050 disposition.
+3. **`SV-002` §5/DOD batch, with the U03-evaluation correction.**
+   - §5 gets Lane B's accepted success-drift comparisons, in the template vocabulary (`1e11009`), with criterion
+     satisfaction in its own column and evidence pointers.
+   - `SV2-U03-code-navigation-evaluation.md` §2 "Overlap" gets a dated correction: the graph holds generated code
+     symbols (434 at `693a6a7`). Measured graph coverage is not proven caller completeness. The directed candidate and
+     the U03 trial are unchanged.
+   - **No DoD box is checked by this act.** `DOD-01`'s graph-currency proof needs this batch's own released hash; it is
+     checked only by a later act citing it.
+   - Order: source commit, then the ordered sync, then Lane B's new-hash review, then the release.
+4. **One sync** follows the last commit of this batch and covers all three items. It runs under the `D-409`/`D-410`
+   route with the `D-422` prune order, and is released after Lane B's review.
+
+### Not given by this act
+
+F3; live publication; U03 selection; any DoD checkbox; the retrieval packet's application; annotation migration; closure
+of B-050, P15 or any row; Gate 2; a push.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e248 |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ `D-423` paragraph (tooling and setup documentation; no V1 scope, sequence or DoD change) |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-423` paragraph; no file added or retired |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | Follow: §5 applied in this batch |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV2-U03-code-navigation-evaluation.md`** | Follow: §2 dated correction in this batch |
+| Tooling paths (items 1–2) | Follow: implementing commits in this batch |
+| Modular_PRD, fn-specs, SPECS, rule files, Phase Closure, frozen sources, `GOV-RES-001` | — unaffected |
+| **Encyclopedia** | unaffected: no mapped file, section or decision changes |
+| **Graphify** | One sync after the batch's last commit, released after Lane B's review |

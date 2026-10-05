@@ -147,6 +147,10 @@ PR #2 comment, `SV-002` acceptance and the `V1-SM05` unblock remain separate Jud
 **`D-401` (2026-10-03) — `GR-012` observation: no writer seen, accepted by Judge reason** (31-minute window accepted
 explicitly). Lane B verifies. `V1-SM05` stays `BLOCKED`.
 
+**`D-423` (2026-10-06) — batch: prune-step maintenance; `B-050` stage F2 work order (disposable targets only);
+`SV-002` §5 applied with the U03-evaluation correction.** No DoD box is checked; no V1 scope, sequence or DoD change.
+`V1-SM05` stays `BLOCKED`.
+
 **`D-422` (2026-10-05) — `D-421` amended: the stale-symbol prune runs after the docs-layer restore; the count is 14,
 not 3.** Procedure order only; no V1 scope, sequence or DoD change. `V1-SM05` stays `BLOCKED`.
 
