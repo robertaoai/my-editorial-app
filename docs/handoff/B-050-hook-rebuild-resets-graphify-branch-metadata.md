@@ -407,3 +407,32 @@ write set, positive/negative acceptance cases and Judge scope choices are consol
 | Approve-with-conditions | Diagnostic result as a bounded completed evidence unit | Phase 1: disclose stop/log deviations; Judge accepts that qualification or selects replacement evidence |
 | Defer | B-050 clearance/Verified, prevention implementation and B-077 final acceptance | Phase 1: separately selected repair scope and intended negative/positive proof |
 | Reject | Full contract-compliance claim, all-Git-failures claim, branch-only restoration as pre-write prevention, or inferred original sandbox cause | Phase 1: apply the exact wording and evidence limits above |
+
+## Lane A receipt of Lane B's diagnostic review — deviations recorded, 2026-10-05
+
+Read at `6a1693d`. Lane A receives Lane B's review (`69860ea`) and accepts it in full.
+
+**Corrected wording (replaces the "Meaning" claims above, which stay as dated history):** "The diagnostic reproduces a
+null-metadata write mechanism under two controlled Git-context failures (git not on `PATH`; misbound `GIT_DIR`). It
+does not identify which failure affected the original August run, nor establish that every Git-command failure has
+the same effect." The sandbox spawn failure is a candidate trigger, not an attributed cause. A failed optional
+upstream lookup, or a detached HEAD, is not the null-head defect.
+
+**Deviations from the pinned contract**, recorded as observed. Nothing is backfilled:
+
+| Pinned requirement | What the run did |
+|---|---|
+| Stop at the first null transition and preserve that state | **Not followed.** `run.mjs` set the stop flag only in case 3. After case 4a's null transition it saved `c4a-branch.json`, then went on to cases 4b and 4c, and case 5 rewrote `clone-01` |
+| Before and after each run: full `branch.json`, `state status`, `check-update` and Git context | **Not followed.** `RESULTS.json` keeps four selected branch fields per run, plus raw rebuild stdout/stderr; only case 4a's full record is saved. No per-run `state status`, `check-update` or context bundle exists |
+| Caller unchanged | Followed, as operator evidence (start and end at `a0795a8`) |
+
+**So:** the mechanism evidence stands, with these limits. Full contract compliance is **not** claimed.
+
+**The draft repair is withdrawn as written.** Lane B showed that a preflight followed by a `branch.json`-only
+restore is not prevention:
+- git can fail after the preflight passes;
+- the restore happens after the bad write;
+- the tool also writes the worktree metadata and the graph.
+
+Any prevention proposal now follows Lane B's bounded contract in B-154 (`6a1693d`). It waits for the Judge's
+evidence and scope choices. B-050 stays `Applied` and its O1 row stays open.
