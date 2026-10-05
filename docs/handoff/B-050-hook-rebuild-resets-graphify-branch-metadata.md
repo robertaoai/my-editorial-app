@@ -1274,3 +1274,66 @@ about today's files, not proof of the future guard.
 - An idempotence case permits new timestamps and receipts.
 
 B-050 stays `Applied`; its O1 row stays open.
+
+## Lane B independent F1 checkpoint — 2026-10-05, read `6cb779c`
+
+**What happened:** reviewed `296a47b` against D-418, contract v4 and the two adopted conditions.
+Lane B raises these findings for Lane A's answer; no receiver/header field is changed. Re-ran
+`bun test`: 52/52, including all 32 F1 cases. The consistency suite passes 19/19. Lane A's
+297/297 fixture result remains its own pinned receipt, not a second fixture execution here.
+The three tooling paths and the two Inventory addition rows are the intended F1/D-54 scope;
+no F2/F3 generation, swap, recovery or live publication is implemented.
+
+**Finding F1-R1 — scanner coverage is incomplete.** The saved independent probes at
+`C:/CoWork/outputs/lane-b-d418-review-2026-10-05/REPORT.json` show `findForeignPath` returning
+`null` (no finding) for each of:
+
+- a raw UNC path with two leading backslashes: `\\server\share\leak`;
+- `//server/share/leak`;
+- `file:/C:/robertaoai/my-editorial-app/docs`;
+- `file:garbage`.
+
+The canonicalizer rejects those inputs as network or malformed, but the candidate scanner fails
+to send them to it (or extracts only the allowed drive path out of the malformed URI). The existing
+UNC test covers four literal leading backslashes, so its pass does not prove the raw two-backslash
+representation. The ordinary valid in-root file URI still passes as a positive control.
+This disproves the D-418 F1 condition that malformed/network path input cannot appear healthy.
+It is a reproducible missed finding, not a claim that today's promoted files contain such a leak.
+
+**Draft fix, specified not applied:** in the same guard/fixture paths, recognize raw and escaped
+UNC forms, forward-slash network roots and URI-looking malformed `file:` tokens before extracting
+drive paths. Keep whole-token rejection so an allowed embedded path cannot hide a bad URI.
+Preserve the minified `file:o` property and HTTPS controls by using lexical context or parsing the
+represented field; document what text/JSON representations the scanner supports. All four cases
+must produce findings at the scanner boundary; earlier accepted controls must retain their result.
+Do not add F2/F3 behavior. Lane A presents the correction within the F1 scope/authority rules;
+this review authorizes no implementation.
+
+**Graph review, separate from checkpoint acceptance:** independently compared the saved candidate
+`62baf295a024f892b33b6f94515aa39e441fa4df15d2e22cd862c019ad6a0719` to all 139 fragments:
+5,927 node fields and 9,703 edge fields match, including declared edge metadata. All 122 member
+sets match the pre-ingest manifest and all name bindings match. The 17 changed member-based
+names are supported; they describe groups, not completion or execution authority.
+Evidence: the report above and `LABEL-REVIEW.json` beside it.
+
+The 17 new descriptions are source-derived, but source comments are not proof of implemented
+behavior. In particular `graphify_guarded_rebuild_findforeignpath` says network and malformed
+candidates are "always foreign", contradicted by F1-R1. **Draft replacement for the current code:**
+"Scans recognized path candidates and checks caller-root containment. At 296a47b, raw UNC and
+forward-slash network paths and malformed file URI tokens can be missed; F1-R1 requires correction."
+The module description must likewise distinguish intended validation from an accepted checkpoint.
+After a repair, regenerate these descriptions from the corrected source and independently review
+the replacement graph hash. Do not carry this candidate's acceptance to changed bytes.
+
+**What is needed / stop:** reject the claim that F1 is accepted at `296a47b`; preserve its passing
+test evidence and implemented boundaries. Hold graph release pending corrected semantic descriptions
+and their independent review. No rebuild is needed for this handoff-only finding; an actual governed
+repair needs the authorized D-409/D-410 interim sync with ordered fragments and exact-byte review.
+B-050 remains Applied/O1 open; F2/F3 remain unissued.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Existing 52 test results, journal-before-skip/refusal boundary and graph structural/member evidence | Phase 1: preserve their exact scope and revision |
+| Approve-with-conditions | Graph semantics/release and repaired F1 | Phase 1: resolve F1-R1, correct descriptions, sync changed governed inputs and review exact final bytes |
+| Defer | F2/F3, prevention and B-050 disposition | Later bounded Phase 1 acts after independently accepted F1 |
+| Reject | F1 checkpoint acceptance now or blanket malformed/network coverage from existing tests | Phase 1: Lane A answers F1-R1 and supplies intended-boundary proof |
