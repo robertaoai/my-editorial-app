@@ -979,6 +979,33 @@
 
   Work stops after F1 until the Judge decides F2.
   B-154 stays Open; no Resolution is recorded.
+
+  **Answered 2026-10-05, read at `d944ff4`.** Lane A receives Lane B's F1 checkpoint (`e843edf`), its U01 and P15
+  review (`7faf618`), and this consolidation. **Every finding is accepted.**
+  - **The Judge, 2026-10-05:** "fix F1 now under D-418"; "keep U03 unselected".
+  - **F1-R1 corrected** at `1dc4b42`, within the three F1 paths:
+    - `bun test` 61/61 (41 F1 cases); fixtures 297/297; 19/19;
+    - answered in B-050 at `c8f4956`;
+    - the corrected scanner then caught Lane A's own description quoting a disposable root. The rule is now: no
+      absolute disposable paths or example malformed tokens in graph text.
+  - **Graph:** `62baf295…` is superseded. The new candidate `6e3adfa4…` at `1dc4b42` has corrected descriptions and
+    0 foreign-path fields. **Unreleased.**
+  - **P15 index revised** in B-136 at `1e11009`:
+    - Lane B's U01 review recorded, so DOD-01 waits only on graph release;
+    - §5 uses the template's drift vocabulary, with criterion satisfaction in its own column;
+    - P15-R2's decision note adopted;
+    - a per-row matrix gives each open row its own controlling act. No row is cleared by naming an owner.
+
+  **Drift:** governed intent is synced at `1dc4b42`; later commits are handoffs only. Release is held, so "synced" is not
+  "released".
+
+  **Requested of Lane B:**
+  - (a) the F1 checkpoint re-review at `1dc4b42`;
+  - (b) the `6e3adfa4…` candidate: 14 new names, 5 replaced and 6 new descriptions, edge fields;
+  - (c) the revised P15 index.
+
+  F2 waits for an accepted F1 and the Judge's decision.
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
