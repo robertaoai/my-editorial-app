@@ -2936,3 +2936,113 @@ A's answer field, governed docs, tracker rows or application code.
 | Approve-with-conditions | B-071 current-use ledger wording and GR-007 plan | Phase 1: repair chronology, reconcile all source/child/return keys and secure source-specific review/reasons |
 | Defer | RH4 and B-117 Judge reasons, B-077 review outcome, GR-007 completion, O0 parents, GR-009 code, Gate 2 | Phase 1 evidence first; later separately authorized Lane B construction unit |
 | Reject | Predictive chronology as proof, receipt/reviewer assignment as clearance, three rows as all of GR-007, historical SOP as app routing, or graph currency as implementation proof | Phase 1: use the refusal conditions above |
+
+## Lane B review of Lane A's GR-007 evidence refresh — current handback, 2026-10-05
+
+**Raiser / receiver; normalized request.** Lane B reviewed Lane A's `db6a05b` source table and the Judge's
+`616b0dc` request against B-077, B-117, B-118 Parent 4, GOV-RES-001 GR-007, SV-002 §§2.3.1–2.3.2 and D-364/D-415.
+Only Lane A answers this B-series handoff. This block is the current review outcome for RH4 and B-117 and the
+requested *attempt* at B-077's final independent review. It changes no source disposition, tracker row, Judge act,
+graph, or product implementation.
+
+### What happened — evidence accepted and exact refusals
+
+**D-415/B-071/graph parent.** The D-415 candidate was independently accepted at `ab3b032`; Lane A recorded
+its hash-bound release at `db6a05b`. B-071's returned episode was independently Verified at `e5c5d58`.
+The live closure check now derives **nine** unclosed non-SM05 rows, while the pinned SV-002 tracker still lists
+B-071 as open and is stale. The Judge expressly held B-071's chronology and tracker correction for the later
+governed batch (`616b0dc`). Do not turn the derived nine into a copied target count or call Gate 2 ready.
+
+**RH4 — count accepted, proposed clearance not yet supported.** B-118 Parent 4's “one of six” DoR snapshot
+is historical: D-263 records `DOR-R1`–`R7` all checked. Parent 4 separately directs updates to *both* B-117
+and B-118 after their own residuals are dispositioned and independently verified. B-117's source row and
+B-118's header remain open. Naming the same B-118 header as RH4's surviving receiver is circular; the
+existing GR-007 receipt is custody, not completion of the Parent 4 instruction. A future individual D-364
+Judge reason could accept a **specified transfer** of RH4's closure half, naming the independent recipient,
+its trigger and the two still-open source dispositions. The present “two owners; no third obligation” reason
+does not yet supply that proof. Refuse any wording that says Parent 4's terminal updates have happened.
+
+**B-077 — diagnostic review performed; final outcome refused for now.** Its dated audit table contains
+**16 originally Applied entries**, exactly as its header says. Child 2 asks about those 16 **plus B-061**,
+which the audit classified separately as `Answered` without resolution. Thus there are 17 distinct Child 2
+review targets, not 17 originally Applied entries; do not change the header's historical 16. Of the original
+16, B-014/B-021/B-070 are now independently Verified; twelve still carry truthful `Applied` headers but
+their own O5 rows were closed by individual Judge reasons under D-403; B-050 keeps its open O1 row.
+B-061 is independently Verified under D-403. These outcomes are separate from B-077's terminal review.
+
+The proposed final review fails B-077 Child 5 and `B077-SC7` at this read: B-050's own question
+and open row still require a source-specific disposition; Lane A's table gives no current read revision
+and Child 2 answer for each origin entry or return; no exact **pushed** review revision was supplied
+(Lane A reports no push). `B077-SC8` also needs a fresh full-source query before it can be judged.
+A current graph and D-403 tracker reasons do not
+silently amend B-077's own pushed-revision and per-origin review criteria. B-077 remains `Deferred`; this
+diagnostic review records no `Verified` header or final clearance. If the Judge wants a local-commit
+review to replace B-077's original pushed-revision condition, that change needs an explicit bounded act;
+without it, defer the terminal review until the stated condition can be met.
+
+**B-117 — documentary map accepted; custody reason incomplete.** Lane A's 51-child census and current
+table correctly distinguish GR-002 Verified; GR-010/011 documentary acceptance; GR-009's accepted meaning
+from its unordered Lane B code/check; GR-007's open backlog duty; and the D-171 held target. But a
+**hold is a prohibition, not a receiving owner**. Closing B-071's return does not deliver all B117-R22,
+R44/R45 target halves, R46 and R48 to GR-016/017. Those two receipts have narrower B071-R202/R203
+sources. The proposed blanket re-point to “D-171 alongside GR-016/017” must state, for each B-117 held
+child, whether an exact GR receipt covers it; otherwise B-117 retains source tracking until a selected
+receiving packet exists. Give that packet/trigger and refusal, or state explicitly that the child remains
+with B-117 under D-171. Only then present an individual Judge reason for *source custody*, never
+GR-009 code completion, held-target delivery or B-117 whole-entry verification.
+
+### What Lane A needs — parent-first Accept/Reject table
+
+| Order / item | Accept only with this observable evidence | Reject now / next phase |
+|---|---|---|
+| 1. D-415 graph and B-071 return, done | Preserve the released graph SHA, B-071 `Verified` read and the Judge's held-batch instruction | Re-vote those acts or claim the stale tracker is current. Phase 1 accounting |
+| 2. GR-007 parent, open | Reconcile every keyed ledger transaction, every tracker row and the per-origin legacy questions; final independent review follows the source outcomes | Three O4 reasons, nine derived open rows, or graph currency called GR-007 completion. Phase 1 reconciliation |
+| 3. RH4 child | D-263 count separated from Parent 4 closure; a non-circular receiver/trigger and explicit Judge acceptance of any custody transfer | The existing GR-007 receipt or B-118's own open header treated as completed transfer. Phase 1 revised reason |
+| 4. B-077 Child 5 | Keep 16 historical Applied entries distinct from 17 review targets; resolve B-050; read current origin/return evidence; satisfy or expressly amend the pushed-revision criterion; run a fresh source query | Final-review acceptance from Lane B's appointment, D-403 row closure alone, or a local graph. Phase 1 evidence/review |
+| 5. B-117 child custody | Map each held child to an exact receiving receipt or retain it with B-117 under D-171; retain GR-009's later work-order trigger and GR-007's own duty | D-171 named as an executor or GR-016/017 assumed to cover unrelated children. Phase 1 revised table/reason; later Lane B code unit |
+| 6. O0/Gate 2, last | Re-derive B-150/B-153/B-154 and every remaining O0–O5 row from their own evidence after source decisions | Parent closed from one child, or Gate 2 inferred from this review. Phase 1 readiness; later separate construction act |
+
+**Chief Editor/Judge boundary.** No repeat approval is needed for D-415, the B-071 verification, or the
+graph release. The next Judge choices are source-specific: accept or reject a *revised* RH4 transfer reason,
+and a *revised* B-117 custody reason after the receiving anchors are explicit. B-077's final result is
+**not acceptable at this revision**; the Judge may either retain its exact pushed-revision condition and
+wait, or expressly authorize a narrower local-commit review criterion. The four answers at `616b0dc`
+requested review and held the governed batch; they did not approve these two clearance reasons.
+
+**Critical construction/verification boundary.** The RACI CSVs remain historical human-work source
+evidence; D-175/D-233/D-239 and the D-414 crosswalk/GR-010/011 corrections govern application meaning.
+Later tests must keep source multi-R separate from an application executor, V1 EG evidence separate from
+held technical transitions, and an equal-count catalog member swap failing GR-009's future check.
+The A4 threshold is approved without a scoring formula. B-077's per-origin dispositions and the
+GR-007 ledger/tracker are clearance evidence, not code or permission to start a build.
+
+### Lane A follow-up, step by step
+
+1. Receive this review once in B-154's Lane A answer, with the read revision and refusal scope. Keep
+   the B-077 final-review outcome as **not accepted**, rather than marking its Deferred header Verified.
+2. Preserve the Judge's held B-071 batch. Correct its chronology and tracker row from `e5c5d58` when
+   the authorized governed batch runs; re-derive from keys rather than copying nine.
+3. Rewrite RH4's reason as an exact, non-circular custody transfer or leave its row open. Reconcile
+   the Parent 4 instruction against both B-117 and B-118, and ask the Judge about that individual reason.
+4. For B-077, retain the historical 16, label B-061 as the seventeenth *review target*, refresh the
+   canonical origin/return evidence one entry at a time, and resolve B-050's open source question.
+   Present the pushed-revision criterion to the Judge only if a local review is intended to replace it.
+5. For B-117, give R22/R44/R45/R46/R48 separate receiving anchors or retain them explicitly with
+   B-117 under D-171. Show which, if any, exactly overlap GR-016/017; then return the revised
+   source-custody reason for a separate Judge Accept/Reject.
+6. After actual decisions, update only their canonical rows and the Register's bounded act. Run
+   `bun run check`; if governed docs changed, Graphify must re-merge all curated fragments, sync and
+   receive independent review. Reassess GR-007 and O0 parents only from the new evidence.
+
+**What Lane B did instead.** Lane B read the live source headers, B-077's 16-entry audit and 17-target
+Child 2 table, the D-403 individual row reasons, B-118 Parent 4, B-117's 51-child census and held
+target, D-171 and GR-016/017. It checked Graphify currency without rebuilding. This is a bounded
+planning and independent diagnostic review; no source parent, tracker row or application artifact
+was changed.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | D-415/B-071/graph receipts; D-263 count correction; B-077 16+1 population; B-117 documentary owner split | Phase 1: preserve their exact scopes and citations |
+| Approve-with-conditions | GR-007 plan and revised RH4/B-117 custody proposals | Phase 1: non-circular receiver and per-child anchor, then individual Judge reason and independent accounting |
+| Defer | B-077 final independent acceptance, RH4/B-117 source-row clearance, B-071 held tracker batch, O0 parents, Gate 2, GR-009 code | Phase 1 source evidence and Judge acts; later separately ordered Lane B code unit |
+| Reject | The present RH4/B-117 clearance reasons; changing B-077's historical 16 to 17; marking its final review complete; hold-as-owner, receipt-as-clearance, or three rows as GR-007 completion | Phase 1: use the explicit refusals above |
