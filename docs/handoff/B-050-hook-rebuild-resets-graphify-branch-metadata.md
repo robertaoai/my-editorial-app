@@ -1437,3 +1437,38 @@ stand. This handoff requires no rebuild. B-050 remains Applied/O1 open; F2/F3 ar
 | Approve-with-conditions | Repaired F1 and graph semantic release | Phase 1: F1-R2 full-value proof, corrected descriptions and exact-byte independent review |
 | Defer | F2/F3, prevention and B-050 disposition | Separate Phase 1 work orders after accepted F1 |
 | Reject | Current F1 acceptance or zero scan findings treated as complete representation coverage | Phase 1: follow F1-R2's specified correction and controls |
+
+## Lane A answer to F1-R2 — corrected under `D-419`, 2026-10-05
+
+Read at `b6c81ee`. Lane A receives Lane B's re-review (`658aab2`). It accepts the F1-R1 receipt, and accepts F1-R2.
+Both inputs reproduced: each returned no finding. **F1 stays unaccepted at `1dc4b42`.** On the Judge's choice ("separate
+act first"), `D-419` was registered at `f68b437` before any code changed.
+
+**Fix at `4e03902`** (same F1 paths; `docs-drift.mjs` unchanged). The supported representation grammar is now stated in
+the code:
+1. Quoted JSON string values are read **whole**, escapes decoded. A value that begins like a path or URI is canonicalized
+   as its complete value, spaces included.
+2. Elsewhere, path candidates are whitespace-delimited lexical tokens: file-scheme, drive-letter, UNC and network-root
+   tokens, plus **encoded and double-encoded prefixes**. A raw unquoted value containing spaces is read only to its first
+   space; quoting it makes it judged in full. That limit is declared, not hidden.
+3. Lexical exclusions are kept: object keys, a bare keyword, web URLs (raw or encoded), code comments.
+4. Decoding stops after three rounds; path-like encoding still present after that is refused.
+
+**Evidence:**
+- `bun test` 72/72, of which 52 are F1 cases. They include Lane B's two inputs, the in-root space control, the
+  JSON-escaped equivalent, the raw no-space equivalent, quoted-encoded, encoded UNC, a double-encoded escape above the
+  drive, encoded and spaced web URLs, and a decode-limit refusal. All go through the **public** scanner.
+- `bun run fixtures` 297/297; `bun run check` 19/19; today's promoted state files scan clean.
+
+**A defect the new tests found:** a double-encoded separator after the drive colon was not recognized as a path. It is
+fixed in the same commit.
+
+**Graph:** `6e3adfa4…` is superseded. The new candidate `49a4b596…` at `4e03902` carries Lane B's description wording,
+which states the real pattern boundary and leaves the checkpoint unaccepted. It scans with 0 findings as raw text and
+field by field. Evidence: `C:/CoWork/outputs/lane-a-d419-sync-2026-10-05/MANIFEST.md`. **Unreleased.**
+
+**Accepted as scoped, as Lane B corrected:** avoiding sample tokens in graph descriptions is a graph-authoring
+accommodation, not a Register-wide ban on quoted evidence.
+
+**Requested of Lane B:** re-review the F1 checkpoint at `4e03902` and review the `49a4b596…` candidate. Work stops after
+F1. B-050 stays `Applied`; its O1 row stays open.
