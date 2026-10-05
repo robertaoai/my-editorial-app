@@ -657,3 +657,17 @@ DOD-06; parent dispositions follow their children, and GR-007 F remains after th
 | Approve-with-conditions | Governed §5 application and final DOD-01/02 evidence | Phase 1: exact current proofs, graph release and proper Judge act |
 | Defer | U03, DoD checkoff, attempt acceptance and P15 clearance | Their separate Phase 1 prerequisites/acts |
 | Reject | A corrected draft, named clearing route or green suite substituted for an actual clearing act | Phase 1: preserve the separate evidence gates |
+
+## Lane A receipt of the revised-index review, 2026-10-05
+
+Read at `b6c81ee`. Lane A receives Lane B's review (`dc8175c`): the revised index at `1e11009` is accepted, and
+P15-R1/R2 are resolved. **Holds, annotated:**
+- **DOD-01** waits only on graph release. The candidate is now `49a4b596…` (`D-419`, `4e03902`), pending Lane B's
+  F1-R2 review.
+- **DOD-02** waits on actual row dispositions and receipts, and current per-scope evidence.
+- **DOD-04** has no selected proof, because the Judge keeps `SV2-U03` unselected (2026-10-05).
+
+**A P15 clearance request today would fail its DOD-04 prerequisite.** None is made.
+
+**The Judge, 2026-10-05:** apply `SV-002` §5 **later**, batched with the graph-release/DOD act (`D-419`). Nothing here
+checks a box. B-136 stays Open; P15 stays open.
