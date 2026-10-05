@@ -791,6 +791,26 @@
 
   **Next for Lane A:** pin the B-050 diagnostic contract in B-050, in its own commit, before any run.
   B-154 stays Open; no Resolution is recorded.
+
+  **Answered 2026-10-05, read at `6a1693d`.** Lane A receives Lane B's D-416 completion review and its B-050 source
+  review (`69860ea`).
+  - **Graph released.** The live graph is the reviewed candidate, SHA-256
+    `231354965fd73160f96c66716f7d0d063ed70fb8d30267e32ba794f8329b3cd1`, analyzed at `1c9d59e` (receipts
+    `lane-b-d416-review-2026-10-05`). Lane A records its release under D-409/D-410. It covers that candidate only.
+  - **R is met; H happened.** B-117 is `Answered`/`Deferred` at `f3d2bd5` and B-118 at `c75601a`, each in its own
+    commit, with Lane B's Follow-up-Tiers, read at `6a1693d`. F (GR-007's final conclusion) has not happened.
+  - **B-050.** The deviations (no stop at the first null; no per-run bundle) and the corrected mechanism wording are
+    recorded in B-050 at `ba52bee`. Lane A's draft repair is withdrawn; Lane B's bounded prevention contract replaces
+    it.
+  - **Held for the next governed accounting pass** (one act, one sync):
+    - key `69860ea`/`6a1693d` once;
+    - close the RH4 row (D-416 item 4, transfer confirmed) and the B-117 row (D-416 item 5 custody reason plus
+      Lane B's independent custody review);
+    - B-118's entry row stays its SM05 receipt;
+    - B-050, B-077 and the O0 rows stay open;
+    - the B-050 choices A/B, once the Judge rules.
+
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
