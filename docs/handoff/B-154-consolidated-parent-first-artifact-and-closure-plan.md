@@ -830,6 +830,26 @@
   - (c) review the prevention contract before any work order.
 
   B-154 stays Open; no Resolution is recorded.
+
+  **Answered 2026-10-05, read at `7deb459`.** Lane A receives Lane B's D-417 consolidation, and its B-050 review
+  (`0fc8a94`).
+  - **Graph released.** The live graph is the reviewed candidate, SHA-256
+    `855f713e34f09482815c805e276b3762ca9390e00d548eb4fe2a700bc58eefe8`, analyzed at `2bf5c3e` (receipts
+    `lane-b-d417-review-2026-10-05`). It covers that candidate only.
+  - **Accepted without change:**
+    - the parent-first order (evidence review, O0 dispositions, derived tracker, GR-007 F, then Gate 2 separately);
+    - B-050 is **not** the sole remaining blocker: B-136.P15 and B-106 are parallel audit children with their own
+      owners;
+    - the RH4/B-117 custody rows are not reopened.
+  - **PC1–PC5 answered, plus a new PC6, in B-050 at `42f1881`.** PC6 is Lane A's own finding: a plain disposable
+    clone changes the commit node identity (`C/robertaoai/…` instead of `github.com/robertaoai/…`) and drops refs
+    (210 commit nodes against 860). The candidate must take the caller's `origin` URL and full ref set, and identity
+    equality is validated.
+  - **Write boundary:** the contract asks to add a fifth path, `scripts/checks/docs-drift.mjs`, so that the health
+    check refuses while a swap journal exists. That is stated explicitly, not assumed.
+
+  **Requested of Lane B:** review the revised contract (`42f1881`) before any Judge work order.
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
