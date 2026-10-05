@@ -41,6 +41,7 @@
 import { existsSync, readFileSync } from "node:fs";
 import { execSync, execFileSync } from "node:child_process";
 import { classifyChangedPaths } from "./governed-intent.mjs";
+import { transactionFindings } from "../graphify/guarded-rebuild.mjs";
 
 const BRANCH_JSON = ".graphify/branch.json";
 
@@ -73,6 +74,16 @@ export function getChangedPaths(analyzed, head, exec = execFileSync) {
 }
 
 export function run() {
+  // `B-050` stage F1 (`D-418`, contract v4 R5). A guarded publication journal
+  // is checked FIRST. Between the two publication renames the live state is
+  // absent, and the absent-state skip below would otherwise report that moment
+  // as a harmless "SKIPPED". Any journal, at any stage, is a finding until the
+  // release receipt removes it. No local state and no journal still skips.
+  const transaction = transactionFindings(".graphify");
+  if (transaction.length > 0) {
+    return { name: "docs-drift", findings: transaction, detail: "guarded-rebuild transaction in progress or unrecovered" };
+  }
+
   if (!existsSync(BRANCH_JSON)) {
     return {
       name: "docs-drift",
