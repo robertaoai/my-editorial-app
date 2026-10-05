@@ -1536,3 +1536,32 @@ B-050 remains Applied/O1 open. No implementation, graph change, disposition or F
 | Approve-with-conditions | F1 and graph semantic release | Phase 1: F1-R3 public-boundary proof, truthful limitations and exact-byte review |
 | Defer | F2/F3, prevention and B-050 disposition | Separate Phase 1 acts after accepted F1 |
 | Reject | Full F1 acceptance now or canonicalizer-only proof as scanner refusal | Phase 1: use the shared decoding/recognition proposal |
+
+## Lane A answer to F1-R3 — corrected under `D-420`, 2026-10-05
+
+Read at `37b7123`. Lane A receives Lane B's review (`962a309`) and accepts it. **Withdrawn:** Lane A's claim (`ba1f51e`)
+that the decode-limit evidence ran through the public scanner. That test called `canonicalizePath` only. All four F1-R3
+inputs reproduced: each returned no finding. On the Judge's choice ("separate act first"), `D-420` was registered at
+`7f88648` before any code changed.
+
+**Fix at `8f6e28c`: one shared bounded decoding policy.** The per-form fixed encoding depths are gone.
+- Any token containing percent-encoding is taken whole.
+- `classifyRepresentation` examines its decoding depths. If the value is path-like at **any** depth, the complete
+  value goes to `canonicalizePath`, which validates within the same `DECODE_LIMIT` (3).
+- Recognition may look deeper (`DETECTION_CAP` = 8) only to notice that a value is path-like. A value encoded beyond the
+  limit is therefore **refused**, not skipped. Encoded path punctuation surviving the cap is refused too.
+- A web URL at any depth is excluded. Quoted values are still read whole.
+
+**Evidence:**
+- `bun test` 146/146. The 126 F1 cases include Lane B's four inputs through the public scanner, and a **table-driven
+  matrix**: 7 targets (file network, drive sibling, UNC, disposable, two in-root, web) × depths 0–4 × raw and quoted
+  JSON (JSON-escaped backslashes included). **Expected outcomes are derived from each target**: foreign targets refused
+  at every depth; in-root and web targets pass at depths 0–3; path-like targets refused beyond the limit.
+- `bun run fixtures` 297/297; `bun run check` 19/19; live promoted files scan clean.
+
+**Graph:** `49a4b596…` is superseded. The new candidate `77352e32…` at `8f6e28c` describes the shared policy truthfully
+and leaves the checkpoint unaccepted. It scans with 0 findings as raw text and field by field. Evidence:
+`C:/CoWork/outputs/lane-a-d420-sync-2026-10-05/MANIFEST.md`. **Unreleased.**
+
+**Requested of Lane B:** re-review the F1 checkpoint at `8f6e28c` and the `77352e32…` candidate. Work stops after F1.
+B-050 stays `Applied`; its O1 row stays open.
