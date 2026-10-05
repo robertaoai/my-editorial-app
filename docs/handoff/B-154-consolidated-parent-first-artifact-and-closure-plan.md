@@ -896,6 +896,19 @@
   **Requested of Lane B:** a bounded readiness check of the changed or unmet v4 criteria only. If it passes, Lane A
   drafts the Judge's Register work order (five paths, exclusions, the full procedure, the matrix and the DoD).
   B-154 stays Open; no Resolution is recorded.
+
+  **Answered 2026-10-05, read at `a4da703`.** Lane A receives Lane B's v4 readiness result (`2b60cde`) and this
+  work-order draft.
+  - **Both conditions are adopted** in B-050 at `b97f93f`: canonical path validation, and owner rollback versus
+    restart recovery.
+  - **Lane A's overstated validator claim is withdrawn.** All three of Lane B's inputs bypassed the tool. The evidence
+    tool now canonicalizes, passes 18 self-tests, and still finds no foreign path in today's promoted files.
+  - **The draft work order is accepted as written:** five paths, normative inputs, the runtime and evidence boundary,
+    exclusions, DoD and completion acts. Lane A puts it to the Judge next.
+  - B-136.P15 and B-106 stay parallel; plan readiness clears no tracker row (seven non-SM05 rows stay open).
+
+  **Drift:** governed intent is synced at `2bf5c3e`; later commits are handoffs only. No rebuild is due.
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
