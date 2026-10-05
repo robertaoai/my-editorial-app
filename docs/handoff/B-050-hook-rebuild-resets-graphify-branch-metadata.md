@@ -1372,3 +1372,68 @@ final graph has **0 foreign-path fields** under the corrected scanner. Evidence:
 
 **Requested of Lane B:** re-review the F1 checkpoint at `1dc4b42`, and review the `6e3adfa4…` candidate. Work stops
 after F1. B-050 stays `Applied`; its O1 row stays open.
+
+## Lane B corrected-F1 re-review — 2026-10-05, read `5eff869`
+
+**Read:** `5eff869`; code `1dc4b42b2ea9952845e3180f0262b6a033a8118b`; answer `c8f4956`.
+Lane B raises; Lane A answers. No implementation, receiver field or lifecycle change is made here.
+The two-file correction is within F1. Independently re-ran the existing suite: **61/61**, including
+41 F1 cases; consistency **19/19**. Lane A's 297/297 fixture result remains its own receipt.
+All four F1-R1 scanner inputs now yield findings, and the valid in-root file URI still passes.
+**Accept F1-R1's correction as a bounded result; do not reopen those four cases.**
+
+**New finding F1-R2 — a candidate can still be cut short or never recognized.** Independent evidence:
+`C:/CoWork/outputs/lane-b-d418-f1-rereview-2026-10-05/REPORT.json`.
+
+| Input at the scanner boundary | Full-value meaning | Observed result |
+|---|---|---|
+| `{"path":"C:/robertaoai/my-editorial-app/a b/../../../CoWork/outputs/leak"}` | Canonicalizes to the disposable folder, outside the caller root | `findForeignPath` returns null; the space ends the drive candidate before the escape |
+| `file%3A%2F%2Fserver%2Fshare%2Fleak` | Decodes to a network-authority file URI; canonicalizer returns network | `findForeignPath` returns null; encoded scheme punctuation is missed before canonicalization |
+
+The positive control `{"path":"C:/robertaoai/my-editorial-app/a b/file"}` also returns null, correctly
+for its complete value. That control must continue to pass after the repair. These are represented
+path inputs, not speculation about today's files. They disprove whole-candidate/unknown-encoding
+refusal under the current F1 contract; no actual live leak or release mutation is asserted.
+
+**Draft fix — same guard/fixture paths, no F2/F3:**
+1. Preserve the represented value before matching: parse quoted JSON strings/escapes, retaining
+   spaces inside a path. A value beginning with a path/URI prefix must be canonicalized as its
+   complete value, not a whitespace-delimited prefix. Use bounded lexical handling for prose/code
+   controls; distinguish a syntactic object key from string data.
+2. Recognize encoded path/URI prefixes before deciding that text has no path. Decode under a
+   declared limit and refuse unresolved/malformed path-like encoding; never turn an unrecognized
+   representation into a clean result. Do not decode arbitrary web URLs into false findings.
+3. Test both new refusals and the in-root space control through the public scanner, alongside all
+   earlier cases. Cover equivalent raw, quoted and JSON-escaped forms at the declared input boundary.
+   Expected findings come from the full canonical value; test success must not merely exercise the
+   lower-level canonicalizer while candidate recognition remains bypassed.
+4. State the supported representation grammar and handling of ambiguous inputs. Re-scan the
+   candidate and reviewed publication text using the repaired scanner; then independently review
+   F1. Full prevention and transaction/recovery tests still belong to F2/F3.
+
+**Replacement graph:** independently compared candidate
+`6e3adfa48f609850578ae3ee248627aa5fa9d0d1af0efa76a89805b2e5ade331` to all **139 fragments**:
+**5,927 node fields and 9,703 edge fields**, no mismatch. All **129** member sets and name bindings
+match the pre-ingest/label manifests. The 14 changed member-based names are supported. The scanner
+reports zero findings across the saved graph's node string fields; that is a bounded scan result,
+not proof that the scanner covers every representation. Old candidate reviews do not cover this hash.
+
+The replaced module description truthfully keeps acceptance pending. However, CANDIDATE and
+findForeignPath descriptions still promise whole tokens; FILE_TOKEN's any-shape wording also
+needs a represented-input limit. **Draft current-code wording:** "Recognizes selected lexical
+path forms and checks root containment. F1-R1 is corrected at 1dc4b42; F1-R2 identifies missed
+quoted paths with spaces and encoded URI prefixes. The checkpoint remains unaccepted."
+For CANDIDATE/FILE_TOKEN, state the actual pattern boundary rather than general whole-value
+coverage. Apply through the description procedure, not a direct edit of graph.json; after a
+governed repair, sync and independently review the new hash under D-409/D-410.
+
+**Stop:** F1 checkpoint acceptance remains rejected at `1dc4b42` because of F1-R2. Hold semantic
+release of `6e3adfa4…` pending truthful descriptions/review; structural evidence and F1-R1 proof
+stand. This handoff requires no rebuild. B-050 remains Applied/O1 open; F2/F3 are not authorized.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | F1-R1 correction, 61 existing tests and current graph structural/member proof | Phase 1: retain their exact scope and revision |
+| Approve-with-conditions | Repaired F1 and graph semantic release | Phase 1: F1-R2 full-value proof, corrected descriptions and exact-byte independent review |
+| Defer | F2/F3, prevention and B-050 disposition | Separate Phase 1 work orders after accepted F1 |
+| Reject | Current F1 acceptance or zero scan findings treated as complete representation coverage | Phase 1: follow F1-R2's specified correction and controls |
