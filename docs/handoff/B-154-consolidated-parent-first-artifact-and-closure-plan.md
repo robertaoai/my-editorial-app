@@ -2783,3 +2783,95 @@ The current §2.3.2 table contains **158 rows with 158 distinct source keys**; t
 | Approve-with-conditions | B-071 Re-close application and individual RH4/B-077/B-117 clearance choices | Phase 1: exact Register act and template proof; source-specific evidence, independent review or individual Judge reason before each row changes |
 | Defer | B-077 final review outcome, B-071 row clearance, GR-007 completion, O0 parent dispositions, GR-009 code, Gate 2 and construction | Phase 1 evidence first; later separately authorized Lane B unit for code |
 | Reject | One mixed/two-entry handoff commit, receipt-as-clearance, reviewer-selection-as-review, three-row-GR-007 completion, or code/held-target execution inferred from documents | Phase 1: use the named refusals and existing tracking homes |
+
+## Lane B review of Lane A's D-415 application — current handback, 2026-10-05
+
+**Raiser / receiver; normalized request.** Lane B raises this review in the existing B-154 entry; only Lane A writes
+its answer. Review D-415 at `69c01a2`, the B-071 Re-close at `f8b593a`, and the unreleased graph candidate pinned
+there; record what passes, repair the one tracking ambiguity, then continue GR-007 by source-specific evidence.
+This replaces the earlier proposed batch order as the current handback. It is a Phase 1 review and implementation
+plan, not a work order for application code, a Gate 2 claim, or a new Judge decision.
+
+### What happened — independent result and the remaining gap
+
+**Accepted at their exact scope.** D-415 records the Judge's two dated instructions and keeps the GR-007 plan
+separate from completion. Its Build Spec, Inventory, GOV-RES-001 and SV-002 changes preserve the D-414 documentary
+acceptance, the GR-009 later code/check, the A4 threshold/formula split and the D-171 technical hold. B-071's
+Re-close has the template's five facts, binds the unchanged 2026-09-14 Return and the existing read commits, and
+accounts for all seven children: `R204`/`R205` received under D-381; `R202`, `R203`, `R206`–`R208` individually
+accepted for custody under D-412. Lane B independently recorded `Verified` on that *return episode* in B-071 at
+`e5c5d58915a9f4df2d39610bd0304eb64e69db8c`, read at `f8b593a`. It verifies neither T5/T6 delivery nor a
+parent tracker roll-up. `SV-002` §2.3.1 still says B-071 open and needs Lane A's re-derivation.
+
+**Graph review accepted for release at its saved revision.** The candidate SHA-256 is
+`a4050304a433d01043b02adc93bfb3cf690ea722fc67aa069220ae37dd21cf9a`, with 2,047 nodes, 4,412 links,
+124 groups, 104 names bound to exactly the same D-414-reviewed member sets and 20 changed navigation names
+reviewed against member commit subjects. All 139/139 curated fragments match, including 5,927 declared node
+fields and 9,703 declared edge fields; the 557-file backup and test restore match the pre-state manifest. No
+independent issue was found. Receipts: `C:/CoWork/outputs/lane-b-d415-review-2026-10-05/TECHNICAL-REVIEW.json`
+and `LABEL-REVIEW.json`. Graphify reports current at `f8b593a`; subsequent commits through this review are
+handoff-only. Lane A may record release against this hash under D-409/D-410. Any later governed wording edit
+requires another sync and review before its graph is called current/released.
+
+**Narrow source correction.** In the D-415 governed commit, `SV-002` §2.3.2 B-071 says under an
+“Authorized 2026-10-05” marker that the Re-close *is applied*, although application occurred only in the next
+commit `f8b593a`. The same row retains an undated “no Re-close record yet” snapshot. The final state is now
+valid, but a reader of the D-415 revision would infer an application that had not occurred. Draft current-use
+replacement: “D-415 authorized the Re-close at `69c01a2`; Lane A applied it in B-071 at `f8b593a`; Lane B
+independently Verified that return episode at `e5c5d58`. The earlier ‘no Re-close’ and open-child descriptions
+are dated history. The B-071 §2.3.1 row is re-derived from this evidence; the D-171 target remains held.”
+Preserve the historical read; do not silently rewrite its prior snapshot. Key this review once under B-154 in
+§2.3.2. This is a tracking correction, not a new B-071 Judge reason.
+
+### What Lane A needs — parent first, with observable Accept/Reject
+
+| Parent / sequence | Decision and evidence | Accept when | Reject when / follow-up phase |
+|---|---|---|---|
+| D-415 authority, done | Keep `69c01a2` as the bounded Judge act; receive this B-154 review | GR-007 is still a plan; RH4 and B-117 reasons are deferred; B-077 reviewer is named, not yet a review outcome | Re-ask already decided D-414 or D-415 choices. Phase 1 intake |
+| B-071 return parent, reviewed | Use B-071's independent `Verified` record at `e5c5d58`; reconcile its §2.3.2 current-use chronology and §2.3.1 O0 row | Seven child outcomes and the five Re-close fields remain exact; only B-071's documentary return episode can close | Call custody delivered, infer T5/T6 authorization, or close another parent. Phase 1 tracker edit |
+| D-415 graph, reviewed | Release only the saved candidate/hash above, with 124 member-bound labels and all declared fragment fields | Lane A records the hash-bound D-409/D-410 release; any subsequent governed edit gets its own sync/review | Treat current graph as source-row clearance, or skip re-merge after a canonical edit. Phase 1 graph control |
+| GR-007 parent, open | Re-read all §2.3.2 keys, every §2.3.1 row, legacy Applied entries and source Return episodes; reconcile in their existing homes | Each source child has a current owner, trigger, evidence and independent review/individual Judge-reason route; final GR-007 review follows all rows | The three O4 sources alone, a ledger key, or a custody receipt called GR-007 completion. Phase 1 reconciliation |
+| GR-007 children, after reconciliation | RH4: D-263 count versus closure half. B-077: per-entry legacy Applied refresh, then Lane B final review. B-117: exact R31/R32/R36/R40/R41 owner/trigger/refusal table plus GR-010/011 scope and D-171 held targets | Each has its own source-row basis and observed reviewer outcome or individually accepted D-364 reason | Bulk Verified, reviewer assignment as review, GR-009 check or A4 formula called built. Phase 1 source clearance; later bounded Lane B code unit |
+| O0 and Gate 2, last | Re-derive B-150/B-153/B-154 from their own child conditions and all O0–O5 rows; retain B-050, B-106 and B-136.P15 owners | Every non-SM05 row is closed and every SM05 obligation received before a separate Judge gate/Active-lane act | A parent closes from one child or a target count. Phase 1 readiness; later construction act |
+
+**Chief Editor/Judge boundary and unsupported claims.** No new Judge choice is required to accept D-415, the
+B-071 review, or this graph candidate. Later individual RH4/B-117 reasons must return with exact evidence;
+B-077's result must come from Lane B's actual fresh review. Lane A's predictive B-071 ledger phrase needs the
+chronology fix above. Lane B's earlier suggested three-row clearance was too broad; D-415 correctly deferred it.
+Lane C's previously rejected B-077-as-Product-retention, B-088-as-RLS, O0–O3-only Gate 2 and
+receipt-as-clearance classifications remain history, not current requirements (`LC4`–`LC7` above).
+
+**Critical later artifacts.** The corrected RACI source ledger and GR-010/011 crosswalk define source fidelity,
+not application executor routing; D-175/D-233/D-239 remain the decision layer. A future test must reject a
+Chief Editorial Desk substitution for Sheet 1 F, a fabricated source A, and an EG evidence record counted as
+a held transition. GR-009's catalog meaning is the input to a separately ordered check that rejects an
+equal-count member swap; no such check is built. A4 permits a 50-article review threshold, not unratified
+scoring. The B-071 Re-close and GR-007 keyed ledger/tracker are construction-gate evidence, not feature code.
+
+### Lane A follow-up, step by step
+
+1. Receive this B-154 raiser review at its committed SHA in Lane A's answer field; preserve the exact D-415 and
+   B-071 independent-review anchors. Keep each B-series answer in its own one-path commit.
+2. Record release of the reviewed D-415 candidate against the full graph hash while its governed revision is
+   still current. This releases the saved candidate only, not the later accounting edit or a source parent.
+3. In one authorized governed accounting batch, correct B-071's §2.3.2 chronology, close only its §2.3.1 row
+   from the independently Verified header, key this review once, and re-derive the tracker. Run `bun run check`;
+   then follow D-409/D-410 with a curated-fragment re-merge and new independent graph review. Do not describe
+   the D-415 candidate as covering this later edit.
+4. Refresh GR-007's full ledger/tracker and the three source entries. Reconcile RH4's D-263 count, B-077's
+   legacy Applied examples one by one, and B-117's exact children and held/later-unit triggers. Give each source
+   a separate proposed clearance basis; Lane B reviews B-077 only after that evidence exists.
+5. Present any still-needed individual D-364 reasons to the Judge with pass/refusal evidence. Re-derive all
+   remaining rows and only then assess O0 parents, Gate 2 and a separate construction work order.
+
+**What Lane B did instead.** Lane B independently reviewed the D-415 source diff, B-071's applied Re-close,
+the graph's member identities, labels, backup/restore and every declared fragment node/edge field. It recorded
+B-071 verification in its own exact-path commit and drafted this single B-154 handback. It did not edit Lane
+A's answer field, governed docs, tracker rows or application code.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | D-415 act and documentary diff; B-071 Re-close review; D-415 graph candidate for release | Phase 1: Lane A records exact review/hash and re-derives B-071 tracking |
+| Approve-with-conditions | B-071 current-use ledger wording and GR-007 plan | Phase 1: repair chronology, reconcile all source/child/return keys and secure source-specific review/reasons |
+| Defer | RH4 and B-117 Judge reasons, B-077 review outcome, GR-007 completion, O0 parents, GR-009 code, Gate 2 | Phase 1 evidence first; later separately authorized Lane B construction unit |
+| Reject | Predictive chronology as proof, receipt/reviewer assignment as clearance, three rows as all of GR-007, historical SOP as app routing, or graph currency as implementation proof | Phase 1: use the refusal conditions above |
