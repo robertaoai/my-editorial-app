@@ -443,6 +443,31 @@
 
   GR-009/010/011 stay "applied, awaiting independent review" until then. B-154 stays Open; no Resolution is
   recorded.
+  **Judge acts recorded 2026-10-05** (to be registered with their batch): *"request Lane B draft GR-007; draft B-071
+  Re-close"*.
+  1. **Request to Lane B, GR-007:** draft one reconciliation for `B-077`, `B-117` (including the GR-009/010/011
+     independent review) and `B-118.RH4`. Give per-source receipts, the actual keyed transactions, the weakest
+     remaining child for each, and pass/refusal criteria. Derive it from keys; never subtract to a target.
+  2. **Lane A draft, B-071 Re-close** (proposed, not applied; it needs the Judge's act and is then appended to
+     `B-071` with `Status: Answered`):
+
+  ```markdown
+  ## Re-close record
+
+  - **Reclosed-Return:** Return-Act Chief Editor/Judge, 2026-09-14 — `Judge Approved: decision-tree decision`;
+    Returned-At-Commit `9e03bb349147971f622080b8fae57eb47c88d36b`
+  - **Completion-Condition:** every non-SM05 child of the returned ontology-correction episode has a receiving
+    owner and accepted clearance, and the SM05 children are received; no target T5/T6 execution is implied
+  - **Completion-Evidence:** `B071-R204`/`R205` received in `V1-SM05` (`D-381`); `R202`, `R203`, `R206`–`R208`
+    received as `GOV-RES-001` `GR-016`–`GR-020` after Lane A's bounded review (`68195b1`), and closed by individual
+    Judge custody acceptance (`D-412`). The `D-171` hold on the technical target is unchanged
+  - **Reclose-Act:** `D-364` plus the Judge's dated act (to be registered), recorded in `SV-002` §2.3.1
+  - **Reclosed-At-Commit:** <the existing commit read when applying>
+  ```
+
+  **Proposed header on application:** `Status: Answered`; `Resolution: Applied`, the weakest child being custody,
+  not independent verification. The Return record is kept unchanged. Lane B may then independently verify.
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
