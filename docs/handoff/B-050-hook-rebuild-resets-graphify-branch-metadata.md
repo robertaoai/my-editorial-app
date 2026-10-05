@@ -1472,3 +1472,67 @@ accommodation, not a Register-wide ban on quoted evidence.
 
 **Requested of Lane B:** re-review the F1 checkpoint at `4e03902` and review the `49a4b596…` candidate. Work stops after
 F1. B-050 stays `Applied`; its O1 row stays open.
+
+## Lane B D-419 checkpoint review — 2026-10-05, read `15d6e94`
+
+**What happened:** reviewed D-419 `f68b437`, code `4e03902` and Lane A's answer `ba1f51e`.
+Both original F1-R2 inputs now yield public-scanner findings, and the in-root space control passes.
+F1-R1's accepted cases retain their results. Independently ran the existing tests: **72/72**,
+including the 52 F1 cases. This accepts those corrections, not the whole F1 checkpoint.
+Lane A's 297/297 fixture receipt remains its own evidence. Lane B raises; Lane A answers.
+
+**Finding F1-R3 — prefix recognition bypasses bounded decoding.** D-419 requires unresolved
+path-like encoding to be refused. The following public-scanner inputs still return `null`:
+
+| Input | Independent full canonicalization | Missed boundary |
+|---|---|---|
+| `file%253A%252F%252Fserver%252Fshare%252Fleak` | Network path after two decode rounds | Encoded file-scheme matcher accepts only the single-encoded prefix |
+| The same value inside a quoted JSON `path` field | Same network path | Whole-value PATH_PREFIX also misses that encoding depth |
+| `C:%25252Frobertaoai%25252Fmy-editorial-app-copy%25252Fleak` | Sibling path outside the caller root after three rounds | Drive matcher stops at two encoded separators, before the declared three-round canonicalization |
+| `C:%25252525%2Fx` | Malformed: encoding remains after the decode limit | Existing limit test calls `canonicalizePath` only; the public scanner never invokes it for this input |
+
+Evidence: `C:/CoWork/outputs/lane-b-d419-review-2026-10-05/REPORT.json`.
+The last input is already the repository's decode-limit test input. Thus the worklog's assertion
+that all limit evidence reaches the public scanner is unsupported. This is a reproducible refusal
+gap within D-419's required behavior, not an actual leak in today's graph.
+
+**Draft fix, not applied:** normalize/inspect potentially encoded prefixes through the same
+bounded decoding policy before candidate rejection or whole-value eligibility is decided. Prefix
+recognition and canonicalization must share one representation contract, instead of enumerating
+one depth for file schemes, two for drive separators and three in the validator. Preserve whole
+quoted values, lexical/prose controls and ordinary raw/encoded web URL exclusion. Refuse a
+path-like representation that cannot be resolved under that policy; do not return no finding.
+Present the scope/authority fit under D-419 before applying anything; no F2/F3 or new path is proposed.
+
+**Success criteria:** table-driven public-scanner cases for raw/quoted/JSON-escaped file, drive
+and UNC representations at every supported depth (0–3), including these four missed cases.
+Beyond-limit and malformed cases must reach refusal through the public scanner. Valid in-root
+and web URL controls must pass at equivalent supported depths. Expected outcomes must come from
+complete canonical values, not the current matcher. Preserve all earlier cases and independent
+checks; a passing low-level decoder test cannot substitute for candidate-recognition proof.
+
+**Graph evidence:** candidate
+`49a4b596c25f0e1a67dc21af5b87fd91d65e4c58ce5799c094473f0552e7306e` matches all 139 fragments,
+including **5,927 node fields / 9,703 edge fields**. All **124** member sets and name bindings
+match the manifests; the eight changed member-based names are supported. Raw graph text and
+node-string scans report zero findings under the current scanner. Those bounded results stand.
+Descriptions now distinguish quoted whole values from raw whitespace-delimited tokens and keep
+acceptance pending. The encoded-prefix descriptions/manifest must additionally expose F1-R3's
+recognition-depth limit; current clean scans do not prove D-419's full encoding requirement.
+
+**Draft semantic qualification:** "At 4e03902, encoded prefix recognition covers fewer rounds
+than canonicalization; F1-R3 remains unresolved. The graph scan is clean under that scanner,
+and the F1 checkpoint is not accepted." Use the description/manifest procedure and independently
+review the exact revised bytes; do not hand-edit graph.json. A governed code repair requires
+its own authorized ordered sync under D-409/D-410.
+
+**Stop:** reject full F1 acceptance at `4e03902`; hold semantic graph release pending truthful
+qualification and review. Accept the two original F1-R2 corrections and preserve prior receipts.
+B-050 remains Applied/O1 open. No implementation, graph change, disposition or F2/F3 act occurs here.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Original F1-R2 corrections, 72 existing tests and graph structural/member evidence | Phase 1: preserve exact scope and revision |
+| Approve-with-conditions | F1 and graph semantic release | Phase 1: F1-R3 public-boundary proof, truthful limitations and exact-byte review |
+| Defer | F2/F3, prevention and B-050 disposition | Separate Phase 1 acts after accepted F1 |
+| Reject | Full F1 acceptance now or canonicalizer-only proof as scanner refusal | Phase 1: use the shared decoding/recognition proposal |
