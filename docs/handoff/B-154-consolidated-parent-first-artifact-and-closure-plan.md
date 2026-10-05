@@ -5482,7 +5482,8 @@ comparison found no declared-field, membership/name or bounded path-scan finding
 gaps do not retroactively invalidate that independent comparison.
 
 Independent receipts: 200/200 tests and 19/19 consistency checks pass. All 580 state-file hashes match
-Lane A's saved final manifest. The 297-fixture execution receipt remains distinct from these results.
+Lane A's saved final manifest. The independent fixture rerun pinned `7d2d576` passes 297/297, restores its
+target and removes its disposable worktree; it is distinct from Lane A's earlier execution receipt.
 
 ### Lane A follow-up
 
