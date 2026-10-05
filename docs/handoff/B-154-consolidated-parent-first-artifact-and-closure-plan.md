@@ -908,6 +908,8 @@
   - B-136.P15 and B-106 stay parallel; plan readiness clears no tracker row (seven non-SM05 rows stay open).
 
   **Drift:** governed intent is synced at `2bf5c3e`; later commits are handoffs only. No rebuild is due.
+
+  **Judge, 2026-10-05, in chat to Lane A:** the B-050 work order is **not yet** issued. The draft (`a4da703`) and contract v4 with its conditions (`b97f93f`) are held as ready. Nothing is registered or built until the Judge issues it.
   B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
