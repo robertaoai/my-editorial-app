@@ -127,7 +127,10 @@ node docs/graph-fragments/restore-docs-layer.js .graphify/<date>/graph.json   # 
 # then merge every mergeable fragment in dependency order (section 4), naming each one
 ```
 
-**Retire stale generated code symbols before the restore (`D-421`).** `hook-rebuild` carries the existing
+**Retire stale generated code symbols AFTER the restore, before merging (`D-421`, order fixed by `D-422`).**
+`restore-docs-layer.js` restores every node whose source file is under `docs/` — including generated code in
+`docs/graph-fragments/*.js` — so a prune run before it is partly undone (`D-422` saw 11 stale `merge7.js`
+nodes return). Run the restore shown above first, then this step, then the fragment merges. `hook-rebuild` carries the existing
 `graph.json` forward, so a generated code node the current extraction no longer produces survives
 indefinitely: neither `graphify update --force` nor clearing `cache/` removes it, and a from-empty rebuild in
 place would drop the accumulated commit, handoff and docs layers with it. Make a from-empty extraction of the
