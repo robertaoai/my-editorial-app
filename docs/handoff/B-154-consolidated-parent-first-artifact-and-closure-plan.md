@@ -3942,3 +3942,82 @@ or fragment edit is required. Later governed prevention/accounting edits will re
 | Approve-with-conditions | Four-path repository-procedure prevention plan | Phase 1: answer B-050 PC1–PC5/containment and obtain review before a separate Judge work order |
 | Defer | Repair execution/proof, B-050 disposition, B-077 final review, B-136.P15/B-106, O0 parents, GR-007 F, Gate 2 and later application code | Their source-specific Phase 1 acts and named later bounded implementation units |
 | Reject | Universal prevention, crash-atomic two-rename claim, obsolete review binding, unsupported Lane C coverage, custody-as-delivery or B-050 as the sole remaining audit blocker | Phase 1: use the explicit contract fixes and independent source criteria above |
+
+## Lane B review of Lane A's PC1–PC6 handback — five-path plan, 2026-10-05
+
+**Effective request:** review `42f1881` and `6d6c534`, confirm the already authorized release,
+consolidate remaining planning defects and give Lane A/Judge a source-bound acceptance docket.
+No application or tooling build. **Read:** `6d6c53448fb7785744529a80a8d7b061037c811f`.
+Lane B is the raiser; Lane A answers in the existing B-050/B-154 fields.
+
+**Completed parent authority first:** D-417's bounded accounting/release remains accepted. The
+live graph's SHA-256 is still `855f713e34f09482815c805e276b3762ca9390e00d548eb4fe2a700bc58eefe8`;
+the release receipt at `6d6c534` matches the independently reviewed candidate and source `2bf5c3e`.
+RH4/B-117 custody and the diagnostic evidence remain accepted within their scopes. No re-review
+of those unchanged artifacts or new Register act is required merely to record this handoff receipt.
+
+**Remaining review result:** the revised prevention contract answers the earlier design concerns,
+but is not yet ready for an execution work order. B-050's new continuation owns five precise
+corrections R1–R5: missing inventory classifications; publication timestamp versus immutable review;
+exclusive, durable recovery; ref/extraction snapshot binding; and the checker running before skip.
+Do not create another parent, residual or test ledger for these corrections.
+
+### Judge decision table, with dependencies
+
+| Parent → child / order | Decision now | Acceptance artifact / failure criterion | Follow-up phase |
+|---|---|---|---|
+| 1. B-150 audit → D-417 evidence units | Accept completed accounting/release receipt; parent audit stays open | Exact reviewed graph/source and R/H custody evidence; reject delivery or Gate 2 inferred from them | Phase 1: record this source-bound receipt |
+| 2. D-417 procedure scope → PC1–PC6 | Accept design direction and PC6 finding | Origin-derived identity is source-confirmed; refs/extraction selection still needs the R4 snapshot rule | Phase 1: Lane A consolidates contract |
+| 3. B-050 → five-path proposal | Accept necessity of adding docs-drift to the proposed boundary; defer execution | Missing-live/journal must fail before absent-branch skip; this is an explicit proposed scope change, not already given by D-417 | Phase 1: include all five exact paths in the later Register work order |
+| 4. B-050 → complete contract | Accept with conditions R1–R5; reject work-order readiness today | Every current file classified; immutable reviewed bytes; defined owned recovery transitions; reproducible ref/source policy; intended checker cases. Failure of any blocks readiness | Phase 1: Lane A answers, Lane B reviews the consolidated revision |
+| 5. B-050 → implementation/proof/disposition | Defer | A separate Judge act authorizes paths/tests/exclusions/DoD; independent proof reaches each intended failure and success route. A draft or passing consistency check cannot close B-050 | Phase 1 later bounded Lane A unit; no build now |
+| 6. GR-007 → B-077; parallel B-136.P15/B-106 | Defer each on its own evidence | B-077 follows B-050 and its 17-target/local-commit criterion; the other two sources retain their separate obligations/owners | Phase 1 source reviews/acts; runtime code only in its later unit |
+| 7. B-153/B-154 → B-150 → tracker → GR-007 F → Gate 2 | Defer completion | Child evidence first, each O0 parent disposition next, rederived tracker, final all-row confirmation, then separate Gate 2. Reject requiring a parent already closed before its evidence can be reviewed | Phase 1; seven non-SM05 rows remain open |
+
+The Judge does not need to re-decide diagnosis or repository-procedure scope. The remaining
+execution decision is the exact work order after contract readiness. The human Judge's Register
+authority is distinct from the product Chief Editor role: this tooling docket ratifies no editorial
+formula, publication role, business T5 behavior or held technical execution.
+
+### Lane A step-by-step and critical artifacts
+
+1. Receive this review and B-050's R1–R5, preserving the named source revisions. Keep the D-417
+   release and custody rows done; preserve B-050 Applied and B-154 Open.
+2. Consolidate one current contract rather than require a future builder to reconcile dated drafts.
+   Attach the complete file-policy manifest and recovery transition table; freeze timestamps before
+   review and state the selected crash/recovery boundary. Pin origin/ref/extraction/source inputs.
+3. Expand the existing case matrix with the exact counterexamples named in R1–R5. Each case has
+   its injected boundary, before/after manifests, expected non-health or success result and evidence.
+   Reproducible identity and recovery proof are construction inputs, not tests already passed.
+4. Return that complete five-path contract to Lane B for review. Only then present the Judge with
+   the exact bounded work order; record the scope change in the Register and required D-54 tiers.
+5. In the later authorized unit, build, obtain independent prevention proof and B-050's individual
+   disposition/clearance; update the existing keyed ledger. No raw-tool fix is inferred.
+6. Follow the remaining source/parent order in the table. B-136.P15 and B-106 stay parallel children;
+   do not disappear them when B-050 succeeds. Retain GR-009 and GR-021's later-unit/hold constraints.
+7. Sync every later governed edit against its exact source with the curated merge and independent
+   graph review. Handoff-only responses do not require a rebuild.
+
+**Lane concerns to retain:** Lane A correctly exposed the local-origin clone defect and openly
+proposed the fifth path; its full-inventory, refs-only equivalence and publication-time rules still
+need correction. Lane B's earlier PC3 did not spell out Git node identity, now covered by PC6/R4;
+Lane B must not convert plan acceptance into Verified or execution permission. No new Lane C
+assessment exists for this contract; prior Level 2 receipts cover their own revisions only. The
+existing later Phase 3/SM06 homes remain intact.
+
+**Tracking:** B-050 owns the contract/source evidence; B-154 consolidates this review; the Register
+owns scope and work orders; GOV-RES-001 owns residual delivery/holds; SV-002's keyed ledger and
+derived tracker own accounting/clearance. A release receipt is not a new parent completion layer.
+Source deferral, tracker clearance, procedure proof and feature delivery keep distinct meanings.
+
+**Drift:** graphify query was used before source analysis; check-update reports current and the
+graph hash matches the released D-417 artifact. All changes since 2bf5c3e are excluded handoffs,
+including this review, so no graph rebuild is warranted. Full consistency validation accompanies
+the two review commits; later governed procedure/checker edits will require a new sync.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | D-417 release receipt, PC6 identity finding and fifth-path necessity as a proposal | Phase 1: record receipt and preserve scope/evidence limits |
+| Approve-with-conditions | Revised PC1–PC6 five-path implementation plan | Phase 1: consolidate B-050 R1–R5, complete manifests/transitions/cases and obtain independent readiness review |
+| Defer | Repair work order/execution/proof, B-050 disposition, B-077, parallel sources, O0 parents, GR-007 F and Gate 2 | Their own Phase 1 acts and later bounded implementation units |
+| Reject | Readiness of the present contradictory draft, count/ref equality as identity proof, unowned recovery, reviewed-byte mutation or skipped transaction health | Phase 1: apply R1–R5 before asking to execute |
