@@ -935,3 +935,111 @@ synthetic), before/after full-state manifests and context bundle, and the expect
 
 **DoD:** Lane B independently proves each case, then a source-specific B-050 disposition is made under the selected
 scope by a named act. No universal criterion closes by implication. B-050 stays `Applied`; its O1 row stays open.
+
+## Lane B v3 readiness review — accepted evidence and exact completion text, 2026-10-05
+
+**Read:** `789610bd1f6b1c5a1329a388218c749d63bc0df3`; current contract `d8330f5`.
+Lane B raises this review; Lane A owns the answer. The recorded Judge approval of the fifth path
+is received as boundary approval; do not request it again. A repair work order is still separate.
+
+**Accepted evidence.** Independently enumerated and hashed the live files against
+`state-classification.json`: 557 paths, no duplicates, omissions, extra paths or hash mismatches;
+18 promote, 2 rebind and 537 retain. Manifest SHA-256:
+`551c8d70e1cfb4679d3688dcbaee2994da3be69cbde27760441bfbac738f3a08`.
+This proves the observed inventory/classification record, not the safety of a future generated
+candidate or every rule's behavior on new paths. R2 fixes the timestamp contradiction. R5 now
+places the transaction finding before skips. The selected abrupt-process-termination boundary
+and explicit exclusion of power-loss claims are accepted.
+
+**Readiness remains conditional on the following exact corrections.** These complete existing
+R1–R5; they are not new parent obligations or a new test ledger.
+
+| Existing requirement | Finding | Required completion |
+|---|---|---|
+| Current contract / PC1–PC5 | V3 says both earlier procedures are history, but omits their full forward rebuild/merge/validation/swap sequence. Its field rebinding could overwrite null heads before anyone tests them | Insert the standalone procedure below. Reject raw null/incorrect metadata before changing identity fields; never repair the evidence into a passing candidate |
+| R3 recovery ownership | Atomic replacement of a lock is not exclusive acquisition: two recovery processes can both replace it and proceed. `prepared` also cannot prove live untouched if termination occurred after the first rename but before the journal update | Use exclusive-create recovery ownership as specified below; reconcile manifests before interpreting every journal stage. Add concurrent recoverers and rename-before-journal cases |
+| R1 path proof | The detector accepts `C:/robertaoai/my-editorial-app-copy/leak` and `D:/robertaoai/my-editorial-app/leak` as non-foreign. Its five self-tests do not establish exact-root containment | Compare parsed/normalized absolute paths with the exact allowed drive/root and a component boundary; explicitly detect the disposable root in plain, escaped and URI forms. Keep historical retained paths as labelled provenance. Add the two counterexamples and UNC/disposable-path cases; classify these as future validator tests, not observed live leaks |
+| R4 source/selection binding | Recording a clock does not make the child use it; HEAD/ref equality alone omits effective environment/config. `hook-rebuild` reads GRAPHIFY_CHANGED and can return without rebuilding on a docs-only value | Declare the effective child command, environment, config and selection policy. Clear or explicitly bind GRAPHIFY_CHANGED and Git redirection variables. Compare the child's actual selected identities to the captured expectation; a cutoff change refuses/re-prepares. No claim that recorded time freezes the CLI clock |
+
+### Draft insertion: complete guarded transaction
+
+1. **Inspect without mutation.** Resolve and pin the caller and live target; preserve the `.graphify`
+   link. Reject a candidate, backup, old, staging or evidence path that aliases, contains, or sits
+   inside the live target. Validate those runtime paths and the disposable checkout before child
+   writes. Pin source commit, clean governed source, tool hashes, effective config/environment and
+   the R4 local ref/identity snapshot. Detached HEAD is refused by mode; missing upstream is valid.
+2. **Capture a stable baseline.** Under the exclusive publication lock, hash the complete released
+   state and source snapshot. Copy to independent candidate storage, verify the copy, then release
+   the preparation lock while awaiting any long generation/review work. No live state is mutated.
+   Later publication must reacquire ownership and require the same baseline and source snapshot.
+3. **Generate in isolation.** Materialize the captured local checkout/ref map and caller origin
+   identity; bind its state root only to its independent candidate directory. Run the pinned rebuild
+   with the declared environment. Capture its untouched branch/worktree records and context bundle.
+   Refuse tool failure, absent/null/incorrect analyzed or seen heads, wrong branch/root, or unintended
+   extraction/no-op before rebinding. Run required docs-layer restoration, named ordered fragment
+   merging, fill/description replay and D-409/D-410 label completion in the candidate only. Revalidate
+   metadata after each tool stage; a later valid write must not conceal an earlier null transition.
+4. **Validate and compose.** Check every declared fragment node/edge field, complete member/name
+   bindings, source/identity selection, schema-specific lifecycle fields and named semantic limits.
+   Rederive the file inventory; unknown or multiply classified entries refuse. Compose promoted,
+   retained and rebound bytes according to R1/R2. Rebinding changes runtime identities/provenance
+   fields only after raw analysis is accepted; heads must remain the actual proved analyzed commit.
+   Validate derived studio/ontology artifacts against the final graph and check disposable-path
+   absence. Retained history remains labelled history. Freeze preparation timestamps.
+5. **Review final bytes.** Produce the graph SHA and full composed-state manifest, together with
+   raw stage evidence and semantic limits. Lane B independently reviews those exact bytes. Pending
+   or rejected review is non-release. Any changed source, retained byte, generation or rebinding
+   invalidates that review. A repeat run's idempotence means stable source/graph identities and
+   retained-state semantics; new run timestamps/receipts need not be byte-identical across runs.
+6. **Publish under ownership.** Reacquire the publication lock, recheck baseline/source/ref/context
+   and the reviewed staging bytes. Verify a full backup outside the target. Durably write the
+   bound `prepared` journal before mutation. Rename live to old; record `old-moved`. Rename reviewed
+   staging to live; record `new-in-place`. Verify the complete live manifest and source snapshot;
+   record `verified`. No metadata byte is rewritten during publication. Any mismatch enters owned
+   recovery and produces no healthy release.
+7. **Complete release.** Write the durable external receipt binding run, source, reviewed manifest
+   and independent acceptance, then remove the journal and release owned locks. The checker stays
+   non-green while the journal exists. On a restart at `verified`, revalidate bytes/context and
+   acceptance; finish an idempotent receipt/cleanup only if they still match. Receipt/cleanup failure
+   leaves an explicit non-health/recovery-required state. Preserve backup/failure evidence; cleanup
+   cannot remove a path until its role, containment and manifest are established.
+
+### Draft replacement: exclusive recovery and ambiguous stages
+
+Keep the publication lock and introduce a fixed per-target recovery token outside the live target
+as a runtime artifact, within the same five repository paths. Acquire the recovery token by
+exclusive create, never by overwrite. Every recovery entrant must first acquire that token and
+then re-read the publication lock, journal, process identity and manifests. A live/unknown owner
+refuses. Proof of death must bind host, process identity/start and run token, not PID alone.
+Only the exclusive recoverer may replace the proved-dead publication ownership for that journal
+transaction. A second recoverer refuses without changing anything. An unresolved or abandoned
+recovery token requires evidenced manual recovery; it is never silently stolen.
+
+For every journal stage, first reconcile actual live/old/staging/backup manifests. `prepared` means
+safe abort only if live still equals the backup; live absent plus a verified old copy means the
+first rename happened, even if the journal still says prepared. Never delete staging merely from
+the stage string. Restore only the verified full old/backup state and verify the restored manifest.
+Define the recovery receipt and owned journal/lock cleanup so a successful recovery permits the
+next valid run. Corrupt/unreadable journal, unexplained target loss, manifest ambiguity or failed
+restore preserves all evidence and returns recovery-required/non-health. The same serialization
+applies to ordinary rollback and restart recovery.
+
+**Acceptance additions to the existing matrix:** two simultaneous recoverers; raw null metadata
+that rebinding would otherwise hide; termination after each rename but before journal update;
+restart at verified and receipt/cleanup failure; the two path-detector counterexamples; changed
+effective extraction environment/config and a branch-selection cutoff crossing. Negative cases
+must reach the intended boundary. These are requirements for the later implementation proof;
+no guard or crash test was implemented or run by this review.
+
+**Readiness disposition:** R1 inventory evidence, R2 and R5 are accepted at document level. Adopt
+the completion text and clarified validator/selection criteria into the one current contract, then
+return the exact revision for a bounded readiness check. Reopen only changed or unmet criteria;
+do not repeat accepted diagnosis, custody, graph release or fifth-path decisions. The later Judge
+work order includes all five paths, exclusions, this full procedure, the matrix and DoD.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Observed 557-file classification, immutable-byte rule, journal-first checker rule and recorded fifth-path boundary approval | Phase 1: retain evidence limits; no repeated scope question |
+| Approve-with-conditions | Contract v3 implementation plan | Phase 1: Lane A incorporates the exact forward/recovery text and validator/selection criteria; bounded readiness review follows |
+| Defer | Repair work order/execution, independent proof and B-050 disposition | Phase 1: named Judge act and source-specific completion evidence |
+| Reject | Lock replacement as exclusive acquisition, rebinding null evidence into success, complete foreign-path proof from five samples, or omitted steps inherited from superseded drafts | Phase 1: use the replacements above |
