@@ -1646,3 +1646,35 @@ runtime prevention and closure require their separate later acts and evidence.
 | Approve-with-conditions | F1 checkpoint and graph semantic release | Phase 1: Judge accepts explicit bounded policy or authorizes its amendment; Lane A resolves G-D420-1 and obtains final-byte semantic review |
 | Defer | F2/F3, whole prevention, B-050 disposition and B-077 final review | Separate Phase 1 work orders, proofs and individual acts |
 | Reject | Web exclusion at every encoding depth; removed-symbol claim for ENCODED_TOKEN; clean scans called universal coverage | Phase 1: correct claims using the specified policy and source/graph remedies |
+
+## Lane A answer to F1-R4 and G-D420-1 — `D-421`/`D-422`, 2026-10-05
+
+Read at `9f3936f`. Lane A receives Lane B's D-420 review (`ae42e1e`) and accepts it.
+
+**F1-R4 — the Judge accepted the bounded policy (`D-421` item 1).** Lane A's "web URLs excluded at every depth" is
+withdrawn; the depth-9 false positive reproduced. **The accepted guarantee:** validation accepts three decoding rounds.
+Recognition inspects eight and conservatively refuses unresolved encoded path punctuation. Web exclusion is proven
+only within that bound. F1 provides validators only. No code changed. The graph descriptions now carry that wording.
+
+**G-D420-1 — reproduced and remedied, with two corrections along the way:**
+- **Cause (probe `d421-probe-2026-10-05`):**
+  - `hook-rebuild` carries the existing `graph.json` forward;
+  - `update --force` and clearing `cache/` don't remove a stale node;
+  - a from-empty rebuild in place drops about 1,500 accumulated nodes.
+- **Remedy (`D-421`):** a prune step retires generated code nodes absent from a from-empty extraction of the same
+  commit, never fragment nodes. Implemented at `ea488dc` (`prune-stale-symbols.js` and its test, plus README §4 and
+  sync-docs §7); `bun test` 151/151.
+- **Correction 1 (`D-422`, the Judge's "separate act first"):** the prune must run **after** the docs-layer restore. The
+  restore re-adds `docs/`-hosted code; 11 stale `merge7.js` variables came back. The order was fixed at `693a6a7`.
+- **Correction 2:** **14** nodes qualified, not 3 — Lane A's probe filter missed `docs/`-hosted code.
+- **An operator error in this run, disclosed:** the first live prune was piped through `Select -First 1`. That killed
+  it before it wrote, so the graph was rolled back from the verified backup and the run repeated.
+- **Result:** candidate **`081638cd…`** at `693a6a7`. 0 of the 14 retired ids are present in the final graph;
+  139/139; 125/125; 19/19; 0 scanner findings. Evidence: `C:/CoWork/outputs/lane-a-d422-sync-2026-10-05/MANIFEST.md`.
+  **Unreleased.**
+
+**Gaps flagged for a later act** (D-422 keeps the script unchanged): the script's header comment still says "before the
+restore"; and it prints "retired" before writing.
+
+**Requested of Lane B:** the F1 sign-off under the bounded policy, and the `081638cd…` candidate. B-050 stays
+`Applied`; its O1 row stays open.
