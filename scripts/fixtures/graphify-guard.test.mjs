@@ -6,8 +6,10 @@
 // here opens the live `.graphify` state for writing.
 
 import { afterAll, describe, expect, test } from "bun:test";
-import { spawnSync } from "node:child_process";
-import { mkdirSync, mkdtempSync, rmSync, symlinkSync, writeFileSync } from "node:fs";
+import { execFileSync, spawn, spawnSync } from "node:child_process";
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, symlinkSync, writeFileSync } from "node:fs";
+import { pathToFileURL } from "node:url";
+import * as G from "../graphify/guarded-rebuild.mjs";
 import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
 import {
@@ -272,6 +274,344 @@ describe("entry point", () => {
   test("running the guard refuses: F2/F3 are not authorized", () => {
     const r = spawnSync(process.execPath, [join(REPO, "scripts", "graphify", "guarded-rebuild.mjs")], { encoding: "utf8" });
     expect(r.status).toBe(2);
-    expect(r.stderr).toContain("stage F1");
+    expect(r.stderr).toContain("stage F2");
+  });
+});
+
+// ===========================================================================
+// STAGE F2 (`D-423`) — disposable fixture targets only. Crash and live-owner
+// cases run `publish()` in a CHILD process so termination and liveness are
+// real, not simulated in-process.
+// ===========================================================================
+const F2 = join(TMP, "f2");
+mkdirSync(F2, { recursive: true });
+const MODULE_URL = pathToFileURL(join(REPO, "scripts", "graphify", "guarded-rebuild.mjs")).href;
+const CHILD = join(F2, "child.mjs");
+writeFileSync(CHILD, `
+const G = await import(${JSON.stringify(MODULE_URL)});
+const o = { sourceCommit: "x", ...JSON.parse(process.argv[2]) };
+const inject = {};
+if (o.failReceipt) inject.writeReceipt = () => { throw new Error("receipt disk full"); };
+const r = o.op === "recover" ? G.recover({ target: o.target, pauseAt: o.pauseAt, pauseMs: o.pauseMs }) : G.publish({ ...o, fixture: true, sourceCommit: "x", inject });
+process.stdout.write(JSON.stringify(r));
+`);
+const child = (o, { wait = true } = {}) => {
+  if (!wait) return spawn(process.execPath, [CHILD, JSON.stringify(o)], { stdio: ["ignore", "pipe", "pipe"] });
+  const r = spawnSync(process.execPath, [CHILD, JSON.stringify(o)], { encoding: "utf8", timeout: 120000 });
+  return { status: r.status, result: r.stdout ? JSON.parse(r.stdout) : null };
+};
+let n = 0;
+/** A fixture: a target state with a baseline, and a staging state with different reviewed bytes. */
+const fixture = () => {
+  const parent = join(F2, `fx${++n}`);
+  const target = join(parent, ".graphify");
+  const staging = join(parent, "staging");
+  mkdirSync(target, { recursive: true });
+  mkdirSync(staging, { recursive: true });
+  writeFileSync(join(target, "graph.json"), JSON.stringify({ v: "baseline", n }));
+  writeFileSync(join(target, "branch.json"), "{}");
+  writeFileSync(join(staging, "graph.json"), JSON.stringify({ v: "reviewed", n }));
+  writeFileSync(join(staging, "branch.json"), "{}");
+  const baseline = G.treeDigest(G.hashTree(target));
+  const reviewed = G.treeDigest(G.hashTree(staging));
+  return { parent, target, staging, baseline, reviewed, P: G.transactionPaths(target) };
+};
+const digest = (d) => G.treeDigest(G.hashTree(d));
+const SLOW = 120000;
+
+describe("F2 publication on fixture targets (steps 6–7)", () => {
+  test("refuses anything not declared a fixture, and the real live target even when declared", () => {
+    const f = fixture();
+    expect(G.publish({ target: f.target, staging: f.staging, reviewedManifest: f.reviewed }).outcome).toBe("refused");
+    const live = G.publish({ target: G.REAL_LIVE_TARGET, staging: f.staging, reviewedManifest: f.reviewed, fixture: true, sourceCommit: "x" });
+    expect(live.outcome).toBe("refused");
+    expect(live.reason).toContain("F3");
+  });
+
+  test("a valid run publishes exactly the reviewed bytes, writes a receipt, clears journal and lock", () => {
+    const f = fixture();
+    const r = G.publish({ target: f.target, staging: f.staging, reviewedManifest: f.reviewed, baselineManifest: f.baseline, fixture: true, sourceCommit: "x", acceptance: "fixture acceptance record — not a Lane B review" });
+    expect(r.outcome).toBe("released");
+    expect(digest(f.target)).toBe(f.reviewed);
+    expect(existsSync(f.P.journal) || existsSync(f.P.lock)).toBe(false);
+    expect(readdirSync(f.P.receipts).some((x) => x.startsWith("release-"))).toBe(true);
+    expect(digest(r.backup)).toBe(f.baseline);
+  }, SLOW);
+
+  test("staging that is not the reviewed bytes, or a changed baseline, is refused before any mutation", () => {
+    const f = fixture();
+    expect(G.publish({ target: f.target, staging: f.staging, reviewedManifest: "0".repeat(64), fixture: true, sourceCommit: "x" }).reason).toContain("reviewed manifest");
+    expect(G.publish({ target: f.target, staging: f.staging, reviewedManifest: f.reviewed, baselineManifest: "0".repeat(64), fixture: true, sourceCommit: "x" }).reason).toContain("changed since the baseline");
+    expect(digest(f.target)).toBe(f.baseline);
+    expect(existsSync(f.P.journal) || existsSync(f.P.lock)).toBe(false);
+  }, SLOW);
+
+  test("a held publication lock refuses a second publisher", () => {
+    const f = fixture();
+    writeFileSync(f.P.lock, JSON.stringify(G.ownerRecord("other-run")));
+    expect(G.publish({ target: f.target, staging: f.staging, reviewedManifest: f.reviewed, fixture: true, sourceCommit: "x" }).reason).toContain("lock is held");
+    expect(digest(f.target)).toBe(f.baseline);
+  }, SLOW);
+
+  test("an exception after mutation is rolled back by the OWNER, keeping its lock until done", () => {
+    const f = fixture();
+    const r = G.publish({ target: f.target, staging: f.staging, reviewedManifest: f.reviewed, fixture: true, sourceCommit: "x", inject: { renameNew: () => { throw new Error("sharing violation"); } } });
+    expect(r.outcome).toBe("rolled-back");
+    expect(r.recovery.outcome).toBe("restored");
+    expect(digest(f.target)).toBe(f.baseline);
+    expect(existsSync(f.P.journal) || existsSync(f.P.lock) || existsSync(f.P.recovery)).toBe(false);
+  }, SLOW);
+});
+
+describe("F2 termination at each boundary, then restart recovery (abrupt-termination boundary)", () => {
+  const cases = [
+    ["after-prepared", "aborted-live-unchanged", "baseline"],
+    ["after-rename-old", "restored", "baseline"],
+    ["after-old-moved", "restored", "baseline"],
+    ["after-rename-new", "rolled-back", "baseline"],
+    ["after-new-in-place", "rolled-back", "baseline"],
+    ["after-verified", "completed-release", "reviewed"],
+    ["after-receipt", "completed-release", "reviewed"],
+  ];
+  for (const [point, outcome, ends] of cases) {
+    test(`killed ${point}: the journal blocks health; a dead-owner recovery gives ${outcome}; a valid run follows`, () => {
+      const f = fixture();
+      const c = child({ target: f.target, staging: f.staging, reviewedManifest: f.reviewed, crashAt: point, sourceCommit: "x" });
+      expect(c.status).toBe(137);
+      expect(G.transactionFindings(f.target).length).toBe(1);
+      const r = G.recover({ target: f.target });
+      expect(r.outcome).toBe(outcome);
+      expect(digest(f.target)).toBe(ends === "baseline" ? f.baseline : f.reviewed);
+      expect(existsSync(f.P.journal) || existsSync(f.P.lock) || existsSync(f.P.recovery)).toBe(false);
+      expect(G.transactionFindings(f.target)).toEqual([]);
+      const s2 = join(f.parent, "staging2");
+      mkdirSync(s2);
+      writeFileSync(join(s2, "graph.json"), JSON.stringify({ v: "retry" }));
+      expect(G.publish({ target: f.target, staging: s2, reviewedManifest: digest(s2), fixture: true, sourceCommit: "x" }).outcome).toBe("released");
+    }, SLOW);
+  }
+});
+
+describe("F2 exclusive create under the RUNNING runtime (Bun 1.1.30 Windows defect, D-423)", () => {
+  test("createExclusive refuses an existing file and never overwrites it", () => {
+    const p = join(F2, "exclusive.lock");
+    writeFileSync(p, "first-owner");
+    expect(G.createExclusive(p, { runToken: "second" })).toBe(false);
+    expect(readFileSync(p, "utf8")).toBe("first-owner");
+    const q = join(F2, "fresh.lock");
+    expect(G.createExclusive(q, { runToken: "only" })).toBe(true);
+    expect(JSON.parse(readFileSync(q, "utf8")).runToken).toBe("only");
+  });
+});
+
+describe("F2 ownership: live owner, peers, concurrent recoverers", () => {
+  const waitFor = async (cond) => {
+    const deadline = Date.now() + 60000;
+    while (Date.now() < deadline && !cond()) await new Promise((r) => setTimeout(r, 200));
+  };
+  test("a peer is refused while the publishing owner is alive; the owner then completes", async () => {
+    const f = fixture();
+    const proc = child({ target: f.target, staging: f.staging, reviewedManifest: f.reviewed, pauseAt: "after-old-moved", pauseMs: 15000 }, { wait: false });
+    let out = "";
+    proc.stdout.on("data", (d) => (out += d));
+    await waitFor(() => G.readTransaction(f.P.journal).stage === "old-moved");
+    const r = G.recover({ target: f.target });
+    expect(r.outcome).toBe("refused");
+    expect(r.reason).toContain("owner is alive");
+    expect(existsSync(f.P.journal)).toBe(true);
+    await new Promise((done) => proc.on("exit", done));
+    expect(JSON.parse(out).outcome).toBe("released");
+    expect(digest(f.target)).toBe(f.reviewed);
+  }, SLOW);
+
+  test("two recoverers: the second is refused while the first holds the exclusive token", async () => {
+    const f = fixture();
+    expect(child({ target: f.target, staging: f.staging, reviewedManifest: f.reviewed, crashAt: "after-rename-old" }).status).toBe(137);
+    const first = child({ op: "recover", target: f.target, pauseAt: "after-token", pauseMs: 15000 }, { wait: false });
+    let out = "";
+    first.stdout.on("data", (d) => (out += d));
+    await waitFor(() => existsSync(f.P.recovery));
+    const second = G.recover({ target: f.target });
+    expect(second.outcome).toBe("refused");
+    expect(second.reason).toContain("recovery token is held");
+    await new Promise((done) => first.on("exit", done));
+    expect(JSON.parse(out).outcome).toBe("restored");
+    expect(digest(f.target)).toBe(f.baseline);
+  }, SLOW);
+
+  test("a failed restore keeps the journal (non-health); a later recovery succeeds", () => {
+    const f = fixture();
+    expect(child({ target: f.target, staging: f.staging, reviewedManifest: f.reviewed, crashAt: "after-rename-old" }).status).toBe(137);
+    const bad = G.recover({ target: f.target, inject: { restore: () => { throw new Error("access denied"); } } });
+    expect(bad.outcome).toBe("recovery-required");
+    expect(existsSync(f.P.journal)).toBe(true);
+    expect(G.transactionFindings(f.target).length).toBe(1);
+    expect(G.recover({ target: f.target }).outcome).toBe("restored");
+    expect(digest(f.target)).toBe(f.baseline);
+  }, SLOW);
+
+  test("a receipt failure at verified is recovery-required, then completed by recovery", () => {
+    const f = fixture();
+    const c = child({ target: f.target, staging: f.staging, reviewedManifest: f.reviewed, failReceipt: true });
+    expect(c.result.outcome).toBe("recovery-required");
+    expect(G.readTransaction(f.P.journal).stage).toBe("verified");
+    expect(G.recover({ target: f.target }).outcome).toBe("completed-release");
+    expect(digest(f.target)).toBe(f.reviewed);
+  }, SLOW);
+
+  test("a malformed journal, a lock without a journal, and an unknown owner each need evidenced recovery", () => {
+    const a = fixture();
+    writeFileSync(a.P.journal, "{not json");
+    expect(G.recover({ target: a.target }).outcome).toBe("recovery-required");
+    expect(existsSync(a.P.journal)).toBe(true);
+    const b = fixture();
+    writeFileSync(b.P.lock, JSON.stringify({ runToken: "r", pid: 999999, host: "elsewhere", start: "x" }));
+    expect(G.recover({ target: b.target }).outcome).toBe("recovery-required");
+    expect(existsSync(b.P.lock)).toBe(true);
+    const c = fixture();
+    writeFileSync(c.P.journal, JSON.stringify({ stage: "prepared", target: c.target, runToken: "r", sourceCommit: "x", backupManifest: c.baseline, reviewedManifest: c.reviewed }));
+    writeFileSync(c.P.lock, JSON.stringify({ runToken: "r", pid: 999999, host: "another-host", start: "x" }));
+    const r = G.recover({ target: c.target });
+    expect(r.outcome).toBe("recovery-required");
+    expect(r.reason).toContain("cannot be proved");
+  }, SLOW);
+});
+
+// --- generation and composition --------------------------------------------
+const tinyRepo = () => {
+  const d = join(F2, `repo${++n}`);
+  mkdirSync(d);
+  const g = (...a) => execFileSync("git", ["-C", d, ...a], { encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] });
+  g("init", "-q", "-b", "main");
+  g("config", "user.email", "t@example.test");
+  g("config", "user.name", "t");
+  writeFileSync(join(d, "a.txt"), "a");
+  g("add", ".");
+  g("commit", "-q", "-m", "one");
+  g("remote", "add", "origin", "https://github.com/example/fixture-repo.git");
+  g("tag", "t1");
+  return { d, g };
+};
+
+describe("F2 source snapshot and isolated checkout (R4/PC6)", () => {
+  test("detached HEAD and a dirty tree are refused; a ref or config change invalidates the snapshot", () => {
+    const { d, g } = tinyRepo();
+    const snap = G.snapshotSource(d);
+    expect(snap.ok).toBe(true);
+    expect(G.snapshotMatches(d, snap).ok).toBe(true);
+    g("tag", "t2");
+    expect(G.snapshotMatches(d, snap).reason).toContain("ref map");
+    g("tag", "-d", "t2");
+    g("config", "core.someflag", "1");
+    expect(G.snapshotMatches(d, snap).reason).toContain("config");
+    writeFileSync(join(d, "a.txt"), "dirty");
+    expect(G.snapshotSource(d).reason).toContain("not clean");
+    g("checkout", "-q", "--", "a.txt");
+    g("checkout", "-q", "--detach");
+    expect(G.snapshotSource(d).reason).toContain("detached");
+  }, SLOW);
+
+  test("the disposable checkout carries the caller's origin and exactly its ref map", () => {
+    const { d } = tinyRepo();
+    const snap = G.snapshotSource(d);
+    const out = join(F2, `co${n}`);
+    expect(G.prepareCheckout(d, snap, out).ok).toBe(true);
+    const got = G.snapshotSource(out);
+    expect(got.origin).toBe("https://github.com/example/fixture-repo.git");
+    expect(got.refs).toEqual(snap.refs);
+  }, SLOW);
+});
+
+describe("F2 generation refuses before rebinding (raw null, tool failure, no-op)", () => {
+  const setup = () => {
+    const { d } = tinyRepo();
+    const snap = G.snapshotSource(d);
+    const baseline = join(F2, `base${n}`);
+    mkdirSync(baseline);
+    writeFileSync(join(baseline, "graph.json"), JSON.stringify({ nodes: [] }));
+    return { d, snap, baseline, work: join(F2, `work${n}`) };
+  };
+  test("raw null metadata after the rebuild is refused, never rebound", () => {
+    const s = setup();
+    const tool = (cwd) => {
+      writeFileSync(join(cwd, ".graphify", "branch.json"), JSON.stringify({ schemaVersion: 1, branchName: null, lastSeenHead: null, lastAnalyzedHead: null, stale: false }));
+      writeFileSync(join(cwd, ".graphify", "worktree.json"), JSON.stringify({ schemaVersion: 1, gitDir: null, lastSeenHead: null, lastAnalyzedHead: null }));
+      return { code: 0, out: "Rebuilt: 1 nodes" };
+    };
+    const r = G.generateCandidate({ repo: s.d, snapshot: s.snap, baseline: s.baseline, work: s.work, tool });
+    expect(r.status).toBe("refused");
+    expect(r.reason).toContain("raw-null");
+  }, SLOW);
+
+  test("a tool failure (Git unavailable inside the tool) is refused", () => {
+    const s = setup();
+    const r = G.generateCandidate({ repo: s.d, snapshot: s.snap, baseline: s.baseline, work: s.work, tool: () => ({ code: 1, out: "fatal" }) });
+    expect(r.reason).toContain("tool failure at hook-rebuild");
+  }, SLOW);
+
+  test("a rebuild that writes nothing is a refused no-op, even with valid-looking metadata", () => {
+    const s = setup();
+    const checkout = join(s.work, "checkout");
+    const head = execFileSync("git", ["-C", s.d, "rev-parse", "HEAD"], { encoding: "utf8" }).trim();
+    writeFileSync(join(s.baseline, "branch.json"), JSON.stringify({ schemaVersion: 1, branchName: "main", lastSeenHead: head, lastAnalyzedHead: head, stale: false }));
+    writeFileSync(join(s.baseline, "worktree.json"), JSON.stringify({ schemaVersion: 1, worktreePath: checkout, gitDir: join(checkout, ".git"), commonGitDir: join(checkout, ".git"), lastSeenHead: head, lastAnalyzedHead: head }));
+    const r = G.generateCandidate({ repo: s.d, snapshot: s.snap, baseline: s.baseline, work: s.work, tool: () => ({ code: 0, out: "Code graph updated." }) });
+    expect(r.reason).toContain("no-op");
+  }, SLOW);
+});
+
+describe("F2 composition (step 4): refuses rather than repairs; frozen bytes are reproducible", () => {
+  const head = "693a6a79e5ef7b8e1334881ce629017d80ba1250";
+  const caller = { head, branch: "features/feature-V1-SM05", rootNative: "C:\\robertaoai\\my-editorial-app", gitDirNative: "C:\\robertaoai\\my-editorial-app\\.git" };
+  const build = (mut = () => {}) => {
+    const root = join(F2, `cmp${++n}`);
+    const cand = join(root, "cand"), base = join(root, "base"), frags = join(root, "frags");
+    for (const d of [cand, base, frags, join(base, "cache")]) mkdirSync(d, { recursive: true });
+    const graph = { nodes: [{ id: "a", label: "A", community: 0, community_name: "Group A" }], links: [], community_labels: { 0: "Group A" } };
+    writeFileSync(join(cand, "graph.json"), JSON.stringify(graph));
+    writeFileSync(join(cand, "branch.json"), JSON.stringify({ schemaVersion: 1, branchName: caller.branch, lastSeenHead: head, lastAnalyzedHead: head, stale: false, worktreePath: "C:/CoWork/outputs/x/checkout" }));
+    writeFileSync(join(cand, "worktree.json"), JSON.stringify({ schemaVersion: 1, worktreePath: "C:/CoWork/outputs/x/checkout", gitDir: "C:/CoWork/outputs/x/checkout/.git", lastSeenHead: head, lastAnalyzedHead: head }));
+    writeFileSync(join(base, "branch.json"), JSON.stringify({ firstSeenHead: "f".repeat(40), createdAt: "2026-08-17T00:00:00.000Z" }));
+    writeFileSync(join(base, "worktree.json"), JSON.stringify({ firstSeenHead: "f".repeat(40), createdAt: "2026-08-17T00:00:00.000Z" }));
+    writeFileSync(join(base, "cache", "ast.json"), "{\"p\":\"C:/CoWork/outputs/old\"}");
+    writeFileSync(join(frags, "frag1.json"), JSON.stringify({ nodes: [{ id: "a", label: "A" }], edges: [] }));
+    mut({ cand, base, frags });
+    return { cand, base, frags, staging: join(root, "staging") };
+  };
+  const compose = (b, frozenAt = "2026-10-06T00:00:00.000Z") => G.composeCandidate({ candidateState: b.cand, baseline: b.base, staging: b.staging, caller, frozenAt, fragmentsDir: b.frags });
+
+  test("a valid candidate composes: caller identity rebound, heads kept, provenance retained, disposable paths gone", () => {
+    const b = build();
+    const r = compose(b);
+    expect(r.ok).toBe(true);
+    const br = JSON.parse(readFileSync(join(b.staging, "branch.json"), "utf8"));
+    expect(br.worktreePath).toBe(caller.rootNative);
+    expect(br.lastAnalyzedHead).toBe(head);
+    expect(br.firstSeenHead).toBe("f".repeat(40));
+    expect(br.updatedAt).toBe("2026-10-06T00:00:00.000Z");
+    expect(existsSync(join(b.staging, "cache", "ast.json"))).toBe(true); // retained from the caller, not the candidate
+  });
+
+  test("identical inputs and frozen time give an identical manifest", () => {
+    expect(compose(build()).manifest).toBe(compose(build()).manifest);
+  });
+
+  test("an unclassified file, a pending semantic file, a fragment-field mismatch or a name mismatch is refused", () => {
+    expect(compose(build(({ cand }) => writeFileSync(join(cand, "surprise.bin"), "x"))).findings[0]).toContain("unclassified");
+    expect(compose(build(({ cand }) => { mkdirSync(join(cand, "label-instructions")); writeFileSync(join(cand, "label-instructions", "communities.json"), "{}"); })).findings[0]).toContain("pending semantic");
+    expect(compose(build(({ frags }) => writeFileSync(join(frags, "frag2.json"), JSON.stringify({ nodes: [{ id: "a", label: "Different" }], edges: [] })))).findings[0]).toContain("fragment parity");
+    expect(compose(build(({ cand }) => writeFileSync(join(cand, "graph.json"), JSON.stringify({ nodes: [{ id: "a", label: "A", community: 0, community_name: "Wrong" }], links: [], community_labels: { 0: "Group A" } })))).findings.join(" ")).toContain("community_name");
+  });
+
+  test("raw null in the candidate is refused before any rebinding", () => {
+    const r = compose(build(({ cand }) => writeFileSync(join(cand, "branch.json"), JSON.stringify({ schemaVersion: 1, branchName: null, lastSeenHead: null, lastAnalyzedHead: null, stale: false }))));
+    expect(r.ok).toBe(false);
+    expect(r.findings.join(" ")).toContain("raw");
+  });
+
+  test("a disposable path in a promoted file is refused", () => {
+    const r = compose(build(({ cand }) => writeFileSync(join(cand, "scope.json"), JSON.stringify({ root: "C:/CoWork/outputs/x/checkout" }))));
+    expect(r.ok).toBe(false);
+    expect(r.findings[0]).toContain("foreign path in scope.json");
   });
 });
