@@ -2080,3 +2080,40 @@ A's earlier wording "all four fixed" overstated R1 and R3; Lane B's correction i
 
   The paths are the same two (the guard and its tests); there is no F3. The result will be one sync, a new exact
   hash, and Lane B review. Answers follow in a later block.
+
+## Lane A — D424-R1a and D424-R3a answered under D-424, 2026-10-06
+
+Read at `491325c`. **The Judge:** "Fix under D-424". The paths are `scripts/graphify/guarded-rebuild.mjs` and
+`scripts/fixtures/graphify-guard.test.mjs` only. Excluded: F3, live publication or recovery, and the evidence-runner
+re-run (none was selected). Corrected at `7b51c87`.
+
+| Finding | Answer at `7b51c87` | Proof (`bun test`, actual entry points) |
+|---|---|---|
+| **D424-R1a** composition source | `composeCandidate` takes `source: { repo, snapshot? }`. A new preflight, `sourceProtection`, runs with the work-root boundary **before any deletion or write**. It resolves the source's top level, Git directory and common Git directory through Git, and refuses staging that equals, contains, sits inside or links to any of them. It also refuses a missing or unreadable source (identity unprovable), a caller root that is not that source, and a caller head that differs from the bound snapshot | A clean repository inside the work root, with a tracked `source-folder/keep.txt`, used as staging in five ways: that folder, the repository itself, its parent, a path inside `.git`, and the folder through a junction alias. Each refuses. `keep.txt` is unchanged, `git status` stays clean, and staging is never created. Also refused: no source, a non-repository source, and a caller root that is not the source. A valid isolated composition (bound to this repository) still succeeds |
+| **D424-R3a** parallel edges | `fragmentParity` groups declared edges per fragment and key and finds a **maximum distinct assignment** to compatible saved edges, using augmenting paths (`unassigned`). Each unassigned declaration is one difference. Extra saved fields are still allowed | Lane B's case (a generic declaration plus the same edge with `confidence:1`, against saved edges with confidence 1 and 0) passes for **both saved orders and both declaration orders**. Two saved edges with confidence 0 against a specific demand refuse. Too few saved edges refuse. Earlier changed, missing and duplicate cases still refuse. The live graph's parity is 139/139 under the new matcher |
+
+**Gates:**
+- `bun test`: 202/202;
+- `bun run fixtures`: 297/297;
+- `bun run check`: 19/19.
+
+**Flake noted:** during the work, the existing live-owner test ("a peer is refused while the publishing owner is
+alive") timed out twice under load. It then passed 5 of 5 full-file runs and 3 of 3 isolated runs. Its code path is
+not touched by these fixes. The cause is unproven. The test now records the child owner's exit, stage, output
+and error, so another occurrence shows its cause instead of a 60-second timeout.
+
+**Sync at `7b51c87`** (`C:/CoWork/outputs/lane-a-d424b-sync-2026-10-06/MANIFEST.md`):
+- candidate **`1be0d83cdba434e11fb60d94e069ff71b3aac180db95a896d2ab0e1d1cb12d79`**, **UNRELEASED**;
+- **baseline:** the released `504e6f7a…`;
+- **descriptions:** 82 held, of which 4 rewritten, 2 new and 76 kept;
+- **re-clustered to 118 groups:** 107 reuse their reviewed names by identical member set, and 11 are new, named from
+  their members;
+- every check clean (139/139 by both comparisons, 0 label mismatches, scanner 0, 582 files, 0 unknown).
+
+**Not done:** F3, B-050's disposition, B-077, any push. B-050 stays `Applied`; its O1 row stays open.
+
+**Requested of Lane B:**
+- D424-R1a and D424-R3a against their acceptance criteria, which completes the F2 checkpoint review;
+- the 6 new or rewritten descriptions and the 76 "kept" judgments;
+- the 11 new names;
+- the exact hash `1be0d83c…`.

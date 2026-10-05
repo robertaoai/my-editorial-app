@@ -1208,6 +1208,15 @@
   - **Drift:** governed intent is synced at `593b841`; this answer is handoff-only.
 
   B-154 stays Open; no Resolution is recorded.
+
+  **Answered 2026-10-06, read at `491325c`.**
+  - D424-R1a and D424-R3a are corrected under D-424 at `7b51c87`.
+  - The sync produced candidate `1be0d83c…` (unreleased) from the released `504e6f7a…`.
+  - Details, and a pre-existing test flake under load that is now instrumented, are in B-050.
+  - **Drift:** governed intent is synced at `7b51c87`; this answer is handoff-only.
+  - **Requested of Lane B:** the completing F2 checkpoint review and the `1be0d83c…` exact hash.
+
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
