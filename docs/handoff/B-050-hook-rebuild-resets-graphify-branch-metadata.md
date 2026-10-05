@@ -451,3 +451,34 @@ In chat to Lane A, on Lane B's docket (B-154 `6a1693d`), to be registered in the
   stays visible. Executing the repair needs its own work order.
 
 B-050 stays `Applied`.
+
+## Conforming re-run — result, 2026-10-05 (Judge choice A)
+
+Run under the pinned contract, unchanged; read at `c596d0e`. Evidence:
+`C:/CoWork/outputs/b050-null-reset-diagnostic-2026-10-05/rerun-2/` (`run2.mjs`, `RESULTS.json`, and per-rebuild folders
+`01`–`06`, each with `before/` and `after/` bundles: `branch.json`, `worktree.json`, `state-status.txt`,
+`check-update.txt`, and `git-context-run-env.json` in the rebuild's own environment). The pins matched. There were 6
+rebuilds in 3.7 minutes, and **every caller invariant held**: HEAD, status and index tree, and the live `.graphify`
+hash.
+
+| # | Case | Result |
+|---|---|---|
+| 1–2 | Positive control, valid context | **Pass:** `diag`; `lastSeenHead` = `lastAnalyzedHead` = `1c9d59e` |
+| 3–5 | Repeats, valid context | 0 null transitions |
+| 6 | Git not on `PATH` (synthetic) | Git context `ENOENT` for every query. Rebuild **exit 0**; `branch.json` all three fields null with `stale: false`, and `worktree.json` `gitDir`/`lastSeenHead`/`lastAnalyzedHead` null. **First null transition: stopped here** |
+
+**Conformance.**
+- The run stopped at the first null transition. `clone-01` and its `.graphify` are preserved: the saved after-copy and
+  the live clone file are identical, down to `updatedAt`.
+- Case `4b` (misbound `GIT_DIR`) was not run, because the stop rule ended the run. Its result stands only from run 1,
+  with that run's recorded deviations.
+
+**Disclosed limits.**
+- On a fresh clone, the first bundle's `state status`/`check-update` created an initial never-analyzed record before
+  rebuild 1. Rebuild 1's "before" reflects that, not a prior analysis.
+- `check-update` and `state status`, run in the normal environment, are read-side calls. After rebuild 6 they did not
+  alter the null record. **`check-update` does not report the null heads; it reports only pending semantics.** It cannot
+  serve as the detector; the `docs-drift` G97 branch remains the detector.
+
+**Outcome: reproduced mechanism, conforming.** The scope is unchanged: two controlled context failures. The original
+August trigger is not attributed. B-050 stays `Applied`; prevention follows Judge choice B.
