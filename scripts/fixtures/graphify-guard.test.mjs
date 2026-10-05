@@ -1,7 +1,7 @@
 // `B-050` stages F1 (`D-418`–`D-421`) and F2 (`D-423`, corrected by `D-424`) —
 // the intended-case proof for the guarded-rebuild validators, the `docs-drift`
 // journal check, and F2's generation, composition, fixture-only publication
-// and owned recovery. Every case names the boundary it must reach. A passing
+// and owned recovery. Every case names the boundary it must reach, including D424-R1a and D424-R3a. A passing
 // run is not live publication (F3), prevention or B-050 closure. All
 // filesystem cases run in a disposable temp directory; nothing here opens the
 // live `.graphify` state for writing (the `D-424` cases only read it, or link to it).
@@ -435,14 +435,18 @@ describe("F2 ownership: live owner, peers, concurrent recoverers", () => {
   test("a peer is refused while the publishing owner is alive; the owner then completes", async () => {
     const f = fixture();
     const proc = child({ target: f.target, staging: f.staging, reviewedManifest: f.reviewed, pauseAt: "after-old-moved", pauseMs: 15000 }, { wait: false });
-    let out = "";
+    let out = "", err = "", exited = false;
     proc.stdout.on("data", (d) => (out += d));
-    await waitFor(() => G.readTransaction(f.P.journal).stage === "old-moved");
+    proc.stderr.on("data", (d) => (err += d));
+    const ended = new Promise((done) => proc.on("exit", () => done((exited = true))));
+    await waitFor(() => exited || G.readTransaction(f.P.journal).stage === "old-moved");
+    // An owner that exits or never reaches the paused stage is reported with its own output.
+    expect({ exited, stage: G.readTransaction(f.P.journal).stage, out, err: err.slice(-500) }).toEqual({ exited: false, stage: "old-moved", out: "", err: "" });
     const r = G.recover({ target: f.target, fixture: f.parent });
     expect(r.outcome).toBe("refused");
     expect(r.reason).toContain("owner is alive");
     expect(existsSync(f.P.journal)).toBe(true);
-    await new Promise((done) => proc.on("exit", done));
+    await ended;
     expect(JSON.parse(out).outcome).toBe("released");
     expect(digest(f.target)).toBe(f.reviewed);
   }, SLOW);
@@ -618,7 +622,7 @@ describe("F2 composition (step 4): refuses rather than repairs; frozen bytes are
     mut({ cand, base, frags });
     return { root, cand, base, frags, staging: join(root, "staging") };
   };
-  const compose = (b, frozenAt = "2026-10-06T00:00:00.000Z") => G.composeCandidate({ candidateState: b.cand, baseline: b.base, staging: b.staging, workRoot: b.root, caller, frozenAt, fragmentsDir: b.frags });
+  const compose = (b, frozenAt = "2026-10-06T00:00:00.000Z") => G.composeCandidate({ candidateState: b.cand, baseline: b.base, staging: b.staging, workRoot: b.root, source: { repo: REPO }, caller, frozenAt, fragmentsDir: b.frags });
 
   test("a valid candidate composes: caller identity rebound, heads kept, provenance retained, disposable paths gone", () => {
     const b = build();
@@ -642,6 +646,35 @@ describe("F2 composition (step 4): refuses rather than repairs; frozen bytes are
     expect(compose(build(({ frags }) => writeFileSync(join(frags, "frag2.json"), JSON.stringify({ nodes: [{ id: "a", label: "Different" }], edges: [] })))).findings[0]).toContain("fragment parity");
     expect(compose(build(({ cand }) => writeFileSync(join(cand, "graph.json"), JSON.stringify({ nodes: [{ id: "a", label: "A", community: 0, community_name: "Wrong" }], links: [], community_labels: { 0: "Group A" } })))).findings.join(" ")).toContain("community_name");
   });
+
+  test("D424-R1a: staging equal to, inside, above or linked to the bound source refuses before any write", () => {
+    const b = build();
+    const outer = join(b.root, "outer");
+    const repo = join(outer, "repo");
+    mkdirSync(join(repo, "source-folder"), { recursive: true });
+    const g = (...a) => execFileSync("git", ["-C", repo, ...a], { encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] });
+    g("init", "-q", "-b", "main");
+    g("config", "user.email", "t@example.test");
+    g("config", "user.name", "t");
+    writeFileSync(join(repo, "source-folder", "keep.txt"), "keep");
+    g("add", ".");
+    g("commit", "-q", "-m", "one");
+    const link = join(b.root, "alias");
+    symlinkSync(repo, link, "junction");
+    const who = { ...caller, rootNative: repo, gitDirNative: join(repo, ".git") };
+    const run = (staging, source = { repo }) => G.composeCandidate({ candidateState: b.cand, baseline: b.base, staging, workRoot: b.root, source, caller: who, frozenAt: "x", fragmentsDir: b.frags });
+    for (const [staging, role] of [[join(repo, "source-folder"), "source repository"], [repo, "source repository"], [outer, "source repository"], [join(repo, ".git", "x"), "source Git directory"], [join(link, "source-folder"), "source repository"]]) {
+      const r = run(staging);
+      expect(r.ok).toBe(false);
+      expect(r.findings.join(" ")).toContain(`disjoint from the ${role}`);
+    }
+    expect(readFileSync(join(repo, "source-folder", "keep.txt"), "utf8")).toBe("keep");
+    expect(g("status", "--porcelain")).toBe("");
+    expect(run(b.staging, null).findings[0]).toContain("bound source repository is required");
+    expect(run(b.staging, { repo: b.base }).findings[0]).toContain("unavailable");
+    expect(G.composeCandidate({ candidateState: b.cand, baseline: b.base, staging: b.staging, workRoot: b.root, source: { repo }, caller, frozenAt: "x", fragmentsDir: b.frags }).findings[0]).toContain("caller root is not the bound source");
+    expect(existsSync(b.staging)).toBe(false);
+  }, SLOW);
 
   test("raw null in the candidate is refused before any rebinding", () => {
     const r = compose(build(({ cand }) => writeFileSync(join(cand, "branch.json"), JSON.stringify({ schemaVersion: 1, branchName: null, lastSeenHead: null, lastAnalyzedHead: null, stale: false }))));
@@ -755,6 +788,17 @@ describe("D-424 R3: every declared edge field is compared", () => {
     expect(setup(two, two).exact).toBe(1);
     expect(setup([e()], two).diffs.length).toBe(1);
     expect(setup([e()], [e(), e()]).diffs.length).toBe(1);
+  });
+  test("D424-R3a: a complete assignment is found whatever the order; insufficient or changed edges still refuse", () => {
+    const gen = { source: "a", target: "b", relation: "r" };
+    const spec = { ...gen, confidence: 1 };
+    for (const saved of [[{ ...gen, confidence: 1 }, { ...gen, confidence: 0 }], [{ ...gen, confidence: 0 }, { ...gen, confidence: 1 }]]) {
+      expect(setup(saved, [gen, spec]).exact).toBe(1);
+      expect(setup(saved, [spec, gen]).exact).toBe(1);
+    }
+    expect(setup([{ ...gen, confidence: 0 }, { ...gen, confidence: 0 }], [gen, spec]).diffs[0]).toContain("edge fields differ");
+    expect(setup([{ ...gen, confidence: 1 }], [gen, spec]).diffs.length).toBe(1);
+    expect(G.unassigned([1, 2], [2, 1], (d, s) => d <= s)).toEqual([]);
   });
 });
 

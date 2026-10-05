@@ -29,7 +29,9 @@
 // THE F2 CORRECTIONS (`D-424`). One fixture boundary (`fixtureBoundary`) runs
 // before any write in `publish`, `recover` and `composeCandidate`; supplied
 // community names bind by member-set hash only; fragment parity compares every
-// declared edge field; `publish` re-checks the source snapshot under its lock;
+// declared edge field, by complete order-independent assignment; composition
+// protects the bound source repository before any write; `publish` re-checks
+// the source snapshot under its lock;
 // a prior description is replayed only for a symbol whose source file is
 // unchanged since the baseline's analyzed commit.
 //
@@ -1004,8 +1006,27 @@ export function proposeNames(state, baselineGraph, answers) {
 /** Key-order-independent JSON, so nested metadata compares by content. */
 const stable = (v) => JSON.stringify(v, (_, x) => (x && typeof x === "object" && !Array.isArray(x) ? Object.fromEntries(Object.entries(x).sort(([a], [b]) => (a < b ? -1 : 1))) : x));
 
+/** Indexes of demands left unassigned by a maximum one-to-one assignment to compatible supplies
+ * (augmenting paths), so the result never depends on the order of either list. */
+export function unassigned(demands, supplies, compatible) {
+  const owner = new Array(supplies.length).fill(-1);
+  const place = (i, seen) => {
+    for (let j = 0; j < supplies.length; j++) {
+      if (seen[j] || !compatible(demands[i], supplies[j])) continue;
+      seen[j] = true;
+      if (owner[j] < 0 || place(owner[j], seen)) {
+        owner[j] = i;
+        return true;
+      }
+    }
+    return false;
+  };
+  return demands.map((_, i) => i).filter((i) => !place(i, new Array(supplies.length).fill(false)));
+}
+
 /** Every fragment-declared node field and every declared edge field (`D-424` R3), compared with a saved graph.
- * Parallel relations are matched by their declared content, each saved edge used once per fragment. */
+ * Parallel relations need a complete distinct assignment of declared edges to compatible saved edges per
+ * fragment and key (D424-R3a): order-independent, each saved edge used once. */
 export function fragmentParity(graph, fragmentsDir) {
   const byId = new Map(graph.nodes.map((n) => [n.id, n]));
   const end = (x) => (x && typeof x === "object" ? x.id : x);
@@ -1028,12 +1049,17 @@ export function fragmentParity(graph, fragmentsDir) {
       if (!s) { res.diffs.push(`${f}: missing node ${n.id}`); ok = false; continue; }
       for (const [k, v] of Object.entries(n)) if (JSON.stringify(s[k]) !== JSON.stringify(v)) { res.diffs.push(`${f}: ${n.id}.${k}`); ok = false; }
     }
-    const used = new Set();
+    const demands = new Map();
     for (const e of frag.edges || []) {
-      const same = links.get(key(e)) || [];
-      const hit = same.find((l) => !used.has(l) && declaredIn(e, l));
-      if (hit) used.add(hit);
-      else { res.diffs.push(`${f}: ${same.length ? "edge fields differ on" : "missing edge"} ${key(e)}`); ok = false; }
+      if (!demands.has(key(e))) demands.set(key(e), []);
+      demands.get(key(e)).push(e);
+    }
+    for (const [k, want] of demands) {
+      const same = links.get(k) || [];
+      for (const _ of unassigned(want, same, declaredIn)) {
+        res.diffs.push(`${f}: ${same.length ? "edge fields differ on" : "missing edge"} ${k}`);
+        ok = false;
+      }
     }
     if (ok) res.exact++;
   }
@@ -1057,14 +1083,39 @@ export function nameBinding(graph) {
 }
 
 /**
+ * D424-R1a: the bound source repository, its Git directory and its common Git directory are protected
+ * before any deletion or write. Staging must be disjoint from each; the source must be readable and must be
+ * the caller whose identity is rebound. Returns findings.
+ */
+export function sourceProtection(source, staging, caller = {}) {
+  if (!source?.repo) return ["a bound source repository is required: composition protects it before any write"];
+  let roots;
+  try {
+    roots = {
+      "source repository": git(source.repo, ["rev-parse", "--show-toplevel"]),
+      "source Git directory": resolve(source.repo, git(source.repo, ["rev-parse", "--git-dir"])),
+      "source common Git directory": resolve(source.repo, git(source.repo, ["rev-parse", "--git-common-dir"])),
+    };
+  } catch {
+    return [`the source repository ${source.repo} is unavailable: its identity cannot be proved`];
+  }
+  const findings = [];
+  for (const [role, p] of Object.entries(roots)) if (!disjoint(staging, p)) findings.push(`staging must be disjoint from the ${role}`);
+  if (caller.rootNative && canonicalFsPath(caller.rootNative) !== canonicalFsPath(roots["source repository"])) findings.push("the caller root is not the bound source repository");
+  if (source.snapshot?.head && caller.head && source.snapshot.head !== caller.head) findings.push("the caller head is not the bound source snapshot's HEAD");
+  return findings;
+}
+
+/**
  * Composes the staging state: retained bytes from the baseline, promoted bytes
  * from the candidate, and branch/worktree rebound under R2 to the caller. Every
  * check refuses rather than repairs. Returns the reviewed-manifest identity.
  */
-export function composeCandidate({ candidateState, baseline, staging, workRoot, caller, frozenAt, fragmentsDir }) {
+export function composeCandidate({ candidateState, baseline, staging, workRoot, source, caller, frozenAt, fragmentsDir }) {
   const outside = fixtureBoundary(workRoot, { staging });
   if (!disjoint(staging, candidateState)) outside.push("staging must be disjoint from the candidate state");
   if (!disjoint(staging, baseline)) outside.push("staging must be disjoint from the baseline");
+  outside.push(...sourceProtection(source, staging, caller));
   if (outside.length) return { ok: false, findings: outside };
   const findings = [];
   const { entries, unknown, multi } = classifyState(candidateState);
