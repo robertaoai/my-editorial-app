@@ -461,3 +461,61 @@ source, application file, workflow, lane state, remote object or Graphify artifa
 | **Reject** | Assigning the new v1 template retroactively to `SV-001` or storing results in the template | `SV-001` is a retrospective legacy wrapper; results belong only to immutable attempt records |
 | **Reject** | Tool/model descriptions as tracking authority or pre-approved dependencies | Agent dialogue is provenance; `ripwire`, root `GEMINI.md` and prompt-size remedies require evidence and separate decisions |
 | **Reject** | Duplicate `C-011`, master ledger, preassigned decision identity, fixed Open-handoff list or persisted check tally | Reuse this docket, allocate live and let canonical files and the runner own current state |
+
+## Lane A draft — `SV2-DOD-01`/`-02` evidence index for P15, 2026-10-05 (`D-418` item 3)
+
+Read at `296a47b`. The Judge directed Lane A to assemble this index now (`D-418` item 3); `SV2-U03` stays unselected.
+**This is a draft for Lane B's review, not a checked box.** P15 clears only by the Judge's act at `SV2-DOD-06`
+(`D-382` item 6). The prospective reason (B-154 `9f8a872` D1) is held for that act. Assembling the index exposed
+two gaps, marked **GAP**.
+
+### `SV2-DOD-01` — governance applied (`SV2-U01`)
+
+| Criterion (`SV-002` §7, §3 U01) | Evidence, pinned | State |
+|---|---|---|
+| `SV2-U01` committed | `10ec465` (`D-264`), with its `D-54` propagation | Met |
+| Checks pass | `bun run check` 19/19 at `296a47b`; fixtures 297/297 at `296a47b` | Met at the current revision |
+| Graph current | Governed intent synced at `296a47b` (D-418 candidate `62baf295…`, **unreleased** pending Lane B's review) | Met once that candidate is released |
+| Independent reviewer confirms only the intended status changes (`D-264`: no DoR/DoD, lane, construction or deployment authority moved) | **GAP: none exists.** `D-266` item 5 recorded "`SV2-DOD-01` waits for an independent review of `SV2-U01` (`10ec465`)". No later handoff performs it: `B-137`, `B-139` and `B-150` cite `10ec465` for other purposes | **Not met** |
+
+**Draft fix:** Lane B independently reviews the `10ec465` diff against `SV-002` §3 `SV2-U01`'s acceptance, and records
+the result in this entry or its own one-path commit.
+
+### `SV2-DOD-02` — coverage, item drift and success drift
+
+| Criterion | Evidence, pinned | State |
+|---|---|---|
+| Every ledger row proven or retained with owner, receipt and return | `SV-002` §2.3.1 derived at `3488206` (`D-418`): 106 rows, **6 non-SM05 open**, 0 SM05 unreceived, 0 unlisted. Each open row has a named owner and return, listed below | Met for "retained", if the Judge accepts these six as retained (see the decision note) |
+| Every scope dispositioned | §2 scopes and the §2.3.2 keyed ledger (158 transactions; child census `D-384`/`D-385`); `GOV-RES-001` `GR-001`–`GR-021` receipts | Draft: met, pending Lane B's re-read of §2 |
+| Every success-drift dimension classified (§5) | **GAP: all six dimensions still read *at DoD*.** Proposed classifications below | **Not met** until §5 is classified |
+
+**The six open rows, each with owner and return:**
+
+| Row | Owner | Return / clearing act |
+|---|---|---|
+| `B-050` (O1) | Lane A, under the `D-418` F1 work order | F1→F2→F3 accepted, then B-050's own disposition |
+| `B-136 (P15)` (O1) | The Judge | The `SV2-DOD-06` act |
+| `B-077` (O4) | `GR-007`; Lane B as reviewer | B-050's disposition, then the final review (local commits, `SC8` query) |
+| `B-150`, `B-153`, `B-154` (O0) | Independent actors and the Judge | Each parent's own disposition after its children, then GR-007 F |
+
+**Proposed §5 classifications, for Lane B review** (vocabulary as in §4: Met / Not met, with the reason):
+
+| Dimension | Proposed | Basis |
+|---|---|---|
+| Scope coverage | Met | §2 indexes the coverage scopes with exclusions; the `D-384`/`D-385` census is complete |
+| Transfer completeness | Met, with the six retained rows above | `GR-001`–`GR-021` give each received residual an owner, hold, trigger and completion; tracker rows are each closed, received or retained |
+| Evidence strength | **Not met** | `SV2-U01` is not independently reviewed (the GAP above); `SV2-U03` has no run |
+| Blocker disposition | **Not met** | `U01` lacks its review and `U03` is unrun; `U02` (`D-362`) and `U04` (`D-289`) are met |
+| Gate result | Met so far | `V1-SM05` stays `BLOCKED`; no selection or closure was made while items were unresolved |
+| Discovery timing | Met so far | Gaps surfaced inside `SV-002` before any lift: the B-050 null write, the PC6 identity defect, and the DOD-01 review gap found here |
+
+**Decision note.** "Retained with owner, receipt and return" is `SV-002`'s own wording for `DOD-02`. Whether open O0
+parents and P15 itself count as "retained" for `DOD-02` is the Judge's reading at `SV2-DOD-06`. This draft does not
+decide it.
+
+**Requested of Lane B:**
+- (1) the `SV2-U01` independent review (`10ec465`);
+- (2) a review of this index and the proposed §5 classifications.
+
+Applying the §5 classifications and checking any box are governed edits for a later act. `B-136` stays Open; P15 stays
+open.
