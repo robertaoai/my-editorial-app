@@ -482,3 +482,68 @@ hash.
 
 **Outcome: reproduced mechanism, conforming.** The scope is unchanged: two controlled context failures. The original
 August trigger is not attributed. B-050 stays `Applied`; prevention follows Judge choice B.
+
+## Draft prevention contract — repository procedure (Judge choice B; `D-417` item 4), 2026-10-05
+
+**A draft for Lane B's review and a later work order. Nothing here is built.** It follows Lane B's specification in
+B-154 (`6a1693d`). Its protection boundary: it protects **only** the guarded procedure below. A raw
+`graphify hook-rebuild` still reproduces the null write, and that external defect stays recorded.
+
+**Proposed write set:**
+- `scripts/graphify/guarded-rebuild.mjs` — the procedure;
+- `scripts/fixtures/graphify-guard.test.mjs` — the cases;
+- `.claude/skills/sync-docs/SKILL.md` §7 and `docs/graph-fragments/README.md` §5 — invoke the guarded procedure in
+  place of the raw rebuild.
+
+No dependency or build-config change. More paths mean a revised proposal before execution.
+
+**Procedure:**
+1. **Pin and check context.** Pin the tool (`@sentropic/graphify` 0.17.1 and its three `dist/` hashes), the source
+   commit and the expected repository root.
+   - **Mandatory:** `HEAD`, `--show-toplevel`, `--absolute-git-dir` and `--git-common-dir` resolve, and the root
+     matches.
+   - **Branch mode:** a named branch is required; a detached HEAD is refused, as a declared mode and not as the
+     reset.
+   - **Optional:** a missing upstream is recorded and is not a failure.
+   - The released state root is resolved through the `.graphify` link. A candidate root that resolves to it, or
+     inside it, is refused.
+   - This preflight is an early refusal only, not the protection.
+2. **Build the candidate in isolation.** Copy the released state to a disposable candidate root. Run the rebuild
+   there against a disposable clone at the pinned commit. Then restore the docs layer, the ordered curated merge,
+   `fill-missing`, the description replay and the label procedure (D-409/D-410), all in the candidate. Failure
+   evidence is preserved, and the released state is never touched in this step.
+3. **Validate the candidate, which is the protection.** The candidate must show all of these, or it is rejected:
+   - `branch.json` and `worktree.json` heads non-null, equal to the pinned commit, and `stale: false`;
+   - `branchName` equal to the expected branch;
+   - 139/139 fragment parity;
+   - `check-update` current, or its semantic bound stated;
+   - member and label binding.
+
+   A Git failure **inside** the tool after the preflight passed yields nulls in the candidate, which this rule
+   rejects.
+4. **Rebind and promote, or keep the old state.** The clone's identity is not carried over: `worktreePath`, `gitDir`
+   and `commonGitDir` are rewritten to the caller's resolved values and re-validated.
+   - Recheck the caller's HEAD and root, then take a lock file in the state parent; a held lock refuses a concurrent
+     run.
+   - Back up the released state with a hash manifest, then swap the full state (graph, report, `branch.json`,
+     `worktree.json`) by directory rename, with no partial copy.
+   - Re-hash after promotion. Any failure restores the full backup and fails the run, and is never reported as
+     healthy.
+   - Release still needs Lane B's independent review (D-409/D-410).
+5. **DoD.** Lane B's independent proof that the selected procedure protects, through the cases below. Then a
+   source-specific B-050 disposition under this scope, by a named act. No passing case closes the universal
+   criterion.
+
+**Cases** (each injection labelled synthetic; before/after state hashes and the full context bundle for every case):
+
+| Case | Required result |
+|---|---|
+| Valid context at the pinned commit | Candidate valid, promoted, heads bound, parity 139/139 |
+| Git absent, or `GIT_DIR` misbound, at preflight | Refused before the candidate; released hashes unchanged |
+| Git fails only inside the tool, after the preflight passed (synthetic shim on the child's `PATH`) | Candidate rejected at step 3; released hashes unchanged; no healthy report |
+| Wrong HEAD or root, or a candidate root aliasing released state | Refused before any mutation |
+| Detached HEAD; no upstream | Detached: refused as a declared mode. No upstream: proceeds, recorded |
+| Promotion fails mid-swap (synthetic); lock held | Full backup restored and the run fails; a held lock refuses |
+| Valid run after a refused run | Reaches the success route without relying on earlier cleanup |
+
+B-050 stays `Applied` and its O1 row stays open.
