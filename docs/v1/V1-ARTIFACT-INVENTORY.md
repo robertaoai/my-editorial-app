@@ -557,6 +557,8 @@ and its test. The README §4 and sync-docs §7 change in place.
 **`D-423` (2026-10-06) — no file added or retired, stated explicitly.** The two prune files, the two F1/F2 guard files,
 `SV-002.md` and `SV2-U03-code-navigation-evaluation.md` change in place.
 
+**`D-424` (2026-10-06) — no file added or retired, stated explicitly.** The two F2 guard files change in place.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

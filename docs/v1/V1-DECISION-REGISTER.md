@@ -27527,3 +27527,60 @@ of B-050, P15 or any row; Gate 2; a push.
 | Modular_PRD, fn-specs, SPECS, rule files, Phase Closure, frozen sources, `GOV-RES-001` | — unaffected |
 | **Encyclopedia** | unaffected: no mapped file, section or decision changes |
 | **Graphify** | One sync after the batch's last commit, released after Lane B's review |
+
+## 5.14e249 `D-424` — B-050 F2 Corrections (R1–R4) and Changed-Symbol Description Review (G-D423-1)
+
+**Authority: the Judge, directly to Lane A, 2026-10-06**, in chat, on Lane B's D-423 review (`ecdda94`) and its
+consolidation (`bf6b5fe`):
+- **"Separate act first"** for the F2 corrections;
+- **"Later"** for refining the retrieval packet;
+- **"Not now"** for drafting the stale-label article.
+
+Lane A is `Active`. Pushing is not authorized.
+
+### The decision
+
+1. **Scope:** `scripts/graphify/guarded-rebuild.mjs` and `scripts/fixtures/graphify-guard.test.mjs` only, inside
+   `D-423`'s F2 boundary. No F3, and nothing touches the live state.
+2. **Required corrections** (all reproduced by Lane A):
+   - **R1 — one fixture boundary for every mutating entry point.** `publish`, `recover` and `composeCandidate` share
+     one preflight that runs before any create, delete or rename:
+     - it binds an explicit disposable fixture or work root;
+     - it canonicalizes paths through links;
+     - it refuses the real live target **and its ancestors and descendants**, in every role (target, staging,
+       backup, old, journal);
+     - it keeps work and staging disjoint from the source and baseline.
+   - **R2 — names.** Supplied names bind by member-set hash only; a bare integer key is never cross-revision identity.
+     Baseline labels are reused only for identical member sets.
+   - **R3 — edge parity.** Every declared edge field, nested metadata included, is compared against a matching edge.
+     Parallel relations are matched by declared content.
+   - **R4 — source re-check at publication.** `publish` binds the original repository and source snapshot, and
+     re-checks HEAD, branch, origin, refs and config under the acquired lock, before any journal or rename. A changed
+     or unavailable source is refused.
+   - **G-D423-1 — changed symbols.** `replayDescriptions` replays a prior description only when the symbol's source
+     file is unchanged since the baseline's analyzed commit. Otherwise the symbol is **pending** for review. In the
+     sync, the stale module and guard-test descriptions ("stage F1") are rewritten from the current source.
+3. **DoD:**
+   - intended-boundary tests: live target, live ancestor, live as staging, an alias through a link, non-fixture
+     `recover`, and the `compose` deletion guard all refuse before any write, while isolated fixtures still work;
+   - a stale integer answer stays pending;
+   - altered or omitted declared edge metadata is refused;
+   - a HEAD, ref or config change between generation and publication is refused through the real `publish` route;
+   - changed-file symbols are returned as pending;
+   - `bun test`, `bun run fixtures` and `bun run check` pass;
+   - one sync with the refreshed descriptions; **Lane B reviews F2 and the new final hash, then work stops.**
+4. **Superseded candidate.** `9993bded…` is not released. Its structural evidence stands as a receipt; its
+   descriptions are stale.
+5. **Not given:** F3; the retrieval refinement; the article; U03; any DoD box; a push.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e249 |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ `D-424` paragraph (tooling correction; no V1 scope, sequence or DoD change) |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-424` paragraph; no file added or retired |
+| Tooling paths (item 1) | Follow: the implementing commit |
+| `SV-002.md`, `GOV-RES-001.md`, Modular_PRD, fn-specs, SPECS, rule files, Phase Closure, frozen sources | — unaffected |
+| **Encyclopedia** | unaffected |
+| **Graphify** | One sync after the implementing commit, released after Lane B's review |
