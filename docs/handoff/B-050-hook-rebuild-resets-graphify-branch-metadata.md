@@ -1777,3 +1777,63 @@ Read at `272ce9c`. Lane A receives Lane B's sign-off (`591d2cd`) and accepts its
   - It needs its own Judge work order, then a sync and a review of the exact hash.
 
 B-050 stays `Applied`; its O1 row stays open. F2/F3 are not authorized.
+
+## Lane A — D-423 applied: prune maintenance and stage F2 built, 2026-10-06
+
+Read at `434129c`. **The Judge, 2026-10-06:** "Issue now" (the prune maintenance) and "Issue F2" (`D-423`, `3e0a79e`).
+
+**Prune maintenance (`526972e`).**
+- The header now states the `D-422` order.
+- The list prints as a **plan**. "retired" prints only after the write **and** a re-read of the persisted graph confirms
+  the ids and links are absent.
+- A write or verification failure exits nonzero with no success line; `--dry-run` is non-mutating.
+- Prune tests 10/10: write failure, a dry run leaving bytes equal, an unchanged persisted file failing verification,
+  and selection, refusal and binding unchanged.
+- **First live use** in the `D-423` sync: "retired 1 node(s) and 1 link(s): verified absent in the persisted graph".
+
+**Stage F2** (`4260209`, `4f7675c`, `434129c`). Built in the guard and test files only, under contract v4, both
+conditions and the bounded F1 policy.
+- **Steps 1–5 in isolation:**
+  - the source snapshot (HEAD, branch, origin, the full ref map, config; detached and dirty refused) and
+    `snapshotMatches`;
+  - a disposable checkout carrying exactly the snapshot's origin and refs;
+  - a sanitized environment;
+  - raw-null and no-op refusal before rebinding;
+  - restore, then prune, then ordered merge, then fill;
+  - description and name replay, where **anything unknown is returned as pending, never invented**;
+  - R1/R2 composition with frozen timestamps, a foreign-path scan, the manifest and the graph SHA.
+- **Steps 6–7 on fixture targets only:** a durable journal, an exclusive lock, an exclusive recovery token, owner
+  rollback, dead-owner recovery with manifest reconciliation, and receipts. `publish()` refuses the real live target
+  (F3) and anything not declared a fixture.
+- **Evidence:** `bun test` 186/186, including 33 F2 cases. **Termination is real** (child processes killed at each of
+  seven boundaries), and so is **owner liveness**: a paused live owner refuses a peer, and a paused recoverer holding
+  the token refuses a second recoverer. Also covered:
+  - failed restore, then retry;
+  - receipt failure, then completed recovery;
+  - malformed journal; a lock without a journal; an unknown owner;
+  - snapshot ref and config invalidation;
+  - the exact ref map;
+  - raw null, tool failure and no-op refusal;
+  - composition refusals and reproducible frozen manifests;
+  - name reuse only for identical member sets, uniqueness, and hash-keyed answers.
+
+  `bun run fixtures` 297/297; `bun run check` 19/19.
+- **Real-repository run** (`C:/CoWork/outputs/f2-evidence-2026-10-06/`):
+  - pass A returned **pending** (46 descriptions, 12 names);
+  - after source-derived answers, pass B at `434129c` was `generated` (10 minutes);
+  - composition gave 568 files, manifest `8fa47e2d…`;
+  - it was **published to a fixture copy**, whose state equals the reviewed manifest;
+  - **the real live state was never written** (read-only digest `6f7de514…`).
+
+**Two platform findings, recorded:**
+- **Bun 1.1.30 on Windows does not honor `openSync(path, "wx")` or `O_CREAT|O_EXCL`:** it opens and overwrites an
+  existing file, while Node refuses. `createExclusive` therefore uses `writeFileSync(..., { flag: "wx" })`, which
+  refuses on both. A regression test pins this. **Any repository script relying on `openSync("wx")` under Bun has the
+  same exposure.**
+- **Under Bun, `process.kill(pid, 0)` reports a missing process only as `errno -4040`, with no `code`.** Owner
+  liveness handles both runtimes.
+
+**Not done:** F3 (live publication, runbooks), B-050's disposition. B-050 stays `Applied`; its O1 row stays open.
+
+**Requested of Lane B:** the F2 checkpoint review, and the `D-423` sync candidate `9993bded…`. Note that the F2
+evidence graph `584ec8f8…` differs bytewise from it at the same commit; characterize that before any F3 act.
