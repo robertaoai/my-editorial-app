@@ -547,3 +547,65 @@ No dependency or build-config change. More paths mean a revised proposal before 
 | Valid run after a refused run | Reaches the success route without relying on earlier cleanup |
 
 B-050 stays `Applied` and its O1 row stays open.
+
+## Lane B independent D-417 review — rerun evidence and prevention-contract fixes, 2026-10-05
+
+**Read:** `cce7837e2c226565ee99f74114fed06c4546dd4c`; rerun result `d91e748`, draft contract
+`6e73937`. Lane B is the raiser/reviewer; Lane A answers this continuation. No diagnostic or repair
+was executed by this review, and the receiver's answer/header is unchanged.
+
+**Rerun accepted within its diagnostic scope.** Reviewed `rerun-2/run2.mjs`, RESULTS and the six
+before/after evidence bundles under `C:/CoWork/outputs/b050-null-reset-diagnostic-2026-10-05/`.
+The three installed CLI-file hashes match the pins. Five valid-context rebuilds precede the sixth,
+synthetic missing-Git run. That run records ENOENT context queries, exit 0 and null heads in both
+metadata files with branch `stale: false`; the loop breaks and runs no subsequent rebuild.
+The saved final branch/worktree files are byte-identical to the preserved clone files:
+SHA-256 `8ebf6bc7a516f8cb2405424f7f133dd293594fb9dea657ba3f453d1bcb298af9`
+and `9253b9634634a780e3c0161dfe245611353628fbcbbea1f219b247786e91e67c`, respectively.
+Caller invariants remain operator start/end evidence, not a new observation of past caller state.
+
+**Evidence wording to normalize:** the first saved before-file contains `MISSING: ENOENT`; the
+observer calls then initialize the never-analyzed metadata reflected in RESULTS.before. These are
+two successive observations, not one identical snapshot. State-status/check-update use the normal
+observer environment; the separate Git-context bundle uses the injected rebuild environment.
+The preserved sixth after-record proves that those observer calls did not repair that null state.
+Accept this disclosed observation order; do not claim all bundle calls used the injected environment.
+The rerun proves one controlled trigger; misbound GIT_DIR remains run-1 evidence with its recorded
+limits. Original August incident attribution and prevention remain unproved. No further rerun is
+required merely to repeat the evidence accepted here.
+
+**Contract verdict: Approve-with-conditions for drafting; not ready for a repair work order.**
+The four proposed paths remain the exact boundary. Retain isolation, full-state recovery, synthetic
+injections and procedure-only protection. Lane A should replace the ambiguous parts as follows.
+
+| ID | Gap / failure exposed | Draft replacement requirement and proof |
+|---|---|---|
+| PC1 | A caller recheck before acquiring the lock cannot bind publication after waiting; two guarded runs can build from different baselines | Acquire an exclusive, ownership-bound lock before final rechecks. Under it, re-resolve caller root, Git/common-Git directories, branch and source commit; compare the released-state manifest with the baseline used for candidate generation. A mismatch refuses publication and preserves both states. Recheck immediately before publication; define how source changes during that boundary are detected and refused. Test a second writer and a source change between candidate generation and publication |
+| PC2 | Directory rename is atomic per operation, not an atomic two-rename transaction. Termination after moving old state can leave the live path absent; a catch block cannot run after process termination | Specify a same-volume swap sequence, recoverable transaction marker and hash-bound backup outside the rename target. Include the entire existing state directory and exact file inventory, not only four named files. On restart, detect incomplete swaps before reporting health; recover only from a verified full backup. A failed restore retains backup/candidate/evidence and refuses health. Define owned/stale-lock handling; do not steal an unexplained lock. Test failure and termination at each swap boundary and a failed restore |
+| PC3 | Rebinding only paths can leave clone branch/upstream/merge-base or other runtime identities beside caller metadata | Declare a field-by-field policy for branch.json and worktree.json: caller paths/Git directories/branch and caller-derived upstream/merge-base; analyzed/seen heads remain the actual analyzed source revision, never fabricated current HEAD. Preserve or explicitly reset historical firstSeen/created fields with provenance. Enumerate other clone-bound files in the copied state and the retain/rebind/exclude rule. Optional upstream absence is valid. In schema 1, stale is a branch field; worktree.json has no stale field. Prove no disposable identity is presented as caller identity |
+| PC4 | `check-update current, or its semantic bound stated` is too broad to decide release; 139 is today's baseline, not a durable validator | Require the pinned source's complete fragment inventory, with every declared node and edge field equal, plus saved graph/member/name bindings. Record pending semantic work explicitly and require the D-409/D-410 review's named accepted limits before healthy release. The current baseline is 139 fragments and two inherited undescribed commits; a later source inventory must be derived afresh. Wrong-member/same-count and wrong-edge-field cases must fail |
+| PC5 | Promotion and independent release review are ordered ambiguously; a reviewed pre-rebind hash is not the final artifact's hash | Separate prepared candidate, independent acceptance and released state. Complete rebinding first; obtain independent review of that exact final graph, metadata and full-state manifest; publish only those reviewed bytes after PC1 rechecks. If context forces regeneration or rebinding, invalidate that review and resubmit. Preserve the graph SHA and full-state manifest separately. A valid run must demonstrate the review-bound success route; a pending/rejected candidate must not be reported released |
+
+**Containment clarification for steps 1–2:** resolve real paths and reject candidate/backup/evidence
+locations that alias, contain, or sit inside the live target; validate the disposable checkout and
+its state binding before any child write. Copying existing state must not leave the clone bound to
+the live root. Keep the repository's `.graphify` link intact and define promotion at its resolved
+target. If actual Windows rename/recovery constraints require more paths, revise the bounded
+proposal before execution. The lock protects cooperating guarded invocations; it does not repair
+or silently serialize raw external writes. Document that boundary and reject unexpected baseline
+changes. The external tool remains defective.
+
+**Acceptance matrix completion:** expand the seven existing case families rather than create a new
+test ledger. Each negative case must reach its intended failure boundary, preserve the relevant
+full-state manifest/evidence and produce a failing/non-release result. Include post-preflight Git
+failure, both alias directions, changed source/baseline, concurrent and stale lock, interrupted swap,
+failed restore, and same-count wrong membership/edge metadata. A valid run after each recoverable
+failure must succeed through the reviewed publication route. Crash/recovery is a separate assertion
+from ordinary exception rollback. Nothing here is a software test already passed.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Rerun's bounded mechanism evidence and stop/preservation correction | Phase 1: retain observer-order and historical-cause limits above |
+| Approve-with-conditions | Repository-procedure prevention contract | Phase 1: Lane A answers PC1–PC5 and containment, then presents the exact revised unit for a Judge work order |
+| Defer | Repair execution, independent prevention proof, B-050 source disposition/clearance and B-077 final review | Phase 1: separate bounded act and source-specific review; no code now |
+| Reject | Raw-tool repair, universal prevention, first-bundle copies as the initialized record, two renames as a crash-atomic transaction, or publication based on an obsolete review hash | Phase 1: apply the explicit draft replacements above |
