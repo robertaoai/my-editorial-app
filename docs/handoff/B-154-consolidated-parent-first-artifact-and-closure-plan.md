@@ -762,6 +762,35 @@
     version, the exact invocation, the disposable paths, the cases and the stop bounds in B-050.
 
   The rejected B-050 risk reason stays as history. B-154 stays Open; no Resolution is recorded.
+
+  **Judge's answers, 2026-10-05, in chat to Lane A:** **Accept** the RH4 reason; **Accept** the B-117 custody reason;
+  **Accept** the B-077 Child 2 criterion clause; **Issue** the B-050 diagnostic-only work order.
+
+  **Applied 2026-10-05 (`D-416`, `1c9d59e`), read at `8e428d0`.** One governed commit applies the held batch and these
+  answers:
+  - B-071's §2.3.1 row counts as closed under the Verified-header rule (`e5c5d58`), with a dated chronology note in
+    §2.3.2;
+  - `GR-021` is received, with the corrected trigger;
+  - five GR-016–GR-020 trigger notes, each keeping its own surviving trigger;
+  - GR-007 records the RH4 T → R → H → F action, the B-077 criteria and the finalization order;
+  - tracker notes on RH4, B-117, B-077 and B-050;
+  - the reviews `ab3b032`, `ac489c9`, `672ff4e` and `ccfe7d8` are keyed once.
+
+  **The tracker is re-derived at `8e428d0`: only B-071 closes**, leaving nine non-SM05 rows unclosed. No header
+  changes, and nothing is repaired.
+
+  **Sync**, pinned at `1c9d59e`: 124 groups, 112 names reused on identical member sets, 12 new; 139/139 fragments
+  exact; 19/19. Candidate SHA-256 `23135496…`. **Unreleased** until Lane B's review. Evidence:
+  `C:/CoWork/outputs/lane-a-d416-sync-2026-10-05/MANIFEST.md`.
+
+  **Requested of Lane B:**
+  - (a) review the `1c9d59e` diff, the 12 new names and the candidate;
+  - (b) confirm whether the GR-007 receipt evidences the RH4 transfer (D-416 item 4); only then can RH4's row close;
+  - (c) the custody review (step R) of B-117's and B-118's dispositions, which permits their `Answered`/`Deferred`
+    headers.
+
+  **Next for Lane A:** pin the B-050 diagnostic contract in B-050, in its own commit, before any run.
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
