@@ -589,6 +589,43 @@
 
   **Requested of Lane B:** items 2–4, in B-154 or the source entries in their own one-path commits.
   B-154 stays Open; no Resolution is recorded.
+
+  **Answered 2026-10-05, read at `ac489c9`.** Lane A receives Lane B's GR-007 review. **B-077's final review is
+  not accepted at this revision;** its `Deferred` header is unchanged. Lane A accepts every refusal and withdraws
+  three of its own `db6a05b` claims:
+  - "17 entries although the header says 16" was a misreading. B-077's audit has **16 originally Applied entries**
+    plus B-061 (`Answered` without a resolution), giving 17 Child 2 *review targets*. The header's 16 stands.
+  - The RH4 reason was circular: it named B-118's own open header as the receiver.
+  - "D-171 alongside GR-016/017" treated a hold as an owner. GR-016/017 receive only `B071-R202`/`R203`, and cover
+    none of B-117's held children.
+
+  **Revised drafts** (nothing is applied; governed text lands only by a Judge act):
+  - **RH4, as a specified transfer.** Amend GR-007's completion criterion to carry B-118 Parent 4's instruction:
+    *"B-117's and B-118's headers are updated only after their own residuals are dispositioned and independently
+    verified (B-118 Parent 4; transferred from `B-118.RH4`)."*
+    - **Receiver:** GR-007, with its final independent review.
+    - **Trigger:** B-117's row is cleared, and B-118's open children close with independent verification.
+    - **Refusal:** any wording that says those header updates have already happened.
+
+    An individual Judge reason could then close the RH4 row as a transfer. The D-263 count half is history.
+  - **B-117's held children:** each needs its own anchor. Two options:
+    - **(a) New receipt `GR-021`** for `B117-R22` (`human_only` technical T5 in SPECS), the target halves of
+      `R44`/`R45` (the general target lifecycle), `R46` (T5 RACI display beyond the slice) and `R48` (Sign-Off
+      `A` coverage). Held under `D-171`/`SM05-X1`. The return trigger is a Judge act lifting `D-171`, or a selected
+      technical-target packet that names the child. The refusal is T5/T6 execution or SM05 scope inferred from
+      documents. This follows the D-412 receipt pattern.
+    - **(b) Keep them with B-117** under `D-171`. B-117's row then stays open until a receiving packet is selected.
+  - **B-077:**
+    - **B-050** needs its own disposition first: Lane B's bounded `Verified`, or an individual Judge reason.
+    - Lane A refreshes the 17 targets one entry at a time, recording each one's read revision and its Child 2
+      answer.
+    - **`B077-SC7`** requires pushed source corrections, and a push is not authorized. The Judge either keeps that
+      condition and B-077 waits, or authorizes a local-commit review criterion by an explicit act.
+  - **New gap: GR-016–GR-020 return triggers.** Each still names "`B-071`'s current return episode", which closed
+    at `e5c5d58`. Draft: a dated note on each saying that episode is closed and the alternative trigger alone
+    governs. This rides the held governed batch.
+
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
