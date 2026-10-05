@@ -1678,3 +1678,77 @@ restore"; and it prints "retired" before writing.
 
 **Requested of Lane B:** the F1 sign-off under the bounded policy, and the `081638cd…` candidate. B-050 stays
 `Applied`; its O1 row stays open.
+
+## Lane B D-421/D-422 sign-off and exact-candidate review — 2026-10-05
+
+**Read:** Lane A answer `4613c99`, consolidated receipt `5e489a0`; D-421 `0235aa7`, implementing
+commit `ea488dc`; superseding order/count act D-422 `402024a`, procedure commit
+`693a6a79e5ef7b8e1334881ce629017d80ba1250`. Lane B raises this review; Lane A answers.
+This records independent review, not a receiver disposition, graph mutation or execution order.
+
+**F1 accepted under D-421's bounded policy.** D-420's four public-scanner misses and required
+depths were independently accepted in `ae42e1e`; the remaining policy condition is now satisfied
+by the Judge's D-421 act. Three rounds are accepted for path validation; recognition inspects
+eight and conservatively refuses unresolved encoded punctuation. Deeply encoded web URLs may
+be refused; this is not proof they are foreign paths. No further path-code change is required
+by that accepted policy. Existing tests independently pass 151/151, including the 126 F1 cases
+and five new prune tests. F1 proves validators only, not prevention, transaction or publication.
+
+**G-D420-1 resolved in this candidate.** Independent comparison of the preserved pre-state
+against the supplied from-empty extraction yields exactly the 14 ids in `R10d-prune.txt`:
+ENCODED_TOKEN, two fixture-runner variables and eleven merge7 variables. The fresh and live
+metadata both identify `693a6a7`; the fresh clone's origin is the caller's GitHub repository.
+No retired id overlaps a curated fragment. All 14 ids and their incident links are absent
+from the final graph, and no pre-state non-code node is missing. Removing those ids from
+the pre-state removes 14 links, matching the run's evidence. This retirement means "absent
+from the current extraction," not necessarily "deleted from source": the two runner variables
+are still in the source but no longer emitted. Do not strengthen the reason to source deletion.
+
+The operative README §4 and sync-docs §7 put pruning after docs-layer restore and before
+fragment merge, as D-422 requires. D-421's earlier order/count are superseded history. The
+current final state proves the retirements held after the later stages. The two stopped runs
+remain disclosed failed attempts; their logs are not completion receipts. Backup/restore and
+execution chronology remain Lane A's operator evidence; this review independently checks the
+supplied snapshots, final state and source, rather than claiming to rerun the live procedure.
+
+**Exact graph accepted for release:**
+`081638cd2e4a46d0150259ca4597214cec6247787b8674a0b77d39a4378c7511`, analyzed at `693a6a7`.
+Independent full-field comparison: 139 fragments; 5,927 declared node fields and 9,703 edge
+fields, zero mismatches. All 125 member sets and label bindings match the pre-ingest and
+label manifests; the 15 changed names are supported by their actual members. The obsolete
+ENCODED_TOKEN node is gone. Reviewed descriptions state the bounded F1 policy and correctly
+describe the prune selection/refusal behavior. Raw graph and node-string scans find no paths
+outside the stated scanner policy. Lane A may record the release receipt under the existing
+D-421/D-422 authority; this review does not itself publish, rewrite or release graph bytes.
+
+Evidence: `C:/CoWork/outputs/lane-b-d422-review-2026-10-05/REPORT.json`, `LABEL-REVIEW.json`
+and `PRUNE-REVIEW.json`. The 297/297 fixture result at `ea488dc` remains Lane A's pinned
+receipt; D-422 changes only procedure documentation, and this review did not rerun fixtures.
+
+**Two disclosed maintenance gaps remain, without invalidating the verified final state:**
+1. The script header still instructs pruning before restore. Following that comment can restore
+   stale docs-hosted symbols; the Register and operative procedure require the opposite order.
+2. The CLI prints "retired" before writing. The stopped run demonstrates why that message
+   cannot prove completion. The final hash and retired-id check are the completion evidence.
+
+**Draft later bounded remedy, not applied:** correct the script header to "after docs-layer
+restore, before fragment merge, per D-422". Print the pre-write list as a plan; print completed
+retirement only after the write succeeds and the persisted graph has been re-read to confirm
+the expected ids/incident links are absent. A write or verification failure exits nonzero and
+has no success receipt. Keep dry-run explicitly non-mutating. Proposed Lane A paths: the
+prune script and its test; operative procedure edits only if needed and explicitly scoped.
+Success criteria: write failure yields no completion claim, dry-run leaves graph bytes equal,
+ordinary write reports completion only after verification, and current selection/fragment
+refusal/no-op semantics remain. Present this as a later Judge work order; D-422 expressly
+left those paths unchanged. Do not reopen F1 or require this amendment before its accepted
+checkpoint. A later source/graph change requires its own sync and byte-specific review.
+
+**Tracking:** retain B-050 Applied/O1 open. This independent F1/prune/hash receipt completes
+the reviewed sub-obligation, not whole B-050. F2/F3 remain unselected and unauthorized.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | F1 under D-421; D-422 prune result and exact 081638cd candidate | Phase 1: Lane A records the bounded receipt and release under existing authority |
+| Approve-with-conditions | Proposed header/completion-message maintenance | Phase 1: separate bounded act, intended-boundary proof, sync and final-hash review if selected |
+| Defer | F2/F3, prevention and B-050 disposition | Separate Phase 1 work orders, independent proofs and individual source act |
+| Reject | Pre-write output as completion; superseded prune order; extraction absence called source deletion; F1 sign-off called B-050 closure | Phase 1: retain the exact evidence and distinctions above |
