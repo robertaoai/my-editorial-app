@@ -147,6 +147,10 @@ PR #2 comment, `SV-002` acceptance and the `V1-SM05` unblock remain separate Jud
 **`D-401` (2026-10-03) — `GR-012` observation: no writer seen, accepted by Judge reason** (31-minute window accepted
 explicitly). Lane B verifies. `V1-SM05` stays `BLOCKED`.
 
+**`D-417` (2026-10-05) — RH4 and `B-117` rows closed on their `D-416` reasons after independent custody review;
+`B-050` re-run and repository-procedure prevention scope recorded.** Accounting only. No scope, sequence or DoD change.
+`V1-SM05` stays `BLOCKED`.
+
 **`D-416` (2026-10-05) — held batch: `B-071` row closed by its Verified header; `GR-021` received; RH4 transfer and
 `B-117` custody accepted; `B-077` criteria; `B-050` diagnostic-only work order.** Accounting and custody only; no repair.
 No scope, sequence or DoD change. `V1-SM05` stays `BLOCKED`.

@@ -27122,3 +27122,55 @@ work; Gate 2; a push.
 | Modular_PRD, fn-specs, SPECS, storyboard, rule files, Phase Closure, frozen sources | — unaffected (accounting and custody only) |
 | **Encyclopedia** | unaffected: no mapped file, section or decision changes |
 | **Graphify** | One sync after this edit, released after Lane B's review |
+
+## 5.14e242 `D-417` — RH4 and B-117 Rows Closed on Their D-416 Reasons After Independent Custody Review; B-050 Evidence Re-Run and Prevention Scope Recorded
+
+**Authority:**
+- `D-416` items 4–5, the Judge's individual reasons, with their condition (Lane B's independent custody review) now
+  met at `6a1693d`;
+- the Judge, directly to Lane A, 2026-10-05, on Lane B's docket (`6a1693d`): **A — require a conforming re-run** of the
+  B-050 diagnostic; **B — prevention scope is a repository procedure**. Recorded in B-050 at `c596d0e`.
+
+This act is a bounded Phase 1 accounting unit. Pushing is not authorized.
+
+### The decision
+
+1. **`B-118 (B-118.RH4)` row closed** (`D-364` item 4). Basis: the individual Judge reason `D-416` item 4; Lane B
+   confirmed the transfer is evidenced in `GR-007` (`6a1693d`). B-118 Parent 4's header update happened at `c75601a` (H).
+   GR-007's final confirmation (F) is still owed. B-118's entry row stays its SM05 receipt (`D-381`).
+2. **`B-117` row closed** (`D-364` item 4). Basis: the individual Judge custody reason `D-416` item 5, plus Lane B's
+   independent custody review (`6a1693d`). The header is `Answered`/`Deferred` at `f3d2bd5` (H). Custody, not
+   delivery: `GR-021`, `GR-009`'s later unit and `GR-007` keep their work.
+3. **B-050 evidence.** A conforming re-run was performed under `D-416` item 7's unchanged contract (`d91e748`). It
+   stopped at the first null transition, kept full per-run bundles, and left every caller invariant intact. The first
+   run's deviations stay recorded (`ba52bee`). Finding: a null-metadata write mechanism under controlled Git-context
+   failure; the original August trigger is not attributed. B-050 stays `Applied`; its O1 row stays open.
+4. **B-050 prevention scope: a repository procedure.** Lane A drafts the exact bounded contract from Lane B's
+   specification (`6a1693d`): isolated candidate, validated promotion and full-state recovery, and the named failure
+   cases. B-050's universal "cannot replace" criterion is narrowed to that protected procedure **only when** the
+   contract is accepted and its proof independently reviewed. The raw external-tool defect stays recorded. Executing
+   the repair needs its own work order.
+5. **Accounting.**
+   - `SV-002` §2.3.2 keys `69860ea` (B-050) and `6a1693d` (B-154) once, with notes on B-117/B-118.
+   - `SV-002` §2.3.1 is re-derived at `d91e748`: RH4 and B-117 close.
+   - `GOV-RES-001` GR-007 records that H happened for both, with F still owed.
+6. **One sync follows**, released after Lane B's review.
+
+### Not given by this act
+
+Closure of B-050, B-077, B-118's entry row or any O0 row; GR-007's final conclusion; the repair, its paths or any code;
+Gate 2; a push.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e242 |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ `D-417` paragraph (no scope, sequence or DoD change, stated) |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-417` paragraph; no file added or retired |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/GOV-RES-001.md`** | ✅ GR-007 note |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §2.3.1 re-derived (RH4, B-117 closed); §2.3.2 keyed notes |
+| Source handoffs (`B-050`, `B-117`, `B-118`) | Already recorded in their own commits (`f3d2bd5`, `c75601a`, `ba52bee`, `c596d0e`, `d91e748`) |
+| Modular_PRD, fn-specs, SPECS, storyboard, rule files, Phase Closure, frozen sources | — unaffected (accounting only) |
+| **Encyclopedia** | unaffected: no mapped file, section or decision changes |
+| **Graphify** | One sync after this edit, released after Lane B's review |
