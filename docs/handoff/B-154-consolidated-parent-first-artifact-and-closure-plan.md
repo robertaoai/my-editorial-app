@@ -5022,3 +5022,166 @@ pass 151/151; the 297/297 fixture receipt is Lane A's pinned run, not a new run 
 | Approve-with-conditions | Optional maintenance remedy and later work-order drafts | Phase 1: separate exact scope/act, definition of done and independent proof if selected |
 | Defer | F2/F3, U03, §5 application, P15, B-050/B-077 and parents, GR-007 F, Gate 2 | Their own Phase 1 selections, proofs and individual acts |
 | Reject | Superseded prune order, pre-write log as completion, extraction absence as source deletion, validators/hash approval as closure | Phase 1: preserve the corrected semantics and dependency order |
+
+## Lane B conversation consolidation: reference retrieval and readiness for Lane A — 2026-10-06
+
+**Template-compatible continuation of B-154.** Read at
+`ccf71c13a48d8690f066f2a05a13f4769cdc0a0d`. Existing Kind finding / Phase 1 / reporting-only
+scope remains. Lane B raises; Lane A answers. Only Lane A writes its receiver answer.
+No new entry, requirement/MMF identity, lane selection, gate, closure or implementation
+authority is created. This section is the current consolidated drafting request, not a
+replacement for historical receipts or the source-specific B-050/B-136/B-106 records.
+
+### What happened
+
+The conversation moved from Lane A's backlog/governance handbacks, through independent
+B-050 validator and graph reviews, to annotation identity and a proposed reference-retrieval
+capability. The latest request is to consolidate that analysis before Lane A reviews and
+drafts its work. The user continues to authorize review and implementation planning only.
+
+| Parent fact / source owner | Consolidated outcome | What remains |
+|---|---|---|
+| D-416/D-417, source custody and Register | GR-021 receives held children in planning custody; GR-016–020 retain their own surviving triggers; RH4/B-117 custody is recorded | Custody does not lift D-171 or authorize held technical T5; business T5 is distinct; GR-009 code still needs its later unit |
+| B-050, D-418–D-422 and review 591d2cd | F1 validators accepted under the Judge's three-round validation/eight-round recognition policy; D-422's after-restore prune result accepted; exact graph 081638cd… independently accepted | Lane A's release receipt; two disclosed maintenance gaps; F2/F3 and whole prevention/disposition remain separate |
+| B-106, D-418 | Source row closed by the individual custody reason | Named runtime metadata, behavior, unratified formula and operator/version children retain their owners/triggers; no application execution follows |
+| B-136.P15 / SV-002 | Revised DOD-01/02 index and comparison vocabulary accepted at their stated scope | U03 unselected; its outcome is needed for DOD-04; P15 requires the Judge's individual reason at DOD-06, not evidence of earlier clearance |
+| B-077 and parents | Its 17-target refresh is evidence, not final review/closure | B-050 disposition → B-077 named-revision review; completed children/setup → B-153/B-154 → B-150 → GR-007 F → separate Gate 2 act |
+| Annotation identity and reference retrieval | Reviewed design proposals only | No accepted retrieval MMF, complete behavior/technical spec, inventoried annotation store or migration exists in this handback |
+
+**Readiness challenge:** ready for Lane A's review and bounded drafting; not ready for
+canonical retrieval-spec application, annotation migration or construction. Existing Project
+scope provides a possible home, not a complete specification or permission. AIG-03 covers
+loading/diagnosis, AIG-04 covers proven code navigation; neither can silently be expanded
+into general reference retrieval. The proposal adds no prerequisite to existing Gate 2/U03
+work unless a later Judge act explicitly allocates one.
+
+### What you need
+
+**Effective request to Lane A:** consolidate this proposal into one reviewable Project-scope
+design packet. Define the actor, task, corpus, minimum outcome and exclusions; draft the
+retrieval behavior separately from Graphify realization; expose decisions and failure cases;
+return exact proposed source changes, acceptance cases and a later bounded work order.
+Do not call it an accepted MMF or apply it on the strength of this review.
+
+**Proposed first outcome:** a reviewer can find the governing reference for a named handoff
+question, read its canonical source and distinguish operative authority from historical
+evidence. Start with governed repository docs and source handoffs. External-web retrieval,
+article/news references, code-call discovery, annotation editing/migration and automated
+closure are excluded from this first proposal; code navigation retains its AIG-04/U03 track.
+The Judge may change that boundary after seeing the concrete packet.
+
+**Draft primary use case:** Lane B reviews Lane A's B-050 answer and asks which current
+decision governs the prune order. Discovery locates D-421/D-422 and related source pointers;
+source reading establishes D-422's operative order, while retaining D-421 as superseded
+history. The answer cites the relevant section/revision and the review receipt, and does not
+infer B-050 closure. If the graph lacks the latest handoff, direct lookup still reads it.
+
+**Behavior to specify, independent of the tool:**
+1. Accept a named item and question; declare the in-scope corpus and requested evidence type.
+2. Find candidate references; read the actual cited sources, not only graph descriptions.
+3. Apply governed precedence and supersession. Separately track graph snapshot, source
+   revision and current working-tree state; do not describe an old graph as proof of fresh text.
+4. Return the source path/section, revision, supporting passage or faithful summary, current
+   versus historical status and unresolved conflicts. Authority ranks before graph relevance.
+5. If discovery misses, fall back to direct source search/read. Report missing, ambiguous,
+   inaccessible, stale or inconclusive results explicitly; never fabricate a citation.
+
+**Technical contract to draft:** Graphify query → candidate source/anchor resolution → direct
+source reads → authority/revision evaluation → evidence response. Propose a graph-hash manifest,
+revision-specific anchor index, bounded result format and observable fallback. Governed curated
+IDs remain stable targets; extracted anchors need repository identity, normalized path and
+qualified-symbol disambiguation. CLI explain is label-based (README §4/D-406); no-match on
+an ID is not proof of an absent node. Handoffs are excluded from mandatory graph coverage,
+so graph discovery alone cannot prove complete handoff retrieval.
+
+**Annotation proposal retained separately:** community integers/labels are display diagnostics,
+not durable identity. Node annotations target an anchor; community annotations preserve a
+stable annotation identity plus their original member-anchor set. Rebuild anchor → node mappings
+per graph revision. Missing and ambiguous anchors require explicit results; approved rename
+aliases cannot be guessed. Community annotations report splits/merges rather than selecting
+one member's new community. Recover migration targets from the annotation's original graph
+revision, not today's integer. First inventory the real store and available old revisions;
+where recovery is impossible, retain unresolved legacy records. No deletion or migration yet.
+
+**Independent identity experiment, if later selected:** fixed corpus/tool/configuration/input
+manifest → identical rerun → controlled edit. Compare every old/new member-anchor pair using
+Jaccard, intersection counts, additions/removals and unmatched targets. Equal sets with changed
+IDs indicate renumbering; changed sets require regrouping analysis. Similarity is not identity
+and does not authorize annotation transfer. No churn observed in one run is not a guarantee
+of stability. This experiment does not prove retrieval correctness or belong automatically
+to the minimum reference-lookup delivery.
+
+| Failure-oriented acceptance case | Required result / evidence |
+|---|---|
+| D-421/D-422 prune-order question | Cite D-422's after-restore order; mark earlier order historical; no closure or execution inferred |
+| A source exists but its graph node is absent | Direct fallback locates the source; no false statement that no reference exists |
+| Current handoff newer than the graph | Read the named current source revision and expose the graph revision separately |
+| Similar labels, multiple anchors or conflicting references | Preserve candidates/conflict and governing precedence; no arbitrary first-match resolution |
+| Source unavailable or unresolvable revision | Explicit missing/inaccessible/stale/inconclusive result; no invented source passage |
+| Community renumbered with unchanged members | Same target remains; only display context changes |
+| Anchor renamed/deleted or group split/merged | Explicit alias/missing/split/merge result; no silent annotation reassignment |
+| Graphify compared with direct retrieval | Same named tasks and independently prepared expected sources; measure answer correctness, relationship discovery and output/effort before claiming added value |
+
+**Scope-specific gaps to answer:**
+- The U03 evaluation's claim that Graphify covers docs and cannot overlap code navigation
+  (`SV2-U03-code-navigation-evaluation.md` §2) is overbroad: generated code symbols are present.
+  Draft a dated correction distinguishing measured graph coverage from proven caller completeness;
+  do not change the directed candidate or waive the U03 trial.
+- Existing Fn_Specs/SPECS filenames are possible homes, not implemented retrieval contracts.
+  Choose whether the scope fits a bounded amendment to the existing global family; present any
+  additional scope/key explicitly to the Judge. Do not invent Product US/FR/AC or V1 MMF allocation.
+- Graph currency, coverage, semantic review, authoritative source correctness and retrieval utility
+  are different checks. A clean graph scan or Jaccard result proves none of the others by itself.
+- The two accepted maintenance gaps remain: stale prune-order comment and pre-write "retired"
+  logging. Reuse B-050's bounded remedy; do not duplicate it in the retrieval implementation.
+
+### What you did instead
+
+Lane B queried the existing graph and reviewed current governing sources and prior receipts.
+No graph rebuild, corpus trial, source-spec amendment, annotation migration, application code,
+tracker/header/DoD change or push was performed. The planning analysis is recorded once here;
+the detailed accepted technical review remains B-050/591d2cd.
+
+### Lane A follow-up and Judge decision order
+
+1. **Receive/review:** answer this continuation with supported facts, proposed changes and
+   remaining uncertainty. Preserve existing accepted F1/hash/custody receipts and open parents.
+2. **Draft intent/use case:** recommend the repository-reference boundary above, name the
+   minimum reviewer outcome and decide where it fits Project scope. No new MMF identity yet.
+3. **Draft behavior first:** exact retrieval/refusal/fallback/citation requirements, with expected
+   sources for acceptance cases established independently of the graph matcher.
+4. **Draft technical realization second:** exact index/resolver/result contracts, versions,
+   ownership, proposed paths, migration exclusions and Graphify-versus-baseline experiment.
+5. **Return one packet:** scope/use-case draft, proposed Fn_Specs/SPECS changes, case matrix,
+   risk/decision list and bounded work-order proposal. Reuse current canonical homes; no duplicate
+   retrieval documents until the Judge chooses the artifact allocation. Lane B Level 1/Lane C
+   Level 2 review cover their own named revisions; old receipts do not cover new drafts.
+6. **Judge acts before application/construction:** accept the scope and exact source changes,
+   propagate any artifact decision under D-54, then authorize the appropriate bounded unit
+   and Active lane. Ordered graph sync/final-hash review follow any governed source application.
+   This handoff-only continuation itself needs no graph rebuild.
+
+| Critical artifact | Lane A draft readiness | Completion / review criterion |
+|---|---|---|
+| Scope/use-case packet | Ready to draft from this handoff | Judge can decide corpus, actor/outcome and Project allocation without inferring a new gate/MMF |
+| Retrieval behavior specification | Required draft, absent as an accepted contract | Authority/currentness, citations, ambiguity and fallback have observable outcomes |
+| Graphify technical specification | Required draft after behavior | Source/graph revisions and resolver contracts explicit; no assumed utility or completeness |
+| Acceptance matrix and baseline report plan | Ready to draft | Expected references independent of matcher; no silent misattribution; benefit assessed on same tasks |
+| Annotation inventory/migration/identity experiment | Separate optional proposal | Real store and original revisions identified; reversible mapping; missing/split/merge visible |
+| Implementation work order | Not executable yet | Exact paths/lane/exclusions/DoD and Judge act; no automatic F2/F3/U03 authorization |
+
+**Chief Editor/Judge:** decide the proposed corpus/outcome and Project allocation, then the
+actual draft requirements and later work order. Annotation migration and the churn experiment
+are separate optional decisions. Bounded F1 policy is already accepted; A4/A6 values need no
+new ruling. Lane A owns drafting/governance/tooling; Lane B raises and reviews; Lane C reviews
+new architectural claims when a named packet is ready. None has demonstrated complete reference
+retrieval or Graphify's added utility yet. Existing source obligations are not made dependent
+on this proposal. B-154 remains Open; a drafted answer is not whole-handoff closure, and only
+independent verification can support Verified at the appropriate completed scope.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Consolidation and handoff readiness for Lane A review/drafting; retained accepted receipts | Phase 1: Lane A answers the existing continuation |
+| Approve-with-conditions | Proposed minimum Project reference-lookup capability | Phase 1 design: Judge accepts scope/allocation; behavior, technical contract and independent cases are drafted and reviewed |
+| Defer | Canonical application, retrieval implementation, annotation migration/experiment; existing F2/F3/U03 and parent/gate closure | Separate Phase 1 acts, named bounded units and their own evidence |
+| Reject | Calling this an accepted/specification-complete MMF; Graphify relevance as authority; community integers as identity; this handback as closure or a new gate | Phase 1: retain the distinctions and finish the stated draft packet |
