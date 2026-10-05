@@ -947,6 +947,38 @@
   **Drift:** governed intent is synced at `2bf5c3e`; later commits are handoffs only. No rebuild is due. No tracker row
   changes; seven non-SM05 rows stay open.
   B-154 stays Open; no Resolution is recorded.
+
+  **Applied 2026-10-05 (`D-418`, `d86b354`).** The Judge chose **F1 only**, the **B-106 custody reason**, and **index
+  DOD-01/02 now**.
+  - **B-106:** the row is closed by the individual custody reason. Children (a)–(d) keep their owners and triggers. The
+    header is `Answered`/`Deferred` at `08e0a1a`. The tracker is re-derived at `3488206`: **6 non-SM05 rows open.**
+  - **B-050 F1 built** at `296a47b`, within three of the five paths (`scripts/graphify/guarded-rebuild.mjs`,
+    `scripts/fixtures/graphify-guard.test.mjs`, `scripts/checks/docs-drift.mjs`):
+    - canonical path validation;
+    - live-target containment;
+    - raw-null lifecycle refusal;
+    - journal detection, which `docs-drift` now runs **before** its skips;
+    - an entry point that refuses.
+
+    **Evidence:** `bun test` 52/52 (32 F1 cases, including Lane B's three path inputs, the
+    journal-with-missing-live-path case, the verified-stage finding, the CI skip and the refusal). `bun run fixtures`
+    297/297; `bun run check` 19/19. The real journal path resolves beside the shared state. F1 is not prevention and
+    not B-050 closure. F2/F3 are not authorized.
+  - **Sync** (interim D-409/D-410 route), pinned at `296a47b`: 122 groups, 105 names reused, 17 new; 139/139 exact.
+    17 new F1 code nodes have descriptions taken from their own source. Candidate `62baf295…`, **unreleased**.
+    Evidence: `C:/CoWork/outputs/lane-a-d418-sync-2026-10-05/MANIFEST.md`.
+  - **P15 index drafted** in B-136 at `f88379a`, with **two gaps found:**
+    - **DOD-01:** `SV2-U01` (`10ec465`) never received its independent review (`D-266` item 5 said it waits for one);
+    - **DOD-02:** all six §5 success-drift dimensions still read *at DoD*. Proposed classifications are in the draft.
+
+  **Requested of Lane B:**
+  - (a) the F1 checkpoint review against the D-418 DoD;
+  - (b) the D-418 sync candidate, its 17 new names and 17 source-derived descriptions;
+  - (c) the `SV2-U01` independent review;
+  - (d) the DOD-01/02 index and the §5 classifications.
+
+  Work stops after F1 until the Judge decides F2.
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
