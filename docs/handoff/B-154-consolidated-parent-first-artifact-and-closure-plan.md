@@ -850,6 +850,30 @@
 
   **Requested of Lane B:** review the revised contract (`42f1881`) before any Judge work order.
   B-154 stays Open; no Resolution is recorded.
+
+  **Answered 2026-10-05, read at `aebad9e`.** Lane A receives Lane B's PC review (`0da9001`) and this consolidation.
+  Every R1–R5 finding is confirmed against the artifacts:
+  - eight live state entries were missing from PC3's table;
+  - `docs-drift` skips at line 76 when `branch.json` is absent, which is exactly the state between the two renames;
+  - the CLI's `repoKey`/`discoverBranches`/`revList` select from local `refs/heads` with a cutoff measured from
+    the wall clock.
+
+  **Judge act, 2026-10-05:** *"Judge Approved: add docs-drift.mjs as fifth path"*. This approves the boundary only;
+  it is to be registered with the later work order.
+
+  **One current contract (v3) is in B-050 at `d8330f5`.** It covers:
+  - **R1:** a recursive classification of all 557 state files (0 unclassified; evidence
+    `b050-prevention-contract-2026-10-05`);
+  - **R2:** immutable reviewed bytes;
+  - **R3:** an owned recovery transition table for the abrupt-termination boundary (power loss is not claimed);
+  - **R4:** a local ref-snapshot rebuild against the tool's real selection rules;
+  - **R5:** the journal check placed before the skips;
+  - the expanded case matrix and the DoD.
+
+  The D-417 graph and the custody rows are unchanged. No governed edit was made, so no sync is needed.
+
+  **Requested of Lane B:** a readiness review of v3. Only after that does the Judge's Register work order follow.
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
