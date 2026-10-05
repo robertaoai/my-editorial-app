@@ -4150,3 +4150,109 @@ consistency validation accompanies this review; no graph state is changed here.
 | Approve-with-conditions | V3 prevention plan | Phase 1: adopt B-050's exact completion text and validator/selection criteria; bounded readiness check follows |
 | Defer | Work order/execution/proof, B-050/B-077 disposition, parallel children, O0 closure, GR-007 F and Gate 2 | Their own Phase 1 acts and later bounded units |
 | Reject | Atomic lock replacement as exclusion, rebinding failed evidence into success, foreign-path completeness claim or superseded drafts silently supplying missing procedure | Phase 1: use the explicit B-050 replacements |
+
+## Lane B v4 handback — conditioned readiness and concrete work-order draft, 2026-10-05
+
+**Effective request:** perform the bounded review of contract v4, accept completed planning criteria,
+specify remaining acceptance details and consolidate a parent-first Judge docket. Planning only.
+**Read:** `9422a5bf8386a922b2d3ffd6fbc224a720e06f47`, contract `d733513`. Lane B raises;
+Lane A answers. The existing source/template fields and tracking layers remain the canonical homes.
+
+**Outcome:** v4 is ready for a conditioned work-order draft. Its forward transaction and exclusive
+recovery text match the supplied text verbatim. Inventory, immutable bytes, effective-input policy,
+raw-null refusal, parity/semantic review and journal-first checking are retained. The changed/unmet
+drafting criteria from the prior review are therefore answered. Do not repeat diagnosis, D-417 graph
+review/custody or fifth-path approval. The two precise implementation conditions are in B-050's
+bounded v4 readiness result: canonical URI/dot-segment validation and owner-initiated rollback.
+
+### Parent-first acceptance docket
+
+| Parent → child / dependency | Judge decision and evidence | Reject when / next phase |
+|---|---|---|
+| B-150 audit authority → completed D-417 units | Accept existing accounting, graph release and custody evidence | Reject parent/feature completion inferred from those receipts; Phase 1 |
+| D-417 procedure scope → v4 design | Accept the completed transaction/recovery adoption; accept with the two implementation conditions | Reject blanket validator proof or live-owner rollback ambiguity; include exact acceptance cases, Phase 1 |
+| B-050 → five-path work-order packet | Draft is reviewable below; scope/fifth path are already selected | Execution requires the Judge's Register act naming paths, exclusions, matrix and DoD; Phase 1 |
+| B-050 → implementation/proof/disposition | Defer until that act and independent intended-case proof | Reject closure from readiness or consistency alone; later bounded Lane A unit, Phase 1 |
+| GR-007 → B-077 | Final review follows B-050's own disposition/clearance and refreshed 17-target evidence | Reject bulk review, stale local evidence or reused graph acceptance; Phase 1 |
+| Audit → B-136.P15/B-106 | Parallel source obligations, each with its own evidence or individual reason | Reject making either wait on B-050 without its own source basis; Phase 1 / named later runtime unit |
+| B-153/B-154 → B-150 → derived tracker → GR-007 F → Gate 2 | Complete evidence, then each O0 disposition, then tracker/all-row conclusion and separate Gate 2 assessment | Reject parent-first closure that depends on its own prior completion; Phase 1 |
+
+### Draft work order for the Judge — specified, not enacted
+
+- **Unit/owner:** B-050 guarded Graphify procedure, Phase 1, Lane A Active. Purpose: reject invalid
+  isolated analysis and publish only independently reviewed complete state, with owned recovery
+  after the selected abrupt-process-termination failures. Power-loss and universal raw-tool repair
+  are outside its claim.
+- **Five application paths:** `scripts/graphify/guarded-rebuild.mjs`,
+  `scripts/fixtures/graphify-guard.test.mjs`, `.claude/skills/sync-docs/SKILL.md` §7,
+  `docs/graph-fragments/README.md` §5, and `scripts/checks/docs-drift.mjs`.
+  The Judge's approval of the fifth path is already recorded; this packet does not ask it again.
+- **Normative inputs:** contract v4 at `d733513`, its retained v3 R1/R2/R4/R5 policies as explicitly
+  incorporated there, and B-050's two bounded v4 conditions. The seven-step transaction and exclusive
+  recovery are the construction procedure; the existing case matrix, including the three new URI/
+  traversal inputs and live-owner rollback/peer refusal, is the verification obligation. Pin the
+  actual selected source/tool/context and recursive file manifests per run; do not hard-code 557.
+- **Runtime/evidence boundary:** disposable analysis/fixtures and external transaction artifacts
+  under the contract's validated roots. Tests must not mutate the released state. An initial live
+  publication uses the same independent exact-byte review and receipt route; it is not silently
+  authorized by passing fixtures. Preserve failed candidates/backups/receipts; cleanup follows
+  the contract's containment and role checks.
+- **Exclusions:** no app/lib/components/supabase/workflow changes, dependency/build-config changes,
+  global Graphify-package edits, frozen-source edits, raw-tool repair claim, new lane activation,
+  automatic handoff/parent closure, deployment or push. A necessary additional repository path
+  requires a revised bounded proposal.
+- **DoD:** demonstrate the intended successful route and every existing negative/recovery case,
+  including raw null before rebinding, no-op sanitization, ref/config/clock/source changes, full
+  fragment/member/name comparison, immutable composition, aliases/foreign paths, owner/peer and
+  competing recovery, rename/journal gaps, malformed state, receipt/cleanup failure, checker skips
+  and valid retry. Evidence identifies source, tool, injection, reached boundary, manifests and
+  outcome. Lane B independently accepts the proof; the complete consistency suite passes. Any
+  governed source change receives its own ordered fragment sync and independent graph review.
+- **Completion acts:** implementation/proof does not itself close B-050. Its source-specific
+  disposition and tracker clearance follow the selected procedure scope in a named act. Then
+  request B-077's final review on refreshed named local commits. The Register/Build Spec/Inventory
+  record the work-order authorization and applicable D-54 consequences; those governance acts
+  are separate from this five-path implementation boundary.
+
+### Lane A follow-up and remaining tracking
+
+1. Receive this bounded readiness result and B-050's two conditions. Preserve accepted criteria;
+   record plan readiness without promoting B-050's Applied header or closing its O1 row.
+2. Put the concrete packet above to the Judge as the next work-order decision. No additional broad
+   contract cycle is needed merely to draft this act. Incorporate the two conditions as written;
+   return for review only if scope or required behavior departs from them.
+3. Once the Judge records the bounded act, Lane A implements the unit, produces intended-case
+   evidence and obtains independent proof/release review. No implementation occurs in this turn.
+4. Record B-050's own completion/disposition/clearance, then refresh B-077's 17 targets and SC8
+   query and request its final review. B-136.P15/B-106 remain independently actionable parallel
+   sources; do not hide them behind this sequence.
+5. Complete the O0 correction evidence/dispositions, then B-150's audit, rederive SV-002 and
+   conclude GR-007 F before the separate Gate 2 ruling. The existing tracker still has seven
+   non-SM05 rows open; plan readiness clears none of them.
+
+**Chief Editor/Judge and lanes:** the human Judge's remaining decision is the bounded work order.
+Product Chief Editor roles, scoring formulas and business/held technical T5 behavior gain no
+authority from this tooling docket. Lane A's earlier drafting gaps are answered; its prototype
+validator still misses the three synthetic inputs documented in B-050. Lane B clarifies its own
+live-owner wording so rollback is implementable and accepts completed criteria. No new Lane C
+assessment exists for this exact revision; older Level 2 receipts retain their own scope and later
+Phase 3/SM06 homes. No unsupported cross-lane signoff is inferred.
+
+**Artifact meaning:** classification and composed-state manifests specify what construction may
+publish; transaction/recovery rules specify allowed transitions; the matrix specifies verification;
+the independent review and external receipt bind released bytes. B-050 owns source answers/proof,
+B-154 consolidates, the Register authorizes, GOV-RES-001 holds residual delivery and SV-002 owns
+keyed accounting/derived clearance. Readiness, authorization, proven implementation, source
+disposition and Gate 2 are separate completion facts.
+
+**Drift:** graph SHA remains `855f713e34f09482815c805e276b3762ca9390e00d548eb4fe2a700bc58eefe8`,
+analyzed at 2bf5c3e. Later changes are excluded handoffs only. Generic check-update reports a
+HEAD-based notice at 9422a5b; governed-intent docs-drift remains the controlling source policy.
+This handoff review needs no rebuild. Later governed procedure/check edits need their own sync.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Completed v4 design adoption and existing scoped evidence/approvals | Phase 1: record bounded readiness receipt |
+| Approve-with-conditions | Readiness and concrete five-path work-order draft | Phase 1: include B-050's canonical-path and owner-rollback conditions in the Judge act |
+| Defer | Execution/proof, B-050/B-077 disposition, parallel sources, O0 closure, GR-007 F and Gate 2 | Separate Phase 1 acts and named later units |
+| Reject | Prototype completeness, readiness-as-execution, stable graph output automatically called a no-op or live-owner rollback refused by its own lock | Phase 1 implementation: exact acceptance criteria above |
