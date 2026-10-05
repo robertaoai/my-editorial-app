@@ -271,3 +271,41 @@ releases (D-409, D-411, D-412), under an observed guarded procedure with fail-cl
 "cannot" and cause identification remain documented limits. The two stopped runs and the misleading-name replay stay
 on record as failures. Lane B may record a **bounded** Verified stating those limits, or keep Applied and name the
 missing proof. Any tool repair needs its own act. `B-050` stays Applied.
+
+## Diagnostic-only work order — pinned contract, 2026-10-05 (`D-416` item 7)
+
+Pinned at read `1e4946a8cdcbd0b6a57f8c8ae7845073c023a581`, **before any run**. The Judge rejected the risk-treatment
+reason and issued this diagnostic-only order (`D-416`). Lane A operates; Lane B reviews. It authorizes **no repair**
+of the live graph, installed packages, repository scripts, workflows or application. B-050 stays `Applied` and its
+O1 row open until a separate act accepts evidence.
+
+| Item | Pinned value |
+|---|---|
+| Source revision under test | `1c9d59e9c467cb4ddc2756ed569c275ebfddd6df` (D-416 governed commit) |
+| Tool | `@sentropic/graphify` 0.17.1, global install. SHA-256 `dist/cli.js` `9b119afe…`, `dist/index.js` `e232377a…`, `dist/skill-runtime.js` `50e2946e…`. Node v24.18.0; git 2.54.0.windows.1. A hash change stops the run |
+| Disposable state | `git clone --no-hardlinks` of the source revision into `<evidence>/clone-NN/`, with its own `.graphify`. No worktree, no symlink to `C:/CoWork/myeditorialapp/.graphify` |
+| Invocation | `npx graphify hook-rebuild` in the clone; before and after each run, `.graphify/branch.json`, `graphify state status`, `graphify check-update`, and the clone's `git rev-parse HEAD`/`git symbolic-ref -q HEAD` |
+| Evidence home | `C:/CoWork/outputs/b050-null-reset-diagnostic-2026-10-05/` |
+| Caller invariants | Before and after: live `.graphify` hash manifest, `git status --porcelain`, `git write-tree` and HEAD of `C:/robertaoai/my-editorial-app`. Any difference is a failed run |
+| Stop bounds | At most 30 rebuilds in all, 45 minutes wall time, no network writes, and nothing written outside the evidence home. Stop at the first null transition and preserve that state |
+
+**Cases:**
+1. **Source read (static).** Trace in the pinned `dist/` files where `hook-rebuild` writes `branchName`, `lastSeenHead`
+   and `lastAnalyzedHead`, and under what Git-context results it writes null. Read only.
+2. **Positive control.** Fresh clone on a branch with valid Git context: rebuild twice. **Pass:** all three fields
+   non-null, `lastAnalyzedHead` = HEAD.
+3. **Repetition.** Seed a non-null `branch.json` from case 2, then up to 20 repeated rebuilds, recording any null
+   transition.
+4. **Negative, synthetic** (labelled not historical cause): detached HEAD; Git unreachable (`.git` renamed, or
+   `GIT_DIR` misbound); invocation from outside the worktree. Record whether a non-null record becomes null.
+5. **Synthetic null candidate.** Pre-set the fields to null, rebuild, and record whether the tool repairs or keeps
+   the nulls.
+
+**Outcome**, exactly one, returned here for Lane B's review:
+- **reproduced cause** (a case plus the code path);
+- **prevention evidence** (a predicate that refuses the null write while preserving valid metadata, shown by
+  cases 2 and 4);
+- **inconclusive.**
+
+A detection-only guard does not satisfy "rebuilding cannot replace a non-null current record with null". Any repair
+needs its own bounded proposal (exact paths, regression case, DoD) and its own act.
