@@ -3599,3 +3599,178 @@ disposition, Register change, graph rebuild, construction or push was performed.
 | Approve-with-conditions | RH4 transfer order and B-117/B-118 custody drafts; B-077 reason-based criterion proposal; B-050 diagnostic plan | Phase 1: exact receivers/dispositions, individual Judge acts, independent evidence and the acyclic parent-finalization sequence above |
 | Defer | B-050 clearance, B-077 final acceptance, GR-007/O0 completion, Gate 2 and construction | Phase 1 source proof and separate parent acts first; GR-009/code follows only a later bounded Lane B unit |
 | Reject | Re-offering rejected B-050 risk acceptance; transfer-as-delivery; omitted GR-006; mixed B-077 verdict bases; blanket no-drift claim; completed RH4 headers or graph sync inferred from this draft | Phase 1: use the explicit refusal criteria above |
+
+
+## Lane B D-416 completion review and prevention docket — handback to Lane A, 2026-10-05
+
+**Normalized request.** Independently review Lane A's D-416 application, graph candidate, custody transfers
+and B-050 diagnostic; accept only the evidenced scope, draft the remaining fixes and give the Judge a
+finite decision table. Planning and verification of existing artifacts only. Lane B raises this
+continuation; Lane A alone answers it. B-150 remains the highest audit parent, with B-153/B-154 review
+children and the existing GR-007 reconciliation; no new backlog or duplicate handoff is created.
+
+**Read baseline:** `9839d9c1ed1d95e21d1625e0941076fb63f9be36`. Source application:
+`1c9d59e9c467cb4ddc2756ed569c275ebfddd6df`. Lane A's intake and handback are `8e428d0` and
+`1e4946a`. The pasted worklog is supporting narrative; the Register and source artifacts decide.
+The four D-416 choices are already recorded and are not re-asked.
+
+### What happened — parent authority, then dependent children
+
+| Order / parent | Independent result | What can follow |
+|---|---|---|
+| 1. B-150 authority → D-416 bounded batch | Accept the five-file accounting/custody diff: Register, Build Spec/Inventory applicability, GOV-RES-001 and SV-002. The fact of B-071 closure is recorded through the Verified-header rule; the displayed historical open cell does not override that rule | Lane A receives this review; no new Product scope or construction authority |
+| 2. D-416 graph candidate | Accept the exact candidate below for hash-bound release recording | Lane A records the release receipt; no rerun solely to move a handoff-only HEAD |
+| 3. RH4 transfer and B-117/B-118 custody (R) | Accept the transfer as evidenced in GR-007 and the source/child census. GR-021 preserves all five held B-117 identities and the SM05 split; GR-006 retains RH1–RH3. GR-009 code and held delivery remain deferred | D-416 item 5's condition R is met for these custody dispositions. Lane A may write the already-authorized source Deferred headers in their own commits and reconcile the respective tracker rows |
+| 4. B-050 diagnostic | Accept the reproduced mechanism within the limits of B-050's independent review appended this turn; reject full procedure-compliance and prevention claims | Lane A answers the deviations and prepares the bounded prevention decision below. B-050 stays Applied/open for clearance |
+| 5. B-050 → B-077 → O0 parents → GR-007 final conclusion | Still pending. The local-commit and twelve D-403 reason-based criteria are operative under D-416; they need no repeat approval | Resolve B-050, perform B-077's final source query/review, disposition each parent's own obligations, re-derive, then make the all-row conclusion; Gate 2 remains a separate check/act |
+
+**Custody review scope.** B-117's 51-child census is evaluated with D-384/D-385 and later accepted corrections;
+this is not a new full historical-body reread. GR-002's Verified proof and GR-010/011's accepted documentary
+scope stand. GR-009 owns its separate later configuration unit; GR-021 owns only the named held residuals,
+and GR-007 owns backlog reconciliation. B-118's SM05 portion stays received under D-381; D-413 accepted
+RH1–RH3 custody in GR-006, and D-416 now receives RH4's header action in GR-007. No source residual is
+dropped by the proposed deferrals. T → R → H → F is acyclic because R checks transfers, not delivery
+of these deferred units. This acceptance does not claim H or F has already happened.
+
+**Exact source dispositions to apply under D-416, after receiving this review:**
+- B-117: Answered / Deferred; Follow-up-Tier names GR-007, GR-009's separate Lane B unit and GR-021's five
+  children with their distinct planning-custody and execution conditions. Preserve the SM05 split.
+- B-118: Answered / Deferred; Follow-up-Tier names GR-006's optional Judge selection/decline condition
+  and RH4's remaining header/final-confirmation action in GR-007. Preserve its existing SM05 receipt.
+- Both retain the dispositioned-not-independently-verified audit form, with a real read commit.
+  This is independent custody review, not whole-entry Verified or delivered feature work.
+
+### D-416 graph — independent acceptance and release boundary
+
+Evidence home: `C:/CoWork/outputs/lane-b-d416-review-2026-10-05/`
+(`REPORT.json`, `LABEL-REVIEW.json`, complete `member-review.txt`).
+Operator evidence: `C:/CoWork/outputs/lane-a-d416-sync-2026-10-05/MANIFEST.md`.
+
+| Property independently checked | Observed result |
+|---|---|
+| Saved graph identity | SHA-256 `231354965fd73160f96c66716f7d0d063ed70fb8d30267e32ba794f8329b3cd1`, exactly the submitted candidate |
+| Backup and actual restore-test files | All 557 recorded files match in each copy; no differences |
+| Every fragment-declared node and edge field in the saved graph | 139/139 fragments exact; 5,927 node-field and 9,703 edge-field comparisons; no differences |
+| Community memberships and names | 124/124 member sets and names bound to saved nodes; the 112 reused names have identical prior D-415 members and names; all 12 changed-group names reviewed from full current member labels |
+| Meaning of names | Accepted representative navigation topics, including mixed groups; not exclusive classifications or exhaustive accounts of every member |
+| Runtime / semantics | Analyzed head is 1c9d59e; current check-update; the same two inherited undescribed commit nodes remain bounded, not newly missing business descriptions |
+| Full local consistency | 19/19 at the read baseline, including Git history checks; governed docs-drift passes and the tracker is reported current at 8e428d0 |
+
+**The independent candidate review required by D-416 item 10 is satisfied.** Lane A records release
+against this exact hash and source revision, preserving the verified backup. No graph bytes or runtime
+state were altered by this review. This acceptance supplies no B-050 prevention proof and no GR-007
+completion. Literal graph traversal is a navigation aid: replayed document descriptions and commit
+nodes do not guarantee a standalone node for every newly recorded GR/decision fact. Source clauses
+remain the authority for the child-level conclusions.
+
+### Remaining gaps — drafted correction and failure-derived success
+
+| Gap / failure if left unchanged | Smallest draft fix | Observable acceptance / refusal |
+|---|---|---|
+| B-050 mechanism described as “any Git failure” or the historical incident's known trigger | Use B-050's scoped mechanism wording: two controlled context failures; original incident trigger unknown | Accept the pinned static path plus synthetic logs; reject attribution of the August failure or every optional Git failure |
+| Diagnostic continues after first null despite its pinned stop condition, and omits the per-run context/status/semantics bundle | Lane A adds an explicit deviation record to B-050. Do not manufacture missing historical logs. Present the finite evidence choice below | Accept mechanism evidence with disclosed limits; full contract compliance needs the specified replacement evidence or an explicit Judge exception |
+| Preflight succeeds, then a later tool Git lookup fails | Describe a preflight as an early refusal only; stage the mutating work outside the released state and validate the candidate before any promotion | Child-context failure after a successful preflight must leave the released state unchanged and refuse release |
+| Restore only branch.json after the graph/worktree files changed | Recovery boundary must include the full declared state, with hash-verified backup and binding checks. Do not present rollback as “the bad write never occurred” | Reject mismatched graph/head/worktree snapshots and any false current-state report; recovery failure remains a failed run |
+| Repository wrapper called a universal external-tool repair | Judge names the exact protected invocation/procedure and the residual direct-tool defect | Wrapped failure/success cases prove only that selected procedure. An unwrapped CLI still reproducing nulls cannot be declared globally fixed |
+| Custody/graph acceptance read as parent completion | Keep source dispositions, receipt clearance, delivered work and final all-row conclusion as separate facts in the existing homes | H is observed before F; each O0 parent meets its own conditions; no GR-007/O0 mutual completion dependency |
+
+### Chief Editor/Judge — only new choices, in dependency order
+
+| Choice | Recommended Accept | Reject / consequence; phase |
+|---|---|---|
+| A. B-050 diagnostic evidence qualification | Accept the bounded mechanism finding, with Lane A explicitly recording the stop/log deviations; grant no prevention or whole-entry closure credit | If full pinned-contract compliance is required, select a short replacement diagnostic: preserve the failed clone/state and full per-run bundle, stop on its first null. Phase 1 |
+| B. Prevention scope, after A's evidence boundary is clear | Select a **repository-procedure** proposal: isolated rebuild candidate, intended failure tests, validated promotion/recovery and explicit protection boundary. Amend any universal B-050 wording only through a named Judge act; keep the external raw-tool defect visible | Keep the original external-tool “cannot replace” requirement. Lane A then needs a separately authorized external writer repair/release path; a repository wrapper alone cannot meet it. Phase 1 |
+| C. Execute the repair | Decide only after Lane A's exact bounded contract below is complete and independently reviewable | Defer execution if paths, promotion/recovery mechanism, failure tests or scope are missing. This planning handback is no work order |
+| D. B-077 / parent / Gate 2 acceptance | Later, accept only their own complete source evidence and independent conclusions | Defer while B-050 or any required source/parent criterion remains open. Phase 1; construction is later Phase 2 |
+
+Choices A/B are evidence and technical-scope decisions, not a re-offering of the rejected general
+risk-acceptance reason. The Judge may instead retain the original repair boundary. No new decision
+is due on GR-021, the five trigger notes, RH4's selected route or B-077's D-416 review criteria.
+
+### Draft bounded prevention contract — prepare, do not build
+
+**Proposed repository paths for Lane A's scope proposal:** `scripts/graphify/guarded-rebuild.mjs`,
+`scripts/fixtures/graphify-guard.test.mjs`, `.claude/skills/sync-docs/SKILL.md` §7 and
+`docs/graph-fragments/README.md` §5. Register/Build Spec/Inventory applicability and B-050's source
+contract/evidence are the existing governance homes. Tests can be invoked directly; no dependency
+or build-config change is proposed. These paths are proposed write boundaries, not edited files.
+
+**Required contract before C can be decided:**
+1. Pin the tool/version, source commit, complete invocation environment, mandatory context/HEAD checks,
+   permitted branch mode and resolved state destinations. Match the expected repository and disallow a
+   candidate state root that aliases the released state. Optional upstream absence is classified separately.
+2. Define candidate generation in a disposable checkout/state root, preservation of failure evidence,
+   all applicable curated-fragment re-merges and explicit semantic completion/bounds. No invalid candidate
+   mutates the released state.
+3. Specify the actual promotion mechanism and recovery boundary before claiming prevention: account for
+   graph/report/worktree/branch state together, recheck target context and source revision, handle partial
+   failure and concurrent use, and never transplant disposable runtime identities as caller identities.
+   Keep D-409/D-410's independent review/release boundary. If these steps need more paths, return a revised
+   exact proposal before execution.
+4. Draft the intended-error cases below and label every injection synthetic. A failure from unrelated
+   setup does not count as prevention. Capture before/after state hashes and a complete context/status bundle.
+5. Define DoD as independent proof of the selected procedure's protection and a source-specific B-050
+   disposition under the chosen scope. No passing test silently closes the original universal criterion.
+
+| Future case | Required result |
+|---|---|
+| Valid required context at the selected commit | Correct candidate binding, saved curated parity and resolved/bounded semantics; intended success route reached |
+| Git absent or GIT_DIR misbound | Intended refusal; released-state hashes unchanged |
+| Mandatory Git resolution fails only inside the child, after preflight passed | Candidate rejected; released state untouched; no silent healthy report |
+| Wrong HEAD/root or a stage root aliasing released state | Refuse before mutation of released state |
+| Detached HEAD / no upstream | Follow the explicitly chosen branch-mode contract; no null-branch/valid-head case misclassified as the original reset |
+| Partial write, failed promotion/recovery or concurrent run | Defined refusal/recovery under the actual chosen mechanism; no mixed healthy metadata or silently lost evidence |
+| Valid run after a refused run | Prove retry reaches the intended path without relying on an earlier failure's accidental cleanup |
+
+These are test specifications only. Neither the wrapper nor the fixtures were written or run here.
+
+### Lane A step-by-step and the existing closure layers
+
+1. **Receive this B-154 review and B-050's source review.** Record the exact accepted scope and the
+   diagnostic deviations; preserve this baseline and the operator evidence. Do not create another parent.
+2. **Record D-416 graph release** against the accepted full hash. R is also now evidenced: apply B-117
+   and B-118 Deferred headers, each in its own handoff commit with the complete Follow-up-Tier above.
+   Record that H actually happened, rather than treating this review as H.
+3. **Reconcile the source transactions and tracker in a bounded Lane A accounting pass.** Key this review
+   once in SV-002 §2.3.2; close only RH4/B-117 rows whose D-416 conditions this review satisfies and retain
+   GR-007's remaining action. B-118's entry row remains its existing SM05 receipt. No B-050/B-077/O0 row
+   closes merely from the graph/custody review.
+4. **Present A/B, then complete C's prevention proposal.** The diagnostic compliance clarification and
+   exact protective scope come before any repair work order. Existing D-416 authorizes diagnosis only.
+5. **After any governed accounting/procedure edit, sync that new source revision** using the existing
+   backup/curated-merge/semantic procedure, run the full suite, and obtain its independent review before
+   release. Today's graph acceptance cannot cover later governed changes.
+6. **After independently accepted prevention/source disposition, request B-077's final review.** Use the
+   seventeen distinct targets, each one's D-416 single basis, named local source/graph/review revisions
+   and a fresh SC8 query. Then each O0 parent gets its own disposition on the completed evidence;
+   re-derive the tracker, conclude GR-007 across all rows, and assess Gate 2 separately.
+
+| Existing layer | Fact it owns / closure meaning |
+|---|---|
+| B-050/B-117/B-118 and other originating handoffs | Their live lifecycle, Lane A answer, accepted correction and independent evidence. Applied remains nonterminal; Deferred can end custody at the source while delivery remains received elsewhere |
+| GOV-RES-001 | Residual ownership, hold, trigger and completion criteria; a receipt is not delivered software |
+| SV-002 §2.3.2 / §2.3.1 | Keyed transactions/census / derived clearance. Judge acceptance can clear a row without promoting its source header |
+| Register / Phase Closure §5 | Judge scope/authorization acts / the only live lane-state record |
+| B-150 → B-153/B-154 | Audit authority and correction-unit evidence; parent closure follows the children, before GR-007's final all-row conclusion |
+
+**Construction and verification implications.** GR-010/011 define namespace/source fidelity for later
+behavioral tests; GR-009's catalog contract must reject a same-count wrong-member substitution; GR-021
+keeps held execution out of SM05. The released graph, keyed ledger and source receipts establish reliable
+construction inputs, not implemented business behavior. V1 remains the limited evidence slice followed
+by bounded ManualReady; these acts do not satisfy full CR-19 or authorize a scoring formula.
+
+**Three-lane clarity:** Lane A's unsupported extensions were full diagnostic compliance and a
+detect/restore wrapper called prevention; Lane B must not turn this scoped review into Verified headers,
+B-077 final acceptance or Gate 2. No new Lane C assessment was supplied for this exact batch; older Level 2
+receipts remain scoped to their own revisions. Existing CI/hosted work stays in its named SM06 Phase 3 homes.
+
+**Drift at this read:** the complete suite passed 19/19; docs-drift is synced at 1c9d59e, later differences
+are B-050/B-154 handoffs only, and the tracker is reported current at 8e428d0. No new rebuild is needed for
+this handoff-only review. Semantic claims retain the candidate/query limits above.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | D-416 documentary diff; exact graph candidate; RH4 receipt and B-117/B-118 custody review; bounded B-050 mechanism evidence | Phase 1: Lane A records release and applies the authorized source deferrals, preserving evidence limits |
+| Approve-with-conditions | Diagnostic completed-unit claim and the repository-procedure prevention proposal | Phase 1: record deviations, decide A/B, finish C's exact contract and obtain its separate work order |
+| Defer | B-050 Verified/clearance, repair execution, B-077 final acceptance, GR-007/O0 completion, Gate 2 and GR-009 code | Phase 1 evidence and source acts; code only in a later bounded Lane B unit |
+| Reject | Universal/historical-cause claim, full diagnostic compliance, branch-only restoration as prevention, omitted receiver, release of later unreviewed graph edits or custody-as-delivery | Phase 1: use the explicit refusal criteria above |
