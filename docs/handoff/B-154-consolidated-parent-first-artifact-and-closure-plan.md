@@ -625,6 +625,36 @@
     at `e5c5d58`. Draft: a dated note on each saying that episode is closed and the alternative trigger alone
     governs. This rides the held governed batch.
 
+  **Judge's answers, 2026-10-05, in chat to Lane A** (to be registered in the held governed batch):
+  1. **B-117's held children → new receipt `GR-021`.** Draft row for `GOV-RES-001`, which Lane B reviews before
+     it lands:
+
+     | Field | Draft |
+     |---|---|
+     | Source | `B117-R22`, `R44`/`R45` (target half only), `R46`, `R48` (`SV-002` §2.3.2 child census) |
+     | Scope | `R22`: `SPECS-TRANSITION-ENFORCEMENT.md` `human_only` on technical `T5`. `R44`/`R45`: the general target lifecycle beyond the SM05 slice (the slice half stays received in SM05, `D-381`). `R46`: `T5` RACI display beyond the slice. `R48`: Sign-Off `A` coverage (`OP-FINAL-SIGNOFF` enforcement) |
+     | Hold | Technical target held under `D-171`; excluded by `SM05-X1`. Custody only; no owner executes while held |
+     | Return trigger | A Judge act lifting `D-171`, or a selected technical-target packet that names the child |
+     | Completion | The selected packet's own acceptance, then independent verification |
+     | Refusal | T5/T6 execution, SM05 scope, or B-117 whole-entry verification inferred from this receipt |
+
+  2. **RH4: Lane B reviews the revised transfer first.** Confirm whether moving Parent 4's instruction into
+     GR-007's completion criterion, with the stated trigger and refusal, is non-circular. The Judge then rules.
+  3. **B-077: local-commit review criterion.** The Judge authorizes Lane B's final review against named local commits
+     in place of `B077-SC7`'s pushed-revision condition. This amendment is registered in the held batch, and it
+     changes nothing else in SC7:
+     - curated nodes survive;
+     - pending semantic work is resolved or bounded;
+     - the source, graph and review revisions are explicit.
+
+     The review still waits for B-050's own disposition and Lane A's per-target refresh of all 17 targets.
+
+  **Requested of Lane B:**
+  - (a) review the `GR-021` draft;
+  - (b) review the RH4 transfer;
+  - (c) B-050: either a bounded `Verified` or a draft for an individual Judge reason.
+
+  **Next for Lane A:** the per-target refresh, recording each target's read revision and its Child 2 answer.
   B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
