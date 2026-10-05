@@ -1,5 +1,5 @@
 // `B-050` guarded Graphify procedure — STAGES F1 (`D-418`–`D-421`) AND F2
-// (`D-423`), under contract v4 at `d733513` with the two conditions adopted at
+// (`D-423`, corrected by `D-424`), under contract v4 at `d733513` with the two conditions adopted at
 // `b97f93f`. F1 sections follow first; the F2 sections come after them.
 //
 // WHY THIS EXISTS. The pinned Graphify CLI (0.17.1) writes `branch.json` and
@@ -26,8 +26,16 @@
 // needs the assistant cycle (new community names, new descriptions) is
 // RETURNED AS PENDING, never invented.
 //
+// THE F2 CORRECTIONS (`D-424`). One fixture boundary (`fixtureBoundary`) runs
+// before any write in `publish`, `recover` and `composeCandidate`; supplied
+// community names bind by member-set hash only; fragment parity compares every
+// declared edge field; `publish` re-checks the source snapshot under its lock;
+// a prior description is replayed only for a symbol whose source file is
+// unchanged since the baseline's analyzed commit.
+//
 // WHAT F2 IS NOT. `publish()` refuses the real live target
-// (`C:/CoWork/myeditorialapp/.graphify`) and anything not declared a fixture:
+// (`C:/CoWork/myeditorialapp/.graphify`), its ancestors and descendants, and
+// any path outside a declared disposable fixture root:
 // live publication and runbook adoption are F3, not authorized. Running this
 // file directly refuses. Until F3 is accepted, graph syncs use the
 // `D-409`/`D-410` procedure with the `D-422` prune order.
@@ -537,10 +545,39 @@ function releaseOwned(path, runToken) {
 
 export const REAL_LIVE_TARGET = "C:/CoWork/myeditorialapp/.graphify";
 
-/** True when a path resolves to the real live state, through any link. */
+/** True when a path resolves, through any link, to the real live state, an ancestor of it, or a path inside it. */
 export function isRealLiveTarget(target) {
   const live = canonicalFsPath(REAL_LIVE_TARGET);
-  return Boolean(live) && canonicalFsPath(target) === live;
+  const c = target == null ? null : canonicalFsPath(target);
+  return Boolean(live && c) && (c === live || isWithin(live, c) || isWithin(c, live));
+}
+
+/** True when neither canonical path aliases, contains or sits inside the other. */
+function disjoint(a, b) {
+  const x = canonicalFsPath(a), y = canonicalFsPath(b);
+  return Boolean(x && y) && x !== y && !isWithin(x, y) && !isWithin(y, x);
+}
+
+/**
+ * The one mutating preflight (`D-424` R1), run by `publish`, `recover` and
+ * `composeCandidate` before any create, delete or rename. `root` is the
+ * declared disposable fixture or work root. Every runtime path, in every role,
+ * must sit strictly inside it, and neither the root nor any path may alias,
+ * contain or sit inside the real live target. Canonical through links.
+ */
+export function fixtureBoundary(root, roles) {
+  if (typeof root !== "string" || !root) return ["a declared fixture or work root is required: publication outside one is F3, which is not authorized"];
+  const r = canonicalFsPath(root);
+  if (!r || !canonicalFsPath(REAL_LIVE_TARGET)) return ["the fixture root or the real live target cannot be canonicalized"];
+  if (isRealLiveTarget(root)) return [`the fixture root ${root} aliases, contains or sits inside the real live target`];
+  const findings = [];
+  for (const [role, p] of Object.entries(roles)) {
+    const c = typeof p === "string" && p ? canonicalFsPath(p) : null;
+    if (!c) findings.push(`${role} path ${p} cannot be canonicalized`);
+    else if (isRealLiveTarget(p)) findings.push(`${role} path ${p} aliases, contains or sits inside the real live target`);
+    else if (c === r || !isWithin(c, r)) findings.push(`${role} path ${p} is outside the declared fixture root`);
+  }
+  return findings;
 }
 
 /** Runtime artifact locations beside a target, all outside it. */
@@ -571,18 +608,23 @@ function writeReceipt(P, receipt, writer = writeDurable) {
 
 /**
  * Step 6–7 on a FIXTURE target: publish exactly the reviewed staging bytes.
+ * `fixture` is the declared disposable root every runtime path must sit in;
+ * `source` is `{ repo, snapshot }`, re-checked under the lock (`D-424` R4).
  * `crashAt` names a point at which the process exits (synthetic termination,
  * for tests run in a child process); `inject` replaces a step to force a failure.
  */
 export function publish(opts) {
-  const { target, staging, reviewedManifest, baselineManifest, sourceCommit, acceptance, fixture, crashAt, pauseAt, pauseMs = 0, inject = {} } = opts;
+  const { target, staging, reviewedManifest, baselineManifest, source, acceptance, fixture, crashAt, pauseAt, pauseMs = 0, inject = {} } = opts;
   const runToken = opts.runToken || randomUUID();
-  if (fixture !== true) return refused("publication outside a declared fixture target is F3, which is not authorized");
-  if (isRealLiveTarget(target)) return refused("the real live target is F3, which is not authorized");
-  if (!sourceCommit) return refused("a source commit is required: the journal must bind the transaction to its source");
+  if (isRealLiveTarget(target)) return refused("the real live target, its ancestors and descendants are F3, which is not authorized");
   const P = transactionPaths(target);
   const old = join(P.parent, `.graphify-old-${runToken}`);
   const backup = join(P.parent, `.graphify-bak-${runToken}`);
+  const outside = fixtureBoundary(fixture, { target: P.target, staging, backup, old, journal: P.journal, lock: P.lock, recovery: P.recovery, receipts: P.receipts });
+  if (outside.length) return refused(outside.join("; "));
+  if (!source?.repo || !source?.snapshot?.head) return refused("a source repository and snapshot are required: the journal must bind the transaction to its source");
+  const sourceCommit = source.snapshot.head;
+  if (!disjoint(P.target, source.repo) || !disjoint(staging, source.repo)) return refused("the target and staging must be disjoint from the source repository");
   const contained = containmentFindings(P.target, { staging, backup, old });
   if (contained.length) return refused(contained.join("; "));
   if (existsSync(P.journal)) return refused("a transaction journal already exists: recover first");
@@ -593,6 +635,8 @@ export function publish(opts) {
   };
   let journal = null;
   try {
+    const still = snapshotMatches(source.repo, source.snapshot);
+    if (!still.ok) throw new Error(`the source is invalidated before publication: ${still.reason}`);
     if (digestOf(staging) !== reviewedManifest) throw new Error("staging bytes differ from the reviewed manifest");
     const liveDigest = digestOf(P.target);
     if (baselineManifest && liveDigest !== baselineManifest) throw new Error("the released state changed since the baseline");
@@ -619,7 +663,7 @@ export function publish(opts) {
       return refused(e.message);
     }
     // Owner rollback: this process still owns the publication lock (condition 2).
-    const r = recover({ target, asOwner: runToken, inject: inject.recovery });
+    const r = recover({ target, fixture, asOwner: runToken, inject: inject.recovery });
     return { ok: false, outcome: r.outcome === "rolled-back" || r.outcome === "restored" || r.outcome === "aborted-live-unchanged" ? "rolled-back" : r.outcome, reason: e.message, recovery: r };
   }
   try {
@@ -640,8 +684,11 @@ export function publish(opts) {
  * journal stage is believed. Every unresolved case preserves all evidence.
  */
 export function recover(opts) {
-  const { target, asOwner, inject = {} } = opts;
+  const { target, asOwner, fixture, inject = {} } = opts;
+  if (isRealLiveTarget(target)) return refused("recovery of the real live target is F3, which is not authorized");
   const P = transactionPaths(target);
+  const outside = fixtureBoundary(fixture, { target: P.target, journal: P.journal, lock: P.lock, recovery: P.recovery, receipts: P.receipts });
+  if (outside.length) return refused(outside.join("; "));
   if (!existsSync(P.journal) && !existsSync(P.lock)) return { ok: true, outcome: "nothing-to-recover" };
   const entrant = ownerRecord(opts.runToken || randomUUID());
   if (!createExclusive(P.recovery, entrant)) {
@@ -670,6 +717,10 @@ export function recover(opts) {
       if (state === "alive") return done(refused("the publishing owner is alive; a peer may not recover its transaction"));
       if (state === "unknown") return done(recoveryRequired("the owner's liveness cannot be proved; recovery needs evidence"));
     }
+    const aside = join(P.parent, `.graphify-rejected-${j.runToken}`);
+    const journalPaths = fixtureBoundary(fixture, { old: j.old, backup: j.backup, staging: j.staging, rejected: aside });
+    if (canonicalFsPath(j.target || "") !== canonicalFsPath(P.target)) journalPaths.push("the journal names a different target");
+    if (journalPaths.length) return done(recoveryRequired(`the journal's paths fail the fixture boundary: ${journalPaths.join("; ")}`));
     const liveD = digestOf(P.target);
     const oldD = digestOf(j.old);
     let outcome;
@@ -683,7 +734,6 @@ export function recover(opts) {
       writeReceipt(P, { kind: "release", runToken: j.runToken, sourceCommit: j.sourceCommit, reviewedManifest: j.reviewedManifest, acceptance: opts.acceptance ?? null, completedByRecovery: true }, inject.writeReceipt);
       outcome = "completed-release";
     } else if (liveD !== null && liveD === j.reviewedManifest && oldD === j.backupManifest) {
-      const aside = join(P.parent, `.graphify-rejected-${j.runToken}`);
       renameSync(P.target, aside);
       (inject.restore || renameSync)(j.old, P.target);
       if (digestOf(P.target) !== j.backupManifest) return done(recoveryRequired("the restored state does not equal the backup"));
@@ -754,7 +804,12 @@ export function snapshotSource(repo) {
 
 /** Re-snapshots the source and compares every bound input: HEAD, branch, origin, ref map and Git config. */
 export function snapshotMatches(repo, snapshot) {
-  const now = snapshotSource(repo);
+  let now;
+  try {
+    now = snapshotSource(repo);
+  } catch (e) {
+    return { ok: false, reason: `the source is unavailable (${String(e.message).trim().split("\n")[0]})` };
+  }
   if (!now.ok) return { ok: false, reason: now.reason };
   for (const k of ["head", "branch", "origin", "upstream", "config"]) if (now[k] !== snapshot[k]) return { ok: false, reason: `source ${k} changed since the snapshot` };
   if (JSON.stringify(now.refs) !== JSON.stringify(snapshot.refs)) return { ok: false, reason: "source ref map changed since the snapshot" };
@@ -867,20 +922,35 @@ export function fragmentOrder(checkout) {
   return ["docs-2026-08-18-fragment.json", "v1-fragment.json", ...frags].filter((f) => existsSync(join(dir, f)));
 }
 
-/** Fills description batches by id from the baseline graph, commit subjects from git, then operator answers.
- * Returns the ids still missing: never invented. */
+/** The source files changed between the baseline's analyzed commit and the checkout HEAD; null when unprovable. */
+function changedSince(checkout, baselineGraph) {
+  const head = readJsonOr(join(dirname(baselineGraph), "branch.json"))?.lastAnalyzedHead;
+  if (!HEAD.test(head || "")) return null;
+  try {
+    return new Set(git(checkout, ["diff", "--name-only", head, "HEAD"]).split("\n").filter(Boolean));
+  } catch {
+    return null;
+  }
+}
+
+/** Fills description batches by id from operator answers, then the baseline graph, then commit subjects from git.
+ * A baseline description is replayed only when its symbol's source file is unchanged since the baseline's
+ * analyzed commit (`D-424`); a changed or unprovable one is pending. Returns the ids still missing: never invented. */
 export function replayDescriptions(state, baselineGraph, answers, checkout) {
   const dir = join(state, "description-instructions");
   if (!existsSync(dir)) return [];
   const prior = new Map();
   for (const n of (readJsonOr(baselineGraph) || { nodes: [] }).nodes) if (n.description) prior.set(n.id, n.description);
+  const sourceOf = new Map((readJsonOr(join(state, "graph.json")) || { nodes: [] }).nodes.map((n) => [n.id, n.source_file]));
+  const changed = changedSince(checkout, baselineGraph);
+  const replayable = (id) => !sourceOf.get(id) || (changed !== null && !changed.has(sourceOf.get(id)));
   const subjects = new Map(git(checkout, ["log", "--all", "--format=%H%x09%s"]).split("\n").filter(Boolean).map((l) => l.split("\t")));
   const missing = [];
   for (const f of readdirSync(dir).filter((x) => /^batch-\d+\.md$/.test(x))) {
     const out = {};
-    for (const m of readFileSync(join(dir, f), "utf8").matchAll(/^- "([^"]+)": "([^"]*)" \| kind=([^ |]+)/gm)) {
+    for (const m of readFileSync(join(dir, f), "utf8").matchAll(/^- "([^"]+)": "([^"]*)" \| kind=([^ |\r\n]+)/gm)) {
       const [, id, , kind] = m;
-      let d = answers[id] || prior.get(id);
+      let d = answers[id] || (replayable(id) ? prior.get(id) : undefined);
       if (!d && /commit/i.test(kind)) {
         const sha = (id.match(/@([0-9a-f]{40})$/) || [])[1];
         if (sha && subjects.has(sha)) d = `Git commit ${sha.slice(0, 7)} in this repository, with the subject "${subjects.get(sha)}".`;
@@ -909,8 +979,9 @@ export function proposeNames(state, baselineGraph, answers) {
   const cur = groups(readJsonOr(join(state, "graph.json")) || { nodes: [] });
   const names = {}, pending = [];
   for (const [k, v] of cur) {
-    // Operator answers may name a community by its member-set hash (stable across renumbering) or its id.
-    const name = byHash.get(v.hash) || answers[v.hash] || answers[k];
+    // Operator answers bind by member-set hash only (`D-424` R2): a community id is renumbered between
+    // revisions, so an integer key is never identity and leaves the community pending.
+    const name = byHash.get(v.hash) || answers[v.hash];
     if (name) names[k] = name;
     else pending.push({ community: Number(k), memberSetSha256: v.hash });
   }
@@ -930,11 +1001,22 @@ export function proposeNames(state, baselineGraph, answers) {
 // F2: validation and composition (step 4, R1/R2/PC4).
 // ---------------------------------------------------------------------------
 
-/** Every fragment-declared node field and edge, compared with a saved graph. */
+/** Key-order-independent JSON, so nested metadata compares by content. */
+const stable = (v) => JSON.stringify(v, (_, x) => (x && typeof x === "object" && !Array.isArray(x) ? Object.fromEntries(Object.entries(x).sort(([a], [b]) => (a < b ? -1 : 1))) : x));
+
+/** Every fragment-declared node field and every declared edge field (`D-424` R3), compared with a saved graph.
+ * Parallel relations are matched by their declared content, each saved edge used once per fragment. */
 export function fragmentParity(graph, fragmentsDir) {
   const byId = new Map(graph.nodes.map((n) => [n.id, n]));
-  const key = (l) => `${typeof l.source === "object" ? l.source.id : l.source}|${typeof l.target === "object" ? l.target.id : l.target}|${l.relation ?? l.type ?? ""}`;
-  const links = new Set((graph.links || graph.edges || []).map(key));
+  const end = (x) => (x && typeof x === "object" ? x.id : x);
+  const key = (l) => `${end(l.source)}|${end(l.target)}|${l.relation ?? l.type ?? ""}`;
+  const links = new Map();
+  for (const l of graph.links || graph.edges || []) {
+    if (!links.has(key(l))) links.set(key(l), []);
+    links.get(key(l)).push(l);
+  }
+  const field = (l, k) => (k === "source" || k === "target" ? end(l[k]) : l[k]);
+  const declaredIn = (e, l) => Object.keys(e).every((k) => stable(field(l, k)) === stable(field(e, k)));
   const res = { fragments: 0, exact: 0, diffs: [] };
   for (const f of readdirSync(fragmentsDir).filter((x) => x.endsWith(".json")).sort()) {
     const frag = JSON.parse(readFileSync(join(fragmentsDir, f), "utf8"));
@@ -946,7 +1028,13 @@ export function fragmentParity(graph, fragmentsDir) {
       if (!s) { res.diffs.push(`${f}: missing node ${n.id}`); ok = false; continue; }
       for (const [k, v] of Object.entries(n)) if (JSON.stringify(s[k]) !== JSON.stringify(v)) { res.diffs.push(`${f}: ${n.id}.${k}`); ok = false; }
     }
-    for (const e of frag.edges || []) if (!links.has(key(e))) { res.diffs.push(`${f}: missing edge ${key(e)}`); ok = false; }
+    const used = new Set();
+    for (const e of frag.edges || []) {
+      const same = links.get(key(e)) || [];
+      const hit = same.find((l) => !used.has(l) && declaredIn(e, l));
+      if (hit) used.add(hit);
+      else { res.diffs.push(`${f}: ${same.length ? "edge fields differ on" : "missing edge"} ${key(e)}`); ok = false; }
+    }
     if (ok) res.exact++;
   }
   return res;
@@ -973,7 +1061,11 @@ export function nameBinding(graph) {
  * from the candidate, and branch/worktree rebound under R2 to the caller. Every
  * check refuses rather than repairs. Returns the reviewed-manifest identity.
  */
-export function composeCandidate({ candidateState, baseline, staging, caller, frozenAt, fragmentsDir }) {
+export function composeCandidate({ candidateState, baseline, staging, workRoot, caller, frozenAt, fragmentsDir }) {
+  const outside = fixtureBoundary(workRoot, { staging });
+  if (!disjoint(staging, candidateState)) outside.push("staging must be disjoint from the candidate state");
+  if (!disjoint(staging, baseline)) outside.push("staging must be disjoint from the baseline");
+  if (outside.length) return { ok: false, findings: outside };
   const findings = [];
   const { entries, unknown, multi } = classifyState(candidateState);
   if (unknown.length) findings.push(`unclassified candidate files: ${unknown.slice(0, 10).join(", ")}`);
@@ -1028,7 +1120,7 @@ export function composeCandidate({ candidateState, baseline, staging, caller, fr
 // ---------------------------------------------------------------------------
 
 export function refusal() {
-  return "guarded-rebuild: stage F2 (D-423) generates and composes candidates and publishes only to declared fixture targets, through its API. Live publication and runbook adoption (F3) are not authorized. Sync the graph with the D-409/D-410 procedure and the D-422 prune order.";
+  return "guarded-rebuild: stage F2 (D-423, corrected by D-424) generates and composes candidates and publishes only to declared fixture targets, through its API. Live publication and runbook adoption (F3) are not authorized. Sync the graph with the D-409/D-410 procedure and the D-422 prune order.";
 }
 
 if (process.argv[1] && pathToFileURL(resolve(process.argv[1])).href === import.meta.url) {
