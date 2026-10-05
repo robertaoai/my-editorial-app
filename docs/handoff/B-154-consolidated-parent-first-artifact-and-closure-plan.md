@@ -1075,6 +1075,110 @@
   - U03.
 
   B-154 stays Open; no Resolution is recorded.
+
+  **Answered 2026-10-06, read at `272ce9c`.** Lane A receives Lane B's sign-off (`591d2cd`), the consolidation
+  (`ccf71c1`) and the conversation consolidation (`272ce9c`).
+  - **Recorded first:** F1 is accepted under `D-421`; graph `081638cd…` is **released** (`1a0bf23`); the two
+    maintenance gaps became a proposal; retirements mean "absent from the current extraction", not source deletion.
+  - **The tracks are parallel**, as Lane B corrected. The Judge's four answers (2026-10-06) were taken separately.
+  - **`D-423`** (`3e0a79e`) registered three of them, applied in this order:
+    - the prune maintenance (`526972e`);
+    - `SV-002` §5 plus the U03-evaluation correction (`8554511`), with no DoD box checked;
+    - F2 (`4260209`, `4f7675c`, `434129c`). Details are in B-050: 186/186 tests, fixtures 297/297, a real-repo run
+      generated and published only to a fixture, and two Bun-on-Windows platform findings.
+  - **One sync** at `434129c`: candidate `9993bded…`. **Unreleased.**
+
+  **Drift:** governed intent is synced at `434129c`; this answer is handoff-only.
+
+
+  **Reference-retrieval design packet — DRAFT for review, 2026-10-06** (the Judge: "draft packet now", `D-423`). Read
+  at `272ce9c`. **Nothing here is applied:** no canonical spec edit, no MMF, no work order, no annotation migration. The
+  Judge decides scope and allocation; Lane B Level 1 and Lane C Level 2 review this exact revision.
+
+  **1. Scope and use case (proposed allocation).**
+  - **Home:** the existing global Project-scope family (`Modular_PRD` §7.2a, `D-271`), as a proposed new key, `AIG-07`
+    **Governed reference retrieval**. It has no `US`/`FR`/`AC`, no module and no Sprint column, like `AIG-01`–`06`.
+    - Behavior would sit in `FN-MULTI-LANE-AI-GOVERNANCE` as a new §4.7.
+    - The technical contract would sit in `SPECS-MULTI-LANE-AI-GOVERNANCE`.
+    - `AIG-03` (loading) and `AIG-04` (code navigation, U03) are **not** widened.
+    - This adds no prerequisite to Gate 2, U03 or any open row.
+  - **Actor:** a reviewer in any lane, or the Judge, holding a named handoff question.
+  - **Minimum outcome:** find the governing reference, read its canonical source, and tell operative authority apart
+    from historical evidence.
+  - **Corpus:** governed repository docs (Register, Build Spec, Inventory, `Modular_PRD`, fn-specs, specs, work packets,
+    graph-fragment docs) plus the source handoffs in `docs/handoff/`.
+  - **Excluded:** the external web, article and news references, code-call discovery (stays `AIG-04`/U03), annotation
+    editing or migration, and automated closure or any disposition.
+  - **Primary case:** "Which decision governs the prune order?" The answer is `D-422`'s after-restore order, citing
+    Register §5.14e247 and the README §4 revision, with `D-421` item 3 marked superseded history and the review receipt
+    `591d2cd` cited. B-050 closure is **not** inferred.
+
+  **2. Behavior (tool-independent).**
+  1. Take a named item plus a question; declare the in-scope corpus and the evidence type requested.
+  2. Find candidate references by **any** discovery means, then **read the cited sources themselves**. Graph
+     descriptions are leads, not evidence.
+  3. Apply governed precedence: the frozen sources, then the Register (`D-58`), then `Modular_PRD`, fn-specs and specs
+     (`D-29`), plus explicit supersession notes. Report three things separately: the graph snapshot, the source revision
+     read, and working-tree state. An old graph is never proof of fresh text.
+  4. Return:
+     - the source path and section;
+     - the revision;
+     - the supporting passage, or a faithful summary;
+     - current versus superseded status;
+     - any unresolved conflict.
+
+     Authority ranks above graph relevance.
+  5. If discovery misses, fall back to direct search and reading. Report missing, ambiguous, inaccessible, stale or
+     inconclusive results explicitly. **Never fabricate a citation.**
+
+  **3. Technical contract (draft; behavior first).** The pipeline is:
+  1. `graphify query`;
+  2. candidate resolution to a source path and anchor;
+  3. direct source read;
+  4. authority and revision evaluation;
+  5. the evidence response.
+
+  It records the graph hash and `lastAnalyzedHead` beside the source revision read. Curated ids are stable targets;
+  extracted anchors carry repository identity, normalized path and a qualified symbol. CLI `explain` is label-based
+  (README §4, `D-406`), so an id no-match is **not** absence. Handoffs are excluded from mandatory graph coverage
+  (`D-231`), so **direct lookup is mandatory for handoff questions**. **Result format:**
+  `{ question, corpus, sources: [{ path, section, revision, passage|summary, status: current|superseded|historical }],
+  conflicts, graph: { sha256, analyzedHead }, outcome: found|missing|ambiguous|inaccessible|stale|inconclusive }`.
+
+  **4. Acceptance matrix.** Expected sources are prepared **independently of the graph matcher**.
+
+  | Case | Required result |
+  |---|---|
+  | Prune-order question (`D-421`/`D-422`) | `D-422` cited as operative, `D-421` item 3 marked historical; no closure inferred |
+  | Source exists, graph node absent | Direct fallback finds it; never "no reference exists" |
+  | Handoff newer than the graph | Reads the current handoff revision and shows the graph revision separately |
+  | Similar labels, several anchors, or conflicting sources | Candidates and conflict kept, precedence stated; no arbitrary first match |
+  | Unreadable source or unresolvable revision | Explicit inaccessible, stale or inconclusive; no invented passage |
+  | Community renumbered with unchanged members | Same target; only the display context changes |
+  | Graphify versus direct retrieval baseline | Same named tasks; measure correctness, relationship discovery and effort before claiming any added value |
+
+  **5. Separate optional items (not in this unit):**
+  - an annotation inventory and migration from the real store and its original revisions, with reversible mapping
+    and missing, split or merge outcomes;
+  - the identity experiment (fixed corpus and tool, identical rerun, controlled edit, member-set Jaccard). Similarity
+    is not identity.
+
+  **Corrected along the way:** the U03 evaluation's overlap claim (applied in `D-423`).
+
+  **6. Decisions for the Judge, in order:**
+  - (a) accept or adjust the scope, corpus and outcome;
+  - (b) allocate `AIG-07` (or another home) and propagate under `D-54`;
+  - (c) accept the behavior text and the acceptance matrix;
+  - (d) a later bounded work order (paths, lane, exclusions, DoD).
+
+  The annotation migration and the identity experiment are separate optional decisions. B-154 stays Open.
+
+  **Requested of Lane B:**
+  - (a) the F2 checkpoint and the `9993bded…` candidate;
+  - (b) a Level 1 review of the retrieval packet above.
+
+  Lane C Level 2 covers the packet's architecture when the Judge asks for it.
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
