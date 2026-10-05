@@ -300,7 +300,9 @@ namespace is split below into gate and non-gate rows — an earlier pass here gr
 | Namespace | Meaning | Source | Example |
 |---|---|---|---|
 | `business:T1`–`T5` | The Chief Editor's newsroom judgment stages — each selects a contextual role, which then executes that stage's applicable Sheet 2 operations (§6.1 above; `factory-route-operation-crosswalk.md` §4.1) | Chief Editor's own business narrative | `business:T1` = Reporter stage |
-| `transition:T1`–`T6`, `EG1`–`EG5` | Judgment gates — editorial state-changing transitions and their virtual-node executors | `FN-GATES-01-05.md`, `docs/specs/SPECS-TRANSITION-ENFORCEMENT.md` §3 | `transition:T5` = Independent review |
+| `transition:T1`–`T6` | **Held** technical editorial transitions (`D-171`), documented but not V1 scope. *(Split `D-414`, GR-010; until then one row read "`transition:T1`–`T6`, `EG1`–`EG5` — Judgment gates — editorial state-changing transitions and their virtual-node executors".)* | `FN-GATES-01-05.md` §1–§10, `docs/specs/SPECS-TRANSITION-ENFORCEMENT.md` §3 | `transition:T5` = Independent review |
+| `EG1`–`EG5` (§11 nodes) | `decided_target_held` logical nodes mapped to those held technical transitions (`D-171`/`D-179`) | `FN-GATES-01-05.md` §11 | `EG4` = the held `T5` node |
+| V1 `EG` task/evidence record | Records supplied `business:T1`–`T5` stage facts in `V1-SM05`; executes no transition (`D-249`/`D-260`) | `FN-GATES-01-05.md` §4.4–§4.6; `V1-SM05` | `SM05-N6` = the `business:T5` ranking record |
 | `transition:T7`–`T11` | Non-gate transition mechanics — wildcard sources (`T8`/`T9`), a dynamic target (`T8a`), a **non-state-changing** publication event (`T10`), and a conditional rule (`T11`); not all are judgment gates | `docs/specs/SPECS-TRANSITION-ENFORCEMENT.md` §3.1 | `transition:T10` = publication-status event, no state change |
 | `planning:T1` | An Alpha-Portfolio sprint-readiness item, unrelated to editorial gates | `docs/specs/SPECS-VERIFICATION-APPARATUS.md` | `planning:T1` = precondition for `S0` |
 

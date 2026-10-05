@@ -11307,6 +11307,8 @@ here.
 
 ## 5.14dw `D-170` — Editorial Operating Model Adopted: Separate Axes, Target Gate Order, and Authority Contract Decided, Answering `B-068` `F1`/`F2`/`F5`
 
+> **Current-use pointer, 2026-10-04 (`D-414`, GR-010/GR-011).** Read this act's single-family `T5` wording and its cardinality-based `UNVERIFIED` conclusion through `D-414`: namespaces are separate families, and multiple `R`, no `R` or no `A` can be a faithful source mapping. Historical text is unchanged.
+
 > **Partial-supersession notice, added 2026-09-02 (`D-180`, `docs/handoff/B-069-*.md`; anchor moved to
 > `D-181` 2026-09-02, correcting `D-180`'s own residual defects, `B-068` §22).** `D-170` is closed as a
 > decision record; not every clause below is still current. Cite `D-181` — the current anchor — for
@@ -11438,6 +11440,8 @@ until they are. This decision does not touch `app/`, `lib/`, `components/`, `sup
 (Lane B surface) or `.github/workflows/` (Lane C surface).
 
 ## 5.14dx `D-171` — Explicit S2 Hold Placed; `F6` Line/Executor Matrix, Canary, Blind Review, Return Metric, Overrides, and Gate-Count Terms Drafted
+
+> **Current-use pointer, 2026-10-04 (`D-414`, GR-010/GR-009).** This act's collapsed `T`/`EG` vocabulary and its gate-count terms are read through `D-414`: `business:T1–T5`, V1 `EG` task/evidence records, held `transition:T1–T6` and §11 `EG1–EG5` logical nodes are separate families. `PIPELINE_GATE_COUNT` names held technical transitions, not V1 gates. The S2 hold itself is unchanged.
 
 **Chief Editor ruling, 2026-08-31, on Lane B's independent completion review of `D-170` (`B-068` §9,
 `B068-R1`–`R9`).** Lane B's review verified `D-170`'s `F1`/`F2`/`F5` application from files and found the
@@ -26894,4 +26898,82 @@ construction; a push.
 | Handoffs `B-119`, `B-154` | Receiver records in their own commits (`262633e`, `f486ce4`) |
 | Product, Fn Specs, SPECS, rule files, Phase Closure, frozen sources | — unaffected |
 | **Encyclopedia** | — unaffected: Entry 05 maps storyboard Panel A9 only, and §4 is mapped by no entry (`docs/ENCYCLOPEDIA-SYNC.md`) |
+| **Graphify** | One sync for this batch, released after Lane B's review |
+
+## 5.14e239 `D-414` — P2 Batch: Sheet 1 Column F Corrected; GR-010 Namespaces, GR-011 Source Fidelity, GR-009 Count Meaning; A4 Threshold Received
+
+**Authority: the Judge, directly to Lane A, 2026-10-04**: *"Judge Approved: 1, 2, 3 (each of the five promotions)
+and 4, with 5 (A4) in the same batch"*. The drafts are Lane B's in `B-154` (`1966145`, `fabe9e9`, `2dc2d5b`,
+`7f4aeb7`). Lane A confirmed the source defect (`3055f54`) and its complete consumer set (`1394edd`). The A4 packet
+was approved earlier and held (`bac73a9`, act at `947584d`). This act is a bounded Phase 1 documentary unit.
+Pushing is not authorized.
+
+### The decision
+
+1. **Sheet 1 column F (source identity).** The original CSVs (`C:/CoWork/reference/`, SHA-256 `E7B063DC…` and
+   `D8740E8A…`, hash-matching `B-068`) are historical SOP evidence. Later decisions are cited as decisions, never
+   read back into cells.
+   - Column F is **Chief Journalist**. Crosswalk §1's seven route rows mapped it to `ROLE-CHIEF-EDITORIAL-DESK`;
+     each is corrected to `ROLE-CHIEF-JOURNALIST`. This completes for Sheet 1 the correction `D-236` made for
+     Sheet 2.
+   - **No application routing changes:** every governed consumer cites `D-175`/`D-233`/`D-239`, not this column.
+2. **GR-010 namespaces.**
+   - **Rule:** `business:T1–T5` names newsroom judgment stages. V1 `EG` task/evidence records record supplied
+     business-stage facts and execute no transition. `transition:T1–T6` names documented but `D-171`-held technical
+     editorial transitions, and `FN-GATES-01-05` §11 `EG1–EG5` names `decided_target_held` logical nodes mapped to
+     them. Other `transition:T*` mechanics keep their catalog meanings. Shared labels and cross-references are not
+     identity, execution, approval or V1 scope. Stored/API identifiers and the `D-171` hold are unchanged.
+   - **Applied to:** traceability §6.2, whose mixed row is split; crosswalk §0; `FN-GATES` §11's mapping column and
+     note; dated pointers on `D-170`/`D-171`.
+3. **GR-011 source fidelity.**
+   - **Rule:** Sheet-sourced `verification_status` measures faithful, unambiguous source mapping, including real
+     blanks; it does not measure executor, accountability completeness, milestone decomposition or readiness.
+     `UNVERIFIED` names an ambiguous cell. `DECIDED` keeps Chief Editor provenance. Application defaults never
+     overwrite a source row.
+   - **Five individual promotions to `VERIFIED`,** each accepted separately: `OP-PITCH`, `OP-RESEARCH`,
+     `OP-DRAFT` (the faithful absence of a source `A`; no `A` is invented), `OP-COMPLEX-SERIES` and
+     `OP-LEGAL-RISK`.
+   - `OP-COPY-EDIT` and `OP-CRISIS` stay `VERIFIED`; `OP-FINAL-SIGNOFF` stays `DECIDED`. The full columns `B`–`I` cell ledger
+     is recorded, and §4's shape placeholders stand.
+4. **GR-009 count meaning.** `CONFIG_LOG`: `PIPELINE_GATE_COUNT=6` is the legacy symbol for held
+   `transition:T1–T6`, and `PIPELINE_TRANSITION_COUNT_TO_PUBLISHED=7` is a held publication-reaching target. Neither
+   is a V1 outcome, and the values are unchanged. A later catalog-derived check, which fails on an equal-total member
+   swap, is **specified only**; it is a later Lane B unit.
+5. **A4 threshold event,** as approved:
+   - `CONFIG_LOG` threshold row: Yes;
+   - `DECISION_LOG`: a §3 event and current-prose corrections;
+   - the Addendum §2.1/§2.4, Business Case and Blueprint A4 formula cells stay `No`, each with a dated
+     threshold-only note.
+
+   The formula and weights stay unratified. No scoring execution, gate advancement, OD1–OD3 change or runtime
+   metadata change.
+6. **Accounting:**
+   - `GOV-RES-001`: `GR-005` delivery independently accepted; `GR-009`/`010`/`011` applied and awaiting
+     independent review;
+   - `SV-002` §2.3.2: Lane B's `D-413`/GR-005/B-050/P2 reviews are keyed once, with `B-117`/`B-106` notes;
+   - `SV-002` §2.3.1: **no row closes.** `B-117` waits on GR-007 and `B-106` on its runtime child.
+7. **One sync follows** under `D-409`/`D-410`, released after Lane B's review of this diff and the community names.
+
+### Not given by this act
+
+Any code, check, rename, migration or runtime metadata; operation-shape decisions; Model A; held-target activation;
+FB-05 closure; closure of `B-050`, `B-106`, `B-117` or any parent; Gate 2; a push.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e239; dated pointers on `D-170` and `D-171` |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ `D-414` paragraph (no scope, sequence or DoD change, stated) |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-414` paragraph; no file added or retired |
+| **`docs/governance/factory-route-operation-crosswalk.md`** | ✅ §0 rule; GR-010 note; §1 column F; §2 promotions, roll-up and cell ledger; §4 qualification |
+| **`docs/governance/requirements-traceability-map.md`** | ✅ §6.2 row split |
+| **`docs/fn-specs/FN-GATES-01-05.md`** | ✅ §11 mapping column and `[V1]` note |
+| **`docs/CONFIG_LOG.md`** | ✅ GR-009 rows and paragraph; A4 threshold row |
+| **`docs/DECISION_LOG.md`** | ✅ A4 threshold event and current-prose corrections |
+| **`docs/source/v1-build-readiness-addendum.md`**, **`docs/source/business-case.md`**, **`docs/source/blueprint.md`** | ✅ A4 threshold-only notes; the formula stays `No` |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/GOV-RES-001.md`** | ✅ GR-005, GR-009, GR-010, GR-011 notes |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §2.3.2 keyed notes; §2.3.1 unchanged |
+| `Modular_PRD`, `raci-involvement-matrix`, SPECS, storyboard, rule files, Phase Closure, frozen sources | — unaffected (consumers already cite `D-175`; no current claim conflicts) |
+| **Encyclopedia** | Entry 02 maps Addendum §2.4: the A4 note is threshold-only, and Entry 02 (v15, read under `D-406`) holds no A-row values, so **no update is required**. No other entry maps a changed section |
 | **Graphify** | One sync for this batch, released after Lane B's review |

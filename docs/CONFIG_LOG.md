@@ -39,8 +39,8 @@ it does not author them and does not edit this file.
 | `SUCCESS_ARTICLES_LOGGED_MIN` | 5 | Charter; Addendum §1; Blueprint §8; Business Case | — | No |
 | `SUCCESS_ARTICLES_PUBLISHED_MIN` | 2 | Same four | — | No |
 | `REVIEW_GATE_ROLE_COUNT` | 4 | Charter — "four review gates", review *roles* after the Reporter (`A4`) | — | No |
-| `PIPELINE_GATE_COUNT` | 6 | Addendum §3.1 `T1`–`T6` — executor *transitions* | — | No |
-| `PIPELINE_TRANSITION_COUNT_TO_PUBLISHED` | 7 | `T1`–`T7`, including the system publish step | — | No |
+| `PIPELINE_GATE_COUNT` | 6 | Addendum §3.1 `T1`–`T6` — the legacy symbol for the **held** `transition:T1`–`T6` members (`D-171`); it does not assert six V1 judgment gates (`D-414`) | — | No |
+| `PIPELINE_TRANSITION_COUNT_TO_PUBLISHED` | 7 | `T1`–`T7`, including the system publish step — a **held** publication-reaching target, not the bounded V1 outcome (`D-414`) | — | No |
 | `PIPELINE_ACTIVE_STATES` | ordered list of 8 | Addendum §4.1, minus the two side states | — | No |
 | `PIPELINE_SIDE_STATES` | `["Needs Revision", "Rejected"]` | Addendum §4.1 | — | No |
 | `BOARD_FILTER_DIMENSIONS` | `["state","topic","category","line_assignment"]` | Charter names the first three; Addendum, Blueprint and Business Case add Line | — | No |
@@ -50,6 +50,8 @@ it does not author them and does not edit this file.
 **`REVIEW_GATE_ROLE_COUNT` = 4 and `PIPELINE_GATE_COUNT` = 6 are not in conflict** — different
 granularity, roles versus transitions. This has been mistaken for a contradiction before.
 
+**Catalog meaning (`D-414`, GR-009).** `REVIEW_GATE_ROLE_COUNT` counts Charter review roles. `PIPELINE_GATE_COUNT` and `PIPELINE_TRANSITION_COUNT_TO_PUBLISHED` cite the held technical transition catalog; neither is a V1 completion criterion, and V1 `EG` task/evidence records are not counted as transitions. The values are unchanged; `D-171`'s alternative symbol names stay unadopted candidates. **Specified, not built:** a later Lane B unit derives a version-bound member set from one named catalog and fails when count, member identity, namespace or lifecycle changes — including an equal-total member swap.
+
 ## 2. Workflow and operational thresholds — §4.2
 
 | Variable | Value | Source | Ratified |
@@ -58,7 +60,7 @@ granularity, roles versus transitions. This has been mistaken for a contradictio
 | `PUBLISH_RETRY_MAX` | 3 | Addendum §7.2 | Yes |
 | `PUBLISH_RETRY_BACKOFF_MINUTES` | 5 | Addendum §7.2 | Yes — **but nothing fires it** (`TC7`: no scheduler; `Q5`). **Corrected 2026-09-25 (`D-265`):** `Q5` is decided — `pg_cron` invoking the publication Edge Function (`D-143`/`D-146`) — but no scheduler is built, so nothing fires it yet |
 | `DATA_RETENTION_ARCHIVE_DAYS` | 90 | `A6` | **Yes — ratified 2026-10-03 (`D-404`)**, in the propagation named below: `Modular_PRD.md`'s retention paragraph, `AC-12a` and the Business Case now carry `D-381`'s meaning. The value is unchanged; the runtime metadata in `lib/config/` is Lane B's surface and moves only under a bounded work order. *History:* **No — unratified.** Meaning arbitrated 2026-10-02 (`D-381`): 90 days is the first UI-visible operational/PDPA boundary (removal from the current view and external handoff, never deletion); five-year TAX/ACRA retention is a later external, financial-record-only workflow. This row becomes `Yes` only in the propagation that also corrects `Modular_PRD.md`'s retention paragraph, `AC-12a` and the Business Case (`B-106` lines 137, 145) |
-| `SCORING_REVIEW_THRESHOLD_ARTICLES` | 50 | `A4` | **No — unratified** |
+| `SCORING_REVIEW_THRESHOLD_ARTICLES` | 50 | `A4` | **Yes — review threshold approved** 2026-09-15 (Chief Editor presented-row act, `B-106`), received by `D-414`. Threshold only: the A4 weighted-sum formula and weights stay unratified. Runtime metadata waits for its Lane B unit. *History:* **No — unratified** |
 | `CHIEF_EDITOR_ABSENCE_DEGRADED_HOURS` | 48 | Addendum §6.4 — the boundary `S7` was corrected to | Yes |
 | `SLA_DWELL_HOURS` | Discovered 48 · Logged 24 · Validated 48 · Investigated 72 · Drafted 72 · Reviewed 48 · Approved 24 | Blueprint §6 | Yes |
 

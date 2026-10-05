@@ -524,6 +524,10 @@ place; the receiver records are in existing handoff entries.
 **`D-413` (2026-10-04) — no file added or retired, stated explicitly.** The storyboard journal (§4), `GOV-RES-001.md`
 and `SV-002.md` change in place.
 
+**`D-414` (2026-10-04) — no file added or retired, stated explicitly.** The crosswalk, traceability map,
+`FN-GATES-01-05.md`, `CONFIG_LOG.md`, `DECISION_LOG.md`, the Addendum, Business Case, Blueprint, `GOV-RES-001.md`
+and `SV-002.md` change in place.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

@@ -547,7 +547,9 @@ requires (§2: an Editorial Virtual Node Agent is a logical workcell, not a pers
 identity) and marks each node's lifecycle explicitly so a reader cannot mistake a decided target for
 current behaviour.
 
-| Node | Transition mapping | Target executor role (`ROLE-*`, see `raci-involvement-matrix.md` §8) | Lifecycle |
+> **Namespace note `[V1]`, 2026-10-04 (`D-414`, GR-010).** The `EG1`–`EG5` nodes below are held technical-catalog context. They are not V1 `EG` task/evidence records (§4.4–§4.6), and a shared label is not identity or execution evidence.
+
+| Node | Transition mapping (held technical `transition:T*`, `D-414`) | Target executor role (`ROLE-*`, see `raci-involvement-matrix.md` §8) | Lifecycle |
 |---|---|---|---|
 | `EG1` | `T1` | `ROLE-REPORTER` | `decided_target_held` |
 | `EG2` | `T2`+`T3` | `ROLE-INVESTIGATOR` | `decided_target_held` |
