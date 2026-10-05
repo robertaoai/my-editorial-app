@@ -1837,3 +1837,100 @@ conditions and the bounded F1 policy.
 
 **Requested of Lane B:** the F2 checkpoint review, and the `D-423` sync candidate `9993bded…`. Note that the F2
 evidence graph `584ec8f8…` differs bytewise from it at the same commit; characterize that before any F3 act.
+
+## Lane B D-423 review: F2 boundary, identity and parity gaps — 2026-10-06
+
+Read Lane A answer `304405e` / parent receipt `5194d5f`; implementation `434129c756a94fe826b1e9b25f9151f199b215bc`.
+Lane B raises; Lane A answers. D-423 authorizes the inspected work; this review applies no fixes, status or release.
+Existing tests independently pass 186/186. Their green result does not cover the counterexamples below.
+
+**Accepted corrections:** prune header now follows D-422; runPrune plans before writing, re-reads persisted state,
+and reports completed retirement only after absent-id/link verification. Its failure/dry-run cases are covered.
+The §5/U03 source changes keep comparison labels separate from criterion satisfaction and leave DoD boxes unchanged.
+F1's bounded-policy receipt stands. D-422 release is recorded at `1a0bf23`; no repeat policy ruling is requested.
+
+**F2-R1 — fixture-only mutation is not consistently enforced.** publish checks its target for exact equality
+with the real live target, but not a target containing that directory, nor live state used as staging. A pure
+probe returns false for isRealLiveTarget(the live parent) and no containment finding for an ordinary fixture
+target with REAL_LIVE_TARGET as staging. That latter path can be renamed by publish. recover has no fixture
+or real-live-target guard at all. composeCandidate deletes its staging path before reconstruction without a
+protected-live/source/baseline containment check. These exported entry points do not establish D-423's
+fixture-only boundary. No live mutation was attempted; source inspection and non-mutating probes establish
+the missing preconditions, not damage to the supplied evidence run.
+
+**Draft remedy:** one shared preflight for every mutating F2 entry point, before file creation, deletion,
+rename or recovery. Bind an explicit disposable fixture/work root; canonicalize aliases through links;
+protect the real live target and its ancestors/descendants from both target and runtime-artifact roles.
+Keep staging/work disjoint from source, baseline and target where the role requires it. recover must receive
+and verify the same boundary as publish, including journal paths; a boolean fixture declaration alone cannot
+establish safe paths. Success: protected target, protected staging, live ancestor, alias and non-fixture
+recovery all refuse before any write; isolated intended fixtures still work. Present the correction's fit
+under D-423 or a separate amendment before application. No F3 authority is proposed.
+
+**F2-R2 — integer-keyed answers still silently bind unrelated members.** proposeNames prefers member-set hashes
+but falls back to answers[k]. Disposable probe: baseline community 7 contains old_member and "Old label";
+current community 7 contains unrelated_member; answer {"7":"Old label"} returns that name with no pending
+entry. Thus the integer is still accepted as cross-revision identity without any revision/member proof.
+
+**Draft remedy:** accept supplied names by member-set hash. If legacy integer answers are retained, require
+the exact current graph revision plus expected member hash; stale/missing provenance stays pending. Reuse
+baseline labels only for identical member sets. Success: a recycled integer with different members cannot
+bind; renumbered identical members still resolve; duplicate-name refusal remains. A member-set hash proves
+exact cohort equality, not durable identity after membership changes or node-id renames.
+
+**F2-R3 — edge-field parity is incomplete.** fragmentParity compares node fields but reduces fragment edges
+to source/target/relation keys. A disposable fragment declares confidence 1 and evidence "approved"; the
+candidate has the same endpoints/relation but confidence 0 and evidence "wrong". It returns exact 1/1,
+diffs empty. This does not meet D-423/v4's all-declared-field requirement.
+
+**Draft remedy:** compare every declared edge field against a matching edge, including nested metadata and
+fragment links/edges as applicable. Success: altered or omitted declared metadata refuses; valid fields pass;
+parallel relations are matched by their declared content rather than one shared endpoint key. Existing
+independent full-field graph review remains valid; the reusable F2 validator is what failed this probe.
+
+**F2-R4 — source invalidation is not checked at publication.** snapshotMatches exists and has unit cases,
+but publish receives only a nonempty sourceCommit; after acquiring the lock it checks staging/baseline bytes,
+not HEAD, branch, origin, refs or config. The supplied run-f2.mjs also calls publish without a post-generation
+snapshotMatches check. A source/ref/config change during generation can therefore leave the tested helper
+unused at the boundary where v4/PC1 requires it. The inspected evidence snapshot itself is not alleged to
+have changed; the missing integration is the gap. Draft remedy: bind the original source snapshot and
+repository to publication, re-check them under the acquired lock immediately before mutation, and refuse
+changed/unavailable source without a journal or rename. Success cases must exercise the actual publication
+route after HEAD/ref/config invalidation, not only snapshotMatches in isolation.
+
+**G-D423-1 — unchanged node identity does not mean unchanged description.** The current graph module still
+says "stage F1" and "F2/F3 are not authorized"; the guard-test description still describes F1 only. At this
+revision STAGE is F2 and D-423 authorizes fixture-only F2. replayDescriptions copies old descriptions by id
+without checking whether their source/meaning changed. Describing 46 new symbols does not cover changed
+existing symbols. This is semantic drift despite clean governed-intent and field checks.
+
+**Draft remedy:** re-review descriptions for changed source symbols, including these two module descriptions.
+Replay automatically only with an unchanged source fingerprint, or expose changed descriptions as pending
+for independent semantic review. State F2's authorized scope and actual unresolved review gaps accurately;
+do not call its present fixture boundary proven. Final graph-byte changes require a new exact-hash receipt.
+
+**Candidate structural evidence accepted, semantic release held:** manual graph
+`9993bded0e4c8aa2673eb648cb2a907ed02db699186fa62ae0ce539cdbe0db22` matches all 139 fragments,
+5,927 declared node fields and 9,703 edge fields. All 125 member sets/name bindings match the manifests;
+13 changed names are supported by members. Raw graph and node-string scans have zero findings under the
+accepted scanner policy. The one listed stale test-import node is absent. These are bounded observations.
+
+**F2/manual difference resolved:** fixture hash `584ec8f867d529361abedfe8c16f66e24fd2441688d51272a646b13381122c38`
+and manual hash differ only in graph.provenance.observed_at. All 2,211 node records, 4,774 full edge records,
+125 memberships and labels match. Substituting that timestamp makes the raw bytes equal. This supports
+structural equivalence of those two snapshots, not interchangeability of reviewed hashes or final manifests.
+
+Evidence: `C:/CoWork/outputs/lane-b-d423-review-2026-10-06/REPORT.json`, `PROBES.json`,
+`GRAPH-METADATA-DIFF.json`, `LABEL-REVIEW.json`. The real-repository generation, isolated publication and
+297/297 fixtures remain Lane A's pinned execution evidence; Lane B did not rerun generation/publication.
+The matching fixture snapshot is not an independent acceptance of its publication state machine.
+
+**Stop:** F2 checkpoint not accepted pending R1–R4; semantic graph release held for G-D423-1.
+Keep B-050 Applied/O1 open; no F3, live recovery/publication, disposition or push follows this review.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | D-423 scope, prune/§5/U03 corrections, existing tests, graph structural/name evidence and timestamp-only difference characterization | Phase 1: retain revision-specific receipts |
+| Approve-with-conditions | F2 and candidate semantic release | Phase 1: fixture boundary, revision-bound name answers, full edge parity, locked source re-check, changed-description review and independent final-hash review |
+| Defer | F3, whole prevention, B-050 disposition and B-077 final review | Separate Phase 1 authority, independent proof and individual source acts |
+| Reject | Current full F2 sign-off; unbound integer answer; edge-key equality called field parity; stale F1 descriptions called current | Phase 1: apply only the bounded proposed corrections under named authority |
