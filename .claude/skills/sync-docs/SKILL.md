@@ -111,8 +111,9 @@ An **included** new document under `docs/` needs source-path coverage — a cura
 `source_file` points at it — because `graph-coverage` reads the curated layer and `hook-rebuild` alone
 never clears it. Curated concepts otherwise serve their actual semantic purpose, not a per-file quota.
 
-**Order of a pass:** final source commit → `hook-rebuild` (or `graphify update`) → restore any required
-inputs → merge each applicable named fragment in dependency order → **verify each claimed fragment with
+**Order of a pass:** final source commit → `hook-rebuild` (or `graphify update`) → **retire stale generated
+code symbols against a from-empty extraction of the same commit (`docs/graph-fragments/prune-stale-symbols.js`,
+README section 4, `D-421`)** → restore any required inputs → merge each applicable named fragment in dependency order → **verify each claimed fragment with
 `node docs/graph-fragments/merge7.js <fragment> --verify-only`** → descriptions last → full checks.
 **Node totals and the `--all` conflict audit do not prove parity**; only the per-fragment semantic
 equality check does.

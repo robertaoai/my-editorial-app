@@ -127,6 +127,24 @@ node docs/graph-fragments/restore-docs-layer.js .graphify/<date>/graph.json   # 
 # then merge every mergeable fragment in dependency order (section 4), naming each one
 ```
 
+**Retire stale generated code symbols before the restore (`D-421`).** `hook-rebuild` carries the existing
+`graph.json` forward, so a generated code node the current extraction no longer produces survives
+indefinitely: neither `graphify update --force` nor clearing `cache/` removes it, and a from-empty rebuild in
+place would drop the accumulated commit, handoff and docs layers with it. Make a from-empty extraction of the
+SAME commit in a disposable clone whose `origin` is the caller's, then retire by id:
+
+```bash
+git clone --no-hardlinks . <disposable>/clone && git -C <disposable>/clone remote set-url origin "$(git remote get-url origin)"
+git -C <disposable>/clone checkout -B <branch> <analyzed-commit>     # no .graphify copied in: from empty
+(cd <disposable>/clone && env -u GRAPHIFY_CHANGED npx graphify hook-rebuild)
+node docs/graph-fragments/prune-stale-symbols.js <disposable>/clone/.graphify --dry-run   # read the list
+node docs/graph-fragments/prune-stale-symbols.js <disposable>/clone/.graphify
+```
+
+It retires only `file_type: code` nodes absent from the fresh extraction and not declared by any fragment,
+with their links, lists each one, refuses a fragment-declared code node, and refuses a fresh extraction of a
+different commit.
+
 `restore-docs-layer.js` copies only docs-source nodes, fragment endpoints and the links between them,
 overwrites nothing, and reports any endpoint found in neither place. The restored descriptions are the
 backup's, so they may be older than the documents; coverage passing is path representation, not
