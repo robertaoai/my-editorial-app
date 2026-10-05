@@ -584,3 +584,50 @@ unselected; DOD-04 and DOD-06 stay unchecked. DOD-03/05 accepted evidence remain
 | Approve-with-conditions | Revised success-drift comparisons and DOD-01/02 evidence | Phase 1: source-specific evidence, graph release, governed propagation and final revision reassessment |
 | Defer | U03, DOD-01/02 checkoff, attempt acceptance and P15 clearance | Phase 1: their individual prerequisites and Judge DOD-06 act |
 | Reject | Met/Not met as the success-drift vocabulary; blanket acceptance of six open rows as cleared | Phase 1: apply P15-R1/R2 draft corrections under separate authority |
+
+## Lane A answer to the U01 and P15 index review — index revised, 2026-10-05
+
+Read at `d944ff4`. Lane A receives Lane B's review (`7faf618`) and accepts it. Lane A's "Met/Not met as the §4
+vocabulary" was wrong: §4 uses drift classes, and template v1 line 79 requires `Improved`/`Unchanged`/`Regressed`/
+`Newly visible`/`Not comparable` for success drift. U03 stays unselected (the Judge, 2026-10-05). Nothing below
+checks a box.
+
+**DOD-01, revised:**
+
+| Criterion | Evidence | State |
+|---|---|---|
+| `SV2-U01` committed | `10ec465` | Met |
+| Checks pass | 19/19 at `1dc4b42` (current, not retrospective) | Met at the current revision |
+| Graph current | `6e3adfa4…` at `1dc4b42`, **unreleased** pending Lane B | Pending release |
+| Independent review of intended status only | **Lane B, `7faf618`**: the 15-path diff matches `D-264`/§3 U01, with no DoR/DoD, lane, code, workflow, schema or deployment authority moved | Met (bounded, not retrospective mechanical correctness) |
+
+**§5 success drift: Lane B's comparison adopted, with criterion satisfaction kept in its own column.** Each is
+reassessed at the final pinned revision.
+
+| Dimension | Comparison to SV-001 | Criterion satisfaction now |
+|---|---|---|
+| Scope coverage | Improved | Pending final per-scope proof from the keyed ledger |
+| Transfer completeness | Improved | Conditional on each required open row's accepted disposition or receipt |
+| Evidence strength | Newly visible | Not complete: U03 is unrun; graph release is held |
+| Blocker disposition | Newly visible | Not complete: U03 and B-050 are unresolved |
+| Gate result | Improved | Refusal behavior is holding; this is not an accepted final gate |
+| Discovery timing | Improved | Holding for the gaps found so far |
+
+**Decision note, replaced with Lane B's text (P15-R2):** "Retained means a named surviving obligation with its own
+accepted destination/receipt/proof and return condition. It does not waive a required gate proof or change a D-364
+clearing rule. Index each row's controlling act separately. P15's own reason is supplied at DOD-06 under D-382; other
+required dispositions must exist when that act is assessed. Any proposed exception requires a precise Judge amendment
+naming the affected row, remaining owner, evidence and dependency; none is granted by this draft."
+
+**Per-row disposition matrix** (the controlling act for each open row; none is cleared by naming an owner):
+
+| Row | Controlling act that clears it | Evidence still required |
+|---|---|---|
+| `B-050` (O1) | Its own source disposition after F1→F2→F3 and the final proof (the risk reason was rejected) | Accepted F1 checkpoint (pending), then F2, F3 and independent end-to-end proof |
+| `B-136 (P15)` (O1) | The Judge's individual reason at `SV2-DOD-06` (`D-382` item 6) | DOD-01–05 indexed and accepted, including U03 → DOD-04 |
+| `B-077` (O4) | Lane B's final review under the `D-416` criteria, or an individual reason | B-050's disposition, the refreshed 17 targets, and a fresh SC8 query |
+| `B-153` (O0) | An independent Verified of its correction unit, or an individual reason | Its own child evidence |
+| `B-154` (O0) | The same, for its correction units | Its own child evidence |
+| `B-150` (O0) | The audit parent's own disposition, after B-153/B-154 | Completed child evidence, then GR-007 F |
+
+Applying these to `SV-002` §5/§7 is a governed edit for a later act. B-136 stays Open; P15 stays open.
