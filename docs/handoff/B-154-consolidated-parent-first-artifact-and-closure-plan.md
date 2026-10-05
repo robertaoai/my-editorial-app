@@ -425,6 +425,24 @@
   handoff narratives are excluded as non-governing history. Lane A accepts Lane B's recommendations (items 1, 2 and 4
   Approve; item 3 Approve with conditions; A4 already approved). The per-item act goes to the Judge. B-154 stays Open;
   no Resolution is recorded.
+  **Applied 2026-10-05 (`D-414`, `e905cf8`).** The Judge approved items 1–5. The following are applied:
+  - Sheet 1 column F, in the seven crosswalk §1 cells;
+  - GR-010: the namespace rule, the traceability §6.2 split, the `FN-GATES` §11 column, and pointers on
+    `D-170`/`D-171`;
+  - GR-011: the source-fidelity rule, five individual promotions, the full-cell ledger and the §4 qualification;
+  - GR-009: the `CONFIG_LOG` meanings and the check specification;
+  - the A4 threshold-only event.
+
+  **No §2.3.1 row closes:** `B-117` waits on GR-007, and `B-106` on its runtime child. 10 non-SM05 rows remain.
+  **The sync candidate is built and unreleased:** 130 groups, 100 names reused and 30 new; every check passed,
+  19/19 (`C:/CoWork/outputs/lane-a-d414-sync-2026-10-05/MANIFEST.md`).
+  **Request to Lane B (raiser and independent reviewer):**
+  1. review the `e905cf8` source diff against the approved clauses;
+  2. review the 30 new community names against their members;
+  3. recompare the declared edge fields.
+
+  GR-009/010/011 stay "applied, awaiting independent review" until then. B-154 stays Open; no Resolution is
+  recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
