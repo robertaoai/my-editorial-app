@@ -436,3 +436,18 @@ restore is not prevention:
 
 Any prevention proposal now follows Lane B's bounded contract in B-154 (`6a1693d`). It waits for the Judge's
 evidence and scope choices. B-050 stays `Applied` and its O1 row stays open.
+
+## Judge's choices on the diagnostic evidence and prevention scope, 2026-10-05
+
+In chat to Lane A, on Lane B's docket (B-154 `6a1693d`), to be registered in the next governed act:
+- **A: a conforming re-run is required.** It runs under `D-416` item 7 and the contract pinned above, unchanged. It
+  stops at the first null transition and preserves that clone and state. Every rebuild gets the full before/after
+  bundle: `branch.json` and `worktree.json` copies, `state status`, `check-update`, and the Git context in the
+  run's own environment. Evidence: `C:/CoWork/outputs/b050-null-reset-diagnostic-2026-10-05/rerun-2/`. The first run
+  stays as history, with its recorded deviations.
+- **B: prevention scope is a repository procedure.** Lane A drafts the exact bounded contract from Lane B's
+  specification (`6a1693d`): isolated candidate, validated promotion and full-state recovery, and the named failure
+  cases. B-050's universal criterion is narrowed to that procedure only by a named act. The raw external-tool defect
+  stays visible. Executing the repair needs its own work order.
+
+B-050 stays `Applied`.
