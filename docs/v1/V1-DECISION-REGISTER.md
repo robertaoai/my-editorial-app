@@ -27295,3 +27295,45 @@ first"** — the correction gets its own bounded act before any code changes. Th
 | Source handoff `B-050` | Follow: the answer and evidence land in their own commit |
 | **Encyclopedia** | unaffected |
 | **Graphify** | One sync after the correction commit, released after Lane B's review |
+
+## 5.14e245 `D-420` — B-050 F1-R3 Correction: One Shared Bounded Decoding Policy
+
+**Authority: the Judge, directly to Lane A, 2026-10-05**, in chat, on Lane B's F1-R3 finding (`962a309`): **"Separate act
+first."** Lane A is `Active`. Pushing is not authorized.
+
+### The decision
+
+1. **Scope:** correct F1-R3 inside the F1 boundary. The paths are the same three:
+   - `scripts/graphify/guarded-rebuild.mjs`
+   - `scripts/fixtures/graphify-guard.test.mjs`
+   - `scripts/checks/docs-drift.mjs` (unchanged unless required)
+2. **Required behavior:**
+   - candidate recognition and canonicalization share **one** bounded decoding policy (three rounds), replacing per-form
+     fixed encoding depths;
+   - a token or quoted value that is path-like at **any** decoding depth is judged as its complete canonical value;
+   - path-like encoding still unresolved after the limit is refused **through the public scanner**;
+   - whole quoted values, the lexical and prose controls, and the exclusion of raw and encoded web URLs are preserved.
+3. **DoD** (Lane B's success criteria, `962a309`):
+   - table-driven **public-scanner** cases for raw, quoted and JSON-escaped file, drive and UNC representations at
+     depths 0–3, including Lane B's four missed inputs;
+   - beyond-limit and malformed cases refused through the public scanner;
+   - valid in-root and web-URL controls pass at equivalent depths;
+   - expected outcomes taken from complete canonical values, not from the matcher;
+   - every earlier case keeps its result; `bun test`, `bun run fixtures` and `bun run check` pass;
+   - graph descriptions and the manifest state the depth policy truthfully;
+   - **Lane B independently reviews F1 and the exact new graph hash, then work stops.**
+4. **One sync** follows the code commit and covers this act and the code, under the `D-409`/`D-410` interim route.
+5. **Not given:** F2/F3; any other path; `SV-002` §5 application (still batched later with the graph-release/DOD act);
+   U03; any DoD box; a push.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e245 |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ `D-420` paragraph (tooling correction; no V1 scope, sequence or DoD change) |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-420` paragraph; no file added or retired |
+| `SV-002.md`, `GOV-RES-001.md`, Modular_PRD, fn-specs, SPECS, rule files, Phase Closure, frozen sources | — unaffected |
+| Source handoff `B-050` | Follow: the answer lands in its own commit |
+| **Encyclopedia** | unaffected |
+| **Graphify** | One sync after the correction commit, released after Lane B's review |
