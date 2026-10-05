@@ -1043,3 +1043,122 @@ work order includes all five paths, exclusions, this full procedure, the matrix 
 | Approve-with-conditions | Contract v3 implementation plan | Phase 1: Lane A incorporates the exact forward/recovery text and validator/selection criteria; bounded readiness review follows |
 | Defer | Repair work order/execution, independent proof and B-050 disposition | Phase 1: named Judge act and source-specific completion evidence |
 | Reject | Lock replacement as exclusive acquisition, rebinding null evidence into success, complete foreign-path proof from five samples, or omitted steps inherited from superseded drafts | Phase 1: use the replacements above |
+
+## Consolidated prevention contract v4 — current, 2026-10-05
+
+Read at `9de50ce`. Lane A receives Lane B's readiness review (`404af56`) and consolidation (`9de50ce`), and accepts
+every finding. Each was checked against the source:
+- the v3 detector did pass `C:/robertaoai/my-editorial-app-copy/leak` and `D:/robertaoai/my-editorial-app/leak`;
+- `hook-rebuild` returns without rebuilding (exit 0) when `GRAPHIFY_CHANGED` lists no code file;
+- replacing a lock is not an exclusive acquisition.
+
+**This section is the one current contract.** It keeps v3's R1 inventory policy, R2 field policy and immutable-byte
+rule, R3's selected boundary (abrupt process termination; power loss is not claimed), R4's snapshot and R5's
+checker order, except where the text below replaces them. R3's v3 recovery table is replaced by the exclusive
+recovery text below. The fifth path is already approved and is not re-asked. It is not built.
+
+#### Forward transaction (Lane B text, adopted verbatim)
+
+1. **Inspect without mutation.** Resolve and pin the caller and live target; preserve the `.graphify`
+   link. Reject a candidate, backup, old, staging or evidence path that aliases, contains, or sits
+   inside the live target. Validate those runtime paths and the disposable checkout before child
+   writes. Pin source commit, clean governed source, tool hashes, effective config/environment and
+   the R4 local ref/identity snapshot. Detached HEAD is refused by mode; missing upstream is valid.
+2. **Capture a stable baseline.** Under the exclusive publication lock, hash the complete released
+   state and source snapshot. Copy to independent candidate storage, verify the copy, then release
+   the preparation lock while awaiting any long generation/review work. No live state is mutated.
+   Later publication must reacquire ownership and require the same baseline and source snapshot.
+3. **Generate in isolation.** Materialize the captured local checkout/ref map and caller origin
+   identity; bind its state root only to its independent candidate directory. Run the pinned rebuild
+   with the declared environment. Capture its untouched branch/worktree records and context bundle.
+   Refuse tool failure, absent/null/incorrect analyzed or seen heads, wrong branch/root, or unintended
+   extraction/no-op before rebinding. Run required docs-layer restoration, named ordered fragment
+   merging, fill/description replay and D-409/D-410 label completion in the candidate only. Revalidate
+   metadata after each tool stage; a later valid write must not conceal an earlier null transition.
+4. **Validate and compose.** Check every declared fragment node/edge field, complete member/name
+   bindings, source/identity selection, schema-specific lifecycle fields and named semantic limits.
+   Rederive the file inventory; unknown or multiply classified entries refuse. Compose promoted,
+   retained and rebound bytes according to R1/R2. Rebinding changes runtime identities/provenance
+   fields only after raw analysis is accepted; heads must remain the actual proved analyzed commit.
+   Validate derived studio/ontology artifacts against the final graph and check disposable-path
+   absence. Retained history remains labelled history. Freeze preparation timestamps.
+5. **Review final bytes.** Produce the graph SHA and full composed-state manifest, together with
+   raw stage evidence and semantic limits. Lane B independently reviews those exact bytes. Pending
+   or rejected review is non-release. Any changed source, retained byte, generation or rebinding
+   invalidates that review. A repeat run's idempotence means stable source/graph identities and
+   retained-state semantics; new run timestamps/receipts need not be byte-identical across runs.
+6. **Publish under ownership.** Reacquire the publication lock, recheck baseline/source/ref/context
+   and the reviewed staging bytes. Verify a full backup outside the target. Durably write the
+   bound `prepared` journal before mutation. Rename live to old; record `old-moved`. Rename reviewed
+   staging to live; record `new-in-place`. Verify the complete live manifest and source snapshot;
+   record `verified`. No metadata byte is rewritten during publication. Any mismatch enters owned
+   recovery and produces no healthy release.
+7. **Complete release.** Write the durable external receipt binding run, source, reviewed manifest
+   and independent acceptance, then remove the journal and release owned locks. The checker stays
+   non-green while the journal exists. On a restart at `verified`, revalidate bytes/context and
+   acceptance; finish an idempotent receipt/cleanup only if they still match. Receipt/cleanup failure
+   leaves an explicit non-health/recovery-required state. Preserve backup/failure evidence; cleanup
+   cannot remove a path until its role, containment and manifest are established.
+
+#### Exclusive recovery and ambiguous stages (Lane B text, adopted verbatim)
+
+Keep the publication lock and introduce a fixed per-target recovery token outside the live target
+as a runtime artifact, within the same five repository paths. Acquire the recovery token by
+exclusive create, never by overwrite. Every recovery entrant must first acquire that token and
+then re-read the publication lock, journal, process identity and manifests. A live/unknown owner
+refuses. Proof of death must bind host, process identity/start and run token, not PID alone.
+Only the exclusive recoverer may replace the proved-dead publication ownership for that journal
+transaction. A second recoverer refuses without changing anything. An unresolved or abandoned
+recovery token requires evidenced manual recovery; it is never silently stolen.
+
+For every journal stage, first reconcile actual live/old/staging/backup manifests. `prepared` means
+safe abort only if live still equals the backup; live absent plus a verified old copy means the
+first rename happened, even if the journal still says prepared. Never delete staging merely from
+the stage string. Restore only the verified full old/backup state and verify the restored manifest.
+Define the recovery receipt and owned journal/lock cleanup so a successful recovery permits the
+next valid run. Corrupt/unreadable journal, unexplained target loss, manifest ambiguity or failed
+restore preserves all evidence and returns recovery-required/non-health. The same serialization
+applies to ordinary rollback and restart recovery.
+
+#### Lane A specifics completing R1 and R4
+
+- **Exact-root path validator** (applied to every promoted and rebound byte):
+  - extract drive-letter, UNC and `file:` URI path candidates in raw, JSON-escaped and percent-encoded forms;
+  - normalize them (decode, unify separators, collapse, lowercase);
+  - allow only `c:/robertaoai/my-editorial-app` itself, or a path under it **at a component boundary**;
+  - a sibling root, a wrong drive, a UNC path, or any disposable root (`c:/cowork/outputs/…`) is foreign.
+
+  Retained history keeps its paths, labelled as provenance. The evidence tool now implements this rule and passes 12
+  self-tests, including Lane B's two counterexamples, UNC, a `file:` URI and percent-encoding. Re-run over the live
+  state, it still reports 557/557 classified and no foreign path in the 18 promoted files (manifest `551c8d70…`,
+  unchanged). That is evidence about today's files, not proof of the future validator.
+- **Effective extraction inputs (R4):**
+  - the child command is exactly `node <pinned dist/cli.js> hook-rebuild --scope <declared>`;
+  - the child environment **unsets** `GRAPHIFY_CHANGED` (a docs-only value turns the rebuild into a no-op) and every Git
+    redirection variable: `GIT_DIR`, `GIT_WORK_TREE`, `GIT_INDEX_FILE`, `GIT_COMMON_DIR`, `GIT_OBJECT_DIRECTORY`,
+    `GIT_ALTERNATE_OBJECT_DIRECTORIES`, `GIT_CONFIG*`, `GIT_CEILING_DIRECTORIES`;
+  - `PATH` holds the pinned `node` and `git` locations;
+  - the effective Git config the tool reads (`git config --show-origin --list` in the checkout) and the Graphify
+    options (`--scope`, and `activeWithinDays`/`maxCommits`/`sinceDays` defaults or overrides) are captured;
+  - the recorded clock does **not** freeze the CLI's `Date.now()`. Instead, the child's actually selected branch and
+    commit identities are compared with the expectation derived from the snapshot. A cutoff crossing, or any
+    difference, refuses and re-prepares;
+  - a no-op rebuild (no stage writes) is refused, not treated as success.
+
+#### Acceptance matrix (current)
+
+The v3 families plus Lane B's additions:
+- two simultaneous recoverers;
+- raw null metadata that rebinding would otherwise hide;
+- termination after each rename but before its journal update;
+- a restart at `verified`, and a receipt or cleanup failure;
+- the sibling-root and wrong-drive path counterexamples, plus UNC and disposable-path cases;
+- a changed effective extraction environment or config (including a docs-only `GRAPHIFY_CHANGED`), and a
+  branch-selection cutoff crossing.
+
+Every negative case must reach its intended boundary and produce a non-release or recovery-required result. Every
+recoverable failure is followed by a successful valid run through the reviewed publication route.
+
+**Write boundary:** the five approved paths. Runtime lock, recovery token, journal, backup, staging, evidence and
+receipt files live outside the live target. **DoD:** Lane B independently proves each case, then a source-specific
+B-050 disposition is made under the selected scope by a named act. B-050 stays `Applied`; its O1 row stays open.
