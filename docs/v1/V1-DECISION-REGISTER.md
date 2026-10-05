@@ -27399,3 +27399,46 @@ Lane A is `Active`. Pushing is not authorized.
 | `SV-002.md`, `GOV-RES-001.md`, Modular_PRD, fn-specs, SPECS, rule files, Phase Closure, frozen sources | — unaffected |
 | **Encyclopedia** | unaffected |
 | **Graphify** | One sync after the implementing commit, released after Lane B's review |
+
+## 5.14e247 `D-422` — D-421 Amended: Prune Runs After the Docs-Layer Restore; Stale Count Corrected
+
+**Authority: the Judge, directly to Lane A, 2026-10-05**, in chat: **"Separate act first"**, on two errors in Lane A's
+drafted `D-421` step. `D-421`'s own re-sync found them. Lane A is `Active`. Pushing is not authorized.
+
+### The decision
+
+1. **Order corrected.** The prune step runs **after the docs-layer restore and before the fragment merge**, not "before
+   the docs-layer restore" as `D-421` item 3 states.
+   - **Reason, observed:** `restore-docs-layer.js` restores every node whose `source_file` is under `docs/`. That
+     includes generated code in `docs/graph-fragments/merge7.js`, so the 11 stale `merge7.js` nodes the prune had
+     retired came back.
+   - Fragment ids are never retired, so pruning before the merge is safe.
+2. **Count corrected.** At `ea488dc`, **14** stale generated code nodes qualified, not "exactly three":
+   - the three `D-421` named (`ENCODED_TOKEN`; `results` and `leftDirty` in `run.mjs`);
+   - **11 top-level variables from an earlier `merge7.js`**, since restructured into functions. Lane A's probe filter
+     looked only under `scripts`/`lib`/`app` and missed `docs/`-hosted code.
+
+   The live fresh-extraction run lists all 14 (`lane-a-d421-sync-2026-10-05/08c-prune-dry-run.txt`).
+3. **Recovery used.** That run was stopped and the live graph restored from its verified backup, hash-equal to the
+   pre-state (`77352e32…`). No candidate from it is offered.
+4. **Paths:** `docs/graph-fragments/README.md` §4 and `.claude/skills/sync-docs/SKILL.md` §7 are reordered. The prune
+   script and its test are unchanged; the step's selection rule is unchanged.
+5. **DoD:**
+   - one re-sync at this act's final commit retires all qualifying nodes, and **none returns** after the restore or
+     merge;
+   - 139/139 fragments; the manifest lists the retired ids and the bounded F1 policy;
+   - `bun run check` passes;
+   - **Lane B reviews the F1 sign-off and the final hash.**
+6. **Not given:** F2/F3; `SV-002` §5; U03; a push. `D-421`'s other items stand.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e247 (amends `D-421` items 2–3) |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ `D-422` paragraph (procedure order; no V1 scope, sequence or DoD change) |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-422` paragraph; no file added or retired |
+| **`docs/graph-fragments/README.md`**, **`.claude/skills/sync-docs/SKILL.md`** | Follow: reordered in the implementing commit |
+| Other tiers | — unaffected |
+| **Encyclopedia** | unaffected |
+| **Graphify** | One sync after the implementing commit, released after Lane B's review |
