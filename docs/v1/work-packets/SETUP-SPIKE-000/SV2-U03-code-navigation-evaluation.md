@@ -26,7 +26,7 @@ The codebase is small, and **most of the logic `V1-SM05` touches is SQL**.
 | Measured value | The same review reports that output tokens **rose** by about 80–105% in Codex pilots, and strict answer satisfaction was 5/12 against 11/12 for the baseline in one benchmark |
 | Distribution | Not on npm (`npm view ripwire` → 404). Installed from a GitHub release zip or a `curl … | bash` script, which the `D-86` provisioning path would have to review |
 | Repository footprint | No index written into the repository; cache in the user profile/temp directory |
-| Overlap | Graphify maps `docs/` governance, not the code call graph, so the two do not overlap. The existing code path is `rg`, `tsc --noEmit`, `eslint` and `bun test` |
+| Overlap | Graphify maps `docs/` governance, not the code call graph, so the two do not overlap. The existing code path is `rg`, `tsc --noEmit`, `eslint` and `bun test` **Corrected 2026-10-06 (`D-423`):** "maps `docs/` governance, not the code call graph" was overbroad. The graph also holds generated code symbols (434 at `693a6a7`). Measured graph coverage is not proven caller completeness: Graphify extracts symbols and some relations, and that is not a verified call graph. The directed candidate, the U03 trial and its outcome criteria are unchanged |
 
 ## 3. Lane A recommendation (for the Judge's outcome)
 
