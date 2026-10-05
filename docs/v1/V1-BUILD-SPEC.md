@@ -147,6 +147,10 @@ PR #2 comment, `SV-002` acceptance and the `V1-SM05` unblock remain separate Jud
 **`D-401` (2026-10-03) — `GR-012` observation: no writer seen, accepted by Judge reason** (31-minute window accepted
 explicitly). Lane B verifies. `V1-SM05` stays `BLOCKED`.
 
+**`D-415` (2026-10-05) — `B-071` Re-close authorized; GR-007 plan accepted; `B-118.RH4` and `B-117` reasons
+deferred; Lane B named as `B-077`'s reviewer.** Accounting only; the `B-071` tracker row stays open until Lane B's
+review. No scope, sequence or DoD change. `V1-SM05` stays `BLOCKED`.
+
 **`D-414` (2026-10-04) — P2 batch: Sheet 1 column F corrected; GR-010 namespaces, GR-011 source fidelity, GR-009
 count meaning; A4 review threshold received.** Documentary only; application routing unchanged; the A4 formula stays
 unratified. No scope, sequence or DoD change. `V1-SM05` stays `BLOCKED`.

@@ -528,6 +528,9 @@ and `SV-002.md` change in place.
 `FN-GATES-01-05.md`, `CONFIG_LOG.md`, `DECISION_LOG.md`, the Addendum, Business Case, Blueprint, `GOV-RES-001.md`
 and `SV-002.md` change in place.
 
+**`D-415` (2026-10-05) — no file added or retired, stated explicitly.** `GOV-RES-001.md` and `SV-002.md` change in
+place; the `B-071` Re-close is recorded in its existing handoff entry.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

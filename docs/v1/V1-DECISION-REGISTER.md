@@ -26977,3 +26977,63 @@ FB-05 closure; closure of `B-050`, `B-106`, `B-117` or any parent; Gate 2; a pus
 | `Modular_PRD`, `raci-involvement-matrix`, SPECS, storyboard, rule files, Phase Closure, frozen sources | — unaffected (consumers already cite `D-175`; no current claim conflicts) |
 | **Encyclopedia** | Entry 02 maps Addendum §2.4: the A4 note is threshold-only, and Entry 02 (v15, read under `D-406`) holds no A-row values, so **no update is required**. No other entry maps a changed section |
 | **Graphify** | One sync for this batch, released after Lane B's review |
+
+## 5.14e240 `D-415` — B-071 Re-close Authorized; GR-007 Plan Accepted; RH4 and B-117 Reasons Deferred; Lane B Named as B-077's Reviewer
+
+**Authority: the Judge, directly to Lane A, 2026-10-05**, in two instructions: *"Judge Approved: apply B-071 Re-close
+with next batch"*, then *"Judge Approved: accept Lane B's recommendations as listed"*. The recommendations are Lane B's
+in `B-154` (`bcbd0f5`), answered by Lane A at `c260505`. The Re-close draft is Lane A's in `B-154` (`d719e1a`).
+This act is a bounded Phase 1 documentary unit. Pushing is not authorized.
+
+### The decision
+
+1. **`B-071` Re-close is authorized.** Lane A appends the `D-364` Re-close record to `B-071` in its own one-path
+   commit, after this entry, with `Reclosed-At-Commit` set to this entry's commit as read. The 2026-09-14 Return record
+   stays unchanged. The header becomes `Answered` / `Applied` with the dispositioned `Verified-By` form; that is not
+   independent verification.
+   - **Completion evidence:** `B071-R204`/`R205` received in `V1-SM05` (`D-381`); `R202`, `R203`, `R206`–`R208`
+     received as `GOV-RES-001` `GR-016`–`GR-020` after Lane A's bounded review (`68195b1`) and closed by individual
+     Judge custody acceptance (`D-412`). Custody is not delivery.
+   - **The `SV-002` §2.3.1 `B-071` row stays open** until Lane B independently reviews the applied record, or a later
+     individual Judge `D-364` reason closes it.
+   - The `D-171` hold on the technical target is unchanged.
+2. **GR-007 reconciliation plan accepted (not completion).** GR-007's completion criterion stays as written: every
+   §2.3.2 transaction keyed, every §2.3.1 row closed or received, legacy `Applied` entries reconciled one at a time by
+   their own raisers, then a final independent review. Clearing `B-118.RH4`, `B-077` or `B-117` does not complete it.
+3. **`B-118.RH4` clearance deferred** until its closure-half transaction is reconciled in GR-007, including its
+   historical DoR count against `D-263`. The GR-007 receipt (`D-382`) is not a clearance.
+4. **`B-077`: Lane B is named as its independent reviewer,** effective after Lane A refreshes the source, child,
+   return and legacy-`Applied` evidence one entry at a time. Naming a reviewer is not the review; the outcome is
+   deferred.
+5. **`B-117` custody reason deferred** until an exact table exists. It must list:
+   - `B117-R31`/`R32`/`R36`/`R40`/`R41` with GR-009's owner, its later Lane B unit trigger and the
+     catalog-member refusal;
+   - GR-010/011's accepted documentary scope;
+   - the held technical children routed to `B-071`/`D-171`.
+6. **Accounting in this commit:**
+   - `GOV-RES-001`: the GR-007 current-use line (Lane B's wording, `b844329`); GR-005's older awaiting-review phrase
+     dated; GR-009/010/011 documentary corrections recorded as independently accepted (`b844329`), with GR-009's
+     catalog-derived code/check still a later Lane B unit; GR-007's plan state.
+   - `SV-002` §2.3.2: Lane B's `D-414` review (`b844329`) and GR-007 challenge (`bcbd0f5`) keyed once on `B-154`; a
+     current-use pointer on `B-117` (`D-236`, `D-393`, the `D-414` review); the authorization noted on `B-071`.
+   - `SV-002` §2.3.1: **no row closes.**
+7. **One sync follows** under `D-409`/`D-410`, after the last governed edit, released after Lane B's review.
+
+### Not given by this act
+
+Closure of the `B-071` row or of any GR-007 source row; Lane B's `B-077` review outcome; GR-007 completion; any O0
+parent disposition; Gate 2; any code, check or held-target work; a push.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e240 |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ `D-415` paragraph (no scope, sequence or DoD change, stated) |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-415` paragraph; no file added or retired |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/GOV-RES-001.md`** | ✅ GR-005, GR-007, GR-009, GR-010, GR-011 notes |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §2.3.2 keyed notes on `B-154`, `B-117` and `B-071`; §2.3.1 unchanged |
+| `docs/handoff/B-071-b070-options-and-desk-editor-ontology-require-correction.md` | Follows: the Re-close record and header land in a separate one-path commit after this one, citing this entry |
+| Modular_PRD, fn-specs, SPECS, storyboard, rule files, Phase Closure, frozen sources | — unaffected (accounting only; no requirement or rule changes) |
+| **Encyclopedia** | unaffected: no mapped file, section or decision changes |
+| **Graphify** | One sync after the last governed edit, released after Lane B's review |
