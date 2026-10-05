@@ -560,6 +560,22 @@ describe("F2 generation refuses before rebinding (raw null, tool failure, no-op)
   }, SLOW);
 });
 
+describe("F2 community names: reused only for identical member sets; unique or pending", () => {
+  test("identical member set reuses its name; a changed set is pending; a duplicate supplied name is pending", () => {
+    const d = join(F2, "names");
+    mkdirSync(d, { recursive: true });
+    const base = { nodes: [{ id: "a", community: 1, community_name: "Alpha" }, { id: "b", community: 2, community_name: "Beta" }] };
+    writeFileSync(join(d, "base.json"), JSON.stringify(base));
+    writeFileSync(join(d, "graph.json"), JSON.stringify({ nodes: [{ id: "a", community: 5 }, { id: "b", community: 6 }, { id: "c", community: 6 }] }));
+    const r = G.proposeNames(d, join(d, "base.json"), {});
+    expect(r.names).toEqual({ 5: "Alpha" });
+    expect(r.pending.map((p) => p.community)).toEqual([6]);
+    const dup = G.proposeNames(d, join(d, "base.json"), { 6: "Alpha" });
+    expect(Object.keys(dup.names)).toEqual([]);
+    expect(dup.pending.every((p) => p.duplicateName === "Alpha")).toBe(true);
+  });
+});
+
 describe("F2 composition (step 4): refuses rather than repairs; frozen bytes are reproducible", () => {
   const head = "693a6a79e5ef7b8e1334881ce629017d80ba1250";
   const caller = { head, branch: "features/feature-V1-SM05", rootNative: "C:\\robertaoai\\my-editorial-app", gitDirNative: "C:\\robertaoai\\my-editorial-app\\.git" };

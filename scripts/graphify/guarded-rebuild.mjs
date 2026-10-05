@@ -913,6 +913,15 @@ export function proposeNames(state, baselineGraph, answers) {
     if (name) names[k] = name;
     else pending.push({ community: Number(k), memberSetSha256: v.hash });
   }
+  // A name must identify one community: a duplicate (reused or supplied) is pending, never bound.
+  const counts = {};
+  for (const n of Object.values(names)) counts[n] = (counts[n] || 0) + 1;
+  for (const [k, n] of Object.entries(names)) {
+    if (counts[n] > 1) {
+      pending.push({ community: Number(k), memberSetSha256: cur.get(k).hash, duplicateName: n });
+      delete names[k];
+    }
+  }
   return { names, pending };
 }
 
