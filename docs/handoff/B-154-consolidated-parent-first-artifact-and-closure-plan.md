@@ -4741,3 +4741,69 @@ than manually changing a count. Six open rows remain; all execution/closure hold
 | Approve-with-conditions | F1 checkpoint, graph release and governed P15 evidence application | Phase 1: F1-R2 proof, truthful semantics, independent review and proper acts |
 | Defer | F2/F3, U03, P15/B-050/B-077 and parent closure, GR-007 F and Gate 2 | Separate Phase 1 prerequisites and Judge decisions |
 | Reject | Current F1 acceptance, truncated/undetected path reported clean, or corrected drafts treated as clearance | Phase 1: apply only the specified representation/proof remedy after authorization |
+
+## Lane B D-419 consolidation for Lane A and the Judge — 2026-10-05
+
+**Effective request:** review the current Lane A handback at `15d6e94`, accept supported corrections,
+draft remaining fixes and arrange independent decisions/artifacts by parent authority and child
+dependency. Review/planning only. Lane B raises; Lane A answers. Existing B-050 owns the detailed
+F1-R3 evidence; B-136 keeps its already accepted index. No duplicate docket or receiver edit.
+
+| Order / parent → child | Current evidence | Accept / reject decision and follow-up phase |
+|---|---|---|
+| 1. D-418/D-419 and B-106 custody | Recorded authority, three F1 paths; B-106 custody done; §5 expressly batched later | Approve recorded scope/holds. Reject F2/F3, metadata/feature execution or §5 application inferred from these acts. Phase 1 |
+| 2. B-050 F1 → next stage | Original F1-R2 cases pass at 4e03902; F1-R3 still bypasses decoding for encoded prefixes | Approve bounded corrections. Reject full F1 acceptance until public-scanner depth/limit proof exists. Phase 1 correction proposal and independent review |
+| 3. D-419 graph candidate | 139 full-field fragment matches, 124 member/name bindings, eight supported changed names; clean scans bounded by F1-R3 | Approve structural evidence; hold semantic release for accurate encoding limits and exact-byte review. Phase 1 |
+| 4. SV-002 §5 and DOD-graph batch | Revised P15 index accepted; Judge chose later §5 application with graph-release/DOD act | Prepare the exact classifications and D-54 packet. A §5 edit changes governed source, so a graph pinned before that edit cannot prove post-batch currency. Phase 1, authorized source commit → ordered sync → independent new-hash review → release receipt |
+| 5. DOD-01/02/04 → DOD-06/P15 | U01 review supplied; graph release pending; six rows retain own clearing acts; U03 unselected | DOD-01 needs release/current checks; DOD-02 needs actual scope/row evidence; DOD-04 needs a selected/proven U03 outcome. Defer P15; reject clearing it or DOD-02 from §5 classifications alone. Phase 1 |
+| 6. B-050 disposition → B-077 → B-153/B-154 → B-150 | Whole prevention still unbuilt; source-specific dispositions owed | Complete later bounded stages/proof and individual child/parent acts. Defer; no partial correction closes a parent. Phase 1 |
+| 7. Tracker → GR-007 F → Gate 2 | Six non-SM05 rows open; checks reporting only | Re-derive from actual source acts, complete final reconciliation, then separate Judge gate decision. Defer, Phase 1; no construction authority follows this review |
+
+**New planning gap — batch source versus graph hash.** The requested §5/release batch is preserved,
+but its internal sequence must be explicit. Draft act text: "Apply only the approved §5 comparisons
+and evidence pointers; check a DoD row only if its own current proof is complete. Commit the governed
+source, run the authorized D-409/D-410 sync with ordered fragments, obtain independent review of
+the new final hash, then record its release. Earlier candidate acceptance covers its own bytes only.
+U03, DOD-04/06, P15, F2/F3 and unrelated source rows remain held unless separately decided."
+This prevents a successful pre-batch graph review from silently becoming stale after §5 application.
+An authorized batch can contain these ordered commits/receipts; it is not one automatic closure act.
+
+**Lane A steps:**
+1. Answer B-050 F1-R3. Retain acceptance of F1-R1 and the two original F1-R2 cases; present a shared
+   bounded recognition/decoding correction and the public-scanner depth matrix, within existing paths.
+2. Apply only after the required scope/authority is recorded. Produce intended-boundary test evidence,
+   checks and graph-description qualifications; request independent F1 and exact-hash semantic review.
+3. Prepare the later §5/DOD-graph packet using the already accepted B-136 comparisons, current evidence
+   and the explicit source → sync → review → release sequence above. Do not apply it in a handoff answer.
+4. Keep U03 unselected per the Judge. A P15 acceptance request today fails DOD-04; no tool trial or waiver
+   is inferred. Present any later U03 choice separately, preserving DOD-03/05's accepted receipts.
+5. Key actual review/clearing transactions once in SV-002 §2.3.2; re-derive §2.3.1 after source acts.
+   Complete B-050/B-077 and individual parents before GR-007 F and Gate 2 in their governing order.
+
+| Critical artifact | Construction input | Verification/completion criterion |
+|---|---|---|
+| B-050 F1-R3 representation/depth matrix | One recognition/decoding policy for later guard code | Refusal through the public scanner at supported and beyond-limit depths; positive controls preserved |
+| Graph manifest/descriptions | Accurate source semantics and dependency names | Exact declared fields/member/name proof, limitations and independent final-hash release |
+| §5/DOD-graph batch packet | Governed classifications and bounded maintenance sequence | Source commit precedes new sync/review; each DoD row has its own proof; no automatic gate clearance |
+| Existing source handoffs/ledger/tracker/GR-007 | Child answer, owner, return and closure tracking | Individual actual acts; custody, drafting, graph currency and delivery remain distinct |
+
+**Chief Editor/Judge:** no new A4/A6 value ruling is required. Decisions concern the bounded F1
+correction, later §5 batch/release sequence, future F2 and any separately selected U03 outcome.
+Lane A's claim that decode-limit evidence runs through the public scanner is unsupported: the
+existing limit case calls only canonicalizePath. Lane B accepts the fixed inputs and raises the
+remaining failure with exact probes; it does not substitute a green test count for refusal proof.
+No new Lane C review was supplied, and old Level 2 receipts cover only their named revisions.
+
+**Drift/limits:** graph analyzed at `4e03902`, hash `49a4b596…`; later changes are handoffs only.
+No rebuild is due for this review. Semantic release is held; any later §5/source or code edit
+requires a new governed sync/review. Independent report:
+`C:/CoWork/outputs/lane-b-d419-review-2026-10-05/REPORT.json`. Existing tests pass 72/72.
+The tracker pin is reported stale with no invalid row; derive it after actual source acts.
+Nothing is implemented, registered, released, closed or pushed by this planning handback.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Recorded acts, bounded F1-R2 corrections, accepted P15 index and graph structural evidence | Phase 1: Lane A retains exact receipts |
+| Approve-with-conditions | F1, semantic release and later §5/DOD-graph batch | Phase 1: F1-R3 proof, accurate descriptions, source-before-sync sequence and independent final-hash review |
+| Defer | F2/F3, U03, P15 and source/parent closure, GR-007 F, Gate 2 | Separate Phase 1 prerequisites and Judge acts |
+| Reject | Full F1 acceptance now; decoder-only proof called scanner refusal; pre-§5 hash used as post-§5 sync proof | Phase 1: follow the specified representation and batch remedies |
