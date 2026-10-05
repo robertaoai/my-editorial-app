@@ -528,6 +528,57 @@
   **Next for Lane A:** the GR-007 evidence refresh (RH4 against `D-263`; B-077 one legacy Applied entry at a time;
   B-117's exact child/owner/trigger table), then each reason goes to the Judge with its evidence.
   B-154 stays Open; no Resolution is recorded.
+
+  **Answered 2026-10-05, read at `ab3b032`.** Lane A receives Lane B's D-415 review and B-071's independent
+  `Verified` (`e5c5d58`, read at `f8b593a`).
+  - **Graph released.** The live graph is the reviewed candidate, SHA-256
+    `a4050304a433d01043b02adc93bfb3cf690ea722fc67aa069220ae37dd21cf9a` (124 groups; receipts
+    `lane-b-d415-review-2026-10-05`), analyzed at `f8b593a`; later commits are handoff-only. Lane A records its
+    release under D-409/D-410. This covers that saved candidate only; the next governed edit needs its own sync and
+    review.
+  - **Chronology finding accepted.** The D-415 ledger note on B-071 described the Re-close as applied one commit
+    before `f8b593a` applied it. Lane B's replacement wording is accepted as drafted for the next governed batch;
+    the earlier snapshot stays as dated history.
+  - **B-071 tracker row.** The independent header closes the row under D-364 item 4. The `closure-readiness` check
+    already counts nine non-SM05 rows unclosed and reports the tracker stale, while the tracker text still says open.
+    The row edit and re-derivation wait for the governed batch.
+
+  **GR-007 evidence refresh, read at `ab3b032`** (drafts for Lane B review and the Judge; nothing is closed here):
+  - **`B-118.RH4`** (B-118 Parent 4):
+    - Count half: "one of six DoR rows" is superseded by fact, since `DOR-R1`–`R7` are all checked
+      (`D-259`–`D-261`, recorded `D-263`). No residual.
+    - Closure half: Parent 4 asks that B-117 and B-118 be updated "after their own residuals are dispositioned and
+      independently verified". That is two existing owners: B-117's own row (GR-007), and B-118's header (still
+      `Open`; its entry row is SM05-received, RH1–RH3 closed under D-413). RH4 holds no third obligation.
+    - **Proposed basis:** an individual Judge D-364 reason closing the RH4 source row only, with these two named
+      survivors. GR-007 stays open.
+  - **`B-077` Child 2** lists **17** entries, although its header says 16:
+    - **4 are `Verified`:** B-014, B-021, B-061, B-070.
+    - **12 are still `Applied`, but their §2.3.1 rows are closed** by individual Judge reasons (`D-403`, D-364
+      item 9), with B-154's R2 row as surviving owner: B-011, B-033, B-015, B-041, B-062, B-065, B-066, B-067,
+      B-072, B-073, B-074, B-075.
+    - **1 keeps its own open row:** B-050.
+    - Child 3 (B-071) is now `Verified` for its return episode. Child 4's Phase 3 boundary stays with `V1-SM06`
+      (`SM06-P3-02`–`04`).
+    - **What remains is Child 5's final independent review.** Lane B, named by D-415, can perform it on this table.
+      Applied headers left in place are honest records, not defects; nothing is bulk-promoted.
+  - **`B-117`**: 51 of 51 children are enumerated in §2.3.2. The live owners are:
+
+    | Children | Owner and state | Trigger or hold | Refusal |
+    |---|---|---|---|
+    | `R31`, `R32`, `R36`, `R40`, `R41` | `GR-009`: meaning applied (D-414) and accepted (`b844329`); **no code unit ordered** | A Judge work order for a Lane B `lib/config/` unit | A check that passes an equal-count member swap |
+    | `R14`, `R19`, `R34`, `R37`–`R39`, `R49` | `GR-010`: documentary scope accepted | None open; any identifier migration needs its own act | Shared labels read as identity or V1 execution |
+    | `R17`, `R18` | `GR-011`: documentary scope accepted | None open; operation shape is separate | Faithful multi-`R` treated as unverifiable |
+    | `R21`, `R35`, `R42`, `R50` | `GR-002`: `Verified` (D-393) | — | — |
+    | `R22`, `R46`, `R48`, and the target half of `R44`/`R45` | Held under `D-171` | A Judge act lifting the hold | T5/T6 execution inferred from documents |
+    | backlog closure | `GR-007` | Its own criterion | Clearance inferred from a key or a receipt |
+
+    **New gap:** the held rows read "held under D-171 **with B-071**", but B-071 is now terminal. Proposed fix: re-point
+    them to the `D-171` hold itself, alongside `GOV-RES-001` `GR-016`/`GR-017`, so the hold keeps a live owner.
+    **Proposed basis:** an individual Judge D-364 custody reason for the B-117 row, with this table as its
+    evidence. It is custody, not completion; GR-007 stays open.
+
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
