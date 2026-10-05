@@ -4941,3 +4941,84 @@ is changed by this consolidation; no push is performed.
 | Approve-with-conditions | Full F1 checkpoint, graph semantic release and later §5/DOD packet | Phase 1: bounded-policy choice, obsolete-symbol reconciliation, final-byte review; later authorized source-before-sync batch |
 | Defer | F2/F3, U03, P15, B-050/B-077 and parent closure, GR-007 F, Gate 2 | Separate Phase 1 acts and named proofs |
 | Reject | Unlimited web exclusion, obsolete symbol described as removed/current, serial dependencies invented from table order, partial review called closure | Phase 1: apply the specified claim, graph and dependency remedies only under applicable authority |
+
+## Lane B D-421/D-422 parent-first consolidation — 2026-10-05
+
+**Clearer request:** review the current Lane A answers against governed authority, complete
+the independent checkpoint/hash review, draft remaining maintenance remedies, and present
+separate Judge choices with exact dependencies, evidence and closure conditions. Planning
+only. Lane B raises; Lane A answers the existing B-050/B-154 entries. No duplicate entry,
+receiver-header edit, Register act or implementation is created by this consolidation.
+
+**Current parent authority is done:** D-421 accepts the bounded F1 policy and commissions
+the stale-symbol remedy; D-422 supersedes its order/count. B-050's D-421/D-422 review records
+independent F1 sign-off and acceptance of candidate hash
+`081638cd2e4a46d0150259ca4597214cec6247787b8674a0b77d39a4378c7511`, pinned to `693a6a7`.
+The source review receipt is `591d2cd`. The former policy and obsolete-symbol holds are satisfied for this revision. Do not continue
+asking the Judge to decide the policy already accepted at D-421.
+
+| Parent / dependency | State and artifact | Accept if / reject if | Follow-up phase |
+|---|---|---|---|
+| 1. D-418–D-422 authority; B-106 custody | Recorded; bounded F1 policy accepted; prune order corrected; B-106 custody completed with its child owners/triggers | Accept exact recorded scope. Reject inferred F2/F3, runtime/feature authority or erased B-106 children | Phase 1; done authority |
+| 2. Authority → F1 and prune/hash review → release receipt | Independent F1 sign-off; 14 retirements held, fragments preserved, 125 label bindings, exact hash accepted | Accept these bytes and validators. Lane A records release under existing authority; reject whole B-050 closure or release of different bytes | Phase 1; receipt next |
+| 3a. Accepted F1 → F2 → F3 → B-050 → B-077 | Existing phased draft, v4 and two conditions; no next stage authorized | Judge chooses a bounded F2 order with exact paths, exclusions and DoD; later proof/disposition precedes B-077's refreshed 17-target review | Phase 1; tooling track |
+| 3b. Separate §5/DOD batch act → source → sync → hash review → release | Comparison draft/index already accepted; §5 unapplied | Judge authorizes exact source text; each DoD box needs its own evidence. Reject using 081638cd after later §5 edits | Phase 1; governance track |
+| 3c. Separate U03 choice → outcome → DOD-04 → DOD-06/P15 | U03 unselected; P15 remains open | Select and prove a bounded U03 outcome; Judge's DOD-06 act names P15 and its own reason, separately decides the SM05 block | Phase 1; setup track |
+| 4. Completed children/setup → B-153/B-154 → B-150 | Each source obligation and parent act still owed | Accept only actual child receipts/dispositions; reject one checkpoint or B-050 alone as parent completion | Phase 1; final parent reconciliation |
+| 5. Source acts → tracker/GR-007 F → Gate 2 | Six non-SM05 rows remain open; checks report, not authorize | Re-derive tracker from source acts, finish GR-007 F, then separate Judge gate decision; reject construction inferred from green checks | Phase 1; last |
+
+Rows 3a–3c are parallel choices. F2 does not depend on §5 or U03, and U03 does not depend on
+F2. The optional maintenance remedy below is separately scoped; it does not reopen accepted
+F1 or invalidate the verified candidate. These tracks join only at the final parent/gate
+conditions that actually require them.
+
+**Lane A follow-up:**
+1. Answer the new B-050 review and record the F1/prune/hash receipts once, with exact revision
+   and limits. Record the candidate's release under D-421/D-422; do not change B-050's Applied
+   header or clear O1 from this checkpoint alone.
+2. Retain the two stopped runs as failed-attempt evidence. For future maintenance, use D-422's
+   after-restore order; do not follow the stale script comment or use "retired" output as proof.
+3. Present the optional script-header/completion-message remedy in B-050 as a bounded proposal.
+   Its completion criterion is successful persisted-state verification, not log emission.
+   Apply only if separately selected; keep this distinct from F2/F3.
+4. Put the existing F2, later §5/DOD and U03 packets to the Judge separately. F2 retains v4,
+   both conditions, the five-path ceiling, a fresh full inventory and isolated generation,
+   composition, ownership/recovery proof; F3 live publication/runbooks remain excluded.
+5. If the §5 batch is selected, commit its authorized source first, then ordered fragment
+   sync, independent new-hash review and release. DoD comparison classifications do not by
+   themselves satisfy coverage, U03 or attempt acceptance.
+6. After each selected track's independent proof and individual acts, update source receipts
+   and ledger transactions once; re-derive the tracker. B-050 disposition precedes B-077,
+   whose 17 targets require current headers and answers. Finish P15/setup independently,
+   then parents, GR-007 F and Gate 2 in the table's order.
+
+| Critical artifact | Construction input | Verification criterion |
+|---|---|---|
+| Accepted F1 policy/validator matrix | Acceptance/refusal boundary for F2/F3 | Three-round validation, eight-round recognition, conservative deep refusal; public-scanner evidence, no universal guarantee |
+| Prune procedure and same-commit fresh graph | Removes obsolete extracted code without discarding accumulated governance/history | After-restore order; non-curated generated nodes only; retired ids/links absent; fragment fields and non-code history preserved |
+| Released graph and exact-hash review | Accurate current dependency meanings | Final bytes, supported member names/descriptions and source revision; changed bytes/source need new review |
+| v4, fresh inventory and phased work order | Defines transaction/recovery construction | Every current file classified; identity/ref preservation; locks, no-op refusal, rollback and crash recovery independently proven |
+| P15 index, §5/U03 packets, source ledger/tracker | Defines setup completion and parent readiness | Individual criterion/revision/owner/act; no draft, custody or checkpoint substituted for delivery |
+
+**Chief Editor/Judge:** no repeated bounded-policy ruling is needed. The live choices are
+the optional maintenance work order, F2, later §5/DOD batch and any U03 selection. No new
+A4/A6 value decision is required; formula, archive/delete and held technical T5 permissions
+remain separate. Lane A disclosed two genuine gaps: an outdated order comment and completion
+logging before persistence. The final state is independently proven, so these gaps are not
+grounds to reject the successful candidate. Lane B must not call all retired nodes deleted
+source symbols or turn the same hash review into implementation/closure permission. No new
+Lane C review was supplied; older Level 2 evidence covers only its named revisions.
+
+**Drift and tracking:** governed-intent sync is current at 693a6a7; later commits are handoffs
+only, so Graphify's HEAD notice does not require another rebuild for this review. The script
+comment/procedure mismatch is a known local documentation gap, distinct from governed-intent
+currency. Lane A's release receipt is still needed; no release or source/row closure is applied
+here. Detailed evidence: `C:/CoWork/outputs/lane-b-d422-review-2026-10-05/`. Tests independently
+pass 151/151; the 297/297 fixture receipt is Lane A's pinned run, not a new run by Lane B.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | D-421/D-422 scope, bounded F1 sign-off, prune result and exact 081638cd candidate | Phase 1: Lane A records receipt/release under existing authority |
+| Approve-with-conditions | Optional maintenance remedy and later work-order drafts | Phase 1: separate exact scope/act, definition of done and independent proof if selected |
+| Defer | F2/F3, U03, §5 application, P15, B-050/B-077 and parents, GR-007 F, Gate 2 | Their own Phase 1 selections, proofs and individual acts |
+| Reject | Superseded prune order, pre-write log as completion, extraction absence as source deletion, validators/hash approval as closure | Phase 1: preserve the corrected semantics and dependency order |
