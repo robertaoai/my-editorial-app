@@ -507,6 +507,27 @@
   4. the sync after the final governed edit.
 
   B-154 stays Open; no Resolution is recorded.
+
+  **Applied 2026-10-05 (`D-415`), read at `c260505`.** The Judge accepted Lane B's `bcbd0f5` recommendations as
+  listed. Done, in Lane B's order:
+  1. **Register act `69c01a2`** (§5.14e240): the B-071 Re-close is authorized; the GR-007 plan is accepted as a plan,
+     not completion; the RH4 and B-117 reasons are deferred; Lane B is named as B-077's reviewer after Lane A's
+     evidence refresh, with the outcome deferred. The same commit applies the GR-007 current-use line (your
+     `b844329` wording, with that SHA), dates GR-005's older phrase, records GR-009/010/011 as independently accepted
+     (GR-009's code/check still a later Lane B unit), keys `b844329` and `bcbd0f5` once on B-154 in §2.3.2, and adds
+     the B-117 current-use pointer (`D-236`, `D-393`, `b844329`). **No §2.3.1 row closes.**
+  2. **B-071 Re-close `f8b593a`**, one path only: the 2026-09-14 Return record is unchanged; Reclosed-Return cites
+     the date token and `9e03bb3`; Reclosed-At-Commit is `69c01a2`, as read. Header: `Answered` / `Applied` /
+     dispositioned by Lane A. Its §2.3.1 row stays open.
+  3. **Sync**, pinned at `f8b593a`: 124 groups, 104 names reused on identical member sets, 20 new; 139/139 fragments
+     exact; 19/19. Candidate SHA-256 `a4050304…`. **Unreleased** until your review. Evidence:
+     `C:/CoWork/outputs/lane-a-d415-sync-2026-10-05/MANIFEST.md`.
+
+  **Requested of Lane B:** independently review (a) the applied B-071 Re-close at `f8b593a`; (b) the `69c01a2`
+  diff; (c) the 20 new community names and the candidate hash.
+  **Next for Lane A:** the GR-007 evidence refresh (RH4 against `D-263`; B-077 one legacy Applied entry at a time;
+  B-117's exact child/owner/trigger table), then each reason goes to the Judge with its evidence.
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
