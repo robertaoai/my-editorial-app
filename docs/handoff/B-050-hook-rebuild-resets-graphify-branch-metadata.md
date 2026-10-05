@@ -609,3 +609,138 @@ from ordinary exception rollback. Nothing here is a software test already passed
 | Approve-with-conditions | Repository-procedure prevention contract | Phase 1: Lane A answers PC1–PC5 and containment, then presents the exact revised unit for a Judge work order |
 | Defer | Repair execution, independent prevention proof, B-050 source disposition/clearance and B-077 final review | Phase 1: separate bounded act and source-specific review; no code now |
 | Reject | Raw-tool repair, universal prevention, first-bundle copies as the initialized record, two renames as a crash-atomic transaction, or publication based on an obsolete review hash | Phase 1: apply the explicit draft replacements above |
+
+## Lane A answer to PC1–PC5, plus PC6 — revised prevention contract, 2026-10-05
+
+Read at `7deb459`. Lane A receives Lane B's review (`0fc8a94`) and accepts it in full. The re-run evidence stands with
+the observer-order limits Lane B stated: the first before-file was `MISSING: ENOENT`, then the observer calls
+initialized it; observer calls used the normal environment and Git-context capture used the injected one. **This
+revision replaces the `6e73937` draft's procedure. It is a contract, not a build.** It protects only cooperating
+guarded invocations: the lock does not serialize raw Graphify writes, and the raw tool stays defective.
+
+**Live layout read for this revision.** The repository's `.graphify` is a link to `C:/CoWork/myeditorialapp/.graphify`.
+Promotion acts on that resolved target, and the link is never changed. The state directory has 557 files: graph and
+report; `.graphify_analysis`/`_detect`/`_labels`/`_runtime` JSON; `branch.json`, `worktree.json`; `cache/ast`,
+`cache/semantic`, `cache/stat-index.json`; dated `20*/`, `.hint-*/` and `backup-*/` history; and the instruction
+folders. The graph and `.graphify_analysis.json` embed repository identity, and 49 cache files embed absolute paths.
+
+**PC6 (new, found by Lane A): repository identity.** A plain clone's `origin` is a local path, so commit node ids become
+`commit:repo:C/robertaoai/…` instead of `commit:repo:github.com/robertaoai/…`. It also carries fewer refs: the
+diagnostic clone had 210 commit nodes against the live graph's 860. A candidate built that way cannot keep the released
+identities, descriptions or member sets.
+- **Requirement:** set the disposable checkout's `origin` URL to the caller's `origin` URL. Fetch the caller's full
+  ref set into it (`refs/heads`, `refs/remotes`, `refs/tags` and any other analyzed namespace). Check out the caller's
+  branch name at the pinned commit.
+- **Validation:** the candidate's repository-identity prefix and its commit/branch node-id set must equal the
+  identities expected from the caller's refs at the pinned commit.
+- **Failing case:** a local-path origin, or a missing ref namespace, must fail.
+
+**Containment (steps 1–2).**
+- Resolve real paths. Refuse any candidate, backup, transaction or evidence path that aliases the live target,
+  contains it, or sits inside it.
+- The disposable checkout and its own state root are validated before any child write. The candidate's `.graphify`
+  is a real directory inside the disposable root, never a link to the live state.
+- Copying the released state into the candidate copies bytes only; the PC3 policy rebinds identities later.
+
+**PC1 — lock, then recheck, then publish.**
+- Lock: an exclusive `C:/CoWork/myeditorialapp/.graphify.lock`, created with exclusive create. It holds the run id,
+  process id, host, start time and baseline manifest hash.
+- Under the lock, re-resolve the caller root, `gitDir`, `commonGitDir`, branch and HEAD, and require HEAD equal to
+  the pinned source commit. Recompute the released-state manifest and require it equal to the baseline the candidate
+  was built from.
+- Repeat both checks immediately before the publication rename. Any mismatch refuses publication and keeps both
+  states.
+- A changed source or baseline invalidates the candidate. Regeneration needs a new review (PC5).
+- **Stale lock:** treated as stale only when its process is not alive on this host **and** no transaction journal
+  exists. Otherwise refuse; never steal it.
+- **Cases:** a second guarded writer; a source commit change, and a released-state change, between generation and
+  publication.
+
+**PC2 — recoverable swap, not a claimed atomic transaction.** Everything happens on the same volume, inside
+`C:/CoWork/myeditorialapp/` and outside the target:
+1. a full backup `.graphify-bak-<run>`, with its hash manifest verified against live;
+2. staging `.graphify-new-<run>`, a copy of the **reviewed** bytes, verified against the reviewed full-state manifest;
+3. journal `.graphify-txn.json` = `prepared`;
+4. rename live to `.graphify-old-<run>`; journal = `old-moved`;
+5. rename new to live; journal = `new-in-place`;
+6. re-hash live against the reviewed manifest; journal = `verified`; the journal is removed only after the release
+   receipt.
+
+**Recovery** runs first on every guarded invocation:
+- a journal before `verified`, or a missing live path, means an incomplete swap;
+- restore only from the verified full backup, or from the `old` directory once its manifest equals the backup's;
+- a failed restore keeps the backup, candidate, old state and evidence, and refuses health.
+
+Windows sharing violations (an open file blocking a rename) refuse at step 4 or 5 and recover.
+
+**Boundary revision required:** the health check must refuse while a journal exists. That needs a fifth path,
+`scripts/checks/docs-drift.mjs` (journal presence fails). Lane A asks for it explicitly instead of assuming it.
+
+**Cases:**
+- termination after each of steps 3, 4 and 5 (synthetic kill);
+- a rename refused;
+- a failed restore;
+- a stale lock and a live lock.
+
+Crash recovery is asserted separately from exception rollback.
+
+**PC3 — field policy.** There is no stale field in `worktree.json` (schema 1).
+
+| File / field | Rule |
+|---|---|
+| `branch.json` `branchName`, `worktreePath` | The caller's values; the branch must equal the candidate's branch |
+| `branch.json` `upstream`, `mergeBase` | Resolved in the caller. A missing upstream is valid and recorded as null |
+| `branch.json` `lastSeenHead`, `lastAnalyzedHead` | The analyzed source commit (= the pinned commit = the caller's HEAD under PC1). Never a fabricated current HEAD |
+| `branch.json` `firstSeenHead`, `createdAt` | Retained from the caller's released record (provenance) |
+| `branch.json` `stale`/`staleReason`/`staleSince`/`lifecycleEvent` | `false`/null/null/null; `updatedAt` = publication time |
+| `worktree.json` `worktreePath`, `gitDir`, `commonGitDir` | The caller's values; `firstSeenHead`/`createdAt` retained; heads as in `branch.json` |
+| `graph.json`, `GRAPH_REPORT.md`, `.graphify_analysis.json`, `.graphify_labels.json`, `.graphify_detect.json` | Promoted from the candidate after PC6 identity validation; **not rewritten** |
+| `cache/`, `.graphify_runtime.json`, dated `20*/`, `.hint-*/`, `backup-*/` | Retained from the caller; the candidate's copies are excluded (the cache embeds disposable absolute paths) |
+| Instruction folders (`description-instructions/`, `label-instructions/`) | Promoted from the candidate (they record its procedure) |
+| Any top-level entry not in this table | **Refuse:** the inventory is re-derived at the pinned revision before each run |
+
+**Proof:** the published state contains no disposable path, origin or identity. A test asserts no occurrence of the
+disposable root's path in any promoted file.
+
+**PC4 — validation.** The fragment inventory is derived afresh from `docs/graph-fragments/` at the pinned source, not
+fixed at 139. The candidate must meet all of these:
+- every declared node and edge field equal for every fragment;
+- PC6 identity equality;
+- saved member, name and label binding;
+- non-null heads per PC3.
+
+Pending semantic work is recorded explicitly, and healthy release requires the D-409/D-410 reviewer's named accepted
+limits (today: two inherited undescribed commits). **Failing cases:** a same-count wrong member; a wrong edge field; a
+missing fragment node.
+
+**PC5 — order.**
+1. A prepared candidate.
+2. Rebinding (PC3).
+3. Final graph SHA plus full-state manifest.
+4. Independent review of **those exact bytes**.
+5. Publication of those bytes only, after the PC1 rechecks.
+6. A post-publication manifest equal to the reviewed one.
+7. A release receipt.
+
+Any regeneration or rebinding after review invalidates the review and is resubmitted. A pending or rejected candidate
+is never reported as released. A valid run must show this review-bound route end to end.
+
+**Expanded case families** (each injection labelled synthetic, with before/after full-state manifests and the context
+bundle; a negative case must reach its intended boundary and produce a non-release result):
+- valid run;
+- preflight Git failure (absent, misbound);
+- post-preflight in-tool Git failure;
+- both alias directions;
+- wrong HEAD or root;
+- source change and baseline change (PC1);
+- concurrent lock and stale lock;
+- termination at each swap step, and a failed restore (PC2);
+- foreign identity in a promoted file (PC3);
+- local-path origin or missing refs (PC6);
+- same-count wrong member and wrong edge field (PC4);
+- detached HEAD (refused by mode) and no upstream (proceeds);
+- a valid run after each recoverable failure.
+
+**Write boundary for the work order:** the four proposed paths plus `scripts/checks/docs-drift.mjs` (PC2). Executing
+any of it needs a separate Judge work order after Lane B reviews this revision. B-050 stays `Applied`; its O1 row stays
+open.
