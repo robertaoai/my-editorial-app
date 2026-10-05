@@ -45,6 +45,17 @@ describe("canonical path validation (v4 condition 1)", () => {
     [`"file:///C:/robertaoai/my-editorial-app/docs"`, false],
     [`https://reuters.com/a`, false], // a URL is not a path
     [`({file:o,count:i.length})`, false], // minified property, not a URI
+    // F1-R1 (Lane B e843edf): each was missed at 296a47b
+    [String.raw`\\server\share\leak`, true], // raw two-backslash UNC
+    [`//server/share/leak`, true], // forward-slash network root
+    [`file:/C:/robertaoai/my-editorial-app/docs`, true], // malformed URI hiding an allowed path
+    [`file:garbage`, true], // malformed URI token
+    // lexical controls kept by the F1-R1 fix
+    [`see the file: section`, false], // prose
+    ["a `file:` URI", false], // backticked keyword
+    [`https://example.com/a/b`, false], // URL, not a network root
+    [`x=a//b; // comment`, false], // code division and comment
+    [`{ file:loader, mode:1 }`, false], // object key with spacing
   ];
   for (const [input, foreign] of cases) {
     test(`${foreign ? "refuses" : "allows"} ${input}`, () => {

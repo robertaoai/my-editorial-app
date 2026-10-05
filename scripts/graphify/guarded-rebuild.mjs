@@ -45,6 +45,8 @@ const DISPOSABLE_ROOTS = ["c:/cowork/outputs"];
  */
 export function canonicalizePath(raw) {
   let p = String(raw);
+  // UNC before any separator folding: raw `\\host\share` or JSON-escaped `\\\\host\\share` (F1-R1).
+  if (/^(?:\\\\|\\\\\\\\)[^\\/]/.test(p)) return { network: true };
   // Decode first, so an encoded drive colon or separator becomes visible.
   for (let i = 0; i < 3 && /%[0-9A-Fa-f]{2}/.test(p); i++) {
     try {
@@ -83,11 +85,28 @@ export function isWithin(path, root) {
   return path === root || path.startsWith(`${root}/`);
 }
 
-// Absolute-path candidates: `file:` URIs, drive-letter paths (raw, JSON-escaped
-// or percent-encoded separators/colon) and UNC paths. Bounded on the left so a
-// minified `file:o` property or a `https://` URL is not a path.
-const CANDIDATE =
-  /(?<![A-Za-z0-9])file:(?:\/\/|%2[fF]%2[fF])[^"'\s<>|]*|(?<![A-Za-z0-9+.-])[A-Za-z](?::|%3[aA])(?:\\\\|\\|\/|%5[cC]|%2[fF])[^"'\s<>|]*|\\\\\\\\[A-Za-z0-9._$-]+[^"'\s<>|]*/g;
+// Absolute-path candidates, each taken as a WHOLE token so an allowed path
+// embedded in a bad URI cannot hide it (F1-R1, Lane B `e843edf`). Supported
+// representations, raw or inside JSON strings:
+//   * `file:` tokens of any shape — `file://host/…`, `file:///C:/…`, and
+//     malformed ones such as `file:/C:/…` or `file:garbage`;
+//   * drive-letter paths with raw, JSON-escaped or percent-encoded `:`/separators;
+//   * UNC paths, raw `\\host\share` or JSON-escaped `\\\\host\\share`;
+//   * forward-slash network roots `//host/share` not preceded by a URL scheme.
+// Lexical exclusions: a `file:` directly after `{` or `,` followed by a plain
+// identifier is an object key (minified `{file:o,…}`), and `file:` followed by
+// nothing is prose. `https://…` is never a path.
+const FILE_TOKEN = String.raw`(?<![A-Za-z0-9_$.-])file:[^\s"'<>|\x60]+`;
+const DRIVE_TOKEN = String.raw`(?<![A-Za-z0-9+.-])[A-Za-z](?::|%3[aA])(?:\\\\|\\|\/|%5[cC]|%2[fF])[^"'\s<>|\x60]*`;
+const UNC_TOKEN = String.raw`(?<![\\\w])(?:\\\\\\\\|\\\\)[A-Za-z0-9._$-]+(?:\\\\|\\)[^"'\s<>|\x60]+`;
+const NETWORK_TOKEN = String.raw`(?<![:\w/\\])\/\/[A-Za-z0-9][A-Za-z0-9._-]*\/[^"'\s<>|\x60]+`;
+const CANDIDATE = new RegExp([FILE_TOKEN, DRIVE_TOKEN, UNC_TOKEN, NETWORK_TOKEN].join("|"), "g");
+
+/** A `file:` token that is really a minified/JSON object key, e.g. `{file:o,…}`. */
+function isObjectKey(text, index, token) {
+  const before = text.slice(Math.max(0, index - 8), index).replace(/\s+$/, "");
+  return /[{,]$/.test(before) && /^file:[A-Za-z_$][\w$]*(?:[,}].*)?$/.test(token);
+}
 
 /**
  * Returns the first absolute-path candidate in `text` that is not the caller
@@ -96,7 +115,9 @@ const CANDIDATE =
  */
 export function findForeignPath(text, { allowedRoot = CALLER_ROOT, disposableRoots = DISPOSABLE_ROOTS } = {}) {
   const root = allowedRoot.toLowerCase();
-  for (const m of String(text).matchAll(CANDIDATE)) {
+  const src = String(text);
+  for (const m of src.matchAll(CANDIDATE)) {
+    if (/^file:/i.test(m[0]) && isObjectKey(src, m.index, m[0])) continue;
     const c = canonicalizePath(m[0]);
     if (c.network || c.malformed) return m[0];
     if (disposableRoots.some((d) => isWithin(c.path, d.toLowerCase()))) return m[0];
