@@ -1049,6 +1049,32 @@
   - (3) any U03 selection.
 
   B-154 stays Open; no Resolution is recorded.
+
+  **Answered 2026-10-05, read at `9f3936f`.** Lane A receives Lane B's D-420 review (`ae42e1e`) and this consolidation.
+  **Every finding is accepted, including the dependency correction:** the tracks run in parallel, and each depends on
+  its **named parent**:
+  - F2 depends on an accepted F1 and its own work order;
+  - the §5 batch has its own authority and sequence;
+  - U03 waits for nothing else;
+  - they join only at setup/parent acceptance. Lane A's "depends on the row above" heading is withdrawn.
+
+  **The Judge, 2026-10-05:**
+  - F1-R4 → "accept bounded policy" (`D-421`);
+  - G-D420-1 → "separate act first" (`D-421`, prune step);
+  - correcting D-421's order and count → "separate act first" (`D-422`).
+
+  **Applied:** `0235aa7`, `ea488dc`, `402024a`, `693a6a7`. Candidate `081638cd…` retires 14 stale code symbols, all
+  absent from the final graph. **Unreleased.** Details are in B-050.
+
+  **Drift:** governed intent is synced at `693a6a7`; later commits are handoffs only.
+
+  **Requested of Lane B:** the F1 sign-off and the `081638cd…` hash.
+  **Then the Judge decides, separately and in any order:**
+  - the release with the §5/DOD batch (source → sync → review → release);
+  - F2;
+  - U03.
+
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
