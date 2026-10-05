@@ -798,3 +798,140 @@ to reselect the already recorded repository-procedure scope or rerun accepted di
 | Approve-with-conditions | Revised prevention contract | Phase 1: Lane A incorporates R1–R5 into one complete contract; independent review precedes work-order readiness |
 | Defer | Repair execution, independent proof and B-050 source disposition/clearance | Phase 1: separate bounded Judge act and intended positive/negative evidence |
 | Reject | Complete-inventory claim, publication-time mutation of reviewed bytes, refs-only equality proof, unowned recovery or SKIPPED health during a transaction | Phase 1: apply the replacement criteria above |
+
+## Consolidated prevention contract v3 — current, 2026-10-05 (answers R1–R5)
+
+Read at `aebad9e`. Lane A receives Lane B's review (`0da9001`) and consolidation (`aebad9e`), and accepts R1–R5.
+**This section is the one current contract.** The `6e73937` and `42f1881` procedures are history. It is not
+built. It protects only cooperating guarded invocations: raw Graphify stays defective, and the lock does not
+serialize Git users or raw tool runs.
+
+**Judge act, 2026-10-05, in chat to Lane A:** *"Judge Approved: add docs-drift.mjs as fifth path"*. The proposed
+write boundary is:
+1. `scripts/graphify/guarded-rebuild.mjs`
+2. `scripts/fixtures/graphify-guard.test.mjs`
+3. `.claude/skills/sync-docs/SKILL.md` §7
+4. `docs/graph-fragments/README.md` §5
+5. `scripts/checks/docs-drift.mjs`
+
+This approves the boundary only. Execution still needs the Register work order naming paths, exclusions, tests and
+DoD, after Lane B's readiness review. Journal, lock, backup, staging and evidence files are runtime artifacts outside
+the live target.
+
+### R1 — complete state classification (supersedes the PC3 file table)
+
+Evidence: `C:/CoWork/outputs/b050-prevention-contract-2026-10-05/` (`classify.mjs`, `state-classification.json`
+SHA-256 `551c8d70…`). It is read-only over the live state.
+- **Result:** 557/557 files classified, 0 unclassified, 0 matching more than one rule: 18 promote, 2 rebind, 537
+  retain.
+- **Foreign absolute paths:** none in any promoted file. The detector self-tests JSON-escaped and plain Windows paths
+  and URLs.
+
+| Policy | Paths | Basis (observed consumer or role) |
+|---|---|---|
+| rebind | `branch.json`, `worktree.json` | Lifecycle records; the R2 field policy below |
+| promote | `graph.json`, `GRAPH_REPORT.md`, `.graphify_analysis.json`, `.graphify_detect.json`, `.graphify_labels.json`, `scope.json` | Rewritten by every rebuild; `scope.json` binds the analyzed `head` and file counts |
+| promote | `studio/**`, `ontology/**` | Derived from the graph at each sync; must contain no disposable path |
+| promote, must be empty | `description-instructions/**`, `label-instructions/**` | Empty after ingest. Any file means pending semantics: refuse |
+| retain (caller copy) | `manifest.json` | Incremental source index with absolute paths (historical `C:/git/…` keys). Equivalence is not assumed: the valid-run case must show a following guarded run is idempotent with it retained |
+| retain (caller copy) | `cache/**` | Acceleration cache; embeds absolute paths |
+| retain, with provenance | `agents/**`, `cost.json`, `d22-d28-fragment.json`, `missing-desc.json`, `.graphify_runtime.json` | Operator or historical artifacts not written by a rebuild |
+| retain | `20*/`, `.hint-*/`, `backup-*/` | Dated history |
+
+**Each run** re-derives the inventory recursively and attaches it to the candidate manifest. A **new** unclassified
+path refuses publication without deleting anything. No count is hard-coded.
+
+### R2 — reviewed bytes are immutable
+
+- Rebinding sets `updatedAt` (both files) to the **preparation time**, before the reviewed manifest is computed.
+- The composed final state (promoted, rebound and caller-retained files together) is hashed as one full-state
+  manifest, plus the graph SHA-256. The reviewer accepts that manifest.
+- Publication changes no byte. Publication time, run id, reviewer acceptance and receipt are recorded outside the
+  target.
+- A caller-retained file that changes after review (for example the cache) invalidates the review.
+- After publication, the live manifest must equal the reviewed one; a valid case proves this.
+
+**Field policy:**
+
+| File / field | Rule |
+|---|---|
+| `branch.json` `branchName`, `worktreePath` | The caller's branch name and root |
+| `branch.json` `upstream`, `mergeBase` | Resolved in the caller; null upstream is valid |
+| `branch.json` `lastSeenHead`, `lastAnalyzedHead` | The analyzed source commit |
+| `branch.json` `firstSeenHead`, `createdAt` | Kept from the caller's record |
+| `branch.json` `stale` | `false`, with the reason fields null (`stale` is a branch field only) |
+| `worktree.json` | Caller paths and Git directories; heads as above; `firstSeenHead`/`createdAt` kept |
+
+### R3 — owned, durable recovery
+
+- **Selected boundary:** abrupt process termination. **Power-loss durability is not claimed.**
+- **Journal:** `C:/CoWork/myeditorialapp/.graphify-txn.json`. It is bound to the canonical target, run token,
+  source commit, reviewed and backup manifests, and the backup, staging and old paths. Each update is written to a
+  temporary file, flushed, then renamed into place.
+- **Lock:** `.graphify.lock`, exclusive create, holding the run token, process id, host and start time.
+
+| Observed state on start | Transition |
+|---|---|
+| No lock, no journal | Proceed |
+| Lock held by a live process | Refuse; no recovery |
+| Lock owner proven dead on this host, journal present and valid | Take the exclusive recovery token (atomic replace of the lock, bound to the journal's run token), then recover by journal stage |
+| Lock owner dead or unknown, no journal | Recovery-required result; never stolen silently |
+| Journal `prepared` | Live untouched: remove staging, keep the backup |
+| Journal `old-moved`, live path absent | Rename `old` back after its manifest equals the backup's |
+| Journal `new-in-place` | Live manifest equals reviewed: mark `verified`. Otherwise restore the verified backup |
+| Crash between a rename and its journal update | Infer the stage only from verified manifests of the live, old and staging paths. Otherwise recovery-required |
+| Journal corrupt or unreadable, or the target missing without a journal | Fail closed. Preserve everything; manual recovery with evidence |
+| Restore failure | Keep the backup, old, staging and evidence; non-health |
+
+### R4 — reproducible source and identity snapshot (with PC6)
+
+The pinned CLI derives identity from `git remote get-url origin` (`repoKey`). It selects branches from local
+`refs/heads` only: the default branch, plus the current branch, plus heads whose commit date is within the
+`activeWithinDays` cutoff measured from `Date.now()` (`discoverBranches`). Each branch is capped at `maxCommits` and
+any `sinceDays` (`revList`).
+- **Capture under the lock:** origin URL; every `refs/heads`, `refs/remotes` and `refs/tags` name, type, object id
+  and symbolic target (including `origin/HEAD`); the default-branch resolution; working-tree cleanliness of
+  governed sources; tool pins; option values; and the run clock.
+- **Build the checkout** from the **local** captured snapshot: set `origin` to the captured URL, then write exactly
+  the captured ref map (`update-ref`/`symbolic-ref`). No GitHub fetch. Clone-created extra refs in analyzed
+  namespaces are removed, and the ref map is verified equal.
+- **Expected selection:** derived by applying those rules to the snapshot at the recorded clock. The candidate's
+  branch and commit node-id sets must equal it. The old released count is not the criterion.
+- **Re-verify under the lock** after review, before publication and after it. Any mismatch refuses or recovers;
+  nothing is reported healthy.
+- **A dirty governed source** refuses.
+
+### R5 — checker order (`docs-drift.mjs`)
+
+- The transaction check runs **first**, before the "`branch.json` absent" and "git unavailable" skips. It resolves the
+  `.graphify` link's target parent even when the final component is missing.
+- A journal present, unreadable or malformed is a **finding**, at every stage including `verified`. The journal is
+  removed only after the durable release receipt.
+- The existing CI/fresh-checkout skip stays only for the documented no-local-state, no-journal case.
+
+### Acceptance matrix
+
+This expands the existing families; it is not a new ledger. Each case lists its injected boundary (labelled
+synthetic), before/after full-state manifests and context bundle, and the expected non-release or success result.
+**Success:**
+- a valid review-bound run, with an idempotent follow-up run while `manifest.json` is retained;
+- a valid run after each recoverable failure.
+
+**Refusals and recovery:**
+- preflight Git absent or misbound;
+- in-tool Git failure after preflight;
+- both alias directions;
+- wrong HEAD or root;
+- a changed non-HEAD ref, wrong origin, a missing or extra analyzed ref, and a dirty source (R4);
+- a changed baseline;
+- a live lock, a dead owner with a journal, and a dead or unknown owner without a journal;
+- termination around each rename and journal update;
+- a malformed journal, and a failed restore (R3);
+- a new unclassified path, and a foreign path in a promoted file (R1);
+- a review invalidated by a changed retained file (R2);
+- a same-count wrong member, and a wrong edge field;
+- detached HEAD (refused by mode), and no upstream (proceeds);
+- the checker: journal with a missing live path, ordinary local success, and CI skip (R5).
+
+**DoD:** Lane B independently proves each case, then a source-specific B-050 disposition is made under the selected
+scope by a named act. No universal criterion closes by implication. B-050 stays `Applied`; its O1 row stays open.
