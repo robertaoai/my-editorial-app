@@ -1162,3 +1162,71 @@ recoverable failure is followed by a successful valid run through the reviewed p
 **Write boundary:** the five approved paths. Runtime lock, recovery token, journal, backup, staging, evidence and
 receipt files live outside the live target. **DoD:** Lane B independently proves each case, then a source-specific
 B-050 disposition is made under the selected scope by a named act. B-050 stays `Applied`; its O1 row stays open.
+
+## Lane B bounded v4 readiness result — ready for a conditioned work-order draft, 2026-10-05
+
+**Read:** `9422a5bf8386a922b2d3ffd6fbc224a720e06f47`; contract `d733513`. Lane B raises;
+Lane A answers. Scope is the changed/unmet v3 criteria, without reopening accepted evidence.
+
+**Accepted at planning level:** independently compared normalized text: both the seven-step
+forward transaction and the exclusive-recovery paragraphs are adopted verbatim. V4 retains the
+inventory, immutable-byte policy, raw metadata validation before rebinding, journal-first checker,
+effective-input capture, actual-identity comparison and expanded matrix. The graph still has the
+released D-417 hash; classification manifest remains
+`551c8d70e1cfb4679d3688dcbaee2994da3be69cbde27760441bfbac738f3a08`.
+The twelve evidence-tool self-tests pass when the audited validator block is evaluated independently;
+the whole classification writer was not rerun. These facts do not constitute guard implementation proof.
+
+**Readiness decision:** Approve-with-conditions to draft the five-path work order. The existing
+design criteria are complete enough for that draft when the two precise conditions below are
+included. No fifth contract rewrite or broad readiness cycle is required merely to draft it;
+a changed scope or departure from these conditions needs its own review. Execution still requires
+the Judge's Register act. B-050 stays Applied and its O1 row open.
+
+### Conditions to place in the implementation unit
+
+1. **Canonical path validation, including the remaining counterexamples.** The corrected evidence
+   tool closes the previously named sibling/wrong-drive cases, but three additional audited inputs
+   still return no foreign path:
+   - `C:/robertaoai/my-editorial-app/../../../CoWork/outputs/clone/x`
+   - `file://server/share/x`
+   - `file:///C%3A%2FCoWork%2Foutputs%2Fclone%2Fx`
+
+   Its normalize function does not resolve dot segments, and its candidate regex does not capture
+   the latter two URI forms. Therefore accept the twelve named self-tests only; reject the worklog's
+   blanket network/encoded-path rejection claim. In the future guard, parse file URIs before testing
+   drive/root containment, decode and canonicalize path components before comparison, and reject
+   network authorities and malformed/ambiguous representations explicitly. Preserve component
+   boundaries and disposable-root refusal. Unknown encodings must not silently become “no path”.
+   Add these exact inputs to the existing matrix alongside the twelve controls. Prove refusal at
+   the validator boundary, before any release mutation. The observed live promoted files have no
+   reported leak; these are synthetic validator counterexamples, not evidence of live corruption.
+2. **Owner rollback versus independent restart recovery.** Clarification to Lane B's own supplied
+   recovery text: “a live owner refuses” applies to an unrelated recovery entrant. The current
+   publisher must be able to roll back its own failed transaction while retaining its existing
+   publication ownership. Bind this branch to the same host/process/start/run token and journal;
+   obtain the recovery token without relinquishing the publication lock. A peer refuses when that
+   owner is live. A proved-dead restart recoverer follows the existing exclusive-token procedure.
+   Unknown ownership remains recovery-required. Test live owner rollback, live peer refusal,
+   two concurrent dead-owner recoverers and successful retry. This clarifies the adopted text;
+   it neither widens the five repository paths nor adds a new crash boundary.
+
+**Success criteria and limits:** a valid run must reach raw metadata acceptance, completed candidate
+parity/semantics, independently accepted composed bytes, publication, verified receipt and journal
+cleanup. A negative case must reach its intended boundary and produce the contract's non-release or
+recovery-required outcome. Changed data, source, config, clock selection or retained bytes invalidate
+the corresponding review. “No stage writes” means evidence of an unexecuted extraction stage; stable
+deterministic graph contents alone are not proof of a no-op. Treat GRAPHIFY_CHANGED sanitization and
+an unintended no-op as separate checks. A successful idempotence case permits new timestamps and
+receipts while preserving the specified graph/source identities and retained-state semantics.
+
+The ready-to-draft work-order packet is consolidated in B-154's v4 continuation. Accepted diagnosis,
+inventory, D-417 graph/custody and fifth-path approval stand. Later guard implementation, independent
+proof, source-specific B-050 disposition and B-077 final review remain separate steps.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Verbatim transaction/recovery adoption, v4 planning structure and the twelve named validator controls | Phase 1: preserve scope and distinguish document evidence from future guard proof |
+| Approve-with-conditions | V4 readiness to draft the five-path work order | Phase 1: include canonical URI/dot-segment refusal and the explicit owner-rollback branch above |
+| Defer | Work-order authorization/execution, independent prevention proof and B-050 disposition | Phase 1: Judge Register act and later source-specific evidence |
+| Reject | Blanket foreign-path completeness, all identical graph output called a no-op, or own rollback refused solely because its publisher is alive | Phase 1 implementation acceptance: use the exact cases and ownership distinctions above |
