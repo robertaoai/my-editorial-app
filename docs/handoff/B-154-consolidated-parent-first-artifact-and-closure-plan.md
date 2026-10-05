@@ -4284,3 +4284,209 @@ This handoff review needs no rebuild. Later governed procedure/check edits need 
 | Approve-with-conditions | Readiness and concrete five-path work-order draft | Phase 1: include B-050's canonical-path and owner-rollback conditions in the Judge act |
 | Defer | Execution/proof, B-050/B-077 disposition, parallel sources, O0 closure, GR-007 F and Gate 2 | Separate Phase 1 acts and named later units |
 | Reject | Prototype completeness, readiness-as-execution, stable graph output automatically called a no-op or live-owner rollback refused by its own lock | Phase 1 implementation: exact acceptance criteria above |
+
+## Lane B three-draft handback — P15, B-106 and phased B-050, 2026-10-05
+
+**Effective request:** draft three independent decision packets requested at `d9c74b9`: P15's
+SV2-DOD-06 acceptance evidence/reason; B-106's remaining correction and custody option; a workable
+phased B-050 work order. Planning only. **Read:** `d9c74b94cb1c71b9736164b97d5f18511767b9b8`.
+Lane B raises these drafts; Lane A reviews and answers in this existing handoff, then presents
+each decision separately. The Judge's hold at `4ed6754` still applies to B-050 execution.
+No Register/checklist/tracker/source-header act is made by this draft.
+
+### Parent authority and independent child decisions
+
+| Parent → child | Decision packet / current state | Accept criterion | Reject / follow-up phase |
+|---|---|---|---|
+| B-150 audit → source-specific evidence | Three drafts ready for Lane A review; existing D-417 graph/custody evidence stands | Each packet retains its own source, owner and reason | Reject a batch act that silently closes unrelated rows; Phase 1 |
+| SV-002 attempt → B-136.P15 | D1 below; P15 remains open until the named SV2-DOD-06 Judge act | DOD-01–05 indexed at actual revisions, then explicit attempt acceptance and P15 individual reason | Reject future acceptance as earlier clearance; Phase 1 Gate 1B |
+| Product B-106 → code metadata / residual behavior | D2 below offers a later two-path metadata unit and a separate custody reason | Values/meaning traced to D-381/D-404/D-414; retained behavior and review limits have owners | Reject A4 formula, automatic archive or whole-entry Verified inferred from metadata; Phase 1 source act / later Lane B unit |
+| B-050 → phase F1 → F2 → F3 | D3 below replaces the held monolithic work-order draft for presentation | Authorize named stages only; each checkpoint proves its own DoD before the next | Reject partial phase success as prevention or B-050 closure; later bounded Phase 1 Lane A acts |
+| GR-007 → B-077 | Still follows B-050's completed source disposition/clearance | Refreshed 17-target evidence, named local commits and SC8 query | Reject a phase checkpoint substituted for final source proof; Phase 1 |
+| B-153/B-154 → B-150 → tracker → GR-007 F → Gate 2 | Parent closure follows completed child evidence and individual dispositions | Re-derived ledger/tracker, final all-row review, then separate Gate 2 | Reject requiring Gate 2 to prove the earlier Gate 1B attempt; Phase 1 |
+
+P15 and B-106 do not wait on B-050. They do retain their own attempt/authority and lane boundaries.
+Parent-first presentation establishes scope; parent completion follows its weaker children.
+
+### D1 — B-136.P15 acceptance packet and prospective reason
+
+**Controlling facts:** SV-002 §2.2 P15 is the attempt docket, Gate 1B, owned by Lane A, with completion
+on the Judge's acceptance of SV-002. §7 SV2-DOD-06 requires an evidence index for DOD-01–05 and
+separately decides whether to lift the SM05 block. D-382 item 6 and D-383 retain the O1 route:
+an individual Judge reason **at SV2-DOD-06**, never an O5 reason or proof of earlier clearance.
+B-136 Parent 3 permits Applied only after the combined attempt is accepted; Verified still needs
+an independent actor. P14a/P14b remain their separate SM05 receipts under D-269.
+
+**Answer to the dependency question:** P15 cannot clear before that SV2-DOD-06 act under current
+authority. This review can prepare its docket now, but cannot make attempt acceptance true.
+The current source still leaves DOD-01, DOD-02, DOD-04 and DOD-06 unchecked; U03 has no run and
+needs its separate Judge-selected trial. In particular, U03 outcome → DOD-04 → DOD-06 precedes
+SM05 selection/construction. Code-dependent Gate 2 proof must not be pulled into that chain.
+
+| Acceptance evidence at SV2-DOD-06 | Current observed basis / missing proof | What Lane A supplies |
+|---|---|---|
+| DOD-01 governance | Bootstrap/docket exists; row unchecked | Exact authorized U01/source commits, D-54 receipt, current checks and graph/review hash, independent scope acceptance; identify any still-open correction |
+| DOD-02 coverage/drift | Live ledger/tracker and source receipts exist; row unchecked | Per-scope and per-ledger-row proved disposition or retained owner/receipt/return; classified success-drift dimensions and justified exclusions. Do not demand later feature execution for properly received P14 obligations |
+| DOD-03 loader | Checked by Judge D-362, with D-360/D-361 review and raw manifest | Pin the existing accepted evidence; distinguish moved activation/adherence follow-ups from this accepted result; no rerun by default |
+| DOD-04 navigation | U03 outcome absent; row unchecked | Separate trial authority, named task and rg baseline, pinned tool/config/source, actual outcome including inconclusive/refusal, and accepted disposition under §3.2/§3.4. No install or trial authorized here |
+| DOD-05 dependency matrix | Checked by Judge D-289; Gate 1B basis only | Pin matrix and review/source revisions; preserve P13/P14 later Gate 2 obligations rather than imply feature behavior ran |
+| DOD-06 / P15 | Both acceptance and individual reason still owed | One exact evidence index, explicit Judge acceptance/rejection of the attempt, and explicit P15 reason at that act; separate SM05 unblock/selection/work-order/lane decisions |
+
+**Prospective individual reason for the Judge (use only when the evidence above is complete):**
+
+> At SV2-DOD-06 I accept the SV-002 attempt against the attached, revision-pinned DOD-01–05 evidence
+> index. I individually accept B-136.P15 under D-364 item 4 and D-382 item 6 because its obligation
+> is the attempt docket and Judge acceptance, now evidenced here. This clears only the P15 row
+> from this act onward; it proves no earlier clearance. P14a/P14b keep their D-269 SM05 receipts
+> and later execution obligations. This act alone does not lift the SM05 block, select its feature
+> work order, activate Lane B or establish feature DoD. Those decisions remain explicit and separate.
+
+**Refuse the P15 reason** if any required evidence index entry is absent/unaccepted, U03 is merely
+planned, a consistency pass is used as attempt acceptance, or the index claims future Gate 2 work
+already occurred. Keep P15 open and name the exact unmet row. If the Judge instead wants an earlier
+bounded docket-transfer clearance, that departs from the current D-382 route and needs an explicit
+amending scope act plus receiving owner/trigger/proof; no such amendment is requested or inferred here.
+
+### D2 — B-106 remaining scope and a later metadata unit
+
+**Current source/code comparison:** CONFIG_LOG §2 receives A6 at 90 under D-381/D-404 and the A4
+review threshold at 50 under D-414. DECISION_LOG preserves their distinct events; A4's formula stays
+unratified. In `lib/config/build-config.ts`, both exports already have those values, while their two
+CONFIG_REGISTRY entries still have status UNRATIFIED and no limitation. ConfigEntry already supports
+RATIFIED, citation and limitation. The application/test search finds no runtime consumer of these
+two constants outside the declaration file. This unit corrects declaration metadata, not behavior.
+
+**Later bounded Lane B unit — proposed two paths:**
+`lib/config/build-config.ts` and `__tests__/build-config.test.ts`.
+
+| Named registry entry | Proposed metadata text | Value and limitation boundary |
+|---|---|---|
+| DATA_RETENTION_ARCHIVE_DAYS | status RATIFIED; citation `CONFIG_LOG §2; A6; D-381; D-404` | Keep exported value 90. limitation: `First UI-visible operational/PDPA boundary only. External archive/handoff requires a valid supplied fact; elapsed time alone establishes neither archive nor disposal. No archive/deletion job or competing five-year UI clock is authorized.` |
+| SCORING_REVIEW_THRESHOLD_ARTICLES | status RATIFIED; citation `CONFIG_LOG §2; A4 review threshold; D-414` | Keep exported value 50. limitation: `Review/reassessment threshold only. A4 scoring formula and weights remain unratified; this declaration authorizes neither scoring execution nor automatic gate advancement.` |
+
+Add concise declaration comments tying the historically misleading archive symbol to its governed
+meaning; preserve exported names/API and values. Do not rename the symbol or introduce another clock.
+Use the existing registry shape; no type/status expansion, dependency or build-config change.
+
+**Tests and DoD:** a source-derived check must reject the current UNRATIFIED metadata for these two
+approved events, prove the exact event/meaning split after correction, and fail if threshold approval
+is expanded to formula approval or A6 is described as timer-driven deletion. Preserve the export/
+registry value identity and neighboring formula DECLARED_BLOCKED and OD PROVISIONAL boundaries.
+Run the targeted configuration tests, the existing configuration coupling check through the full
+consistency suite, and normal required static checks for the later unit. Independent review compares
+the two-entry diff to the governed events and confirms no new execution consumer. No tests run here.
+
+**Exclusions and activation:** no scoring code, scheduler, archive/disposal/deletion operation,
+database/schema/UI workflow, flags, GR-009 gate-count repair, global status migration or docs edits
+inside this code unit. Execution needs its own Judge work order and Lane B Active; Lane A remains
+Active now. A Judge may separately authorize a bounded lane transfer; do not infer one from this draft.
+
+**Anything left that is not runtime metadata?** The A6 value/arbitration, ratification receipt,
+retention prose and normative AC-12a wording are delivered and independently reviewed under
+D-405/D-406; A4 threshold-only receipt is D-414. No new value decision or source rewrite is required
+by this metadata gap. Executed AC-12a behavior/refusal evidence is still unbuilt at the Product
+retention/AC-12a → FN-AUDIT-VISIBILITY-07-08 §5 owner; the A4 formula remains a separate unratified
+Product obligation. The Entry 02 no-update observation remains Lane A's exact versioned D-406 receipt,
+not an independently accessed hosted artifact. These limits cannot be converted into whole feature
+verification by this unit. Graph currency/review is a separate maintenance receipt, currently D-417.
+
+**Optional custody reason for B-106 — separate Judge decision, not code authorization:**
+
+> I individually accept B-106's O4 custody reason under D-364 item 4. D-381/D-404 settle A6's value
+> and supplied-fact meaning; D-405/D-406 supply the reviewed source propagation; D-414 receives only
+> A4's review threshold. The remaining metadata correction is retained explicitly in B-106 as the
+> two-path Lane B unit above, returning only when the Judge names that bounded work order and
+> authorizes Lane B Active. Unbuilt AC-12a behavior stays at the existing Product retention/AC-12a
+> and FN-AUDIT §5 contract, returning on a separately selected consuming implementation unit. The
+> A4 formula stays unratified at its Product owner and returns on its own ratification/selection.
+> Entry 02's no-update result retains its recorded operator/version limit. This reason clears only
+> the O4 custody row, earns no runtime/feature delivery and verifies no B-106 source header.
+
+If selected, Lane A records each remaining child/home/owner/trigger in the source and ledger before
+claiming the receipt complete; an appropriate Deferred Follow-up-Tier retains the exact unit and
+behavior conditions. Independent custody review or the exact individual Judge act is required,
+never a blanket Verified. Otherwise B-106 stays Open until its remaining obligations are completed.
+Do not require this later code unit before Gate 2 while simultaneously allowing Lane B activation
+only after Gate 2: choose the explicit custody route or a separately authorized earlier bounded lane
+unit. This proposed remedy is specific to B-106; it does not revive rejected B-050 risk acceptance.
+
+### D3 — revised B-050 work order in three gated stages
+
+This is the current proposed revision for the held `a4da703` packet. It preserves contract v4,
+both conditions as adopted at `b97f93f`, all intended cases and the five approved paths. No sixth
+repository path, dependency, global Graphify edit or new protection claim is introduced.
+Recommended next decision: authorize **F1 only**, then decide F2 and F3 from their independent
+checkpoint receipts. Alternatively, a Judge act may name all stages with these same stop gates;
+the draft itself authorizes none of them.
+
+| Stage / dependency | Exact path subset and allowed work | DoD and intended proof | Stop / what remains open |
+|---|---|---|---|
+| F1 — validators and health check | guarded-rebuild.mjs: pure parsing/validation and explicit refusal entry point; graphify-guard.test.mjs: fixtures; docs-drift.mjs: journal finding before skips. No live generation, swaps or publication | Canonical URI/dot-segment/component containment, metadata/schema/raw-null validation, journal detection with missing live path, ordinary local and no-state CI behavior, and all relevant accepted path controls/refusals. Tests reach intended boundaries; invalid input cannot create a healthy result; full suite passes | Independent F1 review then stop. Pure checker/validator proof is not prevention, transaction proof or B-050 closure |
+| F2 — isolated generation, composition and owned recovery; depends on accepted F1 | Same guard/fixture files: captured local source/ref/config generation, ordered fragments/semantics, reviewed composition, publication/recovery state machine exercised only in disposable fixture targets | Valid isolated candidate; post-preflight Git failure/raw null/no-op refusal; source/ref/config/clock and retained-byte invalidation; full-field/member/name parity; concurrent owner/peer/recoverers; synthetic termination/journal gaps; rollback, failed restore, receipt/cleanup and retry. Use an explicit fixture acceptance record for publication-state tests, never represent it as real Lane B release review | Independent F2 review then stop. No released-root mutation, no live publication and no docs directing users to an incomplete guarded release |
+| F3 — real review-bound publication and runbook adoption; depends on accepted F2 and explicit stage authority | Guard/fixture integration plus sync-docs SKILL §7 and graph-fragments README §5. Pin actual candidate, reviewed graph/full-state manifests and source context; publish only those bytes via v4 and obtain the external receipt | First successful independently reviewed actual publication, verified post-state and journal cleanup; no rebind after review; changed baseline refuses. Reconfirm candidate fragment parity/semantics and all intended fixture cases; final full consistency passes. Both runbooks name one guarded procedure and its prepare/review/publish/recovery gates | On failed candidate, review or transaction, preserve evidence and use the owned recovery/non-health route. Only after independent end-to-end proof seek B-050's source-specific disposition/clearance |
+
+**Five paths, unchanged:** `scripts/graphify/guarded-rebuild.mjs`,
+`scripts/fixtures/graphify-guard.test.mjs`, `.claude/skills/sync-docs/SKILL.md` §7,
+`docs/graph-fragments/README.md` §5, `scripts/checks/docs-drift.mjs`.
+Any stage needing another repository path stops for an explicit revised proposal. Runtime lock,
+recovery token, journal, backups, staging, test targets and evidence remain outside the live target
+under validated roots. Tests never use the released root; actual F3 publication is separately named
+and guarded by independent candidate review. No phase may suppress an unmet v4 case or reclassify
+raw-tool behavior as fixed. Abrupt process termination remains the selected crash boundary.
+
+**Stage exit receipts:** Lane A records the selected authority, exact commits/path set, pinned inputs,
+matrix cases/results, raw manifests/injections, checks and remaining exclusions. Independent Lane B
+review accepts or rejects that checkpoint before the next stage decision. Governed checker/runbook
+changes require their source-specific ordered graph sync and independent release review; these
+receipts do not authorize a manual raw rebuild that bypasses v4. The governing act must specify the
+authorized maintenance route during F1/F2 while the guarded publication path is incomplete; absent
+that route, preserve the prior graph and report drift rather than silently publish an unreviewed one.
+
+**Whole-unit DoD:** F1/F2/F3 accepted, the complete v4 matrix independently proved, the actual release
+receipt bound to final bytes, and the complete consistency suite passing. B-050's disposition and
+tracker clearance still require their own named source act. Then B-077's final review is requested
+against refreshed local commits and SC8 evidence. No stage success closes unrelated parents.
+
+### Lane A guide, business semantics and closure layers
+
+1. Review D1, D2 and D3 separately and answer each in this source continuation; keep the existing
+   source entries linked. Correct only a demonstrated source mismatch; do not restart accepted
+   D-417/diagnostic/contract reviews or create duplicate parents.
+2. Assemble D1's exact evidence index and expose its unchecked DOD-01/02/04 prerequisites. Present
+   the P15 reason at SV2-DOD-06 only when the attempt acceptance evidence is complete. Any desire
+   to change that sequence needs an explicit authority amendment.
+3. For D2, present the later metadata unit and the optional custody reason as distinct choices.
+   If custody is selected, apply precise source/ledger homes and obtain the individual act; if code
+   is selected, obtain its own bounded work order and lane activation before application.
+4. For D3, present F1 as a bounded next decision while preserving the Judge's hold on unissued
+   stages. Include the interim graph-maintenance authority in the proposed act. Later stage
+   approvals consume prior independent receipts; they do not repeat the five-path decision.
+5. Record every actual decision in the Register and applicable D-54 tiers, keyed source ledger and
+   derived tracker. This draft changes none of those facts. Re-derive only after source acts;
+   O0 parents, GR-007 F and Gate 2 follow the completed evidence in their governing order.
+
+**Chief Editor/Judge:** the human Judge accepts the SV-002 attempt, selects any B-106 custody/unit
+and issues B-050 stage authority. Product Chief Editor A4/A6 value acts are already settled within
+their stated meanings; no new formula, archive/delete authority or feature gate bypass is requested.
+Lane A's “three drafts pending” is now answered. Lane B's own metadata is the remaining declared
+code mismatch; this draft owns it without applying it. Prior Lane C reviews remain revision-specific;
+none supplies a new P15 attempt acceptance, metadata implementation review or F1–F3 proof.
+
+**Artifact/closure map:** D1's evidence index drives attempt verification; D2's source-to-registry
+mapping drives a later code/test diff; D3's stage receipts drive safe construction/recovery review.
+Originating handoffs own answer/lifecycle evidence; SV-002 §2.3.2 keys transactions and §2.3.1 derives
+clearance; Product/FN homes own B-106 behavior; the Register authorizes; Phase Closure §5 owns lane
+state; GR-007 owns the remaining reconciliation. Draft-ready, authorized, implemented, independently
+verified, custody-cleared and attempt/feature accepted are distinct facts. Seven non-SM05 rows
+remain open until their own acts; drafting clears none.
+
+**Drift:** graph hash remains the released D-417 hash, analyzed at 2bf5c3e; later repository changes
+are excluded handoffs only. No rebuild is required for this three-draft handback. Later actual
+governed acts/code/checker/runbook changes receive their own scoped graph/check receipts.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Three source-specific drafts and the separate owner/dependency map | Phase 1: Lane A reviews each packet and presents separate decisions |
+| Approve-with-conditions | P15 reason, B-106 metadata/custody route and phased B-050 proposal | Phase 1: D1 actual attempt evidence/act; D2 exact scope or receipt/trigger; D3 named stages and interim maintenance authority |
+| Defer | Attempt acceptance, metadata/guard execution, source dispositions, B-077 final review, O0 closure, GR-007 F and Gate 2 | Their own Phase 1 acts, Active-lane units and independent evidence |
+| Reject | Earlier P15 clearance, unratified formula or archive execution, circular activation prerequisites, partial guard phase called prevention, or draft-as-authorization | Phase 1: use the explicit refusal/stop rules above |
