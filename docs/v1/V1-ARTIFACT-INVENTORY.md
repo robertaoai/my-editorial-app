@@ -547,6 +547,9 @@ change in place.
 
 **`D-420` (2026-10-05) — no file added or retired, stated explicitly.** The two F1 files change in place.
 
+**`D-421` (2026-10-05) — two files to be added by the implementing commit:** `docs/graph-fragments/prune-stale-symbols.js`
+and its test. The README §4 and sync-docs §7 change in place.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

@@ -27337,3 +27337,65 @@ first."** Lane A is `Active`. Pushing is not authorized.
 | Source handoff `B-050` | Follow: the answer lands in its own commit |
 | **Encyclopedia** | unaffected |
 | **Graphify** | One sync after the correction commit, released after Lane B's review |
+
+## 5.14e246 `D-421` — F1 Bounded Decoding Policy Accepted; Sync Step to Retire Stale Generated Code Symbols
+
+**Authority: the Judge, directly to Lane A, 2026-10-05**, in chat, on Lane B's D-420 review (`ae42e1e`):
+- **"Accept bounded policy"** (F1-R4);
+- **"Separate act first"** for the stale-symbol remedy (G-D420-1).
+
+Lane A is `Active`. Pushing is not authorized.
+
+### The decision
+
+1. **F1 bounded decoding policy, accepted as the stated guarantee:** "Path validation accepts at most three decoding
+   rounds. Recognition inspects up to eight rounds and conservatively refuses unresolved encoded path punctuation. Web
+   exclusion is proven for recognized web URLs within that recognition bound; a more deeply encoded web URL may be
+   refused. This is a conservative refusal, not proof that the value is a foreign filesystem path. F1 provides
+   validators only; it does not prove publication or prevention."
+   - Lane A's "excluded at every depth" wording is withdrawn.
+   - **No code change.** The graph descriptions and manifest carry this wording at the next sync.
+2. **Mechanism, proven in a disposable clone** (`C:/CoWork/outputs/d421-probe-2026-10-05/`):
+   - `hook-rebuild` carries the existing `graph.json` forward. A generated code node the current extraction no longer
+     produces therefore survives.
+   - Neither `graphify update --force` nor clearing `cache/` removes it.
+   - A rebuild from an empty graph removes it, but also drops about 1,500 accumulated nodes (710 historical commits, plus
+     the handoff and docs layers). That is not an acceptable remedy.
+   - At `8f6e28c`, exactly **three** generated code nodes are absent from a fresh extraction:
+     - `graphify_guarded_rebuild_encoded_token` — deleted from source by `D-420`;
+     - `fixtures_run_results` and `fixtures_run_leftdirty` — local variables still present in `run.mjs`, emitted by an
+       earlier extraction and no longer extracted.
+3. **New sync step (amends the `D-409`/`D-410` procedure):** after `hook-rebuild` and before the docs-layer restore,
+   retire every node that meets all three conditions:
+   - `file_type` is `code` (generated);
+   - it is absent from a fresh from-empty extraction of the **same pinned commit**, made in a disposable clone whose
+     `origin` is the caller's;
+   - it is not declared in any curated fragment.
+
+   Its incident links go with it. The step **lists** every retired id with its reason, and **refuses** if any candidate is
+   a fragment id. Everything else in the procedure is unchanged.
+4. **Paths (Lane A):**
+   - `docs/graph-fragments/prune-stale-symbols.js` (new);
+   - `docs/graph-fragments/prune-stale-symbols.test.mjs` (new);
+   - `docs/graph-fragments/README.md` §4;
+   - `.claude/skills/sync-docs/SKILL.md` §7 ("Order of a pass").
+5. **DoD:**
+   - the tests prove the step retires only qualifying nodes and their links, refuses a fragment id, and is a no-op
+     when nothing qualifies;
+   - the re-sync at the act's final commit retires exactly the listed nodes, keeps 139/139 fragments, and its
+     manifest states the bounded policy and the retired ids;
+   - `bun test`, `bun run fixtures` and `bun run check` pass;
+   - **Lane B independently reviews the F1 sign-off and the new final hash.** Release only after that review.
+6. **Not given:** F2/F3; `SV-002` §5 (still a later batch act); U03; a push.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e246 |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ `D-421` paragraph (tooling and procedure; no V1 scope, sequence or DoD change) |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-421` paragraph; two files added by the implementing commit and listed there with it |
+| **`docs/graph-fragments/README.md`**, **`.claude/skills/sync-docs/SKILL.md`** | Follow: amended in the implementing commit (procedure step) |
+| `SV-002.md`, `GOV-RES-001.md`, Modular_PRD, fn-specs, SPECS, rule files, Phase Closure, frozen sources | — unaffected |
+| **Encyclopedia** | unaffected |
+| **Graphify** | One sync after the implementing commit, released after Lane B's review |

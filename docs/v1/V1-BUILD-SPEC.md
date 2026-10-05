@@ -147,6 +147,9 @@ PR #2 comment, `SV-002` acceptance and the `V1-SM05` unblock remain separate Jud
 **`D-401` (2026-10-03) — `GR-012` observation: no writer seen, accepted by Judge reason** (31-minute window accepted
 explicitly). Lane B verifies. `V1-SM05` stays `BLOCKED`.
 
+**`D-421` (2026-10-05) — F1 bounded decoding policy accepted; a sync step retires stale generated code symbols.**
+Tooling and procedure; no V1 scope, sequence or DoD change. `V1-SM05` stays `BLOCKED`.
+
 **`D-420` (2026-10-05) — `B-050` F1-R3 correction act (one shared bounded decoding policy), within F1's three paths.**
 Tooling only; no V1 scope, sequence or DoD change. `V1-SM05` stays `BLOCKED`.
 
