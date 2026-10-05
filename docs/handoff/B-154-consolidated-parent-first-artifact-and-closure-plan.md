@@ -5429,3 +5429,91 @@ later handoff-only commits; semantic G-D423-1 remains. No rebuild is due solely 
 | Approve-with-conditions | F2, graph semantic release, retrieval draft and article framing | Phase 1: B-050 boundary/name/parity/description remedies; exact final-hash review; retrieval contract additions and Judge scope choice |
 | Defer | F3, retrieval application/implementation, annotation migration/trial, U03/P15 and source/parent/gate closure | Their own Phase 1 acts and independent proofs |
 | Reject | Full F2 acceptance now; integer alone as identity; endpoint equality as full parity; old F1 description as current; every rerun claimed unstable | Phase 1: use the specified scoped corrections and evidence |
+
+## Lane B — D-424 parent-first consolidation and Lane A follow-up, 2026-10-06
+
+### What happened
+
+Read Lane A's attached worklog, `7d2d576`, source `593b841` and D-424. Clear request: independently review
+the correction evidence, identify residual gaps, draft fixes and acceptance criteria, and consolidate an
+actionable handback using this channel's template. Lane B raises; Lane A answers. No implementation work.
+
+D-424 explicitly records "Separate act first", retrieval "Later" and article "Not now". It supersedes the
+earlier suggestion to refine those drafts immediately. Preserve them as deferred material; do not reopen the
+same Judge choices or add a retrieval/article gate. Findings live once in B-050's D-424 independent review
+(`b824255`).
+
+### What you need
+
+| Parent first / dependency | Current evidence | Judge accept/reject test and phase |
+|---|---|---|
+| 1. D-422 receipt → D-424 authority | Separate act 319730e; two implementation paths; F2 fixture scope; no F3/push | Accept recorded authority, not an expanded work order. Phase 1 |
+| 2a. D-424 → correction review | 200 tests pass; R2/R4 and changed descriptions supported; R1/R3 have residual probes | Accept sub-receipts; reject full F2 sign-off until B-050 D424-R1a/R3a succeed. Phase 1 |
+| 2b. D-424 source → synchronized graph → release record | Exact 504e6f7a… semantic receipt accepted; 139 fragments, 126 label bindings, all 80 descriptions reviewed | Accept reviewed bytes only. Lane A records release under named authority; a later changed source/hash gets a separate sync/review. Phase 1 |
+| 3. Corrected/proven F2 → separately authorized F3 | Live publication, recovery/runbook adoption not authorized | Require bounded paths, conditions, amended runner, matrix and independent final proof before F3. Phase 1 |
+| 4. Whole prevention evidence → B-050 disposition → B-077 final review | B-050 Applied/O1 open; B-077's 17 targets remain their own review | No row closure from tests, graph release or a sub-receipt. Phase 1 |
+| 5. Separate setup prerequisites → U03 → DOD-04 → DOD-06/P15 | U03 unselected; no DoD checkbox or P15 individual act follows D-424 | Each uses its own evidence/owner/selection; does not wait on a retrieval/article draft. Phase 1 |
+| 6. Completed children → B-153/B-154 → B-150 → GR-007 F → Gate 2 | Parent accounting and Judge's final gate remain last | Require individual dispositions and current tracker facts; never infer clearance backward. Phase 1 |
+| Separate deferred track: retrieval, article/annotation trial | D-424 says Later / Not now | Preserve prior draft gaps; no refinement, spec application, migration or experiment now. Phase 1, later selection |
+
+“Parent first” means establish governing authority first; completion parents still depend on their child
+proofs. These are separate dependency tracks, not one invented serial queue. B-106's recorded custody and
+child triggers, GR-021 held planning custody and GR-016–020 surviving triggers remain unchanged.
+
+**Unclear / demonstrated failure / success:** the caller source is not bound as a protected composition
+path, and edge matching assumes first-match is sufficient. The disposable source case demonstrably deletes
+a tracked file before refusing; the valid parallel-edge case demonstrably fails solely by match ordering.
+Those outcomes are reproducible under the stated inputs, not universal failure claims. Success must prove
+pre-write source preservation and order-independent complete matching through the actual entry points.
+
+| Critical artifact | Construction obligation | Independent acceptance evidence |
+|---|---|---|
+| Composition boundary contract | Bind caller/source identity and protect it before destructive operations | Source equal/ancestor/descendant/link cases refuse with byte/status sentinels unchanged; valid isolated compose passes |
+| Fragment assignment contract | Match all declared fields with distinct compatible saved edges | Overlapping generic/specific parallel cases pass in every ordering; missing/corrupt/insufficient cases refuse |
+| Graph semantic manifest | Descriptions and labels describe exact current source/member sets | All 80 description judgments and 17 requested labels reviewed; full fields and exact hash accepted |
+| Corrected runner and F2/F3 evidence index | Updated fixture-root and source-snapshot APIs; preserved historical receipts | Pin source, runner, manifest and expected outcomes; old call shape is never current proof |
+| Child disposition and parent tracker receipts | Separate review acceptance, publication, prevention and closure | Each receipt names scope/actor/revision; source acts precede parent/gate claims |
+
+### What you did instead
+
+Lane B used graph discovery, authoritative direct reads, existing tests and disposable probes. No code/spec
+repair, graph generation/rewrite/release, annotation mutation or tracker/header closure. Independent graph
+comparison found no declared-field, membership/name or bounded path-scan findings. New reusable-validator
+gaps do not retroactively invalidate that independent comparison.
+
+Independent receipts: 200/200 tests and 19/19 consistency checks pass. All 580 state-file hashes match
+Lane A's saved final manifest. The 297-fixture execution receipt remains distinct from these results.
+
+### Lane A follow-up
+
+1. Receive the accepted graph and R2/R4/description sub-receipts; preserve D-424's deferred choices.
+2. Answer B-050 D424-R1a/R3a. State correction paths, fit within named authority, exclusions and definitions
+   of done before implementation; keep F3/live publication out of the correction.
+3. Prove source protection before writes and complete parallel-edge assignment with actual-route cases;
+   retain the existing refusal, ownership, crash-boundary and hash-binding cases.
+4. Record the reviewed 504e6f7a… graph receipt/release separately under its authority. If source fixes are
+   selected first, produce and independently review the ensuing exact graph instead; never transfer a hash
+   acceptance to different bytes. No rebuild is needed for this handoff-only continuation.
+5. Amend/pin the old evidence runner only if a rerun is selected. Complete corrected F2 first, then obtain
+   a separate F3 work order and independent whole-prevention proof.
+6. Bring B-050 disposition and B-077's final review as their own decisions. Complete separate setup/P15
+   tracks, then parents, GR-007 F and Gate 2. Do not record these handback answers as whole-row closure.
+
+**Chief Editor/Judge:** the immediate unresolved choice is the bounded correction scope/authority for the
+two residual cases; existing D-424 selection does not authorize F3. Graph-byte acceptance and F2 acceptance
+are separate questions. Lane A's “all four fixed” wording overstates composition source protection and
+general parallel matching; Lane B must retain green tests as bounded evidence; Lane C has provided no new
+review of this revision. No Lane C concern or Level 2 acceptance is invented. No new A4/A6 value, archive/delete,
+held technical T5 authorization or MMF allocation is inferred.
+
+**Docs/graph currency:** governed-intent sync is 593b841; later commits are handoff-only. The stale F1 module
+descriptions are corrected and independently reviewed. Historical runner API drift is explicit, not current
+proof. Any subsequent authorized code repair requires ordered sync/fragments and exact-hash review; this
+review itself requires no Graphify rebuild.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | D-424 scope, R2/R4, description/label review and exact candidate graph receipt; bounded test evidence | Phase 1: preserve limitations and let Lane A record release under its authority |
+| Approve-with-conditions | Complete F2 and later correction packet | Phase 1: answer D424-R1a/R3a, prove actual routes, review any changed final bytes |
+| Defer | F3, retrieval/article, annotation work, U03/P15, B-050/B-077 and parent/gate closure | Separate Phase 1 selection, evidence and individual acts |
+| Reject | Full F2 acceptance now; post-deletion refusal called safe; greedy match called complete; graph release called whole-row closure | Phase 1: retain independent sub-receipts and apply only selected bounded remedies |
