@@ -5289,3 +5289,124 @@ independent verification can support Verified at the appropriate completed scope
 | Approve-with-conditions | Proposed minimum Project reference-lookup capability | Phase 1 design: Judge accepts scope/allocation; behavior, technical contract and independent cases are drafted and reviewed |
 | Defer | Canonical application, retrieval implementation, annotation migration/experiment; existing F2/F3/U03 and parent/gate closure | Separate Phase 1 acts, named bounded units and their own evidence |
 | Reject | Calling this an accepted/specification-complete MMF; Graphify relevance as authority; community integers as identity; this handback as closure or a new gate | Phase 1: retain the distinctions and finish the stated draft packet |
+
+## Lane B D-423 handback and stale-community-mapping consolidation — 2026-10-06
+
+### What happened
+
+Read Lane A receipts `304405e`, `e2c96e2`, `5194d5f`, the attached worklog and D-423. Effective request:
+review the authorized batch and retrieval draft, consolidate the stale-label concern against actual evidence,
+draft gap remedies and give Lane A/Judge independent choices. Lane B raises; Lane A answers. This is an
+existing B-154 template-compatible continuation; receiver fields, tracker rows and closure remain unchanged.
+Detailed F2 and graph findings are owned once by B-050's D-423 review (`ecdda94`), not duplicated as new entries.
+
+| Parent / actual dependency | Evidence and decision | Accept / reject condition and phase |
+|---|---|---|
+| 1. D-422 release → D-423 authority | Release recorded 1a0bf23; three applied units separately authorized; retrieval drafting only | Approve exact scope. Reject inferring F3, U03 selection, new AIG allocation or checkbox authority. Phase 1 |
+| 2a. D-423 → prune maintenance and §5/U03 edits | Completion-after-persistence fixed; comparisons/criterion columns separate; U03 overlap qualified | Approve scoped changes. DoD and P15 remain open on their own proof. Phase 1 |
+| 2b. D-423 → F2 checkpoint | 186 tests pass, but B-050 R1–R4 expose fixture-boundary, integer-answer, edge-field and source-recheck gaps | Reject full checkpoint now; draft corrections and intended-boundary cases. No live action. Phase 1 |
+| 2c. D-423 source → graph review/release | 9993bded structural fields, members and names match; stale F1 module descriptions remain | Accept structural evidence; hold semantic release for changed-description review and final-byte acceptance. Phase 1 |
+| 3a. Retrieval draft → scope/key → behavior/technical contracts → work order | AIG-07 is proposed, not registered or applied; bounded repo-reference case is supplied | Approve draft direction with the specific additions below, then Judge chooses scope/allocation. No accepted MMF or implementation. Phase 1 |
+| 3b. Identity evidence → article/migration proposal | Exact member-set comparisons show numeric renumbering; stale integer-answer probe silently binds | Approve bounded evidence and refined article framing; migration/controlled experiment separately selected. Phase 1 |
+| 4. Accepted F2 → separately authorized/proven F3 → B-050 → B-077 | Whole prevention and 17-target final review remain owed | Defer until their own evidence and source acts; validators/candidate equality do not close B-050. Phase 1 |
+| 5. Separate U03 → DOD-04 → DOD-06/P15; completed tracks → parents → GR-007 F → Gate 2 | U03 unselected; no DoD box changed; six non-SM05 rows remain open | Retain separate tracks; individual child and parent acts precede final gate. Phase 1 |
+
+Graph release, F2 correction, retrieval drafting and U03 are distinct tracks. Do not turn the new retrieval
+proposal or article experiment into an earlier gate. B-106 custody/child triggers, GR-021 planning custody,
+GR-016–020 surviving triggers and prior F1 bounded-policy acceptance remain intact.
+
+### What you need
+
+**Article framing, refined:** "Stale label-to-community mappings after Graphify re-clustering: a community
+integer identifies a group only within its graph revision. Carrying external metadata forward by integer
+can attach it to unrelated members. Resolve node metadata through stable identity; resolve community
+metadata through a revision-bound member cohort or an explicitly reviewed successor mapping."
+
+Avoid "whenever membership changes": failure is possible, not inevitable on every change. Node annotations
+and community annotations have different scope; assigning a whole-community annotation through one node
+silently narrows it. Community labels are display meaning, not durable keys. Member-set hashes safely match
+identical cohorts; they are not permanent identities across membership changes or extracted-id renames.
+
+**Firsthand evidence:** compare the D-422 backup and D-423 final graph by member node-id sets. All 125×125
+pairs were computed. There are 112 equal-member pairs (Jaccard 1); **74 changed integer ID**, despite their
+own membership being identical. Example: Build Configuration Registry moved community 12 → 13, with all
+33 members unchanged. App Scaffold moved 18 → 20 with all 24 unchanged. Labels were preserved correctly
+in these reviewed artifacts. This demonstrates renumbering exposure, not that actual external annotations
+were corrupted. Source/code changed between snapshots; do not call it an identical-rerun experiment.
+
+At the same source commit, F2 fixture and manual graphs instead have 125 equal-member pairs, zero changed
+integers/labels, and identical records except provenance.observed_at. Therefore that particular comparison
+does not demonstrate churn. Raw bytes become equal after the timestamp substitution. Each original hash
+still identifies different bytes; publication must bind the exact reviewed manifest.
+
+The actual F2 name resolver also accepts an unbound integer answer: an old community-7 answer binds a
+different current community-7 member set with no pending result. B-050 F2-R2 owns the reproduction and
+revision/member-proof remedy. This is stronger evidence of a concrete unsafe resolution path than a general
+claim that every Graphify run is unstable. Evidence: `C:/CoWork/outputs/lane-b-d423-review-2026-10-06/`,
+including `D422-D423-JACCARD-PAIRS.json` and `PROBES.json`. The sets are node ids under preserved repository
+identity, not a demonstrated canonical-anchor mapping; the proposed anchor experiment remains separate.
+
+**Retrieval packet Level 1 review:** its scope, actor, minimum outcome, tool-independent behavior, explicit
+fallback and separate optional migration/experiment follow the requested direction. AIG-07 does not widen
+AIG-03/04 or add a product feature/gate. It is ready for refinement and a Judge scope choice, not yet a complete
+technical specification. Draft the following additions in the existing packet before canonical application:
+
+| Gap | Draft addition / observable success |
+|---|---|
+| Corpus and precedence are generic | Name the canonical corpus/authority manifest, explicitly include frozen PRD/Charter, and decide how references to frozen schema authority are handled. Test a higher-authority source outside the initial discovery list |
+| Anchors describe code symbols although this slice retrieves documents | Define document anchors using stable decision/requirement IDs or disambiguated section keys; define curated and extracted targets separately. Zero/multiple matches remain explicit |
+| Behavior promises working-tree state; result schema omits it | Per-source commit/blob or content hash and committed/modified state; graph hash/analyzed commit separate. Never label modified text as the named commit's bytes |
+| Citation/status fields lack verification rules | Verify cited passage exists in the read source; supersession may be section/item-specific. Preserve resolved and unresolved candidates/conflicts; found cannot hide missing required authority |
+| Graph utility is unmeasured | Same named tasks and independent expected-reference set for graph-assisted and direct retrieval; compare correct governing answers, missed mandatory references, false authority, output budget and effort. Judge selects the utility threshold before the trial |
+| No exact proposed spec/work-order patch | Return section-level proposed intent/Fn_Specs/SPECS changes, paths/owner/exclusions/DoD and D-54 propagation. Do not mint/register AIG-07 by drafting it |
+
+These are specification obligations, not a demand for a new standalone document series. Use the existing
+global family if the Judge accepts that allocation. Lane C Level 2 is still needed for the named architectural
+packet when requested; no old receipt covers this draft automatically.
+
+### What you did instead
+
+Lane B reviewed source and supplied snapshots, queried the graph, ran existing tests and disposable/pure
+counterexamples. No generation, live publication/recovery, annotation mutation, code repair, spec application
+or graph rewrite was attempted. The 297/297 fixture and real-repository generation runs are Lane A's pinned
+execution receipts. Independent graph comparison resolves the reported hash discrepancy without claiming
+independent execution of the F2 transaction. Tests passing do not override the demonstrated missing guards.
+
+### Lane A follow-up
+
+1. Receive B-050 R1–R4/G-D423-1; preserve accepted prune/§5/U03/F1 facts. Present correction scope/authority
+   before applying changes; no F3 or live recovery is inferred.
+2. Prove fixture protection across every mutating entry point, revision-bound names and complete edge-field
+   parity and a source snapshot re-check under the publication lock. Correct changed existing-symbol
+   descriptions; unchanged node ids do not prove unchanged meaning.
+3. After any selected source/description repair, follow authorized source → ordered sync → independent
+   final-hash review → release. Do not release 9993bded from its structural comparison alone.
+4. Refine the retrieval packet using the additions above; ask the Judge separately about scope/corpus,
+   AIG-07 allocation, behavior/technical text and a later bounded implementation order.
+5. For the article, use the 74 observed renumberings and the resolver counterexample with their exact
+   limitations. Select an identical-rerun/controlled-edit anchor experiment separately if more evidence is
+   desired. No claim of migrated or corrupted real annotations without an inventoried store.
+6. Keep U03 unselected and DoD/P15/source parents open. Complete F2/F3/B-050/B-077 and setup prerequisites
+   on their own acts, then parents, GR-007 F and the Judge's Gate 2 decision.
+
+| Critical artifact | Drives construction | Verification criterion |
+|---|---|---|
+| F2 preflight/name/parity contract | Fixture-only state machine and safe semantic inputs | Protected paths refuse before writes; stale integers pending; every declared edge field checked; source rechecked under lock |
+| Graph description/label manifest | Accurate current-stage and member meaning | Changed existing symbols reviewed; exact final bytes independently accepted |
+| Retrieval intent/behavior/technical packet | Governing-reference resolver | Canonical corpus, document anchors, source content provenance, fallback and verified citations |
+| Pair matrix and article evidence | Identity/migration design rationale | Exact-set renumbering separated from regrouping, timestamp changes and actual annotation corruption |
+| Source handoffs/ledger/tracker | Completion accounting | Independent sub-receipts do not substitute for individual dispositions or parent/gate acts |
+
+**Chief Editor/Judge:** immediate choices concern bounded F2/semantic remedies and retrieval scope/allocation;
+the bounded F1 policy, D-422 release and D-423 selections are already recorded. Do not re-ask them. No new
+A4/A6 value, formula, archive/delete or held technical T5 authority is needed. Lane A overstates F2's fixture
+boundary and description currency; Lane B must not treat green tests or renumbering evidence as full proof;
+Lane C has supplied no new review of this revision. The graph is governed-intent current at 434129c, with
+later handoff-only commits; semantic G-D423-1 remains. No rebuild is due solely for this review continuation.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Recorded scope/release, prune/§5/U03 corrections, graph structural evidence, timestamp explanation and bounded renumbering evidence | Phase 1: preserve exact receipts and limitations |
+| Approve-with-conditions | F2, graph semantic release, retrieval draft and article framing | Phase 1: B-050 boundary/name/parity/description remedies; exact final-hash review; retrieval contract additions and Judge scope choice |
+| Defer | F3, retrieval application/implementation, annotation migration/trial, U03/P15 and source/parent/gate closure | Their own Phase 1 acts and independent proofs |
+| Reject | Full F2 acceptance now; integer alone as identity; endpoint equality as full parity; old F1 description as current; every rerun claimed unstable | Phase 1: use the specified scoped corrections and evidence |
