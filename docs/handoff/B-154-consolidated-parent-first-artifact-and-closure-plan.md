@@ -4545,3 +4545,83 @@ governed acts/code/checker/runbook changes receive their own scoped graph/check 
 | Approve-with-conditions | P15 reason, B-106 metadata/custody route and phased B-050 proposal | Phase 1: D1 actual attempt evidence/act; D2 exact scope or receipt/trigger; D3 named stages and interim maintenance authority |
 | Defer | Attempt acceptance, metadata/guard execution, source dispositions, B-077 final review, O0 closure, GR-007 F and Gate 2 | Their own Phase 1 acts, Active-lane units and independent evidence |
 | Reject | Earlier P15 clearance, unratified formula or archive execution, circular activation prerequisites, partial guard phase called prevention, or draft-as-authorization | Phase 1: use the explicit refusal/stop rules above |
+
+## Lane B D-418 review handback — parent decisions, gaps and acceptance plan, 2026-10-05
+
+**Effective request:** independently review Lane A's `6cb779c` handback, consolidate source-supported
+gaps and draft their fixes using the existing handoff fields. Present separate accept/refuse choices,
+Lane A steps and construction/verification artifacts. Planning and review only; no further build.
+**Read:** `6cb779ca18c11afb95bc28f70ecb5da2475f6415`. Lane B raises; Lane A answers.
+Existing B-050 and B-136 own the detailed reviews; this section routes them without duplicating
+their lifecycle, the Judge's Register act or the receiver's answer.
+
+### Parent scope first; closure follows required child evidence
+
+| Order / authority and dependency | Present evidence and decision | Accept criterion | Refuse criterion / follow-up |
+|---|---|---|---|
+| 1. D-418 authority → independent child tracks | Judge chose F1 only, B-106 custody and P15 indexing; D-54 tracking changes exist | Receive these recorded decisions and exclusions. B-106 is Answered/Deferred, its row closed by individual custody reason, four children retained | Reject reopening the settled values or treating custody as implementation. Phase 1; later metadata/behavior units keep their own triggers |
+| 2A. B-050 F1 → graph semantics → next stage | 52/52 existing tests and 19/19 checks pass, but four additional scanner probes miss a finding | Resolve B-050 F1-R1 within its scope, prove scanner refusals and positive controls, independently accept corrected checkpoint | Reject F1 acceptance at 296a47b; no F2/F3 work order follows a failed checkpoint. Phase 1 correction/review, then Judge's separate F2 decision |
+| 2B. D-418 graph candidate | Exact 139-fragment/full-field parity, 122 member sets/name bindings and supported changed names; one source-derived description overstates scanner behavior | Correct the semantics, review exact resulting bytes and hash; a code repair requires its own ordered sync under D-409/D-410 | Hold release of 62baf295…; graph currency does not prove source behavior or checkpoint acceptance. Phase 1 |
+| 3. SV-002 → P15 DOD-01 | Lane B now accepts U01 10ec465's intended-status diff in B-136 | Index the bounded independent review and an accepted current graph receipt; current checks remain pinned | Reject blanket retrospective mechanical correctness or checking DOD-01 while graph review is held. Phase 1 |
+| 4. SV-002 → P15 DOD-02 | Index structure useful; proposed dimension vocabulary and blanket six-row retention need correction | Apply B-136 P15-R1/R2 proposals through the proper governed act; each required row has its own accepted evidence | Reject Met/Not met as baseline drift classes, or owners/triggers alone as accepted receipts. Phase 1 |
+| 5. U03 → DOD-04 → DOD-06/P15 | U03 unselected; DOD-03/05 already accepted; P15's reason belongs at DOD-06 | Judge selects a bounded U03 outcome/evidence path; required DOD proofs are indexed; then Judge accepts attempt and P15 individually | No feature DoD, release check or parent count substitutes for U03; no earlier P15 clearance. Phase 1 |
+| 6. B-050 final disposition → B-077 → O0 parents | B-050 remains Applied/O1 open; B-077 waits for complete prevention/source disposition | F1/F2/F3 and final proof, then named source disposition, B-077 review against exact local commits, individual parent dispositions | Reject partial guard evidence as full prevention, and risk acceptance already rejected by Judge. Phase 1 |
+| 7. B-153/B-154 → B-150 → tracker → GR-007 F → Gate 2 | Six non-SM05 rows still open; reporting checks claim no closure | Derive current tracker only from actual source acts; complete final all-row reconciliation and separate gate decision | Reject closing the parent before required children, or demanding later feature work before its earlier gate. Phase 1; later implementation requires its own work order/lane act |
+
+P15 and B-050 run as separate review tracks. B-106 custody is done and does not require its later
+code unit to run now. Parent-first ordering describes authority and scope; it never makes a parent
+complete before a weaker required child.
+
+### Lane A follow-up and critical artifacts
+
+1. Answer B-050 F1-R1 and B-136 P15-R1/R2 in their existing entries. Keep the passing evidence
+   and explicit rejection reasons side by side; do not label the failed checkpoint Verified.
+2. Present a bounded F1 correction proposal: same guard/fixture paths, four failing scanner inputs,
+   preserved controls and independent checkpoint. No F2/F3 code is included. Obtain any required
+   scope/work-order act before application; this turn supplies only the plan.
+3. Correct the graph description's implementation claim. A governed repair advances the source
+   revision and requires D-409/D-410 interim sync, ordered fragment merge and independent new-hash
+   review. An old graph review does not cover replacement bytes. Keep release held meanwhile.
+4. Update the P15 evidence index with Lane B's bounded U01 receipt, leaving graph proof pending.
+   Put success-drift comparison and criterion satisfaction in separate columns. Use B-136's six
+   proposed comparisons and exact source proofs; missing or unresolved evidence keeps the attempt open.
+5. Prepare a per-row disposition/receipt matrix for the six open rows. P15's simultaneous DOD-06
+   reason has explicit D-382 authority; it creates no general exception for B-050/B-077/O0. If the
+   Judge seeks any different sequence, present its exact amendment and consequences before claiming it.
+6. Present U03's still-unselected decision separately. After the required reviews/acts, propagate
+   governed facts through D-54, key each transaction once in SV-002 §2.3.2 and re-derive §2.3.1.
+   Complete parent reconciliation and Gate 2 in their governing order; none closes in this handback.
+
+| Artifact | Construction purpose | Verification / completion boundary |
+|---|---|---|
+| B-050 scanner correction packet and intended-case evidence | Defines allowed/refused path representations for later guard construction | All four missed inputs yield findings, controls still pass, independent F1 acceptance; no full prevention credit |
+| Saved graph manifest, full-field report and revised descriptions | Keeps source intent, code behavior and graph semantics aligned for later work | Exact graph hash/member/name/description review; release is separate from freshness |
+| B-136 U01 review and DOD-01/02 evidence index | Establishes the setup status and coverage inputs for later selection | Revision-pinned review, graph receipt, valid dimension classes and per-row proof; no checkbox from a draft |
+| B-106 retained-child homes | Preserves metadata, AC-12a, A4 formula and Encyclopedia limits for consuming units | Separate unit/trigger/proof; custody clearance earns no runtime or feature delivery |
+| Source handoffs → keyed ledger → derived tracker → GR-007 | Tracks answers, receipts and weakest-child dependencies without duplicate parents | Only actual source acts alter clearance; parent/gate completion remains independently assessed |
+
+### Chief Editor/Judge and lane boundaries
+
+The human Judge decides authority, scope exceptions, bounded work orders and attempt acceptance.
+The Product Chief Editor's settled 90/50 value acts need no repeat ruling; they authorize neither
+formula execution nor archive/disposal. Lane A's index identifies real gaps, but its success-drift
+vocabulary and F1 acceptance claim require the corrections above. Lane B now supplies U01's missing
+review and rejects F1 on reproduced counterexamples; its green test run is not universal proof.
+Lane C's earlier reviews keep their exact revisions and limits: no new Level 2 review of F1,
+the candidate or the P15 index was supplied here. Do not infer concurrence or create CI obligations.
+
+**Drift and evidence:** independent graph report and probes:
+`C:/CoWork/outputs/lane-b-d418-review-2026-10-05/REPORT.json`; full changed-member listing:
+`LABEL-REVIEW.json` beside it. The graph is current with governed inputs at `296a47b`; subsequent
+changes are excluded handoffs only. No rebuild is required for this handback. Semantic release is
+held, so "no governed-intent drift" must not be rewritten as "released/accepted graph". The current
+closure check flags the tracker pin stale while finding no invalid row: re-derive after the next
+actual source dispositions, not by hand-editing its reported count. No source/lane/tracker act,
+graph mutation, implementation or push occurs in this review.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | D-418/B-106 custody, bounded U01 status review, existing tests and graph structural evidence | Phase 1: Lane A records their exact scope and revision |
+| Approve-with-conditions | Corrected F1, graph release and P15 index/classifications | Phase 1: F1-R1 and P15-R1/R2 evidence, governed acts, exact-byte independent review |
+| Defer | F2/F3, U03, DoD checkoff, P15/source/parent closure, GR-007 F and Gate 2 | Their separate Phase 1 proofs and Judge acts |
+| Reject | F1 acceptance now, blanket open-row retention clearance, wrong drift vocabulary or current graph mistaken for accepted behavior | Phase 1: use the named correction and refusal criteria |
