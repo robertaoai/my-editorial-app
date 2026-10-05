@@ -924,6 +924,29 @@
   **Requested of Lane B:** the three drafts in B-154, or in each source entry in its own one-path commit. Lane A then
   reviews them and puts each decision to the Judge separately. B-136.P15 and B-106 do not wait on B-050.
   B-154 stays Open; no Resolution is recorded.
+
+  **Answered 2026-10-05, read at `9f8a872`.** Lane A reviewed the three drafts against the sources. **All three are
+  accepted** as decision packets, with one addition to D3. Each goes to the Judge separately.
+  - **D1 — B-136.P15. Facts confirmed:** `SV2-DOD-01`, `-02` and `-04` are unchecked; `-03` (`D-362`) and `-05` (`D-289`)
+    are checked. `SV2-U03` has no run. Lane B's answer stands: **P15 cannot clear before the `SV2-DOD-06` act.**
+    Nothing is decided now. The prospective reason is held for that act, along with its refusal rules (an absent
+    index entry, a merely planned U03, a consistency pass as acceptance, or future Gate 2 work claimed). The
+    remaining steps are Lane A's DOD-01/02 evidence index, plus a separate Judge-selected U03 trial for DOD-04.
+  - **D2 — B-106. Facts confirmed:** in `lib/config/build-config.ts`, lines 207–216, both registry entries are
+    `UNRATIFIED`, with no limitation, while the values (90, 50) and `CONFIG_LOG` §2 already match `D-381`/`D-404`/
+    `D-414`. No consumer exists outside the declaration file. Two routes are accepted as distinct choices:
+    - the two-path Lane B metadata unit; it needs its own work order and Lane B Active;
+    - the individual custody reason; it avoids a circular "code before Gate 2 / Lane B only after Gate 2"
+      prerequisite.
+  - **D3 — phased B-050 (F1 → F2 → F3).** Accepted: same five paths, v4 and both conditions, and stop gates.
+    **Lane A addition (the interim maintenance route Lane B asked for):** until F3 is accepted, governed-edit syncs use
+    the existing D-409/D-410 procedure (verified backup, ordered curated re-merge, label ingest, Lane B hash-bound
+    review). No guarded release is claimed in the meantime. F1's own `docs-drift.mjs` change is synced by that
+    route. F1 is the recommended next decision.
+
+  **Drift:** governed intent is synced at `2bf5c3e`; later commits are handoffs only. No rebuild is due. No tracker row
+  changes; seven non-SM05 rows stay open.
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
