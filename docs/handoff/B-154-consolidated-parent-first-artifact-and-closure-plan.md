@@ -656,6 +656,70 @@
 
   **Next for Lane A:** the per-target refresh, recording each target's read revision and its Child 2 answer.
   B-154 stays Open; no Resolution is recorded.
+
+  **Answered 2026-10-05, read at `672ff4e`.** Lane A receives Lane B's review. Every refusal is accepted. The Judge's
+  choices already made (the GR-021 route, the B-077 local-commit criterion, the held batch) are not re-asked. Nothing
+  below is applied before the D-416 Register act.
+
+  **1. GR-021, corrected draft row:**
+
+  | Field | Draft |
+  |---|---|
+  | Source | `B117-R22`, the target halves of `R44`/`R45`, `R46`, `R48` (`SV-002` §2.3.2 census). The SM05 slice halves of `R44`/`R45` stay received under `D-381`. `GR-016`/`GR-017` receive none of these |
+  | Scope | `R22`: `human_only` enforcement on held technical `transition:T5`. It is not the V1 `business:T5` ranking/routing stage or a V1 `EG` evidence record (`D-414` GR-010). `R44`/`R45`: the general target lifecycle beyond the slice. `R46`: the held-target `T5` RACI display. `R48`: held-target Sign-Off `A` coverage (`OP-FINAL-SIGNOFF` enforcement). None of these enters `V1-SM05` |
+  | Hold | `D-171`; excluded by `SM05-X1`. A hold forbids execution; it is not an owner |
+  | Return trigger | A selected technical-target packet may take **planning custody** of an explicitly named child while `D-171` stays in force. Execution returns only when the Judge expressly lifts the applicable `D-171` hold **and** separately authorizes a bounded unit or contract. Selecting a packet grants neither |
+  | Completion | Per child: its accepted correction, then independent verification |
+  | Refusal | Execution, SM05 scope, B-117 `Verified` or code inferred from this receipt or from packet selection |
+  | Received-at | `D-416`, only once the Judge act lands |
+
+  **2. GR-016–GR-020, five dated notes.** Each note reads: *"Trigger note 2026-10-05 (`D-416`): `B-071`'s return
+  episode closed (independently Verified at `e5c5d58`), so that alternative is spent. The surviving trigger is
+  [row's own], unchanged. This note authorizes nothing."* The surviving triggers are:
+  - `GR-016`: a later Judge act selecting the exact Units 1/2 correction;
+  - `GR-017`: selection of the bounded catalog correction, once the target meaning is settled;
+  - `GR-018`: a selected packet that uses the blanket phrase as acceptance wording;
+  - `GR-019`: an acceptance harness that adopts a sample article;
+  - `GR-020`: a proposal adding an MMF tier or freeze rule. The proposal is not permission to add one.
+
+  **3. RH4, four-stage order with no cycle.** The fix is to place Parent 4's instruction in GR-007 as a **tracked
+  post-review action**, not as a precondition inside GR-007's completion criterion.
+
+  | Stage | Act and evidence | Depends on | Does not depend on |
+  |---|---|---|---|
+  | 1. Transfer | Individual Judge reason (`D-416`): RH4's closure half is a tracked GR-007 action; the `D-263` count half is history | — | GR-007 completion |
+  | 2. Source review | Lane B independently reviews each source's remaining dispositions. **B-117:** `GR-002` Verified, `GR-009`–`011` accepted (GR-009's code still a later unit), `GR-021` custody, backlog duty held in GR-007 custody. **B-118:** entry received (`D-381`), `RH1`–`RH3` closed (`D-413`), `RH4` transferred (stage 1) | Stage 1 and the D-416 receipts | GR-007 completion |
+  | 3. Header updates | **B-118:** Answered with a Resolution. **B-117:** `Deferred`, with a Follow-up-Tier naming GR-007's backlog duty, GR-009's later unit and GR-021's hold. This is the `D-101` pattern B-077 uses: a terminal deferral with a named owner. Their §2.3.1 rows then close by an independent header or an individual reason | Stage 2 | GR-007 completion: B-117's GR-007 child is custody, so the header does not wait on it |
+  | 4. GR-007 final review | An independent reviewer confirms every row is closed or received, including B-117/B-118 from stage 3, and that stage 3 happened | Stage 3 | — |
+
+  There is no edge from stage 4 back to stages 1–3, so the order is acyclic. **Refusals:** any text saying stage 3
+  happened before it does; GR-007 called complete before stage 4; B-117's `Deferred` read as completion.
+  If the Judge rejects the B-117 `Deferred` route, RH4 stays open.
+
+  **4. B-050.** Lane A keeps `Applied` and its open O1 row. Lane B's bounded risk-treatment reason goes to the Judge
+  as a separate Accept/Reject.
+
+  **5. B-077 per-target refresh, read at `672ff4e`** (16 originally Applied, plus B-061). The Child 2 answers come
+  from source headers and the Judge-accepted `D-403` reason rows above. **Flags** mark points for Lane B's final
+  review:
+
+  | Target | Header now | Child 2 answer and evidence | Flag |
+  |---|---|---|---|
+  | B-011 | Applied | Scoped propagation accepted; `D-156` is current lane semantics, and `D-337` replaced the old core. Row closed (`D-403`); GR-008 keeps the control work | `B077-SC4` asks for current evidence **or** one superseding decision, never both; the reason cites both, each for a different part |
+  | B-033 | Applied | Lock/work-condition correction accepted under `D-156`. Row closed (`D-403`) | — |
+  | B-014 | Verified | Lane B, `6bc0e99` (`D-402`), with bounded scope | — |
+  | B-015 | Applied | Transfer complete: the Phase 3 work is received in `SM06-P3-02`–`04` (`D-381`). Row closed (`D-403`) | Child 2 allowed `Superseded`; the header kept `Applied` with an accepted reason |
+  | B-021 | Verified | Lane B, `6bc0e99` (`D-402`) | — |
+  | B-041 | Applied | Historical completion and portability limit accepted, with no current graph-wide semantic guarantee (narrowed). Row closed (`D-403`) | — |
+  | B-050 | Applied | **Open:** waits on the Judge's B-050 reason | Blocks the final review |
+  | B-062, B-065, B-066, B-067 | Applied | Individual `D-403` reasons, each scoped to `D-165`/`D-166`/`D-168`/`D-169` and `D-390`. Each row is closed | Their basis is individual Judge reasons, not `B-068` coverage |
+  | B-061 | Verified | Lane B, `1a24289` (`D-403`); successor is B-071 | — |
+  | B-070 | Verified | Lane B, `1a24289` (`D-403`) | — |
+  | B-072, B-073, B-074, B-075 | Applied | Individual `D-403` reasons (contracts, intake, lifecycle and metadata corrections). Each row is closed | The original "pushed, then resynced" condition is replaced by the `D-416` local-commit criterion |
+
+  **Requested of Lane B, after D-416 and the B-050 decision:** the final review against named local revisions
+  (source `672ff4e` or later, plus the D-416 graph and review revisions), and a fresh `B077-SC8` query.
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
