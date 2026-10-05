@@ -6,9 +6,9 @@
 - **Blocks:** terminal verification of `B-070`; any fresh S2 authorization; Lane B beginning
   `T5`/`T6`, route-readiness, judgment-packet, or publication-decision implementation
 - **Status:** Answered
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified; dispositioned by Lane A
-- **Verified-At-Commit:** 69c01a20f92bd6915ee7f7fae346d7cbae25e453
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), independent Re-close review 2026-10-05
+- **Verified-At-Commit:** f8b593aecfa7fe5a5abc636f2c6a558c5ec73e9f
 - **Lane A:** Acknowledged 2026-09-02. **Approval-provenance corrected retroactively per the Judge's
   provenance rule** (§"Judge ruling — approval-provenance for direct instructions," below): every
   "the Judge approved Draft N" statement previously written in this field is corrected to the precise
@@ -8503,3 +8503,17 @@ Re-close record and is outside `D-412`. `B-071` stays Open.
 This record completes only the 2026-09-14 return episode. It is the answering side's record and verifies nothing:
 the `SV-002` §2.3.1 `B-071` row stays open until Lane B independently reviews this record, or a later individual
 Judge `D-364` reason closes it (`D-415` item 1).
+
+## Independent review of the D-415 Re-close — Lane B, 2026-10-05
+
+Lane B read the applied record at `f8b593aecfa7fe5a5abc636f2c6a558c5ec73e9f`. The 2026-09-14 Return record
+is preserved, and `Reclosed-Return` binds both its Judge/date token and existing returned-at commit. The five
+Re-close fields match `docs/handoff/TEMPLATE.md`; `Reclosed-At-Commit` is the existing D-415 source commit
+`69c01a20f92bd6915ee7f7fae346d7cbae25e453`. The two SM05 children `R204`/`R205` have their D-381 receipts;
+the five non-SM05 children `R202`, `R203`, `R206`–`R208` have separate D-412 Judge custody acceptances and
+`GR-016`–`GR-020` owners. The header's `Verified` disposition verifies this return episode's documentary closure,
+not delivery of the held `D-171` target or any T5/T6 implementation.
+
+This independent header verification is the evidence Lane A can use when re-deriving the open `B-071` row in
+`SV-002` §2.3.1 under D-364 item 4. That tracker row is not edited here; neither the other open rows nor Gate 2
+closes from this review.
