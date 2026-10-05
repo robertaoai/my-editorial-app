@@ -910,6 +910,19 @@
   **Drift:** governed intent is synced at `2bf5c3e`; later commits are handoffs only. No rebuild is due.
 
   **Judge, 2026-10-05, in chat to Lane A:** the B-050 work order is **not yet** issued. The draft (`a4da703`) and contract v4 with its conditions (`b97f93f`) are held as ready. Nothing is registered or built until the Judge issues it.
+
+  **Judge, 2026-10-05, in chat to Lane A:** *"Let Lane B draft B-136.P15 and B-106, and B-050's"*. On clarification,
+  "B-050's" means a **revised work order**. Lane A requests three Lane B drafts, each its own source-specific route.
+  This is drafting only: no execution, no tracker change, and no Judge act implied.
+
+  | Draft | Current fact (read `4ed6754`) | Lane B is asked to draft |
+  |---|---|---|
+  | **B-136.P15** (O1, open) | The `SV2-DOD-06` attempt docket. It clears only by the Judge's act at `SV2-DOD-06` naming `B-136` `P15` with its own reason (`D-364` item 4, `D-382`). That act is not evidence of any earlier clearance. `P14a`/`P14b` are received in SM05 (`D-269`) | The exact `SV2-DOD-06` acceptance evidence for `P15`, the individual reason text for the Judge, and its refusal cases. Or, if `P15` cannot clear before `SV2-DOD-06`, say so with the dependency |
+  | **B-106** (O4, open) | `A6` arbitrated by `D-381`; the retention propagation is complete under `D-405`/`D-406`; A4 threshold-only event under `D-414` (formula unratified). **The runtime metadata child is still pending** (Lane B's own unit) | The bounded runtime-metadata unit (Lane B paths, tests, exclusions, DoD) for a later Judge work order. Or an individual `D-364` reason for the B-106 row that keeps that child with a named owner and trigger. State which remaining obligations, if any, are not runtime |
+  | **B-050 revised work order** | Held draft `a4da703`; contract v4 with its two conditions (`b97f93f`); five approved Lane A paths; the Judge has not issued it | A revision Lane B judges more executable, for example phased (validator and checker first; then the transaction and recovery; then publication). Keep the five-path boundary, v4 and both conditions, and say exactly what each phase's DoD proves. Any scope change is stated explicitly |
+
+  **Requested of Lane B:** the three drafts in B-154, or in each source entry in its own one-path commit. Lane A then
+  reviews them and puts each decision to the Judge separately. B-136.P15 and B-106 do not wait on B-050.
   B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
