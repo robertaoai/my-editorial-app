@@ -4652,3 +4652,73 @@ graph mutation, implementation or push occurs in this review.
 | Approve-with-conditions | Corrected F1, graph release and P15 index/classifications | Phase 1: F1-R1 and P15-R1/R2 evidence, governed acts, exact-byte independent review |
 | Defer | F2/F3, U03, DoD checkoff, P15/source/parent closure, GR-007 F and Gate 2 | Their separate Phase 1 proofs and Judge acts |
 | Reject | F1 acceptance now, blanket open-row retention clearance, wrong drift vocabulary or current graph mistaken for accepted behavior | Phase 1: use the named correction and refusal criteria |
+
+## Lane B review of Lane A's corrected handback — 2026-10-05
+
+**Effective request:** review `5eff869`, resolve already answered findings, draft remaining fixes
+and provide independent child decisions and Lane A steps before Judge acceptance. Planning only.
+Lane B raises; Lane A answers in the existing B-050/B-136/B-154 entries. No new parent, header
+disposition, Register act, governed edit, implementation, graph mutation or push is made here.
+
+### Parent authority first; required child proofs determine completion
+
+| Order / parent → child | Current result | Judge/Lane A accept criterion | Reject criterion / follow-up phase |
+|---|---|---|---|
+| 1. D-418 → F1, B-106 custody, P15 index | Authority settled; B-106's custody row closed with its four retained children | Preserve the act, exclusions and individual owner/trigger boundaries | Reject custody as implementation or F1 authority as F2/F3 permission. Phase 1 |
+| 2. B-050 F1-R1 → F1 checkpoint | All four original cases fixed at 1dc4b42; new F1-R2 misses a quoted space-containing escape and an encoded URI | Accept F1-R1's correction; propose same-path full-value/encoding repair and independent checkpoint | Reject F1 acceptance while F1-R2 is unresolved. Phase 1 repair proposal/act/review |
+| 3. Graph candidate 6e3adfa4… | All 139 fragment fields and 129 member/name bindings match; changed names supported; zero scanner findings is limited evidence | Truthful representation limits in descriptions, exact-byte review; governed source repair requires new ordered sync | Hold semantic release; reject scanner-clean as proof of complete coverage. Phase 1 |
+| 4. SV-002 → DOD-01/02 | Revised P15 index accepted at 1e11009; U01 review gap supplied; P15-R1/R2 draft defects resolved | Graph release for DOD-01; actual per-row dispositions/receipts, per-scope proof and governed classifications for DOD-02 | Reject a named clearing act as an executed clearing act. Phase 1 |
+| 5. U03 → DOD-04 → DOD-06/P15 | Judge explicitly keeps U03 unselected; no DOD-04 outcome | Later separately selected outcome/proof; then complete DOD-01–05 index and individual DOD-06/P15 act | A clearance request today fails the missing DOD-04 prerequisite. Defer, Phase 1; no automatic waiver |
+| 6. B-050 final disposition → B-077 → B-153/B-154 → B-150 | Six non-SM05 rows remain open; P15 retains its own concurrent DOD-06 route | Each row's own proof and clearing act; O0 parents follow their required children | Reject F1-R1 resolution as whole B-050 or parent closure. Phase 1 |
+| 7. Derived tracker → GR-007 F → Gate 2 | Reporting only; no gate closure claimed | Re-derive after source acts; final reconciliation and separate gate assessment | Reject a green reporting check or accepted draft as Gate 2. Phase 1; later construction needs its own work order and Active lane |
+
+P15's evidence preparation continues independently of B-050, while final acceptance retains both
+tracks' required proofs. Parent-first presentation establishes authority; completion still follows
+required children. B-106's later metadata/behavior work is retained and does not restart here.
+
+### Lane A follow-up and construction/verification artifacts
+
+1. Receive the bounded F1-R1 and P15-R1/R2 acceptance receipts in their existing entries. Keep
+   their historical rejected revisions intact; do not turn B-050/P15 or this parent into Verified.
+2. Answer F1-R2 with a correction proposal using the guard/fixture paths only. Preserve complete
+   quoted values and recognize encoded prefixes before declaring no path; keep valid in-root
+   paths with spaces, web links and syntax controls. No F2/F3 or extra repository path is included.
+3. Present the applicable bounded correction authority before application. After an actual code
+   repair, run its intended-case/consistency proof and authorized D-409/D-410 interim sync with
+   ordered fragments; independently review the replacement candidate and exact final hash.
+4. Retain the accepted P15 draft; annotate its graph hold and still-unselected U03. Prepare the
+   final per-scope/row index and the proposed §5 governed application, without checking a box.
+5. Present separate decisions: corrected F1 checkpoint, graph release, §5 application, then any
+   future U03 selection and eventual DOD-06 act. F2 needs its own Judge decision after F1 acceptance.
+6. Key actual review/source transactions once in SV-002 §2.3.2, then re-derive §2.3.1 after source
+   acts. Complete individual parents, GR-007 F and Gate 2 in the governing order.
+
+| Artifact | Construction input | Independent success evidence |
+|---|---|---|
+| F1-R2 representation contract and cases | Full-value path/encoding handling for later guard construction | New refusal cases plus positive controls at the scanner boundary; accepted F1 only |
+| Graph manifest and corrected descriptions | Source/graph semantics and named dependencies | Full declared fields, member/name evidence and exact-hash semantic release |
+| Revised P15 evidence index | Setup scope and remaining selection prerequisites | Current per-scope and per-row acts; selected U03 proof; separate Judge attempt acceptance |
+| Existing handoffs → ledger → tracker → GR-007 | Answer/receipt/closure tracking without duplicate ownership | Actual source-specific dispositions; no delivery inferred from custody or drafting |
+
+**Chief Editor/Judge:** no new A4/A6 Product value decision is requested. The Judge decides bounded
+correction/stage authority, any U03 selection, governed classification application and attempt
+acceptance. Lane A's original findings are answered, but its whole-token F1 claim still exceeds
+the reproduced boundary. Lane B accepts the corrected cases/index and raises F1-R2 with evidence;
+61 passing existing tests do not defeat the two failing probes. No new Lane C review was supplied;
+old Level 2 results do not cover this revision. Lane A's avoidance of disposable/sample path tokens
+is a scoped graph-authoring accommodation, not a new Register-wide ban on quoted evidence. Keep
+exact counterexamples in external evidence and handoffs; changing prose cannot repair the scanner.
+
+**Evidence/drift:** `C:/CoWork/outputs/lane-b-d418-f1-rereview-2026-10-05/REPORT.json` contains the
+four fixed inputs, two new missed forms, controls and independent full-field/member comparison.
+Graph source is `1dc4b42`; later commits touch handoffs only. No rebuild is needed for this review.
+The candidate remains unreleased. Existing tests pass 61/61; current consistency passes 19/19.
+The tracker pin is reported stale with no invalid row; re-derive from the next source acts rather
+than manually changing a count. Six open rows remain; all execution/closure holds are preserved.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | F1-R1 fix, P15-R1/R2 draft corrections, existing tests and graph structural evidence | Phase 1: Lane A receives exact bounded results |
+| Approve-with-conditions | F1 checkpoint, graph release and governed P15 evidence application | Phase 1: F1-R2 proof, truthful semantics, independent review and proper acts |
+| Defer | F2/F3, U03, P15/B-050/B-077 and parent closure, GR-007 F and Gate 2 | Separate Phase 1 prerequisites and Judge decisions |
+| Reject | Current F1 acceptance, truncated/undetected path reported clean, or corrected drafts treated as clearance | Phase 1: apply only the specified representation/proof remedy after authorization |
