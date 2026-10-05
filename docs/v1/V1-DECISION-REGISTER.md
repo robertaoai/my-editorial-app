@@ -27037,3 +27037,88 @@ parent disposition; Gate 2; any code, check or held-target work; a push.
 | Modular_PRD, fn-specs, SPECS, storyboard, rule files, Phase Closure, frozen sources | — unaffected (accounting only; no requirement or rule changes) |
 | **Encyclopedia** | unaffected: no mapped file, section or decision changes |
 | **Graphify** | One sync after the last governed edit, released after Lane B's review |
+
+## 5.14e241 `D-416` — Held Batch: B-071 Row Closed by Its Verified Header; GR-021 Received; GR-016–GR-020 Trigger Notes; RH4 Transfer and B-117 Custody Accepted; B-077 Criteria; B-050 Diagnostic Work Order
+
+**Authority: the Judge, directly to Lane A, 2026-10-05**, in chat, recorded in `B-154` at `616b0dc`, `3725f80`,
+`c56d21b` and `8e428d0`. In order:
+- the B-071 accounting is **held** to ride with the RH4/B-117 decisions;
+- **new receipt `GR-021`** for B-117's held children;
+- **B-077 named-local-commit review criterion**;
+- **B-050 risk-treatment reason rejected**;
+- then, on Lane B's docket (`ccfe7d8`): **Accept** the RH4 reason; **Accept** the B-117 custody reason; **Accept**
+  the B-077 Child 2 criterion clause; **Issue** the B-050 diagnostic-only work order.
+
+The drafts are Lane B's (`ab3b032`, `672ff4e`, `ccfe7d8`) and Lane A's (`3bca483`, `8e428d0`). This act is a bounded
+Phase 1 documentary unit. Pushing is not authorized.
+
+### The decision
+
+1. **`B-071` row.** It counts as closed under the Verified-header rule (`D-364` item 4): Lane B independently
+   verified the return episode at `e5c5d58`, read at `f8b593a`. This is documentary closure only; the `D-171` target
+   stays held. The `SV-002` §2.3.2 chronology is corrected by a dated note: `D-415` authorized the Re-close at
+   `69c01a2`, and it was applied at `f8b593a`. The earlier wording stays as dated history.
+2. **`GR-021` received** for `B117-R22`, the target halves of `R44`/`R45`, `R46` and `R48`, held under
+   `D-171`/`SM05-X1`.
+   - A selected packet may take **planning custody** of a named child.
+   - Execution needs the Judge to expressly lift the applicable hold **and** a separate bounded authorization.
+   - Completion is per child: its accepted correction, then independent verification.
+   - The SM05 halves of `R44`/`R45` stay received under `D-381`.
+3. **`GR-016`–`GR-020` trigger notes.** B-071's return episode is closed, so that alternative is spent. Each row's
+   own surviving trigger is unchanged. The notes authorize nothing.
+4. **`B-118.RH4` transfer accepted.** RH4's closure half (B-118 Parent 4) becomes a separately tracked GR-007 action,
+   in four steps:
+   - (T) this transfer;
+   - (R) independent review of B-117's and B-118's source dispositions and receiving custody, which checks custody
+     and deferral, not delivery of GR-009 code, `GR-006` partition work or `D-171` targets;
+   - (H) the header updates;
+   - (F) GR-007's final conclusion, which confirms H happened.
+
+   The `D-263` DoR count is history. **RH4's row stays open** until Lane B confirms this receipt evidences the
+   transfer.
+5. **`B-117` source-custody reason accepted:** `GR-021` (five children), `GR-009` (code returns only on a separate
+   Lane B work order), `GR-002` Verified, `GR-010`/`011` accepted, and the backlog duty in GR-007. After Lane B's
+   custody review (R), B-117's header may become `Answered`/`Deferred` with that Follow-up-Tier. B-118's header may
+   become `Answered`/`Deferred`, keeping `GR-006` (`RH1`–`RH3`) and RH4's GR-007 action. These are not `Verified`,
+   and both rows stay open until R.
+6. **`B-077` criteria.**
+   - `B077-SC7`'s pushed-revision condition, and Child 2's "pushed, then resynchronized" wording, are satisfied by
+     **named local commits**. All other graph and independent-review requirements remain.
+   - For Child 2 only, each of the twelve individual `D-403` item 2 reasons is that target's single basis for the
+     obligation it names. Older decisions are provenance. Headers stay `Applied`; nothing is promoted.
+   - Neither clause accepts B-050 or completes `B077-SC8` or the final review.
+7. **`B-050`.**
+   - The risk-treatment reason is **rejected**: B-050 stays `Applied` and its O1 row open.
+   - A **diagnostic-only work order** is issued. Lane A operates, Lane B reviews, in Lane A tooling only. Before
+     execution, Lane A pins the commit, Graphify version, invocation, disposable paths, cases and stop bounds in
+     B-050. Evidence home: `C:/CoWork/outputs/b050-null-reset-diagnostic-2026-10-05/`.
+   - The outcome is reproduced cause, prevention evidence, or inconclusive.
+   - **No repair:** none of the live graph, packages, scripts, workflows or application.
+8. **Finalization order (procedural; no clause is weakened).** The evidence review of every source row comes first,
+   then each O0 parent's own disposition on that evidence, then the re-derived tracker, then GR-007's final
+   all-row conclusion. A parent clause that demands more returns to the Judge.
+9. **Accounting.**
+   - `SV-002` §2.3.2 keys `e5c5d58` on B-071, and `ab3b032`, `ac489c9`, `672ff4e`, `ccfe7d8` once on B-154, with
+     notes on B-117/B-118/B-077/B-050.
+   - `SV-002` §2.3.1 is re-derived at `8e428d0`: only B-071 closes.
+   - `GOV-RES-001` gets the GR-007 note, `GR-021` and the trigger notes.
+10. **One sync follows** under `D-409`/`D-410`, released after Lane B's review.
+
+### Not given by this act
+
+Closure of RH4, B-117, B-118, B-077 or B-050; any header change; GR-007 or O0 completion; any repair or code; held-target
+work; Gate 2; a push.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e241 |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ `D-416` paragraph (no scope, sequence or DoD change, stated) |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-416` paragraph; no file added or retired |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/GOV-RES-001.md`** | ✅ GR-007 note, GR-016–GR-020 trigger notes, new GR-021 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §2.3.1 re-derived (B-071 closed; notes on RH4, B-117, B-077, B-050); §2.3.2 keyed notes |
+| Source handoffs (`B-050`, `B-117`, `B-118`) | Follow: the B-050 contract pin and any header change land later in their own one-path commits |
+| Modular_PRD, fn-specs, SPECS, storyboard, rule files, Phase Closure, frozen sources | — unaffected (accounting and custody only) |
+| **Encyclopedia** | unaffected: no mapped file, section or decision changes |
+| **Graphify** | One sync after this edit, released after Lane B's review |

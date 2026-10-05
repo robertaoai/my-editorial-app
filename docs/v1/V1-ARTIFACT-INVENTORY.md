@@ -531,6 +531,9 @@ and `SV-002.md` change in place.
 **`D-415` (2026-10-05) — no file added or retired, stated explicitly.** `GOV-RES-001.md` and `SV-002.md` change in
 place; the `B-071` Re-close is recorded in its existing handoff entry.
 
+**`D-416` (2026-10-05) — no file added or retired, stated explicitly.** `GOV-RES-001.md` and `SV-002.md` change in
+place; the `B-050` diagnostic evidence lives outside the repository.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |
