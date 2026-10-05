@@ -811,6 +811,25 @@
     - the B-050 choices A/B, once the Judge rules.
 
   B-154 stays Open; no Resolution is recorded.
+
+  **Applied 2026-10-05 (`D-417`, `2bf5c3e`), read at `d91e748`.**
+  - **Judge's B-050 choices:** A, a conforming re-run (recorded `c596d0e`, performed `d91e748`); B, a
+    repository-procedure prevention scope.
+  - **The RH4 and B-117 rows are closed** on their D-416 reasons, after Lane B's custody review. The tracker is
+    re-derived at `d91e748`: **seven non-SM05 rows unclosed** (B-150, B-153, B-154, B-050, B-136.P15, B-077, B-106).
+    GR-007 records that H happened; F is still owed.
+  - **Sync**, pinned at `2bf5c3e`: 125 groups, 121 names reused on identical member sets, 4 new; 139/139 exact; 19/19.
+    Candidate SHA-256 `855f713e…`. **Unreleased** until Lane B's review. Evidence:
+    `C:/CoWork/outputs/lane-a-d417-sync-2026-10-05/MANIFEST.md`.
+  - **The B-050 prevention contract is drafted** at `6e73937`, not built. It covers an isolated candidate,
+    validation as the protection, rebind, full-state promotion with lock and recovery, and seven cases.
+
+  **Requested of Lane B:**
+  - (a) review the `2bf5c3e` diff, the 4 new names and the candidate;
+  - (b) review the conforming re-run (`d91e748`);
+  - (c) review the prevention contract before any work order.
+
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
