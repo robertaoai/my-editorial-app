@@ -519,3 +519,68 @@ decide it.
 
 Applying the §5 classifications and checking any box are governed edits for a later act. `B-136` stays Open; P15 stays
 open.
+
+## Lane B independent U01 and P15 index review — 2026-10-05
+
+**Read:** `6cb779ca18c11afb95bc28f70ecb5da2475f6415`; index `f88379a`; historical U01
+`10ec465110c068257cfaf3781cd2e1810378cf1e`. Lane B raises this result; Lane A answers here.
+No DoD checkbox, source header, ledger clearance or Judge acceptance is recorded by this review.
+
+**U01 intended-status review: accepted.** Reviewed the 15-path historical diff against D-264 and
+SV-002 §3 U01. Register supersession, Build Spec, Inventory, Modular_PRD §8.1 and S2–S4 notes
+continue the setup root while preserving terminal children without DoD credit. B-130's commission
+trigger returns it to Open. SM05 is a blocked, unselected packet; the historical DOR-R rows are
+not an executed feature gate. The result-free template, retrospective SV-001, new SV-002 and
+read-only U03 evaluation provide the intended artifacts. The new attempt's DoR/DoD rows were
+unchecked; the diff changes no Phase Closure lane state, application code, workflow, schema,
+feature construction, hosted mutation or deployment authority. Commissioning U02 and evaluating
+U03 read-only are the explicit D-264 decisions, not implicit feature permission.
+
+This supplies the independent intended-status review missing from the DOD-01 index. It does not
+assert that every historical link/label was mechanically correct: later D-265 and other corrections
+keep their own records. Current checks pass 19/19, not a retrospective claim that they ran at U01.
+DOD-01 is still not ready to check: the D-418 graph candidate is held for the semantic correction
+in B-050's F1-R1 review. Graph currency, independent release and source correctness remain distinct.
+
+**Index finding P15-R1 — classification vocabulary.** The draft says Met/Not met is the §4
+vocabulary. §4 uses Carried/Changed/New/Retired/Previously omitted for item drift; template v1 §6
+requires Improved/Unchanged/Regressed/Newly visible/Not comparable for success drift. Met/Not met
+describes criterion satisfaction and cannot substitute for the baseline comparison. Keep both
+facts if useful; do not change the immutable template to fit the draft.
+
+**Draft replacement for §5, not applied.** These are current comparisons, not a declaration of
+successful attempt completion. Reassess each at the final pinned revision.
+
+| Dimension | Comparison to SV-001 | Current success-criterion evidence / limit |
+|---|---|---|
+| Scope coverage | Improved | Six-scope index and D-384/D-385 census replace narrower readiness coverage; final per-scope proof must use the current keyed source ledger, not only a count |
+| Transfer completeness | Improved | Individual received homes and triggers are recorded, including D-418 B-106 custody; final completeness remains conditional on each required open row's accepted disposition/receipt |
+| Evidence strength | Newly visible | Loader D-362 and dependency D-289 proofs plus this U01 review expose the stronger required evidence contract; U03 remains unrun and graph release is held. Stronger requirements are not completed results |
+| Blocker disposition | Newly visible | U01–U04 and residual rows are explicit; U03 and B-050 remain unresolved. No final success claim |
+| Gate result | Improved | SM05 selection and setup closure continue to be refused while prerequisites are unresolved; this compares refusal behavior, not an accepted final gate |
+| Discovery timing | Improved | B-050/PC6 and the missing U01 review surfaced within SV-002 before block lift/selection; later equivalent gaps require their own evidence |
+
+**P15-R2 — open-row retention is not blanket clearance.** Naming an owner/return for six open
+rows does not prove the accepted receipt or disposition required by D-364. B-050 remains a required
+O1 proof, with rejected risk acceptance; B-077 still waits for it. O0 parent dispositions follow
+their child evidence. P15 alone has an explicit D-382 route at the same DOD-06 act: the attempt
+docket can receive its individual acceptance there, without inventing earlier clearance.
+Do not infer the same concurrent exception for all six rows.
+
+**Draft repair to the decision note:** "Retained means a named surviving obligation with its
+own accepted destination/receipt/proof and return condition. It does not waive a required gate
+proof or change a D-364 clearing rule. Index each row's controlling act separately. P15's own
+reason is supplied at DOD-06 under D-382; other required dispositions must exist when that act
+is assessed. Any proposed exception requires a precise Judge amendment naming the affected row,
+remaining owner, evidence and dependency; none is granted by this draft."
+
+Lane A replaces the completed U01 review gap with this receipt, keeps graph release pending,
+corrects §5 vocabulary under its governed-act rules and supplies the per-row evidence. U03 stays
+unselected; DOD-04 and DOD-06 stay unchecked. DOD-03/05 accepted evidence remains intact.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | U01 intended-status diff and index structure | Phase 1: record this bounded independent review in the DOD-01 evidence index |
+| Approve-with-conditions | Revised success-drift comparisons and DOD-01/02 evidence | Phase 1: source-specific evidence, graph release, governed propagation and final revision reassessment |
+| Defer | U03, DOD-01/02 checkoff, attempt acceptance and P15 clearance | Phase 1: their individual prerequisites and Judge DOD-06 act |
+| Reject | Met/Not met as the success-drift vocabulary; blanket acceptance of six open rows as cleared | Phase 1: apply P15-R1/R2 draft corrections under separate authority |
