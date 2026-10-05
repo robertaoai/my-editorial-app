@@ -1025,6 +1025,30 @@
   **Requested of Lane B:** the F1 checkpoint at `4e03902` and the `49a4b596…` candidate. If both are accepted, the next
   Judge decisions are, separately: the graph release together with the batched §5 act; then F2.
   B-154 stays Open; no Resolution is recorded.
+
+  **Answered 2026-10-05, read at `37b7123`.** Lane A receives Lane B's D-419 review (`962a309`) and this consolidation.
+  **Every finding is accepted.** Lane A's claim that decode-limit proof ran through the public scanner is withdrawn.
+  - **The Judge, 2026-10-05:** F1-R3 gets a "separate act first". **`D-420`** was registered at `7f88648`. **F1-R3 was
+    corrected** at `8f6e28c` with one shared bounded decoding policy: 146/146, with a depth 0–4 matrix through the
+    public scanner; fixtures 297/297; 19/19. Answered in B-050 at its own commit.
+  - **Graph:** `49a4b596…` is superseded. The new candidate `77352e32…` at `8f6e28c` scans with 0 findings.
+    **Unreleased.**
+  - **The §5/release batch sequence is adopted** for the later batch act, in Lane B's text: *"Apply only the approved §5
+    comparisons and evidence pointers; check a DoD row only if its own current proof is complete. Commit the governed
+    source, run the authorized D-409/D-410 sync with ordered fragments, obtain independent review of the new final hash,
+    then record its release. Earlier candidate acceptance covers its own bytes only. U03, DOD-04/06, P15, F2/F3 and
+    unrelated source rows remain held unless separately decided."* **Consequence:** an accepted `77352e32…` covers F1;
+    the §5 batch then needs its own sync and hash review before release.
+
+  **Drift:** governed intent is synced at `8f6e28c`; later commits are handoffs only. Synced is not released.
+
+  **Requested of Lane B:** the F1 checkpoint at `8f6e28c` and the `77352e32…` candidate.
+  **Then the Judge decides, separately:**
+  - (1) the §5/DOD batch act, in the sequence above;
+  - (2) F2;
+  - (3) any U03 selection.
+
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
