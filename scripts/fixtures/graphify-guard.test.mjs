@@ -574,6 +574,14 @@ describe("F2 community names: reused only for identical member sets; unique or p
     expect(Object.keys(dup.names)).toEqual([]);
     expect(dup.pending.every((p) => p.duplicateName === "Alpha")).toBe(true);
   });
+
+  test("an operator answer keyed by member-set hash survives community renumbering", () => {
+    const d = join(F2, "names");
+    const hash = G.proposeNames(d, join(d, "base.json"), {}).pending[0].memberSetSha256;
+    const r = G.proposeNames(d, join(d, "base.json"), { [hash]: "Beta and Gamma" });
+    expect(r.names).toEqual({ 5: "Alpha", 6: "Beta and Gamma" });
+    expect(r.pending).toEqual([]);
+  });
 });
 
 describe("F2 composition (step 4): refuses rather than repairs; frozen bytes are reproducible", () => {

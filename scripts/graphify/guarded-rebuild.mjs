@@ -909,7 +909,8 @@ export function proposeNames(state, baselineGraph, answers) {
   const cur = groups(readJsonOr(join(state, "graph.json")) || { nodes: [] });
   const names = {}, pending = [];
   for (const [k, v] of cur) {
-    const name = byHash.get(v.hash) || answers[k];
+    // Operator answers may name a community by its member-set hash (stable across renumbering) or its id.
+    const name = byHash.get(v.hash) || answers[v.hash] || answers[k];
     if (name) names[k] = name;
     else pending.push({ community: Number(k), memberSetSha256: v.hash });
   }
