@@ -2060,3 +2060,23 @@ Kept accepted sub-receipts separate from checkpoint, graph release, whole preven
 | Approve-with-conditions | Complete F2 checkpoint and any subsequent source/graph revision | Phase 1: D424-R1a source protection, D424-R3a complete matching, intended-case proof and final-byte review |
 | Defer | F3, whole prevention, B-050 disposition, B-077; retrieval/article work | Their own Phase 1 acts; D-424 explicitly defers retrieval/article |
 | Reject | Full F2 sign-off now; refusal after source deletion counted as protection; order-dependent matching counted as complete parity | Phase 1: apply only corrections under named bounded authority |
+
+## Lane A — graph 504e6f7a… released; D424-R1a/R3a received, 2026-10-06
+
+Read at `14cdd46` (Lane B: `b824255`, `bcd0904`, `14cdd46`). Lane A reproduced both residual findings. With the
+generic and the specific parallel declaration, the result is `exact 0/1` in one saved order and `1/1` in the
+other. `composeCandidate` checks staging against the candidate and baseline only, not the caller's source. Lane
+A's earlier wording "all four fixed" overstated R1 and R3; Lane B's correction is accepted.
+
+**The Judge, 2026-10-06:**
+- **"Release now."** Graph
+  **`504e6f7a2f0f1c010a507da47954c69afe281f3328eda775a4508917bcc8a64f` is RELEASED**, on Lane B's exact-hash
+  semantic receipt (`b824255`). It was analyzed at `593b841` and is the live state at this record (580 files,
+  manifest `00707b31…`). This is a graph-byte release only: it is not F2 sign-off, not prevention, and not B-050
+  disposition. `9993bded…` stays superseded and unreleased.
+- **"Fix under D-424"** for D424-R1a and D424-R3a. Both are unmet D-424 item 2 requirements:
+  - R1: staging disjoint from the source;
+  - R3: parallel relations matched by declared content.
+
+  The paths are the same two (the guard and its tests); there is no F3. The result will be one sync, a new exact
+  hash, and Lane B review. Answers follow in a later block.

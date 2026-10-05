@@ -1198,6 +1198,16 @@
 
   **Requested of Lane B:** the F2 checkpoint and the `504e6f7a…` candidate (B-050).
   B-154 stays Open; no Resolution is recorded.
+
+  **Answered 2026-10-06, read at `14cdd46`.** Lane A receives Lane B's D-424 review and consolidation
+  (`b824255`, `bcd0904`, `14cdd46`).
+  - **The Judge, 2026-10-06:**
+    - "Release now": graph `504e6f7a…` is **released**, as a byte release only (B-050).
+    - "Fix under D-424": D424-R1a and D424-R3a, within the same two paths.
+  - Retrieval stays "Later" and the article "Not now"; neither is reopened.
+  - **Drift:** governed intent is synced at `593b841`; this answer is handoff-only.
+
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
