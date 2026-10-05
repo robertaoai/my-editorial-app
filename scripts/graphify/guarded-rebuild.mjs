@@ -49,7 +49,7 @@ export function canonicalizePath(raw) {
   if (/^(?:\\\\|\\\\\\\\)[^\\/]/.test(p)) return { network: true };
   // Decode first, so an encoded drive colon or separator becomes visible. The
   // limit is three rounds; encoding still present after it is refused (F1-R2).
-  for (let i = 0; i < 3 && /%[0-9A-Fa-f]{2}/.test(p); i++) {
+  for (let i = 0; i < DECODE_LIMIT && /%[0-9A-Fa-f]{2}/.test(p); i++) {
     try {
       p = decodeURIComponent(p);
     } catch {
@@ -97,28 +97,75 @@ export function isWithin(path, root) {
 //    each taken whole so an allowed path inside a bad URI cannot hide it:
 //    * `file:` tokens of any shape (malformed ones such as `file:/C:/…` or a
 //      bare `file:word` are refused);
-//    * drive-letter paths with raw, JSON-escaped, percent-encoded or
-//      double-encoded `:`/separators;
+//    * drive-letter paths with raw or JSON-escaped separators;
 //    * UNC paths, raw `\\host\share` or JSON-escaped `\\\\host\\share`;
 //    * forward-slash network roots `//host/share` not preceded by a URL scheme;
-//    * percent-encoded prefixes: an encoded `file:` scheme, encoded UNC, and an
-//      encoded `//host` not preceded by an encoded scheme.
+//    * ANY token containing percent-encoding (rule 4 decides whether it is a path).
 //    A raw UNQUOTED value containing spaces is NOT read whole; only its first
 //    whitespace-delimited token is. Quote it to have it judged in full.
 // 3. Lexical exclusions: a `file:` right after `{` or `,` followed by a plain
 //    identifier is an object key (minified `{file:o,…}`); `file:` followed by
-//    nothing is prose; `https://…` and its encoded form are web URLs, not paths.
-// 4. Decoding stops after three rounds; path-like encoding still present after
-//    that is refused, never read as "no path".
+//    nothing is prose; a web URL (any scheme but `file:`) at any decoding depth
+//    is not a path.
+// 4. ONE BOUNDED DECODING POLICY (F1-R3, `D-420`), shared by recognition and
+//    validation: a token or quoted value is examined at decoding depths 0–3. If
+//    it is path-like at ANY depth (drive + separator or `%`, `file:`, UNC, or
+//    `//host`), its complete value is canonicalized, which decodes up to the same
+//    three rounds; path-like encoding still present after that is refused,
+//    never read as "no path". Recognition may look deeper (DETECTION_CAP)
+//    only to notice that a value is path-like, so a value encoded beyond the
+//    limit is REFUSED rather than skipped.
+export const DECODE_LIMIT = 3;
 const FILE_TOKEN = String.raw`(?<![A-Za-z0-9_$.-])file:[^\s"'<>|\x60]+`;
-const DRIVE_TOKEN = String.raw`(?<![A-Za-z0-9+.-])[A-Za-z](?::|%3[aA]|%253[aA])(?:\\\\|\\|\/|%5[cC]|%2[fF]|%255[cC]|%252[fF])[^"'\s<>|\x60]*`;
+const DRIVE_TOKEN = String.raw`(?<![A-Za-z0-9+.-])[A-Za-z]:(?:\\\\|\\|\/)[^"'\s<>|\x60]*`;
 const UNC_TOKEN = String.raw`(?<![\\\w])(?:\\\\\\\\|\\\\)[A-Za-z0-9._$-]+(?:\\\\|\\)[^"'\s<>|\x60]+`;
 const NETWORK_TOKEN = String.raw`(?<![:\w/\\])\/\/[A-Za-z0-9][A-Za-z0-9._-]*\/[^"'\s<>|\x60]+`;
-const ENCODED_TOKEN = String.raw`(?<![A-Za-z0-9_$.%-])(?:file%3[aA]|%5[cC]%5[cC]|%2[fF]%2[fF](?=[A-Za-z0-9]))[^\s"'<>|\x60]+`;
-const CANDIDATE = new RegExp([FILE_TOKEN, DRIVE_TOKEN, UNC_TOKEN, NETWORK_TOKEN, ENCODED_TOKEN].join("|"), "g");
-// A complete value that starts like a path or URI (rule 1).
-const PATH_PREFIX = /^(?:[A-Za-z](?::|%3[aA]|%253[aA])(?:[\\/]|%5[cC]|%2[fF]|%255[cC]|%252[fF])|file(?::|%3[aA])|\\\\|%5[cC]%5[cC]|\/\/[A-Za-z0-9]|%2[fF]%2[fF][A-Za-z0-9])/;
+const ENCODED_ANY = String.raw`(?<![^\s"'<>|\x60({\[,=])[^\s"'<>|\x60]*%[0-9A-Fa-f]{2}[^\s"'<>|\x60]*`;
+// Encoded tokens first, so an encoded token is always taken whole.
+const CANDIDATE = new RegExp([ENCODED_ANY, FILE_TOKEN, DRIVE_TOKEN, UNC_TOKEN, NETWORK_TOKEN].join("|"), "g");
 const QUOTED = /"((?:[^"\\\n]|\\.)*)"/g;
+const PATH_LIKE = /^(?:[A-Za-z]:(?:[\\/]|%)|file:|\\\\|\/\/[A-Za-z0-9])/i;
+const WEB_URL = /^(?!file:)[A-Za-z][A-Za-z0-9+.-]*:\/\//i;
+
+/**
+ * The decoding depths 0..DECODE_LIMIT of one value, stopping early when no
+ * encoding remains or a round cannot decode. Recognition (here) and
+ * validation (`canonicalizePath`) use the same limit.
+ */
+export function decodingDepths(value, cap = DECODE_LIMIT) {
+  const depths = [value];
+  let p = value;
+  for (let i = 0; i < cap && /%[0-9A-Fa-f]{2}/.test(p); i++) {
+    try {
+      p = decodeURIComponent(p);
+    } catch {
+      break;
+    }
+    depths.push(p);
+  }
+  return depths;
+}
+
+// Recognition looks deeper than validation accepts, ONLY to decide that a value
+// is path-like: anything path-like that needs more than DECODE_LIMIT rounds is
+// then refused by `canonicalizePath` (beyond the limit). Encoded path punctuation
+// still present after DETECTION_CAP rounds is refused outright.
+export const DETECTION_CAP = 8;
+const ENCODED_PATH_PUNCTUATION = /%(?:25)*(?:3[aA]|2[fF]|5[cC])/;
+
+/** `"path"` when the value is path-like at some depth (up to DETECTION_CAP)
+ * before any depth reads as a web URL, or still carries encoded path
+ * punctuation past the cap; `"web"` for a web URL; otherwise `null`. */
+export function classifyRepresentation(value) {
+  const depths = decodingDepths(value, DETECTION_CAP);
+  for (const d of depths) {
+    if (WEB_URL.test(d)) return "web";
+    if (PATH_LIKE.test(d)) return "path";
+  }
+  const last = depths[depths.length - 1];
+  if (/%[0-9A-Fa-f]{2}/.test(last) && ENCODED_PATH_PUNCTUATION.test(last)) return "path";
+  return null;
+}
 
 /** A `file:` token that is really a minified/JSON object key, e.g. `{file:o,…}`. */
 function isObjectKey(text, index, token) {
@@ -153,13 +200,15 @@ export function findForeignPath(text, { allowedRoot = CALLER_ROOT, disposableRoo
  * by its embedded tokens (rule 2). */
 function foreignInValue(value, opts) {
   const v = value.trim();
-  if (PATH_PREFIX.test(v) && judge(v, opts)) return v;
+  if (classifyRepresentation(v) === "path" && judge(v, opts)) return v;
   return foreignInTokens(value, opts);
 }
 
 function foreignInTokens(src, opts) {
   for (const m of src.matchAll(CANDIDATE)) {
     if (/^file:/i.test(m[0]) && isObjectKey(src, m.index, m[0])) continue;
+    // An encoded token is a path only if some decoding depth says so (rule 4).
+    if (/%[0-9A-Fa-f]{2}/.test(m[0]) && classifyRepresentation(m[0]) !== "path") continue;
     if (judge(m[0], opts)) return m[0];
   }
   return null;

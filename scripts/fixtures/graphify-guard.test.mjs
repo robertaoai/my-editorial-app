@@ -74,6 +74,57 @@ describe("canonical path validation (v4 condition 1)", () => {
   test("encoding left after the decode limit is refused, not read as 'no path'", () => {
     expect(canonicalizePath("C:%25252525%2Fx")).toEqual({ malformed: true });
   });
+
+  describe("one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420)", () => {
+  // Lane B 962a309's four missed inputs, each through findForeignPath.
+  const missed = [
+    "file%253A%252F%252Fserver%252Fshare%252Fleak",
+    `{"path":"file%253A%252F%252Fserver%252Fshare%252Fleak"}`,
+    "C:%25252Frobertaoai%25252Fmy-editorial-app-copy%25252Fleak",
+    "C:%25252525%2Fx",
+  ];
+  for (const input of missed) {
+    test(`refuses ${input}`, () => expect(findForeignPath(input)).not.toBeNull());
+  }
+
+  // Encodes the path punctuation once, then re-encodes `%` per further depth.
+  const encode = (s, depth) => {
+    let out = s;
+    for (let i = 0; i < depth; i++) {
+      out = i === 0 ? out.replace(/%/g, "%25").replace(/:/g, "%3A").replace(/\//g, "%2F").replace(/\\/g, "%5C") : out.replace(/%/g, "%25");
+    }
+    return out;
+  };
+  // [target, kind]. The expectation comes from the TARGET, not from the matcher:
+  // foreign targets are refused at every supported depth; in-root and web targets
+  // pass at every supported depth; beyond the limit, a path-like value is refused.
+  const targets = [
+    ["file://server/share/leak", "foreign"],
+    ["C:/robertaoai/my-editorial-app-copy/leak", "foreign"],
+    [String.raw`\\server\share\leak`, "foreign"],
+    ["C:/CoWork/outputs/run/x", "foreign"],
+    ["C:/robertaoai/my-editorial-app/docs/x.md", "inroot"],
+    ["file:///C:/robertaoai/my-editorial-app/docs", "inroot"],
+    ["https://example.com/a/b", "web"],
+  ];
+  const forms = {
+    raw: (v) => v,
+    quoted: (v) => `{"path":${JSON.stringify(v)}}`, // JSON.stringify also escapes backslashes
+  };
+  for (const [target, kind] of targets) {
+    for (let depth = 0; depth <= 4; depth++) {
+      for (const [form, wrap] of Object.entries(forms)) {
+        const input = wrap(encode(target, depth));
+        const beyond = depth > 3;
+        const expectFinding = kind === "foreign" || (beyond && kind !== "web");
+        test(`${kind} ${form} depth ${depth}: ${expectFinding ? "refused" : "passes"} — ${target}`, () => {
+          expect(findForeignPath(input) !== null).toBe(expectFinding);
+        });
+      }
+    }
+  }
+  });
+
   for (const [input, foreign] of cases) {
     test(`${foreign ? "refuses" : "allows"} ${input}`, () => {
       expect(findForeignPath(input) !== null).toBe(foreign);
