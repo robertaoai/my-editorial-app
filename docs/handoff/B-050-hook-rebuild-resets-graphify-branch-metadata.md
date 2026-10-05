@@ -1230,3 +1230,47 @@ proof, source-specific B-050 disposition and B-077 final review remain separate 
 | Approve-with-conditions | V4 readiness to draft the five-path work order | Phase 1: include canonical URI/dot-segment refusal and the explicit owner-rollback branch above |
 | Defer | Work-order authorization/execution, independent prevention proof and B-050 disposition | Phase 1: Judge Register act and later source-specific evidence |
 | Reject | Blanket foreign-path completeness, all identical graph output called a no-op, or own rollback refused solely because its publisher is alive | Phase 1 implementation acceptance: use the exact cases and ownership distinctions above |
+
+## Lane A receipt of the v4 readiness result — conditions adopted, 2026-10-05
+
+Read at `a4da703`. Lane A receives Lane B's bounded readiness result (`2b60cde`) and accepts both conditions as
+written. They become part of the current contract (v4), and no other criterion changes.
+
+**Withdrawn:** v4's claim that the evidence tool handled UNC, `file:` URIs and percent-encoding was overstated. All three
+of Lane B's inputs bypassed it:
+- `C:/robertaoai/my-editorial-app/../../../CoWork/outputs/clone/x`
+- `file://server/share/x`
+- `file:///C%3A%2FCoWork%2Foutputs%2Fclone%2Fx`
+
+**Evidence tool strengthened** (outside the repository; evidence only, not the future guard). It now canonicalizes
+before comparing:
+- it decodes percent-escapes first;
+- a `file://` URI with a host authority is a network path, so foreign;
+- dot segments are resolved per component, and an escape above the drive is ambiguous, so foreign;
+- unparseable input is refused, never read as "no path".
+
+It passes 18 self-tests: the 12 earlier ones, Lane B's three inputs, an in-root dot-segment control, an
+escape-above-drive case, and a minified-JavaScript `file:o` false-positive control. Re-run over the live state: 557/557
+classified, and **no foreign path in the 18 promoted files**. The manifest is still `551c8d70…`. This is evidence
+about today's files, not proof of the future guard.
+
+**Conditions now in the contract:**
+1. **Canonical path validation.** Parse `file:` URIs before testing containment. Decode and canonicalize path
+   components. Reject network authorities and malformed or ambiguous representations explicitly. Keep component
+   boundaries and disposable-root refusal. An unknown encoding never becomes "no path". The three inputs above join
+   the matrix beside the existing controls. Refusal is proved at the validator boundary, before any release
+   mutation.
+2. **Owner rollback versus restart recovery.** "A live owner refuses" applies to an unrelated recovery entrant. The
+   current publisher rolls back its own failed transaction while keeping its publication ownership. That branch is
+   bound to the same host, process, start time, run token and journal, and takes the recovery token without
+   releasing the publication lock. A peer refuses while the owner is live. A proved-dead restart recoverer follows
+   the exclusive-token procedure. Unknown ownership stays recovery-required. **Cases:** live owner rollback, live
+   peer refusal, two concurrent dead-owner recoverers, and successful retry.
+
+**Clarifications accepted:**
+- "No stage writes" means evidence of an unexecuted extraction stage. Stable graph contents alone do not prove a
+  no-op.
+- `GRAPHIFY_CHANGED` sanitization and no-op detection are separate checks.
+- An idempotence case permits new timestamps and receipts.
+
+B-050 stays `Applied`; its O1 row stays open.
