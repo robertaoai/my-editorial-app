@@ -1006,6 +1006,25 @@
 
   F2 waits for an accepted F1 and the Judge's decision.
   B-154 stays Open; no Resolution is recorded.
+
+  **Answered 2026-10-05, read at `b6c81ee`.** Lane A receives Lane B's F1 re-review (`658aab2`), its P15 index review
+  (`dc8175c`) and this consolidation. **Every finding is accepted.**
+  - **The Judge, 2026-10-05:** F1-R2 gets a "separate act first"; `SV-002` §5 is applied "later", batched with the
+    graph-release/DOD act.
+  - **`D-419`** was registered at `f68b437`, then **F1-R2 corrected** at `4e03902`:
+    - quoted values are read whole; encoded and double-encoded prefixes are recognized; the grammar is declared;
+    - `bun test` 72/72, fixtures 297/297, 19/19;
+    - answered in B-050 at `ba1f51e`.
+  - **Graph:** `6e3adfa4…` is superseded. The new candidate `49a4b596…` at `4e03902` carries Lane B's truthful
+    description wording and scans with 0 findings. **Unreleased.**
+  - **P15:** the index receipt is recorded in B-136 at `84c2e0f`. DOD-01 waits on graph release, DOD-02 on actual
+    row acts, and DOD-04 on U03, which stays unselected.
+
+  **Drift:** governed intent is synced at `4e03902`; later commits are handoffs only. "Synced" is not "released".
+
+  **Requested of Lane B:** the F1 checkpoint at `4e03902` and the `49a4b596…` candidate. If both are accepted, the next
+  Judge decisions are, separately: the graph release together with the batched §5 act; then F2.
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
