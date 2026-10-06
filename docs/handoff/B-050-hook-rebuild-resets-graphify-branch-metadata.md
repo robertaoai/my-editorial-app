@@ -3089,3 +3089,63 @@ and the docs-drift messages quote only these messages.
 proposal to the Judge, with paths, sections, the source-rule amendment, no fallback, tests, exclusions, tier
 applicability and the five separate receipts. Nothing is implemented before the Register act. B-050 stays
 `Applied`; its O1 row stays open.
+
+## Lane B — revision 3b condition check accepted; present the bounded act, 2026-10-06
+
+### What happened
+
+Read `7f27384` against Lane B's `8cb6081`/`e4f1b7a` conditions. Current plan means revision 2 plus revision 3's
+named replacements plus revision 3b's three amendments. Lane B raises/reviews; Lane A answers. **The requested
+condition check passes as planning review.** No remaining blocker was identified within these conditions.
+This is not a `graphify-f3-acceptance` record for publication, an implementation checkpoint or a Register act.
+
+### What you need
+
+| Condition / clarification | Revision 3b answer checked | Tracking disposition |
+|---|---|---|
+| F3-R3b Unknown versus dead preparer | Alive/unknown work stays unchanged; only proved-dead owner can be classified failed after exclusive claim and same-token/liveness re-check; prepare/resume writes use exclusive ownership | Answer independently accepted for the plan; original interrupted/unknown/concurrent cases remain implementation obligations |
+| F3-R1a Schema enforcement clarification | Exact ordered top-level/nested keys, types/literals/formats, canonical text and frozen-value equality are separate mandatory checks; placeholders refuse | Planning clarification satisfied; parser/refusal tests remain owed |
+| F3-R4a Full outcome/message clarification | Successful release, aborted-live-unchanged, restored, rolled-back, completed-release, recovery-required and nothing-to-recover are distinct; messages claim only verified facts and preserve peer evidence | Planning clarification satisfied; CLI mapping and transaction/recovery evidence remain owed |
+
+All prior accepted planning remedies and the recorded Judge choices carry forward. F3-R1..R6 and their reviewed
+continuations now have accepted planning answers at the cited revisions. That closes this **plan-review batch**
+only; it does not close B-050, its O1 obligation, any parent row or a DoD criterion. Do not change the header to
+Verified on the strength of this review.
+
+**Practical construction/verification boundaries to retain in D-425:**
+- `work/.claim` is a work-root runtime artifact, not a sixth repository implementation path. It must be
+  disjoint from source/live state. If a claim remains held or abandoned, failure to acquire it means refuse
+  and retain evidence; proof that a preparer died does not authorize replacing that claim. Test this alongside
+  the successful proved-dead/available-claim case. A new candidate in a new work root is not resuming partial work.
+- Schema comparisons must guard malformed/non-object nested values as well as extra/reordered/duplicate keys.
+  The record's exact locus/commit introduction and tuple identity remain required, not just valid JSON.
+- Keep F2's shared transaction outcomes and ownership protections intact. The CLI's numeric exits must be
+  tested against those outcomes; an unknown recovery owner or existing journal must never produce a health claim
+  or token takeover. A restore is reported only after the manifest check.
+- Semantic/group-name inputs retain member-set identity rather than bare community integers. Approved source
+  changes still require ordered fragment re-merge and exact-byte review; no policy choice permits stale labels.
+
+These clarify the carried-forward boundaries/tests, not new readiness blockers or changes to the selected policy.
+The old historical tracker debt and the raw-writer/flake limits are not additional work in this plan batch.
+
+**Lane A next step:** receive this acceptance and present one concrete proposed D-425 act naming the accepted
+plan revisions, five paths, four sections, explicit publication-only D-424 R4 amendment, no fallback, cases,
+exclusions, D-54 tier applicability and the five separate receipts. No repeat of the two settled policy questions
+or another broad plan-revision round is required. The Judge may accept/reject that act; implementation still
+waits for its Register record, propagated bounded scope and Lane A Active.
+
+### What you did instead
+
+Used Graphify query, source/plan comparison and read-only released-state verification. No code/runbook edit,
+actual prepare/publish/recover, graph rebuild, Register act, receiver answer-field edit, tracker closure or push.
+The live 583-file map equals the pinned guard digest `1add761f98aa5aa9917f56280d7bf91939913631540fc65d922693b0ddaf2f9a`;
+graph hash remains `35541b337b25d2a16ee237219ee4f3417e668e352c3d8da044a21208cc5b1edb`.
+Governed source is `40429f8`; subsequent changed paths through `7f27384` are handoff-only. No sync is due.
+Current consistency and parent-first decision guide are recorded once in B-154.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Revision 3b condition answers and composite F3 plan readiness; Lane A may present D-425 | Phase 1: drafting/presentation only; preserve construction and proof obligations |
+| Approve-with-conditions | Selecting/executing the concrete bounded F3 unit | Phase 1: Judge's Register act, propagated scope, Lane A Active; then each independent readiness/release/checkpoint receipt |
+| Defer | Actual F3 work, whole prevention, B-050/B-077, other children/parents, historical tracker debt and Gate 2 | Phase 1: their own authority and evidence/acts |
+| Reject | Plan acceptance as build permission, planned cases as passing evidence, dead owner as claim-replacement permission or F3 as whole prevention | Phase 1: preserve the reviewed boundaries |
