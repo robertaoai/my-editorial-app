@@ -1,5 +1,5 @@
-// `B-050` guarded Graphify procedure — STAGES F1 (`D-418`–`D-421`) AND F2
-// (`D-423`, corrected by `D-424`), under contract v4 at `d733513` with the two conditions adopted at
+// `B-050` guarded Graphify procedure — STAGES F1 (`D-418`–`D-421`), F2
+// (`D-423`, corrected by `D-424`) AND F3 (`D-425`), under contract v4 at `d733513` with the two conditions adopted at
 // `b97f93f`. F1 sections follow first; the F2 sections come after them.
 //
 // WHY THIS EXISTS. The pinned Graphify CLI (0.17.1) writes `branch.json` and
@@ -35,17 +35,19 @@
 // a prior description is replayed only for a symbol whose source file is
 // unchanged since the baseline's analyzed commit.
 //
-// WHAT F2 IS NOT. `publish()` refuses the real live target
-// (`C:/CoWork/myeditorialapp/.graphify`), its ancestors and descendants, and
-// any path outside a declared disposable fixture root:
-// live publication and runbook adoption are F3, not authorized. Running this
-// file directly refuses. Until F3 is accepted, graph syncs use the
-// `D-409`/`D-410` procedure with the `D-422` prune order.
+// WHAT F3 ADDS (`D-425`). Guarded live publication through the same
+// transaction core: `prepare` → Lane B's acceptance record, introduced by
+// its own handoff-only review commit → `publish --review <commit>` → owned
+// `recover`. Fixture mode still refuses the real live target, its ancestors
+// and descendants; only the live entry checks admit it. The manual
+// D-409/D-410 route is retired with no fallback: no fallback means no bypass
+// of this guard, not guaranteed restoration. The lock excludes cooperating
+// guarded runs only, never a raw `graphify` writer.
 
 import { execFileSync, spawnSync } from "node:child_process";
 import { createHash, randomUUID } from "node:crypto";
 import {
-  closeSync, cpSync, existsSync, fsyncSync, lstatSync, mkdirSync, openSync, readdirSync, readFileSync,
+  closeSync, cpSync, existsSync, fsyncSync, lstatSync, mkdirSync, openSync, readdirSync, readFileSync, statSync,
   readlinkSync, realpathSync, renameSync, rmSync, unlinkSync, writeFileSync, writeSync,
 } from "node:fs";
 import { hostname } from "node:os";
@@ -616,14 +618,20 @@ function writeReceipt(P, receipt, writer = writeDurable) {
  * for tests run in a child process); `inject` replaces a step to force a failure.
  */
 export function publish(opts) {
-  const { target, staging, reviewedManifest, baselineManifest, source, acceptance, fixture, crashAt, pauseAt, pauseMs = 0, inject = {} } = opts;
+  const { target, staging, reviewedManifest, baselineManifest, source, acceptance, fixture, live, predecessor, crashAt, pauseAt, pauseMs = 0, inject = {} } = opts;
   const runToken = opts.runToken || randomUUID();
-  if (isRealLiveTarget(target)) return refused("the real live target, its ancestors and descendants are F3, which is not authorized");
   const P = transactionPaths(target);
   const old = join(P.parent, `.graphify-old-${runToken}`);
   const backup = join(P.parent, `.graphify-bak-${runToken}`);
-  const outside = fixtureBoundary(fixture, { target: P.target, staging, backup, old, journal: P.journal, lock: P.lock, recovery: P.recovery, receipts: P.receipts });
-  if (outside.length) return refused(outside.join("; "));
+  if (live) {
+    // F3 (`D-425`): the configured live target is admitted only through its entry checks.
+    const entry = liveEntryFindings({ target, liveTarget: live.liveTarget, staging, workRoot: live.workRoot, source });
+    if (entry.length) return refused(entry.join("; "));
+  } else {
+    if (isRealLiveTarget(target)) return refused("the real live target, its ancestors and descendants are refused in fixture mode: live publication is the D-425 guarded route");
+    const outside = fixtureBoundary(fixture, { target: P.target, staging, backup, old, journal: P.journal, lock: P.lock, recovery: P.recovery, receipts: P.receipts });
+    if (outside.length) return refused(outside.join("; "));
+  }
   if (!source?.repo || !source?.snapshot?.head) return refused("a source repository and snapshot are required: the journal must bind the transaction to its source");
   const sourceCommit = source.snapshot.head;
   if (!disjoint(P.target, source.repo) || !disjoint(staging, source.repo)) return refused("the target and staging must be disjoint from the source repository");
@@ -637,15 +645,21 @@ export function publish(opts) {
   };
   let journal = null;
   try {
-    const still = snapshotMatches(source.repo, source.snapshot);
-    if (!still.ok) throw new Error(`the source is invalidated before publication: ${still.reason}`);
+    // Under the lock, before the journal: the exact source (fixture) or the handoff-only
+    // fast-forward rule plus the acceptance record (live, `validate`).
+    let reviewed = { acceptance: acceptance ?? null, publicationHead: null };
+    if (live) reviewed = live.validate();
+    else {
+      const still = snapshotMatches(source.repo, source.snapshot);
+      if (!still.ok) throw new Error(`the source is invalidated before publication: ${still.reason}`);
+    }
     if (digestOf(staging) !== reviewedManifest) throw new Error("staging bytes differ from the reviewed manifest");
     const liveDigest = digestOf(P.target);
     if (baselineManifest && liveDigest !== baselineManifest) throw new Error("the released state changed since the baseline");
     cpSync(P.target, backup, { recursive: true });
     const backupManifest = digestOf(backup);
     if (backupManifest !== liveDigest) throw new Error("the backup copy does not equal the live state");
-    journal = { stage: "prepared", target: P.target, runToken, sourceCommit, reviewedManifest, backupManifest, backup, staging, old };
+    journal = { stage: "prepared", target: P.target, runToken, sourceCommit, publicationHead: reviewed.publicationHead, reviewedManifest, manifestAlgorithm: MANIFEST_ALGORITHM, backupManifest, backup, staging, old, acceptance: reviewed.acceptance, predecessor: predecessor ?? null };
     writeDurable(P.journal, journal);
     crash("after-prepared");
     (inject.renameOld || renameSync)(P.target, old);
@@ -665,11 +679,11 @@ export function publish(opts) {
       return refused(e.message);
     }
     // Owner rollback: this process still owns the publication lock (condition 2).
-    const r = recover({ target, fixture, asOwner: runToken, inject: inject.recovery });
+    const r = recover({ target, fixture, live: live && { liveTarget: live.liveTarget }, asOwner: runToken, inject: inject.recovery });
     return { ok: false, outcome: r.outcome === "rolled-back" || r.outcome === "restored" || r.outcome === "aborted-live-unchanged" ? "rolled-back" : r.outcome, reason: e.message, recovery: r };
   }
   try {
-    writeReceipt(P, { kind: "release", runToken, sourceCommit, reviewedManifest, acceptance: acceptance ?? null }, inject.writeReceipt);
+    writeReceipt(P, releaseReceipt(journal), inject.writeReceipt);
     crash("after-receipt");
     unlinkSync(P.journal);
   } catch (e) {
@@ -686,11 +700,15 @@ export function publish(opts) {
  * journal stage is believed. Every unresolved case preserves all evidence.
  */
 export function recover(opts) {
-  const { target, asOwner, fixture, inject = {} } = opts;
-  if (isRealLiveTarget(target)) return refused("recovery of the real live target is F3, which is not authorized");
+  const { target, asOwner, fixture, live, inject = {} } = opts;
   const P = transactionPaths(target);
-  const outside = fixtureBoundary(fixture, { target: P.target, journal: P.journal, lock: P.lock, recovery: P.recovery, receipts: P.receipts });
-  if (outside.length) return refused(outside.join("; "));
+  if (live) {
+    if (canonicalFsPath(P.target) !== canonicalFsPath(liveTargetPath(live.liveTarget))) return refused("the target does not resolve to the configured live target");
+  } else {
+    if (isRealLiveTarget(target)) return refused("recovery of the real live target is refused in fixture mode: use the D-425 live recover");
+    const outside = fixtureBoundary(fixture, { target: P.target, journal: P.journal, lock: P.lock, recovery: P.recovery, receipts: P.receipts });
+    if (outside.length) return refused(outside.join("; "));
+  }
   if (!existsSync(P.journal) && !existsSync(P.lock)) return { ok: true, outcome: "nothing-to-recover" };
   const entrant = ownerRecord(opts.runToken || randomUUID());
   if (!createExclusive(P.recovery, entrant)) {
@@ -720,7 +738,7 @@ export function recover(opts) {
       if (state === "unknown") return done(recoveryRequired("the owner's liveness cannot be proved; recovery needs evidence"));
     }
     const aside = join(P.parent, `.graphify-rejected-${j.runToken}`);
-    const journalPaths = fixtureBoundary(fixture, { old: j.old, backup: j.backup, staging: j.staging, rejected: aside });
+    const journalPaths = live ? liveJournalFindings(P, j) : fixtureBoundary(fixture, { old: j.old, backup: j.backup, staging: j.staging, rejected: aside });
     if (canonicalFsPath(j.target || "") !== canonicalFsPath(P.target)) journalPaths.push("the journal names a different target");
     if (journalPaths.length) return done(recoveryRequired(`the journal's paths fail the fixture boundary: ${journalPaths.join("; ")}`));
     const liveD = digestOf(P.target);
@@ -733,7 +751,8 @@ export function recover(opts) {
       if (digestOf(P.target) !== j.backupManifest) return done(recoveryRequired("the restored state does not equal the backup"));
       outcome = "restored";
     } else if (liveD !== null && liveD === j.reviewedManifest && j.stage === "verified" && !asOwner) {
-      writeReceipt(P, { kind: "release", runToken: j.runToken, sourceCommit: j.sourceCommit, reviewedManifest: j.reviewedManifest, acceptance: opts.acceptance ?? null, completedByRecovery: true }, inject.writeReceipt);
+      // The approval is the journal's own: recovery takes no acceptance input (`D-425`, F3-R1).
+      writeReceipt(P, { ...releaseReceipt(j), completedByRecovery: true }, inject.writeReceipt);
       outcome = "completed-release";
     } else if (liveD !== null && liveD === j.reviewedManifest && oldD === j.backupManifest) {
       renameSync(P.target, aside);
@@ -1169,14 +1188,496 @@ export function composeCandidate({ candidateState, baseline, staging, workRoot, 
 }
 
 // ---------------------------------------------------------------------------
-// Entry point: running this file directly refuses; live publication is F3.
+// F3 (`D-425`): guarded live publication. Plan: B-050 revision 2 (`1708752`)
+// with revision 3 (`10c32ce`) and 3b (`7f27384`), accepted by Lane B (`3578fe9`).
+// ---------------------------------------------------------------------------
+
+export const MANIFEST_ALGORITHM = "guard-treeDigest-v1";
+
+/** The first guarded baseline: the release recorded at `6a74c8e` (B-050), D-424c sync. */
+export const BOOTSTRAP = Object.freeze({
+  releaseLocus: "6a74c8e7125b82604d902c5857a9957001712970",
+  algorithm: MANIFEST_ALGORITHM,
+  digest: "1add761f98aa5aa9917f56280d7bf91939913631540fc65d922693b0ddaf2f9a",
+  files: 583,
+  graphSha256: "35541b337b25d2a16ee237219ee4f3417e668e352c3d8da044a21208cc5b1edb",
+  analyzedSource: "40429f8a60aaa9554fda6ba126d24de670fda1ea",
+});
+
+/** CLI exit codes: one per outcome class (revision 3b's table). */
+export const EXIT = Object.freeze({ ok: 0, refused: 2, pending: 3, failed: 4, recoveryRequired: 5, restored: 6, abortedUnchanged: 7 });
+
+/** Maps a transaction or recovery outcome to its exit code; every F2 outcome keeps its own class. */
+export function exitFor(outcome) {
+  return {
+    released: EXIT.ok, "completed-release": EXIT.ok, "nothing-to-recover": EXIT.ok, ready: EXIT.ok, published: EXIT.ok,
+    pending: EXIT.pending, failed: EXIT.failed, "recovery-required": EXIT.recoveryRequired,
+    restored: EXIT.restored, "rolled-back": EXIT.restored, "aborted-live-unchanged": EXIT.abortedUnchanged,
+  }[outcome] ?? EXIT.refused;
+}
+
+/** The release receipt, built only from the journal, so a recovered release carries the original approval. */
+function releaseReceipt(j) {
+  return {
+    kind: "release", runToken: j.runToken, target: j.target, sourceCommit: j.sourceCommit, publicationHead: j.publicationHead ?? null,
+    manifestAlgorithm: j.manifestAlgorithm ?? null, reviewedManifest: j.reviewedManifest, acceptance: j.acceptance ?? null, predecessor: j.predecessor ?? null,
+  };
+}
+
+/** The volume a path lives on (its nearest existing ancestor's device). */
+function volumeOf(p) {
+  let h = resolve(p);
+  while (!existsSync(h)) {
+    const d = dirname(h);
+    if (d === h) break;
+    h = d;
+  }
+  try {
+    return statSync(h).dev;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Live entry checks, before any write: the target resolves to the configured live target;
+ * staging sits inside the declared work root, outside the live and source trees, on the
+ * live target's volume; the live target is disjoint from the source repository.
+ */
+export function liveEntryFindings({ target, liveTarget = REAL_LIVE_TARGET, staging, workRoot, source }) {
+  const live = canonicalFsPath(liveTargetPath(liveTarget));
+  const t = canonicalFsPath(liveTargetPath(target));
+  if (!live || !t || t !== live) return ["the target does not resolve to the configured live target"];
+  const findings = [...fixtureBoundary(workRoot, { staging })];
+  if (!disjoint(staging, live)) findings.push("staging must be disjoint from the live target");
+  if (!source?.repo || !source?.snapshot?.head) findings.push("a source repository and snapshot are required");
+  else {
+    findings.push(...sourceProtection({ repo: source.repo }, staging, {}));
+    if (!disjoint(live, source.repo)) findings.push("the live target must be disjoint from the source repository");
+  }
+  if (volumeOf(staging) === null || volumeOf(staging) !== volumeOf(live)) findings.push("staging is not on the live target's volume");
+  return findings;
+}
+
+/** Live recovery: the journal's old and backup copies are exactly this run's siblings, and staging is outside the target. */
+function liveJournalFindings(P, j) {
+  const f = [];
+  const same = (a, b) => canonicalFsPath(a || "") === canonicalFsPath(b);
+  if (!same(j.target, P.target)) f.push("the journal names a different target");
+  if (!same(j.old, join(P.parent, `.graphify-old-${j.runToken}`))) f.push("the journal's old copy is not this run's sibling");
+  if (!same(j.backup, join(P.parent, `.graphify-bak-${j.runToken}`))) f.push("the journal's backup is not this run's sibling");
+  if (!j.staging || !disjoint(j.staging, P.target)) f.push("the journal's staging is not disjoint from the target");
+  return f;
+}
+
+// --- F3-R2: the publication source rule ("Handoff-only fast-forward") ---
+
+const isAncestor = (repo, a, b) => {
+  try {
+    execFileSync("git", ["-C", repo, "merge-base", "--is-ancestor", a, b], { stdio: "ignore" });
+    return true;
+  } catch {
+    return false;
+  }
+};
+
+/**
+ * Publication HEAD may fast-forward from the analyzed HEAD only through commits that touch
+ * docs/handoff/ alone; the outside tree, branch, origin, upstream, config, every other ref and a
+ * clean tree are unchanged. Amends D-424 R4 at publication only (D-425 item 3).
+ */
+export function publicationSourceFindings(repo, snapshot) {
+  let now;
+  try {
+    now = snapshotSource(repo);
+  } catch (e) {
+    return { ok: false, findings: [`the source is unavailable (${String(e.message).trim().split("\n")[0]})`] };
+  }
+  if (!now.ok) return { ok: false, findings: [now.reason] };
+  const findings = [];
+  for (const k of ["branch", "origin", "upstream", "config"]) if (now[k] !== snapshot[k]) findings.push(`source ${k} changed since prepare`);
+  const branchRef = `refs/heads/${snapshot.branch}`;
+  const others = (refs) => JSON.stringify(refs.filter((r) => r.name !== branchRef));
+  if (others(now.refs) !== others(snapshot.refs)) findings.push("a ref other than the source branch changed since prepare");
+  if (now.head !== snapshot.head) {
+    if (!isAncestor(repo, snapshot.head, now.head)) findings.push("the publication HEAD is not a fast-forward of the analyzed HEAD");
+    else {
+      for (const line of git(repo, ["rev-list", "--parents", `${snapshot.head}..${now.head}`]).split("\n").filter(Boolean)) {
+        const [commit, ...parents] = line.split(" ");
+        if (parents.length !== 1) { findings.push(`commit ${commit.slice(0, 7)} is a merge`); continue; }
+        const paths = git(repo, ["diff-tree", "--no-commit-id", "--name-only", "-r", commit]).split("\n").filter(Boolean);
+        const bad = paths.filter((p) => !p.startsWith("docs/handoff/"));
+        if (bad.length) findings.push(`commit ${commit.slice(0, 7)} touches outside docs/handoff/: ${bad.slice(0, 3).join(", ")}`);
+      }
+      const outside = git(repo, ["diff", "--name-only", snapshot.head, now.head]).split("\n").filter((p) => p && !p.startsWith("docs/handoff/"));
+      if (outside.length) findings.push("the tree outside docs/handoff/ changed since prepare");
+    }
+  }
+  return { ok: findings.length === 0, findings, publicationHead: now.head };
+}
+
+// --- F3-R1/R1a: the acceptance record ---
+
+const TOP_KEYS = ["kind", "version", "disposition", "scope", "reviewer", "workId", "graphSha256", "manifest", "analyzedSource", "baseline", "pendingSemantics"];
+const MANIFEST_KEYS = ["algorithm", "digest", "files"];
+const BASELINE_KEYS = ["releaseLocus", "algorithm", "digest"];
+const HEX64 = /^[0-9a-f]{64}$/;
+const HEX40 = /^[0-9a-f]{40}$/;
+const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/;
+const isPlainObject = (v) => v !== null && typeof v === "object" && !Array.isArray(v);
+const sameKeys = (o, keys) => isPlainObject(o) && JSON.stringify(Object.keys(o)) === JSON.stringify(keys);
+
+/**
+ * Validates one acceptance record's text: exact ordered keys (top level, manifest, baseline),
+ * types and literals, then canonical text (which also refuses duplicate keys). Values are
+ * compared with the work folder's frozen identity separately.
+ */
+export function parseAcceptance(text) {
+  let r;
+  try {
+    r = JSON.parse(text);
+  } catch {
+    return { ok: false, findings: ["the record is not valid JSON"] };
+  }
+  const f = [];
+  if (!sameKeys(r, TOP_KEYS)) return { ok: false, findings: ["the record's top-level keys are not exactly the required keys in order"] };
+  if (!sameKeys(r.manifest, MANIFEST_KEYS)) f.push("manifest keys are not exactly algorithm, digest, files");
+  if (!sameKeys(r.baseline, BASELINE_KEYS)) f.push("baseline keys are not exactly releaseLocus, algorithm, digest");
+  if (r.kind !== "graphify-f3-acceptance") f.push("kind");
+  if (r.version !== 1) f.push("version");
+  if (r.disposition !== "Accept") f.push("disposition is not Accept");
+  if (r.scope !== "F3 publication") f.push("scope");
+  if (r.reviewer !== "Lane B") f.push("reviewer");
+  if (typeof r.workId !== "string" || !UUID.test(r.workId)) f.push("workId");
+  if (typeof r.graphSha256 !== "string" || !HEX64.test(r.graphSha256)) f.push("graphSha256");
+  if (typeof r.analyzedSource !== "string" || !HEX40.test(r.analyzedSource)) f.push("analyzedSource");
+  if (r.pendingSemantics !== 0) f.push("pendingSemantics");
+  if (isPlainObject(r.manifest)) {
+    if (r.manifest.algorithm !== MANIFEST_ALGORITHM) f.push("manifest.algorithm");
+    if (typeof r.manifest.digest !== "string" || !HEX64.test(r.manifest.digest)) f.push("manifest.digest");
+    if (!Number.isInteger(r.manifest.files) || r.manifest.files < 1) f.push("manifest.files");
+  }
+  if (isPlainObject(r.baseline)) {
+    if (typeof r.baseline.releaseLocus !== "string" || !HEX40.test(r.baseline.releaseLocus)) f.push("baseline.releaseLocus");
+    if (r.baseline.algorithm !== MANIFEST_ALGORITHM) f.push("baseline.algorithm");
+    if (typeof r.baseline.digest !== "string" || !HEX64.test(r.baseline.digest)) f.push("baseline.digest");
+  }
+  if (!f.length && text !== JSON.stringify(r, null, 2)) f.push("the record is not in canonical form (duplicate keys or formatting)");
+  return f.length ? { ok: false, findings: f } : { ok: true, record: r };
+}
+
+/** Added line numbers (1-based, new side) of one file in one commit. */
+function addedLines(repo, commit, path) {
+  const out = git(repo, ["diff", "--unified=0", "--no-color", `${commit}^`, commit, "--", path]);
+  const lines = new Set();
+  for (const m of out.matchAll(/^@@ -\d+(?:,\d+)? \+(\d+)(?:,(\d+))? @@/gm)) {
+    const start = Number(m[1]);
+    const count = m[2] === undefined ? 1 : Number(m[2]);
+    for (let i = 0; i < count; i++) lines.add(start + i);
+  }
+  return lines;
+}
+
+/**
+ * The one acceptance record that `commit` itself introduces into B-050: a heading line
+ * "### F3 acceptance record" and its fenced json block, every line added by that commit.
+ * The commit must be a single-parent commit inside analyzed..publication. Inherited, quoted,
+ * duplicated or prose-only records refuse.
+ */
+export function acceptanceAt(repo, commit, { analyzedHead, publicationHead }) {
+  let full;
+  try {
+    full = git(repo, ["rev-parse", "--verify", `${commit}^{commit}`]);
+  } catch {
+    return { ok: false, findings: ["the review commit does not exist"] };
+  }
+  if (full === analyzedHead || !isAncestor(repo, analyzedHead, full) || !isAncestor(repo, full, publicationHead)) {
+    return { ok: false, findings: ["the review commit is outside the allowed analyzed..publication history"] };
+  }
+  const parents = git(repo, ["rev-list", "--parents", "-n", "1", full]).split(" ").slice(1);
+  if (parents.length !== 1) return { ok: false, findings: ["the review commit must have exactly one parent"] };
+  const path = git(repo, ["ls-tree", "--name-only", full, "docs/handoff/"]).split("\n").find((p) => /^docs\/handoff\/B-050-/.test(p));
+  if (!path) return { ok: false, findings: ["B-050 is absent at the review commit"] };
+  const added = addedLines(repo, full, path);
+  const lines = git(repo, ["show", `${full}:${path}`]).split("\n").map((l) => l.replace(/\r$/, ""));
+  const blocks = [];
+  for (let i = 0; i < lines.length; i++) {
+    if (lines[i] !== "### F3 acceptance record" || lines[i + 1] !== "```json") continue;
+    const end = lines.indexOf("```", i + 2);
+    if (end < 0) continue;
+    let all = true;
+    for (let k = i; k <= end; k++) if (!added.has(k + 1)) all = false;
+    if (all) blocks.push({ start: i + 1, end: end + 1, text: lines.slice(i + 2, end).join("\n") });
+  }
+  if (blocks.length !== 1) return { ok: false, findings: [blocks.length ? "the review commit adds more than one acceptance record" : "the review commit adds no complete acceptance record"] };
+  const parsed = parseAcceptance(blocks[0].text);
+  if (!parsed.ok) return parsed;
+  const blob = git(repo, ["rev-parse", `${full}:${path}`]);
+  return { ok: true, record: parsed.record, locus: { commit: full, path, blob, lines: [blocks[0].start, blocks[0].end] } };
+}
+
+// --- F3-R6: baseline selection through the release chain ---
+
+/**
+ * The live state's baseline: the bootstrap, or exactly one guarded release receipt for this
+ * target whose manifest equals the live state and whose predecessor chain reaches the bootstrap.
+ * Missing, ambiguous, rejected or broken-chain baselines refuse; never "the newest file".
+ */
+export function selectBaseline({ liveTarget = REAL_LIVE_TARGET, bootstrap = BOOTSTRAP } = {}) {
+  const target = liveTargetPath(liveTarget);
+  if (!existsSync(target)) return { ok: false, reason: "the live target is missing" };
+  const map = hashTree(target);
+  const digest = treeDigest(map);
+  const files = Object.keys(map).length;
+  const P = transactionPaths(liveTarget);
+  const canonTarget = canonicalFsPath(target);
+  const receipts = (existsSync(P.receipts) ? readdirSync(P.receipts) : [])
+    .filter((f) => /^release-.+\.json$/.test(f))
+    .map((f) => readJsonOr(join(P.receipts, f)))
+    .filter((r) => r && r.kind === "release" && r.manifestAlgorithm === MANIFEST_ALGORITHM && r.acceptance?.record?.disposition === "Accept" &&
+      r.acceptance?.locus?.commit && r.predecessor && canonicalFsPath(r.target || "") === canonTarget);
+  const matching = receipts.filter((r) => r.reviewedManifest === digest);
+  if (matching.length > 1) return { ok: false, reason: "more than one release receipt matches the live state: ambiguous baseline" };
+  if (matching.length === 1) {
+    let cur = matching[0];
+    for (let hops = 0; hops <= receipts.length; hops++) {
+      const p = cur.predecessor;
+      if (p.digest === bootstrap.digest && p.releaseLocus === bootstrap.releaseLocus) {
+        return { ok: true, baseline: { releaseLocus: matching[0].acceptance.locus.commit, algorithm: MANIFEST_ALGORITHM, digest, files } };
+      }
+      const next = receipts.filter((r) => r.reviewedManifest === p.digest && r.acceptance.locus.commit === p.releaseLocus);
+      if (next.length !== 1) return { ok: false, reason: "the release chain is broken or ambiguous" };
+      cur = next[0];
+    }
+    return { ok: false, reason: "the release chain does not reach the bootstrap" };
+  }
+  if (digest === bootstrap.digest && files === bootstrap.files) {
+    return { ok: true, baseline: { releaseLocus: bootstrap.releaseLocus, algorithm: MANIFEST_ALGORITHM, digest, files } };
+  }
+  return { ok: false, reason: "the live state matches no released baseline (bootstrap or chain)" };
+}
+
+// --- F3-R3/R3a/R3b: work states, the exclusive work claim and the commands ---
+
+const STATE_FILE = "STATE.json";
+const CLAIM_FILE = ".claim";
+const readWork = (work) => readJsonOr(join(work, STATE_FILE));
+const writeWork = (work, state) => writeDurable(join(work, STATE_FILE), state);
+const result = (outcome, extra = {}) => ({ outcome, exit: exitFor(outcome), ...extra });
+const refusedWork = (reason, extra = {}) => ({ outcome: "refused", exit: EXIT.refused, reason, message: "this run did not publish or create a transaction journal", ...extra });
+
+/** Runs `fn` holding the exclusive work claim; a held or abandoned claim refuses and is never replaced. */
+function withClaim(work, fn) {
+  const token = randomUUID();
+  const path = join(work, CLAIM_FILE);
+  if (!createExclusive(path, ownerRecord(token))) return refusedWork("the work claim is held: another entrant is active, or an abandoned claim needs evidenced manual recovery");
+  try {
+    return fn();
+  } finally {
+    releaseOwned(path, token);
+  }
+}
+
+/**
+ * The `preparing` gate (F3-R3b), run under the claim: an alive or unknown owner refuses with the
+ * work unchanged; only a proved-dead owner, re-checked by the same run token, makes it `failed`.
+ */
+function preparingGate(work) {
+  if (existsSync(join(work, STATE_FILE)) && readWork(work) === undefined) return refusedWork("preparation ownership cannot be established (unreadable work state)");
+  const s = readWork(work);
+  if (s?.state !== "preparing") return null;
+  const first = s.owner ? ownerState(s.owner) : "unknown";
+  if (first === "alive") return refusedWork("the preparation owner is alive");
+  if (first !== "dead") return refusedWork("preparation ownership cannot be established");
+  const again = readWork(work);
+  if (again?.state !== "preparing" || again.owner?.runToken !== s.owner.runToken || ownerState(again.owner) !== "dead") return refusedWork("the preparation state changed during the check");
+  writeWork(work, { ...again, state: "failed", reason: "the preparing owner was proved dead; its partial candidate is never resumed" });
+  return result("failed", { reason: "the preparing owner was proved dead" });
+}
+
+const callerOf = (repo, snapshot) => {
+  let mergeBase = null;
+  try {
+    if (snapshot.upstream) mergeBase = git(repo, ["merge-base", "HEAD", snapshot.upstream]);
+  } catch {
+    // no merge base: recorded as null
+  }
+  const root = resolve(repo);
+  return { head: snapshot.head, branch: snapshot.branch, upstream: snapshot.upstream, mergeBase, rootNative: root, gitDirNative: join(root, ".git") };
+};
+
+/** One generation attempt from frozen inputs; writes only inside its own attempt folder. */
+function attempt(work, s, answers, deps) {
+  const n = (s.attempts ?? 0) + 1;
+  const dir = join(work, `attempt-${n}`);
+  mkdirSync(dir, { recursive: true });
+  const baseline = join(dir, "baseline");
+  cpSync(liveTargetPath(s.liveTarget), baseline, { recursive: true });
+  if (digestOf(baseline) !== s.frozen.baseline.digest) return { attempts: n, outcome: "failed", reason: "the baseline copy does not equal the frozen baseline" };
+  const gen = deps.generate({ repo: s.repo, snapshot: s.frozen.snapshot, baseline, work: join(dir, "gen"), answers, tool: deps.tool, cli: deps.cli, fragmentsOrder: deps.fragmentsOrder });
+  if (gen.status === "pending-semantic") return { attempts: n, outcome: "pending", pending: gen.pending };
+  if (gen.status !== "generated") return { attempts: n, outcome: "failed", reason: gen.reason || "generation failed" };
+  const staging = join(dir, "staging");
+  const composed = deps.compose({ candidateState: gen.state, baseline, staging, workRoot: work, source: { repo: s.repo, snapshot: s.frozen.snapshot }, caller: callerOf(s.repo, s.frozen.snapshot), frozenAt: deps.now(), fragmentsDir: join(gen.checkout, "docs", "graph-fragments") });
+  if (!composed.ok) return { attempts: n, outcome: "failed", reason: (composed.findings || []).slice(0, 5).join("; ") };
+  return { attempts: n, outcome: "ready", ready: { staging, manifest: composed.manifest, graphSha256: composed.graphSha256, files: composed.files, frozenAt: composed.frozenAt } };
+}
+
+const defaults = (deps = {}) => ({ generate: generateCandidate, compose: composeCandidate, now: () => new Date().toISOString(), ...deps });
+
+/** Writes `preparing` under the claim, runs one attempt outside it, then settles the state under the claim. */
+function runAttempt(work, s, answers, deps) {
+  const owner = ownerRecord(randomUUID());
+  const started = withClaim(work, () => {
+    const gate = preparingGate(work);
+    if (gate) return gate;
+    writeWork(work, { ...s, state: "preparing", owner });
+    return null;
+  });
+  if (started) return started;
+  let r;
+  try {
+    r = attempt(work, s, answers, deps);
+  } catch (e) {
+    r = { attempts: (s.attempts ?? 0) + 1, outcome: "failed", reason: String(e.message) };
+  }
+  return withClaim(work, () => {
+    const cur = readWork(work);
+    if (cur?.state !== "preparing" || cur.owner?.runToken !== owner.runToken) return refusedWork("the work state changed during preparation");
+    const next = { ...s, attempts: r.attempts, state: r.outcome, owner: undefined, ready: r.ready, pending: r.pending, reason: r.reason };
+    if (r.outcome === "pending") writeDurable(join(work, "PENDING.json"), r.pending);
+    writeWork(work, next);
+    return result(r.outcome, { workId: s.workId, reason: r.reason, ready: r.ready, pending: r.pending });
+  });
+}
+
+/** `prepare --work <new dir>`: freezes the source, pins and baseline, then runs the first attempt. */
+export function prepareWork({ repo, work, answers = {}, answersHash = null, liveTarget = REAL_LIVE_TARGET, bootstrap = BOOTSTRAP, deps } = {}) {
+  if (existsSync(work) && readdirSync(work).length) return refusedWork("the work folder is not empty: use a new folder, or prepare --resume");
+  mkdirSync(work, { recursive: true });
+  const d = defaults(deps);
+  const pins = d.tool ? { ok: true, cli: d.cli } : pinnedCli(d.cli);
+  if (!pins.ok) return refusedWork(pins.reason);
+  const snapshot = snapshotSource(repo);
+  if (!snapshot.ok) return refusedWork(snapshot.reason);
+  const base = selectBaseline({ liveTarget, bootstrap });
+  if (!base.ok) return refusedWork(base.reason);
+  const s = { workId: randomUUID(), repo: resolve(repo), liveTarget: resolve(liveTarget), attempts: 0, answersHash,
+    frozen: { snapshot, pins: TOOL_PINS, baseline: base.baseline } };
+  return runAttempt(work, s, answers, { ...d, cli: pins.cli });
+}
+
+/** `prepare --resume <dir> --answers <file>`: only from `pending`, only on unchanged frozen inputs. */
+export function resumeWork({ work, answers = {}, answersHash = null, bootstrap = BOOTSTRAP, deps } = {}) {
+  const d = defaults(deps);
+  const checked = withClaim(work, () => {
+    const gate = preparingGate(work);
+    if (gate) return gate;
+    const s = readWork(work);
+    if (s?.state === "ready") return s.answersHash === answersHash ? result("ready", { workId: s.workId }) : (writeWork(work, { ...s, state: "failed", reason: "the answers changed after ready" }), result("failed", { reason: "the answers changed after ready" }));
+    if (s?.state !== "pending") return refusedWork(`resume needs a pending work folder (state: ${s?.state ?? "none"})`);
+    const fail = (reason) => (writeWork(work, { ...s, state: "failed", reason }), result("failed", { reason }));
+    const same = snapshotMatches(s.repo, s.frozen.snapshot);
+    if (!same.ok) return fail(`the frozen source changed: ${same.reason}`);
+    if (JSON.stringify(TOOL_PINS) !== JSON.stringify(s.frozen.pins)) return fail("the tool pins changed");
+    const base = selectBaseline({ liveTarget: s.liveTarget, bootstrap });
+    if (!base.ok || base.baseline.digest !== s.frozen.baseline.digest) return fail("the live baseline changed");
+    return { proceed: s };
+  });
+  if (!checked.proceed) return checked;
+  return runAttempt(work, { ...checked.proceed, answersHash }, answers, d);
+}
+
+/**
+ * `publish --work <dir> --review <commit>`: from `ready` (or a `reviewed` re-entry with the same
+ * commit and no journal). Under the publication lock it re-validates the source rule, the
+ * acceptance record and the frozen identity, writes `reviewed`, then runs the transaction.
+ */
+export function publishWork({ work, review, bootstrap = BOOTSTRAP, transaction = {} } = {}) {
+  return withClaim(work, () => {
+    const gate = preparingGate(work);
+    if (gate) return gate;
+    const s = readWork(work);
+    if (s?.state === "reviewed") {
+      if (s.acceptance?.locus?.commit !== review && !(review && s.acceptance?.locus?.commit?.startsWith(review))) return refusedWork("a reviewed work folder re-enters only with its own review commit");
+      if (existsSync(transactionPaths(s.liveTarget).journal)) return refusedWork("a transaction journal exists: run recover");
+    } else if (s?.state !== "ready") return refusedWork(`publish needs a ready work folder (state: ${s?.state ?? "none"})`);
+    const validate = () => {
+      const src = publicationSourceFindings(s.repo, s.frozen.snapshot);
+      if (!src.ok) throw new Error(`source rule: ${src.findings.join("; ")}`);
+      const acc = acceptanceAt(s.repo, review, { analyzedHead: s.frozen.snapshot.head, publicationHead: src.publicationHead });
+      if (!acc.ok) throw new Error(`acceptance record: ${acc.findings.join("; ")}`);
+      const r = acc.record;
+      const want = { workId: s.workId, graphSha256: s.ready.graphSha256, "manifest.digest": s.ready.manifest, "manifest.files": s.ready.files, analyzedSource: s.frozen.snapshot.head, "baseline.releaseLocus": s.frozen.baseline.releaseLocus, "baseline.digest": s.frozen.baseline.digest };
+      const got = { workId: r.workId, graphSha256: r.graphSha256, "manifest.digest": r.manifest.digest, "manifest.files": r.manifest.files, analyzedSource: r.analyzedSource, "baseline.releaseLocus": r.baseline.releaseLocus, "baseline.digest": r.baseline.digest };
+      const diff = Object.keys(want).filter((k) => want[k] !== got[k]);
+      if (diff.length) throw new Error(`the acceptance record does not match the work folder: ${diff.join(", ")}`);
+      const base = selectBaseline({ liveTarget: s.liveTarget, bootstrap });
+      if (!base.ok || base.baseline.digest !== s.frozen.baseline.digest) throw new Error("the live baseline changed since prepare");
+      const acceptance = { record: r, locus: acc.locus };
+      writeWork(work, { ...s, state: "reviewed", acceptance, publicationHead: src.publicationHead });
+      return { acceptance, publicationHead: src.publicationHead };
+    };
+    const r = publish({ ...transaction, target: s.liveTarget, staging: s.ready.staging, reviewedManifest: s.ready.manifest, baselineManifest: s.frozen.baseline.digest,
+      source: { repo: s.repo, snapshot: s.frozen.snapshot }, predecessor: { releaseLocus: s.frozen.baseline.releaseLocus, digest: s.frozen.baseline.digest },
+      live: { liveTarget: s.liveTarget, workRoot: work, validate } });
+    const cur = readWork(work);
+    if (r.ok) {
+      writeWork(work, { ...cur, state: "published", runToken: r.runToken });
+      return result("released", { message: "published: live equals the reviewed manifest", runToken: r.runToken });
+    }
+    const outcome = r.recovery ? r.recovery.outcome : r.outcome;
+    if (cur?.state === "reviewed") writeWork(work, { ...cur, lastOutcome: outcome, lastReason: r.reason });
+    return outcome === "refused" ? refusedWork(r.reason) : result(outcome, { reason: r.reason, message: OUTCOME_MESSAGE[outcome] });
+  });
+}
+
+/** Messages state only verified facts (revision 3b's table). */
+export const OUTCOME_MESSAGE = Object.freeze({
+  "aborted-live-unchanged": "not published: live still equals the prior release",
+  restored: "restored: live equals the prior release",
+  "rolled-back": "restored: live equals the prior release",
+  "completed-release": "published (completed by recovery)",
+  "recovery-required": "recovery required; the live state is not verified",
+});
+
+/** `recover`: owned recovery of the live target; never takes over a peer or unknown owner. */
+export function recoverLive({ liveTarget = REAL_LIVE_TARGET, inject } = {}) {
+  const r = recover({ target: liveTarget, live: { liveTarget }, inject });
+  return r.outcome === "refused" ? refusedWork(r.reason) : result(r.outcome, { reason: r.reason, message: OUTCOME_MESSAGE[r.outcome] });
+}
+
+/** Parses `--flag value` pairs. */
+function flags(argv) {
+  const o = {};
+  for (let i = 0; i < argv.length; i++) if (argv[i].startsWith("--")) o[argv[i].slice(2)] = argv[i + 1], i++;
+  return o;
+}
+
+/** The CLI: prepare, publish or recover against the real live target only. Returns { exit, ...result }. */
+export function cli(argv, { repo = process.cwd() } = {}) {
+  const [verb, ...rest] = argv;
+  const o = flags(rest);
+  const live = liveTargetPath(join(repo, ".graphify"));
+  if (!["prepare", "publish", "recover"].includes(verb)) return { exit: EXIT.refused, outcome: "refused", reason: refusal() };
+  if (canonicalFsPath(live) !== canonicalFsPath(REAL_LIVE_TARGET)) return refusedWork("this repository's .graphify does not resolve to the real live target");
+  const answersOf = (p) => (p ? { answers: JSON.parse(readFileSync(p, "utf8").replace(/^\uFEFF/, "")), answersHash: createHash("sha256").update(readFileSync(p)).digest("hex") } : {});
+  if (verb === "recover") return recoverLive({ liveTarget: REAL_LIVE_TARGET });
+  if (verb === "publish") return o.work && o.review ? publishWork({ work: resolve(o.work), review: o.review }) : refusedWork("publish needs --work <dir> --review <commit>");
+  if (o.resume) return resumeWork({ work: resolve(o.resume), ...answersOf(o.answers) });
+  return o.work ? prepareWork({ repo, work: resolve(o.work), liveTarget: REAL_LIVE_TARGET, ...answersOf(o.answers) }) : refusedWork("prepare needs --work <new dir> or --resume <dir>");
+}
+
+// ---------------------------------------------------------------------------
+// Entry point: prepare, publish and recover only (`D-425`); anything else refuses.
 // ---------------------------------------------------------------------------
 
 export function refusal() {
-  return "guarded-rebuild: stage F2 (D-423, corrected by D-424) generates and composes candidates and publishes only to declared fixture targets, through its API. Live publication and runbook adoption (F3) are not authorized. Sync the graph with the D-409/D-410 procedure and the D-422 prune order.";
+  return "guarded-rebuild: stage F3 (D-425). Use: prepare --work <new dir> [--answers <file>] | prepare --resume <dir> --answers <file> | publish --work <dir> --review <commit> | recover. Lane B's acceptance record must be introduced by the review commit (handoff-only fast-forward). No raw rebuild of the live state; no fallback.";
 }
 
 if (process.argv[1] && pathToFileURL(resolve(process.argv[1])).href === import.meta.url) {
-  console.error(refusal());
-  process.exit(2);
+  const r = cli(process.argv.slice(2));
+  (r.exit === EXIT.ok || r.exit === EXIT.pending ? console.log : console.error)(r.outcome === "refused" && r.reason === refusal() ? refusal() : JSON.stringify(r, null, 1));
+  process.exit(r.exit);
 }

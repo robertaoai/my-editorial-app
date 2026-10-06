@@ -111,26 +111,56 @@ An **included** new document under `docs/` needs source-path coverage — a cura
 `source_file` points at it — because `graph-coverage` reads the curated layer and `hook-rebuild` alone
 never clears it. Curated concepts otherwise serve their actual semantic purpose, not a per-file quota.
 
-**Order of a pass:** final source commit → `hook-rebuild` (or `graphify update`) → restore any required
-inputs → **retire stale generated code symbols against a from-empty extraction of the same commit
-(`docs/graph-fragments/prune-stale-symbols.js`, README section 4; after the restore, which would otherwise re-add
-`docs/`-hosted code — `D-421`, order fixed by `D-422`)** → merge each applicable named fragment in dependency order → **verify each claimed fragment with
-`node docs/graph-fragments/merge7.js <fragment> --verify-only`** → descriptions last → full checks.
+**Sync the live graph only through the guarded procedure (`D-425`).** The manual D-409/D-410 route is
+retired, with **no fallback**:
+
+```bash
+node scripts/graphify/guarded-rebuild.mjs prepare --work <new folder under C:/CoWork/outputs>
+# exit 3 = pending: answer from source (descriptions by id, names by member-set hash), then
+node scripts/graphify/guarded-rebuild.mjs prepare --resume <folder> --answers <answers.json>
+# exit 0 = ready: Lane B reviews STATE.json's identity and commits one "### F3 acceptance record" to B-050
+node scripts/graphify/guarded-rebuild.mjs publish --work <folder> --review <Lane B's review commit>
+node scripts/graphify/guarded-rebuild.mjs recover   # only when a transaction journal exists
+```
+
+**What `prepare` does, in a disposable checkout of the final commit:**
+1. rebuild;
+2. docs-layer restore from its verified baseline copy;
+3. stale-symbol prune against a from-empty extraction, after the restore (`D-421`, order `D-422`);
+4. named fragment merges in dependency order;
+5. fill;
+6. description replay. A symbol whose source file changed is held for review (`D-424`);
+7. names reused only for identical member sets;
+8. ingest, the label cycle, a final merge, then composition with its reviewed manifest.
+
+Semantic completion stays last. Anything not answerable from source is returned as pending, never invented.
+
+**What `publish` accepts:** only the bytes Lane B accepted in a record that its own review commit introduces, on
+a handoff-only fast-forward of the analyzed source.
+
+**Exit codes:**
+
+| Exit | Meaning |
+|---|---|
+| 0 | Ready, published, or published (completed by recovery) |
+| 2 | Refused: this run did not publish or create a transaction journal |
+| 3 | Pending |
+| 4 | Preparation failed |
+| 5 | Recovery required: the live state is not verified |
+| 6 | Restored: live equals the prior release, verified |
+| 7 | Not published: live still equals the prior release |
+
+**No fallback means no bypass of the guard. It does not mean guaranteed restoration.** If the guard cannot
+publish, report the drift and keep the evidence; never run `graphify` against the live state directly. The lock
+excludes cooperating guarded runs only, never a raw `graphify` writer.
+
 **Node totals and the `--all` conflict audit do not prove parity**; only the per-fragment semantic
-equality check does.
+equality check does (`merge7.js <fragment> --verify-only`, read-only).
 
-**Semantic completion is the LAST action of a pass, because every rebuild undoes it.** `hook-rebuild`
-and `graphify update` both re-extract, and re-extraction **drops the ingested descriptions for
-extracted nodes** — curated fragment descriptions survive, extracted ones do not — after which
-`check-update` reports pending again. So: **commit everything, rebuild once at the final HEAD, merge
-fragments, then fill and ingest, then stop.** A rebuild after the ingest silently reverses it, and
-`docs-drift` will still say *synced*, because it compares heads and never reads the semantic state.
-
-**If a rebuild has already dropped them, do not re-author.** A dated backup —
-`.graphify/<date>/graph.json` — may still hold the pre-rebuild descriptions, replayable into the
-regenerated `batch-*.json` files by id. Check that it does: a backup taken after a fast rebuild holds
-none, and then descriptions are filled from the sources themselves (commit subjects, a symbol's own
-comment), never invented.
+**Why semantic completion is last:** every rebuild re-extracts and **drops the ingested descriptions for
+extracted nodes**. `prepare` therefore rebuilds once at the final commit and fills last. A description is never
+re-authored when it can be replayed from the verified baseline. It is filled from the sources themselves, never
+invented.
 
 **Community names must be proven applied, not assumed (`D-410`, observed in `D-409`).** After
 description/community update, compare the final saved graph's global community labels and every node's
@@ -139,9 +169,9 @@ state is not applied-name evidence. In the graphify 0.17.1 cached-label case obs
 older names; the existing graphify label assistant emit/answer/ingest cycle applied the member-derived names.
 When needed, use that supported cycle, then independently compare complete member sets before/after, all
 intended global/node names, zero map contradictions/multi-name IDs, every fragment-owned node/edge field,
-completed semantic work and exact branch/analyzed revision. Re-merge after any destructive operation. On
-identity, wording or saved-state failure, stop and use the authorized verified-backup restoration contract;
-record hashes and the exact failed member/name/field. Release only on the required independent review.
+completed semantic work and exact branch/analyzed revision. composition refuses fragment-field, name-binding and
+raw lifecycle mismatches; complete before/after member-set comparison stays part of Lane B's exact-hash review. On failure, keep the evidence and use `recover` or a new work folder. Publication requires
+Lane B's acceptance record for the exact bytes (`D-425`).
 
 ## 8. Verify — and negative-test
 
@@ -165,13 +195,16 @@ against a modified document since the day it was written.
 ## 9. Sync the graph, then report what you did NOT do
 
 ```bash
-npx graphify hook-rebuild
+node scripts/graphify/guarded-rebuild.mjs prepare --work <new folder under C:/CoWork/outputs>
 ```
 
-`.graphify/needs_update` is written only by graphify's git hook, and **no git hook is
-installed here** — its absence is no signal. Compare `.graphify/branch.json`'s
-`lastAnalyzedHead` against `git rev-parse HEAD`. After rebuilding, follow §7's order and verify each
-claimed fragment with `--verify-only`; a node count that holds steady proves nothing (`G51`).
+Then follow §7's guarded procedure to `publish` (`D-425`); never rebuild the live state directly.
+`.graphify/needs_update` is written only by graphify's git hook, and **no git hook is installed here**, so its
+absence is no signal. Compare `.graphify/branch.json`'s `lastAnalyzedHead` against `git rev-parse HEAD`.
+
+After publication, verify each claimed fragment with `--verify-only`, then `check-update` and `bun run check`; a
+node count that holds steady proves nothing (`G51`). Between the source commit and its publication, docs-drift
+reports the expected stale graph: report it as stale, and **claim 19/19 only after publication**.
 
 Close by stating explicitly what was **left untouched and why** — the deferred items,
 the other lanes' work, the claims you noticed but did not fix. A completion report that

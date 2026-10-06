@@ -119,13 +119,10 @@ The graph fell from roughly 1800 nodes to roughly 480 at the 2026-09-17 rebuild 
 unnoticed for days: `graph-coverage` reported a backlog and no check said why. The fast rebuild keeps
 code and handoff nodes; the docs nodes are gone, and **every curated fragment then fails `merge7.js`
 on a dangling edge** because its endpoints were those docs nodes. Do not re-author them. Replay them by
-id from the newest dated backup that still has them:
-
-```bash
-npx graphify hook-rebuild
-node docs/graph-fragments/restore-docs-layer.js .graphify/<date>/graph.json   # newest backup with the docs layer
-# then merge every mergeable fragment in dependency order (section 4), naming each one
-```
+id from the verified baseline copy. **`guarded-rebuild.mjs prepare` (`D-425`) performs this inside its disposable
+checkout:** a rebuild, then `restore-docs-layer.js` against its baseline copy's `graph.json`, then every mergeable
+fragment in dependency order (this section), each named. Never run these steps against the live state: the manual
+route is retired, with no fallback.
 
 **Retire stale generated code symbols AFTER the restore, before merging (`D-421`, order fixed by `D-422`).**
 `restore-docs-layer.js` restores every node whose source file is under `docs/` — including generated code in
@@ -134,15 +131,12 @@ nodes return). Run the restore shown above first, then this step, then the fragm
 `graph.json` forward, so a generated code node the current extraction no longer produces survives
 indefinitely: neither `graphify update --force` nor clearing `cache/` removes it, and a from-empty rebuild in
 place would drop the accumulated commit, handoff and docs layers with it. Make a from-empty extraction of the
-SAME commit in a disposable clone whose `origin` is the caller's, then retire by id:
+SAME commit in a disposable clone whose `origin` is the caller's, then retire by id.
 
-```bash
-git clone --no-hardlinks . <disposable>/clone && git -C <disposable>/clone remote set-url origin "$(git remote get-url origin)"
-git -C <disposable>/clone checkout -B <branch> <analyzed-commit>     # no .graphify copied in: from empty
-(cd <disposable>/clone && env -u GRAPHIFY_CHANGED npx graphify hook-rebuild)
-node docs/graph-fragments/prune-stale-symbols.js <disposable>/clone/.graphify --dry-run   # read the list
-node docs/graph-fragments/prune-stale-symbols.js <disposable>/clone/.graphify
-```
+`prepare` does this in a second disposable clone. The clone carries the snapshot's `origin` and exact ref map,
+has no `.graphify` copied in, and runs with a sanitized environment. `prepare` then runs
+`prune-stale-symbols.js` against it, after the restore and before the merges, and refuses unless the persisted
+graph verifies.
 
 It retires only `file_type: code` nodes absent from the fresh extraction and not declared by any fragment,
 with their links, lists each one, refuses a fragment-declared code node, and refuses a fresh extraction of a
@@ -185,7 +179,9 @@ Run all four. A merge is not done until each passes:
 3. `graphify explain "<new concept>"` — resolves by its label, with a non-zero degree. Its community is graphify-derived and is not checked against the fragment (`D-408`; until then this step read "with the right community"). `explain` matches labels, not ids: an id lookup returning "no match" is a CLI limit, not a missing node (`D-406`).
 4. `graphify portable-check .graphify` — commit-safe artifacts carry repo-relative paths.
 
-**Back up `.graphify/graph.json` before merging.** Every merge in this project has been preceded by one.
+**Never merge into the live state directly (`D-425`).** Every merge happens inside `prepare`'s disposable
+checkout. The guarded `publish` keeps a verified backup beside the live state, and its outcome table (exit 0, 2,
+5, 6 or 7) says only what was verified.
 
 **Community names: prove them applied (`D-410`).** After description/community update, compare the final saved
 graph's global community labels and every node's community_name against the intended names bound to complete
@@ -194,9 +190,10 @@ cached-label case observed in D-409, update retained older names; the existing g
 emit/answer/ingest cycle applied the member-derived names. When needed, use that supported cycle, then
 independently compare complete member sets before/after, all intended global/node names, zero map
 contradictions/multi-name IDs, every fragment-owned node/edge field, completed semantic work and exact
-branch/analyzed revision. Re-merge after any destructive operation. On identity, wording or saved-state failure,
-stop and use the authorized verified-backup restoration contract; record hashes and the exact failed
-member/name/field. Release only on the required independent review.
+branch/analyzed revision. `prepare` re-merges after its destructive steps, and composition refuses fragment-field, name-binding and
+raw lifecycle mismatches; complete before/after member-set comparison stays part of Lane B's exact-hash review. On failure, keep the
+evidence and use `recover` or a new work folder. Publication requires Lane B's acceptance record for the exact bytes
+(`D-425`).
 
 ## 6. `G54` — closed, and what a swap would actually cost `[V1]`
 

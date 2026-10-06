@@ -1,14 +1,15 @@
 // `B-050` stages F1 (`D-418`–`D-421`) and F2 (`D-423`, corrected by `D-424`) —
 // the intended-case proof for the guarded-rebuild validators, the `docs-drift`
 // journal check, and F2's generation, composition, fixture-only publication
-// and owned recovery. Every case names the boundary it must reach, including D424-R1a and D424-R3a. A passing
+// and owned recovery. Every case names the boundary it must reach, including D424-R1a, D424-R3a and the D-425 F3 matrix. A passing
 // run is not live publication (F3), prevention or B-050 closure. All
 // filesystem cases run in a disposable temp directory; nothing here opens the
 // live `.graphify` state for writing (the `D-424` cases only read it, or link to it).
 
 import { afterAll, describe, expect, test } from "bun:test";
 import { execFileSync, spawn, spawnSync } from "node:child_process";
-import { existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, symlinkSync, writeFileSync } from "node:fs";
+import { createHash } from "node:crypto";
+import { cpSync, existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, symlinkSync, writeFileSync } from "node:fs";
 import { pathToFileURL } from "node:url";
 import * as G from "../graphify/guarded-rebuild.mjs";
 import { tmpdir } from "node:os";
@@ -273,10 +274,10 @@ describe("transaction journal and the docs-drift order (R5)", () => {
 });
 
 describe("entry point", () => {
-  test("running the guard refuses: F2/F3 are not authorized", () => {
+  test("running the guard with any verb but prepare, publish or recover refuses (D-425)", () => {
     const r = spawnSync(process.execPath, [join(REPO, "scripts", "graphify", "guarded-rebuild.mjs")], { encoding: "utf8" });
     expect(r.status).toBe(2);
-    expect(r.stderr).toContain("stage F2");
+    expect(r.stderr).toContain("stage F3");
   });
 });
 
@@ -348,7 +349,7 @@ describe("F2 publication on fixture targets (steps 6–7)", () => {
     expect(G.publish({ target: f.target, staging: f.staging, reviewedManifest: f.reviewed }).outcome).toBe("refused");
     const live = G.publish({ target: G.REAL_LIVE_TARGET, staging: f.staging, reviewedManifest: f.reviewed, fixture: f.parent, source: src() });
     expect(live.outcome).toBe("refused");
-    expect(live.reason).toContain("F3");
+    expect(live.reason).toContain("fixture mode");
   });
 
   test("a valid run publishes exactly the reviewed bytes, writes a receipt, clears journal and lock", () => {
@@ -702,7 +703,7 @@ describe("D-424 R1: one fixture boundary for publish, recover and compose", () =
     const f = fixture();
     const up = G.publish({ target: LIVE_PARENT, staging: f.staging, reviewedManifest: f.reviewed, fixture: f.parent, source: src() });
     expect(up.outcome).toBe("refused");
-    expect(up.reason).toContain("F3");
+    expect(up.reason).toContain("fixture mode");
     const asStaging = G.publish({ target: f.target, staging: G.REAL_LIVE_TARGET, reviewedManifest: f.reviewed, fixture: f.parent, source: src() });
     expect(asStaging.outcome).toBe("refused");
     expect(asStaging.reason).toContain("real live target");
@@ -718,7 +719,7 @@ describe("D-424 R1: one fixture boundary for publish, recover and compose", () =
     symlinkSync(G.REAL_LIVE_TARGET, link, "junction");
     expect(G.isRealLiveTarget(link)).toBe(true);
     expect(G.publish({ target: f.target, staging: link, reviewedManifest: f.reviewed, fixture: f.parent, source: src() }).reason).toContain("real live target");
-    expect(G.publish({ target: join(link, "inner"), staging: f.staging, reviewedManifest: f.reviewed, fixture: f.parent, source: src() }).reason).toContain("F3");
+    expect(G.publish({ target: join(link, "inner"), staging: f.staging, reviewedManifest: f.reviewed, fixture: f.parent, source: src() }).reason).toContain("fixture mode");
     expect(liveUntouched()).toBe(true);
   }, SLOW);
 
@@ -734,7 +735,7 @@ describe("D-424 R1: one fixture boundary for publish, recover and compose", () =
   test("recover refuses without a root, on the live target, and on journal paths outside the root", () => {
     const f = fixture();
     expect(G.recover({ target: f.target }).reason).toContain("declared fixture or work root");
-    expect(G.recover({ target: G.REAL_LIVE_TARGET, fixture: f.parent }).reason).toContain("F3");
+    expect(G.recover({ target: G.REAL_LIVE_TARGET, fixture: f.parent }).reason).toContain("fixture mode");
     const outsideOld = join(F2, `outside-old${n}`);
     writeFileSync(f.P.journal, JSON.stringify({ stage: "old-moved", target: f.P.target, runToken: "r", sourceCommit: "x", backupManifest: f.baseline, reviewedManifest: f.reviewed, old: outsideOld, backup: join(f.parent, "b"), staging: f.staging }));
     writeFileSync(f.P.lock, JSON.stringify({ runToken: "r", pid: 999999, host: hostname(), start: "x" }));
@@ -860,4 +861,354 @@ describe("D-424 G-D423-1: a changed symbol's description is pending, not replaye
     const s = setup(false);
     expect(G.replayDescriptions(s.state, join(s.baseline, "graph.json"), {}, s.d)).toEqual(["na", "nb"]);
   }, SLOW);
+});
+
+// ===========================================================================
+// STAGE F3 (`D-425`): guarded live publication. Every case runs on a fixture
+// "live" target in the live layout (a parent folder plus a junction link), with
+// fake generation/composition; the released root is only ever read.
+// ===========================================================================
+const sha256 = (b) => createHash("sha256").update(b).digest("hex");
+const ACC = "### F3 acceptance record";
+/** A fixture live layout: parent/.graphify state, reached through link/.graphify; its own bootstrap. */
+const liveLayout = () => {
+  const root = join(F2, `live${++n}`);
+  const dir = join(root, "parent", ".graphify");
+  mkdirSync(dir, { recursive: true });
+  writeFileSync(join(dir, "graph.json"), JSON.stringify({ v: "released", n }));
+  writeFileSync(join(dir, "branch.json"), "{}");
+  mkdirSync(join(root, "link"));
+  const link = join(root, "link", ".graphify");
+  symlinkSync(dir, link, "junction");
+  const map = G.hashTree(dir);
+  const boot = { releaseLocus: "a".repeat(40), algorithm: G.MANIFEST_ALGORITHM, digest: G.treeDigest(map), files: Object.keys(map).length };
+  return { root, dir, link, boot, P: G.transactionPaths(link) };
+};
+/** A clean source repository holding a B-050 handoff file. */
+const sourceRepo = () => {
+  const r = tinyRepo();
+  mkdirSync(join(r.d, "docs", "handoff"), { recursive: true });
+  writeFileSync(join(r.d, "docs", "handoff", "B-050-x.md"), "# B-050\n\nhistory\n");
+  r.g("add", ".");
+  r.g("commit", "-q", "-m", "handoff");
+  return r;
+};
+const head = (g) => g("rev-parse", "HEAD").trim();
+/** Fake generation: pending until a description answer exists; fake composition copies the candidate. */
+const deps = {
+  tool: () => ({ code: 0, out: "" }),
+  generate: ({ work, answers }) => {
+    if (!answers.descriptions?.x) return { status: "pending-semantic", pending: { descriptions: ["x"], communities: [] } };
+    const state = join(work, "state");
+    mkdirSync(state, { recursive: true });
+    writeFileSync(join(state, "graph.json"), JSON.stringify({ v: "reviewed", d: answers.descriptions.x }));
+    writeFileSync(join(state, "branch.json"), "{}");
+    return { status: "generated", state, checkout: join(work, "co") };
+  },
+  compose: ({ candidateState, staging }) => {
+    cpSync(candidateState, staging, { recursive: true });
+    const map = G.hashTree(staging);
+    return { ok: true, manifest: G.treeDigest(map), files: Object.keys(map).length, graphSha256: map["graph.json"], frozenAt: "2026-10-06T00:00:00.000Z" };
+  },
+};
+const stateOf = (work) => JSON.parse(readFileSync(join(work, "STATE.json"), "utf8"));
+/** The canonical acceptance record for a ready work folder. */
+const recordFor = (work, over = {}) => {
+  const st = stateOf(work);
+  return { kind: "graphify-f3-acceptance", version: 1, disposition: "Accept", scope: "F3 publication", reviewer: "Lane B", workId: st.workId,
+    graphSha256: st.ready.graphSha256, manifest: { algorithm: G.MANIFEST_ALGORITHM, digest: st.ready.manifest, files: st.ready.files },
+    analyzedSource: st.frozen.snapshot.head, baseline: { releaseLocus: st.frozen.baseline.releaseLocus, algorithm: G.MANIFEST_ALGORITHM, digest: st.frozen.baseline.digest },
+    pendingSemantics: 0, ...over };
+};
+const FENCE = "`".repeat(3);
+const block = (text) => `\n${ACC}\n${FENCE}json\n${text}\n${FENCE}\n`;
+/** Lane B's review commit: appends text to B-050 and commits it (handoff-only). */
+const reviewCommit = (r, text, msg = "review") => {
+  const p = join(r.d, "docs", "handoff", "B-050-x.md");
+  writeFileSync(p, readFileSync(p, "utf8") + text);
+  r.g("commit", "-q", "-am", msg);
+  return head(r.g);
+};
+/** A ready work folder: prepare (pending) then resume with answers. */
+const readyWork = (L, r) => {
+  const work = join(F2, `w${++n}`);
+  expect(G.prepareWork({ repo: r.d, work, liveTarget: L.link, bootstrap: L.boot, deps }).exit).toBe(G.EXIT.pending);
+  expect(G.resumeWork({ work, answers: { descriptions: { x: "X" } }, answersHash: "h1", bootstrap: L.boot, deps }).exit).toBe(G.EXIT.ok);
+  return work;
+};
+
+describe("D-425 F3-R1a: the acceptance record (schema, then the commit that introduces it)", () => {
+  const valid = () => ({ kind: "graphify-f3-acceptance", version: 1, disposition: "Accept", scope: "F3 publication", reviewer: "Lane B",
+    workId: "12345678-1234-4123-8123-123456789abc", graphSha256: "b".repeat(64), manifest: { algorithm: G.MANIFEST_ALGORITHM, digest: "c".repeat(64), files: 3 },
+    analyzedSource: "d".repeat(40), baseline: { releaseLocus: "e".repeat(40), algorithm: G.MANIFEST_ALGORITHM, digest: "f".repeat(64) }, pendingSemantics: 0 });
+  const t = (o) => JSON.stringify(o, null, 2);
+  test("a canonical, exactly-keyed, typed record parses", () => {
+    expect(G.parseAcceptance(t(valid())).ok).toBe(true);
+  });
+  test("extra, reordered, nested-extra, non-object, duplicate, wrong-type, wrong-literal, placeholder and non-canonical records refuse", () => {
+    const v = valid();
+    const { kind, ...rest } = v;
+    const nested = { ...v, manifest: { ...v.manifest, extra: 1 } };
+    const cases = [
+      t({ ...v, extra: 1 }),
+      t({ ...rest, kind }),
+      t(nested),
+      t({ ...v, manifest: "x" }),
+      t(v).replace('"version": 1,', '"version": 1,\n  "version": 1,'),
+      t({ ...v, version: "1" }),
+      t({ ...v, disposition: "Reject" }),
+      t({ ...v, graphSha256: "<64 lowercase hex>" }),
+      JSON.stringify(v),
+    ];
+    for (const c of cases) expect(G.parseAcceptance(c).ok).toBe(false);
+  });
+  test("only the record the review commit itself introduces is accepted; inherited, duplicated, quoted, prose-only and out-of-range records refuse", () => {
+    const r = sourceRepo();
+    const analyzed = head(r.g);
+    const rec = t(valid());
+    const good = reviewCommit(r, block(rec));
+    expect(G.acceptanceAt(r.d, good, { analyzedHead: analyzed, publicationHead: good }).ok).toBe(true);
+    const inherited = reviewCommit(r, "\nunrelated note\n");
+    expect(G.acceptanceAt(r.d, inherited, { analyzedHead: analyzed, publicationHead: inherited }).findings[0]).toContain("adds no complete");
+    const two = reviewCommit(r, block(rec) + block(rec));
+    expect(G.acceptanceAt(r.d, two, { analyzedHead: analyzed, publicationHead: two }).findings[0]).toContain("more than one");
+    const quoted = reviewCommit(r, block(rec).split("\n").map((l) => (l ? "> " + l : l)).join("\n"));
+    expect(G.acceptanceAt(r.d, quoted, { analyzedHead: analyzed, publicationHead: quoted }).ok).toBe(false);
+    const prose = reviewCommit(r, "\nAccepted " + "b".repeat(64) + ".\n");
+    expect(G.acceptanceAt(r.d, prose, { analyzedHead: analyzed, publicationHead: prose }).ok).toBe(false);
+    expect(G.acceptanceAt(r.d, analyzed, { analyzedHead: analyzed, publicationHead: prose }).findings[0]).toContain("outside");
+    expect(G.acceptanceAt(r.d, good, { analyzedHead: good, publicationHead: prose }).findings[0]).toContain("outside");
+  }, SLOW);
+});
+
+describe("D-425 F3-R2: the publication source rule (handoff-only fast-forward)", () => {
+  const setup = () => {
+    const r = sourceRepo();
+    return { ...r, snap: G.snapshotSource(r.d) };
+  };
+  test("a handoff-only fast-forward passes and records the publication HEAD", () => {
+    const r = setup();
+    const h = reviewCommit(r, "\nreview\n");
+    const res = G.publicationSourceFindings(r.d, r.snap);
+    expect(res.ok).toBe(true);
+    expect(res.publicationHead).toBe(h);
+  }, SLOW);
+  test("code, mixed, dirty, config, other-ref and non-fast-forward changes refuse", () => {
+    const code = setup();
+    writeFileSync(join(code.d, "a.txt"), "changed");
+    code.g("commit", "-q", "-am", "code");
+    expect(G.publicationSourceFindings(code.d, code.snap).findings.join(" ")).toContain("outside docs/handoff/");
+    const mixed = setup();
+    writeFileSync(join(mixed.d, "a.txt"), "changed");
+    writeFileSync(join(mixed.d, "docs", "handoff", "B-050-x.md"), "edited");
+    mixed.g("commit", "-q", "-am", "mixed");
+    expect(G.publicationSourceFindings(mixed.d, mixed.snap).ok).toBe(false);
+    const dirty = setup();
+    writeFileSync(join(dirty.d, "a.txt"), "dirty");
+    expect(G.publicationSourceFindings(dirty.d, dirty.snap).findings[0]).toContain("not clean");
+    const config = setup();
+    config.g("config", "core.lateflag", "1");
+    expect(G.publicationSourceFindings(config.d, config.snap).findings.join(" ")).toContain("config");
+    const tag = setup();
+    tag.g("tag", "t-late");
+    expect(G.publicationSourceFindings(tag.d, tag.snap).findings.join(" ")).toContain("other than the source branch");
+    const nff = setup();
+    reviewCommit(nff, "\nfirst\n");
+    const at = G.snapshotSource(nff.d);
+    nff.g("reset", "-q", "--hard", "HEAD~1");
+    reviewCommit(nff, "\nother\n");
+    expect(G.publicationSourceFindings(nff.d, at).findings.join(" ")).toContain("not a fast-forward");
+  }, SLOW);
+});
+
+describe("D-425 F3-R6: baseline selection (bootstrap, then the release chain)", () => {
+  test("the bootstrap matches; a changed live map refuses", () => {
+    const L = liveLayout();
+    expect(G.selectBaseline({ liveTarget: L.link, bootstrap: L.boot }).baseline.releaseLocus).toBe(L.boot.releaseLocus);
+    writeFileSync(join(L.dir, "branch.json"), "{\"changed\":1}");
+    expect(G.selectBaseline({ liveTarget: L.link, bootstrap: L.boot }).ok).toBe(false);
+  });
+  test("ambiguous receipts and a broken chain refuse", () => {
+    const L = liveLayout();
+    writeFileSync(join(L.dir, "graph.json"), "{\"v\":\"next\"}");
+    const live = digest(L.dir);
+    mkdirSync(L.P.receipts, { recursive: true });
+    const receipt = (name, pred) => writeFileSync(join(L.P.receipts, name), JSON.stringify({ kind: "release", manifestAlgorithm: G.MANIFEST_ALGORITHM, target: L.dir, reviewedManifest: live,
+      acceptance: { record: { disposition: "Accept" }, locus: { commit: "1".repeat(40) } }, predecessor: pred }));
+    receipt("release-a.json", { releaseLocus: "9".repeat(40), digest: "9".repeat(64) });
+    expect(G.selectBaseline({ liveTarget: L.link, bootstrap: L.boot }).reason).toContain("chain");
+    receipt("release-b.json", { releaseLocus: L.boot.releaseLocus, digest: L.boot.digest });
+    expect(G.selectBaseline({ liveTarget: L.link, bootstrap: L.boot }).reason).toContain("ambiguous");
+  });
+});
+
+describe("D-425 F3-R3/R3a/R3b: work states and commands", () => {
+  test("fresh → pending → resume → ready → committed review → publish → published; the next baseline follows the chain", () => {
+    const L = liveLayout();
+    const r = sourceRepo();
+    const work = readyWork(L, r);
+    const before = digest(L.dir);
+    const missing = G.publishWork({ work, review: head(r.g), bootstrap: L.boot });
+    expect(missing.exit).toBe(G.EXIT.refused);
+    expect(missing.message).toBe("this run did not publish or create a transaction journal");
+    expect(stateOf(work).state).toBe("ready");
+    const sha = reviewCommit(r, block(JSON.stringify(recordFor(work), null, 2)));
+    const res = G.publishWork({ work, review: sha, bootstrap: L.boot });
+    expect(res.exit).toBe(G.EXIT.ok);
+    expect(res.message).toBe("published: live equals the reviewed manifest");
+    expect(stateOf(work).state).toBe("published");
+    expect(digest(L.dir)).toBe(stateOf(work).ready.manifest);
+    expect(digest(L.dir)).not.toBe(before);
+    expect(existsSync(L.P.journal) || existsSync(L.P.lock)).toBe(false);
+    const rec = JSON.parse(readFileSync(join(L.P.receipts, readdirSync(L.P.receipts).find((x) => x.startsWith("release-"))), "utf8"));
+    expect(rec.acceptance.record.workId).toBe(stateOf(work).workId);
+    expect(rec.acceptance.locus.commit).toBe(sha);
+    expect(rec.predecessor).toEqual({ releaseLocus: L.boot.releaseLocus, digest: L.boot.digest });
+    expect(G.selectBaseline({ liveTarget: L.link, bootstrap: L.boot }).baseline.releaseLocus).toBe(sha);
+    expect(G.publishWork({ work, review: sha, bootstrap: L.boot }).exit).toBe(G.EXIT.refused);
+  }, SLOW);
+
+  test("a record that does not match the work folder refuses and the folder stays ready", () => {
+    const L = liveLayout();
+    const r = sourceRepo();
+    const work = readyWork(L, r);
+    const sha = reviewCommit(r, block(JSON.stringify(recordFor(work, { graphSha256: "0".repeat(64) }), null, 2)));
+    const res = G.publishWork({ work, review: sha, bootstrap: L.boot });
+    expect(res.exit).toBe(G.EXIT.refused);
+    expect(res.reason).toContain("graphSha256");
+    expect(stateOf(work).state).toBe("ready");
+  }, SLOW);
+
+  test("publish from fresh, pending or failed refuses; changed answers after ready and a changed source before resume fail", () => {
+    const L = liveLayout();
+    const r = sourceRepo();
+    const fresh = join(F2, `fresh${++n}`);
+    mkdirSync(fresh);
+    expect(G.publishWork({ work: fresh, review: "HEAD" }).exit).toBe(G.EXIT.refused);
+    const pend = join(F2, `pend${++n}`);
+    expect(G.prepareWork({ repo: r.d, work: pend, liveTarget: L.link, bootstrap: L.boot, deps }).exit).toBe(G.EXIT.pending);
+    expect(G.publishWork({ work: pend, review: "HEAD" }).exit).toBe(G.EXIT.refused);
+    writeFileSync(join(r.d, "a.txt"), "code change");
+    r.g("commit", "-q", "-am", "code");
+    expect(G.resumeWork({ work: pend, answers: { descriptions: { x: "X" } }, answersHash: "h1", bootstrap: L.boot, deps }).exit).toBe(G.EXIT.failed);
+    expect(G.publishWork({ work: pend, review: "HEAD" }).exit).toBe(G.EXIT.refused);
+    const r2 = sourceRepo();
+    const ready = readyWork(L, r2);
+    expect(G.resumeWork({ work: ready, answers: {}, answersHash: "h2", bootstrap: L.boot, deps }).exit).toBe(G.EXIT.failed);
+    expect(G.prepareWork({ repo: r2.d, work: ready, liveTarget: L.link, bootstrap: L.boot, deps }).reason).toContain("not empty");
+  }, SLOW);
+
+  test("preparing: alive and unknown owners refuse with the work unchanged; a proved-dead owner fails once; a held claim refuses", () => {
+    const L = liveLayout();
+    const r = sourceRepo();
+    const work = readyWork(L, r);
+    const s = stateOf(work);
+    const set = (owner) => writeFileSync(join(work, "STATE.json"), JSON.stringify({ ...s, state: "preparing", owner }));
+    const snap = () => G.treeDigest(G.hashTree(work));
+    set(G.ownerRecord("alive-run"));
+    let before = snap();
+    expect(G.resumeWork({ work, answers: {}, answersHash: "h1", bootstrap: L.boot, deps }).reason).toContain("alive");
+    expect(snap()).toBe(before);
+    const { start, ...noStart } = G.ownerRecord("unknown-run");
+    set(noStart);
+    before = snap();
+    expect(G.publishWork({ work, review: "HEAD" }).reason).toContain("cannot be established");
+    expect(snap()).toBe(before);
+    writeFileSync(join(work, "STATE.json"), "{torn");
+    expect(G.publishWork({ work, review: "HEAD" }).reason).toContain("cannot be established");
+    set({ runToken: "dead-run", pid: 999999, host: hostname(), start: "x" });
+    expect(G.resumeWork({ work, answers: {}, answersHash: "h1", bootstrap: L.boot, deps }).exit).toBe(G.EXIT.failed);
+    expect(stateOf(work).state).toBe("failed");
+    expect(G.resumeWork({ work, answers: {}, answersHash: "h1", bootstrap: L.boot, deps }).exit).toBe(G.EXIT.refused);
+    writeFileSync(join(work, ".claim"), JSON.stringify(G.ownerRecord("held")));
+    before = snap();
+    expect(G.publishWork({ work, review: "HEAD" }).reason).toContain("claim is held");
+    expect(snap()).toBe(before);
+  }, SLOW);
+
+  test("a prepare killed mid-run (real termination) is classified failed on the next entry, never resumed", () => {
+    const L = liveLayout();
+    const r = sourceRepo();
+    const work = join(F2, `killed${++n}`);
+    const script = join(F2, `kill${n}.mjs`);
+    writeFileSync(script, `
+const G = await import(${JSON.stringify(MODULE_URL)});
+G.prepareWork({ repo: ${JSON.stringify(r.d)}, work: ${JSON.stringify(work)}, liveTarget: ${JSON.stringify(L.link)},
+  bootstrap: ${JSON.stringify(L.boot)}, deps: { tool: () => ({}), generate: () => process.exit(137), compose: () => ({}) } });
+`);
+    expect(spawnSync(process.execPath, [script], { encoding: "utf8", timeout: 120000 }).status).toBe(137);
+    expect(stateOf(work).state).toBe("preparing");
+    expect(G.resumeWork({ work, answers: {}, answersHash: null, bootstrap: L.boot, deps }).exit).toBe(G.EXIT.failed);
+  }, SLOW);
+});
+
+describe("D-425 F3-R4/R4a: outcomes and messages", () => {
+  const reviewed = () => {
+    const L = liveLayout();
+    const r = sourceRepo();
+    const work = readyWork(L, r);
+    const sha = reviewCommit(r, block(JSON.stringify(recordFor(work), null, 2)));
+    return { L, r, work, sha };
+  };
+  test("an entry refusal leaves a peer's journal and lock byte-equal", () => {
+    const { L, work, sha } = reviewed();
+    writeFileSync(L.P.journal, JSON.stringify({ stage: "prepared", target: L.dir, runToken: "peer", sourceCommit: "x", backupManifest: L.boot.digest, reviewedManifest: "0".repeat(64) }));
+    writeFileSync(L.P.lock, JSON.stringify(G.ownerRecord("peer")));
+    const j = readFileSync(L.P.journal, "utf8"), l = readFileSync(L.P.lock, "utf8"), live = digest(L.dir);
+    const res = G.publishWork({ work, review: sha, bootstrap: L.boot });
+    expect(res.exit).toBe(G.EXIT.refused);
+    expect(readFileSync(L.P.journal, "utf8")).toBe(j);
+    expect(readFileSync(L.P.lock, "utf8")).toBe(l);
+    expect(digest(L.dir)).toBe(live);
+    const rr = G.recoverLive({ liveTarget: L.link });
+    expect(rr.exit).toBe(G.EXIT.refused);
+    expect(rr.reason).toContain("owner is alive");
+    expect(readFileSync(L.P.journal, "utf8")).toBe(j);
+  }, SLOW);
+  test("an owned failure restores (exit 6, verified); a blocked restore is recovery-required (exit 5) with evidence kept", () => {
+    const a = reviewed();
+    const before = digest(a.L.dir);
+    const res = G.publishWork({ work: a.work, review: a.sha, bootstrap: a.L.boot, transaction: { inject: { renameNew: () => { throw new Error("sharing violation"); } } } });
+    expect(res.exit).toBe(G.EXIT.restored);
+    expect(res.message).toBe("restored: live equals the prior release");
+    expect(digest(a.L.dir)).toBe(before);
+    const b = reviewed();
+    const blocked = G.publishWork({ work: b.work, review: b.sha, bootstrap: b.L.boot,
+      transaction: { inject: { renameNew: () => { throw new Error("sharing violation"); }, recovery: { restore: () => { throw new Error("access denied"); } } } } });
+    expect(blocked.exit).toBe(G.EXIT.recoveryRequired);
+    expect(blocked.message).toBe("recovery required; the live state is not verified");
+    expect(existsSync(b.L.P.journal)).toBe(true);
+  }, SLOW);
+  test("a receipt failure after verified is completed by recovery with the journal's original acceptance", () => {
+    const { L, work, sha } = reviewed();
+    const res = G.publishWork({ work, review: sha, bootstrap: L.boot, transaction: { inject: { writeReceipt: () => { throw new Error("disk full"); } } } });
+    expect(res.exit).toBe(G.EXIT.recoveryRequired);
+    const j = JSON.parse(readFileSync(L.P.journal, "utf8"));
+    expect(j.acceptance.locus.commit).toBe(sha);
+    writeFileSync(L.P.lock, JSON.stringify({ runToken: j.runToken, pid: 999999, host: hostname(), start: "x" }));
+    const rec = G.recoverLive({ liveTarget: L.link });
+    expect(rec.outcome).toBe("completed-release");
+    expect(rec.exit).toBe(G.EXIT.ok);
+    const receipt = JSON.parse(readFileSync(join(L.P.receipts, `release-${j.runToken}.json`), "utf8"));
+    expect(receipt.acceptance).toEqual(j.acceptance);
+    expect(receipt.completedByRecovery).toBe(true);
+  }, SLOW);
+  test("every outcome keeps its own exit code", () => {
+    expect([G.exitFor("released"), G.exitFor("refused"), G.exitFor("pending"), G.exitFor("failed"), G.exitFor("recovery-required"),
+      G.exitFor("restored"), G.exitFor("rolled-back"), G.exitFor("aborted-live-unchanged"), G.exitFor("completed-release"), G.exitFor("nothing-to-recover")])
+      .toEqual([0, 2, 3, 4, 5, 6, 6, 7, 0, 0]);
+  });
+});
+
+describe("D-425 F3-R5: no instruction routes around the guard", () => {
+  test("docs-drift, SKILL section 9 and README section 4 name the guarded procedure, never a raw live rebuild", () => {
+    const drift = readFileSync(join(REPO, "scripts", "checks", "docs-drift.mjs"), "utf8");
+    expect(drift).not.toContain("npx graphify hook-rebuild");
+    expect(drift).toContain("guarded-rebuild.mjs prepare");
+    for (const p of [[".claude", "skills", "sync-docs", "SKILL.md"], ["docs", "graph-fragments", "README.md"]]) {
+      const text = readFileSync(join(REPO, ...p), "utf8");
+      expect(text).toContain("guarded-rebuild.mjs");
+      expect(text).not.toMatch(/^npx graphify hook-rebuild\s*$/m);
+    }
+  });
 });

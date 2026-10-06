@@ -130,11 +130,11 @@ export function run() {
   //
   // So the two cases are reported differently. Ordinary staleness names a real
   // commit to re-analyze; a null record names the self-contradiction, because
-  // "run hook-rebuild" is the fix for one and merely the *cause* of the other.
+  // the guarded sync (`D-425`) is the fix for one, and a raw rebuild merely the *cause* of the other.
   let excludedOnlyAdvance = false;
   if (!analyzed) {
     findings.push(
-      `graphify's branch record has NO analyzed commit${state.stale === false ? " while still reporting `stale: false`" : ""} — the record contradicts itself and nothing has been verified against HEAD ${short(head)}. \`hook-rebuild\` intermittently nulls \`branchName\` and \`lastAnalyzedHead\` over a good record (\`G97\`); re-run it and CONFIRM \`lastAnalyzedHead\` equals HEAD before claiming the graph is current.`,
+      `graphify's branch record has NO analyzed commit${state.stale === false ? " while still reporting `stale: false`" : ""} — the record contradicts itself and nothing has been verified against HEAD ${short(head)}. A raw \`hook-rebuild\` intermittently nulls \`branchName\` and \`lastAnalyzedHead\` over a good record (\`G97\`). Do not re-run it against the live state: sync through \`node scripts/graphify/guarded-rebuild.mjs prepare\`, then Lane B's acceptance record, then \`publish --review\` (or \`recover\` when a transaction journal exists; \`D-425\`), and CONFIRM \`lastAnalyzedHead\` equals HEAD before claiming the graph is current.`,
     );
   } else if (analyzed !== head) {
     // `D-231`. HEAD moving past the analyzed commit is not itself staleness —
@@ -148,7 +148,7 @@ export function run() {
 
     if (changed === null) {
       findings.push(
-        `graph is STALE — last analyzed ${short(analyzed)}, HEAD is ${short(head)}, and the changed-path diff between them could not be computed (is ${short(analyzed)} a real, reachable commit?). Run \`npx graphify hook-rebuild\`, then re-merge \`docs/graph-fragments/\` if the curated node count drops (\`G51\`).`,
+        `graph is STALE — last analyzed ${short(analyzed)}, HEAD is ${short(head)}, and the changed-path diff between them could not be computed (is ${short(analyzed)} a real, reachable commit?). Sync through the guarded procedure: \`node scripts/graphify/guarded-rebuild.mjs prepare\`, then Lane B's acceptance record, then \`publish --review\` (or \`recover\` when a transaction journal exists). Never run a raw rebuild against the live state (\`D-425\`).`,
       );
     } else {
       const { governed, excludedOnly } = classifyChangedPaths(changed);
@@ -159,7 +159,7 @@ export function run() {
         excludedOnlyAdvance = true;
       } else {
         findings.push(
-          `graph is STALE — last analyzed ${short(analyzed)}, HEAD is ${short(head)}; ${governed.length} governed-intent path(s) changed without a later analysis: ${governed.slice(0, 5).join(", ")}${governed.length > 5 ? ` …and ${governed.length - 5} more` : ""}. Run \`npx graphify hook-rebuild\`, then re-merge \`docs/graph-fragments/\` if the curated node count drops (\`G51\`).`,
+          `graph is STALE — last analyzed ${short(analyzed)}, HEAD is ${short(head)}; ${governed.length} governed-intent path(s) changed without a later analysis: ${governed.slice(0, 5).join(", ")}${governed.length > 5 ? ` …and ${governed.length - 5} more` : ""}. Sync through the guarded procedure: \`node scripts/graphify/guarded-rebuild.mjs prepare\`, then Lane B's acceptance record, then \`publish --review\` (or \`recover\` when a transaction journal exists). Never run a raw rebuild against the live state (\`D-425\`).`,
         );
       }
     }
