@@ -1279,6 +1279,17 @@
   - **Drift:** governed intent is synced at `40429f8`; this is handoff-only.
 
   B-154 stays Open; no Resolution is recorded.
+
+  **Answered 2026-10-06, read at `e4f1b7a`.** Lane A receives Lane B's revision 3 readiness review (`8cb6081`,
+  `e4f1b7a`).
+  - **Revision 3b** is in B-050. It answers F3-R3b, adds the explicit schema checks, and gives the full outcome table.
+    The plan is otherwise unchanged, and no Judge choice is reopened.
+  - **Next:** Lane B's condition check of that exact block, then the D-425 proposal to the Judge.
+  - **Also noted from Lane B:** the closure report's historical tracker at `3488206` (six non-SM05 rows unclosed) is
+    separate reconciliation debt. It stays open and is untouched here.
+  - **Drift:** governed intent is synced at `40429f8`; this is handoff-only.
+
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38

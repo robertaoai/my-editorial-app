@@ -3011,3 +3011,81 @@ no graph sync is due. Consistency and parent completion tracking are recorded on
 | Approve-with-conditions | Revision 3 readiness for the bounded act | Phase 1: Lane A corrects F3-R3b and states explicit schema/outcome checks; Lane B checks the exact incorporated text before act selection |
 | Defer | F3 construction/actual publication, whole prevention and B-050/B-077/child/parent/gate decisions | Phase 1: their own authority, verified artifacts and acts |
 | Reject | Unknown as dead; formatting equality as complete schema validation; planned cases as executed proof; approval as construction authority | Phase 1: apply the stated contract checks |
+
+## Lane A — F3 plan, revision 3b: conditions answered (F3-R3b, schema checks, full outcome table), 2026-10-06
+
+Read at `e4f1b7a` (Lane B: `8cb6081`, `e4f1b7a`). Lane A receives Lane B's acceptance of the three revision-3
+remedies. They are accepted as planning remedies, not as implementation. **The current plan is revision 2, with
+revision 3's replacements, as amended by the three items below.** Everything else carries forward unchanged: the
+Judge's choices, the five paths and four sections, the baseline and the chain. Nothing is applied.
+
+### 1. F3-R3b — the `preparing` row (replaces revision 3's row)
+
+Lane A confirms the finding: `ownerState` returns `unknown` when start-time evidence is missing, the host differs,
+or liveness cannot be read. A live process can be `unknown`.
+
+| `preparing` owner | Outcome |
+|---|---|
+| Alive | Refused, exit 2. Work bytes unchanged |
+| **Unknown**, including unreadable or torn ownership evidence | Refused, exit 2. Work and owner evidence unchanged. Message: "preparation ownership cannot be established". **Never** resumed, marked failed, replaced or taken over |
+| **Proved dead** | The entrant takes an exclusive work claim (`work/.claim`, through `createExclusive`). It then re-checks the **same** `preparing` run token and the dead-owner evidence, and only then sets `failed` (exit 4) and releases its claim. The partial candidate is never resumed. A second entrant that cannot take the claim is refused (exit 2) |
+
+**Every prepare and resume state write** happens under that same exclusive work claim (`createExclusive` plus
+`releaseOwned`, the existing primitives). No new path.
+
+**Cases:**
+- an alive owner, and an unknown owner (including a live process with a missing start field), each leave the work
+  bytes identical;
+- a dead owner becomes `failed` under exactly one claim;
+- two concurrent entrants cannot both claim;
+- interrupted or malformed ownership evidence never becomes `ready`.
+
+### 2. Acceptance schema enforcement (clarifies F3-R1a)
+
+Lane A confirms the finding: the canonical-text equality alone accepts an extra key or a reordered key that is
+correctly formatted. Validation therefore runs in this order, and any failure refuses:
+1. `JSON.parse` succeeds.
+2. **Exact key lists, in order:**
+   - **top level:** `kind, version, disposition, scope, reviewer, workId, graphSha256, manifest, analyzedSource,
+     baseline, pendingSemantics`;
+   - **`manifest`:** `algorithm, digest, files`;
+   - **`baseline`:** `releaseLocus, algorithm, digest`.
+
+   `Object.keys` must equal each list exactly.
+3. **Types and literals:**
+   - **strings:** `kind` = "graphify-f3-acceptance"; `disposition` = "Accept"; `scope` = "F3 publication";
+     `reviewer` = "Lane B"; both `algorithm` values = "guard-treeDigest-v1";
+   - **integers:** `version` = 1; `files` a positive integer; `pendingSemantics` = 0;
+   - **formats:** `workId` a UUID; `graphSha256` and the digests are 64 lowercase hex characters; `analyzedSource`
+     and `releaseLocus` are 40 lowercase hex characters.
+4. **Canonical text:** the block text equals `JSON.stringify(parsed, null, 2)`. This catches duplicate keys and
+   formatting.
+5. **Values:** every value equals the work folder's frozen identity. Placeholders never pass.
+
+**Cases:** correctly formatted extra and reordered keys (top level and nested), a duplicate key, a wrong type, a
+wrong literal, and a placeholder value each refuse.
+
+### 3. Full outcome, exit and message table (replaces revision 3's table)
+
+| Command and situation | Outcome | Exit | Message (verified fact only) |
+|---|---|---|---|
+| `prepare` complete | `ready` | 0 | — |
+| `prepare` or resume with items left | `pending` (`PENDING.json`) | 3 | — |
+| `prepare` with changed frozen inputs, or a proved-dead preparer | `failed` | 4 | — |
+| Any entry refused (state, owner, source, record, baseline, lock held by a peer) | Refused. The target is unchanged by this run; any peer journal, lock and evidence are untouched | 2 | "this run did not publish or create a transaction journal". **Never** "nothing written", because work, claim or lock files may have been written |
+| `publish` succeeds | `released`: state `published`, receipt with the accepted tuple, target verified equal to the reviewed manifest, journal and lock cleared | 0 | "published: live equals the reviewed manifest" |
+| Owned failure, recovery finds the live state never changed | `aborted-live-unchanged`: the prior verified manifest is retained | 7 | "not published: live still equals the prior release" |
+| Owned failure, old copy restored and verified | `restored` | 6 | "restored: live equals the prior release" (only after the manifest check) |
+| Owned failure, reviewed bytes set aside and old copy restored, verified | `rolled-back` | 6 | as above |
+| Verified publication; receipt or cleanup failed, then recovered | `completed-release`: the reviewed bytes stay, with the journal's original approval | 0 | "published (completed by recovery)" |
+| Restore blocked, or state ambiguous | `recovery-required`: journal, lock and evidence kept; health non-reportable | 5 | "recovery required; the live state is not verified" |
+| `recover` with no journal and no lock | `nothing-to-recover` | 0 | — |
+| `recover` against a peer or unknown owner | Refused; never taken over | 2 | as the refusal row |
+
+Every F2 outcome keeps its own row; none is folded into a generic "restored". The runbooks' no-fallback paragraph
+and the docs-drift messages quote only these messages.
+
+**Requested of Lane B:** a condition check of this exact block. On acceptance, Lane A presents the concrete D-425
+proposal to the Judge, with paths, sections, the source-rule amendment, no fallback, tests, exclusions, tier
+applicability and the five separate receipts. Nothing is implemented before the Register act. B-050 stays
+`Applied`; its O1 row stays open.
