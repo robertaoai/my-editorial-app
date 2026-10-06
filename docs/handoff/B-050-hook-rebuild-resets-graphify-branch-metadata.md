@@ -3909,3 +3909,62 @@ Raw writers outside those instructions remain a stated limit, never "prevented".
 
 **Requested of Lane B:** review this draft: the obligation mapping, gaps P1–P8, the proposed paths, order and DoD.
 B-050 stays `Applied`; its O1 row stays open.
+
+## Lane B — whole-v4 proposal review: six planning corrections before an act, 2026-10-06
+
+### What happened
+
+Read Lane A's draft at 9182cc9 against current contract v4 (1047 onward), its two adopted conditions, the
+F1–F3 receipts, operative rules, installed pinned CLI and current guard. Lane B raises/reviews; Lane A answers.
+The new proposal is appropriate work, but is **not yet ready to issue as a work order**. Earlier bounded F3
+acceptance stands; the corrections below concern the next prevention unit, not retrospective stage closure.
+
+### What you need
+
+| Finding / proposal part | Source-grounded gap | Draft replacement / success criterion |
+|---|---|---|
+| PR1 — P1 historical versus operative rules | CLAUDE L37 and GEMINI L52 do direct live raw updates. The agent-rules reference explicitly preserves verbatim pre-D-324 history and gives current rules/Register precedence; rewriting its historical commands would corrupt the archive | Amend operative CLAUDE/GEMINI guidance and local workflow routing. Preserve archival text; if needed add current supersession guidance outside the verbatim body. Audit executable/operative instructions separately from quoted historical examples. Rule-budget/import checks and a scoped instruction audit must pass |
+| PR2 — P2 capture-lock lifecycle | The copy is unlocked, as claimed. The proposed held-lock exit 2 is not yet reconciled with attempt/runAttempt (only pending/ready/failed), or recovery when a preparation owner dies with a publication lock and no transaction journal | Under exclusive same-token ownership, recheck source and selected release, hash/copy/verify, then release before long generation. Define lock-purpose/state, claimed versus refused work outcomes, own-finally cleanup, and an evidenced abandonment route. Never overwrite/steal a live or unknown lock. Test held lock before copy, death after acquisition, copy/hash failure and successful retry; preserve peer bytes |
+| PR3 — P3 and obligation 3 input proof | hook-rebuild supports --scope, but the draft does not name its value or selection oracle. Prepending executable directories is not itself pin verification. The separate fresh-extraction branch checks only fr.code, not raw lifecycle records or stage writes before pruning; row 3's blanket Proved is too broad | Name supported scope/default overrides; freeze resolved node/git locations, versions/digests, child argv, sanitized environment and effective checkout config/options. Verify those bindings on use. Compare actual selected identities with snapshot-derived expectation, refuse cutoff crossing. Apply raw-null/no-op/identity checks to both rebuilt and from-empty extractions before consuming them; tests target each branch. No secret config values enter repository artifacts |
+| PR4 — P4 derived schema / negative proof | Counts, labels and a generation stamp alone cannot establish derived semantic parity. Live workspace-manifest has graph_hash null; scene/ontology use distinct schemas (scene nodes/edges, ontology graph_signature) | Inventory each promoted derived schema and declare its projection of the final graph, stable node/edge identities/fields, member labels, signatures and manifest references. Regenerate or validate that declared projection before promotion. Same-count wrong edge/label, stale signature, missing/extra artifact and incorrect manifest binding must refuse. Do not just write a matching stamp over wrong content |
+| PR5 — P5 same-source repeat / comparison | Receipt-2 acceptance necessarily advances HEAD after analyzed source; current prepareWork always snapshots current HEAD. A normal post-release prepare therefore cannot be called the same-source repeat. Same source alone also does not freeze CLI clock-based selection. Raw graph SHA and integer communities are different from semantic/member identity | Specify an isolated proof harness using the first run's frozen source/ref/tool/effective-input packet, then the verified released retained state for the follow-up; no source reset, live mutation or second publication. Show the source/selection equality before comparison. Compare retained bytes and node/edge semantics, complete member-set/name bindings; record raw hashes too. Any normalization of known volatile fields must be declared beforehand, not invented after a mismatch. A changed selection refuses/re-prepares, not an idempotence pass |
+| PR6 — P6 inventory / exact scope | Installed hook-check is an explicit process.exit(0) no-op. Claude's hint hook creates an empty date directory, not graph files. The local .agents workflow delegates to a global skill that contains update/watch/hook-install routes, so it is already an instruction route, not merely a conditional unknown | Record per-path classifications and inspected tool version/hash. Include .agents/workflows/graphify.md explicitly for guarded routing. Do not edit .codex/hooks.json solely for its verified no-op. Global skill/tool changes remain excluded; govern the local delegation to live state and state external invocation as a limit. Read-only CI search found no graphify route; this is not Lane C review or execution proof |
+
+**Obligation matrix correction:** retain accepted F1–F3 evidence as source-specific receipts, not unconditional
+whole-v4 Proved rows. Mark baseline serialization, effective selection/fresh-extraction checks, derived parity
+and repeat-run proof partial/open until their independent cases exist. Each row names the exact contract clause,
+code/test receipt, positive/negative boundary and surviving limitation. P7 fixture-only destructive recovery and
+P8 flake recurrence are defensible proposed bounds; a real-target failure drill remains excluded unless the Judge
+expressly chooses it. No new authentication or raw-writer exclusion is implied by instruction cleanup.
+
+**Proposed concrete scope after corrections:** guard and guard tests; operative CLAUDE.md/GEMINI.md;
+.agents/workflows/graphify.md; SKILL sections 7/9 and README section 5 (G-F3-8/9 trigger). Historical archive body,
+no-op Codex hook, global skill/tool, CI and real-target failure drills excluded. Any additional path or new proof
+command/interface must be listed explicitly in the corrected act proposal. Required Register/Build Spec/Inventory
+propagation and unaffected tiers remain part of Lane A's governance recording, not an implied code permission.
+
+**Revised order:** read-only route/schema/input inventory -> define capture-lock outcomes and proof harness ->
+freeze exact paths and acceptance matrix -> Lane B readiness review -> Judge's bounded act -> authorized fixes
+and independent negative evidence -> guarded sync with exact-byte review/release/full health -> isolated
+following-run proof using frozen inputs/retained released state -> independent whole-v4 review. If the proof
+requires a new governed fix, stop and re-sync/review that final source; never close against an obsolete revision.
+Only then propose B-050's separate source-specific disposition and B-077's 17-target final review.
+
+The Chief Editor/Judge needs the corrected concrete scope and proposed P7/P8 bounds, not another approval of
+F3. Lane A answers PR1–PR6 in this existing thread; do not create duplicate tracking. The next step is revision
+of this proposal, not code, proof execution or a Register act inferred from this review.
+
+### What you did instead
+
+Read-only rule/CLI/hook/workflow and schema inventory; verified scope support and no-op hook-check by installed
+source, without running any hook/update/watch/install. Examined current capture/prepare/fresh-extraction code.
+Independent consistency at 9182cc9: **19/19**. Governed drift clean at 00c23ff through handoff-only advances;
+this review needs no rebuild. No repair/proof harness execution, app build, live mutation/recovery, canonical
+edit, archival rewrite, new Register act, tracker/header/receiver-answer change or push.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | F3 completion; real raw-route and unfinished prevention obligations; read-only inventory findings | Phase 1: bounded source evidence only |
+| Approve-with-conditions | Revised prevention planning direction | Phase 1: Lane A answers PR1–PR6 with exact paths, outcomes, schema checks and frozen-input proof plan; Lane B readiness review |
+| Defer | Judge work order, code/proof execution, canonical G-F3-8/9 changes, B-050/B-077 and parent closure | Phase 1: corrected proposal, bounded act and independent evidence |
+| Reject | Current draft as execution-ready; archive-body rewrite; post-review HEAD as same source; counts/stamps or PATH order as sufficient proof | Phase 1: apply the named planning corrections |
