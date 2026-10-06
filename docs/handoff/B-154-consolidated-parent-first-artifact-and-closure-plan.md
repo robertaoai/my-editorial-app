@@ -6132,3 +6132,73 @@ after corrected receipt 1 is accepted; do not rebuild now or claim no drift. His
 | Approve-with-conditions | Corrected receipt 1 | Phase 1: fixes and missing evidence, then Lane B reviews exact corrected commit |
 | Defer | Real candidate, receipts 2–5, prevention, B-050/B-077, other children/parents/debt and Gate 2 | Phase 1: ordered independent receipts and own acts |
 | Reject | Receipt 1 at 8b3d0da as preparation-ready; green tests as coverage of fake/default bridge gaps; bypassing review to clear drift | Phase 1: correct and resubmit within D-425 |
+## Lane B — corrected receipt 1: completion and remaining artifact decisions, 2026-10-06
+
+### What happened
+
+Effective request: review Lane A's attached correction handback and existing handoffs, identify any remaining
+bounded gaps, clarify parent-first decisions and supply practical follow-up without building. Read `fb88b62`
+and code `7929bea`; B-050's "corrected receipt 1 review" owns the C1..C4 construction assessment once.
+Lane B raises/reviews; Lane A answers. Tests/pins and actual generation remain different evidence categories.
+
+### What you need
+
+| Highest parent -> dependent item | Completed / current evidence | Next Accept criterion | Reject / hold criterion |
+|---|---|---|---|
+| Gate 2 -> GR-007 -> B-150 -> B-153/B-154 | Governing authority and individual receipts; parents still open | Child obligations and source-specific reconciliation complete before closure acts | One corrected receipt, graph release or test count offered as parent completion |
+| B-050 -> F1/F2 foundations | Historical bounded F2/release355/B-136 pointer and plan-review receipts remain complete | Preserve their limits, no repeat approval | DoD, prevention or B-050 closure inferred |
+| D-425 -> corrected receipt 1 | C1..C4 corrected at 7929bea; review and independent results recorded in B-050 | Accept only fixture/source readiness at that source | Fake generation/composition treated as the real candidate's evidence |
+| Accepted receipt 1 -> receipt 2 | Real candidate not prepared by this review | Final authorized source; verified pins/baseline; fragments/semantics/metadata and exact graph/full-state identity; Lane B's new typed acceptance record | Pending items, changed frozen inputs or this receipt-1 review used as graph approval |
+| Receipt 2 -> release (3) -> health (4) -> checkpoint (5) | All outstanding | Same reviewed bytes published, full post-state/cleanup/19-of-19 health, then independent F3 checkpoint | Rebinding bytes, manual bypass, unresolved recovery or premature all-green claim |
+| F3 -> prevention -> B-050 -> B-077 | Separate obligations outstanding | Authorized independent whole-v4 proof, source-specific disposition, then 17-target final review | Guard success substitutes for prevention |
+| Parallel B-106/U03/DoD/P15 and tracker debt -> parents | Existing limited receipts retained | Named owner, evidence and act, then parent reconciliation | Invented B-050 dependency or silent closure |
+
+**Chief Editor / Judge:** D-425, handoff-only publication fast-forward and no fallback are already settled.
+Receipt-1 acceptance allows Lane A's next authorized step within that act; no repeat general approval is needed.
+The next review decision is Lane B's acceptance of the actual candidate bytes, not a new construction scope.
+Ask the Judge only if scope/policy changes or a later disposition act is due. Code/fixtures remain Lane A's
+surface; Lane B records independent review, and no new Lane C finding or CI approval is inferred.
+
+**Artifacts that drive construction and verification:** C1 preflight -> no-write/no-generation boundary cases;
+C2 trusted context -> altered-source/identical-target-copy refusals; C3 verified CLI -> actual pin resolution
+and default bridge argument assertions; C4 byte validation -> ready-preserving post-review tamper refusal.
+Those corrected contracts support receipt 1. Receipt 2 still needs actual work identity, source/pin/baseline
+snapshot, complete path/hash map, graph digest, fragment/description/member-set-name checks and zero pending
+semantics. Publication journal/receipt, post-state health and independent checkpoint then support receipts 3–5.
+
+**Lane A step-by-step:**
+1. Receive the corrected receipt-1 acceptance at its pinned source. Record C1..C4/receipt 1 complete in the body;
+   preserve B-050 Applied/O1 open, parent states and DoD boxes. Keep the old rejection as history.
+2. Prepare under D-425 at the final authorized clean source, using the approved disposable work root and installed
+   pins. Stop on failure/pending; do not use the raw tool against live state or replace an abandoned claim.
+3. Preserve all frozen inputs; re-merge fragments and resolve pending descriptions/member-set names. Hand back
+   the complete candidate evidence and hashes for Lane B's newly introduced acceptance record, receipt 2.
+4. Publish only those bytes with that review commit (3); verify target/metadata/semantic parity and journal/lock
+   cleanup, then full health (4). Obtain independent F3 checkpoint acceptance (5), then stop.
+5. Whole prevention/B-050/B-077 and parallel children remain separate. Child completion precedes B-153/B-154 ->
+   B-150 -> GR-007 final reconciliation -> Gate 2. Keep the six old non-SM05 tracker rows owed.
+
+**Gaps/claims to avoid:** the four implementation findings are assessed against corrected source, not a universal
+guarantee. No new bounded blocker was found in those fixes. Retain raw-writer and flake limits and no real
+held-handle claim. The remaining gap is actual-candidate/release evidence, filled by the ordered receipts, not
+another duplicate tracker or an invented new MMF/retrieval/article scope.
+
+### What you did instead
+
+Used existing template sections, local governed sources, Graphify query and independent existing checks.
+No source/runbook edits, app build, real prepare, live publication/recovery, graph rebuild, Register act,
+receiver answer-field edit, tracker closure or push. Only handoffs changed after 7929bea; governed changes
+since analyzed 40429f8 remain stale. Guarded sync is owed at receipts 2–4; no manual sync now. Read-only equality
+to the released baseline means unchanged released bytes, not graph currency against the newer source.
+
+**Independent verification:** 225/225 tests passed (684 assertions); installed pins verified; all 583 live
+files match the released baseline. Consistency is 18/19, with expected docs-drift alone failing.
+Receipt 1 is accepted at `7929bea` (B-050 review `c40df06`); actual generation, exact candidate acceptance
+and receipts 3–5 remain owed.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Corrected C1..C4 and bounded receipt-1 readiness under D-425 | Phase 1: source-specific independent evidence; Lane A proceeds to prepare after receipt acceptance |
+| Approve-with-conditions | Candidate/release/health/checkpoint receipts 2–5 | Phase 1: exact-byte review, same-byte publication, verified state/health and independent checkpoint |
+| Defer | Whole prevention, B-050/B-077, other children/parents/debt and Gate 2 | Phase 1: their own evidence and acts |
+| Reject | Receipt 1 as graph approval, injection as actual generation, no-sync-owed claim, or guard success as prevention/closure | Phase 1: preserve the ordered receipt boundaries |
