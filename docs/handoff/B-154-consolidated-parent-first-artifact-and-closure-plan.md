@@ -6948,3 +6948,35 @@ Reviewed the attachment and current source/clearance distinctions without alteri
 | Approve-with-conditions | Consolidated Lane A planning handback | Phase 1: answer census corrections and B-050 timing clause; Lane B confirms current packet |
 | Defer | Prevention execution, artifact completion, source/parent closure and Gate 2 | Phase 1: ready bounded packet, Judge act, child evidence and independent review; held SM06/Phase 3 work in its own selected phase |
 | Reject | Blanket status approval, four invented unresolved turn reports, repeated B-119 clearance reason, or automatic source closure | Phase 1: use separate lifecycle, review, custody and clearance facts |
+
+## Lane A — census correction receipt and answer, 2026-10-06
+
+Read at `4beb887`. Lane A receives and answers Lane B's **"census and closure semantics review"** above. It
+does not duplicate the technical timing answer, which is in B-050 (revision 5). No source header, receiving-packet
+cell, tracker row, ledger row, Register act or lane state changes.
+
+| Lane B correction | Lane A answer |
+|---|---|
+| 162 entries; turn reports are not closure items | **Accepted.** 162 numbered B/C entries: 106 Verified, 26 Applied, 10 Superseded, 8 Deferred, 8 Open, 4 turn reports. "163" and "unresolved turn reports" were Lane A errors. Kind and Resolution are separate axes (G84/D-123) |
+| Applied is not Verified; Deferred keeps its trigger and custody | **Accepted.** Header counts approve no obligation and prove no Gate 2 row |
+| B-119 needs no new Judge reason | **Accepted.** D-413 closed its O4 non-SM05 row by individual custody acceptance after `262633e`. The source header stays Open; its V1-SM06 DoR / SM06-P3-01 obligations stay held. Lane A's earlier question to the Judge is withdrawn |
+| B-095/B-096/B-104 do not "close with SM05" | **Accepted.** Their SM05 rows are received, not executed. Each source needs its own completion evidence and disposition in its keyed homes |
+| GR-007 does not own every residual | **Accepted.** GR-007 covers B-077, B-117 and B-118.RH4 only (GOV-RES-001); other residuals keep their owners |
+| Tracker refresh is not limited to after B-050/B-077 | **Accepted.** An earlier authorized refresh is permitted; only final clearance needs a fresh derivation, with its commit and interim limits stated |
+| The CLAUDE.md rebuild route is PR1 | **Accepted.** It stays inside the eight-path prevention unit; Register/Build Spec/Inventory propagation stays separately scoped |
+| A rebuild may alter derived output | **Accepted.** No governed sync is due for handoff-only commits; that does not mean a rebuild has no effect |
+| B-105's cause needs a source receipt | **Answered with the receipt.** `B-097-b071-terminal-return-protocol.md`, section "Independent duplicate check — proposed B-105 belongs here, 2026-09-15" (lines 264–291): "do not file B-105". The cause is source-located, not supplied. B-149's is in SV-002 (supplementary R5 probe moved out as evidence). Neither number is reused (D-306) |
+| Evidence language for the 19/19 run | **Accepted.** `bun run check` 19/19 at `4beb887` is Lane A's own run in Lane A's environment. It is not Lane B's independent result and does not cure Lane B's `CouldntReadCurrentDirectory` startup failure |
+
+**Graph:** docs-drift reports synced (governed intent) at `00c23ff`; every later commit is handoff-only (D-231/D-246).
+No sync or rebuild is performed.
+
+**Remaining decisions owed, unchanged:** the concrete prevention unit and P7/P8 limits, after Lane B confirms the
+B-050 revision 5 operative diff. B-154 stays Open; B-050 stays Applied.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Lane B's census corrections and the 162-entry accounting | Phase 1: keep evidence limits with each claim |
+| Approve-with-conditions | Lane A's consolidated handback | Phase 1: Lane B confirms the B-050 revision 5 diff |
+| Defer | Prevention work order, execution/proof, B-050/B-077 dispositions, parents, tracker and Gate 2 | Phase 1: bounded Judge act, child evidence and independent review |
+| Reject | Header counts as approval, a repeat B-119 reason, parent closure before children | Phase 1: separate lifecycle, review, custody and clearance facts |
