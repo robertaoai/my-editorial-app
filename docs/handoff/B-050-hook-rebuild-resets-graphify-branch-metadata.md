@@ -2117,3 +2117,77 @@ and error, so another occurrence shows its cause instead of a 60-second timeout.
 - the 6 new or rewritten descriptions and the 76 "kept" judgments;
 - the 11 new names;
 - the exact hash `1be0d83c…`.
+
+## Lane B — D424-R1a/R3a completed; semantic description handback, 2026-10-06
+
+### What happened
+
+Read `d709e00`, corrections `7b51c87c32c9c797866e3be1ebf3e4835a05714d`, the Judge's release/fix receipt
+`491325c` and D-424. Lane B raises; Lane A answers. The two residual code findings are independently
+accepted: source/Git-storage protection runs before composition writes, and augmenting paths find a complete
+distinct edge assignment. Existing tests independently pass **202/202**, including both intended-case fixes
+and the live-owner case in this run. No code repair, live publication, release or row disposition follows.
+The 297/297 fixtures are Lane A's pinned receipt at this source; Lane B did not repeat that suite this turn.
+
+**Graph comparison:** candidate
+`1be0d83cdba434e11fb60d94e069ff71b3aac180db95a896d2ab0e1d1cb12d79`, analyzed at `7b51c87`.
+All 582 state-file hashes match the saved manifest. Independent comparison matches 139 fragments,
+5,927 declared node fields and 9,703 edge fields, with zero differences. All 118 member/label bindings match,
+and the 11 new labels (#0, 1, 2, 3, 12, 15, 17, 20, 29, 30, 94) are supported by their members.
+Bounded raw/node-string scans find no foreign path. Reviewed all 82 held description judgments; the 76
+retained and four rewritten texts are supported. Two new texts need the qualifications below.
+
+### What you need
+
+**G-D424b-1 — sourceProtection description promises more HEAD checking than implemented.** Its text says
+it refuses a caller root or head "that is not that source". The helper checks HEAD equality only when both
+`source.snapshot.head` and `caller.head` exist; it does not read/compare the repository's actual HEAD here.
+A pure call binding this repository, its correct caller root and a different full HEAD, without a snapshot,
+returns no findings. Source-path protection still works; this is an inaccurate semantic contract, not a
+reproduction of the repaired source-deletion case. Publication's separate locked snapshot check stands.
+
+**Draft replacement:** "Composition preflight (D424-R1a): requires a readable bound source repository;
+refuses staging that aliases, contains or lies inside its working tree, Git directory or common Git directory;
+checks a supplied caller root against that source and, when both heads are supplied, caller HEAD against
+source.snapshot.head. Returns findings. It does not independently compare actual repository HEAD here."
+
+**G-D424b-2 — unassigned description conflates completion with the identity of unmatched demands.** It
+returns demand **indices**, not demands. Maximum matching size and complete-assignment acceptance are
+order-independent; which demand remains unmatched need not be. Example: demands [1,2], one supply [2],
+compatibility demand<=supply, returns index [1], leaving demand 2; reverse demands to [2,1], index [1] instead
+leaves demand 1. The edge validator's intended acceptance is correct; the diagnostic description overstates it.
+
+**Draft replacement:** "Returns indices of demands left unmatched by a maximum one-to-one assignment to
+compatible supplies, using augmenting paths. Maximum matched count and whether a complete assignment exists
+do not depend on list ordering; a partial matching's chosen unmatched demands may differ."
+
+**Success for the semantic handback:** Lane A answers these two texts without widening code behavior;
+the approved description/merge route preserves fragment fields and reviewed member/name bindings; the new
+final bytes/manifest receive independent exact-hash review before release. Do not reuse the prior hash's
+acceptance for different bytes. Full semantic release of `1be0d83c…` is held; its structural/name receipts stand.
+Released baseline `504e6f7a…` remains a completed historical release, not currency for the newer source.
+
+**Flake limits:** Lane A recorded two prior live-owner timeouts, then five full-file and three isolated passes,
+and added child exit/stage/output/error diagnostics. This independent 202-test run passes; the cause remains
+unproven. Keep the recurrence trigger: retain those diagnostics plus source/runtime/load and owning-process
+records if it fails again; review them before changing behavior or claiming a cause. No mandatory repeated
+stress campaign or new closure gate is inferred from this scoped review.
+
+Evidence: `C:/CoWork/outputs/lane-b-d424b-review-2026-10-06/REPORT.json`, `LABEL-REVIEW.json`,
+`STATE-REVIEW.json`, `SEMANTIC-PROBES.json`. The historical generation runner still predates source-bound
+composition and publication APIs. Update/pin it only under a selected rerun/work order; historical success
+is not an executable recipe for current F2.
+
+### What you did instead
+
+Used graph query, direct source/authority reads, existing tests and pure semantic probes. No rebuild,
+annotation changes, implementation or header edit. B-050 stays Applied/O1 open. These code sub-findings
+are completed; full F2 batch acceptance still needs accurate graph semantics/final-byte review. F3 and
+whole-prevention proof remain separate, and graph release cannot dispose B-050 or complete B-077.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | D424-R1a/R3a code receipts, 202 tests, graph structural/name evidence, 80 supported description judgments | Phase 1: retain source/hash and bounded evidence |
+| Approve-with-conditions | Complete F2 batch and refreshed graph semantic release | Phase 1: G-D424b-1/2 wording, approved merge route and independent new-final-hash review |
+| Defer | F3, whole prevention, B-050 disposition, B-077 and historical-runner rerun | Separate Phase 1 authority and individual proofs |
+| Reject | Actual-source HEAD checking or order-invariant unmatched identity inferred from these descriptions; tests/graph release called row closure | Phase 1: use the precise replacements above |
