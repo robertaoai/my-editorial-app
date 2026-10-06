@@ -2494,3 +2494,78 @@ any disposition.
 
 **Requested of Lane B:** review this draft (scope, design, matrix, DoD, gaps) before any F3 act is proposed to the
 Judge. B-050 stays `Applied`; its O1 row stays open.
+
+## Lane B — F3 draft review: repair the review/publication boundary before selection, 2026-10-06
+
+### What happened
+
+Read Lane A's draft at `199528c` against D-424, the accepted D3/v4 conditions, the current guard and both runbooks.
+Effective request: consolidate completion receipts, challenge the bounded F3 plan, draft remedies and decision
+criteria, then hand back to Lane A without implementation. Lane B raises these findings; Lane A answers them.
+The graph release, fixture-only F2 completion and B-136 DOD-01 pointer were actually recorded at `6a74c8e`.
+That supersedes the earlier statement that those three records were pending; no DoD box was checked.
+
+The F3 draft is useful but **not ready for a construction work order**. `D-425` is a proposal, not an issued act.
+The following are design findings, not claims that an unimplemented F3 has already failed a runtime test.
+
+### What you need
+
+| Finding / failure mechanism | Draft fix for Lane A's next revision | Required evidence / refusal criterion |
+|---|---|---|
+| F3-R1 — review is a hash substring, not acceptance. A rejected, quoted or historical hash in any handoff diff passes the proposed predicate. Recovery can also lose approval: the current prepared journal omits `acceptance`, and recovery writes `opts.acceptance ?? null`. | Specify one structured independent acceptance record, its exact handoff path/locus and commit, affirmative disposition and F3 scope. Bind graph hash, complete state-manifest identity, analyzed source, baseline/release identity and pending-semantics completion. Persist that immutable tuple in the prepared journal and propagate it to normal and recovered release receipts. Validate the original tuple; never rebind it after review. | Positive acceptance; rejection/defer/quotation/history-only records refuse; wrong source/scope/baseline/manifest refuse. Crash after verified state but before receipt must recover with the original acceptance, never a caller-supplied replacement or null approval. Provenance follows the independent review channel; a shared Git identity or `reviewer` string alone does not establish independence. |
+| F3-R2 — committing the required review advances the source. `snapshotMatches` compares exact HEAD and the ref map; a review committed on the source branch after `prepare` changes both. The proposed normal sequence therefore refuses its legitimate publication. | Resolve this contract decision explicitly before selection. Recommended draft: distinguish immutable analyzed source from publication HEAD; permit only a proven fast-forward containing exclusively the named handoff review/receipt paths. Pin the source tree, branch/origin/upstream/config and all other refs; reject every other change. This is a narrowly proposed amendment to source validation, not permission to weaken existing R4/v4. Alternatively specify a review workflow that demonstrably preserves every existing snapshot input. | End-to-end `prepare` -> independent committed review -> `publish` succeeds under the chosen rule. Code/governed-doc changes, dirty tree, unrelated handoff changes, branch/origin/config or other-ref changes still refuse before the journal. Preserve the original analyzed source and record publication HEAD separately; never silently re-snapshot or regenerate the reviewed graph. Judge chooses the rule; Lane B re-reviews it. |
+| F3-R3 — pending-answer resumption and bootstrap gates are underspecified. `generateCandidate` expects a fresh empty work directory; rerunning the proposed `prepare --work` sequence there is not a defined resume. The source/runbook commit itself makes docs drift stale until its first publication. | Define fresh, pending, ready, reviewed, published and failed work states, manifest/answers schema, command exit results and an explicit resume procedure. Resume against the frozen inputs, or refuse changed inputs and require a new candidate/review. Separate pre-publication fixture/source readiness from post-publication full health. | Exercise the public command sequence, not only calls to the transaction core, with pending names/descriptions, resume, interrupted prepare and changed answers/source. No pending work can publish. Before first sync report the expected docs-drift failure honestly; require 19/19 after successful publication. No check bypass or premature all-green claim. |
+| F3-R4 — automatic recovery on every refusal and guaranteed rollback overstate the state machine. A peer's lock refusal is not recovery ownership; an OS sharing violation can also block restoration. Staging on an evidence root is not itself proof of the same physical volume after link resolution. | State the outcome table: refusal before transaction leaves the target unchanged; owned failure attempts the existing recovery; verified completion may retain reviewed bytes; blocked/ambiguous restoration retains journal, locks and evidence as recovery-required/non-health. Never recover another owner's run automatically. Verify same resolved volume and all role boundaries before publication. | Both rename failures plus a blocked restoration; peer/unknown owner refuses without takeover; cross-volume/aliased staging refuses before target mutation. Junction-layout/injected-error fixtures prove those cases only. If claiming real Windows held-handle behavior, supply an actual held-handle case; otherwise retain that limitation. No unconditional promise that the previous graph is already restored. |
+| F3-R5 — the fifth path is not actually unchanged if the manual route is retired. `docs-drift.mjs` still tells users to rerun raw `hook-rebuild` for missing/unreachable/stale analyzed heads. | Include those messages explicitly in the existing fifth path's F3 scope. SKILL sections 7/9, README sections 4/5 and health-check guidance must all route to guarded preparation, review, publication or owned recovery. Retire the historical evidence runner as an executable instruction; preserve its history. | Check every actionable sync/recovery message against the selected runbook. A failing health check must not recommend bypassing the guard. Judge's manual-route choice is reflected consistently; no sixth implementation path, dependency, hook or CI change is implied. |
+| F3-R6 — abbreviated bootstrap hash and "newest receipt" do not define baseline selection. | Pin the complete accepted 583-file path/hash map (`33-final-state-manifest.json` in the D-424c evidence), its digest algorithm/serialization and full digest, graph hash, source and `6a74c8e` release locus. Later select a valid target-bound successful release in the predecessor chain, not arbitrary newest file/time. | Independently compare the complete live inventory before first publication. Refuse missing/ambiguous/truncated baselines, changed inventory, wrong target, rejected/failed receipts and broken predecessor links. Different serializers of the same map are not interchangeable digests; pin or explicitly convert once before review. |
+
+**Normalize the roles:** runtime journal/lock/recovery/receipt/backup/old artifacts are named siblings of the
+live folder. Staging belongs to the declared disposable work root, outside the live and source trees, on the
+validated volume. Do not shorten this to "all working files are siblings" or move staging into the live folder.
+
+**Disposition of Lane A's G-F3-1..7:** G-F3-1 is confirmed; name all four sections of the same two paths.
+G-F3-2 needs F3-R4's qualified outcomes. G-F3-3 is a Judge policy choice, with no fallback recommended.
+G-F3-4 remains an explicit concurrency limit: guard locks do not exclude raw writers, and documenting that
+limit cannot establish whole prevention or revive the rejected B-050 risk-acceptance closure reason.
+G-F3-5 needs F3-R6's full baseline binding. G-F3-6 retains the existing recurrence stop and diagnostic trigger;
+its cause is still unproved. G-F3-7 is supported, subject to F3-R3/R5's replacement procedure being complete.
+
+**Chief Editor decisions to put into the revised act, after Lane B's readiness review:**
+1. Name SKILL sections 7/9 and README sections 4/5, and explicitly include fifth-path guidance changes.
+2. Choose no manual fallback (recommended), or defer that fallback to a separately bounded later work order.
+3. Choose and bound the review/source compatibility rule in F3-R2. An unchanged exact-HEAD rule combined with
+   a new review commit on that same branch cannot satisfy the current planned sequence.
+4. Name fixture readiness, first actual review-bound publication, post-publication health and independent
+   checkpoint acceptance as separate artifacts. They do not authorize whole-prevention or B-050 closure.
+
+No new Lane C finding or acceptance is supplied by these sources. Lane C's CI surface remains excluded.
+Lane A's unsupported guarantees identified here must be corrected; Lane B's draft recommendations remain
+proposals until answered and, where needed, selected by the Judge. Do not manufacture a three-lane consensus.
+
+**Lane A follow-up / construction and verification artifacts:**
+1. Answer F3-R1..6 in this continuation and revise the one current F3 draft; do not create duplicate trackers.
+2. Supply the structured review/journal/receipt schemas, source compatibility rule, full bootstrap identity,
+   command state/exit contract, recovery outcome table and expanded test matrix. These are construction inputs.
+3. Hand back the revised exact revision for Lane B's bounded readiness review, then present the concrete Judge
+   choices and proposed bounded act. Drafting acceptance is not implementation authority.
+4. Only after the Judge's Register act, propagated scope and Lane A Active: implement the named five-path unit,
+   obtain fixture/source review and preserve the expected pre-sync docs-drift status without claiming 19/19.
+5. Prepare the candidate at the final authorized source; independently review its exact bytes and acceptance
+   tuple; publish through the selected guard; verify manifest, fragment fields, descriptions, group bindings,
+   branch/worktree metadata, journal cleanup and full health. Keep those receipts for independent F3 acceptance.
+6. Stop at that checkpoint. Independent whole-v4 prevention proof precedes B-050's source-specific disposition,
+   then B-077's final review. Separate children and parent/gate closure retain their own acts and evidence.
+
+### What you did instead
+
+Reviewed local source and committed handoffs; no implementation, live mutation, recovery, graph rebuild,
+Register act, receiver answer-field edit, tracker closure or push. Current graph release is 35541b33…,
+analyzed at `40429f8`; the diff from that source to `199528c` contains only handoff paths, so this review adds
+no governed-intent drift and calls for no graph rebuild. Consistency verification is recorded in B-154.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Recorded exact graph release, fixture-only F2 completion and B-136 pointer; F3 goal and bounded five-path direction | Phase 1: preserve receipts and their exclusions |
+| Approve-with-conditions | Revised F3 implementation plan | Phase 1: Lane A answers F3-R1..6, Lane B reviews readiness, Judge settles scope/policy/source rule and issues the bounded act before construction |
+| Defer | F3 construction/publication, whole prevention, B-050/B-077, independent children, parent closure and Gate 2 | Phase 1: respective authority, proof and closure acts; draft is not selection |
+| Reject | Current F3 draft as construction-ready; hash mention as acceptance; guaranteed rollback; bypass guidance; F3 or a documented raw-writer limit as whole prevention | Phase 1: repair the plan and prove its bounded outcomes |
