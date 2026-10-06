@@ -7044,3 +7044,61 @@ Rows 4 and 5 wait on that act and on independent evidence.
 Tracking is unchanged: B-050 owns the plan, proof and disposition; B-154 owns consolidation; B-077 owns final
 reconciliation; SV-002 §2.3.2/§2.3.1 and GOV-RES-001 keep their roles. B-154 stays Open. No header, tracker,
 ledger or lane state changes.
+
+## Lane B — proposed D-426 authority and receipt review, 2026-10-06
+
+### What happened
+
+**Clarified request:** review the supplied Lane A worklog and proposed Register act against current handoffs; draft any authority/artifact gaps, Judge decisions and Lane A follow-up; do not issue the act or implement. Read b94853e. Attachment SHA-256: dcc0b9481ebf5f84ee05b0a658ad3cc9ccf2c3d7e14764433c00cfd254e4fde6. The two receipts 9b70f21 and b94853e each touch their own handoff file; their final recorded boundaries are accepted. This does not independently certify the reported earlier reset/commit incident.
+
+B-050 records Lane A's receipt of the Judge's chat answer "Accept as proposed" for eight paths and P7/P8. It expressly distinguishes that receipt from a bounded Register act. The Register currently ends at D-425; the attachment's D-426 is a proposed draft, not an issued decision. Technical planning conditions remain discharged; the findings below concern the new act's wording, not revision 5's technical contract. "Only the Judge decision remains" applies to the next authority step, not to future construction, verification or closure obligations.
+
+### What you need
+
+| Draft gap / unclear claim | Minimal draft fix | Acceptance / failure criterion |
+|---|---|---|
+| "Eight paths only" beside same-pass Register/Build Spec/Inventory recording | Define authority recording as its own bounded three-file unit; implementation as the existing eight-file unit. State both explicitly in the proposed issue instruction. Recording grants no extra implementation source paths | Reject a ninth implementation path or omission of D-54 propagation; do not silently count governance files as part of the eight |
+| Final source timing and graph sync left implicit | Freeze the source after authority propagation and all authorized implementation source commits, before preparing the candidate for exact-byte review. Carry source/refs/tool/config/sidecar bindings and D-425's permitted handoff-only fast-forward rule; other source changes invalidate acceptance | Reject stale candidate acceptance or use of a handoff-only exception for Register/Build Spec/Inventory edits |
+| Clause-bound test evidence lacks an explicit independent source-readiness checkpoint | Receipt 1 includes the implementing commit, reached valid/refusal outcomes and Lane B's fixture/source-readiness review. P8 applies before progression. A supplied 19/19 report alone does not establish readiness or prevention | Reject candidate/release progression before that checkpoint passes |
+| "Guarded release and full health" collapsed into one evidence statement | Within receipt 3 record release identity/outcome and post-publication health as distinct subreceipts in that order. None implies the other. Full-health 19/19 claims for the new release cite its exact source/hash and actual outcome | Reject release success as health proof; preparation checks remain stage-specific and report expected stale drift when applicable |
+| Generated-artifact mutation boundary hidden by source-path list | Explicitly distinguish eight editable source paths from existing D-425 guarded candidate/journal/acceptance/release artifact roles and real target. Preserve current path protections, no fallback and P7's fixture-only destructive drill; do not grant arbitrary output locations | Reject an unspecified live target, bypass or real-target destructive recovery drill |
+| Inherited DoD and wording debt easy to omit from abbreviated act | Bind the entire operative revision chain, not just timing. Preserve the exact volatile-field allowances, complete producer/history checks, B0/R1/C2 comparisons and revision 3 DoD item 6's G-F3-8/9 accepted text/trigger | Reject blanket timestamp stripping, two live releases, a reduced test list or silently dropped canonical wording obligations |
+
+**Proposed replacement for D-426 scope/source clauses:**
+
+> Authority recording is a bounded three-file unit: V1-DECISION-REGISTER.md, V1-BUILD-SPEC.md and V1-ARTIFACT-INVENTORY.md, with D-54 propagation in the same pass. The prevention implementation unit edits only the eight listed source paths and follows the full accepted revision 2/3/4 plan as amended by revision 5. No new source path is granted. Candidate preparation and exact-byte acceptance follow the last authorized source commit, including authority propagation and implementation. Existing D-425 guarded artifact roles, target/path protections, source binding and publication rules remain in force; there is no manual fallback. Later non-handoff source changes require fresh preparation and review.
+
+**Proposed replacement for D-426 receipts:**
+
+> 1. Source-bound valid/refusal test evidence and Lane B fixture/source-readiness review of the implementing commit; stop if P8 fires.
+> 2. Lane B exact-byte acceptance of the completed candidate at the final authorized source, including required semantic work and fragment preservation.
+> 3. Guarded release receipt, then a separate post-publication full-health receipt, each identifying source and released artifacts.
+> 4. Complete disposable unpublished repeat: B0 original baseline, R1 first accepted/released result, C2 composed repeat candidate; all explicit comparisons, allowances and negative controls retained.
+> 5. Independent whole-unit Lane B review. No earlier receipt implies this review or a source disposition.
+
+The two replacements clarify existing requirements; they do not reopen the accepted producer/timing plan or select implementation. Required semantic descriptions/names and G-F3-8/9 use the existing artifact/source homes; if delivery needs an unlisted source edit, stop and obtain a separate bounded scope decision.
+
+#### Parent-first Judge decisions and Lane A follow-up
+
+| Order / dependency | Accept / reject decision | Lane A follow-up | Phase |
+|---|---|---|---|
+| 1. Scope and technical plan | Accept existing confirmations/receipts; no repeated timing or census answer | Preserve operative chain and existing residual owners | Phase 1: planning satisfied |
+| 2. Bounded authority draft, depends on 1 | Accept only the clarified recording/implementation boundary and ordered receipt clauses; reject ambiguous source scope or stale acceptance | Answer these draft wording findings once in B-154; present corrected D-426 with the already recorded eight-path/P7/P8 choice | Phase 1: draft correction, then Judge issue instruction; no act issued here |
+| 3. Authority recording, depends on 2 | Judge issues the concrete corrected act; recording must identify the bounded units and D-54 propagation | Lane A records three governance files in one bounded pass, validates and commits; source/graph status may become stale until the unit's guarded sync | Phase 1: authorized recording; A is Active |
+| 4. Construction/verification, depends on recorded act | Require all five receipts with release and health separately evidenced; reject implicit execution from chat receipt | Execute only if later authorized; bind final source, perform guarded publication/repeat, obtain independent whole-unit review | Phase 1: future implementation and proof |
+| 5. Closure, depends on accepted evidence | Source-specific B-050 disposition, B-077 final review and dependent parent decisions; reject automatic closure | Existing handoffs, review ledger, residual homes and fresh clearance tracker only; parallel U03/DoD/P15 obligations retained | Phase 1: respective acts/evidence, Gate 2 last |
+
+**Chief Editor / perspectives:** Lane A's technical producer findings and Lane B's history/schema/timing findings remain addressed in the specification. Lane B now raises scope/source/receipt wording gaps in the proposed act. No new Lane C finding or CI acceptance is supplied. Exclusions remain raw-writer exclusion, authenticated reviewer identity, real-target drill, dependency/hook/CI/global-tool changes and push. These limits prevent unsupported promises; no inevitable business failure is established by the worklog.
+
+**Failure-to-success criteria:** a governed source change outside handoffs after preparation invalidates the reviewed candidate; success means re-preparing and obtaining acceptance against the final source. A successful release without recorded post-publication health cannot prove healthy delivery. A plan or authority receipt without reached proof outcomes cannot prove prevention. Construction artifacts, verification receipts and source/parent closure are separate deliverables.
+
+### What you did instead
+
+At b94853e, handoff-response and docs-drift have no findings; Graphify queried read-only. Governed intent remains synced at 00c23ff through excluded handoff-only advances; no sync due for this review. A later Register/Build Spec/Inventory edit will be governed drift and must be covered by the authorized final-source guarded publication. bun run check again cannot start in Lane B's environment (CouldntReadCurrentDirectory); the supplied Lane A 19/19 report remains attributed evidence, not a new Lane B full-suite pass. No Register act, receiver answer, source status, tracker/DoD change, build, implementation, graph mutation or push.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Committed Lane A receipts and previously accepted technical plan | Phase 1: retain planning/authority/delivery distinctions |
+| Approve-with-conditions | Proposed D-426 wording | Phase 1: Lane A answers scope/source/receipt clarifications; Judge issues the concrete corrected act |
+| Defer | Act recording, construction/proof and source/parent/Gate 2 closure | Phase 1: appropriate bounded authority, independent receipts and respective dispositions |
+| Reject | Issued D-426 inferred from attachment/chat receipt, stale-source acceptance, or release as health proof | Phase 1: record authority and each required artifact outcome separately |
