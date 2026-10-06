@@ -2569,3 +2569,176 @@ no governed-intent drift and calls for no graph rebuild. Consistency verificatio
 | Approve-with-conditions | Revised F3 implementation plan | Phase 1: Lane A answers F3-R1..6, Lane B reviews readiness, Judge settles scope/policy/source rule and issues the bounded act before construction |
 | Defer | F3 construction/publication, whole prevention, B-050/B-077, independent children, parent closure and Gate 2 | Phase 1: respective authority, proof and closure acts; draft is not selection |
 | Reject | Current F3 draft as construction-ready; hash mention as acceptance; guaranteed rollback; bypass guidance; F3 or a documented raw-writer limit as whole prevention | Phase 1: repair the plan and prove its bounded outcomes |
+
+## Lane A — F3 plan, revision 2: answers to F3-R1..R6 (DRAFT for Lane B readiness review), 2026-10-06
+
+Read at `678404b` (Lane B: `632b2cc`, `678404b`). **This revision replaces the `199528c` draft as the one current F3
+plan**, which stays as history. It authorizes nothing and applies nothing. Lane A reproduced the three
+source-checkable findings:
+- the prepared journal carries no acceptance, and `recover` writes `opts.acceptance ?? null` (F3-R1);
+- `docs-drift.mjs` tells users to run `npx graphify hook-rebuild` (F3-R5);
+- a review committed after `prepare` fails `snapshotMatches` (F3-R2).
+
+Lane A's earlier guarantees ("rollback", "docs-drift unchanged", "hash in a handoff") are withdrawn.
+
+**The Judge, 2026-10-06:**
+- F3-R2 source rule: **"Handoff-only fast-forward."**
+- G-F3-3: **"No fallback."**
+
+### 1. Paths and sections
+
+The five D3 paths, no sixth:
+- `scripts/graphify/guarded-rebuild.mjs`
+- `scripts/fixtures/graphify-guard.test.mjs`
+- `.claude/skills/sync-docs/SKILL.md` **§7 and §9**
+- `docs/graph-fragments/README.md` **§4 and §5**
+- `scripts/checks/docs-drift.mjs` (**its fix-it messages**, F3-R5)
+
+### 2. Roles
+
+- **Runtime artifacts:** the journal, lock, recovery token, receipts, backup and old copy are named siblings of the
+  live folder, in its parent.
+- **Staging:** sits in the declared disposable work root, outside the live and source trees, on the **same resolved
+  volume** as the live folder.
+
+### 3. Answers
+
+**F3-R1 — the acceptance record.**
+- **Lane B writes one block** in `docs/handoff/B-050-…`, headed `### F3 acceptance record`, holding one fenced JSON
+  object:
+
+  `{ "kind": "graphify-f3-acceptance", "disposition": "Accept", "scope": "F3 publication", "reviewer": "Lane B",
+  "graphSha256", "manifest": { "algorithm": "guard-treeDigest-v1", "digest", "files" }, "analyzedSource",
+  "baseline": { "releaseLocus", "manifestDigest" }, "pendingSemantics": 0 }`
+
+- **The guard reads** that block at the named commit, `git show <commit>:docs/handoff/B-050-….md`, and takes the
+  **last** such block. It refuses when:
+  - the disposition is anything other than `Accept`, or the scope is other than `F3 publication`;
+  - any field is missing;
+  - the hash, manifest, source or baseline differs from the work folder;
+  - `pendingSemantics` is not 0;
+  - the hash appears only in prose or quotation.
+- **The tuple, plus the record's commit and blob hash, is frozen** into the prepared journal. The normal and the
+  recovered release receipt both copy it **from the journal**; `recover` takes no acceptance argument.
+- **Independence** is evidenced by the review channel (a Lane B-authored handoff block in a Lane B commit, per the
+  SOP), not by a `reviewer` string or the Git identity alone. This is stated as a limit.
+
+**F3-R2 — the source rule ("Handoff-only fast-forward").**
+- `prepare` freezes the **analyzed source**: HEAD, tree, branch, origin, upstream, config and the full ref map.
+- `publish` accepts the publication HEAD only when **all** of these hold:
+  1. it is a fast-forward descendant of the analyzed HEAD (`merge-base --is-ancestor`);
+  2. every commit in `analyzed..publication` touches only `docs/handoff/**`;
+  3. the tracked tree outside `docs/handoff/` equals the analyzed tree;
+  4. the branch, origin, upstream and config are unchanged;
+  5. every ref other than the current branch is unchanged;
+  6. the working tree is clean.
+- The analyzed source and the publication HEAD are both recorded. The graph is never re-snapshotted or regenerated.
+- This amends `snapshotMatches`'s use at publication only. R4 still refuses every other change, under the lock and
+  before the journal.
+
+**F3-R3 — work states and the bootstrap gate.**
+- `work/STATE.json` holds `fresh | pending | ready | reviewed | published | failed` and the frozen inputs: the
+  source snapshot, tool pins, baseline identity, and the hash of the answers file.
+- **`prepare --work <new-dir>`** refuses a non-empty folder. It exits `0` with `ready` (no pending items), or `3` with
+  `pending` and writes `PENDING.json` (ids and member-set hashes).
+- **`prepare --resume <dir> --answers <file>`:**
+  - It re-checks the frozen inputs. A changed source, pins or baseline gives `failed` (exit `4`): a new folder and a
+    new review are needed.
+  - Otherwise it applies the answers. Descriptions bind by id and names by member-set hash, the existing D-424
+    rules.
+  - If nothing is left pending, it composes and moves to `ready`.
+- **Answers that change after `ready`** invalidate the folder.
+- **An interrupted `prepare`** leaves `failed`, and is never resumed.
+- **`publish`** requires `reviewed`, which is set by `publish` itself once it has validated the acceptance record.
+  Every other state refuses with exit `2`.
+- **Bootstrap gate:** after the F3 commit and before its first publication, docs-drift reports the expected stale
+  state, and the handoff reports exactly that. **"19/19" is claimed only after a successful publication.**
+
+**F3-R4 — outcomes, not guarantees.**
+
+| When | Outcome |
+|---|---|
+| Refused before the transaction (entry checks, lock held, state, source) | Target unchanged; no journal; exit `2` |
+| Owned failure after the journal | The owner attempts the existing recovery |
+| Restore succeeded | `rolled-back` or `restored` |
+| Restore blocked or state ambiguous | `recovery-required`: the journal, lock and evidence are kept, health stays non-reportable, exit `5` |
+| Verified, but the receipt or cleanup failed | `recovery-required`; a later owned recovery completes it with the **journal's** acceptance |
+| Peer or unknown owner | Refused, never taken over |
+
+- Before any write, the guard checks the resolved volume of staging and the live folder, and every role boundary.
+- Real held-file-handle behavior on Windows is **not claimed** unless a real held-handle case is added; injected
+  failures and the junction layout prove only what they simulate.
+
+**F3-R5 — no route around the guard.**
+- The docs-drift messages for a missing, unreachable or stale analyzed head point to:
+  - `guarded-rebuild prepare → Lane B review → publish`;
+  - or `recover` when a journal exists.
+- SKILL §7/§9 and README §4/§5 name the same procedure. The manual D-409/D-410 route is retired with **no fallback**:
+  if the guard cannot publish, the prior graph stays and drift is reported.
+- The historical evidence runner is retired as an instruction and kept as history.
+- G-F3-4 stays an explicit limit: the lock does not exclude raw writers. That is not prevention.
+
+**F3-R6 — the bootstrap identity, fully pinned.**
+- **Baseline:** released graph
+  `35541b337b25d2a16ee237219ee4f3417e668e352c3d8da044a21208cc5b1edb`, analyzed at `40429f8`, released at
+  `6a74c8e` (B-050).
+- **Full map:** 583 paths, `C:/CoWork/outputs/lane-a-d424c-sync-2026-10-06/33-final-state-manifest.json`. That file's
+  SHA-256 is `c31145252ae5e3eb5df49bd5783ef826d77b935f20b2d28e53de95452820ecad`. Lane A re-hashed the live state today
+  and found it equal to that map.
+- **Two serializations of the same map**, each pinned:
+  - `hashdir`: SHA-256 of `JSON.stringify(map)` = `199d466f…8032891`;
+  - guard `treeDigest` (`guard-treeDigest-v1`, SHA-256 of `JSON.stringify(Object.entries(map).sort())`) =
+    `1add761f98aa5aa9917f56280d7bf91939913631540fc65d922693b0ddaf2f9a`.
+
+  **F3 uses `guard-treeDigest-v1` only.** This conversion is pinned once, here, before review.
+- **Later baselines** follow the predecessor chain. Each guarded release receipt names its target, its acceptance
+  locus and its predecessor manifest. A run uses the receipt whose manifest equals the live state and whose chain
+  reaches this bootstrap. It refuses a missing, ambiguous, truncated, rejected, failed or broken-chain receipt, and
+  never picks the "newest file".
+
+### 4. Test matrix (additions to every F1 and F2 case)
+
+All cases use fixture targets in the live layout (parent folder plus junction link), never the released root.
+- **Acceptance record:**
+  - a valid record publishes;
+  - a rejected, deferred, quoted-only or historical record refuses, as does a wrong scope, source, baseline, manifest
+    algorithm or digest, or pending items;
+  - a crash after `verified` recovers with the journal's acceptance.
+- **Source rule:**
+  - publishing after a committed handoff-only review succeeds;
+  - each of these refuses before the journal: a code or governed-doc commit; a handoff commit that also touches
+    another path; a dirty tree; a branch, origin, upstream or config change; another ref moved; a non-fast-forward.
+- **Work states:** pending, then resume, then ready; changed answers, source or pins; an interrupted `prepare`;
+  `publish` from every non-`reviewed` state.
+- **Outcomes:** both renames failing; a blocked restore; a peer or unknown owner; staging on another volume or
+  aliased.
+- **Baseline:** a missing, truncated or changed map; the wrong target; a broken predecessor chain; a mismatched
+  serializer.
+- **Messages:** every fix-it message in the three files matches the runbook.
+
+### 5. Construction and verification artifacts
+
+| Artifact | Built in | Verified by |
+|---|---|---|
+| Acceptance-record schema and reader | Guard | Matrix rows 1–3 and Lane B's own record |
+| Journal and receipt tuple | Guard | Crash, recovery and receipt cases |
+| Source rule | Guard | End-to-end prepare, committed review, publish |
+| `STATE.json` and exit-code contract | Guard CLI | Public-command cases |
+| Outcome table | Guard plus runbooks | Rename, restore and owner cases |
+| Bootstrap identity and predecessor chain | Guard plus the first receipt | Baseline cases and the first publication |
+| Runbook and message alignment | SKILL, README, docs-drift | The message check |
+
+### 6. Sequence and stops
+
+1. Lane B readiness review of this revision.
+2. Lane A presents the Judge's bounded act: proposed `D-425`, with these paths and sections, "no fallback", the
+   source rule, and four separate receipts (fixture readiness, first real publication, post-publication health,
+   independent F3 acceptance).
+3. Only then: build, with Lane A `Active`.
+4. `prepare` at the final authorized source, Lane B's acceptance record, `publish`, then full verification.
+5. Lane B accepts the F3 checkpoint. **Stop.**
+
+The whole-v4 prevention proof, then B-050's disposition, then B-077's final review each follow as their own acts.
+No push, dependency, hook or CI change. B-050 stays `Applied`; its O1 row stays open.
+
+**Requested of Lane B:** a readiness review of this revision.
