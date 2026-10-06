@@ -6575,3 +6575,65 @@ edit, archive rewrite, tracker/header/receiver-answer closure, new Register act 
 | Approve-with-conditions | Prevention planning direction | Phase 1: PR1–PR6 answers and Lane B readiness review before Judge proposal |
 | Defer | Work-order issuance, execution/proof, canonical wording, B-050/B-077 and parent closure | Phase 1: corrected concrete scope, act and independent evidence |
 | Reject | Current draft as ready to execute; archive-body rewrite or unbound repeat/derived/input proof | Phase 1: revise the named planning contracts |
+
+## Lane B — revision 2 consolidation for Lane A and Judge, 2026-10-06
+
+### What happened
+
+**Clarified request:** independently review Lane A's prevention draft `07f5cf7`, distinguish completed receipts
+from open obligations, draft remaining fixes and the decision sequence; do not implement or close anything.
+Lane B is the raiser/reviewer; Lane A answers. B-050 `d62a020` owns the four precise replacement contracts
+PR2a–PR5a. This entry carries their dependency order and Judge criteria only.
+
+### What you need
+
+| Parent first / dependent item | Completed evidence | Next acceptance criterion and owner | Reject / hold |
+|---|---|---|---|
+| Gate 2 -> GR-007 -> B-150 -> B-153/B-154 | Individual receipts; no parent closure | Lane A reconciles all applicable children and separate six-row historical tracker debt; respective final acts last | Any prevention draft or green check used to close parents |
+| B-050 -> bounded F3 / D-425 | Five receipts complete; independent checkpoint `1853fda`, Lane A receipt `8149eed` | Preserve F3's bounded completion; B-050 Applied/O1 open | Reopening F3 for proposal defects, or calling it whole-v4 prevention |
+| B-050 -> prevention proposal revision 2 | PR1/PR6 instruction boundaries and corrected evidence accounting accepted | Lane A answers PR2a–PR5a; Lane B reviews the corrected plan | Issue `07f5cf7` unchanged |
+| Ready proposal -> Judge Register act | Not issued for this prevention unit | Judge receives eight exact implementation paths, governance propagation, tests/DoD and exclusions; decide P7/P8 explicitly | Planning acceptance treated as execution authority |
+| Act -> implementation / guarded sync / repeat proof | Outstanding | Lane A applies authorized unit; fresh exact-byte Lane B acceptance -> publish -> health; complete isolated repeat and independent whole-v4 review | Proof of generation alone or unreviewed final bytes |
+| Whole-v4 evidence -> B-050 disposition -> B-077 review | Outstanding | Source-specific disposition and its own act, then refreshed 17-target final review | B-077 decided before B-050 disposition |
+| Parallel B-106/U03/DoD/P15 -> parents | Their existing individual receipts/limits | Each named owner and surviving trigger; reconcile before parent closure | Inventing a dependence on B-050 or clearing DoD by pointer |
+
+**Lane A follow-up, in order:**
+1. Answer the four conditions in B-050 using the actual installed command and artifact schemas. Keep completed
+   F3 receipts and open B-050/O1 distinct. Do not copy the technical contracts into another tracker.
+2. Put the instruction audit in the existing guard test file; drop `suites.mjs`. Correct the implementation
+   scope to eight paths; name required Register/Build Spec/Inventory propagation separately.
+3. Provide one concrete definition of done: capture refusal/recovery/retry negatives; both extraction branches
+   and complete selected sets; content-valid derived artifacts; composed same-source repeat evidence; exact-byte
+   review, guarded release and independently checked health. Proposed tests remain specifications until run.
+4. Obtain Lane B readiness review. Then present the corrected unit and P7/P8 to the Judge for the bounded act.
+5. After that act only, follow implementation, final-source sync and proof order. A proof-driven governed fix
+   requires renewed sync/review before closure evidence can be claimed. Keep G-F3-8/9's canonical wording debt
+   attached to that authorized sync; it is not closed by this review.
+
+**Chief Editor / Judge decisions:** accept or reject P7's fixture-only destructive recovery scope and P8's
+stop-on-recurrence rule when the corrected work order is presented. Accepting them does not establish universal
+prevention: external raw writers and authenticated reviewer identity remain excluded. Do not repeat the F3 act.
+Lane A withdrew overly broad proof claims; Lane B now raises the incomplete lock/input/schema/repeat contracts.
+No new Lane C finding, CI review or clearance is assumed.
+
+The critical construction artifacts are the frozen input/selection packet, capture state contract, derived
+projection specifications and exact scope. Verification artifacts are reached negative cases, composed repeat
+comparison, independent acceptance and release/health receipts. Missing any one leaves its obligation open.
+
+### What you did instead
+
+Read-only Graphify query, installed producer/CLI and guard/schema inspection; handoff drafting only. The
+docs-drift check reports governed intent synced at `00c23ff`, with `07f5cf7` excluded-only advances, so no graph
+rebuild is due for this review. Future governed edits require the guarded sync. No source/archive-body edit,
+implementation, live prepare/publish/recover, receiver-answer/header/DoD/tracker change or push.
+
+Verification note: `bun run check` could not start (`CouldntReadCurrentDirectory`), including from a fresh shell.
+Running its exact package-script entry point, `node scripts/check-consistency.mjs`, completed **19/19**;
+this is not a claim that the Bun invocation passed. No implementation test or prevention proof ran this turn.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Bounded F3 completion; PR1/PR6 boundaries; eight-path instruction-audit placement | Phase 1: retain limits; actual edits await the act |
+| Approve-with-conditions | Revision 2 planning direction | Phase 1: PR2a–PR5a answer, Lane B readiness check, concrete Judge proposal |
+| Defer | Work order, construction/sync/proof, B-050/B-077, parallel children, tracker reconciliation and parents/Gate 2 | Phase 1: own evidence and applicable acts in dependency order |
+| Reject | Current draft as final work order; counts/stamps as content proof or F3 as whole prevention | Phase 1: corrected contracts before execution |
