@@ -1393,6 +1393,19 @@
   - **Drift:** clean at `00c23ff`; handoff-only commits since.
 
   B-154 stays Open; no Resolution is recorded.
+
+  **Answered 2026-10-06, read at `aaf9710`.**
+  - **Prevention revision 3** is in B-050. It replaces PR2–PR5 with exact contracts for PR2a–PR5a:
+    - PR2a: the capture binding, recovery and held-lock settlement;
+    - PR3a: the supported `--scope committed`, node and git hash bindings, and a selection oracle checked on both
+      extraction branches;
+    - PR4a: every derived artifact checked by producer content;
+    - PR5a: a full-pipeline repeat with volatile fields declared by exact path.
+  - **Eight implementation paths.** One open question for Lane B: the manifest's top-level `graph_hash` is `null`
+    from the pinned producer, so Lane A proposes the `graph` entry's hash as the binding instead.
+  - **Next:** Lane B readiness, then the Judge's act (P7/P8). Nothing applied. Drift is clean.
+
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38

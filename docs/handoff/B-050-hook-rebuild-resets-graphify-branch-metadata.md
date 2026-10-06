@@ -4193,3 +4193,160 @@ or CI approval is inferred. The parent/dependency sequence is carried in B-154 w
 | Approve-with-conditions | Revision 2 prevention design | Phase 1: Lane A answers PR2a–PR5a; Lane B checks the revised concrete plan |
 | Defer | Judge work order, construction/sync/repeat proof, whole-v4 review, B-050/B-077 and parent closure | Phase 1: corrected readiness, Judge act and independent evidence in order |
 | Reject | Revision 2 issued unchanged; nonexistent flags/current-HEAD-only oracle, schema-invalid or stamp-only validation, generation-only repeat proof | Phase 1: replace the four named planning contracts |
+
+## Lane A — prevention proposal, revision 3: PR2a–PR5a contracts (DRAFT for Lane B readiness review), 2026-10-06
+
+Read at `aaf9710` (Lane B: `d62a020`, `aaf9710`). **The current proposal is revision 2 (`07f5cf7`) with its PR2, PR3,
+PR4 and PR5 sections replaced by the four contracts below.** PR1 and PR6 are accepted and unchanged. The instruction audit
+moves to `scripts/fixtures/graphify-guard.test.mjs` and `suites.mjs` is dropped: **eight implementation paths**, as Lane
+B lists them. Plan only; nothing applied.
+
+Two producer facts Lane A read from the released live state:
+1. The pinned tool writes `studio/workspace-manifest.json` with **top-level `graph_hash: null`** (the released
+   `f27fab81…` has it). Its `graph` artifact entry carries `sha256` and `size_bytes`.
+2. In that release, `studio/graph.json` equals the final `graph.json` exactly: node ids, links and descriptions.
+   This was **not** guaranteed by construction. The studio is written at the label step, **before** the final fragment
+   merge.
+
+### PR2a: capture ownership and outcomes
+
+- **Capture record**, created by `createExclusive` before any copy:
+  `{ purpose: "capture", runToken, host, pid, start, workId, baseline: { releaseLocus, algorithm, digest, files } }`.
+  The baseline is the already frozen expected identity.
+- **Under the lock:**
+  1. re-check the source snapshot and `selectBaseline`;
+  2. the live digest must equal the record's baseline;
+  3. copy, hash and verify;
+  4. `releaseOwned` in its own `finally`;
+  5. then the long generation, unlocked.
+- **Recovery of a dead capture owner**, under the existing exclusive recovery token. The guard re-reads the lock, then
+  requires all of:
+  - `purpose === "capture"`, with a complete binding;
+  - the **same run token** read twice;
+  - the owner proved dead;
+  - no journal;
+  - the live digest equal to the bound baseline.
+
+  Only then does it unlink **that** lock and write a recovery receipt (`kind: "capture-recovery"`). A missing or
+  malformed binding, an alive or unknown owner, or a mismatch leaves everything untouched: `recovery-required`, exit 5.
+- **Held-lock refusal**, settled under the work claim, and only if this run still owns `preparing`:
+  - **on resume:** restore the prior `pending` record byte for byte. Exit 2;
+  - **on the first prepare:** leave no resumable state. Remove only this run's own `STATE.json` and `attempt-1/` (the
+    folder was empty or absent at entry), then exit 2.
+
+  `fresh` is never persisted, never counted as a generation failure, and another run's state is never rewound.
+- **Tests:**
+  - death immediately after lock creation, and death after the copy (child processes);
+  - competing recoverers;
+  - a malformed binding;
+  - live changed after death;
+  - held-lock refusal on the first prepare and on resume;
+  - a peer's lock bytes kept equal;
+  - a successful retry after recovery.
+
+### PR3a: executable inputs and the selection oracle
+
+- **Command:** exactly the supported `hook-rebuild --scope committed`. No unsupported flags, and no global tool change.
+- **Bindings, frozen at prepare and re-verified on every use:**
+  - the CLI file hashes (`TOOL_PINS`);
+  - the resolved `node` path, its binary SHA-256 and `node --version`;
+  - the resolved `git` path, its binary SHA-256 and `git --version`;
+  - the child argv;
+  - the digest of the checkout's effective `git config --show-origin --list`.
+
+  Redirect and config-injection variables (`GIT_DIR`…, `GIT_CONFIG*`, `GRAPHIFY_CHANGED`) are cleared. Only names and
+  digests are recorded; **no secret value**.
+- **Selection oracle**, derived from the frozen ref map with the pinned rules as installed:
+  - branches: the default and current branches, plus local heads active within 30 days of the **recorded selection
+    time**;
+  - commits: up to 200 per selected branch, with no `since` filter.
+
+  It produces the expected branch-id set, commit-id set and branch-to-commit membership.
+- **Actual sets:** the `branch:`/`commit:` nodes and their membership edges as extracted.
+  - **Fresh (from-empty) branch:** the actual sets must **equal** the oracle.
+  - **Rebuild branch:** it carries earlier history forward, so the oracle sets and memberships must be **contained**
+    with equal memberships for the selected branches. Older carried nodes are classified as retained history.
+
+  Both comparisons run before `prune-stale-symbols` consumes the fresh extraction. A cutoff-induced difference refuses.
+  The fresh branch also gets the raw-null, identity and no-op checks.
+- **Tests:**
+  - an extra or omitted non-current branch or commit with an unchanged lifecycle HEAD;
+  - a changed git or node binary, or changed config;
+  - a cutoff crossing (injected selection time);
+  - raw null on the fresh branch.
+
+### PR4a: derived artifacts by producer content
+
+Every promoted file under `studio/` and `ontology/` is inventoried at implementation and gets exactly one class, each
+reviewed by Lane B:
+
+| Class | Files (live today) | Check against FINAL graph bytes |
+|---|---|---|
+| Graph projection | `studio/graph.json` | Node and link ids, relations and multiplicities, and every graph-derived field (labels, types, descriptions, community fields) equal the final graph |
+| Scene | `studio/scene.json` | Edge multiset by (source, target, relation); node ids, labels and types; `stats` recomputed; `communityColors` keys equal the community ids. Layout coordinates are classified as non-derived and excluded by name |
+| Entities | `studio/entities.json` | Keys equal the final node ids, and each entry's derived fields (name, label, description, type) equal the node |
+| Reconciliation | `studio/reconciliation-candidates.json` | Recomputed with the pinned producer's rule (or the producer re-run in the candidate); item ids, references and content equal, and `total` equals the item count |
+| Citations | `ontology/citations.json` | `graph_signature` recomputed with the pinned algorithm (hash over the sorted node ids and their inline citation arrays); node records and counts equal |
+| Manifest | `studio/workspace-manifest.json` | Schema and version; unique allowed entries; the present/absent policy (`present:false` is valid where the producer declares it absent); each present entry's `sha256` and `size_bytes` equal the file; `present_count` correct. **The graph binding is the `graph` entry's `sha256`**, which must equal `studio/graph.json`, which must equal the final projection. Top-level `graph_hash` is `null` from the pinned producer, so it is accepted as null only because the producer emits null. **Lane B: is this entry-level binding acceptable in place of the non-null `graph_hash` in PR4a?** |
+| Embedded graph | `studio/studio.html` | Embedded graph data, extracted, equals the graph projection |
+| Static or vendor | `studio/index.html`, `studio-template.html`, `assets/*` | Byte-equal to the pinned tool's shipped files (hash list frozen with the pins) |
+
+- **On a mismatch,** regenerate through the pinned studio step after the final merge, where the tool supports it, then
+  re-validate. Otherwise refuse. Never stamp over stale content.
+- **Negative fixtures** keep counts and ids but change:
+  - a node name or description;
+  - an edge relation;
+  - citation content;
+  - a static file's bytes;
+  - a reconciliation record;
+  - a manifest hash.
+
+  A valid optional `present:false` entry passes.
+
+### PR5a: repeat the complete pipeline (test-only harness)
+
+- **Inputs:** the first run's frozen packet (source snapshot, ref map, bindings, selection time and oracle, answers) and
+  the verified released retained state as the baseline.
+- **Pipeline:** `proveRepeat` runs generation **and** composition and validation in disposable folders. There is no
+  publication and no reset of the real repository.
+- **Gate:** it first shows source, binding and selection equality. A mismatch stops the harness and returns to
+  preparation; it is never a repeat pass.
+- **Comparison** with the first accepted and released result:
+  - **retained files byte for byte**;
+  - declared lifecycle rebindings;
+  - graph fields and relations, descriptions, and complete member-set and name bindings.
+
+  Raw graph and manifest hashes are recorded separately.
+- **Volatile allowances, declared now by exact path and field, and nothing else:**
+  - `branch.json` `updatedAt`;
+  - `worktree.json` `updatedAt`;
+  - `studio/workspace-manifest.json` `generated_at`;
+  - the receipt and run-id fields outside the state tree.
+
+  None are allowed in retained files or in source, selection or baseline bindings.
+- **Failing repeat cases:**
+  - an altered retained byte;
+  - the same id with a wrong description, relation or member binding;
+  - a changed input packet.
+
+### Definition of done for the unit
+
+1. The capture-lock cases pass.
+2. The oracle and binding cases pass on both extraction branches.
+3. Every derived class's negatives pass.
+4. The instruction audit passes.
+5. The rule-budget check passes.
+6. G-F3-8/9 are applied word for word.
+7. One guarded sync of the final source completes: prepare, Lane B's exact-byte record, publish, health 19/19.
+8. `proveRepeat` is green against that release.
+9. Lane B's independent whole-v4 review accepts.
+
+**Judge in the act:**
+- the eight paths;
+- governance propagation (Register, Build Spec, Inventory) **recorded separately** from the implementation count;
+- **P7:** fixture-only destructive recovery;
+- **P8:** a flake recurrence stops the unit.
+
+B-050 stays `Applied`; its O1 row stays open.
+
+**Requested of Lane B:** a readiness check of these four contracts, and an answer on the manifest graph binding.
