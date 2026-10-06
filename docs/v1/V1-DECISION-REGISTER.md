@@ -27652,3 +27652,73 @@ of the composite F3 plan (`3578fe9`, `7420c27`). Lane A is `Active`. Pushing is 
 | `SV-002.md`, `GOV-RES-001.md`, Modular_PRD, fn-specs, SPECS, rule files, Phase Closure, frozen sources | — unaffected |
 | **Encyclopedia** | unaffected |
 | **Graphify** | The implementing change's own sync is the first guarded publication (receipts 2–4) |
+
+## 5.14e251 `D-426` — B-050 Prevention Work Order: Whole-Unit Guarded Rebuild Prevention
+
+**Authority: the Judge, directly to Lane A, 2026-10-06**, in chat: "Accept as proposed" (eight paths, P7, P8), then
+"Issue D-426 now". It follows Lane B's planning confirmations (`e744396`, `35d100f`, `f43b709`) and Lane B's
+confirmation of the corrected draft (`6468021`) recorded in B-154 at `82c3875`. Lane A is `Active`. Pushing is not
+authorized.
+
+### The decision
+
+1. **The plan:** the full B-050 prevention revision 2 (`07f5cf7`) / 3 (`5fb5653`) / 4 (`807ad7d`) chain, as amended by
+   revision 5 (`6def36a`), which replaces PR3b step 4 and adds its step 5 controls. Bound with it:
+   - the exact volatile-field allowances;
+   - the complete producer and history checks;
+   - the B0/R1/C2 comparisons;
+   - revision 3 DoD item 6 (G-F3-8/9 applied word for word, to SKILL §7 and README §5).
+
+   Superseded timing language is history.
+2. **Units:** authority recording is a bounded three-file unit: `V1-DECISION-REGISTER.md`, `V1-BUILD-SPEC.md` and
+   `V1-ARTIFACT-INVENTORY.md`, with `D-54` propagation in the same pass (this commit). The prevention implementation
+   unit edits only the eight listed source paths and follows the full accepted revision 2/3/4 plan as amended by
+   revision 5:
+   - `scripts/graphify/guarded-rebuild.mjs`
+   - `scripts/fixtures/graphify-guard.test.mjs`
+   - `CLAUDE.md`
+   - `GEMINI.md`
+   - `docs/governance/agent-rules-reference.md` (framing header only; the archive body is preserved)
+   - `.agents/workflows/graphify.md`
+   - `.claude/skills/sync-docs/SKILL.md` **§7 and §9**
+   - `docs/graph-fragments/README.md` **§5**
+
+   No new source path is granted. If delivery needs an unlisted source edit, stop and obtain a separate bounded scope
+   decision.
+3. **Source rule:** candidate preparation and exact-byte acceptance follow the last authorized source commit, including
+   authority propagation and implementation. Existing `D-425` guarded artifact roles, target/path protections, source
+   binding and publication rules remain in force; there is no manual fallback. Later non-handoff source changes
+   require fresh preparation and review.
+4. **Proof limits:**
+   - **P7:** destructive recovery is proved only on disposable fixtures; no real-target drill.
+   - **P8:** a recurrence of the known live-owner test flake stops the unit.
+5. **Five receipts, in order:**
+   1. source-bound valid/refusal test evidence and Lane B fixture/source-readiness review of the implementing commit;
+      stop if P8 fires;
+   2. Lane B exact-byte acceptance of the completed candidate at the final authorized source, including required
+      semantic work and fragment preservation;
+   3. a guarded release receipt, then a separate post-publication full-health receipt, each identifying source and
+      released artifacts;
+   4. a complete disposable unpublished repeat: B0 original baseline, R1 first accepted/released result, C2 composed
+      repeat candidate; all explicit comparisons, allowances and negative controls retained;
+   5. independent whole-unit Lane B review.
+
+   Each receipt is separate; no earlier receipt implies this review or a source disposition.
+6. **Excluded:**
+   - raw-writer exclusion and authenticated reviewer identity (not built and not claimed);
+   - no real-target destructive drill;
+   - no push, dependency, Git hook, CI (Lane C) or global Graphify change;
+   - no B-050 disposition, no B-077 review, no DoD box, no tracker change.
+7. **After the unit:** B-050's source-specific disposition, then B-077's final review, each by its own act.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e251 |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ `D-426` paragraph (tooling; no V1 scope, sequence or DoD change) |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-426` paragraph; no file added or retired |
+| Implementation paths (item 2), including the rule files `CLAUDE.md` and `GEMINI.md` | Follow: the implementing commit(s); `rule-budget` must still pass |
+| `SV-002.md`, `GOV-RES-001.md`, Modular_PRD, fn-specs, SPECS, Phase Closure, frozen sources | — unaffected |
+| **Encyclopedia** | unaffected (`docs/ENCYCLOPEDIA-SYNC.md` maps none of these paths) |
+| **Graphify** | This recording is governed drift, expected; it is cleared only by the unit's guarded publication (receipt 3), never by a raw rebuild |
