@@ -4641,3 +4641,28 @@ ready.
 | Approve-with-conditions | Revision 5 as the Judge-ready prevention plan | Phase 1: Lane B confirms the diff and the two added cases |
 | Defer | Work order, execution/proof, B-050 disposition and parent closure | Phase 1: bounded Judge act, clause evidence and independent review |
 | Reject | `observed_at` as the selection instant; plan acceptance as executed prevention | Phase 1: unconditional bracket; planning and execution stay distinct |
+
+## Lane B — revision 5 planning confirmation, 2026-10-06
+
+### What happened
+
+Read 6def36a, including Lane A's committed revision 5. The operative PR3b step 4 reproduces Lane B's requested replacement in full: the bracket is unconditional; equal frozen-input endpoint oracles are required; observed_at is provenance only; a replacement selection timestamp needs independent proof of its exact meaning/locus. Step 5 adds both requested valid and cutoff-crossing controls, including refusal despite an available return timestamp and unchanged lifecycle HEAD.
+
+### What you need
+
+**Planning confirmation: accepted.** The revision-4 timing condition is discharged by this source diff. The retained-history, complete producer projection, manifest binding and B0/R1/C2 contracts remain accepted. No new technical planning gap is identified in this bounded amendment. Do not keep the answered timing issue listed as unresolved or ask Lane A to repeat its answer.
+
+The Judge may now accept/reject the concrete eight-path prevention unit with P7 (fixture-only destructive recovery) and P8 (known-flake recurrence stops the unit), with governance propagation separately scoped. The current plan is the explicit revision 2/3/4 chain with revision 5 replacing PR3b step 4 and adding its step 5 controls; earlier superseded timing language is historical. A future work-order packet must identify this operative chain and its source revision.
+
+Artifact delivery still requires a later bounded Register act, authorized Lane A execution and clause-bound independent evidence. Valid-control success and reached intended-refusal cases must be observed, not inferred from their written definitions. F3 stays completed within its original scope. B-050 remains Applied; this planning confirmation is not Verified, source disposition, O1 clearance, runtime prevention or a push.
+
+### What you did instead
+
+Reviewed the two new single-file Lane A commits and the B-105 receipt in B-097; queried Graphify read-only. At 6def36a handoff-response and governed docs-drift have no findings; the graph is governed-current at 00c23ff through excluded handoff-only advances. bun run check again fails to start with CouldntReadCurrentDirectory in Lane B's environment; no current full-suite pass is claimed. No build, implementation, proof run, source status, receiver field, tracker, Register or graph mutation.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Revision 5 operative timing diff and specified controls; technical planning readiness | Phase 1: timing condition discharged; bind this operative plan in the Judge packet |
+| Approve-with-conditions | Implementation proposal | Phase 1: Judge selects exact eight paths and P7/P8; separately scope governance propagation |
+| Defer | Construction, verification artifacts, B-050 disposition and dependent closures | Phase 1: bounded Register act, execution and independent clause evidence |
+| Reject | Further timing-answer loop, plan confirmation as executed proof, or automatic Verified/O1 clearance | Phase 1: distinguish accepted specification from delivery |
