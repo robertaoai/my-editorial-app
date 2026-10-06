@@ -5958,3 +5958,78 @@ not F3 fixtures or actual-publication evidence.
 | Approve-with-conditions | Revision 3 readiness for the bounded act | Phase 1: ownership correction and explicit schema/outcome enforcement accepted at their exact locus |
 | Defer | Construction/publication, prevention, B-050/B-077, other children, parents and Gate 2 | Phase 1: bounded authority, verified artifacts and respective acts |
 | Reject | Unknown as dead, formatting as complete schema enforcement, planned cases as proof or an approval as execution authority | Phase 1: implement the specified contract only after authority |
+
+## Lane B — revision 3b accepted: completed plan review and concrete Judge decision, 2026-10-06
+
+### What happened
+
+Effective request: review Lane A's `7f27384` condition answer, consolidate completion tracking and draft the
+parent-first Judge decision and Lane A follow-up, without building. Lane B raises/reviews; Lane A answers.
+B-050's "revision 3b condition check accepted" owns the detailed acceptance once. **The plan-review batch is
+complete:** composite revision 2 + revision 3 replacements + revision 3b amendments is ready to present as the
+basis of proposed D-425. This is plan acceptance, not execution permission, code verification or closure.
+The independent condition acceptance is committed at `3578fe9`; Lane A's next artifact is the concrete act proposal.
+
+### What you need
+
+| Parent -> child decision | Completed / accepted now | Judge Accept criterion | Reject / defer criterion |
+|---|---|---|---|
+| Gate 2 -> GR-007 -> B-150 -> B-153/B-154 | Prior authority and individual receipts; parents still open | Child obligations and reconciliation evidence complete before parent/gate acts | Plan approval or graph currency is offered as parent closure |
+| B-050 -> F1/F2/released graph | `6a74c8e`: fixture-only F2, release 35541b33… and B-136 pointer complete; no DoD box checked | Preserve those bounded completion records | F2/pointer becomes whole prevention or B-050 clearance |
+| F2 -> F3 planning/review | Revision 3b independently satisfies the last condition and two clarifications; prior planning acceptances carry forward | Accept completed plan-review batch and permit concrete act presentation | Planned tests are called executed proof or whole B-050 is closed |
+| Accepted F3 plan -> proposed D-425 | Policy choices, five paths/four sections and construction/verification contracts are ready as inputs | Judge accepts the concrete act with bounded scope, source-rule amendment, exclusions, tier propagation and five receipts | Generic approval, unsupported scope addition or omitted receipt is used as a work order |
+| Registered F3 -> implementation -> actual release/checkpoint | No F3 implementation or publication completed | Lane A Active; all five receipts below, with exact reviewed bytes and independent acceptance | Code starts before the act, bytes change after review or recovery is reported healthy prematurely |
+| F3 -> prevention -> B-050 -> B-077 | Separate obligations outstanding | Independently proved authorized whole-v4 prevention, source-specific B-050 act, then 17-target B-077 final review | F3 success or documented raw-writer limits substitutes for prevention |
+| Parallel B-106/U03/DoD/P15 and tracker debt -> parents | Existing limited receipts retained; `3488206` tracker has six non-SM05 rows unclosed | Each owner supplies its own evidence/act and parent reconciliation updates its source tracking | Debt is silently closed, rebuilt into graph currency or made dependent on B-050 without a source dependency |
+
+**Chief Editor / Judge's next concrete choice:** Accept or Reject the proposed bounded F3 act, after Lane A
+drafts it. Carry forward "handoff-only fast-forward" and "no fallback"; ask neither again. The act names guard,
+guard fixtures, SKILL sections 7/9, fragment README sections 4/5 and docs-drift guidance, plus D-54 applicability.
+It includes no push, new dependency, global tool/hook/CI change, retrieval/article work, DoD box or B-050 closure.
+Register/tier propagation is its separate governance obligation. An act rejected or not yet issued means stop
+construction; revise only the identified scope/criteria, not settled policy by implication.
+
+**Five critical receipts, in implementation order:**
+
+| Receipt | Construction input it verifies | Required acceptance evidence |
+|---|---|---|
+| 1. Fixture/source readiness | Guard/CLI schemas, exclusive work ownership, transition/exit contract, source rule, baseline/chain and matrix | Intended F3 and retained F1/F2 cases, source/test revision, public command flow, owner/schema/crash/refusal outcomes; expected pre-sync drift reported honestly |
+| 2. Exact candidate acceptance | Ordered generation/fragment merge, description/member-set name answers, immutable acceptance tuple | Lane B's newly introduced typed acceptance record binds work ID, analyzed source, full graph/state hashes, baseline and zero pending semantics |
+| 3. Actual guarded release | Same reviewed staging and journal/receipt tuple on the live target | Source/publication HEAD, baseline/predecessor, actual target digest and release receipt, preserved original approval, cleanup evidence |
+| 4. Post-publication health | Fragment fields, descriptions/name bindings, branch/worktree metadata and outcome/runbook alignment | Verified post-state, no unresolved journal/lock, graph currency and full 19/19 consistency result |
+| 5. Independent F3 checkpoint | All preceding source-specific receipts and exclusions | Lane B independently accepts the implemented bounded F3 checkpoint; no transfer to whole prevention or closure |
+
+**Lane A follow-up:**
+1. Receive B-050's condition acceptance and record this planning batch complete in the receiver continuation.
+   Preserve B-050 Applied/O1 open and all whole-entry/DoD states; no duplicate tracker is needed.
+2. Draft the concrete D-425 proposal citing the accepted composite plan and this review. Name paths/sections,
+   source amendment, no fallback, cases/exclusions, tier applicability and the five receipts above.
+3. Put that concrete act to the Judge for Accept/Reject; do not interpret this review as that decision.
+4. After the Judge's Register act and propagated bounded scope, implement only with Lane A Active. Obtain
+   receipt 1 before candidate acceptance and actual publication; do not claim 19/19 before the unit's sync.
+5. Obtain receipts 2 -> 3 -> 4 -> 5; retain exact evidence and stop on refusal, changed bytes or unresolved recovery.
+6. Stop at F3. Whole prevention -> B-050 -> B-077 and parallel children remain separately authorized/proved.
+   Child completion precedes B-153/B-154 -> B-150 -> GR-007 final reconciliation -> Gate 2.
+
+Lane A's earlier over-promises are withdrawn and its condition answers now accepted for planning. Lane B has
+not tested future F3 code. No new Lane C findings/approval exist; do not invent consensus or CI scope.
+Raw writers, unknown ownership and the unexplained flake retain their reviewed limits/refusal/stop conditions.
+
+### What you did instead
+
+Used the existing template sections, Graphify query and direct source/plan/manifest review. Read-only hashing
+confirms all 583 live files still match the accepted baseline; no graph mutation. Governed source remains
+`40429f8`; changes through `7f27384` are handoff-only, so no sync is due. Future authorized source/runbook changes
+require their selected sync and fragment re-merge. No code/runbook edit, implementation, live publication/recovery,
+Register act, receiver answer-field edit, tracker closure or push.
+
+**Validation for this condition review:** `bun run check` passes 19/19 and `git diff --check` passes.
+The historical tracker debt remains reported separately; these checks and existing graph-byte comparisons
+are not executed F3 tests or permission to close any row.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Revision 3b condition answers and composite F3 plan readiness; prior completed bounded receipts | Phase 1: Lane A may present the concrete D-425 proposal |
+| Approve-with-conditions | Selecting/executing the proposed bounded F3 unit | Phase 1: Judge Register act, propagated scope and Lane A Active, then the five independent receipts |
+| Defer | Implementation/publication, whole prevention, B-050/B-077, other children, historical tracker debt, parents and Gate 2 | Phase 1: each unit's authority, evidence and acts |
+| Reject | Plan acceptance as build permission, planned cases as proof, claim takeover or F3 as whole prevention/closure | Phase 1: preserve the accepted boundaries |
