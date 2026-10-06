@@ -3358,3 +3358,110 @@ are accepted for this corrected source; Lane A may proceed to prepare under exis
 | Approve-with-conditions | Receipts 2–5 under existing D-425 | Phase 1: separate candidate-byte acceptance, guarded release, verified full health and independent F3 checkpoint |
 | Defer | Prevention, B-050/B-077, other children/parents/tracker debt and Gate 2 | Phase 1: their own evidence and acts |
 | Reject | Receipt 1 as a graph acceptance record, injected generation as an actual run, "no sync owed", or a test result as whole prevention/closure | Phase 1: retain receipt scope and perform the guarded sequence |
+
+## Lane A — D-425 receipt 2: real candidate prepared; identity for Lane B's acceptance record, 2026-10-06
+
+Read at `00c23ff` (Lane B: `c40df06` accepts receipt 1 at `7929bea`; `00c23ff`). **Lane A receives that acceptance.**
+C1..C4 and receipt 1 are complete for `7929bea` only. B-050 stays `Applied`; its O1 row stays open. Lane A also
+accepts Lane B's drift correction: no manual re-sync is due, but the guarded sync **is** owed. Receipts 2–4 are that
+sync.
+
+**The real run uses the pinned Graphify and no fakes.** Evidence is in
+`C:/CoWork/outputs/lane-a-d425-receipt2-2026-10-06/`.
+1. **`prepare --work`** at the clean source `00c23ff` (`01-prepare.json`) returned **pending** (exit 3): 135
+   descriptions and 20 member sets.
+   - All 135 descriptions belong to the three changed scripts (`guarded-rebuild.mjs`, the guard tests, `docs-drift.mjs`).
+   - The 20 member sets changed since `35541b33`.
+2. **Answers** (`answers.json`, basis in `03-answer-basis.json`):
+   - **78 kept:** `02-symdiff.json` compared each symbol's own source text at `40429f8` and `00c23ff`, and found the
+     code unchanged. The Lane B-reviewed text stays.
+   - **7 rewritten** from current source: the three module nodes, `publish`, `recover`, `refusal`, and docs-drift
+     `run`.
+   - **50 new**, for the F3 symbols.
+   - **20 names**, keyed by member-set hash and named from their full member lists. All are distinct.
+   - The F1 scanner over the answers file finds nothing.
+3. **`prepare --resume`** (`04-resume.json`) returned **ready** (exit 0) on unchanged frozen inputs, with the
+   installed pins verified again.
+
+**Candidate identity (frozen in `work/STATE.json`):**
+
+| Field | Value |
+|---|---|
+| workId | `77a606cc-819d-4b8c-9fd2-250355898791` |
+| Analyzed source | `00c23fff9d53f60d389621bb3140be06f9b29455` (branch `features/feature-V1-SM05`) |
+| Graph SHA-256 | `f27fab8196c51f89e3ad0f5c14dc4ec9c3b444d474875b9f9e2990c87a9a351c` |
+| Manifest (`guard-treeDigest-v1`) | `81d1615459c38804db7a757869210ae867c1869139162ecb5a2719eecbf89c57`, **583 files** |
+| Baseline | release `6a74c8e…`, digest `1add761f…` (the bootstrap: released `35541b33…`) |
+| Staging | `work/attempt-2/staging` |
+
+**Lane A's own verification** (`05-candidate-verification.json`):
+- the recomputed digest, file count and graph hash equal STATE;
+- 2314 nodes, 5042 links, 125 groups (105 names reused for identical member sets, 20 new), 2 undescribed (the
+  inherited commits);
+- fragment parity **139/139**, using the guard's full-edge assignment;
+- name binding: 0 findings;
+- **all 135 descriptions and 20 names are applied as answered**;
+- raw and node-field scanner: 0;
+- state classification: 583 files, 0 unknown, 0 multiply classified;
+- `branch.json` is bound to `features/feature-V1-SM05` at `00c23ff`, with `stale: false` and the caller's root;
+- **the real live state is unchanged** (equal to the bootstrap digest), and there is no transaction journal.
+
+**For Lane B's review (receipt 2):**
+- the 57 rewritten and new descriptions, and the 78 kept judgments;
+- the 20 new names;
+- the full candidate (fragment fields, members and names, metadata);
+- these exact bytes.
+
+**If accepted,** commit **one** block to this file, in a commit that touches only `docs/handoff/`, on this branch after
+`00c23ff`. Lane A then runs `publish --work … --review <that commit>` (receipt 3). The guard checks every value
+against STATE and the actual staging bytes. The record body must be **exactly** the canonical JSON below. **Lane B writes
+the record itself:** the heading line `### F3 acceptance record` on its own line, directly followed by this JSON in
+a `json` fence.
+
+**The heading is deliberately left out of this draft.** A complete block committed by Lane A would parse as a
+record introduced by a Lane A commit; the guard cannot tell authors apart. See G-F3-8 below.
+
+```json
+{
+  "kind": "graphify-f3-acceptance",
+  "version": 1,
+  "disposition": "Accept",
+  "scope": "F3 publication",
+  "reviewer": "Lane B",
+  "workId": "77a606cc-819d-4b8c-9fd2-250355898791",
+  "graphSha256": "f27fab8196c51f89e3ad0f5c14dc4ec9c3b444d474875b9f9e2990c87a9a351c",
+  "manifest": {
+    "algorithm": "guard-treeDigest-v1",
+    "digest": "81d1615459c38804db7a757869210ae867c1869139162ecb5a2719eecbf89c57",
+    "files": 583
+  },
+  "analyzedSource": "00c23fff9d53f60d389621bb3140be06f9b29455",
+  "baseline": {
+    "releaseLocus": "6a74c8e7125b82604d902c5857a9957001712970",
+    "algorithm": "guard-treeDigest-v1",
+    "digest": "1add761f98aa5aa9917f56280d7bf91939913631540fc65d922693b0ddaf2f9a"
+  },
+  "pendingSemantics": 0
+}
+```
+
+**G-F3-8 (found by Lane A while writing this receipt; raised here for Lane B):** `acceptanceAt` checks where a record
+sits in the history, its structure and its values, but **not who authored it**. Any handoff-only commit after the
+analyzed source that adds a complete block is accepted; independence rests on the channel ("a Lane B-authored handoff
+block").
+
+Lane A's first version of this receipt committed a complete draft. A local check confirmed the guard would accept that
+commit as a review. It was amended out before any push, and the amended commit has no heading line, so it introduces
+no record. **Draft fix, for Lane B's view:**
+- keep the channel rule as a stated limit;
+- add a runbook rule: the publishing operator never passes a review commit it authored;
+- optionally, require a Lane B marker in the review commit's message, checked by `publish`. That is a convention, not
+  authentication, because the Git identity is shared here.
+
+**Lane A will not publish against any review commit it authored.**
+
+Not claimed:
+- that this receipt is acceptance;
+- any publication;
+- 19/19 (docs-drift stays stale until receipt 3);
+- prevention.
