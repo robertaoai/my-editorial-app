@@ -2275,3 +2275,50 @@ No logic changed. `bun test` 202/202; `bun run fixtures` 297/297.
 
 **Not in scope:** F3 ("Not yet"), prevention, B-050 disposition, B-077. B-050 stays `Applied`; its O1 row stays
 open.
+
+## Lane B — exact-hash acceptance and F2 checkpoint handback, 2026-10-06
+
+### What happened
+
+Read `1c3f3af`, plan `855f618`, comment-only source `40429f8a60aaa9554fda6ba126d24de670fda1ea`,
+and the D-424c manifest. Lane B raises; Lane A answers. The Judge approved release, F2 batch completion and
+B-136's pointer after this independent review. That condition is now satisfied; no repeated approval is requested.
+
+**ACCEPTED exact graph SHA-256:**
+`35541b337b25d2a16ee237219ee4f3417e668e352c3d8da044a21208cc5b1edb`.
+- Independent comparison: 139 fragments; 5,927 declared node fields and 9,703 edge fields; zero differences.
+- All 118 community member/name bindings match. The 116 reused cohorts keep their reviewed names. Community
+  1's "SM05 Branch and D-410–D-424 Correction Commits" and community 17's "D-412–D-415 P2, Custody, Docket and
+  Consumer-Set Commits" are supported by their members.
+- Both rewritten descriptions accurately qualify snapshot-HEAD comparison and unmatched-demand selection.
+  All 68 retained description strings equal the reviewed backup. G-D424b-1/2 are resolved.
+- All 583 state-file hashes equal the submitted final manifest. Analyzed source is `40429f8`; bounded raw
+  graph/node-string path scans have zero findings. This is exact-byte acceptance, not universal prevention.
+
+**F2 checkpoint ACCEPTED**, within D-423/D-424's fixture-only scope, combining this semantic receipt with the
+already accepted code/intended-case receipts at `e8d9839`. The source diff changes JSDoc only; no logic or
+tests changed. Lane A's 202/202 tests and 297/297 fixtures at `40429f8` remain its pinned execution receipts;
+Lane B's independent 202-test execution at `7b51c87` remains the behavior receipt. No unnecessary broad
+rerun is claimed. Current consistency verification is recorded with the parent handback.
+
+### What you need
+
+Lane A now records the already approved step 4: release these exact bytes, record fixture-only F2 batch
+completion, then append B-136's DOD-01 graph pointer with this review/source/hash. Preserve the historical
+9993bded entry; check no DoD box. Lane B has not written those receiver records or changed any header.
+If submitted bytes change, this acceptance no longer applies to the changed artifact.
+
+Remaining follow-ups are unchanged: F3 is "Not yet"; whole prevention, B-050 Applied/O1 disposition and
+B-077 final review remain outstanding. Historical-runner API amendments require a selected rerun; earlier
+live-owner flake diagnostics retain their recurrence trigger and unproven cause. Neither is silently declared
+resolved by this graph review, nor made into a new gate for the accepted bounded checkpoint.
+
+Evidence: `C:/CoWork/outputs/lane-b-d424c-review-2026-10-06/REPORT.json`, `FINAL-REVIEW.json`,
+`LABEL-REVIEW.json`. No implementation, rebuild, graph release, receiver-field edit or push performed.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Exact 35541b33… graph, G-D424b-1/2 resolution and fixture-only F2 checkpoint | Phase 1: Lane A records already approved release/completion/pointer; no further approval needed |
+| Approve-with-conditions | Any later changed graph bytes or selected F3 packet | Separate Phase 1 exact-byte review or bounded work order; not permission now |
+| Defer | F3, whole prevention, B-050/B-077 disposition and other child/parent/gate obligations | Their own Phase 1 evidence and acts |
+| Reject | Hash acceptance transferred to different bytes, graph/F2 acceptance called prevention, or a pointer called DoD checkoff | Phase 1: preserve the distinct scope and records |
