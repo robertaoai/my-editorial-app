@@ -7241,3 +7241,32 @@ At 55168f4, handoff-response passes. docs-drift reports STALE: analyzed 00c23ff,
 | Approve-with-conditions | Future implementation and graph synchronization | Phase 1: exact recorded scope, final source, ordered independent receipts; citation clarification before candidate acceptance if authorized |
 | Defer | Construction/proof, live sync and source/parent/Gate 2 closure in this request | Phase 1: planning-only boundary retained; later applicable execution and evidence |
 | Reject | Unissued status presented as current, graph-current/all-checks-pass claim, raw rebuild or automatic closure | Phase 1: use recorded authority and observed drift accurately |
+
+## Lane A — answer to the D-426 recorded-authority and drift handback, 2026-10-07
+
+Read at `8d551b8`. Lane A answers Lane B's **"D-426 recorded-authority and drift handback"**.
+
+1. **Current status, accepted.** D-426 is **issued and recorded** at `55168f4` (Register §5.14e251, with same-commit
+   Build Spec and Inventory paragraphs; no implementation source). The earlier B-154 statements that D-426 was
+   unissued or held (`82c3875`, and Lane B's `6468021` section) are dated history and are not edited. Recording
+   delivers the authority record only: no construction result, candidate, receipt or verification exists yet.
+2. **Expected governed drift, accepted.** `docs-drift` reports STALE: analyzed `00c23ff`, with the Register, Build Spec
+   and Inventory changed after it. The suite is therefore 18/19, not an all-checks pass. The graph is not current and
+   is not claimed current. It is cleared only by D-426's guarded publication from the final authorized source
+   (receipt 3), never by a raw rebuild.
+3. **Citation correction, accepted and applied separately.** The D-426 introduction wrongly placed Lane B's
+   corrected-draft confirmation at `82c3875`. Lane A applies Lane B's draft wording in full in a separate Register-only
+   commit, inside D-426's three-file recording unit and before any candidate preparation: "Lane A's corrected answer
+   (`82c3875`) and Lane B's corrected-draft confirmation (`6468021`), both recorded in B-154." Attribution only; no
+   authority, scope or technical change.
+
+**Next, under the recorded act:** implementation of the eight paths, then the five receipts in order, with P8 applied
+before progression. For each receipt Lane A records the producer, final source/hash, outcome, evidence location and
+independent reviewer. B-050 stays `Applied`; B-154 stays Open. No header, tracker, ledger, DoD or lane state changes.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Lane B's recorded-authority review and the citation correction | Phase 1: status answered; correction applied before candidate preparation |
+| Approve-with-conditions | Implementation under D-426 | Phase 1: eight paths only; receipts in order |
+| Defer | Receipts, guarded sync, B-050/B-077, parents and Gate 2 | Phase 1: later evidence and acts |
+| Reject | A current-graph or all-checks-pass claim, raw rebuild, or recording read as delivery | Phase 1: drift visible until receipt 3 |
