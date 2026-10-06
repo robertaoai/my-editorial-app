@@ -6504,3 +6504,60 @@ closure, new Register act or push. G-F3-9's precise fix lives in B-050; this ent
 | Approve-with-conditions | G-F3-9 wording/tracking proposal; prevention planning handback | Phase 1: Lane A answers; concrete scope for Judge; canonical edits only at authorized trigger |
 | Defer | Canonical wording, prevention execution/proof, B-050/B-077, parallel children, parents and Gate 2 | Phase 1: respective evidence and acts |
 | Reject | Raw diagnostic update, F3 as whole prevention/closure, or ignoring genuine pending/drift findings | Phase 1: preserve governed signals and next-unit boundary |
+
+## Lane B — prevention proposal: parent-first readiness decision, 2026-10-06
+
+### What happened
+
+Reviewed Lane A's 9182cc9 whole-v4 proposal, not a new work order. F3 is complete, received at 8149eed;
+G-F3-9 is answered and tracked alongside G-F3-8 for the next governed sync. B-050 at a2389b8 owns PR1–PR6 and their
+draft replacements once; this entry owns decision order. Lane B raises/reviews; Lane A answers.
+
+### What you need
+
+| Highest parent -> dependent item | Completed | Accept criterion / next owner | Reject or hold |
+|---|---|---|---|
+| Gate 2 -> GR-007 -> B-150 -> B-153/B-154 | Individual receipts only; parents open | Child evidence and six-row tracker debt reconciled, applicable acts last | Prevention draft or F3 used as parent completion |
+| B-050 -> D-425 F3 | Five receipts complete, independent checkpoint 1853fda | Preserve bounded evidence, B-050 Applied/O1 open | F3 as whole prevention or disposition |
+| G-F3-8/9 -> canonical guidance | Answers/owner/trigger tracked; text pending | Lane A applies accepted sections at authorized next governed sync, with fresh review/release/health | Debt silently closed by answering it |
+| F3 -> prevention proposal | Draft delivered; six planning corrections raised | Lane A answers PR1–PR6, fixes obligation matrix, exact paths/outcomes and proof design; Lane B readiness review | Current draft issued unchanged |
+| Ready proposal -> Judge act -> construction/proof | Not authorized by this review | Judge receives concrete scope, P7 fixture-only recovery/P8 recurrence bounds, exclusions and acceptance criteria; bounded Register act before work | An Approve row used as implementation authority |
+| Independent whole-v4 proof -> B-050 -> B-077 | Outstanding | Own evidence and source-specific disposition, then 17-target final review | B-077 before B-050 or one green run as prevention |
+| Parallel B-106/U03/DoD/P15 -> parents | Existing limits retained | Own owner/trigger/evidence | Invented B-050 dependency or DoD clearance |
+
+**Lane A steps:**
+1. Answer PR1–PR6 in B-050; retain F3 completion and G-F3-8/9 tracking, rather than reopen them.
+2. Replace blanket Proved labels with clause-to-receipt mappings and outstanding independent cases.
+3. Present exact allowed paths, capture-lock refusal/abandonment rules, effective extraction inputs,
+   derived schema checks, frozen-source follow-up proof, exclusions and definition of done.
+4. Obtain Lane B's revised-plan readiness review, then present the concrete unit to the Judge.
+5. Only after the applicable act, follow its construction/proof/sync order; changed final source needs renewed
+   exact-byte review. Prevention, disposition, B-077 and child-first parent closure remain separate.
+
+**Chief Editor / Judge:** the next decision is whether to issue the corrected prevention unit. Confirm proposed
+fixture-only destructive recovery evidence and no real-target failure drill; preserve the flake stop-on-recurrence
+bound. Do not repeat F3 approval. Stronger authenticated reviewer identity/raw-writer exclusion are not included.
+Lane A identified real operative raw routes and missing obligations; Lane B corrected archive semantics, source
+identity and incomplete proof definitions. No new Lane C finding or CI clearance is assumed.
+
+Critical implementation inputs still missing from this draft are exact capture-lock outcomes, a frozen extraction
+input packet, schema-specific derived validation and an executable same-source proof design. Their verification
+artifacts must include reached negative boundaries, valid retry and independent review, not only totals/stamps.
+The current post-release prepare interface always snapshots newer HEAD; it cannot by itself prove a repeat of
+the earlier analyzed source after the acceptance commit. Preserve the archive's verbatim body and route operative
+instructions through the guard. All technical replacement text stays in B-050 to avoid duplicated requirements.
+
+### What you did instead
+
+Read-only authority, instruction/hook/workflow, installed CLI and derived schema/source review. The installed
+Codex hook-check is a no-op; local workflow delegation must be governed, not treated as an unknown automatic
+writer. Independent consistency at 9182cc9: 19/19; governed drift clean at 00c23ff through excluded-only advances.
+No rebuild due for these handoff changes. No construction, proof harness, app build, live mutation, source/rule
+edit, archive rewrite, tracker/header/receiver-answer closure, new Register act or push.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | F3 completion, G-F3-9 answer/tracking, real remaining prevention gaps | Phase 1: retain bounded receipts |
+| Approve-with-conditions | Prevention planning direction | Phase 1: PR1–PR6 answers and Lane B readiness review before Judge proposal |
+| Defer | Work-order issuance, execution/proof, canonical wording, B-050/B-077 and parent closure | Phase 1: corrected concrete scope, act and independent evidence |
+| Reject | Current draft as ready to execute; archive-body rewrite or unbound repeat/derived/input proof | Phase 1: revise the named planning contracts |
