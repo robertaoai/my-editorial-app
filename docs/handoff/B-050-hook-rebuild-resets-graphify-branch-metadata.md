@@ -3732,3 +3732,64 @@ B-050 stays `Applied`; its O1 row stays open.
 
 **Requested of Lane B: receipt 5**, the independent F3 checkpoint. Its basis is receipts 1–4: `7929bea`, `932b453`, the
 release run `a0839623…`, and the post-state and 19/19 evidence above.
+
+## Lane B — receipt-5 evidence review and G-F3-9 draft, 2026-10-06
+
+### What happened
+
+Read at `3f1b1fc`; independently examined Lane A's receipts 3–4 and the real live state without modifying it.
+Receipt 1 at 7929bea and receipt 2 at 932b453 remain the construction/content inputs. Evidence:
+`C:/CoWork/outputs/lane-b-d425-receipt5-evidence.json`.
+
+Live manifest 81d1615459c38804db7a757869210ae867c1869139162ecb5a2719eecbf89c57 and graph
+f27fab8196c51f89e3ad0f5c14dc4ec9c3b444d474875b9f9e2990c87a9a351c equal the accepted candidate,
+583 files. Work is published. Release a0839623-f1ca-43f0-90b1-c87f853b1352 carries exactly the reviewed
+record and locus at 932b453, analyzed source 00c23ff, publication head 294efa9 and bootstrap predecessor
+6a74c8e / 1add761f. Journal, lock and recovery token are absent. Both retained backup/old copies equal
+1add761f. Baseline selection follows the release to 932b453 / 81d16154. Fragment parity 139/139,
+name binding and lifecycle findings zero. Independent full health at 3f1b1fc: **19/19 passes**, exit 0.
+**Receipt 5 accepted; bounded F3 checkpoint complete under D-425.** This closes that stage's five-receipt
+review obligation, not the B-050 entry or its O1/prevention obligation.
+
+### What you need
+
+**G-F3-9 is supported, with a wording qualification.** SKILL section 9 requires running check-update after
+publication; it does not explicitly say every HEAD-mismatch notice must trigger a rebuild. The missing
+caveat leaves the response ambiguous. D-425's handoff-only rule and D-231's governed-path check decide.
+Independent check-update reports graph built from 00c23ff but HEAD 3f1b1fc; source eligibility passes
+and docs-drift reports synced through excluded-only commits. No raw update was performed.
+
+**Draft replacement for Lane A, SKILL section 9's post-publication guidance (not applied):**
+"After publication, verify each claimed fragment, run check-update and bun run check, and retain their
+actual messages. A check-update HEAD-mismatch notice alone does not establish governed drift when all
+intervening changes are excluded handoffs under D-231/D-425. Confirm that classification with docs-drift
+and the source rule; do not follow a suggested update outside the guarded procedure. Other pending
+semantic work, included source changes, transaction or validation findings must still be resolved.
+Node totals and a generic pending notice are not semantic-parity evidence. Claim full health only after
+publication and the independent post-state checks."
+
+Lane A answers G-F3-9 here, with owner Lane A, proposed trigger the next governed change's guarded sync,
+target SKILL section 9, and completion evidence the exact diff plus that final source's reviewed sync/health
+receipts. Keep it distinct from G-F3-8 (sections 7/5), but share the sync trigger rather than duplicate work.
+This caveat does not waive genuine stale/pending/recovery findings. No canonical edit is made now solely
+to silence a diagnostic; any later governed edit needs fresh preparation/review/publication.
+
+Receipt 5's bounded acceptance covers the verified five-receipt checkpoint;
+it is not whole-v4 prevention, reviewer authentication, raw-writer exclusion or a flake-cause claim.
+Preserve B-050 Applied/O1 open. Do not delete verified backup/old copies or check a DoD box by implication.
+Next work is a separately scoped prevention proposal and Judge act, not automatic continuation into code.
+
+### What you did instead
+
+Read-only publication provenance, accepted-byte/live identity, cleanup, backup/old equality, baseline chain,
+curated fragment/name/metadata checks; reproduced the diagnostic without its update option. Existing
+semantic review carries forward because live is byte-identical to its accepted manifest. Full consistency
+completed independently: 19/19. No build, rebuild, prepare, live publish/recover,
+source/runbook change, tracker/header/receiver-answer edit, deletion, new Register act or push.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Independently matched receipts 3–4 and receipt 5; bounded F3 complete | Phase 1: verified 19/19, same reviewed bytes and bounded retention/identity limits |
+| Approve-with-conditions | G-F3-9 runbook caveat and tracking proposal | Phase 1: Lane A answers; apply at an authorized governed-sync trigger with fresh evidence |
+| Defer | Canonical G-F3-8/9 edits; prevention, B-050/B-077 and parents | Phase 1: named sync trigger and later scopes by their own acts |
+| Reject | Raw update to silence an excluded-only notice; all notices ignored; F3 as prevention or global closure | Phase 1: use governed evidence and retain stage limits |
