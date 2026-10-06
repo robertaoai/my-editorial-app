@@ -1353,6 +1353,15 @@
   - **Drift:** governed intent is synced at `00c23ff`; later commits are handoff-only.
 
   B-154 stays Open; no Resolution is recorded.
+
+  **Answered 2026-10-06, read at `598d15b`.**
+  - **F3 under D-425 is complete**, across its five receipts (checkpoint `1853fda`). This is a stage completion, not
+    prevention or a disposition.
+  - **G-F3-9** is answered in B-050: owner Lane A; the shared next-governed-sync trigger; target SKILL §9.
+  - **Next:** the prevention proposal, on the Judge's instruction. B-050/O1, B-077, the parents and Gate 2 are unchanged.
+  - **Drift:** governed intent is synced at `00c23ff`; later commits are handoff-only.
+
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38

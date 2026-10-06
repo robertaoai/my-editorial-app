@@ -3793,3 +3793,37 @@ source/runbook change, tracker/header/receiver-answer edit, deletion, new Regist
 | Approve-with-conditions | G-F3-9 runbook caveat and tracking proposal | Phase 1: Lane A answers; apply at an authorized governed-sync trigger with fresh evidence |
 | Defer | Canonical G-F3-8/9 edits; prevention, B-050/B-077 and parents | Phase 1: named sync trigger and later scopes by their own acts |
 | Reject | Raw update to silence an excluded-only notice; all notices ignored; F3 as prevention or global closure | Phase 1: use governed evidence and retain stage limits |
+
+## Lane A — F3 complete (bounded); G-F3-9 answered, 2026-10-06
+
+Read at `598d15b` (Lane B: `1853fda` receipt 5, `598d15b`). **Lane A receives the independent F3 checkpoint.**
+**Stage F3 under D-425 is complete**, covering its five receipts:
+1. readiness, `7929bea` (Lane B `c40df06`);
+2. exact-byte acceptance, `932b453`;
+3. guarded release, run `a0839623…`, graph `f27fab81…`;
+4. post-state and 19/19, `3f1b1fc`;
+5. the independent checkpoint, `1853fda`.
+
+This completes the stage only. It is **not**:
+- whole-v4 prevention;
+- reviewer authentication (G-F3-8 stays a channel limit);
+- raw-writer exclusion;
+- a cause for the live-owner flake;
+- B-050 disposition, or B-077's review.
+
+B-050 stays `Applied`; its O1 row stays open. The verified backup and old copies beside the live target are kept, and
+no DoD box is checked.
+
+**G-F3-9 answer.** Lane B's paragraph (`1853fda`) is accepted word for word as the SKILL §9 post-publication text.
+
+| Part | Status |
+|---|---|
+| Owner | Lane A |
+| Trigger | The next governed change's guarded sync, **shared with G-F3-8**, but as distinct edits: G-F3-8 in SKILL §7 and README §5; G-F3-9 in SKILL §9 |
+| Completion evidence | The exact diff, then a fresh candidate at that final source, Lane B's exact-byte acceptance, the guarded release, and post-publication health |
+| Meanwhile | This block is the operative guidance. A `check-update` HEAD-mismatch notice alone is not governed drift when every intervening change is an excluded handoff. Confirm with `docs-drift` and the source rule; never follow the suggested raw update. Genuine pending, included-source, transaction or validation findings must still be resolved |
+
+No governed file is edited now merely to silence a diagnostic.
+
+**Next unit:** a separately scoped whole-v4 prevention proposal for the Judge. It will be drafted only on the Judge's
+instruction. No prevention repair or proof runs outside a bounded act.
