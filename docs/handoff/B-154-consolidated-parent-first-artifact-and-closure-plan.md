@@ -7167,3 +7167,36 @@ instruction. B-154 stays Open; B-050 stays Applied. No header, tracker, ledger, 
 | Approve-with-conditions | Issuing D-426 | Phase 1: Lane B confirmation of the wording if sought, then the Judge's explicit issue instruction |
 | Defer | Recording, construction, the five receipts, dispositions, parents and Gate 2 | Phase 1: after the act, with independent evidence |
 | Reject | Counting recording files in the eight paths, stale-source acceptance, release as health proof, an act inferred from chat receipt | Phase 1: separate units and receipts |
+
+## Lane B — corrected D-426 draft confirmation, 2026-10-06
+
+### What happened
+
+**Clarified request:** finish planning review of Lane A's current answer, confirm corrected authority/artifact wording, preserve existing tracking and Judge hold; no implementation. Read 82c3875. Lane A accepts all six findings and incorporates the two replacement clauses in its proposed D-426 draft. Lane B confirms the recording/implementation split, final-source timing, independent readiness, separate release/health subreceipts, inherited guarded artifact boundary and full revision-chain DoD. Those six planning findings are discharged. No new technical or authority-wording gap is identified; do not require another answer merely to repeat this confirmation.
+
+### What you need
+
+| Parent-first order | Accept / reject criterion | Lane A next step | Follow-up phase |
+|---|---|---|---|
+| 1. Existing scope, technical plan and corrected act draft | Accept current source-bound planning confirmations; reject reopening discharged findings without new evidence | Retain operative revision chain and corrected draft at 82c3875; no further rewrite needed | Phase 1: planning review complete |
+| 2. Judge's authority decision, depends on 1 | D-426 remains proposed; the current Lane A answer records "do not issue D-426 yet". Reject inferred issue authority | Hold recording/construction. Present the corrected concrete draft if the Judge later chooses to issue, narrow or reject it; Judge is the user/Chief Editor for this act | Phase 1: held pending later explicit issue decision |
+| 3. Recording then implementation, depends on 2 | Three-file D-54 recording and eight-path implementation remain distinct bounded units; A must remain Active | Only after a later act: record its authorized propagation, implement the bounded source changes, then freeze final source before candidate review | Phase 1: future authorized work |
+| 4. Artifact acceptance, depends on 3 | Require source/test readiness, exact-byte/semantic acceptance, guarded release, separate health, B0/R1/C2 repeat and independent whole-unit review | Produce and retain each clause-bound receipt in order; P7 fixture-only destructive proof and P8 stop trigger remain operative proposal limits | Phase 1: future construction/verification evidence |
+| 5. Child/parent clearance, depends on 4 | Each source needs its own disposition/evidence; reject plan confirmation as Applied/Verified/clearance change | B-050 disposition, B-077 final review, required parallel obligations, parent reconciliation and fresh existing tracker review; Gate 2 conclusion last | Phase 1: respective acts and independent evidence |
+
+**Critical artifacts:** the accepted specification drives construction; the future final-source manifest/candidate binds verification; readiness, acceptance, release, health and repeat records establish distinct outcomes. An accepted draft is complete as a planning artifact only. Stale source bindings, a missing health receipt or unreached negative controls would fail the relevant proof criterion; no actual runtime failure or inevitable business loss is demonstrated here.
+
+**Chief Editor and lanes:** the only next authority choice is whether/when to issue the corrected act; the recorded hold stands. Lane A's producer facts and Lane B's history/schema/timing and act-wording findings are addressed in the specification. No new Lane C finding or CI acceptance is supplied. Existing exclusions and residual owners remain; this draft promises no raw-writer exclusion, authenticated identity, hosted/CI readiness, whole-product enforcement or WordPress delivery.
+
+**Closure tracking:** B-050 owns prevention proof/disposition; B-154 owns consolidation; B-077 owns final reconciliation; SV-002 §2.3.2/§2.3.1 and GOV-RES-001/receiving packets keep their distinct review, clearance and residual roles. B-154 remains Open and B-050 Applied. Discharging these planning findings closes neither source nor parent; U03, open DoD rows and B-136 P15 retain their own triggers.
+
+### What you did instead
+
+At 82c3875 handoff-response and docs-drift report no findings; Graphify queried read-only. Governed intent remains synced at 00c23ff through excluded handoff-only changes; no sync is due. Later authority/implementation source changes need final-source guarded publication. bun run check again cannot start in Lane B's environment (CouldntReadCurrentDirectory), so no current full-suite pass is claimed. Only this review is appended; no receiver answer, Register act, status/DoD/tracker change, build, implementation, graph mutation or push.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Corrected D-426 draft and Lane A's six answers | Phase 1: planning findings discharged; no repeated answer round |
+| Approve-with-conditions | Future authority recording/implementation proposal | Phase 1: later explicit Judge issue instruction, exact bounded units and A Active |
+| Defer | Issuing/recording the act, construction/proof and source/parent/Gate 2 closure | Phase 1: current hold retained; later authority and independent evidence required |
+| Reject | Issue authority inferred from confirmation, or planning completion treated as software/closure completion | Phase 1: preserve authority and artifact distinctions |
