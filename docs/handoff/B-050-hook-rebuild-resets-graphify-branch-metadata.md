@@ -3167,3 +3167,64 @@ Lane B's carried-forward boundaries (`3578fe9`) are construction inputs:
 
 **Next:** Lane A builds within the five paths, then hands back **receipt 1** (fixture and source readiness) for Lane B
 review. No candidate is prepared or published before that review.
+
+## Lane A — D-425 receipt 1: F3 built; fixture and source readiness for Lane B review, 2026-10-06
+
+**Authority:** `D-425` (`43ccebe`, §5.14e250). Lane A is `Active`. **Implementing commit:** `8b3d0da`, five paths only:
+- `scripts/graphify/guarded-rebuild.mjs`
+- `scripts/fixtures/graphify-guard.test.mjs`
+- `scripts/checks/docs-drift.mjs` (fix-it messages)
+- `.claude/skills/sync-docs/SKILL.md` §7/§9
+- `docs/graph-fragments/README.md` §4/§5
+
+Nothing has been prepared or published, and the real live state has not been written.
+
+### What was built, against the accepted plan (revision 2, plus 3, plus 3b)
+
+| Contract | Construction in `guarded-rebuild.mjs` |
+|---|---|
+| Live entry over the shared core | `publish`/`recover` take `live: { liveTarget, workRoot, validate }`. `liveEntryFindings`: the target resolves to the configured live target; staging is inside the work root, disjoint from the live target, the source and its Git directories, and on the same volume. Fixture mode is unchanged, and still refuses the real live target, its ancestors and descendants |
+| Acceptance record (F3-R1/R1a) | `parseAcceptance`: exact ordered keys (top level, `manifest`, `baseline`), then types and literals, then canonical text. `acceptanceAt`: a single-parent commit inside `analyzed..publication` must itself add exactly one complete `### F3 acceptance record` json block to B-050. The locus records the commit, path, blob and lines |
+| Journal and receipts | The prepared journal carries `acceptance`, `publicationHead`, `predecessor` and `manifestAlgorithm`. The normal **and** the recovered release receipt are both built only from the journal (`releaseReceipt`). `recover` takes no acceptance |
+| Source rule (F3-R2; amends D-424 R4 at publication) | `publicationSourceFindings`: fast-forward; single-parent commits touching only `docs/handoff/`; the outside tree, branch, origin, upstream, config and other refs unchanged; clean tree |
+| Work states (F3-R3/R3a/R3b) | `prepareWork` / `resumeWork` / `publishWork` / `recoverLive` over a durable `STATE.json` under an exclusive `work/.claim`. `preparing` with an alive or unknown owner refuses with the work unchanged; only a proved-dead owner, re-checked by run token, becomes `failed`. `publish` goes from `ready`, validates under the publication lock, writes `reviewed`, then runs the transaction |
+| Baseline (F3-R6) | `BOOTSTRAP` = graph `35541b33…`, 583 files, `guard-treeDigest-v1` `1add761f…`, locus `6a74c8e…`. Later runs use `selectBaseline` over the receipts' predecessor chain; a missing, ambiguous or broken chain refuses |
+| Outcomes (F3-R4/R4a) | `EXIT`/`exitFor`/`OUTCOME_MESSAGE`: 0, 2, 3, 4, 5, 6, 7 as in revision 3b. Refusals say "this run did not publish or create a transaction journal" |
+| CLI | `node scripts/graphify/guarded-rebuild.mjs prepare|publish|recover`, against the real live target only (the repository's `.graphify` must resolve to it). Any other verb refuses (exit 2) |
+| Runbooks and guidance (F3-R5) | SKILL §7/§9, README §4/§5 and the three docs-drift fix-it messages route only to the guarded procedure, with no fallback. No raw `npx graphify hook-rebuild` instruction remains in the three files. The member-set comparison stays part of Lane B's exact-hash review, and the runbooks say so |
+
+### Evidence (fixture and source only)
+
+- `bun test`: **219/219**, guard file 189. The new D-425 groups:
+  - **acceptance:** valid, then nine malformed forms; inherited, duplicated, quoted, prose-only and out-of-range
+    records;
+  - **source rule:** handoff-only passes; code, mixed, dirty, config, other-ref and non-fast-forward changes refuse;
+  - **baseline:** bootstrap, changed map, ambiguous, broken chain;
+  - **work states, end to end:** fresh → pending → resume → ready → committed review → publish → published, then the
+    chain selects that release; a wrong record keeps `ready`; publish from fresh, pending or failed; changed answers
+    or source; alive, unknown and torn ownership; a held claim; a dead owner fails once; a real child-process kill
+    during `prepare`;
+  - **outcomes:** a peer journal kept byte-equal; restored (exit 6); blocked restore (exit 5); receipt failure then
+    `completed-release` with the journal's original acceptance; the exit-code table;
+  - **messages:** checked against the runbooks.
+
+  Every case runs on fixture live layouts (a parent folder plus a junction). **Generation and composition are
+  injected fakes in the command cases.** The real generation and composition paths are covered by the F2 cases and
+  will be exercised for real at receipt 2.
+- `bun run fixtures`: **297/297**.
+- `bun run check`: **18/19**. `docs-drift` reports the **expected** stale graph (analyzed `40429f8`, HEAD `8b3d0da`;
+  D-425 and its paths are governed changes). Under D-425 item 5, 19/19 is claimed only after the first guarded
+  publication (receipt 4).
+
+**Not claimed:**
+- real Windows held-handle behavior;
+- exclusion of raw `graphify` writers;
+- a cause for the live-owner flake (it did not recur in these runs);
+- the prevention proof.
+
+B-050 stays `Applied`; its O1 row stays open.
+
+**Requested of Lane B (receipt 1):** review `8b3d0da` against the accepted plan and D-425. **On acceptance,** Lane A
+runs `prepare` at the final authorized source (this commit, or a later handoff-only head) and hands Lane B the work
+folder's identity for the exact-byte acceptance record (receipt 2). Lane B commits that record in B-050 under the
+`### F3 acceptance record` heading, and its review commit is passed to `publish --review` (receipt 3).
