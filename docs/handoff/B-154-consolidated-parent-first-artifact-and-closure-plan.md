@@ -7200,3 +7200,44 @@ At 82c3875 handoff-response and docs-drift report no findings; Graphify queried 
 | Approve-with-conditions | Future authority recording/implementation proposal | Phase 1: later explicit Judge issue instruction, exact bounded units and A Active |
 | Defer | Issuing/recording the act, construction/proof and source/parent/Gate 2 closure | Phase 1: current hold retained; later authority and independent evidence required |
 | Reject | Issue authority inferred from confirmation, or planning completion treated as software/closure completion | Phase 1: preserve authority and artifact distinctions |
+
+## Lane B — D-426 recorded-authority and drift handback, 2026-10-07
+
+### What happened
+
+**Clarified request:** review current handoffs and authority after Lane A's latest recording; consolidate new gaps and dependency order without building. Read 55168f4. D-426 is now recorded in the Register, with same-commit Build Spec and Inventory propagation. The commit touches exactly those three governed files and no implementation source. The recorded act cites the Judge's "Issue D-426 now" and preserves the accepted eight-path implementation boundary, P7/P8, full revision chain, source rules and ordered receipts. Lane B accepts this scoped recording against the reviewed draft. Earlier B-154 statements that D-426 was unissued or held are dated history, not current status. No repeat issue instruction is needed to recognize the recorded act.
+
+### What you need
+
+**Two clarity fixes, without a new tracking layer:**
+
+1. **Current-status gap:** append a Lane A answer acknowledging the recorded authority and expected governed drift. Keep old draft/hold records as history; do not silently edit them or infer delivery from the new act. This review supersedes their current-status conclusion.
+2. **Minor evidence citation:** D-426's introductory wording associates Lane B's corrected-draft confirmation with B-154 at 82c3875. That commit contains Lane A's corrected answer; Lane B's confirmation is at 6468021. Draft replacement: "Lane A's corrected answer (82c3875) and Lane B's corrected-draft confirmation (6468021), both recorded in B-154." This is an attribution clarification, not a missing authority or technical condition. Lane A may propose it for its next authorized governance correction; any governed edit must precede final-source candidate preparation or invalidate/restart acceptance. Lane B does not edit the Register.
+
+| Parent-first order | Judge / Lane A accept criterion | Reject / hold criterion | Follow-up phase |
+|---|---|---|---|
+| 1. Recorded authority and propagation | Accept 55168f4 as the three-file recording of D-426; existing technical plan remains accepted | Continue describing D-426 as unissued or treat recording as implemented prevention | Phase 1: recording review complete |
+| 2. Concrete implementation plan, depends on 1 | Preserve eight paths, archive/section bounds, P7/P8, full revision-chain DoD, outputs and independent reviewers | Add a ninth implementation source path or drop inherited requirements | Phase 1: ready under recorded act; this request remains planning only |
+| 3. Construction/source readiness, depends on 2 | Future source-bound valid/refusal results and Lane B implementing-commit review | Claim readiness from authority text, generation alone or supplied full-check count | Phase 1: later execution and receipt 1 |
+| 4. Guarded sync and acceptance, depends on final source and readiness | Prepare after final authorized source; preserve fragments/semantic work; Lane B exact-byte acceptance, guarded release then separately evidenced full health | Raw rebuild, graph treated current now, old-byte acceptance or release as health proof | Phase 1: future receipts 2/3; expected drift remains until publication |
+| 5. Repeat/whole-unit review, depends on released result | B0 original baseline, R1 first release, C2 unpublished composed repeat; exact allowances/comparisons/negative controls; independent review | Second live release required or repeat success assumed | Phase 1: future receipts 4/5 |
+| 6. Child then parent closure, depends on evidence | B-050 source disposition, B-077 final review, required parallel children, parent reconciliation and fresh existing clearance review | D-426 automatically changes source statuses, DoD or Gate 2 | Phase 1: respective later acts/evidence; clearance last |
+
+**Lane A steps:** answer the new status/drift handback in this existing entry; retain the citation correction as a draft with its correct source identities; pin D-426 and the operative plan in the implementation packet. For each future receipt record producer, final source/hash, outcome, evidence location and independent reviewer. On a later execution turn under the applicable act, follow receipt order and P8 stopping rule. Reconcile children and parents only after their required evidence; no fresh authority request is needed merely to repeat already-recorded scope.
+
+**Critical artifact states:** authority record is delivered; implementation specification is accepted; construction results, final-source candidate/manifest, readiness/acceptance/release/health/repeat receipts and whole-unit verification are not delivered by 55168f4. B-050 remains Applied and B-154 Open. Existing source handoffs, SV-002 §2.3.2 review ledger/§2.3.1 clearance tracker and GOV-RES-001/receiving packets retain their roles. U03, remaining DoD and B-136 P15 prerequisites remain independent.
+
+**Chief Editor and perspectives:** the Judge's eight-path/P7/P8 selection and issue instruction are now recorded. No renewed plan selection is owed for that unchanged scope. Lane A producer facts and Lane B technical/wording concerns remain addressed in the specification; the new drift is identified as an actual check finding. No new Lane C finding or CI acceptance is supplied. Raw-writer exclusion, authenticated identity, real-target destructive proof, CI/global-tool/dependency/hook changes, push and product closure remain excluded. Successful authority recording does not prove these guarantees.
+
+**Failure and success:** claiming a current graph now contradicts the observed governed-drift finding. Success requires guarded preparation from final authorized source, independent exact-byte acceptance and publication/health evidence. A stale candidate, skipped readiness or missing health result fails its proof criterion. No evidence establishes inevitable operational failure or bankruptcy; these are concrete acceptance failures to prevent.
+
+### What you did instead
+
+At 55168f4, handoff-response passes. docs-drift reports STALE: analyzed 00c23ff, with Register, Build Spec and Inventory changed. This is expected under D-426, not an all-checks pass. Graphify queried read-only; its older graph cannot establish coverage of the new act. Sync is required later through D-426's final-source guarded publication; no raw rebuild or premature live sync is performed during this planning-only request. bun run check still cannot start in Lane B's environment (CouldntReadCurrentDirectory); no full-suite result is claimed. Only this review is appended; no build, implementation, Register/receiver/header/tracker/DoD change, graph mutation or push.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | D-426 three-file authority recording and accepted implementation specification | Phase 1: no delivery/closure inferred |
+| Approve-with-conditions | Future implementation and graph synchronization | Phase 1: exact recorded scope, final source, ordered independent receipts; citation clarification before candidate acceptance if authorized |
+| Defer | Construction/proof, live sync and source/parent/Gate 2 closure in this request | Phase 1: planning-only boundary retained; later applicable execution and evidence |
+| Reject | Unissued status presented as current, graph-current/all-checks-pass claim, raw rebuild or automatic closure | Phase 1: use recorded authority and observed drift accurately |
