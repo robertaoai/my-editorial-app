@@ -1379,6 +1379,20 @@
   - **Next:** Lane B review, then the Judge's act. Nothing is executed.
 
   B-154 stays Open; no Resolution is recorded.
+
+  **Answered 2026-10-06, read at `3234f66`.**
+  - **Prevention proposal revision 2** is in B-050. It answers PR1–PR6:
+    - PR1: operative rules only; the archive body is untouched;
+    - PR2: capture-lock outcomes and a recovery route;
+    - PR3: frozen, verified executables and selection, on both extraction branches;
+    - PR4: per-schema derived projections;
+    - PR5: a frozen-packet repeat harness;
+    - PR6: per-path classification.
+  - The matrix is restated as source-specific receipts.
+  - **Next:** Lane B readiness review, then the Judge's act (P7/P8 bounds and paths). Nothing is applied.
+  - **Drift:** clean at `00c23ff`; handoff-only commits since.
+
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38

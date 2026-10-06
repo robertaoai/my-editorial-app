@@ -3968,3 +3968,173 @@ edit, archival rewrite, new Register act, tracker/header/receiver-answer change 
 | Approve-with-conditions | Revised prevention planning direction | Phase 1: Lane A answers PR1–PR6 with exact paths, outcomes, schema checks and frozen-input proof plan; Lane B readiness review |
 | Defer | Judge work order, code/proof execution, canonical G-F3-8/9 changes, B-050/B-077 and parent closure | Phase 1: corrected proposal, bounded act and independent evidence |
 | Reject | Current draft as execution-ready; archive-body rewrite; post-review HEAD as same source; counts/stamps or PATH order as sufficient proof | Phase 1: apply the named planning corrections |
+
+## Lane A — prevention proposal, revision 2: PR1–PR6 answered (DRAFT for Lane B readiness review), 2026-10-06
+
+Read at `3234f66` (Lane B: `a2389b8`, `3234f66`). **This revision replaces the `9182cc9` draft as the one current
+prevention proposal**; that draft stays as history. Plan only: nothing is applied, executed or registered. All six
+findings are accepted. Lane A's "Proved" rows were too broad, and are restated below as source-specific receipts.
+
+Read-only facts gathered for this revision:
+- `agent-rules-reference.md` is a verbatim archive below its framing header; its L179 and L465 are inside that body.
+- The installed CLI's scope modes are `auto`, `committed`, `tracked` and `all`.
+- Branch selection depends on the clock (`activeWithinDays`, `maxCommits` and `sinceDays` defaults).
+- The derived artifacts in the live state are `studio/graph.json`, `studio/scene.json` (nodes, edges,
+  communityColors, stats), `studio/entities.json`, `studio/reconciliation-candidates.json` (items, total),
+  `studio/workspace-manifest.json` (schema, schema_version, generated_at, graph_hash, artifacts) and
+  `ontology/citations.json` (schema, graph_signature, nodes).
+
+### PR1: operative rules, not the archive
+
+| Path | Change |
+|---|---|
+| `CLAUDE.md` "Graph currency" (L37) | Keep the currency check (compare `branch.json` with HEAD; read `docs-drift`). Replace "run `npx graphify hook-rebuild`…" with: "governed drift is synced only through the guarded procedure (`sync-docs` SKILL §7, `D-425`); never run a raw rebuild or update against the live state; a `check-update` notice after handoff-only commits is not drift (G-F3-9)" |
+| `GEMINI.md` "Graph currency" (L52) | The same replacement for `/graphify . --update` |
+| `docs/governance/agent-rules-reference.md` | **Body untouched.** In the framing header only (above `---`), one sentence: "Graph-update commands quoted below are historical; the operative route is the D-425 guarded procedure." |
+| `.agents/workflows/graphify.md` | Route the local workflow's live-state build or update to the guarded procedure. The global skill's own update, watch and hook-install routes stay external (a stated limit) |
+
+**Checks:**
+- `rule-budget`, including the `@AGENTS.md` import check, passes;
+- a scoped instruction audit (a new fixture case) asserts that no operative file in CLAUDE.md, GEMINI.md, AGENTS.md,
+  `.claude/skills` or `.agents/workflows` tells an agent to run `hook-rebuild`, `update` or `--update` against
+  the live state;
+- quoted history in the archive body is excluded by path and span.
+
+### PR2: baseline capture under the publication lock
+
+In `attempt` (prepare and resume):
+1. `createExclusive(lock, ownerRecord(token) + { purpose: "capture" })`.
+2. Re-check the source snapshot and `selectBaseline`.
+3. Copy, hash and verify.
+4. `releaseOwned` in its own `finally`.
+5. Only then run the long generation.
+
+**Outcomes** (the work state stays in the existing set; no new state):
+
+| Situation | Result |
+|---|---|
+| Lock held by an alive or unknown owner | Refused, exit 2. **The work stays `pending` or `fresh`**; it is never failed and never steals the lock |
+| Our copy or hash fails | `failed` (exit 4); the lock is released in `finally` |
+| Death after acquisition (a capture lock with no journal) | Under the existing F2 rule, "a lock without a journal" means recovery-required and is never stolen. New, evidenced route: `recover` releases a **capture-purpose** lock only when its owner is proved dead **and** no journal exists **and** the live state equals the lock record's baseline digest. Otherwise recovery-required |
+
+**Tests:**
+- a held lock before the copy;
+- a child killed after acquisition (real termination), then recover, then a successful retry;
+- a copy or hash failure;
+- a peer's lock bytes kept equal.
+
+### PR3: effective extraction inputs, on both extraction branches
+
+- **Scope:** `--scope committed` (committed content only, matching the snapshot HEAD). Selection options are passed
+  explicitly with frozen values: `--active-within-days`, `--max-commits` and `--since-days` set to the current
+  defaults. Their exact flag spelling is confirmed from the CLI at implementation; if any is not a CLI option, it is
+  frozen through the documented config instead.
+- **Executables:**
+  - freeze the resolved `node` path and version and the SHA-256 of its binary;
+  - freeze the resolved `git` path and `git --version`;
+  - freeze the child argv, the sanitized environment (names only; **no secret values**) and the checkout's effective
+    `git config --show-origin --list` digest and options;
+  - **verify all of them on use**, by hash and version, not merely by PATH order.
+- **Selection oracle:** the expected selected branch and commit come from the snapshot (current branch at the analyzed
+  HEAD). After each tool stage, the actual `branch.json` and `worktree.json` identities must equal it. A difference
+  is a refusal (cutoff crossing), never a pass.
+- **Both branches:** the from-empty extraction gets the same raw-null, identity and no-op checks as the rebuild
+  before `prune-stale-symbols` consumes it. Today it checks only the exit code.
+- **Tests:** a changed executable hash; a changed config; a docs-only `GRAPHIFY_CHANGED` (already unset); an
+  injected cutoff crossing on each branch; raw null on the fresh branch.
+
+### PR4: derived artifacts, schema by schema
+
+| Artifact | Declared projection of the final graph | Refuse when |
+|---|---|---|
+| `studio/graph.json` | Equals the final `graph.json` nodes and links by id and fields (the same projection) | Any node or edge id or field differs |
+| `studio/scene.json` | Its `nodes` and `edges` ids equal the final graph's; community colors cover exactly its community ids | Same counts but a wrong edge, or a missing or extra id |
+| `studio/entities.json` | Its keys equal the final node ids | Missing or extra keys |
+| `studio/workspace-manifest.json` | Every `artifacts` entry exists; `graph_hash` binds the final graph (the live value is `null` today, recorded as a finding) | A missing artifact, or a wrong or null binding where one is declared |
+| `ontology/citations.json` | `graph_signature` equals the final graph's signature; citation node ids are a subset of the final ids | A stale signature, or an unknown id |
+
+**Preferred:** regenerate these artifacts from the final graph through the pinned tool's studio and ontology steps in
+the candidate, then validate the projections above. Never stamp a matching value over wrong content. Each row gets a
+negative fixture (same count with a wrong edge or label; stale signature; missing or extra artifact; wrong manifest
+binding).
+
+### PR5: following-run proof with frozen inputs (isolated harness)
+
+The post-review HEAD is not "the same source". A new, test-only harness (`proveRepeat`, in the guard file) takes the
+first run's **frozen packet**: source snapshot, ref map, tool and executable bindings, effective inputs and the
+selection options. It then:
+1. materializes that exact source in a disposable checkout. There is no reset of the real repository and no live
+   mutation;
+2. uses the **verified released retained state** (a copy of the live state) as the baseline;
+3. runs `generateCandidate` with the same answers;
+4. **shows source and selection equality first**; a changed selection refuses and re-prepares, and is never counted
+   as a pass;
+5. compares retained bytes, node and edge semantics (ids plus declared fields), complete member-set and name
+   bindings, and descriptions. Raw graph and manifest hashes are recorded too.
+
+Volatile fields that may differ are declared **now**, not after a mismatch: `generated_at`/`createdAt`/`updatedAt`
+timestamps, run ids and receipts. Nothing else. There is no second publication.
+
+### PR6: writer inventory, recorded per path
+
+| Path | Classification | Action |
+|---|---|---|
+| `.codex/hooks.json` → `graphify hook-check` | Verified no-op (`process.exit(0)`, Lane B's read of the installed CLI) | None; record the tool version and hash |
+| `.claude/settings.json` hint hooks | Create empty `.graphify/.hint-<date>/` directories only; graph files untouched; manifests are file-based | None; documented |
+| `.agents/workflows/graphify.md` | **An instruction route**: it delegates to a global skill that contains update, watch and hook-install routes | In scope (PR1) |
+| The global graphify skill and tool | External | Excluded; a stated limit |
+| CI workflows | Read-only search found no graphify route (not a Lane C review) | Excluded (Lane C) |
+
+### Corrected obligation matrix (receipts, not blanket "Proved")
+
+| v4 clause | Receipt (source-specific) | Boundary proved | Surviving limit or open item |
+|---|---|---|---|
+| 1. Inspect without mutation | F1 `591d2cd`; F3 receipt 1 `7929bea` (C1 preflight, live entry) | Fixture negatives plus the real run | — |
+| 2. Baseline under the lock | — | — | **Open: PR2** |
+| 3. Isolated generation, raw-null and no-op | F2 `434129c`/D-424; receipt 2 real run | The rebuild branch only | **Open: the fresh branch (PR3)** |
+| R4 effective inputs and selection | Sanitized environment; pinned CLI | Environment variables only | **Open: PR3** |
+| 4. Validate and compose | D-424 `7b51c87`; receipt 2 (`932b453`) | Fragments, names, inventory, lifecycle, paths (scoped) | **Derived artifacts open: PR4** |
+| 5. Review final bytes | Receipt 2 `932b453` | Exact bytes | **Idempotence open: PR5**; reviewer identity is a channel limit (G-F3-8) |
+| 6–7. Publication, receipt, cleanup | F2 fixtures; receipts 3–4 (`3f1b1fc`), checkpoint `1853fda` | The real success path; recovery on live-layout fixtures | **P7: fixture-only destructive recovery** (proposed bound) |
+| Exclusive recovery and conditions 1–2 | F2 child-process cases | Fixtures | P8: flake recurrence stops the unit (proposed bound) |
+| Instruction surface | D-425 runbooks and docs-drift | Those three files | **Open: PR1/PR6** |
+
+### Exact proposed scope (for the act, after readiness)
+
+- **Paths:**
+  - `scripts/graphify/guarded-rebuild.mjs`, `scripts/fixtures/graphify-guard.test.mjs`;
+  - `CLAUDE.md`, `GEMINI.md` (operative sections);
+  - `docs/governance/agent-rules-reference.md` (framing header only);
+  - `.agents/workflows/graphify.md`;
+  - `.claude/skills/sync-docs/SKILL.md` §7/§9 and `docs/graph-fragments/README.md` §5 (the G-F3-8/9 text, word for
+    word);
+  - `scripts/fixtures/suites.mjs`, for the instruction-audit case. **This is a seventh path, named explicitly**;
+    alternatively the audit case goes into the guard test file and that path drops out. Lane B's preference is asked.
+- **New interfaces:**
+  - the capture-purpose lock;
+  - the selection-option flags;
+  - the derived-artifact validators;
+  - `proveRepeat` (test-only harness).
+- **Excluded:**
+  - the archive body;
+  - the no-op Codex hook;
+  - the global skill and tool;
+  - CI (Lane C);
+  - real-target failure drills (P7);
+  - authenticated identity;
+  - raw-writer exclusion.
+- **Order:**
+  1. readiness review;
+  2. the Judge's act;
+  3. the fixes, with negative evidence;
+  4. one guarded sync (prepare, Lane B's exact-byte record, publish, health 19/19);
+  5. the `proveRepeat` evidence;
+  6. Lane B's independent whole-v4 review.
+
+  If a proof needs a governed fix, stop and re-sync that final source. Only then come B-050's disposition, then
+  B-077's review.
+- **Judge decisions needed in the act:**
+  - accept P7 (fixture-only destructive recovery) and P8 (flake recurrence stops the unit) as bounds;
+  - name the paths above.
+
+**Requested of Lane B:** a readiness review of this revision. B-050 stays `Applied`; its O1 row stays open.
