@@ -5632,3 +5632,62 @@ new final-byte review requirement, not an automatic migration or application-bui
 | Approve-with-conditions | Full F2 batch, graph semantic release and current DOD-01 receipt pointer | Phase 1: two description fixes, exact-final-hash review, Lane A release record; criterion checkoff separately |
 | Defer | F3, whole B-050/B-077 obligations, B-106 children, U03/P15, parent/gate closure and retrieval/article | Their own Phase 1 selections, evidence and acts |
 | Reject | Treating Applied as closed, Deferred custody as delivered runtime, a graph release as prevention, or old graph/runner receipts as current proof | Phase 1: use source-specific completion and qualified language |
+
+## Lane B — accepted F2 handover and already approved step 4, 2026-10-06
+
+### What happened
+
+Effective request: explain what is complete in the current handoff, independently review Lane A's corrected
+graph, identify remaining gaps and sequence follow-up without duplicate status tracking. Read `1c3f3af`,
+`40429f8`, the approved plan and exact manifest. Lane B raises; Lane A answers. Detailed receipt is owned
+once in B-050's exact-hash acceptance above; no new B/A entry or receiver-field edit is needed.
+That exact acceptance is committed at `1a374a6`; current consistency verification passes 19/19.
+
+### What you need
+
+| Parent / dependency order | Completed now | Remaining record or work |
+|---|---|---|
+| 1. Governing authority → correction plan | D-423/D-424 and Judge-approved steps, including conditional step 4 | Preserve F3 "Not yet", retrieval "Later", article "Not now"; ask none again |
+| 2. Authorized source → code/semantic corrections | R1–R4, R1a/R3a and G-D424b-1/2 accepted; source comment fix has no behavior change | No open finding in this bounded correction batch |
+| 3. Corrected graph → Lane B acceptance | Exact 35541b33… accepted; 139 fragments, 118 bindings, 70 description judgments, 583-file manifest match | Lane A's release and F2-complete records still pending; acceptance is not the record itself |
+| 4. Accepted graph/review → B-136 current pointer | Required review condition satisfied | Lane A appends DOD-01 pointer; no DoD box checked, no old history overwritten |
+| 5. Accepted F2 → selected F3 → whole prevention → B-050 → B-077 | Fixture-only F2 checkpoint accepted | F3 remains unselected; whole prevention, B-050 Applied/O1 disposition and B-077 final review remain owed |
+| Separate setup/owned children → parents → final gate | B-106 custody and P15 draft corrections stay accepted | Runtime children, U03/DoD/P15, B-153/B-154 → B-150 → GR-007 F → Gate 2 retain their own evidence/acts |
+
+**Lane A follow-up, step by step:**
+1. Receive B-050's exact-hash/F2 acceptance. No further Judge approval is needed for the already approved step 4.
+2. Record release of `35541b337b25d2a16ee237219ee4f3417e668e352c3d8da044a21208cc5b1edb`, citing source
+   `40429f8`, this Lane B review and the final manifest. Do not transfer acceptance to any changed bytes.
+3. Record: "Fixture-only F2 under D-423/D-424 is complete on the accepted code and exact-graph receipts.
+   F3, whole prevention and B-050 disposition are excluded." This is a completion receipt, not a header closure.
+4. Append B-136's current DOD-01 graph pointer, citing the release/review/source; preserve the dated 9993bded
+   history and state "No DoD criterion is checked by this pointer update."
+5. Stop that authorized batch. Present a bounded F3 plan only if selected; obtain its own work order before
+   execution. Whole-prevention proof precedes B-050 disposition, then B-077's 17-target final review.
+6. Complete independent setup/child tracks before parent reconciliation and Gate 2. Retrieval/article and
+   annotation work remain deferred; F2 completion creates no new MMF or authorization for them.
+
+**Gaps and practical fixes:** the two semantic gaps are resolved. The immediate gap is documentary receipt
+completion (step 4 above), and its approval is already present. Later runner API drift and the unproven
+live-owner flake cause remain explicit: amend/pin the runner only under a selected rerun, and retain child
+exit/stage/output/error/source/runtime/load evidence if the flake recurs. These are named future triggers,
+not invented blockers for current F2 acceptance. No new Lane C review or unresolved concern is inferred.
+
+**Docs/graph currency:** governed source is synced at `40429f8`; later commits are handoff-only. Structural
+and semantic review now pass. No docs-folder rebuild or another graph generation is needed for these
+handoff receipts; a selected future rebuild must re-merge fragments. The graph is still unreleased until
+Lane A records the authorized release; last recorded release 504e6f7a… remains historical evidence.
+
+### What you did instead
+
+Used graph query, direct comment/source comparison and independent fragment, description, label and full
+state-hash checks. No runtime change, build, graph mutation/release, tracker closure or push. Current source's
+202 tests/297 fixtures are Lane A's pinned receipts; the earlier independent behavior run remains separately
+identified. Required current consistency result is recorded before these handoffs are committed.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Corrected exact graph and bounded F2 checkpoint; already approved step 4 may proceed | Phase 1: Lane A records release, F2 completion and B-136 pointer without re-asking |
+| Approve-with-conditions | Later selected F3 plan or changed graph revision | Separate Phase 1 bounded authority/evidence and exact-hash review |
+| Defer | F3, prevention, B-050/B-077, remaining children/parents/Gate 2 and retrieval/article | Their existing Phase 1 selections, proofs and acts |
+| Reject | Treating accepted review as an already written release record, F2 as whole prevention, or B-136 pointer as DoD acceptance | Phase 1: retain individual completion records and scope |
