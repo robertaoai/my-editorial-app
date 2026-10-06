@@ -48,6 +48,13 @@
 // baseline is captured under the publication lock, by a capture record bound
 // to the frozen baseline; a held lock refuses without failing or rewinding
 // work; a dead capture owner's lock is released only by evidenced recovery.
+// PR3a/PR3b with revision 5: both extraction branches run the supported
+// `hook-rebuild --scope committed`; Node, Git, their configuration and the
+// CLI are bound at prepare and re-verified before every tool call; each
+// Git-extracting call is bracketed by the clock and refuses if the selection
+// window crossed a cutoff; the fresh extraction must equal the selection
+// oracle and the rebuild must equal the producer's merge of the baseline and
+// that fresh extraction. `observed_at` is provenance, never selection time.
 
 import { execFileSync, spawnSync } from "node:child_process";
 import { createHash, randomUUID } from "node:crypto";
@@ -904,12 +911,267 @@ export function runGraphify(cwd, args, { cli } = {}) {
 
 const readState = (stateDir) => ({ branch: readJsonOr(join(stateDir, "branch.json")), worktree: readJsonOr(join(stateDir, "worktree.json")) });
 
+// ---------------------------------------------------------------------------
+// D-426 PR3a/PR3b (revision 5 step 4): executable bindings and the selection
+// oracle. Facts about the PINNED producer (0.17.1), read from its source:
+// `discoverBranches` selects the default branch (origin/HEAD), the current
+// branch and local heads committed within 30 days of `Date.now()`;
+// `revList` takes up to 200 commits per branch with no `since` filter;
+// `rebuildCode` keeps every earlier node not re-extracted and re-adds every
+// earlier edge whose endpoints survive, in a simple undirected graph (one
+// edge per node pair). Only `hook-rebuild` runs this Git extraction.
+// ---------------------------------------------------------------------------
+
+/** The supported pinned command for both extraction branches (PR3a). */
+export const REBUILD_ARGS = Object.freeze(["hook-rebuild", "--scope", "committed"]);
+/** The installed selection rules, recorded, never configured (the CLI exposes no selection flags). */
+export const SELECTION_RULES = Object.freeze({ activeWithinDays: 30, maxCommits: 200, sinceDays: null });
+
+const sha256File = (p) => createHash("sha256").update(readFileSync(p)).digest("hex");
+const tryGitOut = (cwd, args) => {
+  try {
+    return git(cwd, args);
+  } catch {
+    return null;
+  }
+};
+
+/** Resolves a bare executable name on the child's PATH as libuv does on Windows (.com, then .exe) or POSIX. */
+function resolveOnPath(name, env) {
+  const key = Object.keys(env).find((k) => k.toUpperCase() === "PATH");
+  const dirs = (key ? env[key] : "").split(process.platform === "win32" ? ";" : ":").filter(Boolean);
+  const exts = process.platform === "win32" ? [".com", ".exe"] : [""];
+  for (const d of dirs) {
+    for (const e of exts) {
+      const p = join(d.replace(/^"|"$/g, ""), name + e);
+      try {
+        if (statSync(p).isFile()) return p;
+      } catch {
+        // not here
+      }
+    }
+  }
+  return null;
+}
+
+const versionOf = (exe, env) => execFileSync(exe, ["--version"], { encoding: "utf8", env, stdio: ["ignore", "pipe", "ignore"], timeout: 60000 }).trim();
+
+/** Digest of the Git configuration outside any checkout (global and system), as the child sees it. */
+function gitConfigOutside(gitPath, env) {
+  const part = (scope) => {
+    const r = spawnSync(gitPath, ["config", `--${scope}`, "--list", "--show-origin"], { encoding: "utf8", env, timeout: 60000 });
+    return `${scope}:${r.status}:${r.stdout || ""}`;
+  };
+  return createHash("sha256").update(`${part("system")}\0${part("global")}`).digest("hex");
+}
+
+/**
+ * PR3a: the executable bindings frozen at prepare — Node (path, binary SHA-256, version), Git as the
+ * child resolves it on its sanitized PATH (path, SHA-256, version), the Git configuration outside
+ * the checkout, the CLI path and its pins, and the child argv. Names only for the environment.
+ */
+export function executableBindings({ cli, env = sanitizedEnv() } = {}) {
+  try {
+    const gitPath = resolveOnPath("git", env);
+    if (!gitPath) return { ok: false, reason: "git is not resolvable on the child's PATH" };
+    return { ok: true, bindings: {
+      node: { path: process.execPath, sha256: sha256File(process.execPath), version: versionOf(process.execPath, env) },
+      git: { path: gitPath, sha256: sha256File(gitPath), version: versionOf(gitPath, env) },
+      gitConfig: gitConfigOutside(gitPath, env),
+      cli: cli ?? null, pins: TOOL_PINS, argv: REBUILD_ARGS, rules: SELECTION_RULES,
+    }, envNames: Object.keys(env).sort() };
+  } catch (e) {
+    return { ok: false, reason: `the executable bindings cannot be read (${String(e.message).split("\n")[0]})` };
+  }
+}
+
+/**
+ * PR3a: re-verifies every binding on use, by path, hash and version — never by PATH order alone.
+ * `seen` keeps each checkout's local Git configuration digest from its first use.
+ */
+export function bindingFindings(b, { checkout, seen = new Map(), env = sanitizedEnv() } = {}) {
+  const f = [];
+  try {
+    if (canonicalFsPath(process.execPath) !== canonicalFsPath(b.node.path)) f.push("the node path changed");
+    else if (sha256File(b.node.path) !== b.node.sha256) f.push("the node binary changed");
+    else if (versionOf(b.node.path, env) !== b.node.version) f.push("the node version changed");
+    const gitPath = resolveOnPath("git", env);
+    if (!gitPath || canonicalFsPath(gitPath) !== canonicalFsPath(b.git.path)) f.push("the git path changed");
+    else if (sha256File(gitPath) !== b.git.sha256) f.push("the git binary changed");
+    else if (versionOf(gitPath, env) !== b.git.version) f.push("the git version changed");
+    else if (gitConfigOutside(gitPath, env) !== b.gitConfig) f.push("the Git configuration outside the checkout changed");
+    if (JSON.stringify(b.pins) !== JSON.stringify(TOOL_PINS)) f.push("the tool pins changed");
+    const pins = pinnedCli(b.cli);
+    if (!pins.ok) f.push(pins.reason);
+    if (checkout) {
+      for (const shadow of ["git.com", "git.exe", "git"]) if (process.platform === "win32" && existsSync(join(checkout, shadow))) f.push(`a ${shadow} in the checkout would shadow the bound git`);
+      const local = createHash("sha256").update(git(checkout, ["config", "--local", "--list", "--show-origin"])).digest("hex");
+      if (!seen.has(checkout)) seen.set(checkout, local);
+      else if (seen.get(checkout) !== local) f.push("the checkout's Git configuration changed between stages");
+    }
+  } catch (e) {
+    f.push(`a binding cannot be verified (${String(e.message).split("\n")[0]})`);
+  }
+  return f;
+}
+
+/** The producer's repository key for an origin URL (GitHub forms, then the generic remote key); null otherwise. */
+export function repoKeyOf(url) {
+  const t = String(url).trim().replace(/\.git$/i, "");
+  const gh = t.match(/^https:\/\/github\.com\/([^/\s]+)\/([^/\s]+)$/i) || t.match(/^git@github\.com:([^/\s]+)\/([^/\s]+)$/i) || t.match(/^ssh:\/\/git@github\.com\/([^/\s]+)\/([^/\s]+)$/i);
+  if (gh) return `repo:github.com/${gh[1]}/${gh[2]}`;
+  const tidy = (s) => (s ?? "").replace(/^\/+/, "").replace(/\/+$/, "");
+  let m = t.match(/^ssh:\/\/(?:[^@]+@)?([^/\s]+)(\/.+)$/i) || t.match(/^https?:\/\/([^/\s]+)(\/.+)$/i);
+  if (m && m[1] && tidy(m[2])) return `repo:${m[1]}/${tidy(m[2])}`;
+  m = t.match(/^(?:[^@]+@)?([^:/\s]+):(?!\/\/)(.+)$/);
+  if (m && m[1] && tidy(m[2])) return `repo:${m[1]}/${tidy(m[2]).replace(/:/g, "/")}`;
+  return null;
+}
+
+/** The selection inputs, read once from a frozen checkout: everything except the clock. */
+export function selectionInputs(checkout) {
+  const current = tryGitOut(checkout, ["branch", "--show-current"]) || null;
+  const remoteHead = tryGitOut(checkout, ["symbolic-ref", "--quiet", "--short", "refs/remotes/origin/HEAD"]);
+  const def = remoteHead ? remoteHead.replace(/^origin\//, "") : current;
+  const heads = (tryGitOut(checkout, ["for-each-ref", "--format=%(refname:short)%00%(committerdate:iso-strict)", "refs/heads"]) ?? "")
+    .split("\n").filter((l) => l.trim()).map((l) => {
+      const [name, date] = l.split("\0");
+      return { name, time: Date.parse(date ?? "") };
+    }).filter((h) => h.name);
+  const revs = {};
+  for (const b of [...new Set([def, current, ...heads.map((h) => h.name)].filter(Boolean))].sort()) {
+    const out = tryGitOut(checkout, ["rev-list", `--max-count=${SELECTION_RULES.maxCommits}`, b]);
+    revs[b] = out ? out.split("\n").filter(Boolean) : [];
+  }
+  const origin = tryGitOut(checkout, ["remote", "get-url", "origin"]);
+  return { current, def, heads, revs, repoKey: origin ? repoKeyOf(origin) : null };
+}
+
+const edgeKeyU = (relation, a, b) => [relation, ...[a, b].sort()].join("\0");
+
+/** The expected branch ids, commit ids and ON_BRANCH memberships at selection time `at` (pinned rules). */
+export function selectionOracle(inputs, at) {
+  const cutoff = at - SELECTION_RULES.activeWithinDays * 24 * 60 * 60 * 1000;
+  const names = new Set();
+  if (inputs.def) names.add(inputs.def);
+  if (inputs.current) names.add(inputs.current);
+  for (const h of inputs.heads) if (Number.isFinite(h.time) && h.time >= cutoff) names.add(h.name);
+  const k = inputs.repoKey;
+  const commits = new Set(), memberships = new Set();
+  const sorted = [...names].sort();
+  for (const b of sorted) {
+    for (const sha of inputs.revs[b] ?? []) {
+      commits.add(`commit:${k}@${sha}`);
+      memberships.add(edgeKeyU("ON_BRANCH", `commit:${k}@${sha}`, `branch:${k}#${b}`));
+    }
+  }
+  return { branches: sorted.map((b) => `branch:${k}#${b}`), commits: [...commits].sort(), memberships: [...memberships].sort() };
+}
+
+/**
+ * Revision 5, PR3b step 4: the time immediately before and after one child call, and the oracle at
+ * both ends from the same frozen inputs. Invalid or unordered times, or different oracles (the window
+ * crossed a cutoff), refuse. The producer's `observed_at` is provenance only, never this instant.
+ */
+export function selectionBracket(inputs, t0, t1) {
+  if (!Number.isFinite(t0) || !Number.isFinite(t1) || t1 < t0) return { ok: false, finding: "the selection bracket times are invalid or unordered" };
+  const a = selectionOracle(inputs, t0), b = selectionOracle(inputs, t1);
+  if (JSON.stringify(a) !== JSON.stringify(b)) return { ok: false, finding: "the branch-selection window crossed a cutoff during the extraction" };
+  return { ok: true, oracle: a, bracket: [t0, t1] };
+}
+
+const isGitId = (id) => typeof id === "string" && (id.startsWith("branch:") || id.startsWith("commit:"));
+const GIT_FIELDS = ["node_type", "repo", "sha", "parents", "branch_name", "head_sha"];
+const gitFields = (n) => JSON.stringify(GIT_FIELDS.map((k) => n?.[k] ?? null));
+
+/** A graph's Git subgraph: branch/commit nodes, and edges between them counted by (relation, node pair). */
+export function gitSubgraph(graph) {
+  const nodes = new Map(), dupNodes = [], edges = new Map();
+  for (const n of graph?.nodes ?? []) {
+    if (!isGitId(n?.id)) continue;
+    if (nodes.has(n.id)) dupNodes.push(n.id);
+    nodes.set(n.id, n);
+  }
+  for (const e of graph?.links ?? graph?.edges ?? []) {
+    if (!isGitId(e?.source) || !isGitId(e?.target)) continue;
+    const k = edgeKeyU(e.relation, e.source, e.target);
+    edges.set(k, (edges.get(k) ?? 0) + 1);
+  }
+  return { nodes, dupNodes, edges };
+}
+
+const short = (k) => k.split("\0").map((p) => p.slice(-24)).join(" ");
+
+/** PR3b step 1: the fresh (from-empty) extraction equals the oracle exactly, in sets and multiplicities. */
+export function freshOracleFindings(fresh, oracle) {
+  const f = [];
+  const ids = (prefix) => [...fresh.nodes.keys()].filter((id) => id.startsWith(prefix)).sort();
+  if (fresh.dupNodes.length) f.push(`duplicate Git nodes: ${fresh.dupNodes.slice(0, 3).join(", ")}`);
+  const cmp = (what, got, want) => {
+    const g = new Set(got), w = new Set(want);
+    const extra = got.filter((x) => !w.has(x)), missing = want.filter((x) => !g.has(x));
+    if (extra.length) f.push(`extra ${what}: ${extra.slice(0, 3).map(short).join(", ")}`);
+    if (missing.length) f.push(`omitted ${what}: ${missing.slice(0, 3).map(short).join(", ")}`);
+  };
+  cmp("branches", ids("branch:"), oracle.branches);
+  cmp("commits", ids("commit:"), oracle.commits);
+  const on = [...fresh.edges.entries()].filter(([k]) => k.startsWith("ON_BRANCH\0"));
+  cmp("memberships", on.map(([k]) => k).sort(), oracle.memberships);
+  const multi = on.filter(([, c]) => c !== 1);
+  if (multi.length) f.push(`membership multiplicity is not 1: ${multi.slice(0, 3).map(([k]) => short(k)).join(", ")}`);
+  return f;
+}
+
+/**
+ * PR3b steps 2–3: the rebuild's complete Git subgraph equals the pinned producer's merge of the
+ * verified baseline Git subgraph and the validated fresh extraction — every baseline node survives,
+ * a fresh node overwrites the baseline node, every edge of either survives once per (relation, pair).
+ * An extra node or edge without baseline or fresh provenance, an omission, a duplicate, or a node
+ * whose Git fields differ from its precedent source refuses.
+ */
+export function gitMergeFindings(baseline, fresh, rebuild) {
+  const f = [];
+  const expectedNodes = new Map([...baseline.nodes, ...fresh.nodes]);
+  if (rebuild.dupNodes.length) f.push(`duplicate Git nodes: ${rebuild.dupNodes.slice(0, 3).join(", ")}`);
+  const invented = [...rebuild.nodes.keys()].filter((id) => !expectedNodes.has(id));
+  const omitted = [...expectedNodes.keys()].filter((id) => !rebuild.nodes.has(id));
+  const changed = [...expectedNodes.keys()].filter((id) => rebuild.nodes.has(id) && gitFields(rebuild.nodes.get(id)) !== gitFields(expectedNodes.get(id)));
+  if (invented.length) f.push(`Git nodes without baseline provenance: ${invented.slice(0, 3).join(", ")}`);
+  if (omitted.length) f.push(`omitted Git nodes: ${omitted.slice(0, 3).join(", ")}`);
+  if (changed.length) f.push(`Git node fields differ from their precedent: ${changed.slice(0, 3).join(", ")}`);
+  const expectedEdges = new Set([...baseline.edges.keys(), ...fresh.edges.keys()]);
+  const inventedE = [...rebuild.edges.keys()].filter((k) => !expectedEdges.has(k));
+  const omittedE = [...expectedEdges].filter((k) => !rebuild.edges.has(k));
+  const multi = [...rebuild.edges.entries()].filter(([, c]) => c !== 1);
+  if (inventedE.length) f.push(`Git edges without baseline provenance: ${inventedE.slice(0, 3).map(short).join(", ")}`);
+  if (omittedE.length) f.push(`omitted Git edges: ${omittedE.slice(0, 3).map(short).join(", ")}`);
+  if (multi.length) f.push(`Git edge multiplicity is not 1: ${multi.slice(0, 3).map(([k]) => short(k)).join(", ")}`);
+  return f;
+}
+
+/** Every `observed_at` value in a graph's top-level attributes: recorded as producer provenance only. */
+function observedAt(graph) {
+  const out = [];
+  (function walk(v, d) {
+    if (d > 4 || !v || typeof v !== "object" || Array.isArray(v)) return;
+    for (const [k, x] of Object.entries(v)) {
+      if (k === "observed_at" && typeof x === "string") out.push(x);
+      else if (k !== "nodes" && k !== "links" && k !== "edges") walk(x, d + 1);
+    }
+  })(graph, 0);
+  return out;
+}
+
 /**
  * Steps 2–3 in isolation. `baseline` is a verified copy of the released state;
  * `work` a fresh empty directory; `answers` the operator's reviewed names and
  * descriptions for anything returned as pending. Nothing outside `work` is written.
+ * `bindings` (PR3a) are re-verified before every tool call; `clock` brackets the two
+ * Git-extracting calls (revision 5). Both extraction branches are validated against the
+ * selection oracle, and the rebuild against the producer merge, before the prune consumes
+ * the fresh extraction (PR3b).
  */
-export function generateCandidate({ repo, snapshot, baseline, work, answers = {}, tool = runGraphify, cli, fragmentsOrder }) {
+export function generateCandidate({ repo, snapshot, baseline, work, answers = {}, tool = runGraphify, cli, fragmentsOrder, bindings, clock = Date.now }) {
   const evidence = [];
   const checkout = join(work, "checkout");
   const state = join(checkout, ".graphify");
@@ -917,28 +1179,64 @@ export function generateCandidate({ repo, snapshot, baseline, work, answers = {}
   if (!prep.ok) return { status: "refused", reason: prep.reason, evidence };
   cpSync(baseline, state, { recursive: true });
   const expected = { head: snapshot.head, branchName: snapshot.branch, root: checkout, gitDir: join(checkout, ".git") };
-  const stage = (name, args) => {
+  const seen = new Map();
+  /** One child call: bindings verified first; a Git-extracting call is bracketed by the clock. */
+  const invoke = (cwd, args, inputs) => {
+    if (bindings) {
+      const f = bindingFindings(bindings, { checkout: cwd, seen });
+      if (f.length) return { refused: `executable binding refused before ${args[0]}: ${f.join("; ")}` };
+    }
+    const argv = [process.execPath, cli, ...args];
+    if (!inputs) return { r: tool(cwd, args, { cli }), argv };
+    const t0 = clock();
+    const r = tool(cwd, args, { cli });
+    const t1 = clock();
+    return { r, argv, bracket: selectionBracket(inputs, t0, t1) };
+  };
+  let rebuildBracket = null;
+  const stage = (name, args, inputs) => {
     const before = digestOf(state);
-    const r = tool(checkout, args, { cli });
-    evidence.push({ stage: name, code: r.code, out: r.out.slice(-2000) });
+    const call = invoke(checkout, args, inputs);
+    if (call.refused) return call.refused;
+    const r = call.r;
+    evidence.push({ stage: name, argv: call.argv, code: r.code, out: r.out.slice(-2000) });
     if (r.code !== 0) return `tool failure at ${name} (exit ${r.code})`;
     const raw = lifecycleFindings(readState(state), expected);
     if (raw.length) return `raw metadata refused after ${name}: ${raw.join("; ")}`;
     if (name === "hook-rebuild" && !/Rebuilt:/.test(r.out) && digestOf(state) === before) return "no-op: the rebuild wrote nothing";
+    if (call.bracket && !call.bracket.ok) return `${call.bracket.finding} (${name}): refused`;
+    if (call.bracket) rebuildBracket = call.bracket;
     return null;
   };
-  const bad = stage("hook-rebuild", ["hook-rebuild"]);
+  const bad = stage("hook-rebuild", REBUILD_ARGS, selectionInputs(checkout));
   if (bad) return { status: "refused", reason: bad, evidence };
+  const fresh = join(work, "fresh");
+  const freshPrep = prepareCheckout(repo, snapshot, fresh);
+  if (!freshPrep.ok) return { status: "refused", reason: `fresh extraction: ${freshPrep.reason}`, evidence };
+  const fc = invoke(fresh, REBUILD_ARGS, selectionInputs(fresh));
+  if (fc.refused) return { status: "refused", reason: fc.refused, evidence };
+  evidence.push({ stage: "fresh-extraction", argv: fc.argv, code: fc.r.code });
+  if (fc.r.code !== 0) return { status: "refused", reason: "the fresh extraction failed", evidence };
+  const freshState = join(fresh, ".graphify");
+  const freshRaw = lifecycleFindings(readState(freshState), { head: snapshot.head, branchName: snapshot.branch, root: fresh, gitDir: join(fresh, ".git") });
+  if (freshRaw.length) return { status: "refused", reason: `raw metadata refused after the fresh extraction: ${freshRaw.join("; ")}`, evidence };
+  const freshGraph = readJsonOr(join(freshState, "graph.json"));
+  if (!freshGraph) return { status: "refused", reason: "no-op: the fresh extraction wrote no graph", evidence };
+  if (!fc.bracket.ok) return { status: "refused", reason: `${fc.bracket.finding} (fresh extraction): refused`, evidence };
+  if (JSON.stringify(fc.bracket.oracle) !== JSON.stringify(rebuildBracket.oracle)) return { status: "refused", reason: "the rebuild and the fresh extraction selected different branch windows", evidence };
+  const freshGit = gitSubgraph(freshGraph);
+  const ff = freshOracleFindings(freshGit, fc.bracket.oracle);
+  if (ff.length) return { status: "refused", reason: `the fresh extraction does not equal the selection oracle: ${ff.join("; ")}`, evidence };
+  const rebuildGraph = readJsonOr(join(state, "graph.json"));
+  const mf = gitMergeFindings(gitSubgraph(readJsonOr(join(baseline, "graph.json"))), freshGit, gitSubgraph(rebuildGraph));
+  if (mf.length) return { status: "refused", reason: `the rebuild's Git subgraph is not the producer merge of the baseline and the fresh extraction: ${mf.join("; ")}`, evidence };
+  evidence.push({ stage: "selection", rules: SELECTION_RULES, branches: fc.bracket.oracle.branches.length, commits: fc.bracket.oracle.commits.length,
+    memberships: fc.bracket.oracle.memberships.length, brackets: { rebuild: rebuildBracket.bracket, fresh: fc.bracket.bracket },
+    observedAt: { rebuild: observedAt(rebuildGraph), fresh: observedAt(freshGraph) } });
   const run = (script, args) => spawnSync(process.execPath, [join(checkout, "docs", "graph-fragments", script), ...args], { cwd: checkout, encoding: "utf8" });
   const restored = run("restore-docs-layer.js", [join(baseline, "graph.json")]);
   evidence.push({ stage: "restore-docs-layer", code: restored.status, out: restored.stdout.slice(-500) });
   if (restored.status !== 0) return { status: "refused", reason: "docs-layer restore failed", evidence };
-  const fresh = join(work, "fresh");
-  const freshPrep = prepareCheckout(repo, snapshot, fresh);
-  if (!freshPrep.ok) return { status: "refused", reason: `fresh extraction: ${freshPrep.reason}`, evidence };
-  const fr = tool(fresh, ["hook-rebuild"], { cli });
-  evidence.push({ stage: "fresh-extraction", code: fr.code });
-  if (fr.code !== 0) return { status: "refused", reason: "the fresh extraction failed", evidence };
   const pruned = run("prune-stale-symbols.js", [join(fresh, ".graphify")]);
   evidence.push({ stage: "prune", code: pruned.status, out: `${pruned.stdout}${pruned.stderr}`.slice(-3000) });
   if (pruned.status !== 0) return { status: "refused", reason: "the prune step did not verify", evidence };
@@ -1579,7 +1877,8 @@ function attempt(work, s, answers, deps) {
   if (cap.outcome === "refused") return { attempts: s.attempts ?? 0, outcome: "refused", reason: cap.reason };
   if (cap.outcome !== "captured") return { attempts: n, outcome: "failed", reason: cap.reason };
   const baseline = cap.baseline;
-  const gen = deps.generate({ repo: s.repo, snapshot: s.frozen.snapshot, baseline, work: join(dir, "gen"), answers, tool: deps.tool, cli: deps.cli, fragmentsOrder: deps.fragmentsOrder });
+  const gen = deps.generate({ repo: s.repo, snapshot: s.frozen.snapshot, baseline, work: join(dir, "gen"), answers, tool: deps.tool, cli: deps.cli, fragmentsOrder: deps.fragmentsOrder,
+    bindings: s.frozen.bindings, clock: deps.clock });
   if (gen.status === "pending-semantic") return { attempts: n, outcome: "pending", pending: gen.pending };
   if (gen.status !== "generated") return { attempts: n, outcome: "failed", reason: gen.reason || "generation failed" };
   const staging = join(dir, "staging");
@@ -1588,7 +1887,7 @@ function attempt(work, s, answers, deps) {
   return { attempts: n, outcome: "ready", ready: { staging, manifest: composed.manifest, graphSha256: composed.graphSha256, files: composed.files, frozenAt: composed.frozenAt } };
 }
 
-const defaults = (deps = {}) => ({ generate: generateCandidate, compose: composeCandidate, pinned: pinnedCli, now: () => new Date().toISOString(), ...deps });
+const defaults = (deps = {}) => ({ generate: generateCandidate, compose: composeCandidate, pinned: pinnedCli, bindings: executableBindings, now: () => new Date().toISOString(), ...deps });
 
 /** Writes `preparing` under the claim, runs one attempt outside it, then settles the state under the claim. */
 function runAttempt(work, s, answers, deps) {
@@ -1672,9 +1971,11 @@ export function prepareWork({ repo, work, answers = {}, answersHash = null, live
   if (!snapshot.ok) return refusedWork(snapshot.reason);
   const base = selectBaseline({ liveTarget, bootstrap });
   if (!base.ok) return refusedWork(base.reason);
+  const bound = d.bindings({ cli: pins.cli });
+  if (!bound.ok) return refusedWork(bound.reason);
   mkdirSync(work, { recursive: true });
   const s = { workId: randomUUID(), repo: resolve(repo), liveTarget: resolve(liveTarget), attempts: 0, answersHash,
-    frozen: { snapshot, pins: TOOL_PINS, baseline: base.baseline } };
+    frozen: { snapshot, pins: TOOL_PINS, baseline: base.baseline, bindings: bound.bindings, envNames: bound.envNames } };
   return runAttempt(work, s, answers, { ...d, cli: pins.cli, bootstrap });
 }
 
@@ -1702,6 +2003,8 @@ export function resumeWork({ work, repo, liveTarget = REAL_LIVE_TARGET, answers 
     if (JSON.stringify(TOOL_PINS) !== JSON.stringify(s.frozen.pins)) return fail("the tool pins changed");
     const pins = d.pinned(d.cli);
     if (!pins.ok) return fail(`the pinned tool is unavailable or changed: ${pins.reason}`);
+    const bound = d.bindings({ cli: pins.cli });
+    if (!bound.ok || JSON.stringify(bound.bindings) !== JSON.stringify(s.frozen.bindings)) return fail(`an executable binding changed since prepare${bound.ok ? "" : `: ${bound.reason}`}`);
     const base = selectBaseline({ liveTarget, bootstrap });
     if (!base.ok || base.baseline.digest !== s.frozen.baseline.digest) return fail("the live baseline changed");
     return { proceed: s, cli: pins.cli };

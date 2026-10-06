@@ -350,7 +350,7 @@ describe("F2 publication on fixture targets (steps 6–7)", () => {
     const live = G.publish({ target: G.REAL_LIVE_TARGET, staging: f.staging, reviewedManifest: f.reviewed, fixture: f.parent, source: src() });
     expect(live.outcome).toBe("refused");
     expect(live.reason).toContain("fixture mode");
-  });
+  }, SLOW); // `D-426`: it builds the shared source repository on first use; it timed out at 5,031 ms under suite load
 
   test("a valid run publishes exactly the reviewed bytes, writes a receipt, clears journal and lock", () => {
     const f = fixture();
@@ -1475,4 +1475,256 @@ G.prepareWork({ repo: ${JSON.stringify(r.d)}, work: ${JSON.stringify(work)}, liv
     rmSync(L.P.recovery);
     expect(G.recoverLive({ liveTarget: L.link }).outcome).toBe("capture-recovered");
   }, SLOW);
+});
+
+// ===========================================================================
+// D-426 PR3a/PR3b with revision 5 (B-050): executable bindings, the selection oracle, the
+// selection-time bracket on both extraction branches, fresh-vs-oracle equality and the
+// rebuild-vs-producer-merge comparison. A simulated producer drives the wiring and refusal
+// cases; the last case runs the REAL pinned producer as the fidelity anchor for the model.
+// ===========================================================================
+const DAY = 24 * 60 * 60 * 1000;
+const PR3_SLOW = 600000; // each case builds two disposable checkouts per generation
+const OLD = "2026-08-01T00:00:00Z";
+/** A tiny repository with `main` (current), a recent `feat` and an `old` branch last committed at OLD. */
+const branchRepo = () => {
+  const r = tinyRepo();
+  const env = { ...process.env, GIT_COMMITTER_DATE: OLD, GIT_AUTHOR_DATE: OLD };
+  r.g("checkout", "-q", "-b", "old");
+  writeFileSync(join(r.d, "a.txt"), "old");
+  execFileSync("git", ["-C", r.d, "commit", "-q", "-am", "old"], { env });
+  r.g("checkout", "-q", "main");
+  r.g("checkout", "-q", "-b", "feat");
+  writeFileSync(join(r.d, "a.txt"), "feat");
+  r.g("commit", "-q", "-am", "feat");
+  r.g("checkout", "-q", "main");
+  return r;
+};
+const ukey = (e) => [e.relation, ...[e.source, e.target].sort()].join("\0");
+/** Simulates the pinned producer: selection at `at`, the producer merge with any prior graph, valid lifecycle, observed_at. */
+const simulate = ({ at = () => Date.now(), edit = (g) => g, calls } = {}) => (cwd, args) => {
+  calls?.push(args.join(" "));
+  const st = join(cwd, ".graphify");
+  mkdirSync(st, { recursive: true });
+  const inputs = G.selectionInputs(cwd);
+  const o = G.selectionOracle(inputs, at(cwd));
+  const k = inputs.repoKey;
+  const nodes = [...o.branches.map((id) => ({ id, node_type: "Branch", repo: k, branch_name: id.split("#")[1] })),
+    ...o.commits.map((id) => ({ id, node_type: "Commit", repo: k, sha: id.split("@").pop() }))];
+  const links = o.memberships.map((m) => {
+    const [relation, a, b] = m.split("\0");
+    return a.startsWith("commit:") ? { source: a, target: b, relation } : { source: b, target: a, relation };
+  });
+  const priorPath = join(st, "graph.json");
+  const prior = existsSync(priorPath) ? JSON.parse(readFileSync(priorPath, "utf8")) : null;
+  let g = { nodes, links };
+  if (prior) {
+    const ids = new Set(nodes.map((n) => n.id)), keys = new Set(links.map(ukey));
+    g = { nodes: [...nodes, ...(prior.nodes ?? []).filter((n) => !ids.has(n.id))], links: [...links, ...(prior.links ?? []).filter((e) => !keys.has(ukey(e)))] };
+  }
+  g = edit(g, cwd);
+  writeFileSync(priorPath, JSON.stringify({ graph: { provenance: { observed_at: new Date(at(cwd) + 5000).toISOString() } }, ...g }));
+  const head = execFileSync("git", ["-C", cwd, "rev-parse", "HEAD"], { encoding: "utf8" }).trim();
+  writeFileSync(join(st, "branch.json"), JSON.stringify({ schemaVersion: 1, branchName: "main", lastSeenHead: head, lastAnalyzedHead: head, stale: false }));
+  writeFileSync(join(st, "worktree.json"), JSON.stringify({ schemaVersion: 1, worktreePath: cwd, gitDir: join(cwd, ".git"), commonGitDir: join(cwd, ".git"), lastSeenHead: head, lastAnalyzedHead: head }));
+  return { code: 0, out: `Rebuilt: ${g.nodes.length} nodes` };
+};
+const isFresh = (cwd) => /[\\/]fresh$/.test(cwd);
+/** A baseline graph carrying one historical membership outside any current window (sha not in the repository). */
+const baselineWith = (r, extra = {}) => {
+  const k = "repo:github.com/example/fixture-repo";
+  const dir = join(F2, `pr3base${++n}`);
+  mkdirSync(dir);
+  const hist = `commit:${k}@${"f".repeat(40)}`;
+  writeFileSync(join(dir, "graph.json"), JSON.stringify({ nodes: [{ id: hist, node_type: "Commit", repo: k, sha: "f".repeat(40) }, { id: `branch:${k}#main`, node_type: "Branch", repo: k, branch_name: "main" }],
+    links: [{ source: hist, target: `branch:${k}#main`, relation: "ON_BRANCH" }], ...extra }));
+  return { dir, hist, k };
+};
+const gen = (r, base, tool, more = {}) => G.generateCandidate({ repo: r.d, snapshot: G.snapshotSource(r.d), baseline: base.dir, work: join(F2, `pr3w${++n}`), tool, ...more });
+const PASSED_GIT = "docs-layer restore failed"; // the next step after the Git checks: proof the checks passed
+
+describe("D-426 PR3a: the selection oracle reproduces the pinned rules", () => {
+  test("default and current always; other heads only within 30 days of the selection time; 200 commits; repo key from origin", () => {
+    const inputs = { current: "main", def: "main", repoKey: "repo:x", heads: [{ name: "main", time: 0 }, { name: "old", time: 1000 }, { name: "new", time: 50 * DAY }],
+      revs: { main: ["a"], old: ["b"], new: ["c", "a"] } };
+    expect(G.selectionOracle(inputs, 30 * DAY + 1000).branches).toEqual(["branch:repo:x#main", "branch:repo:x#new", "branch:repo:x#old"]);
+    expect(G.selectionOracle(inputs, 30 * DAY + 1001).branches).toEqual(["branch:repo:x#main", "branch:repo:x#new"]);
+    expect(G.selectionOracle(inputs, 30 * DAY + 1001).memberships).toHaveLength(3);
+    expect(G.SELECTION_RULES).toEqual({ activeWithinDays: 30, maxCommits: 200, sinceDays: null });
+    expect([G.repoKeyOf("https://github.com/a/b.git"), G.repoKeyOf("git@github.com:a/b.git"), G.repoKeyOf("ssh://git@host.example/a/b"), G.repoKeyOf("nonsense")])
+      .toEqual(["repo:github.com/a/b", "repo:github.com/a/b", "repo:host.example/a/b", null]);
+    expect(G.REBUILD_ARGS).toEqual(["hook-rebuild", "--scope", "committed"]);
+  });
+
+  test("revision 5: a stable bracket passes; unordered, invalid or cutoff-crossing brackets refuse", () => {
+    const inputs = { current: "main", def: "main", repoKey: "repo:x", heads: [{ name: "old", time: 1000 }], revs: { main: ["a"], old: ["b"] } };
+    const edge = 30 * DAY + 1000;
+    expect(G.selectionBracket(inputs, edge - 500, edge).ok).toBe(true);
+    expect(G.selectionBracket(inputs, edge - 500, edge + 500).finding).toContain("crossed a cutoff");
+    expect(G.selectionBracket(inputs, edge, edge - 1).finding).toContain("unordered");
+    expect(G.selectionBracket(inputs, NaN, edge).finding).toContain("invalid");
+  });
+});
+
+describe("D-426 PR3b: both extraction branches against the oracle and the producer merge", () => {
+  test("valid control: an old baseline membership outside the new window is carried and passes; brackets and observed_at are recorded separately", () => {
+    const r = branchRepo();
+    const base = baselineWith(r);
+    const calls = [];
+    const res = gen(r, base, simulate({ calls }));
+    expect(res.reason).toBe(PASSED_GIT);
+    expect(calls).toEqual(["hook-rebuild --scope committed", "hook-rebuild --scope committed"]);
+    const sel = res.evidence.find((e) => e.stage === "selection");
+    expect(sel.branches).toBe(2); // main, feat — `old` is outside 30 days
+    expect(sel.brackets.rebuild[0]).toBeLessThanOrEqual(sel.brackets.rebuild[1]);
+    expect(sel.observedAt.fresh.length).toBe(1);
+    expect(res.evidence.find((e) => e.stage === "hook-rebuild").argv.slice(2)).toEqual(["hook-rebuild", "--scope", "committed"]);
+  }, PR3_SLOW);
+
+  test("revision 5: a cutoff crossing on either call refuses through the bracket, even though observed_at exists", () => {
+    const r = branchRepo();
+    const base = baselineWith(r);
+    const edge = Date.parse(OLD) + 30 * DAY;
+    const seq = (times) => { let i = 0; return () => times[i++]; };
+    const crossing = gen(r, base, simulate({ at: () => edge + 500 }), { clock: seq([edge - 500, edge + 500]) });
+    expect(crossing.reason).toContain("crossed a cutoff during the extraction (hook-rebuild)");
+    const freshCrossing = gen(r, baselineWith(r), simulate({ at: () => edge - 2000 }), { clock: seq([edge - 3000, edge - 2000, edge - 500, edge + 500]) });
+    expect(freshCrossing.reason).toContain("crossed a cutoff during the extraction (fresh extraction)");
+    const stable = gen(r, baselineWith(r), simulate({ at: () => edge - 2000 }), { clock: seq([edge - 3000, edge - 2500, edge - 2000, edge - 1500]) });
+    expect(stable.reason).toBe(PASSED_GIT);
+  }, PR3_SLOW);
+
+  test("the fresh branch: an omitted or invented membership, or an extra branch or commit, refuses with an unchanged lifecycle HEAD", () => {
+    const r = branchRepo();
+    const k = "repo:github.com/example/fixture-repo";
+    const fresh = (edit) => simulate({ edit: (g, cwd) => (isFresh(cwd) ? edit(g) : g) });
+    const cases = [
+      ["omitted memberships", (g) => ({ ...g, links: g.links.slice(1) })],
+      ["extra memberships", (g) => ({ ...g, links: [...g.links, { source: g.nodes.find((x) => x.node_type === "Commit").id, target: `branch:${k}#old`, relation: "ON_BRANCH" }] })],
+      ["extra branches", (g) => ({ ...g, nodes: [...g.nodes, { id: `branch:${k}#ghost`, node_type: "Branch", repo: k }] })],
+      ["extra commits", (g) => ({ ...g, nodes: [...g.nodes, { id: `commit:${k}@${"e".repeat(40)}`, node_type: "Commit", repo: k, sha: "e".repeat(40) }] })],
+    ];
+    for (const [want, edit] of cases) {
+      const res = gen(r, baselineWith(r), fresh(edit));
+      expect(res.status).toBe("refused");
+      expect(res.reason).toContain("the fresh extraction does not equal the selection oracle");
+      expect(res.reason).toContain(want);
+    }
+  }, PR3_SLOW);
+
+  test("the rebuild branch: an omitted carried membership, an invented historical membership or a changed carried node refuses", () => {
+    const r = branchRepo();
+    const rebuild = (edit) => simulate({ edit: (g, cwd) => (isFresh(cwd) ? g : edit(g)) });
+    const omitted = gen(r, baselineWith(r), rebuild((g) => ({ ...g, links: g.links.filter((e) => !e.source.endsWith("f".repeat(40))) })));
+    expect(omitted.reason).toContain("omitted Git edges");
+    const base = baselineWith(r);
+    const invented = gen(r, base, rebuild((g) => ({ ...g, links: [...g.links, { source: base.hist, target: `branch:${base.k}#feat`, relation: "ON_BRANCH" }] })));
+    expect(invented.reason).toContain("Git edges without baseline provenance");
+    const changed = gen(r, baselineWith(r), rebuild((g) => ({ ...g, nodes: g.nodes.map((x) => (x.id.endsWith("f".repeat(40)) ? { ...x, sha: "0".repeat(40) } : x)) })));
+    expect(changed.reason).toContain("Git node fields differ");
+    const dup = gen(r, baselineWith(r), rebuild((g) => ({ ...g, links: [...g.links, g.links[0]] })));
+    expect(dup.reason).toContain("multiplicity");
+  }, PR3_SLOW);
+
+  test("raw null or no graph on the fresh branch refuses before the prune", () => {
+    const r = branchRepo();
+    const nulls = simulate({ edit: (g, cwd) => g });
+    const rawNull = (cwd, args) => {
+      const out = nulls(cwd, args);
+      if (isFresh(cwd)) writeFileSync(join(cwd, ".graphify", "branch.json"), JSON.stringify({ schemaVersion: 1, branchName: null, lastSeenHead: null, lastAnalyzedHead: null, stale: false }));
+      return out;
+    };
+    expect(gen(r, baselineWith(r), rawNull).reason).toContain("raw metadata refused after the fresh extraction");
+    const noGraph = (cwd, args) => {
+      const out = nulls(cwd, args);
+      if (isFresh(cwd)) rmSync(join(cwd, ".graphify", "graph.json"));
+      return out;
+    };
+    expect(gen(r, baselineWith(r), noGraph).reason).toContain("the fresh extraction wrote no graph");
+  }, PR3_SLOW);
+});
+
+describe("D-426 PR3a: executable bindings are verified before every tool call", () => {
+  const pins = G.pinnedCli();
+  test("a changed git or node binary or version refuses before the tool runs; valid bindings pass", () => {
+    if (!pins.ok) return; // no pinned Graphify on this machine: bindings cannot name a verified CLI
+    const b = G.executableBindings({ cli: pins.cli });
+    expect(b.ok).toBe(true);
+    expect(Object.keys(b.bindings)).toEqual(["node", "git", "gitConfig", "cli", "pins", "argv", "rules"]);
+    expect(JSON.stringify(b.bindings)).not.toMatch(/PATH=|TOKEN|SECRET/);
+    const r = branchRepo();
+    const calls = [];
+    for (const [want, bad] of [["git binary changed", { git: { ...b.bindings.git, sha256: "0".repeat(64) } }], ["node version changed", { node: { ...b.bindings.node, version: "v0.0.0" } }],
+      ["git path changed", { git: { ...b.bindings.git, path: "C:/nowhere/git.exe" } }], ["configuration outside the checkout changed", { gitConfig: "0".repeat(64) }]]) {
+      const res = gen(r, baselineWith(r), simulate({ calls }), { bindings: { ...b.bindings, ...bad }, cli: pins.cli });
+      expect(res.reason).toContain(want);
+    }
+    expect(calls).toEqual([]);
+    expect(gen(r, baselineWith(r), simulate({ calls }), { bindings: b.bindings, cli: pins.cli }).reason).toBe(PASSED_GIT);
+  }, PR3_SLOW);
+
+  test("a checkout's Git configuration changed between stages, or a shadowing git in the checkout, refuses", () => {
+    if (!pins.ok) return;
+    const b = G.executableBindings({ cli: pins.cli }).bindings;
+    const r = tinyRepo();
+    const co = join(F2, `bindco${++n}`);
+    G.prepareCheckout(r.d, G.snapshotSource(r.d), co);
+    const seen = new Map();
+    expect(G.bindingFindings(b, { checkout: co, seen })).toEqual([]);
+    execFileSync("git", ["-C", co, "config", "core.hooksPath", "elsewhere"]);
+    expect(G.bindingFindings(b, { checkout: co, seen }).join(" ")).toContain("changed between stages");
+    if (process.platform === "win32") {
+      writeFileSync(join(co, "git.exe"), "not git");
+      expect(G.bindingFindings(b, { checkout: co, seen: new Map() }).join(" ")).toContain("would shadow the bound git");
+    }
+  }, PR3_SLOW);
+
+  test("resume fails when a binding changed since prepare; prepare freezes the bindings without environment values", () => {
+    const L = liveLayout();
+    const r = sourceRepo();
+    const work = join(F2, `bind${++n}`);
+    expect(G.prepareWork({ work, ...C(L, r), deps: { ...deps, bindings: () => ({ ok: true, bindings: { v: 1 }, envNames: ["PATH"] }) } }).exit).toBe(G.EXIT.pending);
+    expect(stateOf(work).frozen.bindings).toEqual({ v: 1 });
+    expect(stateOf(work).frozen.envNames).toEqual(["PATH"]);
+    const res = G.resumeWork({ work, answers: { descriptions: { x: "X" } }, answersHash: "h1", ...C(L, r), deps: { ...deps, bindings: () => ({ ok: true, bindings: { v: 2 } }) } });
+    expect(res.exit).toBe(G.EXIT.failed);
+    expect(res.reason).toContain("executable binding changed");
+  }, PR3_SLOW);
+});
+
+describe("D-426 PR3b: the model against the REAL pinned producer (fidelity anchor)", () => {
+  test("from-empty equals the oracle; after a branch is retired, the rebuild equals the producer merge and carries it", () => {
+    const pins = G.pinnedCli();
+    if (!pins.ok) return; // the anchor needs the pinned producer
+    const r = branchRepo();
+    const run = (cwd) => {
+      const inputs = G.selectionInputs(cwd);
+      const t0 = Date.now();
+      const out = G.runGraphify(cwd, G.REBUILD_ARGS, { cli: pins.cli });
+      const b = G.selectionBracket(inputs, t0, Date.now());
+      expect(out.code).toBe(0);
+      expect(b.ok).toBe(true);
+      return { b, git: G.gitSubgraph(JSON.parse(readFileSync(join(cwd, ".graphify", "graph.json"), "utf8"))) };
+    };
+    const A = join(F2, `realA${++n}`);
+    G.prepareCheckout(r.d, G.snapshotSource(r.d), A);
+    const a = run(A);
+    expect(a.b.oracle.branches.map((x) => x.split("#")[1])).toEqual(["feat", "main"]);
+    expect(G.freshOracleFindings(a.git, a.b.oracle)).toEqual([]);
+    r.g("branch", "-q", "-D", "feat");
+    writeFileSync(join(r.d, "a.txt"), "three");
+    r.g("commit", "-q", "-am", "three");
+    const s2 = G.snapshotSource(r.d);
+    const B = join(F2, `realB${++n}`), Cc = join(F2, `realC${n}`);
+    G.prepareCheckout(r.d, s2, B);
+    G.prepareCheckout(r.d, s2, Cc);
+    cpSync(join(A, ".graphify"), join(B, ".graphify"), { recursive: true });
+    const b = run(B), c = run(Cc);
+    expect(G.freshOracleFindings(c.git, c.b.oracle)).toEqual([]);
+    expect(G.gitMergeFindings(a.git, c.git, b.git)).toEqual([]);
+    expect([...b.git.nodes.keys()].some((x) => x.endsWith("#feat"))).toBe(true);
+    expect([...c.git.nodes.keys()].some((x) => x.endsWith("#feat"))).toBe(false);
+    const dropped = { ...b.git, edges: new Map([...b.git.edges].filter(([k]) => !k.includes("#feat"))) };
+    expect(G.gitMergeFindings(a.git, c.git, dropped).join(" ")).toContain("omitted Git edges");
+  }, 600000);
 });
