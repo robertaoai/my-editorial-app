@@ -3465,3 +3465,58 @@ Not claimed:
 - any publication;
 - 19/19 (docs-drift stays stale until receipt 3);
 - prevention.
+
+## Lane B — receipt-2 boundary consolidation and G-F3-8 draft answer, 2026-10-06
+
+### What happened
+
+Read Lane A's `cf9c9ba` handback, D-425 and the current guard. This is the requested handoff/plan
+consolidation, not the exact-byte semantic acceptance. Lane B raises/reviews; Lane A answers.
+Receipt 1 remains accepted at `7929bea` (`c40df06`); Lane A has now completed preparation and submitted
+the real candidate. Receipt 2's independent acceptance remains owed.
+
+Read-only recomputation confirms ready work `77a606cc-819d-4b8c-9fd2-250355898791`, 583 files,
+graph `f27fab8196c51f89e3ad0f5c14dc4ec9c3b444d474875b9f9e2990c87a9a351c`, and manifest
+`81d1615459c38804db7a757869210ae867c1869139162ecb5a2719eecbf89c57`, equal to STATE.
+The live digest remains `1add761f98aa5aa9917f56280d7bf91939913631540fc65d922693b0ddaf2f9a`.
+The source rule passes at `cf9c9ba`; that handback introduces no complete acceptance record.
+These checks establish identity and current eligibility, not description/name correctness.
+
+### What you need
+
+| Gap / unsupported inference | Draft fix and owner | Success / refusal criterion |
+|---|---|---|
+| G-F3-8: a valid record cannot prove independent authorship | Lane A documents that the guard binds bytes/history, while independence rests on the B-series channel. The publisher obtains the exact review commit from Lane B's independently delivered review, checks its source/work/hash binding, and never selects its own draft or a copied/quoted record | Only the commit explicitly delivered by the independent reviewer is used. Missing or disputed provenance stops publication; self-authored or merely marker-labelled records are not independent evidence |
+| A commit-message marker or shared Git author mistaken for authentication | Do not call either an identity control. Any marker proposal is a convention; authenticated reviewer identity is a separate requirement needing a concrete design and scope decision | Judge can accept the stated bounded channel limit or request stronger identity controls; neither is silently claimed already built |
+| A canonical runbook/code fix applied after this candidate was frozen | Lane A drafts first. If applied to a governed path, prepare a new candidate from the new final source and repeat receipt 2; do not reuse the old acceptance identity | Handoff-only fast-forward remains permissible; a changed runbook/code/ref/config is refused by the existing source rule |
+| Ready/hash equality treated as semantic acceptance | Lane B independently checks 57 new/rewritten descriptions against source, 78 carried judgments against unchanged symbols, 20 names against full member sets, curated fragment fields, metadata and scanner/classification evidence | Any unsupported description/name, unmatched fragment or frozen-input/hash change prevents an acceptance record; Lane A answers the finding and resubmits |
+
+**Proposed runbook wording for Lane A, not applied here:**
+"The guard validates the review record's history, schema and candidate identity; it does not authenticate
+the reviewer. The publisher must use the exact review commit delivered independently by Lane B, never
+a commit containing the publisher's own draft acceptance. A Git author or message marker is not proof
+of independence. If provenance is absent or disputed, stop and raise the handoff. Governed edits after
+prepare require a fresh candidate and a fresh exact-byte review."
+
+Failure cases are concrete: a self-authored schema-valid record can pass the current mechanical gate;
+a candidate with only green hash checks can still carry wrong descriptions; a governed edit after prepare
+cannot satisfy the authorized publication source rule. No universal failure or prevention guarantee is asserted.
+
+Keep G-F3-8 in this existing entry; Lane A answers here. Mark the bounded review obligation complete only
+with its source/evidence receipt. Preserve B-050 Applied/O1 open, header verification history and DoD boxes.
+Do not add a duplicate tracker or turn this tooling unit into a reference-retrieval MMF/spec approval.
+
+### What you did instead
+
+Read-only source, history and candidate identity review; Graphify query for orientation. No prepare/resume,
+live publish/recover, rebuild, application build, source/runbook change or acceptance-record block was performed.
+The semantic and full-state acceptance review is a separate outstanding receipt, not completed by this plan.
+Consistency evidence and parent sequencing are consolidated in B-154. Governed drift remains until receipts
+3–4; the ready candidate is not the released live graph. No Lane C findings are invented.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Receipt-1 completion and independently matched submitted candidate identity | Phase 1: preserve the evidence scope; preparation complete, receipt-2 acceptance still owed |
+| Approve-with-conditions | G-F3-8 channel-control wording and receipt-2 review plan | Phase 1: Lane A answers; independent provenance and complete semantic/state review before an acceptance record; refresh candidate if governed text changes |
+| Defer | Exact-byte acceptance, receipts 3–5, prevention, B-050/B-077 and parent closure | Phase 1: their ordered receipts and own acts |
+| Reject | A marker/shared identity as authentication, hash equality as semantic proof, or publishing a stale candidate after governed edits | Phase 1: stop the unsupported claim and use the applicable re-review path |
