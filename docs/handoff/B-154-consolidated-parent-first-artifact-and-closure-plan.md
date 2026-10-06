@@ -5797,3 +5797,74 @@ to close those rows. No new runtime tests or actual F3 publication are claimed b
 | Approve-with-conditions | Revised F3 plan | Phase 1: F3-R1..6 answered, independent readiness review, explicit Judge choices and bounded Register act before implementation |
 | Defer | F3 execution, whole prevention, B-050/B-077, parallel children, parents and Gate 2 | Phase 1: each requires its own evidence and acts |
 | Reject | Current draft as construction-ready; mention-as-acceptance; unconditional rollback; manual bypass as guarded procedure; F2/F3 as whole prevention | Phase 1: correct the plan and verify the bounded outcomes |
+## Lane B — revision 2: parent-first decision guide and handoff completion, 2026-10-06
+
+### What happened
+
+Effective request: review current Lane A handoffs, consolidate the plan and gaps, state what the Judge can
+accept/reject, and supply Lane A's follow-up with construction/verification artifacts. Scope is planning only.
+Read `1708752`: revision 2 replaces revision 1. Lane A has answered the six original findings; an answer is
+not independent acceptance or implementation completion. B-050 owns the detailed revision-2 readiness review
+and three residual fixes (F3-R1a/R3a/R4a); do not copy those specifications into another tracker.
+That independent review is committed at `da7fee0`; Lane A's answer to these continuations remains owed.
+
+### What you need
+
+**Parent-first presentation; child-first completion:** Gate 2 depends on GR-007's final reconciliation, which
+depends on B-150's parent evidence and B-153/B-154's children. Their closure order is not changed by this review.
+
+| Parent -> child decision | Completed / supported now | Accept criterion for the next decision | Reject / hold criterion |
+|---|---|---|---|
+| Gate 2 -> GR-007 -> B-150 -> B-153/B-154 | Prior governing acts and accepted individual receipts | All named children satisfy their own conditions before parent reconciliation/closure acts | One graph release or green consistency result is offered as parent/gate completion |
+| B-050 -> F1/F2 and released graph | Bounded F1/F2; graph 35541b33… release and B-136 pointer recorded at `6a74c8e`; no DoD box checked | Preserve those completed receipts and limits; no new approval is needed to record them again | F2 is relabelled whole prevention or B-050 closure |
+| F2 -> current F3 plan revision 2 | Lane A's six answers exist at `1708752`; full 583-file live baseline independently matches the pinned guard digest | Lane A answers three residuals; Lane B accepts the exact revised plan with runnable state/schema/receipt contracts | Ready/reviewed cycle, inherited acceptance, unconditional restoration remains unspecified |
+| Ready F3 plan -> proposed D-425 | Handoff records Judge choices: handoff-only fast-forward and no fallback; five paths/four sections identified | Judge issues the concrete bounded Register act, including source-rule amendment, scope, sequence, exclusions and DoD; Lane A remains Active | Policy choice or an Approve verdict alone is treated as a construction work order |
+| Authorized F3 -> implementation -> actual release/checkpoint | Nothing implemented or actually published under F3 | Fixture/source readiness; exact candidate acceptance; guarded live release; verified post-state/cleanup/health; independent F3 checkpoint acceptance | Any missing receipt, changed reviewed bytes, pending semantics or unresolved recovery is declared complete |
+| F3 -> whole-v4 prevention -> B-050 -> B-077 | These remain outstanding | Separate authorized independent prevention evidence, source-specific B-050 disposition, then 17-target B-077 final review | F3, a known raw-writer limit or current graph health substitutes for prevention |
+| Parallel B-106 and U03/DoD/P15 -> parents | Existing custody/draft receipts remain qualified | Named owners supply runtime/attempt/DoD evidence and their own acts | They are silently closed or made dependent on B-050 without their source dependency |
+
+**Chief Editor / Judge:** the two policy choices are already recorded and should not be asked again. The next
+decision is the concrete bounded act after readiness, not another general approval. Its implementation paths
+are the guard, guard fixtures, sync-docs SKILL, fragment README and docs-drift messages; runbook sections are
+SKILL 7/9 and README 4/5. Register/tier propagation remains its separately tracked governance obligation.
+
+**What each lane contributes / gaps to avoid:** Lane A supplied revision 2 and withdrew the earlier substring,
+unchanged-health-message and guaranteed-rollback claims. Its remaining state/receipt/wording gaps are raised
+in B-050. Lane B independently verified the existing bootstrap map and specifies bounded success/refusal cases;
+it has not proven the future F3 implementation. No new Lane C review is present; do not invent its approval or
+add CI work. Uncooperating raw writers and the unexplained flake remain limits/triggers, not closure evidence.
+
+**Lane A step-by-step handback:**
+1. Receive the B-050 revision-2 review and answer F3-R1a/R3a/R4a in the receiver continuation. Preserve original
+   receipts/history and mark the next revision as the one current plan; change no whole-entry closure field.
+2. Complete the construction artifacts: typed acceptance/journal/receipt schema and record locus, work-state
+   transition/exit table, review-compatible source rule, recovery/message table and idempotent baseline chain.
+3. Link each artifact to its verification cases: valid committed acceptance, inherited/invalid review refusal,
+   ready -> reviewed -> publish, interrupted prepare, blocked restore/peer evidence, and cleanup -> recovered
+   duplicate receipt -> next valid baseline. Keep all F1/F2 cases and the full baseline binding.
+4. Hand back the exact revised plan for Lane B readiness review. If accepted, present proposed D-425 with the
+   already recorded choices, five-path scope, tier applicability, exclusions and distinct completion receipts.
+5. Only after the Register act: construct the unit and obtain fixture/source readiness. Expected pre-sync drift
+   is reported honestly. Then prepare, obtain exact-byte acceptance, publish, verify and obtain independent
+   checkpoint acceptance; full 19/19 health is a post-publication condition.
+6. Stop at F3. Select/prove whole prevention separately before B-050/B-077; finish parallel child obligations
+   before B-153/B-154 -> B-150 -> GR-007 final reconciliation -> Gate 2.
+
+### What you did instead
+
+Used the existing handoff template's three sections and appended only Lane B's own review. Queried Graphify,
+read current governed sources and compared the live 583-file map with the released map without writing it.
+Governed graph source is still `40429f8`; all changed paths through `1708752` are handoff-only. No graph sync is
+due now. A later selected code/runbook unit requires its own guarded sync and fragment re-merge.
+No implementation, graph publication/recovery, Register act, receiver answer-field edit, tracker closure or push.
+
+**Validation:** `bun run check` passes 19/19; `git diff --check` passes. The closure check still reports the
+historical `3488206` tracker as stale with six non-SM05 rows unclosed. That is a separate reconciliation
+obligation, not graph drift. Current consistency and read-only baseline verification do not prove future F3.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Completed F1/F2/release/pointer receipts, matching bootstrap and recorded Judge policy choices | Phase 1: retain their limits; do not reopen settled choices |
+| Approve-with-conditions | Revision 2 as the basis of the final F3 plan | Phase 1: three residual fixes, Lane B exact-revision readiness, then bounded Judge Register act |
+| Defer | F3 construction/publication, prevention, B-050/B-077, parallel children, parents and Gate 2 | Phase 1: their own authority, artifacts and independent completion evidence |
+| Reject | Revision 2 as construction-ready or any draft/answer/graph/check result as whole prevention or closure | Phase 1: finish the plan and verify each bounded obligation |
