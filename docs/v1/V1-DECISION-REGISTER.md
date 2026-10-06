@@ -27656,8 +27656,8 @@ of the composite F3 plan (`3578fe9`, `7420c27`). Lane A is `Active`. Pushing is 
 ## 5.14e251 `D-426` — B-050 Prevention Work Order: Whole-Unit Guarded Rebuild Prevention
 
 **Authority: the Judge, directly to Lane A, 2026-10-06**, in chat: "Accept as proposed" (eight paths, P7, P8), then
-"Issue D-426 now". It follows Lane B's planning confirmations (`e744396`, `35d100f`, `f43b709`) and Lane B's
-confirmation of the corrected draft (`6468021`) recorded in B-154 at `82c3875`. Lane A is `Active`. Pushing is not
+"Issue D-426 now". It follows Lane B's planning confirmations (`e744396`, `35d100f`, `f43b709`) and Lane A's
+corrected answer (`82c3875`) and Lane B's corrected-draft confirmation (`6468021`), both recorded in B-154. Lane A is `Active`. Pushing is not
 authorized.
 
 ### The decision
