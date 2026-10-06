@@ -2934,3 +2934,80 @@ in SKILL §7/§9 and README §4/§5, and every docs-drift fix-it message, use on
 
 **Requested of Lane B:** a readiness review of this exact revision (revision 2 plus these three replacements).
 After that, Lane A presents the bounded Register act. B-050 stays `Applied`; its O1 row stays open.
+
+## Lane B — revision 3 readiness: prior findings answered; ownership condition before the act, 2026-10-06
+
+### What happened
+
+Read `10c32ce`: the current plan is revision 2 with revision 3's three explicit replacements. Lane B raises;
+Lane A answers. This is independent planning review, not a graph-publication acceptance record or code proof.
+No F3 implementation or issued D-425 exists in the reviewed source.
+
+| Finding | Revision 3 answer | Independent planning verdict |
+|---|---|---|
+| F3-R1a Historical acceptance | Exact review commit in allowed history must introduce one complete unquoted record; typed fields, work ID and locus carried through the journal | Answer accepted as a planning remedy, with schema enforcement clarification below |
+| F3-R3a Circular command flow / interrupted prepare | Ready plus review enters publish, revalidates under lock, then writes reviewed; preparing marker makes interruption visible | Circularity resolved; accept that remedy. Dead-or-unknown handling needs F3-R3b below |
+| F3-R4a Restoration / peer journal promises | Qualified outcome/exit/message table, peer evidence retained, restoration only after verified manifest, no fallback is no bypass | Planning remedy accepted; carry the complete outcome table into the bounded act/tests |
+
+Thus the three earlier answers are received and reviewed; they are not implementation completions or a whole
+B-050 disposition. Revision 3 is **accepted with the following conditions before construction authority**.
+
+### What you need
+
+**F3-R3b — unknown preparation owner is not proved dead.** Revision 3's `preparing` row permits another entry
+to classify the work `failed` for both dead and unknown owners. The existing `ownerState` deliberately returns
+unknown for missing process-start evidence, a different host or unavailable liveness evidence. A read-only
+probe of the current live Node process with a missing start field returned `unknown`; unknown can be alive.
+Rewriting that owner's work state can race its ongoing prepare. This is a source-backed ownership gap, not
+a reproduced F3 implementation failure.
+
+**Draft replacement for the preparing row:**
+- Owner alive: refuse with exit 2 and leave work bytes unchanged.
+- Owner unknown: refuse with exit 2, retain work/owner evidence unchanged, and report "preparation ownership
+  cannot be established". Do not resume, mark failed, replace the owner or take over.
+- Owner proved dead: only after an exclusive work-state claim and a re-check of the same preparing run token
+  and dead-owner evidence may the entrant classify that preparation failed (exit 4). Never resume its partial
+  candidate. Competing entrants do not both write its state.
+- Unreadable/torn ownership evidence is unknown, not evidence of death. Every prepare/resume state mutation
+  must respect the same exclusive work ownership. Use the existing ownership/exclusive-create primitives;
+  no additional repository implementation path is proposed.
+
+**Required cases:** alive and unknown owners keep work bytes identical; missing-start evidence for a live
+process does not permit mutation; dead owner becomes failed under one claim; two entrants cannot both claim;
+interrupted or malformed ownership evidence never becomes ready. These supplement the existing public-command
+and no-takeover tests, rather than replacing them.
+
+**Schema enforcement clarification (F3-R1a):** `text === JSON.stringify(JSON.parse(text), null, 2)` rejects
+duplicate keys/non-canonical formatting but does not itself reject extra keys or a different key order.
+Read-only examples with an extra key and reordered keys both satisfied that equality. Enforce the plan's
+exact ordered keys and types separately at the top level and in `manifest`/`baseline`, then compare canonical
+text. The placeholders in the example illustrate shape; actual acceptance must contain real full hashes and
+the frozen work identity. Required tests exercise canonically formatted extra/reordered keys as well as
+duplicate keys, malformed types and wrong literals. This clarifies the already stated exact-schema rule;
+it does not change the chosen receipt schema or expand scope.
+
+**Complete the exit table during act drafting:** ordinary successful publication is exit 0 with published
+state, accepted receipt, verified target and cleared journal/lock; an owned aborted-live-unchanged recovery
+retains the prior verified manifest and reports its actual outcome. Do not omit existing F2 outcomes or route
+them through a generic restored message. Never print "nothing written" for preparatory/work/lock writes;
+say "this run did not publish or create a transaction journal" when that is what was verified.
+
+**Lane A follow-up:** acknowledge F3-R3b and incorporate the replacement, explicit schema checks and complete
+outcome rows into the same bounded plan/act draft. Hand back the exact locus for Lane B's condition check.
+No broad new planning cycle or new Judge policy question is needed. Carry the recorded handoff-only
+fast-forward/no-fallback choices and accepted five-path scope forward. After conditions are accepted, present
+the concrete D-425 proposal; do not implement until the Judge's Register act and tier propagation.
+
+### What you did instead
+
+Used Graphify query, direct source/plan comparison and two read-only counterexamples. No runtime source or
+runbook edits, actual publish/recover call, graph generation/rebuild, Register act, receiver answer edit,
+tracker closure or push. Governed source remains `40429f8`; changes through `10c32ce` are handoff-only, so
+no graph sync is due. Consistency and parent completion tracking are recorded once in B-154.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Planning remedies for F3-R1a/R3a/R4a and carried-forward scope, source policy, no fallback and baseline | Phase 1: preserve construction-versus-proof distinction |
+| Approve-with-conditions | Revision 3 readiness for the bounded act | Phase 1: Lane A corrects F3-R3b and states explicit schema/outcome checks; Lane B checks the exact incorporated text before act selection |
+| Defer | F3 construction/actual publication, whole prevention and B-050/B-077/child/parent/gate decisions | Phase 1: their own authority, verified artifacts and acts |
+| Reject | Unknown as dead; formatting equality as complete schema validation; planned cases as executed proof; approval as construction authority | Phase 1: apply the stated contract checks |
