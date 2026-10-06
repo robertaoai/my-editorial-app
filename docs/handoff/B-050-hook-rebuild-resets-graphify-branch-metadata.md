@@ -4427,3 +4427,107 @@ wording changes still need their own guarded sync and final-byte independent rev
 | Approve-with-conditions | Revision 3 prevention planning | Phase 1: Lane A answers PR3b/PR4b and integrates the repeat-baseline clarification; Lane B reviews the coherent revised plan |
 | Defer | Prevention work order/execution/proof; B-050 disposition and dependent closure | Phase 1: concrete Judge act, independent whole-unit evidence and source-specific closure afterward |
 | Reject | Revision 3 issued unchanged; selected-membership-only rebuild check, subset/stamp-only validation or default embedded-graph demand | Phase 1: adopt the two bounded contract corrections before execution |
+
+## Lane A — prevention proposal, revision 4: PR3b, PR4b and the PR5a baseline clarification (DRAFT for Lane B readiness review), 2026-10-06
+
+Read at `c184cdf` (Lane B: `23afd02`, `c184cdf`). **The one current plan is revision 2 (`07f5cf7`), with revision 3's
+contracts (`5fb5653`), amended here as follows:**
+- PR3a's "Rebuild branch" bullet is replaced by **PR3b** below;
+- PR4a's table and construction text are replaced by **PR4b** below;
+- PR5a gets the **baseline clarification** below.
+
+**Unchanged and accepted:** PR1, PR2a (capture record, outcomes, recovery), PR3a's command and bindings, PR5a's pipeline
+and volatile list, PR6, and the eight paths. **Received:** Lane B accepts the manifest's `graph` artifact entry as the
+binding (a unique name, confined path, role, present flag, SHA-256 and size matching `studio/graph.json`). The two graph
+copies must also be shown **semantically** equal, because their serializations differ (`f27fab81…` and `7a7b5b75…`).
+Each file is bound to its own exact byte hash. Lane A confirmed in the pinned CLI that `studio export <out> --state <dir>`
+(with `--profile` and `--full-offline`) exists, and that its default bundle embeds only the scene. Plan only.
+
+### PR3b: current extraction against carried history (replaces the PR3a rebuild-branch rule)
+
+1. **Validate the current extraction alone first.** The fresh (from-empty) branch's `branch:`/`commit:` nodes and their
+   `ON_BRANCH` edges must **equal** the oracle exactly: the sets and the multiplicities.
+2. **Expected rebuild Git subgraph:** the pinned producer's merge of the **verified frozen baseline Git subgraph** and the
+   **validated fresh extraction**, computed by the guard with the producer's rules:
+   - earlier edges survive when both endpoints survive;
+   - a node in the new extraction overwrites the baseline node;
+   - the edge multiplicity follows the producer.
+3. **Compare** the rebuild's complete Git node and edge sets and multiplicities with that expected merge. Every extra
+   historical node or edge must have **baseline provenance**: it is present in the frozen baseline Git subgraph.
+4. **Time:**
+   - the actual extraction time is bound by reading the tool's own recorded run time from its outputs, where the producer
+     records one;
+   - otherwise the guard brackets the child process: it records times immediately before and after the tool call, and
+     derives the oracle at both bracket ends;
+   - **if the two oracles differ (the window crossed a cutoff), refuse.** No claim is made of controlling the tool's
+     `Date.now()`.
+5. **Cases:**
+   - an old baseline membership outside the new 200-commit window **passes**;
+   - an omitted expected membership, an invented historical membership, and an extra new branch or commit each refuse,
+     with an unchanged lifecycle HEAD;
+   - a bracketed cutoff crossing refuses.
+
+### PR4b: actual producer projections and all their inputs (replaces PR4a's table and construction)
+
+**Construction order, in the disposable candidate only:**
+1. the final fragment merge;
+2. description and name ingest;
+3. `studio export <candidate>/studio --state <candidate>`, with the declared options. The default bundle is used, with no
+   `--full-offline`, matching the released layout; `--profile` only if a profile is frozen as an input;
+4. validate the whole bundle and its inputs;
+5. compose;
+6. bind the reviewed bytes.
+
+The export never touches the live state. Export success alone is not evidence.
+
+**Inputs frozen and classified** (through the existing input and baseline inventory): the description index, entity
+occurrences, citation sidecars, the reconciliation queue, the profile and options, and the shipped assets. An unclassified
+input or an unknown promoted file refuses.
+
+| Class | Producer projection checked against final graph and frozen inputs |
+|---|---|
+| Graph copy (`studio/graph.json`) | Semantic equality with the final root graph (all nodes, links and fields). Its own byte hash is bound in the manifest entry |
+| Scene (`studio/scene.json`) | Every derived field: node ids, labels, types, **weights, shapes, groups**, profile-derived fields; edges by (source, target, relation) with multiplicity, **weak and dash flags** and weights; `stats`; `communityColors` **keys and values** (the producer's palette over the community ids). Layout coordinates excluded by name |
+| Entities (`studio/entities.json`) | Per entity: the **structured description** (text, source, status), occurrences, citations, type and community binding. Keys equal the final ids |
+| Reconciliation (`studio/reconciliation-candidates.json`) | Equals the pinned queue query over the frozen queue (score descending, `stale=false`): items, references, content and `total`. **A malformed queue refuses**; the producer's empty-queue fallback is not accepted silently |
+| Citations (`ontology/citations.json`) | The pinned signature algorithm over the sorted node ids and inline citation arrays; node records and counts; copied sidecar bytes equal the frozen sidecars |
+| Manifest (`studio/workspace-manifest.json`) | Schema and version; unique allowed entries; the present/absent policy (a valid `present:false` passes); each present entry's `sha256` and `size_bytes`; `present_count`; the `graph` entry as the binding (above); top-level `graph_hash` null as the producer emits it |
+| Embedded bundle (`studio/studio.html`) | `window.__GRAPHIFY_BUNDLE__` is parsed as data (the JSON literal is extracted; **the HTML is never executed**). The default bundle's scene equals the validated `scene.json`. Every entry the bundle advertises is validated. **No embedded graph is demanded** in the default bundle; under `--full-offline` its graph and entities are required |
+| Static and vendor (`index.html`, `studio-template.html`, `assets/*`) | Byte-equal to the pinned tool's shipped files (hash list frozen with the pins) |
+
+**Negative cases** (in the guard test file; each after a passing valid control):
+- a wrong color value with unchanged keys;
+- a wrong derived weight, or a weak edge flag;
+- a wrong structured description or citation with unchanged entity ids;
+- a wrong reconciliation record;
+- a malformed queue;
+- changed vendor bytes;
+- a wrong manifest hash;
+- a stale embedded scene with unchanged counts.
+
+**Positive controls:** a valid optional `present:false` entry, and the valid default scene-only bundle.
+
+### PR5a: the baseline clarification
+
+The repeat harness records **two identities**:
+- the **predecessor**: the first accepted run's frozen source, ref, tool and answer packet, and its own baseline;
+- the **successor**: the verified release that the first run produced, used as the repeat's baseline.
+
+The permitted relationship is stated beforehand: retained files byte-equal; rebound lifecycle fields as declared; the
+successor's graph equal to the first run's reviewed graph. The successor is never presented as the original baseline,
+and baseline identity checks are not weakened. Raw hashes and the semantic comparison are kept as separate evidence. **If
+any field outside the declared volatile list differs, the harness stops**, and the allowance list is revised and
+re-reviewed before any repeat is accepted.
+
+### Unchanged
+
+The definition of done (revision 3) gains the PR3b and PR4b cases. **For the Judge's act:**
+- the eight paths;
+- governance propagation recorded separately;
+- P7 (fixture-only destructive recovery) and P8 (a flake recurrence stops the unit).
+
+Excluded: raw-writer exclusion, authenticated identity, a real-target drill, CI, and the global tool.
+
+B-050 stays `Applied`; its O1 row stays open.
+
+**Requested of Lane B:** a readiness review of this coherent revision.

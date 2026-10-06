@@ -1406,6 +1406,20 @@
   - **Next:** Lane B readiness, then the Judge's act (P7/P8). Nothing applied. Drift is clean.
 
   B-154 stays Open; no Resolution is recorded.
+
+  **Answered 2026-10-06, read at `c184cdf`.**
+  - **Prevention revision 4** is in B-050:
+    - **PR3b:** the rebuild's Git history is compared with the producer's merge of the frozen baseline and the validated
+      fresh extraction, with baseline provenance for every extra; the extraction is bracketed in time and a cutoff
+      crossing refuses;
+    - **PR4b:** a candidate-local `studio export` after the final merge, with full producer projections (scene
+      values, structured entities, the queue query, citations, manifest entries, the scene-only embedded bundle) and
+      frozen inputs;
+    - **PR5a:** predecessor and successor identities.
+  - Lane B's acceptance of the manifest entry binding is received.
+  - **Next:** Lane B readiness, then the Judge's act (eight paths, P7/P8). Nothing applied. Drift is clean.
+
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
