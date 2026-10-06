@@ -9,7 +9,7 @@
 import { afterAll, describe, expect, test } from "bun:test";
 import { execFileSync, spawn, spawnSync } from "node:child_process";
 import { createHash } from "node:crypto";
-import { cpSync, existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, symlinkSync, writeFileSync } from "node:fs";
+import { cpSync, existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, statSync, symlinkSync, writeFileSync } from "node:fs";
 import { pathToFileURL } from "node:url";
 import * as G from "../graphify/guarded-rebuild.mjs";
 import { tmpdir } from "node:os";
@@ -696,7 +696,16 @@ describe("F2 composition (step 4): refuses rather than repairs; frozen bytes are
 // publication (R4) and changed-symbol description review (G-D423-1).
 // ===========================================================================
 const LIVE_PARENT = dirname(G.REAL_LIVE_TARGET);
-const liveUntouched = () => [".graphify-txn.json", ".graphify.lock", ".graphify.recovery", ".graphify-receipts"].every((x) => !existsSync(join(LIVE_PARENT, x)));
+// Compared with the state at load, not with absence: since D-425 receipt 3 the real live parent
+// legitimately holds `.graphify-receipts/` from the guarded release (`D-426` fixture correction).
+const liveArtifacts = () => JSON.stringify([".graphify-txn.json", ".graphify.lock", ".graphify.recovery", ".graphify-receipts"].map((x) => {
+  const p = join(LIVE_PARENT, x);
+  const h = (f) => createHash("sha256").update(readFileSync(f)).digest("hex");
+  if (!existsSync(p)) return [x, null];
+  return [x, statSync(p).isDirectory() ? readdirSync(p).sort().map((f) => [f, h(join(p, f))]) : h(p)];
+}));
+const LIVE_AT_LOAD = liveArtifacts();
+const liveUntouched = () => liveArtifacts() === LIVE_AT_LOAD;
 
 describe("D-424 R1: one fixture boundary for publish, recover and compose", () => {
   test("the live ancestor and live-as-staging are refused before any write", () => {
@@ -1327,5 +1336,143 @@ describe("D-425 F3-C4: the actual staging bytes are checked before reviewed is w
     expect(stateOf(work).state).toBe("ready");
     expect(digest(L.dir)).toBe(live);
     expect(existsSync(L.P.journal)).toBe(false);
+  }, SLOW);
+});
+
+// ===========================================================================
+// D-426 PR2a (B-050 revision 3): the baseline is captured under the publication lock. The capture
+// record binds the frozen baseline before any copy; a held lock refuses without failing or rewinding
+// work; a dead capture owner's lock is released only by evidenced recovery. Deaths are real (child).
+// ===========================================================================
+describe("D-426 PR2a: baseline capture under the publication lock", () => {
+  const DEAD = { pid: 999999, host: hostname(), start: "x" };
+  const captureLock = (L, over = {}) => ({ ...G.ownerRecord("capture-run"), purpose: "capture", workId: "w",
+    baseline: { releaseLocus: L.boot.releaseLocus, algorithm: G.MANIFEST_ALGORITHM, digest: L.boot.digest, files: L.boot.files }, ...over });
+  const killedAt = (L, r, point) => {
+    const work = join(F2, `cap${++n}`);
+    const script = join(F2, `cap${n}.mjs`);
+    writeFileSync(script, `
+const G = await import(${JSON.stringify(MODULE_URL)});
+G.prepareWork({ repo: ${JSON.stringify(r.d)}, work: ${JSON.stringify(work)}, liveTarget: ${JSON.stringify(L.link)}, workRoots: ${JSON.stringify([TMP])},
+  bootstrap: ${JSON.stringify(L.boot)}, deps: { pinned: () => ({ ok: true, cli: "verified-cli" }), crashAt: ${JSON.stringify(point)},
+  generate: () => ({ status: "pending-semantic", pending: { descriptions: ["x"], communities: [] } }), compose: () => ({}) } });
+`);
+    expect(spawnSync(process.execPath, [script], { encoding: "utf8", timeout: 120000 }).status).toBe(137);
+    return work;
+  };
+
+  test("a held lock refuses the first prepare: no resumable state, no generation, the peer's lock byte-equal; a later prepare proceeds", () => {
+    const L = liveLayout();
+    const r = sourceRepo();
+    writeFileSync(L.P.lock, JSON.stringify(G.ownerRecord("peer")));
+    const lock = readFileSync(L.P.lock, "utf8");
+    const work = join(F2, `held${++n}`);
+    const seen = CLI_SEEN.length;
+    const res = G.prepareWork({ work, ...C(L, r), deps });
+    expect(res.exit).toBe(G.EXIT.refused);
+    expect(res.reason).toContain("publication lock is held");
+    expect(readdirSync(work)).toEqual([]);
+    expect(CLI_SEEN.length).toBe(seen);
+    expect(readFileSync(L.P.lock, "utf8")).toBe(lock);
+    rmSync(L.P.lock);
+    expect(G.prepareWork({ work, ...C(L, r), deps }).exit).toBe(G.EXIT.pending);
+    expect(existsSync(L.P.lock)).toBe(false);
+  }, SLOW);
+
+  test("a held lock refuses a resume: the prior pending record is restored byte for byte, never failed; a later resume proceeds", () => {
+    const L = liveLayout();
+    const r = sourceRepo();
+    const work = join(F2, `heldr${++n}`);
+    expect(G.prepareWork({ work, ...C(L, r), deps }).exit).toBe(G.EXIT.pending);
+    const prior = readFileSync(join(work, "STATE.json"));
+    writeFileSync(L.P.lock, JSON.stringify(captureLock(L)));
+    const lock = readFileSync(L.P.lock, "utf8");
+    const seen = CLI_SEEN.length;
+    const res = G.resumeWork({ work, answers: { descriptions: { x: "X" } }, answersHash: "h1", ...C(L, r), deps });
+    expect(res.exit).toBe(G.EXIT.refused);
+    expect(readFileSync(join(work, "STATE.json")).equals(prior)).toBe(true);
+    expect(existsSync(join(work, "attempt-2"))).toBe(false);
+    expect(CLI_SEEN.length).toBe(seen);
+    expect(readFileSync(L.P.lock, "utf8")).toBe(lock);
+    rmSync(L.P.lock);
+    expect(G.resumeWork({ work, answers: { descriptions: { x: "X" } }, answersHash: "h1", ...C(L, r), deps }).exit).toBe(G.EXIT.ok);
+  }, SLOW);
+
+  test("a copy or hash failure fails the attempt (exit 4) and releases the lock; the live state is unchanged", () => {
+    const L = liveLayout();
+    const r = sourceRepo();
+    const live = digest(L.dir);
+    const res = G.prepareWork({ work: join(F2, `copyf${++n}`), ...C(L, r), deps: { ...deps, copyBaseline: () => { throw new Error("disk full"); } } });
+    expect(res.exit).toBe(G.EXIT.failed);
+    expect(res.reason).toContain("disk full");
+    expect(existsSync(L.P.lock)).toBe(false);
+    const res2 = G.prepareWork({ work: join(F2, `copyh${++n}`), ...C(L, r), deps: { ...deps, copyBaseline: (a, b) => { cpSync(a, b, { recursive: true }); writeFileSync(join(b, "graph.json"), "{}"); } } });
+    expect(res2.exit).toBe(G.EXIT.failed);
+    expect(res2.reason).toContain("does not equal the frozen baseline");
+    expect(existsSync(L.P.lock)).toBe(false);
+    expect(digest(L.dir)).toBe(live);
+  }, SLOW);
+
+  for (const point of ["after-capture-lock", "after-capture-copy"]) {
+    test(`killed ${point}: the capture lock stays; dead-owner recovery releases only it, with a receipt; a retry succeeds`, () => {
+      const L = liveLayout();
+      const r = sourceRepo();
+      const live = digest(L.dir);
+      const work = killedAt(L, r, point);
+      const lock = JSON.parse(readFileSync(L.P.lock, "utf8"));
+      expect(lock.purpose).toBe("capture");
+      expect(lock.baseline.digest).toBe(L.boot.digest);
+      expect(stateOf(work).state).toBe("preparing");
+      expect(G.prepareWork({ work: join(F2, `blocked${++n}`), ...C(L, r), deps }).exit).toBe(G.EXIT.refused);
+      const rec = G.recoverLive({ liveTarget: L.link });
+      expect(rec.outcome).toBe("capture-recovered");
+      expect(rec.exit).toBe(G.EXIT.ok);
+      expect(existsSync(L.P.lock) || existsSync(L.P.recovery)).toBe(false);
+      const receipt = JSON.parse(readFileSync(join(L.P.receipts, `capture-recovery-${lock.runToken}.json`), "utf8"));
+      expect(receipt.baseline).toEqual(lock.baseline);
+      expect(digest(L.dir)).toBe(live);
+      expect(G.resumeWork({ work, answers: {}, answersHash: null, ...C(L, r), deps }).exit).toBe(G.EXIT.failed);
+      expect(G.prepareWork({ work: join(F2, `retry${++n}`), ...C(L, r), deps }).exit).toBe(G.EXIT.pending);
+    }, SLOW);
+  }
+
+  test("an alive or unknown owner, a malformed binding or a changed live state leaves the capture lock untouched (exit 5)", () => {
+    const L = liveLayout();
+    const { baseline, ...unbound } = captureLock(L, DEAD);
+    const cases = [
+      captureLock(L),
+      captureLock(L, { start: undefined }),
+      unbound,
+      captureLock(L, { ...DEAD, baseline: { ...captureLock(L).baseline, digest: "x" } }),
+    ];
+    for (const rec of cases) {
+      writeFileSync(L.P.lock, JSON.stringify(rec));
+      const bytes = readFileSync(L.P.lock, "utf8");
+      const res = G.recoverLive({ liveTarget: L.link });
+      expect(res.exit).toBe(G.EXIT.recoveryRequired);
+      expect(readFileSync(L.P.lock, "utf8")).toBe(bytes);
+    }
+    writeFileSync(L.P.lock, JSON.stringify(captureLock(L, DEAD)));
+    writeFileSync(join(L.dir, "graph.json"), "{\"v\":\"changed after death\"}");
+    const changed = G.recoverLive({ liveTarget: L.link });
+    expect(changed.exit).toBe(G.EXIT.recoveryRequired);
+    expect(changed.reason).toContain("bound baseline");
+    expect(existsSync(L.P.lock)).toBe(true);
+    writeFileSync(L.P.lock, "{torn");
+    expect(G.recoverLive({ liveTarget: L.link }).exit).toBe(G.EXIT.recoveryRequired);
+    expect(existsSync(L.P.receipts)).toBe(false);
+  }, SLOW);
+
+  test("competing recoverers: a held recovery token refuses and the dead owner's capture lock stays byte-equal", () => {
+    const L = liveLayout();
+    writeFileSync(L.P.lock, JSON.stringify(captureLock(L, DEAD)));
+    const bytes = readFileSync(L.P.lock, "utf8");
+    writeFileSync(L.P.recovery, JSON.stringify(G.ownerRecord("other-recoverer")));
+    const res = G.recoverLive({ liveTarget: L.link });
+    expect(res.exit).toBe(G.EXIT.refused);
+    expect(res.reason).toContain("recovery token is held");
+    expect(readFileSync(L.P.lock, "utf8")).toBe(bytes);
+    rmSync(L.P.recovery);
+    expect(G.recoverLive({ liveTarget: L.link }).outcome).toBe("capture-recovered");
   }, SLOW);
 });

@@ -43,6 +43,11 @@
 // D-409/D-410 route is retired with no fallback: no fallback means no bypass
 // of this guard, not guaranteed restoration. The lock excludes cooperating
 // guarded runs only, never a raw `graphify` writer.
+//
+// WHAT THE PREVENTION UNIT ADDS (`D-426`; B-050 revisions 2–5). PR2a: the
+// baseline is captured under the publication lock, by a capture record bound
+// to the frozen baseline; a held lock refuses without failing or rewinding
+// work; a dead capture owner's lock is released only by evidenced recovery.
 
 import { execFileSync, spawnSync } from "node:child_process";
 import { createHash, randomUUID } from "node:crypto";
@@ -516,12 +521,12 @@ export function createExclusive(path, record) {
   return true;
 }
 
-/** Durable replace: write a temporary file, flush it, then rename it into place. */
+/** Durable replace: write a temporary file, flush it, then rename it into place. Raw bytes are written as given. */
 export function writeDurable(path, record) {
   const tmp = `${path}.${process.pid}.${Date.now()}.tmp`;
   const fd = openSync(tmp, "w");
   try {
-    writeSync(fd, JSON.stringify(record, null, 1));
+    writeSync(fd, Buffer.isBuffer(record) ? record : JSON.stringify(record, null, 1));
     fsyncSync(fd);
   } finally {
     closeSync(fd);
@@ -724,7 +729,8 @@ export function recover(opts) {
     const lock = readJsonOr(P.lock);
     if (tx.state === "malformed") return done(recoveryRequired(`the journal is ${tx.error}`));
     if (tx.state === "none") {
-      if (!lock) return done({ ok: true, outcome: "nothing-to-recover" });
+      if (!lock) return done(existsSync(P.lock) ? recoveryRequired("the lock is unreadable: never stolen") : { ok: true, outcome: "nothing-to-recover" });
+      if (lock.purpose === "capture" && !asOwner) return done(recoverCapture(P, lock));
       return done(recoveryRequired("a publication lock exists without a journal: never stolen; its owner releases it or a person recovers it with evidence"));
     }
     const j = tx.journal;
@@ -769,6 +775,33 @@ export function recover(opts) {
   } catch (e) {
     return done(recoveryRequired(`recovery failed (${e.message}); all evidence preserved`));
   }
+}
+
+/** True when a capture lock carries the complete baseline binding PR2a writes before any copy. */
+function captureBound(rec) {
+  const b = rec?.baseline;
+  return typeof rec?.runToken === "string" && rec.runToken !== "" && typeof rec.workId === "string" && isPlainObject(b) &&
+    typeof b.releaseLocus === "string" && HEX40.test(b.releaseLocus) && b.algorithm === MANIFEST_ALGORITHM &&
+    typeof b.digest === "string" && HEX64.test(b.digest) && Number.isInteger(b.files);
+}
+
+/**
+ * PR2a (`D-426`): a capture-purpose lock left by a dead owner, under the caller's recovery token.
+ * Released only when its binding is complete, the same run token is read twice, the owner is
+ * proved dead, no journal exists and the live state equals the bound baseline. Anything else
+ * leaves the lock untouched and is recovery-required.
+ */
+function recoverCapture(P, first) {
+  if (!captureBound(first)) return recoveryRequired("the capture lock's baseline binding is missing or malformed: never stolen");
+  const state = ownerState(first);
+  if (state !== "dead") return recoveryRequired(`the capturing owner is ${state}: never stolen`);
+  const again = readJsonOr(P.lock);
+  if (JSON.stringify(again) !== JSON.stringify(first)) return recoveryRequired("the capture lock changed during the check");
+  if (existsSync(P.journal)) return recoveryRequired("a journal exists beside the capture lock");
+  if (digestOf(P.target) !== first.baseline.digest) return recoveryRequired("the live state no longer equals the capture lock's bound baseline");
+  writeReceipt(P, { kind: "capture-recovery", runToken: first.runToken, workId: first.workId, baseline: first.baseline });
+  unlinkSync(P.lock);
+  return { ok: true, outcome: "capture-recovered" };
 }
 
 // ---------------------------------------------------------------------------
@@ -1210,7 +1243,7 @@ export const EXIT = Object.freeze({ ok: 0, refused: 2, pending: 3, failed: 4, re
 /** Maps a transaction or recovery outcome to its exit code; every F2 outcome keeps its own class. */
 export function exitFor(outcome) {
   return {
-    released: EXIT.ok, "completed-release": EXIT.ok, "nothing-to-recover": EXIT.ok, ready: EXIT.ok, published: EXIT.ok,
+    released: EXIT.ok, "completed-release": EXIT.ok, "nothing-to-recover": EXIT.ok, "capture-recovered": EXIT.ok, ready: EXIT.ok, published: EXIT.ok,
     pending: EXIT.pending, failed: EXIT.failed, "recovery-required": EXIT.recoveryRequired,
     restored: EXIT.restored, "rolled-back": EXIT.restored, "aborted-live-unchanged": EXIT.abortedUnchanged,
   }[outcome] ?? EXIT.refused;
@@ -1506,14 +1539,46 @@ const callerOf = (repo, snapshot) => {
   return { head: snapshot.head, branch: snapshot.branch, upstream: snapshot.upstream, mergeBase, rootNative: root, gitDirNative: join(root, ".git") };
 };
 
+/**
+ * PR2a (`D-426`): the baseline is copied under the publication lock. The capture record binds the
+ * frozen baseline before any copy; under the lock the source snapshot and the baseline selection
+ * are re-checked and the live state must equal that binding; the copy is hashed and verified; the
+ * lock is released in its own `finally`; only then does the long generation run, unlocked. A held
+ * lock refuses before this run writes anything in its attempt folder. `deps.crashAt` is a test hook
+ * for real termination after the lock is created or after the copy.
+ */
+function captureBaseline(s, dir, deps) {
+  const P = transactionPaths(s.liveTarget);
+  const { releaseLocus, algorithm, digest, files } = s.frozen.baseline;
+  const record = { ...ownerRecord(randomUUID()), purpose: "capture", workId: s.workId, baseline: { releaseLocus, algorithm, digest, files } };
+  if (!createExclusive(P.lock, record)) return { outcome: "refused", reason: "the publication lock is held: the baseline is not captured while another run holds it" };
+  try {
+    if (deps.crashAt === "after-capture-lock") process.exit(137);
+    const same = snapshotMatches(s.repo, s.frozen.snapshot);
+    if (!same.ok) return { outcome: "failed", reason: `the frozen source changed before capture: ${same.reason}` };
+    const base = selectBaseline({ liveTarget: s.liveTarget, bootstrap: deps.bootstrap });
+    if (!base.ok || base.baseline.digest !== digest || digestOf(P.target) !== digest) return { outcome: "failed", reason: "the live state no longer equals the frozen baseline" };
+    mkdirSync(dir, { recursive: true });
+    const baseline = join(dir, "baseline");
+    (deps.copyBaseline || cpSync)(P.target, baseline, { recursive: true });
+    if (digestOf(baseline) !== digest) return { outcome: "failed", reason: "the baseline copy does not equal the frozen baseline" };
+    if (deps.crashAt === "after-capture-copy") process.exit(137);
+    return { outcome: "captured", baseline };
+  } catch (e) {
+    return { outcome: "failed", reason: `the baseline capture failed (${e.message})` };
+  } finally {
+    releaseOwned(P.lock, record.runToken);
+  }
+}
+
 /** One generation attempt from frozen inputs; writes only inside its own attempt folder. */
 function attempt(work, s, answers, deps) {
   const n = (s.attempts ?? 0) + 1;
   const dir = join(work, `attempt-${n}`);
-  mkdirSync(dir, { recursive: true });
-  const baseline = join(dir, "baseline");
-  cpSync(liveTargetPath(s.liveTarget), baseline, { recursive: true });
-  if (digestOf(baseline) !== s.frozen.baseline.digest) return { attempts: n, outcome: "failed", reason: "the baseline copy does not equal the frozen baseline" };
+  const cap = captureBaseline(s, dir, deps);
+  if (cap.outcome === "refused") return { attempts: s.attempts ?? 0, outcome: "refused", reason: cap.reason };
+  if (cap.outcome !== "captured") return { attempts: n, outcome: "failed", reason: cap.reason };
+  const baseline = cap.baseline;
   const gen = deps.generate({ repo: s.repo, snapshot: s.frozen.snapshot, baseline, work: join(dir, "gen"), answers, tool: deps.tool, cli: deps.cli, fragmentsOrder: deps.fragmentsOrder });
   if (gen.status === "pending-semantic") return { attempts: n, outcome: "pending", pending: gen.pending };
   if (gen.status !== "generated") return { attempts: n, outcome: "failed", reason: gen.reason || "generation failed" };
@@ -1528,9 +1593,12 @@ const defaults = (deps = {}) => ({ generate: generateCandidate, compose: compose
 /** Writes `preparing` under the claim, runs one attempt outside it, then settles the state under the claim. */
 function runAttempt(work, s, answers, deps) {
   const owner = ownerRecord(randomUUID());
+  const statePath = join(work, STATE_FILE);
+  let prior = null;
   const started = withClaim(work, () => {
     const gate = preparingGate(work);
     if (gate) return gate;
+    prior = existsSync(statePath) ? readFileSync(statePath) : null;
     writeWork(work, { ...s, state: "preparing", owner });
     return null;
   });
@@ -1544,6 +1612,13 @@ function runAttempt(work, s, answers, deps) {
   return withClaim(work, () => {
     const cur = readWork(work);
     if (cur?.state !== "preparing" || cur.owner?.runToken !== owner.runToken) return refusedWork("the work state changed during preparation");
+    if (r.outcome === "refused") {
+      // PR2a held-lock refusal, settled while this run still owns `preparing`: a resume gets its prior
+      // `pending` record back byte for byte; a first prepare leaves no resumable state. Never `failed`.
+      if (prior) writeDurable(statePath, prior);
+      else unlinkSync(statePath);
+      return refusedWork(r.reason);
+    }
     const next = { ...s, attempts: r.attempts, state: r.outcome, owner: undefined, ready: r.ready, pending: r.pending, reason: r.reason };
     if (r.outcome === "pending") writeDurable(join(work, "PENDING.json"), r.pending);
     writeWork(work, next);
@@ -1600,7 +1675,7 @@ export function prepareWork({ repo, work, answers = {}, answersHash = null, live
   mkdirSync(work, { recursive: true });
   const s = { workId: randomUUID(), repo: resolve(repo), liveTarget: resolve(liveTarget), attempts: 0, answersHash,
     frozen: { snapshot, pins: TOOL_PINS, baseline: base.baseline } };
-  return runAttempt(work, s, answers, { ...d, cli: pins.cli });
+  return runAttempt(work, s, answers, { ...d, cli: pins.cli, bootstrap });
 }
 
 /**
@@ -1632,7 +1707,7 @@ export function resumeWork({ work, repo, liveTarget = REAL_LIVE_TARGET, answers 
     return { proceed: s, cli: pins.cli };
   });
   if (!checked.proceed) return checked;
-  return runAttempt(work, { ...checked.proceed, answersHash }, answers, { ...d, cli: checked.cli });
+  return runAttempt(work, { ...checked.proceed, answersHash }, answers, { ...d, cli: checked.cli, bootstrap });
 }
 
 /**
