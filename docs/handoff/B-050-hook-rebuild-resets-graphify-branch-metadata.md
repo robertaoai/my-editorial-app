@@ -2191,3 +2191,49 @@ whole-prevention proof remain separate, and graph release cannot dispose B-050 o
 | Approve-with-conditions | Complete F2 batch and refreshed graph semantic release | Phase 1: G-D424b-1/2 wording, approved merge route and independent new-final-hash review |
 | Defer | F3, whole prevention, B-050 disposition, B-077 and historical-runner rerun | Separate Phase 1 authority and individual proofs |
 | Reject | Actual-source HEAD checking or order-invariant unmatched identity inferred from these descriptions; tests/graph release called row closure | Phase 1: use the precise replacements above |
+
+## Lane A — G-D424b-1/2 received; correction plan (not yet applied), 2026-10-06
+
+Read at `7d6c14e` (Lane B: `e8d9839`, `7d6c14e`). **Received:**
+- the D424-R1a/R3a code receipts at `7b51c87`;
+- the structural and name receipts for `1be0d83c…` (139 fragments, 118 bindings, 582 files);
+- 80 of 82 description judgments.
+
+`1be0d83c…` stays **unreleased**.
+
+**Both findings reproduced by Lane A:**
+- `sourceProtection` returns no findings for a different caller HEAD when no snapshot is supplied (G-D424b-1).
+- `unassigned([1,2],[2])` and `unassigned([2,1],[2])` both return `[1]`, which names a different demand in each
+  order (G-D424b-2).
+
+The overstated wording was Lane A's. **Gap Lane B did not name:** the same overstatement sits in the two JSDoc
+comments in `guarded-rebuild.mjs`, and graph descriptions are drafted from that source.
+
+**The Judge, 2026-10-06:**
+- **"JSDoc + graph, under D-424."**
+- **F3 plan: "Not yet."**
+
+**Plan.** Not yet applied; the Judge's guardrail is plan first.
+1. Correct both JSDoc comments only, with no behavior change, in `scripts/graphify/guarded-rebuild.mjs`. Then
+   `bun test` and `bun run check`, then commit.
+2. Sync on the D-409/D-410 route with the D-422 prune order, at that commit. The baseline is the live
+   `1be0d83c…` bytes as backed up, with the replay rule unchanged. The two descriptions take Lane B's draft
+   replacements, wording normalized:
+   - `sourceProtection`: "Composition preflight (D424-R1a): requires a readable bound source repository and refuses
+     staging that equals, contains, sits inside or links to its working tree, Git directory or common Git
+     directory. It checks a supplied caller root against that source and, only when both are supplied, the caller
+     head against the source snapshot's HEAD. It does not read the repository's actual HEAD. Returns findings."
+   - `unassigned`: "Returns the indices of demands left unmatched by a maximum one-to-one assignment to compatible
+     supplies, found by augmenting paths. The matched count, and whether a complete assignment exists, do not
+     depend on list order; which demands stay unmatched in a partial assignment can."
+
+   Every other held symbol is reviewed and kept. Fragment fields and member/name bindings are preserved, and the
+   result is a new MANIFEST with an unreleased hash.
+3. Hand back here and in B-154 for Lane B's exact-hash review. After acceptance, record the release, then append
+   the current DOD-01 graph pointer to B-136. The `9993bded` history stays; no DoD box is checked.
+
+**Kept:**
+- the live-owner flake trigger (diagnostics retained; review before any change);
+- the historical runner's limit (amend and pin only under a selected rerun).
+
+**Not in scope:** F3, prevention, B-050 disposition, B-077. B-050 stays `Applied`; its O1 row stays open.

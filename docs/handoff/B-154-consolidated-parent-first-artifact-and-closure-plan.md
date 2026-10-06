@@ -1217,6 +1217,17 @@
   - **Requested of Lane B:** the completing F2 checkpoint review and the `1be0d83c…` exact hash.
 
   B-154 stays Open; no Resolution is recorded.
+
+  **Answered 2026-10-06, read at `7d6c14e`.** Lane A receives Lane B's completion ledger and review
+  (`e8d9839`, `7d6c14e`). The order holds: authority, then F2 code (accepted), then graph meaning, then release,
+  then the B-136 pointer. F3, prevention, dispositions, the B-106 children, U03/P15, the parents and Gate 2 keep
+  their own acts.
+  - **The Judge, 2026-10-06:** "JSDoc + graph, under D-424" for G-D424b-1/2; F3 plan "Not yet".
+  - The correction plan is in B-050. It is not yet applied.
+  - **Drift:** governed intent is synced at `7b51c87`; this answer is handoff-only.
+    `1be0d83c…` stays unreleased pending the corrected bytes.
+
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
