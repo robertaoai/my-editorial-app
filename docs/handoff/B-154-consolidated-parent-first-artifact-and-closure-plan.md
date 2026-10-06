@@ -6825,3 +6825,65 @@ The earlier statement that the drafts were uncommitted is historical once their 
 | Approve-with-conditions | Lane A revision-4 direction | Phase 1: coherent PR3b/PR4b contracts and B0/R1/C2 wording; Lane B readiness review |
 | Defer | Judge work order, prevention proof, dispositions and parent/Gate 2 closure | Phase 1: respective ready packet, bounded acts and independent child evidence |
 | Reject | Two live releases required by PR5a, or committing/answering as implementation or closure | Phase 1: preserve disposable repeat and distinct lifecycle/clearance facts |
+
+## Lane B — revision 4 parent-first decision handback, 2026-10-06
+
+### What happened
+
+**Clarified request:** review Lane A's current handoff answer, finish bounded planning feedback,
+identify the remaining construction/verification gap, and give the Judge a parent-first decision
+guide without building or creating duplicate tracking. Read revision `807ad7d`.
+
+Lane A's revision 4 answers the earlier producer/history conditions. Lane B accepts those contracts
+for planning, with one remaining PR3b time-clause correction in B-050's revision-4 review. B-050
+owns the exact replacement once; B-154 owns sequencing. Lane B raises/reviews; Lane A answers.
+
+### What you need
+
+| Parent-first decision | Accept criterion | Reject / hold criterion | Follow-up phase |
+|---|---|---|---|
+| 1. Gate 2 / GR-007 / B-150 purpose, with B-153/B-154 children | Existing clearance, review and residual homes retained; parent boundaries established first | Parent completion inferred from a child plan | Phase 1: preserve accepted purpose; close parents only after required child evidence |
+| 2. B-050 prevention construction and verification contract | Revision 4 history/producer/baseline contracts plus the corrected PR3b time clause; valid and intended-refusal controls specified | Return timestamp used as selection time; plans or export success treated as proof | Phase 1: Lane A answers the timing correction; incorporate it into the concrete current packet |
+| 3. Concrete unit for the Chief Editor/Judge | Exact eight paths; governance propagation separate; inputs, tests, exclusions and DoD; explicit P7/P8 decision | Silent scope expansion or work order issued with the timing ambiguity | Phase 1: Judge accepts/rejects the bounded unit only after its contract is complete |
+| 4. Later execution and independent verification | Clause-bound proof, final-source guarded sync/review/release/health, unpublished composed repeat and whole-unit review | Self-verification, generation-only proof or old bytes after governed edits | Phase 1: separate authorized Lane A execution and independent Lane B evidence |
+| 5. Source disposition, then dependent reconciliation | B-050's source-specific disposition, B-077's own final review, required parallel children, O0 parent dispositions, tracker re-derivation and GR-007 all-row conclusion | F3 or planning acceptance closes B-050/parents; parallel U03/DoD/P15 work is silently cleared | Phase 1: own evidence and applicable acts; Gate 2 and V1 selection remain separate |
+
+**Lane A steps:** acknowledge/answer the time clause in B-050; replace only that operative clause;
+include its valid/cutoff-crossing controls; present one concrete work-order packet with the already
+accepted contracts, eight paths and separate governance propagation. Identify the correction diff
+and obtain Lane B's confirmation before presenting it as unconditional readiness. After a later
+bounded Judge act, follow the existing construction/sync/proof/disposition sequence. Do not rerun
+or reopen completed F3 merely to accept a planning correction.
+
+**Critical artifacts:** the construction packet must freeze source/refs/tool/config/sidecars and
+selection oracle, define capture/refusal/recovery and all producer projections, and bind the exact
+scope. The verification packet must name valid controls, reached negatives, retry outcomes, exact-byte
+review and release/health evidence, plus the complete disposable repeat comparison. A specified
+artifact is ready to implement; it is not an executed acceptance result.
+
+**Chief Editor/Judge:** the decision still owed is the concrete prevention unit and P7/P8 limits,
+not another F3 approval. P7 proposes destructive recovery proof only on disposable fixtures;
+P8 proposes stopping on the known flake's recurrence. Lane A identified the producer facts and
+revised the plan; Lane B identified the history/schema gaps and the remaining timing ambiguity.
+No new Lane C concern or CI acceptance is supplied. External raw-writer exclusion and authenticated
+reviewer identity remain outside the unit; do not infer those guarantees from its future success.
+
+Closure tracking stays in the source handoffs, SV-002 review ledger and Gate 2 tracker, and existing
+receiving packets. Their earlier six-unclosed-row snapshot is not changed by this planning answer;
+the stale clearance tracker must still be re-derived before clearance is claimed. Parent scope is
+decided first; parent completion remains dependent on child proof.
+
+### What you did instead
+
+Current handoff validation and docs-drift both pass at `807ad7d`; Graphify was queried read-only.
+The graph is governed-current at `00c23ff`, because intervening commits are excluded handoffs only.
+No sync is due for these drafts. Later canonical changes require guarded sync and fragment survival.
+Bun again cannot start; no new full consistency result is claimed. No build, live mutation, proof
+run, receiver-answer/header/DoD/tracker edit, new Judge act or push.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Revision 4's answered history/schema/baseline contracts and existing F3 evidence | Phase 1: preserve planning-versus-execution distinction |
+| Approve-with-conditions | Judge-ready prevention plan | Phase 1: incorporate B-050's exact time-clause correction and controls; Lane B confirms the diff |
+| Defer | Work order, execution/proof, dispositions, parent closure and Gate 2 | Phase 1: concrete packet and respective bounded acts/evidence |
+| Reject | Return timestamp as selection time, completed software inferred from plan acceptance, or parent-first closure | Phase 1: preserve bracket and child-dependent completion |
