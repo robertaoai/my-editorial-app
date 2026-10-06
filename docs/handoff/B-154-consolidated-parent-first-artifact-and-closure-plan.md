@@ -6212,3 +6212,62 @@ and receipts 3–5 remain owed.
 | Approve-with-conditions | Candidate/release/health/checkpoint receipts 2–5 | Phase 1: exact-byte review, same-byte publication, verified state/health and independent checkpoint |
 | Defer | Whole prevention, B-050/B-077, other children/parents/debt and Gate 2 | Phase 1: their own evidence and acts |
 | Reject | Receipt 1 as graph approval, injection as actual generation, no-sync-owed claim, or guard success as prevention/closure | Phase 1: preserve the ordered receipt boundaries |
+
+## Lane B — parent-first consolidation after receipt-2 submission, 2026-10-06
+
+### What happened
+
+Clearer request: consolidate existing Lane A answers and Lane B feedback using the handoff template;
+show completed artifacts and remaining acceptance criteria, draft fixes, check drift, and leave execution
+and closure decisions with their proper owners. Read at `cf9c9ba`. B-050 owns the detailed G-F3-8 finding
+and proposed text; this entry owns the parent ordering, without repeating its technical contract.
+
+### What you need
+
+Parent-first display is not parent-first closure: dependent children supply the evidence that closes a parent.
+
+| Parent / dependent artifact | Completion now | Accept criterion / next owner | Reject or hold |
+|---|---|---|---|
+| Gate 2 -> GR-007 -> B-150 -> B-153/B-154 | Open; this consolidation completes no parent | Lane A reconciles all child receipts and the six historical non-SM05 rows; Judge's applicable closure acts last | One graph or F3 receipt offered as closure |
+| B-050 -> F1/F2 -> D-425 receipt 1 | Bounded foundations and corrected receipt 1 complete; earlier limits remain | Retain `c40df06` source-specific acceptance at `7929bea` | Repeat approval demanded or whole prevention inferred |
+| D-425 -> prepared candidate -> receipt 2 | Lane A's real preparation complete; candidate identity independently matched; semantic acceptance outstanding | Lane B reviews source-backed descriptions, member-set names, fragment/metadata/state evidence, then introduces its own exact-byte record | Ready or matching hashes substituted for review |
+| Receipt 2 -> receipt 3 release -> receipt 4 health -> receipt 5 checkpoint | All outstanding | Lane A publishes the independently reviewed bytes; verifies full post-state/cleanup/19-of-19; Lane B independently accepts checkpoint | Manual bypass, different bytes, or premature F3-complete claim |
+| F3 -> prevention -> B-050 disposition -> B-077 final review | Open; B-050 Applied header does not close O1 | Their own authorized proof and source-specific acts; B-077 examines its 17 targets afterward | Guard success as universal prevention or B-050 as the only remaining blocker |
+| Parallel B-106/U03/DoD/P15 -> parent reconciliation | Their previous limited evidence remains; no clearance here | Each named owner supplies its own evidence/act | Invented wait on B-050 or a DoD box checked by graph release |
+
+**Lane A follow-up, in execution order:**
+1. Answer G-F3-8 in B-050; retain the shared-identity limitation and independently delivered review-commit rule.
+2. If canonical wording/code changes, prepare a fresh candidate; otherwise preserve the frozen submitted identity.
+3. Supply the complete semantic/state evidence for Lane B's receipt-2 review. Keep proposed JSON without a
+   complete acceptance heading until Lane B has actually accepted the exact bytes.
+4. After that independent record, follow D-425 for release, full health and checkpoint as separate receipts.
+5. Stop at F3's boundary. Prevention/dispositions and parallel children precede parent closure; update each
+   obligation only with its own artifact, source, owner, independent review and remaining trigger.
+
+**Chief Editor / Judge decision:** no new general approval is required for existing D-425 steps. The present
+question is whether independent channel provenance is sufficient for this bounded unit; authenticated reviewer
+identity would be a stronger requirement requiring a separately scoped design/decision, not a Git-message marker.
+Lane A's G-F3-8 is supported by source: the guard authenticates no lane. Lane B distinguishes byte identity from
+semantic approval. No new Lane C finding, CI clearance or product reference-retrieval specification is assumed.
+
+Critical artifacts serve different purposes: source/tests establish construction readiness; candidate identity
+and semantic evidence establish what may be released; the independent record binds the reviewed bytes;
+journal/release receipts establish what was published; health/checkpoint establish the bounded stage result.
+Missing any artifact prevents the next claim. A draft test or a matching hash is not a substitute for its evidence.
+
+### What you did instead
+
+Read governed sources, template/channel rules, current handbacks and guard functions; queried Graphify first.
+Recomputed submitted candidate hashes and checked the current source rule and absence of an acceptance record.
+Consistency is **18/19**, docs-drift alone failing: live analyzed source remains `40429f8`, with eight governed
+paths changed. Candidate `f27fab81...` is ready at `00c23ff`, not released. Guarded sync remains owed through
+receipts 2–4; no manual rebuild. Earlier 225/225 tests are retained at `7929bea`, not claimed as rerun here.
+Only these handoff sections are drafted; no source/runbook change, app build, prepare, publication, recovery,
+typed acceptance record, receiver-answer/header edit, tracker closure, new Register act or push.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Existing receipt 1; submitted candidate's independently matched identity | Phase 1: preserve bounded evidence, no release claim |
+| Approve-with-conditions | G-F3-8 draft answer and ordered receipt-2 review plan | Phase 1: Lane A answers; independent provenance and full semantic/state review; new candidate if governed edits occur |
+| Defer | Exact-byte acceptance, release/health/checkpoint, prevention, child/parent closure and Gate 2 | Phase 1: their separate receipts and acts |
+| Reject | Self-review as independence, marker as authentication, candidate readiness as release, or parent closure before child evidence | Phase 1: preserve the artifact and ownership boundaries |
