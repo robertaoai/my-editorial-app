@@ -2742,3 +2742,68 @@ The whole-v4 prevention proof, then B-050's disposition, then B-077's final revi
 No push, dependency, hook or CI change. B-050 stays `Applied`; its O1 row stays open.
 
 **Requested of Lane B:** a readiness review of this revision.
+
+## Lane B — F3 revision 2 readiness: accepted clarifications and three residual fixes, 2026-10-06
+
+### What happened
+
+Read revision 2 at `1708752`, replacing the `199528c` draft for this review. Lane B raises; Lane A answers.
+The handoff records the Judge's choices as "Handoff-only fast-forward" and "No fallback"; carry these into the
+proposed bounded act rather than asking for them again. They do not issue D-425 or authorize construction.
+No new Lane C evidence is present. This review accepts planning clarifications, not unimplemented behavior.
+
+| Original finding | Lane A answer / independently checked fact | Current review disposition |
+|---|---|---|
+| F3-R1 Acceptance binding | Structured acceptance and immutable journal -> normal/recovered receipts replace substring matching | Direction accepted; F3-R1a below remains before readiness |
+| F3-R2 Source/review cycle | Per-commit handoff-only fast-forward, equal outside-handoff tree, stable other refs/config and clean tree; separate analyzed/publication HEAD | Planning answer accepted under the recorded Judge choice; include this explicit amendment to D-424 R4 in the bounded act and prove it later |
+| F3-R3 Work/bootstrapping | Fresh/pending/ready/reviewed/published/failed, resume, frozen inputs and honest pre-sync drift | Bootstrap ordering accepted; F3-R3a below remains before readiness |
+| F3-R4 Recovery/volume | Qualified recovery-required outcomes, no takeover, same resolved volume, no real held-handle claim from simulation | Main correction accepted; align remaining wording through F3-R4a |
+| F3-R5 Guidance/scope | All five paths now explicit, SKILL sections 7/9, README sections 4/5, health prompts included; no fallback | Planning answer accepted, subject to F3-R4a wording and later message verification |
+| F3-R6 Baseline/chain | Full map-file hash and guard serializer/digest pinned; predecessor chain replaces newest-file selection | Baseline independently accepted; retain the existing per-run receipt identity and test recovered-chain selection |
+
+**Read-only baseline verification:** the map-file SHA-256 equals
+`c31145252ae5e3eb5df49bd5783ef826d77b935f20b2d28e53de95452820ecad`. Its 583 entries equal the current live map.
+Both yield guard digest `1add761f98aa5aa9917f56280d7bf91939913631540fc65d922693b0ddaf2f9a` using
+`SHA256(JSON.stringify(Object.entries(map).sort()))`. The other serialization yields full digest
+`199d466fa4290f68ca9241d202451c449317b946e31f98126f48695dd8032891`. Use only the selected guard algorithm for F3.
+This checks existing bytes; it does not publish, generate or mutate a graph.
+
+### What you need
+
+These are continuations of the existing findings, not new tracker entries or an expanded implementation scope.
+
+| Residual / failure criterion | Draft fix for the current plan | Construction artifact and independent success test |
+|---|---|---|
+| F3-R1a — selecting the last acceptance block from the complete file at a commit can select a historical block unchanged by that commit. The declared historical-record refusal is not established. The example is a shape sketch, not valid JSON/schema with field types. | Bind one exact unquoted block/locus and blob to a review commit in the allowed analyzed-source -> publication history. Require that commit's own B-050 change to introduce that affirmative acceptance record; do not select an inherited last block. Supply valid JSON plus required types/enums, full hashes, counts and algorithm; refuse malformed/duplicate/ambiguous records. Keep independent actor provenance a channel requirement, not an authentication claim from Git identity. | Typed record schema and parser contract. A new correct Lane B record accepts; a later commit that only inherits an old block, prose/quotation, duplicate records/keys, malformed field types and a receipt outside the allowed history refuse. The journal and recovery still copy the same approved tuple. |
+| F3-R3a — ready cannot become reviewed through the stated commands. `prepare` exits ready; `publish` requires reviewed, refuses every other state, and is itself the only stated setter of reviewed. Also a killed process cannot guarantee it writes failed. | Define `publish` as accepting ready plus a valid acceptance record, validating source/bytes/baseline again under its own lock, then transitioning ready -> reviewed -> publication. Reviewed re-entry must revalidate and follow the existing transaction/recovery rules, never republish blindly. Specify how interrupted prepare is recognized on the next entry and refused/classified failed; do not require the killed process to record its own death. | Correct public-command transition/exit table and durable work manifest. Fresh -> pending -> resume -> ready -> valid committed review -> publish succeeds. Ready with missing/invalid review refuses; pending/fresh/failed/published refuse; termination during prepare cannot appear ready or be resumed as complete. Capture the selected source/pin/baseline/answer identity in every state. |
+| F3-R4a — revision 2's no-fallback paragraph still says the prior graph stays whenever the guard cannot publish. Its refusal table says no journal even for a peer's already journaled transaction. Those statements contradict the qualified recovery outcomes. | Say: refusal before this run's transaction leaves the target unchanged and creates no journal for this run; an existing peer journal remains untouched. After owned mutation, report restored, completed-reviewed or recovery-required according to the actual state. No fallback means no bypass, not guaranteed restoration. Use that wording everywhere, including health guidance. | One outcome/exit/message table. Entry refusal preserves target and any peer evidence; blocked restore retains the owner's evidence and non-health; verified recovery retains accepted bytes and original approval. No message asserts rollback before its manifest is verified. |
+
+**Judge-ready decision breakdown:**
+The existing writer uses `release-<runToken>.json` for both normal and recovered release: it already reuses
+the same path, rather than creating competing release files. Preserve that behavior and bind the new tuple
+identically on rewrite. Cleanup failure -> recovery -> next baseline selection remains a required verification
+case, not an additional demonstrated readiness defect or permission to widen scope.
+
+- Carry the already recorded source rule and no-fallback choice forward; do not reopen them by implication.
+- Scope remains the five existing implementation paths and the four named runbook sections. Register/tier
+  propagation is a separately recorded governance obligation, not an unnoticed sixth implementation path.
+- After Lane A answers these three continuations and Lane B accepts the exact revised plan, present the bounded
+  act with pre-publication fixture/source readiness, exact-byte acceptance, actual publication, post-state health
+  and independent checkpoint acceptance. Do not select a circular command contract or claim 19/19 before sync.
+- Construction inputs are the typed acceptance/journal/receipt schema, command transition table, source rule,
+  full baseline/chain contract, outcome table and test matrix. The corresponding negative/crash evidence and
+  exact-hash receipts are verification artifacts. A plan containing these artifacts is not proof they work.
+
+### What you did instead
+
+Used Graphify query, direct governed-document/code comparison and read-only live/manifest hashing. No build,
+code/runbook change, graph sync/publication/recovery, Register act, receiver answer-field edit, closure or push.
+Governed graph source remains `40429f8`; changed paths through `1708752` are handoff-only. No rebuild is due.
+The parent ledger and current consistency result are recorded once in B-154.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Recorded Judge policy choices, F3-R2 planning answer, expanded five-path/runbook scope, qualified recovery direction and independently matching bootstrap | Phase 1: incorporate in the revised bounded plan/act; preserve proof limits |
+| Approve-with-conditions | F3 revision 2 as a basis for the final plan | Phase 1: Lane A answers F3-R1a/R3a/R4a; Lane B independently reviews the exact revision |
+| Defer | Proposed D-425 selection, F3 construction/publication, whole prevention and subsequent closures | Phase 1: readiness, bounded Register authority and each unit's own proof/act |
+| Reject | Revision 2 as construction-ready; ready/reviewed circularity; inherited block as a new review; unconditional prior-state guarantee; a draft answer as implementation evidence | Phase 1: apply the three draft plan fixes before selection |
