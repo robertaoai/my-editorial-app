@@ -5877,3 +5877,73 @@ obligation, not graph drift. Current consistency and read-only baseline verifica
 | Approve-with-conditions | Revision 2 as the basis of the final F3 plan | Phase 1: three residual fixes, Lane B exact-revision readiness, then bounded Judge Register act |
 | Defer | F3 construction/publication, prevention, B-050/B-077, parallel children, parents and Gate 2 | Phase 1: their own authority, artifacts and independent completion evidence |
 | Reject | Revision 2 as construction-ready or any draft/answer/graph/check result as whole prevention or closure | Phase 1: finish the plan and verify each bounded obligation |
+## Lane B — revision 3: conditional readiness and Judge decision guide, 2026-10-06
+
+### What happened
+
+Effective request: independently review Lane A's current handoff, consolidate completed versus owed artifacts,
+draft any residual fix and provide the parent-first decision/follow-up guide. Read `10c32ce`: revision 3 is
+revision 2 with three named replacements, not a separate implementation. Lane B raises; Lane A answers.
+Detailed review and conditions are owned once in B-050's "revision 3 readiness" section.
+That independent review is committed at `8cb6081`; Lane A's condition answer and exact-locus check remain owed.
+
+### What you need
+
+| Parent -> dependent decision | Completed / accepted now | Judge Accept criterion | Reject / defer criterion |
+|---|---|---|---|
+| Gate 2 -> GR-007 -> B-150 -> B-153/B-154 | Governing authority and individual historical receipts remain intact | All child obligations have their own evidence/acts before parent reconciliation | Parent/gate completion inferred from graph currency, a draft or green consistency |
+| B-050 -> F1/F2/released graph | `6a74c8e` records fixture-only F2 completion, released 35541b33… and B-136 pointer; no DoD box checked | Preserve these completed bounded records | Treat F2 or pointer as whole prevention or B-050 clearance |
+| F2 -> revision 3 plan | Three previous planning remedies independently accepted; no construction proof claimed | Incorporate F3-R3b's unknown/dead-owner distinction, explicit schema enforcement and complete outcome rows; Lane B checks that text | Unknown owner can be overwritten or canonical formatting is relied on for schema validation |
+| Ready plan -> proposed D-425 | Source policy/no-fallback choices already recorded; five implementation paths and four runbook sections accepted | Judge issues bounded Register act with propagated tiers, scope, amended source rule, cases and receipts; Lane A Active | Approve verdict or choice record alone is used to start construction |
+| Authorized F3 -> implementation/publication/checkpoint | None complete under F3 | Fixture/source readiness -> exact-byte acceptance -> guarded actual release -> verified final state/health -> independent checkpoint acceptance | Planned tests are presented as passing tests, or any required receipt is absent |
+| F3 -> prevention -> B-050 -> B-077 | Separate outstanding obligations | Independent authorized whole-v4 proof, source-specific B-050 disposition, then B-077 17-target final review | F3 success or documented raw-writer limitation substitutes for prevention |
+| Parallel B-106/U03/DoD/P15 -> parents | Existing custody/draft receipts retain their limits | Named owners complete their own runtime/attempt/criterion evidence and acts | Silent closure or invented dependency on B-050 |
+
+**Chief Editor / Judge:** do not repeat the handoff-only fast-forward/no-fallback questions. The next decision
+is the concrete bounded act, after the technical conditions are accepted. It names the guard, guard fixtures,
+sync-docs SKILL sections 7/9, fragment README sections 4/5 and docs-drift guidance. Register/tier propagation
+is separately tracked governance work, not an unnoticed additional implementation path.
+
+**Lane perspectives and unsupported claims:** Lane A has withdrawn historical-record selection, circular
+publication and guaranteed restoration. Lane B accepts those planning repairs and raises one ownership gap:
+unknown liveness can belong to a live process. Formatting equality also needs the already required separate
+schema checks. Lane C supplies no new finding or approval. Do not manufacture cross-lane consensus, universal
+prevention, a solved flake cause, or executed evidence from a proposed case matrix.
+
+**Construction artifacts -> verification artifacts:** typed acceptance/journal/receipt schemas -> new versus
+inherited/invalid review cases and unchanged approval through recovery; work/owner transition table -> ready
+publication plus alive/unknown/dead/interrupted/concurrent-owner cases; source/baseline contracts -> committed
+review fast-forward and mutation/chain refusal cases; outcome/runbook table -> successful publication, verified
+restore, blocked recovery and peer-evidence cases. Actual final hashes, release receipts, cleanup and health
+then support independent F3 acceptance. Keep them scoped; none alone closes B-050.
+
+**Lane A follow-up:**
+1. Acknowledge the three accepted planning remedies and answer F3-R3b in B-050. Incorporate the supplied
+   preparing-owner row, explicit ordered-key/type checks and complete outcome/message rows in the current
+   plan/act draft. No duplicate tracker or mandatory broad new planning cycle is needed.
+2. Hand back that exact text for Lane B's condition check; do not revise settled Judge choices.
+3. Present proposed D-425: bounded paths/sections, source-rule amendment, no fallback, tests, exclusions,
+   tier applicability and distinct fixture, review, actual-release, final-health and checkpoint evidence.
+4. Wait for the Judge's Register act before implementation. Later fixture/source review precedes candidate
+   preparation and exact-byte acceptance; first real publication precedes a full 19/19 health claim.
+5. Stop after independently accepted F3. Prevention/B-050/B-077 and parallel children retain their own acts.
+   Complete children before B-153/B-154 -> B-150 -> GR-007 final check -> Gate 2.
+
+### What you did instead
+
+Used the existing handoff template sections, Graphify query and read-only source/plan counterexamples.
+Governed source remains `40429f8`; changes through `10c32ce` are handoff-only, so no graph rebuild is due.
+Future authorized source/runbook changes require their selected sync and fragment re-merge. No implementation,
+live graph publication/recovery, Register act, receiver answer-field edit, tracker closure or push.
+
+**Current validation:** `bun run check` passes 19/19 and `git diff --check` passes. The closure report retains
+the historical stale tracker at `3488206` and six non-SM05 rows unclosed. That separate reconciliation debt
+does not require a graph rebuild and is not closed by this review. The probes are planning counterexamples,
+not F3 fixtures or actual-publication evidence.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Three prior planning remedies; existing F1/F2/release/pointer records and carried-forward policy/scope | Phase 1: retain their limits and source receipts |
+| Approve-with-conditions | Revision 3 readiness for the bounded act | Phase 1: ownership correction and explicit schema/outcome enforcement accepted at their exact locus |
+| Defer | Construction/publication, prevention, B-050/B-077, other children, parents and Gate 2 | Phase 1: bounded authority, verified artifacts and respective acts |
+| Reject | Unknown as dead, formatting as complete schema enforcement, planned cases as proof or an approval as execution authority | Phase 1: implement the specified contract only after authority |
