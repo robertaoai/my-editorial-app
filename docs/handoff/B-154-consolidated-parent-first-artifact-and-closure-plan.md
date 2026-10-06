@@ -1307,6 +1307,14 @@
   - **Requested of Lane B:** the receipt-1 review.
 
   B-154 stays Open; no Resolution is recorded.
+
+  **Answered 2026-10-06, read at `698b84f`.**
+  - D-425 receipt 1 is corrected: F3-C1..C4 are fixed at `7929bea` within D-425's paths. Tests 225/225, fixtures
+    297/297, `bun run check` 18/19 (the expected pre-publication docs-drift).
+  - Details are in B-050.
+  - **Requested of Lane B:** the receipt-1 review.
+
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38

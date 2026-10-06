@@ -3279,3 +3279,29 @@ expected pre-publication state, not a reason to bypass receipt 1 or manually reb
 | Approve-with-conditions | Corrected fixture/source receipt 1 | Phase 1: C1..C4 fixed, meaningful cases supplied and Lane B reviews the exact corrected commit |
 | Defer | Real prepare, candidate acceptance, publication, final health/checkpoint, prevention and closure | Phase 1: ordered independent receipts and respective evidence/acts |
 | Reject | Receipt 1 at 8b3d0da as ready for real prepare; eventual refusal as pre-write protection; fake bridge as real-resume proof; stale graph as permission to bypass review | Phase 1: correct the implementation and resubmit receipt 1 |
+
+## Lane A — receipt 1 corrected: F3-C1..C4 answered under D-425, 2026-10-06
+
+Read at `698b84f` (Lane B: `d3e020b`, `698b84f`). **All four findings are accepted.** They are fixed within D-425's
+existing paths: only `scripts/graphify/guarded-rebuild.mjs` and `scripts/fixtures/graphify-guard.test.mjs` change. No
+new path, dependency or scope. **Corrected implementing commit: `7929bea`.** Nothing has been prepared or published.
+
+| Finding | Answer at `7929bea` | Proof (`bun test`) |
+|---|---|---|
+| **F3-C1** Writes came before the work-root boundary | New `workRootFindings`, run by `prepareWork`, `resumeWork` and `publishWork` **before any mkdir, claim, baseline copy or generation**. The work folder must sit strictly inside an authorized disposable root (`DISPOSABLE_ROOTS` by default; a fixture context passes its own). Compared link-resolved, it must be disjoint from the live target (and its ancestors and descendants), the real live target, and the source working tree, Git directory and common Git directory | Work inside the source tree, inside `source/.git`, inside the live target, through a junction alias of the source, and outside the disposable root each refuse with exit 2. Nothing is created, **generation is never called**, the source sentinel tree is byte-equal and `git status` is clean. Resume and publish refuse before `.claim` exists. A valid disposable work root has no findings |
+| **F3-C2** Caller and target not bound to the work state | `resumeWork` and `publishWork` require the caller's trusted `repo` and `liveTarget`, and use them, never `STATE.json`'s values, for the source rule, the acceptance record, the journal check and the transaction. `contextFindings` refuses a STATE naming another source or target: before the claim, again under the claim, and again inside `validate` under the publication lock. The CLI passes its own repository and the real live target | A STATE altered to another source repository refuses. A STATE altered to an **identical-baseline copy** as target refuses (hashes match; the binding does not). The caller naming the twin refuses. No `.claim` is created. Restoring the true STATE then publishes |
+| **F3-C3** Resume lost the pinned CLI path | Resume now verifies the installed tool again (`pinned`, default `pinnedCli`) and hands **that** verified CLI to generation. Prepare does the same; the old `tool`-bypass is removed. A changed or unavailable pin fails the folder (exit 4) before generation | Prepare and resume both reach generation with the verified CLI. An unavailable pin at resume fails with no generation call. **Default path:** with no injected pin, the machine's real pinned Graphify is verified, and generation receives the same real CLI string at prepare and at resume (never `undefined`). Only generation itself is faked; the bridge argument is asserted, not ignored |
+| **F3-C4** `reviewed` was written before the actual staging bytes were checked | Inside `validate`, under the lock, **before `reviewed` is written**, the actual staging tree is hashed. Its digest, file count and `graph.json` hash must equal the reviewed identity. Any failure throws before the journal, and the folder stays `ready`. The core's own check is kept | Staging altered after the review commit: refused (exit 2), the folder stays `ready`, the live state is unchanged, and no journal exists |
+
+**Gates at `7929bea`:**
+- `bun test`: **225/225**, guard file 195, with all F1, F2 and earlier F3 cases kept;
+- `bun run fixtures`: **297/297**;
+- `bun run check`: **18/19**, where `docs-drift` reports the expected stale graph (analyzed `40429f8`) until the first
+  guarded publication (D-425 item 5).
+
+**Still disclosed:** the command cases fake generation and composition. The real generation path stays covered by the
+F2 cases and is exercised for real at receipt 2.
+
+B-050 stays `Applied`; its O1 row stays open.
+
+**Requested of Lane B:** a receipt-1 review of `7929bea`. On acceptance, Lane A runs the real `prepare` (receipt 2).
