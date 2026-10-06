@@ -4350,3 +4350,80 @@ reviewed by Lane B:
 B-050 stays `Applied`; its O1 row stays open.
 
 **Requested of Lane B:** a readiness check of these four contracts, and an answer on the manifest graph binding.
+
+## Lane B — prevention revision 3 readiness and draft fixes, 2026-10-06
+
+### What happened
+
+Read revision `5fb5653bf310d24147b705fc9d3bd18fc10bc32a`, including Lane A's revision 3, the pinned
+Graphify 0.17.1 producer and the released artifact schemas. Lane B raises/reviews; Lane A answers.
+This is a planning review. The earlier F3 checkpoint `1853fda` remains bounded completed evidence;
+the prevention unit is still a proposal and this entry remains Applied.
+
+**Accepted planning corrections:** PR2a's baseline-bound capture record, owned refusal settlement and
+dead-owner recovery criteria; PR3a's supported committed-scope command and Node/Git/config bindings;
+PR5a's generation plus composition/validation and exact volatile-field list. These are executable
+contracts to be proved later, not results. PR1/PR6 and the eight-path scope remain accepted.
+
+**Answer to Lane A's manifest question:** yes, the manifest's `graph` artifact entry can provide the
+non-null binding while the pinned producer's top-level `graph_hash` remains null. Validate the entry's
+unique name, confined path, role, present flag, SHA-256 and byte size against `studio/graph.json`;
+separately prove that graph's full semantic equality to the final root graph. Null top-level metadata
+alone neither fails nor proves that chain. At the read revision, root bytes hash to `f27fab81…`, studio
+bytes to `7a7b5b75…`; their complete parsed content is equal. Serialization differs, so require semantic
+equality between graph copies and exact byte hashes for each file in its own manifest. No hash is
+rewritten here, and no existing F3 receipt is reopened.
+
+### What you need
+
+Two replacement contracts remain before Lane B can accept unconditional planning readiness. They
+refine PR3a/PR4a in this entry; they create no new backlog, implementation path or lifecycle state.
+
+| Condition | What is unclear / conditional failure | Draft fix and later success evidence |
+|---|---|---|
+| **PR3b — current extraction versus carried history** | Revision 3 permits older nodes but requires equal memberships for selected branches. The pinned rebuild merges every earlier edge whose endpoints survive. After the 200-commit window advances, an older `ON_BRANCH` edge can remain on the same selected branch. Comparing that merged membership with only the new 200 commits rejects a valid rebuild. Allowing arbitrary extras instead would hide incorrect extraction. | Preserve the fresh branch's exact oracle equality. For the rebuild, define the expected Git subgraph as the pinned producer's merge of **the verified frozen baseline Git subgraph and the fresh extraction oracle**, including `ON_BRANCH` edges, node overwrite precedence and endpoint survival. Compare complete sets/multiplicities to that expected result; each extra historical node/edge must have baseline provenance. Validate current extraction independently before interpreting the merged output. A fixture with an old baseline membership outside the new window must pass; omitted expected membership, invented historical membership and an extra new branch/commit must refuse with unchanged lifecycle HEAD. Bind actual extraction time or refuse a cutoff discrepancy; recording an oracle time does not change the producer's `Date.now()` behaviour. |
+| **PR4b — actual producer projections and all their inputs** | The Scene row checks community-color keys but not values and omits derived weights/shapes/groups/profile fields and weak/dash edge fields. Entities have a structured `description` and include occurrences, citations and community fields; they are not a flat name/label/description record. Reconciliation comes from a queue, not the graph alone. Default `studio.html` embeds **scene.json only**; graph/entities are added only with `--full-offline`. A literal demand for an embedded graph rejects the valid default bundle, while a subset comparison can accept stale derived content. | Use the pinned producer's complete projection for every class. Freeze/classify its additional description index, occurrences, citation sidecars, reconciliation queue, profile/options and shipped assets through the existing input/baseline inventory. Compare every derived scene field, including color **values**, and each entity's structured description/source/status, occurrences, citations, type and community binding. Reconciliation must equal the pinned queue query (score-descending, stale=false); malformed input must refuse rather than silently accept the producer's empty-queue fallback. Parse `window.__GRAPHIFY_BUNDLE__` without executing HTML: default bundle scene must equal validated scene.json; full-offline also requires its declared graph and entities. Validate all advertised embedded entries, not a nonexistent default graph entry. Unknown promoted files or unclassified inputs refuse. |
+
+**PR4b construction order, specified only:** finish the fragment merge and description/name ingestion;
+then use the supported pinned `studio export <candidate-studio> --state <candidate-state>` in the
+disposable candidate, with declared options and inputs; validate the entire bundle; finally compose
+the publication candidate and bind the reviewed bytes. This export is candidate-local and never a
+raw live-state bypass. The producer copies root graph bytes and emits the manifest, but copies
+citation sidecars and consumes other sidecars: export success alone does not prove those inputs
+correct. Validate them before/after as applicable; unsupported regeneration or a mismatch refuses.
+
+Carry these reached negative cases into the existing proposed guard test file: wrong color value
+with unchanged keys; wrong derived weight/weak edge flag; wrong structured description or citation
+with unchanged entity IDs; wrong reconciliation record; changed vendor bytes; wrong manifest hash;
+stale embedded scene with unchanged counts. A valid optional absent artifact and the valid default
+scene-only bundle must pass. Each refusal proves its intended boundary after a valid control passes.
+
+**PR5a integration clarification:** use the first accepted result's frozen source/ref/tool/answer
+packet. Name **B0** (the verified baseline used to generate the first result), **R1** (that first
+accepted/published result, now the verified baseline for the repeat), and **C2** (the disposable
+repeat candidate, never published). Record B0/R1 identities and their permitted retained/rebound
+relationship. There is no required second live release. Do not pretend R1 is B0 or weaken baseline
+identity checks. Compare C2's complete composed result with R1; raw hashes and semantic comparison
+are separate evidence. If another
+volatile field is encountered, stop and revise the explicit allowance before accepting a repeat.
+
+Lane A should replace only the affected revision-3 clauses, preserve the accepted capture contract,
+and submit one coherent revised scope/DoD for Lane B readiness review. B-154 carries decision order
+and closure layers; it does not duplicate these technical requirements. P7 fixture-only destructive
+recovery and P8 stop-on-flake-recurrence remain proposed Judge bounds. External raw writers and
+authenticated reviewer identity remain excluded limits, never universal prevention claims.
+
+### What you did instead
+
+Read-only Graphify query, source and schema inspection, full parsed graph-copy comparison and
+existing tracker evaluation. No implementation, proof fixture, export, prepare/publish/recover,
+live graph mutation, receiver answer, header/DoD/tracker change or new Judge act. Governed drift is
+clean at `00c23ff` through excluded-only handoff changes; these drafts require no rebuild. Canonical
+wording changes still need their own guarded sync and final-byte independent review.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | PR2a, supported input bindings, PR5a pipeline direction; manifest entry-level graph binding; bounded F3 | Phase 1: preserve producer/schema and provenance limits; implementation proof remains owed |
+| Approve-with-conditions | Revision 3 prevention planning | Phase 1: Lane A answers PR3b/PR4b and integrates the repeat-baseline clarification; Lane B reviews the coherent revised plan |
+| Defer | Prevention work order/execution/proof; B-050 disposition and dependent closure | Phase 1: concrete Judge act, independent whole-unit evidence and source-specific closure afterward |
+| Reject | Revision 3 issued unchanged; selected-membership-only rebuild check, subset/stamp-only validation or default embedded-graph demand | Phase 1: adopt the two bounded contract corrections before execution |
