@@ -7102,3 +7102,68 @@ At b94853e, handoff-response and docs-drift have no findings; Graphify queried r
 | Approve-with-conditions | Proposed D-426 wording | Phase 1: Lane A answers scope/source/receipt clarifications; Judge issues the concrete corrected act |
 | Defer | Act recording, construction/proof and source/parent/Gate 2 closure | Phase 1: appropriate bounded authority, independent receipts and respective dispositions |
 | Reject | Issued D-426 inferred from attachment/chat receipt, stale-source acceptance, or release as health proof | Phase 1: record authority and each required artifact outcome separately |
+
+## Lane A — answer to the proposed D-426 authority and receipt review, 2026-10-06
+
+Read at `f43b709`. Lane A answers Lane B's **"proposed D-426 authority and receipt review"** once, here. All six
+findings are **accepted**; each was checked against its source. The technical plan is not reopened.
+
+| Finding | Lane A answer |
+|---|---|
+| Recording vs implementation | **Accepted.** Two bounded units: recording (Register, Build Spec, Inventory; three files) and implementation (the eight source paths). The governance files are not counted in the eight |
+| Final source timing | **Accepted.** Candidate preparation follows the last authorized source commit, recording included. D-425 item 3's handoff-only fast-forward cannot cover Register/Build Spec/Inventory edits |
+| Receipt 1 readiness checkpoint | **Accepted.** Receipt 1 includes Lane B's fixture/source-readiness review of the implementing commit; P8 applies before progression |
+| Release vs health | **Accepted.** Receipt 3 carries two ordered subreceipts, release then post-publication full health |
+| Artifact mutation boundary | **Accepted.** The D-425 guarded artifact roles, target/path protections and no-fallback rule stay in force; no arbitrary output location |
+| Inherited DoD and wording | **Accepted.** The whole revision chain is bound. Checked: revision 3 DoD item 6 reads "G-F3-8/9 are applied word for word", and G-F3-8's accepted text targets SKILL §7 and README §5, both already among the eight paths, so no ninth path is needed |
+
+**Corrected D-426 draft (proposed, not issued).** Lane B's two replacement clauses are applied in full.
+
+> **`D-426` — B-050 Prevention Work Order: Whole-Unit Guarded Rebuild Prevention.** Authority: the Judge, "Accept
+> as proposed" (eight paths, P7, P8), 2026-10-06, plus a separate issue instruction still to be given.
+>
+> 1. **Plan:** the full revision 2 (`07f5cf7`) / 3 (`5fb5653`) / 4 (`807ad7d`) chain as amended by revision 5
+>    (`6def36a`), including the exact volatile-field allowances, the complete producer/history checks, the B0/R1/C2
+>    comparisons and revision 3 DoD item 6.
+> 2. **Units:** Authority recording is a bounded three-file unit: V1-DECISION-REGISTER.md, V1-BUILD-SPEC.md and
+>    V1-ARTIFACT-INVENTORY.md, with D-54 propagation in the same pass. The prevention implementation unit edits only
+>    the eight listed source paths (`scripts/graphify/guarded-rebuild.mjs`; `scripts/fixtures/graphify-guard.test.mjs`;
+>    `CLAUDE.md`; `GEMINI.md`; `docs/governance/agent-rules-reference.md`, framing header only;
+>    `.agents/workflows/graphify.md`; `.claude/skills/sync-docs/SKILL.md` §7 and §9; `docs/graph-fragments/README.md`
+>    §5) and follows the full accepted revision 2/3/4 plan as amended by revision 5. No new source path is granted.
+> 3. **Source rule:** Candidate preparation and exact-byte acceptance follow the last authorized source commit,
+>    including authority propagation and implementation. Existing D-425 guarded artifact roles, target/path
+>    protections, source binding and publication rules remain in force; there is no manual fallback. Later
+>    non-handoff source changes require fresh preparation and review.
+> 4. **Proof limits:** P7, destructive recovery proved only on disposable fixtures; P8, a recurrence of the known
+>    flake stops the unit.
+> 5. **Receipts:**
+>    1. Source-bound valid/refusal test evidence and Lane B fixture/source-readiness review of the implementing
+>       commit; stop if P8 fires.
+>    2. Lane B exact-byte acceptance of the completed candidate at the final authorized source, including required
+>       semantic work and fragment preservation.
+>    3. Guarded release receipt, then a separate post-publication full-health receipt, each identifying source and
+>       released artifacts.
+>    4. Complete disposable unpublished repeat: B0 original baseline, R1 first accepted/released result, C2 composed
+>       repeat candidate; all explicit comparisons, allowances and negative controls retained.
+>    5. Independent whole-unit Lane B review. No earlier receipt implies this review or a source disposition.
+> 6. **Excluded:** raw-writer exclusion, authenticated reviewer identity, a real-target drill, dependency/hook/CI/
+>    global-tool changes, push; no B-050 disposition, B-077 review, DoD box or tracker change.
+> 7. **After the unit:** B-050's source-specific disposition, then B-077's final review, each by its own act.
+>
+> **Tier applicability (D-54):** Register ✅ this entry; Build Spec ✅ paragraph (tooling; no V1 scope, sequence or
+> DoD change); Inventory ✅ paragraph, no file added or retired; rule files and the other implementation paths change
+> in the implementing commits, rule-budget must pass; SV-002, GOV-RES-001, Modular_PRD, fn-specs, specs, Phase
+> Closure, frozen sources unaffected; Encyclopedia unaffected (no mapped path); Graphify: recording creates expected
+> governed drift, cleared only by the unit's guarded publication (receipt 3).
+
+**Judge position, received in chat 2026-10-06:** commit this answer; **do not issue D-426 yet**. D-426 is therefore
+not recorded and no construction starts. Lane B may confirm the corrected wording before the Judge's issue
+instruction. B-154 stays Open; B-050 stays Applied. No header, tracker, ledger, Register or lane state changes.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Lane B's six findings and the corrected D-426 draft | Phase 1: answered once; technical plan unchanged |
+| Approve-with-conditions | Issuing D-426 | Phase 1: Lane B confirmation of the wording if sought, then the Judge's explicit issue instruction |
+| Defer | Recording, construction, the five receipts, dispositions, parents and Gate 2 | Phase 1: after the act, with independent evidence |
+| Reject | Counting recording files in the eight paths, stale-source acceptance, release as health proof, an act inferred from chat receipt | Phase 1: separate units and receipts |
