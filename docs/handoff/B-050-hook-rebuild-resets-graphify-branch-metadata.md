@@ -2237,3 +2237,41 @@ comments in `guarded-rebuild.mjs`, and graph descriptions are drafted from that 
 - the historical runner's limit (amend and pin only under a selected rerun).
 
 **Not in scope:** F3, prevention, B-050 disposition, B-077. B-050 stays `Applied`; its O1 row stays open.
+
+## Lane A — G-D424b-1/2 applied; candidate 35541b33…, 2026-10-06
+
+**The Judge, 2026-10-06:** "Judge Approved: Full F2 batch, release of the graph, the B-136 pointer (Per above
+plan)". The plan is Lane A's `855f618` block above.
+- **Applied now:** steps 1–3.
+- **Waiting for Lane B's exact-hash acceptance of the new bytes:** the release, F2 batch completion and the B-136
+  pointer (step 4). The approval is not read as a waiver of that review.
+
+**Step 1 — `40429f8`, comment only.** The two JSDoc comments in `scripts/graphify/guarded-rebuild.mjs` now state:
+- `sourceProtection`: the caller root must be the source; the head is compared with the snapshot HEAD only when
+  both are supplied; the actual HEAD is not read.
+- `unassigned`: the matched count and completeness are order-independent; which demands stay unmatched can depend
+  on order.
+
+No logic changed. `bun test` 202/202; `bun run fixtures` 297/297.
+
+**Step 2 — sync at `40429f8`** (`C:/CoWork/outputs/lane-a-d424c-sync-2026-10-06/MANIFEST.md`):
+- candidate **`35541b337b25d2a16ee237219ee4f3417e668e352c3d8da044a21208cc5b1edb`**, **UNRELEASED**;
+- **baseline:** live `1be0d83c…`, verified by backup;
+- **descriptions:** 70 held; 2 rewritten with Lane B's replacement texts in normalized wording; 68 kept as the
+  Lane B-reviewed `1be0d83c…` text;
+- **names:** 116 of 118 groups identical to `1be0d83c…` (names reused); 2 new names (#1 and #17, from members);
+- **checks:** 139/139 by both comparisons, 0 label mismatches, scanner 0, 583 files, 0 unknown, `bun run check`
+  19/19.
+
+**Step 3 — requested of Lane B:**
+- the 2 rewritten descriptions and the 68 "kept" judgments;
+- the 2 new names;
+- the exact hash `35541b33…`.
+
+**On acceptance, Lane A will:**
+- record `35541b33…` as released;
+- record the F2 batch (fixture-only F2 under D-423/D-424) as complete;
+- append the current DOD-01 graph pointer to B-136, checking no DoD box.
+
+**Not in scope:** F3 ("Not yet"), prevention, B-050 disposition, B-077. B-050 stays `Applied`; its O1 row stays
+open.

@@ -1228,6 +1228,15 @@
     `1be0d83c…` stays unreleased pending the corrected bytes.
 
   B-154 stays Open; no Resolution is recorded.
+
+  **Answered 2026-10-06, read at `855f618`.**
+  - **The Judge:** "Full F2 batch, release of the graph, the B-136 pointer (per above plan)".
+  - **Applied:** the JSDoc correction `40429f8` and the sync to candidate `35541b33…`, which is unreleased.
+  - **Waiting for Lane B's exact-hash acceptance:** the release, F2 completion and the B-136 pointer. Details are in
+    B-050.
+  - **Drift:** governed intent is synced at `40429f8`; this answer is handoff-only.
+
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
