@@ -2353,3 +2353,144 @@ Judge's "Judge Approved: Full F2 batch, release of the graph, the B-136 pointer 
 4. then B-077's final review.
 
 B-050 stays `Applied`; its O1 row stays open.
+
+## Lane A — DRAFT: bounded F3 plan (live publication and runbook adoption), 2026-10-06
+
+Read at `6a74c8e`. **The Judge, 2026-10-06:** "Judge Approved: draft the bounded F3 plan." **This is a draft for
+Lane B review.** It authorizes nothing and applies nothing. F3 starts only after a Register act (proposed: `D-425`)
+names it, with Lane A `Active`.
+
+**Basis:**
+- the accepted D3 stage definition (B-154, "F3 — real review-bound publication and runbook adoption");
+- contract v4, with both conditions as adopted at `b97f93f`;
+- the accepted F1 bounded policy (`D-421`);
+- the accepted fixture-only F2 batch (`1a374a6`; recorded at `6a74c8e`);
+- the released baseline `35541b33…` (583 files, manifest `199d466f…`).
+
+### 1. Goal
+
+Replace the interim manual sync route (D-409/D-410 with the D-422 prune order) with **one guarded procedure**. The
+guard publishes only bytes that Lane B reviewed at their exact hash into the real live target
+(`C:/CoWork/myeditorialapp/.graphify`). The publication journal, owned recovery and receipts already proved on
+fixtures carry over. The runbooks are amended to name that procedure.
+
+### 2. Paths
+
+The five D3 paths, no sixth:
+
+| Path | F3 work |
+|---|---|
+| `scripts/graphify/guarded-rebuild.mjs` | Live mode, CLI entry and review-receipt binding (§3) |
+| `scripts/fixtures/graphify-guard.test.mjs` | The F3 intended-case matrix (§4) |
+| `.claude/skills/sync-docs/SKILL.md` | Runbook adoption (§5) |
+| `docs/graph-fragments/README.md` | Runbook adoption (§5) |
+| `scripts/checks/docs-drift.mjs` | **Expected unchanged.** The F1 journal check already makes health non-reportable mid-transaction. Touched only if an F3 case proves a defect |
+
+**Gap G-F3-1 (path set versus where the procedure lives):** D3 names SKILL §7 and README §5. The procedure actually
+spans SKILL §7 ("merge, never build") and §9 ("Sync the graph"), and README §4 (rebuild, restore, prune, merge) and
+§5 (verification). **Draft fix:** the F3 act names those four sections of the same two files. That widens sections,
+not paths.
+
+### 3. Design (shared core, live entry checks only)
+
+- **a. One transaction core.** `publish` and `recover` keep a single journal, lock and recovery state machine. Fixture
+  mode is unchanged. Live mode adds entry checks only, so every transition stays proved by the existing fixture
+  matrix rather than by a copied implementation.
+- **b. Live entry checks** (a new `liveEntryFindings`), run before any write:
+  - **Target:** the target resolves through the `.graphify` link to exactly the real live target.
+  - **Runtime artifacts:** the journal, lock, recovery token, receipts, backup and old copy are the named siblings
+    in the target's parent, never inside the target. This is the same layout F1's `transactionJournalPath` and
+    docs-drift already read.
+  - **Staging:** sits inside a declared work root under the disposable evidence root. It is disjoint from the live
+    target, the source repository and its Git directories (the `sourceProtection` rules).
+  - **Source:** a bound `{repo, snapshot}`, re-checked under the lock (R4).
+  - **Baseline:** the live state's manifest equals the last released manifest. That comes from the newest guarded
+    release receipt; for the first run, the explicit accepted value `199d466f…`.
+  - **Review receipt:** `{ reviewer: "Lane B", handoffCommit, graphSha256, manifest, sourceHead }`. The guard checks
+    that `handoffCommit` exists, that its diff under `docs/handoff/` contains `graphSha256`, and that the staging
+    `graph.json` hash and full-state manifest equal the receipt. Any byte change after review refuses, so there is
+    no rebind after review.
+- **c. CLI entry.** It replaces the refusal for these three verbs only; anything else still refuses.
+  - `prepare --work <dir> [--answers <file>]`: pinned-tool check, then source snapshot, `generateCandidate` and
+    `composeCandidate`. It writes `MANIFEST.json` with the source, the manifest, the graph SHA and **pending
+    semantics**, and stops at pending until reviewed answers are supplied.
+  - `publish --work <dir> --review <receipt.json>`: live mode.
+  - `recover`: live mode, owned recovery.
+
+  This CLI **supersedes the historical evidence runner**, which stays history and is never rerun.
+- **d. Retention.** Backup and old copies are never deleted by the guard. The release receipt lists them, and
+  removing them is a person's act.
+
+### 4. Intended-case matrix
+
+All cases run on fixture targets laid out like the live one, with a parent folder and a junction link. Tests never
+touch the released root.
+
+| Case | Required outcome |
+|---|---|
+| Valid reviewed publication through the link layout | Live bytes equal the reviewed manifest; receipt written; journal and lock cleared; docs-drift healthy afterwards |
+| Review receipt hash ≠ staging hash; manifest ≠ staging digest; handoff commit missing, or not containing the hash | Refused before any write |
+| Baseline ≠ last released manifest (live changed since release) | Refused before any write |
+| Staging inside or aliasing the live target, the source or its Git directories; runtime artifact inside the target | Refused before any write |
+| Source HEAD, ref or config changed after prepare | Refused under the lock, before the journal |
+| Pending semantics at prepare | `prepare` stops; `publish` refuses a work folder whose manifest has pending items |
+| Crash at each of the seven boundaries in live layout, then recovery | The same outcomes as F2. docs-drift reports non-health while a journal exists |
+| Rename refused by the OS (sharing violation) at either rename | Owner rollback to the backup bytes; evidence kept; **no retry loop** (gap G-F3-2) |
+| Peer, second recoverer, unknown owner | The same refusals as F2 |
+| Any verb other than prepare, publish or recover | The entry point still refuses |
+| All F1 and F2 cases | Still pass, unchanged |
+
+### 5. Runbook adoption
+
+SKILL §7/§9 and README §4/§5 name one procedure:
+1. `prepare`;
+2. reviewed answers, if pending;
+3. Lane B exact-hash review in the handoff;
+4. `publish` with that receipt;
+5. verify (fieldcmp, labels, `check-update`, `bun run check`).
+
+**Recovery:** on any refusal or failure, `recover`, keep the evidence, and report non-health. **No manual raw
+publish.** If the guard cannot publish, the prior graph stays and drift is reported, per D3.
+
+The manual D-409/D-410 route is retired as the normal path once F3 is accepted. **Judge decision G-F3-3:** whether it
+is kept as a named emergency fallback (recommended: no fallback; preserve and report instead).
+
+### 6. Bootstrap and DoD
+
+- **The first real publication is the F3 change's own sync.** The F3 commit (code, tests and runbooks) changes
+  governed docs, so its graph is prepared at that commit, Lane B reviews the exact hash, and `publish` releases it to
+  the real live target. That run is D3's "first successful independently reviewed actual publication". Its receipt,
+  post-state manifest and journal cleanup are the proof.
+- **DoD:**
+  - the §4 matrix passes;
+  - `bun test` and `bun run fixtures` pass, and `bun run check` passes 19/19;
+  - the first real publication succeeds and is verified;
+  - Lane B independently accepts the F3 checkpoint and that release.
+- **Stop:** on a failed candidate, review or transaction, keep the evidence and use owned recovery. Do not retry by
+  hand.
+
+### 7. Exclusions
+
+- no push, no new dependency, no global Graphify edit, no Git hook, no CI change;
+- the raw tool stays defective;
+- the lock protects cooperating guarded runs only. A concurrent raw `graphify update` is **not** prevented; the
+  runbooks say so (gap G-F3-4);
+- no B-050 disposition, no B-077 review, no DoD checkoff.
+
+Whole prevention (D3's whole-unit DoD: the complete v4 matrix proved independently) is reviewed after F3, before
+any disposition.
+
+### 8. Gaps, draft fixes, and what each lane must watch
+
+| Gap | Draft fix |
+|---|---|
+| G-F3-1 Sections | Name SKILL §7/§9 and README §4/§5 in the act |
+| G-F3-2 Windows rename of a junction target (handles held by editors or antivirus) | No retry; owner rollback; injected-failure test plus a real junction-layout fixture |
+| G-F3-3 Manual route after F3 | Judge choice; recommended: retire it, no fallback |
+| G-F3-4 Concurrent raw tool writes | Documented limit, not prevention; the prevention proof must address or bound it |
+| G-F3-5 Baseline source for the first run | Explicit `199d466f…` from the accepted release; later runs read the newest guarded receipt |
+| G-F3-6 Live-owner test flake | Keep the diagnostics; a recurrence during F3 stops the stage until reviewed |
+| G-F3-7 Historical runner | Superseded by the CLI; kept as history only |
+
+**Requested of Lane B:** review this draft (scope, design, matrix, DoD, gaps) before any F3 act is proposed to the
+Judge. B-050 stays `Applied`; its O1 row stays open.

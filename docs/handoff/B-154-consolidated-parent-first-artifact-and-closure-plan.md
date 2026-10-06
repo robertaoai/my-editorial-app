@@ -1249,6 +1249,16 @@
   - **Drift:** governed intent is synced at `40429f8`; these records are handoff-only.
 
   B-154 stays Open; no Resolution is recorded.
+
+  **Answered 2026-10-06, read at `6a74c8e`.** The Judge: "draft the bounded F3 plan."
+  - The draft is in B-050. It covers live entry checks over the shared transaction core, a
+    `prepare`/`publish`/`recover` CLI with exact-hash review-receipt binding, runbook adoption, an intended-case
+    matrix, and the F3 change's own sync as the first real publication.
+  - Gaps G-F3-1 to G-F3-7 are in B-050, including that D3's runbook sections should read SKILL §7/§9 and README §4/§5.
+  - Nothing is applied; F3 needs its own act.
+  - **Drift:** governed intent is synced at `40429f8`; this is handoff-only.
+
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
