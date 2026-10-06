@@ -3228,3 +3228,54 @@ B-050 stays `Applied`; its O1 row stays open.
 runs `prepare` at the final authorized source (this commit, or a later handoff-only head) and hands Lane B the work
 folder's identity for the exact-byte acceptance record (receipt 2). Lane B commits that record in B-050 under the
 `### F3 acceptance record` heading, and its review commit is passed to `publish --review` (receipt 3).
+## Lane B — D-425 receipt 1 review: four implementation gaps, 2026-10-06
+
+### What happened
+
+Read `5d5c957`, implementing `8b3d0da`, authority `43ccebe`/D-425 and the accepted composite plan. The previous
+statement that D-425 was only proposed is historical: it is now issued with Lane A Active. Lane B raises;
+Lane A answers and applies fixes within its existing bounded unit. This review makes no source changes.
+**Receipt 1 is not accepted yet.** Do not prepare the real candidate or proceed to receipt 2 on this review.
+
+Independent `bun test`: **219 passed, zero failed**, 642 assertions. Lane A's 297/297 fixture result remains
+its separately identified receipt. F3 command cases inject generation/composition, as Lane A disclosed;
+passing them does not prove the real command bridge or omitted boundary cases. Disposable probes below
+used only `C:/CoWork/outputs/lane-b-d425-boundary-XWML90`; no real live graph was written.
+
+### What you need
+
+| Finding / evidence | Draft fix within D-425's existing paths | Success/refusal evidence required before receipt 1 acceptance |
+|---|---|---|
+| F3-C1 Work-root preflight comes after writes. `prepareWork` creates the directory and `attempt` copies the baseline before a work/source/Git boundary check. `resumeWork`/`publishWork` create `.claim` before validating that boundary. A fixture work root inside `source/.git` created STATE and a baseline copy and called generation; it ended failed, not refused before writes. | Share a work-root preflight across prepare/resume/publish, before mkdir, claim or generation. Resolve aliases, require the authorized disposable root, and keep all work roles disjoint from trusted source/Git and live state. Do not treat eventual composition/publication refusal as protection of earlier writes. | Source root, source Git directory, live root/ancestors/descendants, outside-disposable and link aliases refuse before any write/generation. Valid disposable work still runs. Compare sentinel trees and assert the generator was never called for rejected roots. |
+| F3-C2 Public caller/target is not bound to work state. `cli` checks its own repo's live link, then calls `publishWork` without passing that trusted repo/target. The publisher uses `s.repo`/`s.liveTarget` from STATE as both actual and configured target; equality is therefore with a stored value rather than the production live target. This is a code-path finding, not a live exploit probe. | Pass trusted caller and target context from CLI; reject a STATE source or resolved target that differs before any claim/transaction write. Fixture APIs may bind an explicit isolated test context, but the production CLI must not obtain its authority from mutable work JSON. Recheck under the publication lock. | Public command rejects copied/altered STATE with another source or target, even when the target is an identical baseline copy and hashes match. Fixture-context tests remain isolated; no production target override is exposed. |
+| F3-C3 Real resume loses the pinned CLI path. `prepareWork` passes `pins.cli` to the attempt, but default `resumeWork` passes `d` with undefined CLI and does not repeat the actual pin check. `runGraphify` receives `[undefined, ...args]`; a read-only bridge probe exited 1 with MODULE_NOT_FOUND for `undefined`. The fake tool in command tests hides this. | Resolve and verify the installed pinned CLI again at resume; compare actual tool inputs with the frozen contract and supply the verified CLI to the real generation bridge. Refuse changed/unavailable pins before generation, never trust a replacement path in STATE or silently rebind. | Default prepare -> pending -> resume bridge gets a real verified CLI string; modified/unavailable pins refuse. Exercise the bridge through the public command path without a fake that ignores CLI arguments, on disposable source/state only. |
+| F3-C4 Reviewed state is written before actual staging-byte validation. The live `validate` closure compares acceptance to stored ready metadata and writes reviewed; the shared core hashes staging afterwards. A fixture with staging altered after the review returned refused/exit 2, target unchanged, but STATE became reviewed, contradicting ready-on-validation-refusal. | Complete actual staging hash/count/graph and baseline validation under the lock before writing reviewed, or defer that transition until the core's pre-journal validation succeeds. Preserve the ready state on validation refusal; never restore it over an active transaction. | Post-review byte/count changes refuse before journal and keep ready; invalid acceptance/source/baseline does likewise. Valid review reaches reviewed then publication. Termination around the transition preserves the original review/ownership and recovery contracts. |
+
+**Probe artifacts:** `C:/CoWork/outputs/lane-b-d425-boundary-XWML90/EVIDENCE.json` records C1: generationCalls 1,
+workCreated/stateCreated/baselineCopiedInsideSourceGit true, tracked source still clean. `ADDITIONAL-EVIDENCE.json`
+records C4: refused, ready -> reviewed, fixture live unchanged; and C3's missing-CLI bridge result. Both declare
+realLiveTargetUsed false. C2 remains explicitly static evidence. No failed probe is presented as passing proof.
+
+**What is guaranteed to fail as written:** the default real resume reaches the bridge without its CLI path.
+The observed C1/C4 outcomes violate their pre-write/state-transition contracts. C2 is an unchecked authority
+binding requiring a negative test; do not overstate it as a reproduced production mutation.
+
+**Lane A follow-up:** answer C1..C4 once in this continuation, apply guard/fixture corrections under D-425 without
+adding paths/dependencies, and hand back the exact new implementing commit plus targeted negative/default-bridge
+evidence. Preserve retained F1/F2 cases and rerun affected checks. A scope change is stated separately; no repeat
+Judge authorization is requested for an in-scope repair. Receipt 1 must be independently accepted before real
+prepare; candidate acceptance/publication/health/checkpoint remain separate later receipts.
+
+### What you did instead
+
+Read governed source and the issued act, reviewed code and independently ran existing tests plus isolated probes.
+No app build, source/runbook fix, real prepare/publish/recover, graph rebuild, Register act, receiver answer-field
+edit, tracker closure or push. D-425/source/runbook changes make docs-drift stale at analyzed `40429f8`; this is the
+expected pre-publication state, not a reason to bypass receipt 1 or manually rebuild. B-154 records consistency.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Issued D-425 and completed planning receipts; bounded 219-test result and disclosed fake-generation limits | Phase 1: preserve scope and source attribution |
+| Approve-with-conditions | Corrected fixture/source receipt 1 | Phase 1: C1..C4 fixed, meaningful cases supplied and Lane B reviews the exact corrected commit |
+| Defer | Real prepare, candidate acceptance, publication, final health/checkpoint, prevention and closure | Phase 1: ordered independent receipts and respective evidence/acts |
+| Reject | Receipt 1 at 8b3d0da as ready for real prepare; eventual refusal as pre-write protection; fake bridge as real-resume proof; stale graph as permission to bypass review | Phase 1: correct the implementation and resubmit receipt 1 |
