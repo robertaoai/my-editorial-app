@@ -895,9 +895,12 @@ const sourceRepo = () => {
 };
 const head = (g) => g("rev-parse", "HEAD").trim();
 /** Fake generation: pending until a description answer exists; fake composition copies the candidate. */
+const CLI_SEEN = [];
 const deps = {
-  tool: () => ({ code: 0, out: "" }),
-  generate: ({ work, answers }) => {
+  pinned: () => ({ ok: true, cli: "verified-cli" }),
+  generate: ({ work, answers, cli }) => {
+    CLI_SEEN.push(cli);
+    if (cli !== "verified-cli") return { status: "refused", reason: `unverified CLI: ${cli}` };
     if (!answers.descriptions?.x) return { status: "pending-semantic", pending: { descriptions: ["x"], communities: [] } };
     const state = join(work, "state");
     mkdirSync(state, { recursive: true });
@@ -912,6 +915,8 @@ const deps = {
   },
 };
 const stateOf = (work) => JSON.parse(readFileSync(join(work, "STATE.json"), "utf8"));
+/** The caller's trusted context for the work commands (F3-C2), with the fixture's disposable root. */
+const C = (L, r) => ({ repo: r.d, liveTarget: L.link, bootstrap: L.boot, workRoots: [TMP] });
 /** The canonical acceptance record for a ready work folder. */
 const recordFor = (work, over = {}) => {
   const st = stateOf(work);
@@ -932,8 +937,8 @@ const reviewCommit = (r, text, msg = "review") => {
 /** A ready work folder: prepare (pending) then resume with answers. */
 const readyWork = (L, r) => {
   const work = join(F2, `w${++n}`);
-  expect(G.prepareWork({ repo: r.d, work, liveTarget: L.link, bootstrap: L.boot, deps }).exit).toBe(G.EXIT.pending);
-  expect(G.resumeWork({ work, answers: { descriptions: { x: "X" } }, answersHash: "h1", bootstrap: L.boot, deps }).exit).toBe(G.EXIT.ok);
+  expect(G.prepareWork({ work, ...C(L, r), deps }).exit).toBe(G.EXIT.pending);
+  expect(G.resumeWork({ work, answers: { descriptions: { x: "X" } }, answersHash: "h1", ...C(L, r), deps }).exit).toBe(G.EXIT.ok);
   return work;
 };
 
@@ -1048,12 +1053,12 @@ describe("D-425 F3-R3/R3a/R3b: work states and commands", () => {
     const r = sourceRepo();
     const work = readyWork(L, r);
     const before = digest(L.dir);
-    const missing = G.publishWork({ work, review: head(r.g), bootstrap: L.boot });
+    const missing = G.publishWork({ work, review: head(r.g), ...C(L, r) });
     expect(missing.exit).toBe(G.EXIT.refused);
     expect(missing.message).toBe("this run did not publish or create a transaction journal");
     expect(stateOf(work).state).toBe("ready");
     const sha = reviewCommit(r, block(JSON.stringify(recordFor(work), null, 2)));
-    const res = G.publishWork({ work, review: sha, bootstrap: L.boot });
+    const res = G.publishWork({ work, review: sha, ...C(L, r) });
     expect(res.exit).toBe(G.EXIT.ok);
     expect(res.message).toBe("published: live equals the reviewed manifest");
     expect(stateOf(work).state).toBe("published");
@@ -1065,7 +1070,7 @@ describe("D-425 F3-R3/R3a/R3b: work states and commands", () => {
     expect(rec.acceptance.locus.commit).toBe(sha);
     expect(rec.predecessor).toEqual({ releaseLocus: L.boot.releaseLocus, digest: L.boot.digest });
     expect(G.selectBaseline({ liveTarget: L.link, bootstrap: L.boot }).baseline.releaseLocus).toBe(sha);
-    expect(G.publishWork({ work, review: sha, bootstrap: L.boot }).exit).toBe(G.EXIT.refused);
+    expect(G.publishWork({ work, review: sha, ...C(L, r) }).exit).toBe(G.EXIT.refused);
   }, SLOW);
 
   test("a record that does not match the work folder refuses and the folder stays ready", () => {
@@ -1073,7 +1078,7 @@ describe("D-425 F3-R3/R3a/R3b: work states and commands", () => {
     const r = sourceRepo();
     const work = readyWork(L, r);
     const sha = reviewCommit(r, block(JSON.stringify(recordFor(work, { graphSha256: "0".repeat(64) }), null, 2)));
-    const res = G.publishWork({ work, review: sha, bootstrap: L.boot });
+    const res = G.publishWork({ work, review: sha, ...C(L, r) });
     expect(res.exit).toBe(G.EXIT.refused);
     expect(res.reason).toContain("graphSha256");
     expect(stateOf(work).state).toBe("ready");
@@ -1084,18 +1089,18 @@ describe("D-425 F3-R3/R3a/R3b: work states and commands", () => {
     const r = sourceRepo();
     const fresh = join(F2, `fresh${++n}`);
     mkdirSync(fresh);
-    expect(G.publishWork({ work: fresh, review: "HEAD" }).exit).toBe(G.EXIT.refused);
+    expect(G.publishWork({ work: fresh, review: "HEAD", ...C(L, r) }).exit).toBe(G.EXIT.refused);
     const pend = join(F2, `pend${++n}`);
-    expect(G.prepareWork({ repo: r.d, work: pend, liveTarget: L.link, bootstrap: L.boot, deps }).exit).toBe(G.EXIT.pending);
-    expect(G.publishWork({ work: pend, review: "HEAD" }).exit).toBe(G.EXIT.refused);
+    expect(G.prepareWork({ work: pend, ...C(L, r), deps }).exit).toBe(G.EXIT.pending);
+    expect(G.publishWork({ work: pend, review: "HEAD", ...C(L, r) }).exit).toBe(G.EXIT.refused);
     writeFileSync(join(r.d, "a.txt"), "code change");
     r.g("commit", "-q", "-am", "code");
-    expect(G.resumeWork({ work: pend, answers: { descriptions: { x: "X" } }, answersHash: "h1", bootstrap: L.boot, deps }).exit).toBe(G.EXIT.failed);
-    expect(G.publishWork({ work: pend, review: "HEAD" }).exit).toBe(G.EXIT.refused);
+    expect(G.resumeWork({ work: pend, answers: { descriptions: { x: "X" } }, answersHash: "h1", ...C(L, r), deps }).exit).toBe(G.EXIT.failed);
+    expect(G.publishWork({ work: pend, review: "HEAD", ...C(L, r) }).exit).toBe(G.EXIT.refused);
     const r2 = sourceRepo();
     const ready = readyWork(L, r2);
-    expect(G.resumeWork({ work: ready, answers: {}, answersHash: "h2", bootstrap: L.boot, deps }).exit).toBe(G.EXIT.failed);
-    expect(G.prepareWork({ repo: r2.d, work: ready, liveTarget: L.link, bootstrap: L.boot, deps }).reason).toContain("not empty");
+    expect(G.resumeWork({ work: ready, answers: {}, answersHash: "h2", ...C(L, r2), deps }).exit).toBe(G.EXIT.failed);
+    expect(G.prepareWork({ work: ready, ...C(L, r2), deps }).reason).toContain("not empty");
   }, SLOW);
 
   test("preparing: alive and unknown owners refuse with the work unchanged; a proved-dead owner fails once; a held claim refuses", () => {
@@ -1107,22 +1112,22 @@ describe("D-425 F3-R3/R3a/R3b: work states and commands", () => {
     const snap = () => G.treeDigest(G.hashTree(work));
     set(G.ownerRecord("alive-run"));
     let before = snap();
-    expect(G.resumeWork({ work, answers: {}, answersHash: "h1", bootstrap: L.boot, deps }).reason).toContain("alive");
+    expect(G.resumeWork({ work, answers: {}, answersHash: "h1", ...C(L, r), deps }).reason).toContain("alive");
     expect(snap()).toBe(before);
     const { start, ...noStart } = G.ownerRecord("unknown-run");
     set(noStart);
     before = snap();
-    expect(G.publishWork({ work, review: "HEAD" }).reason).toContain("cannot be established");
+    expect(G.publishWork({ work, review: "HEAD", ...C(L, r) }).reason).toContain("cannot be established");
     expect(snap()).toBe(before);
     writeFileSync(join(work, "STATE.json"), "{torn");
-    expect(G.publishWork({ work, review: "HEAD" }).reason).toContain("cannot be established");
+    expect(G.publishWork({ work, review: "HEAD", ...C(L, r) }).reason).toContain("cannot be established");
     set({ runToken: "dead-run", pid: 999999, host: hostname(), start: "x" });
-    expect(G.resumeWork({ work, answers: {}, answersHash: "h1", bootstrap: L.boot, deps }).exit).toBe(G.EXIT.failed);
+    expect(G.resumeWork({ work, answers: {}, answersHash: "h1", ...C(L, r), deps }).exit).toBe(G.EXIT.failed);
     expect(stateOf(work).state).toBe("failed");
-    expect(G.resumeWork({ work, answers: {}, answersHash: "h1", bootstrap: L.boot, deps }).exit).toBe(G.EXIT.refused);
+    expect(G.resumeWork({ work, answers: {}, answersHash: "h1", ...C(L, r), deps }).exit).toBe(G.EXIT.refused);
     writeFileSync(join(work, ".claim"), JSON.stringify(G.ownerRecord("held")));
     before = snap();
-    expect(G.publishWork({ work, review: "HEAD" }).reason).toContain("claim is held");
+    expect(G.publishWork({ work, review: "HEAD", ...C(L, r) }).reason).toContain("claim is held");
     expect(snap()).toBe(before);
   }, SLOW);
 
@@ -1133,12 +1138,12 @@ describe("D-425 F3-R3/R3a/R3b: work states and commands", () => {
     const script = join(F2, `kill${n}.mjs`);
     writeFileSync(script, `
 const G = await import(${JSON.stringify(MODULE_URL)});
-G.prepareWork({ repo: ${JSON.stringify(r.d)}, work: ${JSON.stringify(work)}, liveTarget: ${JSON.stringify(L.link)},
-  bootstrap: ${JSON.stringify(L.boot)}, deps: { tool: () => ({}), generate: () => process.exit(137), compose: () => ({}) } });
+G.prepareWork({ repo: ${JSON.stringify(r.d)}, work: ${JSON.stringify(work)}, liveTarget: ${JSON.stringify(L.link)}, workRoots: ${JSON.stringify([TMP])},
+  bootstrap: ${JSON.stringify(L.boot)}, deps: { pinned: () => ({ ok: true, cli: "verified-cli" }), generate: () => process.exit(137), compose: () => ({}) } });
 `);
     expect(spawnSync(process.execPath, [script], { encoding: "utf8", timeout: 120000 }).status).toBe(137);
     expect(stateOf(work).state).toBe("preparing");
-    expect(G.resumeWork({ work, answers: {}, answersHash: null, bootstrap: L.boot, deps }).exit).toBe(G.EXIT.failed);
+    expect(G.resumeWork({ work, answers: {}, answersHash: null, ...C(L, r), deps }).exit).toBe(G.EXIT.failed);
   }, SLOW);
 });
 
@@ -1151,11 +1156,11 @@ describe("D-425 F3-R4/R4a: outcomes and messages", () => {
     return { L, r, work, sha };
   };
   test("an entry refusal leaves a peer's journal and lock byte-equal", () => {
-    const { L, work, sha } = reviewed();
+    const { L, r, work, sha } = reviewed();
     writeFileSync(L.P.journal, JSON.stringify({ stage: "prepared", target: L.dir, runToken: "peer", sourceCommit: "x", backupManifest: L.boot.digest, reviewedManifest: "0".repeat(64) }));
     writeFileSync(L.P.lock, JSON.stringify(G.ownerRecord("peer")));
     const j = readFileSync(L.P.journal, "utf8"), l = readFileSync(L.P.lock, "utf8"), live = digest(L.dir);
-    const res = G.publishWork({ work, review: sha, bootstrap: L.boot });
+    const res = G.publishWork({ work, review: sha, ...C(L, r) });
     expect(res.exit).toBe(G.EXIT.refused);
     expect(readFileSync(L.P.journal, "utf8")).toBe(j);
     expect(readFileSync(L.P.lock, "utf8")).toBe(l);
@@ -1168,20 +1173,20 @@ describe("D-425 F3-R4/R4a: outcomes and messages", () => {
   test("an owned failure restores (exit 6, verified); a blocked restore is recovery-required (exit 5) with evidence kept", () => {
     const a = reviewed();
     const before = digest(a.L.dir);
-    const res = G.publishWork({ work: a.work, review: a.sha, bootstrap: a.L.boot, transaction: { inject: { renameNew: () => { throw new Error("sharing violation"); } } } });
+    const res = G.publishWork({ work: a.work, review: a.sha, ...C(a.L, a.r), transaction: { inject: { renameNew: () => { throw new Error("sharing violation"); } } } });
     expect(res.exit).toBe(G.EXIT.restored);
     expect(res.message).toBe("restored: live equals the prior release");
     expect(digest(a.L.dir)).toBe(before);
     const b = reviewed();
-    const blocked = G.publishWork({ work: b.work, review: b.sha, bootstrap: b.L.boot,
+    const blocked = G.publishWork({ work: b.work, review: b.sha, ...C(b.L, b.r),
       transaction: { inject: { renameNew: () => { throw new Error("sharing violation"); }, recovery: { restore: () => { throw new Error("access denied"); } } } } });
     expect(blocked.exit).toBe(G.EXIT.recoveryRequired);
     expect(blocked.message).toBe("recovery required; the live state is not verified");
     expect(existsSync(b.L.P.journal)).toBe(true);
   }, SLOW);
   test("a receipt failure after verified is completed by recovery with the journal's original acceptance", () => {
-    const { L, work, sha } = reviewed();
-    const res = G.publishWork({ work, review: sha, bootstrap: L.boot, transaction: { inject: { writeReceipt: () => { throw new Error("disk full"); } } } });
+    const { L, r, work, sha } = reviewed();
+    const res = G.publishWork({ work, review: sha, ...C(L, r), transaction: { inject: { writeReceipt: () => { throw new Error("disk full"); } } } });
     expect(res.exit).toBe(G.EXIT.recoveryRequired);
     const j = JSON.parse(readFileSync(L.P.journal, "utf8"));
     expect(j.acceptance.locus.commit).toBe(sha);
@@ -1211,4 +1216,116 @@ describe("D-425 F3-R5: no instruction routes around the guard", () => {
       expect(text).not.toMatch(/^npx graphify hook-rebuild\s*$/m);
     }
   });
+});
+
+// ===========================================================================
+// D-425 receipt-1 corrections (Lane B `d3e020b`): F3-C1 work-root preflight before any write,
+// F3-C2 trusted caller context, F3-C3 the verified CLI through resume, F3-C4 the actual staging
+// bytes checked before `reviewed`.
+// ===========================================================================
+describe("D-425 F3-C1: the work-root preflight refuses before any write or generation", () => {
+  test("work inside the source tree, its .git, the live target, outside the disposable root, or through a link alias refuses; nothing is created and generation is never called", () => {
+    const L = liveLayout();
+    const r = sourceRepo();
+    const alias = join(F2, `alias${++n}`);
+    symlinkSync(r.d, alias, "junction");
+    const outside = join(REPO, "..", `not-disposable-${n}`);
+    const cases = [join(r.d, "work"), join(r.d, ".git", "work"), join(L.dir, "work"), join(alias, "work"), outside];
+    const before = CLI_SEEN.length;
+    const srcBefore = G.treeDigest(G.hashTree(join(r.d, "docs")));
+    for (const work of cases) {
+      const res = G.prepareWork({ work, ...C(L, r), deps });
+      expect(res.exit).toBe(G.EXIT.refused);
+      expect(existsSync(work)).toBe(false);
+    }
+    expect(CLI_SEEN.length).toBe(before);
+    expect(G.treeDigest(G.hashTree(join(r.d, "docs")))).toBe(srcBefore);
+    expect(r.g("status", "--porcelain")).toBe("");
+    expect(G.workRootFindings({ work: join(F2, `ok${n}`), ...C(L, r) })).toEqual([]);
+  }, SLOW);
+  test("resume and publish run the same preflight before taking the claim", () => {
+    const L = liveLayout();
+    const r = sourceRepo();
+    const inSource = join(r.d, ".git", "w");
+    expect(G.resumeWork({ work: inSource, ...C(L, r), deps }).exit).toBe(G.EXIT.refused);
+    expect(G.publishWork({ work: inSource, review: "HEAD", ...C(L, r) }).exit).toBe(G.EXIT.refused);
+    expect(existsSync(join(inSource, ".claim"))).toBe(false);
+  }, SLOW);
+});
+
+describe("D-425 F3-C2: the caller's trusted repository and live target bind the work folder", () => {
+  test("a STATE naming another source, or an identical-baseline copy as target, refuses before any claim", () => {
+    const L = liveLayout();
+    const r = sourceRepo();
+    const work = readyWork(L, r);
+    const sha = reviewCommit(r, block(JSON.stringify(recordFor(work), null, 2)));
+    const other = sourceRepo();
+    const twin = liveLayout();
+    cpSync(L.dir, twin.dir, { recursive: true, force: true });
+    const original = readFileSync(join(work, "STATE.json"), "utf8");
+    const st = JSON.parse(original);
+    writeFileSync(join(work, "STATE.json"), JSON.stringify({ ...st, repo: other.d }));
+    expect(G.publishWork({ work, review: sha, ...C(L, r) }).reason).toContain("source is not this caller's repository");
+    writeFileSync(join(work, "STATE.json"), JSON.stringify({ ...st, liveTarget: twin.link }));
+    expect(G.publishWork({ work, review: sha, ...C(L, r) }).reason).toContain("target is not this caller's live target");
+    expect(existsSync(join(work, ".claim"))).toBe(false);
+    writeFileSync(join(work, "STATE.json"), original);
+    expect(G.publishWork({ work, review: sha, ...C(twin, r) }).reason).toContain("target is not this caller's live target");
+    expect(G.publishWork({ work, review: sha, ...C(L, r) }).exit).toBe(G.EXIT.ok);
+  }, SLOW);
+});
+
+describe("D-425 F3-C3: resume verifies the installed tool again and hands its CLI to generation", () => {
+  test("prepare and resume both reach generation with the verified CLI; an unavailable pin fails resume before generation", () => {
+    const L = liveLayout();
+    const r = sourceRepo();
+    const work = join(F2, `c3w${++n}`);
+    const seen = CLI_SEEN.length;
+    expect(G.prepareWork({ work, ...C(L, r), deps }).exit).toBe(G.EXIT.pending);
+    expect(G.resumeWork({ work, answers: { descriptions: { x: "X" } }, answersHash: "h1", ...C(L, r), deps }).exit).toBe(G.EXIT.ok);
+    expect(CLI_SEEN.slice(seen)).toEqual(["verified-cli", "verified-cli"]);
+    const work2 = join(F2, `c3x${++n}`);
+    expect(G.prepareWork({ work: work2, ...C(L, r), deps }).exit).toBe(G.EXIT.pending);
+    const calls = CLI_SEEN.length;
+    const res = G.resumeWork({ work: work2, answers: { descriptions: { x: "X" } }, answersHash: "h1", ...C(L, r), deps: { ...deps, pinned: () => ({ ok: false, reason: "tool pin mismatch: cli.js" }) } });
+    expect(res.exit).toBe(G.EXIT.failed);
+    expect(res.reason).toContain("tool pin mismatch");
+    expect(CLI_SEEN.length).toBe(calls);
+  }, SLOW);
+  test("the default resume path verifies the real pins and passes a CLI string (never undefined) to the generation bridge", () => {
+    const L = liveLayout();
+    const r = sourceRepo();
+    const work = join(F2, `c3d${++n}`);
+    const seenCli = [];
+    const gen = ({ cli }) => (seenCli.push(cli), { status: "pending-semantic", pending: { descriptions: ["x"], communities: [] } });
+    const pinned = G.pinnedCli();
+    const first = G.prepareWork({ work, ...C(L, r), deps: { generate: gen } });
+    if (!pinned.ok) {
+      // No pinned Graphify on this machine: prepare refuses before any write; the bridge is never reached.
+      expect(first.exit).toBe(G.EXIT.refused);
+      expect(seenCli).toEqual([]);
+      return;
+    }
+    expect(first.exit).toBe(G.EXIT.pending);
+    expect(G.resumeWork({ work, answers: {}, answersHash: "h", ...C(L, r), deps: { generate: gen } }).exit).toBe(G.EXIT.pending);
+    expect(seenCli).toEqual([pinned.cli, pinned.cli]);
+    expect(typeof seenCli[1]).toBe("string");
+  }, SLOW);
+});
+
+describe("D-425 F3-C4: the actual staging bytes are checked before reviewed is written", () => {
+  test("staging altered after review refuses, keeps ready and leaves the live state unchanged", () => {
+    const L = liveLayout();
+    const r = sourceRepo();
+    const work = readyWork(L, r);
+    const sha = reviewCommit(r, block(JSON.stringify(recordFor(work), null, 2)));
+    const live = digest(L.dir);
+    writeFileSync(join(stateOf(work).ready.staging, "graph.json"), "{\"tampered\":true}");
+    const res = G.publishWork({ work, review: sha, ...C(L, r) });
+    expect(res.exit).toBe(G.EXIT.refused);
+    expect(res.reason).toContain("staging bytes differ");
+    expect(stateOf(work).state).toBe("ready");
+    expect(digest(L.dir)).toBe(live);
+    expect(existsSync(L.P.journal)).toBe(false);
+  }, SLOW);
 });

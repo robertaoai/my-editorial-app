@@ -1523,7 +1523,7 @@ function attempt(work, s, answers, deps) {
   return { attempts: n, outcome: "ready", ready: { staging, manifest: composed.manifest, graphSha256: composed.graphSha256, files: composed.files, frozenAt: composed.frozenAt } };
 }
 
-const defaults = (deps = {}) => ({ generate: generateCandidate, compose: composeCandidate, now: () => new Date().toISOString(), ...deps });
+const defaults = (deps = {}) => ({ generate: generateCandidate, compose: composeCandidate, pinned: pinnedCli, now: () => new Date().toISOString(), ...deps });
 
 /** Writes `preparing` under the claim, runs one attempt outside it, then settles the state under the claim. */
 function runAttempt(work, s, answers, deps) {
@@ -1551,76 +1551,136 @@ function runAttempt(work, s, answers, deps) {
   });
 }
 
-/** `prepare --work <new dir>`: freezes the source, pins and baseline, then runs the first attempt. */
-export function prepareWork({ repo, work, answers = {}, answersHash = null, liveTarget = REAL_LIVE_TARGET, bootstrap = BOOTSTRAP, deps } = {}) {
+/**
+ * The work-root preflight (receipt-1 F3-C1), before any mkdir, claim or generation: the work folder
+ * sits strictly inside an authorized disposable root and is disjoint, link-resolved, from the source
+ * working tree, its Git directories and the live target (its ancestors and descendants included).
+ */
+export function workRootFindings({ work, repo, liveTarget = REAL_LIVE_TARGET, workRoots = DISPOSABLE_ROOTS }) {
+  const w = typeof work === "string" && work ? canonicalFsPath(work) : null;
+  if (!w) return ["the work folder cannot be canonicalized"];
+  const findings = [];
+  const inside = workRoots.some((root) => {
+    const c = canonicalFsPath(root);
+    return Boolean(c) && w !== c && isWithin(w, c);
+  });
+  if (!inside) findings.push("the work folder is not inside an authorized disposable root");
+  const live = canonicalFsPath(liveTargetPath(liveTarget));
+  if (!live || !disjoint(w, live)) findings.push("the work folder must be disjoint from the live target");
+  if (isRealLiveTarget(w)) findings.push("the work folder aliases, contains or sits inside the real live target");
+  if (!repo) findings.push("a trusted source repository is required");
+  else findings.push(...sourceProtection({ repo }, work, {}).map((f) => f.replace(/^staging/, "the work folder")));
+  return findings;
+}
+
+/**
+ * Receipt-1 F3-C2: the caller's trusted repository and live target bind the work folder. A STATE.json
+ * naming another source or target refuses; the CLI never takes its authority from mutable work JSON.
+ */
+function contextFindings(s, { repo, liveTarget }) {
+  if (!s) return [];
+  const findings = [];
+  if (!s.repo || canonicalFsPath(s.repo) !== canonicalFsPath(repo)) findings.push("the work folder's source is not this caller's repository");
+  if (!s.liveTarget || canonicalFsPath(liveTargetPath(s.liveTarget)) !== canonicalFsPath(liveTargetPath(liveTarget))) findings.push("the work folder's target is not this caller's live target");
+  return findings;
+}
+
+/** `prepare --work <new dir>`: preflight, then freezes the source, pins and baseline, then runs the first attempt. */
+export function prepareWork({ repo, work, answers = {}, answersHash = null, liveTarget = REAL_LIVE_TARGET, bootstrap = BOOTSTRAP, workRoots = DISPOSABLE_ROOTS, deps } = {}) {
+  const pre = workRootFindings({ work, repo, liveTarget, workRoots });
+  if (pre.length) return refusedWork(pre.join("; "));
   if (existsSync(work) && readdirSync(work).length) return refusedWork("the work folder is not empty: use a new folder, or prepare --resume");
-  mkdirSync(work, { recursive: true });
   const d = defaults(deps);
-  const pins = d.tool ? { ok: true, cli: d.cli } : pinnedCli(d.cli);
+  const pins = d.pinned(d.cli);
   if (!pins.ok) return refusedWork(pins.reason);
   const snapshot = snapshotSource(repo);
   if (!snapshot.ok) return refusedWork(snapshot.reason);
   const base = selectBaseline({ liveTarget, bootstrap });
   if (!base.ok) return refusedWork(base.reason);
+  mkdirSync(work, { recursive: true });
   const s = { workId: randomUUID(), repo: resolve(repo), liveTarget: resolve(liveTarget), attempts: 0, answersHash,
     frozen: { snapshot, pins: TOOL_PINS, baseline: base.baseline } };
   return runAttempt(work, s, answers, { ...d, cli: pins.cli });
 }
 
-/** `prepare --resume <dir> --answers <file>`: only from `pending`, only on unchanged frozen inputs. */
-export function resumeWork({ work, answers = {}, answersHash = null, bootstrap = BOOTSTRAP, deps } = {}) {
+/**
+ * `prepare --resume <dir> --answers <file>`: only from `pending`, only on unchanged frozen inputs, with the
+ * installed tool verified again against its pins and that verified CLI handed to generation (F3-C3).
+ */
+export function resumeWork({ work, repo, liveTarget = REAL_LIVE_TARGET, answers = {}, answersHash = null, bootstrap = BOOTSTRAP, workRoots = DISPOSABLE_ROOTS, deps } = {}) {
+  const pre = workRootFindings({ work, repo, liveTarget, workRoots });
+  if (pre.length) return refusedWork(pre.join("; "));
+  const early = contextFindings(readWork(work), { repo, liveTarget });
+  if (early.length) return refusedWork(early.join("; "));
   const d = defaults(deps);
   const checked = withClaim(work, () => {
     const gate = preparingGate(work);
     if (gate) return gate;
     const s = readWork(work);
+    const ctx = contextFindings(s, { repo, liveTarget });
+    if (ctx.length) return refusedWork(ctx.join("; "));
     if (s?.state === "ready") return s.answersHash === answersHash ? result("ready", { workId: s.workId }) : (writeWork(work, { ...s, state: "failed", reason: "the answers changed after ready" }), result("failed", { reason: "the answers changed after ready" }));
     if (s?.state !== "pending") return refusedWork(`resume needs a pending work folder (state: ${s?.state ?? "none"})`);
     const fail = (reason) => (writeWork(work, { ...s, state: "failed", reason }), result("failed", { reason }));
-    const same = snapshotMatches(s.repo, s.frozen.snapshot);
+    const same = snapshotMatches(repo, s.frozen.snapshot);
     if (!same.ok) return fail(`the frozen source changed: ${same.reason}`);
     if (JSON.stringify(TOOL_PINS) !== JSON.stringify(s.frozen.pins)) return fail("the tool pins changed");
-    const base = selectBaseline({ liveTarget: s.liveTarget, bootstrap });
+    const pins = d.pinned(d.cli);
+    if (!pins.ok) return fail(`the pinned tool is unavailable or changed: ${pins.reason}`);
+    const base = selectBaseline({ liveTarget, bootstrap });
     if (!base.ok || base.baseline.digest !== s.frozen.baseline.digest) return fail("the live baseline changed");
-    return { proceed: s };
+    return { proceed: s, cli: pins.cli };
   });
   if (!checked.proceed) return checked;
-  return runAttempt(work, { ...checked.proceed, answersHash }, answers, d);
+  return runAttempt(work, { ...checked.proceed, answersHash }, answers, { ...d, cli: checked.cli });
 }
 
 /**
- * `publish --work <dir> --review <commit>`: from `ready` (or a `reviewed` re-entry with the same
- * commit and no journal). Under the publication lock it re-validates the source rule, the
- * acceptance record and the frozen identity, writes `reviewed`, then runs the transaction.
+ * `publish --work <dir> --review <commit>`: from `ready` (or a `reviewed` re-entry with the same commit and
+ * no journal), bound to the caller's trusted repository and live target (F3-C2). Under the publication
+ * lock it re-validates the source rule, the acceptance record, the frozen identity and the ACTUAL staging
+ * bytes, and only then writes `reviewed` (F3-C4); a refusal there leaves the folder `ready`.
  */
-export function publishWork({ work, review, bootstrap = BOOTSTRAP, transaction = {} } = {}) {
+export function publishWork({ work, review, repo, liveTarget = REAL_LIVE_TARGET, bootstrap = BOOTSTRAP, workRoots = DISPOSABLE_ROOTS, transaction = {} } = {}) {
+  const pre = workRootFindings({ work, repo, liveTarget, workRoots });
+  if (pre.length) return refusedWork(pre.join("; "));
+  const early = contextFindings(readWork(work), { repo, liveTarget });
+  if (early.length) return refusedWork(early.join("; "));
   return withClaim(work, () => {
     const gate = preparingGate(work);
     if (gate) return gate;
     const s = readWork(work);
+    const ctx = contextFindings(s, { repo, liveTarget });
+    if (ctx.length) return refusedWork(ctx.join("; "));
     if (s?.state === "reviewed") {
       if (s.acceptance?.locus?.commit !== review && !(review && s.acceptance?.locus?.commit?.startsWith(review))) return refusedWork("a reviewed work folder re-enters only with its own review commit");
-      if (existsSync(transactionPaths(s.liveTarget).journal)) return refusedWork("a transaction journal exists: run recover");
+      if (existsSync(transactionPaths(liveTarget).journal)) return refusedWork("a transaction journal exists: run recover");
     } else if (s?.state !== "ready") return refusedWork(`publish needs a ready work folder (state: ${s?.state ?? "none"})`);
     const validate = () => {
-      const src = publicationSourceFindings(s.repo, s.frozen.snapshot);
+      const again = contextFindings(readWork(work), { repo, liveTarget });
+      if (again.length) throw new Error(again.join("; "));
+      const src = publicationSourceFindings(repo, s.frozen.snapshot);
       if (!src.ok) throw new Error(`source rule: ${src.findings.join("; ")}`);
-      const acc = acceptanceAt(s.repo, review, { analyzedHead: s.frozen.snapshot.head, publicationHead: src.publicationHead });
+      const acc = acceptanceAt(repo, review, { analyzedHead: s.frozen.snapshot.head, publicationHead: src.publicationHead });
       if (!acc.ok) throw new Error(`acceptance record: ${acc.findings.join("; ")}`);
       const r = acc.record;
       const want = { workId: s.workId, graphSha256: s.ready.graphSha256, "manifest.digest": s.ready.manifest, "manifest.files": s.ready.files, analyzedSource: s.frozen.snapshot.head, "baseline.releaseLocus": s.frozen.baseline.releaseLocus, "baseline.digest": s.frozen.baseline.digest };
       const got = { workId: r.workId, graphSha256: r.graphSha256, "manifest.digest": r.manifest.digest, "manifest.files": r.manifest.files, analyzedSource: r.analyzedSource, "baseline.releaseLocus": r.baseline.releaseLocus, "baseline.digest": r.baseline.digest };
       const diff = Object.keys(want).filter((k) => want[k] !== got[k]);
       if (diff.length) throw new Error(`the acceptance record does not match the work folder: ${diff.join(", ")}`);
-      const base = selectBaseline({ liveTarget: s.liveTarget, bootstrap });
+      const map = existsSync(s.ready.staging) ? hashTree(s.ready.staging) : {};
+      if (treeDigest(map) !== s.ready.manifest || Object.keys(map).length !== s.ready.files || map["graph.json"] !== s.ready.graphSha256) {
+        throw new Error("the staging bytes differ from the reviewed identity (digest, file count or graph hash)");
+      }
+      const base = selectBaseline({ liveTarget, bootstrap });
       if (!base.ok || base.baseline.digest !== s.frozen.baseline.digest) throw new Error("the live baseline changed since prepare");
       const acceptance = { record: r, locus: acc.locus };
       writeWork(work, { ...s, state: "reviewed", acceptance, publicationHead: src.publicationHead });
       return { acceptance, publicationHead: src.publicationHead };
     };
-    const r = publish({ ...transaction, target: s.liveTarget, staging: s.ready.staging, reviewedManifest: s.ready.manifest, baselineManifest: s.frozen.baseline.digest,
-      source: { repo: s.repo, snapshot: s.frozen.snapshot }, predecessor: { releaseLocus: s.frozen.baseline.releaseLocus, digest: s.frozen.baseline.digest },
-      live: { liveTarget: s.liveTarget, workRoot: work, validate } });
+    const r = publish({ ...transaction, target: liveTarget, staging: s.ready.staging, reviewedManifest: s.ready.manifest, baselineManifest: s.frozen.baseline.digest,
+      source: { repo, snapshot: s.frozen.snapshot }, predecessor: { releaseLocus: s.frozen.baseline.releaseLocus, digest: s.frozen.baseline.digest },
+      live: { liveTarget, workRoot: work, validate } });
     const cur = readWork(work);
     if (r.ok) {
       writeWork(work, { ...cur, state: "published", runToken: r.runToken });
@@ -1663,8 +1723,8 @@ export function cli(argv, { repo = process.cwd() } = {}) {
   if (canonicalFsPath(live) !== canonicalFsPath(REAL_LIVE_TARGET)) return refusedWork("this repository's .graphify does not resolve to the real live target");
   const answersOf = (p) => (p ? { answers: JSON.parse(readFileSync(p, "utf8").replace(/^\uFEFF/, "")), answersHash: createHash("sha256").update(readFileSync(p)).digest("hex") } : {});
   if (verb === "recover") return recoverLive({ liveTarget: REAL_LIVE_TARGET });
-  if (verb === "publish") return o.work && o.review ? publishWork({ work: resolve(o.work), review: o.review }) : refusedWork("publish needs --work <dir> --review <commit>");
-  if (o.resume) return resumeWork({ work: resolve(o.resume), ...answersOf(o.answers) });
+  if (verb === "publish") return o.work && o.review ? publishWork({ work: resolve(o.work), review: o.review, repo, liveTarget: REAL_LIVE_TARGET }) : refusedWork("publish needs --work <dir> --review <commit>");
+  if (o.resume) return resumeWork({ work: resolve(o.resume), repo, liveTarget: REAL_LIVE_TARGET, ...answersOf(o.answers) });
   return o.work ? prepareWork({ repo, work: resolve(o.work), liveTarget: REAL_LIVE_TARGET, ...answersOf(o.answers) }) : refusedWork("prepare needs --work <new dir> or --resume <dir>");
 }
 
