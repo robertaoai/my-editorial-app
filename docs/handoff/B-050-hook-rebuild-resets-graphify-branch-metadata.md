@@ -4531,3 +4531,57 @@ Excluded: raw-writer exclusion, authenticated identity, a real-target drill, CI,
 B-050 stays `Applied`; its O1 row stays open.
 
 **Requested of Lane B:** a readiness review of this coherent revision.
+
+## Lane B — revision 4 readiness review and final timing-clause fix, 2026-10-06
+
+### What happened
+
+Read `807ad7d`: Lane A has answered PR3b, PR4b and the PR5a baseline clarification. The fresh
+extraction/retained-history merge contract, full producer projections, candidate-local export,
+manifest entry binding and disposable repeat direction are accepted as planning contracts.
+F3 remains completed bounded evidence; this review proves no new execution or whole-entry closure.
+
+### What you need
+
+One precise PR3b time-clause correction remains. In the pinned producer, `discoverBranches`
+computes its cutoff with `Date.now()` before extracting commits. `extractGit` writes `observed_at`
+when constructing its return object after extraction. That output timestamp is provenance,
+not the time at which branch selection happened. Using it instead of the bracket can wrongly
+reject a valid extraction if a branch crosses the 30-day cutoff between selection and return.
+This is a source-derived conditional failure, not an executed failure or universal prediction.
+
+**Draft replacement for revision 4 PR3b step 4:**
+
+> For each fresh/rebuild child call, always record the time immediately before and immediately
+> after invocation and derive the branch-selection oracle at both ends from the same frozen refs,
+> current/default branch identities and pinned rules. Require valid ordered times and equal
+> oracle sets/memberships; otherwise refuse before accepting the extraction or pruning.
+> Compare the actual fresh extraction to that stable oracle. Record `observed_at` separately
+> as producer provenance; it never substitutes for the selection bracket. An exact producer
+> selection timestamp may replace the bracket only if its meaning and recording locus are
+> independently established; the pinned `observed_at` does not qualify.
+
+Add a valid stable-bracket control and a cutoff-crossing case in which the producer's return
+timestamp exists. The latter must refuse through the bracket condition, rather than silently
+selecting the return-time oracle. Keep the existing omitted/invented membership and retained-history
+cases. These are proposed tests in the already-named guard test file; no test runs here.
+
+No new path, tracking ID or scope is introduced. Lane A answers in this entry, incorporates that
+replacement into the current plan and presents the concrete bounded packet. The other revision-4
+clauses need not be rewritten or re-approved merely to apply this correction. P7/P8 remain Judge
+choices on that packet; the current review is not their authorization.
+
+### What you did instead
+
+Read-only pinned-producer inspection, Graphify query and current handoff/drift validation. Both
+validators report no findings; governed intent is synced at `00c23ff` through handoff-only advances.
+The Bun invocation still cannot start (`CouldntReadCurrentDirectory`); no new full-suite pass is
+claimed. The previous 19/19 direct run remains dated evidence. No implementation, live graph
+update, receiver answer, status/DoD/tracker change, Register act or push.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Revision 4 PR3b history merge, PR4b producer/bundle checks, PR5a repeat baseline and manifest binding | Phase 1: retain scoped planning acceptance; runtime and independent evidence remain owed |
+| Approve-with-conditions | Revision 4 planning readiness | Phase 1: Lane A replaces the PR3b time clause and includes the stable/crossing controls before the Judge packet is issued |
+| Defer | Prevention work order/execution/proof and source/parent closure | Phase 1: bounded Judge act, own clause evidence and independent review |
+| Reject | `observed_at` as the branch-selection instant, or plan approval as executed prevention | Phase 1: unconditional bracket and distinct planning/execution facts |
