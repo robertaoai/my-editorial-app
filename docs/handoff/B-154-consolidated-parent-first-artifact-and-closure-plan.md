@@ -6050,3 +6050,77 @@ are not executed F3 tests or permission to close any row.
 | Approve-with-conditions | Selecting/executing the proposed bounded F3 unit | Phase 1: Judge Register act, propagated scope and Lane A Active, then the five independent receipts |
 | Defer | Implementation/publication, whole prevention, B-050/B-077, other children, historical tracker debt, parents and Gate 2 | Phase 1: each unit's authority, evidence and acts |
 | Reject | Plan acceptance as build permission, planned cases as proof, claim takeover or F3 as whole prevention/closure | Phase 1: preserve the accepted boundaries |
+## Lane B — issued D-425 and receipt 1 handback: parent-first decision guide, 2026-10-06
+
+### What happened
+
+Effective request: review existing handoffs, explain completed/owed artifacts, draft gap remedies and Judge
+accept/reject criteria, with no construction by Lane B. Source advanced to `5d5c957`: D-425 is issued at
+`43ccebe`; Lane A implemented the five-path unit at `8b3d0da` and submitted receipt 1. Earlier "D-425 proposed"
+and "no implementation exists" statements are dated history, not current status. Lane B raises; Lane A answers.
+B-050's "D-425 receipt 1 review" owns four findings (F3-C1..C4) and remedies once. Receipt 1 is not accepted.
+That independent review is committed at `d3e020b`; Lane A's answers and corrected source receipt remain owed.
+
+### What you need
+
+| Highest parent -> child | Completed now | Accept criterion for next artifact | Reject / hold criterion |
+|---|---|---|---|
+| Gate 2 -> GR-007 -> B-150 -> B-153/B-154 | Prior authority/individual receipts only; parents remain open | Child-specific evidence and reconciliation/closure acts complete | Plan approval, a code commit or graph release is used as parent closure |
+| B-050 -> F1/F2 foundations | Plan-review batch and historical fixture-only F2/release355/B-136 pointer completed | Preserve bounded receipts; no repeat approval | Treat as prevention or DoD checkoff |
+| Accepted F3 plan -> D-425 | Judge's act is registered, tiers propagated; five-path implementation delivered | Retain issued scope/source policy/no fallback; repair defects within that scope | Ask again for already granted routine correction authority, or silently expand scope |
+| D-425 -> receipt 1 fixture/source readiness | Lane A submitted; independent 219 tests pass; four review findings open | C1 work preflight, C2 caller/target binding, C3 real resume CLI, C4 validation-before-reviewed corrected and independently reviewed at the new commit | Existing test pass count substitutes for omitted boundary/default-bridge cases |
+| Receipt 1 -> candidate acceptance -> actual release -> health -> checkpoint | Receipts 2–5 outstanding | Each separate exact-source/hash/manifest receipt, in order, after receipt 1 acceptance | Real prepare begins on the unaccepted implementing commit; changed bytes or unresolved recovery is called complete |
+| F3 -> whole prevention -> B-050 -> B-077 | No closure/prevention supplied by this implementation | Authorized independent whole-v4 evidence, source-specific disposition, then 17-target final review | F3 success or raw-writer limit substitutes for prevention |
+| Parallel B-106/U03/DoD/P15 / historical tracker -> parents | Limited custody/draft receipts preserved; six non-SM05 tracker rows still unclosed | Own owner/evidence/act, then child-first reconciliation | Silent closure or an invented dependency on B-050 |
+
+**Chief Editor / Judge:** D-425 and its two policy choices are settled. The current decision is whether corrected
+receipt 1 satisfies them, not whether to issue the act again. Reject receipt 1 as submitted at `8b3d0da`; accept
+the four findings and keep the ordered handback. A change outside the five paths/exclusions needs its own scope
+proposal; in-scope corrections go to Lane A under the existing act. Do not authorize a live candidate on these
+unaccepted artifacts, and do not close B-050 or parent rows.
+
+**What can fail / how to define success:** a source-Git work root demonstrably receives files before refusal;
+the default resume bridge has no CLI path; actual changed staging is refused after STATE became reviewed.
+Those probes are in disposable outputs and leave fixture live bytes intact. Public target/caller binding is a
+static code-path gap awaiting a controlled negative case. B-050 distinguishes these evidence strengths and
+supplies the fixes. Tests must verify refusal before writes, trusted context binding, real bridge configuration
+and ready-state preservation, not merely duplicate the current implementation.
+
+**Construction artifact -> verification artifact:** shared work-boundary preflight -> alias/Git/live/outside
+sentinel preservation and no-generator-call cases; trusted caller/target binding -> copied/altered STATE refusal;
+verified CLI/pin propagation -> default prepare/resume bridge and changed-pin cases; transaction/state ordering
+-> post-review tamper refuses before journal and keeps ready, plus retained crash/recovery cases. These are
+critical prerequisites for candidate/release receipts, not a new retrieval/MMF specification.
+
+**Lane A follow-up:**
+1. Answer F3-C1..C4 in B-050, keeping the receiver answer and this independent review distinct.
+2. Apply guard/fixture fixes inside D-425; state any scope deviation openly. Do not create duplicate trackers,
+   change header/DoD states or alter the frozen sources.
+3. Supply the exact corrected commit and meaningful missing boundary/default-bridge/tamper cases, retain F1/F2
+   coverage, and report consistency honestly. Hand back receipt 1 to Lane B for independent acceptance.
+4. Only then prepare at the final authorized source, re-merge fragments, settle semantic/member-set answers and
+   obtain Lane B's newly introduced typed exact-byte acceptance (receipt 2).
+5. Publish only that candidate through the guard (3), verify post-state/cleanup and full health (4), obtain Lane B's
+   independent F3 checkpoint (5), then stop. No hand-publish or raw-tool fallback.
+6. Whole prevention/B-050/B-077 and parallel child evidence remain separate. Complete children before
+   B-153/B-154 -> B-150 -> GR-007 final reconciliation -> Gate 2.
+
+Lane A disclosed injected generation/composition and did not claim real Windows held-handle proof, raw-writer
+exclusion or solved flake cause. Lane B independently confirms existing test results but raises uncovered gaps;
+it changes no runtime source. Lane C has no new finding/approval, and CI remains excluded.
+
+### What you did instead
+
+Reviewed the issued Register act, code and handoffs; ran existing tests and isolated disposable probes. No app
+build, source/runbook fix, real candidate, live publication/recovery, graph rebuild, new Register act, receiver
+answer-field edit, tracker closure or push. Existing tests: 219/219 independently pass; 297/297 fixtures is Lane
+A's receipt, not a new independent run. Consistency: **18/19 pass**; docs-drift is the sole failure, expected under
+D-425 before receipt 4. Analyzed source remains `40429f8`; eight governed paths changed. A guarded sync is owed
+after corrected receipt 1 is accepted; do not rebuild now or claim no drift. Historical tracker debt is separate.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Issued D-425, completed bounded planning/F2 receipts, independent test result with its limits and four findings | Phase 1: preserve source attribution and accepted scope |
+| Approve-with-conditions | Corrected receipt 1 | Phase 1: fixes and missing evidence, then Lane B reviews exact corrected commit |
+| Defer | Real candidate, receipts 2–5, prevention, B-050/B-077, other children/parents/debt and Gate 2 | Phase 1: ordered independent receipts and own acts |
+| Reject | Receipt 1 at 8b3d0da as preparation-ready; green tests as coverage of fake/default bridge gaps; bypassing review to clear drift | Phase 1: correct and resubmit within D-425 |
