@@ -3580,3 +3580,81 @@ the limit does **not** count as completed runbook propagation.
 **Receipt 2 is still owed:** Lane B's semantic and state review of `f27fab81…` (evidence:
 `C:/CoWork/outputs/lane-a-d425-receipt2-2026-10-06/`), then its own acceptance record commit, named in its answer.
 B-050 stays `Applied`; its O1 row stays open.
+
+## Lane B — D-425 receipt 2: independent content/state review accepted, 2026-10-06
+
+### What happened
+
+Read at `7b4a568`, the current source, Lane A's receipt-2 packet and the Judge's recorded bounded provenance
+choice. Lane B raises/reviews; Lane A answers. Completed the pending receipt-2 review, rather than another
+planning receipt. This is independent exact-byte review of already prepared work, not a build or publication.
+Evidence: `C:/CoWork/outputs/lane-b-d425-receipt2-evidence.json` (read-only candidate inspection).
+
+### What you need
+
+**Receipt 2 accepted for precisely the identity below.**
+- 57 new/rewritten descriptions examined against current source; helper descriptions distinguish injected
+  command tests from real algorithm/tool evidence. No universal prevention or authenticated reviewer claim.
+- All 78 carried descriptions equal prior reviewed text; independent parsed whole-symbol comparison at
+  `40429f8` and `00c23ff` finds identical bodies; all 135 operator answers are applied in the candidate.
+- All 20 new names examined against complete member lists and bound by member-set hash; all 105 reused
+  names have identical member sets and prior names. Name-binding findings: zero.
+- Curated fragment node/edge field parity: 139/139. State: 583 files, zero unknown or multiply classified,
+  zero pending semantic files. Lifecycle records match caller source/branch/root/Git directories, with
+  firstSeenHead/createdAt retained. The two undescribed git commits are inherited, not newly unresolved symbols.
+- Recomputed graph/full-state hashes equal STATE. Source rule passes at `7b4a568`; live equals the released
+  bootstrap digest, with no transaction finding. No earlier acceptance record is reused.
+
+**Path-scan wording correction:** zero findings on promoted/rebound files and graph node fields, not every
+retained historical file. A full-folder scan finds old paths in 44 retained files (dated manifests, manifest.json,
+cache/stat-index.json and agents/cursors.json). All retained bytes equal the verified baseline; STATE_RULES
+requires retaining them. This is an evidence-scope clarification, not a new cleanup requirement or blocker.
+Lane A should use the scoped wording in its release/health handback and never claim universal path removal.
+
+Lane A uses only this independent review commit, as named in Lane B's final handback, for receipt 3.
+Preserve work/source/baseline/tool identity; a changed candidate needs renewed exact-byte review and a governed
+source edit needs fresh preparation. Existing D-425 covers the next bounded steps; no repeat general approval.
+After release, separately prove post-state/metadata/fragments/names, journal/lock cleanup and 19/19 health
+(receipt 4); then obtain Lane B's independent F3 checkpoint (receipt 5). B-050 O1 remains open.
+G-F3-8's accepted channel limitation and deferred canonical wording remain; no Lane C finding is inferred.
+
+### What you did instead
+
+Read-only candidate/source/history and content review; rechecked fragment parity, member/name identity,
+source-body equality, classification, lifecycle, path policy and full hashes. Consistency is 18/19, expected
+docs-drift alone failing before guarded publication; live analyzed source remains `40429f8`.
+No app build, prepare/resume, rebuild, live publish/recover, governed edit, receiver-answer/header/DoD or tracker
+closure, new Register act or push. Receipt 2 permits the reviewed publication step under existing D-425;
+it proves neither that publication occurred nor that F3/prevention/B-050 is complete.
+
+### F3 acceptance record
+```json
+{
+  "kind": "graphify-f3-acceptance",
+  "version": 1,
+  "disposition": "Accept",
+  "scope": "F3 publication",
+  "reviewer": "Lane B",
+  "workId": "77a606cc-819d-4b8c-9fd2-250355898791",
+  "graphSha256": "f27fab8196c51f89e3ad0f5c14dc4ec9c3b444d474875b9f9e2990c87a9a351c",
+  "manifest": {
+    "algorithm": "guard-treeDigest-v1",
+    "digest": "81d1615459c38804db7a757869210ae867c1869139162ecb5a2719eecbf89c57",
+    "files": 583
+  },
+  "analyzedSource": "00c23fff9d53f60d389621bb3140be06f9b29455",
+  "baseline": {
+    "releaseLocus": "6a74c8e7125b82604d902c5857a9957001712970",
+    "algorithm": "guard-treeDigest-v1",
+    "digest": "1add761f98aa5aa9917f56280d7bf91939913631540fc65d922693b0ddaf2f9a"
+  },
+  "pendingSemantics": 0
+}
+```
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Receipt 2, exact candidate f27fab81 / manifest 81d16154 / work 77a606cc | Phase 1: this independent acceptance-record commit only; retain path-policy and evidence limits |
+| Approve-with-conditions | Receipt 3 under issued D-425 | Phase 1: same reviewed bytes, valid source/baseline, this review commit; health and checkpoint remain separate |
+| Defer | Receipts 4–5, deferred wording, prevention, B-050/B-077, children/parents and Gate 2 | Phase 1: their ordered receipts, recorded triggers and own acts |
+| Reject | Full-folder no-path claim, acceptance as publication/health/prevention, or substituting another review/candidate | Phase 1: preserve scope and exact-byte binding |
