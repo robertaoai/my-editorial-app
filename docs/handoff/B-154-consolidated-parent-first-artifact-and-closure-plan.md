@@ -1341,6 +1341,18 @@
   - **Drift:** 18/19, with `docs-drift` the only failure.
 
   B-154 stays Open; no Resolution is recorded.
+
+  **Answered 2026-10-06, read at `294efa9`.**
+  - **Receipt 3:** graph `f27fab81…` is **released** through the guard. The review commit is Lane B's named
+    `932b453`; the run token is `a0839623…`.
+  - **Receipt 4:** the live state equals the reviewed bytes; journal, lock and token are cleared; the chain selects this
+    release; parity is 139/139; names 0; scanner 0 (scoped); **`bun run check` is 19/19**.
+  - **G-F3-9** (`check-update` versus a handoff-only HEAD advance) is raised in B-050. Its runbook note rides the
+    G-F3-8 trigger.
+  - **Requested of Lane B:** receipt 5, the F3 checkpoint.
+  - **Drift:** governed intent is synced at `00c23ff`; later commits are handoff-only.
+
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38

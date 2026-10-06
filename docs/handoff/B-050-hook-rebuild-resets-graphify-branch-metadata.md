@@ -3658,3 +3658,77 @@ it proves neither that publication occurred nor that F3/prevention/B-050 is comp
 | Approve-with-conditions | Receipt 3 under issued D-425 | Phase 1: same reviewed bytes, valid source/baseline, this review commit; health and checkpoint remain separate |
 | Defer | Receipts 4–5, deferred wording, prevention, B-050/B-077, children/parents and Gate 2 | Phase 1: their ordered receipts, recorded triggers and own acts |
 | Reject | Full-folder no-path claim, acceptance as publication/health/prevention, or substituting another review/candidate | Phase 1: preserve scope and exact-byte binding |
+
+## Lane A — D-425 receipts 3 and 4: guarded release of f27fab81…, then post-state and health, 2026-10-06
+
+Read at `294efa9`. **Lane A receives receipt 2** (Lane B `932b453`: an exact-byte content and state acceptance of work
+`77a606cc…`, graph `f27fab81…`, manifest `81d16154…`, 583 files). Lane A also receives Lane B's path-scan wording
+correction. The zero-finding scan covers promoted and rebound files and graph node fields. Retained historical files
+(dated manifests, `manifest.json`, `cache/stat-index.json`, `agents/cursors.json`) still hold old paths, as
+STATE_RULES requires. Lane A uses that scoped wording below and makes no universal path-removal claim.
+
+### Receipt 3: guarded release (the first guarded publication to the real live target)
+
+**Provenance (the G-F3-8 channel rule).** The review commit is the one **Lane B named in its own handback**
+(`294efa9`): `932b45333327ed6d0418ab19cd9e82f4e60e0102`. It is a Lane B commit, not a Lane A draft.
+
+**Pre-check (read-only):**
+- the source rule passes at publication head `294efa9`: every commit since `00c23ff` is handoff-only;
+- `acceptanceAt` finds exactly one record introduced by `932b453` (B-050, lines 3630–3653, blob `148855bf…`);
+- every value of that record equals the work folder.
+
+**Command:** `node scripts/graphify/guarded-rebuild.mjs publish --work <work> --review 932b45333327ed6d0418ab19cd9e82f4e60e0102`
+(`C:/CoWork/outputs/lane-a-d425-receipt2-2026-10-06/06-publish.json`). Result: **`released`, exit 0**, "published:
+live equals the reviewed manifest", run token `a0839623-f1ca-43f0-90b1-c87f853b1352`.
+
+**Graph `f27fab8196c51f89e3ad0f5c14dc4ec9c3b444d474875b9f9e2990c87a9a351c` is RELEASED** to the live target through the
+guard. It succeeds `35541b33…` (bootstrap, `6a74c8e`).
+
+### Receipt 4: post-state and health (`07-post-state.json` to `10-full-check.log`)
+
+- **Live bytes:** the live state equals the reviewed bytes exactly: manifest `81d16154…`, graph `f27fab81…`, 583 files.
+  The work state is `published`.
+- **Cleanup:** the journal, publication lock and recovery token are all absent.
+- **Release receipt** `release-a0839623….json`, beside the live target, built from the journal:
+  - target: the live target;
+  - `sourceCommit`: `00c23ff`;
+  - `publicationHead`: `294efa9`;
+  - `reviewedManifest`: `81d16154…`;
+  - acceptance: the record plus its locus at `932b453`;
+  - predecessor: `6a74c8e` / `1add761f…`.
+- **Chain:** `selectBaseline` now returns this release (locus `932b453`, digest `81d16154…`) as the next baseline.
+- **Fragments and names:**
+  - fragment field parity is **139/139** (the guard's full-edge assignment, and the sync's own field comparison);
+  - name binding 0; label map 0 mismatches over 125 groups;
+  - 2314 nodes, 2312 described (the 2 inherited commits).
+- **Scanner (scoped):** `graph.json` and every node field: 0 findings. Retained historical files are excluded by policy,
+  as above.
+- **Metadata:** `branch.json` is `features/feature-V1-SM05` at `lastAnalyzedHead` `00c23ff`, `stale: false`, with the
+  caller's root.
+- **`bun run check`: 19/19.** `docs-drift`: "synced (governed intent) at 00c23ff; HEAD 294efa9 advanced by excluded-only
+  commits". **This is the first 19/19 since `40429f8`, claimed only now, after publication (D-425 item 5).**
+- **Retained beside the live target:** `.graphify-bak-a0839623…` and `.graphify-old-a0839623…`, the verified backup
+  and the prior bytes. The guard never deletes them. Removing them is a person's act.
+
+**G-F3-9 (found at receipt 4; raised for Lane B):** Graphify's own `check-update` reports "pending … graph.json built
+from 00c23ff but HEAD is 294efa9" and suggests a raw `--update`.
+- **Cause:** under the handoff-only fast-forward rule, HEAD legitimately moves past the analyzed commit through
+  handoff-only commits. `check-update` does not apply the D-231 exclusion; the governed `docs-drift` check does, and
+  reports synced.
+- **Not followed:** the raw suggestion. That would bypass the guard.
+- **Gap:** SKILL §9 (D-425) lists `check-update` as a post-publication gate without this caveat.
+- **Draft fix:** at the same trigger as G-F3-8 (the next governed change's guarded sync), state in SKILL §9 that after a
+  handoff-only advance, `check-update` reports a HEAD mismatch, that the governed signal is `docs-drift`, and never to
+  run its suggested raw update.
+
+**Not claimed:**
+- prevention (the whole-v4 proof is a separate act);
+- B-050 disposition; B-077;
+- exclusion of raw writers;
+- reviewer authentication (G-F3-8 stays a channel limit);
+- a cause for the live-owner flake.
+
+B-050 stays `Applied`; its O1 row stays open.
+
+**Requested of Lane B: receipt 5**, the independent F3 checkpoint. Its basis is receipts 1–4: `7929bea`, `932b453`, the
+release run `a0839623…`, and the post-state and 19/19 evidence above.
