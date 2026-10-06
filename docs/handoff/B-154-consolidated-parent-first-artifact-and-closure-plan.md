@@ -5537,3 +5537,78 @@ review itself requires no Graphify rebuild.
 | Approve-with-conditions | Complete F2 and later correction packet | Phase 1: answer D424-R1a/R3a, prove actual routes, review any changed final bytes |
 | Defer | F3, retrieval/article, annotation work, U03/P15, B-050/B-077 and parent/gate closure | Separate Phase 1 selection, evidence and individual acts |
 | Reject | Full F2 acceptance now; post-deletion refusal called safe; greedy match called complete; graph release called whole-row closure | Phase 1: retain independent sub-receipts and apply only selected bounded remedies |
+
+## Lane B — current completion ledger and boundary explanation, 2026-10-06
+
+### What happened
+
+Effective request: explain current handoff completion from authoritative source receipts, show dependencies
+parent first, identify remaining gaps and draft fixes, check docs/graph currency, and give concise verdicts.
+Read `d709e00`, `7b51c87`, `491325c`, D-424 and the latest B-050/B-136/B-106/B-077 records. Lane B raises;
+Lane A answers. This is a dated explanatory ledger, not a second live status tracker or new work order.
+Individual entries/acts remain authoritative; completed sub-findings are not whole-row closure.
+The detailed code/semantic review is B-050 at `e8d9839`; final consistency verification passes 19/19.
+
+### What you need
+
+| Parent / dependency order | Completed now | Still owed / acceptance rule |
+|---|---|---|
+| 1. Authority and earlier release | D-424; Judge's "Fix under D-424"; baseline graph 504e6f7a… released at 491325c | No new F3, retrieval/article, U03, push or checkbox permission |
+| 2. D-424 → F2 code receipts | R1–R4/G-D423-1 sub-receipts; D424-R1a source protection and D424-R3a complete matching independently accepted at 7b51c87; 202 tests pass | Complete F2 batch still needs current semantic graph receipt; source-protection/edge failures are no longer open code findings |
+| 3. Current source → graph semantics → release | New graph's 139 fragment comparisons, 118 labels and 582-file manifest match; 80 of 82 description judgments supported | Two description qualifications in B-050 G-D424b-1/2; new exact-hash review, then Lane A's release record |
+| 4. Accepted F2 → selected F3 → whole prevention | F1 policy and fixture-only F2 evidence exist | Bounded F3 order, current runner/API binding, live publication/recovery/runbook proof, independent acceptance; not authorized now |
+| 5. Whole prevention → B-050 disposition → B-077 final review | B-077 target refresh and individual source reasons exist | B-050 Applied/O1 open; B-077 Answered/Deferred header does not complete its transferred final-review obligation or 17-target review |
+| Separate: B-106 custody → owned children | B-106 Answered/Deferred under D-418; custody reason accepted | Runtime metadata and implemented AC-12a proof remain with named owners/triggers; historical "Open" prose does not override its current header/act |
+| Separate: setup evidence → U03/DOD-04 → DOD-06/P15 | P15 index defects resolved; §5 application and U03 wording correction recorded | U03 unselected; actual DOD-02/04/06/P15 evidence/acts still owed; graph release alone checks no DoD box |
+| 6. Completed child obligations → B-153/B-154 → B-150 → GR-007 F → Gate 2 | Individual receipts and earlier reconciliation units exist | Refresh actual source dispositions/evidence first; parent and final-gate decisions stay last |
+| Separate deferred retrieval/article track | Proposed packet and prior gap analysis preserved | D-424 "Later" / "Not now" stand; no new MMF, spec application, annotation migration or trial |
+
+Authority is addressed first; completion parents are cleared after their child evidence. Graph semantic
+release and full prevention are distinct artifacts. Nothing here reopens accepted GR-021 planning custody,
+GR-016–020 surviving triggers, RH4 custody, or prior F1 policy decisions.
+
+**Remaining gaps and draft fixes:**
+- **Semantic precision:** B-050 owns two exact text replacements. They qualify optional snapshot checking
+  and distinguish order-independent matching completeness from the identity of an unmatched demand.
+  This corrects graph meaning without prescribing another code unit.
+- **Current receipt pointer:** B-136's latest §5 receipt still names the old 9993bded candidate as DOD-01's
+  pending graph. Preserve that historical entry; append the actual current final-hash/release receipt when
+  available. This restores traceability, not DOD-01 checkoff. All other criteria keep their own proof.
+- **Historical runner API:** old generation evidence is valid at its own source revision, but current compose
+  needs a bound source and publish/recover need the new fixture-root/source API. Draft the amended call shape,
+  source/tool/manifest pins and outcome matrix in any later selected runner/work order; do not silently rerun it.
+- **Test flake:** cause of the two earlier owner timeouts is unknown. Current independent run passes; retain
+  recurrence-trigger diagnostics instead of claiming prevention, a discovered cause or an extra gate.
+
+### What you did instead
+
+Independently ran 202 tests, reviewed source/graph and used pure semantic counterexamples. Graph fields,
+members/names and state-file hashes match. The 297 fixtures are Lane A's receipt at 7b51c87; the earlier Lane B
+297 run at 7d2d576 does not independently prove the changed code. No broad fixture repeat, build, code/spec
+fix, rebuild/release, header/tracker disposition or push is performed in this review.
+
+### Lane A follow-up
+
+1. Receive the completed R1a/R3a code receipts and preserve all accepted scope/deferral decisions.
+2. Answer/apply the two semantic text fixes through the authorized graph-description route; preserve
+   reviewed fragment fields and member/name bindings, then return a new exact hash/manifest for review.
+3. Record the graph release only after that receipt. Append current DOD-01 evidence pointers in B-136;
+   request any DoD criterion act separately on its own evidence.
+4. Present a bounded F3 plan if selected: paths, runbook/API changes, exclusions, owner/lock/recovery rules,
+   intended positive/negative/termination proofs and definition of done. Drafting or F2 acceptance is no build order.
+5. After authorized F3 and independent whole-prevention proof, bring B-050's disposition and B-077's final
+   review separately. Keep B-106 children, U03/P15 and deferred retrieval/article on their own triggers.
+6. Complete children before parent reconciliation and Gate 2. Refresh the existing tracker from source acts;
+   do not copy this explanation's counts into a competing live status table.
+
+**Docs drift:** governed source is synced at 7b51c87; later commits are handoff-only. Structural currency is
+clean, but two semantic graph descriptions need the bounded correction above. No docs-folder rebuild is due
+for this explanatory handoff; any selected rebuild must re-merge fragments. Semantic correction creates a
+new final-byte review requirement, not an automatic migration or application-build authorization.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Recorded authority/release/custody and completed code sub-findings; bounded graph/test evidence | Phase 1: preserve individual source receipts and their limits |
+| Approve-with-conditions | Full F2 batch, graph semantic release and current DOD-01 receipt pointer | Phase 1: two description fixes, exact-final-hash review, Lane A release record; criterion checkoff separately |
+| Defer | F3, whole B-050/B-077 obligations, B-106 children, U03/P15, parent/gate closure and retrieval/article | Their own Phase 1 selections, evidence and acts |
+| Reject | Treating Applied as closed, Deferred custody as delivered runtime, a graph release as prevention, or old graph/runner receipts as current proof | Phase 1: use source-specific completion and qualified language |
