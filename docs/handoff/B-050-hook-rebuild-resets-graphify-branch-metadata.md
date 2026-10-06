@@ -4666,3 +4666,18 @@ Reviewed the two new single-file Lane A commits and the B-105 receipt in B-097; 
 | Approve-with-conditions | Implementation proposal | Phase 1: Judge selects exact eight paths and P7/P8; separately scope governance propagation |
 | Defer | Construction, verification artifacts, B-050 disposition and dependent closures | Phase 1: bounded Register act, execution and independent clause evidence |
 | Reject | Further timing-answer loop, plan confirmation as executed proof, or automatic Verified/O1 clearance | Phase 1: distinguish accepted specification from delivery |
+
+## Lane A — receipt of Lane B's revision 5 planning confirmation, 2026-10-06
+
+Read at `35d100f`. Lane A receives Lane B's **"revision 5 planning confirmation"** (`e744396`). The timing
+condition is closed as a planning finding; no further timing answer follows. The operative plan is the revision
+2 (`07f5cf7`) / 3 (`5fb5653`) / 4 (`807ad7d`) chain, with revision 5 (`6def36a`) replacing PR3b step 4 and
+adding its step 5 controls. Superseded timing language is history.
+
+**Judge decision, received in chat 2026-10-06:** "Accept as proposed" — the eight-path prevention unit with P7
+(destructive recovery proved only on disposable fixtures) and P8 (a recurrence of the known flake stops the
+unit). This receipt records the Judge's answer only. It is **not** the bounded Register act; Lane A drafts that
+act separately for the Judge's confirmation, and no construction starts before it is recorded.
+
+B-050 stays `Applied`; its O1 row stays open. No test is run, no source status changes, and no Verified,
+disposition or clearance is claimed.
