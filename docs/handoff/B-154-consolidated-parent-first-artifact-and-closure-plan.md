@@ -6887,3 +6887,64 @@ run, receiver-answer/header/DoD/tracker edit, new Judge act or push.
 | Approve-with-conditions | Judge-ready prevention plan | Phase 1: incorporate B-050's exact time-clause correction and controls; Lane B confirms the diff |
 | Defer | Work order, execution/proof, dispositions, parent closure and Gate 2 | Phase 1: concrete packet and respective bounded acts/evidence |
 | Reject | Return timestamp as selection time, completed software inferred from plan acceptance, or parent-first closure | Phase 1: preserve bracket and child-dependent completion |
+
+## Lane B — census and closure semantics review, 2026-10-06
+
+### What happened
+
+**Clarified request:** consolidate the supplied Lane A census against the current handoffs and governed closure rules; draft corrections, parent-first Judge decisions and Lane A follow-up; preserve existing tracking; do not implement or close artifacts by inference. Source read: 8509b7a. Supplied evidence: the attachment titled "I've tabulated all 163 handoffs (8 Open, 4 unresolved turn reports, 8 Deferred)…". Lane B raises this review; Lane A owns its answer.
+
+Independent census of numbered B/C Markdown entries: **162**, comprising 106 Verified, 26 Applied, 10 Superseded, 8 Deferred, 8 Open and 4 turn reports. The attachment's component counts already sum to 162. This is header accounting, not a new verification of every entry or a clearance result.
+
+### What you need
+
+#### Draft corrections to the supplied analysis
+
+| Gap / unsupported statement | Draft replacement and success criterion | Existing owner / follow-up |
+|---|---|---|
+| 163 total; four "unresolved turn reports" | Use 162 entries. Kind and Resolution are separate axes: B-022/B-026/B-047/B-059 are turn reports with no closure field (G84/D-123). Raise any actionable finding separately through its existing source; do not invent four unresolved closures | B-154 consolidation; Phase 1 answer |
+| All Applied entries accepted; Deferred means "closed for now" | Applied records application, not independent verification. Deferred retains its exact trigger, scope and residual custody. Header counts cannot approve all obligations or prove Gate 2 | Source entries and SV-002 §2.3.1/§2.3.2; Phase 1 evidence review |
+| B-119 is outside Gate 2 and needs another individual Judge reason | Its Gate 1B exclusion does not exclude it from Gate 2. D-413 already closes its O4 non-SM05 tracker row by individual custody acceptance after topic record 262633e. Keep the Open source header and SM06 revision identity/Entry 04/A02 obligations; A01 is a setup baseline. D-413 expressly grants no source-header change or whole-source verification. Do not ask the Judge to repeat that accepted reason or automatically set Deferred | B-119, V1-SM06/SM06-P3-01, SV-002; Phase 1 preserve accepted scope; later selected SM06 work |
+| B-095/B-096/B-104 simply "close with SM05" | Their SM05 rows are received, not executed or whole-entry closed. Keep child-specific non-SM05 reasons under D-411/D-412/D-413 and the held receiving obligations: B-084 A4, B-096 GA1/S16, GR-001/GR-003, and other keyed homes. Source closure needs its own completion evidence/disposition, beyond SM05 receipt | Existing source/receiving packets; Phase 1 reconciliation and separately selected implementation phases |
+| GR-007 owns every leftover row | GR-007's backlog reconciliation covers B-077/B-117/RH4; other GR rows and product packets retain their own owners. Distinguish clearance tracker, review ledger, residual custody and source lifecycle instead of making a new universal parent | GOV-RES-001 and SV-002; Phase 1 existing tracking |
+| Tracker refresh only permitted after B-050/B-077 | Final clearance needs a fresh derivation after required dispositions and independent review. This does not prohibit an earlier authorized refresh. State the derivation commit and interim limits each time | Lane A tracker work under applicable act; Phase 1 final clearance |
+| Raw CLAUDE.md rebuild route treated only as later propagation | The instruction repair is already one of the eight prevention implementation paths (PR1). Keep it in that bounded unit; Register/Build Spec/Inventory propagation remains separately scoped | B-050 prevention packet; Phase 1 later bounded unit |
+| Rebuild "adds nothing" because only handoff HEAD changed | No governed sync is due for excluded handoff-only changes. A rebuild may still alter Git extraction or derived output; absence of governed drift does not guarantee no effects | D-425 guarded route, fragment preservation and independent review when later required |
+
+**Evidence language:** supplied Lane A analysis reports bun run check 19/19 at 8509b7a. Preserve that as Lane A's environment-specific report, distinct from Lane B's repeated CouldntReadCurrentDirectory startup failure and the earlier direct 19/19 run. Do not turn supplied evidence into Lane B's independent current full-suite result. Claims about numbering gaps, including B-105's rejection cause, need their own source receipt; absent a located receipt, label the cause supplied rather than established. Never reuse a number (D-306).
+
+#### Parent-first decision table for the Judge
+
+| Order / decision | Accept only when | Reject / hold when | Follow-up phase |
+|---|---|---|---|
+| 1. Business-to-system scope and ownership | Existing authority, SM05 local evidence slice, SM06 bounded ManualReady/Phase 3 allocation, and exact residual homes retained | Census silently expands capabilities, clears held reports or assigns all residuals to GR-007 | Phase 1: Lane A answers corrected consolidation; no new capability selection |
+| 2. B-050 construction/verification plan | Revision 4 accepted history/schema/manifest contracts plus the exact PR3b timing correction already raised in B-050: stable bracket oracle; return observed_at is provenance only; valid and cutoff-crossing controls | Selection inferred from return time, history falsely compared only with latest commits, incomplete producer projection, or generation treated as correctness | Phase 1: Lane A answers; Lane B confirms the operative diff |
+| 3. Concrete prevention work-order packet | Exact eight paths, separate propagation, bounded inputs/exclusions, artifact DoD and explicit P7/P8 limits | Scope is implicit or readiness depends on unfinished timing language | Phase 1: Chief Editor/Judge decides the ready packet and records the Register act; A remains execution owner |
+| 4. Later implementation and verification artifacts | Clause-bound evidence, guarded final-source sync/review/release/health and B0 original baseline → R1 first release → C2 unpublished repeat candidate | Plan approval counts as delivery; two live releases demanded; self-verification or stale bytes accepted | Phase 1: only after bounded execution authority; independent Lane B review |
+| 5. Child disposition then parent/clearance conclusion | B-050 disposition, B-077 SC8 final review, required parallel obligations, source-specific parent decisions and fresh SV-002 tracker review | F3, counts, a received row or custody reason closes entire sources/parents; U03/DoD/P15 disappears | Phase 1: parents finish after their required children; B-136 P15 needs SV2-DOD-06; Phase 1/Gate 2 close last |
+
+#### Lane A follow-up, in order
+
+1. Answer this census correction in B-154 using the existing handoff template; acknowledge each correction or give a source-backed disagreement. Do not duplicate the technical timing answer here.
+2. Answer the remaining PR3b clause in B-050 and show its exact operative replacement and the specified positive/cutoff-crossing controls. Planning text may proceed within this request; it grants no implementation permission.
+3. Consolidate one current packet, preserving accepted contracts and the eight-path scope. For every critical artifact identify producer, frozen inputs, consumer, acceptance/refusal criteria, evidence location and independent reviewer.
+4. Request Lane B's review of the corrected packet. Mark unanswered conditions as conditions; do not claim Judge-ready unconditionally until they pass.
+5. Present only the decisions still owed: the concrete bounded unit and P7/P8 limits. P7 proposes destructive recovery proof on disposable fixtures; P8 proposes stopping on known-flake recurrence. No repeated F3 or B-119 custody acceptance is owed.
+6. After a later Judge act, follow the packet's execution, sync, proof and independent-review sequence. Record each child's evidence and residual custody in its existing home, then reconcile parents and re-derive/review the clearance tracker. Preserve independent U03/DoD/P15 prerequisites.
+
+**Chief Editor perspective and lane limits:** Lane A identified graph_hash:null and studio-before-final-merge producer facts; its revised contracts address them through the manifest graph entry and final producer export. Lane B raised retained-history, full schema/projection and timing proof gaps. This attachment provides no new Lane C finding or CI acceptance; do not infer either. A business need becomes implementable only when its system contract and verification criterion are explicit. External raw-writer exclusion and authenticated reviewer identity remain outside the proposed prevention unit. Successful local artifacts cannot imply full five-gate enforcement, hosted/CI readiness or WordPress delivery.
+
+**Failure-to-success criteria:** using a return timestamp as selection time leaves the selection claim unproven; a cutoff-crossing control must refuse acceptance even when observed_at exists. Incomplete derived-file checks cannot establish full producer equality; validate every specified field and tool queue query. Header-based automatic parent closure cannot satisfy the source-specific evidence rules. These are demonstrable proof failures, not a prediction of bankruptcy or certain operational failure. The success criteria are stable selection evidence, complete producer equivalence, exact-byte reviewed artifacts and independently supported child/parent dispositions.
+
+**Completion artifacts and tracking:** construction packet = specified, scoped contract; verification packet = recorded execution evidence only after an authorized run; source handoff = receiver answer plus its own disposition/evidence; SV-002 §2.3.2 = scoped review accounting; §2.3.1 = Gate 2 clearance; GOV-RES-001/product packets = residual custody and delivery obligations. No new tracking layer is needed. B-154 stays Open and B-050 remains Applied pending its independent completion; this review changes neither.
+
+### What you did instead
+
+Reviewed the attachment and current source/clearance distinctions without altering receiver fields, source status, Register, trackers or governed requirements. Read-only Graphify querying and drift checks classify the 00c23ff graph as governed-current: later changes are excluded handoff text. A HEAD-only check-update notice does not establish governed drift. No rebuild, sync, construction or proof run is authorized by this review. Later governed edits require the guarded synchronization route, fragment survival, semantic review and exact-byte publication/health evidence.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Corrected 162-entry accounting and existing scoped receipts, including D-413 B-119 custody | Phase 1: preserve evidence limits and residual owners |
+| Approve-with-conditions | Consolidated Lane A planning handback | Phase 1: answer census corrections and B-050 timing clause; Lane B confirms current packet |
+| Defer | Prevention execution, artifact completion, source/parent closure and Gate 2 | Phase 1: ready bounded packet, Judge act, child evidence and independent review; held SM06/Phase 3 work in its own selected phase |
+| Reject | Blanket status approval, four invented unresolved turn reports, repeated B-119 clearance reason, or automatic source closure | Phase 1: use separate lifecycle, review, custody and clearance facts |
