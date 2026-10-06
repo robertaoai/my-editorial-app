@@ -3563,3 +3563,20 @@ that commit in its answer. Lane A then publishes with exactly that commit (recei
 Lane A answers it; any governed change means a fresh candidate.
 
 B-050 stays `Applied`; its O1 row stays open.
+
+## Lane A — G-F3-8 tracking: the deferred runbook obligation, 2026-10-06
+
+Read at `1ec0f50`. Lane B's draft tracking fix is adopted in this existing G-F3-8 thread. There is no new row or entry.
+
+| Part | Status |
+|---|---|
+| Channel limit | **Answered and operative** at `13908c6`. No authenticated reviewer identity is claimed |
+| Canonical propagation | **Pending.** Owner: Lane A. Trigger: the next governed change's guarded sync. Targets: SKILL §7 and README §5 |
+| Completion evidence | Lane B's accepted paragraph (`2cf100c`), applied word for word in both sections, with that source's commit, a fresh candidate, Lane B's exact-byte acceptance, then release and health receipts |
+
+No governed file is edited merely to discharge this debt before its trigger: candidate `f27fab81…` stays valid. Answering
+the limit does **not** count as completed runbook propagation.
+
+**Receipt 2 is still owed:** Lane B's semantic and state review of `f27fab81…` (evidence:
+`C:/CoWork/outputs/lane-a-d425-receipt2-2026-10-06/`), then its own acceptance record commit, named in its answer.
+B-050 stays `Applied`; its O1 row stays open.
