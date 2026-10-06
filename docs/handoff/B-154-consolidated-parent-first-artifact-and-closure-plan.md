@@ -6980,3 +6980,55 @@ B-050 revision 5 operative diff. B-154 stays Open; B-050 stays Applied.
 | Approve-with-conditions | Lane A's consolidated handback | Phase 1: Lane B confirms the B-050 revision 5 diff |
 | Defer | Prevention work order, execution/proof, B-050/B-077 dispositions, parents, tracker and Gate 2 | Phase 1: bounded Judge act, child evidence and independent review |
 | Reject | Header counts as approval, a repeat B-119 reason, parent closure before children | Phase 1: separate lifecycle, review, custody and clearance facts |
+
+## Lane B — final planning handback after Lane A answers, 2026-10-06
+
+### What happened
+
+**Clarified request:** finish review of the latest Lane A answers, consolidate remaining Judge decisions in dependency order and retain existing artifact/closure tracking; planning only. Read 6def36a: census answer 21826a0 and B-050 revision 5 are committed. Lane B accepts the census answer. The B-105 cause is now independently source-located in B-097's "Independent duplicate check" at lines 264–291; the earlier supplied-only qualification is discharged. Lane B's revision-5 confirmation in B-050 discharges the timing condition. No new technical planning finding is raised.
+
+### What you need
+
+#### Parent-first Judge decision table
+
+| Order / dependency | Decision now / accept criterion | Reject or hold criterion | Follow-up phase |
+|---|---|---|---|
+| 1. Scope and custody | Accept corrected census/closure semantics: 162 entries, turn reports distinct, existing residual owners; D-413 B-119 custody reason already accepted | Repeat B-119 reason or infer whole-source closure from custody/header counts | Phase 1: planning conditions satisfied; preserve source and residual boundaries |
+| 2. B-050 plan, depends on scope | Accept revision 2/3/4 contracts as amended by revision 5; Lane B confirms timing diff and the two control requirements | Superseded return-time branch treated as operative; tests claimed executed | Phase 1: technical planning readiness satisfied at 6def36a |
+| 3. Implementation unit, depends on accepted plan | Judge accepts/rejects the eight-path scope and P7/P8 limits; records bounded Register act; governance propagation separate | Approval assumed from planning review or global/CI/raw-writer scope added silently | Phase 1: decision still owed before any implementation |
+| 4. Construction and verification, depends on act | Lane A delivers contract-bound artifacts; independent Lane B review accepts valid and refusal outcomes, final guarded sync/release/health and unpublished repeat | Generation-only proof, self-verification, two live releases or stale source bindings | Phase 1: future authorized execution and review |
+| 5. Child and parent closure, depends on evidence | B-050 disposition then B-077 final SC8 review; required parallel child evidence; source-specific parent dispositions, fresh tracker/ledger review and GR-007 conclusion | Parent closes before required children or independent U03/DoD/P15 requirements vanish | Phase 1: Gate 2/Phase 1 conclusion last; held SM06/Phase 3 work keeps its own selection |
+
+**The concrete eight paths:** scripts/graphify/guarded-rebuild.mjs; scripts/fixtures/graphify-guard.test.mjs; CLAUDE.md; GEMINI.md; docs/governance/agent-rules-reference.md (framing header only, archive preserved); .agents/workflows/graphify.md; .claude/skills/sync-docs/SKILL.md (§7/§9); docs/graph-fragments/README.md (§5). Register/Build Spec/Inventory propagation is a separately scoped act. P7 confines destructive recovery proof to disposable fixtures; P8 stops the unit on recurrence of the known flake. This is a proposed scope, not execution authority.
+
+#### Critical artifact completion criteria
+
+| Artifact / consumer | Required contents | What establishes completion |
+|---|---|---|
+| Operative plan / Lane A construction | Named revision chain, exact paths, frozen source/refs/tool/config/sidecars, selection oracle, capture/refusal/recovery and producer projections, exclusions and DoD | Current specification accepted in this review; Judge act still owed for execution |
+| Run evidence / independent verification | Stable positive control, reached cutoff/omitted/invented/history/schema refusal cases, recovery/retry outcomes and source-bound receipts | Actual authorized outcomes independently reviewed; a test definition is not a result |
+| Release/repeat evidence / artifact integrity | Exact-byte reviewed manifest/graph/bundle, final guarded publication and health, B0 original baseline, R1 first release and C2 disposable unpublished candidate | All specified comparisons/receipts pass; no second live publication required |
+| Closure records / Judge and dependent parents | Receiver answer, source-specific disposition/evidence, retained residual owners, ledger receipts and fresh clearance derivation | Required child obligations meet their own rules; lifecycle, custody and Gate 2 remain distinct |
+
+#### Lane A follow-up
+
+1. Receive this confirmation in B-050/B-154; keep the answered timing/census conditions closed as planning findings. Only Lane A writes its receiver answer.
+2. Present the current operative plan and source revision with the exact eight paths, DoD, exclusions and separate propagation. Do not rewrite the already accepted contracts merely to repeat the review.
+3. Put the concrete unit and P7/P8 choices to the Chief Editor/Judge for a bounded Register act. The Judge may reject or narrow the proposal; no execution begins from this review.
+4. After a later act, execute the agreed plan, retain clause-bound artifact receipts, complete guarded sync/proof and obtain independent Lane B verification.
+5. Disposition each source on its own evidence, reconcile B-077 and dependent parents, then re-derive/review the existing clearance tracker. Preserve U03's own selection and open DoD rows; B-136 P15 still depends on SV2-DOD-06.
+
+**Chief Editor / lane concerns:** A's producer facts and B's history/schema/timing gaps are addressed in the specification; runtime delivery is still unproven. No new C finding or CI acceptance is supplied. Do not promise external raw-writer exclusion, authenticated reviewer identity, hosted/CI readiness, full five-gate enforcement or WordPress delivery from this unit. Known proof failures and their success criteria remain in the preceding review; revision 5 now specifies the timing safeguard correctly. There is no basis to assert inevitable business failure from these planning records.
+
+**Tracking:** no new layer or handoff number. B-050 owns technical plan/proof/disposition; B-154 owns consolidation; B-077 owns final reconciliation; SV-002 §2.3.2 records scoped reviews and §2.3.1 records clearance; GOV-RES-001 and the receiving product packets retain residual obligations. B-154 stays Open and B-050 stays Applied.
+
+### What you did instead
+
+Read-only Graphify query and current handoff/drift checks pass at 6def36a; no governed drift or sync need is identified. Lane B's bun run check cannot start (CouldntReadCurrentDirectory); Lane A's reported 19/19 result remains separately attributed, not a current Lane B full-suite result. Only review text is appended. No build, new Judge act, receiver/header/DoD/tracker change, graph mutation or push.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Lane A census answer and revision 5 technical planning readiness | Phase 1: reviewed conditions discharged; preserve scoped acceptance |
+| Approve-with-conditions | Proposed prevention implementation unit | Phase 1: Judge accepts/rejects eight paths and P7/P8 and records bounded authority; separate propagation |
+| Defer | Construction, verification, source/parent closure and Gate 2 | Phase 1: authorized execution, independent evidence and respective dispositions; held work in its own selected phase |
+| Reject | Another answer loop for satisfied conditions, automatic execution or blanket closure | Phase 1: hand over the ready plan; retain artifact completion requirements |
