@@ -147,6 +147,9 @@ PR #2 comment, `SV-002` acceptance and the `V1-SM05` unblock remain separate Jud
 **`D-401` (2026-10-03) — `GR-012` observation: no writer seen, accepted by Judge reason** (31-minute window accepted
 explicitly). Lane B verifies. `V1-SM05` stays `BLOCKED`.
 
+**`D-425` (2026-10-06) — `B-050` stage F3 work order: guarded live publication and runbook adoption (five paths; handoff-only
+fast-forward source rule; no fallback; five ordered receipts).** Tooling only; no V1 scope, sequence or DoD change. `V1-SM05` stays `BLOCKED`.
+
 **`D-424` (2026-10-06) — `B-050` F2 corrections (fixture boundary, hash-bound names, full edge parity, source re-check at
 publication) and changed-symbol description review.** Tooling only; no V1 scope, sequence or DoD change. `V1-SM05` stays `BLOCKED`.
 

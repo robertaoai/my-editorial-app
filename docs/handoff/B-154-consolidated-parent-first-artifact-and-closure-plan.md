@@ -1290,6 +1290,14 @@
   - **Drift:** governed intent is synced at `40429f8`; this is handoff-only.
 
   B-154 stays Open; no Resolution is recorded.
+
+  **Answered 2026-10-06, read at `7420c27`.**
+  - The F3 plan review is complete (Lane B `3578fe9`).
+  - **The Judge:** "Issue D-425 now". `D-425` is registered with its Build Spec and Inventory paragraphs.
+  - Construction follows within the five paths, and stops at receipt 1 for Lane B review.
+  - B-050/O1, the parents and Gate 2 are unchanged.
+
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38

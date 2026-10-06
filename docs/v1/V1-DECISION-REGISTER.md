@@ -27584,3 +27584,71 @@ Lane A is `Active`. Pushing is not authorized.
 | `SV-002.md`, `GOV-RES-001.md`, Modular_PRD, fn-specs, SPECS, rule files, Phase Closure, frozen sources | — unaffected |
 | **Encyclopedia** | unaffected |
 | **Graphify** | One sync after the implementing commit, released after Lane B's review |
+
+## 5.14e250 `D-425` — B-050 Stage F3 Work Order: Guarded Live Publication and Runbook Adoption
+
+**Authority: the Judge, directly to Lane A, 2026-10-06**, in chat: "Issue D-425 now". It follows Lane B's acceptance
+of the composite F3 plan (`3578fe9`, `7420c27`). Lane A is `Active`. Pushing is not authorized.
+
+### The decision
+
+1. **The plan:**
+   - B-050 F3 plan revision 2 (`1708752`);
+   - with revision 3's replacements (`10c32ce`);
+   - with revision 3b's amendments (`7f27384`).
+
+   Lane B accepted it as planning review at `3578fe9`. Its accepted contracts are the construction inputs:
+   - live entry checks over the shared F2 transaction core;
+   - the `prepare` / `publish --review <commit>` / `recover` commands, the durable work states and their exit codes;
+   - the typed acceptance record that the review commit itself must introduce, with exact ordered-key and type
+     checks, frozen into the journal and both release receipts;
+   - the owner and exclusive-claim rule (an unknown owner is never treated as dead);
+   - same-volume staging;
+   - the bootstrap baseline: graph `35541b33…`, its 583-file map, `guard-treeDigest-v1` `1add761f…`, released at
+     `6a74c8e`; then the predecessor chain of releases;
+   - the full outcome, exit and message table;
+   - the planned test cases.
+2. **Paths, five only:**
+   - `scripts/graphify/guarded-rebuild.mjs`
+   - `scripts/fixtures/graphify-guard.test.mjs`
+   - `.claude/skills/sync-docs/SKILL.md` **§7 and §9**
+   - `docs/graph-fragments/README.md` **§4 and §5**
+   - `scripts/checks/docs-drift.mjs` (its fix-it guidance)
+3. **Source rule (amends `D-424` R4, at publication only):** the Judge's "Handoff-only fast-forward". Publication
+   accepts a HEAD that fast-forwards from the analyzed HEAD only when:
+   - every intervening commit touches only `docs/handoff/`;
+   - the tree outside `docs/handoff/` is unchanged;
+   - the branch, origin, upstream, config and every other ref are unchanged;
+   - the working tree is clean.
+
+   Every other change is still refused before the journal.
+4. **No fallback** (the Judge): the manual D-409/D-410 route is retired from the runbooks and the docs-drift
+   guidance. "No fallback" means no bypass of the guard, not guaranteed restoration.
+5. **Five receipts, in order:**
+   1. fixture and source readiness (Lane B review of the implementing commit);
+   2. Lane B's exact-byte acceptance record for the first candidate, prepared at the final authorized source;
+   3. the guarded release to the real live target;
+   4. post-publication full health. **19/19 is claimed only here.** Before it, docs-drift reports the expected stale
+      graph;
+   5. Lane B's independent F3 checkpoint acceptance.
+
+   Each receipt is separate; none implies the next.
+6. **Excluded:**
+   - no push, dependency, Git hook, CI (Lane C) or global Graphify change;
+   - the raw tool stays defective, and the lock does not exclude raw writers (a documented limit, not prevention);
+   - the live-owner test flake keeps its recurrence trigger;
+   - no B-050 disposition, no B-077 review, no DoD box, no tracker change.
+7. **After F3:** independent whole-v4 prevention proof, then B-050's source-specific disposition, then B-077's final
+   review, each by its own act.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e250 |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ `D-425` paragraph (tooling; no V1 scope, sequence or DoD change) |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-425` paragraph; no file added or retired |
+| Tooling and runbook paths (item 2) | Follow: the implementing commit(s) |
+| `SV-002.md`, `GOV-RES-001.md`, Modular_PRD, fn-specs, SPECS, rule files, Phase Closure, frozen sources | — unaffected |
+| **Encyclopedia** | unaffected |
+| **Graphify** | The implementing change's own sync is the first guarded publication (receipts 2–4) |

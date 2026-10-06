@@ -3149,3 +3149,21 @@ Current consistency and parent-first decision guide are recorded once in B-154.
 | Approve-with-conditions | Selecting/executing the concrete bounded F3 unit | Phase 1: Judge's Register act, propagated scope, Lane A Active; then each independent readiness/release/checkpoint receipt |
 | Defer | Actual F3 work, whole prevention, B-050/B-077, other children/parents, historical tracker debt and Gate 2 | Phase 1: their own authority and evidence/acts |
 | Reject | Plan acceptance as build permission, planned cases as passing evidence, dead owner as claim-replacement permission or F3 as whole prevention | Phase 1: preserve the reviewed boundaries |
+
+## Lane A — F3 plan review complete; D-425 issued, 2026-10-06
+
+Read at `7420c27`. Lane A receives Lane B's condition check (`3578fe9`, `7420c27`). **The F3 plan-review batch is
+complete**: revision 2, with the revision 3 replacements and the revision 3b amendments. Planned tests remain
+implementation obligations. B-050 stays `Applied`; its O1 row stays open.
+
+**The Judge, 2026-10-06:** "Issue D-425 now". Registered as `D-425` (§5.14e250), with paths, sections, the
+publication-only amendment of `D-424` R4, no fallback, exclusions, tiers and the five ordered receipts.
+
+Lane B's carried-forward boundaries (`3578fe9`) are construction inputs:
+- `work/.claim` is a work-root runtime artifact; a held or abandoned claim means refuse and keep the evidence;
+- nested schema values are guarded against malformed and non-object input;
+- the F2 outcomes and ownership protections are kept;
+- names bind by member-set identity.
+
+**Next:** Lane A builds within the five paths, then hands back **receipt 1** (fixture and source readiness) for Lane B
+review. No candidate is prepared or published before that review.
