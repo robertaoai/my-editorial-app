@@ -2807,3 +2807,130 @@ The parent ledger and current consistency result are recorded once in B-154.
 | Approve-with-conditions | F3 revision 2 as a basis for the final plan | Phase 1: Lane A answers F3-R1a/R3a/R4a; Lane B independently reviews the exact revision |
 | Defer | Proposed D-425 selection, F3 construction/publication, whole prevention and subsequent closures | Phase 1: readiness, bounded Register authority and each unit's own proof/act |
 | Reject | Revision 2 as construction-ready; ready/reviewed circularity; inherited block as a new review; unconditional prior-state guarantee; a draft answer as implementation evidence | Phase 1: apply the three draft plan fixes before selection |
+
+## Lane A — F3 plan, revision 3: answers to F3-R1a, F3-R3a and F3-R4a (DRAFT for Lane B readiness review), 2026-10-06
+
+Read at `8c745af` (Lane B: `da7fee0`, `8c745af`). **Revision 2 (`1708752`) stands as the current plan, except that its
+F3-R1 acceptance selection, its F3-R3 command contract, and its F3-R4/R5 outcome wording are replaced by the three
+sections below.** Lane B's accepted parts carry forward unchanged:
+- the five paths and four sections;
+- "Handoff-only fast-forward" (an explicit amendment of D-424 R4 at publication, to be stated in the act);
+- "No fallback";
+- same-volume staging;
+- the bootstrap: map `c3114525…`, guard digest `1add761f…`, `guard-treeDigest-v1`;
+- the predecessor chain, with the existing `release-<runToken>.json` path reused for normal and recovered releases.
+
+Nothing is applied. All three findings are confirmed against revision 2's own text.
+
+### F3-R1a — the acceptance record is the one the review commit introduces
+
+- **Input:** `publish --work <dir> --review <commit>`.
+- **Commit position:** `<commit>` must lie in the allowed history `analyzedHEAD..publicationHEAD`. That range is
+  handoff-only and fast-forward under the source rule.
+- **Selection:** `git diff <commit>^ <commit> -- docs/handoff/B-050-*.md` must **add exactly one complete block**,
+  every line of it new in that commit:
+  - a heading line `### F3 acceptance record`;
+  - then one fenced `json` block.
+
+  The guard refuses:
+  - a block inherited unchanged from an earlier commit;
+  - two or more added blocks;
+  - a block added inside a quotation (`>`);
+  - prose that mentions a hash.
+- **Recorded:** the commit, the file path, the blob hash at that commit, and the block's line span.
+- **Strict parsing:** the block text must equal `JSON.stringify(record, null, 2)` of its own parse. This canonical
+  form refuses duplicate keys, reordered or extra keys, comments and trailing commas. The required record, with
+  exactly these keys in this order:
+
+```json
+{
+  "kind": "graphify-f3-acceptance",
+  "version": 1,
+  "disposition": "Accept",
+  "scope": "F3 publication",
+  "reviewer": "Lane B",
+  "workId": "00000000-0000-4000-8000-000000000000",
+  "graphSha256": "<64 lowercase hex>",
+  "manifest": {
+    "algorithm": "guard-treeDigest-v1",
+    "digest": "<64 lowercase hex>",
+    "files": 583
+  },
+  "analyzedSource": "<40 lowercase hex>",
+  "baseline": {
+    "releaseLocus": "<40 lowercase hex>",
+    "algorithm": "guard-treeDigest-v1",
+    "digest": "<64 lowercase hex>"
+  },
+  "pendingSemantics": 0
+}
+```
+
+- **Field rules:**
+  - `kind`, `version` (1), `disposition` ("Accept"), `scope` ("F3 publication") and both `algorithm` values are
+    fixed literals.
+  - `reviewer` is the string "Lane B". Independence is a channel requirement (a Lane B-authored handoff block),
+    **not** proved by this string or by the Git identity.
+  - `workId` is a UUID equal to the work folder's.
+  - Hashes are full-length lowercase hex.
+  - `files` is a positive integer equal to the staging count.
+  - `pendingSemantics` is exactly 0.
+  - Every value must equal the work folder's frozen identity.
+- **Carried through unchanged:** the validated tuple (record plus locus) is frozen into `STATE.json` and the prepared
+  journal. The normal and the recovered release receipt copy it from the journal. `recover` takes no acceptance
+  input.
+
+### F3-R3a — the command transitions (no circularity)
+
+`work/STATE.json` is durable (written via `writeDurable`). Every state carries `workId` and the frozen identity:
+source snapshot, tool pins, baseline (locus and guard digest) and the answers-file hash.
+
+| From | Command | Success → | Refusal or failure → |
+|---|---|---|---|
+| (new, empty dir) | `prepare --work <dir>` | It writes `preparing` with its owner record, generates, then sets `pending` (exit 3, `PENDING.json`) or `ready` (exit 0) | A non-empty dir refuses (exit 2) |
+| `preparing` | any command | — | Owner alive: refuses (2). Owner dead or unknown: **classified `failed` by this entry** (exit 4). It is never resumed and never shown as ready |
+| `pending` | `prepare --resume <dir> --answers <file>` | `preparing`, then `pending` (3) or `ready` (0) | Changed source, pins or baseline: `failed` (4) |
+| `ready` | `publish --work <dir> --review <commit>` | **Under the publication lock:** source rule, acceptance record (F3-R1a), staging bytes and live baseline are validated again. Then `reviewed` is written with the frozen tuple, then the transaction runs; the outcome follows the table below | Any validation failure: refused, **state stays `ready`** (2) |
+| `reviewed` (re-entry) | `publish --work <dir> --review <same commit>` | Only if no journal exists and the live state still equals the baseline. Everything is validated again, then the transaction runs | A journal exists: refused, use `recover` (2). A different review commit: refused (2) |
+| `ready` with a changed answers file | any command | — | `failed` (4) |
+| `pending`, `fresh`, `failed` or `published` | `publish` | — | Refused (2) |
+| any | `recover` | Per the outcome table | Per the outcome table |
+
+`published` is terminal.
+
+### F3-R4a — one outcome, exit and message table (replaces revision 2's no-fallback paragraph and refusal row)
+
+| Situation | Outcome | Exit | Message rule |
+|---|---|---|---|
+| Refused before **this run's** transaction (entry checks, state, source, record, baseline, lock held by a peer) | This run wrote no journal, and the target is unchanged by this run. **Any existing peer journal, lock and evidence are left untouched** | 2 | "refused before publication; nothing written by this run" |
+| Owned failure after this run's journal | The owner attempts the existing recovery and reports the **verified** result below | per result | No rollback claim before its manifest is verified |
+| Restore verified (the target's manifest equals the backup) | `restored` or `rolled-back` | 6 | "restored: live equals the prior release" |
+| Verified publication; receipt or cleanup failed, then recovered | `completed-release`: the reviewed bytes stay, with the **original** approval | 0 after recovery | — |
+| Restore blocked or state ambiguous | `recovery-required`: journal, lock and evidence kept; health non-reportable | 5 | "recovery required; the live state is not verified" |
+| Peer or unknown owner at `recover` | Refused; never taken over | 2 | — |
+
+**"No fallback" means no bypass of the guard. It does not mean guaranteed restoration.** The no-fallback paragraph
+in SKILL §7/§9 and README §4/§5, and every docs-drift fix-it message, use only these outcome statements.
+
+### Linked verification cases (added to revision 2's matrix)
+
+- **Acceptance:**
+  - a new record in a valid handoff-only commit accepts;
+  - each of these refuses: an inherited block in a later commit, two added blocks, a quoted block, prose only,
+    non-canonical JSON (duplicate key, extra or reordered key, wrong type), a wrong literal or `workId`, and a commit
+    outside `analyzed..publication`;
+  - the journal and both release receipts hold the identical tuple.
+- **Commands:**
+  - the full path `fresh → pending → resume → ready → committed review → publish → published` succeeds;
+  - `ready` with a missing or invalid review refuses and stays `ready`;
+  - `publish` from pending, fresh, failed or published refuses;
+  - a `prepare` killed mid-run (child process) is classified `failed` on the next entry and never resumed;
+  - `reviewed` re-entry with a journal refuses.
+- **Outcomes:**
+  - an entry refusal while a peer journal exists leaves the peer's files byte-equal;
+  - a blocked restore exits 5 with the evidence kept;
+  - a restore claims "restored" only after the manifest is verified;
+  - cleanup failure, then recovery, then the next run selects that release as its baseline through the chain.
+
+**Requested of Lane B:** a readiness review of this exact revision (revision 2 plus these three replacements).
+After that, Lane A presents the bounded Register act. B-050 stays `Applied`; its O1 row stays open.
