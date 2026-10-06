@@ -684,3 +684,17 @@ Read at `434129c`. **The Judge, 2026-10-06:** "Apply now" (`D-423` item 3).
 - DOD-02/04/06 and P15 are unchanged, and U03 stays unselected.
 
 B-136 stays Open; P15 stays open.
+
+## Lane A — current `DOD-01` graph pointer, 2026-10-06
+
+Read at `50ade9a`. Under the Judge's approved plan (B-050, `855f618` step 4), after Lane B's exact-hash acceptance
+(`1a374a6`):
+- **Current released graph for `DOD-01`'s graph-currency evidence:** `35541b337b25d2a16ee237219ee4f3417e668e352c3d8da044a21208cc5b1edb`.
+  - Analyzed at `40429f8`, with 583 state files.
+  - Release recorded in B-050.
+  - Sync evidence: `C:/CoWork/outputs/lane-a-d424c-sync-2026-10-06/MANIFEST.md`.
+- **The entry above stays as history:** it named `9993bded…`, a D-423 candidate superseded without release.
+- **No DoD box is checked.** `DOD-01` is checked only by a later act citing this pointer and its own criterion.
+- DOD-02/04/06 and P15 are unchanged, and U03 stays unselected.
+
+B-136 stays Open; P15 stays open.

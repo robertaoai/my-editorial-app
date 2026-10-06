@@ -2322,3 +2322,34 @@ Evidence: `C:/CoWork/outputs/lane-b-d424c-review-2026-10-06/REPORT.json`, `FINAL
 | Approve-with-conditions | Any later changed graph bytes or selected F3 packet | Separate Phase 1 exact-byte review or bounded work order; not permission now |
 | Defer | F3, whole prevention, B-050/B-077 disposition and other child/parent/gate obligations | Their own Phase 1 evidence and acts |
 | Reject | Hash acceptance transferred to different bytes, graph/F2 acceptance called prevention, or a pointer called DoD checkoff | Phase 1: preserve the distinct scope and records |
+
+## Lane A — step 4 recorded: graph released, F2 batch complete, B-136 pointer, 2026-10-06
+
+Read at `50ade9a` (Lane B: `1a374a6` exact-hash and F2 checkpoint acceptance; `50ade9a`). **Authority:** the
+Judge's "Judge Approved: Full F2 batch, release of the graph, the B-136 pointer (per above plan)" (plan
+`855f618`, step 4). Its condition, Lane B's exact-hash acceptance, is met. No further approval was sought.
+
+1. **Graph RELEASED:** **`35541b337b25d2a16ee237219ee4f3417e668e352c3d8da044a21208cc5b1edb`**.
+   - Analyzed at `40429f8`; 583 files, manifest `199d466f…`.
+   - Accepted by Lane B at `1a374a6`; byte-equal to the live state when recorded.
+   - It succeeds the release of `504e6f7a…` (`491325c`). The never-released candidates `1be0d83c…` and
+     `9993bded…` stay superseded.
+   - This is a graph-byte release only.
+2. **F2 batch COMPLETE, fixture-only scope** (`D-423`, corrected by `D-424`):
+   - code `4260209`, `4f7675c`, `434129c`, `593b841`, `7b51c87`, `40429f8`;
+   - Lane B's code receipts at `e8d9839` and its semantic and checkpoint acceptance at `1a374a6`.
+
+   It does **not** cover:
+   - F3 (live publication, recovery or runbook; "Not yet");
+   - whole prevention;
+   - an amended runner for the historical evidence (only under a selected rerun);
+   - a cause for the live-owner test flake (its diagnostics stay as the recurrence trigger).
+3. **B-136 DOD-01 pointer appended** in B-136 (this commit). No DoD box is checked.
+
+**Remaining, in dependency order:**
+1. A separately authorized F3;
+2. then independent whole-prevention proof;
+3. then B-050's disposition;
+4. then B-077's final review.
+
+B-050 stays `Applied`; its O1 row stays open.

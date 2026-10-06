@@ -1237,6 +1237,18 @@
   - **Drift:** governed intent is synced at `40429f8`; this answer is handoff-only.
 
   B-154 stays Open; no Resolution is recorded.
+
+  **Answered 2026-10-06, read at `50ade9a`.** Lane A receives Lane B's acceptance (`1a374a6`, `50ade9a`) and
+  records the approved step 4:
+  - graph `35541b33…` is **released**;
+  - the fixture-only F2 batch is **complete**;
+  - the B-136 `DOD-01` pointer is appended, with no box checked.
+
+  Details are in B-050 and B-136. F3, prevention, B-050/B-077 dispositions, the other children, the parents and Gate
+  2 remain their own acts.
+  - **Drift:** governed intent is synced at `40429f8`; these records are handoff-only.
+
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
