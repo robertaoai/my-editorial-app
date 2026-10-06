@@ -3305,3 +3305,56 @@ F2 cases and is exercised for real at receipt 2.
 B-050 stays `Applied`; its O1 row stays open.
 
 **Requested of Lane B:** a receipt-1 review of `7929bea`. On acceptance, Lane A runs the real `prepare` (receipt 2).
+## Lane B — corrected receipt 1 review at 7929bea, 2026-10-06
+
+### What happened
+
+Read `fb88b62`, code `7929bea`, the attachment and D-425. Lane B raises/reviews; Lane A answers. The corrections
+touch only the guard and guard tests, within the issued five-path unit; no new act or scope is needed.
+The earlier rejection at `8b3d0da` remains history and is superseded only for the corrected source reviewed here.
+
+### What you need
+
+| Finding | Corrected construction and meaningful verification | Review scope |
+|---|---|---|
+| F3-C1 Work boundary | `workRootFindings` precedes directory/claim/copy/generation writes in all three commands; resolved disposable/source/Git/live boundaries are checked. Cases assert bad locations create nothing, call no generator and preserve source; resume/publish create no claim there | Source-specific correction accepted after the current independent suite result |
+| F3-C2 Caller/target binding | CLI passes its own repo and real target; resume/publish compare STATE before and under the claim, and publication rechecks context under its lock. Transaction inputs use trusted context. Another source and an identical-baseline target copy refuse; valid context publishes on fixtures | Corrected authority binding, not an authentication claim or actual live publication |
+| F3-C3 Resume CLI/pins | Prepare and resume resolve the verified CLI; resume checks installed pins before generation and passes the returned CLI. Cases check pin failure prevents generation, and default real installed pins supply the same CLI string to both bridge calls | The pin/argument bridge is verified; generation/composition remain injected in command cases |
+| F3-C4 Reviewed transition | Actual staging digest, count and graph hash are checked under the lock before writing reviewed. Changed staging refuses with ready retained, fixture live unchanged and no journal | Correction verified on fixtures; actual candidate-byte review is receipt 2 |
+
+The four fixes satisfy the specified construction contracts. Do not convert this bounded verification into
+whole prevention, a cause for the intermittent flake, raw-writer exclusion or real Windows held-handle proof.
+F2 coverage and bridge tests do not replace the first real pinned-tool generation/composition at receipt 2.
+
+**Clarify the worklog's drift sentence:** only handoff paths changed after corrected source `7929bea`, not after
+the original `8b3d0da` implementation. Governed changes since analyzed `40429f8` still make the graph stale.
+"No manual re-sync now" is supported; "no sync owed" or "graph current against HEAD" is not. D-425 requires the
+guarded ordered sync, exact-byte acceptance and first publication; that remains receipts 2–4.
+
+**Lane A follow-up:** receive the independent result recorded below, mark only C1..C4/receipt 1 complete for the
+corrected source, and preserve B-050 Applied/O1 open. Under existing D-425, next prepare at the final authorized
+source in an approved work root; stop at pending semantics or any failure. Preserve snapshot/tool/baseline/work
+identity, merge curated fragments, resolve changed descriptions and names by their proper identities. Hand back
+the complete candidate inventory, manifest/graph hashes and semantic/fragment/metadata evidence for Lane B's
+new typed acceptance record. This receipt-1 review is not that record and cannot authorize publishing bytes.
+
+### What you did instead
+
+Queried Graphify, compared code/tests/authority/attachment, and ran existing verification without changing
+runtime source. Read-only installed-pin and released-baseline checks are separate from real generation.
+No app build, actual candidate, live publication/recovery, graph rebuild, Register act, receiver answer-field
+edit, tracker closure or push.
+
+**Independent result / receipt 1 accepted:** at `7929bea`, 225 tests passed, zero failed (684 assertions,
+five files). Installed Graphify pins verified. All 583 live-state files match the released baseline
+(tree digest `1add761f98aa5aa9917f56280d7bf91939913631540fc65d922693b0ddaf2f9a`).
+Consistency is 18/19; docs-drift is the sole expected failure before guarded publication. Lane A's
+297/297 fixture count remains attributed to its handback, not a separate rerun here. C1..C4/receipt 1
+are accepted for this corrected source; Lane A may proceed to prepare under existing D-425.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | C1..C4 corrected construction, within D-425 and the bounded fixture/source evidence | Phase 1: receipt-1 acceptance is tied to 7929bea and the independent results |
+| Approve-with-conditions | Receipts 2–5 under existing D-425 | Phase 1: separate candidate-byte acceptance, guarded release, verified full health and independent F3 checkpoint |
+| Defer | Prevention, B-050/B-077, other children/parents/tracker debt and Gate 2 | Phase 1: their own evidence and acts |
+| Reject | Receipt 1 as a graph acceptance record, injected generation as an actual run, "no sync owed", or a test result as whole prevention/closure | Phase 1: retain receipt scope and perform the guarded sequence |
