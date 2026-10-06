@@ -6356,3 +6356,56 @@ canonical edit, acceptance record, tracker/header/receiver-answer change, new Re
 | Approve-with-conditions | Deferred runbook tracking text and next receipt review sequence | Phase 1: Lane A records owner/trigger/evidence; independent semantic/state acceptance before publication |
 | Defer | Exact-byte acceptance, receipts 3–5, canonical wording, prevention and child/parent closure | Phase 1: each at its named trigger and own evidence/act |
 | Reject | Reasking the settled choice, treating this note as acceptance, or conflating answered limit with completed runbook/authentication/prevention | Phase 1: preserve separate artifact completion states |
+
+## Lane B — receipt 2 complete: parent-first handback and remaining decisions, 2026-10-06
+
+### What happened
+
+Completed the outstanding independent candidate review requested in Lane A's worklog, read at 7b4a568.
+B-050 owns the review evidence and exact-byte acceptance record at **932b45333327ed6d0418ab19cd9e82f4e60e0102**.
+Lane B raises/reviews; Lane A answers and publishes only against that named review commit under existing D-425.
+This is acceptance of existing candidate bytes, not a build, publication or F3 completion.
+
+### What you need
+
+| Parent / dependent artifact | Complete now | Next Accept criterion / owner | Reject or hold |
+|---|---|---|---|
+| Gate 2 -> GR-007 -> B-150 -> B-153/B-154 | Existing bounded receipts; parents still open | Child obligations and six-row historical debt reconciled, then applicable acts | Parent closure inferred from this review |
+| B-050 -> D-425 receipts 1–2 | Corrected receipt 1; exact candidate f27fab81 / manifest 81d16154 independently accepted at 932b453 | Preserve source/work/hash and bounded policy | B-050 O1/prevention called closed |
+| Receipt 2 -> receipt 3 | Review record committed; live not published | Lane A uses exactly 932b45333327ed6d0418ab19cd9e82f4e60e0102 and the same candidate bytes with valid source/baseline | Changed bytes, provenance or governed inputs |
+| Receipt 3 -> health (4) -> checkpoint (5) | Outstanding | Verified post-state/metadata/fragments/names/cleanup and 19/19, then Lane B independent checkpoint | Release alone as health or F3 completion |
+| F3 -> prevention -> B-050 disposition -> B-077; parallel children -> parents | Outstanding | Own authorized evidence/acts; preserve each parallel item's owner/trigger | Universal prevention, only-one-blocker or invented dependencies |
+| G-F3-8 deferred wording | Operative limit and tracking complete, canonical text pending | Lane A applies it at next governed-sync trigger with fresh candidate/review/release/health | Clearing debt by editing governed text then publishing old candidate |
+
+**Lane A steps:** acknowledge receipt 2 and preserve its identity; publish under D-425 with the full review commit
+above (3); prove full health separately (4); hand back for independent checkpoint (5); stop at the F3 boundary.
+No additional general Judge approval is needed for these issued steps. A failure stops the affected step and
+retains evidence; recovery follows the owned guard route, never a manual publication bypass.
+
+**Evidence-language fix:** the approved path scan covers promoted/rebound data and graph node fields.
+The 44 retained historical files containing old paths are byte-equal to baseline under the approved retain policy.
+Do not restate zero promoted findings as zero paths in the full 583-file folder. The next release/health receipt
+must preserve this scope, G-F3-8's unauthenticated channel limit and the separate prevention obligation.
+
+The Chief Editor's next later decisions concern actual disposition or changed scope; receipt 2 is now delivered
+by the independent actor, not left waiting on Lane A. No Lane C finding or CI acceptance is inferred. Critical
+artifacts now completed: source-backed descriptions, member-set names, fragment/state evidence and the bound
+acceptance record. Release journal/receipts, health and checkpoint remain the next verification artifacts.
+
+### What you did instead
+
+Independent retained-symbol AST/text comparison (78/78), changed/new description review (57), complete new
+member-list review (20), 105 reused name/member bindings, 139/139 fragment parity, lifecycle and classification
+checks, retained-byte comparison and path scans. All 135 description answers are applied, zero pending semantic
+files, zero unknown/multiply classified files; exact hashes match. Evidence is in
+`C:/CoWork/outputs/lane-b-d425-receipt2-evidence.json`; no app build or actual graph command ran here.
+Consistency at 7b4a568 is 18/19, docs-drift alone failing; live remains the bootstrap graph analyzed at 40429f8.
+Guarded sync remains owed through publication and health. No canonical edits, live publish/recover, tracker or
+receiver-header closure, DoD change, new Register act or push. This handoff-only pass does not require a rebuild.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Receipt 2 at 932b453; exact candidate identity and bounded semantic/state evidence | Phase 1: receipt delivered, preserve approved retention and provenance limits |
+| Approve-with-conditions | Receipt 3 under D-425 | Phase 1: named review commit, same bytes, valid source/baseline; health/checkpoint afterward |
+| Defer | Receipts 4–5, wording, prevention, B-050/B-077 and child/parent/Gate 2 closure | Phase 1: ordered evidence, named trigger and applicable acts |
+| Reject | This acceptance as release/prevention, full-folder zero-path claim, changed candidate or self-authored review substitution | Phase 1: keep artifact scopes and exact review binding |
