@@ -6279,3 +6279,72 @@ typed acceptance record, receiver-answer/header edit, tracker closure, new Regis
 | Approve-with-conditions | G-F3-8 draft answer and ordered receipt-2 review plan | Phase 1: Lane A answers; independent provenance and full semantic/state review; new candidate if governed edits occur |
 | Defer | Exact-byte acceptance, release/health/checkpoint, prevention, child/parent closure and Gate 2 | Phase 1: their separate receipts and acts |
 | Reject | Self-review as independence, marker as authentication, candidate readiness as release, or parent closure before child evidence | Phase 1: preserve the artifact and ownership boundaries |
+
+## Lane B — completion clarification after Lane A's G-F3-8 answer, 2026-10-06
+
+### What happened
+
+Effective request: review existing handoff answers, consolidate completed and outstanding artifacts in parent
+order, draft practical gap fixes, and check drift; implementation planning only. Read at `13908c6`.
+Lane A has answered G-F3-8 in B-050 and records the Judge's "Record limit; runbook later" ruling.
+That settles the bounded channel choice; the earlier request for that choice is no longer pending.
+Lane B raises/reviews; Lane A answers. This consolidation is not an F3 exact-byte acceptance record.
+
+### What you need
+
+| Parent / dependent item | Completed evidence | Still owed / Accept criterion | Reject or hold criterion |
+|---|---|---|---|
+| Gate 2 -> GR-007 -> B-150 -> B-153/B-154 | Previous individual receipts only; parents remain open | All child evidence and old tracker debt reconciled, followed by applicable closure acts | Parent closure from a single review or graph release |
+| B-050 -> D-425 receipt 1 | C1..C4 readiness accepted at 7929bea | Preserve source-specific evidence and O1 open | Applied header mistaken for prevention/disposition |
+| D-425 -> G-F3-8 boundary | Lane A's operative channel rule answered at 13908c6; no authenticated identity claimed | Use only the independently delivered Lane B review commit; stop disputed provenance | Shared Git identity, marker or Lane A's own draft used as independent approval |
+| G-F3-8 -> deferred canonical wording | Proposed paragraph accepted as text; runbook edit not applied | Lane A, next governed change's guarded sync, SKILL section 7 and fragment README section 5; exact diff, new analyzed source, candidate review, release and health receipts | Answered limit silently counted as completed runbook propagation |
+| Receipt 1 -> prepared candidate -> receipt 2 | Real preparation and matched 583-file identity complete; current source rule passes | Independent full semantic/state review, then Lane B's own exact-byte acceptance record | Hash equality or this consolidation substituted for semantic acceptance |
+| Receipt 2 -> release (3) -> health (4) -> checkpoint (5) | Outstanding | Reviewed bytes, guarded release, verified full health and independent checkpoint, separately | Different bytes, manual bypass or early F3-complete claim |
+| F3 -> prevention -> B-050 -> B-077; parallel children -> parents | Outstanding within their existing scopes | Separate authorized proof/disposition/review; B-106/U03/DoD/P15 retain their own owners and triggers | Invented B-050 dependency or global closure from F3 |
+
+**Draft tracking fix for Lane A, using existing G-F3-8 rather than another row/entry:**
+"Channel limit: answered and operative at 13908c6. Canonical propagation: pending, owner Lane A;
+trigger the next governed change's guarded sync; targets SKILL section 7 and README section 5.
+Completion evidence: the exact accepted paragraph applied in both sections, with that final source's
+candidate acceptance, guarded release and full health receipts. No authenticated identity or prevention claimed."
+Until that trigger occurs, preserve the debt in the existing answer. Do not edit governed files merely to
+clear this tracking note, or treat the deferred edit as a blocker the Judge has already removed.
+
+**Lane A follow-up:**
+1. Keep the answered G-F3-8 choice and pending canonical propagation separate; no repeat policy question.
+2. Preserve the current ready candidate and frozen inputs. Supply/refer to the complete evidence packet for
+   Lane B's semantic review: 57 changed/new descriptions, 78 retained judgments, 20 member-set names,
+   curated fragment fields, metadata, scanning and state classification.
+3. Answer concrete semantic/state findings if raised. Changed candidate bytes require a new identity and
+   exact-byte review; governed source edits require fresh preparation. Never patch reviewed staging in place.
+4. Only after Lane B delivers its own acceptance-record commit, publish exactly those bytes under D-425;
+   then full health and independent checkpoint. This note supplies no publish review commit.
+5. At the later governed-sync trigger, apply the accepted runbook paragraph and preserve its new sync receipts.
+   Keep prevention and child dispositions separate; close parents from completed children upward.
+
+**Chief Editor / Judge:** the bounded provenance choice is recorded as settled. No new scope/authorization
+question is needed for this consolidation. Revisit only a concrete scope change, stronger authentication
+requirement or later disposition act. Lane A's limitation is explicit; Lane B's independent review remains
+owed; no new Lane C finding or CI clearance is assumed. The critical artifact chain stays construction
+contract/tests -> source-backed semantic evidence -> exact-byte review -> journal/release -> health/checkpoint.
+This tooling chain does not create the still-separate reference-retrieval behaviour or its feature specification.
+
+### What you did instead
+
+Queried Graphify for orientation; read governed authority, current handoffs, candidate answers and selected
+source functions. This is not a claim that every description, retained judgment and member list was independently
+accepted. Read-only recomputation: work 77a606cc-819d-4b8c-9fd2-250355898791 remains ready; 583 files,
+graph f27fab8196c51f89e3ad0f5c14dc4ec9c3b444d474875b9f9e2990c87a9a351c,
+manifest 81d1615459c38804db7a757869210ae867c1869139162ecb5a2719eecbf89c57,
+all equal STATE. Live remains released digest 1add761f98aa5aa9917f56280d7bf91939913631540fc65d922693b0ddaf2f9a.
+Publication source eligibility passes at 13908c6. Consistency results retain the expected pre-publication
+docs-drift failure: live analyzed source 40429f8; eight governed paths changed. Candidate preparation does not
+clear live drift; guarded sync remains owed. No rebuild, app build, prepare/resume, live publish/recover,
+canonical edit, acceptance record, tracker/header/receiver-answer change, new Register act or push.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | G-F3-8 answered bounded limit; existing receipt 1 and independently matched candidate identity | Phase 1: preserve their evidence and scope |
+| Approve-with-conditions | Deferred runbook tracking text and next receipt review sequence | Phase 1: Lane A records owner/trigger/evidence; independent semantic/state acceptance before publication |
+| Defer | Exact-byte acceptance, receipts 3–5, canonical wording, prevention and child/parent closure | Phase 1: each at its named trigger and own evidence/act |
+| Reject | Reasking the settled choice, treating this note as acceptance, or conflating answered limit with completed runbook/authentication/prevention | Phase 1: preserve separate artifact completion states |
