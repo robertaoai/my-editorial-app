@@ -5713,3 +5713,76 @@ identified. Required current consistency result is recorded before these handoff
 | Approve-with-conditions | Later selected F3 plan or changed graph revision | Separate Phase 1 bounded authority/evidence and exact-hash review |
 | Defer | F3, prevention, B-050/B-077, remaining children/parents/Gate 2 and retrieval/article | Their existing Phase 1 selections, proofs and acts |
 | Reject | Treating accepted review as an already written release record, F2 as whole prevention, or B-136 pointer as DoD acceptance | Phase 1: retain individual completion records and scope |
+## Lane B — F3 plan boundary, completion ledger and Judge choices, 2026-10-06
+
+### What happened
+
+Effective request: review Lane A's `199528c` F3 draft, distinguish completed receipts from proposed work,
+identify gaps and draft remedies, and consolidate the parent-first handback using the existing template.
+Lane B raises; Lane A answers. The single detailed review is B-050's "F3 draft review: repair the
+review/publication boundary before selection" (F3-R1..6); this section links it rather than copying the plan.
+That independent review is committed at `632b2cc`; Lane A's response and the revised readiness check remain owed.
+No new tracker, status, resolution or receiver answer field is introduced.
+
+### What you need
+
+The highest parent is **GR-007 reconciliation -> Gate 2**. Its child obligations must be satisfied before
+parent closure; "parent first" is the presentation order, not permission to close a parent before its children.
+
+| Parent / dependency | What is completed | Lane A's next artifact / completion condition |
+|---|---|---|
+| 1. GR-007 / Gate 2 -> B-150 -> B-153/B-154 and their children | Governing authority and prior accepted receipts remain recorded | No parent/gate closure. Reconcile each child's own evidence and acts; completion runs B-153/B-154 -> B-150 -> GR-007 final check -> Gate 2 |
+| 2. B-050 prevention -> F1/F2 foundations | F1 bounded policy; exact graph 35541b33… release, fixture-only F2 completion and B-136 DOD-01 pointer recorded at `6a74c8e` | Preserve those limits: no DoD box checked, no whole-prevention proof, B-050 `Applied` with O1 still open |
+| 3. F2 -> F3 plan -> Judge selection | F3 draft exists at `199528c`; no issued D-425 | Answer F3-R1..6, revise the one plan, receive Lane B readiness review, then present the bounded act and explicit choices |
+| 4. Selected F3 -> construction -> first actual publication -> checkpoint | None completed; draft-only permission does not select construction | Code/fixtures, committed-source/review-compatible flow, exact acceptance tuple, guarded release receipt, post-state/cleanup/health and independent checkpoint acceptance |
+| 5. F3 -> whole prevention -> B-050 disposition -> B-077 | Not completed by F2 or by this draft review | Independent whole-v4 evidence under its own authorized scope, source-specific B-050 act, then B-077's 17-target final review |
+| Parallel children -> parent reconciliation | B-106 custody and P15 draft receipts retain their accepted scope | Named runtime children and U03/DoD/P15 evidence/acts proceed under their own owners; neither track waits on B-050 by default |
+
+**What is unclear or fails by construction:** a hash mentioned in a rejection is not an acceptance receipt;
+the planned same-branch review commit conflicts with unchanged HEAD/refs; resuming a fresh-directory producer
+is undefined; rollback can remain recovery-required; health messages still recommend the raw bypass; and
+an abbreviated digest or arbitrary newest receipt is not a baseline. B-050 owns each remedy and its positive,
+negative and interrupted-run success criteria. These are specification gaps, not newly executed F3 failures.
+
+**Chief Editor / Judge decisions, after the revised readiness review:**
+
+| Decision | Accept proposal | Reject / defer consequence |
+|---|---|---|
+| Complete existing five-path scope | Name SKILL sections 7/9, README sections 4/5 and fifth-path health-guidance replacement | Revise scope before construction; do not silently retain bypass instructions |
+| Manual route | Retire normal/manual fallback once F3 is accepted; retain historical evidence only | Any emergency fallback requires a separate bounded proposal and proof; it is not permission to publish now |
+| Review/source rule | Explicitly select a narrowly bounded review-only advance rule, preserving analyzed source and all other protected inputs, after Lane B review | Keep exact snapshot protection and supply a demonstrably compatible review workflow; current same-branch sequence cannot start as specified |
+| F3 completion | Separate fixture readiness, pre-publication hash acceptance, actual guarded publication and independent post-publication checkpoint | Keep F3 pending if any artifact is absent; no transfer to prevention/closure |
+
+**Step-by-step Lane A follow-up:**
+1. Acknowledge the six B-050 findings in the receiver continuation and revise the current F3 plan only.
+2. Supply construction inputs: review/journal/receipt schemas, source rule, full baseline identity, command
+   states, recovery outcomes and matrix. These also define what independent verification must challenge.
+3. Hand back that revision to Lane B; then present the concrete decisions and proposed Register act to the Judge.
+4. Implement only after selection, bounded authority and Lane A Active. Obtain fixture/source readiness;
+   report expected pre-sync docs drift without calling it 19/19 or skipping a check.
+5. Prepare, obtain exact-byte acceptance, publish through the guard, verify final state and obtain independent
+   F3 checkpoint acceptance. Record source, review, baseline, receipt and hashes together; stop on ambiguity.
+6. Keep prevention, B-050/B-077, parallel children and parent closure separate until their conditions are met.
+
+Lane A supplies the remedy; Lane B supplies independent review. No new Lane C evidence is present, and CI
+remains excluded. A documented raw-writer limit or an unexplained flake is not evidence of universal prevention.
+Retrieval/MMF/community-annotation and article work remain outside this F3 unit; no new requirements are inferred.
+
+### What you did instead
+
+Reviewed source and handoffs and drafted this channel-only review. No implementation, graph rebuild/live
+publication/recovery, Register act, parent/child closure or push. Governed graph source remains `40429f8`;
+all later changed paths through `199528c` are handoff-only, so this review requires no graph sync. A future
+authorized source/runbook change does require the selected sync and fragment re-merge.
+
+**Validation:** `bun run check` passes 19/19 on this handoff-only review; `git diff --check` passes.
+The current closure check still reports the historical tracker at `3488206` as stale with six non-SM05
+rows unclosed. That is a separate parent-reconciliation obligation, not governed-doc graph drift or permission
+to close those rows. No new runtime tests or actual F3 publication are claimed by the consistency result.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Existing F1/F2/release/pointer receipts and bounded F3 direction | Phase 1: preserve source-specific scope and completion records |
+| Approve-with-conditions | Revised F3 plan | Phase 1: F3-R1..6 answered, independent readiness review, explicit Judge choices and bounded Register act before implementation |
+| Defer | F3 execution, whole prevention, B-050/B-077, parallel children, parents and Gate 2 | Phase 1: each requires its own evidence and acts |
+| Reject | Current draft as construction-ready; mention-as-acceptance; unconditional rollback; manual bypass as guarded procedure; F2/F3 as whole prevention | Phase 1: correct the plan and verify the bounded outcomes |
