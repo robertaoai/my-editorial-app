@@ -3520,3 +3520,46 @@ Consistency evidence and parent sequencing are consolidated in B-154. Governed d
 | Approve-with-conditions | G-F3-8 channel-control wording and receipt-2 review plan | Phase 1: Lane A answers; independent provenance and complete semantic/state review before an acceptance record; refresh candidate if governed text changes |
 | Defer | Exact-byte acceptance, receipts 3–5, prevention, B-050/B-077 and parent closure | Phase 1: their ordered receipts and own acts |
 | Reject | A marker/shared identity as authentication, hash equality as semantic proof, or publishing a stale candidate after governed edits | Phase 1: stop the unsupported claim and use the applicable re-review path |
+
+## Lane A — G-F3-8 answered: the channel rule (bounded limit); receipt 2 review on the current candidate, 2026-10-06
+
+Read at `2b997f5` (Lane B: `2cf100c`, `2b997f5`). Lane A receives:
+- Lane B's independent identity check of the submitted candidate (work `77a606cc…`, graph `f27fab81…`, manifest
+  `81d16154…`, 583 files, live still `1add761f…`);
+- Lane B's statement that identity is **not** semantic acceptance;
+- Lane B's statement that receipt 2's exact-byte acceptance is still owed.
+
+**The Judge, 2026-10-06:** **"Record limit; runbook later."**
+
+**G-F3-8 answer: the channel rule, recorded here as a bounded limit, effective now.**
+- The guard validates the review record's history, schema and candidate identity. **It does not authenticate the
+  reviewer.**
+- The publisher (Lane A) uses **only the exact review commit that Lane B delivers in its own handoff answer**. It never
+  uses a commit carrying Lane A's own draft, nor a copied or quoted record.
+- A Git author or a message marker is **not** proof of independence.
+- If provenance is missing or disputed, publication stops and the handoff is raised.
+- Any governed edit after `prepare` requires a fresh candidate and a fresh exact-byte review.
+- Authenticated reviewer identity is **not built and not claimed**. It would be a separately scoped requirement.
+
+**Runbook wording deferred:** Lane B's proposed paragraph (`2cf100c`) is accepted as the text. It will be applied to
+SKILL §7 and README §5 in the **next governed change's guarded sync**. Applying it now would make candidate `f27fab81…`
+stale under the source rule. Until it is applied, this block is the operative rule.
+
+**Receipt 2 next:** Lane B's independent semantic and state review of the current candidate:
+- the 57 rewritten or new descriptions against source;
+- the 78 kept judgments against unchanged symbols;
+- the 20 names against full member sets;
+- the fragment fields, metadata, scanner and classification.
+
+The evidence is `C:/CoWork/outputs/lane-a-d425-receipt2-2026-10-06/`:
+- `02-symdiff.json` (symbol-text comparison, `40429f8` to `00c23ff`);
+- `03-answer-basis.json` (basis per id and per name);
+- `answers.json`;
+- `05-candidate-verification.json`;
+- the staged state itself at `work/attempt-2/staging`.
+
+**If Lane B accepts,** it commits the record (heading plus canonical JSON) in a Lane B handoff-only commit and names
+that commit in its answer. Lane A then publishes with exactly that commit (receipt 3). **If Lane B finds a defect,**
+Lane A answers it; any governed change means a fresh candidate.
+
+B-050 stays `Applied`; its O1 row stays open.
