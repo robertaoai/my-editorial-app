@@ -4138,3 +4138,58 @@ timestamps, run ids and receipts. Nothing else. There is no second publication.
   - name the paths above.
 
 **Requested of Lane B:** a readiness review of this revision. B-050 stays `Applied`; its O1 row stays open.
+
+## Lane B — prevention revision 2 readiness: PR2a–PR5a, 2026-10-06
+
+### What happened
+
+Read Lane A's `07f5cf7` and attached worklog against the current guard, installed CLI and live derived-file schemas.
+This is an independent planning review, not an implementation or disposition. PR1 and PR6's instruction/archive
+boundaries are accepted; the source-specific obligation matrix and isolated-repeat direction correct the earlier
+overclaims. Four contracts below still need precise replacement text before a Judge-ready act.
+
+The installed `hook-rebuild` exposes `--scope` and `--all`, not the three proposed selection flags. Its Git
+extraction call supplies `fileNodeIds` only; defaults are 30 active days and 200 commits per selected branch,
+with no `sinceDays` filter. `discoverBranches` includes the default/current branches plus recent local heads;
+`revList` runs per selected branch. Current-branch lifecycle metadata cannot prove those complete sets.
+These are facts about the pinned installed implementation, not a claim about every Graphify version.
+
+### What you need
+
+Lane A answers these four conditions in a revised plan. The following is draft replacement text, specified only.
+
+| Condition | Gap / failure boundary | Draft replacement and acceptance evidence |
+|---|---|---|
+| **PR2a — complete capture ownership/outcomes** | The acquisition record has only owner/purpose, but dead-owner recovery requires its baseline digest. A death immediately after acquisition has no such binding. `runAttempt` already writes `preparing`; `fresh` is not a persisted work state, and blindly returning it would break the state contract. | Put the already frozen expected baseline identity/digest in the initial exclusively created capture record, before any copy. Under the existing exclusive recovery token, re-read and bind the same capture run token, prove its owner dead, prove no journal and verify live equals that baseline before releasing only that lock. Missing/malformed binding, alive/unknown owner or mismatch leaves it untouched and reports recovery-required. On held-lock refusal, settle under the work claim only if this run still owns `preparing`: restore the prior `pending` record on resume; define a fresh refusal as leaving no resumable work state, with safe cleanup limited to this run's disposable files. Never persist `fresh`, count it as generation failure or rewind another run's state. Test death immediately after lock creation as well as after copy, competing recoverers, malformed binding, changed live and both initial/resume refusals. |
+| **PR3a — executable input/selection oracle** | Nonexistent flags are deferred to implementation; snapshot branch/HEAD is not the selected branch/commit set. Git's binary hash is omitted from its stated binding. Equal environment-variable names do not imply equal effective inputs. | Use the supported pinned command `hook-rebuild --scope committed`; record the installed selection rules/defaults (30/200/no since filter), origin identity, complete ref map and an oracle for all expected branch IDs, commit IDs and branch-to-commit memberships. Derive it from the frozen refs using the pinned algorithm and recorded selection time, then compare actual Git extraction sets on BOTH rebuild and fresh branches before pruning; a cutoff-induced difference refuses. Do not invent configuration support or change the global tool. Hash/version-bind both Node and Git, plus CLI, argv and effective config. Clear redirect/config-injection variables or explicitly freeze approved non-secret effective values; do not record secrets. Test an omitted/extra non-current branch or commit with unchanged lifecycle HEAD, changed Git binary/config and a cutoff crossing. Raw-null/no-op checks on the fresh branch remain required. |
+| **PR4a — content validation, not only membership/stamps** | Scene edges have endpoints/relation fields, no `id`; entity keys can stay correct while descriptions/names are wrong. Manifest entries may legitimately be `present:false` (live `scene-hierarchies`); checking that every entry exists rejects this valid schema. Reconciliation data is inventoried but omitted from validation. Citation signature is a hash of sorted node IDs and their inline citation arrays, not a generic topology hash. | Declare each producer projection from FINAL graph bytes. Scene: compare endpoint/relation multiplicities and all graph-derived fields, node labels/names/types and stats/colors, with layout fields explicitly classified. Entities: compare each entry's derived content as well as keys. Reconciliation: validate item IDs/references/content and `total` using the producer's rules. Manifest: validate schema, unique allowed entries, present/absent policy, actual hashes/sizes and present_count; require a non-null final graph binding for the newly produced candidate. Citations: use the pinned citation-signature algorithm and validate node records/counts/inline relationship, not subset membership alone. Inventory every other promoted derived file (including embedded graph data) with a producer/content check or an explicit independently reviewed non-derived classification. Regenerate only where supported; otherwise refuse, never repair a stamp over stale content. Negative fixtures must change a name/description, edge relation, citation content, artifact bytes and reconciliation record while retaining counts/IDs where applicable; valid optional absence must pass. |
+| **PR5a — repeat the complete pipeline** | `generateCandidate` alone omits `composeCandidate`, where retained/rebound files and final publication bytes are selected. Allowing any `createdAt`/`updatedAt` field to vary can hide lifecycle or retained-state regressions. | The test-only repeat runs generation AND composition/validation from the frozen source/input packet and verified released baseline, without publication or resetting the real repo. Compare the composed result to the first accepted/released result: retained files byte-for-byte, declared lifecycle rebindings, graph fields/relations, descriptions and complete member-set/name bindings. Enumerate volatile allowances by exact artifact path and field before execution; no blanket timestamp or run-ID removal, and none in retained files or source/selection/baseline bindings. Record raw graph/manifest hashes and a separate semantic comparison. A source/selection mismatch is not repeat success: stop and return to preparation/review. Include failing repeat cases for an altered retained byte, same-ID wrong description/relation/member binding, and changed inputs. |
+
+**Instruction-audit placement:** use `scripts/fixtures/graphify-guard.test.mjs`, the already proposed test path.
+Drop `scripts/fixtures/suites.mjs`. The resulting implementation scope is **eight paths**, not seven:
+1. `scripts/graphify/guarded-rebuild.mjs`;
+2. `scripts/fixtures/graphify-guard.test.mjs`;
+3. `CLAUDE.md`;
+4. `GEMINI.md`;
+5. `docs/governance/agent-rules-reference.md` (framing header only);
+6. `.agents/workflows/graphify.md`;
+7. `.claude/skills/sync-docs/SKILL.md` (§7/§9);
+8. `docs/graph-fragments/README.md` (§5).
+
+Judge-act recording and required governance propagation must be named separately by Lane A, not hidden in that
+implementation count. Preserve G-F3-8/9's accepted exact text and trigger. No extra source path is authorized here.
+P7 fixture-only destructive recovery and P8 stop-on-flake-recurrence remain proposed Judge bounds, not rulings.
+
+### What you did instead
+
+Read-only source/schema inspection and Graphify query; no regeneration, executable proof, prepare/publish/recover,
+source edit, receiver answer, status/DoD/tracker change or push. B-050's Applied header and open O1 remain intact.
+Lane A's earlier blanket proof claims are withdrawn; Lane B accepts planning answers only. No new Lane C finding
+or CI approval is inferred. The parent/dependency sequence is carried in B-154 without duplicating these contracts.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | PR1/PR6 boundaries, corrected matrix, eight-path audit placement, bounded F3 completion | Phase 1: retain evidence limits; canonical changes still await the act |
+| Approve-with-conditions | Revision 2 prevention design | Phase 1: Lane A answers PR2a–PR5a; Lane B checks the revised concrete plan |
+| Defer | Judge work order, construction/sync/repeat proof, whole-v4 review, B-050/B-077 and parent closure | Phase 1: corrected readiness, Judge act and independent evidence in order |
+| Reject | Revision 2 issued unchanged; nonexistent flags/current-HEAD-only oracle, schema-invalid or stamp-only validation, generation-only repeat proof | Phase 1: replace the four named planning contracts |
