@@ -1007,7 +1007,8 @@ export function proposeNames(state, baselineGraph, answers) {
 const stable = (v) => JSON.stringify(v, (_, x) => (x && typeof x === "object" && !Array.isArray(x) ? Object.fromEntries(Object.entries(x).sort(([a], [b]) => (a < b ? -1 : 1))) : x));
 
 /** Indexes of demands left unassigned by a maximum one-to-one assignment to compatible supplies
- * (augmenting paths), so the result never depends on the order of either list. */
+ * (augmenting paths). The matched count, and whether a complete assignment exists, do not depend on
+ * list order; which demands stay unmatched in a partial assignment can (G-D424b-2). */
 export function unassigned(demands, supplies, compatible) {
   const owner = new Array(supplies.length).fill(-1);
   const place = (i, seen) => {
@@ -1084,8 +1085,9 @@ export function nameBinding(graph) {
 
 /**
  * D424-R1a: the bound source repository, its Git directory and its common Git directory are protected
- * before any deletion or write. Staging must be disjoint from each; the source must be readable and must be
- * the caller whose identity is rebound. Returns findings.
+ * before any deletion or write. Staging must be disjoint from each, and the source must be readable. A
+ * supplied caller root must be that source; the caller head is compared with the source snapshot's HEAD only
+ * when both are supplied. The repository's actual HEAD is not read here (G-D424b-1). Returns findings.
  */
 export function sourceProtection(source, staging, caller = {}) {
   if (!source?.repo) return ["a bound source repository is required: composition protects it before any write"];
