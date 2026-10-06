@@ -1362,6 +1362,23 @@
   - **Drift:** governed intent is synced at `00c23ff`; later commits are handoff-only.
 
   B-154 stays Open; no Resolution is recorded.
+
+  **Answered 2026-10-06, read at `8149eed`.**
+  - **The Judge:** "Draft proposal now". The whole-v4 prevention proposal is drafted in B-050. It is a plan only.
+  - **Key finding, P1:** `CLAUDE.md`, `GEMINI.md` and `agent-rules-reference.md` still direct the raw rebuild on the
+    live state.
+  - **Other gaps:**
+    - P2: baseline capture outside the publication lock;
+    - P3: effective extraction inputs;
+    - P4: derived studio and ontology artifacts;
+    - P5: idempotence;
+    - P6: the raw-writer inventory;
+    - P7: real-target recovery, bounded to fixtures;
+    - P8: the flake.
+  - **Proposed:** one bounded unit that also carries the G-F3-8/9 runbook text.
+  - **Next:** Lane B review, then the Judge's act. Nothing is executed.
+
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38

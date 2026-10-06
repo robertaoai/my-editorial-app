@@ -3827,3 +3827,85 @@ No governed file is edited now merely to silence a diagnostic.
 
 **Next unit:** a separately scoped whole-v4 prevention proposal for the Judge. It will be drafted only on the Judge's
 instruction. No prevention repair or proof runs outside a bounded act.
+
+## Lane A — DRAFT: whole-v4 prevention proposal (plan only, for Lane B review), 2026-10-06
+
+Read at `8149eed`. **The Judge, 2026-10-06:** "Draft proposal now". **This is a plan. It authorizes and applies nothing.**
+Any execution needs a bounded Register act after Lane B's review. The basis is contract v4 (`d733513`), with the two
+conditions adopted at `b97f93f`, and the F1–F3 receipts.
+
+### 1. What "prevention" can honestly mean here
+
+B-050's defect is the raw Graphify CLI. When its Git context fails, it writes null `branchName` and analyzed heads
+beside `stale: false`, and exits 0. The raw tool stays defective, and the guard cannot stop a raw writer (G-F3-4). The
+risk-acceptance closure was rejected. A provable prevention claim is therefore **bounded to two surfaces**:
+- **(a) The route:** every governed publication goes through the guard, which refuses the defect before release.
+  F1–F3 prove this for fixtures and for one real release.
+- **(b) The instruction surface:** no governed instruction, hook or workflow directs any agent to the raw route on the
+  live state.
+
+Raw writers outside those instructions remain a stated limit, never "prevented".
+
+### 2. v4 obligations against existing evidence
+
+| v4 obligation | Evidence now | Status |
+|---|---|---|
+| 1. Inspect without mutation: paths, aliases, pins, snapshot, detached refused | F1 validators, F2 snapshot and checkout, F3 work-root preflight (C1) and live entry checks; receipt 1 | Proved (fixtures plus a real run) |
+| 2. Stable baseline **under the exclusive publication lock**, copy verified, then the lock released | `prepare` copies the live state and verifies the digest against the selected baseline, but **without the publication lock** | **Partly. Gap P2** |
+| 3. Isolated generation; metadata revalidated after every stage; raw-null and no-op refused | F2 (`generateCandidate` stage checks, raw-null and no-op tests); receipt 2's real run | Proved |
+| R4 effective extraction inputs: exact child command with `--scope`; PATH holding the pinned node **and git**; the checkout's effective config and Graphify options captured | Sanitized environment (GRAPHIFY_CHANGED and Git redirects unset); pinned CLI hashes; the source config is in the snapshot | **Partly. Gap P3**: no `--scope`, no pinned git on PATH, no capture of the checkout's effective config or options |
+| 4. Validate and compose: fragment fields, names, inventory, lifecycle, foreign paths | F2/D-424 compose; receipt 2 (139/139, names, 583 files classified) | Proved |
+| 4. **Derived studio and ontology artifacts validated against the final graph** | Promoted by STATE_RULES, never validated | **Open. Gap P4** |
+| 5. Exact-byte review; **idempotence** (a repeat run gives stable graph identity and retained semantics) | Receipt 2 (`932b453`); one run only | **Idempotence open. Gap P5** |
+| 6–7. Publication, journal, receipt, restart at `verified`, cleanup | F2/F3 fixture matrix (seven crash boundaries, owner, peer, recoverers); receipt 3 real release; receipt 4 cleanup | Proved (the real target exercised only on the success path; recovery proved in live-layout fixtures. Bounded, see P7) |
+| Exclusive recovery and both conditions | F2 child-process cases (`b97f93f` cases) | Proved (fixtures) |
+| R1/R2 inventory and field policy; R5 checker order | F1 docs-drift journal-before-skip; F2 classification and rebinding | Proved |
+| Exact-root validator (bounded D-421 policy) | F1 (accepted, `591d2cd`) | Proved within its bound |
+| Matrix: changed extraction environment or config, including docs-only GRAPHIFY_CHANGED; branch-cutoff crossing | GRAPHIFY_CHANGED is unset (no-op refusal tested); lifecycle mismatch refusal | Proved for the environment; **the cutoff crossing has no dedicated case. Part of P3** |
+| **Instruction surface (b)** | Runbooks and docs-drift routed by D-425 | **Open. Gap P1**: rule files still direct the raw route |
+
+### 3. Gaps and draft fixes
+
+| Gap | Evidence | Draft fix |
+|---|---|---|
+| **P1: rule files direct the raw route** (the most important) | `CLAUDE.md` L37 ("run `npx graphify hook-rebuild` before relying on query"); `GEMINI.md` L52 (`/graphify . --update`); `docs/governance/agent-rules-reference.md` L179 (after modifying code, run `npx graphify hook-rebuild`) and L465. Each session starts from these. They contradict D-425's no-fallback | Replace each with: "if `docs-drift` reports governed drift, the graph is synced only through the guarded procedure (SKILL §7); never run a raw rebuild or update against the live state". Keep the currency check itself. **These are rule-file paths beyond D-425's five, so the act must name them.** The rule-budget check applies (`D-324`) |
+| **P2: baseline capture outside the publication lock** | `attempt` copies the live state while unlocked; the digest check catches a mid-copy change, but v4 asks for the lock | Take the publication lock (exclusive create, then `releaseOwned`) around the baseline copy and verification in `prepare`/`resume`. If held, refuse with exit 2. Test: a held lock refuses the copy; no copy is left half-done |
+| **P3: effective extraction inputs** | No `--scope`; git is not pinned on PATH; the checkout's `git config --show-origin --list` and the Graphify options are not captured; no cutoff-crossing case | Pass a declared `--scope`; put the pinned node and git directories first on the child PATH; record the checkout's effective config and options in the attempt evidence and freeze them; add a case where a changed selected branch or commit (cutoff crossing) refuses |
+| **P4: derived artifacts** | `studio/`, `ontology/` promoted, unvalidated | Before composition is accepted, check that derived artifacts are consistent with the final graph (node and edge counts, labels, generation stamp) or are regenerated from it; refuse a mismatch |
+| **P5: idempotence** | One run | After the next guarded release, run `prepare` again at the **same** source in a new work folder. Expect the same graph SHA and member sets, retained bytes semantically unchanged, and timestamps and receipts allowed to differ. Evidence only; no second publication needed if identical |
+| **P6: raw-writer inventory** | `.codex/hooks.json` runs `graphify hook-check` (behavior not yet established); `.agents/workflows/graphify.md`; the graphify skill; `.claude/settings.json` hint hooks create empty `.graphify/.hint-<date>/` directories (checked: empty directories leave the file-based manifest and the chain unaffected) | A read-only inventory of every hook, skill and workflow that can write to the live state, classified as read-only, routed to the guard, or a documented limit. Writers in governed files are routed (P1-style), or named as limits in the act |
+| **P7: real-target recovery** | Recovery is proved on fixture live layouts only | **Recommended:** no deliberate failure drill on the real live state. Accept the live-layout fixture proof as the bound, and state it. A real drill would need its own explicit Judge choice |
+| **P8: live-owner flake** | Cause unproved | Keep the diagnostics. A recurrence during the prevention unit stops it for review; no stress campaign is required (Lane B) |
+
+### 4. Proposed bounded unit (for the act; not issued)
+
+- **Paths:**
+  - the guard, and its tests (P2–P4);
+  - `CLAUDE.md`, `GEMINI.md`, `docs/governance/agent-rules-reference.md` (P1);
+  - SKILL §7/§9 and README §5 (**this governed change is the trigger for G-F3-8 and G-F3-9**, applied in the same pass).
+  - `.codex/hooks.json` and `.agents/workflows/graphify.md` only if P6 finds a writer. `.codex/` is a Lane A path;
+    `.github/workflows` is excluded (Lane C).
+- **Order:**
+  1. P6 inventory (read-only);
+  2. P1 and the G-F3-8/9 text;
+  3. P2–P4 code and tests;
+  4. one guarded sync (prepare, then Lane B's acceptance record, then publish, then health 19/19);
+  5. P5 idempotence evidence;
+  6. Lane B's independent whole-v4 prevention review against the §2 matrix.
+- **DoD:**
+  - every §2 row is proved or explicitly bounded;
+  - no governed instruction directs the raw route;
+  - the matrix cases pass;
+  - one guarded release, with idempotence shown;
+  - Lane B's independent acceptance.
+
+  **Then, separately:** B-050's source-specific disposition act, then B-077's 17-target final review.
+- **Excluded:**
+  - raw-writer exclusion and authenticated reviewer identity (both stay limits);
+  - a deliberate real-target drill (P7);
+  - CI (Lane C);
+  - global Graphify changes;
+  - any DoD box or tracker closure.
+
+**Requested of Lane B:** review this draft: the obligation mapping, gaps P1–P8, the proposed paths, order and DoD.
+B-050 stays `Applied`; its O1 row stays open.
