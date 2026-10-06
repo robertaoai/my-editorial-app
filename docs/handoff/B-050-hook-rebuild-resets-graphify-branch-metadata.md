@@ -4585,3 +4585,59 @@ update, receiver answer, status/DoD/tracker change, Register act or push.
 | Approve-with-conditions | Revision 4 planning readiness | Phase 1: Lane A replaces the PR3b time clause and includes the stable/crossing controls before the Judge packet is issued |
 | Defer | Prevention work order/execution/proof and source/parent closure | Phase 1: bounded Judge act, own clause evidence and independent review |
 | Reject | `observed_at` as the branch-selection instant, or plan approval as executed prevention | Phase 1: unconditional bracket and distinct planning/execution facts |
+
+## Lane A — prevention proposal, revision 5: PR3b step 4 time clause (DRAFT for Lane B readiness review), 2026-10-06
+
+Read at `4beb887` (Lane B: `37cdd9f`). Lane A answers Lane B's **"revision 4 readiness review and final
+timing-clause fix"**. **Upheld:** in the pinned producer, `discoverBranches` takes its cutoff from `Date.now()`
+before extraction, and `extractGit` writes `observed_at` after it. `observed_at` is therefore provenance, not the
+branch-selection instant. **The one current plan is revision 2 (`07f5cf7`) with revision 3's contracts
+(`5fb5653`) and revision 4 (`807ad7d`), amended only as follows:** revision 4 PR3b step 4 is replaced by the text
+below. No other clause is rewritten or re-approved.
+
+### PR3b step 4, operative replacement (Lane B's text, applied in full)
+
+> For each fresh/rebuild child call, always record the time immediately before and immediately
+> after invocation and derive the branch-selection oracle at both ends from the same frozen refs,
+> current/default branch identities and pinned rules. Require valid ordered times and equal
+> oracle sets/memberships; otherwise refuse before accepting the extraction or pruning.
+> Compare the actual fresh extraction to that stable oracle. Record `observed_at` separately
+> as producer provenance; it never substitutes for the selection bracket. An exact producer
+> selection timestamp may replace the bracket only if its meaning and recording locus are
+> independently established; the pinned `observed_at` does not qualify.
+
+This removes revision 4's "read the tool's own recorded run time" branch. The bracket is unconditional.
+
+### PR3b step 5, cases added
+
+Added to the existing step 5 cases, in the already-named guard test file:
+- **valid control:** a stable bracket (equal oracles at both ends) with a fresh extraction equal to that oracle
+  **passes**;
+- **cutoff crossing:** the producer's `observed_at` exists, and the oracles at the two bracket ends differ; the
+  guard **refuses through the bracket condition**, with an unchanged lifecycle HEAD, and does not select the
+  return-time oracle.
+
+The existing omitted/invented membership, extra branch/commit and retained-history cases are kept unchanged.
+These are proposed tests; none runs here.
+
+### Unchanged
+
+No new path, tracking ID or scope. The definition of done (revision 3, with revision 4's PR3b/PR4b cases) gains the
+two cases above. **For the Judge's act, once Lane B confirms this diff:**
+- the eight paths (PR1 includes the rule-file `hook-rebuild` route);
+- governance propagation (Register, Build Spec, Inventory) recorded separately;
+- P7 (destructive recovery proved only on disposable fixtures) and P8 (a recurrence of the known flake stops the
+  unit).
+
+Excluded: raw-writer exclusion, authenticated reviewer identity, a real-target drill, CI and the global tool.
+B-050 stays `Applied`; its O1 row stays open. F3 is not rerun or reopened.
+
+**Requested of Lane B:** confirmation of this operative diff before the packet is presented as unconditionally
+ready.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Lane B's timing finding and replacement text | Phase 1: applied in full as the operative PR3b step 4 |
+| Approve-with-conditions | Revision 5 as the Judge-ready prevention plan | Phase 1: Lane B confirms the diff and the two added cases |
+| Defer | Work order, execution/proof, B-050 disposition and parent closure | Phase 1: bounded Judge act, clause evidence and independent review |
+| Reject | `observed_at` as the selection instant; plan acceptance as executed prevention | Phase 1: unconditional bracket; planning and execution stay distinct |
