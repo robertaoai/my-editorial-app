@@ -65,7 +65,9 @@
 // C2 with R1 allowing only the declared volatile fields. Nothing is published.
 // D-427: plus three exact provenance leaves (the Git observation instant in the
 // root and studio graphs, the manifest graph-entry hash), each masked only after
-// its own run validates against its recorded rebuild bracket and own bytes.
+// its own run validates against its recorded rebuild bracket and own bytes;
+// both runs must carry a complete studio bundle (D427-R1) and a real calendar
+// instant with no Date.parse rollover (D427-R2).
 
 import { execFileSync, spawnSync } from "node:child_process";
 import { createHash, randomUUID } from "node:crypto";
@@ -2386,16 +2388,41 @@ export const REPEAT_PROVENANCE = Object.freeze({
   graphs: Object.freeze(["graph.json", "studio/graph.json"]),
   manifest: Object.freeze({ file: "studio/workspace-manifest.json", entry: "graph", field: "sha256" }),
 });
-const ISO_INSTANT = /^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d(\.\d+)?(Z|[+-]\d\d:\d\d)$/;
+const ISO_INSTANT = /^(\d{4})-(\d\d)-(\d\d)T(\d\d):(\d\d):(\d\d)(?:\.(\d{1,9}))?(Z|([+-])(\d\d):(\d\d))$/;
+
+/**
+ * D427-R2 (Lane B `3a173a2`): an ISO 8601 date-time with an offset, parsed by its components with NO
+ * rollover — `Date.parse` silently turns 2026-02-30 into 2 March. Month 1–12, a day that exists in that
+ * month (leap years included), hour 0–23, minute and second 0–59 (no leap second), offset hour 0–23 and
+ * minute 0–59. Returns the instant in milliseconds, or null when any component is impossible.
+ */
+export function isoInstant(text) {
+  const m = typeof text === "string" ? text.match(ISO_INSTANT) : null;
+  if (!m) return null;
+  const [y, mo, d, h, mi, s] = m.slice(1, 7).map(Number);
+  const leap = (y % 4 === 0 && y % 100 !== 0) || y % 400 === 0;
+  const days = [31, leap ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  if (mo < 1 || mo > 12 || d < 1 || d > days[mo - 1] || h > 23 || mi > 59 || s > 59) return null;
+  let offset = 0;
+  if (m[8] !== "Z") {
+    const [oh, om] = [Number(m[10]), Number(m[11])];
+    if (oh > 23 || om > 59) return null;
+    offset = (m[9] === "+" ? 1 : -1) * (oh * 60 + om) * 60000;
+  }
+  const ms = m[7] ? Number(m[7].padEnd(3, "0").slice(0, 3)) : 0;
+  return Date.UTC(y, mo - 1, d, h, mi, s, ms) - offset;
+}
 const MASK = "<masked by D-427 after per-run validation>";
 const observationOf = (g) => g?.graph?.provenance?.observed_at;
 const withMaskedObservation = (g) => (g?.graph?.provenance ? { ...g, graph: { ...g.graph, provenance: { ...g.graph.provenance, observed_at: MASK } } } : g);
 const withMaskedGraphHash = (m) => ({ ...m, artifacts: (m?.artifacts ?? []).map((a) => (a?.name === REPEAT_PROVENANCE.manifest.entry ? { ...a, sha256: MASK } : a)) });
 
 /**
- * D-427 per-run validation, before any cross-run allowance and even when raw files match: the observation is a
- * present ISO 8601 instant inside the run's own recorded rebuild bracket; the studio graph equals its own root
- * graph by content; exactly one manifest `graph` entry binds that run's own studio graph bytes.
+ * D-427 per-run validation, before any cross-run allowance and even when raw files match: the root graph, the
+ * studio graph and the workspace manifest all exist, parse and have their shapes (D427-R1: never skipped when
+ * absent); the observation is a valid ISO 8601 instant (D427-R2: no calendar rollover) inside the run's own
+ * recorded rebuild bracket; the studio graph equals its own root graph by content; exactly one manifest `graph`
+ * entry binds that run's own studio graph bytes. `instant` is the parsed observation, for the ordering check.
  */
 export function provenanceFindings(dir, bracket, tag) {
   const f = [];
@@ -2406,20 +2433,27 @@ export function provenanceFindings(dir, bracket, tag) {
       return undefined;
     }
   };
+  const isObj = (v) => v !== null && typeof v === "object" && !Array.isArray(v);
   const root = J("graph.json");
+  const studio = J("studio/graph.json");
+  const m = J(REPEAT_PROVENANCE.manifest.file);
+  if (!isObj(root)) f.push(`${tag}: graph.json is missing or not a JSON object`);
+  if (!isObj(studio)) f.push(`${tag}: studio/graph.json is missing or not a JSON object`);
+  if (!isObj(m) || !Array.isArray(m.artifacts)) f.push(`${tag}: ${REPEAT_PROVENANCE.manifest.file} is missing, not a JSON object, or has no artifacts array`);
   const at = observationOf(root);
-  if (typeof at !== "string" || !ISO_INSTANT.test(at) || !Number.isFinite(Date.parse(at))) f.push(`${tag}: graph.json has no valid graph.provenance.observed_at`);
-  else if (!Array.isArray(bracket) || bracket.length !== 2 || !bracket.every(Number.isFinite)) f.push(`${tag}: no source-bound rebuild bracket is recorded for its observation`);
-  else if (Date.parse(at) < bracket[0] || Date.parse(at) > bracket[1]) f.push(`${tag}: observed_at ${at} lies outside its own rebuild bracket`);
-  if (existsSync(join(dir, "studio", "graph.json"))) {
-    const studio = J("studio/graph.json");
-    if (canon(studio) !== canon(root)) f.push(`${tag}: studio/graph.json does not equal its own root graph`);
-    const m = J(REPEAT_PROVENANCE.manifest.file);
-    const entries = (m?.artifacts ?? []).filter((a) => a?.name === REPEAT_PROVENANCE.manifest.entry);
-    if (entries.length !== 1) f.push(`${tag}: the manifest does not carry exactly one graph entry`);
-    else if (entries[0].sha256 !== createHash("sha256").update(readFileSync(join(dir, "studio", "graph.json"))).digest("hex")) f.push(`${tag}: the manifest graph entry does not bind its own studio/graph.json bytes`);
+  const instant = isoInstant(at);
+  if (isObj(root)) {
+    if (instant === null) f.push(`${tag}: graph.json has no valid ISO 8601 graph.provenance.observed_at`);
+    else if (!Array.isArray(bracket) || bracket.length !== 2 || !bracket.every(Number.isFinite)) f.push(`${tag}: no source-bound rebuild bracket is recorded for its observation`);
+    else if (instant < bracket[0] || instant > bracket[1]) f.push(`${tag}: observed_at ${at} lies outside its own rebuild bracket`);
   }
-  return { findings: f, observedAt: typeof at === "string" ? at : null };
+  if (isObj(root) && isObj(studio) && canon(studio) !== canon(root)) f.push(`${tag}: studio/graph.json does not equal its own root graph`);
+  if (isObj(m) && Array.isArray(m.artifacts)) {
+    const entries = m.artifacts.filter((a) => a?.name === REPEAT_PROVENANCE.manifest.entry);
+    if (entries.length !== 1) f.push(`${tag}: the manifest does not carry exactly one graph entry`);
+    else if (isObj(studio) && entries[0].sha256 !== createHash("sha256").update(readFileSync(join(dir, "studio", "graph.json"))).digest("hex")) f.push(`${tag}: the manifest graph entry does not bind its own studio/graph.json bytes`);
+  }
+  return { findings: f, observedAt: typeof at === "string" ? at : null, instant };
 }
 
 /**
@@ -2432,7 +2466,7 @@ export function repeatComparison(r1, c2, { brackets = {} } = {}) {
   const findings = [];
   const p1 = provenanceFindings(r1, brackets.r1, "R1"), p2 = provenanceFindings(c2, brackets.c2, "C2");
   findings.push(...p1.findings, ...p2.findings);
-  if (!p1.findings.length && !p2.findings.length && !(Date.parse(p2.observedAt) > Date.parse(p1.observedAt))) {
+  if (!p1.findings.length && !p2.findings.length && !(p2.instant > p1.instant)) {
     findings.push(`C2's observed_at ${p2.observedAt} is not strictly later than R1's ${p1.observedAt}`);
   }
   const validated = !findings.length;

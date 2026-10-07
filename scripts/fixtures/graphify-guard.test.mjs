@@ -1945,6 +1945,15 @@ describe("D-426 PR4b: derived artifacts by their producer projections", () => {
 // guarded release with its receipt chain. The repeat regenerates C2 from that run's frozen packet
 // against R1 and compares; each case changes exactly one thing. Nothing is published.
 // ===========================================================================
+/** D427-R1: the studio copy of a state's root graph and a manifest whose single graph entry binds those bytes. */
+const writeStudioBundle = (state, { generatedAt = "2026-10-07T00:00:00.000Z", bytes: given } = {}) => {
+  mkdirSync(join(state, "studio"), { recursive: true });
+  const bytes = given ?? readFileSync(join(state, "graph.json"));
+  writeFileSync(join(state, "studio", "graph.json"), bytes);
+  writeFileSync(join(state, "studio", "workspace-manifest.json"), JSON.stringify({ schema: "graphify_workspace_manifest_v1", generated_at: generatedAt, graph_hash: null,
+    artifacts: [{ name: "graph", path: "graph.json", schema: null, present: true, sha256: createHash("sha256").update(bytes).digest("hex"), size_bytes: bytes.length }] }, null, 2) + "\n");
+};
+
 describe("D-426 PR5a: proveRepeat — B0 baseline, R1 release, C2 disposable candidate", () => {
   const PR5_SLOW = 600000;
   const BASE_GRAPH = { nodes: [{ id: "n1", label: "N1", description: "D1", community: 1, community_name: "C" }, { id: "n2", label: "N2", community: 1, community_name: "C" }],
@@ -1965,6 +1974,7 @@ describe("D-426 PR5a: proveRepeat — B0 baseline, R1 release, C2 disposable can
       const provenance = { source_owner: "git", source_id: "repo:github.com/example/fixture-repo", observed_at: variant.observedAt ?? new Date(t0 + 1).toISOString(),
         source_hash: variant.sourceHash ?? "h0", adapter_version: "graphify-git/1" };
       writeFileSync(join(state, "graph.json"), JSON.stringify({ ...g, graph: { provenance } }));
+      writeStudioBundle(state); // D427-R1: a complete studio bundle, as the real export produces
       writeFileSync(join(state, "branch.json"), JSON.stringify({ branchName: "main", mergeBase: variant.mergeBase ?? "m", updatedAt: variant.updatedAt ?? "2026-10-06T00:00:00.000Z" }));
       writeFileSync(join(state, "manifest.json"), variant.retained ?? "retained bytes");
       return { status: "generated", state, checkout: join(work, "co"), selection: { oracle: variant.selection ?? "sel-1", brackets: { rebuild: variant.bracket ?? [t0, t0 + 2] } } };
@@ -2075,6 +2085,10 @@ describe("D-426 PR5a: proveRepeat — B0 baseline, R1 release, C2 disposable can
     const prov = (at) => ({ ...BASE_GRAPH, graph: { provenance: { source_owner: "git", observed_at: at, source_hash: "h0" } } });
     writeFileSync(join(a, "graph.json"), JSON.stringify(prov("2026-10-07T00:00:01.000Z")));
     writeFileSync(join(b, "graph.json"), JSON.stringify(prov("2026-10-07T00:00:02.000Z"), null, 2));
+    // the studio copies share one serialization: D-427 keeps the manifest's size_bytes compared, so only the
+    // ROOT graphs differ in formatting here
+    writeStudioBundle(a, { bytes: Buffer.from(JSON.stringify(prov("2026-10-07T00:00:01.000Z"))) });
+    writeStudioBundle(b, { bytes: Buffer.from(JSON.stringify(prov("2026-10-07T00:00:02.000Z"))) });
     const brackets = { r1: [Date.parse("2026-10-07T00:00:00Z"), Date.parse("2026-10-07T00:00:01.5Z")], c2: [Date.parse("2026-10-07T00:00:01.5Z"), Date.parse("2026-10-07T00:00:03Z")] };
     const res = G.repeatComparison(a, b, { brackets });
     expect(res.findings).toEqual([]);
@@ -2359,7 +2373,7 @@ describe("D-427: repeat-provenance amendment A-PR5a-1", () => {
     const R = realRuns();
     const r1At = J(join(R.r1, "graph.json")).graph.provenance.observed_at;
     expect(variantOf((c) => setObs(c, new Date(R.brackets.c2[1] + 60000).toISOString()))).toContain("outside its own rebuild bracket");
-    expect(variantOf((c) => setObs(c, "yesterday"))).toContain("no valid graph.provenance.observed_at");
+    expect(variantOf((c) => setObs(c, "yesterday"))).toContain("no valid ISO 8601 graph.provenance.observed_at");
     expect(variantOf((c) => setObs(c, r1At), { r1: R.brackets.r1, c2: R.brackets.r1 })).toContain("not strictly later");
     expect(variantOf((c) => setObs(c, new Date(Date.parse(r1At) - 1000).toISOString()), { r1: R.brackets.r1, c2: [R.brackets.r1[0] - 5000, R.brackets.c2[1]] })).toContain("not strictly later");
     expect(variantOf(() => {}, { r1: R.brackets.r1 })).toContain("no source-bound rebuild bracket");
@@ -2391,4 +2405,69 @@ describe("D-427: repeat-provenance amendment A-PR5a-1", () => {
       writeFileSync(p, JSON.stringify(m, null, 2) + "\n");
     })).toContain("not carry exactly one graph entry");
   }, D427_SLOW);
+});
+
+// ===========================================================================
+// D427-R1 / D427-R2 (Lane B `3a173a2`): the per-run validation required by D-427 is never skipped. Both runs
+// must carry a complete studio bundle (missing on one side, on both sides, or malformed refuses, without an
+// exception), and an observation must be a real calendar instant (no Date.parse rollover). Synthetic pairs
+// exercise the comparator directly; each case changes one thing from a complete valid pair.
+// ===========================================================================
+describe("D-427 R1/R2: complete bundles and real calendar instants are required on both runs", () => {
+  const BASE = { nodes: [{ id: "n1", label: "N1" }], links: [] };
+  /** A run state: root graph with an observation, plus (unless switched off) its studio bundle. */
+  const runAt = (at, { studio = true, manifest } = {}) => {
+    const d = join(F2, `r1r2${++n}`);
+    mkdirSync(d);
+    writeFileSync(join(d, "graph.json"), JSON.stringify({ ...BASE, graph: { provenance: { source_owner: "git", source_id: "repo:x", observed_at: at, source_hash: "h0", adapter_version: "graphify-git/1" } } }));
+    if (studio) writeStudioBundle(d);
+    if (manifest !== undefined) writeFileSync(join(d, "studio", "workspace-manifest.json"), manifest);
+    return d;
+  };
+  const R1_AT = "2026-10-07T00:00:00.000Z", C2_AT = "2026-10-07T00:00:01.000Z";
+  const around = (at) => [isoMs(at) - 1000, isoMs(at) + 1000];
+  const isoMs = (at) => G.isoInstant(at) ?? Date.parse(at); // brackets for impossible dates use the parser's normalized value
+  const cmp = (r1, c2, br = {}) => G.repeatComparison(r1, c2, { brackets: { r1: br.r1 ?? around(R1_AT), c2: br.c2 ?? around(C2_AT) } }).findings.join(" | ");
+
+  test("a complete valid pair passes (control)", () => {
+    expect(cmp(runAt(R1_AT), runAt(C2_AT))).toBe("");
+  });
+
+  test("D427-R1: a missing studio bundle on R1, on C2 or on both refuses; so do a missing, malformed or array-less manifest, never throwing", () => {
+    expect(cmp(runAt(R1_AT, { studio: false }), runAt(C2_AT))).toContain("R1: studio/graph.json is missing");
+    expect(cmp(runAt(R1_AT), runAt(C2_AT, { studio: false }))).toContain("C2: studio/graph.json is missing");
+    const both = cmp(runAt(R1_AT, { studio: false }), runAt(C2_AT, { studio: false })); // the reproduced false pass
+    expect(both).toContain("R1: studio/graph.json is missing");
+    expect(both).toContain("C2: studio/workspace-manifest.json is missing");
+    expect(cmp(runAt(R1_AT, { manifest: "{torn" }), runAt(C2_AT, { manifest: "{torn" }))).toContain("workspace-manifest.json is missing, not a JSON object");
+    expect(cmp(runAt(R1_AT, { manifest: JSON.stringify({ artifacts: {} }) }), runAt(C2_AT))).toContain("has no artifacts array");
+    expect(cmp(runAt(R1_AT, { manifest: "[]" }), runAt(C2_AT))).toContain("not a JSON object");
+    const noRoot = runAt(C2_AT);
+    rmSync(join(noRoot, "graph.json"));
+    expect(cmp(runAt(R1_AT), noRoot)).toContain("C2: graph.json is missing");
+  });
+
+  test("D427-R2: impossible calendar instants refuse even inside the parser's normalized bracket", () => {
+    for (const bad of ["2026-02-30T12:00:01.000Z", "2026-02-29T00:00:00Z", "2026-13-01T00:00:00Z", "2026-10-07T24:00:00Z", "2026-10-07T23:59:60Z", "2026-10-07T23:60:00Z", "2026-10-07T00:00:00+24:00", "2026-10-07 00:00:00Z"]) {
+      expect(G.isoInstant(bad)).toBe(null);
+      const r = cmp(runAt("2026-02-28T00:00:00.000Z"), runAt(bad), { r1: around("2026-02-28T00:00:00.000Z"), c2: [Date.parse(bad) - 1000 || 0, Date.parse(bad) + 1000 || 1] });
+      expect(r).toContain("C2: graph.json has no valid ISO 8601 graph.provenance.observed_at");
+    }
+    expect(Date.parse("2026-02-30T12:00:01.000Z")).toBe(Date.parse("2026-03-02T12:00:01.000Z")); // the rollover this closes
+  });
+
+  test("D427-R2: valid instants pass, leap days and offsets included, and ordering compares actual instants", () => {
+    expect(G.isoInstant("2028-02-29T00:00:00Z")).toBe(Date.UTC(2028, 1, 29));
+    expect(G.isoInstant("2026-10-07T08:00:01+08:00")).toBe(Date.UTC(2026, 9, 7, 0, 0, 1));
+    expect(G.isoInstant("2026-10-07T00:00:00.5Z")).toBe(Date.UTC(2026, 9, 7, 0, 0, 0, 500));
+    expect(cmp(runAt("2028-02-28T00:00:00Z"), runAt("2028-02-29T00:00:00Z"), { r1: around("2028-02-28T00:00:00Z"), c2: around("2028-02-29T00:00:00Z") })).toBe("");
+    // offsets: same-length forms, because D-427 keeps the manifest size_bytes compared (the real producer always
+    // emits the fixed toISOString form); the comparison uses actual instants, not text
+    const r1Offset = "2026-10-07T00:00:00+00:00";
+    const later = "2026-10-07T08:00:01+08:00"; // 00:00:01Z
+    expect(cmp(runAt(r1Offset), runAt(later), { r1: around(r1Offset), c2: around(later) })).toBe("");
+    const earlier = "2026-10-07T07:59:59+08:00"; // 23:59:59Z on 6 October: textually later, actually earlier
+    expect(cmp(runAt(r1Offset), runAt(earlier), { r1: around(r1Offset), c2: around(earlier) })).toContain("not strictly later");
+    expect(cmp(runAt(R1_AT), runAt(later), { c2: around(later) })).toContain("differs outside the declared volatile fields: artifacts"); // a mixed-length pair stays refused (size_bytes)
+  });
 });
