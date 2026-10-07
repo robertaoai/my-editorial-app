@@ -7270,3 +7270,53 @@ independent reviewer. B-050 stays `Applied`; B-154 stays Open. No header, tracke
 | Approve-with-conditions | Implementation under D-426 | Phase 1: eight paths only; receipts in order |
 | Defer | Receipts, guarded sync, B-050/B-077, parents and Gate 2 | Phase 1: later evidence and acts |
 | Reject | A current-graph or all-checks-pass claim, raw rebuild, or recording read as delivery | Phase 1: drift visible until receipt 3 |
+
+## Lane B — challenge of completed implementation and receipt-1 handover, 2026-10-07
+
+### What happened
+
+**Clarified request:** compare Lane A's supplied PR1 worklog with current authority, implementation and handoffs; distinguish completion states, challenge readiness and draft the minimal handback for Lane A using the existing template; no construction or live synchronization. Read 91f949f, clean working tree. Attachment SHA-256: e97ed321b2c3d1d1e08b621210383c5639b29f2b2e2a2909ecec491a502bca10.
+
+Since the previous review, Lane A committed PR5a (5aa7cc8) and PR1 (91f949f). The cumulative implementation changed-file set from 3691f89 to 91f949f is exactly D-426's eight paths. Prior commits are PR2a 9b6bfb7, PR3a/PR3b/revision 5 4a96b12 and PR4b 718735f. D-426 authority and the attribution correction remain recorded. This establishes committed implementation coverage, not correctness or receipt 1.
+
+Independent bounded source inspection confirms G-F3-8 in SKILL §7/README §5 and G-F3-9 in SKILL §9 match the accepted source-commit text after whitespace normalization. The archive body matches pre-PR1 5aa7cc8 byte for byte; SHA-256 7e46a6f6d5d5f30f5365b0e05f89fbeb4b7e04bba945ed30f63c4c831e8bbb3a. These checks do not verify the entire guard implementation or repeat proof. The supplied 232/232 guard result, mutation checks, rule-budget pass and 18/19 consistency result remain Lane A-reported outcomes, not an independently reproduced Lane B suite result.
+
+### What you need
+
+**Challenge verdict:** ready for Lane A to prepare the receipt-1 evidence handback; not yet established ready for candidate preparation/publication. No fresh Judge decision is needed merely to draft this handback under the already recorded scope. Lane B raises the evidence gaps below; Lane A answers in existing B-050. No new handoff number or tracking layer.
+
+| Gap in the supplied handover | Draft fix for Lane A | Pass / refusal criterion |
+|---|---|---|
+| "All eight paths complete" can be read as all contract obligations verified | Supply one clause-to-evidence matrix for the entire operative plan, including inherited PR6 and G-F3-8/9: requirement, implemented commit/section, valid/refusal case, outcome, evidence location and remaining limit. Mark unchanged inherited controls explicitly | Reject file coverage or aggregate test count as proof of every clause |
+| Worklog evidence is outside the source receipt packet | Append one dated receipt-1 request in B-050 identifying 91f949f as the implementing revision and the exact commit series; retain raw/logged outcomes where available and mark supplied-only evidence honestly | Lane B can reproduce/review each obligation at a fixed source; missing evidence remains unproven |
+| Timeout modification needs independent classification under P8 | Include original failing test name/output, old/new timeout, exact change and subsequent result. The changed test at line 347 is fixture-boundary refusal and now uses SLOW=120000; the live-owner/peer test at line 437 is distinct. Distinct names support separation but do not by themselves establish cause or prove no P8 recurrence | If evidence identifies the known P8 recurrence, stop the unit; otherwise Lane B reviews the adjustment without silently waiving P8 |
+| Final graph/prevention result not yet delivered | Keep receipt 1 separate from candidate preparation, exact-byte acceptance, release, health, repeat and whole-unit verification. The PR5 implementation/fixture claim is not the actual repeat against the new R1 | No prepare/release progression until required readiness acceptance; no repeat pass inferred from fixture tests |
+
+**Minimal B-050 handback, using the existing template sections:**
+
+- **What happened:** D-426 implementation committed through 91f949f; list the five implementation commits, authorized eight-path coverage, frozen source identity and the current stale-graph state.
+- **What you need:** request Lane B receipt-1 fixture/source-readiness review; attach the full clause matrix and timeout/P8 evidence; name failed or unproven conditions rather than marking receipt 1 accepted.
+- **What you did instead:** record the actual guard/check/audit/mutation outcomes and their source/environment/evidence locations; distinguish the expected docs-drift failure from other failures and state that no live publication occurred. Keep receiver/header/DoD/clearance status unchanged.
+
+| Parent-first dependency | Completed now | Next acceptance / follow-up phase |
+|---|---|---|
+| 1. Scope, authority and specification | D-426 recorded; technical planning conditions answered; citation corrected | Phase 1: preserve accepted scope, no repeated issue decision |
+| 2. Implementation, depends on 1 | Five commits span the eight source paths; bounded wording/archive checks independently confirmed | Phase 1: Lane A supplies clause-bound receipt-1 handback; Lane B assesses source/readiness and P8 |
+| 3. Candidate and publication, depends on receipt 1 | Not established by this review | Phase 1: final-source prepare/semantic work/fragment survival, Lane B exact-byte acceptance, guarded release, separate health |
+| 4. Repeat and whole-unit verification, depends on R1 | proveRepeat is implemented; actual new-release repeat remains owed | Phase 1: B0 original baseline → R1 new accepted release → C2 unpublished composed candidate; independent whole-unit review |
+| 5. Children then parents/clearance, depends on evidence | B-050 Applied and B-154 Open; existing custody retained | Phase 1: source-specific disposition, B-077 final review, required parallel obligations and parent decisions; fresh clearance review last |
+
+**Lane A steps:** consolidate the receipt-1 packet in B-050 once, then obtain Lane B's independent outcome. If findings arise, answer them against a named corrected revision. After accepted readiness, follow D-426's remaining receipts in order, applying P7/P8 and final-source invalidation rules. No real-target destructive drill or second live release is required. Do not close sources/parents from commit counts. B-154 owns this sequence only; detailed technical evidence stays in B-050 and its referenced artifacts.
+
+**Chief Editor and perspectives:** existing authority is sufficient for the unchanged bounded unit; no new scope selection is requested here. Lane A's producer facts and Lane B's history/schema/timing findings remain construction requirements whose runtime evidence is due. No new Lane C finding or CI acceptance is supplied. Raw-writer exclusion, authenticated identity, hosted/CI/WordPress delivery, push and whole-product enforcement remain outside the accepted guarantees. Missing proof is an acceptance gap, not evidence of certain operational failure.
+
+### What you did instead
+
+At 91f949f handoff-response passes. docs-drift is STALE at analyzed 00c23ff with 11 committed governed paths changed (three authority files plus eight implementation paths). Read-only Graphify query used for historical context; its stale graph cannot prove the new implementation. Guarded synchronization is required later after final source and receipt-1 acceptance, never a raw rebuild. bun run check cannot start in Lane B's environment (CouldntReadCurrentDirectory); no current full-suite or receipt-1 acceptance is claimed. No code/test/runbook edit, build, suite/mutation run, live graph update, receiver/header/tracker/DoD change or push.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Recorded authority, eight-path commit coverage and bounded wording/archive evidence | Phase 1: scoped observations only |
+| Approve-with-conditions | Handback ready for Lane A work | Phase 1: prepare the existing B-050 receipt-1 packet with clause evidence and timeout/P8 classification |
+| Defer | Independent receipt 1, candidate/release/health/repeat acceptance and closure | Phase 1: respective independent outcomes, ordered receipts and later dispositions |
+| Reject | All paths or 232 tests treated as whole-unit verification; unpublished fixture proof treated as actual R1 repeat | Phase 1: preserve source-bound artifact and lifecycle distinctions |
