@@ -4961,3 +4961,61 @@ open. Drift is unchanged: docs-drift is STALE (analyzed `00c23ff`), and source-s
 | Approve-with-conditions | Amendment A-PR5a-1 as proposed | Phase 1: Lane B's review, then the Judge's specific selection recorded in the Register, then implementation and evidence |
 | Defer | Corrected-source readiness, receipts 2–5, closure | Phase 1: after the amendment is selected and implemented |
 | Reject | A blanket timestamp, hash or `graph`-object exemption; implementing before the selection | Phase 1: exact fields under recorded authority |
+
+
+## Lane B — A-PR5a-1 proposal review and Judge decision boundary, 2026-10-07
+
+### What happened
+
+**Clarified request:** review Lane A's answer at 8dce483 against the independent receipt-1 refusal, identify remaining gaps, and give a parent-first plan and exact Judge decision without implementing or synchronizing anything. Use this existing handoff for the technical answer; B-154 carries sequencing only.
+
+**Outcome: the proposed field/dependency map is suitable for Judge selection.** Lane B accepts A-PR5a-1 as a bounded correction plan, subject to its recorded authority and proposed proof obligations. This completes the requested proposal review; it does not accept receipt 1 at c42712b or certify unimplemented controls. No additional drafting loop or generic eight-path reapproval is needed before the specific Judge decision.
+
+Independent inspection of the retained inventory confirmed inventory.mjs SHA-256 143d4e76eff5bf9a35dda999cce05db7d099a248630da870b46f8e5619b1d8b1 and inventory.json SHA-256 f11c19455bfbd7ebc510a53ff05dfb22aa93202b50c84f70c7f2d29545db9684. Run 1 observed 2026-10-07T08:52:22.170Z; run 2 observed 2026-10-07T08:52:28.875Z. In each retained run, root and studio graphs have equal parsed content and equal raw hashes; the unique manifest graph entry binds its own studio graph bytes and reports 4430 bytes. Graph hashes are respectively 20f6583f9c03677af2a9fd00ac66c1478689386007b7eadf706e60cd952c68ca and 028f5dd4a28b275f3c143729949b975c7c28291c4ef267d47fa9c134b4d292f7. Lane B inspected evidence and the harness; it did not rerun the producer probe.
+
+**Evidence limit:** the harness builds a small lib.js fixture repository and a real producer baseline, then rebuilds/exports twice from that same baseline. It is not a full project generation/composition, nor the B0 -> R1 -> C2 operational repeat (which regenerates against R1). Its cache/path differences and two run-specific AST files remain outside the allowance because composition retains those files from its captured baseline. This inventory supports the narrow proposed map; it proves neither all full-pipeline differences nor receipt 4. Any additional undeclared difference still refuses.
+
+**Precision correction:** the existing comparator refuses when the two actual observation values differ; "always stops" is too broad if two observations happen to have the same value. The finding and readiness refusal stand. The proposed strictly-later rule deliberately refuses equal or backward observation times; it does not guarantee every real run succeeds.
+
+### What you need
+
+#### Exact Judge decision, followed by dependent artifacts
+
+| Parent-first task | Completed / owed | Acceptance criterion and responsible actor | Phase |
+|---|---|---|---|
+| 1. Existing D-426 scope and prior corrections | Recorded; prior scoped findings discharged | Preserve eight-path scope, P7/P8, source binding and existing exclusions | Phase 1: complete |
+| 2. Independent receipt-1 assessment and Lane A answer | Assessment delivered: not accepted at c42712b; answer delivered at 8dce483; proposal review now complete | Lane B is the raiser/reviewer; Lane A owns the answer. Keep failure, answer and acceptance as separate facts | Phase 1: complete as review artifacts |
+| 3. Specific amendment authority | Owed by Judge, then Lane A records it | Select A-PR5a-1's exact three-field map and bindings, or reject it. Record D-54 propagation dispositions; change Build Spec/Inventory only where affected. The current chat request is planning only | Phase 1: next decision |
+| 4. Corrected implementation and evidence packet | Owed by Lane A after task 3 | Only existing D-426 source paths 1–2; implement nested-field comparison and per-run validation; retain post-commit valid/refusal and mutation evidence plus final source identity | Phase 1: construction correction |
+| 5. Corrected-source receipt 1 | Owed by Lane B after task 4 | Independently review the changed controls and evidence; record explicit accepted/not-accepted outcome and any P8 event | Phase 1: before candidate preparation |
+| 6. Receipts 2–5 | Owed in D-426 order after task 5 | Completed candidate including semantics/fragments and exact-byte acceptance; guarded release and separate full health; complete unpublished B0/R1/C2 repeat; independent whole-unit review | Phase 1: verification/release |
+| 7. Source and parent closure | Owed after applicable evidence | B-050 disposition, then B-077 final reconciliation; required children and parallel residual obligations before parent/clearance decisions | Phase 1: source-specific acts |
+
+**Draft selection for the Judge (not an issued act):** select A-PR5a-1 at 8dce483, with Lane B's review here, as the sole extension to D-426's repeat allowance. Allow only graph.json.graph.provenance.observed_at, studio/graph.json.graph.provenance.observed_at, and studio/workspace-manifest.json.artifacts[name=graph].sha256 to differ under the per-run bindings below. Authorize Lane A's correction only in scripts/graphify/guarded-rebuild.mjs and scripts/fixtures/graphify-guard.test.mjs, under existing D-426 limits. Record the amendment and its propagation disposition before implementation. Final corrected source and a new accepted receipt 1 precede prepare; all later receipts and closure acts remain required. If rejected, keep readiness refused and request a specific alternative; no blanket exemption is authorized.
+
+#### Lane A follow-up and failure-to-success criteria
+
+1. Obtain the specific Judge selection and record its authority/propagation. Do not reopen already discharged findings or edit another lane's answer fields.
+2. Implement exactly the selected nested fields. The current top-level volatile-field check cannot express these nested bindings merely by adding dotted strings: retain all enclosing object fields and mask only the exact validated leaf for cross-run comparison.
+3. Validate each run independently before applying any allowance, including when raw files happen to match. Require present, parseable observation instants within that run's rebuild bracket; compare actual time values for C2 > R1. Require the complete studio graph to equal its own root graph by content, not merely its observation field. Require exactly one expected manifest graph entry and its hash to bind its own studio bytes. Preserve existing size/path/role/present/schema and all other entry comparisons. Existing studio validation already checks root/copy content and graph-entry cardinality; carry those guarantees into the repeat decision rather than weakening them.
+4. Retain both real observations, both source-bound brackets, and root graph, studio graph and workspace-manifest raw hashes in REPEAT.json. Keep B0 original baseline, R1 released result and C2 unpublished candidate distinct. No second live release is required.
+5. Run the proposed real-producer-backed positive, targeted refusals and binding mutations with passing unmutated anchors. Controls must cover wrong source identity/selection, outside-bracket or invalid/equal/backward observations, root/copy mismatch, wrong graph hash, other manifest/graph fields, retained bytes and undeclared timestamps. This demonstrates implemented controls, not receipt 4.
+6. Retain post-commit evidence and name the final authorized source for Lane B's new readiness review. Run the full check after source commits; report expected docs drift separately from other failures. P8 recurrence stops the unit; do not infer recurrence from the disclosed different-case timeout.
+7. Only after accepted readiness, follow receipts 2–5. Validate the final composed graphs' observations against their original rebuild brackets; do not replace actual producer times with bracket endpoints. Any later unexpected pipeline difference stops for specific review; do not expand the allowance during a run.
+
+**What fails, and what establishes success:** the current different-observation case demonstrably fails comparison. A blanket graph/hash exemption, a wrong per-run hash, or a missing source-bound bracket cannot meet the selected contract. Success is a valid later real observation with unchanged graph semantics and source/selection/baseline bindings, correct per-run bytes/hashes, retained-byte equality, and explicit rejection of every undeclared difference. A fixture positive cannot establish operational success or closure. No business-loss prediction is supported by this evidence.
+
+**Chief Editor / lane perspectives:** Lane A identified and now owns the runtime-provenance correction; Lane B raised the independent real-producer gap and has reviewed the exact answer. No new Lane C finding, CI review or CI acceptance is supplied. The Judge selects only the concrete contract amendment now. Raw-writer exclusion, authenticated reviewer identity, real-target destructive recovery, dependencies/hooks/global tool/CI changes, product delivery and push remain excluded. P7 applies to destructive recovery; P8 remains the separate live-owner recurrence stop.
+
+**Tracking:** construction artifacts and verification artifacts drive different decisions. B-050 owns this finding, Lane A answer, review and eventual source disposition; B-154 owns dependent sequencing; B-077 owns final reconciliation. SV-002's review ledger/clearance tracker and residual receiving packets keep their existing roles. Applied is not Verified; receipt delivered is not receipt accepted. No new tracking layer is needed. B-050 remains Applied/O1 open; B-154 remains Open. U03 selection, outstanding DoD and B-136 P15 remain independent obligations, not automatic consequences of this amendment.
+
+### What you did instead
+
+Read source, handoff/template, retained probe files and a read-only Graphify query. At 8dce483, targeted handoff-response and source-sweep pass; docs-drift remains STALE from 00c23ff across 11 governed paths. The historical graph cannot establish current handoff completion. Guarded synchronization is required after final-source readiness, through candidate acceptance/publication; no raw rebuild now. bun run check failed to start in this environment with CouldntReadCurrentDirectory, so no new full-suite pass is claimed. Only reviewer body text is appended; no implementation, producer rerun, application build, Register act, receiver/header/tracker/DoD/clearance change, live synchronization or push.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | A-PR5a-1 exact map and bounded correction plan are ready for Judge selection; proposal review complete | Phase 1: retain measured fixture and full-pipeline evidence limits |
+| Approve-with-conditions | Execution of the proposed correction | Phase 1: specific Judge selection recorded with propagation; then paths 1–2 and retained controls/evidence |
+| Reject | Receipt 1 at c42712b; claiming the proposed policy is already implemented or independently accepted | Phase 1: corrected-source readiness must be accepted separately |
+| Defer | Guarded candidate/publication/health, actual repeat, whole-unit review and closure | Phase 1: ordered D-426 receipts and source-specific dispositions |
