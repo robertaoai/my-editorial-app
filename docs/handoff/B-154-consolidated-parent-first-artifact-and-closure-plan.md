@@ -7513,3 +7513,34 @@ Planning and retained-evidence inspection only. Source-sweep and handoff-respons
 | Approve-with-conditions | Lane A correction work | Phase 1: specific recorded amendment, then bounded implementation and evidence |
 | Reject | Receipt 1 at c42712b or proposal approval treated as implementation/readiness/closure | Phase 1: new independent corrected-source outcome required |
 | Defer | Sync, release, actual repeat, final verification and parent clearance | Phase 1: ordered receipts and respective source/parent acts |
+
+
+## Lane B — D-427 readiness outcome and correction sequence, 2026-10-07
+
+### What happened
+
+Read HEAD c8c091d and implementing source d1186bf. Independent receipt-1 review is now delivered in B-050 at 3a173a2, with outcome **not accepted**. That section owns the two reproduced findings and exact correction/control criteria: missing studio artifacts can skip mandatory per-run validation; an ISO-shaped impossible calendar date can normalize through Date.parse and pass. These are local comparator false passes, not demonstrated bypasses of the complete publication pipeline. D-427 recording, scoped delivery and retained suite/mutation results are acknowledged; they do not establish exhaustive contract coverage.
+
+### What you need
+
+| Parent-first task | Completed / owed | Next evidence or actor | Phase |
+|---|---|---|---|
+| 1. Authority and bounded construction delivery | D-426/D-427 recorded; correction delivered at d1186bf | Preserve existing contract and paths, P7/P8 and exclusions | Phase 1: delivered |
+| 2. Independent receipt 1 | Delivered, not accepted at d1186bf | B-050 3a173a2 owns outcome and D427-R1/R2 | Phase 1: assessment complete |
+| 3. Targeted enforcement corrections | Owed by Lane A | Answer findings; enforce required artifacts and valid calendar instants in existing paths 1–2; retain new-source controls/evidence | Phase 1: next work |
+| 4. New-source readiness acceptance | Owed by Lane B after task 3 | Explicit accepted/not-accepted outcome; P8 stop remains | Phase 1: before prepare |
+| 5. Remaining D-426 receipts | Deferred | Final-source candidate/semantics/fragments and exact-byte acceptance; release plus separate health; actual unpublished B0/R1/C2 repeat; whole-unit review | Phase 1: receipts 2–5 in order |
+| 6. Source/child/parent closure | Deferred | B-050 disposition then B-077 final review; required residual children and independent obligations before parent/clearance acts | Phase 1: respective acts |
+
+**Judge / lanes / tracking:** no generic reselection of A-PR5a-1 is needed to enforce its existing conditions. Any actual contract expansion needs its own specific decision. Lane B raises/reviews; Lane A answers/corrects; no Lane C finding or acceptance is supplied. Existing B-050 technical, B-154 sequencing, B-077 reconciliation, SV-002 review/clearance and residual-packet tracking suffice. B-050 remains Applied/O1 open; B-154 remains Open. U03, DoD and B-136 P15 remain independent. No source disposition or clearance follows from assessment delivery.
+
+### What you did instead
+
+Source/retained-evidence inspection and disposable comparator diagnostics; no implementation or live operation. source-sweep/handoff-response pass; docs-drift remains STALE at 00c23ff across 11 unique governed paths. D-427's three recording files were already counted; the total did not rise by three. Guarded sync follows accepted corrected-source readiness. Full bun run check cannot start here (CouldntReadCurrentDirectory); Lane B claims no full-suite rerun. No build, Register/header/receiver/tracker/DoD change, publication or push.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Authority/delivery and completed independent assessment with disclosed evidence limits | Phase 1: preserve actual not-accepted outcome |
+| Approve-with-conditions | Specific Lane A correction handback | Phase 1: B-050 D427-R1/R2 controls, new source and independent review |
+| Reject | Receipt 1 at d1186bf; test/mutation totals treated as complete acceptance | Phase 1: mandatory per-run contract remains unenforced in reproduced cases |
+| Defer | Sync/release/actual repeat/final review and closure | Phase 1: accepted new readiness then ordered receipts and respective dispositions |
