@@ -1914,3 +1914,137 @@ describe("D-426 PR4b: derived artifacts by their producer projections", () => {
     expect(v.summary.scene.nodes).toBeGreaterThan(1000);
   }, PR4_SLOW);
 });
+
+// ===========================================================================
+// D-426 PR5a (B-050 revisions 3–4): the disposable, unpublished repeat. A first run is prepared,
+// reviewed and published through the real commands (fake generation/composition), so R1 is a
+// guarded release with its receipt chain. The repeat regenerates C2 from that run's frozen packet
+// against R1 and compares; each case changes exactly one thing. Nothing is published.
+// ===========================================================================
+describe("D-426 PR5a: proveRepeat — B0 baseline, R1 release, C2 disposable candidate", () => {
+  const PR5_SLOW = 600000;
+  const BASE_GRAPH = { nodes: [{ id: "n1", label: "N1", description: "D1", community: 1, community_name: "C" }, { id: "n2", label: "N2", community: 1, community_name: "C" }],
+    links: [{ source: "n1", target: "n2", relation: "R" }] };
+  let variant = {};
+  /** Fake generation: the same candidate every time unless `variant` changes one thing. */
+  const repDeps = {
+    ...deps,
+    generate: ({ work, answers, cli }) => {
+      if (cli !== "verified-cli") return { status: "refused", reason: `unverified CLI: ${cli}` };
+      if (!answers.descriptions?.x) return { status: "pending-semantic", pending: { descriptions: ["x"], communities: [] } };
+      if (variant.pending) return { status: "pending-semantic", pending: { descriptions: ["y"], communities: [] } };
+      const state = join(work, "state");
+      mkdirSync(state, { recursive: true });
+      writeFileSync(join(state, "graph.json"), JSON.stringify(variant.graph ?? BASE_GRAPH));
+      writeFileSync(join(state, "branch.json"), JSON.stringify({ branchName: "main", mergeBase: variant.mergeBase ?? "m", updatedAt: variant.updatedAt ?? "2026-10-06T00:00:00.000Z" }));
+      writeFileSync(join(state, "manifest.json"), variant.retained ?? "retained bytes");
+      return { status: "generated", state, checkout: join(work, "co"), selection: { oracle: variant.selection ?? "sel-1" } };
+    },
+  };
+  const published = () => {
+    variant = {};
+    const L = liveLayout();
+    const r = sourceRepo();
+    const work = join(F2, `pw${++n}`);
+    expect(G.prepareWork({ work, ...C(L, r), deps: repDeps }).exit).toBe(G.EXIT.pending);
+    expect(G.resumeWork({ work, answers: { descriptions: { x: "X" } }, answersHash: "h1", ...C(L, r), deps: repDeps }).exit).toBe(G.EXIT.ok);
+    const sha = reviewCommit(r, block(JSON.stringify(recordFor(work), null, 2)));
+    expect(G.publishWork({ work, review: sha, ...C(L, r) }).exit).toBe(G.EXIT.ok);
+    return { L, r, work, sha };
+  };
+  const repeat = (p, over = {}) => G.proveRepeat({ work: p.work, out: join(F2, `rep${++n}`), ...C(p.L, p.r), deps: repDeps, ...over });
+
+  test("valid control: C2 equals R1; B0 and R1 are recorded as distinct identities; nothing is published or reset", () => {
+    const p = published();
+    const live = digest(p.L.dir);
+    const head0 = head(p.r.g);
+    const st0 = readFileSync(join(p.work, "STATE.json"));
+    const res = repeat(p);
+    expect(res.outcome).toBe("repeat-equal");
+    expect(res.exit).toBe(G.EXIT.ok);
+    expect(res.receipt.predecessor.baseline.releaseLocus).toBe(p.L.boot.releaseLocus);
+    expect(res.receipt.successor.releaseLocus).toBe(p.sha);
+    expect(res.receipt.successor.digest).not.toBe(res.receipt.predecessor.baseline.digest);
+    expect(res.receipt.raw.c2.graph).toBe(res.receipt.raw.r1.graph);
+    expect(digest(p.L.dir)).toBe(live);
+    expect(existsSync(p.L.P.journal) || existsSync(p.L.P.lock)).toBe(false);
+    expect(head(p.r.g)).toBe(head0);
+    expect(readFileSync(join(p.work, "STATE.json")).equals(st0)).toBe(true);
+    expect(G.REPEAT_VOLATILE).toEqual({ "branch.json": ["updatedAt"], "worktree.json": ["updatedAt"], "studio/workspace-manifest.json": ["generated_at"] });
+  }, PR5_SLOW);
+
+  test("a declared volatile field may differ; an undeclared field in the same file stops the repeat", () => {
+    const p = published();
+    variant = { updatedAt: "2026-10-07T12:00:00.000Z" };
+    expect(repeat(p).outcome).toBe("repeat-equal");
+    variant = { mergeBase: "other" };
+    const res = repeat(p);
+    expect(res.outcome).toBe("repeat-stopped");
+    expect(res.exit).toBe(G.EXIT.failed);
+    expect(res.reason).toContain("branch.json differs outside the declared volatile fields: mergeBase");
+    expect(res.message).toContain("revise and re-review the allowance list");
+  }, PR5_SLOW);
+
+  test("failing repeats: an altered retained byte, and the same id with a wrong description, relation or member binding", () => {
+    const p = published();
+    const cases = [
+      [{ retained: "retained bytez" }, "retained file manifest.json differs"],
+      [{ graph: { ...BASE_GRAPH, nodes: [{ ...BASE_GRAPH.nodes[0], description: "wrong" }, BASE_GRAPH.nodes[1]] } }, "node n1 differs in description"],
+      [{ graph: { ...BASE_GRAPH, links: [{ ...BASE_GRAPH.links[0], relation: "S" }] } }, "occurs only in C2"],
+      [{ graph: { ...BASE_GRAPH, nodes: [{ ...BASE_GRAPH.nodes[0], community: 2 }, BASE_GRAPH.nodes[1]] } }, "node n1 differs in community"],
+    ];
+    for (const [v, want] of cases) {
+      variant = v;
+      const res = repeat(p);
+      expect(res.outcome).toBe("repeat-stopped");
+      expect(res.reason).toContain(want);
+    }
+  }, PR5_SLOW);
+
+  test("a changed input packet, binding, selection or live release stops before comparison: never a repeat pass", () => {
+    const p = published();
+    variant = { selection: "sel-2" };
+    expect(repeat(p).reason).toContain("selection differs from the first run's");
+    variant = { pending: true };
+    expect(repeat(p).reason).toContain("needs new semantic answers");
+    variant = {};
+    expect(repeat(p, { deps: { ...repDeps, bindings: () => ({ ok: true, bindings: { changed: true } }) } }).reason).toContain("executable binding changed");
+    const answers = stateOf(p.work).ready.answersFile;
+    const keep = readFileSync(answers);
+    writeFileSync(answers, JSON.stringify({ descriptions: { x: "Y" } }));
+    expect(repeat(p).reason).toContain("answer packet changed");
+    writeFileSync(answers, keep);
+    const busy = join(F2, `busy${++n}`);
+    mkdirSync(busy);
+    writeFileSync(join(busy, "x"), "x");
+    expect(repeat(p, { out: busy }).reason).toContain("not empty");
+    writeFileSync(join(p.L.dir, "graph.json"), "{\"v\":\"moved on\"}");
+    const moved = repeat(p);
+    expect(moved.outcome).toBe("repeat-refused");
+    expect(moved.reason).toContain("not the first run's release R1");
+  }, PR5_SLOW);
+
+  test("an unpublished or packet-less work folder is refused", () => {
+    const L = liveLayout();
+    const r = sourceRepo();
+    const work = readyWork(L, r);
+    expect(G.proveRepeat({ work, out: join(F2, `rep${++n}`), ...C(L, r), deps: repDeps }).reason).toContain("not published");
+    const p = published();
+    const st = stateOf(p.work);
+    writeFileSync(join(p.work, "STATE.json"), JSON.stringify({ ...st, ready: { ...st.ready, selection: null } }));
+    expect(repeat(p).reason).toContain("frozen packet is incomplete");
+  }, PR5_SLOW);
+
+  test("repeatComparison: graph serialization alone is not a difference; raw hashes stay separate evidence", () => {
+    const a = join(F2, `cmpA${++n}`), b = join(F2, `cmpB${n}`);
+    mkdirSync(a);
+    mkdirSync(b);
+    writeFileSync(join(a, "graph.json"), JSON.stringify(BASE_GRAPH));
+    writeFileSync(join(b, "graph.json"), JSON.stringify(BASE_GRAPH, null, 2));
+    const res = G.repeatComparison(a, b);
+    expect(res.findings).toEqual([]);
+    expect(res.raw.r1.graph).not.toBe(res.raw.c2.graph);
+    writeFileSync(join(b, "extra.txt"), "x");
+    expect(G.repeatComparison(a, b).findings).toContain("extra.txt is only in C2");
+  });
+});

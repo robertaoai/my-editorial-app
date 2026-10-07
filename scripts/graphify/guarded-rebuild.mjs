@@ -55,6 +55,11 @@
 // window crossed a cutoff; the fresh extraction must equal the selection
 // oracle and the rebuild must equal the producer's merge of the baseline and
 // that fresh extraction. `observed_at` is provenance, never selection time.
+// PR4b: the studio is exported from the final graph inside the candidate and
+// every derived file is checked against the pinned producer's projection.
+// PR5a: `proveRepeat` repeats generation and composition from the first run's
+// frozen packet against its release R1, in a disposable folder, and compares
+// C2 with R1 allowing only the declared volatile fields. Nothing is published.
 
 import { execFileSync, spawnSync } from "node:child_process";
 import { createHash, randomUUID } from "node:crypto";
@@ -1232,6 +1237,9 @@ export function generateCandidate({ repo, snapshot, baseline, work, answers = {}
   const rebuildGraph = readJsonOr(join(state, "graph.json"));
   const mf = gitMergeFindings(gitSubgraph(readJsonOr(join(baseline, "graph.json"))), freshGit, gitSubgraph(rebuildGraph));
   if (mf.length) return { status: "refused", reason: `the rebuild's Git subgraph is not the producer merge of the baseline and the fresh extraction: ${mf.join("; ")}`, evidence };
+  // PR5a: the selection oracle is part of the frozen packet a later repeat must reproduce.
+  const selection = { rules: SELECTION_RULES, oracle: createHash("sha256").update(JSON.stringify(fc.bracket.oracle)).digest("hex"),
+    branches: fc.bracket.oracle.branches, brackets: { rebuild: rebuildBracket.bracket, fresh: fc.bracket.bracket } };
   evidence.push({ stage: "selection", rules: SELECTION_RULES, branches: fc.bracket.oracle.branches.length, commits: fc.bracket.oracle.commits.length,
     memberships: fc.bracket.oracle.memberships.length, brackets: { rebuild: rebuildBracket.bracket, fresh: fc.bracket.bracket },
     observedAt: { rebuild: observedAt(rebuildGraph), fresh: observedAt(freshGraph) } });
@@ -1273,7 +1281,7 @@ export function generateCandidate({ repo, snapshot, baseline, work, answers = {}
   const v = validateStudio({ state, cli, shipped: bindings?.studioApp });
   evidence.push({ stage: "studio-validate", findings: v.findings.length, summary: v.summary });
   if (v.findings.length) return { status: "refused", reason: `the studio bundle is not the producer projection of the final graph: ${v.findings.slice(0, 5).join("; ")}`, evidence };
-  return { status: "generated", checkout, state, evidence };
+  return { status: "generated", checkout, state, evidence, selection };
 }
 
 // ---------------------------------------------------------------------------
@@ -2016,14 +2024,14 @@ const callerOf = (repo, snapshot) => {
  * lock refuses before this run writes anything in its attempt folder. `deps.crashAt` is a test hook
  * for real termination after the lock is created or after the copy.
  */
-function captureBaseline(s, dir, deps) {
+function captureBaseline(s, dir, deps, { checkSource = true } = {}) {
   const P = transactionPaths(s.liveTarget);
   const { releaseLocus, algorithm, digest, files } = s.frozen.baseline;
   const record = { ...ownerRecord(randomUUID()), purpose: "capture", workId: s.workId, baseline: { releaseLocus, algorithm, digest, files } };
   if (!createExclusive(P.lock, record)) return { outcome: "refused", reason: "the publication lock is held: the baseline is not captured while another run holds it" };
   try {
     if (deps.crashAt === "after-capture-lock") process.exit(137);
-    const same = snapshotMatches(s.repo, s.frozen.snapshot);
+    const same = checkSource ? snapshotMatches(s.repo, s.frozen.snapshot) : { ok: true };
     if (!same.ok) return { outcome: "failed", reason: `the frozen source changed before capture: ${same.reason}` };
     const base = selectBaseline({ liveTarget: s.liveTarget, bootstrap: deps.bootstrap });
     if (!base.ok || base.baseline.digest !== digest || digestOf(P.target) !== digest) return { outcome: "failed", reason: "the live state no longer equals the frozen baseline" };
@@ -2053,9 +2061,14 @@ function attempt(work, s, answers, deps) {
   if (gen.status === "pending-semantic") return { attempts: n, outcome: "pending", pending: gen.pending };
   if (gen.status !== "generated") return { attempts: n, outcome: "failed", reason: gen.reason || "generation failed" };
   const staging = join(dir, "staging");
-  const composed = deps.compose({ candidateState: gen.state, baseline, staging, workRoot: work, source: { repo: s.repo, snapshot: s.frozen.snapshot }, caller: callerOf(s.repo, s.frozen.snapshot), frozenAt: deps.now(), fragmentsDir: join(gen.checkout, "docs", "graph-fragments") });
+  const caller = callerOf(s.repo, s.frozen.snapshot);
+  const composed = deps.compose({ candidateState: gen.state, baseline, staging, workRoot: work, source: { repo: s.repo, snapshot: s.frozen.snapshot }, caller, frozenAt: deps.now(), fragmentsDir: join(gen.checkout, "docs", "graph-fragments") });
   if (!composed.ok) return { attempts: n, outcome: "failed", reason: (composed.findings || []).slice(0, 5).join("; ") };
-  return { attempts: n, outcome: "ready", ready: { staging, manifest: composed.manifest, graphSha256: composed.graphSha256, files: composed.files, frozenAt: composed.frozenAt } };
+  // PR5a: the answers, caller identity and selection are kept with the ready candidate (the frozen packet).
+  const answersFile = join(dir, "ANSWERS.json");
+  writeDurable(answersFile, answers);
+  return { attempts: n, outcome: "ready", ready: { staging, manifest: composed.manifest, graphSha256: composed.graphSha256, files: composed.files, frozenAt: composed.frozenAt,
+    selection: gen.selection ?? null, caller, answersFile, answersSha: createHash("sha256").update(readFileSync(answersFile)).digest("hex") } };
 }
 
 const defaults = (deps = {}) => ({ generate: generateCandidate, compose: composeCandidate, pinned: pinnedCli, bindings: executableBindings, now: () => new Date().toISOString(), ...deps });
@@ -2239,6 +2252,127 @@ export function publishWork({ work, review, repo, liveTarget = REAL_LIVE_TARGET,
     if (cur?.state === "reviewed") writeWork(work, { ...cur, lastOutcome: outcome, lastReason: r.reason });
     return outcome === "refused" ? refusedWork(r.reason) : result(outcome, { reason: r.reason, message: OUTCOME_MESSAGE[outcome] });
   });
+}
+
+// ---------------------------------------------------------------------------
+// D-426 PR5a (B-050 revisions 3–4): the disposable, unpublished repeat. Names:
+// B0 is the verified baseline the first accepted run was generated from; R1 is
+// that run's accepted release, now the repeat's baseline; C2 is the repeat's
+// composed candidate, never published. The real repository is never reset and
+// nothing is published. Test-only harness: not a CLI verb.
+// ---------------------------------------------------------------------------
+
+/** The only fields that may differ between C2 and R1, declared before any run, by exact path and field. */
+export const REPEAT_VOLATILE = Object.freeze({
+  "branch.json": Object.freeze(["updatedAt"]),
+  "worktree.json": Object.freeze(["updatedAt"]),
+  "studio/workspace-manifest.json": Object.freeze(["generated_at"]),
+});
+
+const policyOf = (rel) => STATE_RULES.find(([, re]) => re.test(rel))?.[0] ?? null;
+const canon = (v) => JSON.stringify(v, (k, x) => (x && typeof x === "object" && !Array.isArray(x) ? Object.fromEntries(Object.keys(x).sort().map((y) => [y, x[y]])) : x));
+
+/** Graph comparison by content: every node by id (all fields), every link as a multiset, every other key. */
+function graphDifferences(a, b) {
+  const f = [];
+  const byId = (g) => new Map((g?.nodes ?? []).map((n) => [n.id, n]));
+  const na = byId(a), nb = byId(b);
+  for (const [id, n] of na) {
+    if (!nb.has(id)) f.push(`node ${id} is missing in C2`);
+    else if (canon(n) !== canon(nb.get(id))) {
+      const keys = [...new Set([...Object.keys(n), ...Object.keys(nb.get(id))])].filter((k) => canon(n[k]) !== canon(nb.get(id)[k]));
+      f.push(`node ${id} differs in ${keys.join(", ")}`);
+    }
+  }
+  for (const id of nb.keys()) if (!na.has(id)) f.push(`node ${id} is only in C2`);
+  const bag = (g) => {
+    const m = new Map();
+    for (const e of g?.links ?? g?.edges ?? []) m.set(canon(e), (m.get(canon(e)) ?? 0) + 1);
+    return m;
+  };
+  const la = bag(a), lb = bag(b);
+  for (const [k, c] of la) if (lb.get(k) !== c) f.push(`link ${k.slice(0, 120)} occurs ${c} in R1 and ${lb.get(k) ?? 0} in C2`);
+  for (const [k, c] of lb) if (!la.has(k)) f.push(`link ${k.slice(0, 120)} occurs only in C2 (${c})`);
+  for (const k of new Set([...Object.keys(a ?? {}), ...Object.keys(b ?? {})])) {
+    if (!["nodes", "links", "edges"].includes(k) && canon(a?.[k]) !== canon(b?.[k])) f.push(`graph key ${k} differs`);
+  }
+  return f;
+}
+
+/**
+ * The C2-versus-R1 comparison. Retained files are byte-equal; declared volatile fields are the only
+ * allowed differences; graph.json is compared by content (raw hashes are recorded separately);
+ * any other JSON file by parsed content; any other file by bytes. Any finding stops the repeat.
+ */
+export function repeatComparison(r1, c2) {
+  const findings = [];
+  const ha = hashTree(r1), hb = hashTree(c2);
+  for (const rel of Object.keys(ha)) if (!(rel in hb)) findings.push(`${rel} is missing in C2`);
+  for (const rel of Object.keys(hb)) if (!(rel in ha)) findings.push(`${rel} is only in C2`);
+  for (const rel of Object.keys(ha).filter((k) => k in hb && ha[k] !== hb[k])) {
+    const policy = policyOf(rel);
+    if (policy === "retain") { findings.push(`retained file ${rel} differs (no allowance applies to retained files)`); continue; }
+    const A = readFileSync(join(r1, rel)), B = readFileSync(join(c2, rel));
+    if (!rel.endsWith(".json")) { findings.push(`${rel} differs`); continue; }
+    let a, b;
+    try {
+      a = JSON.parse(A.toString("utf8")); b = JSON.parse(B.toString("utf8"));
+    } catch {
+      findings.push(`${rel} differs and is not comparable JSON`);
+      continue;
+    }
+    if (rel === "graph.json") { findings.push(...graphDifferences(a, b).slice(0, 10)); continue; }
+    const allowed = REPEAT_VOLATILE[rel] ?? [];
+    const keys = [...new Set([...Object.keys(a ?? {}), ...Object.keys(b ?? {})])].filter((k) => canon(a?.[k]) !== canon(b?.[k]));
+    const undeclared = keys.filter((k) => !allowed.includes(k));
+    if (undeclared.length) findings.push(`${rel} differs outside the declared volatile fields: ${undeclared.join(", ")}`);
+  }
+  return { findings, raw: { r1: { manifest: treeDigest(ha), graph: ha["graph.json"] ?? null }, c2: { manifest: treeDigest(hb), graph: hb["graph.json"] ?? null } } };
+}
+
+/**
+ * `proveRepeat`: from a PUBLISHED first-run work folder, repeat generation AND composition with its frozen
+ * packet against its release R1, in the disposable folder `out`, and compare C2 with R1. Source, bindings,
+ * packet and selection equality are shown first; a mismatch stops and returns to preparation — never a
+ * repeat pass. Writes only inside `out` (plus the transient capture lock beside the live target).
+ */
+export function proveRepeat({ work, out, repo, liveTarget = REAL_LIVE_TARGET, bootstrap = BOOTSTRAP, workRoots = DISPOSABLE_ROOTS, deps } = {}) {
+  const stop = (reason, extra = {}) => ({ outcome: "repeat-refused", exit: EXIT.refused, reason, message: "not a repeat pass: return to preparation", ...extra });
+  const pre = [...workRootFindings({ work: out, repo, liveTarget, workRoots }), ...contextFindings(readWork(work), { repo, liveTarget })];
+  if (pre.length) return stop(pre.join("; "));
+  if (existsSync(out) && readdirSync(out).length) return stop("the repeat folder is not empty");
+  const s = readWork(work);
+  if (s?.state !== "published") return stop(`the first run is not published (state: ${s?.state ?? "none"})`);
+  const r = s.ready ?? {};
+  if (!s.frozen?.bindings || !r.selection || !r.caller || !r.answersFile) return stop("the first run's frozen packet is incomplete (bindings, selection, caller or answers)");
+  if (!existsSync(r.answersFile) || createHash("sha256").update(readFileSync(r.answersFile)).digest("hex") !== r.answersSha) return stop("the first run's answer packet changed");
+  const d = defaults(deps);
+  const pins = d.pinned(d.cli);
+  if (!pins.ok) return stop(pins.reason);
+  if (JSON.stringify(TOOL_PINS) !== JSON.stringify(s.frozen.pins)) return stop("the tool pins changed since the first run");
+  const bound = d.bindings({ cli: pins.cli });
+  if (!bound.ok || JSON.stringify(bound.bindings) !== JSON.stringify(s.frozen.bindings)) return stop("an executable binding changed since the first run");
+  const predecessor = { baseline: s.frozen.baseline, source: s.frozen.snapshot.head, answersSha: r.answersSha, selection: r.selection.oracle };
+  const successor = { releaseLocus: s.acceptance?.locus?.commit, algorithm: MANIFEST_ALGORITHM, digest: r.manifest, files: r.files };
+  const base = selectBaseline({ liveTarget, bootstrap });
+  if (!base.ok || base.baseline.digest !== successor.digest || base.baseline.releaseLocus !== successor.releaseLocus) return stop("the live state is not the first run's release R1");
+  mkdirSync(out, { recursive: true });
+  const cap = captureBaseline({ ...s, frozen: { ...s.frozen, baseline: successor } }, join(out, "attempt"), { ...d, bootstrap }, { checkSource: false });
+  if (cap.outcome !== "captured") return stop(`R1 was not captured: ${cap.reason}`);
+  const answers = JSON.parse(readFileSync(r.answersFile, "utf8"));
+  const gen = d.generate({ repo, snapshot: s.frozen.snapshot, baseline: cap.baseline, work: join(out, "gen"), answers, tool: d.tool, cli: pins.cli, fragmentsOrder: d.fragmentsOrder, bindings: s.frozen.bindings, clock: d.clock });
+  if (gen.status === "pending-semantic") return stop("the repeat needs new semantic answers: it is not the same run");
+  if (gen.status !== "generated") return stop(`the repeat generation refused: ${gen.reason}`);
+  if (gen.selection?.oracle !== r.selection.oracle) return stop("the branch selection differs from the first run's: re-prepare");
+  const staging = join(out, "staging");
+  const composed = d.compose({ candidateState: gen.state, baseline: cap.baseline, staging, workRoot: out, source: { repo, snapshot: s.frozen.snapshot }, caller: r.caller, frozenAt: d.now(), fragmentsDir: join(gen.checkout, "docs", "graph-fragments") });
+  if (!composed.ok) return stop(`the repeat composition refused: ${(composed.findings || []).slice(0, 3).join("; ")}`);
+  const cmp = repeatComparison(liveTargetPath(liveTarget), staging);
+  const receipt = { kind: "repeat", runId: randomUUID(), at: new Date().toISOString(), workId: s.workId, predecessor, successor, volatile: REPEAT_VOLATILE, raw: cmp.raw, findings: cmp.findings };
+  writeDurable(join(out, "REPEAT.json"), receipt);
+  return cmp.findings.length
+    ? { outcome: "repeat-stopped", exit: EXIT.failed, reason: `C2 differs from R1: ${cmp.findings.slice(0, 5).join("; ")}`, message: "stopped: revise and re-review the allowance list before any repeat is accepted", receipt }
+    : { outcome: "repeat-equal", exit: EXIT.ok, message: "C2 equals R1 within the declared volatile fields; nothing was published", receipt };
 }
 
 /** Messages state only verified facts (revision 3b's table). */
