@@ -1648,14 +1648,21 @@ describe("D-426 PR3a: executable bindings are verified before every tool call", 
   const pins = G.pinnedCli();
   test("a changed git or node binary or version refuses before the tool runs; valid bindings pass", () => {
     if (!pins.ok) return; // no pinned Graphify on this machine: bindings cannot name a verified CLI
-    const b = G.executableBindings({ cli: pins.cli });
-    expect(b.ok).toBe(true);
-    expect(Object.keys(b.bindings)).toEqual(["node", "git", "gitConfig", "cli", "pins", "argv", "rules", "studioApp"]);
-    expect(JSON.stringify(b.bindings)).not.toMatch(/PATH=|TOKEN|SECRET/);
     const r = branchRepo();
+    const probeDir = join(F2, `probe${++n}`);
+    const b = G.executableBindings({ cli: pins.cli, repo: r.d, snapshot: G.snapshotSource(r.d), probeDir });
+    expect(b.ok).toBe(true);
+    expect(existsSync(probeDir)).toBe(false); // the probe checkout is removed after freezing
+    expect(Object.keys(b.bindings)).toEqual(["node", "git", "gitConfig", "checkoutConfig", "cli", "pins", "argv", "rules", "studioApp"]);
+    expect(b.bindings.checkoutConfig).toMatch(/^[0-9a-f]{64}$/);
+    expect(b.bindings.argv).toEqual(G.STAGE_ARGV);
+    expect(JSON.stringify(b.bindings)).not.toMatch(/PATH=|TOKEN|SECRET/);
     const calls = [];
     for (const [want, bad] of [["git binary changed", { git: { ...b.bindings.git, sha256: "0".repeat(64) } }], ["node version changed", { node: { ...b.bindings.node, version: "v0.0.0" } }],
-      ["git path changed", { git: { ...b.bindings.git, path: "C:/nowhere/git.exe" } }], ["configuration outside the checkout changed", { gitConfig: "0".repeat(64) }]]) {
+      ["git path changed", { git: { ...b.bindings.git, path: "C:/nowhere/git.exe" } }], ["configuration outside the checkout changed", { gitConfig: "0".repeat(64) }],
+      ["effective Git configuration differs from the one frozen at prepare", { checkoutConfig: "0".repeat(64) }],
+      ["effective Git configuration was not frozen at prepare", { checkoutConfig: null }],
+      ["is not one frozen at prepare", { argv: [["hook-rebuild"]] }]]) {
       const res = gen(r, baselineWith(r), simulate({ calls }), { bindings: { ...b.bindings, ...bad }, cli: pins.cli });
       expect(res.reason).toContain(want);
     }
@@ -1663,21 +1670,38 @@ describe("D-426 PR3a: executable bindings are verified before every tool call", 
     expect(gen(r, baselineWith(r), simulate({ calls }), { bindings: b.bindings, cli: pins.cli }).reason).toBe(PASSED_GIT);
   }, PR3_SLOW);
 
-  test("a checkout's Git configuration changed between stages, or a shadowing git in the checkout, refuses", () => {
+  test("the checkout's effective Git configuration is frozen at prepare: tampering before the first use or between uses refuses; a shadowing git refuses", () => {
     if (!pins.ok) return;
-    const b = G.executableBindings({ cli: pins.cli }).bindings;
     const r = tinyRepo();
-    const co = join(F2, `bindco${++n}`);
-    G.prepareCheckout(r.d, G.snapshotSource(r.d), co);
-    const seen = new Map();
-    expect(G.bindingFindings(b, { checkout: co, seen })).toEqual([]);
-    execFileSync("git", ["-C", co, "config", "core.hooksPath", "elsewhere"]);
-    expect(G.bindingFindings(b, { checkout: co, seen }).join(" ")).toContain("changed between stages");
+    const snap = G.snapshotSource(r.d);
+    const b = G.executableBindings({ cli: pins.cli, repo: r.d, snapshot: snap, probeDir: join(F2, `probe${++n}`) }).bindings;
+    const fresh = () => {
+      const co = join(F2, `bindco${++n}`);
+      G.prepareCheckout(r.d, snap, co);
+      return co;
+    };
+    const clean = fresh();
+    expect(G.bindingFindings(b, { checkout: clean })).toEqual([]); // a checkout of the frozen snapshot equals the probe
+    const early = fresh();
+    execFileSync("git", ["-C", early, "config", "core.hooksPath", "elsewhere"]); // before its first use: first-use capture would accept this
+    expect(G.bindingFindings(b, { checkout: early }).join(" ")).toContain("differs from the one frozen at prepare");
+    execFileSync("git", ["-C", clean, "config", "core.hooksPath", "elsewhere"]); // between uses
+    expect(G.bindingFindings(b, { checkout: clean }).join(" ")).toContain("differs from the one frozen at prepare");
     if (process.platform === "win32") {
+      const co = fresh();
       writeFileSync(join(co, "git.exe"), "not git");
-      expect(G.bindingFindings(b, { checkout: co, seen: new Map() }).join(" ")).toContain("would shadow the bound git");
+      expect(G.bindingFindings(b, { checkout: co }).join(" ")).toContain("would shadow the bound git");
     }
   }, PR3_SLOW);
+
+  test("the child argv must equal a template frozen at prepare, expanded for the candidate state", () => {
+    const b = { argv: G.STAGE_ARGV };
+    const st = join(F2, "st", ".graphify");
+    for (const args of [G.REBUILD_ARGS, ["update", "--fill-missing"], ["update"], ["label", "--label-mode", "assistant"], G.studioExportArgs(st)]) expect(G.argvFindings(b, [...args], st)).toEqual([]);
+    for (const args of [["hook-rebuild"], ["update", "--force"], G.studioExportArgs(join(F2, "other")), ["studio", "export", join(st, "studio"), "--state", st, "--full-offline"]]) {
+      expect(G.argvFindings(b, args, st).join(" ")).toContain("is not one frozen at prepare");
+    }
+  });
 
   test("resume fails when a binding changed since prepare; prepare freezes the bindings without environment values", () => {
     const L = liveLayout();

@@ -49,8 +49,10 @@
 // to the frozen baseline; a held lock refuses without failing or rewinding
 // work; a dead capture owner's lock is released only by evidenced recovery.
 // PR3a/PR3b with revision 5: both extraction branches run the supported
-// `hook-rebuild --scope committed`; Node, Git, their configuration and the
-// CLI are bound at prepare and re-verified before every tool call; each
+// `hook-rebuild --scope committed`; Node, Git, the Git configuration outside
+// and inside the checkout (a probe checkout of the frozen snapshot), the CLI
+// and every child argv template are frozen at prepare and re-verified before
+// every tool call, the first included; each
 // Git-extracting call is bracketed by the clock and refuses if the selection
 // window crossed a cutoff; the fresh extraction must equal the selection
 // oracle and the rebuild must equal the producer's merge of the baseline and
@@ -971,19 +973,58 @@ function gitConfigOutside(gitPath, env) {
 }
 
 /**
+ * PR3a: every child argv the guard may run, frozen at prepare as templates; `<state>` and
+ * `<state>/studio` stand for the candidate state and its studio folder. Any other argv refuses.
+ */
+export const STAGE_ARGV = Object.freeze([
+  REBUILD_ARGS,
+  Object.freeze(["update", "--fill-missing"]),
+  Object.freeze(["update"]),
+  Object.freeze(["label", "--label-mode", "assistant"]),
+  Object.freeze(["studio", "export", "<state>/studio", "--state", "<state>"]),
+]);
+
+/** PR3a: a child argv must equal one frozen template, expanded for this candidate state. */
+export function argvFindings(b, args, state) {
+  const expand = (t) => t.map((a) => (a === "<state>" ? state : a === "<state>/studio" ? join(state, "studio") : a));
+  return (b?.argv ?? []).some((t) => JSON.stringify(expand(t)) === JSON.stringify(args)) ? [] : [`the child argv ${JSON.stringify(args)} is not one frozen at prepare`];
+}
+
+/** Digest of a checkout's EFFECTIVE Git configuration (system, global and local), as the child sees it. */
+function effectiveConfig(checkout, gitPath, env) {
+  const r = spawnSync(gitPath, ["-C", checkout, "config", "--list", "--show-origin"], { encoding: "utf8", env, timeout: 60000 });
+  return createHash("sha256").update(`${r.status}:${r.stdout || ""}`).digest("hex");
+}
+
+/**
  * PR3a: the executable bindings frozen at prepare — Node (path, binary SHA-256, version), Git as the
  * child resolves it on its sanitized PATH (path, SHA-256, version), the Git configuration outside
- * the checkout, the CLI path and its pins, and the child argv. Names only for the environment.
+ * the checkout, the checkout's effective Git configuration (read from a disposable probe checkout of
+ * the frozen snapshot, built in `probeDir` and removed), the CLI path and its pins, and the child argv
+ * templates. Names only for the environment.
  */
-export function executableBindings({ cli, env = sanitizedEnv() } = {}) {
+export function executableBindings({ cli, env = sanitizedEnv(), repo, snapshot, probeDir } = {}) {
   try {
     const gitPath = resolveOnPath("git", env);
     if (!gitPath) return { ok: false, reason: "git is not resolvable on the child's PATH" };
+    let checkoutConfig = null;
+    if (repo && snapshot) {
+      if (!probeDir) return { ok: false, reason: "a probe folder is required to freeze the checkout's Git configuration" };
+      try {
+        const probe = join(probeDir, "checkout");
+        const prep = prepareCheckout(repo, snapshot, probe);
+        if (!prep.ok) return { ok: false, reason: `the probe checkout failed: ${prep.reason}` };
+        checkoutConfig = effectiveConfig(probe, gitPath, env);
+      } finally {
+        rmSync(probeDir, { recursive: true, force: true });
+      }
+    }
     return { ok: true, bindings: {
       node: { path: process.execPath, sha256: sha256File(process.execPath), version: versionOf(process.execPath, env) },
       git: { path: gitPath, sha256: sha256File(gitPath), version: versionOf(gitPath, env) },
       gitConfig: gitConfigOutside(gitPath, env),
-      cli: cli ?? null, pins: TOOL_PINS, argv: REBUILD_ARGS, rules: SELECTION_RULES,
+      checkoutConfig,
+      cli: cli ?? null, pins: TOOL_PINS, argv: STAGE_ARGV, rules: SELECTION_RULES,
       studioApp: cli ? shippedStudio(cli) : null,
     }, envNames: Object.keys(env).sort() };
   } catch (e) {
@@ -992,10 +1033,10 @@ export function executableBindings({ cli, env = sanitizedEnv() } = {}) {
 }
 
 /**
- * PR3a: re-verifies every binding on use, by path, hash and version — never by PATH order alone.
- * `seen` keeps each checkout's local Git configuration digest from its first use.
+ * PR3a: re-verifies every binding on use, by path, hash and version — never by PATH order alone. A
+ * checkout's effective Git configuration must equal the one frozen at prepare, before its first use too.
  */
-export function bindingFindings(b, { checkout, seen = new Map(), env = sanitizedEnv() } = {}) {
+export function bindingFindings(b, { checkout, env = sanitizedEnv() } = {}) {
   const f = [];
   try {
     if (canonicalFsPath(process.execPath) !== canonicalFsPath(b.node.path)) f.push("the node path changed");
@@ -1012,9 +1053,8 @@ export function bindingFindings(b, { checkout, seen = new Map(), env = sanitized
     else if (JSON.stringify(shippedStudio(b.cli)) !== JSON.stringify(b.studioApp ?? null)) f.push("the pinned tool's shipped studio files changed");
     if (checkout) {
       for (const shadow of ["git.com", "git.exe", "git"]) if (process.platform === "win32" && existsSync(join(checkout, shadow))) f.push(`a ${shadow} in the checkout would shadow the bound git`);
-      const local = createHash("sha256").update(git(checkout, ["config", "--local", "--list", "--show-origin"])).digest("hex");
-      if (!seen.has(checkout)) seen.set(checkout, local);
-      else if (seen.get(checkout) !== local) f.push("the checkout's Git configuration changed between stages");
+      if (!b.checkoutConfig) f.push("the checkout's effective Git configuration was not frozen at prepare");
+      else if (!gitPath || effectiveConfig(checkout, gitPath, env) !== b.checkoutConfig) f.push("the checkout's effective Git configuration differs from the one frozen at prepare");
     }
   } catch (e) {
     f.push(`a binding cannot be verified (${String(e.message).split("\n")[0]})`);
@@ -1186,11 +1226,10 @@ export function generateCandidate({ repo, snapshot, baseline, work, answers = {}
   if (!prep.ok) return { status: "refused", reason: prep.reason, evidence };
   cpSync(baseline, state, { recursive: true });
   const expected = { head: snapshot.head, branchName: snapshot.branch, root: checkout, gitDir: join(checkout, ".git") };
-  const seen = new Map();
-  /** One child call: bindings verified first; a Git-extracting call is bracketed by the clock. */
+  /** One child call: argv and bindings verified first; a Git-extracting call is bracketed by the clock. */
   const invoke = (cwd, args, inputs) => {
     if (bindings) {
-      const f = bindingFindings(bindings, { checkout: cwd, seen });
+      const f = [...argvFindings(bindings, args, state), ...bindingFindings(bindings, { checkout: cwd })];
       if (f.length) return { refused: `executable binding refused before ${args[0]}: ${f.join("; ")}` };
     }
     const argv = [process.execPath, cli, ...args];
@@ -2155,9 +2194,9 @@ export function prepareWork({ repo, work, answers = {}, answersHash = null, live
   if (!snapshot.ok) return refusedWork(snapshot.reason);
   const base = selectBaseline({ liveTarget, bootstrap });
   if (!base.ok) return refusedWork(base.reason);
-  const bound = d.bindings({ cli: pins.cli });
-  if (!bound.ok) return refusedWork(bound.reason);
   mkdirSync(work, { recursive: true });
+  const bound = d.bindings({ cli: pins.cli, repo, snapshot, probeDir: join(work, ".probe") });
+  if (!bound.ok) return refusedWork(bound.reason);
   const s = { workId: randomUUID(), repo: resolve(repo), liveTarget: resolve(liveTarget), attempts: 0, answersHash,
     frozen: { snapshot, pins: TOOL_PINS, baseline: base.baseline, bindings: bound.bindings, envNames: bound.envNames } };
   return runAttempt(work, s, answers, { ...d, cli: pins.cli, bootstrap });
@@ -2187,7 +2226,7 @@ export function resumeWork({ work, repo, liveTarget = REAL_LIVE_TARGET, answers 
     if (JSON.stringify(TOOL_PINS) !== JSON.stringify(s.frozen.pins)) return fail("the tool pins changed");
     const pins = d.pinned(d.cli);
     if (!pins.ok) return fail(`the pinned tool is unavailable or changed: ${pins.reason}`);
-    const bound = d.bindings({ cli: pins.cli });
+    const bound = d.bindings({ cli: pins.cli, repo, snapshot: s.frozen.snapshot, probeDir: join(work, `.probe-${randomUUID()}`) });
     if (!bound.ok || JSON.stringify(bound.bindings) !== JSON.stringify(s.frozen.bindings)) return fail(`an executable binding changed since prepare${bound.ok ? "" : `: ${bound.reason}`}`);
     const base = selectBaseline({ liveTarget, bootstrap });
     if (!base.ok || base.baseline.digest !== s.frozen.baseline.digest) return fail("the live baseline changed");
@@ -2350,13 +2389,13 @@ export function proveRepeat({ work, out, repo, liveTarget = REAL_LIVE_TARGET, bo
   const pins = d.pinned(d.cli);
   if (!pins.ok) return stop(pins.reason);
   if (JSON.stringify(TOOL_PINS) !== JSON.stringify(s.frozen.pins)) return stop("the tool pins changed since the first run");
-  const bound = d.bindings({ cli: pins.cli });
+  mkdirSync(out, { recursive: true });
+  const bound = d.bindings({ cli: pins.cli, repo, snapshot: s.frozen.snapshot, probeDir: join(out, ".probe") });
   if (!bound.ok || JSON.stringify(bound.bindings) !== JSON.stringify(s.frozen.bindings)) return stop("an executable binding changed since the first run");
   const predecessor = { baseline: s.frozen.baseline, source: s.frozen.snapshot.head, answersSha: r.answersSha, selection: r.selection.oracle };
   const successor = { releaseLocus: s.acceptance?.locus?.commit, algorithm: MANIFEST_ALGORITHM, digest: r.manifest, files: r.files };
   const base = selectBaseline({ liveTarget, bootstrap });
   if (!base.ok || base.baseline.digest !== successor.digest || base.baseline.releaseLocus !== successor.releaseLocus) return stop("the live state is not the first run's release R1");
-  mkdirSync(out, { recursive: true });
   const cap = captureBaseline({ ...s, frozen: { ...s.frozen, baseline: successor } }, join(out, "attempt"), { ...d, bootstrap }, { checkSource: false });
   if (cap.outcome !== "captured") return stop(`R1 was not captured: ${cap.reason}`);
   const answers = JSON.parse(readFileSync(r.answersFile, "utf8"));
