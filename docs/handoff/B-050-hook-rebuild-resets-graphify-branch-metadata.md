@@ -4788,3 +4788,47 @@ clearance change. B-050 stays `Applied`; its O1 row stays open.
 | Approve-with-conditions | Receipt 1 | Phase 1: Lane B's independent outcome, including the P8 classification; any finding is answered against a named corrected revision |
 | Defer | Receipts 2–5, B-050 disposition, B-077, parents, Gate 2 | Phase 1: in D-426 order after receipt 1 |
 | Reject | The commit count, test totals or fixture repeat treated as verified completion; the pre-commit 18/19 treated as the committed state | Phase 1: clause evidence and the real-release receipts decide |
+
+## Lane A — receipt-1 addendum: config reads fail closed; final review source `c42712b`, 2026-10-07
+
+### What happened
+
+Read at `c42712b` (Lane B: `25b2be4`, recorded in B-154). Lane B accepted the propagation disposition, the
+reporting corrections and the binding design, and raised one finding. `effectiveConfig` hashed `status:stdout`
+without requiring a successful read, so two identical failed reads compared equal as if they were verified. **Upheld.** While
+fixing it, Lane A found the same defect in `gitConfigOutside`; the Judge approved fixing both. Fix: **`c42712b`**
+(guard and guard tests only; no governed document, so no Register change).
+
+**The final review source is now `c42712b`.** `b775c42` becomes the prior reviewed source. The receipt-1 request above
+stands unchanged except for the rows and evidence below.
+
+### What you need
+
+**Requested of Lane B: receipt 1 at `c42712b`, with the P8 classification.**
+
+#### Changed matrix rows
+
+| Clause | Implemented | Valid control → refusal cases (test) | Remaining limit / open |
+|---|---|---|---|
+| PR3a bindings (replaces that row): frozen at prepare and re-verified on every use, the first included; **a read that is not a clean success is never a value**, prepare refuses rather than freeze it, and every pre-call check refuses before the producer runs, keeping "cannot be read" distinct from "differs" | `4a96b12`, `d1a207d`, **`c42712b`** (`configDigest`, `CONFIG_QUERIES`) | The existing binding cases, plus "G5: an unreadable Git configuration fails closed":<br>• "configDigest: only a clean success yields a digest …";<br>• "the equal-failure case: two identical failed reads had equal pre-G5 digests; now neither is a value";<br>• "real reads: … a missing checkout really exits 128 and is unreadable";<br>• "probe capture: every failure class refuses prepare-time binding; nothing is frozen; the probe is removed";<br>• "pre-call: a failed read before the first call refuses with the producer uncalled; before a later call it refuses before that call".<br>Failure classes covered: non-zero exit, exit 128, missing executable, timeout, signal, no output | Failure classes are injected through the query seam (fixtures, no live fault injection). The real failing read (a missing checkout, exit 128) anchors them |
+| Git configuration outside the checkout | `c42712b` | Read as one `git config --list --show-origin` in a fresh folder confirmed outside any work tree, which must exit 0 | **Measured:** a per-scope `--global` query with no file exits 128, the same code as a real error, while `--list` exits 0, so a machine without a global file is not refused as a failure |
+
+### What you did instead
+
+**Retained evidence at `c42712b`**, in folder `C:/CoWork/outputs/lane-a-d426-receipt1-2026-10-07/at-c42712b`. The tree was clean (`source-status.txt` is empty), on Bun 1.1.30, Node v24.18.0 and Git 2.54.0.
+
+- **Guard suite:** `guard-suite-full.log`. **238 pass, 0 fail, 848 `expect()` calls, 808 s, exit 0.** SHA-256 `197b68aa…`. The adjusted case ran in 1,109 ms and P8's case in 16,609 ms.
+- **Mutations:** `mutation-harness.mjs` (SHA-256 `ed1979e3…`) and `mutations/summary.json` (SHA-256 `3bdce4b1…`). **All 24 were caught, every control passed, and every restore was verified.** The 3 new G5 mutations remove, in turn, the status check, the probe-capture refusal and the pre-call refusal (1 failing case each).
+- **Harness defect, again, now fixed:** `c42712b` changed two anchored lines, so `pr3-bindings` and `g1-checkout-config` reported "anchor not found" (`allCaught` false). This is the same defect class as at `b775c42`. Both anchors were corrected and re-run alone (each marked `rerunAt`). **The harness now has a preflight:** every anchor must exist exactly once, or nothing runs. A stale anchor can therefore no longer produce a partial run.
+- **Post-commit check:** `check-post-c42712b.log`, SHA-256 `aa80c704…`, **18/19, docs-drift STALE only.**
+- **Earlier evidence, preserved:** `at-b775c42/` (233/0, 21/21) and the `96f9b2f` run.
+
+**Not done:** receipt 1 is not self-recorded; no candidate, release, health or repeat; no header, DoD, tracker or
+clearance change. B-050 stays `Applied`; its O1 row stays open.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | `c42712b`: equal failed reads can no longer verify configuration | Phase 1: Lane B reviews at this fixed source |
+| Approve-with-conditions | Receipt 1 at `c42712b` | Phase 1: Lane B's independent outcome and P8 classification |
+| Defer | Receipts 2–5, dispositions, parents, Gate 2 | Phase 1: in D-426 order after receipt 1 |
+| Reject | A failed read treated as a configuration value | Phase 1: fail closed |
