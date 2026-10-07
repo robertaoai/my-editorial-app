@@ -563,6 +563,8 @@ and its test. The README §4 and sync-docs §7 change in place.
 
 **`D-426` (2026-10-06) — no file added or retired, stated explicitly.** The guard, its tests, `CLAUDE.md`, `GEMINI.md`, the `agent-rules-reference.md` framing header, `.agents/workflows/graphify.md`, SKILL §7/§9 and README §5 change in place.
 
+**`D-427` (2026-10-07) — no file added or retired, stated explicitly.** The guard and its tests change in place.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

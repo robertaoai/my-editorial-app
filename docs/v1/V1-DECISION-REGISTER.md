@@ -27743,3 +27743,45 @@ aligns the code with the accepted contract: argv and the checkout's effective Gi
 and re-verified on every use. It changes no governed document and adds no path. Encyclopedia: unaffected. The
 implementing revisions are `9b6bfb7`, `4a96b12`, `718735f`, `5aa7cc8`, `91f949f` and `d1a207d`; this disposition is
 the last authorized source commit before receipt 1.
+
+## 5.14e252 `D-427` — B-050 Repeat-Provenance Amendment A-PR5a-1 to D-426
+
+**Authority: the Judge, directly to Lane A, 2026-10-07**, in chat: "Select A-PR5a-1". It follows Lane B's independent
+receipt-1 outcome, not accepted at `c42712b` (B-050 `335dd28`), Lane A's proposal (B-050 `8dce483`) and Lane B's review of
+that proposal, "suitable for Judge selection" (B-050 `353febb`). Lane A is `Active`. Pushing is not authorized.
+
+### The decision
+
+1. **The amendment:** A-PR5a-1 at `8dce483`, as reviewed at `353febb`, is the **sole extension** to D-426's repeat
+   allowance (`REPEAT_VOLATILE`). Only these three fields may differ between C2 and R1, each under the per-run binding stated:
+
+   | Path | The only field allowed to differ | Per-run binding, checked before any cross-run allowance |
+   |---|---|---|
+   | `graph.json` | `graph.provenance.observed_at` | Each value is a present, valid ISO 8601 instant inside its own run's recorded rebuild bracket (R1 from the first run's frozen packet, C2 from the repeat); C2's time is strictly later than R1's |
+   | `studio/graph.json` | `graph.provenance.observed_at` | The complete studio graph equals its own run's root graph by content |
+   | `studio/workspace-manifest.json` | `artifacts[name=graph].sha256` | Exactly one `graph` entry, whose sha256 equals the SHA-256 of that run's own `studio/graph.json` bytes; `size_bytes`, `path`, `role`, `present`, `schema` and every other entry stay compared |
+
+   Only the exact validated leaf is masked for the cross-run comparison; every enclosing object field stays compared.
+   `REPEAT.json` retains both real observations, both source-bound brackets, and the raw hashes of the root graph, the
+   studio graph and the workspace manifest. B0, R1 and C2 stay distinct identities. No second live release is required.
+2. **Paths:** the correction is authorized only in `scripts/graphify/guarded-rebuild.mjs` and
+   `scripts/fixtures/graphify-guard.test.mjs` (D-426 paths 1–2), under D-426's existing limits, exclusions, P7 and P8.
+3. **Unchanged:** every other provenance field, graph key, node and link; retained files byte for byte; bindings,
+   selection and baseline; every other manifest field and studio file. Any further undeclared difference still stops the
+   repeat and needs its own specific decision; the allowance is never expanded during a run.
+4. **Order:** this record precedes implementation. Then the corrected final source with retained post-commit evidence
+   (valid control backed by the real producer, the targeted refusals, binding mutations); then a new independent
+   receipt 1 by Lane B; then D-426 receipts 2–5 and the closure acts. A fixture positive is not receipt 4.
+5. **Not decided here:** B-050's disposition, B-077's review, any DoD box, tracker or clearance change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e252 |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ `D-427` paragraph (tooling; no V1 scope, sequence or DoD change) |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-427` paragraph; no file added or retired |
+| Implementation paths (item 2) | Follow: the implementing commit(s) |
+| Rule files, `SV-002.md`, `GOV-RES-001.md`, Modular_PRD, fn-specs, SPECS, Phase Closure, frozen sources | — unaffected |
+| **Encyclopedia** | unaffected (`docs/ENCYCLOPEDIA-SYNC.md` maps none of these paths) |
+| **Graphify** | This recording is governed drift, expected; it is cleared only by D-426's guarded publication (receipt 3), never by a raw rebuild |

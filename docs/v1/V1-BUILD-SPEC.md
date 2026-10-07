@@ -147,6 +147,9 @@ PR #2 comment, `SV-002` acceptance and the `V1-SM05` unblock remain separate Jud
 **`D-401` (2026-10-03) — `GR-012` observation: no writer seen, accepted by Judge reason** (31-minute window accepted
 explicitly). Lane B verifies. `V1-SM05` stays `BLOCKED`.
 
+**`D-427` (2026-10-07) — `B-050` repeat-provenance amendment A-PR5a-1 to `D-426` (three exact fields under per-run
+bindings; guard and guard tests only).** Tooling only; no V1 scope, sequence or DoD change. `V1-SM05` stays `BLOCKED`.
+
 **`D-426` (2026-10-06) — `B-050` prevention work order: whole-unit guarded rebuild prevention (recording as a bounded
 three-file unit; implementation on eight source paths; revision 2–5 plan; P7 fixture-only recovery proof, P8 flake stop;
 five ordered receipts).** Tooling only; no V1 scope, sequence or DoD change. `V1-SM05` stays `BLOCKED`.
