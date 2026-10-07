@@ -4681,3 +4681,110 @@ act separately for the Judge's confirmation, and no construction starts before i
 
 B-050 stays `Applied`; its O1 row stays open. No test is run, no source status changes, and no Verified,
 disposition or clearance is claimed.
+
+## Lane A — D-426 receipt-1 request: final review source `b775c42` for independent readiness review, 2026-10-07
+
+### What happened
+
+Read at `b775c42`. Lane B: `96f9b2f` and `af513f1`, both recorded in B-154. D-426 (`55168f4`, citation `3691f89`) is
+implemented, aligned and propagated in seven commits. The **construction revision is `91f949f`**. After it come
+the PR3a alignment `d1a207d` and the propagation disposition `b775c42`. **The final review source is `b775c42`.**
+That Register commit is an authorized recording correction, not a handoff-only advance.
+
+| Commit | Piece | Paths |
+|---|---|---|
+| `9b6bfb7` | PR2a capture lock | guard, guard tests |
+| `4a96b12` | PR3a/PR3b + revision 5 step 4 | guard, guard tests |
+| `718735f` | PR4b derived-artifact projections | guard, guard tests |
+| `5aa7cc8` | PR5a `proveRepeat` | guard, guard tests |
+| `91f949f` | PR1 instruction routes; G-F3-8/9 | CLAUDE.md, GEMINI.md, agent-rules-reference (framing header), `.agents/workflows/graphify.md`, SKILL §7/§9, README §5, guard tests |
+| `d1a207d` | PR3a alignment (answers `af513f1` finding 3) | guard, guard tests |
+| `b775c42` | Propagation disposition (answers `af513f1` finding 1; Lane B's note in full) | Register only |
+
+Outside `docs/handoff/` and the Register, the cumulative changed-path set `3691f89..b775c42` is exactly D-426's
+eight paths. **Current state:** source-sweep passes, and docs-drift is STALE (analyzed `00c23ff`), which D-426
+expects until receipt 3. No live publication, prepare, repeat or graph mutation occurred.
+
+### What you need
+
+**Requested of Lane B: receipt 1, the independent fixture/source-readiness review of `b775c42`, with the P8
+classification.** Every row is Lane A evidence until Lane B reproduces or reviews it. "Inherited" marks a control
+D-426 keeps unchanged. Test names are cases in `scripts/fixtures/graphify-guard.test.mjs`, grouped by `describe`.
+
+#### Clause-to-evidence matrix
+
+| Clause (plan section) | Implemented | Valid control → refusal cases (test) | Remaining limit / open |
+|---|---|---|---|
+| **PR2a** capture record bound to the frozen baseline before any copy; re-check source and baseline under the lock; copy, hash, release in `finally`; generation unlocked | `9b6bfb7` `captureBaseline` | "PR2a … a held lock refuses the first prepare …" (a later prepare proceeds) | — |
+| PR2a held-lock refusal: resume restores the prior `pending` byte for byte; a first prepare leaves no resumable state; never `failed` | `9b6bfb7` `runAttempt` | "… a held lock refuses a resume: the prior pending record is restored byte for byte …"; the first-prepare case above | — |
+| PR2a copy/hash failure → `failed` (exit 4), lock released | `9b6bfb7` | "… a copy or hash failure fails the attempt (exit 4) …" | — |
+| PR2a dead-owner recovery: complete binding, same record twice, owner dead, no journal, live = bound baseline; receipt; otherwise exit 5 and untouched | `9b6bfb7` `recoverCapture` | Real child kills `after-capture-lock` and `after-capture-copy`, then recovery and retry; "… alive or unknown owner, a malformed binding or a changed live state … (exit 5)"; "competing recoverers …" | Real-target capture-lock recovery has not been exercised; fixture evidence only; any later invocation follows the existing guarded recovery conditions |
+| **PR3a** supported `hook-rebuild --scope committed` on both branches; rules recorded, not configured | `4a96b12` `REBUILD_ARGS`, `SELECTION_RULES` | "PR3a: the selection oracle … 200 commits; repo key from origin"; argv recorded in "PR3b … valid control" | — |
+| PR3a bindings **frozen at prepare and re-verified on every use, the first included**: Node and Git (path, SHA-256, version) as the child resolves them; Git config outside the checkout; **the checkout's effective Git config**, frozen from a disposable probe checkout of the frozen snapshot; CLI and pins; **every child argv template**; names only for the environment. Resume and `proveRepeat` recompute and must match | `4a96b12`, aligned `d1a207d` (`executableBindings`, `bindingFindings`, `argvFindings`, `STAGE_ARGV`) | "PR3a: executable bindings … a changed git or node binary or version refuses before the tool runs; valid bindings pass" (also: a changed config digest, an unfrozen config and a changed argv each refuse before the tool runs); "the checkout's effective Git configuration is frozen at prepare: tampering before the first use or between uses refuses; a shadowing git refuses"; "the child argv must equal a template frozen at prepare …"; "resume fails when a binding changed since prepare …" | The shadow-git check applies on Windows only, where cwd is searched first. The real-binding valid control passes: a real generation checkout equals the probe |
+| PR3a redirect/config-injection variables cleared (`GIT_DIR`…, `GIT_CONFIG*`, `GRAPHIFY_CHANGED`) | Inherited (`sanitizedEnv`, D-423/D-424) | Existing F2 cases | Unchanged |
+| **PR3b step 1** fresh extraction equals the oracle (sets, multiplicity 1); raw-null, identity and no-op checks on the fresh branch | `4a96b12` `freshOracleFindings`, `generateCandidate` | "PR3b … the fresh branch: an omitted or invented membership, or an extra branch or commit, refuses with an unchanged lifecycle HEAD"; "… raw null or no graph on the fresh branch refuses before the prune" | — |
+| **PR3b steps 2–3** rebuild equals the producer merge of the verified baseline Git subgraph and the fresh extraction; any extra needs baseline provenance | `4a96b12` `gitMergeFindings` | "PR3b … valid control: an old baseline membership outside the new window is carried and passes"; "… the rebuild branch: an omitted carried membership, an invented historical membership or a changed carried node refuses" | These cases use a simulated producer; fidelity is anchored by the next row |
+| PR3b model fidelity against the real pinned producer | `4a96b12` | "PR3b: the model against the REAL pinned producer … from-empty equals the oracle; after a branch is retired, the rebuild equals the producer merge and carries it" | Tiny repository only; the real-repository run is receipt 2 |
+| **Revision 5 step 4** clock bracket before and after each Git-extracting call; equal oracles at both ends; `observed_at` is provenance only | `4a96b12` `selectionBracket` | "revision 5: a stable bracket passes; unordered, invalid or cutoff-crossing brackets refuse"; "revision 5: a cutoff crossing on either call refuses through the bracket, even though observed_at exists" (stable control in the same case) | — |
+| **PR4b** candidate-local `studio export <state>/studio --state <state>`; default bundle, no `--full-offline`, no profile; after the final merge; then the whole bundle is validated | `718735f` `studioExportArgs`, `generateCandidate` | "PR4b … valid control: the real default export passes …" | `generateCandidate` was not run end to end here (the fixture repositories lack the docs-layer scripts); the first real run is receipt 2 |
+| PR4b checks:<br>• graph copy;<br>• scene: every derived field, colour values, weights, weak/dash; layout `x/y/fx/fy` excluded by name;<br>• entities;<br>• reconciliation: the pinned query; a malformed queue refuses;<br>• citations: signature, records, counts, sidecar bytes;<br>• manifest: re-emitted; the `graph` entry binds; `graph_hash` null;<br>• bundle: parsed as data, default scene-only;<br>• shipped files byte-equal;<br>• unknown files and unclassified inputs refuse | `718735f` `validateStudio` (a child process importing the hash-pinned producer's own functions) | "scene: a wrong color value …, a wrong derived weight and a flipped weak flag …"; "entities and citations …"; "reconciliation … malformed queue refuses instead of the producer's empty fallback"; "vendor, manifest and bundle …"; "inventory …"; "the shipped studio files are bound …"; "fidelity anchor: … accepts a copy of the real released live studio" | Layout is excluded by name, as the plan specifies. A direct recompute in another runtime did not reproduce the live positions; two real CLI exports of one state agree except manifest `generated_at`. The cause is not established |
+| **PR5a**:<br>• generation and composition from the frozen packet against R1, disposable and unpublished;<br>• gates on the packet, pins, bindings, R1 identity and selection;<br>• retained files byte-equal;<br>• only the declared volatile fields may differ;<br>• graph compared by content, raw hashes kept separately;<br>• B0 and R1 recorded as distinct identities | `5aa7cc8` `proveRepeat`, `repeatComparison`, `REPEAT_VOLATILE` | "PR5a … valid control: C2 equals R1 …"; "a declared volatile field may differ; an undeclared field … stops"; "failing repeats: an altered retained byte, … wrong description, relation or member binding"; "a changed input packet, binding, selection or live release stops …"; "an unpublished or packet-less work folder is refused"; "repeatComparison: graph serialization alone is not a difference …" | These cases use fake generation. **The actual repeat against the new R1 is receipt 4.** R1 must be the next guarded release, because the live studio at `932b453` predates PR4b |
+| **PR1** rule files: the currency check stays, the raw route is replaced by the accepted text; the archive gets one framing sentence and its body is unchanged; the workflow routes to `prepare` | `91f949f` | "PR1 … no operative instruction file routes a raw rebuild or update …"; "negative proof: the audit finds the raw routes … (55168f4)"; "the rule files keep the currency check …"; "the archive …" (body SHA-256 `7e46a6f6…`) | The global skill and its routes stay external (a stated limit) |
+| **G-F3-8** in SKILL §7 and README §5; **G-F3-9** in SKILL §9, word for word | `91f949f` | "G-F3-8 (SKILL §7, README §5) and G-F3-9 (SKILL §9) are applied word for word from their accepted source commits" (read from `2cf100c` and `1853fda`) | Lane B confirmed independently (`96f9b2f`) |
+| **Propagation** of the governing-document change | `b775c42` (Lane B's drafted note in full) | `source-sweep` passes after commit (`check-post-b775c42.log`) | Its clearing is arrival evidence, not correctness proof; the content is for Lane B to review |
+| **PR6** writer inventory | Inherited, re-observed at `96f9b2f` | • `.codex/hooks.json` → `graphify hook-check`: in pinned 0.17.1 `cli.js` (SHA-256 `9b119afe…`, `TOOL_PINS`) it is a bare `process.exit(0)`.<br>• `.claude/settings.json` hint hooks create only an empty `.graphify/.hint-<date>/`, which is digest-neutral (`.hint-2026-10-07` observed; the live baseline still resolves).<br>• `.agents/workflows/graphify.md`: in scope, now PR1.<br>• Global skill: external.<br>• `.github/workflows`: no graphify reference (a read-only search, not a Lane C review) | No change made; raw-writer exclusion stays outside the unit |
+| **DoD 1–6** (revision 3, with the revision 4/5 cases) | Rows above | — | Lane B review owed |
+| **DoD 7–9**: guarded sync of the final source; `proveRepeat` green against that release; whole-unit review | **Not started** | — | Receipts 2–5 |
+
+#### Timeout adjustment and P8
+
+| Fact | Evidence |
+|---|---|
+| Failing case | "F2 publication on fixture targets (steps 6–7) > refuses anything not declared a fixture, and the real live target even when declared" (line 347). It failed once in a full run during PR3 work: `[5031.00ms]` against Bun's 5,000 ms default, with no explicit timeout |
+| Retained output | **Only that summary line was kept.** The raw trace of that run is lost and is not reconstructed |
+| Change | `4a96b12` gives that case `SLOW` (120,000 ms), matching its siblings. No assertion changed |
+| Cause | **Lane A hypothesis:** first-use construction of the shared fixture repository under suite load. Not established |
+| Subsequent results | Alone, 3/3 (about 1,150 ms each); its `describe`, 5/5; every later full run, including both retained runs (1,046 ms at `96f9b2f`, 1,125 ms at `b775c42`) |
+| P8's case | "F2 ownership … a peer is refused while the publishing owner is alive; the owner then completes" (line 436). It is a different case, unchanged, and passed in every full run (17,297 ms and 16,750 ms in the retained runs) |
+| Asked of Lane B | The classification. Distinct names and later passes do not prove the historical cause or rule out P8. If Lane B classifies it as P8, the unit stops |
+
+### What you did instead
+
+#### Retained evidence at the final review source `b775c42`
+
+Folder `C:/CoWork/outputs/lane-a-d426-receipt1-2026-10-07/at-b775c42`. The tree was clean for the run (`source-status.txt` is empty), and `runtime.txt` records Bun 1.1.30, Node v24.18.0 and Git 2.54.0.
+
+- **Guard suite:** `guard-suite-full.log`, the complete raw `bun test` output. **233 pass, 0 fail, 754 `expect()` calls, 731 s, exit 0.** SHA-256 `9ac4675e…`.
+- **Mutations:** `mutation-harness.mjs` (SHA-256 `ec71b2fe…`) and `mutations/` (`summary.json` SHA-256 `7e301b61…`, with per-mutation `.control.log` and `.mutated.log` files). There are 21 mutations. For each one, the case filter runs on the **unmutated** source and must pass with zero failures; the mutation is applied; the same filter must fail; then the file is restored and the restore is proved by hash. **All 21 were caught, every control passed, every restore was verified, and the tree was clean afterwards.**
+- **Harness defect, disclosed:** `d1a207d` changed `bindingFindings`'s signature, so `pr3-bindings` first reported "anchor not found" (`allCaught` false). Its anchor was corrected, and it was re-run alone (marked `rerunAt` in the summary): control 1 pass, mutated 1 fail, restored.
+
+| Piece | Mutations (each: control pass → mutated fail) |
+|---|---|
+| PR2a | held-lock refusal removed (2 cases fail); dead-owner check removed (1) |
+| PR3a/PR3b, revision 5 | bracket check (2); merge comparison (1); fresh-oracle check (1); binding verification (1) |
+| PR3a alignment (`d1a207d`) | argv check removed (1); checkout-config check removed (1) |
+| PR4b | scene, entities, reconciliation empty fallback, manifest, bundle, inventory (1 each) |
+| PR5a | allowance broadened, retained, graph, selection gate, R1 gate (1 each) |
+| PR1 | raw route re-inserted in CLAUDE.md (1); one word changed in README G-F3-8 (1) |
+
+**Earlier evidence, preserved:** the run at `96f9b2f` (`guard-suite-full-at-96f9b2f.log`, SHA-256 `7ffee245…`, 232/0; `mutations-at-96f9b2f/`, summary `8ba4ab0f…`, 19/19). Full runs during construction (202, 213, 221, 227, 232 passing) are summary-only.
+
+#### Committed-state check results, corrected
+
+| Commit | `bun run check` after commit | Note |
+|---|---|---|
+| `91f949f` | **17/19**: source-sweep and docs-drift. Observed at Lane A's first post-PR1 check (at `96f9b2f`, a handoff-only advance, so the same committed source state); no check log was retained at `91f949f` itself | Lane A's gate ran the check *before* committing, and source-sweep reads committed history. The 18/19 reported for PR1 was the pre-commit result. **That claim was wrong; this row corrects it** |
+| `d1a207d` | 17/19: source-sweep and docs-drift (`check-post-d1a207d.log`, SHA-256 `bbfa9eaf…`) | Expected until the disposition |
+| `b775c42` | **18/19: docs-drift STALE only** (`check-post-b775c42.log`, SHA-256 `6f9a0f29…`) | Expected until receipt 3 |
+
+From now on, the gate runs and retains the check **after** each commit. rule-budget passes (CLAUDE.md 45 lines, imports `@AGENTS.md`; GEMINI.md 3,669 B).
+
+**Not done:** receipt 1 is not self-recorded; no candidate, release, health or repeat; no header, DoD, tracker or
+clearance change. B-050 stays `Applied`; its O1 row stays open.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | The seven commits through `b775c42` as the readiness candidate | Phase 1: Lane B reviews at this fixed source |
+| Approve-with-conditions | Receipt 1 | Phase 1: Lane B's independent outcome, including the P8 classification; any finding is answered against a named corrected revision |
+| Defer | Receipts 2–5, B-050 disposition, B-077, parents, Gate 2 | Phase 1: in D-426 order after receipt 1 |
+| Reject | The commit count, test totals or fixture repeat treated as verified completion; the pre-commit 18/19 treated as the committed state | Phase 1: clause evidence and the real-release receipts decide |
