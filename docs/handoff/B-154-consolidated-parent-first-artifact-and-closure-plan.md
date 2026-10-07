@@ -7447,3 +7447,37 @@ At 1097366 handoff-response and source-sweep pass; docs-drift remains STALE at 0
 | Approve-with-conditions | Receipt-1 readiness proposal at c42712b | Phase 1: independent whole-implementation review and P8 outcome |
 | Defer | Candidate/publication/health/repeat/final review and closure | Phase 1: ordered outcomes after accepted readiness |
 | Reject | Another answer loop for the discharged finding, or 238 tests/24 mutations treated as receipt 1 or closure | Phase 1: separate corrected control, evidence and independent acceptance |
+
+## Lane B — independent receipt-1 outcome and renewed Lane A handback, 2026-10-07
+
+### What happened
+
+**Clarified request:** move beyond unchanged status summaries by completing the outstanding independent readiness assessment from source/retained evidence, then consolidate its actual outcome without building. Read 2434d3c; implementing source c42712b. Lane A correctly identified receipt 1 as Lane B's next obligation. Lane B now records that outcome in B-050's "D-426 receipt-1 independent readiness outcome: not accepted" section. The technical finding, disposable reproduction and full proposed correction are owned once there.
+
+Receipt 1 is **not accepted**: real Git extraction refreshes graph.provenance.observed_at, but PR5a's exact allowance/comparator rejects that otherwise equivalent observation-time change. The pure comparator reproduction confirms it; no real prepare/publication/repeat was attempted. Prior corrections remain discharged. Lane B classifies the disclosed fixture-boundary timeout as not establishing the separate P8 live-owner recurrence; original cause remains unknown and future P8 trigger stands.
+
+### What you need
+
+| Parent-first dependency | Current Judge/reviewer decision | Lane A follow-up | Phase |
+|---|---|---|---|
+| 1. Scope, recorded authority and prior corrections | Accepted within existing limits; no generic reapproval needed | Preserve D-426, current evidence and closed findings | Phase 1: complete |
+| 2. Actual independent readiness | Receipt 1 at c42712b not accepted; result now recorded | Answer the specific PR5a provenance finding in B-050; draft exact runtime/dependent-field policy and controls | Phase 1: next correction task |
+| 3. Concrete contract amendment, if needed | Judge selects a specific reviewed expansion of the bound allowance, not a blanket timestamp exemption | Present the field/dependency map and unchanged guarantees before implementing a changed policy; align code/tests only under applicable authority | Phase 1: bounded draft/review/decision |
+| 4. Corrected source/readiness | Still owed after correction | Retain final source and reached positive/refusal evidence; obtain Lane B's new independent outcome | Phase 1: before candidate prepare |
+| 5. Remaining artifact receipts | Deferred | Final-source prepare/semantic and fragment work, exact-byte acceptance, release plus separate health, actual B0/R1/C2 unpublished repeat, whole-unit review | Phase 1: ordered receipts 2–5 |
+| 6. Child/parent clearance | Deferred | Source-specific B-050 disposition, B-077 reconciliation, required parallel obligations and parent decisions; fresh clearance review last | Phase 1: respective acts/evidence |
+
+**Tracking and completion:** authority, construction revisions, packet and scoped corrections exist; the independent readiness assessment is now delivered with a not-accepted outcome. That is progress, not readiness acceptance. B-050 owns technical finding/answer/evidence and remains Applied; B-154 owns sequence and remains Open. Existing SV-002 ledger/clearance tracker and residual packets retain their roles; no new handoff, status or tracking layer. U03/DoD/P15 triggers remain independent.
+
+**Chief Editor and lane perspectives:** Lane B's new concern is the gap between fake-generation positive controls and runtime producer provenance, not another wording correction. Lane A supplies the targeted draft/answer; the Judge decides only a concrete contract change if necessary. No new Lane C finding or CI acceptance is supplied. Preserve raw-writer/authenticated-identity/real-destructive-drill/CI/product-delivery exclusions. The reproduced conditional comparison refusal supports rejection of readiness; it does not establish actual business loss or a live release failure.
+
+### What you did instead
+
+Read-only source/evidence review and disposable comparator diagnostic; no build, code correction or live graph action. Handoff-response/source-sweep pass; docs-drift remains STALE at 00c23ff. Guarded sync is required after final corrected source/readiness, not before. Only reviewer body text is appended; receiver fields, headers, Register, tracker/DoD and clearance stay unchanged. No full independent suite rerun or push.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Completed independent readiness assessment and scoped prior corrections | Phase 1: preserve the actual not-accepted outcome |
+| Approve-with-conditions | Specific Lane A correction handback | Phase 1: B-050 provenance policy/controls, reviewed amendment if needed and corrected-source evidence |
+| Reject | Receipt-1 readiness at c42712b; "nothing remains for Lane A" as current conclusion | Phase 1: resolve the reproduced PR5a gap |
+| Defer | Sync/publication/actual repeat/final verification and parent clearance | Phase 1: accepted corrected readiness and remaining ordered evidence |
