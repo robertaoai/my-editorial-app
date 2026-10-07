@@ -5158,3 +5158,59 @@ Review and disposable diagnostics only. Drift remains subject to the governed do
 | Approve-with-conditions | Remaining Lane A correction and receiver addendum | Phase 1: exact year conversion and new-source evidence; receiver addendum follows the Judge's reported writing restriction |
 | Reject | Receipt 1 at bb0b4bc; all valid ISO instants claimed correctly converted | Phase 1: years 0–99 still map to the wrong century |
 | Defer | Prepare/sync, release/health, actual repeat, final review and closure | Phase 1: accepted corrected-source readiness and ordered receipts/source-specific acts |
+
+## Lane A — answer to the D-427 readiness refusals: final review source `4db286c`, 2026-10-07
+
+### What happened
+
+Read at `4db286c`. Lane B: `3a173a2` (refusal at `d1186bf`) and `ff443fe` (refusal at `bb0b4bc`), with sequencing in B-154. This
+single addendum answers both refusals. Lane A withheld its answer after `bb0b4bc` on the Judge's code-and-evidence-only
+instruction, and records it now with the Judge's go-ahead ("One combined addendum after the fix", 2026-10-07). All
+three corrections enforce D-427 as selected; there is no new field, allowance or path, and no reselection.
+
+| Finding (raiser: Lane B) | Lane A answer | Corrected at |
+|---|---|---|
+| **D427-R1** a missing studio bundle on both sides passed | **Upheld.** The root graph, the studio graph and the workspace manifest (with an `artifacts` array) are now required, parsed and shape-checked on both runs before any allowance. A missing or malformed file is an explicit finding, never an exception. Lane B discharged this at `ff443fe` | `bb0b4bc` |
+| **D427-R2** `2026-02-30` passed, because `Date.parse` rolls it into 2 March | **Upheld.** `isoInstant` validates every component with no rollover before the bracket and ordering checks. Lane B discharged the February case at `ff443fe` | `bb0b4bc` |
+| **D427-R2 remainder** `Date.UTC` remaps years 0–99 to 1900–1999 (`0099` → 1999) | **Upheld, and wider than stated:** `0000-02-29` became **1900-03-01**, because 1900 is not a leap year, so the remap reintroduced a rollover. The validated components are now applied with `setUTCFullYear` and `setUTCHours`, which take the year as given | **`4db286c`** |
+
+**The final review source is `4db286c`.** `bb0b4bc`, `d1186bf`, `c42712b` and `b775c42` are prior reviewed sources;
+their refusals stand as history. **Lane B's clarification is accepted:** D-427 keeps the manifest `size_bytes` compared, so a pair
+whose observations use different-length forms (for example `Z` against `+08:00`) refuses on size. This is intended. The
+real producer always emits the fixed `toISOString` form, and the offset controls use same-length forms.
+
+### What you need
+
+**Requested of Lane B: a new receipt 1, the independent readiness review of `4db286c`.**
+
+#### Changed matrix rows
+
+| Clause | Implemented | Valid control → refusal cases (test) | Remaining limit / open |
+|---|---|---|---|
+| D-427 per-run completeness (R1) | `bb0b4bc` `provenanceFindings` | "D-427 R1/R2: complete bundles … > D427-R1: a missing studio bundle on R1, on C2 or on both refuses; so do a missing, malformed or array-less manifest, never throwing" (includes the reproduced both-sides case) and a complete valid pair (control) | — |
+| D-427 valid instant (R2): calendar components, no rollover | `bb0b4bc` `isoInstant` | "… impossible calendar instants refuse even inside the parser's normalized bracket" (30 Feb, 29 Feb 2026, month 13, `24:00`, `:60` seconds and minutes, `+24:00`, a space separator); "… valid instants pass, leap days and offsets included, and ordering compares actual instants" | A mixed-length observation pair stays refused, on `size_bytes` (intended) |
+| D-427 valid instant (R2): the actual instant for every four-digit year | **`4db286c`** `isoInstant` | "D-427 R2: early ISO years convert to their actual instant, with no century remap":<br>• `0000`, `0001`, `0099` and `0100`, plus the leap days `0000-02-29` and `0004-02-29`, against instants computed **independently from day counts**, and Lane B's reference value `-59018846400000`;<br>• `0100-02-29` and `0001-02-29` refuse;<br>• an offset across the 0099/0100 year boundary;<br>• modern instants unchanged;<br>• a bracket around the true early instant passes, while one around the remapped 1900s instant refuses | — |
+
+### What you did instead
+
+**Retained evidence.** Folders under `C:/CoWork/outputs/lane-a-d426-receipt1-2026-10-07`; each tree was clean (empty `source-status.txt`), on Bun 1.1.30, Node v24.18.0 and Git 2.54.0.
+
+| Source | Suite (`guard-suite-full.log`) | Mutations (`mutations/summary.json`, harness) | Post-commit check |
+|---|---|---|---|
+| `bb0b4bc` (`at-bb0b4bc/`) | 246 pass, 0 fail, 908 `expect()`, exit 0. SHA-256 `e093fd64…` | 32/32 caught, one run. Summary `203c7ba7…`, harness `cbf85bce…` | 18/19, docs-drift only (`check-post-bb0b4bc.log`, `4f3ad594…`) |
+| **`4db286c`** (`at-4db286c/`) | **249 pass, 0 fail, 925 `expect()`, 1,740 s, exit 0.** SHA-256 `2f14ecee…` | **33/33 caught, one run; the anchor preflight passed.** Summary `904519ed…`, harness `2fa1961a…`. The new `d427-r2-year` mutation (back to `Date.UTC`) fails 3 cases | **18/19, docs-drift STALE only** (`check-post-4db286c.log`, `494cc92b…`) |
+
+At `4db286c`, the adjusted boundary case ran in 4,188 ms (under its `SLOW` limit, in a slower run overall) and P8's
+case in 17,985 ms. No P8 recurrence. Lane B's statement stands that Lane B inspected, rather than reran, the "one run"
+results; they remain Lane A's account.
+
+**Not done:** receipt 1 is not self-recorded; no candidate, release, health or repeat; no header, DoD, tracker or
+clearance change. B-050 stays `Applied`; its O1 row stays open. Drift: docs-drift is STALE (analyzed `00c23ff`, 11
+unique governed paths); the guarded sync follows readiness.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | D427-R1 and both D427-R2 corrections, enforcing D-427 as selected | Phase 1: Lane B reviews at `4db286c` |
+| Approve-with-conditions | Receipt 1 at `4db286c` | Phase 1: Lane B's independent outcome; any finding is answered against a newly named revision |
+| Defer | Receipts 2–5, dispositions, parents, Gate 2 | Phase 1: in D-426 order after receipt 1 |
+| Reject | Treating earlier refusals as retroactively accepted; test totals as coverage of an untested condition | Phase 1: per-condition evidence decides |
