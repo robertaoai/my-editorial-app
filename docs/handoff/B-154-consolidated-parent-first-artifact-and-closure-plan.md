@@ -7544,3 +7544,34 @@ Source/retained-evidence inspection and disposable comparator diagnostics; no im
 | Approve-with-conditions | Specific Lane A correction handback | Phase 1: B-050 D427-R1/R2 controls, new source and independent review |
 | Reject | Receipt 1 at d1186bf; test/mutation totals treated as complete acceptance | Phase 1: mandatory per-run contract remains unenforced in reproduced cases |
 | Defer | Sync/release/actual repeat/final review and closure | Phase 1: accepted new readiness then ordered receipts and respective dispositions |
+
+## Lane B — bb0b4bc review: discharged cases and remaining handback, 2026-10-07
+
+### What happened
+
+Reviewed Lane A's attached code/evidence-only response and source bb0b4bc. B-050 at ff443fe owns the technical outcome and diagnostic once: D427-R1 is discharged, February 30 now refuses, and the size_bytes limit is intended. Receipt 1 remains not accepted because isoInstant maps valid years 0000–0099 into 1900–1999 through Date.UTC. Retained 246-test/32-mutation evidence was inspected, including all 64 raw control/mutated logs; no independent full-suite rerun is claimed.
+
+### What you need
+
+| Parent-first task | State / next owner | Completion criterion | Phase |
+|---|---|---|---|
+| 1. D-426/D-427 authority and scoped delivery | Recorded; earlier discharged findings stay discharged | Preserve selected fields/paths, P7/P8 and exclusions | Phase 1: complete as authority/delivery |
+| 2. Independent corrected-source review | Delivered, not accepted at bb0b4bc | B-050 ff443fe owns actual outcome | Phase 1: assessment complete |
+| 3. Remaining D427-R2 conversion correction | Lane A | Correct actual instants for years 0–99 under existing paths 1–2; retain new-source controls/evidence | Phase 1: next correction |
+| 4. Receiver addendum | Lane A reports Judge withheld it under code/evidence-only instruction | Judge's requested go-ahead, then Lane A records its own answer/source/evidence; Lane B never substitutes that answer | Phase 1: recording restriction |
+| 5. Accepted readiness | Lane B after corrected source | New explicit receipt-1 outcome; any P8 recurrence stops | Phase 1: before prepare |
+| 6. Receipts 2–5 | Deferred | Exact-byte candidate acceptance, release and separate health, actual unpublished B0/R1/C2 repeat, whole-unit review | Phase 1: ordered verification |
+| 7. Source and parent closure | Deferred | B-050 disposition, B-077 review, required residual children/parallel obligations and parent/clearance acts | Phase 1: respective evidence/acts |
+
+No generic amendment reselection is needed to enforce the existing contract. Lane B raises/reviews; Lane A answers/corrects. No Lane C acceptance is inferred. Existing technical, sequencing, reconciliation, SV-002 review/clearance and residual packet tracking suffice. B-050 stays Applied/O1 open and B-154 stays Open; U03, DoD and B-136 P15 remain independent.
+
+### What you did instead
+
+Review/disposable diagnostics only; no code, build, receiver/header/DoD/tracker/clearance change, live sync or push. At bb0b4bc, source-sweep and handoff-response pass, docs-drift remains STALE from 00c23ff over 11 unique governed paths. Graph query is historical context. Guarded sync follows accepted final-source readiness. Full bun run check cannot start here (CouldntReadCurrentDirectory); retained Lane A suite results are separate from Lane B's targeted checks.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Discharged missing-bundle/February cases, size limit and evidence observations | Phase 1: retain limits |
+| Approve-with-conditions | Remaining Lane A correction/answer | Phase 1: exact year conversion and new-source evidence; respect reported receiver-writing restriction |
+| Reject | Receipt 1 at bb0b4bc | Phase 1: valid early years still convert to the wrong century |
+| Defer | Sync, release, actual repeat and closure | Phase 1: accepted readiness then ordered receipts and source/parent acts |
