@@ -7481,3 +7481,35 @@ Read-only source/evidence review and disposable comparator diagnostic; no build,
 | Approve-with-conditions | Specific Lane A correction handback | Phase 1: B-050 provenance policy/controls, reviewed amendment if needed and corrected-source evidence |
 | Reject | Receipt-1 readiness at c42712b; "nothing remains for Lane A" as current conclusion | Phase 1: resolve the reproduced PR5a gap |
 | Defer | Sync/publication/actual repeat/final verification and parent clearance | Phase 1: accepted corrected readiness and remaining ordered evidence |
+
+
+## Lane B — reviewed A-PR5a-1: specific Judge selection is next, 2026-10-07
+
+### What happened
+
+Read Lane A's answer at 8dce483. Lane B completed the requested proposal review in B-050 at 353febb, including retained inventory verification, exact field/dependency bindings, a draft Judge selection and implementation/refusal criteria. That section owns the technical details once. The proposal is ready for the specific Judge decision; no further unchanged-answer loop is needed. Receipt 1 at c42712b remains not accepted. A correction proposal is delivered, not implemented.
+
+### What you need
+
+| Parent-first task | State / next actor | Completion evidence | Phase |
+|---|---|---|---|
+| 1. Existing D-426 authority, prior corrections, independent readiness assessment | Delivered; readiness outcome was not accepted | Existing source/authority and B-050 outcome | Phase 1: complete as records |
+| 2. Lane A provenance answer and Lane B proposal review | Delivered; map suitable for selection | 8dce483 answer and B-050 review at 353febb | Phase 1: complete as planning |
+| 3. Exact A-PR5a-1 amendment | Judge selects or rejects; Lane A records selected authority and D-54 disposition | Specific Register act, not this planning request or an Approve verdict | Phase 1: next decision |
+| 4. Correction in existing paths 1–2 | Lane A after task 3 | Final source and post-commit valid/refusal/mutation packet | Phase 1: construction |
+| 5. New independent receipt 1 | Lane B after task 4 | Explicit corrected-source acceptance or refusal; P8 classification if triggered | Phase 1: readiness |
+| 6. Remaining D-426 receipts | Dependent, not started by this review | Exact-byte candidate acceptance; release and separate health; actual unpublished B0/R1/C2 repeat; whole-unit review | Phase 1: receipts 2–5 in order |
+| 7. Source and parent closure | Dependent on respective evidence and residual obligations | B-050 disposition, B-077 review, required children, parent acts and fresh clearance | Phase 1: closure |
+
+**Chief Editor / tracking:** the decision is the exact bounded repeat policy, not generic reapproval of the eight source paths. Lane A answers; Lane B raises/reviews; no Lane C finding or acceptance is inferred. B-050 technical ownership, B-154 sequencing, SV-002 review/clearance and residual receiving packets already provide tracking. Applied is not Verified; delivered is not accepted. Open DoD, U03 and B-136 P15 retain their independent triggers. No header, receiver answer, tracker or clearance change follows from this review.
+
+### What you did instead
+
+Planning and retained-evidence inspection only. Source-sweep and handoff-response pass at 8dce483; docs-drift remains STALE at 00c23ff over 11 governed paths. The graph query is historical context, not current acceptance evidence. Full bun run check cannot start in Lane B's environment (CouldntReadCurrentDirectory); no full-suite pass claimed. Sync is required later through the guarded final-source route after readiness. No code, producer run, build, Register act, live mutation or push.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Completed Lane A answer and Lane B proposal review; exact map ready for Judge selection | Phase 1: technical criteria owned in B-050 at 353febb |
+| Approve-with-conditions | Lane A correction work | Phase 1: specific recorded amendment, then bounded implementation and evidence |
+| Reject | Receipt 1 at c42712b or proposal approval treated as implementation/readiness/closure | Phase 1: new independent corrected-source outcome required |
+| Defer | Sync, release, actual repeat, final verification and parent clearance | Phase 1: ordered receipts and respective source/parent acts |
