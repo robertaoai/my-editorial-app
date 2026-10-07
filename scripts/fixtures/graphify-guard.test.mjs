@@ -1959,10 +1959,15 @@ describe("D-426 PR5a: proveRepeat — B0 baseline, R1 release, C2 disposable can
       if (variant.pending) return { status: "pending-semantic", pending: { descriptions: ["y"], communities: [] } };
       const state = join(work, "state");
       mkdirSync(state, { recursive: true });
-      writeFileSync(join(state, "graph.json"), JSON.stringify(variant.graph ?? BASE_GRAPH));
+      // D-427: like the real producer, every generation carries a fresh Git observation inside its rebuild bracket
+      const t0 = Date.now();
+      const g = variant.graph ?? BASE_GRAPH;
+      const provenance = { source_owner: "git", source_id: "repo:github.com/example/fixture-repo", observed_at: variant.observedAt ?? new Date(t0 + 1).toISOString(),
+        source_hash: variant.sourceHash ?? "h0", adapter_version: "graphify-git/1" };
+      writeFileSync(join(state, "graph.json"), JSON.stringify({ ...g, graph: { provenance } }));
       writeFileSync(join(state, "branch.json"), JSON.stringify({ branchName: "main", mergeBase: variant.mergeBase ?? "m", updatedAt: variant.updatedAt ?? "2026-10-06T00:00:00.000Z" }));
       writeFileSync(join(state, "manifest.json"), variant.retained ?? "retained bytes");
-      return { status: "generated", state, checkout: join(work, "co"), selection: { oracle: variant.selection ?? "sel-1" } };
+      return { status: "generated", state, checkout: join(work, "co"), selection: { oracle: variant.selection ?? "sel-1", brackets: { rebuild: variant.bracket ?? [t0, t0 + 2] } } };
     },
   };
   const published = () => {
@@ -1989,7 +1994,11 @@ describe("D-426 PR5a: proveRepeat — B0 baseline, R1 release, C2 disposable can
     expect(res.receipt.predecessor.baseline.releaseLocus).toBe(p.L.boot.releaseLocus);
     expect(res.receipt.successor.releaseLocus).toBe(p.sha);
     expect(res.receipt.successor.digest).not.toBe(res.receipt.predecessor.baseline.digest);
-    expect(res.receipt.raw.c2.graph).toBe(res.receipt.raw.r1.graph);
+    // D-427: each generation carries its own Git observation, so raw graph hashes differ (kept as evidence) while
+    // the comparison passes on the validated, masked leaf
+    expect(res.receipt.raw.c2.graph).not.toBe(res.receipt.raw.r1.graph);
+    expect(Date.parse(res.receipt.raw.c2.observedAt)).toBeGreaterThan(Date.parse(res.receipt.raw.r1.observedAt));
+    expect(res.receipt.provenance).toEqual(G.REPEAT_PROVENANCE);
     expect(digest(p.L.dir)).toBe(live);
     expect(existsSync(p.L.P.journal) || existsSync(p.L.P.lock)).toBe(false);
     expect(head(p.r.g)).toBe(head0);
@@ -2063,13 +2072,15 @@ describe("D-426 PR5a: proveRepeat — B0 baseline, R1 release, C2 disposable can
     const a = join(F2, `cmpA${++n}`), b = join(F2, `cmpB${n}`);
     mkdirSync(a);
     mkdirSync(b);
-    writeFileSync(join(a, "graph.json"), JSON.stringify(BASE_GRAPH));
-    writeFileSync(join(b, "graph.json"), JSON.stringify(BASE_GRAPH, null, 2));
-    const res = G.repeatComparison(a, b);
+    const prov = (at) => ({ ...BASE_GRAPH, graph: { provenance: { source_owner: "git", observed_at: at, source_hash: "h0" } } });
+    writeFileSync(join(a, "graph.json"), JSON.stringify(prov("2026-10-07T00:00:01.000Z")));
+    writeFileSync(join(b, "graph.json"), JSON.stringify(prov("2026-10-07T00:00:02.000Z"), null, 2));
+    const brackets = { r1: [Date.parse("2026-10-07T00:00:00Z"), Date.parse("2026-10-07T00:00:01.5Z")], c2: [Date.parse("2026-10-07T00:00:01.5Z"), Date.parse("2026-10-07T00:00:03Z")] };
+    const res = G.repeatComparison(a, b, { brackets });
     expect(res.findings).toEqual([]);
     expect(res.raw.r1.graph).not.toBe(res.raw.c2.graph);
     writeFileSync(join(b, "extra.txt"), "x");
-    expect(G.repeatComparison(a, b).findings).toContain("extra.txt is only in C2");
+    expect(G.repeatComparison(a, b, { brackets }).findings).toContain("extra.txt is only in C2");
   });
 });
 
@@ -2253,4 +2264,131 @@ describe("D-426 G5: an unreadable Git configuration fails closed", () => {
     expect(equal.reason).toContain("cannot be read");
     expect(gen(r, baselineWith(r), simulate({ calls: [] }), { bindings: b, cli: pins.cli }).reason).toBe(PASSED_GIT); // valid control
   }, G5_SLOW);
+});
+
+// ===========================================================================
+// D-427 (A-PR5a-1): the repeat allowance's three exact provenance leaves. The valid control is two REAL pinned-
+// producer runs (rebuild then studio export) of one source from one baseline, each with its own recorded rebuild
+// bracket; their promoted outputs (root graph, studio files) are compared. Every refusal changes one copy of C2.
+// The complete generation+composition repeat against a real release stays receipt 4.
+// ===========================================================================
+describe("D-427: repeat-provenance amendment A-PR5a-1", () => {
+  const D427_SLOW = 600000;
+  const pins = G.pinnedCli();
+  let REAL; // { r1, c2, brackets }: promoted outputs of two real runs
+  const realRuns = () => {
+    if (REAL) return REAL;
+    const r = tinyRepo();
+    writeFileSync(join(r.d, "lib.js"), "export function alpha() { return beta(); }\nexport function beta() { return 1; }\n");
+    r.g("add", ".");
+    r.g("commit", "-q", "-m", "code");
+    const snap = G.snapshotSource(r.d);
+    const base = join(F2, `d427base${++n}`);
+    G.prepareCheckout(r.d, snap, base);
+    expect(G.runGraphify(base, G.REBUILD_ARGS, { cli: pins.cli }).code).toBe(0);
+    const out = {}, brackets = {};
+    for (const k of ["r1", "c2"]) {
+      const co = join(F2, `d427${k}${++n}`);
+      G.prepareCheckout(r.d, snap, co);
+      cpSync(join(base, ".graphify"), join(co, ".graphify"), { recursive: true });
+      const st = join(co, ".graphify");
+      const t0 = Date.now();
+      expect(G.runGraphify(co, G.REBUILD_ARGS, { cli: pins.cli }).code).toBe(0);
+      brackets[k] = [t0, Date.now()];
+      expect(G.runGraphify(co, G.studioExportArgs(st), { cli: pins.cli }).code).toBe(0);
+      const promoted = join(F2, `d427p${k}${++n}`);
+      mkdirSync(promoted);
+      cpSync(join(st, "graph.json"), join(promoted, "graph.json"));
+      cpSync(join(st, "studio"), join(promoted, "studio"), { recursive: true });
+      out[k] = promoted;
+    }
+    REAL = { ...out, brackets };
+    return REAL;
+  };
+  const J = (p) => JSON.parse(readFileSync(p, "utf8"));
+  /** A copy of the real C2 promoted output, changed by `edit(dir)`, compared with the real R1. */
+  const variantOf = (edit, brackets) => {
+    const R = realRuns();
+    const c = join(F2, `d427v${++n}`);
+    cpSync(R.c2, c, { recursive: true });
+    edit(c);
+    return G.repeatComparison(R.r1, c, { brackets: brackets ?? R.brackets }).findings.join(" | ");
+  };
+  const setObs = (dir, at) => {
+    for (const rel of ["graph.json", join("studio", "graph.json")]) {
+      const g = J(join(dir, rel));
+      g.graph.provenance.observed_at = at;
+      writeFileSync(join(dir, rel), JSON.stringify(g));
+    }
+    const m = J(join(dir, "studio", "workspace-manifest.json"));
+    m.artifacts.find((a) => a.name === "graph").sha256 = createHash("sha256").update(readFileSync(join(dir, "studio", "graph.json"))).digest("hex");
+    writeFileSync(join(dir, "studio", "workspace-manifest.json"), JSON.stringify(m, null, 2) + "\n");
+  };
+
+  test("valid control: two real runs differ only in the three leaves, and the exact policy accepts them; raw evidence is retained", () => {
+    if (!pins.ok) return;
+    const R = realRuns();
+    const res = G.repeatComparison(R.r1, R.c2, { brackets: R.brackets });
+    expect(res.findings).toEqual([]);
+    expect(res.raw.r1.observedAt).not.toBe(res.raw.c2.observedAt);
+    expect(res.raw.r1.graph).not.toBe(res.raw.c2.graph); // raw hashes differ and are kept as separate evidence
+    expect(res.raw.c2.bracket).toEqual(R.brackets.c2);
+    expect(G.REPEAT_PROVENANCE.observation).toEqual(["graph", "provenance", "observed_at"]);
+    expect(G.REPEAT_VOLATILE).toEqual({ "branch.json": ["updatedAt"], "worktree.json": ["updatedAt"], "studio/workspace-manifest.json": ["generated_at"] });
+  }, D427_SLOW);
+
+  test("source identity and graph content: a changed source_hash, source_id, adapter or any graph field refuses", () => {
+    if (!pins.ok) return;
+    const edit = (f) => (c) => {
+      for (const rel of ["graph.json", join("studio", "graph.json")]) {
+        const g = J(join(c, rel));
+        f(g);
+        writeFileSync(join(c, rel), JSON.stringify(g));
+      }
+      setObs(c, J(join(c, "graph.json")).graph.provenance.observed_at);
+    };
+    expect(variantOf(edit((g) => { g.graph.provenance.source_hash = "0".repeat(40); }))).toContain("graph key graph differs");
+    expect(variantOf(edit((g) => { g.graph.provenance.source_id = "repo:other"; }))).toContain("graph key graph differs");
+    expect(variantOf(edit((g) => { g.graph.provenance.adapter_version = "graphify-git/2"; }))).toContain("graph key graph differs");
+    expect(variantOf(edit((g) => { g.nodes[0].label = "changed"; }))).toContain("differs in label");
+    expect(variantOf(edit((g) => { g.graph.provenance.observed_by = "2026-10-07T00:00:00Z"; }))).toContain("graph key graph differs"); // an undeclared timestamp
+  }, D427_SLOW);
+
+  test("observation bindings: outside its bracket, invalid, equal, backward or missing a bracket refuses", () => {
+    if (!pins.ok) return;
+    const R = realRuns();
+    const r1At = J(join(R.r1, "graph.json")).graph.provenance.observed_at;
+    expect(variantOf((c) => setObs(c, new Date(R.brackets.c2[1] + 60000).toISOString()))).toContain("outside its own rebuild bracket");
+    expect(variantOf((c) => setObs(c, "yesterday"))).toContain("no valid graph.provenance.observed_at");
+    expect(variantOf((c) => setObs(c, r1At), { r1: R.brackets.r1, c2: R.brackets.r1 })).toContain("not strictly later");
+    expect(variantOf((c) => setObs(c, new Date(Date.parse(r1At) - 1000).toISOString()), { r1: R.brackets.r1, c2: [R.brackets.r1[0] - 5000, R.brackets.c2[1]] })).toContain("not strictly later");
+    expect(variantOf(() => {}, { r1: R.brackets.r1 })).toContain("no source-bound rebuild bracket");
+  }, D427_SLOW);
+
+  test("dependent artifacts: a studio graph unlike its root, a wrong manifest graph hash or another manifest field refuses", () => {
+    if (!pins.ok) return;
+    expect(variantOf((c) => {
+      const g = J(join(c, "studio", "graph.json"));
+      g.graph.provenance.observed_at = new Date(Date.parse(g.graph.provenance.observed_at) + 1).toISOString();
+      writeFileSync(join(c, "studio", "graph.json"), JSON.stringify(g));
+    })).toContain("studio/graph.json does not equal its own root graph");
+    expect(variantOf((c) => {
+      const p = join(c, "studio", "workspace-manifest.json");
+      const m = J(p);
+      m.artifacts.find((a) => a.name === "graph").sha256 = "0".repeat(64);
+      writeFileSync(p, JSON.stringify(m, null, 2) + "\n");
+    })).toContain("does not bind its own studio/graph.json bytes");
+    expect(variantOf((c) => {
+      const p = join(c, "studio", "workspace-manifest.json");
+      const m = J(p);
+      m.artifacts.find((a) => a.name === "graph").size_bytes += 1;
+      writeFileSync(p, JSON.stringify(m, null, 2) + "\n");
+    })).toContain("differs outside the declared volatile fields: artifacts");
+    expect(variantOf((c) => {
+      const p = join(c, "studio", "workspace-manifest.json");
+      const m = J(p);
+      m.artifacts.push({ ...m.artifacts.find((a) => a.name === "graph") });
+      writeFileSync(p, JSON.stringify(m, null, 2) + "\n");
+    })).toContain("not carry exactly one graph entry");
+  }, D427_SLOW);
 });

@@ -63,6 +63,9 @@
 // PR5a: `proveRepeat` repeats generation and composition from the first run's
 // frozen packet against its release R1, in a disposable folder, and compares
 // C2 with R1 allowing only the declared volatile fields. Nothing is published.
+// D-427: plus three exact provenance leaves (the Git observation instant in the
+// root and studio graphs, the manifest graph-entry hash), each masked only after
+// its own run validates against its recorded rebuild bracket and own bytes.
 
 import { execFileSync, spawnSync } from "node:child_process";
 import { createHash, randomUUID } from "node:crypto";
@@ -2374,12 +2377,65 @@ function graphDifferences(a, b) {
 }
 
 /**
- * The C2-versus-R1 comparison. Retained files are byte-equal; declared volatile fields are the only
- * allowed differences; graph.json is compared by content (raw hashes are recorded separately);
- * any other JSON file by parsed content; any other file by bytes. Any finding stops the repeat.
+ * D-427 (A-PR5a-1): the sole extension to the repeat allowance. Three exact leaves, each masked only after
+ * its own run validates: the Git observation instant in the root and studio graphs, and the manifest's
+ * `graph`-entry sha256. Every enclosing field stays compared.
  */
-export function repeatComparison(r1, c2) {
+export const REPEAT_PROVENANCE = Object.freeze({
+  observation: Object.freeze(["graph", "provenance", "observed_at"]),
+  graphs: Object.freeze(["graph.json", "studio/graph.json"]),
+  manifest: Object.freeze({ file: "studio/workspace-manifest.json", entry: "graph", field: "sha256" }),
+});
+const ISO_INSTANT = /^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d(\.\d+)?(Z|[+-]\d\d:\d\d)$/;
+const MASK = "<masked by D-427 after per-run validation>";
+const observationOf = (g) => g?.graph?.provenance?.observed_at;
+const withMaskedObservation = (g) => (g?.graph?.provenance ? { ...g, graph: { ...g.graph, provenance: { ...g.graph.provenance, observed_at: MASK } } } : g);
+const withMaskedGraphHash = (m) => ({ ...m, artifacts: (m?.artifacts ?? []).map((a) => (a?.name === REPEAT_PROVENANCE.manifest.entry ? { ...a, sha256: MASK } : a)) });
+
+/**
+ * D-427 per-run validation, before any cross-run allowance and even when raw files match: the observation is a
+ * present ISO 8601 instant inside the run's own recorded rebuild bracket; the studio graph equals its own root
+ * graph by content; exactly one manifest `graph` entry binds that run's own studio graph bytes.
+ */
+export function provenanceFindings(dir, bracket, tag) {
+  const f = [];
+  const J = (rel) => {
+    try {
+      return JSON.parse(readFileSync(join(dir, rel), "utf8"));
+    } catch {
+      return undefined;
+    }
+  };
+  const root = J("graph.json");
+  const at = observationOf(root);
+  if (typeof at !== "string" || !ISO_INSTANT.test(at) || !Number.isFinite(Date.parse(at))) f.push(`${tag}: graph.json has no valid graph.provenance.observed_at`);
+  else if (!Array.isArray(bracket) || bracket.length !== 2 || !bracket.every(Number.isFinite)) f.push(`${tag}: no source-bound rebuild bracket is recorded for its observation`);
+  else if (Date.parse(at) < bracket[0] || Date.parse(at) > bracket[1]) f.push(`${tag}: observed_at ${at} lies outside its own rebuild bracket`);
+  if (existsSync(join(dir, "studio", "graph.json"))) {
+    const studio = J("studio/graph.json");
+    if (canon(studio) !== canon(root)) f.push(`${tag}: studio/graph.json does not equal its own root graph`);
+    const m = J(REPEAT_PROVENANCE.manifest.file);
+    const entries = (m?.artifacts ?? []).filter((a) => a?.name === REPEAT_PROVENANCE.manifest.entry);
+    if (entries.length !== 1) f.push(`${tag}: the manifest does not carry exactly one graph entry`);
+    else if (entries[0].sha256 !== createHash("sha256").update(readFileSync(join(dir, "studio", "graph.json"))).digest("hex")) f.push(`${tag}: the manifest graph entry does not bind its own studio/graph.json bytes`);
+  }
+  return { findings: f, observedAt: typeof at === "string" ? at : null };
+}
+
+/**
+ * The C2-versus-R1 comparison. Retained files are byte-equal; declared volatile fields are the only
+ * allowed differences, plus D-427's three validated leaves; graph files are compared by content (raw
+ * hashes are recorded separately); any other JSON file by parsed content; any other file by bytes. Any
+ * finding stops the repeat. `brackets` are each run's own recorded rebuild bracket.
+ */
+export function repeatComparison(r1, c2, { brackets = {} } = {}) {
   const findings = [];
+  const p1 = provenanceFindings(r1, brackets.r1, "R1"), p2 = provenanceFindings(c2, brackets.c2, "C2");
+  findings.push(...p1.findings, ...p2.findings);
+  if (!p1.findings.length && !p2.findings.length && !(Date.parse(p2.observedAt) > Date.parse(p1.observedAt))) {
+    findings.push(`C2's observed_at ${p2.observedAt} is not strictly later than R1's ${p1.observedAt}`);
+  }
+  const validated = !findings.length;
   const ha = hashTree(r1), hb = hashTree(c2);
   for (const rel of Object.keys(ha)) if (!(rel in hb)) findings.push(`${rel} is missing in C2`);
   for (const rel of Object.keys(hb)) if (!(rel in ha)) findings.push(`${rel} is only in C2`);
@@ -2395,13 +2451,21 @@ export function repeatComparison(r1, c2) {
       findings.push(`${rel} differs and is not comparable JSON`);
       continue;
     }
-    if (rel === "graph.json") { findings.push(...graphDifferences(a, b).slice(0, 10)); continue; }
+    if (REPEAT_PROVENANCE.graphs.includes(rel)) {
+      // only the validated observation leaf is masked; every other field, node and link stays compared
+      const [x, y] = validated ? [withMaskedObservation(a), withMaskedObservation(b)] : [a, b];
+      findings.push(...graphDifferences(x, y).map((d) => `${rel}: ${d}`).slice(0, 10));
+      continue;
+    }
+    if (rel === REPEAT_PROVENANCE.manifest.file && validated) { a = withMaskedGraphHash(a); b = withMaskedGraphHash(b); }
     const allowed = REPEAT_VOLATILE[rel] ?? [];
     const keys = [...new Set([...Object.keys(a ?? {}), ...Object.keys(b ?? {})])].filter((k) => canon(a?.[k]) !== canon(b?.[k]));
     const undeclared = keys.filter((k) => !allowed.includes(k));
     if (undeclared.length) findings.push(`${rel} differs outside the declared volatile fields: ${undeclared.join(", ")}`);
   }
-  return { findings, raw: { r1: { manifest: treeDigest(ha), graph: ha["graph.json"] ?? null }, c2: { manifest: treeDigest(hb), graph: hb["graph.json"] ?? null } } };
+  const rawOf = (h, p, br) => ({ manifest: treeDigest(h), graph: h["graph.json"] ?? null, studioGraph: h["studio/graph.json"] ?? null,
+    workspaceManifest: h[REPEAT_PROVENANCE.manifest.file] ?? null, observedAt: p.observedAt, bracket: br ?? null });
+  return { findings, raw: { r1: rawOf(ha, p1, brackets.r1), c2: rawOf(hb, p2, brackets.c2) } };
 }
 
 /**
@@ -2441,8 +2505,8 @@ export function proveRepeat({ work, out, repo, liveTarget = REAL_LIVE_TARGET, bo
   const staging = join(out, "staging");
   const composed = d.compose({ candidateState: gen.state, baseline: cap.baseline, staging, workRoot: out, source: { repo, snapshot: s.frozen.snapshot }, caller: r.caller, frozenAt: d.now(), fragmentsDir: join(gen.checkout, "docs", "graph-fragments") });
   if (!composed.ok) return stop(`the repeat composition refused: ${(composed.findings || []).slice(0, 3).join("; ")}`);
-  const cmp = repeatComparison(liveTargetPath(liveTarget), staging);
-  const receipt = { kind: "repeat", runId: randomUUID(), at: new Date().toISOString(), workId: s.workId, predecessor, successor, volatile: REPEAT_VOLATILE, raw: cmp.raw, findings: cmp.findings };
+  const cmp = repeatComparison(liveTargetPath(liveTarget), staging, { brackets: { r1: r.selection.brackets?.rebuild, c2: gen.selection?.brackets?.rebuild } });
+  const receipt = { kind: "repeat", runId: randomUUID(), at: new Date().toISOString(), workId: s.workId, predecessor, successor, volatile: REPEAT_VOLATILE, provenance: REPEAT_PROVENANCE, raw: cmp.raw, findings: cmp.findings };
   writeDurable(join(out, "REPEAT.json"), receipt);
   return cmp.findings.length
     ? { outcome: "repeat-stopped", exit: EXIT.failed, reason: `C2 differs from R1: ${cmp.findings.slice(0, 5).join("; ")}`, message: "stopped: revise and re-review the allowance list before any repeat is accepted", receipt }
