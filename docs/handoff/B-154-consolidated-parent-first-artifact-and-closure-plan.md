@@ -7409,3 +7409,41 @@ At b6ae594, handoff-response and source-sweep pass; docs-drift is STALE at 00c23
 | Approve-with-conditions | Correction handback ready for Lane A | Phase 1: explicit config-read refusal and reached positive/negative evidence at corrected source |
 | Defer | Independent receipt 1/P8 classification, publication/repeat/whole-unit acceptance and closure | Phase 1: ordered independent outcomes and respective dispositions |
 | Reject | Equal failed config reads treated as verified binding, or aggregate evidence treated as receipt 1 | Phase 1: fail closed and distinguish receipt states |
+
+## Lane B — config-read correction confirmed; independent readiness remains, 2026-10-07
+
+### What happened
+
+**Clarified request:** complete the bounded planning/handoff review of Lane A's latest response, identify remaining acceptance work and preserve parent-first tracking; no construction or live synchronization. Read 1097366, clean worktree. Lane A committed c42712b (configuration-read refusal) and 1097366 (B-050 addendum). Review source is c42712b; b775c42 is historical. The addendum answers the previous finding and also records the Judge-approved correction of the same failure handling in outside-checkout config reads.
+
+Lane B's bounded source inspection confirms configDigest only returns a digest for status 0, no spawn error/signal and string stdout; other outcomes are explicit unreadable failures. The prepare/pre-call wiring rejects unreadable configuration rather than comparing equal failure digests. The prior effective-config finding is discharged within this reviewed scope; no new gap is raised here. This is not whole-implementation receipt-1 acceptance.
+
+Retained evidence in C:/CoWork/outputs/lane-a-d426-receipt1-2026-10-07/at-c42712b identifies c42712b and an empty status file. The log records 238 pass, 0 fail, 848 expectations and exit 0; SHA-256 197b68aa9c9bd8eed6555c4c275affb8ba871667d9ad8ec44bb3762dfa6705a9. All 24 mutation raw-log pass/fail totals agree with summary.json (SHA-256 3bdce4b1a73d9d8888262ed28cbcef628f963196d32e00621fc957c9af5e5ab2). Harness SHA-256 ed1979e3eab5a31c444e78f967ebbe5bf228a091eb5436219305ea3e32667abe. Source reading and log inspection are Lane B observations; no independent rerun, complete restore audit or whole-unit outcome is claimed. Preserve Lane A's anchor-failure/rerun disclosure rather than presenting all mutations as one uninterrupted run.
+
+### What you need
+
+| Parent-first item | Completion / decision | Next actor and acceptance criterion | Phase |
+|---|---|---|---|
+| 1. Authority, propagation and corrected reporting | Complete within reviewed scope; source-sweep passes | Preserve existing D-426 selection, propagation disposition and corrected post-commit history | Phase 1: no renewed issue decision |
+| 2. Binding/config-read correction and packet | Bounded finding discharged; B-050 requests readiness against c42712b | No repeat Lane A correction/answer round solely for this finding; retain current evidence and limitations | Phase 1: correction handback complete |
+| 3. Receipt 1 | Independent fixture/source-readiness and P8 outcome still owed | Lane B reviews the whole implementing source/clauses and evidence, then records acceptance or specific findings in B-050 | Phase 1: next independent review task, not performed by this planning confirmation |
+| 4. Candidate, release and health | Not established | After receipt 1, Lane A prepares from final source; Lane B exact-byte acceptance precedes guarded release and separate health | Phase 1: receipts 2/3 |
+| 5. Repeat and whole-unit verification | Not established | Actual B0/R1/C2 unpublished composed repeat, then independent whole-unit outcome | Phase 1: receipts 4/5 |
+| 6. Child and parent clearance | B-050 Applied, B-154 Open; no source closed here | Own source disposition, B-077 final review, required parallel child evidence and parent decisions; fresh clearance review last | Phase 1: respective later acts/evidence |
+
+**Lane A follow-up:** use the existing c42712b packet as the readiness request; keep candidate/publication pending the independent outcome. Answer only new specific findings, if any, at their named corrected source. After readiness, follow D-426's remaining receipt sequence and source-invalidation rules. No generic reapproval or further packet rewrite is required by this confirmation.
+
+**Critical artifact boundaries and tracking:** authority/specification, committed corrections and evidence request are delivered; independent readiness, exact-byte candidate acceptance, release, health, actual repeat and final verification remain distinct deliverables. B-050 owns technical outcomes/disposition, B-154 sequencing, B-077 reconciliation, SV-002 review/clearance and receiving packets residual obligations. U03, open DoD and B-136 P15 remain independent; no new tracking layer.
+
+**Chief Editor / lane limits:** existing scope remains selected; the next decision is Lane B's independent readiness/P8 outcome, not another Judge approval of the same eight paths. The lost original timeout trace remains a limit: later successful live-owner results do not prove its historical cause. No P8 recurrence is established by this bounded review, and no historical absence is certified. Lane A's correction addresses Lane B's finding; no new Lane C finding or CI acceptance is supplied. Raw-writer exclusion, authenticated identity, live destructive drill and product/CI/WordPress delivery stay excluded. No actual operational failure or inevitable business loss is inferred.
+
+### What you did instead
+
+At 1097366 handoff-response and source-sweep pass; docs-drift remains STALE at 00c23ff over 11 governed paths. Read-only Graphify query is historical context. Guarded sync is required after final-source readiness; no raw rebuild or premature publication. bun run check still cannot start in Lane B's environment (CouldntReadCurrentDirectory), so no new full-suite pass is claimed. Only review text is appended; no build, test/mutation execution, code/receiver/header/Register/tracker/DoD change, live graph mutation or push.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Bounded configuration-read correction and completed planning handback | Phase 1: prior finding discharged; retain evidence limits |
+| Approve-with-conditions | Receipt-1 readiness proposal at c42712b | Phase 1: independent whole-implementation review and P8 outcome |
+| Defer | Candidate/publication/health/repeat/final review and closure | Phase 1: ordered outcomes after accepted readiness |
+| Reject | Another answer loop for the discharged finding, or 238 tests/24 mutations treated as receipt 1 or closure | Phase 1: separate corrected control, evidence and independent acceptance |
