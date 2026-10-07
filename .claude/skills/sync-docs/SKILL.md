@@ -123,20 +123,30 @@ node scripts/graphify/guarded-rebuild.mjs publish --work <folder> --review <Lane
 node scripts/graphify/guarded-rebuild.mjs recover   # only when a transaction journal exists
 ```
 
-**What `prepare` does, in a disposable checkout of the final commit:**
-1. rebuild;
-2. docs-layer restore from its verified baseline copy;
-3. stale-symbol prune against a from-empty extraction, after the restore (`D-421`, order `D-422`);
-4. named fragment merges in dependency order;
-5. fill;
-6. description replay. A symbol whose source file changed is held for review (`D-424`);
-7. names reused only for identical member sets;
-8. ingest, the label cycle, a final merge, then composition with its reviewed manifest.
+**What `prepare` does, in a disposable checkout of the final commit** (baseline captured under the publication
+lock; Node, Git, their configuration and the CLI bound at prepare and re-verified before every tool call, `D-426`):
+1. rebuild (`hook-rebuild --scope committed`);
+2. a from-empty extraction in a second clone. Both extractions are bracketed by the clock and checked against the
+   branch-selection oracle; the rebuild must equal the producer's merge of its baseline and that extraction (`D-426`);
+3. docs-layer restore from its verified baseline copy;
+4. stale-symbol prune against the from-empty extraction, after the restore (`D-421`, order `D-422`);
+5. named fragment merges in dependency order;
+6. fill;
+7. description replay. A symbol whose source file changed is held for review (`D-424`);
+8. names reused only for identical member sets;
+9. ingest, the label cycle, a final merge, the candidate's studio export checked file by file against the pinned
+   producer's projections (`D-426`), then composition with its reviewed manifest.
 
 Semantic completion stays last. Anything not answerable from source is returned as pending, never invented.
 
 **What `publish` accepts:** only the bytes Lane B accepted in a record that its own review commit introduces, on
 a handoff-only fast-forward of the analyzed source.
+
+**Review provenance (G-F3-8, `D-426`).** The guard validates the review record's history, schema and candidate
+identity; it does not authenticate the reviewer. The publisher must use the exact review commit delivered
+independently by Lane B, never a commit containing the publisher's own draft acceptance. A Git author or message
+marker is not proof of independence. If provenance is absent or disputed, stop and raise the handoff. Governed
+edits after prepare require a fresh candidate and a fresh exact-byte review.
 
 **Exit codes:**
 
@@ -202,9 +212,17 @@ Then follow §7's guarded procedure to `publish` (`D-425`); never rebuild the li
 `.graphify/needs_update` is written only by graphify's git hook, and **no git hook is installed here**, so its
 absence is no signal. Compare `.graphify/branch.json`'s `lastAnalyzedHead` against `git rev-parse HEAD`.
 
-After publication, verify each claimed fragment with `--verify-only`, then `check-update` and `bun run check`; a
-node count that holds steady proves nothing (`G51`). Between the source commit and its publication, docs-drift
-reports the expected stale graph: report it as stale, and **claim 19/19 only after publication**.
+**After publication (G-F3-9, `D-426`).** After publication, verify each claimed fragment, run check-update and bun
+run check, and retain their actual messages. A check-update HEAD-mismatch notice alone does not establish
+governed drift when all intervening changes are excluded handoffs under D-231/D-425. Confirm that classification
+with docs-drift and the source rule; do not follow a suggested update outside the guarded procedure. Other pending
+semantic work, included source changes, transaction or validation findings must still be resolved. Node totals
+and a generic pending notice are not semantic-parity evidence. Claim full health only after publication and the
+independent post-state checks.
+
+Each fragment is verified with `merge7.js <fragment> --verify-only` (§7); a node count that holds steady proves
+nothing (`G51`). Between the source commit and its publication, docs-drift reports the expected stale graph:
+report it as stale, and **claim 19/19 only after publication**.
 
 Close by stating explicitly what was **left untouched and why** — the deferred items,
 the other lanes' work, the claims you noticed but did not fix. A completion report that

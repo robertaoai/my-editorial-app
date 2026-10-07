@@ -183,6 +183,12 @@ Run all four. A merge is not done until each passes:
 checkout. The guarded `publish` keeps a verified backup beside the live state, and its outcome table (exit 0, 2,
 5, 6 or 7) says only what was verified.
 
+**Review provenance (G-F3-8, `D-426`).** The guard validates the review record's history, schema and candidate
+identity; it does not authenticate the reviewer. The publisher must use the exact review commit delivered
+independently by Lane B, never a commit containing the publisher's own draft acceptance. A Git author or message
+marker is not proof of independence. If provenance is absent or disputed, stop and raise the handoff. Governed
+edits after prepare require a fresh candidate and a fresh exact-byte review.
+
 **Community names: prove them applied (`D-410`).** After description/community update, compare the final saved
 graph's global community labels and every node's community_name against the intended names bound to complete
 current member sets. Answer JSON or a current tool state is not applied-name evidence. In the graphify 0.17.1

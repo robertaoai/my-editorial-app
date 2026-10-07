@@ -10,6 +10,8 @@ Source: `AGENTS.md` at `c06ddc3`, SHA-256 `f2bd6dae9f17a91eb6ab733c5a136769041aa
 `.agents/rules/graphify.md` lines not below are byte-identical to lines here (the shared core) or were
 moved verbatim to `CLAUDE.md` and `GEMINI.md`; see the coverage ledger (`SV-002` §3.6.6).
 
+Graph-update commands quoted below are historical; the operative route is the D-425 guarded procedure.
+
 ---
 
 # my-editorial-app

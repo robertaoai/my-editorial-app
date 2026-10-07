@@ -2048,3 +2048,87 @@ describe("D-426 PR5a: proveRepeat — B0 baseline, R1 release, C2 disposable can
     expect(G.repeatComparison(a, b).findings).toContain("extra.txt is only in C2");
   });
 });
+
+// ===========================================================================
+// D-426 PR1 (B-050 revision 2): operative instructions route only through the guard. The audit
+// scans every operative instruction file for a raw build/update route against the live state; the
+// verbatim archive is excluded by path, and its body is pinned unchanged. The G-F3-8/9 runbook text
+// is compared word for word with the accepted paragraphs in their own source commits.
+// ===========================================================================
+describe("D-426 PR1: operative instructions route only through the guarded procedure", () => {
+  const RAW_ROUTES = [/\b(?:npx\s+)?graphify\s+(?:hook-rebuild|update|watch|hook\s+install)\b/, /\/graphify\b[^\n]*--update\b/, /--update\b/];
+  const operativeFiles = () => {
+    const out = ["CLAUDE.md", "GEMINI.md", "AGENTS.md"];
+    const walk = (rel) => {
+      for (const e of readdirSync(join(REPO, rel), { withFileTypes: true })) {
+        const p = `${rel}/${e.name}`;
+        if (e.isDirectory()) walk(p);
+        else out.push(p);
+      }
+    };
+    for (const d of [".claude/skills", ".agents"]) if (existsSync(join(REPO, d))) walk(d);
+    return out;
+  };
+  /** Every line of `text` that instructs a raw route, with its pattern. */
+  const audit = (text) => text.split("\n").flatMap((line, i) => RAW_ROUTES.filter((re) => re.test(line)).map((re) => `${i + 1}: ${re}`));
+  const norm = (s) => s.replace(/\s+/g, " ").trim();
+  const gitText = (commit, path) => execFileSync("git", ["-C", REPO, "show", `${commit}:${path}`], { encoding: "utf8" });
+  /** The quoted paragraph that follows `marker` in a file at a commit. */
+  const quoted = (commit, path, marker) => {
+    const t = gitText(commit, path);
+    const i = t.indexOf(marker);
+    expect(i).toBeGreaterThan(-1);
+    const start = t.indexOf("\"", i + marker.length);
+    const end = t.indexOf(".\"", start);
+    return norm(t.slice(start + 1, end + 1));
+  };
+  const B050 = "docs/handoff/B-050-hook-rebuild-resets-graphify-branch-metadata.md";
+
+  test("no operative instruction file routes a raw rebuild or update against the live state", () => {
+    const files = operativeFiles();
+    expect(files).toContain(".agents/workflows/graphify.md");
+    expect(files).toContain(".claude/skills/sync-docs/SKILL.md");
+    const found = files.flatMap((f) => audit(readFileSync(join(REPO, f), "utf8")).map((x) => `${f}:${x}`));
+    expect(found).toEqual([]);
+  });
+
+  test("negative proof: the audit finds the raw routes the rule files carried before PR1 (55168f4)", () => {
+    expect(audit(gitText("55168f4", "CLAUDE.md")).length).toBeGreaterThan(0);
+    expect(audit(gitText("55168f4", "GEMINI.md")).length).toBeGreaterThan(0);
+  });
+
+  test("the rule files keep the currency check and carry the accepted PR1 replacement; the workflow routes to prepare", () => {
+    const PR1 = "governed drift is synced only through the guarded procedure (`sync-docs` SKILL §7, `D-425`); never run a raw rebuild or update against the live state; a `check-update` notice after handoff-only commits is not drift (G-F3-9)";
+    for (const f of ["CLAUDE.md", "GEMINI.md"]) {
+      const t = readFileSync(join(REPO, f), "utf8");
+      expect(t).toContain(PR1);
+      expect(t).toContain("compare");
+      expect(t).toContain("`lastAnalyzedHead` against `git rev-parse HEAD`");
+      expect(t).toContain("`docs-drift`");
+    }
+    const wf = readFileSync(join(REPO, ".agents", "workflows", "graphify.md"), "utf8");
+    expect(wf).toContain("node scripts/graphify/guarded-rebuild.mjs prepare");
+    expect(wf).toContain("Never run the graphify skill's build, rebuild, update, watch or hook-install routes against this repository's");
+    expect(wf).not.toContain("to run the full TypeScript-backed pipeline");
+  });
+
+  test("the archive: one historical sentence in the framing header; the verbatim body is unchanged", () => {
+    const t = readFileSync(join(REPO, "docs", "governance", "agent-rules-reference.md"), "utf8");
+    const cut = t.indexOf("\n---\n");
+    expect(t.slice(0, cut)).toContain("Graph-update commands quoted below are historical; the operative route is the D-425 guarded procedure.");
+    expect(createHash("sha256").update(t.slice(cut)).digest("hex")).toBe("7e46a6f6d5d5f30f5365b0e05f89fbeb4b7e04bba945ed30f63c4c831e8bbb3a");
+  });
+
+  test("G-F3-8 (SKILL §7, README §5) and G-F3-9 (SKILL §9) are applied word for word from their accepted source commits", () => {
+    const g8 = quoted("2cf100c", B050, "**Proposed runbook wording for Lane A, not applied here:**");
+    const g9 = quoted("1853fda", B050, "**Draft replacement for Lane A, SKILL section 9's post-publication guidance (not applied):**");
+    expect(g8).toStartWith("The guard validates the review record's history");
+    expect(g9).toStartWith("After publication, verify each claimed fragment");
+    const skill = readFileSync(join(REPO, ".claude", "skills", "sync-docs", "SKILL.md"), "utf8");
+    const readme = readFileSync(join(REPO, "docs", "graph-fragments", "README.md"), "utf8");
+    const section = (t, from, to) => norm(t.slice(t.indexOf(from), to ? t.indexOf(to) : undefined));
+    expect(section(skill, "## 7.", "## 8.")).toContain(g8);
+    expect(section(readme, "## 5.", "## 6.")).toContain(g8);
+    expect(section(skill, "## 9.")).toContain(g9);
+  });
+});
