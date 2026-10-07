@@ -4869,3 +4869,95 @@ Performed source and retained-evidence review plus one small disposable comparat
 | Approve-with-conditions | Lane A correction proposal for real-producer repeat provenance | Phase 1: exact field/dependency map, proof controls, independent review and Judge selection if the bound allowance changes |
 | Reject | Receipt 1 at c42712b | Phase 1: PR5a actual-producer time policy unresolved; corrected final-source readiness review required |
 | Defer | Candidate/acceptance/publication/health/actual repeat/whole-unit review and closure | Phase 1: accepted readiness first, then D-426 receipts and respective dispositions |
+
+## Lane A — answer to the receipt-1 outcome: proposed amendment A-PR5a-1 (repeat provenance time), 2026-10-07
+
+### What happened
+
+Read at `785557a` (Lane B: `335dd28` and `785557a`). **Receipt 1 is not accepted at `c42712b`. The finding is upheld.** Every
+real Git extraction writes the current time to `graph.provenance.observed_at`. PR5a's declared allowance does not
+name that field, and `repeatComparison` compares the whole top-level `graph` object, so a real repeat would always
+stop. Lane A recorded `observed_at` as provenance in PR3 but missed it in PR5a. The fixture repeats used fake
+generation, which never changes it. Lane B's P8 classification is accepted: the disclosed timeout does not establish a
+P8 recurrence, its original cause remains unknown, and P8 stays in force.
+
+**Plan only.** No code, test, Register or allowance change is made here. D-426 binds the exact allowance list, so this
+amendment needs Lane B's review of the field map and then the Judge's specific selection, recorded in the Register,
+before anything is implemented (the Judge chose this order, 2026-10-07).
+
+### What you need
+
+#### Measured inventory (the basis for the field map)
+
+Folder `C:/CoWork/outputs/lane-a-d426-pr5a-provenance-2026-10-07`: `inventory.mjs` (SHA-256 `143d4e76…`) and
+`inventory.json` (SHA-256 `f11c1945…`).
+
+Method: two **real** pinned-producer runs (`hook-rebuild --scope committed`, then `studio export`) of one source,
+each starting from the same real baseline state, about 6.7 s apart. Every file of the two states was compared byte for
+byte, and each differing JSON file was diffed to exact field paths.
+
+| File | Differs in | Disposition |
+|---|---|---|
+| `graph.json` | **`graph.provenance.observed_at`** only. `source_owner`, `source_id`, `source_hash` and `adapter_version` are equal | **The finding** |
+| `studio/graph.json` | **`graph.provenance.observed_at`** only | A dependent copy of the root graph |
+| `studio/workspace-manifest.json` | `generated_at` (already declared) and **`artifacts[name=graph].sha256`** only. `size_bytes` and every other entry are equal | A dependent hash of `studio/graph.json` |
+| `branch.json`, `worktree.json` | `worktreePath`, `gitDir`, `commonGitDir`, `updatedAt` | The path fields differ only because the probe used two checkout folders. Composition rebinds them to the caller, and `updatedAt` is already declared. No change |
+| `cache/*`, `manifest.json` | Absolute checkout paths | **Retained** files: composition copies them from the baseline, never from the candidate, so C2 equals R1. No change |
+| All others (`scene.json`, `studio.html`, entities, citations, `GRAPH_REPORT.md`, …) | — | Identical |
+
+**Limit:** the inventory covers the stages that run in a fixture repository (rebuild and export), not the full
+`generateCandidate` pipeline with fill, labels and fragments. Any further runtime difference found at receipt 4 still
+stops the repeat, as the plan requires.
+
+#### Proposed amendment A-PR5a-1, an extension of `REPEAT_VOLATILE` by exact path and field
+
+| Path | The only field allowed to differ | Binding condition, checked per run before any cross-run allowance |
+|---|---|---|
+| `graph.json` | `graph.provenance.observed_at` | Each value is a valid ISO 8601 instant **inside its own run's recorded rebuild bracket**: R1's from the first run's frozen packet (`ready.selection.brackets.rebuild`), C2's from the repeat's own. C2's is later than R1's |
+| `studio/graph.json` | `graph.provenance.observed_at` | Equals the same run's root `graph.json` value |
+| `studio/workspace-manifest.json` | `artifacts[name=graph].sha256` | Allowed only after each run's value is verified equal to the SHA-256 of **that run's own** `studio/graph.json` bytes. `size_bytes`, `path`, `role`, `present` and every other entry stay compared |
+
+**Unchanged guarantees, still compared exactly:**
+- every other provenance field;
+- every other graph key, node and link;
+- retained files, byte for byte;
+- bindings, selection and baseline;
+- every other manifest entry and field, and every other studio file.
+
+`REPEAT.json` records both `observed_at` values, both brackets and every raw graph and manifest hash. This is **not** a
+blanket exemption for timestamps, hashes or the `graph` object.
+
+#### Proposed acceptance controls (the existing guard test file only)
+
+- **Valid control:** a real pinned-producer-backed comparison with a later `observed_at` passes under the exact policy,
+  with graph semantics, names and member bindings equal and each run's artifact hashes correct.
+- **Refusals:**
+  - a changed `source_hash`, `source_id` or `adapter_version`;
+  - a changed selection;
+  - any non-observation graph change;
+  - an `observed_at` outside its run's bracket, unparseable, or not later than R1's;
+  - a `studio/graph.json` `observed_at` that differs from its root;
+  - a manifest `graph` sha256 that does not match its own `studio/graph.json`;
+  - any other manifest field;
+  - a changed retained byte;
+  - any other timestamp or field.
+- **Mutations:** a mutation for each binding condition, added to the retained harness, with its anchor preflight.
+
+The real B0 → R1 → C2 repeat remains receipt 4; these controls are receipt-1 evidence only.
+
+**Requested of Lane B:** review of this field map and these controls. **Then requested of the Judge:** a specific
+selection of A-PR5a-1, or a narrowed version, recorded in the Register. After that, Lane A implements in D-426 paths 1–2,
+retains post-commit evidence, and names the corrected source for a new readiness review.
+
+### What you did instead
+
+Measured the inventory on disposable copies (no live state, no repository write; the tree was clean before and after).
+No code, test, harness, Register, header, DoD, tracker or clearance change. B-050 stays `Applied`; its O1 row stays
+open. Drift is unchanged: docs-drift is STALE (analyzed `00c23ff`), and source-sweep passes.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Lane B's receipt-1 outcome and P8 classification | Phase 1: the finding is upheld |
+| Approve-with-conditions | Amendment A-PR5a-1 as proposed | Phase 1: Lane B's review, then the Judge's specific selection recorded in the Register, then implementation and evidence |
+| Defer | Corrected-source readiness, receipts 2–5, closure | Phase 1: after the amendment is selected and implemented |
+| Reject | A blanket timestamp, hash or `graph`-object exemption; implementing before the selection | Phase 1: exact fields under recorded authority |
