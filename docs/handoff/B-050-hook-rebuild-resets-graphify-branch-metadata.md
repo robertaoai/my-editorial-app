@@ -5066,3 +5066,51 @@ guarded sync follows readiness.
 | Approve-with-conditions | Receipt 1 at `d1186bf` | Phase 1: Lane B's independent outcome; any finding is answered against a newly named revision |
 | Defer | Receipts 2–5, dispositions, parents, Gate 2 | Phase 1: in D-426 order after receipt 1 |
 | Reject | The fixture positive treated as the actual repeat; any allowance beyond D-427's three leaves | Phase 1: receipt 4 and specific decisions |
+
+
+## Lane B — D-427 corrected-source receipt 1: not accepted at d1186bf, 2026-10-07
+
+### What happened
+
+**Clarified request:** complete the new independent source/evidence readiness review, distinguish completed artifacts from accepted outcomes, and give Lane A specific corrections without implementing or synchronizing. Read HEAD c8c091d; final implementing source d1186bf318e8f84d0382b04d2fa1d770a2f45e59.
+
+**Receipt 1 is not accepted at d1186bf.** The amendment is recorded and implemented in its bounded paths, and the former undeclared-observation difference is addressed. However, two reproduced false passes violate D-427's per-run conditions. The independent assessment is now delivered; readiness acceptance is not.
+
+Authority/order review: c121ef3 records D-427 in Register, Build Spec and Inventory before d1186bf changes only the guard and its test file. The exact-leaf masks, strictly-later comparison, bracket plumbing and expanded raw evidence are present; the original REPEAT_VOLATILE list stays unchanged. No new Judge selection of the same three fields is needed for corrections that enforce the already selected contract.
+
+Retained Lane A evidence at C:/CoWork/outputs/lane-a-d426-receipt1-2026-10-07/at-d1186bf was inspected, not rerun. Source pin matches d1186bf; retained source-status is empty. Full suite log reports 242 pass, 0 fail, 875 expect calls, 883.46 s and exit 0; SHA-256 9d22598606773c6c164fe0a4a0109ed509e6a4e3fcef2426534d9c06787e3d4e. Mutation harness SHA-256 6e7059b39aec50378e48e3f9aede16886fa0eda06dc3f155888c84ebe0e02a5f; summary SHA-256 1e0ce2a660dc7db9e3758e925cc5fca2347c1715863be06c95181e4c9433b61e. All 29 summary rows report passing controls, failing mutations and restoration. All 58 raw control/mutated logs were checked for corresponding positive pass/zero-fail controls and actual failing mutated cases. This supports the retained outcomes, not exhaustive coverage, independent restoration proof or an independent suite rerun. No new P8 recurrence is established; the prior classification and future stop remain.
+
+### What you need
+
+| Finding | Reproduced failure / exact source | Draft fix for Lane A | Success criterion / phase |
+|---|---|---|---|
+| D427-R1: missing dependent artifacts bypass per-run validation | provenanceFindings wraps studio equality and manifest binding inside existsSync(studio/graph.json). With both sides containing only valid root graphs and valid later observations/brackets, repeatComparison returns no findings; missing required files on both sides also escape the cross-run file-set difference check | Require root graph, studio graph and workspace manifest to exist, parse and have the expected shapes before granting any allowance. Missing or malformed input returns explicit findings; never skip validation. Preserve unique graph-entry and own-byte hash checks | Phase 1: valid complete pair passes; studio graph absent on R1, C2 or both refuses, including both dependent files absent. Missing/malformed manifest and non-array artifacts refuse without an uncaught exception. Cover invalid identical inputs too |
+| D427-R2: impossible calendar date accepted as a valid instant | ISO_INSTANT plus finite Date.parse accepts 2026-02-30T12:00:01.000Z; Date.parse normalizes it to March 2. With a bracket around that normalized value and R1 at 2026-03-02T12:00:00.000Z, complete bound artifacts pass | Validate actual ISO calendar/time components before bracket/later checks, without silent rollover. Preserve the selected valid-ISO contract; do not silently replace it with a UTC-only syntax restriction unless separately selected | Phase 1: impossible day/month/time values refuse even inside the normalized parser bracket; valid producer timestamps and valid supported offset instants pass; compare actual instants numerically |
+
+**Independent disposable diagnostic:** C:/CoWork/outputs/lane-b-d427-readiness-2026-10-07/review.json, with each pair's retained JSON files under control/, missing-studio/ and invalid-calendar/. Calls execute exported repeatComparison from the reviewed source. Complete valid control returns []; missing-studio on both sides returns []; impossible-date complete pair returns []. Each pair supplies its own recorded bracket values to the comparator. These are deliberately constructed comparator inputs, not real producer observations or a prepare/publication/repeat execution. The diagnostic proves these local per-run validators can falsely accept; it does not prove the surrounding guarded pipeline can publish an incomplete or impossible-date state, bypass earlier validation or cause business loss.
+
+**Coverage gap:** the existing tests alter one C2 copy while keeping a complete valid R1; they do not establish required artifact presence when both sides lack the same files. The invalid-time control uses the word yesterday, which does not test an ISO-shaped impossible date. Extend positive/refusal controls and targeted mutations for these exact conditions. Test totals and 29 caught mutations do not discharge untested conditions.
+
+#### Parent-first follow-up
+
+1. Preserve recorded D-426/D-427 authority, earlier discharged findings and evidence. Judge selection, propagation and implementation delivery are complete records; the new independent outcome is not accepted.
+2. Lane A answers D427-R1/R2 here and implements only the guard/test corrections under the selected contract and applicable bounded work order. No blanket timestamp/hash exemption, new source path or allowance is requested. If the proposed correction changes the selected contract, surface that exact change before applying it.
+3. Retain corrected-source valid/refusal evidence and relevant mutation controls with passing anchors, clean-state/source pins and post-commit checks. Keep historical evidence; identify the newly named final source rather than treating d1186bf as accepted.
+4. Lane B reviews the new source and records a separate receipt-1 accepted/not-accepted outcome. P8 recurrence still stops the unit.
+5. Only after accepted readiness: final-source candidate prepare and semantic/fragment completion, exact-byte acceptance (receipt 2), guarded release then separate full health (receipt 3), actual unpublished B0/R1/C2 repeat (receipt 4), independent whole-unit review (receipt 5).
+6. Source-specific B-050 disposition then B-077 final reconciliation; required child and parallel obligations precede parent/clearance acts. Scope is parent-first; closure evidence is dependency-first. No earlier receipt automatically closes anything.
+
+**Chief Editor and lanes:** Lane B raises these two implementation-contract findings and owns independent review; Lane A owns the answer and corrections. No new Lane C finding, CI evidence or acceptance is assumed. The Judge need not reselect the same amendment; the next necessary work is enforcement of its existing conditions. Product construction/verification must consume accepted artifacts with source/byte identities, not raw counts or a proposal verdict. P7/P8 and all D-426 exclusions remain in force.
+
+**Tracking and language:** B-050 owns technical findings/answers/evidence and remains Applied with O1 open; B-154 owns sequencing and remains Open; B-077 owns final reconciliation. SV-002's review ledger/clearance tracker and residual receiving packets remain the tracking layer. Applied is not Verified, implemented is not independently accepted, and a delivered refusal is a completed assessment but not readiness. U03, outstanding DoD and B-136 P15 retain their own triggers. No new handoff, lifecycle label, tracker, receiver/header, DoD or clearance change is needed now.
+
+### What you did instead
+
+Source/retained-evidence inspection plus small disposable comparator diagnostics only. Source-sweep and handoff-response pass at c8c091d. docs-drift remains STALE from 00c23ff over 11 unique governed paths: D-427's three recording files were already in that set, so adding three to the tally is incorrect. The read-only Graphify query is historical context and cannot establish current acceptance. Guarded sync remains required after final corrected-source readiness; no raw rebuild now. bun run check cannot start here (CouldntReadCurrentDirectory); no full-suite pass is claimed by Lane B. No application build, producer rerun, implementation edit, live graph change, Register act or push.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | D-427 recording/order, bounded delivery, exact mask approach and observed retained evidence | Phase 1: preserve evidence limits; not whole-source acceptance |
+| Approve-with-conditions | Lane A correction of D427-R1/R2 | Phase 1: enforce existing selected contract in paths 1–2, retain controls and name corrected source |
+| Reject | Receipt 1 at d1186bf | Phase 1: missing required artifacts and impossible calendar instant can falsely pass per-run checks |
+| Defer | Prepare/sync, acceptance/publication/health, actual repeat, whole-unit review and closure | Phase 1: accepted new readiness and remaining D-426 receipts/source-specific acts |
