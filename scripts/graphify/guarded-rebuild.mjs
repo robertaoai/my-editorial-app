@@ -52,7 +52,8 @@
 // `hook-rebuild --scope committed`; Node, Git, the Git configuration outside
 // and inside the checkout (a probe checkout of the frozen snapshot), the CLI
 // and every child argv template are frozen at prepare and re-verified before
-// every tool call, the first included; each
+// every tool call, the first included; an unreadable configuration fails
+// closed (G5: a digest only for a clean exit-0 read); each
 // Git-extracting call is bracketed by the clock and refuses if the selection
 // window crossed a cutoff; the fresh extraction must equal the selection
 // oracle and the rebuild must equal the producer's merge of the baseline and
@@ -963,14 +964,40 @@ function resolveOnPath(name, env) {
 
 const versionOf = (exe, env) => execFileSync(exe, ["--version"], { encoding: "utf8", env, stdio: ["ignore", "pipe", "ignore"], timeout: 60000 }).trim();
 
-/** Digest of the Git configuration outside any checkout (global and system), as the child sees it. */
-function gitConfigOutside(gitPath, env) {
-  const part = (scope) => {
-    const r = spawnSync(gitPath, ["config", `--${scope}`, "--list", "--show-origin"], { encoding: "utf8", env, timeout: 60000 });
-    return `${scope}:${r.status}:${r.stdout || ""}`;
-  };
-  return createHash("sha256").update(`${part("system")}\0${part("global")}`).digest("hex");
+/**
+ * G5 (Lane B `25b2be4`): one Git config query result → a digest ONLY for a clean success (exit 0, no
+ * spawn error, no signal or timeout, string output). Anything else is unreadable, never a value, so two
+ * equal failures can never compare equal as verified configuration. Raw values are never returned.
+ */
+export function configDigest(r) {
+  if (!r) return { ok: false, reason: "git returned no result" };
+  if (r.error) return { ok: false, reason: `git could not run (${r.error.code || r.error.message})` };
+  if (r.signal) return { ok: false, reason: `git was terminated (${r.signal})` };
+  if (r.status !== 0) return { ok: false, reason: `git exited ${r.status}` };
+  if (typeof r.stdout !== "string") return { ok: false, reason: "git returned no readable output" };
+  return { ok: true, digest: createHash("sha256").update(r.stdout).digest("hex") };
 }
+
+/** The real config queries; tests inject replacements to reach every failure class without live faults. */
+export const CONFIG_QUERIES = Object.freeze({
+  /** A checkout's EFFECTIVE configuration (system, global and local), as the child sees it. */
+  effective: (checkout, gitPath, env) => spawnSync(gitPath, ["-C", checkout, "config", "--list", "--show-origin"], { encoding: "utf8", env, timeout: 60000 }),
+  /**
+   * The configuration outside any checkout: `git config --list` in a fresh folder that is not inside a work
+   * tree. Unlike a per-scope query, it exits 0 when no global or system file exists (measured: `--global` with no
+   * file exits 128, the same code as a real error), so absence is a value and failure is still a failure.
+   */
+  outside: (gitPath, env) => {
+    const dir = mkdtempSync(join(tmpdir(), "guard-config-"));
+    try {
+      const inTree = spawnSync(gitPath, ["-C", dir, "rev-parse", "--is-inside-work-tree"], { encoding: "utf8", env, timeout: 60000 });
+      if (inTree.status === 0) return { error: { message: "the neutral folder sits inside a Git work tree" } };
+      return spawnSync(gitPath, ["-C", dir, "config", "--list", "--show-origin"], { encoding: "utf8", env, timeout: 60000 });
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  },
+});
 
 /**
  * PR3a: every child argv the guard may run, frozen at prepare as templates; `<state>` and
@@ -990,12 +1017,6 @@ export function argvFindings(b, args, state) {
   return (b?.argv ?? []).some((t) => JSON.stringify(expand(t)) === JSON.stringify(args)) ? [] : [`the child argv ${JSON.stringify(args)} is not one frozen at prepare`];
 }
 
-/** Digest of a checkout's EFFECTIVE Git configuration (system, global and local), as the child sees it. */
-function effectiveConfig(checkout, gitPath, env) {
-  const r = spawnSync(gitPath, ["-C", checkout, "config", "--list", "--show-origin"], { encoding: "utf8", env, timeout: 60000 });
-  return createHash("sha256").update(`${r.status}:${r.stdout || ""}`).digest("hex");
-}
-
 /**
  * PR3a: the executable bindings frozen at prepare — Node (path, binary SHA-256, version), Git as the
  * child resolves it on its sanitized PATH (path, SHA-256, version), the Git configuration outside
@@ -1003,10 +1024,13 @@ function effectiveConfig(checkout, gitPath, env) {
  * the frozen snapshot, built in `probeDir` and removed), the CLI path and its pins, and the child argv
  * templates. Names only for the environment.
  */
-export function executableBindings({ cli, env = sanitizedEnv(), repo, snapshot, probeDir } = {}) {
+export function executableBindings({ cli, env = sanitizedEnv(), repo, snapshot, probeDir, queries = CONFIG_QUERIES } = {}) {
   try {
     const gitPath = resolveOnPath("git", env);
     if (!gitPath) return { ok: false, reason: "git is not resolvable on the child's PATH" };
+    // G5: a failed read is never frozen as a binding: prepare refuses instead.
+    const outside = configDigest(queries.outside(gitPath, env));
+    if (!outside.ok) return { ok: false, reason: `the Git configuration outside the checkout cannot be read: ${outside.reason}` };
     let checkoutConfig = null;
     if (repo && snapshot) {
       if (!probeDir) return { ok: false, reason: "a probe folder is required to freeze the checkout's Git configuration" };
@@ -1014,7 +1038,9 @@ export function executableBindings({ cli, env = sanitizedEnv(), repo, snapshot, 
         const probe = join(probeDir, "checkout");
         const prep = prepareCheckout(repo, snapshot, probe);
         if (!prep.ok) return { ok: false, reason: `the probe checkout failed: ${prep.reason}` };
-        checkoutConfig = effectiveConfig(probe, gitPath, env);
+        const read = configDigest(queries.effective(probe, gitPath, env));
+        if (!read.ok) return { ok: false, reason: `the probe checkout's Git configuration cannot be read: ${read.reason}` };
+        checkoutConfig = read.digest;
       } finally {
         rmSync(probeDir, { recursive: true, force: true });
       }
@@ -1022,7 +1048,7 @@ export function executableBindings({ cli, env = sanitizedEnv(), repo, snapshot, 
     return { ok: true, bindings: {
       node: { path: process.execPath, sha256: sha256File(process.execPath), version: versionOf(process.execPath, env) },
       git: { path: gitPath, sha256: sha256File(gitPath), version: versionOf(gitPath, env) },
-      gitConfig: gitConfigOutside(gitPath, env),
+      gitConfig: outside.digest,
       checkoutConfig,
       cli: cli ?? null, pins: TOOL_PINS, argv: STAGE_ARGV, rules: SELECTION_RULES,
       studioApp: cli ? shippedStudio(cli) : null,
@@ -1036,7 +1062,7 @@ export function executableBindings({ cli, env = sanitizedEnv(), repo, snapshot, 
  * PR3a: re-verifies every binding on use, by path, hash and version — never by PATH order alone. A
  * checkout's effective Git configuration must equal the one frozen at prepare, before its first use too.
  */
-export function bindingFindings(b, { checkout, env = sanitizedEnv() } = {}) {
+export function bindingFindings(b, { checkout, env = sanitizedEnv(), queries = CONFIG_QUERIES } = {}) {
   const f = [];
   try {
     if (canonicalFsPath(process.execPath) !== canonicalFsPath(b.node.path)) f.push("the node path changed");
@@ -1046,7 +1072,11 @@ export function bindingFindings(b, { checkout, env = sanitizedEnv() } = {}) {
     if (!gitPath || canonicalFsPath(gitPath) !== canonicalFsPath(b.git.path)) f.push("the git path changed");
     else if (sha256File(gitPath) !== b.git.sha256) f.push("the git binary changed");
     else if (versionOf(gitPath, env) !== b.git.version) f.push("the git version changed");
-    else if (gitConfigOutside(gitPath, env) !== b.gitConfig) f.push("the Git configuration outside the checkout changed");
+    else {
+      const outside = configDigest(queries.outside(gitPath, env));
+      if (!outside.ok) f.push(`the Git configuration outside the checkout cannot be read: ${outside.reason}`);
+      else if (outside.digest !== b.gitConfig) f.push("the Git configuration outside the checkout changed");
+    }
     if (JSON.stringify(b.pins) !== JSON.stringify(TOOL_PINS)) f.push("the tool pins changed");
     const pins = pinnedCli(b.cli);
     if (!pins.ok) f.push(pins.reason);
@@ -1054,7 +1084,12 @@ export function bindingFindings(b, { checkout, env = sanitizedEnv() } = {}) {
     if (checkout) {
       for (const shadow of ["git.com", "git.exe", "git"]) if (process.platform === "win32" && existsSync(join(checkout, shadow))) f.push(`a ${shadow} in the checkout would shadow the bound git`);
       if (!b.checkoutConfig) f.push("the checkout's effective Git configuration was not frozen at prepare");
-      else if (!gitPath || effectiveConfig(checkout, gitPath, env) !== b.checkoutConfig) f.push("the checkout's effective Git configuration differs from the one frozen at prepare");
+      else if (!gitPath) f.push("the checkout's effective Git configuration cannot be read: git is not resolvable");
+      else {
+        const read = configDigest(queries.effective(checkout, gitPath, env));
+        if (!read.ok) f.push(`the checkout's effective Git configuration cannot be read: ${read.reason}`);
+        else if (read.digest !== b.checkoutConfig) f.push("the checkout's effective Git configuration differs from the one frozen at prepare");
+      }
     }
   } catch (e) {
     f.push(`a binding cannot be verified (${String(e.message).split("\n")[0]})`);
@@ -1218,7 +1253,7 @@ function observedAt(graph) {
  * selection oracle, and the rebuild against the producer merge, before the prune consumes
  * the fresh extraction (PR3b).
  */
-export function generateCandidate({ repo, snapshot, baseline, work, answers = {}, tool = runGraphify, cli, fragmentsOrder, bindings, clock = Date.now }) {
+export function generateCandidate({ repo, snapshot, baseline, work, answers = {}, tool = runGraphify, cli, fragmentsOrder, bindings, clock = Date.now, configQueries = CONFIG_QUERIES }) {
   const evidence = [];
   const checkout = join(work, "checkout");
   const state = join(checkout, ".graphify");
@@ -1229,7 +1264,7 @@ export function generateCandidate({ repo, snapshot, baseline, work, answers = {}
   /** One child call: argv and bindings verified first; a Git-extracting call is bracketed by the clock. */
   const invoke = (cwd, args, inputs) => {
     if (bindings) {
-      const f = [...argvFindings(bindings, args, state), ...bindingFindings(bindings, { checkout: cwd })];
+      const f = [...argvFindings(bindings, args, state), ...bindingFindings(bindings, { checkout: cwd, queries: configQueries })];
       if (f.length) return { refused: `executable binding refused before ${args[0]}: ${f.join("; ")}` };
     }
     const argv = [process.execPath, cli, ...args];

@@ -2156,3 +2156,101 @@ describe("D-426 PR1: operative instructions route only through the guarded proce
     expect(section(skill, "## 9.")).toContain(g9);
   });
 });
+
+// ===========================================================================
+// D-426 G5 (Lane B `25b2be4`): an unreadable Git configuration fails closed — at probe capture
+// (prepare never freezes a failure) and before the first and later tool calls (the producer is not
+// called). Failure classes are injected through the query seam; the real valid and real failing reads
+// (a missing checkout exits 128) anchor them. Fixtures only; no live fault injection.
+// ===========================================================================
+describe("D-426 G5: an unreadable Git configuration fails closed", () => {
+  const G5_SLOW = 600000;
+  const pins = G.pinnedCli();
+  const FAILURES = {
+    "non-zero exit": { status: 1, stdout: "", stderr: "fatal" },
+    "exit 128 (unreadable file)": { status: 128, stdout: "" },
+    "missing executable": { status: null, stdout: undefined, error: { code: "ENOENT" } },
+    "timeout": { status: null, stdout: "", signal: "SIGTERM", error: { code: "ETIMEDOUT" } },
+    "signal": { status: null, stdout: "", signal: "SIGKILL" },
+    "no output": { status: 0, stdout: null },
+  };
+  const failWith = (r) => ({ ...G.CONFIG_QUERIES, effective: () => r });
+  const failOutside = (r) => ({ ...G.CONFIG_QUERIES, outside: () => r });
+  const oldDigest = (r) => createHash("sha256").update(`${r.status}:${r.stdout || ""}`).digest("hex"); // the pre-G5 formula
+
+  test("configDigest: only a clean success yields a digest; every failure class is unreadable", () => {
+    const ok = G.configDigest({ status: 0, stdout: "core.bare=false\n" });
+    expect(ok.ok).toBe(true);
+    expect(ok.digest).toMatch(/^[0-9a-f]{64}$/);
+    for (const [name, r] of Object.entries(FAILURES)) {
+      const d = G.configDigest(r);
+      expect(d.ok).toBe(false);
+      expect(d.digest).toBeUndefined();
+      expect(typeof d.reason).toBe("string");
+      expect(name.length).toBeGreaterThan(0);
+    }
+    expect(G.configDigest(undefined).ok).toBe(false);
+  });
+
+  test("the equal-failure case: two identical failed reads had equal pre-G5 digests; now neither is a value", () => {
+    const a = { status: 128, stdout: "" }, b = { status: 128, stdout: "" };
+    expect(oldDigest(a)).toBe(oldDigest(b)); // the defect: equal failures compared equal
+    expect(G.configDigest(a).ok).toBe(false);
+    expect(G.configDigest(b).ok).toBe(false);
+  });
+
+  test("real reads: the outside and checkout queries succeed; a missing checkout really exits 128 and is unreadable", () => {
+    const gitPath = G.executableBindings({}).bindings.git.path;
+    const env = G.sanitizedEnv();
+    expect(G.configDigest(G.CONFIG_QUERIES.outside(gitPath, env)).ok).toBe(true);
+    const r = tinyRepo();
+    const co = join(F2, `g5co${++n}`);
+    G.prepareCheckout(r.d, G.snapshotSource(r.d), co);
+    expect(G.configDigest(G.CONFIG_QUERIES.effective(co, gitPath, env)).ok).toBe(true);
+    const missing = G.CONFIG_QUERIES.effective(join(F2, `g5missing${++n}`), gitPath, env);
+    expect(missing.status).toBe(128);
+    expect(G.configDigest(missing).ok).toBe(false);
+  }, G5_SLOW);
+
+  test("probe capture: every failure class refuses prepare-time binding; nothing is frozen; the probe is removed", () => {
+    const r = tinyRepo();
+    const snap = G.snapshotSource(r.d);
+    for (const [name, fail] of Object.entries(FAILURES)) {
+      const probeDir = join(F2, `g5probe${++n}`);
+      const eff = G.executableBindings({ repo: r.d, snapshot: snap, probeDir, queries: failWith(fail) });
+      expect(eff.ok).toBe(false);
+      expect(eff.reason).toContain("probe checkout's Git configuration cannot be read");
+      expect(eff.bindings).toBeUndefined();
+      expect(existsSync(probeDir)).toBe(false);
+      const out = G.executableBindings({ queries: failOutside(fail) });
+      expect(out.ok).toBe(false);
+      expect(out.reason).toContain("outside the checkout cannot be read");
+      expect(name.length).toBeGreaterThan(0);
+    }
+    expect(G.executableBindings({ repo: r.d, snapshot: snap, probeDir: join(F2, `g5probe${++n}`) }).ok).toBe(true); // valid control
+  }, G5_SLOW);
+
+  test("pre-call: a failed read before the first call refuses with the producer uncalled; before a later call it refuses before that call", () => {
+    if (!pins.ok) return; // bindings name the verified CLI
+    const r = branchRepo();
+    const b = G.executableBindings({ cli: pins.cli, repo: r.d, snapshot: G.snapshotSource(r.d), probeDir: join(F2, `g5p${++n}`) }).bindings;
+    for (const fail of Object.values(FAILURES)) {
+      const calls = [];
+      const first = gen(r, baselineWith(r), simulate({ calls }), { bindings: b, cli: pins.cli, configQueries: failWith(fail) });
+      expect(first.reason).toContain("effective Git configuration cannot be read");
+      expect(calls).toEqual([]);
+    }
+    let reads = 0;
+    const laterFails = { ...G.CONFIG_QUERIES, effective: (...a) => (++reads === 1 ? G.CONFIG_QUERIES.effective(...a) : FAILURES["non-zero exit"]) };
+    const calls = [];
+    const later = gen(r, baselineWith(r), simulate({ calls }), { bindings: b, cli: pins.cli, configQueries: laterFails });
+    expect(later.reason).toContain("effective Git configuration cannot be read");
+    expect(calls).toEqual(["hook-rebuild --scope committed"]); // the rebuild ran; the fresh extraction did not
+    const outsideFails = gen(r, baselineWith(r), simulate({ calls: [] }), { bindings: b, cli: pins.cli, configQueries: failOutside(FAILURES.timeout) });
+    expect(outsideFails.reason).toContain("outside the checkout cannot be read");
+    // equal failures cannot pass: a binding holding the pre-G5 digest of a failure still refuses that failure
+    const equal = gen(r, baselineWith(r), simulate({ calls: [] }), { bindings: { ...b, checkoutConfig: oldDigest(FAILURES["exit 128 (unreadable file)"]) }, cli: pins.cli, configQueries: failWith(FAILURES["exit 128 (unreadable file)"]) });
+    expect(equal.reason).toContain("cannot be read");
+    expect(gen(r, baselineWith(r), simulate({ calls: [] }), { bindings: b, cli: pins.cli }).reason).toBe(PASSED_GIT); // valid control
+  }, G5_SLOW);
+});
