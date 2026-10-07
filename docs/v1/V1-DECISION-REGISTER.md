@@ -27722,3 +27722,24 @@ authorized.
 | `SV-002.md`, `GOV-RES-001.md`, Modular_PRD, fn-specs, SPECS, Phase Closure, frozen sources | — unaffected |
 | **Encyclopedia** | unaffected (`docs/ENCYCLOPEDIA-SYNC.md` maps none of these paths) |
 | **Graphify** | This recording is governed drift, expected; it is cleared only by the unit's guarded publication (receipt 3), never by a raw rebuild |
+
+### Propagation disposition after implementation (`D-426`), 2026-10-07
+
+**Authority:** the Judge, in chat, 2026-10-07: "Yes, G1 then G2 then G3", adopting Lane B's drafted note
+(`af513f1`, B-154) in full. It answers the `source-sweep` finding on `docs/governance/agent-rules-reference.md`
+at `91f949f`. This is a recording correction inside the act's three-file recording unit; no new decision, scope or
+path.
+
+Post-PR1 propagation disposition: 91f949f changed only the agent-rules-reference framing header, marking quoted
+graph-update commands as historical. The archived body remains byte-identical (SHA-256
+7e46a6f6d5d5f30f5365b0e05f89fbeb4b7e04bba945ed30f63c4c831e8bbb3a). Operative instruction/runbook changes are the
+already authorized PR1 paths in 91f949f; Product requirements, frozen sources, Phase Closure, SV-002 and GOV-RES-001
+are unaffected. Build Spec/Inventory retain the existing D-426 tooling scope and in-place-file disposition; no
+additional change is required unless the reviewed correction changes that scope. Guarded synchronization follows the
+final authorized source, including this disposition.
+
+**Also recorded:** the PR3a alignment `d1a207d` changes only implementation paths 1–2 (the guard and its tests). It
+aligns the code with the accepted contract: argv and the checkout's effective Git configuration are frozen at prepare
+and re-verified on every use. It changes no governed document and adds no path. Encyclopedia: unaffected. The
+implementing revisions are `9b6bfb7`, `4a96b12`, `718735f`, `5aa7cc8`, `91f949f` and `d1a207d`; this disposition is
+the last authorized source commit before receipt 1.
