@@ -5019,3 +5019,50 @@ Read source, handoff/template, retained probe files and a read-only Graphify que
 | Approve-with-conditions | Execution of the proposed correction | Phase 1: specific Judge selection recorded with propagation; then paths 1–2 and retained controls/evidence |
 | Reject | Receipt 1 at c42712b; claiming the proposed policy is already implemented or independently accepted | Phase 1: corrected-source readiness must be accepted separately |
 | Defer | Guarded candidate/publication/health, actual repeat, whole-unit review and closure | Phase 1: ordered D-426 receipts and source-specific dispositions |
+
+## Lane A — D-427 implemented: corrected final review source `d1186bf` for a new receipt 1, 2026-10-07
+
+### What happened
+
+Read at `d1186bf`. Lane B: `353febb`, the review of A-PR5a-1. The Judge selected A-PR5a-1 ("Select A-PR5a-1",
+2026-10-07). It is recorded as **D-427 at `c121ef3`** (Register, Build Spec and Inventory, before implementation) and implemented
+at **`d1186bf`** (guard and guard tests only; D-427 item 2). Lane B's precision correction is accepted: the old
+comparator refused only when the two observation values differed, not always.
+
+**The final review source is now `d1186bf`.** `c42712b` and `b775c42` are prior reviewed sources. The receipt-1
+request and its addendum stand, except for the rows and evidence below.
+
+### What you need
+
+**Requested of Lane B: a new receipt 1, the independent readiness review of `d1186bf`.**
+
+#### Changed matrix rows
+
+| Clause | Implemented | Valid control → refusal cases (test) | Remaining limit / open |
+|---|---|---|---|
+| PR5a repeat comparison, amended by **D-427**:<br>• **Per-run validation first**, even when raw files match: a present ISO 8601 observation inside the run's own recorded rebuild bracket (R1 from the first run's frozen packet, C2 from the repeat); the studio graph equal to its own root graph by content; exactly one manifest `graph` entry binding its own `studio/graph.json` bytes.<br>• C2's observation strictly later than R1's.<br>• **Only then** each exact leaf is masked. Every enclosing field, other provenance field, node, link and manifest entry stays compared; `REPEAT_VOLATILE` is unchanged | `d1186bf` (`REPEAT_PROVENANCE`, `provenanceFindings`, `repeatComparison`, `proveRepeat`) | "D-427: repeat-provenance amendment A-PR5a-1":<br>• "valid control: two real runs differ only in the three leaves, and the exact policy accepts them; raw evidence is retained" (**real pinned producer**: rebuild and export twice from one baseline);<br>• "source identity and graph content: a changed source_hash, source_id, adapter or any graph field refuses" (including an undeclared timestamp);<br>• "observation bindings: outside its bracket, invalid, equal, backward or missing a bracket refuses";<br>• "dependent artifacts: a studio graph unlike its root, a wrong manifest graph hash or another manifest field refuses" (including a duplicate graph entry).<br>The PR5a cases now carry provenance like the real producer and still pass | The valid control compares the promoted outputs of two real runs, not a full generation and composition. **The actual B0 → R1 → C2 repeat remains receipt 4.** Any further undeclared difference still stops the repeat and needs its own decision |
+| `REPEAT.json` | `d1186bf` | Records both observations, both brackets, and the raw hashes of the root graph, the studio graph and the workspace manifest, plus `REPEAT_PROVENANCE` (PR5a valid control) | — |
+
+### What you did instead
+
+**Retained evidence at `d1186bf`**, in folder `C:/CoWork/outputs/lane-a-d426-receipt1-2026-10-07/at-d1186bf`. The tree was clean (`source-status.txt` is empty), on Bun 1.1.30, Node v24.18.0 and Git 2.54.0.
+
+- **Guard suite:** `guard-suite-full.log`. **242 pass, 0 fail, 875 `expect()` calls, 883 s, exit 0.** SHA-256 `9d225986…`. The adjusted case ran in 1,469 ms and P8's case in 16,594 ms; no P8 recurrence.
+- **Mutations:** `mutation-harness.mjs` (SHA-256 `6e7059b3…`) and `mutations/summary.json` (SHA-256 `1e0ce2a6…`). **All 29 were caught in one uninterrupted run, with no re-runs.** The anchor preflight passed, every control passed, every restore was verified, and the harness exited 0.
+  - The 5 new D-427 mutations remove, in turn, the bracket check, the strictly-later check, the root-equality check and the manifest binding, and widen the mask to the whole `graph` object. Each produces 1 failing case.
+  - `pr5a-graph` was re-anchored, because the graph comparison now runs through the masked copies.
+- **Post-commit checks:**
+  - `check-post-c121ef3.log` (the D-427 recording): 18/19, docs-drift only; source-sweep passes.
+  - `check-post-d1186bf.log` (SHA-256 `8a97b44d…`): **18/19, docs-drift STALE only.**
+- **Earlier evidence, preserved:** `at-c42712b/`, `at-b775c42/` and the `96f9b2f` run.
+
+**Not done:** receipt 1 is not self-recorded; no candidate, release, health or repeat; no header, DoD, tracker or
+clearance change. B-050 stays `Applied`; its O1 row stays open. Drift: docs-drift is STALE (analyzed `00c23ff`); the
+guarded sync follows readiness.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | D-427 recorded (`c121ef3`) and implemented (`d1186bf`) exactly as selected | Phase 1: Lane B reviews at this fixed source |
+| Approve-with-conditions | Receipt 1 at `d1186bf` | Phase 1: Lane B's independent outcome; any finding is answered against a newly named revision |
+| Defer | Receipts 2–5, dispositions, parents, Gate 2 | Phase 1: in D-426 order after receipt 1 |
+| Reject | The fixture positive treated as the actual repeat; any allowance beyond D-427's three leaves | Phase 1: receipt 4 and specific decisions |
