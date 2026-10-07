@@ -1650,7 +1650,7 @@ describe("D-426 PR3a: executable bindings are verified before every tool call", 
     if (!pins.ok) return; // no pinned Graphify on this machine: bindings cannot name a verified CLI
     const b = G.executableBindings({ cli: pins.cli });
     expect(b.ok).toBe(true);
-    expect(Object.keys(b.bindings)).toEqual(["node", "git", "gitConfig", "cli", "pins", "argv", "rules"]);
+    expect(Object.keys(b.bindings)).toEqual(["node", "git", "gitConfig", "cli", "pins", "argv", "rules", "studioApp"]);
     expect(JSON.stringify(b.bindings)).not.toMatch(/PATH=|TOKEN|SECRET/);
     const r = branchRepo();
     const calls = [];
@@ -1727,4 +1727,190 @@ describe("D-426 PR3b: the model against the REAL pinned producer (fidelity ancho
     const dropped = { ...b.git, edges: new Map([...b.git.edges].filter(([k]) => !k.includes("#feat"))) };
     expect(G.gitMergeFindings(a.git, c.git, dropped).join(" ")).toContain("omitted Git edges");
   }, 600000);
+});
+
+// ===========================================================================
+// D-426 PR4b (B-050 revision 4): every derived studio file is checked against the pinned
+// producer's projection of the FINAL graph and its frozen inputs. The valid control is a REAL
+// pinned export of a REAL extraction (with real citations); each negative changes one copy of
+// it and must reach its own refusal after that control passes. Skipped only where the pinned
+// producer is not installed.
+// ===========================================================================
+describe("D-426 PR4b: derived artifacts by their producer projections", () => {
+  const PR4_SLOW = 600000;
+  const pins = G.pinnedCli();
+  const INDEX = pins.ok ? pathToFileURL(join(dirname(pins.cli), "index.js")).href : null;
+  let BASE; // a real candidate state: real hook-rebuild, real citations sidecar, real studio export
+  const real = async () => {
+    if (BASE) return BASE;
+    const P = await import(INDEX);
+    const r = tinyRepo();
+    writeFileSync(join(r.d, "lib.js"), "export function alpha() { return beta(); }\nexport function beta() { return 1; }\n");
+    r.g("add", ".");
+    r.g("commit", "-q", "-m", "code");
+    const co = join(F2, `pr4co${++n}`);
+    G.prepareCheckout(r.d, G.snapshotSource(r.d), co);
+    expect(G.runGraphify(co, G.REBUILD_ARGS, { cli: pins.cli }).code).toBe(0);
+    const state = join(co, ".graphify");
+    const gp = join(state, "graph.json");
+    const graph = JSON.parse(readFileSync(gp, "utf8"));
+    const cited = graph.nodes.find((x) => x.id.startsWith("commit:"));
+    const cite = { source_file: "lib.js", source_location: "L1", quote: "export function alpha" };
+    cited.citations = [cite];
+    cited.citation_count = 2;
+    writeFileSync(gp, JSON.stringify(graph));
+    mkdirSync(join(state, "ontology"), { recursive: true });
+    writeFileSync(join(state, "ontology", "citations.json"), JSON.stringify({ schema: "graphify_ontology_citations_v1", graph_signature: P.computeGraphCitationSignatureFromJson(graph),
+      nodes: { [cited.id]: { count: 2, citations: [cite, { source_file: "lib.js", source_location: "L2", quote: "export function beta" }] } } }, null, 2));
+    expect(G.runGraphify(co, G.studioExportArgs(state), { cli: pins.cli }).code).toBe(0);
+    BASE = { state, cited: cited.id, shipped: G.shippedStudio(pins.cli) };
+    return BASE;
+  };
+  /** A disposable copy of the real candidate state, mutated by `edit(state)`, then validated. */
+  const validateCopy = async (edit = () => {}) => {
+    const b = await real();
+    const st = join(F2, `pr4st${++n}`, ".graphify");
+    cpSync(b.state, st, { recursive: true });
+    edit(st, b);
+    return G.validateStudio({ state: st, cli: pins.cli, shipped: b.shipped });
+  };
+  const J = (p) => JSON.parse(readFileSync(p, "utf8"));
+  const W = (p, v) => writeFileSync(p, JSON.stringify(v));
+  const S = (st, ...p) => join(st, "studio", ...p);
+
+  test("valid control: the real default export passes, scene-only bundle and an optional present:false entry included", async () => {
+    if (!pins.ok) return;
+    const v = await validateCopy();
+    expect(v.findings).toEqual([]);
+    const b = await real();
+    const m = J(S(b.state, "workspace-manifest.json"));
+    expect(m.artifacts.some((a) => a.present === false)).toBe(true);
+    expect(m.graph_hash).toBe(null);
+    expect(m.artifacts.find((a) => a.name === "graph").present).toBe(true);
+    expect(existsSync(S(b.state, "studio.html"))).toBe(true);
+    expect(G.studioExportArgs("X")).toEqual(["studio", "export", join("X", "studio"), "--state", "X"]);
+  }, PR4_SLOW);
+
+  test("scene: a wrong color value with unchanged keys, a wrong derived weight and a flipped weak flag each refuse", async () => {
+    if (!pins.ok) return;
+    const color = await validateCopy((st) => {
+      const s = J(S(st, "scene.json"));
+      const k = Object.keys(s.communityColors)[0];
+      s.communityColors[k] = s.communityColors[k] === "#000000" ? "#ffffff" : "#000000";
+      W(S(st, "scene.json"), s);
+    });
+    expect(color.findings.join(" ")).toContain("scene.json differs from the producer projection in communityColors");
+    const weight = await validateCopy((st) => {
+      const s = J(S(st, "scene.json"));
+      s.nodes[0].weight = (s.nodes[0].weight ?? 0) + 1;
+      W(S(st, "scene.json"), s);
+    });
+    expect(weight.findings.join(" ")).toContain("projection in nodes");
+    const weak = await validateCopy((st) => {
+      const s = J(S(st, "scene.json"));
+      s.edges[0].weak = !s.edges[0].weak;
+      W(S(st, "scene.json"), s);
+    });
+    expect(weak.findings.join(" ")).toContain("projection in edges");
+  }, PR4_SLOW);
+
+  test("entities and citations: a wrong structured description or citation with unchanged ids refuses", async () => {
+    if (!pins.ok) return;
+    const desc = await validateCopy((st, b) => {
+      const e = J(S(st, "entities.json"));
+      e[b.cited] = { ...e[b.cited], description: { status: "generated", description: "invented", source: "description" } };
+      W(S(st, "entities.json"), e);
+    });
+    expect(desc.findings.join(" ")).toContain("entities.json differs from the producer sidecars");
+    const count = await validateCopy((st, b) => {
+      for (const p of [join(st, "ontology", "citations.json"), S(st, "ontology", "citations.json")]) {
+        const c = J(p);
+        c.nodes[b.cited].count = 7;
+        writeFileSync(p, JSON.stringify(c, null, 2));
+      }
+    });
+    expect(count.findings.join(" ")).toContain("citation count differs");
+    const copy = await validateCopy((st) => {
+      const p = S(st, "ontology", "citations.json");
+      writeFileSync(p, readFileSync(p, "utf8") + " ");
+    });
+    expect(copy.findings.join(" ")).toContain("copied citations sidecar differs");
+    const sig = await validateCopy((st) => {
+      const p = join(st, "ontology", "citations.json");
+      const c = J(p);
+      c.graph_signature = "0".repeat(64);
+      writeFileSync(p, JSON.stringify(c, null, 2));
+    });
+    expect(sig.findings.join(" ")).toContain("citation signature");
+  }, PR4_SLOW);
+
+  test("reconciliation: a wrong record refuses, and a malformed queue refuses instead of the producer's empty fallback", async () => {
+    if (!pins.ok) return;
+    const wrong = await validateCopy((st) => W(S(st, "reconciliation-candidates.json"), { items: [{ id: "invented" }], total: 1 }));
+    expect(wrong.findings.join(" ")).toContain("not the pinned queue query");
+    const torn = await validateCopy((st) => {
+      mkdirSync(join(st, "ontology", "reconciliation"), { recursive: true });
+      writeFileSync(join(st, "ontology", "reconciliation", "candidates.json"), "{torn");
+    });
+    expect(torn.findings.join(" ")).toContain("the reconciliation queue is malformed");
+  }, PR4_SLOW);
+
+  test("vendor, manifest and bundle: changed shipped bytes, a wrong manifest hash and a stale embedded scene with unchanged counts refuse", async () => {
+    if (!pins.ok) return;
+    const vendor = await validateCopy((st) => writeFileSync(S(st, "index.html"), readFileSync(S(st, "index.html"), "utf8") + "<!-- changed -->"));
+    expect(vendor.findings.join(" ")).toContain("shipped file differs from the pinned tool: index.html");
+    const manifest = await validateCopy((st) => {
+      const m = J(S(st, "workspace-manifest.json"));
+      const a = m.artifacts.find((x) => x.name === "scene");
+      a.sha256 = "0".repeat(64);
+      writeFileSync(S(st, "workspace-manifest.json"), JSON.stringify(m, null, 2) + "\n");
+    });
+    expect(manifest.findings.join(" ")).toContain("workspace-manifest.json is not the producer manifest");
+    const stale = await validateCopy((st) => {
+      const html = readFileSync(S(st, "studio.html"), "utf8");
+      const marker = "window.__GRAPHIFY_BUNDLE__ = JSON.parse(";
+      const [head, rest] = html.split(marker);
+      const end = rest.indexOf(");</script>");
+      const bundle = JSON.parse(JSON.parse(rest.slice(0, end)));
+      bundle["scene.json"].nodes[0].label = `${bundle["scene.json"].nodes[0].label} (stale)`;
+      writeFileSync(S(st, "studio.html"), head + marker + JSON.stringify(JSON.stringify(bundle)).replace(/<\//g, "<\\/") + rest.slice(end));
+    });
+    expect(stale.findings.join(" ")).toContain("the embedded scene is not the validated scene.json");
+    expect(stale.findings.join(" ")).not.toContain("scene.json differs");
+  }, PR4_SLOW);
+
+  test("inventory: an unknown promoted file, an unclassified input, a changed graph copy or a missing derived file refuses", async () => {
+    if (!pins.ok) return;
+    const unknown = await validateCopy((st) => writeFileSync(S(st, "extra.json"), "{}"));
+    expect(unknown.findings.join(" ")).toContain("unknown promoted studio file: extra.json");
+    const input = await validateCopy((st) => writeFileSync(join(st, "ontology", "profile.json"), "{}"));
+    expect(input.findings.join(" ")).toContain("unclassified export input: ontology/profile.json");
+    const graph = await validateCopy((st) => {
+      const g = J(S(st, "graph.json"));
+      g.nodes[0].label = "changed";
+      W(S(st, "graph.json"), g);
+    });
+    expect(graph.findings.join(" ")).toContain("studio/graph.json is not the final root graph");
+    const missing = await validateCopy((st) => rmSync(S(st, "scene.json")));
+    expect(missing.findings.join(" ")).toContain("missing derived file: scene.json");
+    const unbound = (await real()) && G.validateStudio({ state: (await real()).state, cli: pins.cli, shipped: null });
+    expect(unbound.findings.join(" ")).toContain("shipped studio files are not bound");
+  }, PR4_SLOW);
+
+  test("the shipped studio files are bound with the executable bindings and re-verified on use", () => {
+    if (!pins.ok) return;
+    const b = G.executableBindings({ cli: pins.cli }).bindings;
+    expect(b.studioApp.files["index.html"]).toMatch(/^[0-9a-f]{64}$/);
+    expect(G.bindingFindings(b)).toEqual([]);
+    expect(G.bindingFindings({ ...b, studioApp: { ...b.studioApp, digest: "0".repeat(64) } }).join(" ")).toContain("shipped studio files changed");
+  }, PR4_SLOW);
+
+  test("fidelity anchor: the guard validator accepts a copy of the real released live studio", () => {
+    if (!pins.ok || !existsSync(join(G.REAL_LIVE_TARGET, "studio", "scene.json"))) return;
+    const st = join(F2, `pr4live${++n}`, ".graphify");
+    cpSync(G.REAL_LIVE_TARGET, st, { recursive: true });
+    const v = G.validateStudio({ state: st, cli: pins.cli, shipped: G.shippedStudio(pins.cli) });
+    expect(v.findings).toEqual([]);
+    expect(v.summary.scene.nodes).toBeGreaterThan(1000);
+  }, PR4_SLOW);
 });
