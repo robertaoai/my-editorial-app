@@ -2410,7 +2410,12 @@ export function isoInstant(text) {
     offset = (m[9] === "+" ? 1 : -1) * (oh * 60 + om) * 60000;
   }
   const ms = m[7] ? Number(m[7].padEnd(3, "0").slice(0, 3)) : 0;
-  return Date.UTC(y, mo - 1, d, h, mi, s, ms) - offset;
+  // Not Date.UTC: it remaps years 0–99 to 1900–1999 (Lane B `ff443fe`), so 0099 became 1999 and 0000-02-29
+  // rolled into 1900-03-01. setUTCFullYear takes the year as given.
+  const t = new Date(0);
+  t.setUTCFullYear(y, mo - 1, d);
+  t.setUTCHours(h, mi, s, ms);
+  return t.getTime() - offset;
 }
 const MASK = "<masked by D-427 after per-run validation>";
 const observationOf = (g) => g?.graph?.provenance?.observed_at;

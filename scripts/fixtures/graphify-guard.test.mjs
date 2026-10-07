@@ -2471,3 +2471,53 @@ describe("D-427 R1/R2: complete bundles and real calendar instants are required 
     expect(cmp(runAt(R1_AT), runAt(later), { c2: around(later) })).toContain("differs outside the declared volatile fields: artifacts"); // a mixed-length pair stays refused (size_bytes)
   });
 });
+
+// ===========================================================================
+// D427-R2 remainder (Lane B `ff443fe`): an ISO 8601 four-digit year converts to its ACTUAL instant. Date.UTC
+// remapped years 0–99 into 1900–1999 (0099 → 1999; 0000-02-29 → 1900-03-01, a rollover). Expected instants are
+// computed independently from day counts, not through the same Date API.
+// ===========================================================================
+describe("D-427 R2: early ISO years convert to their actual instant, with no century remap", () => {
+  const DAY = 86400000;
+  // days from 0000-01-01 to 1970-01-01 in the proleptic Gregorian calendar
+  const EPOCH_DAYS = 719528;
+  const daysBefore = (y) => 365 * y + Math.floor((y + 3) / 4) - Math.floor((y + 99) / 100) + Math.floor((y + 399) / 400);
+  const leap = (y) => (y % 4 === 0 && y % 100 !== 0) || y % 400 === 0;
+  const dayOfYear = (y, mo, d) => [31, leap(y) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31].slice(0, mo - 1).reduce((a, b) => a + b, 0) + d - 1;
+  const expected = (y, mo, d, h = 0, mi = 0, s = 0) => (daysBefore(y) + dayOfYear(y, mo, d) - EPOCH_DAYS) * DAY + ((h * 60 + mi) * 60 + s) * 1000;
+
+  test("years 0000, 0001, 0099 and 0100 and early leap days convert exactly; a non-leap century day refuses", () => {
+    expect(expected(1970, 1, 1)).toBe(0); // the independent reference is anchored at the epoch
+    expect(expected(2026, 10, 7)).toBe(Date.UTC(2026, 9, 7));
+    for (const [text, parts] of [
+      ["0000-01-01T00:00:00Z", [0, 1, 1]], ["0001-01-01T00:00:00Z", [1, 1, 1]], ["0099-10-07T12:00:00.000Z", [99, 10, 7, 12]],
+      ["0100-01-01T00:00:00Z", [100, 1, 1]], ["0000-02-29T00:00:00Z", [0, 2, 29]], ["0004-02-29T00:00:00Z", [4, 2, 29]],
+    ]) expect(G.isoInstant(text)).toBe(expected(...parts));
+    expect(G.isoInstant("0099-10-07T12:00:00.000Z")).toBe(-59018846400000); // Lane B's reference value
+    expect(G.isoInstant("0100-02-29T00:00:00Z")).toBe(null); // 100 is not a leap year
+    expect(G.isoInstant("0001-02-29T00:00:00Z")).toBe(null);
+  });
+
+  test("an offset moves an early instant across a year boundary; modern instants are unchanged", () => {
+    expect(G.isoInstant("0100-01-01T00:30:00+01:00")).toBe(expected(99, 12, 31, 23, 30));
+    expect(G.isoInstant("0000-01-01T00:30:00+01:00")).toBe(expected(-1 + 1, 1, 1) - 30 * 60000);
+    expect(G.isoInstant("2026-10-07T08:00:01+08:00")).toBe(Date.UTC(2026, 9, 7, 0, 0, 1));
+    expect(G.isoInstant("2026-10-07T00:00:00.000Z")).toBe(Date.UTC(2026, 9, 7));
+  });
+
+  test("the comparator places early instants in their real century: the true bracket passes, the remapped one refuses", () => {
+    const BASE = { nodes: [{ id: "n1", label: "N1" }], links: [] };
+    const runAt = (at) => {
+      const d = join(F2, `yr${++n}`);
+      mkdirSync(d);
+      writeFileSync(join(d, "graph.json"), JSON.stringify({ ...BASE, graph: { provenance: { source_owner: "git", observed_at: at, source_hash: "h0" } } }));
+      writeStudioBundle(d);
+      return d;
+    };
+    const r1 = "0099-10-07T12:00:00.000Z", c2 = "0099-10-07T12:00:01.000Z";
+    const truth = (at) => [G.isoInstant(at) - 1000, G.isoInstant(at) + 1000];
+    const remapped = (at) => [Date.parse(at.replace(/^0099/, "1999")) - 1000, Date.parse(at.replace(/^0099/, "1999")) + 1000];
+    expect(G.repeatComparison(runAt(r1), runAt(c2), { brackets: { r1: truth(r1), c2: truth(c2) } }).findings).toEqual([]);
+    expect(G.repeatComparison(runAt(r1), runAt(c2), { brackets: { r1: remapped(r1), c2: remapped(c2) } }).findings.join(" ")).toContain("outside its own rebuild bracket");
+  });
+});
