@@ -7365,3 +7365,47 @@ Current targeted checks: handoff-response passes; source-sweep fails for the fra
 | Approve-with-conditions | Correction handback ready for Lane A | Phase 1: propagation disposition, truthful post-commit scores, binding-contract resolution and fixed-source packet |
 | Defer | Receipt 1, P8 conclusion, prepare/publication/repeat/whole-unit acceptance and closure | Phase 1: independent final-source evidence and ordered receipts |
 | Reject | "All wording only", 18/19 current claim, arbitrary Register touch as propagation proof, or disclosed limitation as contract amendment | Phase 1: distinguish observed facts, inference and operative requirements |
+
+## Lane B — corrected receipt packet review and effective-config refusal gap, 2026-10-07
+
+### What happened
+
+**Clarified request:** review Lane A's committed response to the propagation/binding challenge, consolidate completed conditions and any remaining gap, and hand back parent-first actions without implementation. Read b6ae594; clean worktree. Lane A committed PR3a alignment d1a207d, the substantive D-426 propagation disposition b775c42 and the B-050 receipt request b6ae594. Review source is b775c42; the last commit is handoff-only.
+
+The propagation note records the exact framing-only scope, archived-body hash, existing operative changes and unaffected tiers. Lane B accepts that scoped disposition; source-sweep now passes. B-050 corrects the pre/post-commit reporting error, retains the original missing-trace limit and identifies source b775c42. Those reporting/packet conditions are discharged. The new argv templates and prepare-time probe/config comparison address the prior first-use-capture design difference, subject to the failure-handling gap below. Do not reopen discharged wording/census/authority findings.
+
+Retained evidence at C:/CoWork/outputs/lane-a-d426-receipt1-2026-10-07/at-b775c42 records source b775c42 and an empty status file. The full suite log records 233 pass, 0 fail, 754 expectations and exit 0; SHA-256 9ac4675e9ef7ea6097834fa662fc92e9c06a93c0a1309ab4a0ba2963f0489458. All 21 mutation raw-log pass/fail totals agree with summary.json (SHA-256 7e301b6154794792b86afa1429e745f8ce59ab5f93142d2fa8fe12accf09b768); harness SHA-256 ec71b2fe70fc149013482768932b053af6ff5863d60363f5d474b9b8e4c898ee. This is independent retained-evidence inspection, not a fresh Lane B suite run, restore verification or whole-unit acceptance.
+
+### What you need
+
+**New bounded source finding — fail closed when effective Git configuration cannot be read.** In scripts/graphify/guarded-rebuild.mjs, effectiveConfig hashes the string formed from spawnSync status and stdout, without requiring status 0 or checking error/signal. executableBindings stores that value from the probe; bindingFindings compares another value computed the same way. Equal failing query results can therefore compare equal as if configuration were verified. For example, two nonzero queries with the same status and empty output yield the same digest. This is a source-derived conditional failure of verification; no runtime reproduction or actual live incident is claimed.
+
+**Draft fix for Lane A, existing guard/test paths only:** effectiveConfig returns a digest only after a successful Git query (exit status 0, no spawn error or termination signal, valid output type); otherwise it raises/returns an explicit unreadable-config failure. Prepare must not freeze a failure as a binding. First and later pre-call checks must refuse before invoking the producer if config cannot be verified. Do not log raw configuration values. Keep actual config changes distinct from read failures in evidence. This preserves D-426's accepted contract and needs no weakening amendment.
+
+**Proposed acceptance controls:** valid probe/checkout queries pass; nonzero exit, missing executable/spawn error and timeout/signal at probe capture refuse; the same failures before first/later tool use refuse with the producer uncalled. Include a case where both attempted reads would produce the same failure status/empty output, proving the old equal-failure digest cannot pass. Fixtures only; no live fault injection. These are specified checks, not tests run here.
+
+| Parent-first decision | Completed / accept criterion | Lane A follow-up / reject criterion | Phase |
+|---|---|---|---|
+| 1. Authority and propagation | D-426 scope remains recorded; b775c42 disposition accepted; source-sweep passes | No repeated issue act; do not treat passing sweep as implementation correctness | Phase 1: scoped condition complete |
+| 2. Corrected packet and binding construction | Fixed-source packet, reporting correction, argv verification and prepare-time config binding are present | Answer the new config-read refusal finding in B-050; align guard/tests without a new source path | Phase 1: residual technical correction before readiness |
+| 3. Independent receipt 1 | Review corrected source and retained reached outcomes; resolve P8 classification with the acknowledged lost historical trace | Do not infer readiness from 233 tests/21 mutations or invent the lost timeout cause | Phase 1: independent readiness still pending |
+| 4. Candidate, release and health | Final-source prepare, semantic work/fragment survival, exact-byte acceptance, guarded release then distinct health | Reject old-source acceptance or premature sync before readiness | Phase 1: receipts 2/3 after readiness |
+| 5. Repeat and whole-unit review | Actual B0/R1/C2 unpublished repeat and independent final review | Fixture repeat tests do not complete the actual repeat; no second live release | Phase 1: receipts 4/5 |
+| 6. Child/parent closure | Own evidence/dispositions, B-077 final reconciliation, required parallel obligations, parent decisions and fresh clearance review | No automatic B-050/B-154/DoD/Gate 2 closure | Phase 1: respective later acts; clearance last |
+
+**Lane A steps:** receive this finding in existing B-050; make the bounded refusal correction and retain its positive/negative evidence. Name the new final review source (b775c42 becomes the prior reviewed source if code changes). Update only changed matrix rows/evidence, preserving earlier evidence as historical. Commit source and handoff records under their applicable boundaries, retaining post-commit checks. Obtain Lane B readiness outcome before prepare/publication. P7/P8 and every excluded capability remain in force. No broad repeat of the completed planning answers or recreation of already retained logs is requested.
+
+**Critical artifacts / tracking:** authority record, implementation commits and receipt request are present; independent receipt 1 and candidate/acceptance/release/health/actual repeat/whole-unit results are not established by this review. B-050 owns the correction/proof/disposition, B-154 sequencing, B-077 final reconciliation, SV-002 scoped review/clearance and receiving packets residual custody. Source statuses stay B-050 Applied and B-154 Open; U03/DoD/P15 retain their own triggers.
+
+**Chief Editor / lane perspectives:** Lane A has answered the prior gate/reporting findings and supplied stronger retained evidence. Lane B raises one specific refusal-control gap in the new alignment. No new Lane C finding or CI acceptance is supplied. No scope expansion or renewed generic plan approval is owed; if a correction requires an unlisted path or weakening, seek a specific bounded decision. Failure to read configuration must be treated as unverified input, not successful equality. No inevitable business loss or actual live failure is asserted.
+
+### What you did instead
+
+At b6ae594, handoff-response and source-sweep pass; docs-drift is STALE at 00c23ff over 11 governed paths. Read-only Graphify query provides historical context only. Later guarded sync must cover the final corrected source after readiness; no raw rebuild. bun run check still cannot start in Lane B's environment (CouldntReadCurrentDirectory); no fresh full-suite pass is claimed. Only this review is appended; no build, code/test change or execution, B-050 receiver/header edit, Register/tracker/DoD change, live graph update or push.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Propagation disposition, reporting corrections and bounded retained-evidence observations | Phase 1: completed conditions preserved |
+| Approve-with-conditions | Correction handback ready for Lane A | Phase 1: explicit config-read refusal and reached positive/negative evidence at corrected source |
+| Defer | Independent receipt 1/P8 classification, publication/repeat/whole-unit acceptance and closure | Phase 1: ordered independent outcomes and respective dispositions |
+| Reject | Equal failed config reads treated as verified binding, or aggregate evidence treated as receipt 1 | Phase 1: fail closed and distinguish receipt states |
