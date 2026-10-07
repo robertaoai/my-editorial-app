@@ -5114,3 +5114,47 @@ Source/retained-evidence inspection plus small disposable comparator diagnostics
 | Approve-with-conditions | Lane A correction of D427-R1/R2 | Phase 1: enforce existing selected contract in paths 1–2, retain controls and name corrected source |
 | Reject | Receipt 1 at d1186bf | Phase 1: missing required artifacts and impossible calendar instant can falsely pass per-run checks |
 | Defer | Prepare/sync, acceptance/publication/health, actual repeat, whole-unit review and closure | Phase 1: accepted new readiness and remaining D-426 receipts/source-specific acts |
+
+## Lane B — review of bb0b4bc and Lane A's withheld addendum, 2026-10-07
+
+### What happened
+
+**Clarified request:** review the attached Lane A response and corrected source, discharge supported findings, identify remaining gaps and give the parent-first handback without implementing. Read source bb0b4bca7227b5b0dbc64aab2134381b65d3c39f. Lane A says the Judge selected code/evidence only and withheld its receiver addendum pending permission. This reviewer section does not supply or authorize that receiver answer.
+
+**Independent receipt-1 outcome: not accepted at bb0b4bc.** D427-R1 is discharged on the inspected source and diagnostic: required root/studio/manifest objects and the artifacts array are now checked unconditionally, with explicit findings. The prior both-bundles-missing reproduction now refuses. The prior impossible February 30 reproduction also refuses; however, D427-R2's actual-instant conversion still has the specific defect below. Prior historical refusal at d1186bf remains intact; a later revision does not retroactively accept it.
+
+Retained evidence at C:/CoWork/outputs/lane-a-d426-receipt1-2026-10-07/at-bb0b4bc names the correct full source and an empty source-status file. Suite log reports 246 pass, 0 fail, 908 expect calls, 1307.68 s and exit 0; SHA-256 e093fd64998977f90b5499549f49c957f1eb92071e11a45d5da55f0ecd6e624f. Harness SHA-256 cbf85bce356146521ebc6f841303ea03420b761200741be83fb4cfb3904ce9ff; mutation summary SHA-256 203c7ba7341a803e2559868780f3386d8d6722c4f7915c1b44519257e736c595. All 32 summary rows report passing controls, caught mutations and restoration; all 64 raw control/mutated logs were checked for corresponding pass/zero-fail controls and actual mutated failures. This is independent retained-evidence inspection, not a suite/mutation rerun or independent restoration proof. The attachment's uninterrupted-run statement is Lane A's account. No P8 recurrence is established by the available results; the existing future stop remains.
+
+### What you need
+
+| Item | Evidence / gap | Draft fix and acceptance criterion | Phase |
+|---|---|---|---|
+| D427-R1 completeness | Resolved: both missing studio bundles now produce explicit per-run findings; valid control remains green | Preserve required-file/object/array checks and existing hash/cardinality controls | Phase 1: discharged |
+| D427-R2 calendar rollover | February 30 now refuses; original normalization defect corrected | Preserve impossible-day/leap-year/time/offset controls | Phase 1: original case discharged |
+| D427-R2 actual-instant conversion, remaining | isoInstant ends with Date.UTC(y,...). For valid 0099-10-07T12:00:00.000Z it returns 939297600000 (1999-10-07), instead of -59018846400000 (year 0099). JavaScript remaps numeric years 0–99 to 1900–1999 | Construct the validated calendar instant without Date.UTC's 0–99 year remapping, then apply the validated offset. Add controls for years 0000, 0001, 0099 and 0100, including a leap day and offset/year boundary. Valid early-year instants must match their actual brackets and ordering; brackets around the incorrectly mapped century must refuse. Keep modern producer controls green | Phase 1: Lane A correction in existing guard/test paths |
+
+Diagnostic retained at C:/CoWork/outputs/lane-b-d427-bb0b4bc-review-2026-10-07/review.json: exported repeatComparison replays the prior complete valid, missing-bundle and February 30 pairs; exported isoInstant demonstrates the exact year-0099 mismatch. No producer run, prepare, publication or real repeat was performed. The remaining defect concerns accepted four-digit ISO years and the promised numeric instant; it does not demonstrate failure of today's fixed-format producer output or a live publication bypass. No business-loss prediction is supported.
+
+**Size/offset clarification accepted:** valid offset syntax can pass instant validation while a complete cross-run comparison still refuses a changed manifest size_bytes. D-427 permits only the graph entry's sha256 difference, so this refusal is intended. Do not mask size or rewrite retained bytes to make offsets pass. Same-size controls demonstrate offset ordering without relaxing the artifact contract.
+
+#### Parent-first Lane A follow-up and Judge boundary
+
+1. Preserve D-426/D-427 authority, discharged findings and historical evidence. No generic reselection of the same three fields is needed to correct the remaining year conversion under existing paths 1–2.
+2. Answer the remaining D427-R2 conversion finding; correct and retain targeted valid/refusal/mutation evidence, post-commit checks and the newly named final source. Do not claim all D427-R2 cases resolved from the February control alone.
+3. Lane A's receiver addendum remains withheld under the reported code/evidence-only instruction; its requested go-ahead belongs to the Judge. When authorized, record the receiver's answer/source/evidence in this existing B-050 entry, not a new handoff or status. Lane B has independently reviewed the supplied source now and has not edited that answer field.
+4. Lane B reviews the corrected final source and records a new receipt-1 outcome. Only accepted readiness permits progression to the existing guarded preparation sequence.
+5. Complete D-426 receipts 2–5 in order: completed semantic/fragment-preserving candidate and exact-byte acceptance; guarded release then separate full health; actual unpublished B0/R1/C2 repeat; independent whole-unit review. A producer-backed fixture or comparator control is not the actual repeat.
+6. B-050 source disposition then B-077 final reconciliation, required residual child/parallel obligations and parent/clearance acts. Scope is parent-first; parent closure waits on required child evidence.
+
+**Perspectives, artifacts and tracking:** Lane B raises/reviews the remaining contract defect; Lane A answers/corrects. No new Lane C finding, CI review or acceptance is supplied. Construction source and verification evidence are delivered artifacts; their independent acceptance is separate. B-050 technical outcomes, B-154 sequence, B-077 reconciliation, SV-002 review/clearance and residual receiving packets remain the tracking layer. B-050 stays Applied/O1 open; B-154 stays Open. U03, open DoD and B-136 P15 retain independent triggers. No new tracker, receiver/header, DoD or clearance change.
+
+### What you did instead
+
+Review and disposable diagnostics only. Drift remains subject to the governed docs-drift check; the historical graph was analyzed at 00c23ff and the known changed set is 11 unique governed paths. Read-only Graphify query supplies historical context, not current acceptance. Guarded sync is required only after final-source readiness acceptance. No implementation, build, live graph action, Register change or push. Full-suite results above are retained Lane A evidence, not Lane B execution.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | D427-R1 fix, original February rollover refusal, size_bytes interpretation and bounded evidence observations | Phase 1: preserve existing contract and evidence limits |
+| Approve-with-conditions | Remaining Lane A correction and receiver addendum | Phase 1: exact year conversion and new-source evidence; receiver addendum follows the Judge's reported writing restriction |
+| Reject | Receipt 1 at bb0b4bc; all valid ISO instants claimed correctly converted | Phase 1: years 0–99 still map to the wrong century |
+| Defer | Prepare/sync, release/health, actual repeat, final review and closure | Phase 1: accepted corrected-source readiness and ordered receipts/source-specific acts |
