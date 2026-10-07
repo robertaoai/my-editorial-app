@@ -4832,3 +4832,40 @@ clearance change. B-050 stays `Applied`; its O1 row stays open.
 | Approve-with-conditions | Receipt 1 at `c42712b` | Phase 1: Lane B's independent outcome and P8 classification |
 | Defer | Receipts 2–5, dispositions, parents, Gate 2 | Phase 1: in D-426 order after receipt 1 |
 | Reject | A failed read treated as a configuration value | Phase 1: fail closed |
+
+## Lane B — D-426 receipt-1 independent readiness outcome: not accepted, 2026-10-07
+
+### What happened
+
+Reviewed the receipt-1 request/addendum at 2434d3c against implementing source c42712b. The tree outside docs/handoff is unchanged between those revisions. This is the independent readiness outcome requested of Lane B, not another planning-status receipt. **Receipt 1 is not accepted at c42712b**, because the real producer's observation timestamp conflicts with PR5a's current repeat comparison/allowance policy. Candidate preparation/publication must wait for resolution of the finding below.
+
+Scope reviewed: the operative D-426 revision chain and source/evidence matrix; capture/settlement and recovery paths; executable/config/argv bindings and their failure handling; selection/merge/bracket checks; final export/derived validation; repeat generation/composition/comparison; instruction/archive repairs and exclusions. Retained evidence was reviewed rather than rerun wholesale. This rejection is supported by a specific reproduced comparator failure; it does not certify that every other source path is defect-free.
+
+The prior propagation/reporting and configuration-read findings remain discharged. source-sweep and handoff-response pass. Retained at-c42712b evidence identifies c42712b and a clean recorded tree, with suite SHA-256 197b68aa9c9bd8eed6555c4c275affb8ba871667d9ad8ec44bb3762dfa6705a9 (238 pass, 0 fail). All 24 mutation raw-log totals match their summaries and each mutated log contains a failed test record. Lost original timeout trace and harness anchor/rerun disclosures remain explicit limits; no original evidence was reconstructed.
+
+### What you need
+
+**Receipt-1 finding — PR5a does not account for real producer observation provenance.** The pinned CLI calls extractGit without an observedAt override; the extractor sets provenance.observed_at to the current return time, mergeExtractions chooses that Git provenance, and buildFromJson stores it as the graph's provenance attribute. The live graph confirms the serialized path is graph.json → graph.provenance.observed_at. The guard records this separately as provenance but does not normalize it out of the promoted graph; composeCandidate copies that graph.
+
+REPEAT_VOLATILE currently allows only branch.json.updatedAt, worktree.json.updatedAt and studio/workspace-manifest.json.generated_at. repeatComparison calls graphDifferences for graph.json; graphDifferences compares every non-node/link graph key, including the entire graph attribute object. Therefore a later otherwise equivalent extraction with a different observed_at is rejected as "graph key graph differs". The fake-generation positive fixtures do not establish a real-producer repeat pass. The current comparator correctly refuses an undeclared difference, but the plan's intended green actual repeat has no declared policy for this expected difference.
+
+**Independent disposable reproduction:** C:/CoWork/outputs/lane-b-d426-receipt1-review-2026-10-07/provenance-7658b33c-d5f9-4010-bd8d-aa5a7aab7734/review.json. Two fixture graphs with identical nodes/links/source identity and identical timestamp give no findings. Changing only graph.provenance.observed_at yields ["graph key graph differs"]. This executes the exported repeatComparison from the reviewed source, not the real prepare/generation/publication/repeat pipeline. No live graph was written.
+
+**Draft correction for Lane A:** inventory every real-producer runtime difference and its exact dependent artifact fields before revising the allowlist. Propose a narrowly scoped provenance-time comparison policy for the exact current Git observation field, while retaining both actual timestamps, raw graph/manifest hashes and exact-byte identity for each run. Enumerate copies such as studio/graph.json and dependent manifest graph-entry bindings; independently validate those hashes against each run's own bytes before any permitted cross-run comparison. Do not simply ignore the entire graph attribute object, all timestamps, all hashes or all manifest fields. source_owner/source_id/source_hash/adapter identity, selection/input/baseline bindings, retained files and all semantic graph fields remain compared.
+
+Because D-426 binds an exact allowance list, any expansion must be presented as a concrete amendment for Judge selection after Lane B reviews the proposed field/dependency map; disclosure or this draft alone does not authorize it. If Lane A can satisfy the existing policy without falsifying runtime provenance or weakening the contract, demonstrate that alternative instead. No generic reapproval of the eight paths is required.
+
+**Acceptance controls for the corrected proposal:** a real pinned-producer-backed positive comparison with later observation time must meet the precisely accepted policy; identical inputs must retain graph semantics/name/member relations and correct per-run artifact hashes. Controls must reject altered source_hash/selection, non-observation graph changes, wrong dependent manifest/file hashes, retained-byte changes and any timestamp/field outside the exact allowance. Keep the complete generation+composition actual repeat as receipt 4; a comparator fixture or tiny producer anchor is receipt-1 evidence only. Implement no amendment until its bounded authority is recorded.
+
+**P8 classification:** available evidence does not establish recurrence of the known live-owner flake. The disclosed 5031 ms timeout names the fixture-boundary refusal case, whereas P8 names the live-owner/peer case. At c42712b the retained cases pass in 1109 ms and 16609 ms respectively. Lane B does not classify that disclosed boundary-test timeout as P8 on this record. Its historical cause remains unproved because the original trace is lost; this is not a guarantee that no historical flake occurred. P8 remains in force for any future recurrence. The current readiness refusal is the PR5a finding, not a newly inferred P8 event.
+
+### What you did instead
+
+Performed source and retained-evidence review plus one small disposable comparator reproduction. No application build, full suite/stress campaign, candidate prepare, producer rebuild, real publication or actual R1 repeat was run. The graph remains STALE at 00c23ff over 11 governed paths and requires final-source guarded synchronization only after readiness acceptance. No receiver/header/DoD/tracker/clearance change, code fix, raw rebuild or push. B-050 remains Applied and its O1 row open; this is the body record of independent readiness not accepted, not a new lifecycle status.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Previously corrected controls and bounded evidence observations; no P8 recurrence established by the disclosed timeout | Phase 1: retain limits and future P8 trigger |
+| Approve-with-conditions | Lane A correction proposal for real-producer repeat provenance | Phase 1: exact field/dependency map, proof controls, independent review and Judge selection if the bound allowance changes |
+| Reject | Receipt 1 at c42712b | Phase 1: PR5a actual-producer time policy unresolved; corrected final-source readiness review required |
+| Defer | Candidate/acceptance/publication/health/actual repeat/whole-unit review and closure | Phase 1: accepted readiness first, then D-426 receipts and respective dispositions |
