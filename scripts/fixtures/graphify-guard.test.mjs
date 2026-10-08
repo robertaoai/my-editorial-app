@@ -9,7 +9,7 @@
 import { afterAll, describe, expect, test } from "bun:test";
 import { execFileSync, spawn, spawnSync } from "node:child_process";
 import { createHash } from "node:crypto";
-import { cpSync, existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, statSync, symlinkSync, writeFileSync } from "node:fs";
+import { cpSync, existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, renameSync, rmSync, statSync, symlinkSync, writeFileSync } from "node:fs";
 import { pathToFileURL } from "node:url";
 import * as G from "../graphify/guarded-rebuild.mjs";
 import { tmpdir } from "node:os";
@@ -2720,4 +2720,113 @@ describe("D-429: final-writer observation, per-call selection, final state, exac
     expect(G.verifyStaging({ staging: good, selection: { ...selection, ignored: { validatedCount: 6 } }, seed, fresh }).join(" ")).toContain("is not the validated count 6");
     expect(G.verifyStaging({ staging: good, selection: { finalObservedAt: obs }, seed, fresh })).toEqual(["staging: the frozen packet lacks D-429 evidence (final-update bracket, final observation or ignored list)"]);
   });
+
+  test("G1 helper: both per-call proxy lists are required whether or not the scope was rewritten", () => {
+    expect(G.proxyFinding({ list: [] }, { list: ["x"] })).toBeNull();
+    expect(G.proxyFinding({ list: null }, { list: [] })).toContain("no pre-call Git proxy");
+    expect(G.proxyFinding({ list: [] }, {})).toContain("no post-call Git proxy");
+  });
+});
+
+// ===========================================================================
+// D-429 G1/G2 (Lane B, 2026-10-08): the refusals are proved THROUGH generateCandidate, not only in its helpers.
+// A fixture repository carries stub fragment scripts so generation reaches every later call; a fake tool stamps
+// the observation during hook-rebuild and update, as the producer does, and update writes both count copies from
+// its own pre-call list. Only the studio validator is injected (it needs the pinned producer).
+// ===========================================================================
+describe("D-429 G1/G2: refusals through generateCandidate's wiring", () => {
+  const okValidate = () => ({ findings: [], summary: {} });
+  const fullRepo = () => {
+    const r = branchRepo();
+    mkdirSync(join(r.d, "docs", "graph-fragments"), { recursive: true });
+    for (const s of ["restore-docs-layer.js", "prune-stale-symbols.js"]) writeFileSync(join(r.d, "docs", "graph-fragments", s), "process.exit(0);\n");
+    writeFileSync(join(r.d, ".gitignore"), ".graphify/\n");
+    r.g("add", ".");
+    r.g("commit", "-q", "-m", "fragments");
+    return r;
+  };
+  /** A fake producer for all seven calls; `o` changes exactly one behaviour. */
+  const fullTool = (o = {}) => {
+    const sim = simulate({ at: o.at ?? (() => Date.now() - 5000) });
+    return (cwd, args) => {
+      const st = join(cwd, ".graphify");
+      if (args[0] === "hook-rebuild" || args[0] === "update") {
+        const pre = execFileSync("git", ["-C", cwd, "ls-files", "--others", "--ignored", "--exclude-standard"], { encoding: "utf8" }).split("\n").filter(Boolean).length;
+        const r = sim(cwd, args);
+        if (args[0] === "update") {
+          writeFileSync(join(st, "scope.json"), JSON.stringify({ excluded_ignored_count: pre }));
+          writeFileSync(join(st, ".graphify_detect.json"), JSON.stringify({ scope: { excluded_ignored_count: o.detectSkew ? pre + 1 : pre } }));
+        }
+        if (args.length === 1 && args[0] === "update") o.finalUpdate?.(st);
+        return r;
+      }
+      if (args[0] === "label") { o.label?.(cwd, st); return { code: 0, out: "labelled" }; }
+      if (args[0] === "studio") {
+        mkdirSync(join(st, "studio"), { recursive: true });
+        writeFileSync(join(st, "studio", "graph.json"), readFileSync(join(st, "graph.json")));
+        return { code: 0, out: "exported" };
+      }
+      return { code: 0, out: "" };
+    };
+  };
+  const setObs = (st, at) => { const g = JSON.parse(readFileSync(join(st, "graph.json"), "utf8")); g.graph.provenance.observed_at = at; writeFileSync(join(st, "graph.json"), JSON.stringify(g)); };
+  /** Pass 1 returns the pending community name; pass 2 answers it by member-set hash. */
+  const fullGen = (r, tool, more = {}) => {
+    const first = gen(r, baselineWith(r), tool, { validate: okValidate, ...more });
+    if (first.status !== "pending-semantic") return first;
+    const communityNames = Object.fromEntries(first.pending.communities.map((c) => [c.memberSetSha256, `Group ${c.community}`]));
+    return gen(r, baselineWith(r), tool, { validate: okValidate, answers: { communityNames }, ...more });
+  };
+
+  test("valid control: generation reaches every call and returns the D-429 packet", () => {
+    const res = fullGen(fullRepo(), fullTool());
+    expect(res.reason ?? null).toBeNull();
+    expect(res.status).toBe("generated");
+    expect(res.selection.calls.map((c) => c.args[0])).toEqual(["hook-rebuild", "hook-rebuild", "update", "update", "label", "label", "studio"]);
+    expect(res.selection.brackets.finalUpdate).toHaveLength(2);
+    expect(typeof res.selection.finalObservedAt).toBe("string");
+    expect(Number.isInteger(res.selection.ignored.validatedCount)).toBe(true);
+    expect(res.fresh).toContain("fresh");
+  }, PR3_SLOW);
+
+  test("A1 wiring: an observation outside the final update's bracket, or changed by a later call, refuses", () => {
+    const outside = fullGen(fullRepo(), fullTool({ finalUpdate: (st) => setObs(st, new Date(Date.now() + 600000).toISOString()) }));
+    expect(outside.status).toBe("refused");
+    expect(outside.reason).toContain("D-429 A1");
+    expect(outside.reason).toContain("outside the final update call's bracket");
+    const changed = fullGen(fullRepo(), fullTool({ label: (cwd, st) => setObs(st, new Date().toISOString()) }));
+    expect(changed.status).toBe("refused");
+    expect(changed.reason).toContain("changed the observation after the final update");
+  }, PR3_SLOW);
+
+  test("A2 wiring: a later call whose selection crosses the cutoff refuses at that call", () => {
+    const edge = Date.parse(OLD) + 30 * DAY;
+    const times = [edge - 3000, edge - 2500, edge - 2400, edge - 2300, edge - 1000, edge + 500];
+    let i = 0;
+    const res = fullGen(fullRepo(), fullTool({ at: () => edge - 2000 }), { clock: () => times[Math.min(i++, times.length - 1)] });
+    expect(res.status).toBe("refused");
+    expect(res.reason).toContain("D-429 A2: the branch selection at the call's end differs from the rebuild's (fill-missing)");
+  }, PR3_SLOW);
+
+  test("G1 wiring: a later call without its post-call Git proxy refuses, though the scope was not rewritten", () => {
+    const res = fullGen(fullRepo(), fullTool({ label: (cwd) => renameSync(join(cwd, ".git", "HEAD"), join(cwd, ".git", "HEAD.moved")) }));
+    expect(res.status).toBe("refused");
+    expect(res.reason).toContain("no post-call Git proxy of the ignored files was recorded (label-emit)");
+  }, PR3_SLOW);
+
+  test("A3 and A4 wiring: a late Git change and a disagreeing count copy each refuse at the end of generation", () => {
+    const k = "repo:github.com/example/fixture-repo";
+    const late = fullGen(fullRepo(), fullTool({ label: (cwd, st) => {
+      const g = JSON.parse(readFileSync(join(st, "graph.json"), "utf8"));
+      g.nodes.push({ id: `commit:${k}@${"e".repeat(40)}`, node_type: "Commit", repo: k, sha: "e".repeat(40) });
+      writeFileSync(join(st, "graph.json"), JSON.stringify(g));
+    } }));
+    expect(late.status).toBe("refused");
+    expect(late.reason).toContain("D-429 A3");
+    expect(late.reason).toContain("Git nodes without baseline provenance");
+    const skew = fullGen(fullRepo(), fullTool({ detectSkew: true }));
+    expect(skew.status).toBe("refused");
+    expect(skew.reason).toContain("D-429 A4");
+    expect(skew.reason).toContain(".graphify_detect.json scope.excluded_ignored_count");
+  }, PR3_SLOW);
 });

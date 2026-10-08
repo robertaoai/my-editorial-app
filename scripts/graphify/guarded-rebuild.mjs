@@ -1258,7 +1258,7 @@ function observedAt(graph) {
  * selection oracle, and the rebuild against the producer merge, before the prune consumes
  * the fresh extraction (PR3b).
  */
-export function generateCandidate({ repo, snapshot, baseline, work, answers = {}, tool = runGraphify, cli, fragmentsOrder, bindings, clock = Date.now, configQueries = CONFIG_QUERIES }) {
+export function generateCandidate({ repo, snapshot, baseline, work, answers = {}, tool = runGraphify, cli, fragmentsOrder, bindings, clock = Date.now, configQueries = CONFIG_QUERIES, validate = validateStudio }) {
   const evidence = [];
   const checkout = join(work, "checkout");
   const state = join(checkout, ".graphify");
@@ -1290,7 +1290,7 @@ export function generateCandidate({ repo, snapshot, baseline, work, answers = {}
     const after = callProbe(cwd, join(ignoredDir, `${i}-${where}-after.txt`));
     calls.push({ i, where, args: [...args], start: t0, end: t1, before, after });
     const sel = later ? callSelectionFindings(rebuildBracket.oracle, later, selectionInputs(cwd), t0, t1) : [];
-    return { r, argv, sel, count: scopeCountFinding(before, after), bracket: inputs ? selectionBracket(inputs, t0, t1) : null };
+    return { r, argv, sel, proxy: proxyFinding(before, after), count: scopeCountFinding(before, after), bracket: inputs ? selectionBracket(inputs, t0, t1) : null };
   };
   const stage = (name, args, inputs) => {
     const before = digestOf(state);
@@ -1304,6 +1304,7 @@ export function generateCandidate({ repo, snapshot, baseline, work, answers = {}
     if (name === "hook-rebuild" && !/Rebuilt:/.test(r.out) && digestOf(state) === before) return "no-op: the rebuild wrote nothing";
     if (call.bracket && !call.bracket.ok) return `${call.bracket.finding} (${name}): refused`;
     if (call.bracket) rebuildBracket = call.bracket;
+    if (call.proxy) return `${call.proxy} (${name}): refused`;
     if (call.sel.length) return `${call.sel.join("; ")} (${name}): refused`;
     if (call.count) return `${call.count} (${name}): refused`;
     return null;
@@ -1317,6 +1318,7 @@ export function generateCandidate({ repo, snapshot, baseline, work, answers = {}
   if (fc.refused) return { status: "refused", reason: fc.refused, evidence };
   evidence.push({ stage: "fresh-extraction", argv: fc.argv, code: fc.r.code });
   if (fc.r.code !== 0) return { status: "refused", reason: "the fresh extraction failed", evidence };
+  if (fc.proxy) return { status: "refused", reason: `${fc.proxy} (fresh extraction): refused`, evidence };
   if (fc.count) return { status: "refused", reason: `${fc.count} (fresh extraction): refused`, evidence };
   const freshState = join(fresh, ".graphify");
   const freshRaw = lifecycleFindings(readState(freshState), { head: snapshot.head, branchName: snapshot.branch, root: fresh, gitDir: join(fresh, ".git") });
@@ -1372,7 +1374,7 @@ export function generateCandidate({ repo, snapshot, baseline, work, answers = {}
   // bundle, no --full-offline, no profile), then the whole bundle and its inputs are validated.
   const ex = stage("studio-export", studioExportArgs(state));
   if (ex) return { status: "refused", reason: ex, evidence };
-  const v = validateStudio({ state, cli, shipped: bindings?.studioApp });
+  const v = validate({ state, cli, shipped: bindings?.studioApp }); // the real validator unless a fixture injects one (G2), like `tool`
   evidence.push({ stage: "studio-validate", findings: v.findings.length, summary: v.summary });
   if (v.findings.length) return { status: "refused", reason: `the studio bundle is not the producer projection of the final graph: ${v.findings.slice(0, 5).join("; ")}`, evidence };
   // D-429 after the last Graphify child call: A1 the final observation and its writer, A3 the final Git state,
@@ -1427,6 +1429,16 @@ function callProbe(cwd, listFile) {
     list,
     scope: { sha256: scopeBytes ? createHash("sha256").update(scopeBytes).digest("hex") : null, mtimeMs: scopeBytes ? statSync(scopePath).mtimeMs : null, count: scopeCount },
   };
+}
+
+/**
+ * A4 evidence, per call (G1, Lane B 2026-10-08): both the pre-call and the post-call Git proxy lists are required
+ * for every Graphify child call, whether or not the call rewrote the scope. Returns a finding, or null.
+ */
+export function proxyFinding(before, after) {
+  if (!Array.isArray(before?.list)) return "D-429 A4: no pre-call Git proxy of the ignored files was recorded";
+  if (!Array.isArray(after?.list)) return "D-429 A4: no post-call Git proxy of the ignored files was recorded";
+  return null;
 }
 
 /**
