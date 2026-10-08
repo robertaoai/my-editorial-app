@@ -1465,6 +1465,21 @@
     separate commits.
 
   B-154 stays Open; no Resolution is recorded.
+
+  **Sequencing received 2026-10-08, read at `059d130`** (B-050 `c72895f`, `4d87b65`; detail lives in B-050).
+  - **B-050 / `D-426`:** receipts 1–3 accepted (`b4cbf53`, `dc656d2`, `c72895f`); live graph R1 `5dd55b5a…`; drift clear.
+    **Receipt 4 failed** (`c37db75`), independently reviewed (`4d87b65`), and preserved unchanged.
+  - **Current order:** the diagnostic (issued, two arms, each once) → Lane B's review of the diagnosis and the
+    historical-R1 treatment → an amendment act (final timestamp writer, Git checks after extracting stages and at final
+    output, the 696/695 count, historical R1) → implementation and readiness → a passing receipt 4 → receipt 5 → B-050
+    disposition → B-077 → the O0 parents → Gate 2. Receipts 1–3 keep their scopes; an amendment states its impact on
+    them.
+  - **Selection boundary:** 2026-10-28T18:21:29Z, for any repeat against the current R1. A new preparation does not reset
+    frozen commits' ages.
+  - **Push:** held. Origin is `d502848`; any later push needs an exact Judge-named range (for example `d502848..<end>`).
+  - **Tracker:** unchanged; six non-SM05 rows open (B-150, B-153, B-154, B-050, B-136 (P15), B-077).
+
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
