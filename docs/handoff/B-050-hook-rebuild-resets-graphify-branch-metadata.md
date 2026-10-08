@@ -5304,3 +5304,66 @@ text from B-154 `659996b` in full:
 did. Recording it here keeps the prepared source a handoff-only successor of the reviewed `042dfda` lineage. Pushed
 range for the record: `4e50c41..d94fb08` (Judge-named, 2026-10-08). Preparation runs at this commit; its candidate
 identity follows in a later Lane A section for Lane B's receipt 2. B-050 stays Applied; its O1 row stays open.
+
+## Lane A — D-426 receipt-2 request: candidate ready at `b0cb0c7` for Lane B's exact-byte review, 2026-10-08
+
+Read at `b0cb0c7`. Under the go-ahead above; nothing is published, recovered, repeated or pushed.
+
+### What happened
+
+`prepare --work` at `b0cb0c7` returned pending (exit 3): 185 descriptions and 15 community names. `prepare --resume`
+with the answers returned **ready (exit 0)**. Evidence folder: `C:/CoWork/outputs/lane-a-d426-receipt2-2026-10-08`.
+
+| Identity | Value |
+|---|---|
+| Work id | `f7705594-a80a-4dae-b6e9-baa59bc086a9` (attempt 2) |
+| Analyzed source (frozen HEAD) | `b0cb0c78a79b72e14c69b7d61968cc82a911fc7f`, branch `features/feature-V1-SM05`; merge base with upstream `d94fb08` |
+| Baseline | release locus `932b45333327ed6d0418ab19cd9e82f4e60e0102`, `guard-treeDigest-v1` `81d1615459c38804db7a757869210ae867c1869139162ecb5a2719eecbf89c57`, 583 files |
+| Candidate manifest | `guard-treeDigest-v1` `009f4265bf8d84c95c8020d4a962ea236345fb13f7f4210e990c217bd1cbc803`, 583 files |
+| Candidate `graph.json` SHA-256 | `0907edb2115c0182419b79bab5a30d24fb8a5ad40243cc99224b85221b8073f2` |
+| Frozen at | `2026-10-08T06:24:35.674Z` |
+| Answers (frozen packet) | SHA-256 `b1ff038640cbe2e900e73479c9bb688e612330e66f26a009ede8cdcb6fb574ec` |
+| Selection | rules 30 days / 200 commits / no since; oracle `b9aabb81…`; three branches; rebuild and fresh brackets recorded in STATE.json |
+
+**Semantic answers.** 120 held descriptions keep their Lane B-reviewed text: their code is unchanged between `00c23ff`
+and `b0cb0c7` (`02-symdiff.json`, `symdiff.mjs`). 65 are written from current source: 10 changed, 2 module-level and 53
+new `D-426`/`D-427` symbols. 15 community names are bound by member-set hash, each unique (`03-answer-basis.json`,
+`build-answers.mjs`).
+
+**Lane A's own verification (`05-candidate-verification.json`, `verify.mjs`).** Recomputed from the staging bytes:
+manifest, file count, graph hash and answers hash equal the ready record. 2,445 nodes, 5,343 links, 129 communities, 0
+undescribed. Fragment parity 139/139 exact. Name binding 0 findings. Answers not applied: 0 descriptions, 0 names (each
+name checked against its exact member set, the global label and every member's node). Foreign-path hits in node fields:
+0. Classification: 583 files (promote 18, retain 563, rebind 2), 0 unknown, 0 multi. `branch.json` analyzed head
+`b0cb0c7`, not stale. Live state equals the frozen baseline; no journal or lock.
+
+**Full check at `b0cb0c7` before prepare:** `check-at-b0cb0c7.log`, SHA-256
+`29d7bf47d8ddb962f16ad08a42a9e0ef1f09a46682b4a6ee4b3981d9f6b392f9`; 18 of 19, `docs-drift` alone (as `D-428`
+allows).
+
+| Evidence file | SHA-256 |
+|---|---|
+| `prepare-1.log` | `2bc6aa49aee65044a836b911bf6f83a757a0a720d52124423f7e70df01c90cea` |
+| `resume-1.log` | `1eace1be0f2fa8e16a273ced82399939d9d5f7a07ffa3ccff07be10ba960ed1b` |
+| `02-symdiff.json` | `0d5565111cf56d7772dc8cab93e9f680b7795b50fd2366542411c65082971c32` |
+| `03-answer-basis.json` | `9d72f7c614b361d2c51a322f414098d19995d633b6315866171027a623215835` |
+| `05-candidate-verification.json` | `a52841cf719d07c8024859603e20d202303f96366b5ef1c87c30d2da1f0def20` |
+
+### What you need
+
+**Requested of Lane B: receipt 2, the independent exact-byte acceptance of this candidate** (`D-426` item 5.2): the
+staging bytes, source, baseline and selection above, the 65 written descriptions and 15 names, and fragment
+preservation. If accepted, Lane B's own review commit introduces the acceptance record; Lane A drafts none (G-F3-8).
+This commit is handoff-only, so the analyzed source `b0cb0c7` stays valid for publication under the source rule.
+
+### What you did instead
+
+Not done: no publish, recovery, repeat, push or header, DoD, tracker or clearance change. Publishing (receipt 3) needs
+Lane B's acceptance and the Judge's separate go-ahead. B-050 stays Applied; its O1 row stays open.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Candidate prepared and verified by Lane A at `b0cb0c7` | Phase 1: Lane A's evidence only |
+| Approve-with-conditions | Receipt 2 | Phase 1: Lane B's independent exact-byte review |
+| Defer | Receipts 3–5, graph sync, dispositions | Phase 1: Lane B acceptance, then the Judge's go-ahead |
+| Reject | Treating this request or Lane A's verification as receipt 2 | Phase 1: `D-426` item 5 |
