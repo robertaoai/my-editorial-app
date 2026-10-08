@@ -565,6 +565,8 @@ and its test. The README §4 and sync-docs §7 change in place.
 
 **`D-427` (2026-10-07) — no file added or retired, stated explicitly.** The guard and its tests change in place.
 
+**`D-428` (2026-10-08) — no file added or retired, stated explicitly.** `CLAUDE.md` changes in place.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

@@ -27785,3 +27785,38 @@ that proposal, "suitable for Judge selection" (B-050 `353febb`). Lane A is `Acti
 | Rule files, `SV-002.md`, `GOV-RES-001.md`, Modular_PRD, fn-specs, SPECS, Phase Closure, frozen sources | — unaffected |
 | **Encyclopedia** | unaffected (`docs/ENCYCLOPEDIA-SYNC.md` maps none of these paths) |
 | **Graphify** | This recording is governed drift, expected; it is cleared only by D-426's guarded publication (receipt 3), never by a raw rebuild |
+
+## 5.14e253 `D-428` — Narrow Pre-Sync Clean-Check Clarification (`B-154` F3)
+
+**Authority: the Judge, directly to Lane A, 2026-10-08**, in chat: "adopt F3 narrow wording". It follows Lane B's
+Level 1 review of `f060e8c` (B-154 `208ed9e`, finding F3), which drafted the wording, and Lane A's presentation of it as
+a Judge choice. Lane A is `Active`. Pushing is not authorized.
+
+### The decision
+
+1. **The conflict:** `CLAUDE.md` says commit only when `bun run check` exits cleanly; `D-425`–`D-427` require committed
+   source and authority before guarded readiness, acceptance and publication, so `docs-drift` is expected to fail until
+   publication. Earlier commits made under that failure (`c3a95b8`, `f060e8c`) are not precedent; this entry is the only
+   authority for the exception.
+2. **The clarification (Lane B's wording, adopted in full):** "For the specifically authorized guarded pre-sync
+   source/recording sequence only, retain the full check result; docs-drift may be the sole expected pre-publication
+   failure. Every other check must pass; hooks are never skipped. No general red-check commit permission follows.
+   After guarded publication, retain a separate full-health result and do not claim completion while a required check
+   remains failed."
+3. **Applied in:** `CLAUDE.md`, the **Paths** bullet, which points here. No other rule file states the clean-check rule.
+4. **Source binding:** this commit advances canonical source after `f060e8c`, so it joins the final authorized source
+   that `D-426` preparation must capture (`B-050` `b4cbf53` item 2; `B-154` F1), and it receives Lane B's review.
+5. **Not decided here:** `f060e8c`'s `D-385` form finding (F2, recorded in `B-154`), B-050's disposition, B-077's review,
+   any DoD box, tracker or clearance change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e253 |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ `D-428` paragraph (governance; no V1 scope, sequence or DoD change) |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-428` paragraph; no file added or retired |
+| Implementation path (item 3): the rule file `CLAUDE.md`, Paths bullet | Applied in this commit; `rule-budget` must still pass. No other rule file states the clean-check rule, so none changes |
+| `SV-002.md`, `GOV-RES-001.md`, Modular_PRD, fn-specs, SPECS, Phase Closure, frozen sources | — unaffected |
+| **Encyclopedia** | unaffected (`docs/ENCYCLOPEDIA-SYNC.md` maps none of these paths) |
+| **Graphify** | This recording is governed drift, expected; it is cleared only by D-426's guarded publication (receipt 3), never by a raw rebuild |

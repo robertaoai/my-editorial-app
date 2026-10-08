@@ -18,7 +18,9 @@ commits nothing; you record them. Your turn report is the boundary decision in t
 - **Handoffs.** Acknowledge every open entry (`bun run check` fails otherwise). Acknowledging is
   not answering.
 - **Paths.** Write Windows paths with an editor or a script, never through a shell heredoc
-  (`B-140`, `D-297`); commit only when `bun run check` exits cleanly.
+  (`B-140`, `D-297`); commit only when `bun run check` exits cleanly. Sole exception (`D-428`):
+  inside an authorized guarded pre-sync sequence, `docs-drift` may be the only failure, with the
+  full result retained. Every other check passes; hooks are never skipped.
 - **Rule files (`D-324`).** This file imports `@AGENTS.md`. A missing import fails silently
   (`D-327`), so the rule-budget check verifies the import path.
 
