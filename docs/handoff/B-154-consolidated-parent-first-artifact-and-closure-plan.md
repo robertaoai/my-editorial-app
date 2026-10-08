@@ -1437,6 +1437,21 @@
     at `4db286c` (step 6).
 
   B-154 stays Open; no Resolution is recorded.
+
+  **Received 2026-10-08, read at `32f4c57`** (Lane B's Level 1 review of G1–G3 at `f060e8c`, `208ed9e`).
+  - **G1–G3 content accepted;** the tracker at `aa44dac` is current. B-050 receipt 1 is received in its own entry
+    (`32f4c57`).
+  - **F1 accepted.** Preparation captures the final authorized source at or after `042dfda`, not `4db286c`, and records
+    the HEAD it captured.
+  - **F2 acknowledged.** `f060e8c` combined the G2 receipt with the G1/G3 canonical edits, contrary to `D-385`. The
+    content stands, with no history rewrite or corrective commit. Canonical edits and receipts are now separate one-path
+    commits: `042dfda` (canonical), `32f4c57` (B-050) and this commit.
+  - **F3 decided:** the Judge adopted Lane B's narrow wording as `D-428` (`042dfda`, 2026-10-08), applied in the
+    `CLAUDE.md` Paths bullet. Citing `c3a95b8` as precedent is withdrawn; `D-428` is the only authority.
+  - **F4 accepted.** Drift counts come from the check: 12 governed paths at `32f4c57`.
+  - **Check at `32f4c57`, before this commit:** 18 of 19; `docs-drift` alone fails.
+
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
