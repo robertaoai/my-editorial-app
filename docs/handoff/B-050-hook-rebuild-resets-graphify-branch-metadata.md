@@ -6021,3 +6021,91 @@ its O1 row stays open.
 | Approve-with-conditions | Amendment direction 1–5 | Phase 1: Lane B review, then the Judge's bounded act |
 | Defer | Historical-R1 choice, implementation, new repeat, receipt 5, closure, push | Phase 1: later acts |
 | Reject | Treating a diagnostic arm as a repeat; an allowance without the transient's explanation | Phase 1: `D-426` item 5 |
+
+## Lane A — diagnostic reviews received; Option B selected; draft `D-429` for Lane B, 2026-10-08
+
+Read at `c0bf6fb`. Two Lane B reviews were delivered in chat (worklogs, 2026-10-08): the diagnostic review and the
+contract review. This section records both.
+
+### What happened
+
+**Received:** all seven evidence hashes match; the two-arm observations are accepted within their limits. Corrected
+wording (each upheld; Lane A re-checked D3 against the retained lists):
+
+- **D1:** the final `observed_at` was written during call 4 (`update`), inside its recorded window, **observed in these
+  two arms**. This does not reconstruct R1's missing final-call window.
+- **D2:** the Git-subgraph fingerprint changed in arm `b0` during calls 1 and 2 and in arm `r1` during call 2 only. Later
+  `update` calls left it unchanged. That shows they did not change the Git result. It does not show whether they ran an
+  extraction.
+- **D3 (Lane B's wording):** "In both diagnostic arms, calls 1–4 produced ignored counts matching their pre-call
+  Git-list proxies. Before the final update, both arms had equal AST-cache cardinality; the sole non-cache path
+  difference was `communities.md`, accounting for the net count difference of one. This supports the transient-file
+  explanation for these arms. It does not recover the historical detector lists or establish a general allowance."
+  Lane A's earlier "the one-file difference" and "equals … after each call" are withdrawn: the lists differ by 56 and
+  55 paths (mostly differently named AST-cache files), and calls 5–7 keep the earlier count.
+- **Final graph hashes** (`38694489…`, `e603c4dc…`): not compared field by field; no claim about the cause.
+
+**Judge's selection, 2026-10-08**, in chat: "yes commit both, option B, draft D-429 for Lane B". **Option B, a fresh
+release cycle.** Rationale in Lane B's wording: it "avoids reliance on the missing historical records, provided the
+amended controls capture and validate the required evidence". Option A (a narrow legacy exception covering both R1's
+missing final-writer window and its missing ignored-file identities) is not selected. An unchanged repeat under the
+current R1 packet and D-427 still must fail R1's window check.
+
+### What you need
+
+**Lane B: review this draft `D-429`.** `D-429` is confirmed unused in the Register at `c0bf6fb`. It is **unissued**: no
+Register, Build Spec, Inventory or code change follows until the Judge issues it.
+
+> **Draft `D-429` — B-050 amendment to D-426/D-427: final-writer observation, per-call selection, final Git state,
+> exact ignored-count transient; fresh release cycle (Option B).**
+>
+> 1. **Observation (A1).** The guard brackets every Graphify child call and records each call's arguments, start and end,
+>    and its before/after `graph.provenance.observed_at` in the frozen packet. The final value must lie inside the
+>    bracket of the **final `update` call**, and no later call may change it. Retained unchanged: the valid
+>    calendar-instant check (D427-R2), complete per-run bundles (D427-R1), C2 strictly later than R1, studio graph equal
+>    to the root graph by content, and exactly one manifest `graph` entry binding that run's own studio-graph bytes.
+>    The repeat masks only the validated observation leaf.
+> 2. **Selection (A2).** Conservative: the branch-selection oracle is computed at both ends of **every** Graphify child
+>    call, not only the calls believed to extract, and every result must equal the rebuild's oracle. A crossed cutoff in
+>    any call refuses. The implementation also inventories, from the pinned producer, which commands run a Git
+>    extraction, for Lane B's review; the conservative rule does not depend on that list being complete.
+> 3. **Final Git state (A3).** After the last Graphify child call, and again on the final output before composition,
+>    the Git subgraph must equal the producer merge of the seed and the fresh extraction (`gitMergeFindings`, zero
+>    findings). Any late change refuses.
+> 4. **Ignored count (A4), exact and narrow.** Only the two leaves `scope.json` `excluded_ignored_count` and
+>    `.graphify_detect.json` `scope.excluded_ignored_count` may differ, and only by an amount fully accounted for by
+>    the single path `.graphify/label-instructions/communities.md`. That path must be present in exactly one run's
+>    recorded pre-final-`update` ignored list, written by that run's `update --fill-missing` (recorded after that call),
+>    and absent from the other's. The guard records each call's pre-call ignored list; for calls that rewrite the scope
+>    count it requires the producer's count to equal that list's length. **AST-cache entries** (`.graphify/cache/ast/`)
+>    must have equal cardinality in both runs; their content-addressed names may differ. Any other non-cache path
+>    difference, a cardinality difference, or an unaccounted count difference refuses. No wildcard class.
+> 5. **Paths and recording (A5).** Implementation: only `scripts/graphify/guarded-rebuild.mjs` and
+>    `scripts/fixtures/graphify-guard.test.mjs`. Canonical recording, separate: Register, `V1-BUILD-SPEC.md` and
+>    `V1-ARTIFACT-INVENTORY.md` (`D-54`). D-426's limits stand (P7 fixture-only recovery, P8 flake stop, no new live
+>    target, no fallback).
+> 6. **Controls.** A real full-pipeline **generation and composition** valid control, plus targeted refusals: an
+>    observation outside the final-`update` bracket or changed afterwards; a crossed cutoff in a later call; a late Git
+>    change; an unaccounted ignored-count difference; a non-cache path difference; an AST-cache cardinality
+>    difference; an invalid manifest binding; an undeclared difference.
+> 7. **Fresh release cycle (Option B).** In order: implementation → renewed receipt 1 (source-bound readiness of the
+>    amended guard) → new candidate preparation → receipt 2 → guarded release of a new R1 and health (receipt 3) →
+>    repeat against the new R1 (receipt 4) → receipt 5 → B-050 disposition → B-077. Receipts 1–3 already accepted keep
+>    their recorded scopes; the earlier R1 is retained as history.
+> 8. **Selection timing.** The branch selection must be stable and validated across the new R1's extraction windows and
+>    the repeat's, recalculated from the actual frozen references and extraction times. A new preparation does not
+>    reset frozen commits' ages; the recorded `preflight/sv2-u02` boundary (2026-10-28T18:21:29Z) is one known
+>    selection change to plan around.
+> 9. **Not decided here:** B-050's disposition, B-077's review, any DoD box, tracker or clearance change; any push.
+
+### What you did instead
+
+Nothing implemented, issued or pushed. The diagnostic folders, the failed attempt and live R1 are unchanged. B-050
+stays Applied; its O1 row stays open.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Corrected D1–D3 wording; Option B selected | Phase 1: recorded |
+| Approve-with-conditions | Draft `D-429` | Phase 1: Lane B's review, then the Judge issues it |
+| Defer | Issuing `D-429`, implementation, renewed receipts, new cycle, receipt 5, closure, push | Phase 1: in order |
+| Reject | A wildcard ignored-count class; inferred evidence presented as historical records; an unchanged rerun | Phase 1 |
