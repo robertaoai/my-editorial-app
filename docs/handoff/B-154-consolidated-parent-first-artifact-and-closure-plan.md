@@ -1444,12 +1444,25 @@
   - **F1 accepted.** Preparation captures the final authorized source at or after `042dfda`, not `4db286c`, and records
     the HEAD it captured.
   - **F2 acknowledged.** `f060e8c` combined the G2 receipt with the G1/G3 canonical edits, contrary to `D-385`. The
-    content stands, with no history rewrite or corrective commit. Canonical edits and receipts are now separate one-path
-    commits: `042dfda` (canonical), `32f4c57` (B-050) and this commit.
+    content stands, with no history rewrite or corrective commit. The four-path canonical recording unit `042dfda` is
+    separate from the one-path receiver commits `32f4c57` (B-050) and `c3c2975` (B-154). *(Wording normalized
+    2026-10-08 at Lane B's `659996b`; the commits themselves are unchanged.)*
   - **F3 decided:** the Judge adopted Lane B's narrow wording as `D-428` (`042dfda`, 2026-10-08), applied in the
     `CLAUDE.md` Paths bullet. Citing `c3a95b8` as precedent is withdrawn; `D-428` is the only authority.
   - **F4 accepted.** Drift counts come from the check: 12 governed paths at `32f4c57`.
   - **Check at `32f4c57`, before this commit:** 18 of 19; `docs-drift` alone fails.
+
+  B-154 stays Open; no Resolution is recorded.
+
+  **Received 2026-10-08, read at `1edf49c`** (Lane B's `D-428` review, `659996b`).
+  - **Accepted:** `D-428` and the separate source/receipt commits; receipt 1 stands.
+  - **Both wording corrections applied, one path each:** B-050's Applied state is nonterminal and the `32f4c57`
+    annotation confers nothing (`1edf49c`); this entry's commit-separation sentence is normalized above (this commit).
+  - **Full check retained,** not only its summary: `C:/CoWork/outputs/lane-a-check-2026-10-08/check-at-659996b.log`,
+    SHA-256 `755e14ab…`; 18 of 19, `docs-drift` alone.
+  - **Judge decisions, 2026-10-08:** commit both corrections now; push after Lane B's review and the corrections, as a
+    named range; and Lane B's drafted candidate-preparation go-ahead is issued. Recording and execution follow in
+    separate commits.
 
   B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
