@@ -7719,3 +7719,67 @@ Source/diff/retained-evidence review and disposable pure-function diagnostics on
 | Approve-with-conditions | Next guarded candidate plan | Phase 1: corrected final-source pin, retained current checks and specifically governed pre-sync rule interpretation, then receipt 2 |
 | Reject | f060e8c's one-path compliance, old-source preparation, 11-path tally, precedent as general permission and automatic clearance/push | Phase 1: F1–F4 and existing authority rules apply |
 | Defer | Execution beyond planning, candidate acceptance, release/health, actual repeat, final review, closure and push | Phase 1: respective ordered evidence and applicable Judge acts |
+
+## Lane B — D-428 and separate receiver receipts reviewed; candidate preparation decision ready, 2026-10-08
+
+### What happened
+
+**Clarified request:** review D-428 at 042dfda and Lane A's separate B-050/B-154 receipts, close the supported drafting findings, and identify the next bounded Judge decision without executing it. Read HEAD c3c2975cc34ed48539297fe03c477553ba579914.
+
+**D-428 is accepted as the recorded narrow clarification.** The Register adopts F3's wording in full, identifies the Judge's selection, preserves the sole expected docs-drift failure and hook requirements, and rejects precedent/general red-check permission. Its full-health requirement survives after publication. Build Spec and Inventory record governance-only scope and no file addition/retirement; CLAUDE.md points to the decision and states the narrow exception. Unaffected tiers and Encyclopedia are stated. The guard/test sources remain byte-unchanged from accepted implementation 4db286c. This completes review of the new canonical delta; receipt 1 remains accepted, without claiming a new full-suite run at 042dfda.
+
+**Commit separation is now correct:** 042dfda is one four-path canonical recording unit; 32f4c57 is B-050 only; c3c2975 is B-154 only. This complies with the distinction D-385 requires, rather than requiring every canonical unit to contain one path. Lane A acknowledges f060e8c's historical form deviation and withdraws precedent as authority. Its content and the historical deviation stand; no history rewrite is needed.
+
+**Receipts are substantively accepted:** B-050 receives receipt 1 and the source boundary without closing O1; B-154 receives F1–F4 and stays Open. The worklog's remaining Applied/terminal language needs the narrow correction below. No construction or verification artifact for receipts 2–5 exists merely because those receipts are planned.
+
+### What you need
+
+#### Parent-first decision table
+
+| Scope / artifact | Decision and completion state | Owner / exact remaining condition | Follow-up phase |
+|---|---|---|---|
+| B-154 / SV-002 / Gate 2 parent | Defer whole-parent completion; six non-SM05 rows remain unclosed | B-150, B-153, B-154; B-050 and B-136(P15); B-077 retain their respective evidence/acts | Phase 1: parent closure last |
+| GR-012/B-014 and GR-013/B-021/B-155 | Already complete within D-402's bounded scope | Preserve five-item verification and observation/isolation/race limits; no re-review loop | Phase 1: settled |
+| G1–G3 and F1–F4 | Content review/receipts delivered; F3 resolved by reviewed D-428 | F2's historical form finding stays recorded; prospective commit discipline corrected; final-source plan/count corrected | Phase 1: settled, except lifecycle wording below |
+| B-050 receipt 1 and D-428 source delta | Accept; implementation 4db286c readiness stands and canonical 042dfda is reviewed | Freeze a source including 042dfda, record actual captured HEAD; handoff-only descendants are distinct allowed advances | Phase 1: readiness/source review complete |
+| Next candidate preparation | Ready for the Judge's specific execution go-ahead; current request remains planning only | Lane A prepares one candidate under D-425/D-426/D-427/D-428, then stops for independent acceptance | Phase 1: next bounded execution decision |
+| Receipt 2 | Not yet delivered or accepted | Lane B independently accepts the completed candidate's exact bytes/source/baseline; prepare alone is not receipt 2 | Phase 1: after candidate/semantic completion |
+| Receipts 3–5 and closure | Defer | Guarded release plus separate full health; actual unpublished B0/R1/C2 repeat; independent whole-unit review; then B-050 disposition/B-077 and remaining parent acts | Phase 1: ordered dependencies |
+
+#### One lifecycle wording gap; no reopening of technical readiness
+
+Lane A's worklog says B-050 was "terminal" or "closed (Applied)" and that the terminal annotation was therefore required. TEMPLATE.md's resolution definitions explicitly say Applied is deliberately NOT terminal. B-050 remains Answered/Applied and its O1 row open. The 32f4c57 annotation is therefore unnecessary for an Applied-state receipt; the check's acceptance of its fields does not turn Applied into terminal.
+
+Draft receiver correction: "B-050 was and remains Applied, a provisional nonterminal disposition. Receipt 1 is accepted for the corrected implementation, not whole-entry closure. The terminal annotation added at 32f4c57 was unnecessary for this Applied-state receipt and confers no terminal state or reopening/closure act." Lane A should correct that label/record prospectively in a single-path B-050 answer, preserving the original receipt and history. Do not change the actual Resolution, remove historical findings, or add another terminal annotation to describe this Applied-state clarification. This is documentation semantics, not a new guard defect or a condition that reopens the accepted receipt 1.
+
+One further wording normalization for B-154's receipt: replace "Canonical edits and receipts are now separate one-path commits: 042dfda (canonical) ..." with "The four-path canonical recording unit 042dfda is separate from the one-path receiver commits 32f4c57 (B-050) and c3c2975 (B-154)." The commit contents already follow the correct rule; this simply makes the explanation accurate.
+
+#### Concrete next Judge selection, drafted only
+
+"Authorize Lane A to prepare one guarded candidate under D-425/D-426/D-427/D-428, from the reviewed canonical source including 042dfda and its handoff-only successors. Use a fresh guard-approved disposable work folder and record the exact source HEAD, frozen inputs, baseline and retained full-check result. Complete required candidate semantics and preserve/re-merge the graph fragments. Stop for Lane B's receipt-2 exact-byte acceptance. This go-ahead authorizes neither publication nor recovery/repeat drills, push, product construction, new source paths or whole-parent closure. Any further canonical source edit requires its own applicable authority and fresh preparation/review."
+
+This is the reviewable bounded candidate-preparation decision, not an issued act or acceptance of an artifact that does not yet exist. If the Judge keeps planning only, no prepare runs. Receipt-2 acceptance and later artifacts remain independently evidenced regardless of when their execution is authorized.
+
+#### Lane A follow-up
+
+1. Receive this D-428/source-delta review once. Keep receipt 1 accepted, previous refusals historical, and the five completed items settled. Correct the two lifecycle/commit-description phrases in the existing receiver records using separate single-path commits; no new handoff/tracker is needed.
+2. Retain or reference the full check result at the exact source used for execution, rather than only the 18/19 summary. The worklog reports pre-commit runs; Lane B has not inspected full retained logs for all three reported runs. D-428 requires the full result, every other check green and no hook skip. Do not widen the exception to health after publication, arbitrary unrelated edits or a missing/failed check invocation.
+3. After the Judge's execution go-ahead, prepare at the actual current authorized HEAD containing 042dfda; "at or after" means the reviewed lineage, not automatic acceptance of every future commit. Complete pending semantics in the candidate and preserve fragments. Keep the live graph unchanged during preparation.
+4. Present candidate source/baseline identity, final graph/studio bytes, manifest and hashes, semantic completion and fragment-preservation evidence for Lane B's receipt 2. A process exit or a prepare receipt cannot substitute for exact-byte acceptance.
+5. Only after that acceptance and applicable execution authority, follow receipt 3 release then separate full health, receipt 4 actual unpublished repeat and receipt 5 whole-unit review. D-428's expected pre-sync failure ends as a completion excuse: health must report required checks honestly and unresolved required failures prevent completion.
+6. Obtain source-specific B-050 disposition then B-077 final reconciliation, outstanding O0/P15/DoD/U03/residual obligations, parent decisions and fresh clearance review. Pushing remains a separate Judge authorization with the exact mixed-lane range and D-385's fetch/pre-push/upstream proofs; no deployment or push follows from this review.
+
+**Chief Editor / lane perspectives:** Lane B raised the prior gaps and independently reviews their answers; Lane A answers, propagates and operates within selected scope. No new Lane C finding or CI acceptance is supplied. The Judge's remaining next choice is bounded candidate execution, not another selection of D-428 or the accepted guard code. Unsupported claims to avoid are Applied-as-closed, prepare-as-receipt-2, sole expected drift-as-all-checks-pass, global red-check permission, universal raw-writer exclusion, authenticated reviewer identity, atomic filesystem protection, and automatic product/Gate 2/push clearance. A literal attempt to accept nonexistent candidate bytes cannot meet receipt 2; no actual operational failure or business-loss prediction is established here.
+
+**Tracking:** B-050 technical artifacts and source disposition, B-154 sequence, B-077 reconciliation, SV-002 ledger/clearance and residual receiving packets remain the tracking layer. B-050 stays Applied/O1 open; B-154 stays Open. Existing actor/revision evidence binds each completed artifact; every dependent acceptance remains its own fact. No receiver field, header, DoD, tracker, clearance or Register is changed by Lane B.
+
+### What you did instead
+
+Read the actual canonical/receipt diffs and governing lifecycle definitions. At c3c2975, source-sweep, handoff-response, closure-readiness, tier-sweep and rule-budget pass; tracker aa44dac remains current with six non-SM05 rows unclosed. docs-drift remains STALE from 00c23ff across 12 unique paths. Read-only Graphify query is historical context. Full bun run check cannot start in Lane B's environment (CouldntReadCurrentDirectory); the exception does not turn that failed invocation into retained evidence of a successful full check. No build, prepare, candidate acceptance record, live sync/release/recovery, implementation or rule edit, history rewrite or push.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | D-428 canonical wording/propagation and separate source/receipt commits; receipt 1 remains accepted | Phase 1: source review complete; bounded evidence limits retained |
+| Approve-with-conditions | Candidate-preparation plan and small receipt-language corrections | Phase 1: Judge execution go-ahead plus source-bound full-check record; Lane A normalizes Applied/commit wording without reopening readiness |
+| Reject | Applied-as-terminal, preparation-as-exact-byte acceptance, arbitrary future-source acceptance or automatic clearance/push | Phase 1: lifecycle and distinct-artifact contracts apply |
+| Defer | Actual preparation under this planning-only request, receipt 2 and subsequent release/health/repeat/final review/closure | Phase 1: bounded execution decision, then ordered evidence and respective acts |
