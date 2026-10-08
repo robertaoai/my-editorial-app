@@ -5214,3 +5214,37 @@ unique governed paths); the guarded sync follows readiness.
 | Approve-with-conditions | Receipt 1 at `4db286c` | Phase 1: Lane B's independent outcome; any finding is answered against a newly named revision |
 | Defer | Receipts 2–5, dispositions, parents, Gate 2 | Phase 1: in D-426 order after receipt 1 |
 | Reject | Treating earlier refusals as retroactively accepted; test totals as coverage of an untested condition | Phase 1: per-condition evidence decides |
+
+## Lane B — receipt 1 accepted for corrected implementation 4db286c; current-source boundary f060e8c, 2026-10-08
+
+### What happened
+
+**Clarified request:** independently review Lane A's corrected implementing source and retained evidence, resolve the previous refusals, and state the current-source boundary after the G1–G3 documentation advance. Read HEAD f060e8cdd55668db17205203c4c917435422fbce; implementing source 4db286cbce91d9318e75cde0869e8a7ddc5230bf. This is fixture/source readiness only, not candidate acceptance, publication or closure.
+
+**Receipt 1 is accepted for the corrected guard implementation at 4db286c.** D427-R1 completeness and D427-R2 calendar/early-year conversion findings are discharged. Earlier refusals remain historical outcomes at their named revisions. The current source delta through f060e8c is also reviewed: outside docs/handoff it changes only V1-ARTIFACT-INVENTORY.md and SV-002.md, not the guard, tests, instructions, fragments, producer pins or executable bindings. The documentation content is supported; B-154 records its process deviation and remaining rule clarification separately. Do not interpret this outcome as a fresh full-suite execution at f060e8c.
+
+The 4db286c change replaces Date.UTC with setUTCFullYear/setUTCHours after component validation. Independent calls now match actual instants for 0000's leap day, years 0001/0099/0100 and an offset crossing the 0099/0100 boundary. Replayed complete valid control passes; missing bundles on both sides and February 30 refuse. Diagnostic: C:/CoWork/outputs/lane-b-d427-4db286c-review-2026-10-08/review.json. The existing test additions use independently calculated day counts, true-versus-remapped brackets and a mutation restoring the defective Date.UTC call.
+
+Retained evidence at C:/CoWork/outputs/lane-a-d426-receipt1-2026-10-07/at-4db286c names the correct full source and an empty source-status file. Suite: 249 pass, 0 fail, 925 expect calls, 1739.88 s, exit 0; log SHA-256 2f14ecee9903b12b9a02e479587a9e7079265716393efecbe7f43edda9a8284d. Harness SHA-256 2fa1961a30cf146ac92255b34e35edec7790cc7220dddcd3cba91064e8aa30c8; mutation summary SHA-256 904519eda7ae68497b28acc6e91b09c2ffe37ab637fe69f158d3f749f541e259. All 33 summary rows and all 66 raw control/mutated logs agree on passing controls and actual caught mutations; restoration is the retained harness's report, not a new independent restore run. Lane A's uninterrupted-run account is preserved as such. This review inspects retained execution evidence and independently exercises the corrected functions; it does not rerun the full suite/mutations/producer. No P8 recurrence is established; P8's future stop and prior classification remain.
+
+### What you need
+
+1. Receive the accepted receipt-1 outcome once at this implementing source. Do not rewrite earlier refusals or reopen discharged findings. No further code correction is requested by this review.
+2. Correct the preparation-source plan: f060e8c is a non-handoff advance from 4db286c, so a candidate analyzed only at 4db286c cannot pass the handoff-only publication-advance rule through f060e8c. Prepare from the final authorized source including f060e8c and any subsequently authorized canonical edits. Record the exact HEAD actually captured by prepare; a later handoff-only successor may be that captured HEAD. Never label a candidate analyzed at the older revision as covering the new docs. Any later non-handoff edit requires fresh preparation/review under D-426 item 3.
+3. Before executing the next bounded unit, retain the final-source full check and its exact result. Known docs-drift is expected before the guarded sync; it is not a 19/19 pass or a generic clean-check exception. Resolve/report any additional check failure. B-154 owns the narrow clean-check instruction conflict and D-385 commit-form finding; no hook bypass, history rewrite or policy expansion is authorized here.
+4. Under the existing work order and when the current planning-only request permits later execution, complete the candidate's required semantic work and fragment preservation. Lane B then issues receipt 2 for exact candidate bytes/source/baseline, not this readiness text. No publication until that acceptance record exists.
+5. Receipt 3 comprises guarded release plus a separate full-health receipt; receipt 4 is the actual complete disposable unpublished B0/R1/C2 repeat; receipt 5 is independent whole-unit review. Keep each artifact and acceptance distinct. No second live release, real-target destructive drill or new allowance is authorized.
+6. Only after the unit, obtain B-050's source-specific disposition and B-077's final review, then the remaining child/parent/clearance acts. B-050 stays Applied/O1 open; no header, DoD, tracker or clearance change follows from receipt 1.
+
+**Artifact success criteria:** readiness establishes reviewed controls/evidence; candidate acceptance binds exact final bytes and source; release binds the published result; full health evaluates that result; actual repeat compares the first released R1 with unpublished C2 under the selected allowances and baseline identities; final review checks the whole unit. A correct parser or fixture repeat cannot substitute for these critical construction/verification artifacts. Invalid source advancement will refuse publication under the inspected code; no actual release failure or business loss is claimed.
+
+### What you did instead
+
+Source/retained-evidence review and disposable pure-function diagnostics only. At f060e8c source-sweep, handoff-response and closure-readiness pass. The tracker at aa44dac is current, with six non-SM05 rows unclosed. docs-drift remains STALE from 00c23ff, now across 12 unique paths: SV-002 is newly changed since that analysis. The historical Graphify query is context, not current evidence. Full bun run check cannot start here (CouldntReadCurrentDirectory); retained Lane A suite results remain separate. No build, prepare, candidate acceptance record, live mutation, receiver/header/DoD/tracker/Register change or push.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Receipt 1 for corrected implementation 4db286c; current documentation delta through f060e8c reviewed | Phase 1: preserve evidence/source limits; all previous technical findings discharged |
+| Approve-with-conditions | Next candidate-preparation plan | Phase 1: include final authorized source at or after f060e8c, final-source checks and applicable execution authority; then receipt 2 |
+| Reject | Preparing only 4db286c and treating f060e8c as handoff-only; receipt 1 treated as exact-byte acceptance or closure | Phase 1: final-source and distinct-artifact contracts apply |
+| Defer | Candidate acceptance, release/full health, actual repeat, whole-unit review and source/parent closure | Phase 1: remaining ordered D-426 receipts and respective acts |
