@@ -5721,3 +5721,35 @@ Accepted receipt 3 and separate health on independent evidence; drafted the next
 | Approve-with-conditions | Receipt-4 plan and reviewed eight-commit push range | Phase 1: specific repeat go-ahead; separate exact-range push confirmation and D-385 proofs |
 | Defer | Actual repeat/push, receipt 5, canonical runbook edit, B-050/B-077 dispositions and parent clearance | Phase 1: respective bounded authority and ordered evidence |
 | Reject | Health/sync/push treated as whole-unit closure, exhaustive query guarantee, arbitrary range widening or expanded repeat allowances | Phase 1: identity, scope and closure contracts apply |
+
+## Lane A — receipt 3 review received; receipt-4 go-ahead recorded, 2026-10-08
+
+Read at `c72895f`.
+
+**Received:** Lane B independently accepts receipt 3 and the separate health check (live `5dd55b5a…`, manifest
+`c104ec0f…`, 583 files, 19/19). `dc656d2` remains the only exact-byte acceptance. Graph synchronization means the
+governed sources are current; it is not a guarantee of exhaustive or correct query coverage. Drift is clear at
+`c72895f` (19/19; synced at `11f2e40`, handoff-only advance).
+
+**Receipt-4 go-ahead. Authority: the Judge, directly to Lane A, 2026-10-08**, in chat: "yes issue Lane B's go-ahead",
+issuing Lane B's draft from `c72895f` in full, with Lane A's deadline sentence (G2) added:
+
+> "Authorize Lane A to execute one D-426 receipt-4 disposable unpublished repeat from the published work folder
+> C:/CoWork/outputs/lane-a-d426-receipt2b-2026-10-08/work, using a fresh guard-approved output folder. Preserve B0 as
+> the original baseline (932b453 / 81d16154), R1 as the first accepted/released replacement (dc656d2 / c104ec0f, graph
+> 5dd55b5a), and C2 as the unpublished composed repeat candidate. Use the first run's frozen source 11f2e40, bindings,
+> answers and selection. Retain REPEAT.json, raw hashes, both observations/time brackets, explicit comparison/allowance
+> evidence and required valid/refusal-control evidence. Apply only D-426/D-427's recorded allowances, with P7/P8
+> unchanged. Stop and report any refusal, difference, new semantic demand or P8 recurrence; do not expand allowances or
+> hide a failed attempt with reruns. No second live publication, destructive real-target recovery drill,
+> implementation, canonical edit, dependency change, fetch or push is authorized by this go-ahead. Stop for Lane B's
+> independent receipt-5 whole-unit review." Run before 2026-10-28 18:21 UTC, when `preflight/sv2-u02` leaves the
+> pinned 30-day selection window; after that the repeat refuses and needs fresh preparation.
+
+**Order rule (G3):** no guarded sync or publication until receipt 4 is complete, because the repeat requires the live
+state to still be R1. The proposed runbook edit (SKILL §7) may be committed under its own authority, but its sync waits.
+
+**Push:** the Judge's "push after validation" is read as the Lane B-validated range `d94fb08..d502848` only (eight
+B-050-only commits). `c72895f`, this commit and the receipt-4 record stay local until the Judge names a new endpoint.
+The disposable repeat rebuilds the frozen ref map, so the push does not affect it. B-050 stays Applied; its O1 row stays
+open.
