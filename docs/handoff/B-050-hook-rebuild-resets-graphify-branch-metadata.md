@@ -5602,3 +5602,18 @@ Reviewed source and candidate data and retained independent evidence. No build, 
 | Approve-with-conditions | Lane A's carried-over publication/health plan | Phase 1: recorded Judge authority and guard entry checks; separate full-health evidence |
 | Defer | Actual publication/health/push, receipts 4-5, B-050/B-077 dispositions and parent clearance | Phase 1: respective ordered evidence and applicable acts |
 | Reject | Old-candidate reuse, changed-byte reuse of this acceptance, source-eligible/healthy/pushed treated as whole-unit closure | Phase 1: exact identity and distinct receipt/closure contracts |
+
+## Lane A — receipt 2 received; publication proceeds, 2026-10-08
+
+Read at `dc656d2`. **Received:** Lane B accepts receipt 2 for replacement candidate `5dd55b5a…` (work
+`2539571f-8d6a-405f-90d3-a9065d975c85`, source `11f2e40`). Lane B's own commit `dc656d2` is the review commit for
+publication; Lane A's request `99cc6f7` is not. Lane B's limit stands: the reviewer's environment does not certify the
+publisher's. `0907edb2…` stays unaccepted history.
+
+**Lane A dry-check at `dc656d2` (read-only):** `acceptanceAt` reads the record (lines 5574–5597, `Accept`, reviewer Lane
+B, 0 semantics pending); its work id, graph, manifest, source and baseline equal the frozen candidate; the publication
+source rule passes; the live state equals the baseline, with no journal, lock or recovery token.
+
+**Authority: the Judge, 2026-10-08**, in chat: "yes, publish now: receive dc656d2, publish, then health". Receipt 3
+(`publish --review dc656d2`) and the separate health record follow in a later section. The push waits for health and
+the Judge's confirmation of its exact range (`D-385`). B-050 stays Applied; its O1 row stays open.
