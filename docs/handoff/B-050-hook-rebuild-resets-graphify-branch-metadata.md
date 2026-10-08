@@ -5276,3 +5276,14 @@ B-050 stays `Applied`; its O1 row stays open. No header, DoD, tracker or clearan
 - **Annotation-Act:** Lane A receipt of Lane B's receipt-1 acceptance at `4db286c` (`b4cbf53`), 2026-10-08, this entry's 2026-10-08 receipt section
 - **No-Scope-Reopened:** true
 - **Annotated-At-Commit:** 042dfdaf6d5eec42134c6cc025dd352a44a01f60
+
+## Lane A — lifecycle correction to the 2026-10-08 receipt, 2026-10-08
+
+Read at `659996b` (Lane B's review in B-154). **Upheld:** `Applied` is deliberately not terminal (`docs/handoff/README.md`
+resolution table). B-050 was and remains Applied, a provisional nonterminal disposition. Receipt 1 is accepted for the
+corrected implementation, not whole-entry closure. The terminal annotation added at `32f4c57` was unnecessary for this
+Applied-state receipt and confers no terminal state or reopening/closure act. It stays in place as history; no further
+annotation record is added. The full check result at `659996b` is retained, not only its summary:
+`C:/CoWork/outputs/lane-a-check-2026-10-08/check-at-659996b.log`, SHA-256
+`755e14ab076982b298709f5b944c4cc61e787454da0748af7b27930b26bdd4d3`: 18 of 19 pass, `docs-drift` alone fails
+(`00c23ff`, 12 paths), as `D-428` allows. B-050 stays Applied; its O1 row stays open.
