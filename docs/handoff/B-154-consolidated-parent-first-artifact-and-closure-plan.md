@@ -7575,3 +7575,61 @@ Review/disposable diagnostics only; no code, build, receiver/header/DoD/tracker/
 | Approve-with-conditions | Remaining Lane A correction/answer | Phase 1: exact year conversion and new-source evidence; respect reported receiver-writing restriction |
 | Reject | Receipt 1 at bb0b4bc | Phase 1: valid early years still convert to the wrong century |
 | Defer | Sync, release, actual repeat and closure | Phase 1: accepted readiness then ordered receipts and source/parent acts |
+
+## Lane B — Judge confirmation of GR-012/B-014 and GR-013/B-021/B-155 completion, 2026-10-08
+
+### What happened
+
+**Clarified request:** reconcile the Judge's explicit approval that GR-012, B-014, GR-013, B-021 and B-155 are complete with their existing evidence and closure tracking; explain parent/child dependencies, draft any documentation fix, and check drift without building. Read HEAD c3a95b8. This review concerns those five completed items; it does not replace the separate pending B-050 corrected-source readiness request at 4db286c.
+
+**The Judge's confirmation agrees with the existing completion records.** B-014, B-021 and B-155 have Answered/Verified headers with independent verifier Lane B and read revision 6bc0e99ab8ad672a6ff6427c8f05e2ff27bc3c33. D-402 already receives those verifications into GR-012 and GR-013, the spec status and the SV-002 ledger/tracker. No repeat verification, duplicate handoff or new lifecycle act is needed merely to confirm the same completion. This body records the 2026-10-08 Judge confirmation without changing Lane A's receiver answer or other entries.
+
+Evidence checked: B-014's observation log hashes to 7d773745a56ca9e9d7ca722542f0eb377d1cdb69011f55b7050a077135c37017, matching its independent record. The preserved lane-b-verification-2026-10-03-final/summary.json binds 6bc0e99, two successful concurrent runs, a successful caller check, unchanged caller bytes, distinct targets and removed targets. The source records retain the two 293/293 results, 24 containment/restore probes and interruption evidence. This turn inspected records and the retained summary/hash; it did not rerun those experiments or certify all later runtime revisions. The graph fragment frag143's gr_012_013_spec node correctly describes delivered/verified scope and its limits.
+
+### What you need
+
+#### Decision table, highest parent scope first
+
+| Parent / child | Decision and current state | Completion evidence / remaining obligation | Follow-up phase |
+|---|---|---|---|
+| SV-002 / B-154 overall readiness and Gate 2 | Defer whole-parent completion; these five completed items do not close the parent | D-402 explicitly excludes B-154 disposition, SV-002 acceptance, Gate 2 and SM05 unblock; other required source/child and clearance obligations remain | Phase 1: respective outstanding acts/evidence |
+| GR-012 receiving obligation | Accept complete under the selected bounded observation outcome | D-400/D-401/D-402; independent receipt at 6bc0e99; no further residual in the current ledger | Phase 1: complete; preserve limits |
+| B-014 source child of GR-012 | Accept Verified; no new closure change | d0afbce records Lane B's independent verification; D-402 receives it | Phase 1: complete |
+| GR-013 receiving obligation | Accept complete under selected disposable isolation | D-396–D-399 delivery/repair, independent verification and D-402 receipt | Phase 1: complete; preserve limits |
+| B-021 source child of GR-013 | Accept Verified; no new closure change | ea29e04 records two concurrent isolated runs, preserved caller bytes, interruption and explicitly inherited cleanup proof | Phase 1: complete |
+| B-155 containment/wording child supporting GR-013/B-021 | Accept Verified; earlier failed revisions remain history | fcb63a0 records repaired F1 independent verification and scoped F2 wording; D-402 receives it | Phase 1: complete |
+| Inventory summary-row semantics | Approve-with-conditions documentary correction only | Current GR-012-013-SPEC.md inventory row still says P4a/P4b await work orders; later D-402 paragraphs and actual spec/receiving status say Verified | Phase 1: Lane A normalizes the summary row under applicable documentation authority |
+
+**Completion order:** scope and authority are read parent-first; required child proof is established before receiving-row and whole-parent closure. These five are already completed at their own scopes. Do not make their completion conditional on unrelated B-050 readiness, and do not use them to accept B-050 or clear its O1 row.
+
+#### One concrete draft fix, no duplicate tracking
+
+Replace only the stale GR-012-013-SPEC.md row in V1-ARTIFACT-INVENTORY.md with:
+
+| `docs/v1/work-packets/SETUP-SPIKE-000/GR-012-013-SPEC.md` | `D-393` origin; `D-396`–`D-401` delivery/repair and bounded observation; `D-402` independent verification receipt | Created 2026-10-02 as a draft; GR-013/P4a and GR-012/P4b delivered and independently Verified under `D-402`. The 31-minute no-writer-observed acceptance and stated isolation/race/evidence limits remain; no construction clearance follows. |
+
+This is a current-summary correction, not a new specification, work order or runtime guarantee. Preserve historical Register entries, failed-review evidence and the original draft origin. No file is added or retired. Build Spec's D-402 paragraph, spec status, receiving rows and frag143 already describe completion; assess them as unaffected unless Lane A finds an actual contradiction when applying the correction. This review drafts the outside-lane edit only.
+
+#### Lane A follow-up, step by step
+
+1. Receive this Judge confirmation once in the existing B-154 answer/review flow, referring to D-402 and the three existing independent source records. Preserve Verified headers and their real actor/revision pins; do not manufacture a fresh verification or reopen terminal entries.
+2. Normalize the single stale inventory row using the draft above, with the required propagation disposition and post-commit checks. No additional code, fixture campaign or duplicate graph node is needed for this prose correction.
+3. Keep SV-002 section 2.3.2 as review accounting and section 2.3.1 as clearance tracking. B-014/B-021's Clearance cells intentionally remain open while the Verified-header rule counts them as closed; do not flip those cells merely because their literal word looks unresolved. B-155 has no section 2.3.1 row by the existing population rule; do not add one. The D-278 screen's older Applied values are historical screening data, not current header status.
+4. Keep the existing completion limits with every use of the artifacts. GR-012 proves the commissioned/accepted observation outcome, not importer eradication. GR-013/B-021/B-155 prove the selected isolation/restore contract, not an atomic or universally locked filesystem. Use source-specific identities and retained verification evidence for later construction/verification planning.
+5. Continue only genuinely outstanding dependent work under its own authority. The separate B-050 addendum at c3a95b8 names 4db286c for Lane B's new receipt-1 review; that outcome is not supplied by this five-item confirmation. D-426 receipts 2–5, B-050 disposition/B-077 review, U03, outstanding DoD and B-136 P15 keep their independent conditions.
+6. Synchronize the final authorized docs/source through the guarded route after accepted B-050 readiness, including required fragment preservation and exact-byte acceptance. Do not run a raw rebuild now or sync an earlier source then treat later governed edits as covered.
+
+**Chief Editor / perspectives:** the Judge has explicitly accepted completion of these five items; no further choice about their already selected designs is outstanding. Lane B is the source raiser and independent reviewer; Lane A owns correction delivery and receipt/propagation; no new Lane C finding or CI acceptance is supplied. Keep the development lanes distinct from product Lines/OD4. The concrete remaining wording gap does not invalidate accepted technical completion. No proven operational failure or inevitable financial loss follows from that wording gap; assertions of eradication, atomic race protection, complete CI/product delivery or automatic Gate 2 clearance would exceed the evidence.
+
+**Tracking:** source header plus actor/revision/evidence, GOV-RES-001 fulfillment, SV-002 keyed review/clearance and B-154 sequencing already provide the required layer. B-154 remains Open, B-050 remains Applied/O1 open, and no parent status, DoD or clearance is changed here.
+
+### What you did instead
+
+Read the five items' source/receiving/review records, D-402, governed summary/spec entries and retained evidence; recomputed the observation hash. Read-only Graphify query returned no match for the literal node id, which alone does not prove graph absence; frag143's actual curated description is correct. docs-drift confirms STALE from 00c23ff over 11 unique governed paths at c3a95b8. Sync is required later through final-source guarded preparation/acceptance/publication, not as part of this planning review. source-sweep and handoff-response pass. bun run check cannot start here (CouldntReadCurrentDirectory); no new full-suite pass claimed. Only B-154 reviewer body text is appended; no code/build, outside-lane source fix, receiver/header/Register/DoD/tracker change, live graph mutation or push.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Judge-confirmed completion of GR-012, B-014, GR-013, B-021 and B-155 | Phase 1: already independently Verified and received under D-402; preserve scope limits |
+| Approve-with-conditions | Inventory summary-row correction | Phase 1: Lane A applies the concrete prose draft with propagation/checks; no technical reopening |
+| Reject | Duplicate verification/status layers, eradication/atomicity claims or automatic parent/Gate 2 clearance | Phase 1: existing scope and tracking rules govern |
+| Defer | Separate B-050 readiness, guarded sync, remaining receipts and whole-parent closure | Phase 1: their own outstanding actor/source/evidence and Judge acts |
