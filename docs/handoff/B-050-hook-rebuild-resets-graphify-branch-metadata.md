@@ -5287,3 +5287,20 @@ annotation record is added. The full check result at `659996b` is retained, not 
 `C:/CoWork/outputs/lane-a-check-2026-10-08/check-at-659996b.log`, SHA-256
 `755e14ab076982b298709f5b944c4cc61e787454da0748af7b27930b26bdd4d3`: 18 of 19 pass, `docs-drift` alone fails
 (`00c23ff`, 12 paths), as `D-428` allows. B-050 stays Applied; its O1 row stays open.
+
+## Lane A — receipt-2 preparation go-ahead recorded, 2026-10-08
+
+**Authority: the Judge, directly to Lane A, 2026-10-08**, in chat: "issue Lane B's draft go-ahead", issuing Lane B's
+text from B-154 `659996b` in full:
+
+> "Authorize Lane A to prepare one guarded candidate under D-425/D-426/D-427/D-428, from the reviewed canonical source
+> including 042dfda and its handoff-only successors. Use a fresh guard-approved disposable work folder and record the
+> exact source HEAD, frozen inputs, baseline and retained full-check result. Complete required candidate semantics and
+> preserve/re-merge the graph fragments. Stop for Lane B's receipt-2 exact-byte acceptance. This go-ahead authorizes
+> neither publication nor recovery/repeat drills, push, product construction, new source paths or whole-parent closure.
+> Any further canonical source edit requires its own applicable authority and fresh preparation/review."
+
+**No new Register act:** this proceeds inside `D-426` item 5.2, the already-issued work order, as `D-425`'s receipt 2
+did. Recording it here keeps the prepared source a handoff-only successor of the reviewed `042dfda` lineage. Pushed
+range for the record: `4e50c41..d94fb08` (Judge-named, 2026-10-08). Preparation runs at this commit; its candidate
+identity follows in a later Lane A section for Lane B's receipt 2. B-050 stays Applied; its O1 row stays open.
