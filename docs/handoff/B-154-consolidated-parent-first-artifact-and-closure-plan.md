@@ -1494,6 +1494,16 @@
   - **Push:** held; origin `d502848`.
 
   B-154 stays Open; no Resolution is recorded.
+
+  **Sequencing received 2026-10-08, read at `c605502`** (B-050 `b64c82e`, `0540fb6`, `0f07ffd`, `c605502`).
+  - `D-429` is issued (`b64c82e`) and implemented (`0540fb6`). **Renewed receipt 1 is not accepted at `0540fb6`** (Lane B,
+    in chat): G1 (missing per-call proxy evidence), G2 (A1/A2 refusal wiring) and G3 (producer inventory from source)
+    are open. The Judge approved their correction within `D-429`'s two paths.
+  - **Order, unchanged otherwise:** G1–G3 at a new source commit (superseding `0540fb6`) → renewed receipt 1 → new
+    candidate → receipts 2–5 → B-050 disposition → B-077 → O0 parents → Gate 2. No closure status changes.
+  - **Drift:** five governed paths since `11f2e40`, expected; cleared only by the new cycle's release. **Push:** held.
+
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
