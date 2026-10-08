@@ -922,6 +922,8 @@ const deps = {
     const map = G.hashTree(staging);
     return { ok: true, manifest: G.treeDigest(map), files: Object.keys(map).length, graphSha256: map["graph.json"], frozenAt: "2026-10-06T00:00:00.000Z" };
   },
+  // the command cases fake generation and composition, so their staging check is faked too (D-429 A3 has its own cases)
+  verifyStaging: () => [],
 };
 const stateOf = (work) => JSON.parse(readFileSync(join(work, "STATE.json"), "utf8"));
 /** The caller's trusted context for the work commands (F3-C2), with the fixture's disposable root. */
@@ -1968,20 +1970,27 @@ describe("D-426 PR5a: proveRepeat — B0 baseline, R1 release, C2 disposable can
       if (variant.pending) return { status: "pending-semantic", pending: { descriptions: ["y"], communities: [] } };
       const state = join(work, "state");
       mkdirSync(state, { recursive: true });
-      // D-427: like the real producer, every generation carries a fresh Git observation inside its rebuild bracket
+      // D-427/D-429: like the real producer, every generation carries a fresh Git observation, written inside the
+      // final update call's bracket, and a D-429 packet (final-update bracket, final observation, ignored list)
       const t0 = Date.now();
       const g = variant.graph ?? BASE_GRAPH;
-      const provenance = { source_owner: "git", source_id: "repo:github.com/example/fixture-repo", observed_at: variant.observedAt ?? new Date(t0 + 1).toISOString(),
+      const observedAt = variant.observedAt ?? new Date(t0 + 1).toISOString();
+      const provenance = { source_owner: "git", source_id: "repo:github.com/example/fixture-repo", observed_at: observedAt,
         source_hash: variant.sourceHash ?? "h0", adapter_version: "graphify-git/1" };
       writeFileSync(join(state, "graph.json"), JSON.stringify({ ...g, graph: { provenance } }));
       writeStudioBundle(state); // D427-R1: a complete studio bundle, as the real export produces
       writeFileSync(join(state, "branch.json"), JSON.stringify({ branchName: "main", mergeBase: variant.mergeBase ?? "m", updatedAt: variant.updatedAt ?? "2026-10-06T00:00:00.000Z" }));
       writeFileSync(join(state, "manifest.json"), variant.retained ?? "retained bytes");
-      return { status: "generated", state, checkout: join(work, "co"), selection: { oracle: variant.selection ?? "sel-1", brackets: { rebuild: variant.bracket ?? [t0, t0 + 2] } } };
+      const ignored = { validatedCount: 10, astCount: 4, nonCache: ["a", "b"], transient: 0, listSha256: "fixture", ...variant.ignored };
+      writeFileSync(join(state, "scope.json"), JSON.stringify({ excluded_ignored_count: variant.scopeCount ?? ignored.validatedCount }));
+      writeFileSync(join(state, ".graphify_detect.json"), JSON.stringify({ scope: { excluded_ignored_count: ignored.validatedCount } }));
+      return { status: "generated", state, checkout: join(work, "co"), selection: { oracle: variant.selection ?? "sel-1",
+        brackets: { rebuild: variant.bracket ?? [t0, t0 + 2], finalUpdate: variant.bracket ?? [t0, t0 + 2] }, finalObservedAt: observedAt, ignored } };
     },
+    verifyStaging: G.verifyStaging, // the REAL D-429 A3 check runs on every fake candidate here
   };
-  const published = () => {
-    variant = {};
+  const published = (first = {}) => {
+    variant = first;
     const L = liveLayout();
     const r = sourceRepo();
     const work = join(F2, `pw${++n}`);
@@ -2096,6 +2105,70 @@ describe("D-426 PR5a: proveRepeat — B0 baseline, R1 release, C2 disposable can
     writeFileSync(join(b, "extra.txt"), "x");
     expect(G.repeatComparison(a, b, { brackets }).findings).toContain("extra.txt is only in C2");
   });
+
+  // D-429 A4 through the whole repeat: the exact transient may account for a one-file count difference in either
+  // direction; anything else stops. The REAL verifyStaging runs on every candidate (repDeps).
+  const T = G.IGNORED_TRANSIENT;
+  test("D-429 A4 valid: equal counts need no transient; the one-file difference passes in each direction when explained", () => {
+    const p = published();
+    variant = {};
+    expect(repeat(p).outcome).toBe("repeat-equal");
+    variant = { ignored: { validatedCount: 11, nonCache: ["a", "b", T], transient: 1 } };
+    expect(repeat(p).outcome).toBe("repeat-equal");
+    const q = published({ ignored: { validatedCount: 11, nonCache: ["a", "b", T], transient: 1 } });
+    variant = {};
+    expect(repeat(q).outcome).toBe("repeat-equal");
+  }, PR5_SLOW);
+
+  test("D-429 A4 refusals: unexplained count, transient without origin, non-cache difference, AST-cache cardinality, a disagreeing count copy, missing evidence", () => {
+    const p = published();
+    const cases = [
+      [{ ignored: { validatedCount: 11, transient: 0 } }, "unexplained ignored-count difference"],
+      [{ ignored: { validatedCount: 11, nonCache: ["a", "b", T], transient: 0 } }, "unexplained ignored-count difference"],
+      [{ ignored: { validatedCount: 11, nonCache: ["a", "c", T], transient: 1 } }, "non-cache ignored paths differ"],
+      [{ ignored: { validatedCount: 11, nonCache: ["a", "b", T], transient: 1, astCount: 5 } }, "AST-cache cardinality differs"],
+      [{ scopeCount: 12 }, "scope.json excluded_ignored_count 12 is not the validated count 10"],
+      [{ ignored: { validatedCount: "x" } }, "no validated ignored count"],
+    ];
+    for (const [v, want] of cases) {
+      variant = v;
+      const res = repeat(p);
+      expect(res.outcome === "repeat-stopped" || res.outcome === "repeat-refused").toBe(true);
+      expect(res.reason).toContain(want);
+    }
+  }, PR5_SLOW);
+
+  test("D-429 Option B: a first run whose packet lacks the D-429 evidence is refused before any generation", () => {
+    const p = published();
+    const st = stateOf(p.work);
+    const { finalUpdate, ...rest } = st.ready.selection.brackets;
+    writeFileSync(join(p.work, "STATE.json"), JSON.stringify({ ...st, ready: { ...st.ready, selection: { ...st.ready.selection, brackets: rest } } }));
+    const res = repeat(p);
+    expect(res.outcome).toBe("repeat-refused");
+    expect(res.reason).toContain("lacks D-429 evidence");
+    expect(finalUpdate).toHaveLength(2);
+  }, PR5_SLOW);
+
+  test("D-429 A3: corruption introduced during composition refuses the candidate before its manifest is frozen", () => {
+    const corrupt = (edit) => ({ ...repDeps, compose: (o) => { const r = deps.compose(o); edit(o.staging); const map = G.hashTree(o.staging); return { ...r, manifest: G.treeDigest(map) }; } });
+    const k = "repo:github.com/example/fixture-repo";
+    const cases = [
+      [(s) => { const g = JSON.parse(readFileSync(join(s, "graph.json"), "utf8")); g.graph.provenance.observed_at = "2020-01-01T00:00:00.000Z"; writeFileSync(join(s, "graph.json"), JSON.stringify(g)); }, "D-429 A3"],
+      [(s) => { const g = JSON.parse(readFileSync(join(s, "graph.json"), "utf8")); g.nodes.push({ id: `commit:${k}@${"e".repeat(40)}`, node_type: "Commit", repo: k, sha: "e".repeat(40) }); writeFileSync(join(s, "graph.json"), JSON.stringify(g)); }, "Git nodes without baseline provenance"],
+      [(s) => writeFileSync(join(s, "scope.json"), JSON.stringify({ excluded_ignored_count: 99 })), "is not the validated count"],
+    ];
+    for (const [edit, want] of cases) {
+      variant = {};
+      const L = liveLayout();
+      const r = sourceRepo();
+      const work = join(F2, `d429c${++n}`);
+      expect(G.prepareWork({ work, ...C(L, r), deps: corrupt(edit) }).exit).toBe(G.EXIT.pending);
+      const res = G.resumeWork({ work, answers: { descriptions: { x: "X" } }, answersHash: "h1", ...C(L, r), deps: corrupt(edit) });
+      expect(res.outcome).toBe("failed");
+      expect(res.reason).toContain(want);
+      expect(stateOf(work).ready).toBeUndefined();
+    }
+  }, PR5_SLOW);
 });
 
 // ===========================================================================
@@ -2372,11 +2445,11 @@ describe("D-427: repeat-provenance amendment A-PR5a-1", () => {
     if (!pins.ok) return;
     const R = realRuns();
     const r1At = J(join(R.r1, "graph.json")).graph.provenance.observed_at;
-    expect(variantOf((c) => setObs(c, new Date(R.brackets.c2[1] + 60000).toISOString()))).toContain("outside its own rebuild bracket");
+    expect(variantOf((c) => setObs(c, new Date(R.brackets.c2[1] + 60000).toISOString()))).toContain("outside its own final-update bracket");
     expect(variantOf((c) => setObs(c, "yesterday"))).toContain("no valid ISO 8601 graph.provenance.observed_at");
     expect(variantOf((c) => setObs(c, r1At), { r1: R.brackets.r1, c2: R.brackets.r1 })).toContain("not strictly later");
     expect(variantOf((c) => setObs(c, new Date(Date.parse(r1At) - 1000).toISOString()), { r1: R.brackets.r1, c2: [R.brackets.r1[0] - 5000, R.brackets.c2[1]] })).toContain("not strictly later");
-    expect(variantOf(() => {}, { r1: R.brackets.r1 })).toContain("no source-bound rebuild bracket");
+    expect(variantOf(() => {}, { r1: R.brackets.r1 })).toContain("no source-bound final-update bracket");
   }, D427_SLOW);
 
   test("dependent artifacts: a studio graph unlike its root, a wrong manifest graph hash or another manifest field refuses", () => {
@@ -2518,6 +2591,133 @@ describe("D-427 R2: early ISO years convert to their actual instant, with no cen
     const truth = (at) => [G.isoInstant(at) - 1000, G.isoInstant(at) + 1000];
     const remapped = (at) => [Date.parse(at.replace(/^0099/, "1999")) - 1000, Date.parse(at.replace(/^0099/, "1999")) + 1000];
     expect(G.repeatComparison(runAt(r1), runAt(c2), { brackets: { r1: truth(r1), c2: truth(c2) } }).findings).toEqual([]);
-    expect(G.repeatComparison(runAt(r1), runAt(c2), { brackets: { r1: remapped(r1), c2: remapped(c2) } }).findings.join(" ")).toContain("outside its own rebuild bracket");
+    expect(G.repeatComparison(runAt(r1), runAt(c2), { brackets: { r1: remapped(r1), c2: remapped(c2) } }).findings.join(" ")).toContain("outside its own final-update bracket");
+  });
+});
+
+// ===========================================================================
+// D-429 (B-050, Option B): the pure checks for the final-writer observation (A1), per-call selection (A2), the
+// final state on the composed staging candidate (A3) and the exact ignored-count transient (A4).
+// ===========================================================================
+describe("D-429: final-writer observation, per-call selection, final state, exact ignored-count transient", () => {
+  const T = G.IGNORED_TRANSIENT, AST = G.AST_CACHE_PREFIX;
+  const at = (ms) => new Date(ms).toISOString();
+  const call = (i, args, start, end, before, after, where = "checkout") => ({ i, where, args, start, end, before: { observedAt: before }, after: { observedAt: after } });
+  const calls = () => [
+    call(1, ["hook-rebuild", "--scope", "committed"], 0, 10, null, at(5)),
+    call(2, ["hook-rebuild", "--scope", "committed"], 11, 20, null, at(15), "fresh"),
+    call(3, ["update", "--fill-missing"], 21, 30, at(5), at(25)),
+    call(4, ["update"], 31, 40, at(25), at(35)),
+    call(5, ["label", "--label-mode", "assistant"], 41, 50, at(35), at(35)),
+  ];
+
+  test("A1: the final observation is the final update's, inside its bracket, unchanged afterwards", () => {
+    const ok = G.observationCallFindings(calls(), at(35));
+    expect(ok.findings).toEqual([]);
+    expect(ok.bracket).toEqual([31, 40]);
+    const outside = calls();
+    outside[3].after.observedAt = at(45);
+    outside[4].before.observedAt = outside[4].after.observedAt = at(45);
+    expect(G.observationCallFindings(outside, at(45)).findings.join(" ")).toContain("outside the final update call's bracket");
+    const changed = calls();
+    changed[4].after.observedAt = at(48);
+    expect(G.observationCallFindings(changed, at(48)).findings.join(" ")).toContain("changed the observation after the final update");
+    expect(G.observationCallFindings(calls(), at(25)).findings.join(" ")).toContain("not the value the final update call wrote");
+    expect(G.observationCallFindings(calls().slice(0, 2), at(15)).findings).toEqual(["no final update call was recorded"]);
+    expect(G.observationCallFindings(calls(), "2026-02-30T00:00:00Z").findings.join(" ")).toContain("no valid ISO 8601");
+  });
+
+  test("A2: a later call's selection is checked at both of its ends against the rebuild's oracle", () => {
+    const inputs = { current: "main", def: "main", repoKey: "repo:x", heads: [{ name: "old", time: 1000 }], revs: { main: ["a"], old: ["b"] } };
+    const edge = 30 * DAY + 1000;
+    const ref = G.selectionOracle(inputs, edge - 500);
+    expect(G.callSelectionFindings(ref, inputs, inputs, edge - 400, edge)).toEqual([]);
+    expect(G.callSelectionFindings(ref, inputs, inputs, edge - 400, edge + 500).join(" ")).toContain("at the call's end differs");
+    const moved = { ...inputs, revs: { ...inputs.revs, main: ["a", "c"] } };
+    expect(G.callSelectionFindings(ref, inputs, moved, edge - 400, edge).join(" ")).toContain("at the call's end differs");
+    expect(G.callSelectionFindings(ref, moved, inputs, edge - 400, edge).join(" ")).toContain("at the call's start differs");
+    expect(G.callSelectionFindings(ref, inputs, inputs, edge, edge - 1).join(" ")).toContain("invalid or unordered");
+  });
+
+  test("A4 per call: a rewritten scope must report its pre-call Git proxy; an unrewritten scope is not checked", () => {
+    const probe = (list, sha, count, mtimeMs = 1) => ({ list, scope: { sha256: sha, mtimeMs, count } });
+    expect(G.scopeCountFinding(probe(["x", "y"], "s0", 1), probe(["x", "y"], "s1", 2))).toBeNull();
+    expect(G.scopeCountFinding(probe(["x", "y"], "s0", 1), probe(["x", "y"], "s1", 3))).toContain("does not equal its pre-call Git proxy 2");
+    expect(G.scopeCountFinding(probe(["x"], "s0", 7), probe(["x"], "s0", 7))).toBeNull();
+    expect(G.scopeCountFinding(probe(null, "s0", 1), probe(null, "s1", 1))).toContain("no pre-call Git proxy");
+    expect(G.scopeCountFinding(probe(["x"], null, null, null), probe(["x"], null, null, null))).toBeNull();
+  });
+
+  test("A4 packet: the transient counts only when fill-missing wrote it (absent before, present after) and it is still present", () => {
+    const withLists = (fillBefore, fillAfter, finalBefore) => {
+      const c = calls();
+      c[2].before.list = fillBefore; c[2].after.list = fillAfter; c[3].before.list = finalBefore;
+      c[3].before.ignored = { n: finalBefore.length, sha256: "h" };
+      return c;
+    };
+    const base = [`${AST}1.json`, `${AST}2.json`, ".graphify/graph.json"];
+    const written = G.ignoredPacket(withLists(base, [...base, T], [...base, T]));
+    expect(written.packet).toEqual({ validatedCount: 4, astCount: 2, nonCache: [".graphify/graph.json", T], transient: 1, listSha256: "h" });
+    expect(G.ignoredPacket(withLists([...base, T], [...base, T], [...base, T])).packet.transient).toBe(0); // no origin
+    expect(G.ignoredPacket(withLists(base, [...base, T], base)).packet.transient).toBe(0); // removed before the final update
+    expect(G.ignoredPacket(calls().slice(0, 2)).findings).toEqual(["no pre-final-update Git proxy of the ignored files was recorded"]);
+  });
+
+  test("A4 across runs: equal counts need nothing; a one-file difference needs the exact transient, equal non-cache paths and AST cardinality", () => {
+    const p = (validatedCount, transient, nonCache = ["g"], astCount = 3) => ({ validatedCount, astCount, nonCache: transient ? [...nonCache, T] : nonCache, transient });
+    expect(G.ignoredAllowance(p(4, 0), p(4, 0))).toEqual({ findings: [], mask: false });
+    expect(G.ignoredAllowance(p(4, 0), p(4, 1))).toEqual({ findings: [], mask: false }); // equal counts: no allowance applied
+    expect(G.ignoredAllowance(p(5, 1), p(4, 0))).toEqual({ findings: [], mask: true });
+    expect(G.ignoredAllowance(p(4, 0), p(5, 1))).toEqual({ findings: [], mask: true });
+    expect(G.ignoredAllowance(p(5, 0), p(4, 0)).findings.join(" ")).toContain("unexplained ignored-count difference");
+    expect(G.ignoredAllowance(p(6, 1), p(4, 0)).findings.join(" ")).toContain("unexplained ignored-count difference");
+    expect(G.ignoredAllowance(p(5, 1, ["g"]), p(4, 0, ["h"])).findings.join(" ")).toContain("non-cache ignored paths differ");
+    expect(G.ignoredAllowance(p(5, 1, ["g"], 3), p(4, 0, ["g"], 2)).findings.join(" ")).toContain("AST-cache cardinality differs");
+    expect(G.ignoredAllowance(null, p(4, 0)).findings).toEqual(["R1: missing or malformed D-429 ignored-list evidence"]);
+    expect(G.ignoredAllowance(p(4, 0), { ...p(4, 0), transient: 2 }).mask).toBe(false);
+  });
+
+  test("A4 copies: both copies of the producer's count must equal the validated count", () => {
+    const d = join(F2, `d429copies${++n}`);
+    mkdirSync(d);
+    writeFileSync(join(d, "scope.json"), JSON.stringify({ excluded_ignored_count: 7 }));
+    writeFileSync(join(d, ".graphify_detect.json"), JSON.stringify({ scope: { excluded_ignored_count: 7 } }));
+    expect(G.ignoredCountFindings(d, 7, "X")).toEqual([]);
+    expect(G.ignoredCountFindings(d, 8, "X")).toHaveLength(2);
+    writeFileSync(join(d, ".graphify_detect.json"), JSON.stringify({ scope: { excluded_ignored_count: 6 } }));
+    expect(G.ignoredCountFindings(d, 7, "X").join(" ")).toContain(".graphify_detect.json scope.excluded_ignored_count 6");
+    rmSync(join(d, ".graphify_detect.json"));
+    expect(G.ignoredCountFindings(d, 7, "X")).toHaveLength(1);
+    expect(G.ignoredCountFindings(d, undefined, "X")).toEqual(["X: no validated ignored count is recorded"]);
+  });
+
+  test("A3 on staging: observation, bindings, final Git merge and both count copies; a valid candidate passes", () => {
+    const k = "repo:github.com/example/fixture-repo";
+    const c1 = { id: `commit:${k}@${"a".repeat(40)}`, node_type: "Commit", repo: k, sha: "a".repeat(40) };
+    const c2 = { id: `commit:${k}@${"b".repeat(40)}`, node_type: "Commit", repo: k, sha: "b".repeat(40) };
+    const t = Date.parse("2026-10-08T10:00:00.000Z"), obs = "2026-10-08T10:00:01.000Z";
+    const mk = (name, nodes, withBundle) => {
+      const d = join(F2, `${name}${++n}`);
+      mkdirSync(d);
+      writeFileSync(join(d, "graph.json"), JSON.stringify({ nodes, links: [], graph: { provenance: { source_owner: "git", observed_at: obs } } }));
+      if (withBundle) {
+        writeStudioBundle(d);
+        writeFileSync(join(d, "scope.json"), JSON.stringify({ excluded_ignored_count: 5 }));
+        writeFileSync(join(d, ".graphify_detect.json"), JSON.stringify({ scope: { excluded_ignored_count: 5 } }));
+      }
+      return d;
+    };
+    const seed = mk("d429seed", [c1]), fresh = mk("d429fresh", [c2]);
+    const selection = { brackets: { finalUpdate: [t, t + 2000] }, finalObservedAt: obs, ignored: { validatedCount: 5 } };
+    const good = mk("d429stage", [c1, c2], true);
+    expect(G.verifyStaging({ staging: good, selection, seed, fresh })).toEqual([]);
+    expect(G.verifyStaging({ staging: good, selection: { ...selection, finalObservedAt: "2026-10-08T10:00:01.500Z" }, seed, fresh }).join(" ")).toContain("not the generation's final observation");
+    expect(G.verifyStaging({ staging: good, selection: { ...selection, brackets: { finalUpdate: [t + 5000, t + 6000] } }, seed, fresh }).join(" ")).toContain("outside its own final-update bracket");
+    expect(G.verifyStaging({ staging: mk("d429late", [c1], true), selection, seed, fresh }).join(" ")).toContain("omitted Git nodes");
+    const bad = mk("d429bind", [c1, c2], true);
+    writeFileSync(join(bad, "studio", "graph.json"), JSON.stringify({ nodes: [] }));
+    expect(G.verifyStaging({ staging: bad, selection, seed, fresh }).join(" ")).toContain("does not equal its own root graph");
+    expect(G.verifyStaging({ staging: good, selection: { ...selection, ignored: { validatedCount: 6 } }, seed, fresh }).join(" ")).toContain("is not the validated count 6");
+    expect(G.verifyStaging({ staging: good, selection: { finalObservedAt: obs }, seed, fresh })).toEqual(["staging: the frozen packet lacks D-429 evidence (final-update bracket, final observation or ignored list)"]);
   });
 });

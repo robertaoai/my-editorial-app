@@ -1266,20 +1266,32 @@ export function generateCandidate({ repo, snapshot, baseline, work, answers = {}
   if (!prep.ok) return { status: "refused", reason: prep.reason, evidence };
   cpSync(baseline, state, { recursive: true });
   const expected = { head: snapshot.head, branchName: snapshot.branch, root: checkout, gitDir: join(checkout, ".git") };
-  /** One child call: argv and bindings verified first; a Git-extracting call is bracketed by the clock. */
+  // D-429: every Graphify child call is bracketed and recorded (A1), checked for selection after the rebuild (A2),
+  // and given a pre/post Git proxy of its ignored files (A4), kept under `work/ignored/` and hashed in the packet.
+  const calls = [];
+  const ignoredDir = join(work, "ignored");
+  mkdirSync(ignoredDir, { recursive: true });
+  let rebuildBracket = null;
+  /** One child call: argv and bindings verified first; bracketed by the clock; probed before and after. */
   const invoke = (cwd, args, inputs) => {
     if (bindings) {
       const f = [...argvFindings(bindings, args, state), ...bindingFindings(bindings, { checkout: cwd, queries: configQueries })];
       if (f.length) return { refused: `executable binding refused before ${args[0]}: ${f.join("; ")}` };
     }
     const argv = [process.execPath, cli, ...args];
-    if (!inputs) return { r: tool(cwd, args, { cli }), argv };
+    const i = calls.length + 1;
+    const where = cwd === checkout ? "checkout" : "fresh";
+    const before = callProbe(cwd, join(ignoredDir, `${i}-${where}-before.txt`));
+    // A2: after the rebuild, every later checkout call is checked at both of its ends against the rebuild's oracle
+    const later = !inputs && where === "checkout" && rebuildBracket ? selectionInputs(cwd) : null;
     const t0 = clock();
     const r = tool(cwd, args, { cli });
     const t1 = clock();
-    return { r, argv, bracket: selectionBracket(inputs, t0, t1) };
+    const after = callProbe(cwd, join(ignoredDir, `${i}-${where}-after.txt`));
+    calls.push({ i, where, args: [...args], start: t0, end: t1, before, after });
+    const sel = later ? callSelectionFindings(rebuildBracket.oracle, later, selectionInputs(cwd), t0, t1) : [];
+    return { r, argv, sel, count: scopeCountFinding(before, after), bracket: inputs ? selectionBracket(inputs, t0, t1) : null };
   };
-  let rebuildBracket = null;
   const stage = (name, args, inputs) => {
     const before = digestOf(state);
     const call = invoke(checkout, args, inputs);
@@ -1292,6 +1304,8 @@ export function generateCandidate({ repo, snapshot, baseline, work, answers = {}
     if (name === "hook-rebuild" && !/Rebuilt:/.test(r.out) && digestOf(state) === before) return "no-op: the rebuild wrote nothing";
     if (call.bracket && !call.bracket.ok) return `${call.bracket.finding} (${name}): refused`;
     if (call.bracket) rebuildBracket = call.bracket;
+    if (call.sel.length) return `${call.sel.join("; ")} (${name}): refused`;
+    if (call.count) return `${call.count} (${name}): refused`;
     return null;
   };
   const bad = stage("hook-rebuild", REBUILD_ARGS, selectionInputs(checkout));
@@ -1303,6 +1317,7 @@ export function generateCandidate({ repo, snapshot, baseline, work, answers = {}
   if (fc.refused) return { status: "refused", reason: fc.refused, evidence };
   evidence.push({ stage: "fresh-extraction", argv: fc.argv, code: fc.r.code });
   if (fc.r.code !== 0) return { status: "refused", reason: "the fresh extraction failed", evidence };
+  if (fc.count) return { status: "refused", reason: `${fc.count} (fresh extraction): refused`, evidence };
   const freshState = join(fresh, ".graphify");
   const freshRaw = lifecycleFindings(readState(freshState), { head: snapshot.head, branchName: snapshot.branch, root: fresh, gitDir: join(fresh, ".git") });
   if (freshRaw.length) return { status: "refused", reason: `raw metadata refused after the fresh extraction: ${freshRaw.join("; ")}`, evidence };
@@ -1360,7 +1375,174 @@ export function generateCandidate({ repo, snapshot, baseline, work, answers = {}
   const v = validateStudio({ state, cli, shipped: bindings?.studioApp });
   evidence.push({ stage: "studio-validate", findings: v.findings.length, summary: v.summary });
   if (v.findings.length) return { status: "refused", reason: `the studio bundle is not the producer projection of the final graph: ${v.findings.slice(0, 5).join("; ")}`, evidence };
-  return { status: "generated", checkout, state, evidence, selection };
+  // D-429 after the last Graphify child call: A1 the final observation and its writer, A3 the final Git state,
+  // A4 the validated ignored count and the exact transient.
+  const finalGraph = readJsonOr(join(state, "graph.json"));
+  const finalObservedAt = observationOf(finalGraph) ?? null;
+  const obs = observationCallFindings(calls, finalObservedAt);
+  if (obs.findings.length) return { status: "refused", reason: `D-429 A1: ${obs.findings.join("; ")}`, evidence };
+  const late = gitMergeFindings(gitSubgraph(readJsonOr(join(baseline, "graph.json"))), freshGit, gitSubgraph(finalGraph));
+  if (late.length) return { status: "refused", reason: `D-429 A3: the final Git subgraph is not the producer merge of the baseline and the fresh extraction: ${late.join("; ")}`, evidence };
+  const ignored = ignoredPacket(calls);
+  if (ignored.findings.length) return { status: "refused", reason: `D-429 A4: ${ignored.findings.join("; ")}`, evidence };
+  const copies = ignoredCountFindings(state, ignored.packet.validatedCount, "candidate");
+  if (copies.length) return { status: "refused", reason: `D-429 A4: ${copies.join("; ")}`, evidence };
+  const packet = { ...selection, brackets: { ...selection.brackets, finalUpdate: obs.bracket }, finalObservedAt, ignored: ignored.packet,
+    calls: calls.map(({ i, where, args, start, end, before, after }) => ({ i, where, args, start, end,
+      before: { observedAt: before.observedAt, ignored: before.ignored }, after: { observedAt: after.observedAt, ignored: after.ignored } })) };
+  evidence.push({ stage: "d429", calls: calls.length, finalUpdate: obs.bracket, validatedCount: ignored.packet.validatedCount, transient: ignored.packet.transient });
+  return { status: "generated", checkout, state, evidence, selection: packet, fresh: freshState };
+}
+
+// ---------------------------------------------------------------------------
+// D-429 (B-050, Option B): final-writer observation (A1), per-call selection (A2), final-state checks (A3) and
+// the exact ignored-count transient (A4). Pure helpers; generation, composition and the repeat call them.
+// ---------------------------------------------------------------------------
+
+/** A4: the single transient path allowed to account for an ignored-count difference, and the cache class. */
+export const IGNORED_TRANSIENT = ".graphify/label-instructions/communities.md";
+export const AST_CACHE_PREFIX = ".graphify/cache/ast/";
+
+/** A4: the pre/post-call Git proxy of a checkout's ignored files, written to `listFile` and summarized. */
+function callProbe(cwd, listFile) {
+  const st = join(cwd, ".graphify");
+  let list = null;
+  try {
+    list = git(cwd, ["ls-files", "--others", "--ignored", "--exclude-standard"]).split("\n").filter(Boolean).sort();
+  } catch {
+    list = null;
+  }
+  if (list) writeFileSync(listFile, list.join("\n"));
+  const scopePath = join(st, "scope.json");
+  const scopeBytes = existsSync(scopePath) ? readFileSync(scopePath) : null;
+  let scopeCount = null;
+  try {
+    scopeCount = scopeBytes ? JSON.parse(scopeBytes.toString("utf8")).excluded_ignored_count ?? null : null;
+  } catch {
+    scopeCount = null;
+  }
+  return {
+    observedAt: observationOf(readJsonOr(join(st, "graph.json"))) ?? null,
+    ignored: list ? { n: list.length, sha256: createHash("sha256").update(list.join("\n")).digest("hex"), file: listFile } : null,
+    list,
+    scope: { sha256: scopeBytes ? createHash("sha256").update(scopeBytes).digest("hex") : null, mtimeMs: scopeBytes ? statSync(scopePath).mtimeMs : null, count: scopeCount },
+  };
+}
+
+/**
+ * A4, per call: a call that rewrote `scope.json` must report an ignored count equal to its own pre-call Git
+ * proxy. Returns a finding, or null (also when the call did not rewrite the scope).
+ */
+export function scopeCountFinding(before, after) {
+  const rewrote = after?.scope?.sha256 !== null && (after.scope.sha256 !== before?.scope?.sha256 || after.scope.mtimeMs !== before?.scope?.mtimeMs);
+  if (!rewrote) return null;
+  if (!Array.isArray(before?.list)) return "D-429 A4: no pre-call Git proxy of the ignored files was recorded";
+  if (after.scope.count !== before.list.length) return `D-429 A4: the producer's ignored count ${after.scope.count} does not equal its pre-call Git proxy ${before.list.length}`;
+  return null;
+}
+
+/**
+ * A2: a later call's selection at both of its ends (inputs read before and after it, at its start and end
+ * times) must equal the rebuild's oracle. A crossed cutoff, changed references or invalid times refuse.
+ */
+export function callSelectionFindings(reference, inputsBefore, inputsAfter, t0, t1) {
+  if (!Number.isFinite(t0) || !Number.isFinite(t1) || t1 < t0) return ["D-429 A2: the call's selection times are invalid or unordered"];
+  const want = JSON.stringify(reference);
+  const f = [];
+  if (JSON.stringify(selectionOracle(inputsBefore, t0)) !== want) f.push("D-429 A2: the branch selection at the call's start differs from the rebuild's");
+  if (JSON.stringify(selectionOracle(inputsAfter, t1)) !== want) f.push("D-429 A2: the branch selection at the call's end differs from the rebuild's");
+  return f;
+}
+
+/**
+ * A1: the final observation must be the value the final `update` call wrote, lie inside that call's own
+ * bracket, and stay unchanged by every later call. Returns findings and the final-update bracket.
+ */
+export function observationCallFindings(calls, finalObservedAt) {
+  const updates = calls.filter((c) => c.where === "checkout" && c.args[0] === "update");
+  const fin = updates[updates.length - 1];
+  if (!fin) return { findings: ["no final update call was recorded"], bracket: null };
+  const f = [];
+  const instant = isoInstant(finalObservedAt);
+  if (instant === null) f.push("the final graph has no valid ISO 8601 graph.provenance.observed_at");
+  else if (instant < fin.start || instant > fin.end) f.push(`the final observed_at ${finalObservedAt} lies outside the final update call's bracket`);
+  if (fin.after.observedAt !== finalObservedAt) f.push("the final observed_at is not the value the final update call wrote");
+  for (const c of calls.filter((x) => x.where === "checkout" && x.i > fin.i)) {
+    if (c.before.observedAt !== c.after.observedAt) f.push(`call ${c.i} (${c.args.join(" ")}) changed the observation after the final update`);
+  }
+  return { findings: f, bracket: [fin.start, fin.end] };
+}
+
+/**
+ * A4: the run's validated ignored count (its pre-final-`update` proxy length), its AST-cache cardinality, its
+ * non-cache paths and its transient indicator (1 only when `update --fill-missing` wrote the exact transient:
+ * absent before that call, present after it, and still present before the final update).
+ */
+export function ignoredPacket(calls) {
+  const updates = calls.filter((c) => c.where === "checkout" && c.args[0] === "update");
+  const fin = updates[updates.length - 1];
+  const fill = calls.filter((c) => c.where === "checkout" && c.args[0] === "update" && c.args[1] === "--fill-missing" && (!fin || c.i < fin.i)).pop();
+  if (!fin || !Array.isArray(fin.before.list)) return { findings: ["no pre-final-update Git proxy of the ignored files was recorded"], packet: null };
+  const list = fin.before.list;
+  const present = list.includes(IGNORED_TRANSIENT);
+  const origin = Boolean(fill && Array.isArray(fill.before.list) && Array.isArray(fill.after.list) &&
+    !fill.before.list.includes(IGNORED_TRANSIENT) && fill.after.list.includes(IGNORED_TRANSIENT));
+  return { findings: [], packet: {
+    validatedCount: list.length,
+    astCount: list.filter((p) => p.startsWith(AST_CACHE_PREFIX)).length,
+    nonCache: list.filter((p) => !p.startsWith(AST_CACHE_PREFIX)),
+    transient: present && origin ? 1 : 0,
+    listSha256: fin.before.ignored.sha256,
+  } };
+}
+
+/** A4: both copies of the producer's ignored count in a state must equal the run's validated count. */
+export function ignoredCountFindings(dir, validatedCount, tag) {
+  const f = [];
+  const scope = readJsonOr(join(dir, "scope.json"));
+  const detect = readJsonOr(join(dir, ".graphify_detect.json"));
+  if (!Number.isInteger(validatedCount)) return [`${tag}: no validated ignored count is recorded`];
+  if (scope?.excluded_ignored_count !== validatedCount) f.push(`${tag}: scope.json excluded_ignored_count ${scope?.excluded_ignored_count} is not the validated count ${validatedCount}`);
+  if (detect?.scope?.excluded_ignored_count !== validatedCount) f.push(`${tag}: .graphify_detect.json scope.excluded_ignored_count ${detect?.scope?.excluded_ignored_count} is not the validated count ${validatedCount}`);
+  return f;
+}
+
+/**
+ * A4 across runs. Equal counts: no allowance (and none needed). Unequal counts: the difference must equal the
+ * difference of the two transient indicators, the non-cache paths (less the transient) must agree and the
+ * AST-cache cardinalities must agree; only then are the two count leaves masked. Missing evidence refuses.
+ */
+export function ignoredAllowance(p1, p2) {
+  const ok = (p) => p && Number.isInteger(p.validatedCount) && Number.isInteger(p.astCount) && Array.isArray(p.nonCache) && (p.transient === 0 || p.transient === 1);
+  const f = [];
+  if (!ok(p1)) f.push("R1: missing or malformed D-429 ignored-list evidence");
+  if (!ok(p2)) f.push("C2: missing or malformed D-429 ignored-list evidence");
+  if (f.length) return { findings: f, mask: false };
+  if (p1.validatedCount === p2.validatedCount) return { findings: [], mask: false };
+  if (p1.validatedCount - p2.validatedCount !== p1.transient - p2.transient) f.push(`unexplained ignored-count difference: R1 ${p1.validatedCount} (transient ${p1.transient}) vs C2 ${p2.validatedCount} (transient ${p2.transient})`);
+  const strip = (p) => JSON.stringify(p.nonCache.filter((x) => x !== IGNORED_TRANSIENT));
+  if (strip(p1) !== strip(p2)) f.push("the non-cache ignored paths differ beyond the transient");
+  if (p1.astCount !== p2.astCount) f.push(`the AST-cache cardinality differs: R1 ${p1.astCount} vs C2 ${p2.astCount}`);
+  return { findings: f, mask: f.length === 0 };
+}
+
+/**
+ * A3 on the composed staging candidate, before its manifest is frozen: the final observation is the
+ * generation's and inside its final-update bracket; root graph, studio graph and manifest bindings hold; the
+ * Git subgraph is the producer merge of the seed and the fresh extraction; both ignored-count copies equal the
+ * validated count. Returns findings.
+ */
+export function verifyStaging({ staging, selection, seed, fresh }) {
+  const s = selection ?? {};
+  if (!Array.isArray(s.brackets?.finalUpdate) || typeof s.finalObservedAt !== "string" || !s.ignored) return ["staging: the frozen packet lacks D-429 evidence (final-update bracket, final observation or ignored list)"];
+  const f = [];
+  const p = provenanceFindings(staging, s.brackets.finalUpdate, "staging");
+  f.push(...p.findings);
+  if (p.observedAt !== s.finalObservedAt) f.push("staging: the observation is not the generation's final observation");
+  const g = gitMergeFindings(gitSubgraph(readJsonOr(join(seed, "graph.json"))), gitSubgraph(fresh ? readJsonOr(join(fresh, "graph.json")) : null), gitSubgraph(readJsonOr(join(staging, "graph.json"))));
+  if (g.length) f.push(`staging: the Git subgraph is not the producer merge of the seed and the fresh extraction: ${g.join("; ")}`);
+  f.push(...ignoredCountFindings(staging, s.ignored.validatedCount, "staging"));
+  return f;
 }
 
 // ---------------------------------------------------------------------------
@@ -2143,6 +2325,11 @@ function attempt(work, s, answers, deps) {
   const caller = callerOf(s.repo, s.frozen.snapshot);
   const composed = deps.compose({ candidateState: gen.state, baseline, staging, workRoot: work, source: { repo: s.repo, snapshot: s.frozen.snapshot }, caller, frozenAt: deps.now(), fragmentsDir: join(gen.checkout, "docs", "graph-fragments") });
   if (!composed.ok) return { attempts: n, outcome: "failed", reason: (composed.findings || []).slice(0, 5).join("; ") };
+  // D-429 A3: the composed staging candidate is checked before its manifest is frozen, and the manifest is
+  // recomputed afterwards so the frozen identity is exactly the verified bytes.
+  const staged = deps.verifyStaging({ staging, selection: gen.selection, seed: baseline, fresh: gen.fresh });
+  if (staged.length) return { attempts: n, outcome: "failed", reason: `D-429 A3: ${staged.slice(0, 5).join("; ")}` };
+  if (treeDigest(hashTree(staging)) !== composed.manifest) return { attempts: n, outcome: "failed", reason: "D-429 A3: the staging bytes changed after composition" };
   // PR5a: the answers, caller identity and selection are kept with the ready candidate (the frozen packet).
   const answersFile = join(dir, "ANSWERS.json");
   writeDurable(answersFile, answers);
@@ -2150,7 +2337,7 @@ function attempt(work, s, answers, deps) {
     selection: gen.selection ?? null, caller, answersFile, answersSha: createHash("sha256").update(readFileSync(answersFile)).digest("hex") } };
 }
 
-const defaults = (deps = {}) => ({ generate: generateCandidate, compose: composeCandidate, pinned: pinnedCli, bindings: executableBindings, now: () => new Date().toISOString(), ...deps });
+const defaults = (deps = {}) => ({ generate: generateCandidate, compose: composeCandidate, verifyStaging, pinned: pinnedCli, bindings: executableBindings, now: () => new Date().toISOString(), ...deps });
 
 /** Writes `preparing` under the claim, runs one attempt outside it, then settles the state under the claim. */
 function runAttempt(work, s, answers, deps) {
@@ -2418,6 +2605,7 @@ export function isoInstant(text) {
   return t.getTime() - offset;
 }
 const MASK = "<masked by D-427 after per-run validation>";
+const MASK_D429 = "<masked by D-429 A4: the difference is the validated transient>";
 const observationOf = (g) => g?.graph?.provenance?.observed_at;
 const withMaskedObservation = (g) => (g?.graph?.provenance ? { ...g, graph: { ...g.graph, provenance: { ...g.graph.provenance, observed_at: MASK } } } : g);
 const withMaskedGraphHash = (m) => ({ ...m, artifacts: (m?.artifacts ?? []).map((a) => (a?.name === REPEAT_PROVENANCE.manifest.entry ? { ...a, sha256: MASK } : a)) });
@@ -2426,7 +2614,7 @@ const withMaskedGraphHash = (m) => ({ ...m, artifacts: (m?.artifacts ?? []).map(
  * D-427 per-run validation, before any cross-run allowance and even when raw files match: the root graph, the
  * studio graph and the workspace manifest all exist, parse and have their shapes (D427-R1: never skipped when
  * absent); the observation is a valid ISO 8601 instant (D427-R2: no calendar rollover) inside the run's own
- * recorded rebuild bracket; the studio graph equals its own root graph by content; exactly one manifest `graph`
+ * recorded final-update bracket (D-429 A1); the studio graph equals its own root graph by content; exactly one manifest `graph`
  * entry binds that run's own studio graph bytes. `instant` is the parsed observation, for the ordering check.
  */
 export function provenanceFindings(dir, bracket, tag) {
@@ -2449,8 +2637,8 @@ export function provenanceFindings(dir, bracket, tag) {
   const instant = isoInstant(at);
   if (isObj(root)) {
     if (instant === null) f.push(`${tag}: graph.json has no valid ISO 8601 graph.provenance.observed_at`);
-    else if (!Array.isArray(bracket) || bracket.length !== 2 || !bracket.every(Number.isFinite)) f.push(`${tag}: no source-bound rebuild bracket is recorded for its observation`);
-    else if (instant < bracket[0] || instant > bracket[1]) f.push(`${tag}: observed_at ${at} lies outside its own rebuild bracket`);
+    else if (!Array.isArray(bracket) || bracket.length !== 2 || !bracket.every(Number.isFinite)) f.push(`${tag}: no source-bound final-update bracket is recorded for its observation`);
+    else if (instant < bracket[0] || instant > bracket[1]) f.push(`${tag}: observed_at ${at} lies outside its own final-update bracket`);
   }
   if (isObj(root) && isObj(studio) && canon(studio) !== canon(root)) f.push(`${tag}: studio/graph.json does not equal its own root graph`);
   if (isObj(m) && Array.isArray(m.artifacts)) {
@@ -2465,9 +2653,12 @@ export function provenanceFindings(dir, bracket, tag) {
  * The C2-versus-R1 comparison. Retained files are byte-equal; declared volatile fields are the only
  * allowed differences, plus D-427's three validated leaves; graph files are compared by content (raw
  * hashes are recorded separately); any other JSON file by parsed content; any other file by bytes. Any
- * finding stops the repeat. `brackets` are each run's own recorded rebuild bracket.
+ * finding stops the repeat. `brackets` are each run's own recorded final-update bracket (D-429 A1).
+ * `ignored` (D-429 A4) carries each run's ignored-list packet: both count copies must equal each run's
+ * validated count, and the two count leaves are masked only under `ignoredAllowance`. Without it, no
+ * count allowance applies.
  */
-export function repeatComparison(r1, c2, { brackets = {} } = {}) {
+export function repeatComparison(r1, c2, { brackets = {}, ignored } = {}) {
   const findings = [];
   const p1 = provenanceFindings(r1, brackets.r1, "R1"), p2 = provenanceFindings(c2, brackets.c2, "C2");
   findings.push(...p1.findings, ...p2.findings);
@@ -2475,6 +2666,13 @@ export function repeatComparison(r1, c2, { brackets = {} } = {}) {
     findings.push(`C2's observed_at ${p2.observedAt} is not strictly later than R1's ${p1.observedAt}`);
   }
   const validated = !findings.length;
+  let countMask = false;
+  if (ignored) {
+    findings.push(...ignoredCountFindings(r1, ignored.r1?.validatedCount, "R1"), ...ignoredCountFindings(c2, ignored.c2?.validatedCount, "C2"));
+    const a4 = ignoredAllowance(ignored.r1, ignored.c2);
+    findings.push(...a4.findings);
+    countMask = a4.mask;
+  }
   const ha = hashTree(r1), hb = hashTree(c2);
   for (const rel of Object.keys(ha)) if (!(rel in hb)) findings.push(`${rel} is missing in C2`);
   for (const rel of Object.keys(hb)) if (!(rel in ha)) findings.push(`${rel} is only in C2`);
@@ -2497,6 +2695,10 @@ export function repeatComparison(r1, c2, { brackets = {} } = {}) {
       continue;
     }
     if (rel === REPEAT_PROVENANCE.manifest.file && validated) { a = withMaskedGraphHash(a); b = withMaskedGraphHash(b); }
+    if (countMask && rel === "scope.json") { a = { ...a, excluded_ignored_count: MASK_D429 }; b = { ...b, excluded_ignored_count: MASK_D429 }; }
+    if (countMask && rel === ".graphify_detect.json") {
+      a = { ...a, scope: { ...a?.scope, excluded_ignored_count: MASK_D429 } }; b = { ...b, scope: { ...b?.scope, excluded_ignored_count: MASK_D429 } };
+    }
     const allowed = REPEAT_VOLATILE[rel] ?? [];
     const keys = [...new Set([...Object.keys(a ?? {}), ...Object.keys(b ?? {})])].filter((k) => canon(a?.[k]) !== canon(b?.[k]));
     const undeclared = keys.filter((k) => !allowed.includes(k));
@@ -2522,6 +2724,11 @@ export function proveRepeat({ work, out, repo, liveTarget = REAL_LIVE_TARGET, bo
   if (s?.state !== "published") return stop(`the first run is not published (state: ${s?.state ?? "none"})`);
   const r = s.ready ?? {};
   if (!s.frozen?.bindings || !r.selection || !r.caller || !r.answersFile) return stop("the first run's frozen packet is incomplete (bindings, selection, caller or answers)");
+  // D-429 (Option B): a first run without the final-update bracket, final observation and ignored-list evidence
+  // cannot be repeated against; no legacy reconstruction.
+  if (!Array.isArray(r.selection.brackets?.finalUpdate) || typeof r.selection.finalObservedAt !== "string" || !r.selection.ignored) {
+    return stop("the first run's frozen packet lacks D-429 evidence (final-update bracket, final observation or ignored list): prepare a fresh release");
+  }
   if (!existsSync(r.answersFile) || createHash("sha256").update(readFileSync(r.answersFile)).digest("hex") !== r.answersSha) return stop("the first run's answer packet changed");
   const d = defaults(deps);
   const pins = d.pinned(d.cli);
@@ -2544,7 +2751,12 @@ export function proveRepeat({ work, out, repo, liveTarget = REAL_LIVE_TARGET, bo
   const staging = join(out, "staging");
   const composed = d.compose({ candidateState: gen.state, baseline: cap.baseline, staging, workRoot: out, source: { repo, snapshot: s.frozen.snapshot }, caller: r.caller, frozenAt: d.now(), fragmentsDir: join(gen.checkout, "docs", "graph-fragments") });
   if (!composed.ok) return stop(`the repeat composition refused: ${(composed.findings || []).slice(0, 3).join("; ")}`);
-  const cmp = repeatComparison(liveTargetPath(liveTarget), staging, { brackets: { r1: r.selection.brackets?.rebuild, c2: gen.selection?.brackets?.rebuild } });
+  const staged = d.verifyStaging({ staging, selection: gen.selection, seed: cap.baseline, fresh: gen.fresh });
+  if (staged.length) return stop(`the repeat candidate failed D-429 A3: ${staged.slice(0, 3).join("; ")}`);
+  const cmp = repeatComparison(liveTargetPath(liveTarget), staging, {
+    brackets: { r1: r.selection.brackets.finalUpdate, c2: gen.selection?.brackets?.finalUpdate },
+    ignored: { r1: r.selection.ignored, c2: gen.selection?.ignored },
+  });
   const receipt = { kind: "repeat", runId: randomUUID(), at: new Date().toISOString(), workId: s.workId, predecessor, successor, volatile: REPEAT_VOLATILE, provenance: REPEAT_PROVENANCE, raw: cmp.raw, findings: cmp.findings };
   writeDurable(join(out, "REPEAT.json"), receipt);
   return cmp.findings.length
