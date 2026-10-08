@@ -6109,3 +6109,75 @@ stays Applied; its O1 row stays open.
 | Approve-with-conditions | Draft `D-429` | Phase 1: Lane B's review, then the Judge issues it |
 | Defer | Issuing `D-429`, implementation, renewed receipts, new cycle, receipt 5, closure, push | Phase 1: in order |
 | Reject | A wildcard ignored-count class; inferred evidence presented as historical records; an unchanged rerun | Phase 1 |
+
+## Lane A — draft `D-429` revised (A3, A4, controls); Lane B confirms; consolidated text, 2026-10-08
+
+Read at `da5cbc8`. Two Lane B reviews were delivered in chat (worklogs, 2026-10-08): the contract review, which raised
+three gaps (A3 stopped before composition; A4 did not allow equal counts; A4's proxy and accounting were implicit), and
+the **confirmation**: "the revised A3, A4 and controls resolve the three requested planning corrections. The proposal
+is ready for Judge selection", with two details to make explicit (a before/after origin for the transient; both
+count copies agreeing with the validated per-run count). Both details are in the text below. The earlier draft
+(`d399c8f`) is kept as history; this section supersedes it for issuance.
+
+**Judge, 2026-10-08**, in chat: "yes commit the revision and issue D-429 after Lane B confirms". Lane B has confirmed;
+issuance is recorded in the Register in its own canonical commit, with this text applied in full.
+
+### Consolidated `D-429` text
+
+> **`D-429` — B-050 amendment to D-426/D-427: final-writer observation, per-call selection, final-state checks, exact
+> ignored-count transient; fresh release cycle (Option B).**
+>
+> 1. **Observation (A1).** The guard brackets every Graphify child call and records each call's arguments, start and
+>    end, and its before/after `graph.provenance.observed_at` in the frozen packet. The final value must lie inside the
+>    bracket of the **final `update` call**, and no later call may change it. Retained unchanged: the valid
+>    calendar-instant check (D427-R2), complete per-run bundles (D427-R1), C2 strictly later than R1, the studio graph
+>    equal to the root graph by content, and exactly one manifest `graph` entry binding that run's own studio-graph
+>    bytes. The repeat masks only the validated observation leaf.
+> 2. **Selection (A2).** Conservative: the branch-selection oracle is computed at both ends of **every** Graphify child
+>    call, and every result must equal the rebuild's oracle. A crossed cutoff in any call refuses. The implementation
+>    also inventories, from the pinned producer, which commands run a Git extraction, for Lane B's review; the rule does
+>    not depend on that list being complete.
+> 3. **Final state (A3).** The Git subgraph must equal the producer merge of the seed and the fresh extraction
+>    (`gitMergeFindings`, zero findings), checked **twice**: after the last Graphify child call, and **on the composed
+>    staging candidate before its manifest is frozen**. At the second point the guard also re-checks the final
+>    observation (A1) and the root-graph, studio-graph and manifest bindings. A valid generation alone does not
+>    establish that the final candidate is correct. Any difference refuses.
+> 4. **Ignored count (A4).** For each Graphify child call the guard records a **pre-call Git proxy** list of ignored
+>    files (`ls-files --others --ignored --exclude-standard`), bound to its run and call, with its hash retained. For
+>    each call that rewrites the scope count, the producer's reported count must equal that list's length. Each run's
+>    **validated count** is its pre-final-`update` list length; both copies (`scope.json` `excluded_ignored_count` and
+>    `.graphify_detect.json` `scope.excluded_ignored_count`) must equal it.
+>    - **Equal counts across runs:** no transient allowance is applied and `communities.md` is not required. Equal
+>      counts do not waive missing evidence or any other check.
+>    - **Unequal counts:** each run's transient indicator is 1 when `.graphify/label-instructions/communities.md` is
+>      present in its pre-final-`update` list **and** that run's `update --fill-missing` wrote it, shown by its absence
+>      from that call's pre-call list and presence in its post-call list. Presence alone is insufficient. Otherwise the
+>      indicator is 0. The count difference must equal the difference between the indicators; the remaining non-cache
+>      paths must agree; AST-cache (`.graphify/cache/ast/`) cardinalities must agree. Missing list evidence or any
+>      unexplained remainder refuses.
+>    - Equal cache cardinality explains the arithmetic only. It does not prove identical cache contents or recover
+>      historical detector identities; differing cache filenames stay subject to the existing source and input bindings.
+> 5. **Paths and recording (A5).** Implementation: only `scripts/graphify/guarded-rebuild.mjs` and
+>    `scripts/fixtures/graphify-guard.test.mjs`. Canonical recording, separate: the Register, `V1-BUILD-SPEC.md` and
+>    `V1-ARTIFACT-INVENTORY.md` (`D-54`). D-426's limits stand (P7 fixture-only recovery, P8 flake stop, no new live
+>    target, no fallback).
+> 6. **Controls.** A real full-pipeline **generation and composition** valid control. Retained refusals: timestamp,
+>    selection, Git, manifest and undeclared-difference. Added cases: an observation outside the final-`update` bracket
+>    or changed afterwards (refuse); a crossed cutoff in a later call (refuse); a late Git change (refuse); equal counts
+>    with no transient (valid); the one-file difference in each direction, written by `fill-missing` (valid); the
+>    transient present without before/after origin (refuse); missing proxy-list evidence (refuse); a count copy that
+>    disagrees with the validated count (refuse); an unexplained count change (refuse); a non-cache path difference
+>    (refuse); an AST-cache cardinality difference (refuse); corruption introduced during composition (refuse at the A3
+>    staging check).
+> 7. **Fresh release cycle (Option B, Judge-selected).** In order: implementation → renewed receipt 1 (source-bound
+>    readiness of the amended guard) → new candidate preparation → receipt 2 → guarded release of a new R1 and separate
+>    health (receipt 3) → repeat against the new R1 (receipt 4) → receipt 5 → B-050 disposition → B-077. Receipts 1–3
+>    already accepted keep their recorded scopes; the earlier R1 and the failed receipt 4 are retained as history.
+> 8. **Selection timing.** The branch selection must be stable and validated across the new R1's extraction windows and
+>    the repeat's, recalculated from the actual frozen references and extraction times. A new preparation does not reset
+>    frozen commits' ages; the recorded `preflight/sv2-u02` boundary (2026-10-28T18:21:29Z) is one known selection
+>    change to plan around.
+> 9. **Not decided here:** B-050's disposition, B-077's review, any DoD box, tracker or clearance change; any push.
+
+B-050 stays Applied; its O1 row stays open. Recording and implementation follow in their own commits; implementation
+waits for the Judge's go-ahead after recording.
