@@ -5385,3 +5385,80 @@ a push or a fetch that moves any remote ref before publish would refuse this can
 **Until publish, neither lane pushes or fetches.** Only handoff-only commits on the source branch are allowed.
 
 B-050 stays Applied; its O1 row stays open.
+
+## Lane A — receipt-2 semantic finding received; replacement candidate authorized, 2026-10-08
+
+Read at `742b5c2`. Lane B's finding was delivered in chat (worklog, 2026-10-08); this records it here.
+
+### What happened
+
+**Correction to Lane A's last status:** receipt 2 was not merely waiting for review. **A review finding is outstanding**
+against candidate `0907edb2…`. **Upheld:** its module description groups the branch-selection oracle with bindings
+"frozen at prepare and re-verified before every tool call". `generateCandidate` instead computes and checks the oracle
+around each extracting call and records the selection. Lane A's own audit of the 65 written texts found four more
+overclaims of the same kind. Candidate `0907edb2…` (work `f7705594…`) is ready and source-eligible, but **not
+accepted**. It stays as history: no acceptance record, no edit to its staging bytes.
+
+| Node | Overclaim | Source fact |
+|---|---|---|
+| `graphify_guarded_rebuild` | oracle "frozen at prepare… re-verified before every tool call" (Lane B) | bindings are checked before each Graphify child call; the oracle is computed per extracting call |
+| `graphify_guarded_rebuild_generatecandidate` | binding checks "before each tool call" | before each Graphify child call only |
+| `graphify_guarded_rebuild_proverepeat` | selection checked "first" | the selection is compared after regeneration; the live state must also be R1 |
+| `graphify_guarded_rebuild_repeatcomparison` | "other JSON by parsed content" | other JSON is compared field by field, where only declared volatile fields may differ; one-sided files are findings |
+| `graphify_guarded_rebuild_studio_validator` | listed "manifest entries" loosely | classification, derived files, recomputed projections, the producer manifest and the embedded scene |
+
+**Corrected texts** (the module clause is Lane B's text in full; the other 180 answers are unchanged):
+
+- `graphify_guarded_rebuild`: "B-050 guarded Graphify procedure. F1 (D-418 to D-421): validators for paths, live-target
+  containment, raw-null lifecycle records and the transaction journal under one bounded decoding policy. F2 (D-423,
+  corrected by D-424): source snapshot, isolated generation, composition, and publication with owned recovery on
+  declared fixture roots. F3 (D-425): guarded live publication: prepare, then Lane B's typed acceptance record
+  introduced by its own handoff-only review commit, then publish --review, with owned recover. D-426 prevention: the
+  baseline is captured under the publication lock (PR2a). Executable bindings are frozen at prepare and re-verified,
+  with arguments checked, before each Graphify child call. The branch-selection oracle is computed from
+  frozen-checkout inputs at both ends of each extracting call, checked against the fresh extraction and baseline
+  merge, then recorded for repeat verification. The studio bundle is validated against the pinned producer's
+  projections (PR4b), and proveRepeat is the disposable unpublished repeat (PR5a), with D-427's per-run provenance
+  checks. No fallback: no bypass, not guaranteed restoration; the lock excludes cooperating guarded runs only, never a
+  raw graphify writer."
+- `…_generatecandidate`: as before, with "verifies every child argv and executable binding before each tool call"
+  replaced by "verifies the argv and executable bindings before each Graphify child call".
+- `…_proverepeat`: "PR5a: from a published first-run work folder, repeats generation and composition from its frozen
+  packet in a disposable folder and compares the result C2 with the release R1. Before regenerating, the pins,
+  executable bindings and answer packet must match the first run's and the live state must be R1, captured under the
+  lock; after regenerating, the branch selection must equal the first run's. Any mismatch stops and returns to
+  preparation, never a repeat pass. Writes a repeat receipt, and writes only inside its own folder, plus the
+  transient capture lock."
+- `…_repeatcomparison`: "The C2-versus-R1 comparison. D-427's per-run provenance checks and C2's strictly later
+  observation come first. A file present on only one side is a finding; retained files must be byte-equal. Of the
+  other differing files, the root and studio graphs compare by content with only the validated observation masked;
+  other JSON files compare field by field, where only the declared volatile fields may differ (the manifest's
+  graph-entry hash is also masked once validated); any other file compares by bytes. Any finding stops the repeat;
+  raw hashes are recorded for both runs."
+- `…_studio_validator`: "The studio validator program, run in its own process against the pinned producer: classifies
+  every export input and studio file (generated, or shipped and byte-equal to the pinned tool; anything else
+  refuses) and requires every derived file; then compares, against projections recomputed from the final graph, the
+  graph copy, the scene (layout coordinates excluded), entity sidecars, the reconciliation queue, citations, the
+  producer-emitted workspace manifest with its single graph entry, and the scene embedded in the studio page, parsed
+  as data and never executed. Reports findings and a summary."
+
+### What you need
+
+**Authority: the Judge, directly to Lane A, 2026-10-08**, in chat: "yes, authorize replacement preparation and carry
+the order over". A new `prepare` runs in a **new** work folder at this commit (a handoff-only successor of `042dfda`),
+with the corrected answers; the `0907edb2…` folder is `ready`, and resuming it with changed answers would mark it
+failed. The confirmed order carries over to the replacement's identity: **receipt 2 → publish → health → push**, with no
+push or fetch until publish. Lane A presents the new source, work id, graph/studio/manifest hashes, fragment parity
+and semantic evidence; Lane B independently accepts or refuses.
+
+### What you did instead
+
+Nothing published, pushed or fetched; no acceptance record drafted (G-F3-8). Drift is unchanged (12 governed paths,
+analyzed `00c23ff`). B-050 stays Applied; its O1 row stays open.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Lane B's finding and the four further corrections | Phase 1: applied in the replacement's answers |
+| Approve-with-conditions | Replacement candidate | Phase 1: Lane B's exact-byte review of the new identity |
+| Defer | Publish, health, push, receipts 4–5, closure | Phase 1: the carried-over order |
+| Reject | Accepting or publishing `0907edb2…`; source-eligible treated as accepted; editing staging bytes in place | Phase 1: `D-426` item 5; G-F3-8 |
