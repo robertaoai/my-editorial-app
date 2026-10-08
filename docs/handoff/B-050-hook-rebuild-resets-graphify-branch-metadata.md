@@ -5462,3 +5462,67 @@ analyzed `00c23ff`). B-050 stays Applied; its O1 row stays open.
 | Approve-with-conditions | Replacement candidate | Phase 1: Lane B's exact-byte review of the new identity |
 | Defer | Publish, health, push, receipts 4–5, closure | Phase 1: the carried-over order |
 | Reject | Accepting or publishing `0907edb2…`; source-eligible treated as accepted; editing staging bytes in place | Phase 1: `D-426` item 5; G-F3-8 |
+
+## Lane A — D-426 receipt-2 request: replacement candidate `5dd55b5a…` ready at `11f2e40`, 2026-10-08
+
+Read at `11f2e40`. Under the replacement authority above; it supersedes the `0907edb2…` request for review purposes
+only. That candidate stays as history: ready, not accepted, its bytes untouched.
+
+### What happened
+
+`prepare --work` in a new folder at `11f2e40` returned pending (exit 3): 185 descriptions and 19 community names.
+`prepare --resume` with answers v2 returned **ready (exit 0)**. Evidence folder:
+`C:/CoWork/outputs/lane-a-d426-receipt2b-2026-10-08`.
+
+| Identity | Value |
+|---|---|
+| Work id | `2539571f-8d6a-405f-90d3-a9065d975c85` (attempt 2) |
+| Analyzed source (frozen HEAD) | `11f2e40c5411bf80a15ebbbd2f835d102599cf14`, branch `features/feature-V1-SM05`; merge base with upstream `d94fb08` |
+| Baseline | release locus `932b45333327ed6d0418ab19cd9e82f4e60e0102`, `guard-treeDigest-v1` `81d1615459c38804db7a757869210ae867c1869139162ecb5a2719eecbf89c57`, 583 files |
+| Candidate manifest | `guard-treeDigest-v1` `c104ec0f9b34f7d2e899f62d8a6ecf58b5d12d14378026970eb33fb1a80b3841`, 583 files |
+| Candidate `graph.json` SHA-256 | `5dd55b5a7563cbf866d2e585972d804e0a416ae57bec2d8be54e6632be740e76` |
+| Frozen at | `2026-10-08T08:17:07.284Z` |
+| Answers (frozen packet) | SHA-256 `c422061759c23ad451860a5c24242808b6d558c0f524850b51bc217f68479ddf` |
+| Selection | rules 30 days / 200 commits / no since; oracle `2d6511da…`; brackets recorded in STATE.json |
+
+**Semantic answers (`03-answer-basis.json`, `build-answers.mjs`).** 180 descriptions are the first answers unchanged;
+**5 are the corrected texts recorded above**, the module clause in Lane B's wording. 14 community names carry over by
+identical member set; 5 changed member sets are named from their members (`names-override.json`). All 19 are
+unique across the candidate.
+
+**Lane A's own verification (`05-candidate-verification.json`).** Recomputed from the staging bytes: manifest, file
+count, graph hash and answers hash equal the ready record. 2,448 nodes, 5,349 links, 129 communities, 0 undescribed.
+Fragment parity 139/139 exact. Name binding 0 findings. Answers not applied: 0 descriptions, 0 names. The staged
+module description contains Lane B's oracle clause verbatim and not the old overclaim. Foreign-path hits in node
+fields: 0. Classification: 583 files (promote 18, retain 563, rebind 2), 0 unknown. `branch.json` analyzed head
+`11f2e40`, not stale. Live state equals the frozen baseline; no journal or lock.
+
+**Full check at `11f2e40` before prepare:** `check-at-11f2e40.log`, SHA-256
+`7b3be517db751c7cfb2c5681ec93fb122bf93fd55934f570c35c6c1650c05dd5`; 18 of 19, `docs-drift` alone (`D-428`).
+
+| Evidence file | SHA-256 |
+|---|---|
+| `prepare-1.log` | `792a3371951bc7cbc8a8d40e590240a81569aa1a522fa18a2a177a3da3c28df6` |
+| `resume-1.log` | `4a236539d8b9edee41a8b40ac8fcd724706b51adab13216cc5f861698da46e43` |
+| `03-answer-basis.json` | `11b2a82f24412ffabcbc25a74db94b29219f4b4a427e3741622dd60b331fbef8` |
+| `names-override.json` | `4830a7da00e69c2606707faa37b35baed0133e424b96e389f77f214416bb7f3d` |
+| `05-candidate-verification.json` | `9505ddedbb1bf3d84e8d4fff78574d01bbccda31e32b175b9431a02dcb30c72a` |
+
+### What you need
+
+**Requested of Lane B: receipt 2 for this replacement:** the independent exact-byte review of the staging bytes,
+source, baseline and selection above, the five corrected texts, the 19 names and fragment preservation. If accepted,
+Lane B's own handoff-only review commit introduces the acceptance record; Lane A drafts none (G-F3-8). The carried-over
+order applies: receipt 2 → publish → health → push, with no push or fetch before publish.
+
+### What you did instead
+
+Not done: no publish, recovery, repeat, push, fetch, or header, DoD, tracker or clearance change. B-050 stays Applied;
+its O1 row stays open.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Replacement prepared and verified by Lane A at `11f2e40`; Lane B's finding applied | Phase 1: Lane A's evidence only |
+| Approve-with-conditions | Receipt 2 for `5dd55b5a…` | Phase 1: Lane B's independent exact-byte review |
+| Defer | Publish, health, push, receipts 4–5, dispositions | Phase 1: the carried-over order |
+| Reject | Treating this request or Lane A's verification as receipt 2; any use of `0907edb2…` | Phase 1: `D-426` item 5 |
