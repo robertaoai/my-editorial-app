@@ -5942,3 +5942,82 @@ open.
 | Approve-with-conditions | Diagnostic under the declared plan | Phase 1: two arms, each once; then Lane B's review |
 | Defer | Amendment, implementation, new repeat, receipt 5, closure, push | Phase 1: later bounded Judge acts |
 | Reject | The R1 interval as current D-427 compliance; an unchanged rerun; fabricated windows; blanket allowances | Phase 1 |
+
+## Lane A — receipt-4 diagnostic result: two arms, each once, 2026-10-08
+
+Read at `1ab92e1`. Under the go-ahead and declared plan above. Folder `C:/CoWork/outputs/lane-a-d426-diagnostic-2026-10-08`;
+harness `diagnose.mjs` (SHA-256 `f6a83a87…`), run 11:20:58–11:47:26 UTC. Live R1 and the failed attempt are unchanged;
+no journal, lock or recovery token; no repeat, compose, publish, sync, fetch or push.
+
+### What happened
+
+Both seed copies matched (arm `b0`: `81d16154…`; arm `r1`: `c104ec0f…`). Each arm ran the guard's unmodified
+`generateCandidate` once with R1's frozen packet and reached **generated**, with 7 Graphify child calls each.
+
+**Finding D1: which calls write the observation.** Recorded before and after every call:
+
+| Call | `observed_at` | Git subgraph |
+|---|---|---|
+| 1 `hook-rebuild` (checkout) | rewritten | changed in `b0`; unchanged in `r1` (its seed already held it) |
+| 2 `hook-rebuild` (fresh clone) | written | written |
+| 3 `update --fill-missing` | **rewritten** | unchanged |
+| 4 `update` | **rewritten: the final value**, inside this call's own clock window in both arms (`b0` 11:25:17–11:26:33, value 11:26:30.601Z; `r1` 11:39:06–11:40:06, value 11:40:03.250Z) | unchanged |
+| 5–6 `label`, 7 `studio export` | not changed | not changed |
+
+So the final observation is written by the `update` call, not by the bracketed rebuild. This matches R1 and C2 (each
+about 4 minutes after its rebuild). Limit: clock samples bracket calls; they do not show which internal step wrote it.
+
+**Finding D2: final Git assurance.** Only the two `hook-rebuild` calls changed the Git subgraph. Each arm's final Git
+subgraph passes the merge check against its seed and its fresh extraction (0 findings). This answers Lane B's question
+for these two runs only; it does not replace a guard check.
+
+**Finding D3: the ignored count 696 vs 695 is explained.** The producer's `excluded_ignored_count` after each call equals
+the number of ignored files Git lists in the checkout just before that call (583, 645, then 696 or 695), so the proxy
+matched exactly here. The one-file difference is `.graphify/label-instructions/communities.md`. In arm `b0`,
+`update --fill-missing` (call 3) writes it, because B0's community names do not bind the current member sets. The final
+`update` counts it (696) and then removes it. In arm `r1`, whose seed already carries the bound names, it is never
+written (695). This reproduces both receipt-4 values: R1 was seeded from B0 (696) and C2 from R1 (695). The count is a
+seed-dependent producer transient, not a source difference.
+
+**Not established.** The final graphs of the two arms differ (`38694489…` vs `e603c4dc…`), as expected from different
+seeds; this diagnostic did not compare them field by field. R1's own historical ignored list and final-call window were
+never recorded; this run cannot reconstruct them.
+
+| Evidence file | SHA-256 |
+|---|---|
+| `diagnose.mjs` | `f6a83a87d827cfaaadac4d200221db31e1d8db099a6420f6da2f94ee68cbbdca` |
+| `01-diagnostic-summary.json` | `0eae5cc9d927dc2d2477cb8e3de9d8ead2241ae4469c08f8f0b698adccf1cf6e` |
+| `diagnose.log` | `0f5c4541e3b5ed8937f83d955f986422a5047d05408bc0653d0442cf36ec94a1` |
+| `b0/evidence.json` | `e01d19cfa1eb9dd89beece3f5d90be877c73032366c02673c92fe85caad6416b` |
+| `r1/evidence.json` | `af0d4fa8b9080817dd085af7e73fa28ad56ae54e04922046b6b85646233d475a` |
+| `b0/ignored-lists/04-checkout-before.txt` | `fc8103221c4dab7185887b790ce1104a9c5d8fd20a8509b0f304788f280401d9` |
+| `r1/ignored-lists/04-checkout-before.txt` | `beb6484ff04d256ea5532ddde91b9083de26b1141dba5d0697ff1adf593c5d86` |
+
+### What you need
+
+**Lane B:** an independent review of D1–D3 and their limits.
+
+**Amendment direction (drafted for review, not decided):**
+
+1. **Observation:** bracket the final `update` call and require the final `observed_at` inside that call's own
+   window. Keep the rebuild bracket for selection only.
+2. **Final Git check:** after the last extracting call (and at final output), check the final Git subgraph against the
+   seed-plus-fresh merge; refuse late changes.
+3. **Ignored count:** treat `excluded_ignored_count` (and its copy in `.graphify_detect.json`) as dependent on the seed's
+   label state. Either normalize it by its known transient or allow it only when the transient explains the
+   difference. No blanket allowance.
+4. **Historical R1:** R1 has no recorded final-`update` window. The choice is an explicit legacy rule (for example the
+   retained interval, as Lane B bounded it) or a fresh release cycle with the amended guard. Judge's decision.
+5. **Controls:** a full-pipeline valid control and targeted refusals for points 1–3.
+
+### What you did instead
+
+Stopped after the two arms, as the go-ahead requires. No amendment, code change or new repeat. B-050 stays Applied;
+its O1 row stays open.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | D1–D3 as recorded, with their limits | Phase 1: Lane B's independent review |
+| Approve-with-conditions | Amendment direction 1–5 | Phase 1: Lane B review, then the Judge's bounded act |
+| Defer | Historical-R1 choice, implementation, new repeat, receipt 5, closure, push | Phase 1: later acts |
+| Reject | Treating a diagnostic arm as a repeat; an allowance without the transient's explanation | Phase 1: `D-426` item 5 |
