@@ -5367,3 +5367,21 @@ Lane B's acceptance and the Judge's separate go-ahead. B-050 stays Applied; its 
 | Approve-with-conditions | Receipt 2 | Phase 1: Lane B's independent exact-byte review |
 | Defer | Receipts 3–5, graph sync, dispositions | Phase 1: Lane B acceptance, then the Judge's go-ahead |
 | Reject | Treating this request or Lane A's verification as receipt 2 | Phase 1: `D-426` item 5 |
+
+## Lane A — Judge's confirmed order for candidate `0907edb2…`, 2026-10-08
+
+Read at `9ad68a4`. **Authority: the Judge, directly to Lane A, 2026-10-08**, in chat: "Publish: after Lane B accepts"
+and "Push after end of 9ad68a4", then "confirm order: receipt 2 → publish → health → push".
+
+1. **Receipt 2:** Lane B's independent exact-byte review of the candidate above. If accepted, Lane B's own handoff-only
+   review commit introduces the acceptance record (G-F3-8).
+2. **Publish (receipt 3):** `publish --work <work folder> --review <Lane B's review commit>`, only after step 1.
+3. **Health:** the post-publication full check and post-state, recorded here.
+4. **Push:** only after step 3. Its exact range ends at the health-record commit and is confirmed by the Judge (`D-385`).
+
+**Why the push waits.** The candidate froze every ref at prepare, including `refs/remotes/origin/features/feature-V1-SM05`
+at `d94fb08`. `publicationSourceFindings` refuses when "a ref other than the source branch changed since prepare", so
+a push or a fetch that moves any remote ref before publish would refuse this candidate and force a fresh preparation.
+**Until publish, neither lane pushes or fetches.** Only handoff-only commits on the source branch are allowed.
+
+B-050 stays Applied; its O1 row stays open.
