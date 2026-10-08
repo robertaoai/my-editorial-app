@@ -5753,3 +5753,55 @@ state to still be R1. The proposed runbook edit (SKILL §7) may be committed und
 B-050-only commits). `c72895f`, this commit and the receipt-4 record stay local until the Judge names a new endpoint.
 The disposable repeat rebuilds the frozen ref map, so the push does not affect it. B-050 stays Applied; its O1 row stays
 open.
+
+## Lane A — D-426 receipt 4: the repeat stopped (C2 ≠ R1); no rerun, 2026-10-08
+
+Read at `9984a90`. Evidence folder: `C:/CoWork/outputs/lane-a-d426-receipt4-2026-10-08`. **Pushed** under the Judge's
+"push after validation": exactly `d94fb08..d502848` (eight B-050-only commits, fast-forward, upstream re-fetched and
+unchanged); `c72895f` and later stay local.
+
+### What happened
+
+One `proveRepeat` from the published work folder (`2539571f…`) into a fresh folder, 10:25:49–10:38:46 UTC: **outcome
+`repeat-stopped`, exit 4**, "stopped: revise and re-review the allowance list before any repeat is accepted". Per the
+go-ahead: no rerun, no allowance change. Guard and tests are unchanged since `4db286c` (receipt 1's controls cover this
+code). The live state is still R1 (`c104ec0f…`, graph `5dd55b5a…`); no journal, lock or recovery token remains; check
+19/19.
+
+| Guard finding | Lane A diagnosis (read-only, from retained bytes) |
+|---|---|
+| R1: `observed_at` 08:09:31.368Z lies outside its own rebuild bracket (08:03:51–08:05:07) | **D-427's binding is wrong, not the run.** The pinned producer's Git adapter sets `observed_at` to the current time each time it runs. In **both** runs the stamp falls about 4 minutes after the bracketed rebuild, so a later stage (`update` or `label`) re-runs the Git extraction. The rebuild bracket was never the observation's own window |
+| C2: `observed_at` 10:31:01.358Z outside its bracket (10:26:14–10:27:18) | Same cause |
+| `graph.json`: graph key `graph` differs | Only consequence: validation failed, so the observation was not masked. The only differing field is `graph.provenance.observed_at`; nodes and links match |
+| `.graphify_detect.json` `scope` and `scope.json`: `excluded_ignored_count` 696 (R1) vs 695 (C2) | **Cause not determined.** Same source and head, 486 candidates and 329 included in both; the baselines copied into the checkouts have identical 583-file sets. The detect record holds counts only, so the extra ignored file cannot be named without a new run |
+
+| Evidence file | SHA-256 |
+|---|---|
+| `repeat/REPEAT.json` | `a5185a3525c968e09e395e4c524e09b79c5a9753c8eca6b4ea4267881974b8e1` |
+| `01-repeat-result.json` | `eefe87269d28691c9cef17e59ac28883bdc90b39a1bb058b73acc8bacfb0357c` |
+| `repeat.log` | `55b204a11197c8058ab47d55d5882865a79cf088df36414d05f0c22274cd77ad` |
+| `00-check-at-9984a90.log` | `d5f16a4cad1e79c3728bbcd340af628a9ac5f68f9776fac6d106390d6e1660f2` |
+
+### What you need
+
+1. **Lane B:** an independent review of this stopped receipt 4 and the diagnosis above.
+2. **Open question for Lane B:** if a stage after the PR3b checks re-runs the Git extraction, does the final Git
+   subgraph still equal the one PR3b validated? Across the two runs, nodes and links match, but that is not proof
+   within one run.
+3. **Judge (drafted, not issued):** first, a bounded diagnostic-only run in a disposable folder that records each
+   stage's `observed_at` and the detect-time ignored-file list, with no live write. Then a specific act amending D-427's
+   binding to the observation's real window, and a decision on `excluded_ignored_count`, with Lane B review. Then one
+   new repeat against the still-live R1. **Deadline:** before 2026-10-28 18:21 UTC (the selection window). No sync or
+   publication may happen first: the repeat needs R1 live.
+
+### What you did instead
+
+Stopped as instructed. No rerun, allowance change, code change, sync, publication or push beyond the validated range.
+B-050 stays Applied; its O1 row stays open.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | The guard stopped correctly; the failed attempt is retained, not hidden | Phase 1: receipt-4 evidence |
+| Approve-with-conditions | Diagnosis | Phase 1: Lane B's independent review |
+| Defer | Diagnostic run, D-427 amendment, new repeat, receipt 5, dispositions | Phase 1: the Judge's specific acts, before 2026-10-28 18:21 UTC |
+| Reject | A rerun without a change; widening allowances without an act; calling the unit proved | Phase 1: the receipt-4 go-ahead; `D-426` item 5 |
