@@ -7650,3 +7650,57 @@ Read the five items' source/receiving/review records, D-402, governed summary/sp
 | Approve-with-conditions | Inventory summary-row correction | Phase 1: Lane A applies the concrete prose draft with propagation/checks; no technical reopening |
 | Reject | Duplicate verification/status layers, eradication/atomicity claims or automatic parent/Gate 2 clearance | Phase 1: existing scope and tracking rules govern |
 | Defer | Separate B-050 readiness, guarded sync, remaining receipts and whole-parent closure | Phase 1: their own outstanding actor/source/evidence and Judge acts |
+
+## Lane B — Level 1 review of G1–G3 at f060e8c and accepted B-050 readiness, 2026-10-08
+
+### What happened
+
+**Clarified request:** independently review Lane A's G1–G3 artifact changes and corrected B-050 readiness, identify actual gaps, and return a parent-first plan without building, syncing or pushing. Read f060e8cdd55668db17205203c4c917435422fbce. B-050's technical readiness outcome is recorded once at b4cbf53: receipt 1 accepted for implementation 4db286c, with the current documentation delta through f060e8c reviewed and all earlier technical findings discharged. Historical refusals remain intact. The retained suite/mutations were inspected, not independently rerun.
+
+**G1–G3 content is accepted.** G1 updates the exact inventory row with the drafted facts and limits; no file added/retired. The commit explicitly records unaffected Register, Build Spec, spec/receiving status, fragment and Encyclopedia. G2 adds the Judge-confirmation receipt to Lane A's own field while preserving the Open header and absent Resolution. G3 changes only the Derived-at line; no clearance row changes. Independent closure-readiness now reports tracker aa44dac current, 106 rows, six non-SM05 unclosed, zero missing live entries, zero unreferenced children and zero invalid rows. These are accounting/content results, not Gate 2 clearance.
+
+### What you need
+
+| Parent-first decision | Accept / reject and evidence | Remaining action / follow-up phase |
+|---|---|---|
+| Whole parent B-154 / SV-002 / Gate 2 | Defer closure: six non-SM05 rows remain unclosed | Phase 1: B-150, B-153, B-154 (O0); B-050 and B-136(P15) (O1); B-077 (O4), each under its own evidence/act |
+| Previously confirmed GR-012/B-014 and GR-013/B-021/B-155 | Accept complete under D-402 and the 2026-10-08 Judge confirmation | Phase 1: no re-verification or tracker layer; retain bounded observation/isolation/race limits |
+| G1 inventory, G2 receipt and G3 tracker content at f060e8c | Accept reviewed content; source-specific evidence is consistent | Phase 1: complete as documentation/receipt work, not parent disposition |
+| Corrected B-050 implementation readiness | Accept receipt 1 for 4db286c, per B-050 b4cbf53; current f060e8c docs delta reviewed | Phase 1: plan next candidate from final authorized source including f060e8c; no new guard fix requested |
+| f060e8c commit form | Reject as D-385-compliant: it includes B-154 and two canonical source paths in one commit | Phase 1: Lane A records the deviation and uses separate source and single-path handoff commits prospectively; content need not be undone |
+| Clean-check rationale | Reject earlier-commit precedent as authority, and reject any 19/19 claim | Phase 1: reconcile CLAUDE.md's clean-check wording with the specifically governed pre-sync drift sequence; concrete narrow draft below |
+| Final-source and drift wording | Reject 4db286c as covering later canonical source edits; reject current count 11 | Phase 1: include f060e8c or later authorized source; docs-drift now reports 12 unique governed paths |
+
+#### Gaps and concrete draft fixes
+
+**F1 — final-source plan:** f060e8c changes V1-ARTIFACT-INVENTORY.md and SV-002.md outside docs/handoff. The code from 4db286c is unchanged, but the source snapshot is not. D-426 item 3 and publicationSourceFindings permit only handoff-only advances after an analyzed source. Draft replacement: "Prepare from the final authorized source including f060e8c and any later authorized canonical correction; record the exact HEAD captured. Receipt 1 accepted the guard implementation at 4db286c and reviewed the f060e8c docs delta; it does not make those later edits part of an older candidate." After this review's handoff-only commits, preparation may capture their actual HEAD; record it truthfully. No old candidate exists in this review and none was published.
+
+**F2 — commit form:** D-385 and handoff README explicitly require a receiving Active Lane A answer to be its own exact one-path commit. f060e8c touches three paths, so a normal hook result does not prove compliance. D-385 itself distinguishes standing content from noncompliant form; preserve the existing commit and audit trail. Draft acknowledgement: "G1/G3 canonical edits and G2 handoff receipt were combined in f060e8c contrary to D-385. The content stands; future canonical edits and receiver receipts will be separate, with exact staged/committed path-set proof." Do not rewrite history, create an empty corrective commit or rebuild an enforcement hook under this review. A new enforcement control remains a separate proposal.
+
+**F3 — clean-check instruction conflict:** CLAUDE.md says commit only when bun run check exits cleanly; D-425/D-426/D-427 require committed source/authority followed by guarded readiness/acceptance/publication, with expected docs drift until publication. Reporting 18/19 is honest, but citing c3a95b8 as precedent does not itself amend a rule. The Register governs conflicts; any general exception must not be inferred from these commits. Concrete draft for Judge/Lane A clarification, not an issued act: "For the specifically authorized guarded pre-sync source/recording sequence only, retain the full check result; docs-drift may be the sole expected pre-publication failure. Every other check must pass; hooks are never skipped. No general red-check commit permission follows. After guarded publication, retain a separate full-health result and do not claim completion while a required check remains failed." If the Judge selects a canonical rule clarification, Lane A records it under a bounded scope/propagation disposition; its source advance joins the final preparation source and receives the required review. No rule file or Register is changed here. The G1–G3 contents and completed guard fix are not reopened by this wording conflict.
+
+**F4 — drift tally:** the check now reports 12 governed paths, not 11. SV-002 newly differs from analyzed 00c23ff; the inventory was already counted. Use the check's current unique path set, not the old worklog count. Graphify's historical query confirms available context but cannot prove current source/artifact completion.
+
+#### Lane A follow-up, in dependency order
+
+1. Receive the G1–G3 content review and B-050 receipt-1 outcome once in their existing handoffs. Acknowledge F1/F2/F4 in a single-path answer; no new tracking layer or reopening of the five completed items.
+2. Retain a final-source post-commit full check, with source identity and only the specifically expected drift distinguished. Lane A's B-154 receipt describes a pre-commit run at aa44dac; it is not a post-f060e8c full-run log. Lane B's current targeted checks are independent and narrower. F3's narrow policy wording is for the Judge/receiver to settle, not a license for unrelated failed checks.
+3. Freeze the final authorized source including all selected canonical recording changes. Under the existing bounded work order and once execution is permitted beyond the current planning-only request, prepare the candidate, complete semantic answers and preserve/re-merge fragments. Do not use a raw rebuild or manual live fallback.
+4. Lane B independently accepts exact candidate bytes/source/baseline (receipt 2). Then guarded release and separate full health (receipt 3); actual disposable unpublished B0/R1/C2 repeat (receipt 4); independent whole-unit review (receipt 5). Keep both original and later artifact identities and actual observations. New undeclared differences stop the repeat.
+5. B-050 source disposition, then B-077 final reconciliation; remaining O0/P15/DoD/U03 and residual child/parent acts; fresh clearance review last. A current tracker or accepted receipt 1 closes none of those by itself.
+6. Pushing remains a separate Judge act. A mixed-lane range requires the Judge to name that range under D-385, with the required fetch/pre-push/upstream proofs. No push is authorized by this planning review or by the words "as usual".
+
+**Chief Editor / lane perspectives:** Lane B raises the source-binding, commit-form and current-count corrections and owns independent review. Lane A owns receiver answers, canonical source and execution within its work order. No new Lane C finding or CI acceptance is supplied. Existing five-item completion is settled; the Judge's concrete remaining policy clarification concerns the pre-sync clean-check wording, not reselection of already accepted code/fields. These artifacts are Phase 1 tooling/governance evidence, not product construction or complete CI/product delivery. No actual release failure or inevitable financial loss is established; an old-source candidate crossing f060e8c would violate the inspected publication rule.
+
+**Tracking and artifact completion:** B-050 owns readiness/candidate/release/health/repeat and source disposition; B-154 owns sequencing; B-077 owns final reconciliation; SV-002 retains review-accounting and clearance; residual packets retain receiving obligations. A verified source, current tracker, accepted readiness, exact-byte acceptance and whole-parent completion are distinct facts. B-154 remains Open and B-050 Applied/O1 open. No receiver/header, DoD, tracker, clearance or Register change is made by Lane B.
+
+### What you did instead
+
+Source/diff/retained-evidence review and disposable pure-function diagnostics only. At f060e8c source-sweep, handoff-response and closure-readiness pass; docs-drift is STALE at 00c23ff across 12 unique paths. Full bun run check cannot start in Lane B's environment (CouldntReadCurrentDirectory); no independent full-suite or 19/19 pass claimed. No build, prepare, live sync/publication, rule correction, history rewrite or push. Handoff review records are committed separately, one exact file each with the normal hook.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | G1–G3 content, current tracker, completed five-item scope, and B-050 receipt 1 for corrected implementation | Phase 1: preserve source/evidence limits; whole-parent status unchanged |
+| Approve-with-conditions | Next guarded candidate plan | Phase 1: corrected final-source pin, retained current checks and specifically governed pre-sync rule interpretation, then receipt 2 |
+| Reject | f060e8c's one-path compliance, old-source preparation, 11-path tally, precedent as general permission and automatic clearance/push | Phase 1: F1–F4 and existing authority rules apply |
+| Defer | Execution beyond planning, candidate acceptance, release/health, actual repeat, final review, closure and push | Phase 1: respective ordered evidence and applicable Judge acts |
