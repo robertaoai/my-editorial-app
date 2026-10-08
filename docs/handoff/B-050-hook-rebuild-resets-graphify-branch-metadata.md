@@ -5617,3 +5617,53 @@ source rule passes; the live state equals the baseline, with no journal, lock or
 **Authority: the Judge, 2026-10-08**, in chat: "yes, publish now: receive dc656d2, publish, then health". Receipt 3
 (`publish --review dc656d2`) and the separate health record follow in a later section. The push waits for health and
 the Judge's confirmation of its exact range (`D-385`). B-050 stays Applied; its O1 row stays open.
+
+## Lane A — D-426 receipt 3: guarded release of `5dd55b5a…`, then post-state and full health, 2026-10-08
+
+Read at `8d8b444`. Evidence folder: `C:/CoWork/outputs/lane-a-d426-receipt2b-2026-10-08`.
+
+### Receipt 3: guarded release
+
+`publish --work <receipt2b work> --review dc656d2aa2e15d15feae5e5fbbb9bc354bee7157` at publication head `8d8b444`
+(a handoff-only fast-forward of analyzed `11f2e40`): **outcome `released`, exit 0**, "published: live equals the
+reviewed manifest", run token `fb9558e1-f06b-4cb2-a94b-b75a0e7b1722`, release receipt
+`release-fb9558e1-f06b-4cb2-a94b-b75a0e7b1722.json`. The work folder reads `published`.
+
+| | Before (`06-pre-state.json`) | After (`08-post-state.json`) |
+|---|---|---|
+| Live manifest | `81d16154…` | `c104ec0f9b34f7d2e899f62d8a6ecf58b5d12d14378026970eb33fb1a80b3841` (583 files) |
+| Live `graph.json` | `f27fab81…` | `5dd55b5a7563cbf866d2e585972d804e0a416ae57bec2d8be54e6632be740e76` |
+| `branch.json` analyzed head | `00c23ff` | `11f2e40`, `stale: false` |
+| Journal / lock / recovery token | none | none |
+| Selected baseline | locus `932b453` | locus `dc656d2`, digest `c104ec0f…` (this release) |
+
+### Health: separate post-publication full check
+
+`bun run check` at `8d8b444`, retained in full (`09-full-check.log`): **19/19 passed, exit 0.** `docs-drift`: "synced
+(governed intent) at 11f2e40; HEAD 8d8b444 advanced by excluded-only commits". The 12-path drift since `00c23ff` is
+cleared, and `D-428`'s pre-sync exception no longer applies.
+
+| Evidence file | SHA-256 |
+|---|---|
+| `06-pre-state.json` | `852ad41464c713c62ee9297704336efecb9ff70166d0c128a5d31a61990152cc` |
+| `07-publish.log` | `9256a82aa9df95174f0870e1c642bf9492a61c00160766301fb2f08dca5125c4` |
+| `08-post-state.json` | `ac32c7bc62791a21f4e38bf7adee42a37a1c166a175426a537fd3aeac96659a0` |
+| `09-full-check.log` | `f6bf29b9812e64b9d53e799a752849c4c898976b8b53be98169f668a353a4471` |
+
+### What you need
+
+Lane B's independent review of receipt 3 and health. Then, separately: the push of the exact range the Judge confirms
+(`D-385`); receipt 4 (the actual unpublished B0 → R1 → C2 repeat, with this release as R1), which needs its own Judge
+go-ahead; receipt 5; then B-050's disposition and B-077's reconciliation.
+
+### What you did instead
+
+Not done: push, fetch, repeat, recovery, or header, DoD, tracker or clearance change. This release is the first R1 a
+repeat can use. B-050 stays Applied; its O1 row stays open.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Receipt 3 (released, exit 0) and health (19/19; drift cleared) | Phase 1: Lane B's independent review |
+| Approve-with-conditions | Push | Phase 1: the Judge confirms the exact range |
+| Defer | Receipts 4–5, B-050 disposition, B-077, parents, Gate 2 | Phase 1: their own go-ahead and evidence |
+| Reject | Healthy or released treated as the unit's proof or closure | Phase 1: `D-426` item 5 |
