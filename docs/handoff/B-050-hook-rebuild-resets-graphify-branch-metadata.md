@@ -5667,3 +5667,57 @@ repeat can use. B-050 stays Applied; its O1 row stays open.
 | Approve-with-conditions | Push | Phase 1: the Judge confirms the exact range |
 | Defer | Receipts 4–5, B-050 disposition, B-077, parents, Gate 2 | Phase 1: their own go-ahead and evidence |
 | Reject | Healthy or released treated as the unit's proof or closure | Phase 1: `D-426` item 5 |
+
+
+## Lane B — D-426 receipt 3 and separate health independently accepted, 2026-10-08
+
+Read at d502848. Review only: no build, publication, repeat, recovery, canonical edit, fetch or push. B-050 stays Applied/O1 open; no receiver field, header, Resolution, DoD, tracker or clearance changes.
+
+### What happened
+
+I independently recomputed the live tree: manifest c104ec0f9b34f7d2e899f62d8a6ecf58b5d12d14378026970eb33fb1a80b3841, graph 5dd55b5a7563cbf866d2e585972d804e0a416ae57bec2d8be54e6632be740e76, 583 files. The published work state, analyzed source 11f2e40, lifecycle fields and release receipt release-fb9558e1-f06b-4cb2-a94b-b75a0e7b1722.json agree. The release records publication HEAD 8d8b444, embeds the correct acceptance introduced at dc656d2, and binds predecessor 932b453 / 81d16154. The guard's baseline-chain validation now selects dc656d2 / c104ec0f. No journal, lock or recovery token remains. Receipt 2 remains independently readable and source eligibility passes at d502848.
+
+All four Lane A evidence hashes (06-pre-state.json, 07-publish.log, 08-post-state.json, 09-full-check.log) recompute to the values in the request. The retained publish outcome is released/exit 0, and the separate full-health log reports 19/19 with exit 0. In this review environment bun run check again failed to start (CouldntReadCurrentDirectory); running its exact underlying Node script independently at d502848 completed 19/19, exit 0. No pre-sync exception was used for health.
+
+Evidence: C:/CoWork/outputs/lane-b-receipt3-review-2026-10-08/.
+
+| Evidence file | SHA-256 |
+|---|---|
+| `independent-release.json` | `26c24c7cdd64bafb9c2277942a9db5690004dea39c4a30796cabec811e2cd01a` |
+| `check-at-d502848.log` | `4d0d9aa07b670bd900530c7b41f0f3cec1fd82b99276dc37f65cdad284626388` |
+| `draft-follow-up.txt` | `ac9dc882daa342dc2dd71a45af8afa04eaa2b50228432fe63d448f12e92fa34e` |
+
+### What you need
+
+Parent-first completion: SV-002/Gate 2 remains incomplete, with six non-SM05 rows unclosed and tracker aa44dac current. B-154 is the sequence record. B-050 receipts 1-3 are now accepted within their separate scopes. Receipt 4 needs its specific Judge go-ahead and the actual unpublished proof; receipt 5 needs independent whole-unit review; then B-050 disposition, B-077 reconciliation and remaining O0/P15/DoD/residual/parent acts. The five GR-012/B-014/GR-013/B-021/B-155 items remain settled within their previously verified limits. No new Lane C finding or product-construction clearance is inferred.
+
+Two nonblocking precision fixes for Lane A/Chief Editor consolidation:
+- Replace the worklog's claim that every governed doc change is reflected by graphify query with: "The governed-source drift check passes at analyzed source 11f2e40, with only excluded handoff advances. This establishes source currency, not exhaustive semantic coverage or correctness of every query." No additional sync is required now. A later authorized canonical edit creates new drift requiring its own applicable guarded sequence; this does not retroactively invalidate the completed release.
+- D-428's exception is not needed for this healthy state and never excuses post-publication health failure. The recorded rule still exists for a future specifically authorized pre-sync sequence; publication did not repeal it. No indefinite push/fetch freeze follows from the completed candidate's pre-publication rule. Any repeat must still satisfy its own frozen-packet/live-R1 preconditions.
+
+Lane A follow-up:
+1. Receive this review in the existing B-050 answer once; keep technical receipt acceptance separate from whole-entry closure. B-154 may reference it without copying the full technical evidence. No new tracker is needed.
+2. Present the bounded receipt-4 draft below for the Judge's specific go-ahead; receipt 3 review is now complete, so it is no longer a reason to wait. Do not execute a repeat from this planning-only review.
+3. On that go-ahead, retain B0's original identity, R1's first-release identity and C2's unpublished composed result; preserve the frozen source, bindings, answers and selection. Keep the raw comparison evidence, both observed times and brackets, and required valid/refusal controls. Stop on mismatch or P8; no new allowance or real-target destructive drill.
+4. Then obtain receipt 5, B-050 disposition, B-077 reconciliation and remaining parent clearance. Health and push cannot substitute for those artifacts.
+5. The requested push range d94fb08..d502848 is locally verified as exactly eight commits, each changing only B-050; local origin tracking is d94fb08. This is range/content review, not live remote freshness or push permission. No fetch was done. The Judge must confirm the exact range and D-385's applicable push proofs still apply. This Lane B review commit and any subsequent receiver commit lie outside that fixed endpoint; do not silently widen the range to HEAD. A current-tip push needs an explicitly updated endpoint.
+6. The reported runbook edit is separate proposed canonical work. No concrete target path/edit unit is supplied for approval here. Use the draft below to specify it, then obtain its own bounded authority and propagation disposition; this is not a blocker to the accepted receipt 3 and does not justify a raw rebuild or product work.
+
+Draft Judge receipt-4 go-ahead — not issued by this review:
+> Authorize Lane A to execute one D-426 receipt-4 disposable unpublished repeat from the published work folder C:/CoWork/outputs/lane-a-d426-receipt2b-2026-10-08/work, using a fresh guard-approved output folder. Preserve B0 as the original baseline (932b453 / 81d16154), R1 as the first accepted/released replacement (dc656d2 / c104ec0f, graph 5dd55b5a), and C2 as the unpublished composed repeat candidate. Use the first run's frozen source 11f2e40, bindings, answers and selection. Retain REPEAT.json, raw hashes, both observations/time brackets, explicit comparison/allowance evidence and required valid/refusal-control evidence. Apply only D-426/D-427's recorded allowances, with P7/P8 unchanged. Stop and report any refusal, difference, new semantic demand or P8 recurrence; do not expand allowances or hide a failed attempt with reruns. No second live publication, destructive real-target recovery drill, implementation, canonical edit, dependency change, fetch or push is authorized by this go-ahead. Stop for Lane B's independent receipt-5 whole-unit review.
+
+Draft runbook clarification — path/unit/authority remain to be specified, not applied:
+> Between candidate preparation and publication, preserve frozen source inputs, including refs other than the allowed handoff-only source-branch advance. A fetch/push that changes a frozen ref can invalidate source eligibility and require fresh preparation and independent acceptance. Passing the source check is not candidate acceptance. After publication, receipt 4 uses its own frozen-packet and live-R1 preconditions; the old pre-publication freeze is not an indefinite prohibition on all future fetches/pushes. Exact-range push authority remains separate.
+
+Chief Editor consolidation should retain finding, receiver answer, exact artifact, evidence and independent outcome once. Lane B raises/reviews; Lane A answers and executes only the selected bounded unit. Synchronized tooling is useful construction/verification evidence, not proof of the product's editorial acceptance criteria. There is no evidence supporting a prediction of inevitable operational failure or business loss; the concrete refusal boundaries are changed identities/inputs, invalid comparisons and missing authority or closure evidence.
+
+### What you did instead
+
+Accepted receipt 3 and separate health on independent evidence; drafted the next bounded act and wording fixes. No execution or canonical change. No second F3 acceptance record: dc656d2 remains the exact-byte publication acceptance, not this health review.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Receipt 3, separate full health and current governed-source currency | Phase 1: independently confirmed at d502848 |
+| Approve-with-conditions | Receipt-4 plan and reviewed eight-commit push range | Phase 1: specific repeat go-ahead; separate exact-range push confirmation and D-385 proofs |
+| Defer | Actual repeat/push, receipt 5, canonical runbook edit, B-050/B-077 dispositions and parent clearance | Phase 1: respective bounded authority and ordered evidence |
+| Reject | Health/sync/push treated as whole-unit closure, exhaustive query guarantee, arbitrary range widening or expanded repeat allowances | Phase 1: identity, scope and closure contracts apply |
