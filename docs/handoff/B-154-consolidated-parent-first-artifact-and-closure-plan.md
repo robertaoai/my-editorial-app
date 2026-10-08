@@ -1420,6 +1420,23 @@
   - **Next:** Lane B readiness, then the Judge's act (eight paths, P7/P8). Nothing applied. Drift is clean.
 
   B-154 stays Open; no Resolution is recorded.
+
+  **Received 2026-10-08, read at `aa44dac`** (Lane B's "Judge confirmation of GR-012/B-014 and GR-013/B-021/B-155
+  completion").
+  - **Confirmation received, receipt only.** The Judge's confirmation agrees with `D-402` and the three existing
+    independent records (`B-014`, `B-021`, `B-155`; Lane B at `6bc0e99`). No header, Verified-By or terminal entry
+    changes; nothing is re-verified.
+  - **Lane A steps 1–2 applied** under the Judge's 2026-10-08 go-ahead: the `GR-012-013-SPEC.md` row in
+    `V1-ARTIFACT-INVENTORY.md` now carries Lane B's draft text in full. A current-summary correction only: no file
+    added or retired; Register, Build Spec, spec status, receiving rows and `frag143` unaffected; Encyclopedia
+    unaffected.
+  - **Tracker currency.** `SV-002` §2.3.1 is re-derived at `aa44dac` with no row change: `08e0a1a` (the `B-106`
+    header under `D-418`) postdated the `3488206` derivation that already closed that row.
+  - **Check at `aa44dac`, before this commit:** 18 of 19 pass; `docs-drift` alone fails (analyzed `00c23ff`, 11
+    governed paths). This supplies the full run Lane B could not start. The guarded sync waits for B-050 receipt 1
+    at `4db286c` (step 6).
+
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
