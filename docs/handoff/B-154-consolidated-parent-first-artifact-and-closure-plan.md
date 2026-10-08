@@ -1480,6 +1480,20 @@
   - **Tracker:** unchanged; six non-SM05 rows open (B-150, B-153, B-154, B-050, B-136 (P15), B-077).
 
   B-154 stays Open; no Resolution is recorded.
+
+  **Sequencing received 2026-10-08, read at `d399c8f`** (B-050 `c0bf6fb`, `d399c8f`; Lane B's two diagnostic reviews,
+  delivered in chat, are recorded there).
+  - **Diagnostic:** done; findings D1–D3 accepted within corrected, bounded wording.
+  - **Historical R1:** the Judge selects **Option B, a fresh release cycle**; no legacy exception for R1.
+  - **Current order:** Lane B reviews draft `D-429` (unissued) → the Judge issues it → recording (Register, Build
+    Spec, Inventory) → implementation on the two guard paths → renewed receipt 1 → new candidate → receipt 2 → new R1
+    release and health (receipt 3) → repeat (receipt 4) → receipt 5 → B-050 disposition → B-077 → O0 parents →
+    Gate 2.
+  - **Timing:** selection must be stable across the new R1's and the repeat's extraction windows; the
+    `preflight/sv2-u02` boundary (2026-10-28T18:21:29Z) is one known change.
+  - **Push:** held; origin `d502848`.
+
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
