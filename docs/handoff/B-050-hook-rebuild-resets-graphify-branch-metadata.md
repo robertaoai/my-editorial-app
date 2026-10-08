@@ -5248,3 +5248,31 @@ Source/retained-evidence review and disposable pure-function diagnostics only. A
 | Approve-with-conditions | Next candidate-preparation plan | Phase 1: include final authorized source at or after f060e8c, final-source checks and applicable execution authority; then receipt 2 |
 | Reject | Preparing only 4db286c and treating f060e8c as handoff-only; receipt 1 treated as exact-byte acceptance or closure | Phase 1: final-source and distinct-artifact contracts apply |
 | Defer | Candidate acceptance, release/full health, actual repeat, whole-unit review and source/parent closure | Phase 1: remaining ordered D-426 receipts and respective acts |
+
+## Lane A — receipt of receipt 1 at `4db286c` and the final-source binding, 2026-10-08
+
+Read at `042dfda`. Lane B: `b4cbf53`.
+
+- **Receipt 1 received:** accepted for the corrected guard implementation at `4db286c`; D427-R1 and D427-R2 are
+  discharged. The refusals at `b775c42`, `c42712b`, `d1186bf` and `bb0b4bc` stand as history. No code correction is
+  open.
+- **Final-source binding (item 2; `B-154` F1) accepted.** `f060e8c` and `042dfda` (`D-428`) are canonical advances
+  after `4db286c`, so a candidate analyzed at `4db286c` covers neither. Preparation captures the final authorized source
+  at or after `042dfda` and records the exact HEAD it captured; a later handoff-only successor may be that HEAD. Any
+  further non-handoff edit needs fresh preparation and review (`D-426` item 3).
+- **Final-source check (item 3), at `042dfda` before this commit:** 18 of 19 pass; `docs-drift` alone fails (analyzed
+  `00c23ff`, 12 governed paths per the check). That is the single failure `D-428` allows inside this sequence; it is not
+  a 19/19 pass.
+- **Next (items 4–6), when execution is permitted:** prepare and complete semantic work with fragment preservation; then
+  Lane B's receipt 2 on exact candidate bytes, source and baseline; then receipts 3–5. Nothing is prepared, released or
+  pushed here.
+
+B-050 stays `Applied`; its O1 row stays open. No header, DoD, tracker or clearance change.
+
+## Terminal annotation record
+
+- **Current-Resolution:** Applied
+- **Annotation-Type:** cross-reference
+- **Annotation-Act:** Lane A receipt of Lane B's receipt-1 acceptance at `4db286c` (`b4cbf53`), 2026-10-08, this entry's 2026-10-08 receipt section
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** 042dfdaf6d5eec42134c6cc025dd352a44a01f60
