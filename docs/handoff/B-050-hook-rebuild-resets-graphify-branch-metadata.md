@@ -6265,3 +6265,44 @@ the openly kept crash history; the mutation result reads "49/49 in the completed
 guard paths). The corrected source will supersede `0540fb6` as the readiness candidate, with a fresh suite, real
 control and mutation run. Drift stays expected (five governed paths since `11f2e40`); no sync to bypass readiness.
 B-050 stays Applied; its O1 row stays open.
+
+## Lane A — G1–G3 corrected; renewed receipt-1 request at `d4d1181` (supersedes `0540fb6`), 2026-10-09
+
+Read at `d4d1181`. Under the Judge's "go ahead with G1–G3 fixes" (recorded at `c605502`). **`d4d1181` supersedes
+`0540fb6` as the readiness candidate.** Evidence folder: `C:/CoWork/outputs/lane-a-d429-receipt1-2026-10-08/at-d4d1181`
+(clean tree at `d4d1181`; Bun 1.1.30, Node v24.18.0, Git 2.54.0).
+
+### What happened
+
+| Finding | Correction at `d4d1181` (the two D-429 paths only) |
+|---|---|
+| **G1** | `proxyFinding` requires both the pre-call and post-call Git proxy lists for **every** Graphify child call, whether or not the scope was rewritten; it is checked for every checkout call and for the fresh extraction, before the selection and count checks |
+| **G2** | `generateCandidate` takes an injectable `validate` (default `validateStudio`), exactly as `tool` is injectable, so fixture generation reaches the final checks. New test block "D-429 G1/G2: refusals through generateCandidate's wiring": a fixture repository with stub `restore-docs-layer.js` and `prune-stale-symbols.js` and `.graphify/` ignored; a fake producer that stamps the observation during `hook-rebuild` and `update` and has `update` write both count copies from its own pre-call list. Through the real wiring: a **valid control** reaches all seven calls and returns the D-429 packet; **refusals** for an observation outside the final update's bracket and one changed by a later `label` call (A1), a later call's selection crossing the cutoff (`fill-missing`, A2), a later call without its post-call proxy (`label-emit`, G1), a late Git change (A3) and a disagreeing count copy (A4) |
+| **G3** | **Pinned producer source inventory** (`cli.js`, SHA-256 `9b119afe688f5fcc61962760d1f5702536bca4bc8017215cd653852a7de84f07`, equal to `TOOL_PINS`; line numbers in that file): `detectGitWindow` (L11821) builds the Git provenance with `observed_at` set to the current time; `detect` (L78880) calls `detectGitWindow`; `rebuildCode` (L98418) calls `detect`. **Commands:** `hook-rebuild` (L107690) calls `detect(` directly and `rebuildCode` (imported as `rebuildCode2`, L107691) → **runs a Git extraction**; `update`, with or without `--fill-missing` (L106461), calls `rebuildCode` (as `rebuildCode2`, L106466) → **runs a Git extraction**; `label` (L106614) awaits `generateCommunityLabels2` and `emitDefaultStaticStudio`, with no `detect`/`rebuildCode` call found at that level; `studio` (L107116) awaits nothing. **Observed separately** (diagnostic and both controls): the observation changed during the two `hook-rebuild` calls, `update --fill-missing` and `update`, never during `label` or `studio export`. **Limit:** the `label`/`studio` paths were traced one level deep, not transitively; A2 checks every call, so it does not depend on this list |
+
+### Source-bound evidence at `d4d1181`
+
+| Evidence | Result |
+|---|---|
+| Full guard suite | **266 pass, 0 fail, 1,035 `expect()`, exit 0**, 1,038 s. `guard-suite-full.log` SHA-256 `c10b1232d1ccaabd50c9372e81648a3e0de3f024a859967dc167eb88c91d4ead` |
+| Mutations | **55/55 caught in one complete run**, every file restored, tree clean afterwards: the 49 earlier rows plus 6 G1/G2 rows (the G1 helper, and the G1, A1, A2, A3 and A4 wiring inside `generateCandidate`, each caught by the generation-level tests). `mutations/summary.json` SHA-256 `c7d5683c286f86f044cabbe0fb2c703c8ad9ea08d137ad6fed2dd0d4c5a1921a`; harness `84a7cd52…` (the hardened restore) |
+| Real full-pipeline valid control | **valid**: the real pinned producer at `d4d1181`, seeded from a copy of R1 (`c104ec0f…`; no live access), all 7 calls; final observation 16:38:01.610Z inside the final `update` bracket 16:36:05.054–16:38:08.073Z; validated ignored count 698, **transient 1 with a real before/after origin** (the R1 names no longer bound the re-clustered groups, so `fill-missing` wrote `communities.md`); `composeCandidate` and `verifyStaging` with **0 findings**; manifest `f4b7f32b…` stable after the check, 583 files. Answers `control/control-answers.json` SHA-256 `8f083673…` (176 kept from R1, code unchanged since `11f2e40`; 18 written from full bodies; 20 names, none clashing). Result SHA-256 `aea5159045302c056e56d965c4267c2b7df26eba0867c1fdb0d8aac761523ab4` |
+
+### What you need
+
+**Lane B: the renewed receipt 1 at `d4d1181`.** Remaining stated limits: the producer inventory traces `label` and
+`studio` one level deep; the generation-level tests use a fake producer and an injected studio validator (the real
+producer and validator run only in the control's valid path). One real run shows a transient of 1 and the earlier one
+showed 0; no cross-run claim follows.
+
+### What you did instead
+
+No candidate prepared, nothing published, synced or pushed. The control answers are reusable for the new candidate
+only after validation against its actual source and member sets. B-050 stays Applied; its O1 row stays open.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | G1–G3 corrected at `d4d1181`; suite 266/0; 55/55 mutations; real control valid | Phase 1: Lane A's evidence |
+| Approve-with-conditions | Renewed receipt 1 at `d4d1181` | Phase 1: Lane B's independent review |
+| Defer | New candidate → receipts 2–5 → closure; push | Phase 1: `D-429` item 7 |
+| Reject | `0540fb6` as the readiness candidate; the fakes treated as a real-producer refusal proof | Phase 1 |
