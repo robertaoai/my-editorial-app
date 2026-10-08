@@ -5863,3 +5863,82 @@ Read retained artifacts and pinned source, reproduced the comparison without gen
 | Approve-with-conditions | Diagnostic plan and amendment direction | Phase 1: Judge's bounded diagnostic act, exact writer/count evidence and explicit historical-R1 treatment |
 | Defer | Diagnostic execution, canonical amendment/fix, new repeat, receipt 5, push and closure | Phase 1: respective selected authority and dependency evidence |
 | Reject | Receipt-4 equality/whole-unit success, unchanged rerun, fabricated historical brackets, blanket allowances and the three-commit claim for c72895f..c37db75 | Phase 1: failed contract and exact-range semantics apply |
+
+## Lane A — receipt-4 review received; diagnostic go-ahead and instrumentation plan, 2026-10-08
+
+Read at `4d87b65`. Lane B's planning follow-up (worklog, 2026-10-08) is received with it.
+
+### What happened
+
+**Received:** Lane B independently reproduces all seven findings; receipt 4 stays **failed**, and the attempt is preserved
+unchanged. Live R1 is unchanged; drift is clear (19/19). Receipts 1–3 stand within their recorded scopes. "Applied"
+means implemented, not independently verified or closed.
+
+**Corrections upheld:**
+
+1. **Push range.** `c72895f..c37db75` contains two commits, because the left endpoint is excluded. The three named
+   commits are `d502848..c37db75`. Pushing stays held (Judge, 2026-10-08).
+2. **Overclaim.** Lane A's "D-427 is wrong" and "re-stamps every time it reads Git" are withdrawn. The supported
+   wording: "the recorded initial-rebuild binding does not validate the final observation in the retained full
+   pipeline; the replacement binding and legacy-R1 treatment are not yet decided."
+3. **G4, R1's interval.** The final observation 08:09:31.368Z lies inside 08:03:51.110Z (initial rebuild-call start)
+   to 08:17:07.284Z (`frozenAt`, a clock sample at composition entry, not proof of composition completion). That interval
+   is accepted as **retained evidence only**. It does not identify or bracket the final timestamp-writing call, and it
+   does not satisfy D-427's rebuild-bracket binding. It may support a narrowly defined legacy-R1 proposal, subject to
+   independent review and an explicit amendment.
+4. **Selection.** A new preparation does not reset frozen commits' ages; selection is recalculated from the actual
+   frozen references and extraction times. The recorded boundary is 2026-10-28T18:21:29Z; relevant extracting stages
+   must finish before it, with margin.
+
+An unchanged repeat against the existing R1 packet under the current rule will fail R1's window check, whatever C2 does.
+No such certainty exists for the unexplained ignored count.
+
+### What you need
+
+**Authority: the Judge, directly to Lane A, 2026-10-08**, in chat: "yes commit the receipt and issue the diagnostic
+go-ahead", issuing Lane B's draft from `4d87b65` in full:
+
+> "Authorize Lane A to perform one diagnostic-only experiment with at most two isolated disposable generation arms, one
+> seeded from preserved B0 and one from captured R1, each run once with the same reviewed frozen source and inputs,
+> using a fresh named output folder and a declared diagnostic harness/instrumentation plan. Retain per-stage
+> timing/provenance/Git-selection evidence and the actual detect-time ignored-file identities, alongside hashes and
+> instrumentation differences. Do not run proveRepeat, publish, sync, recover destructively on the real target, change
+> allowances or canonical code, edit historical packets, fetch or push. Preserve live R1 and the failed attempt
+> unchanged. Stop for Lane B review of the diagnosis and the proposed treatment of historical R1 evidence. Any amendment,
+> implementation or new repeat requires a later bounded Judge act."
+
+**Declared harness and instrumentation plan** (folder `C:/CoWork/outputs/lane-a-d426-diagnostic-2026-10-08`; harness
+`diagnose.mjs` there, retained with its hash):
+
+1. **Seeds, copied, never edited in place.** Arm `b0`: a copy of R1's run baseline
+   (`lane-a-d426-receipt2b-2026-10-08/work/attempt-2/baseline`), whose manifest must equal B0 `81d16154…`. Arm `r1`: a
+   copy of the failed repeat's captured baseline (`lane-a-d426-receipt4-2026-10-08/repeat/attempt/baseline`), which
+   must equal R1 `c104ec0f…`. A mismatch stops that arm before generation.
+2. **Inputs.** Each arm runs the guard's unmodified `generateCandidate` once, with R1's frozen packet: snapshot
+   `11f2e40`, frozen executable bindings, the pinned CLI, and R1's answers file (`attempt-2/ANSWERS.json`, hash
+   `c4220617…`). Nothing outside the arm folder is written. No `proveRepeat`, compose, publish, sync or recovery; the
+   live target is only read.
+3. **The one instrumentation difference.** The `tool` argument is a wrapper around the guard's own `runGraphify` that
+   changes no arguments. Around each Graphify child call it records the stage arguments, the start and end clock, and
+   the following before and after the call: the working graph's `graph.provenance.observed_at`; a digest of its Git
+   subgraph (`gitSubgraph`); the producer's `scope.json` counts; and the individual ignored files Git reports in that
+   checkout (`ls-files --others --ignored --exclude-standard`). Git's ignored list is the closest available proxy for
+   detect-time identities and is labelled as such.
+4. **Final analysis, read-only.** Each arm's final Git subgraph is checked against the merge of its seed and its fresh
+   extraction (the proposed final-state check); its final observation is located against every recorded stage window.
+   The two arms are compared stage by stage.
+5. **Limits.** A newly captured ignored list cannot reconstruct R1's missing historical list. Clock samples bracket
+   calls; they do not prove which internal step wrote a value.
+
+### What you did instead
+
+The failed attempt, live R1 and all earlier packets stay unchanged. No push. Lane A runs the two arms once each, then
+stops for Lane B's review of the diagnosis and of the historical-R1 treatment. B-050 stays Applied; its O1 row stays
+open.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Lane B's review and its four corrections | Phase 1: received |
+| Approve-with-conditions | Diagnostic under the declared plan | Phase 1: two arms, each once; then Lane B's review |
+| Defer | Amendment, implementation, new repeat, receipt 5, closure, push | Phase 1: later bounded Judge acts |
+| Reject | The R1 interval as current D-427 compliance; an unchanged rerun; fabricated windows; blanket allowances | Phase 1 |
