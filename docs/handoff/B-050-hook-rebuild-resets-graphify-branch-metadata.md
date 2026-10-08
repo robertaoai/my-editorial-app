@@ -6181,3 +6181,70 @@ issuance is recorded in the Register in its own canonical commit, with this text
 
 B-050 stays Applied; its O1 row stays open. Recording and implementation follow in their own commits; implementation
 waits for the Judge's go-ahead after recording.
+
+## Lane A — D-429 implemented; renewed receipt-1 request at `0540fb6`, 2026-10-08
+
+Read at `0540fb6`. **Authority:** `D-429` issued at `b64c82e`; the Judge, 2026-10-08, in chat: "yes, go ahead and
+implement D-429". Evidence folder: `C:/CoWork/outputs/lane-a-d429-receipt1-2026-10-08/at-0540fb6` (clean tree at
+`0540fb6`; Bun 1.1.30, Node v24.18.0, Git 2.54.0).
+
+### What happened
+
+**Implementation, `0540fb6`, on the two authorized paths only** (`scripts/graphify/guarded-rebuild.mjs`,
+`scripts/fixtures/graphify-guard.test.mjs`):
+
+| Clause | Implemented |
+|---|---|
+| A1 | `generateCandidate` brackets and records every Graphify child call (arguments, start, end, before/after observation). After the last call, `observationCallFindings` requires the final observation to be the final `update` call's value, inside its bracket, unchanged by every later call. The packet keeps `brackets.finalUpdate`, `finalObservedAt` and the call records. `provenanceFindings` now checks against the final-update bracket |
+| A2 | Every later checkout call reads the selection inputs before and after it; `callSelectionFindings` requires the oracle at both ends to equal the rebuild's |
+| A3 | After the last call, the final Git subgraph must be the seed-plus-fresh merge. `verifyStaging` repeats the check on the composed staging candidate, with the final observation and the root/studio/manifest bindings, in `attempt` and in `proveRepeat`; `attempt` then re-derives the manifest from the staging bytes and fails on any change |
+| A4 | Each call records pre/post Git proxies of the ignored files (`work/ignored/`, hashed); `scopeCountFinding` requires a rewritten scope to report its own pre-call proxy. `ignoredPacket` derives the validated count, AST-cache cardinality, non-cache paths and the transient indicator (written by `update --fill-missing`: absent before, present after). `ignoredCountFindings` requires both count copies to equal the validated count. `ignoredAllowance` and `repeatComparison` mask the two count leaves only under the exact rule |
+| Option B | `proveRepeat` refuses a first run whose packet lacks the D-429 evidence before any generation |
+
+**Source-bound evidence at `0540fb6`:**
+
+| Evidence | Result |
+|---|---|
+| Full guard suite (`guard-suite-full.log`) | **260 pass, 0 fail, 1,010 `expect()`, exit 0**, 874 s. SHA-256 `59f03cf7529f135f2ac21719e0a0b986e90b72c5e3b88e268a9484cf70556af5` |
+| Real full-pipeline valid control (`control.mjs`, `control/pass-2/control-result.json`) | **valid.** The real pinned producer at `0540fb6`, seeded from a copy of R1 (`c104ec0f…`; no live access): all 7 calls; final observation 13:47:24.241Z inside the final `update` bracket 13:46:22.008–13:47:27.596Z; validated ignored count 697, transient 0; then `composeCandidate` and `verifyStaging` with **0 findings**; manifest `7e840867…` stable after the check, 583 files. Pass 1 stopped at pending semantics; pass 2 used `control/control-answers.json` (SHA-256 `5dc85322…`: 176 descriptions kept from R1 because their code is unchanged since `11f2e40`, 17 written from full current bodies, 19 names from their members, none clashing) |
+| Mutations (`mutation-harness.mjs`, `mutations/summary.json`) | **49/49 caught**, one run, every file restored, tree clean afterwards: the 33 earlier rows plus 16 D-429 rows (A1 ×2, A2 ×2, A3 ×3, A4 ×8, Option B). Summary SHA-256 `6f118cef…`; harness `c87fb5e5…` |
+
+**Run 1 of the harness crashed, and is kept** (`mutations-run1-crashed/`). At row 35 (`d429-a1-after`), Windows refused the
+restore write (`EUNKNOWN`, errno -134) and left the guard file mutated in the working tree. Lane A restored it with
+`git checkout --`, checked that its hash equals the committed blob, and confirmed a clean tree; nothing mutated was
+committed. The harness now retries the restore with a back-off, stops loudly if it still fails, and writes a partial
+summary after every row. Run 2 above is the complete run.
+
+| Evidence file | SHA-256 |
+|---|---|
+| `control.mjs` | `08b53b881bb2ae60681a03fa3633d92d10f9f66d8595ddd02b0e2b3b1d02b916` |
+| `control/pass-2/control-result.json` | `f9e413ea570ae6cfa8a138c9304c4a477c319104d0906ed2678b477ef7883b67` |
+| `control/control-answers.json` | `5dc85322166a3b7d2dc88db1a4045042626b17243593c2ec1442c267416b8183` |
+| `mutation-run.txt` | `1233f76067aa11d33b181b4a713aecebd734765fdd66255ab5b8b04e70f58459` |
+
+### What you need
+
+**Lane B: the renewed receipt 1**, an independent source-bound readiness review of `0540fb6` against `D-429`. Points for
+the review:
+
+1. **Known limit:** the A1 and A2 *wiring* inside `generateCandidate` is not reachable by any fixture test, because the
+   fake generations stop before the later calls. The helpers are unit-tested and mutation-checked; the wiring is
+   exercised only by the real control's valid path. A refusal through the real wiring is not demonstrated.
+2. **A2 producer inventory:** in the diagnostic and in this control, `observed_at` was rewritten by both `hook-rebuild`
+   calls, `update --fill-missing` and `update`, and not by `label` or `studio export`. The rule checks every call, so
+   it does not depend on this list.
+3. **R1 here** shows count 697 with transient 0 (seed R1; its names bind), unlike the diagnostic's 695: the repository
+   gained ignored files since. No cross-run claim follows from one run.
+
+### What you did instead
+
+No candidate prepared, nothing published or pushed. The control's answers are reusable for the new candidate only if
+the source is unchanged. Next, after Lane B's receipt 1: new candidate preparation (receipt 2), under the cycle order in
+`D-429` item 7. B-050 stays Applied; its O1 row stays open.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Implementation on two paths; suite 260/0; real control valid; mutations 49/49 | Phase 1: Lane A's evidence |
+| Approve-with-conditions | Renewed receipt 1 | Phase 1: Lane B's independent review, including the wiring limit |
+| Defer | New candidate (receipt 2), new R1 and health, repeat, receipt 5, closure, push | Phase 1: `D-429` item 7 order |
+| Reject | The control or the suite treated as receipt 1; the crashed run hidden | Phase 1 |
