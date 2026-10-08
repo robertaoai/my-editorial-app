@@ -5526,3 +5526,79 @@ its O1 row stays open.
 | Approve-with-conditions | Receipt 2 for `5dd55b5a…` | Phase 1: Lane B's independent exact-byte review |
 | Defer | Publish, health, push, receipts 4–5, dispositions | Phase 1: the carried-over order |
 | Reject | Treating this request or Lane A's verification as receipt 2; any use of `0907edb2…` | Phase 1: `D-426` item 5 |
+
+
+## Lane B — D-426 receipt 2: replacement candidate accepted, 2026-10-08
+
+Read at 99cc6f7. This independent review accepts only replacement work 2539571f-8d6a-405f-90d3-a9065d975c85, analyzed source 11f2e40c5411bf80a15ebbbd2f835d102599cf14, graph 5dd55b5a7563cbf866d2e585972d804e0a416ae57bec2d8be54e6632be740e76, manifest c104ec0f9b34f7d2e899f62d8a6ecf58b5d12d14378026970eb33fb1a80b3841 (583 files), and the baseline bound below. The old 0907edb2 candidate remains unaccepted history. No receiver field, header, Resolution, DoD, tracker or clearance is changed.
+
+### What happened
+
+Lane A's receipt 11f2e40 correctly receives the earlier semantic finding, replaces the inaccurate waiting status, records four further corrections, and records the Judge's replacement authority and carried-over conditional order. I reviewed the five corrected descriptions against full source bodies: generation, repeat orchestration, comparison and studio validation. They now distinguish prepare-time bindings from extraction-time oracle checks, Graphify child calls from helper scripts, pre-regeneration checks from the later selection comparison, and declared comparison allowances from arbitrary JSON differences. All five corrections are present; exactly five description answers differ from the first packet, and 180 are unchanged. No additional implementation defect is established by this review.
+
+Independent byte review recomputed the graph, manifest, 583-file inventory and answer hash; all match STATE.json and the request. All 563 retained files equal the captured baseline byte for byte. No unknown or multiply classified files, unapplied descriptions/names, name-binding findings or foreign-path findings in promoted/rebound files. All 139 fragments compare exactly. All 19 supplied names bind their actual member sets, labels and member nodes; the new commit-community names were read against member commit titles. Studio validation using the pinned producer and its bound shipped files returns zero findings (2,448 scene nodes, 5,349 edges).
+
+Independent extraction review confirms valid rebuild/fresh brackets, equal oracles, the recorded oracle digest, exact fresh-extraction membership and the required baseline-plus-fresh Git merge. Rebound lifecycle fields pass. The live release chain still selects 932b453 / 81d16154; source eligibility passes at 99cc6f7.
+
+Environment limit: the review session initially resolved a different Git path. That is retained as a reviewer-environment observation in selection-bindings.json, not silently treated as a candidate defect or a pass. A separate read-only subprocess resolving the exact frozen Git directory first verifies its path, binary hash, version, outside/checkout configuration, Node, tool pins and shipped files with zero findings (frozen-binding-validation.json). This does not certify any future publisher environment; the guard must perform its own applicable entry checks. No shared environment or Git configuration was changed.
+
+Evidence directory: C:/CoWork/outputs/lane-b-receipt2b-review-2026-10-08/.
+
+| Evidence file | SHA-256 |
+|---|---|
+| `independent-bytes.json` | `8307f243181e8d28164fd6d008b35f13fce739e6bfcc381a52e8f136c93a7538` |
+| `independent-validation.json` | `d0e6226bcfc0bc82015730e1ab657d3dc3cbde73a01ff4b1a57d4825d930bca7` |
+| `selection-bindings.json` | `6208749177dbbcd7a24be3083e4612ff3be6fa3defd167514aaf0da9368ef29c` |
+| `frozen-binding-validation.json` | `7af2f875ede76d08d81c7015d1f3f7f6423eb3198791d78203b5e03d9f04dd7d` |
+| `check-at-99cc6f7.log` | `0454d0e2b4c6834a37dd3e35c7341e0cd0cfa0a1cecbec5d63462945c35013f4` |
+
+The required bun run check invocation could not start in this review environment (CouldntReadCurrentDirectory). Running its exact underlying script with Node completed: 18/19 pass, docs-drift alone fails, with the full result retained above under D-428. This is not a 19/19 claim. Live drift remains 12 governed paths since 00c23ff; preparation and this acceptance do not clear it.
+
+### What you need
+
+Parent first: SV-002/Gate 2 remains incomplete; tracker aa44dac is current with six non-SM05 rows unclosed. B-154 remains the sequence record. B-050 stays Applied/O1 open. Receipt 1 remains accepted; this record completes receipt 2 for the exact replacement identity only. Receipts 3-5, B-050 disposition and B-077 reconciliation remain their own obligations, then the remaining parent acts. The five Judge-confirmed GR-012/B-014/GR-013/B-021/B-155 items remain settled within their recorded limits. No new Lane C review or product-construction authority is inferred.
+
+Lane A follow-up:
+1. Receive this acceptance once in B-050; preserve old findings and the old candidate as history. Use this Lane B review commit as the review argument, not the candidate-request commit.
+2. The Judge's replacement authorization in 11f2e40 already carries the conditional order over. Check the actual acceptance identity and current source/baseline/entry conditions; do not ask for the same approval again solely because receipt 2 is now recorded. This review executes nothing.
+3. Under that authority, guarded publication is receipt 3. Retain the transaction/release evidence and a separate full-health result and post-state. A required health failure prevents completion; D-428 is not a post-publication waiver.
+4. Push remains separately bound to the Judge-confirmed exact range ending at the health record under D-385. A fetch/push that moves frozen refs before publication invalidates source eligibility; no promise follows merely from avoiding those two operations. Do not change staging bytes or other frozen inputs.
+5. Keep receipts 4-5 visible: actual disposable unpublished B0/R1/C2 repeat with the frozen packet and raw evidence, then independent whole-unit review. Health or push is not either receipt. Reconcile B-050/B-077 and remaining O0/P15/DoD/residual obligations before parent clearance.
+
+Chief Editor consolidation: record finding -> receiver correction -> source/candidate evidence -> independent acceptance, once, in the existing channel. Chief Editor wording supplies no extra execution or verifier role. Lane B raises/reviews; Lane A answers/operates within authority; no Lane C result is assumed. Source-eligible, ready, accepted, published, healthy, Applied and closed remain distinct facts. No new tracker or canonical decision is required by this review.
+
+### What you did instead
+
+Reviewed source and candidate data and retained independent evidence. No build, implementation, preparation, publication, recovery, repeat, fetch or push; no graph mutation. This is Lane B's review record only.
+
+### F3 acceptance record
+```json
+{
+  "kind": "graphify-f3-acceptance",
+  "version": 1,
+  "disposition": "Accept",
+  "scope": "F3 publication",
+  "reviewer": "Lane B",
+  "workId": "2539571f-8d6a-405f-90d3-a9065d975c85",
+  "graphSha256": "5dd55b5a7563cbf866d2e585972d804e0a416ae57bec2d8be54e6632be740e76",
+  "manifest": {
+    "algorithm": "guard-treeDigest-v1",
+    "digest": "c104ec0f9b34f7d2e899f62d8a6ecf58b5d12d14378026970eb33fb1a80b3841",
+    "files": 583
+  },
+  "analyzedSource": "11f2e40c5411bf80a15ebbbd2f835d102599cf14",
+  "baseline": {
+    "releaseLocus": "932b45333327ed6d0418ab19cd9e82f4e60e0102",
+    "algorithm": "guard-treeDigest-v1",
+    "digest": "81d1615459c38804db7a757869210ae867c1869139162ecb5a2719eecbf89c57"
+  },
+  "pendingSemantics": 0
+}
+```
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Five semantic corrections and receipt 2 for the bound replacement identity | Phase 1: independent exact-byte acceptance recorded here |
+| Approve-with-conditions | Lane A's carried-over publication/health plan | Phase 1: recorded Judge authority and guard entry checks; separate full-health evidence |
+| Defer | Actual publication/health/push, receipts 4-5, B-050/B-077 dispositions and parent clearance | Phase 1: respective ordered evidence and applicable acts |
+| Reject | Old-candidate reuse, changed-byte reuse of this acceptance, source-eligible/healthy/pushed treated as whole-unit closure | Phase 1: exact identity and distinct receipt/closure contracts |
