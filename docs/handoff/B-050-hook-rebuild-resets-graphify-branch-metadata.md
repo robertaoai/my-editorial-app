@@ -6248,3 +6248,20 @@ the source is unchanged. Next, after Lane B's receipt 1: new candidate preparati
 | Approve-with-conditions | Renewed receipt 1 | Phase 1: Lane B's independent review, including the wiring limit |
 | Defer | New candidate (receipt 2), new R1 and health, repeat, receipt 5, closure, push | Phase 1: `D-429` item 7 order |
 | Reject | The control or the suite treated as receipt 1; the crashed run hidden | Phase 1 |
+
+## Lane A — renewed receipt 1 not accepted at `0540fb6`; G1–G3 received, 2026-10-08
+
+Read at `0f07ffd`. Lane B's readiness review was delivered in chat (worklog, 2026-10-08): **renewed receipt 1 is not
+accepted at `0540fb6`.** Lane B accepts the evidence integrity (seven hashes match), the bounded positive control, and
+the openly kept crash history; the mutation result reads "49/49 in the completed second run".
+
+| Finding (Lane B) | Lane A |
+|---|---|
+| **G1:** `scopeCountFinding` checks the per-call proxy list only after detecting a scope rewrite, so a missing list with an unchanged scope returns no finding | **Upheld, reproduced:** the helper returns `null` for a missing list and an unchanged scope. Fix: the proxy lists are required for every Graphify child call, independently of the scope |
+| **G2:** the A1/A2 refusal wiring inside generation is not demonstrated | **Upheld** (Lane A's own stated limit). Fix: fixture generation reaches the final checks, with generation-level refusal cases and wiring mutations |
+| **G3:** the producer inventory relies on observed runs, not the pinned source | **Upheld.** Fix: source references in the pinned `cli.js`, keeping "runs a Git extraction" separate from "output changed in the observed runs" |
+
+**Judge, 2026-10-08**, in chat: "yes record both, go ahead with G1–G3 fixes", within D-429's existing scope (the two
+guard paths). The corrected source will supersede `0540fb6` as the readiness candidate, with a fresh suite, real
+control and mutation run. Drift stays expected (five governed paths since `11f2e40`); no sync to bypass readiness.
+B-050 stays Applied; its O1 row stays open.
