@@ -29,13 +29,10 @@
   `D-171` hold is unnarrowed, and the audit snapshot at `a18fe1c` keeps its pinned, historical
   status. Should any child return work to this parent, it is reopened by a new entry citing this
   one, not by editing this disposition.
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified; dispositioned by Lane A
-- **Verified-At-Commit:** b08d582a3ff2c679bb42bc5633c7dfc9c9643bb7
-- **Evidence:** all handoff entries discovered at immutable revision `a18fe1c`; Lane B re-review
-  baseline `0caf909`; `docs/handoff/README.md`; `docs/handoff/TEMPLATE.md`;
-  `scripts/checks/handoff-response.mjs`; `scripts/checks/closure-readiness.mjs`; B-071/B-072/B-076;
-  Graphify `portable-check` and `check-update`
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), independent of Lane A's reconciliation, application and operation; closure-map verification, 2026-10-09
+- **Verified-At-Commit:** a1cf7e8307430d7543d3db459468f3335b14567c
+- **Evidence:** Independent closure-map review 225f0b1, reconciled draft a411a70 corrected at 5c8978c; Return b08d582 and Re-close c365c68 independently bound to the 2026-10-09 act and read 14be194; D-416 item 6; D-430 release reviewed at 28853be, graph 481874fb43b7713355df6377a9c124ee84ae65bc0d02f77ff2cf0eb55a227756, manifest 55dba74cdf6ac0be22d2ff153db299b6e4f63cd4b1a213285cc70eac3e93797d, all 139 fragments exact and four accepted description hashes equal; B-050 Verified at 8885bd1 for the repository procedure only. Fresh header/graph and episode evidence in C:/CoWork/outputs/lane-b-parent-dispositions-2026-10-09/baseline-state.json; baseline full check 19/19. Scope: Parent 1, Children 2-5 and B077-SC1-SC12 as amended; not downstream execution, GR-007 completion, P15 or Gate 2.
 
 ## What happened
 
@@ -4253,3 +4250,44 @@ stays open. The handoff commit stays separate from any canonical edit.
 - **Completion-Evidence:** Lane B's independent closure-map review at `225f0b1`; Lane A's reconciliation `a411a70` as corrected at `5c8978c`; `D-430`'s curated-description correction released (graph `481874fb…`, review `28853be`, health 19/19, recorded B-154 `eb1ecde`); B-050 `Verified` for the repository procedure (`8885bd1`); `B077-SC8` refreshed at `f4fe6c7` (125 terminal, 4 turn reports, 33 non-terminal, each with a named next action) and curated status 8 of 8
 - **Reclose-Act:** `D-364` (the re-close form); the Judge's disposition approval, 2026-10-09; Lane A disposition recorded here
 - **Reclosed-At-Commit:** b08d582a3ff2c679bb42bc5633c7dfc9c9643bb7
+
+## Lane B independent verification of the completed review episode — 2026-10-09
+
+### What happened
+
+Judge's current chat act: **"judge approved: B-077 Verified, then B-154, then B-150"**. Read at
+`a1cf7e8307430d7543d3db459468f3335b14567c`. The prior independent substantive review (`225f0b1`) is retained;
+the missing lifecycle evidence is now supplied by Lane A's Return `b08d582` and Re-close `c365c68`.
+
+Independent history validation finds **zero findings**, two B-077 episode records: the Return quotes its original
+Follow-up-Tier condition, names the Judge's act and independent review, and cites `14be194`; the Re-close binds the
+act's date and that exact SHA, cites D-364 and completion evidence, and reads the later commit `b08d582`. Its
+Answered/Applied header is consistent. Lane A's answer and all historical records remain unchanged by this review.
+
+| Completion evidence | Independent outcome |
+|---|---|
+| SC1 / SC8 | Fresh originating-header query at a1cf7e8, joined to the existing source-specific next-action map. Subsequent B-050/B-153 verification and B-077's completed episode are explicit; remaining non-terminal sources retain their named receiving owner/action. Counts do not substitute for this join. |
+| SC2 / SC4 / SC11 | D-403's individual reasons remain the single basis for their own obligations under D-416 item 6. B-072/B-076 are not promoted; B-050's procedure-scoped verification has its own evidence. |
+| SC5 / SC7 / SC9 / SC10 | Released extraction source 3366244, review 28853be, manifest and graph bound; curated fragment parity 139/139; all four D-430 strings reproduce accepted hashes. B-071/B-072 semantics hold. Portability and general enrichment are separate from source currency. |
+| SC6 / SC12 | B-071's documentary return episode is verified; D-171 target work remains held. B-016/C-001 Phase 3 custody remains separate. This verifies the closure-map reconciliation, not the software or behavior received downstream. |
+| SC3 and lifecycle | This independent disposition names consistent Resolution, Verified-By, Evidence and an existing read commit. The completed Return/Re-close starts the correct verification episode; no terminal-history waiver is used. |
+
+### What you need
+
+**Disposition: Verified**, for the bounded closure map and reconciliation only. B-154, then B-150 still require
+their own independent dispositions. B-136 P15 stays at SV2-DOD-06. D-430's B-077 description is a dated snapshot
+that says review was pending at 8885bd1; its recheck/update is now due in the already sequenced governed unit.
+Do not describe the old curated-status sweep as newly proving current lifecycle parity after this disposition.
+
+### What you did instead
+
+Only this handoff's independent verification metadata and review record change. No receiver answer, tracker,
+canonical source, fragment, graph, code, workflow, lane state, fetch or push changes. Evidence home:
+`C:/CoWork/outputs/lane-b-parent-dispositions-2026-10-09/`; normal checks and hooks apply.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | B-077 completed review episode and closure-map reconciliation | Phase 1: independently Verified here |
+| Approve-with-conditions | B-154, then B-150 | Phase 1: each parent's own evidence and independent disposition |
+| Defer | Tracker/description governed unit, GR-007, P15 and Gate 2 | Existing owners, recorded sequence and separate gates |
+| Reject | B-077 verification treated as downstream delivery or construction authority | Phase 1: preserve the accepted scope and holds |
