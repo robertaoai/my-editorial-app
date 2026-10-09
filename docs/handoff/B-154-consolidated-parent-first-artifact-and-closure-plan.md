@@ -4,7 +4,7 @@
 - **Kind:** finding
 - **Phase:** 1
 - **Blocks:** nothing, reporting only; no implementation or Gate 2 clearance claimed
-- **Status:** Open
+- **Status:** Answered
 - **Lane A:** **Acknowledged 2026-10-02, receipt only**, read at `14b9f7b` (Lane B's single-path commit of this
   entry). Lane A confirms the corrected accounting: 50 keyed ledger rows, which exclude the D-278 screen; 106
   unkeyed against the 156 baseline, and 107 with this entry counted. Lane A also confirms the four supplied Lane C
@@ -1546,9 +1546,10 @@
     final canonical unit with the tracker re-derivation, through one guarded sync.
 
   B-154 stays Open; no Resolution is recorded.
-- **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
-- **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), independent of Lane A's consolidated plan corrections and application; correction-unit verification, 2026-10-09
+- **Evidence:** Closure packet bd6e43a as narrowed at a1cf7e8; D-403 R1 receipts and individual R2 reasons; D-404/D-405 propagation and D-418 B-106 custody; D-402 bounded GR-012/013 outcomes; B-050 procedure Verified at 8885bd1; D-428 review 659996b and G1-G3 reviews b4cbf53/208ed9e; D-430 exact-description release review 28853be; B-077 completed episode independently Verified at fdf06dc; B-153 correction unit Verified at 43495db. Independent graph/header and lifecycle evidence in C:/CoWork/outputs/lane-b-parent-dispositions-2026-10-09/; original scopes and retained downstream owners preserved. No Gate 2, GR-007 completion, P15 acceptance or implementation inferred.
+- **Verified-At-Commit:** fdf06dc962687f6e00d9cf14d05cc7b3d9d72d5e
 
 ## What happened
 
@@ -8561,3 +8562,56 @@ then GR-007's conclusion.
 ### What you did instead
 
 No tracker, GR-007, fragment or graph change. 19/19; graph synced at `3366244`.
+
+## Lane B independent disposition of the consolidated correction units — 2026-10-09
+
+### What happened
+
+Judge's current chat act: **"judge approved: B-077 Verified, then B-154, then B-150"**. Read at
+`fdf06dc962687f6e00d9cf14d05cc7b3d9d72d5e`. B-077's Return/Re-close is now independently Verified at that
+commit, so this packet's last review dependency is met. B-153 remains Verified at `43495db`; it is not re-reviewed
+or re-dispositioned here. Lane A's answer and historical approvals remain intact.
+
+| Correction unit | Independent evidence and bounded conclusion |
+|---|---|
+| R1 / R2 | D-403's received repairs and 23 individual O5 reasons retain their source/obligation-specific scope. No bulk promotion of Applied headers or substitution of a reason for delivered behavior. |
+| R3 / B-106 | D-404/D-405 applied the decided retention propagation. D-418's reviewed custody closes B-106's row while its header remains Deferred. A deferred receiver is not completed implementation. |
+| GR-012 / GR-013 | D-402's B-014/B-021/B-155 Verified records retain the accepted observation/isolation limits; no universal eradication or runtime guarantee is added. |
+| B-050 | Receipts 1-5 and independent disposition 8885bd1 verify the repository procedure. Upstream Graphify, raw-writer exclusion and native per-call saving are not claimed repaired. |
+| F1-F4 / G1-G3 | D-428 and reviews 659996b, b4cbf53 and 208ed9e bind the narrow exception and applied recording corrections. Prior red commits remain history, not precedent. This sequence uses passing checks. |
+| B-077 semantics and final review | D-430's four accepted hashes are live and all 139 fragments match; review 28853be binds the release. Reconciliation 225f0b1, Return b08d582, Re-close c365c68 and independent Verified fdf06dc complete the closure-map dependency. |
+| Audit precision | Lane A's a1cf7e8 correction preserves D-391's structural-only limit for 70 premises and keeps lifecycle disposition distinct from delivery. No additional semantic batch is silently commissioned. |
+
+### What you need
+
+**Disposition: Verified**, limited to this entry's consolidated correction units and reviewed receiving evidence.
+The SV-002 B-154 row clears by its independent header, without editing the tracker. Next is B-150's own
+independent disposition, then Lane A's already sequenced tracker/description governed unit and guarded cycle.
+
+**Remaining qualification:** B-136 P15 is still open at SV2-DOD-06. GR-007 may receive an accurate all-row
+assessment after the tracker refresh, but its completion criterion requires every relevant row closed or received.
+If P15 is still open, the assessment must explicitly remain incomplete; neither GR-007 completion nor Gate 2 may
+be inferred from these O0 dispositions. P15 can progress separately; it does not need to wait for a new build.
+
+**Named custody remains:** Lane A implements native per-call record saving before a future repeat without the
+saving driver or at the next governed guard change, whichever is first. GR-009 code needs its own Lane B unit;
+D-171 targets and Phase 3 retain their existing holds/gates. A tracker edit does not itself commission a guard edit.
+
+**Bookkeeping correction:** the supplied Lane A worklog reports eight local commits at a1cf7e8. The local
+upstream comparison at that exact read revision reports **seven** against eb1ecde. Both snapshot and command
+result are retained in `baseline-state.json`; no fetch was performed. Later totals must name their own read HEAD.
+
+### What you did instead
+
+Only this entry's independent disposition and review change. No receiver answer, tracker, canonical source,
+fragment, graph, application, workflow, lane state, fetch or push changes. Development Lanes A/B/C retain their
+ownership and are distinct from the product's Three Lines. No new Lane C finding is assumed. The Chief Editor
+needs no new business decision for these approved recording steps; subsequent construction still consumes the
+existing requirement/acceptance anchors, packet DoR-to-DoD and independently scoped evidence.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | B-154's correction units and completed B-077 dependency | Phase 1: independently Verified here |
+| Approve-with-conditions | B-150 audit parent | Phase 1: its own scoped proof and independent disposition, after this commit |
+| Defer | Tracker/description governed unit, GR-007 completion, P15 and Gate 2 | Existing sequence; all-row conclusion must retain any open P15 condition |
+| Reject | Terminal status as delivery; keying as complete semantic re-review; repeated permission requests for this approved sequence | Phase 1: preserve the recorded scope, evidence and actor ownership |
