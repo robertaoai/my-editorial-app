@@ -7993,3 +7993,58 @@ clear at `90de7fb`; the curated semantic drift above is pending.
 | Approve-with-conditions | Four curated-description drafts | Phase 1: Lane B's review, then a Judge act naming the fragment scope, guarded proof before B-077's verification |
 | Defer | B-050 disposition; fragment application and guarded cycle; B-077 final review; O0 parents; tracker; GR-007; Gate 2 | Phase 1: corrected order above |
 | Reject | Prefix-only semantic proof; B-077 Verified before its graph proof; a promised single sync; turn reports counted as terminal dispositions | Phase 1 |
+
+## Lane A — description drafts review received; freeze plan and draft act, 2026-10-09
+
+Read at `5c8978c`. Lane B's review was delivered in chat (worklog, 2026-10-09): **C1–C6 and the corrected order are
+accepted; the B-071, B-072 and B-078 replacement descriptions are accepted as drafts; B-077's is accepted with
+conditions** (resolve both placeholders from source records and freeze the complete text against a named
+revision). B-154 stays the draft home.
+
+### What happened
+
+- **Narrowed (corrects `5c8978c`'s explanation):** not every append to a terminal handoff needs a failing commit.
+  `terminal-return` exempts audit-only diffs and record-only additions (`isRecordOnlyDiff`, B-113). A
+  **substantive** body change inside a terminal episode needs its covering Terminal annotation record, which can
+  cite that change only once it is committed. That never permits committing on a failed check outside `D-428`'s
+  case. Keeping these drafts in B-154 avoids the situation.
+- **B-077 text cannot be frozen yet:** its placeholders are B-050's disposition and B-077's own review state, and
+  B-050's header is still `Applied` at `5c8978c`.
+- **B-077's future status, made explicit:** the frozen text will state B-077's state **as of the named freeze
+  revision** ("Deferred; final independent review pending at <revision>"). After B-077's disposition, its node is
+  rechecked and corrected in the planned final canonical reconciliation (the tracker/GR-007 unit), so a
+  pending-review snapshot is never presented as current.
+
+### Freeze plan
+
+When Lane B's B-050 disposition commit lands, Lane A reads B-050's and B-077's headers at that commit and fills both
+placeholders from them (no other wording change). Lane A then records all four complete texts in B-154 with that
+freeze revision and their SHA-256s, for Lane B's exact-text acceptance before any fragment edit.
+
+### Draft canonical act (for the Judge; not issued)
+
+> Authorize Lane A to replace the `description` field only of four curated nodes, with the four texts frozen in B-154
+> at <freeze revision> and accepted by Lane B: `docs/graph-fragments/frag119.json` `b071_ontology_correction_handoff`
+> and `b072_handoff_only_commit_authority`; `frag121.json` `b077_consolidated_closure_failure_pattern`;
+> `frag123.json` `b078_documentation_audit_follow_through`. Identities, labels, edges and every other field stay
+> byte-unchanged. Then prepare one guarded candidate and stop for Lane B's exact-byte and semantic acceptance;
+> publication needs its own go-ahead, followed by full health. Recorded under `D-54` with each unaffected tier
+> stated. Not authorized: B-077 or any other disposition, tracker or GR-007 change, held product work (`D-171`),
+> Phase 3 delivery, native packet retention, or a push.
+
+### What you need
+
+**Lane B:** B-050's procedure-scoped disposition commit. Then Lane A freezes the four texts for Lane B's
+exact-text acceptance, and the Judge considers the act above.
+
+### What you did instead
+
+No header, fragment, tracker, Register or graph change. 19/19; source drift clear at `90de7fb`; the curated semantic
+corrections stay pending.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Lane B's acceptance of C1–C6, the order, and the B-071/B-072/B-078 drafts | Phase 1: received |
+| Approve-with-conditions | Four-description packet | Phase 1: freeze after B-050's disposition; Lane B's exact-text acceptance; then the Judge's act |
+| Defer | Fragment application and guarded cycle; B-077 final review; O0 parents; tracker and GR-007 (with B-077's node recheck); Gate 2; push | Phase 1: corrected order |
+| Reject | Accepting placeholders; "every terminal append needs a red commit"; a pending-review snapshot shown as current; premature verification | Phase 1 |
