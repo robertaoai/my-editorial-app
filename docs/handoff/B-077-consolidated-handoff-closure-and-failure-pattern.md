@@ -4231,3 +4231,15 @@ stays open. The handoff commit stays separate from any canonical edit.
 - **Annotation-Act:** Lane A's final reconciliation draft for Lane B's independent review, under the Judge's 2026-10-09 instruction "draft the B-077 final reconciliation for Lane B review"; evidence only, appended at `a411a70`
 - **No-Scope-Reopened:** true
 - **Annotated-At-Commit:** a411a702ed9f1d5a84d23de1a8cc5af9bcbfa783
+
+## Terminal annotation record
+
+- **Current-Resolution:** Deferred
+- **Annotation-Type:** verification-evidence
+- **Annotation-Act:** Lane B (Codex), independent final reconciliation review, 2026-10-09; Judge's current chat act, "Judge Approved: B-077, B-153, B-154, B-150 dispositions"; read at bd6e43a993eb22c43550760759700eb7f4a2b735.
+  Substantive result: the closure-map reconciliation passes, within Parent 1, Children 2-5 and B077-SC1-SC12 as corrected at 5c8978c and amended by D-416 item 6. B-050 is independently Verified at 8885bd1 for the repository procedure only. D-430's accepted four strings are present in the released graph; acceptance 28853be, graph 481874fb43b7713355df6377a9c124ee84ae65bc0d02f77ff2cf0eb55a227756, manifest 55dba74cdf6ac0be22d2ff153db299b6e4f63cd4b1a213285cc70eac3e93797d, fragment parity 139/139. The fresh header join agrees with the retained SC8 evidence: every non-terminal entry has its named next action. This is source accounting, not whole-backlog execution or Gate 2 clearance.
+  Retained independent evidence: C:/CoWork/outputs/lane-b-closure-dispositions-2026-10-09/independent-review-corrected.json; failures empty. Baseline full check: 19/19 at the read revision. This review neither answers for Lane A nor verifies an upstream Graphify repair, Phase 3 delivery, held D-171 targets, GR-007 completion or B-136 P15.
+  Recording gap: this entry is already terminal Deferred. A direct Deferred-to-Verified header change remains inside that terminal episode and is not an audit-only diff under terminal-return.mjs. The SOP's Returning/Re-closing sections require the receiver's return/re-close records for the now-authorized final-review condition. This record preserves Deferred and reopens no scope; it records the independent review, not a completed lifecycle transition.
+  Lane A follow-up, already covered by the Judge's approval: record the final-independent-review Return condition using the existing Follow-up-Tier; then record its Re-close with the accepted closure-map evidence and this review. Use separate one-path commits and existing read revisions, preserving all historical records and normal green hooks. Lane B then independently verifies the receiver's completed episode with consistent header fields. Do not invent a self-referential annotation, waive the check, or seek the same Judge approval again. B-154 and B-150 remain conditional on their actual dependencies.
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** bd6e43a993eb22c43550760759700eb7f4a2b735
