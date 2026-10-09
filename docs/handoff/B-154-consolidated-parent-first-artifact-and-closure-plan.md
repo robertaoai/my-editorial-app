@@ -8150,3 +8150,77 @@ description corrections stay pending.
 | Approve-with-conditions | Four-description packet | Phase 1: Lane B's exact-text acceptance, then the Judge's fragment act |
 | Defer | Fragment application and guarded cycle; B-077 final review; O0 parents; tracker re-derivation; GR-007; Gate 2; native retention; push | Phase 1: in order |
 | Reject | Upstream repair, corrected descriptions or Gate 2 clearance inferred from B-050's verification | Phase 1 |
+
+## Lane B — independent exact-text acceptance of the four-description packet, 2026-10-09
+
+**Read revision:** `75a8ae33202e56694f046a2469f6f05f44d4e33e`. Lane B independently reviewed the complete texts,
+their source records and the frozen packet, not just lifecycle prefixes. **The four exact texts are accepted.**
+This completes the text-review checkpoint requested above; it does not issue the fragment act, accept a candidate,
+change a disposition or clear a parent. The standing own-entry recording authority is `D-184` as amended by `D-272`.
+
+### What happened
+
+Packet `frozen-4.json` SHA-256:
+`b916f845ce27bbf3a4b4375cca3d98d96c0c2ca799f101f5345d2d1a6c42b0ca`.
+The following acceptance binds the path, node identity and exact UTF-8 description bytes, with no trailing newline:
+
+| Path | Node | UTF-8 bytes | Accepted SHA-256 |
+|---|---|---|---|
+| `docs/graph-fragments/frag119.json` | `b071_ontology_correction_handoff` | 1427 | `fe194a0758c3836ef441e4d4993a2779f99fcdd6937b2c104cd697f543e46cb1` |
+| `docs/graph-fragments/frag119.json` | `b072_handoff_only_commit_authority` | 901 | `174adccc143012045a35c18a6a3b9d74f05cd4bfaee692c101bf124f29716d0c` |
+| `docs/graph-fragments/frag121.json` | `b077_consolidated_closure_failure_pattern` | 1634 | `d7ef9dec70faca087fcb3a78d8e1084bf479f50de11feaa89e19ccc7c6023a24` |
+| `docs/graph-fragments/frag123.json` | `b078_documentation_audit_follow_through` | 1716 | `bbfe8ad19b14a753f4bca654c9b72de93a4f389bbab6041b2eec652b1b1ca065` |
+
+**Independent checks:** reconstructed the three earlier texts from this entry's blockquotes at `5c8978c`;
+reconstructed B-077 by applying only the two specified substitutions to its draft; matched B-077's fenced text at
+the read revision; recomputed all four byte lengths and hashes; checked each target identity occurs once; and ran
+the guard's foreign-path scanner on every full text. All agree. The three earlier texts' named sources are unchanged
+between `5c8978c` and `8885bd1`. B-050's independently Verified header and B-077's Deferred header support the two
+substitutions. The B-071 header/plan and `D-416` preserve documentary Re-close, Draft 12 and the `D-171` hold;
+the B-072 header, `D-184`/`D-272` and its individual `D-403` reason support Applied without promoting it;
+B-078's header and documentary review support its scoped verification. No additional Lane C outcome is inferred.
+
+### What you need
+
+Parents are listed first for accountability and finish after their required children:
+
+| Parent / dependent work | Current result and next completion artifact |
+|---|---|
+| SV-002 / Gate 2 / GR-007, through B-150/B-153/B-154 | Still open. Required source evidence and O0 dispositions precede tracker re-derivation, GR-007's conclusion and Gate 2. B-136/P15 retains its separate `SV2-DOD-06` requirement. |
+| B-050 | Verified at `8885bd1` for the protected repository procedure only; no further B-050 technical re-review is needed for this unchanged packet. |
+| B-077 curated correction | Exact text accepted here. Next is the Judge's fragment act, then Lane A's application/candidate, Lane B's candidate review, authorized publication and health, a fresh `B077-SC8` query and independent final review under applicable disposition authority. |
+
+**Ready act draft:** use the act recorded at `e0b1405`, replacing its freeze placeholder with the packet recorded
+at `75a8ae3` and the four accepted hashes above. Lane A records the issued act under `D-54` with the applicable
+tier dispositions, then changes only these four `description` fields across the three named fragment files and
+prepares one guarded candidate. Lane B reviews its exact bytes and meaning; publication requires its own
+go-ahead and full health. No disposition, tracker/GR-007 edit, held product work, Phase 3, native record-saving,
+fetch or push is authorized by this text acceptance. No new decision number is invented here.
+
+**Remaining gaps and success tests:**
+- The four corrections are not applied. Success requires the exact accepted strings at the four target IDs,
+  proof that all other fields are unchanged, preservation in the composed candidate and released graph, and
+  independent candidate acceptance. A matching text hash alone cannot prove application or publication.
+- B-077's pending-review wording is an explicitly dated snapshot, not a claim about a later disposition.
+  Recheck it after B-077's disposition in the planned final governed reconciliation; any replacement text needs
+  its own acceptance/authority. Do not promise that this cycle also clears later tracker changes.
+- The fresh `B077-SC8` result must give every non-terminal Phase 1 entry its own next action or justified basis.
+  Five unclosed rows do not become zero through this acceptance. Gate 2 with the stale tracker cannot pass.
+- Native per-call record retention remains undelivered under Lane A's recorded owner/trigger. No new guard
+  implementation is needed for this text-review checkpoint, and this review does not discharge that obligation.
+
+### What you did instead
+
+Recorded only this Lane B review in B-154. Its header, Lane A answer, Resolution and tracker are unchanged.
+Read-only Graphify query used the actual vocabulary `handoff closure authority documentation`; source records,
+not the graph's obsolete descriptions, decide the acceptance. Source drift is clear at `90de7fb`; the four
+curated semantic corrections remain pending. The live graph `3a634096…`, full-state manifest `9906eec3…` and
+transaction state are unchanged. No graph sync is needed for this handoff-only review. Checks and independent
+reconstruction evidence are retained in `C:/CoWork/outputs/lane-b-b154-exact-text-review-2026-10-09-at-75a8ae3/`.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | All four exact descriptions and hashes; B-050's scoped verification received | Phase 1: text-review checkpoint complete at this read revision |
+| Approve-with-conditions | Applying the accepted packet and preparing a candidate | Phase 1: Judge's bounded fragment act, D-54 recording, exact field-only application and independent candidate review |
+| Defer | Publication, B-077 final review/disposition, required parent acts, tracker/GR-007, Gate 2, native retention and push | Their recorded Phase 1 sequence, separate triggers and applicable authority |
+| Reject | Text acceptance treated as authority, live correction, whole-graph semantic correctness or dependent clearance; B-071 product hold lifted by documentary closure | Phase 1: retain the stated boundaries |
