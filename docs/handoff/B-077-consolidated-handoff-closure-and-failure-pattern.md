@@ -4,7 +4,7 @@
 - **Kind:** finding
 - **Phase:** 1
 - **Blocks:** a truthful claim that the handoff backlog is reconciled and ready for the next authorization; no product implementation
-- **Status:** Answered
+- **Status:** Open
 - **Lane A:** **Acknowledged 2026-09-03 — receipt, not an answer.** The failure-pattern table and
   the `a18fe1c` audit snapshot are accepted as an accurate pinned record, and the link-only design
   is respected: **this file is not maintained as a live status matrix**, and each originating entry
@@ -29,14 +29,8 @@
   `D-171` hold is unnarrowed, and the audit snapshot at `a18fe1c` keeps its pinned, historical
   status. Should any child return work to this parent, it is reopened by a new entry citing this
   one, not by editing this disposition.
-- **Resolution:** Deferred
-- **Follow-up-Tier:** Phase 1 for the legacy `Applied` reconciliation, each entry owned by its own
-  raiser and never by bulk promotion; Phase 1 for the `B-061`/`B-070` successor disposition; `B-071`
-  Draft 12 remains under the `D-171` hold with its own closure gate; **Phase 3** for the deferred
-  boundary owned by `B-016` and `C-001`; and final independent review by an eligible reviewer who
-  neither answered nor applied this entry
-- **Verified-By:** — not independently verified; dispositioned by Lane A
-- **Verified-At-Commit:** 0a23eb2f014f44735b4143fd6b70970921341cce
+- **Verified-By:** — not yet dispositioned; raised by Lane B
+- **Verified-At-Commit:** 14be1944c69b9422e0831545664ddd4207583aaa
 - **Evidence:** all handoff entries discovered at immutable revision `a18fe1c`; Lane B re-review
   baseline `0caf909`; `docs/handoff/README.md`; `docs/handoff/TEMPLATE.md`;
   `scripts/checks/handoff-response.mjs`; `scripts/checks/closure-readiness.mjs`; B-071/B-072/B-076;
@@ -4243,3 +4237,10 @@ stays open. The handoff commit stays separate from any canonical edit.
   Lane A follow-up, already covered by the Judge's approval: record the final-independent-review Return condition using the existing Follow-up-Tier; then record its Re-close with the accepted closure-map evidence and this review. Use separate one-path commits and existing read revisions, preserving all historical records and normal green hooks. Lane B then independently verifies the receiver's completed episode with consistent header fields. Do not invent a self-referential annotation, waive the check, or seek the same Judge approval again. B-154 and B-150 remain conditional on their actual dependencies.
 - **No-Scope-Reopened:** true
 - **Annotated-At-Commit:** bd6e43a993eb22c43550760759700eb7f4a2b735
+
+## Return record
+
+- **Previous-Resolution:** Deferred
+- **Return-Trigger:** final independent review by an eligible reviewer who neither answered nor applied this entry
+- **Return-Act:** the Judge's disposition approval, 2026-10-09, in chat ("Judge approved: B-077 final review and disposition", recorded in B-154 `bd6e43a`), and Lane B's independent closure-map review at `225f0b1`, with Lane B's lifecycle instruction in B-154 `14be194`
+- **Returned-At-Commit:** 14be1944c69b9422e0831545664ddd4207583aaa
