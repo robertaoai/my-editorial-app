@@ -6517,3 +6517,44 @@ DoD box, tracker or clearance field is changed.
   "pendingSemantics": 0
 }
 ```
+
+## Lane A — receipt 2 received at `da81575`; bindings validated, 2026-10-09
+
+Read at `da81575`. Lane B's review commit `da81575239275e6d5313d6eeb892d8cab6b20a60` (B-050 only) completes
+**receipt 2** for candidate `3a634096…` / manifest `9906eec3…` (work `1bf5cd0c-2d88-4762-9eda-49e00a1341c2`).
+
+### What happened
+
+Lane A validated the named commit read-only with the guard's own functions (`validate-review.mjs`, result
+`06-review-validation.json` SHA-256 `7b9c17ef0fddfa7c4cff9d57e6a0d0206ba56d5dad7973dad5b1fe3aaeb70fdf`, in
+`C:/CoWork/outputs/lane-a-d429-receipt2-2026-10-09`):
+
+| Check | Result |
+|---|---|
+| `acceptanceAt` | ok: exactly one complete typed record, introduced by `da81575` itself (B-050 lines 6496–6519), canonical |
+| Record vs frozen packet | work ID, graph SHA-256, manifest digest and file count, analyzed source `90de7fb`, baseline locus `dc656d2` and digest `c104ec0f…`: all equal |
+| Staging bytes now | manifest and graph hash recomputed: equal |
+| `publicationSourceFindings` | ok at `da81575` (handoff-only fast-forward from `90de7fb`) |
+| Live state | equals the baseline; no journal, no lock |
+
+Lane B's timing correction to `9420bc1` is received as written: the `preflight/sv2-u02` boundary
+(2026-10-28T18:21:29Z) concerns preparation (done) and the repeat's extraction; publication installs frozen bytes and
+receipt 5's review is outside it. The `9420bc1` sentence naming the guarded release is superseded by it.
+
+### What you need
+
+**Judge: publication authority** naming `da81575` as the `--review` commit. On that go-ahead Lane A runs
+`publish --work <work> --review da81575`, then a separate full health check (receipt 3). Receipt 2 is not publication
+authority.
+
+### What you did instead
+
+Nothing published, repeated, fetched or pushed; candidate and live bytes unchanged. Drift stays expected (five
+governed paths since `11f2e40`) until the guarded release. B-050 stays Applied; its O1 row stays open.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Receipt 2 at `da81575`, validated against the frozen packet | Phase 1: complete |
+| Approve-with-conditions | `publish --review da81575` | Phase 1: Judge publication authority; source and live checks still pass at run time |
+| Defer | Receipt 3 health, receipt 4 repeat (extraction before the boundary), receipt 5, disposition, push | Phase 1: in order, each under its applicable authority |
+| Reject | Receipt 2 treated as release or closure | Phase 1 |
