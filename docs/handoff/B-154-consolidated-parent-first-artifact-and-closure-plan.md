@@ -8101,3 +8101,52 @@ corrections pending.
 | Approve-with-conditions | B-050 recording act | Phase 1: the Judge's act; Lane B's commit with four consistent fields |
 | Defer | B-077 text freeze; exact-text acceptance; fragment act and guarded cycle; B-077 review; parents; Gate 2; push | Phase 1: in order |
 | Reject | Readiness treated as execution authority; all parallel work declared blocked; placeholder text accepted as final | Phase 1 |
+
+## Lane A — B-050 Verified received; four descriptions frozen for exact-text acceptance, 2026-10-09
+
+Read at `8885bd1`. **B-050 is `Verified`** by Lane B under the Judge's recording act (`8885bd1`, read at `ba15379`):
+`Resolution`, `Verified-By`, `Evidence` and `Verified-At-Commit` are consistent; 19/19 before and after; only B-050
+changed. The verification is limited to the repository procedure: no upstream repair, corrected descriptions or Gate
+2 clearance follows from it. `closure-readiness` now reports **5 non-SM05 rows unclosed** and the tracker
+(`aa44dac`) **stale**, as expected: Gate 2 is not claimed, and the tracker is re-derived after the O0 parent
+dispositions. Native per-call record saving stays undelivered (owner Lane A; trigger recorded at B-050 `cfcf724`).
+
+### What happened: the frozen packet
+
+Sources for the three earlier texts are unchanged between `5c8978c` and `8885bd1` (B-071, B-072, B-078, the Register
+and the B-071 plan); B-077's two placeholders are filled from the headers at `8885bd1`, with no other wording change.
+Packet `frozen-4.json` SHA-256 `b916f845…` (`assemble-frozen-4.mjs` `25d68260…`) in
+`C:/CoWork/outputs/lane-a-b077-final-2026-10-09`. Each hash is of the exact UTF-8 text, with no trailing newline;
+the guard's foreign-path scan finds nothing in any of them.
+
+| Path | Node | Read at | UTF-8 bytes | SHA-256 of the exact text |
+|---|---|---|---|---|
+| `docs/graph-fragments/frag119.json` | `b071_ontology_correction_handoff` | `5c8978c` | 1427 | `fe194a0758c3836ef441e4d4993a2779f99fcdd6937b2c104cd697f543e46cb1` |
+| `docs/graph-fragments/frag119.json` | `b072_handoff_only_commit_authority` | `5c8978c` | 901 | `174adccc143012045a35c18a6a3b9d74f05cd4bfaee692c101bf124f29716d0c` |
+| `docs/graph-fragments/frag121.json` | `b077_consolidated_closure_failure_pattern` | `8885bd1` | 1634 | `d7ef9dec70faca087fcb3a78d8e1084bf479f50de11feaa89e19ccc7c6023a24` |
+| `docs/graph-fragments/frag123.json` | `b078_documentation_audit_follow_through` | `5c8978c` | 1716 | `bbfe8ad19b14a753f4bca654c9b72de93a4f389bbab6041b2eec652b1b1ca065` |
+
+The B-071, B-072 and B-078 texts are the `5c8978c` blockquotes above, lines joined with single spaces, Markdown
+backticks removed. B-077's exact text:
+
+```text
+Handoff status: Answered, Resolution Deferred (Judge ruling 2026-09-07; terminal for the parent only); final independent review by Lane B pending as of 8885bd1. A closure map and immutable audit snapshot pinned at revision a18fe1c, explicitly not a second backlog: each originating handoff remains the canonical record of its own live Status, Resolution, evidence and owner. Names ten recurring failure patterns, each with mechanism, guaranteed failure and corrective rule: approval inheritance, response treated as closure, partial fix given a whole-entry label, historical/current-state collision, field-name ontology error on Verified-At-Commit, wrong independence boundary, green-form fallacy, graph-current fallacy, mutable roll-up, and repair recursion. Its root diagnosis is that five distinct facts were repeatedly collapsed: Judge authorization, Lane A answering, a correction existing at a commit, independent verification, and the graph describing the settled source. Closure-map state: Parent 1 (B076-R1–R5) is complete; Child 2's legacy Applied entries each rest on one recorded basis (a D-403 item 2 reason under D-416 item 6, or independent verification), with B-050 Verified by Lane B for the repository procedure only (8885bd1); Child 3's B-071 return episode is Verified while Draft 12 stays under the D-171 hold; Child 4's B-016 and C-001 stay Deferred to Phase 3 (V1-SM06 SM06-P3-02–04). History: at intake (2026-09-03) Children 2 to 5 were open and unauthorized, and the entry recorded its own push as blocked with remote at a18fe1c although git ls-remote showed the branch at 0bab8bd, so the push had landed.
+```
+
+### What you need
+
+**Lane B:** exact-text acceptance of the four hashes above. **Judge:** then the four-node fragment act drafted at
+`e0b1405` (description field only), naming this packet's hashes. Its later guarded candidate review is a separate
+artifact.
+
+### What you did instead
+
+No header, fragment, tracker, Register or graph change. 19/19; source drift clear at `90de7fb`; the four
+description corrections stay pending.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | B-050 `Verified` (repository procedure) received; four texts frozen with hashes | Phase 1: recorded |
+| Approve-with-conditions | Four-description packet | Phase 1: Lane B's exact-text acceptance, then the Judge's fragment act |
+| Defer | Fragment application and guarded cycle; B-077 final review; O0 parents; tracker re-derivation; GR-007; Gate 2; native retention; push | Phase 1: in order |
+| Reject | Upstream repair, corrected descriptions or Gate 2 clearance inferred from B-050's verification | Phase 1 |
