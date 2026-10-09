@@ -6920,3 +6920,131 @@ verification commit being created. Lane A's answer is unchanged.
 | Approve-with-conditions | Consumption of the four-description packet | Phase 1: Lane A freezes/revalidates it; Lane B accepts exact text; applicable fragment act and guarded proof |
 | Defer | B-077, remaining source/O0 acts, tracker/GR-007, Gate 2, native retention and push | Their existing phases, triggers and applicable authority |
 | Reject | Upstream repair, raw-writer exclusion, authenticated identity, native retention delivery, or dependent clearance inferred from B-050 Verified | Phase 1: preserve the stated boundaries |
+
+
+## Lane B — D-430 receipt 2: independent exact-byte and semantic acceptance, 2026-10-09
+
+**Read revision:** `5a70f7fa84d194584e876e47923ba1ed73f80224`. **Judge authority:** directly in this
+conversation, "Judge approved: Receipt 2 for D-430 - Option A". The approved Option A applies to this
+candidate only: this B-050-only acceptance commit followed immediately by a B-050-only record-only terminal
+annotation naming it. Full check logs are retained; only the expected `docs-drift` plus temporary
+`terminal-return` may fail before the covering record. After it, only `docs-drift` may fail. Normal hooks
+are required; no general red-check precedent is created. This received act awaits durable Register recording
+by Lane A under D-183; no decision number or broader authority is invented. B-050's Verified disposition and
+Lane A's answer are unchanged. Lane B raises/reviews; Lane A answers and performs the separately authorized work.
+
+### What happened
+
+**Accept receipt 2 for D-430**, the frozen candidate prepared from
+`3366244f8e8fed844be4aeeccadbb92db49807a1`. This is exact-byte and semantic acceptance for a later
+guarded publication, not publication, B-077 disposition or Gate 2 clearance. Independent checks found no
+candidate findings. The reviewed live baseline remains graph
+`3a63409668b8f975a18245a78763dbf252f7be23904667d9df8a86f964a34031` and manifest
+`9906eec3a278aa6bfe9f18a18009adf4c9437ea038c455cce6cc082f3e1fae15`.
+
+| Criterion | Independent outcome / limit |
+|---|---|
+| D-430 recording and fragment scope | Recording `b0b98fe`, correction `967c27b`, separate B-154 receipt `3366244`. Compared the three fragment files at accepted source `eb2ac2b` and captured source `3366244`: exactly four description leaves differ; masking those strings leaves all other source bytes identical. |
+| Four accepted strings | Each staged node reproduces the full UTF-8 hash in D-430 and the frozen packet `b916f845ce27bbf3a4b4375cca3d98d96c0c2ca799f101f5345d2d1a6c42b0ca`. All 139/139 curated fragments match. |
+| Candidate identity | Recomputed graph `481874fb43b7713355df6377a9c124ee84ae65bc0d02f77ff2cf0eb55a227756`; guard-treeDigest-v1 `55dba74cdf6ac0be22d2ff153db299b6e4f63cd4b1a213285cc70eac3e93797d`, 583 files. No unknown, multiply classified or pending-semantic files. |
+| Source and baseline | Publication-source check passes at the read revision; intervening commits are handoff-only. The actual live release chain selects the frozen da81575 baseline. Candidate branch metadata names captured source 3366244 and is non-null/current. |
+| Final producer state | Final staging checks pass, including provenance, Git merge/selection, count evidence and final-state binding. Seven call records and all fourteen ignored-list proxy hashes/counts validate. Pinned-producer studio projections pass: 2,504 nodes and 5,477 edges. |
+| Names and descriptions | No pending descriptions; eight new community names are bound by full member-set hash below. Each applies to its complete group and label map, is unique and does not collide with baseline labels. The promoted-output foreign-path scan is clear. |
+| No live operation | Live manifest and graph remain the frozen baseline; no transaction journal or lock remains. No prepare, publication, repeat, fetch or push was performed by this review. |
+
+**Semantic acceptance:** the four strings preserve the source distinctions: B-071's documentary re-close,
+B-072's Applied status and separately closed row, B-078's documentation-audit verification, and B-077's Deferred
+status with final review pending **as of 8885bd1**. B-050 is Verified for the protected repository procedure
+only. No product delivery, upstream repair or dependent clearance follows from these descriptions. B-077's
+dated description must be rechecked after its own disposition.
+
+The eight new names were read against all members, not inferred from community integers. They are topical
+community labels, not exhaustive date/decision bounds: older supporting commits and the branch node can occur
+in a group. They make no new completion claim.
+
+| Accepted name | Full member-set SHA-256 | Members |
+|---|---|---|
+| D-424–D-427 F3 Plan, Receipt and Amendment Commits | 9fb681e7bf2a8c70235d5f743e22444541c252f71ed72fa96c9f3156e2a95e10 | 83 |
+| D-426 Receipts 2–4, D-428 and D-429 Drafting Commits | 1c9f4fc7e1ad55e6d590e0d40b3752649760354fd4384c3fd870c22e03623b94 | 28 |
+| D-429 Implementation, Receipts 1–4 and Retention Plan Commits | 3796c9702473ee5538d1e4f332a9f1984fbc4d98095d3a7ac651fd37cce4f9a4 | 17 |
+| B-050 Verification, B-077 Reconciliation and D-430 Commits | 9b89e6a1c190234bcabadc28da16e01716ef5ebe3c0e3c5970bb8232eced9cac | 16 |
+| D-405–D-408 Retention, Route 1 and Migration Commits | 86b0a27a79ddfe7072fa0cca1a22e5734b3f9184f4eef32abeab189518000854 | 21 |
+| D-398 Containment Repair, Lane C and Convergence Commits | 654bb3f10e3e6d7d3bad18e50aa736e0c3777966b7a1b7733c4004b8f03a2742 | 14 |
+| D-393–D-397 P4a Isolation, Delivery and Verification Commits | 9cff7b56d5df85def01643539e529dca2134d5f3fde5046d65e469220a66aa6e | 28 |
+| D-362–D-367 B-130 and B-152 Re-close Verification Commits | 0f34dad741f9a856cd179f127ad51e8ef425545cde1b6f523d1d7f5c4cda5d8e | 10 |
+
+### F3 acceptance record
+
+```json
+{
+  "kind": "graphify-f3-acceptance",
+  "version": 1,
+  "disposition": "Accept",
+  "scope": "F3 publication",
+  "reviewer": "Lane B",
+  "workId": "4871f1b7-89ba-4027-a0f8-f173ccd7e434",
+  "graphSha256": "481874fb43b7713355df6377a9c124ee84ae65bc0d02f77ff2cf0eb55a227756",
+  "manifest": {
+    "algorithm": "guard-treeDigest-v1",
+    "digest": "55dba74cdf6ac0be22d2ff153db299b6e4f63cd4b1a213285cc70eac3e93797d",
+    "files": 583
+  },
+  "analyzedSource": "3366244f8e8fed844be4aeeccadbb92db49807a1",
+  "baseline": {
+    "releaseLocus": "da81575239275e6d5313d6eeb892d8cab6b20a60",
+    "algorithm": "guard-treeDigest-v1",
+    "digest": "9906eec3a278aa6bfe9f18a18009adf4c9437ea038c455cce6cc082f3e1fae15"
+  },
+  "pendingSemantics": 0
+}
+```
+
+### What you need
+
+Parent-first tracking; execution closes children before their parents:
+
+| Parent / child | Current state | Next owner and success criterion |
+|---|---|---|
+| Gate 2 / GR-007; B-150, B-153, B-154 | Open; five non-SM05 rows remain unclosed; tracker derivation is stale | Required child/parent acts and a fresh tracker before a Gate 2 claim. This review changes none of them. |
+| B-050 | Independently Verified for the repository procedure | Preserve the disposition and its four limits; this receipt and its covering annotation do not reopen scope. |
+| B-077 / D-430 | Deferred; four values applied to source; one candidate now accepted | Lane A receives this exact acceptance commit. Separate Judge publication authority must name that commit; then guarded publication, separate full health check and refreshed B077-SC8 evidence, before B-077's final review. |
+| B-136 / P15 | Separate open obligation | SV2-DOD-06; not cleared by this candidate. |
+
+Use **this acceptance commit**, not the following annotation commit, as the review locus for any separately
+authorized `publish --review`. Recheck source currency, complete candidate hashes, baseline and transaction
+state just before publication. No fetch/push while the candidate is pending. Any changed identity or other
+failed check stops that operation; do not regenerate or reinterpret the accepted packet silently.
+
+**Evidence-custody gap:** B-154 `5a70f7f` discloses that the older D-429 receipt-2 validator output originally
+recorded as `7b9c17ef...` was overwritten and its original bytes are not recoverable. The current file hashes
+`44c5c642af02d7dd3759123b88077a438b74261ce676b2cbe56998ba836487ef`; its current bytes are copied into this
+review's distinct evidence folder. The separate retained pre-publication validator hashes
+`8602b4e99af7e55ea0c5ba444b69b1174ca463b5e93f9c151e3ea57d930daf22`. Neither restores or verifies the
+missing original. This D-430 acceptance rests on the fresh candidate evidence above. Lane A must preserve
+distinct immutable evidence filenames for later runs; no historical evidence claim is silently repaired.
+
+Native guard saving of per-call records remains undelivered, with Lane A's existing trigger: before a future
+repeat without the capture driver, or the next governed guard change, whichever comes first. The upstream raw
+producer, cooperating-lock limitation and channel-based reviewer identity remain as previously recorded.
+No new Lane C review was supplied or assumed. The Chief Editor's current approval covers receipt recording;
+publication and later dispositions retain their separate acts. Routine work already covered by an issued
+act should proceed to its named stop point without another confirmation question.
+
+### What you did instead
+
+Retained a new independent validator and complete results under
+`C:/CoWork/outputs/lane-b-d430-receipt2-2026-10-09-at-5a70f7f/`, using exclusive creation for result files.
+`candidate-review.json` SHA-256:
+`05fbf81ca8551ad630e77ebe09486bcb1128a898f6f1a639fc6173e960a9bd2b`;
+validator SHA-256: `142476ffb214ccfffe7af2006fab1f277608c23ae7a81c64c6bb62d9e89fc2a7`.
+The validator's first invocation failed at module import because its Windows path lacked the file-URL form;
+it executed no checks and wrote no results. After correcting the import, the review completed with no findings.
+Full before/after consistency logs and commit evidence are retained in the same folder. Only B-050 is changed
+in either approved commit; the second adds only the covering annotation. Publication is outside this act.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | D-430 receipt 2: exact candidate, four descriptions and eight member-bound names | Phase 1: independent acceptance recorded here, covered by the immediately following annotation |
+| Approve-with-conditions | Consumption of this acceptance for publication | Phase 1: separate Judge authority naming this acceptance commit; unchanged source/candidate/baseline; guarded publication then full health |
+| Defer | B-077 disposition, O0 parent acts, tracker/GR-007, Gate 2, native record saving and push | Existing phases, acts and custody triggers; no dependent closure here |
+| Reject | Annotation SHA used as acceptance; candidate treated as released; missing original evidence claimed recovered; broader red-check allowance | Phase 1: preserve exact review locus and boundaries |
