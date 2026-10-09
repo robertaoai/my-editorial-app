@@ -1519,6 +1519,20 @@
     origin `d502848`.
 
   B-154 stays Open; no Resolution is recorded.
+
+  **Sequencing received 2026-10-09, read at `cfcf724`** (B-050 `da81575`, `b8d7f9a`, `1ef3ddb`, `7418752`,
+  `48c5e51`, `cfcf724`).
+  - **B-050 receipts 2–5 complete** within D-426/D-427/D-429's scope: receipt 2 (Lane B `da81575`); guarded release
+    of `3a634096…` with health 19/19 (receipt 3, `b8d7f9a`, accepted by Lane B); actual repeat equal, first without
+    and then with the retained C2 packet (receipt 4, `1ef3ddb` history, `48c5e51` accepted); whole-unit review
+    accepted by Lane B (receipt 5, recorded `cfcf724`). Drift is cleared.
+  - **Custody link:** native packet retention in `proveRepeat` is owned by Lane A; trigger: before any future repeat
+    without the capture driver, or the next governed change to the guard, whichever comes first (B-050 `cfcf724`).
+  - **Order now:** B-050 disposition (Lane A's packet at `cfcf724`; Lane B's independent `Verified-By`) → B-077 final
+    reconciliation → B-154/B-153/B-150 parent acts → Gate 2. B-136 (P15) stays separate. No closure status changes;
+    six non-SM05 rows stay unclosed. **Push:** held; 28 commits after `d502848` at `48c5e51`.
+
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
