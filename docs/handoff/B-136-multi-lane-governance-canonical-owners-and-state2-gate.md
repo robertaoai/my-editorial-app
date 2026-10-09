@@ -735,3 +735,48 @@ the `SV-002` acceptance that clears P15.
 ### What you did instead
 
 No `SV2-DOD` checkoff, `SV-002` acceptance, `V1-SM05` unblock, work order or lane change.
+
+## Lane A — D-431 candidate ready at `ba141e0`; review request, 2026-10-10
+
+Under `D-431` item 5. Evidence: `C:/CoWork/outputs/lane-a-d431-2026-10-10` (work folder `work`, workId
+`faf6f6ff-85af-49de-a169-3694b8fcc179`); each run in its own file.
+
+### What happened
+
+| Item | Value |
+|---|---|
+| Source HEAD (captured) | `ba141e02538074155025664603ca0ab92d777f3f`; delta since R1's source `3366244`: the `D-431` recording (`1dbc64c`) and application (`04ecb48`), and handoff files only; no code |
+| Check at that HEAD | `docs-drift` the sole failure (`D-428`); `08-check-at-source.log` SHA-256 `0f04090b…` |
+| Baseline | live R1, locus `28853be`, guard-treeDigest-v1 `55dba74c…`, 583 files |
+| Run | `prepare` → pending (exit 3; 0 descriptions, 46 communities) → `prepare --resume --answers` → **ready** (exit 0) |
+| Candidate | graph SHA-256 `4dd5029b413ecdfe9af9077b6e04f3d0bc226a86b9ea9a0b6926f5259790b3db`; manifest `971f956888fb2268f1a885e7a47000b9bddcd23d93d41d67435f72765497ded7`; 583 files; frozenAt 2026-10-09T17:05:29.294Z |
+| Selection / D-429 packet | oracle `205a6967…`; final observation 2026-10-09T16:52:28.533Z; validated ignored count 698, AST cache 322, transient 1 |
+| Answers | `answers.json` SHA-256 `549be3ff…`: 0 descriptions pending; **46 community names, all newly derived** and none equal to any R1 label: 8 code groups named by hand from their members, 38 commit-history groups named mechanically from their members' cited decision range and most-cited entries (`derive-names.mjs`; per-name evidence `02b-name-basis.json` SHA-256 `a024d2ec…`) |
+
+**Lane A's read-only verification** (`11-candidate-verification.json` SHA-256 `099f88fc…`): manifest, graph hash, file
+count and answers hash recomputed and equal; 2,524 nodes, 5,517 links, 139 communities, 0 undescribed; fragment parity
+139/139 exact; name binding 0 findings; every name applied; 0 foreign-path hits; staged branch record analyzed
+`ba141e0`, `stale: false`; **the B-077 node carries exactly `D-431` item 3's text** (SHA-256 `13d86618…`); live
+unchanged, no journal, no lock.
+
+### What you need
+
+**Lane B: receipt 2 for D-431**: the exact bytes and meaning of graph `4dd5029b…` / manifest `971f9568…` from source
+`ba141e0` and baseline `55dba74c…`, including the B-077 text and the 46 names (the 38 commit-group names are
+mechanical; rename any you find misleading by a stated finding, not silently). Its typed acceptance record goes in
+**B-050** by Lane B's own review commit, followed by Lane B's record-only Terminal annotation commit citing it, the same
+pattern as D-430. Option A was granted for D-430's candidate only; this candidate's use of it rests on the Judge's
+2026-10-10 approval of the "guarded cycle" (`D-431` item 5), not on precedent. The durable fix (the guard reading the
+acceptance from a non-terminal entry) is a guard source change and belongs with the next governed guard change. After
+acceptance: publication, full health, then the B-077 description is current.
+
+### What you did instead
+
+No publication, fetch or push since the prepare. No disposition, DoD checkoff or acceptance.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | D-431 candidate `4dd5029b…` prepared from `ba141e0`; B-077 text applied | Phase 1: Lane A's evidence |
+| Approve-with-conditions | Receipt 2 for D-431 | Phase 1: Lane B's review commit in B-050 and its annotation |
+| Defer | Publication and health; P15 (`SV2-DOD-04` needs `SV2-U03`); Gate 2 | Phase 1: in order |
+| Reject | Treating the candidate as accepted; reading Option A as a standing precedent | Phase 1 |
