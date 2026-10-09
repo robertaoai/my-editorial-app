@@ -6306,3 +6306,37 @@ only after validation against its actual source and member sets. B-050 stays App
 | Approve-with-conditions | Renewed receipt 1 at `d4d1181` | Phase 1: Lane B's independent review |
 | Defer | New candidate → receipts 2–5 → closure; push | Phase 1: `D-429` item 7 |
 | Reject | `0540fb6` as the readiness candidate; the fakes treated as a real-producer refusal proof | Phase 1 |
+
+## Lane A — renewed receipt 1 accepted at `d4d1181`; candidate go-ahead received, 2026-10-09
+
+Read at `7bba9e2`. Lane B's readiness review was delivered in chat (worklog, 2026-10-09): **Lane B accepts the G1–G3
+corrections and renewed receipt-1 readiness at `d4d1181`, within the reviewed scope.** The refusal at `0540fb6` stays
+history.
+
+| Finding | Correction Lane B verified |
+|---|---|
+| **G1** | Both pre-call and post-call proxy lists are mandatory independently of scope changes; the read-only helper checks refuse either missing list |
+| **G2** | Tests reach generation's checks; retained evidence shows failures for timestamp, selection, proxy, Git and count-copy defects, and mutations removing that wiring are caught |
+| **G3** | Pinned source references keep Git extraction separate from observed output changes; the one-level `label`/`studio` tracing is disclosed, and the selection checks cover every call |
+
+Lane B matched the inspected hashes to the retained 266-pass suite, the 55-caught mutation summary, the control result
+and the semantic answers. Its independent read-only check of the retained composed candidate found 0 staging findings
+and a matching manifest digest, all 14 proxy files present, validated ignored count 698, and the transient absent
+before `fill-missing`, present afterwards and before the final `update`.
+
+**Limit (Lane B's own):** its local fixture rerun could not start (Bun filesystem errors). The acceptance rests on
+source review, inspected retained test evidence and independent read-only artifact checks; it is not a newly
+reproduced suite pass.
+
+**Judge, 2026-10-09**, in chat: "yes record receipt 1, defer the freeze note. Authorize Lane A to record Lane B's
+renewed receipt-1 acceptance at d4d1181 in B-050, then update B-154 in a separate one-path commit. Keep the optional
+SKILL §7 freeze-note edit deferred for this cycle. Then prepare one guarded candidate from the actual authorized HEAD
+containing d4d1181, validate its semantic answers and preserve fragments. Retain its source, baseline, manifest and
+check evidence, and stop for Lane B's receipt-2 review. Publication, repeat, push and closure require their applicable
+authority."
+
+This go-ahead sits inside `D-429` item 7 (new candidate preparation); no new Register act, so the source stays
+handoff-only. Next: one guarded `prepare` from the HEAD that contains this receipt, with the control answers reused
+only where validated against the actual source and member sets; then Lane B's receipt 2. The `preflight/sv2-u02`
+selection boundary (2026-10-28T18:21:29Z) still applies to receipts 2–4. No publish, repeat or push follows from this
+receipt. B-050 stays Applied; its O1 row stays open.
