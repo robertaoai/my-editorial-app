@@ -6421,3 +6421,99 @@ the B-050 correction and hold for receipt 2".
 
 The candidate is held for Lane B's receipt 2. B-050 stays Applied; its O1 row stays open. Nothing is published,
 repeated, fetched or pushed.
+
+## Lane B — D-429 receipt 2: candidate accepted, 2026-10-09
+
+Read at `9420bc16381c997f7c74e5d372802c9ba2b58f92`, with an initially clean working tree and empty index.
+**Judge, 2026-10-09**, in chat: "Judge approved: Receipt 2 completion". Lane B records its own independent
+acceptance here under G-F3-8, D-272 and D-385. The bound commit path is this B-050 file only.
+
+### What happened
+
+**Accept the exact frozen candidate**, work `1bf5cd0c-2d88-4762-9eda-49e00a1341c2`, captured from
+`90de7fbe432dbd1c13f257379b7b876c3c9d3336`. The source delta `d4d1181..90de7fb` is three handoff-only
+commits across B-050 and B-154. The corrected guard source is unchanged.
+
+Independent evidence, retained at
+`C:/CoWork/outputs/lane-b-d429-receipt2-2026-10-09-at-9420bc1/`:
+- Candidate graph SHA-256, full-state manifest and all 583 files match the acceptance record below.
+  The live state still equals the captured baseline; no transaction journal or lock is outstanding.
+- Staging verification: zero findings. Final-writer observation and bracket, root/studio equality, the single
+  graph-entry byte binding, final Git merge and both ignored-count copies pass.
+- The fresh Git extraction matches the recomputed frozen-checkout oracle. The retained seven calls' start/end
+  selections agree with it; all fourteen ignored-file proxy hashes and lengths match. The reconstructed ignored
+  packet equals the frozen packet (validated count 698, AST-cache cardinality 322, transient indicator 1).
+- All 139 fragments match exactly. Name binding has zero findings, and community labels have no duplicate names.
+- All 194 supplied descriptions equal the previously reviewed control text at their exact IDs and are applied.
+  This is bounded reuse against unchanged code source, not a claim that hash equality alone proves semantics.
+- All eight new names in the candidate request's member-set table were independently examined and accepted as
+  descriptions of their members: guard harness/build; SM05 review/receipts; D-428/receipt 2; D-429/receipts 3-4;
+  F2 build/review/release; retention/Route 1/migration; containment/Lane C/convergence; P4a isolation/verification.
+  Seven other supplied names are reused by exact member-set hash. These labels describe historical groupings;
+  they do not assert new Lane C acceptance, successful repeat completion or product acceptance.
+- Independent derived-studio validation in the preceding review at this same unchanged source returned zero
+  findings (2,480 scene nodes, 5,429 edges; manifest present 4, artifacts 5). No candidate bytes changed afterwards.
+- The read-only publication source check passes at `9420bc1`. These checks do not execute publication.
+
+`bun run check` could not start in this environment (`CouldntReadCurrentDirectory`). The same checker,
+`node scripts/check-consistency.mjs`, was run directly and its complete result retained as
+`pre-commit-check.log`: **18 of 19 pass, docs-drift the sole failure**. This is the D-428 authorized pre-sync
+case, not a full-health pass. Log SHA-256: `3a691100fbe91fc0355473728520e385717a6492b42371b950517ad35030beeb`. The Bun launcher failure is retained separately. No new fixture-suite pass is claimed.
+
+### What you need
+
+Lane A receives this Lane B-authored review commit, checks the typed record against the frozen work ID, analyzed
+source, baseline, graph and manifest, and uses only this commit as the `--review` argument if the applicable
+Judge publication authority is established. The current receipt-2 act does not authorize publication.
+
+**Timing correction to `9420bc1`:** the `preflight/sv2-u02` boundary, 2026-10-28T18:21:29Z, concerns
+preparation (already completed at `90de7fb`) and the repeat's extraction windows. Publication installs frozen
+bytes and does not extract Git history. Receipt 5's review is outside this timing condition. For this frozen
+selection, plan the actual repeat's relevant extracting stages with margin before the boundary; a new preparation
+does not reset the frozen commits' ages. No new allowance or rushed execution follows.
+
+### What you did instead
+
+Recorded acceptance only. No publication, repeat, graph sync, fetch or push occurred. Candidate and live bytes
+are unchanged. The optional SKILL section 7 freeze-note edit stays deferred.
+
+Parent first: SV-002/Gate 2 remains open with six non-SM05 rows unclosed; B-150/B-153/B-154 retain their parent
+obligations, and B-136/P15 remains its separate SV2-DOD-06 obligation. B-050 stays Answered/Applied, with O1 clearance
+open. Receipt 1 keeps its accepted scope; this record completes receipt 2 for the exact identity below. Next:
+guarded release and separate full health (receipt 3), actual disposable repeat (receipt 4), independent whole-unit
+review (receipt 5), B-050 disposition, B-077 reconciliation and the remaining parent acts before Gate 2.
+Existing authority is checked before asking again; receipt completion is not publication or closure authority.
+GR-012/B-014, GR-013/B-021 and B-155 remain settled within their recorded limits. No lifecycle/audit header,
+DoD box, tracker or clearance field is changed.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Receipt 2 for this exact candidate, including the eight new names and reporting corrections | Phase 1: Lane B's independent acceptance recorded here |
+| Approve-with-conditions | Later use of this named review commit | Phase 1: frozen bytes, source, baseline and guard checks must still match; applicable Judge publication authority |
+| Defer | Receipt 3, receipt 4, receipt 5, dispositions, parent clearance and push | Phase 1: required evidence and applicable authority in sequence |
+| Reject | Treating this receipt, candidate preparation or Applied status as release, actual repeat, product acceptance or closure | Phase 1: separate completion artifacts required |
+
+### F3 acceptance record
+```json
+{
+  "kind": "graphify-f3-acceptance",
+  "version": 1,
+  "disposition": "Accept",
+  "scope": "F3 publication",
+  "reviewer": "Lane B",
+  "workId": "1bf5cd0c-2d88-4762-9eda-49e00a1341c2",
+  "graphSha256": "3a63409668b8f975a18245a78763dbf252f7be23904667d9df8a86f964a34031",
+  "manifest": {
+    "algorithm": "guard-treeDigest-v1",
+    "digest": "9906eec3a278aa6bfe9f18a18009adf4c9437ea038c455cce6cc082f3e1fae15",
+    "files": 583
+  },
+  "analyzedSource": "90de7fbe432dbd1c13f257379b7b876c3c9d3336",
+  "baseline": {
+    "releaseLocus": "dc656d2aa2e15d15feae5e5fbbb9bc354bee7157",
+    "algorithm": "guard-treeDigest-v1",
+    "digest": "c104ec0f9b34f7d2e899f62d8a6ecf58b5d12d14378026970eb33fb1a80b3841"
+  },
+  "pendingSemantics": 0
+}
+```
