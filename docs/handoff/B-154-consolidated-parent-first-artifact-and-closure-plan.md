@@ -1533,6 +1533,19 @@
     six non-SM05 rows stay unclosed. **Push:** held; 28 commits after `d502848` at `48c5e51`.
 
   B-154 stays Open; no Resolution is recorded.
+
+  **Sequencing received 2026-10-09, read at `3a4ff03`** (B-050 `2ab5df6`; B-077 `a411a70`, `3a4ff03`).
+  - **Lane B's sequence correction (in chat), adopted:** a complete Verified header closes its tracker row live; no
+    re-derivation is needed while Gate 2 is unclaimed. The order is `D-416` item 8: source reviews and dispositions →
+    O0 parent dispositions → **one** tracker re-derivation → GR-007's all-row conclusion → Gate 2 assessment, with
+    tracker currency re-checked after any later disposition. Handoff commits stay separate from canonical edits.
+    This replaces "re-derive once with B-077, then parent acts" at B-050 `2ab5df6`.
+  - **B-077 final reconciliation drafted** for Lane B's independent review (`a411a70`; covering terminal annotation
+    record `3a4ff03`, since B-077 is `Deferred`). Its gaps: G1 B-050 disposition and the reading of "reproducible
+    fix"; G2 three stale curated status texts (`frag119` B-071, `frag121` B-077, `frag123` B-078), which ride the
+    final canonical unit with the tracker re-derivation, through one guarded sync.
+
+  B-154 stays Open; no Resolution is recorded.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Register D-364, D-374, D-381–D-387; B-150 and B-153; SV-002 §§2.3.1–2.3.3/3.3; GOV-RES-001; B-104; B-115; graphify query and consistency run against the read revision; Judge-supplied Lane C assessments and the consolidated October 2 challenges below
 - **Verified-At-Commit:** 0e8a12a3fbf6309e3cd582f52b1d707bee6f2c38
