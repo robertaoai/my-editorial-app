@@ -8441,3 +8441,94 @@ No header, tracker, GR-007, fragment or graph change. 19/19; graph synced at `33
 | Approve-with-conditions | B-077, B-153, B-154, B-150 dispositions | Phase 1: Lane B's independent assessments, in order |
 | Defer | Tracker re-derivation and guarded cycle; GR-007 conclusion; Gate 2 assessment | Phase 1: after the dispositions land |
 | Reject | Lane A self-verification; the Judge's approval list read as a clearance reason; a tracker re-derived before the dispositions | Phase 1 |
+
+## Lane B — independent challenge of the approved disposition packets and concrete Lane A follow-up, 2026-10-09
+
+### What happened
+
+Judge's current chat act: **"Judge Approved: B-077, B-153, B-154, B-150 dispositions"**. This authorization is
+already given; do not ask the Judge to approve those same recording steps again. It authorizes evidence-supported
+dispositions, not self-verification, a check waiver or a change to the completion conditions. Packet read at
+`bd6e43a993eb22c43550760759700eb7f4a2b735`; current read revision
+`43495db00479498eb3209071c7934faf6bfea318`. No new Lane C review is supplied or inferred.
+
+**Independent results:** B-077's substantive closure-map review passes and is recorded at `225f0b1`, but its
+Deferred lifecycle has not yet transitioned. B-153's census correction unit is independently **Verified** at
+`43495db`, within the scope of its own header. B-154 and B-150 remain Open pending their actual dependencies;
+their packets are not blanket clearance. All findings are consolidated here rather than duplicated as a new backlog.
+
+| Parent first | Current state | Accept when / evidence still needed | Reject when | Follow-up phase |
+|---|---|---|---|---|
+| Gate 2 / GR-007 | Not complete; tracker dated aa44dac | Re-derived tracker, all-row conclusion and the remaining SV-002 evidence/individual Judge gate acts | Green consistency, a parent disposition or the approval list treated as Gate 2 | Phase 1 gate assessment; construction only after its separate work order and lane activation |
+| B-150 audit parent | Open; S1-S5 packet reviewed, disposition conditional | B-153 and B-154 independently disposed; original required audit/planning/transfer/control proof preserved with D-391's explicit scope limit | Every keyed transaction called semantically reviewed; S5's named next actions equated with delivered behavior | Phase 1, after its children |
+| B-154 consolidated plan | Open; its correction-unit evidence supported | B-077's completed and independently Verified lifecycle record, then this entry's own four consistent verification fields | This packet used to verify itself or to clear B-136 P15 | Phase 1, before B-150 |
+| B-153 census correction | Verified at 43495db | Done for D-385 corrections and the resolved B-110/B-102/B-103, B-115/B-114 dependencies | Its bounded verification called full historical audit completion | Phase 1: done |
+| B-077 closure map | Substantive independent review passes at 225f0b1; header still Deferred | Receiver Return/Re-close records for the existing final-review condition, followed by Lane B's own Verified disposition | Deferred-to-Verified written directly, leaving an uncovered terminal-history step | Phase 1: next receiver action |
+| B-136 P15 | Separate, open | Its own SV2-DOD-06 attempt evidence and acceptance | Closure of O0 or B-077 silently closes P15 | Phase 1: existing separate owner/gate |
+
+### What you need
+
+**G1 — the omitted lifecycle step.** B-077 was already terminal, unlike B-153/B-154/B-150. The prior four-header
+instruction omitted that difference. The direct Deferred-to-Verified transition is substantive and remains inside
+the same terminal episode; `terminal-return` rejects it. The successful review alone does not repair this history.
+Independent proof is retained at
+`C:/CoWork/outputs/lane-b-closure-dispositions-2026-10-09/b077-transition-proof.json`: direct transition yields a
+WORKTREE violation; `225f0b1` is a valid record-only addition. No red commit is authorized by D-428 here.
+
+**Lane A's next two one-path recording commits, under the existing approval and SOP, without another permission
+question:**
+
+1. Read the current B-077 header and `225f0b1`. Record its Return: `Previous-Resolution` Deferred; exact
+   `Return-Trigger` **"final independent review by an eligible reviewer who neither answered nor applied this
+   entry"**; `Return-Act` the Judge's 2026-10-09 disposition approval plus the independent review at `225f0b1`;
+   `Returned-At-Commit` the actual existing revision read. Set Open, omit Resolution/Follow-up-Tier, use the
+   raised-not-yet-dispositioned verifier form and pin the actual read revision. Preserve Lane A's historical answer.
+2. Read that committed Return and record its Re-close under D-364: bind both its act/date and exact
+   Returned-At-Commit; name the closure-map completion condition and the accepted D-430 release, B-050 procedure
+   verification, SC8 evidence and Lane B review `225f0b1`; pin an existing read commit after the Return's cited
+   revision. Receiver disposition is Answered/Applied. Do not fill a future commit placeholder or self-verify.
+3. **Lane B:** independently check the completed episode and record B-077 Verified with its four consistent
+   fields; then B-154, then B-150, each in its own one-path commit and against its own condition. B-153 is already
+   Verified; do not repeat it. A genuine new evidence failure stops only the affected item and receives a concrete
+   finding, not another generic approval question.
+4. **Lane A:** after the parent dispositions, re-derive the tracker once and recheck B-077's dated description in
+   the approved governed unit. Use the existing guarded candidate, independent exact-byte review, publication and
+   health procedure with the applicable recorded authority. Then GR-007's all-row conclusion and the Judge's
+   separate Gate 2 assessment. No action from this review changes the tracker or live graph.
+
+**G2 — narrow the B-150 audit claim.** Replace the packet's implied full S2 semantic completion with:
+"D-389-D-391 account for the complete historical population within their recorded screening scopes. D-391
+structurally screens 75 previously Verified transactions and semantically rechecks five; the other 70 premises
+were not re-read. Their existing verification remains historical evidence, not newly performed semantic review."
+D-391 explicitly leaves a broader semantic batch to a later Judge choice. This review does not invent that batch
+as a new prerequisite or waive an actual parent condition. D-416 item 8 still requires any genuinely stronger
+unmet parent clause to return to the Judge. S6's consuming readiness and Gate 2 are separate from the audit-design
+proofs; requiring Gate 2 before B-150's disposition would create a cycle.
+
+**G3 — correct "all children terminal".** Terminal means a lifecycle disposition, including Deferred/Superseded;
+it does not mean every receiving obligation is delivered. B-136 P15 is separately open. GR-009 code, D-171 held
+targets, Phase 3 delivery and guard-native per-call saving retain their own owners/triggers. Lane A's saving duty
+remains due before a future repeat without the saving driver or at the next governed guard change, whichever is
+first. No guard change is commissioned here.
+
+**Chief Editor / Judge:** no new business choice is needed to execute these already-approved recording steps.
+Keep source finding, receiver answer, independent review, recorded disposition and consuming gate as separate
+facts. Lane B raises/reviews; Lane A answers/applies; Lane C's supplied historical consumer evidence retains its
+stated scope. Development Lanes A/B/C are not the product's Three Lines. Construction and verification consume
+the existing requirements/acceptance anchors, packet DoR-to-DoD, canonical residual receipts and scoped evidence;
+handoff closure does not expand the partial CR-19/V1 contract or authorize implementation.
+
+### What you did instead
+
+Recorded the supported B-077 independent review and B-153 disposition, plus this consolidated gap/fix packet.
+No receiver answer, canonical tier, tracker, fragment, graph, application, workflow, lane state, fetch or push was
+changed. The retained independent graph/header join has no findings; full checks pass 19/19 before the two
+preceding commits. Source drift is clear at analyzed source `3366244`; tracker staleness is distinct. No Graphify
+sync is needed for these handoff-only commits. A future tracker/fragment change will require its guarded cycle.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | B-077 substantive review (225f0b1); B-153 correction-unit Verified disposition (43495db) | Phase 1: recorded within scope |
+| Approve-with-conditions | B-077 lifecycle, then B-154 and B-150 dispositions | Phase 1: receiver Return/Re-close, independent verification and source-specific proof in the order above; Judge approval already supplied |
+| Defer | Tracker/description governed unit, GR-007 final conclusion, Gate 2, later delivery and push | Existing authorized sequence and each separate gate; no execution by this review |
+| Reject | Direct uncovered terminal transition; keying as full semantic proof; terminal status as delivery; repeated requests for the same approval | Phase 1: apply the concrete recording fixes and preserve evidence limits |
