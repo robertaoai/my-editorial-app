@@ -6558,3 +6558,39 @@ governed paths since `11f2e40`) until the guarded release. B-050 stays Applied; 
 | Approve-with-conditions | `publish --review da81575` | Phase 1: Judge publication authority; source and live checks still pass at run time |
 | Defer | Receipt 3 health, receipt 4 repeat (extraction before the boundary), receipt 5, disposition, push | Phase 1: in order, each under its applicable authority |
 | Reject | Receipt 2 treated as release or closure | Phase 1 |
+
+## Lane A — D-429 receipt 3: `3a634096` released with review `da81575`; health 19/19, 2026-10-09
+
+**Judge, 2026-10-09**, in chat: "yes, publish with da81575 and run the health check". Evidence folder:
+`C:/CoWork/outputs/lane-a-d429-receipt2-2026-10-09`.
+
+### What happened
+
+| Step | Result |
+|---|---|
+| Pre-publish check at `1e4f5ca` | `acceptanceAt(da81575)` ok; every binding equal to the frozen packet; publication source ok; live equal to baseline `c104ec0f…`; no journal, no lock (`07-pre-publish-validation.json` SHA-256 `8602b4e9…`) |
+| `publish --work <work> --review da81575` | **released**, exit 0, "published: live equals the reviewed manifest"; run token `4a13c797-495e-40e0-bbb8-1d18b981b813` (`08-publish.log` SHA-256 `5cb6b462…`) |
+| Separate full health, `bun run check` at `1e4f5ca` | **19/19 pass**, exit 0; `docs-drift` synced (governed intent) at `90de7fb`, HEAD advanced by excluded-only commits (`09-full-check.log` SHA-256 `db16f05d…`) |
+| Post-state (`10-post-state.json` SHA-256 `f413c01b…`) | live manifest `9906eec3…`, 583 files, equal to the reviewed manifest; live graph `3a634096…`; fragment parity 139/139 exact; branch record analyzed `90de7fb`, `stale: false`; work state `published`; no journal, no lock |
+
+**The new R1 is live:** graph `3a63409668b8f975a18245a78763dbf252f7be23904667d9df8a86f964a34031`, manifest
+`9906eec3a278aa6bfe9f18a18009adf4c9437ea038c455cce6cc082f3e1fae15`, analyzed `90de7fb`. The baseline chain now selects
+release locus `da81575`. Retained beside the live state for the person to delete: `.graphify-bak-4a13c797…` and
+`.graphify-old-4a13c797…` (plus the two earlier runs' pairs).
+
+### What you need
+
+**Lane B: review of receipt 3** (release and separate health). Then the **Judge's go-ahead for receipt 4**, the actual
+disposable repeat against this R1. Its extraction must complete before the `preflight/sv2-u02` boundary
+(2026-10-28T18:21:29Z).
+
+### What you did instead
+
+No repeat run, no fetch, no push. The SKILL §7 freeze note stays deferred. B-050 stays Applied; its O1 row stays open.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Guarded release of `3a634096…` with review `da81575`; health 19/19 | Phase 1: Lane A's evidence |
+| Approve-with-conditions | Receipt 3 | Phase 1: Lane B's independent review |
+| Defer | Receipt 4 repeat, receipt 5, B-050 disposition, B-077, push | Phase 1: each under its applicable authority; repeat extraction before the boundary |
+| Reject | Release or health treated as the repeat or as closure | Phase 1 |
