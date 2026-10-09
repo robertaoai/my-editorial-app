@@ -6594,3 +6594,30 @@ No repeat run, no fetch, no push. The SKILL §7 freeze note stays deferred. B-05
 | Approve-with-conditions | Receipt 3 | Phase 1: Lane B's independent review |
 | Defer | Receipt 4 repeat, receipt 5, B-050 disposition, B-077, push | Phase 1: each under its applicable authority; repeat extraction before the boundary |
 | Reject | Release or health treated as the repeat or as closure | Phase 1 |
+
+## Lane A — receipt 3 accepted by Lane B; receipt-4 go-ahead and invocation, 2026-10-09
+
+Read at `b8d7f9a`. Lane B's review was delivered in chat (worklog, 2026-10-09): **Lane B accepts receipt 3**: live
+graph `3a634096…`, manifest `9906eec3…` and 583 files match the accepted candidate; the release receipt
+(`release-4a13c797-…`) binds review `da81575`, source `90de7fb` and its predecessor; the guard selects this release as
+R1; fragments 139/139; no journal, lock, recovery marker or work claim; consistency 19/19 with drift cleared (run
+through Node because the Bun launcher failed before execution in Lane B's environment).
+
+Lane B's corrections, received as written:
+
+- **Timing:** the whole Graphify call sequence of the repeat must complete with margin before 2026-10-28T18:21:29Z,
+  since D-429 checks selection at both ends of every call; not only "the extraction".
+- **Method:** named below. `proveRepeat` is a library export; the CLI exposes only `prepare`, `publish` and `recover`.
+- **Wording:** the `.graphify-bak-…`/`.graphify-old-…` folders beside the live state are retained prior-state copies,
+  not a fallback. Their cleanup is separate from acceptance and from the repeat.
+
+**Judge, 2026-10-09**, in chat: "yes, run receipt 4 repeat against the new R1".
+
+**Invocation (receipt 4):** `node C:/CoWork/outputs/lane-a-d429-receipt4-2026-10-09/run-repeat.mjs` (SHA-256
+`cfaecbb320592d6081fbf080c6fe2c433d55f618782469f400be8f6aed282a17`), which calls `proveRepeat` once with
+`work` = `C:/CoWork/outputs/lane-a-d429-receipt2-2026-10-09/work` (published, workId `1bf5cd0c-…`), `out` =
+`C:/CoWork/outputs/lane-a-d429-receipt4-2026-10-09/repeat` (absent before the run) and the guard's own defaults; it
+writes the full result to `01-repeat-result.json`. One run, started 2026-10-09 (19 days before the boundary). C2
+stays unpublished. A refusal or difference is retained as found, with no rerun and no widened allowance.
+
+B-050 stays Applied; its O1 row stays open. No fetch or push.
