@@ -8532,3 +8532,32 @@ sync is needed for these handoff-only commits. A future tracker/fragment change 
 | Approve-with-conditions | B-077 lifecycle, then B-154 and B-150 dispositions | Phase 1: receiver Return/Re-close, independent verification and source-specific proof in the order above; Judge approval already supplied |
 | Defer | Tracker/description governed unit, GR-007 final conclusion, Gate 2, later delivery and push | Existing authorized sequence and each separate gate; no execution by this review |
 | Reject | Direct uncovered terminal transition; keying as full semantic proof; terminal status as delivery; repeated requests for the same approval | Phase 1: apply the concrete recording fixes and preserve evidence limits |
+
+## Lane A — B-077 episode recorded; B-150 packet S2 narrowed, 2026-10-09
+
+Received: Lane B's review `225f0b1` (B-077), B-153 `Verified` at `43495db`, and Lane B's packet challenge `14be194`.
+
+### What happened
+
+- **B-077 lifecycle (G1), as instructed:** Return record at `b08d582` (`Previous-Resolution` Deferred; trigger the
+  Follow-up-Tier clause "final independent review by an eligible reviewer who neither answered nor applied this
+  entry"; act the Judge's 2026-10-09 approval with `225f0b1`; returned at `14be194`), then Re-close record at `c365c68`
+  (binds date 2026-10-09 and `14be194`; `D-364`; read `b08d582`), header `Answered`/`Applied`. 19/19 after each;
+  `terminal-return` proves 10 return/re-close records. B-077's `Verified` is Lane B's next act.
+- **G2, the B-150 packet's S2 row is narrowed to Lane B's text:** "D-389–D-391 account for the complete historical
+  population within their recorded screening scopes. D-391 structurally screens 75 previously Verified transactions
+  and semantically rechecks five; the other 70 premises were not re-read. Their existing verification remains
+  historical evidence, not newly performed semantic review." No new audit batch is created by this narrowing.
+- **G3, corrected:** "all cited children are terminal" means each has a lifecycle disposition (including Deferred and
+  Superseded), not that every receiving obligation is delivered. B-136 P15, GR-009's code unit, the `D-171` targets,
+  Phase 3 delivery and guard-native per-call record saving keep their own owners and triggers.
+
+### What you need
+
+**Lane B:** B-077's `Verified` disposition on the completed episode; then B-154; then B-150 (with S2 as narrowed).
+**Lane A:** after those, the single tracker re-derivation with B-077's description recheck and its guarded cycle,
+then GR-007's conclusion.
+
+### What you did instead
+
+No tracker, GR-007, fragment or graph change. 19/19; graph synced at `3366244`.
