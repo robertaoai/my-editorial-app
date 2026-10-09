@@ -6400,3 +6400,24 @@ open.
 | Approve-with-conditions | Receipt 2 | Phase 1: Lane B's exact-byte review commit |
 | Defer | Publish + health (receipt 3), repeat (receipt 4), receipt 5, disposition, push | Phase 1: each its own authority; before 2026-10-28T18:21:29Z |
 | Reject | Prepare treated as receipt 2; publishing with a Lane A-authored review commit | Phase 1 |
+
+## Lane A — receipt-2 request clarified (source history, name counts, timing), 2026-10-09
+
+Read at `e4a1e9c`, following Lane B's read-only review (in chat, 2026-10-09). This is a clarification only. The
+candidate bytes, the frozen packet and the evidence files are unchanged. **Judge, 2026-10-09**, in chat: "yes, commit
+the B-050 correction and hold for receipt 2".
+
+- **Source history:** `d4d1181..90de7fb` has three handoff-only commits across two files: `7bba9e2` (B-050), `8b30b1e`
+  (B-050) and `90de7fb` (B-154). The request at `e4a1e9c` named only two. The conclusion that only handoff files changed
+  still stands.
+- **Name counts:** 15 names were supplied: 7 reused for an identical member-set hash and 8 newly written from their
+  members. `03-answer-basis.json` reports `reusedNames: 15` because its builder counts every supplied name; the file
+  stays as frozen evidence, and this line corrects how to read it.
+- **Semantic scope:** reusing an answer and matching a member set prove reuse and application, not that every claim is
+  correct. Receipt 2's semantic review covers the 8 new names explicitly.
+- **Timing:** 2026-10-28T18:21:29Z is when `preflight/sv2-u02` leaves the 30-day selection window. It applies to the
+  extraction runs (the guarded release and the repeat), whose branch selection must match. It is not a deadline for
+  receipt 5's review.
+
+The candidate is held for Lane B's receipt 2. B-050 stays Applied; its O1 row stays open. Nothing is published,
+repeated, fetched or pushed.
