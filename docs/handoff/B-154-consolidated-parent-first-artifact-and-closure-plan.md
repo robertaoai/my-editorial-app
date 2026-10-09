@@ -8305,3 +8305,14 @@ publication.
 | Approve-with-conditions | Receipt 2 for D-430 | Phase 1: the Judge's channel choice (A or B), then Lane B's review commit |
 | Defer | Publication and health; SC8 refresh; B-077 final review; parents; tracker; GR-007; Gate 2; push | Phase 1: in order |
 | Reject | Treating the candidate as accepted; a review commit in B-050 without the covering record; a general red-check permission | Phase 1 |
+
+## Lane A — evidence-hash correction for the receipt-2 validation file, 2026-10-09
+
+B-050 `1e4f5ca` records `06-review-validation.json` (in `C:/CoWork/outputs/lane-a-d429-receipt2-2026-10-09`) as
+SHA-256 `7b9c17ef…`. That hash was of the run at `da81575`. Lane A's post-commit revalidation the same day re-ran the
+same script, which **rewrote the file** with `publicationHead` `1e4f5ca`; the earlier bytes were not kept. The file
+now hashes `44c5c642af02d7dd3759123b88077a438b74261ce676b2cbe56998ba836487ef` and records the same results (source ok,
+acceptance ok, every binding equal, live unchanged), read at `1e4f5ca`. The `7b9c17ef…` file is not recoverable;
+this note supersedes that hash. Publication was separately pre-checked into `07-pre-publish-validation.json`
+(`8602b4e9…`, unchanged). Found while confirming that an accidental argument-less run of the script in this session
+wrote nothing (the file's last write precedes it). Rule applied from here: validators write to a new file per run.
