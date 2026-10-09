@@ -7877,3 +7877,119 @@ Read the actual canonical/receipt diffs and governing lifecycle definitions. At 
 | Approve-with-conditions | Candidate-preparation plan and small receipt-language corrections | Phase 1: Judge execution go-ahead plus source-bound full-check record; Lane A normalizes Applied/commit wording without reopening readiness |
 | Reject | Applied-as-terminal, preparation-as-exact-byte acceptance, arbitrary future-source acceptance or automatic clearance/push | Phase 1: lifecycle and distinct-artifact contracts apply |
 | Defer | Actual preparation under this planning-only request, receipt 2 and subsequent release/health/repeat/final review/closure | Phase 1: bounded execution decision, then ordered evidence and respective acts |
+
+## Lane A — B-077 draft review received; corrections and curated-description drafts, 2026-10-09
+
+Read at `d1454c5`. Lane B's review was delivered in chat (worklog, 2026-10-09): **the B-077 reconciliation
+(`a411a70`) is approved as a draft of source accounting, not as B-077 completion.** Recorded here, not in B-077,
+because B-077 is `Deferred` (terminal) and every append there needs its own annotation commit; B-077's final review
+record will cite this section. The red-check commit `a411a70` stays a recorded process deviation; `3a4ff03` covers
+the file, and it does not make that commit compliant.
+
+### What happened: corrections to the `a411a70` draft
+
+| # | Draft said | Corrected |
+|---|---|---|
+| C1 | G1: whether "reproducible fix" means procedure or tool repair is Lane B's choice | **Settled by `D-417` item 4:** B-050's prevention scope is a repository procedure. The tool-repair alternative is withdrawn. Only B-050's disposition record is outstanding |
+| C2 | Census: "terminal 128 (incl. 4 turn reports)" | **124 terminal dispositions** (Verified 106, Superseded 10, Deferred 8), **4 turn reports excluded** from disposition accounting, **34 non-terminal**; 162 entries. Lane B reproduced these totals |
+| C3 | SC10 "not met" for B-071, B-077, B-078 | **SC10 concerns B-071/B-072** and obsolete authority states. B-077/B-078 are **additional semantic corrections**, mapped separately |
+| C4 | G2 checks lifecycle prefixes only | Prefix checks are not semantic proof. The full descriptions also state obsolete current meaning: **B-072** "Judge approval: none" although `D-184` issued the authority; **B-071** "Draft 11" as current; **B-077** "Children 2 to 5 remain open and unauthorized". Full drafts below |
+| C5 | Proposed B-077 `Verified`, then the correction and sync that satisfy SC10 | **Reversed:** the curated correction and its guarded proof come **before** B-077's final verification |
+| C6 | "One canonical unit, one guarded sync" | **Not promised:** the pre-verification semantic correction and the post-parent tracker re-derivation may need separate guarded cycles |
+
+### Corrected completion order
+
+1. **Lane B:** B-050's procedure-scoped disposition commit (four consistent header fields).
+2. **Judge:** a canonical act naming the exact fragment scope below (`frag119` B-071 and B-072, `frag121` B-077,
+   `frag123` B-078), after Lane B accepts these texts.
+3. **Lane A:** apply the four descriptions, then guarded prepare. **Lane B:** exact-byte and semantic review against
+   current headers and Register authority. **Judge:** publication; then health.
+4. **Lane A:** refresh `B077-SC8` at that review revision. **Lane B:** B-077's final review and disposition.
+5. Remaining source and O0 parent dispositions → tracker re-derivation (and its own guarded cycle if needed) →
+   GR-007's all-row conclusion → Gate 2.
+
+### Curated-description drafts (for Lane B's review; not applied)
+
+Each keeps the node's identity and label; current state comes first, and older content is labelled as history.
+Placeholders in angle brackets are filled at application time from the then-current header.
+
+**`frag119.json` `b071_ontology_correction_handoff`** (SC10)
+
+> Handoff status: Answered, Resolution Verified, by Lane B's independent Re-close review (`e5c5d58`, read at
+> `f8b593a`), for its documentary return episode only; the `D-171` S2 hold and its technical target stay held. Lane
+> B's spec-defect finding that neither of B-070's two S2 authorization options is approvable after the Judge's
+> T5/T6 clarifications. Records a terminology map (ROLE-DESK-EDITOR vs NODE-EDITORIAL-DESK-REVIEW, plus sibling
+> NODE-CHIEF-JOURNALIST-REVIEW), a normalized target model, and the Judge's direct four-identifier ruling (agent_id /
+> agent_run_id / agent_attempt_badge_id / executor_principal_key; self_asserted rejected for executor comparison; no
+> fifth Article-50 external-reader token). The corrective decision D-182 remains proposed, not in force. Judge
+> approval covers the identifier ruling and a narrow Graphify tooling/status precondition only; AUTH-DOC is not
+> approved. The implementation plan (V1-B071-CORRECTIVE-PLAN.md) is at Draft 12, carrying the D-188 correction
+> packet, with plan approval none (B071-R67); Draft 11 and earlier are superseded drafts. The four-checkpoint
+> approval structure is named AUTH-DOC / AUTH-F1 / AUTH-F2 / AUTH-ROUTE. History: findings B071-R1 onward were
+> raised across independent-review rounds, with the Chief Editor's B071-R22 clarification. This node represents
+> lifecycle status only; it does not assert the disputed ontology as decided, which remains the Judge's call.
+
+**`frag119.json` `b072_handoff_only_commit_authority`** (SC10)
+
+> Handoff status: Answered, Resolution Applied (non-terminal; its SV-002 row is closed by its own D-403 reason).
+> Distinguishes the exclusive work-product commit lock (Active lane only) from a narrow handoff-journal commit
+> permission for Eligible Lane B/C actors, covering their own docs/handoff/B-NNN-*.md and C-NNN-*.md entries only.
+> Judge authority: D-184 (2026-09-03) issued the standing permission: an Eligible Lane B or Lane C actor may commit
+> and push only its own explicit handoff entry, authorizing no other path, broad or mixed staging, implementation,
+> lane transition, Applied-to-Verified promotion or deployment; D-272 later amended it (the raiser owns and commits
+> its series; the receiver answers and commits). History: the entry proposed a parent decision plus three children
+> (safe commit protocol, Graphify-honesty obligation, propagation/enforcement); deferred hardening is not delivered.
+
+**`frag121.json` `b077_consolidated_closure_failure_pattern`** (additional semantic correction)
+
+> Handoff status: Answered, Resolution Deferred (Judge ruling 2026-09-07; terminal for the parent only); final
+> independent review by Lane B <pending | its outcome at application time>. A closure map and immutable audit
+> snapshot pinned at revision a18fe1c, explicitly not a second backlog: each originating handoff remains the
+> canonical record of its own live Status, Resolution, evidence and owner. Names ten recurring failure patterns,
+> each with mechanism, guaranteed failure and corrective rule: approval inheritance, response treated as closure,
+> partial fix given a whole-entry label, historical/current-state collision, field-name ontology error on
+> Verified-At-Commit, wrong independence boundary, green-form fallacy, graph-current fallacy, mutable roll-up, and
+> repair recursion. Its root diagnosis is that five distinct facts were repeatedly collapsed: Judge authorization,
+> Lane A answering, a correction existing at a commit, independent verification, and the graph describing the
+> settled source. Closure-map state: Parent 1 (B076-R1–R5) is complete; Child 2's legacy Applied entries each rest
+> on one recorded basis (a D-403 item 2 reason under D-416 item 6, or independent verification), with B-050
+> <its disposition at application time>; Child 3's B-071 return episode is Verified while Draft 12 stays under the
+> D-171 hold; Child 4's B-016 and C-001 stay Deferred to Phase 3 (V1-SM06 SM06-P3-02–04). History: at intake
+> (2026-09-03) Children 2 to 5 were open and unauthorized, and the entry recorded its own push as blocked with
+> remote at a18fe1c although git ls-remote showed the branch at 0bab8bd, so the push had landed.
+
+**`frag123.json` `b078_documentation_audit_follow_through`** (additional semantic correction)
+
+> Handoff status: Answered, Resolution Verified by Lane B (Codex) at de665a7, independent of Lane A's application of
+> the documentation corrections and curated fragment. Owns the residual documentation-audit packet only; explicitly
+> not a second backlog and not a replacement for B-071's product-plan chain or B-077's handoff-closure map. Parent 1
+> corrected docs/README.md's authority map: PRD.md moved out of the non-governing plan-pack row into its own
+> governing row under D-29, the demand/supply 'neither governs the other' framing replaced with the Project PRD to
+> Product PRD to Fn_Specs to SPECS intent hierarchy (extending B-073's fix to a section of the same file it had
+> missed), and the reading order replaced with a six-item list routing through the execution map and lane work
+> order. Child 2 corrected current-status presentation without deleting history: the Register's 'Last approval
+> update' relabelled as an initial approval-summary cutoff, a history label before the old 'Chief Editor decisions
+> still to make' paragraph and a current-reference note after it citing D-143, D-146, D-111 and D-112 for Q3, Q5
+> and Q11; the Build Spec's Bun sentence re-cited to D-64. A second review round found two errors introduced by the
+> first pass, both corrected: the provisional deviation register filed as history-only against its own 'Live
+> instrument' header, and a Build Spec sentence on crossings that contradicted D-88's commit-message control.
+> Children 3 to 5 were routed to existing owners, not closed by B-078: view and report mapping with B-071's R159 and
+> R160, publication timing and duplicate-recovery contracts with S4 readiness in SPECS-PUBLICATION, and hosted
+> Encyclopedia parity unread rather than missing.
+
+### What you need
+
+**Lane B:** review of corrections C1–C6 and the four description drafts, against current headers and Register
+authority (D-184, D-272, D-417, D-171, B071-R67). Then B-050's disposition commit.
+
+### What you did instead
+
+No header, fragment, tracker, Register or graph change. B-077 stays `Deferred`; B-154 stays Open. 19/19; source drift
+clear at `90de7fb`; the curated semantic drift above is pending.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Lane B's corrections C1–C6 | Phase 1: received |
+| Approve-with-conditions | Four curated-description drafts | Phase 1: Lane B's review, then a Judge act naming the fragment scope, guarded proof before B-077's verification |
+| Defer | B-050 disposition; fragment application and guarded cycle; B-077 final review; O0 parents; tracker; GR-007; Gate 2 | Phase 1: corrected order above |
+| Reject | Prefix-only semantic proof; B-077 Verified before its graph proof; a promised single sync; turn reports counted as terminal dispositions | Phase 1 |
