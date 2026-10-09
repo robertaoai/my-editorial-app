@@ -4,16 +4,17 @@
 - **Kind:** finding
 - **Phase:** 1
 - **Blocks:** comprehensive census acceptance and Gate 2 clearance without source/child proof; no construction authorization
-- **Status:** Open
+- **Status:** Answered
 - **Lane A:** **Acknowledged 2026-10-02, receipt only**, read at `8e6ab54`. Lane A confirms against the sources
   that `R33` is not fixed (FN-GATES §11 still maps `EG5` → `T6` → `ACCESS-ROLE-CHIEF-EDITOR`); that the Chief
   Journalist `A` question was dissolved by `D-236` (B-117 lines 3789–3797); and that `R30`'s curated surface is
   unread. The census corrections, the keying of this entry and the commit-discipline finding go to the Judge as one
   bounded unit before any canonical edit. No answer, Resolution or canonical source is changed by this
   acknowledgement.
-- **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Evidence:** D-364, D-158, D-381–D-384; SV-002 §2.3.1–§2.3.2 and §3.3; GOV-RES-001; B-077/B-117 source findings; B-104; V1-SM05/V1-SM06; independent directory/ledger/child-ID comparison; reviewed baseline bun run check 19/19 and draft 18/19; Graphify query, exact-label explain and check-update; Judge-supplied Lane C assessment received 2026-10-02, challenged in the consolidated section below
-- **Verified-At-Commit:** 42dbbe6c94ad5c07f610390eeee215f566bb2288
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), independent of Lane A's census corrections and application; correction-unit verification, 2026-10-09
+- **Evidence:** D-385 application a2625bb and Lane A answer 4625c1d; F1-F3/F5 and Chief Journalist A corrections checked against SV-002 §§2.3.1-2.3.2, frag5 and D-236/D-238/D-251/D-171; GR-009/010/011 documentary units accepted at b844329 under D-414; B-110/B-102/B-103 and B-115/B-114 independently Verified; bd6e43a disposition packet and independent review below. Baseline check 19/19 and live fragment parity 139/139. Scoped to this correction unit and dependency outcomes; neither full historical semantic coverage, later GR-009 code, held product delivery nor Gate 2 acceptance.
+- **Verified-At-Commit:** bd6e43a993eb22c43550760759700eb7f4a2b735
 
 ## What happened
 
@@ -250,3 +251,39 @@ Reviewed the governed state, compared the census's child IDs, directory populati
 
 **Status stays `Open`** until Lane B independently reviews these corrections. `B-114` still waits for Lane C's
 `B-115` consumer read.
+
+## Lane B independent disposition of the D-385 correction unit — 2026-10-09
+
+### What happened
+
+Judge authorization in the current chat: "Judge Approved: B-077, B-153, B-154, B-150 dispositions". Read at
+`bd6e43a993eb22c43550760759700eb7f4a2b735`. Lane A's historical answer remains unchanged. The independent
+assessment is against this entry's correction-unit condition and SV-002's B-153 row, not the entire B-150 audit.
+
+| Item | Independent result |
+|---|---|
+| F1 / R30 | D-385 qualifies frag5's FN-GATES description as historical and points to the current target/slice. Six dated historical descriptions are retained; no invented target delivery. Live fragment parity is 139/139. |
+| F2 | SV-002's B-077/B-117 census narrative retains its history and has dated current-scope corrections. ID enumeration, comparison and semantic completion remain distinct. |
+| F3 | The B-103 pointer records its Verified header; this entry is keyed/listed under D-385. The later tracker is dated, not a current Gate 2 claim. |
+| F5 / R33; Chief Journalist A | R33 is Superseded under D-238/D-251/D-171, not falsely fixed. The positional issue is R38 in GR-010. Chief Journalist A is dissolved under D-236. |
+| F4 custody and dependencies | D-414's documentary units were independently accepted at b844329. GR-009 code remains separately commissioned. B-110 before B-102, and B-115 before B-114, have their own independent Verified records; B-103 is Verified. |
+
+### What you need
+
+**Disposition: Verified**, limited to the census correction unit and the dependency outcomes above. The source
+row clears through its independent header under D-364; no tracker edit is made here. D-391's 70 structural-only
+reviews remain structural-only. GR-007's final all-row conclusion, B-077's lifecycle transition, B-154/B-150's own
+dispositions and B-136 P15 remain separate. No new Lane C result is inferred from this Lane B review.
+
+### What you did instead
+
+No receiver answer, canonical document, fragment, graph, code, lane state, fetch or push is changed by this act.
+Evidence: `C:/CoWork/outputs/lane-b-closure-dispositions-2026-10-09/`, including the clean baseline check and
+independent release/header join (no findings). Normal hooks apply to this one-file handoff commit.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | B-153's correction unit and resolved review dependencies | Phase 1: independently Verified in this entry |
+| Approve-with-conditions | B-154 and B-150 parent dispositions | Phase 1: their own conditions and B-077's completed lifecycle record |
+| Defer | Tracker re-derivation, GR-007 conclusion, Gate 2 and later execution | Their existing owners and recorded phases |
+| Reject | This bounded verification treated as full semantic audit or product delivery | Phase 1: preserve the stated evidence limits |
