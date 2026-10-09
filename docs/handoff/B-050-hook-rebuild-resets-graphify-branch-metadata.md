@@ -6621,3 +6621,47 @@ writes the full result to `01-repeat-result.json`. One run, started 2026-10-09 (
 stays unpublished. A refusal or difference is retained as found, with no rerun and no widened allowance.
 
 B-050 stays Applied; its O1 row stays open. No fetch or push.
+
+## Lane A — D-429 receipt 4: actual repeat equal (C2 = R1 within declared fields), 2026-10-09
+
+One run, as recorded at `0d1dabd`: `run-repeat.mjs` (SHA-256 `cfaecbb3…`) called `proveRepeat` once from the
+published work `1bf5cd0c-…` into `C:/CoWork/outputs/lane-a-d429-receipt4-2026-10-09/repeat`. Check at the run's HEAD
+`0d1dabd`: 19/19 (`00-check-at-head.log` SHA-256 `d8aee4ab…`).
+
+### What happened
+
+| Item | Result |
+|---|---|
+| Outcome | **`repeat-equal`, exit 0**: "C2 equals R1 within the declared volatile fields; nothing was published"; findings `[]` |
+| Run | 2026-10-09T05:37:08.383Z → 05:52:03.899Z, 19 days before the 2026-10-28T18:21:29Z selection boundary |
+| Receipt | `repeat/REPEAT.json` SHA-256 `cde2ffd1f3d77ee8252e3aecbc61dbbf5664f7928277c6ce6e93e8e5fa787626`, runId `589255ff-4a73-425a-b157-f5c0b4e0e7ad`; full result `01-repeat-result.json` SHA-256 `df2e3a3f…`; log `repeat.log` SHA-256 `8f4956d1…` |
+| Bound inputs | predecessor baseline `c104ec0f…` @ `dc656d2`, source `90de7fb`, answers `6dc2f4c8…`, selection oracle `a6bf4fe8…`; successor R1 `9906eec3…` @ `da81575` |
+| R1 (live) | manifest `9906eec3…`, graph = studio graph `3a634096…`, observed_at 2026-10-09T03:47:35.545Z inside R1's final-update bracket |
+| C2 (unpublished) | manifest `7c3fc37f…`, graph = studio graph `91102b99…`, observed_at 2026-10-09T05:44:07.884Z inside C2's final-update bracket, later than R1 |
+| Live after the run | unchanged: still `9906eec3…` / `3a634096…`, locus `da81575`; no journal, no lock |
+
+**What "equal" allows here, stated in full.** Raw bytes differ (manifest and graph hashes above). The comparison masks
+only what D-426/D-427/D-429 declare: `branch.json`/`worktree.json` `updatedAt`, the workspace manifest's
+`generated_at`, the validated `graph.provenance.observed_at` in the root and studio graphs, the manifest's graph-entry
+SHA-256 once validated, and **the two ignored-count leaves**. Those leaves did differ: `scope.json`
+`excluded_ignored_count` is **698 in R1 and 697 in C2**. D-429 A4 allowed it with no finding: R1's preparation had
+the `fill-missing` transient (`communities.md`, indicator 1); C2's run did not (R1's names bound, so no
+`label-instructions/communities.md` remains in C2's checkout). The non-cache paths and AST-cache cardinality agreed.
+Every other file, node, link and field compared equal.
+
+### What you need
+
+**Lane B: receipt 5**, the independent whole-unit review: this repeat and its use of the A4 allowance, then B-050's
+whole unit (receipts 1–4). After that: B-050 disposition → B-077 → parent acts → Gate 2.
+
+### What you did instead
+
+No rerun, no publication of C2, no fetch or push, no cleanup of the retained prior-state copies. B-050 stays Applied;
+its O1 row stays open.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Receipt 4: one actual disposable repeat, `repeat-equal` against R1 `3a634096…` | Phase 1: Lane A's evidence |
+| Approve-with-conditions | The A4 count allowance (698 vs 697) as applied | Phase 1: Lane B's receipt-5 review |
+| Defer | Receipt 5, B-050 disposition, B-077, parent clearance, push | Phase 1: in order, each under its applicable authority |
+| Reject | Repeat equality treated as B-050 closure or Gate 2 clearance | Phase 1 |
