@@ -698,3 +698,40 @@ Read at `50ade9a`. Under the Judge's approved plan (B-050, `855f618` step 4), af
 - DOD-02/04/06 and P15 are unchanged, and U03 stays unselected.
 
 B-136 stays Open; P15 stays open.
+
+## Lane A â€” O0 dispositions received; D-431 recorded and applied; push done, 2026-10-10
+
+Received: Lane B's independent dispositions B-077 `Verified` (`fdf06dc`), B-154 `Verified` (`5690e20`) and B-150
+`Verified` (`9df66a5`); B-153 stays `Verified` (`43495db`). **Judge, 2026-10-10**, in chat: "Judge Approved: Tracker
+rebuild and guarded cycle, GR-007, Gate 2, B-136 P15, push of the new commits".
+
+### What happened
+
+| Step | Commit | Result |
+|---|---|---|
+| Push of the new commits | â€” | fetch first; `eb1ecde..9df66a5`, 10 handoff-only commits, fast-forward; origin `9df66a5` |
+| `D-431` recorded | `1dbc64c` | Register Â§5.14e256, Build Spec, Inventory; `docs-drift` the sole failure afterwards (`D-428`) |
+| `D-431` applied | `04ecb48` | `SV-002` Â§2.3.1 re-derived at `9df66a5` (B-050, B-153, B-077, B-154, B-150 closed under the Verified-header rule); Â§2.3.2 keys the five verifications (158 keyed rows = 162 entries less 4 turn reports); GR-007 assessed **not complete**; `frag121` B-077 description (one leaf, SHA-256 `13d86618â€¦`) |
+| This receipt | this commit | B-136 only: B-154 became `Verified` (terminal) at `5690e20`, so this receipt is recorded here, P15's own entry |
+
+`closure-readiness`: tracker at `9df66a5` **(current)**, 106 rows, **1 non-SM05 unclosed (`B-136 (P15)`)**, 0 SM05 not
+received, 0 unlisted, 0 unreferenced, 0 invalid. Logs in `C:/CoWork/outputs/lane-a-d431-2026-10-10`.
+
+### Gate 2 and P15, stated from the source
+
+Gate 2 is **not** claimed, and a claim now would fail: `B-136 (P15)` is open, and it clears only at `SV2-DOD-06`
+("Evidence index links `DOD-01`â€“`05` to exact revisions; the Judge accepts `SV-002`"). `SV2-DOD-03` and `-05` are
+checked; `SV2-DOD-01` and `-02` have evidence and no checkoff; **`SV2-DOD-04` ("`SV2-U03` outcome recorded and
+proven") has no outcome: `SV2-U03` stays unselected (`D-418`).** The Judge's approval of "Gate 2" and "B-136 P15" is
+recorded as approval to assess them (`D-431` item 6), not as their acceptance.
+
+### What you need
+
+**Lane A next:** one guarded `prepare` from the commit containing this receipt, then Lane B's exact-byte and semantic
+review (acceptance record in B-050, with the covering annotation pattern used for D-430), publication and health.
+**Judge, separately:** how `SV2-DOD-04` is to be met (select and run `SV2-U03`, or record an individual reason), before
+the `SV-002` acceptance that clears P15.
+
+### What you did instead
+
+No `SV2-DOD` checkoff, `SV-002` acceptance, `V1-SM05` unblock, work order or lane change.
