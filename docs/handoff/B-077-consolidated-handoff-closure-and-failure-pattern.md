@@ -4138,3 +4138,88 @@ Only this B-077 append is written; its `Answered` header and absent `Resolution`
 | **Approve-with-conditions** | R160 rule-selection and test contract | Exact matched pair, isolated fixtures and intended-error evidence still need literal specification | Lane A draft completion, then independent review |
 | **Reject** | Whole-unit inertness or unchanged report-fixture claim | Only approval coverage is inactive; report admission changes at cutover | Lane A activation matrix and fixture compatibility plan |
 | **Defer** | Implementation, target-rule activation, actor mapping, preflight, `AUTH-DOC`, B-071 closure | Existing holds/unverified prerequisites unchanged | Separate authorization and runtime/independent verification |
+
+## Lane A: final reconciliation draft for Lane B's independent review (2026-10-09)
+
+**Judge, 2026-10-09**, in chat: "draft the B-077 final reconciliation for Lane B review". Read at `2ab5df6`. Lane B is
+B-077's named independent reviewer (`D-415`); Lane A neither verifies nor changes B-077's header here. Basis: this
+entry's Parent 1 and Children 2–5, `B077-SC1`–`SC12`, `D-416` items 6 and 8, GR-007, and a **fresh query of every
+originating handoff header** (SC1, SC8), not this file's `a18fe1c` snapshot. Evidence:
+`C:/CoWork/outputs/lane-a-b077-final-2026-10-09/` (`sc8-query.mjs`/`.json`, `tracker-join.mjs`/`.json`,
+`fragment-status-sweep.mjs`/`.json`).
+
+### What happened
+
+**Fresh query at `2ab5df6`** (162 entries, headers read up to the first section): Verified 106, Superseded 10,
+Deferred 8, turn-report 4 (terminal); **non-terminal 34**: `Answered`/`Applied` 26 and `Open` 8. No entry is
+`Answered` without a resolution.
+
+#### Parent and children
+
+| Part | Current source state | Result |
+|---|---|---|
+| **Parent 1** (B-076 R1–R5) | B-076 `Applied`; SV-002 row closed by the Judge's individual reason (`D-403`, B-154 R2 at `0f011da`: "Accept that guide correction") | Resolved by its own basis; header stays `Applied` |
+| **Child 2**: B-011, B-015, B-033, B-041, B-062, B-065, B-066, B-067, B-072, B-073, B-074, B-075 | All `Applied`; each SV-002 row closed by its own `D-403` item 2 reason with a named surviving owner | Resolved: per `D-416` item 6, each reason is that target's single basis; headers stay `Applied`; nothing promoted |
+| Child 2: B-014, B-021 | `Verified` (Lane B; GR-012/GR-013 under `D-402`) | Resolved by independent verification |
+| Child 2: B-061, B-070 | Both `Verified` | Resolved |
+| Child 2: **B-050** | `Applied`; receipts 1–5 accepted; disposition packet accepted as ready (B-050 `cfcf724`, `2ab5df6`) | **Open: waits on Lane B's B-050 disposition commit** (see gap G1) |
+| **Child 3** (B-071) | `Verified` (Lane B Re-close review, `f8b593a`); the `D-171` target stays held | Resolved for the return episode only; no Draft 12, `AUTH-DOC`, product work or lane activation is implied (SC6) |
+| **Child 4** (B-016, C-001) | Both `Deferred` to Phase 3, owned by `V1-SM06` `SM06-P3-02`–`04` | Owner and return condition named; not closed by documentation (SC6 boundary kept) |
+| **Child 5** (graph and final review) | Graph released through the guarded procedure (`D-425`–`D-429`), live `3a634096…` at `90de7fb`; curated nodes for B-076/B-077 exist (`frag121.json`) | Final review is this request; curated status text needs one correction (gap G2) |
+
+#### Success criteria
+
+| ID | Assessment at `2ab5df6` |
+|---|---|
+| SC1 | Met: every state below is read from its originating header |
+| SC2 | Met: no `Applied` entry is proposed for terminal promotion; residuals sit with named owners (D-403 R2, GR rows) |
+| SC3 | Met for every `Verified` cited above; B-050's will be checked on Lane B's commit (four consistent fields) |
+| SC4 | Met: B-011/B-033 each name one exact basis (`D-403` R2), never both verification and supersession |
+| SC5 / SC9 | Reported separately: **extraction** analyzed `90de7fb`, `stale: false`; **curated coverage** `graph-coverage` 0 absent, fragment parity 139/139; **semantic update** 0 pending at release (receipt 2); `check-update` "pending" after handoff-only commits is not drift (G-F3-9); **portability** runtime `.graphify` untracked |
+| SC6 | Met (Child 3/4 rows) |
+| SC7 | Met through named local commits (`D-416` item 6): curated nodes survived (139/139); semantics complete; source `90de7fb`, graph `3a634096…`, review `da81575` explicit |
+| SC8 | **Met except as named below**: every non-terminal entry has a named next action (table) |
+| SC10 | **Not met:** curated status text disagrees with the live header for B-071, B-077 and B-078 (gap G2); B-072 agrees |
+| SC11 | Not applicable: no terminal review of B-072/B-076 is proposed; both rest on `D-403` reasons |
+| SC12 | Met: B-077's header stays `Deferred`; no child application is represented as whole-entry `Verified` |
+
+#### SC8: next action for each non-terminal entry
+
+| Entries | State | Named next action and owner |
+|---|---|---|
+| B-011, B-015, B-033, B-041, B-062, B-065, B-066, B-067, B-072, B-073, B-074, B-075, B-076, B-086, B-098, B-099, B-122 | `Applied`; SV-002 row **closed** (`D-403`) | None for Gate 2. Each header stays `Applied` by design; the surviving owner is named in its `D-403` R2 row (e.g. GR-008 for B-011, `SM06-P3-02`–`04` for B-015) |
+| B-084, B-121, B-126, B-127, B-128, B-132, B-133 (`Applied`); B-095, B-096, B-104 (`Open`) | SV-002 row **received** into `V1-SM05` | Delivery inside `V1-SM05`'s DoR→DoD (receipt only; no whole-entry closure); non-SM05 children closed by `D-411`–`D-413` custody |
+| B-131 | `Applied`; SM05 row closed (`D-288`) | None for Gate 2 |
+| B-119 | `Open`; row closed by the Judge's reason (`D-413`) | Residuals with `V1-SM06` DoR and `SM06-P3-01`; independent verification of applied topics owed by its own owner |
+| **B-050** | `Applied`; O1 row open | **Lane B:** disposition commit (`Resolution`, `Verified-By`, `Evidence`, `Verified-At-Commit`) |
+| **B-136** | `Open`; `(P15)` row open; `(P14a/P14b)` received | `SV2-DOD-06` attempt acceptance; separate from B-050 |
+| **B-150, B-153, B-154** | `Open`; O0 rows open | Their own parent dispositions on the evidence, after the source reviews (`D-416` item 8) |
+
+### Gaps and draft fixes
+
+| # | Gap | Draft fix |
+|---|---|---|
+| G1 | Child 2's B-050 test says "`Verified` only with a reproducible fix; otherwise `Deferred`". The packet is a **repository procedure** fix, not an upstream tool repair | Read "reproducible fix" under `D-417` (Judge choice B: prevention scope is a repository procedure), proven on the real target by receipts 2–5. Lane B decides; if it reads the test as a tool repair, the allowed result is `Deferred` to Graphify tooling with the guarded procedure retained |
+| G2 | SC10: three curated nodes state stale lifecycles: `frag119.json` `b071_ontology_correction_handoff` ("Open, Acknowledged"; live `Answered`/`Verified`), `frag121.json` `b077_consolidated_closure_failure_pattern` ("Resolution Applied at a1ad545"; live `Deferred`), `frag123.json` `b078_documentation_audit_follow_through` ("Open … pending commit"; live `Verified`) | Replace only each opening "Handoff status: …" clause: **B-071** "Handoff status: Answered, Resolution Verified (Lane B independent Re-close review at `f8b593a`); the `D-171` target stays held." **B-077** "Handoff status: Answered, Resolution Deferred (Judge ruling 2026-09-07); final independent review pending." **B-078** "Handoff status: Answered, Resolution Verified (Lane B, at `de665a7`)." Rest of each description unchanged. Fragments are governed: these ride the final canonical unit below, with one guarded sync |
+| G3 | The tracker (`Derived at: aa44dac`) goes stale once B-050's (and later the O0 parents') dispositions land | Re-derive once, after the O0 parent dispositions and before GR-007's conclusion (`D-416` item 8), in the same canonical unit as G2; re-check currency before any Gate 2 claim |
+
+### What you need
+
+**Lane B:** the independent final review of this reconciliation (B-077's Follow-up-Tier), including the G1 reading
+and G2 texts. **Proposed B-077 outcome**, on Lane B's acceptance after B-050's disposition: Lane B's own commit
+setting B-077 to `Resolution: Verified`, scoped to the closure map (Parent 1, Children 2–5, SC1–SC12, with SC10 met
+after G2's sync), never to the deferred Phase 3 work or the `D-171` target. Then the O0 parent dispositions, one
+canonical unit (G2 fragments + G3 tracker re-derivation + GR-007's all-row conclusion) through one guarded sync,
+and the Gate 2 assessment.
+
+### What you did instead
+
+No header, tracker, fragment, Register or graph change; no Lane A verification. B-077 stays `Deferred`; its O4 row
+stays open. The handoff commit stays separate from any canonical edit.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Fresh SC8 query; Parent 1 and Children 2–5 mapped to their single recorded bases | Phase 1: Lane A's evidence |
+| Approve-with-conditions | B-077 final reconciliation | Phase 1: Lane B's independent review; B-050's disposition first; G1 reading; G2 applied and synced |
+| Defer | G2/G3 canonical unit and guarded sync; O0 parent dispositions; GR-007 conclusion; Gate 2; push | Phase 1: `D-416` item 8 order |
+| Reject | Snapshot or tally used as live state; any `Applied` entry promoted in bulk; Phase 3 or `D-171` work implied complete | Phase 1 |
