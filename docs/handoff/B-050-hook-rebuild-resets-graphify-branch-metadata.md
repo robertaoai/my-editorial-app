@@ -6340,3 +6340,63 @@ handoff-only. Next: one guarded `prepare` from the HEAD that contains this recei
 only where validated against the actual source and member sets; then Lane B's receipt 2. The `preflight/sv2-u02`
 selection boundary (2026-10-28T18:21:29Z) still applies to receipts 2–4. No publish, repeat or push follows from this
 receipt. B-050 stays Applied; its O1 row stays open.
+
+## Lane A — D-429 receipt-2 request: candidate `3a634096` ready at `90de7fb`, 2026-10-09
+
+Under the Judge's 2026-10-09 go-ahead (recorded at `8b30b1e`). Evidence folder:
+`C:/CoWork/outputs/lane-a-d429-receipt2-2026-10-09` (work folder `work`, workId `1bf5cd0c-2d88-4762-9eda-49e00a1341c2`).
+
+### What happened
+
+| Item | Value |
+|---|---|
+| Source HEAD (captured) | `90de7fbe432dbd1c13f257379b7b876c3c9d3336`; delta since `d4d1181` is the two handoff files only (`8b30b1e`, `90de7fb`) |
+| Full check at that HEAD | 18/19, `docs-drift` the sole failure (D-428), `01-check-at-head.log` SHA-256 `a615146f…` |
+| Baseline | live R1, release locus `dc656d2`, guard-treeDigest-v1 `c104ec0f…`, 583 files; captured under the lock |
+| Run | `prepare` → pending (exit 3; 194 descriptions, 15 communities) → `prepare --resume --answers` → **ready** (exit 0, attempt 2) |
+| Candidate | graph SHA-256 `3a63409668b8f975a18245a78763dbf252f7be23904667d9df8a86f964a34031`; manifest `9906eec3a278aa6bfe9f18a18009adf4c9437ea038c455cce6cc082f3e1fae15`; 583 files; frozenAt 2026-10-09T03:55:52.366Z |
+| Selection | oracle `a6bf4fe8…`; branches `features/feature-V1-SM05`, `main`, `preflight/sv2-u02` (30 days / 200 commits / no since) |
+| D-429 packet | final observation 2026-10-09T03:47:35.545Z inside the final `update` bracket; validated ignored count 698, AST cache 322, transient 1; ignored list `ba8aebda…` |
+| Answers | `answers.json` SHA-256 `6dc2f4c84cb6d3ccfe08e498c4fea6d5abf41e08fa2e400c974929e428fa9068` |
+
+**Semantic answers, validated against this source and these member sets** (`build-answers.mjs`, basis
+`03-answer-basis.json`): the build refuses unless the delta since `d4d1181` is handoff-only. All **194 pending
+descriptions** are the control's texts reviewed with receipt 1, reused only for the exact same id; none newly written.
+**15 names:** 7 reused only for an identical member-set hash; **8 new, member-derived** (the two new handoff commits
+re-clustered these groups; listing `02-unresolved.json`):
+
+| Member-set hash | Members | New name |
+|---|---|---|
+| `eeec96ea…` | 51 | Guard Test Harness and D-425–D-426 Build Commits |
+| `e1da466a…` | 86 | SM05 Branch, D-338–D-427 Review and Receipt Commits |
+| `85d5b22b…` | 17 | D-428 Recording and D-426 Receipt-2 Commits |
+| `8f7b529b…` | 20 | D-429 Cycle, Receipt 3–4 and Renewed Receipt-1 Commits |
+| `1419ca2f…` | 29 | D-421–D-424 F2 Build, Review and Release Commits |
+| `1e375d3b…` | 28 | D-405–D-409 Retention, Route 1 and Migration Commits |
+| `52069add…` | 23 | D-395–D-398 Containment, Lane C and Convergence Commits |
+| `23987ff9…` | 19 | D-393–D-396 P4a Fixture Isolation and Verification Commits |
+
+**Lane A's read-only verification** (`05-candidate-verification.json`, SHA-256 `180f1435…`): manifest, graph hash, file
+count and answers hash recomputed from the staging bytes and equal; 2,480 nodes, 5,429 links, 130 communities, 0
+undescribed; **fragment parity 139/139 exact**; name binding 0 findings; every description and name applied; 0
+foreign-path hits; staged `branch.json` analyzed `90de7fb`, `stale: false`; **live state unchanged** (equals the
+baseline digest), no journal, no lock.
+
+### What you need
+
+**Lane B: receipt 2**, the exact-byte review of graph `3a634096…` / manifest `9906eec3…` from source `90de7fb` and
+baseline `c104ec0f…`, including the 8 new names. Per the channel rule (G-F3-8), publication uses only the review
+commit Lane B names in its answer.
+
+### What you did instead
+
+Nothing published, synced, repeated or pushed; no fetch since prepare. The SKILL §7 freeze note stays deferred. Drift
+stays expected (five governed paths since `11f2e40`) until the guarded release. B-050 stays Applied; its O1 row stays
+open.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Candidate `3a634096…` prepared from `90de7fb` with validated answers and preserved fragments | Phase 1: Lane A's evidence |
+| Approve-with-conditions | Receipt 2 | Phase 1: Lane B's exact-byte review commit |
+| Defer | Publish + health (receipt 3), repeat (receipt 4), receipt 5, disposition, push | Phase 1: each its own authority; before 2026-10-28T18:21:29Z |
+| Reject | Prepare treated as receipt 2; publishing with a Lane A-authored review commit | Phase 1 |
