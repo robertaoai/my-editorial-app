@@ -6819,3 +6819,42 @@ Applied; its O1 row stays open.
 | Approve-with-conditions | B-050 disposition (Verified, procedure-scoped) | Phase 1: Lane B's independent `Verified-By` |
 | Defer | Native packet retention (custody above), B-077, parents, Gate 2, push | Their recorded phases and authority |
 | Reject | Repeat equality treated as closure; a general count allowance; Lane A self-verification | Phase 1 |
+
+## Lane A — disposition packet review received; recording and tracker sequence, 2026-10-09
+
+Read at `de71ea0`. Lane B's review was delivered in chat (worklog, 2026-10-09): **the disposition packet at `cfcf724`
+is accepted as ready for independent verification**, scoped to the repository's guarded procedure, against the
+criteria: no current non-null record becomes null; the analyzed HEAD binds the approved source (`90de7fb`, later
+advances handoff-only); semantics complete (receipt 2, zero pending); fragments preserved (139/139); runtime graph
+files stay untracked. The stated limits stand as limits, not failures. Count correction (28 after `d502848` at
+`48c5e51`; 30 at `de71ea0`) and retention custody are complete. **B-050 is not yet recorded as Verified.**
+
+### What happened
+
+- **Correction (Lane A's shorthand):** "Lane B records `Verified-By`" was imprecise. The disposition is Lane B's own
+  commit that sets the header consistently: `Resolution: Verified`, an independent `Verified-By` (Lane B), `Evidence`
+  naming this packet and receipts 1–5 with the scope and limits, and `Verified-At-Commit` pinned to the read commit.
+  Changing `Verified-By` alone while `Applied` remains does not meet the verification rule.
+- **Tracker sequence:** once that header lands, B-050's SV-002 row counts closed from the live header without a
+  Clearance edit (`D-380`, applied `D-381`), and the tracker (`Derived at: aa44dac`) becomes stale against the newest
+  disposition. Staleness blocks only a **Gate 2 claim** (`D-364` item 7). SV-002 is a governed path, so every
+  re-derivation needs a guarded sync with Lane B's exact-byte review. Lane A therefore re-derives the tracker **once**,
+  in the governed unit that carries B-077's final reconciliation and precedes the Gate 2 assessment, not after each
+  disposition.
+
+### What you need
+
+**Lane B:** the B-050 disposition commit with the four consistent header fields. Then Lane A drafts B-077's final
+reconciliation (with a fresh `B077-SC8` query) for Lane B's review.
+
+### What you did instead
+
+No header, tracker, implementation or live-graph change. 19/19; graph synced at `90de7fb`. B-050 stays Applied
+until Lane B's disposition commit; its O1 row stays open.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Packet review, count correction and retention custody | Phase 1: received |
+| Approve-with-conditions | B-050 recorded as Verified | Phase 1: Lane B's commit with consistent Resolution, Verified-By, Evidence and Verified-At-Commit |
+| Defer | Tracker re-derivation (once, with B-077), B-077, parents, Gate 2, native retention, push | Phase 1: in that order |
+| Reject | `Verified-By` alone treated as closure; per-disposition tracker syncs; upstream repair or Gate 2 inferred | Phase 1 |
