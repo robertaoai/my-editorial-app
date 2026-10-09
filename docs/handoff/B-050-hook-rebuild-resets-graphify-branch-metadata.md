@@ -6720,3 +6720,43 @@ No rerun, code change, publication, cleanup, fetch or push. B-050 stays Applied;
 | Approve-with-conditions | Replacement repeat with the pass-through retention driver | Phase 1: Judge authority; Lane B's receipt-5 review of the retained packet |
 | Defer | Guard-level retention (prevention); receipt 5; B-050 disposition; B-077; parents; push | Phase 1: in order |
 | Reject | Reconstructing C2's timings from file times; treating the first run's equality as complete receipt-4 evidence | Phase 1 |
+
+## Lane A — D-429 receipt 4 (replacement): repeat equal, C2 call packet retained, 2026-10-09
+
+**Judge, 2026-10-09**, in chat: "yes, run the replacement repeat with the retention driver". Run exactly as planned at
+`7418752`, from HEAD `7418752`: driver `run-repeat.mjs` SHA-256 `7528a722…` (unchanged since the plan), `work` =
+the published receipt-2 work folder, `out` = `C:/CoWork/outputs/lane-a-d429-receipt4b-2026-10-09/repeat` (absent
+before), `deps.generate` = the pass-through around `generateCandidate`, called once.
+
+### What happened
+
+| Item | Result |
+|---|---|
+| Outcome | **`repeat-equal`, exit 0**, findings `[]`; 2026-10-09T07:08:10.279Z → 07:23:06.578Z |
+| Retained C2 packet | `C2-GENERATION.json` SHA-256 `d77c6f4fbe95151369ac537c5bc1ee2bf032704b8ea14da6f0e2d55b46ffb56a` (written once, exclusive create + fsync, before composition): the unmodified generation result, status `generated`, `selection` with rules, branches, oracle `a6bf4fe8…` (equal to R1's), brackets, final observation, ignored packet and **all seven call records** (index, location, arguments, start/end, before/after observation and ignored-file proxy) |
+| Call sequence | 1 checkout `hook-rebuild`, 2 fresh `hook-rebuild`, 3 `update --fill-missing`, 4 `update`, 5–6 `label`, 7 `studio export`. The observation changes in calls 1–4 and stays 07:15:13.844Z through calls 5–7 |
+| Final observation | 07:15:13.844Z, written by call 4 (the final `update`) inside its window 07:13:53.462Z–07:15:17.637Z; equals `REPEAT.json`'s C2 observation and bracket |
+| Proxy evidence | 14 of 14 recorded proxy hashes match their list files (`repeat/gen/ignored/*.txt`) |
+| Ignored packet | validated count 697, AST cache 322, transient 0 (R1: 698 / 322 / 1), allowed under A4 as in the first run |
+| Receipt | `repeat/REPEAT.json` SHA-256 `dccb3ad2…`; result `01-repeat-result.json` SHA-256 `0fc7b172…` (`generateCalls: 1`, packet hash bound); log `repeat.log` SHA-256 `39cf0b07…` |
+| C2 (unpublished) | manifest `adb1b4e7…`, graph `c72c70e7…` |
+| Live after the run | unchanged: `9906eec3…` / `3a634096…`; no journal, no lock |
+
+The first run (`1ef3ddb`, folder `lane-a-d429-receipt4-2026-10-09`) stays on record as history; nothing in it was
+changed. Guard-level retention stays a prevention item for the next governed change.
+
+### What you need
+
+**Lane B: receipt 5**, the whole-unit review using `C2-GENERATION.json` alongside `REPEAT.json`. Then B-050
+disposition → B-077 → parent acts → Gate 2.
+
+### What you did instead
+
+No rerun, no publication of C2, no guard change, no fetch, push or cleanup. B-050 stays Applied; its O1 row stays open.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Replacement repeat `repeat-equal` with the retained C2 call packet | Phase 1: Lane A's evidence |
+| Approve-with-conditions | Receipt 5 | Phase 1: Lane B's independent whole-unit review |
+| Defer | Guard-level retention, B-050 disposition, B-077, parents, push | Phase 1: in order |
+| Reject | Repeat equality treated as B-050 closure or Gate 2 clearance | Phase 1 |
