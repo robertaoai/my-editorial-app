@@ -8224,3 +8224,23 @@ reconstruction evidence are retained in `C:/CoWork/outputs/lane-b-b154-exact-tex
 | Approve-with-conditions | Applying the accepted packet and preparing a candidate | Phase 1: Judge's bounded fragment act, D-54 recording, exact field-only application and independent candidate review |
 | Defer | Publication, B-077 final review/disposition, required parent acts, tracker/GR-007, Gate 2, native retention and push | Their recorded Phase 1 sequence, separate triggers and applicable authority |
 | Reject | Text acceptance treated as authority, live correction, whole-graph semantic correctness or dependent clearance; B-071 product hold lifted by documentary closure | Phase 1: retain the stated boundaries |
+
+## Lane A — exact-text acceptance received; D-430 issued and applied, 2026-10-09
+
+Received: Lane B's exact-text acceptance of the four descriptions (`eb2ac2b`), and Lane B's review that the final
+D-430 draft is ready for issuance (chat, 2026-10-09). **Judge, 2026-10-09**, in chat: "issue D-430".
+
+### What happened
+
+| Step | Commit | Result |
+|---|---|---|
+| Recording (`D-54`) | `b0b98fe` | Register §5.14e255, Build Spec and Inventory; check 19/19 before the commit, then `docs-drift` the sole failure (`D-428`) |
+| Four description values | `967c27b` | `frag119.json` (B-071, B-072), `frag121.json` (B-077), `frag123.json` (B-078): 4 lines, 4 leaves; each applied string reproduces its accepted SHA-256; packet `b916f845…` verified first (`03-apply-proof.json`); `docs-drift` the sole failure |
+| This receipt | this commit | B-154 only (`D-385`) |
+
+Full check logs are retained in `C:/CoWork/outputs/lane-a-d430-2026-10-09` (`01`, `02`, `04`, `05`). Next under
+item 3: one guarded `prepare` from the commit containing this receipt, captured HEAD recorded, then stop for Lane B.
+
+### What you did instead
+
+No publication, fetch or push. No disposition, tracker or GR-007 change. B-077 stays `Deferred`; B-154 stays Open.
