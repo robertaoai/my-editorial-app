@@ -8048,3 +8048,56 @@ corrections stay pending.
 | Approve-with-conditions | Four-description packet | Phase 1: freeze after B-050's disposition; Lane B's exact-text acceptance; then the Judge's act |
 | Defer | Fragment application and guarded cycle; B-077 final review; O0 parents; tracker and GR-007 (with B-077's node recheck); Gate 2; push | Phase 1: corrected order |
 | Reject | Accepting placeholders; "every terminal append needs a red commit"; a pending-review snapshot shown as current; premature verification | Phase 1 |
+
+## Lane A — freeze plan accepted; three descriptions packaged; B-050 recording act drafted, 2026-10-09
+
+Read at `e0b1405`. Lane B's review was delivered in chat (worklog, 2026-10-09): **the freeze plan and the narrowed
+process wording are accepted.** No further technical review of B-050's unchanged packet is needed. The blocker is
+**execution authority**: `D-426` item 6 excludes "B-050 disposition", and item 7 leaves it to "its own act". A ready
+packet does not issue that act.
+
+### What happened
+
+- **Wording, corrected as Lane B worded it:** only B-077's chosen post-disposition freeze waits for B-050; B-136 and
+  independent preparation do not. B-077's current state can already be described accurately; the plan deliberately
+  freezes its final text after B-050's recorded outcome.
+- **Three accepted descriptions packaged now** (`freeze-descriptions.mjs` SHA-256 `0f9291cc…` parses each node's
+  blockquote in this file at `5c8978c`, joins its lines with single spaces and removes Markdown backticks, since
+  fragment descriptions are plain text; output `frozen-3.json` SHA-256 `0eeb7850…`, in
+  `C:/CoWork/outputs/lane-a-b077-final-2026-10-09`). The guard's foreign-path scanner finds nothing in any of them:
+
+| Path | Node | UTF-8 bytes | SHA-256 of the exact text |
+|---|---|---|---|
+| `docs/graph-fragments/frag119.json` | `b071_ontology_correction_handoff` | 1427 | `fe194a0758c3836ef441e4d4993a2779f99fcdd6937b2c104cd697f543e46cb1` |
+| `docs/graph-fragments/frag119.json` | `b072_handoff_only_commit_authority` | 901 | `174adccc143012045a35c18a6a3b9d74f05cd4bfaee692c101bf124f29716d0c` |
+| `docs/graph-fragments/frag123.json` | `b078_documentation_audit_follow_through` | 1716 | `bbfe8ad19b14a753f4bca654c9b72de93a4f389bbab6041b2eec652b1b1ca065` |
+
+  They are revalidated against the headers at the final freeze revision; the fourth (B-077) is frozen after B-050's
+  disposition. Exact-text acceptance and candidate acceptance stay two different artifacts.
+
+### Draft B-050 recording act (for the Judge; not issued)
+
+> Authorize Lane B to record B-050's independently reviewed, repository-procedure-scoped disposition in
+> `docs/handoff/B-050-hook-rebuild-resets-graphify-branch-metadata.md` only: set `Resolution: Verified`,
+> `Verified-By` (Lane B), `Evidence` (the disposition packet at `cfcf724`, receipts 1–5 and the stated limits) and
+> `Verified-At-Commit` (the commit Lane B read) consistently; retain the limits (no upstream tool repair; the lock
+> excludes cooperating guarded runs only; native packet retention undelivered; reviewer identity by channel rule).
+> Normal hooks; `bun run check` before and after the commit. Not included: implementation, graph mutation, tracker
+> edit, any other disposition, fetch or push.
+
+### What you need
+
+**Judge:** the B-050 recording act above. **Lane B:** then the disposition commit. **Lane A:** then freeze B-077's
+text from the headers at that commit and present all four for Lane B's exact-text acceptance.
+
+### What you did instead
+
+No header, fragment, tracker, Register or graph change. 19/19; source drift clear at `90de7fb`; curated semantic
+corrections pending.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Freeze plan; corrected wording; three descriptions packaged with hashes | Phase 1: recorded |
+| Approve-with-conditions | B-050 recording act | Phase 1: the Judge's act; Lane B's commit with four consistent fields |
+| Defer | B-077 text freeze; exact-text acceptance; fragment act and guarded cycle; B-077 review; parents; Gate 2; push | Phase 1: in order |
+| Reject | Readiness treated as execution authority; all parallel work declared blocked; placeholder text accepted as final | Phase 1 |
