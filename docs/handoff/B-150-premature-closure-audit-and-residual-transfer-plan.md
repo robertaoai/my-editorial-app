@@ -4,7 +4,7 @@
 - **Kind:** blocked-on-decision
 - **Phase:** 1
 - **Blocks:** blanket handoff clearance or SM05 readiness claims before source obligations, receiving receipts and independent verification are reconciled
-- **Status:** Open
+- **Status:** Answered
 - **Lane A:** Acknowledged 2026-09-30, receipt only, read at `54a60d1`. Received draft is the uncommitted file
   with blob `c63e7aa` (B-151 `60a2e0f`; B-130's Lane B addition `337c6c3`); HEAD alone does not identify it. The Lane C
   Level 2 assessment was supplied by the Judge in chat and names Antigravity conversation `3c27d60f`; Lane A cannot
@@ -277,12 +277,13 @@
     - **What it changes:** no DoR row, no DoD obligation, no scope. Jev readiness still passes 320/320.
     - **The tracker:** the 12 rows cite the receipt but stay not-received until Lane B verifies the list (`D-364`
       item 5).
-- **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Evidence:** Lane B consolidation read `773df96`: Level 1 acceptance of D-372's b7bc79d repair with e576add fixture correction is retained (35/35 targeted proof). The Judge-supplied current Lane C Level 2 assessment explicitly accepts the same repair. U2's review prerequisite is satisfied; Lane A records receipt and progresses the existing D-364 U3 unit. Exhaustive review, transfers and Gate 2 remain incomplete. This parent stays Open.
-- **Verified-At-Commit:** 773df96f8ab3ca014b7da2cc309fd39e3636fb6f
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), independent of Lane A's adopted audit/planning/transfer/control application; scoped parent verification, 2026-10-09
+- **Evidence:** D-364 adopted design; U1 D-365-D-367/B-152 Verified, U2 D-369-D-372 accepted under D-373, U3/D-373 and B-151 Verified with retained bounded Level 1/2 reviews; D-374/D-379-D-382 canonical receipt homes and independent receipt review; D-384/D-385 census corrections; D-389-D-391 screening scopes, with 70 prior premises structurally screened only; D-411-D-418 source-specific custody/clearance. B-153 Verified 43495db, B-077 Verified fdf06dc, B-154 Verified 5690e20. Independent current ledger accounting: 158 transactions, 158 unique keys, no missing/orphaned keys; source/action join and unchanged released graph evidenced in C:/CoWork/outputs/lane-b-parent-dispositions-2026-10-09/. Verification is of the adopted S1-S5 design/proofs; not a full semantic re-review of historical Verified premises, downstream delivery, GR-007 completion, B-136 P15, S6 consuming readiness or Gate 2.
+- **Verified-At-Commit:** 5690e20b7455c76e2397695695019d755aa40e77
 
-**Current review pointer:** the final "Lane C corrected assessment — existing Lane A plan ready for intake — 2026-10-01"
-below controls current progress and qualifies the preceding reviews. Earlier planning and rejected-repair receipts remain historical;
+**Historical review pointer (2026-10-01; superseded by the final independent disposition below):** the "Lane C corrected assessment — existing Lane A plan ready for intake — 2026-10-01"
+below qualified progress and preceding reviews at that date. Earlier planning and rejected-repair receipts remain historical;
 the original parent-binding and preparation-label findings are repaired in the tested scope. D-372's exact keys/no-alias decision supersedes earlier P14-alias proposals.
 The same three pending parents and full trace matrices remain. Exact child keys follow D-370. B-130 is
 independently Verified at `1de58a9`; older re-close-pending, unapplied-U2 and already-authorized-P3 statements are historical.
@@ -3850,3 +3851,76 @@ Judge authorization: "Judge authorizes push of 2 commits and batch 3 as next uni
 Keying is accounting, not semantic completion. For 70 of these, the verified premise was not re-read.
 
 One-path commit.
+
+## Lane B final independent disposition of the adopted audit-design proofs — 2026-10-09
+
+### What happened
+
+Judge's current chat act: **"judge approved: B-077 Verified, then B-154, then B-150"**. Read at
+`5690e20b7455c76e2397695695019d755aa40e77`, after the approved child order: B-077 independently Verified at
+`fdf06dc`, B-154 independently Verified at `5690e20`; B-153 was already Verified at `43495db`.
+
+This assessment consumes this parent's Completion rule, the packet at `bd6e43a`, Lane B's challenge at `14be194`
+and Lane A's narrowed S2 response at `a1cf7e8`. It confirms the adopted design and its required scoped
+audit/planning/transfer/control proofs; it does not weaken a condition or substitute the Judge's approval list for
+independent verification. Lane A's answer and historical findings remain unchanged.
+
+| Parent condition | Accepted proof and limit |
+|---|---|
+| S1 adopted authority/design | D-364 adopted P0a/P0b/P0c, canonical tiers and bounded U1-U3 sequence. The return/re-close, row-clearance and consuming-gate rules remain distinct. |
+| S2 source/child accounting | Existing SV-002 ledger/census and canonical receiving homes retain each source/child's classification. Fresh accounting finds 158 non-turn-report transactions and 158 unique ledger keys, zero missing or orphan keys. D-382/D-384/D-385 and D-389-D-391 retain their stated screening scopes. D-391 re-read five Verified premises and structurally screened the other 70 only; no full semantic re-review is asserted. |
+| S3 planning coverage | B-151's independently Verified reconciliation accepts U3's four case-level intake obligations, anchors and manifest requirements. Readiness/planning is not database or failing-first runtime proof; those remain with the authorized SM05 packet. |
+| S4 canonical receiving custody | D-374 established the existing homes; D-379-D-382 received the applicable SM05/governance obligations; D-411-D-418 contain source-specific custody/clearance, including held and future-phase scope. Transfers preserve owner, trigger, completion condition and independent review; they do not claim receiving work delivered. |
+| S5 controls and honest source disposition | U1/B-152, U2 and U3 retain their accepted bounded proof and reviews. B-050 is procedure-scoped Verified; B-077's final reconciliation is independently Verified. Fresh source-to-next-action accounting has no unowned non-terminal entry. The applicable individual clearance reasons and source headers remain authoritative. |
+| Required correction children | B-153 and B-154 have consistent independent Verified records at existing read revisions. Their narrower correction scope is not expanded into all receiving work. |
+| S6 consuming readiness | Remains separate and incomplete: SV-002 attempt evidence, P15, Judge acceptance/unblock/selection, bounded work order and Active lane precede construction. Gate 2 is not needed before this audit-design disposition, nor granted by it. |
+
+### What you need
+
+**Disposition: Verified**, within the adopted S1-S5 design/proof scope above and the stated D-391 limits. This
+clears B-150's source row through its independent header; it does not complete GR-007 or any receiving packet.
+The current all-row report must still expose B-136 P15. All four approved source dispositions are now accounted
+for: B-077, B-153, B-154 and B-150. No further approval is needed to record these same outcomes again.
+
+**Lane A follow-up, parent meaning first and execution in dependency order:**
+
+1. Re-derive the single SV-002 tracker at the completed disposition baseline; recheck the B-077 description in the
+   already sequenced governed unit. Its current accepted text describes review as pending at 8885bd1; draft the
+   scoped update from the independently Verified source, preserving unrelated fields and product holds.
+2. Complete that unit through its recorded authority and guarded procedure: retained checks, one candidate,
+   independent exact-byte/semantic review, authorized publication and separate health. Source drift begins with
+   the governed edit and clears through that route; never use a raw rebuild or skip a hook.
+3. Reconcile GR-007's all-row conclusion against the refreshed tracker and originating source headers. **If
+   B-136 P15 is still open, record the all-row assessment as incomplete, with that owner/gate; do not mark GR-007
+   complete.** Its completion criterion still requires every relevant row closed or received. The P15 path can
+   progress in parallel, within its own scope.
+4. Prepare the existing SV2-DOD evidence index and consuming Gate 2 assessment. Current source rows DOD-01,
+   DOD-02, DOD-04 and DOD-06 remain unchecked; DOD-03 and DOD-05 have their recorded acceptances. DOD-04's
+   U03 outcome/selection and DOD-06's Judge acceptance are not supplied by these dispositions. Recheck tracker
+   currency before any gate claim. Construction needs its own recorded work order and lane activation.
+
+**Critical artifacts:** preserve the existing requirement/acceptance anchors, source-child ledger, typed receiving
+receipts, packet DoR-to-DoD, verification evidence and gate record. They drive later software construction and
+verification; a disposition proves only its accepted contract. Development Lane B raises/reviews, Lane A
+answers/applies, and supplied Lane C reviews keep their recorded limits. No new Lane C result or Product scope is
+invented. The Chief Editor need not reopen settled semantics; the Judge's remaining consuming-gate decisions are
+separate from this already-approved recording act.
+
+**Retained residuals:** GR-009 code, D-171 targets and Phase 3 work keep their owners/holds. Lane A's native
+per-call record-saving duty remains triggered before a repeat without the saving driver or at the next governed
+guard change, whichever is first. No implementation is commissioned by this disposition.
+
+### What you did instead
+
+Changed only this handoff's verification metadata, historical review-pointer label and independent review record.
+No receiver answer, canonical tier, tracker, fragment, live graph, application, workflow, lane state, fetch or push
+was changed. Evidence is retained in `C:/CoWork/outputs/lane-b-parent-dispositions-2026-10-09/`, including current
+ledger accounting, source/action join, episode validation and full checks. No Graphify sync is needed for these
+handoff-only dispositions; the next governed tracker/fragment edit requires its guarded cycle.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | B-150's adopted design and scoped S1-S5 proofs; B-153/B-154 correction children and B-077 reconciliation | Phase 1: independently Verified in their own records |
+| Approve-with-conditions | Tracker/description governed unit and GR-007 all-row assessment | Phase 1: current source baseline, guarded review/publication/health; completion only when every required row is closed or received |
+| Defer | B-136 P15, remaining SV2-DOD outcomes, GR-007 completion and Gate 2 | Phase 1: their own evidence and Judge gate acts; no construction authority inferred |
+| Reject | A structural screen called full semantic review; transfer called delivery; all-row completion claimed with P15 open; approvals requested again for these same dispositions | Phase 1: preserve the actual source conditions and evidence |
