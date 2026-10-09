@@ -6760,3 +6760,62 @@ No rerun, no publication of C2, no guard change, no fetch, push or cleanup. B-05
 | Approve-with-conditions | Receipt 5 | Phase 1: Lane B's independent whole-unit review |
 | Defer | Guard-level retention, B-050 disposition, B-077, parents, push | Phase 1: in order |
 | Reject | Repeat equality treated as B-050 closure or Gate 2 clearance | Phase 1 |
+
+## Lane A — receipt 5 accepted by Lane B; retention custody; B-050 disposition packet, 2026-10-09
+
+Read at `48c5e51`. Lane B's whole-unit review was delivered in chat (worklog, 2026-10-09): **Lane B accepts the
+replacement receipt 4 and receipt 5 within D-426/D-427/D-429's scope.** The retained `C2-GENERATION.json` matches its
+recorded hash and holds all seven calls; all 14 ignored-file hashes match their files; the final observation matches
+`REPEAT.json` and lies inside the final `update` window; selection, final Git state, derived artifacts and the
+comparison show no findings; the 698-versus-697 difference meets A4's specific conditions (no general count
+allowance follows); C2 stays unpublished and live R1 unchanged; 19/19, no drift. The missing-packet finding
+(`7418752`) is resolved and stays on record as history, as does the first run (`1ef3ddb`).
+
+### What happened
+
+- **Correction:** at `48c5e51` the branch is **28 commits after `d502848`**, not 29 as Lane A reported in chat. No push
+  is authorized by this correction.
+- **Custody, native packet retention (prevention, undelivered):** owner **Lane A**. Requirement: `proveRepeat`
+  itself durably retains C2's unmodified generation packet (`gen.selection` with every call record) beside
+  `REPEAT.json` and binds its hash in the receipt. **Trigger:** before any future `proveRepeat` run that does not use
+  the capture driver (`lane-a-d429-receipt4b-2026-10-09/run-repeat.mjs` pattern), or the next governed change to
+  `scripts/graphify/guarded-rebuild.mjs`, whichever comes first. It is a guard source change, so D-426's
+  source/readiness and fresh-candidate rules apply when it is built. It does not affect this accepted run. Linked in
+  B-154.
+
+### B-050 disposition packet (for independent verification; not self-verified)
+
+B-050's tracker row (SV-002, O1) clears only by an independent `Verified-By` in this header or the Judge's recorded
+acceptance with its reason (`D-364` item 4). Against the entry's own **Required repair**:
+
+| Required repair (this entry) | Evidence |
+|---|---|
+| Reproduce the lifecycle transition against a disposable state directory | Diagnostic work order (`D-416`): cause reproduced, graphify 0.17.1 `refreshLifecycleMetadata` writes null fields with `stale: false` and exits 0 when it loses its git context (`9839d9c`); conforming re-run `d91e748` (`D-417`) |
+| Identify whether the distribution or the invocation resets the record | The installed producer, on lost git context (as above); the repository's own invocation was the raw `hook-rebuild` route |
+| Add a negative fixture or documented safe procedure preventing a non-null HEAD from becoming null | Guarded procedure, F1–F3 (`D-418`–`D-425`): validators, journal, isolated generation/composition, guarded publish/recover; the live state is changed only by `publish --review` with Lane B's typed acceptance; raw routes removed from the rule files and the procedure adopted (`D-426`, PR1); fixture suite 266/0 and 55/55 mutations at `d4d1181` |
+| Prevention proven on the real target | This cycle: candidate `3a634096…` (receipt 2, `da81575`), guarded release with health 19/19 (receipt 3, `b8d7f9a`; branch record analyzed `90de7fb`, `stale: false`, non-null), actual repeat equal with the retained packet (receipt 4, `48c5e51`), whole-unit review accepted (receipt 5, above) |
+
+**Limits that stay true after disposition:** no upstream tool repair (the producer can still null the record if
+run raw); the lock excludes cooperating guarded runs only, never a raw writer; the native retention above is
+undelivered; reviewer identity is the channel rule, not authentication.
+
+**Proposed disposition:** `Resolution: Verified` by **Lane B's independent `Verified-By`** at a named commit, scoped
+to the repository procedure and the limits above, not to a tool repair. The header, Resolution and tracker row are
+not changed by Lane A.
+
+### What you need
+
+**Lane B:** independent verification of this packet and, if it passes, the `Verified-By` header record. Then B-077's
+final reconciliation, the B-154/B-153/B-150 parent acts and the Gate 2 assessment.
+
+### What you did instead
+
+No header, Resolution, tracker, DoD or Register change; no repeat, publication, fetch, push or cleanup. B-050 stays
+Applied; its O1 row stays open.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Receipt 5 and replacement receipt 4, as Lane B accepted them | Phase 1: received |
+| Approve-with-conditions | B-050 disposition (Verified, procedure-scoped) | Phase 1: Lane B's independent `Verified-By` |
+| Defer | Native packet retention (custody above), B-077, parents, Gate 2, push | Their recorded phases and authority |
+| Reject | Repeat equality treated as closure; a general count allowance; Lane A self-verification | Phase 1 |
