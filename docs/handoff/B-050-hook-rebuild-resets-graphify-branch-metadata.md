@@ -7048,3 +7048,11 @@ in either approved commit; the second adds only the covering annotation. Publica
 | Approve-with-conditions | Consumption of this acceptance for publication | Phase 1: separate Judge authority naming this acceptance commit; unchanged source/candidate/baseline; guarded publication then full health |
 | Defer | B-077 disposition, O0 parent acts, tracker/GR-007, Gate 2, native record saving and push | Existing phases, acts and custody triggers; no dependent closure here |
 | Reject | Annotation SHA used as acceptance; candidate treated as released; missing original evidence claimed recovered; broader red-check allowance | Phase 1: preserve exact review locus and boundaries |
+
+## Terminal annotation record
+
+- **Current-Resolution:** Verified
+- **Annotation-Type:** verification-evidence
+- **Annotation-Act:** Judge, directly in this conversation, 2026-10-09: "Judge approved: Receipt 2 for D-430 - Option A". Covers only Lane B's preceding D-430 exact-byte/semantic acceptance for work 4871f1b7-89ba-4027-a0f8-f173ccd7e434, graph 481874fb43b7713355df6377a9c124ee84ae65bc0d02f77ff2cf0eb55a227756. This immediately following record-only commit covers the acceptance commit; B-050's Verified disposition is preserved. Full check logs are retained, normal hooks are not bypassed, no other failure or general red-check precedent is authorized, and no publication or dependent closure is included.
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** 7a09b0738217c6bba81d19b42c1553763888fc62
