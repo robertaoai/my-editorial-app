@@ -4,7 +4,7 @@
 - **Kind:** finding
 - **Phase:** 1
 - **Blocks:** a truthful claim that the handoff backlog is reconciled and ready for the next authorization; no product implementation
-- **Status:** Open
+- **Status:** Answered
 - **Lane A:** **Acknowledged 2026-09-03 — receipt, not an answer.** The failure-pattern table and
   the `a18fe1c` audit snapshot are accepted as an accurate pinned record, and the link-only design
   is respected: **this file is not maintained as a live status matrix**, and each originating entry
@@ -29,8 +29,9 @@
   `D-171` hold is unnarrowed, and the audit snapshot at `a18fe1c` keeps its pinned, historical
   status. Should any child return work to this parent, it is reopened by a new entry citing this
   one, not by editing this disposition.
-- **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Verified-At-Commit:** 14be1944c69b9422e0831545664ddd4207583aaa
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified; dispositioned by Lane A
+- **Verified-At-Commit:** b08d582a3ff2c679bb42bc5633c7dfc9c9643bb7
 - **Evidence:** all handoff entries discovered at immutable revision `a18fe1c`; Lane B re-review
   baseline `0caf909`; `docs/handoff/README.md`; `docs/handoff/TEMPLATE.md`;
   `scripts/checks/handoff-response.mjs`; `scripts/checks/closure-readiness.mjs`; B-071/B-072/B-076;
@@ -4244,3 +4245,11 @@ stays open. The handoff commit stays separate from any canonical edit.
 - **Return-Trigger:** final independent review by an eligible reviewer who neither answered nor applied this entry
 - **Return-Act:** the Judge's disposition approval, 2026-10-09, in chat ("Judge approved: B-077 final review and disposition", recorded in B-154 `bd6e43a`), and Lane B's independent closure-map review at `225f0b1`, with Lane B's lifecycle instruction in B-154 `14be194`
 - **Returned-At-Commit:** 14be1944c69b9422e0831545664ddd4207583aaa
+
+## Re-close record
+
+- **Reclosed-Return:** Return-Act the Judge's disposition approval, 2026-10-09, with Lane B's independent review `225f0b1`; Returned-At-Commit `14be1944c69b9422e0831545664ddd4207583aaa`
+- **Completion-Condition:** final independent review by an eligible reviewer who neither answered nor applied this entry, of the closure map (Parent 1, Children 2–5, `B077-SC1`–`SC12`)
+- **Completion-Evidence:** Lane B's independent closure-map review at `225f0b1`; Lane A's reconciliation `a411a70` as corrected at `5c8978c`; `D-430`'s curated-description correction released (graph `481874fb…`, review `28853be`, health 19/19, recorded B-154 `eb1ecde`); B-050 `Verified` for the repository procedure (`8885bd1`); `B077-SC8` refreshed at `f4fe6c7` (125 terminal, 4 turn reports, 33 non-terminal, each with a named next action) and curated status 8 of 8
+- **Reclose-Act:** `D-364` (the re-close form); the Judge's disposition approval, 2026-10-09; Lane A disposition recorded here
+- **Reclosed-At-Commit:** b08d582a3ff2c679bb42bc5633c7dfc9c9643bb7
