@@ -569,6 +569,9 @@ and its test. The README §4 and sync-docs §7 change in place.
 
 **`D-429` (2026-10-08) — no file added or retired, stated explicitly.** The guard and its tests will change in place.
 
+**`D-430` (2026-10-09) — no file added or retired, stated explicitly.** Three curated fragment files change in place
+(four description values).
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

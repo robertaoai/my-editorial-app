@@ -27895,3 +27895,51 @@ and `6f71fad`). Lane A is `Active`. Pushing is not authorized.
 | Rule files, `SV-002.md`, `GOV-RES-001.md`, Modular_PRD, fn-specs, SPECS, Phase Closure, frozen sources | — unaffected |
 | **Encyclopedia** | unaffected (`docs/ENCYCLOPEDIA-SYNC.md` maps none of these paths) |
 | **Graphify** | This recording is governed drift, expected; it is cleared only by the new cycle's guarded publication (item 7, receipt 3), never by a raw rebuild |
+
+## 5.14e255 `D-430` — B-077 Curated-Description Correction: Four Accepted Description Values; One Guarded Candidate
+
+**Authority: the Judge, directly to Lane A, 2026-10-09**, in chat: "issue D-430", issuing the final draft presented
+after Lane B's review that it is "ready for issuance" (worklog, 2026-10-09). Inputs: Lane B's review of the B-077
+reconciliation draft (received in B-154 `5c8978c`); the four texts frozen in B-154 at `75a8ae3`; Lane B's exact-text
+acceptance in B-154 at `eb2ac2b`. Lane A is `Active`. Pushing is not authorized.
+
+### The decision
+
+1. **Recording.** This entry, the Build Spec and the Inventory record the act (`D-54`). Lane A receives `eb2ac2b` in
+   B-154 in its own one-path commit (`D-385`).
+2. **Correction: four description values only.** Lane A replaces the `description` field of exactly four curated nodes
+   with the texts bound by Lane B's acceptance at `eb2ac2b` and frozen at `75a8ae3` (packet SHA-256
+   `b916f845ce27bbf3a4b4375cca3d98d96c0c2ca799f101f5345d2d1a6c42b0ca`):
+
+   | Fragment | Node | SHA-256 of the exact UTF-8 text |
+   |---|---|---|
+   | `frag119.json` | `b071_ontology_correction_handoff` | `fe194a0758c3836ef441e4d4993a2779f99fcdd6937b2c104cd697f543e46cb1` |
+   | `frag119.json` | `b072_handoff_only_commit_authority` | `174adccc143012045a35c18a6a3b9d74f05cd4bfaee692c101bf124f29716d0c` |
+   | `frag121.json` | `b077_consolidated_closure_failure_pattern` | `d7ef9dec70faca087fcb3a78d8e1084bf479f50de11feaa89e19ccc7c6023a24` |
+   | `frag123.json` | `b078_documentation_audit_follow_through` | `bbfe8ad19b14a753f4bca654c9b72de93a4f389bbab6041b2eec652b1b1ca065` |
+
+   Every other field in those three fragment files stays unchanged: the fragment diff changes exactly four values,
+   and each applied string reproduces its accepted hash.
+3. **One guarded candidate** (`D-425`–`D-429` procedure), prepared from the final committed source that contains this
+   recording, the four corrections and the B-154 receipt; Lane A records the captured HEAD, then stops for Lane B's
+   exact-byte and semantic review. The generated candidate is reviewed under the guard's rules, separately from item
+   2's fragment-diff test.
+4. **Process.** `D-428`'s narrow pre-sync rule applies from this recording onward: full check results retained;
+   `docs-drift` the only allowed failure before publication; hooks never skipped. Any other failed check stops the
+   sequence. No fetch or push while the candidate is pending.
+5. **Not given by this act:** publication (separate authorization, then a full health check); B-077's or any other
+   disposition; any tracker, GR-007, DoD or clearance change; held product work (`D-171`); Phase 3 delivery; native
+   per-call record saving; a push. B-077's description states its review as pending at `8885bd1`; it is rechecked
+   after B-077's disposition.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e255 |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ `D-430` paragraph (graph description correction; no V1 scope, sequence or DoD change) |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-430` paragraph; no file added or retired |
+| Curated fragment files (item 2) | Follow: the correcting commit, four description values only |
+| Rule files, `SV-002.md`, `GOV-RES-001.md`, Modular_PRD, fn-specs, SPECS, Phase Closure, frozen sources | — unaffected |
+| **Encyclopedia** | unaffected (`docs/ENCYCLOPEDIA-SYNC.md` maps none of these paths) |
+| **Graphify** | This recording and the correction are governed drift, expected under item 4; cleared only by the guarded publication, never by a raw rebuild |
