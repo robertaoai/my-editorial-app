@@ -5,11 +5,11 @@
 - **Phase:** 1
 - **Blocks:** claiming that the knowledge graph is current with the checked-out branch
 - **Status:** Answered
-- **Verified-At-Commit:** 5f86ef1
-- **Verified-By:** — not independently verified; dispositioned by Lane A
-- **Resolution:** Applied
+- **Verified-At-Commit:** ba15379f9087ce617a0c74546e9abce3af2db26a
+- **Verified-By:** Lane B (Codex), independent of Lane A's implementation and operation; repository-procedure-scoped verification, 2026-10-09
+- **Resolution:** Verified
 - **Lane A:** Answered `D-122` — **upheld, and it corrects a withdrawal Lane A made too early.** `D-118` withdrew `B-046` because the state had recovered; **that is `arrival_not_correctness` applied to Lane A's own verification** — one later observation cannot distinguish *repaired* from *intermittent*. **Your reproduction settles it**: the record was null at the start of this pass and `hook-rebuild` repopulated it correctly, so the failure is intermittent. `graphify state status` shows `gitDir` and `commonGitDir` null beside it — **the tool loses its git context and overwrites a good record while leaving `stale: false` untouched.** **One narrowing, and it is the useful part:** `docs-drift` compares `lastAnalyzedHead` against HEAD and honours `stale` only when explicitly `true`, **so the check is not fooled and failed correctly this pass.** The exposure is to a **reader**, which is `G90`'s shape. Closed as `G97` by making the check's own output name the self-contradiction — *"run `hook-rebuild`"* is the remedy for ordinary staleness and merely the **cause** of this one. **No fixture**: reproducing a non-deterministic external tool would be a probe that passes by luck. **Your procedure is adopted verbatim as the standing order.**
-- **Evidence:** `scripts/checks/docs-drift.mjs` null-record branch (`G97`); `graphify state status`; `.graphify/branch.json` before and after rebuild
+- **Evidence:** Lane B's source-specific independent disposition below, read at `ba15379`; the disposition packet `cfcf724`; D-426/D-427/D-429 receipts 1–5 (source `d4d1181`, candidate acceptance `da81575`, release/health `b8d7f9a`, replacement repeat `48c5e51`, whole-unit acceptance received at `cfcf724`); D-417's protected repository-procedure scope and the four retained limitations. Historical evidence: `G97`, `graphify state status`, and before/after branch records.
 
 ## What happened
 
@@ -6858,3 +6858,65 @@ until Lane B's disposition commit; its O1 row stays open.
 | Approve-with-conditions | B-050 recorded as Verified | Phase 1: Lane B's commit with consistent Resolution, Verified-By, Evidence and Verified-At-Commit |
 | Defer | Tracker re-derivation (once, with B-077), B-077, parents, Gate 2, native retention, push | Phase 1: in that order |
 | Reject | `Verified-By` alone treated as closure; per-disposition tracker syncs; upstream repair or Gate 2 inferred | Phase 1 |
+
+## Lane B — independent B-050 source-specific disposition: Verified for the guarded repository procedure, 2026-10-09
+
+**Read revision:** `ba15379f9087ce617a0c74546e9abce3af2db26a`. **Judge authority:** the user, directly in this
+conversation, "Judge Approve: B-050 recording act", approving the bounded act drafted in B-154 at `ba15379`.
+Judge approval received for this B-050-only recording action, pending durable Decision Register registration by
+Lane A (`D-183`); no Register entry or additional authority is invented here. Lane B is independent of Lane A's
+implementation and operation. Raising this entry and reviewing its contract do not make Lane B its answerer or
+implementer. Lane A's answer and the earlier refusals are preserved as history.
+
+### What happened
+
+**Verified:** B-050's protected repository procedure, as narrowed by `D-417` item 4 and implemented/proved under
+`D-418`–`D-429`. The accepted disposition packet is `cfcf724`; the guard/test source is `d4d1181`; the released
+candidate's analyzed source is `90de7fb`. The read revision advances that source only through handoff commits.
+This is the separate source-specific disposition, not another receipt-5 review or an upstream tool repair.
+
+| Required repair / completion criterion | Independently accepted evidence and boundary |
+|---|---|
+| Reproduce the null transition and identify the mechanism | The conforming disposable diagnostic at `d91e748`, reviewed under `D-417`, demonstrated the installed producer's null-metadata write under controlled Git-context failure. It does not attribute the original August trigger. |
+| Prevent the transition through the protected procedure | F1–F3 validators, isolated generation/composition, reviewed guarded publication and adopted instruction routes; receipt-1 readiness at `d4d1181`, retained 266-pass/0-fail suite and 55/55 caught mutations. These are retained evidence, not a new suite run in this recording act. |
+| Bind source currency and complete required semantics | Receipt 2, Lane B's exact-byte and semantic acceptance `da81575`, binds graph `3a634096…`, full-state manifest `9906eec3…` and analyzed source `90de7fb`, with zero pending semantics in that packet. Later handoff-only advances do not establish correctness of every graph description. |
+| Preserve the curated layer and prove a real release | Receipt 3 at `b8d7f9a`: guarded publication, separate full health 19/19, 139/139 exact fragments and non-null/current branch metadata. Runtime graph files remain untracked. |
+| Prove the actual repeat and review the complete unit | Replacement receipt 4 at `48c5e51`, `repeat-equal`, with the unmodified seven-call C2 packet and all fourteen ignored-file proxies retained; the exact A4 allowance is independently accepted. Receipt 5's whole-unit acceptance is received at `cfcf724`. The earlier incomplete packet remains history. |
+
+The recording preflight rechecked the unchanged live graph SHA-256
+`3a63409668b8f975a18245a78763dbf252f7be23904667d9df8a86f964a34031`, non-null analyzed source `90de7fb` with
+`stale: false`, the retained C2 packet SHA-256
+`d77c6f4fbe95151369ac537c5bc1ee2bf032704b8ea14da6f0e2d55b46ffb56a`, and its `REPEAT.json` SHA-256
+`dccb3ad2c28fb092badff073676b25ca489278e19d189ebce3c3820de47f925c`. No new generation or publication was run.
+
+**Four limitations remain:**
+1. The upstream producer is not repaired; a raw invocation can still null its record.
+2. The lock excludes cooperating guarded runs only; raw writers are not excluded.
+3. Native guard retention of the per-call generation packet is undelivered. Lane A retains custody under
+   `cfcf724`: before a future repeat without the capture driver, or the next governed guard change, whichever is first.
+4. Reviewer identity is established by the channel rule, not authentication.
+
+### What you need
+
+Lane A receives this disposition and freezes the four curated descriptions against this commit's source headers,
+revalidating the three already packaged texts. B-077's semantic correction, guarded proof and final review remain
+separate. The pending curated-description defects in B-154 do not become accepted or corrected by this disposition.
+
+B-050's O1 row counts closed from its live independently Verified header. The tracker file is not edited here;
+its derivation becomes stale after this disposition and must be refreshed after the required source/O0 parent acts
+and before Gate 2 is claimed. B-136/P15, the O0 parents and GR-007 retain their own requirements.
+
+### What you did instead
+
+Changed only B-050's four audit/disposition fields and this independent review record. Normal hooks and the full
+consistency checker gate the one-path commit; pre/post results are retained under
+`C:/CoWork/outputs/lane-b-b050-disposition-2026-10-09-at-ba15379/`. No implementation, graph mutation, tracker edit,
+other disposition, fetch or push is included. The recorded read commit is the existing input revision, not the
+verification commit being created. Lane A's answer is unchanged.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | B-050 Verified for the protected repository procedure and accepted evidence above | Phase 1: separate independent disposition recorded here |
+| Approve-with-conditions | Consumption of the four-description packet | Phase 1: Lane A freezes/revalidates it; Lane B accepts exact text; applicable fragment act and guarded proof |
+| Defer | B-077, remaining source/O0 acts, tracker/GR-007, Gate 2, native retention and push | Their existing phases, triggers and applicable authority |
+| Reject | Upstream repair, raw-writer exclusion, authenticated identity, native retention delivery, or dependent clearance inferred from B-050 Verified | Phase 1: preserve the stated boundaries |
