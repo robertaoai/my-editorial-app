@@ -7056,3 +7056,66 @@ in either approved commit; the second adds only the covering annotation. Publica
 - **Annotation-Act:** Judge, directly in this conversation, 2026-10-09: "Judge approved: Receipt 2 for D-430 - Option A". Covers only Lane B's preceding D-430 exact-byte/semantic acceptance for work 4871f1b7-89ba-4027-a0f8-f173ccd7e434, graph 481874fb43b7713355df6377a9c124ee84ae65bc0d02f77ff2cf0eb55a227756. This immediately following record-only commit covers the acceptance commit; B-050's Verified disposition is preserved. Full check logs are retained, normal hooks are not bypassed, no other failure or general red-check precedent is authorized, and no publication or dependent closure is included.
 - **No-Scope-Reopened:** true
 - **Annotated-At-Commit:** 7a09b0738217c6bba81d19b42c1553763888fc62
+
+
+## Lane B — D-430 receipt-2 record-format correction, 2026-10-09
+
+**Read revision:** 55a8fcc830705f23a1374d386f0052524acc5816. Same direct Judge act: "Judge approved:
+Receipt 2 for D-430 - Option A". This is a correction of Lane B's own receipt for the same frozen candidate,
+not a new candidate, operation or scope. The same narrow checks, normal hooks and immediately following
+covering annotation apply. B-050's disposition and Lane A's answer remain unchanged.
+
+### What happened
+
+The post-commit guard check refused 7a09b07: "the review commit adds no complete acceptance record".
+I inserted a blank line between the required heading and JSON fence. The parser requires them adjacent;
+valid JSON alone is insufficient. Candidate bytes, baseline and source still validate. The failed validation
+is retained unchanged as final-record-validation.json. The earlier narrative's instruction to consume
+7a09b07 is superseded: it is **not a usable publication acceptance**. No publication was attempted.
+
+### What you need
+
+Use **this correcting acceptance commit**, once its guard check passes, instead of 7a09b07 or either
+annotation commit. The complete canonical block below is newly added by this commit, with the required
+adjacent heading and fence. All work/source/graph/manifest/baseline identities and semantic conclusions
+are unchanged from the independent review above. Publication still needs separate Judge authority;
+B-077, O0 parents, tracker/GR-007, Gate 2 and push remain deferred.
+
+### What you did instead
+
+Preserved both earlier commits and the failed guard result; added a fresh complete acceptance block rather
+than rewriting history or changing the guard. All later validation results use new filenames. The new block's
+JSON matches acceptance.json exactly. After the immediately following record-only covering annotation,
+the final full consistency check must leave docs-drift as its sole failure.
+
+### F3 acceptance record
+```json
+{
+  "kind": "graphify-f3-acceptance",
+  "version": 1,
+  "disposition": "Accept",
+  "scope": "F3 publication",
+  "reviewer": "Lane B",
+  "workId": "4871f1b7-89ba-4027-a0f8-f173ccd7e434",
+  "graphSha256": "481874fb43b7713355df6377a9c124ee84ae65bc0d02f77ff2cf0eb55a227756",
+  "manifest": {
+    "algorithm": "guard-treeDigest-v1",
+    "digest": "55dba74cdf6ac0be22d2ff153db299b6e4f63cd4b1a213285cc70eac3e93797d",
+    "files": 583
+  },
+  "analyzedSource": "3366244f8e8fed844be4aeeccadbb92db49807a1",
+  "baseline": {
+    "releaseLocus": "da81575239275e6d5313d6eeb892d8cab6b20a60",
+    "algorithm": "guard-treeDigest-v1",
+    "digest": "9906eec3a278aa6bfe9f18a18009adf4c9437ea038c455cce6cc082f3e1fae15"
+  },
+  "pendingSemantics": 0
+}
+```
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Unchanged candidate and independent exact-byte/semantic review | Phase 1: the same D-430 candidate and evidence |
+| Approve-with-conditions | This corrected acceptance record | Phase 1: guard consumption passes; covering annotation; separate publication act |
+| Defer | Publication, health, SC8, B-077, O0 acts, tracker/GR-007, Gate 2 and push | Existing sequence and applicable authority |
+| Reject | Consuming 7a09b07 or an annotation commit as receipt 2; treating canonical JSON alone as a complete added block | Phase 1: corrected review locus only |
