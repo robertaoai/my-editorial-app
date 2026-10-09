@@ -8359,3 +8359,85 @@ No disposition, tracker or GR-007 change. The push follows this commit, after a 
 | Approve-with-conditions | B-077 final review and disposition | Phase 1: Lane B's independent review |
 | Defer | O0 parent dispositions; tracker re-derivation; GR-007; Gate 2 assessment | Phase 1: `D-416` item 8 order |
 | Reject | Treating release or SC8 as B-077's verification, or the Judge's approval list as parent or Gate 2 clearance | Phase 1 |
+
+## Lane A — Judge approval of the closure sequence; O0 parent disposition packets, 2026-10-09
+
+**Judge, 2026-10-09**, in chat: "Judge approved: B-077 final review and disposition; O0 parent dispositions, tracker
+rebuild and its guarded cycle, GR-007". Read at `eb1ecde` (= origin). This approves the sequence; it is not itself
+a recorded clearance reason for any row (`D-364` item 4). Each disposition below is an **independent** act: Lane A
+answered or applied every one of these entries, so Lane A records none of them as Verified. Fresh status of every cited
+child is from `15-sc8-query.json` at `f4fe6c7` (all terminal).
+
+### Order (`D-416` item 8)
+
+1. **B-077**: Lane B's final review and disposition (evidence: `a411a70` as corrected at `5c8978c`; D-430 release and
+   SC8 refresh at `eb1ecde`).
+2. **B-153** and **B-154**: Lane B's assessment of the packets below, each against its own completion condition.
+3. **B-150**: after 1–2, the packet below.
+4. **Lane A**: one tracker re-derivation (`SV-002` §2.3.1) at the resulting disposition baseline, B-077's curated
+   description rechecked in the same governed unit, then the guarded cycle (prepare → Lane B exact-byte review →
+   publish → health).
+5. **GR-007's all-row conclusion** in `GOV-RES-001`, against the re-derived tracker. Then the Gate 2 assessment is the
+   Judge's.
+
+### Packet: B-153 (census review; clears by independent verification of its correction unit)
+
+| B-153 item | Correction and current evidence |
+|---|---|
+| F1 / R30 | Curated fragments compared; six dated history unchanged, `frag5` `fn_gates_01_05` qualified as historical (`D-385`, answer `4625c1d`) |
+| F2 | B-077/B-117 ledger rows carry dated current-scope notes; old wording kept as history (`D-385`) |
+| F3 | B-103 points to its Verified header; tracker re-derived at `799ad46` (`D-385`); B-103 `Verified` |
+| F5 / R33 | Superseded by `D-238`, `D-251`, `D-171`; positional column is R38 in GR-010 (`D-385`) |
+| Chief Journalist A | Dissolved by `D-236`, recorded (`D-385`) |
+| F4 | GR-009–GR-011 receipts stand; `D-414` applied their documentary units, accepted by Lane B at `b844329`; GR-009 code stays a later Lane B unit |
+| B-115 → B-114 dependency | Both now `Verified` (Lane B) |
+| B-110 → B-102; B-103 | All `Verified` (`D-383` outcomes) |
+
+**Proposed:** `Resolution: Verified` by Lane B, scoped to the census corrections and the dependency outcomes above;
+GR-009's code unit and the D-171 hold remain with their owners.
+
+### Packet: B-154 (consolidated parent-first plan; clears by independent verification of its correction units)
+
+| B-154 unit | Outcome |
+|---|---|
+| R1 receipts; R2 23 O5 reasons | Received and accepted, `D-403` |
+| R3 / B-106 retention propagation | `D-404`/`D-405` applied; B-106 `Deferred`, row closed by custody reason (`D-418`) |
+| GR-012/B-014, GR-013/B-021/B-155 | Completed within `D-402` scope; B-014, B-021, B-155 `Verified` |
+| B-050 proof (commissioned `D-403`) | `D-416`–`D-429`; receipts 1–5; B-050 `Verified`, repository procedure only (`8885bd1`) |
+| F1–F4 / G1–G3 | `D-428` recorded and reviewed (Lane B `659996b`); G1–G3 accepted (Lane B `b4cbf53`, `208ed9e`) |
+| B-077 curated semantics | `D-430` applied and released (`481874fb…`, review `28853be`, health 19/19) |
+| B-077 final reconciliation | Drafted (`a411a70`, corrected `5c8978c`); **waits on step 1** |
+
+**Proposed:** after step 1, `Resolution: Verified` by Lane B, scoped to its plan units above; native per-call record
+saving stays with its recorded Lane A custody (`cfcf724`).
+
+### Packet: B-150 (audit parent; closes after its S1–S5 proofs are independently verified)
+
+| B-150 step | Evidence |
+|---|---|
+| S1 parent adoption | `D-364` (P0a re-close form, P0b tracker and order groups, P0c Jev intake) |
+| S2 obligation audit | `D-382` sixteen-source review; `D-384` census, corrected `D-385`; `D-389`–`D-391` screening batches, every transaction keyed |
+| S3 behaviour coverage | B-151 classified (`D-373`); B-151 `Verified` |
+| S4 canonical receipts | `D-374` homes; `D-379`–`D-381` SM05 receipts; `D-382` owners; `D-411`–`D-413` custody acceptances |
+| S5 controls and source disposition | U1 (`D-365`–`D-367`, B-152 `Verified`), U2 (`D-369`–`D-372`, accepted `D-373`), U3 (`D-373`); every non-terminal source has its named next action (SC8 at `f4fe6c7`); B-050 `Verified`; B-077 at step 1 |
+| S6 consuming readiness | Not a B-150 closure condition: SV-002 gates and the Gate 2 decision follow (order group 4) |
+| Children | B-153 and B-154 at step 2 |
+
+**Proposed:** after steps 1–2, `Resolution: Verified` by Lane B, scoped to S1–S5; S6 and Gate 2 stay separate.
+
+### What you need
+
+**Lane B:** step 1 (B-077), then the B-153 and B-154 packets, then B-150; each as its own disposition commit with the
+four header fields consistent. Lane A starts step 4 only after those commits land.
+
+### What you did instead
+
+No header, tracker, GR-007, fragment or graph change. 19/19; graph synced at `3366244` (live `481874fb…`); origin
+`eb1ecde`.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Judge-approved closure sequence; three O0 packets drafted | Phase 1: Lane A's answer |
+| Approve-with-conditions | B-077, B-153, B-154, B-150 dispositions | Phase 1: Lane B's independent assessments, in order |
+| Defer | Tracker re-derivation and guarded cycle; GR-007 conclusion; Gate 2 assessment | Phase 1: after the dispositions land |
+| Reject | Lane A self-verification; the Judge's approval list read as a clearance reason; a tracker re-derived before the dispositions | Phase 1 |
