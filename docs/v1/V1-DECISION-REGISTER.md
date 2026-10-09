@@ -27943,3 +27943,46 @@ acceptance in B-154 at `eb2ac2b`. Lane A is `Active`. Pushing is not authorized.
 | Rule files, `SV-002.md`, `GOV-RES-001.md`, Modular_PRD, fn-specs, SPECS, Phase Closure, frozen sources | — unaffected |
 | **Encyclopedia** | unaffected (`docs/ENCYCLOPEDIA-SYNC.md` maps none of these paths) |
 | **Graphify** | This recording and the correction are governed drift, expected under item 4; cleared only by the guarded publication, never by a raw rebuild |
+
+## 5.14e256 `D-431` — Final Tracker Re-derivation After the O0 Dispositions; B-077 Description Update; GR-007 All-Row Assessment; One Guarded Cycle
+
+**Authority: the Judge, directly to Lane A, 2026-10-10**, in chat: "Judge Approved: Tracker rebuild and guarded cycle,
+GR-007, Gate 2, B-136 P15, push of the new commits". Inputs: Lane B's independent dispositions B-077 `Verified`
+(`fdf06dc`), B-154 `Verified` (`5690e20`) and B-150 `Verified` (`9df66a5`), with B-153 `Verified` (`43495db`) and
+B-050 `Verified` (`8885bd1`); the order of `D-416` item 8. Lane A is `Active`. The push of `eb1ecde..9df66a5` preceded
+this act.
+
+### The decision
+
+1. **Tracker re-derivation (`SV-002` §2.3.1).** Re-derived once, at `9df66a5`, after the O0 dispositions. The rows of
+   B-050, B-077, B-150, B-153 and B-154 count as closed under the Verified-header rule, each with a dated Basis note and
+   no Clearance edit. **One non-SM05 row remains open: `B-136 (P15)`**, which clears only at `SV2-DOD-06`.
+2. **Review keys (`SV-002` §2.3.2).** Each of those five rows records its independent verification commit.
+3. **B-077 curated description (`frag121.json`, `b077_consolidated_closure_failure_pattern`).** Only its opening status
+   clause changes, from "Deferred … final independent review by Lane B pending as of 8885bd1" to its Verified state;
+   new text SHA-256 `13d86618015916fbd1e583a6070cf629bbf8731c5341f6238bf2f5caefb96ee8` (replacing `d7ef9dec…`). Every
+   other field in the three fragment files is unchanged.
+4. **GR-007 all-row assessment (`GOV-RES-001`).** Recorded honestly: every §2.3.2 transaction keyed; every §2.3.1 row
+   closed or received **except `B-136 (P15)`**; legacy `Applied` entries reconciled one at a time by their own basis;
+   B-077's final independent review done. **GR-007 is not complete while `B-136 (P15)` is open.**
+5. **One guarded cycle** for items 1–4 (`D-425`–`D-430` procedure): prepare from the final committed source, Lane B's
+   exact-byte and semantic acceptance, publication, then full health. `D-428`'s narrow pre-sync rule applies
+   (`docs-drift` the only allowed failure; hooks never skipped); no fetch or push between prepare and publication.
+6. **Gate 2 and P15.** Gate 2 is not claimed: `B-136 (P15)` is open and `SV2-DOD-01`, `-02`, `-04` and `-06` are
+   unchecked; `SV2-DOD-04` needs the `SV2-U03` outcome, which is unselected (`D-418`). The Judge's approval of "Gate 2"
+   and "B-136 P15" is recorded as approval to assess them, not as their acceptance; their evidence is presented
+   separately.
+7. **Not given by this act:** any `SV2-DOD` checkoff, `SV-002` acceptance, `V1-SM05` unblock, work order or lane
+   change; held product work (`D-171`); native per-call record saving.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e256 |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ `D-431` paragraph (tracker, GR-007 and description record; no V1 scope, sequence or DoD change) |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-431` paragraph; no file added or retired |
+| Tracker, ledger, GR-007 and curated fragment (items 1–4) | Follow: the applying commit |
+| Rule files, Modular_PRD, fn-specs, SPECS, Phase Closure, frozen sources | — unaffected |
+| **Encyclopedia** | unaffected (`docs/ENCYCLOPEDIA-SYNC.md` maps none of these paths) |
+| **Graphify** | Governed drift, expected under item 5; cleared only by the guarded publication, never by a raw rebuild |

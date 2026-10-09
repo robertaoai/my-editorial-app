@@ -572,6 +572,9 @@ and its test. The README §4 and sync-docs §7 change in place.
 **`D-430` (2026-10-09) — no file added or retired, stated explicitly.** Three curated fragment files change in place
 (four description values).
 
+**`D-431` (2026-10-10) — no file added or retired, stated explicitly.** `SV-002.md`, `GOV-RES-001.md` and
+`frag121.json` change in place.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |
