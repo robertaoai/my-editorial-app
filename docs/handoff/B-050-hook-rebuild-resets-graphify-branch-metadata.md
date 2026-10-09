@@ -7119,3 +7119,11 @@ the final full consistency check must leave docs-drift as its sole failure.
 | Approve-with-conditions | This corrected acceptance record | Phase 1: guard consumption passes; covering annotation; separate publication act |
 | Defer | Publication, health, SC8, B-077, O0 acts, tracker/GR-007, Gate 2 and push | Existing sequence and applicable authority |
 | Reject | Consuming 7a09b07 or an annotation commit as receipt 2; treating canonical JSON alone as a complete added block | Phase 1: corrected review locus only |
+
+## Terminal annotation record
+
+- **Current-Resolution:** Verified
+- **Annotation-Type:** correction
+- **Annotation-Act:** Judge's direct 2026-10-09 act in this conversation, "Judge approved: Receipt 2 for D-430 - Option A", covering Lane B's correction of its own receipt format for the same frozen work 4871f1b7-89ba-4027-a0f8-f173ccd7e434. The guard reads the complete acceptance at 28853bef8b48bdadc636b778eaf1effd41495429 successfully. Earlier failed formatting and its validation remain history. This immediately following record-only commit preserves B-050's Verified disposition; the same narrow check allowance and retained logs apply, hooks are not bypassed, and no publication, new candidate or broader authority is included.
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** 28853bef8b48bdadc636b778eaf1effd41495429
