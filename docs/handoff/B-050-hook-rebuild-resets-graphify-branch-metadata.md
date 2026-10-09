@@ -6665,3 +6665,58 @@ its O1 row stays open.
 | Approve-with-conditions | The A4 count allowance (698 vs 697) as applied | Phase 1: Lane B's receipt-5 review |
 | Defer | Receipt 5, B-050 disposition, B-077, parent clearance, push | Phase 1: in order, each under its applicable authority |
 | Reject | Repeat equality treated as B-050 closure or Gate 2 clearance | Phase 1 |
+
+## Lane A — receipt-5 finding received: C2 call packet not retained; replacement-proof plan, 2026-10-09
+
+Read at `1ef3ddb`. Lane B's whole-unit review was delivered in chat (worklog, 2026-10-09). **Confirmed:** the artifact
+comparison (576 of 583 files byte-identical; seven differ only in the declared fields; no residual difference after
+masking exactly those), both observations inside their final-update brackets with C2 later, fragments 139/139, live
+still R1, 19/19 with no drift. **The A4 allowance is supported:** validated counts 698/697, AST-cache cardinality
+322/322, transient indicators 1/0, so 698 − 697 = 1 − 0, with the non-cache paths equal once the one exact transient
+is removed (equal cardinality does not establish identical cache contents). **Unconditional receipt-5 acceptance is
+withheld:** the saved repeat artifacts omit C2's per-call packet (arguments, brackets, observations, selections and
+proxy hashes) that D-429 requires to be recorded.
+
+### What happened
+
+**Upheld; nothing was captured elsewhere.** `proveRepeat` holds the generation result (`gen.selection`) in memory,
+uses it for the D-429 checks, and writes only `REPEAT.json` (comparison findings, raw identities, final-update
+brackets, observations). `run-repeat.mjs` saved only the returned result, which does not carry the packet. In the
+repeat folder, only the fourteen raw proxy lists (`gen/ignored/*.txt`) survive. They support the count calculation;
+they do not replace the call timings and observations, and those will not be reconstructed (for example from file
+modification times). This is an evidence-retention gap, not a finding that the comparison was wrong.
+
+### Replacement proof (plan; not run)
+
+One new actual repeat against the same live R1, **with no guard source change**, so D-426's source/readiness and
+fresh-candidate rules are not triggered and no drift is created:
+
+- Driver `C:/CoWork/outputs/lane-a-d429-receipt4b-2026-10-09/run-repeat.mjs` (SHA-256
+  `7528a722da03fd95839aa775c183b2e50db7008f921061b62dc9b56cc50c55c9`) calls `proveRepeat` exactly as the first
+  driver did (same `work`, a new empty `out`), adding one dependency: `deps.generate` is a pass-through around the
+  guard's own exported `generateCandidate`. It calls it once with the exact arguments `proveRepeat` passes, writes the
+  **unmodified** return value (`status`, `checkout`, `state`, `evidence`, `selection` = the full D-429 packet with
+  every call record, `fresh`) to `C2-GENERATION.json` (exclusive create, fsync) before returning it, and records that
+  file's SHA-256 and the call count in `01-repeat-result.json`. No other dependency is replaced.
+- Same stop rules: a refusal or difference is retained as found, with no rerun and no widened allowance. C2 stays
+  unpublished. The whole call sequence completes long before 2026-10-28T18:21:29Z.
+- The first run (`1ef3ddb`, `repeat-equal`) stays on record as history. The replacement does not overwrite it, and
+  receipt 4 is resubmitted from the replacement's evidence.
+- **Prevention, separately:** making `proveRepeat` itself retain the packet is a guard source change (a new cycle);
+  it is proposed for the next governed change, not this cycle.
+
+### What you need
+
+**Judge:** authority for this one replacement repeat. **Lane B:** then receipt 5 on the replacement evidence
+(`C2-GENERATION.json` alongside `REPEAT.json`).
+
+### What you did instead
+
+No rerun, code change, publication, cleanup, fetch or push. B-050 stays Applied; its O1 row stays open.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Lane B's finding; the comparison and A4 allowance as independently confirmed | Phase 1: received |
+| Approve-with-conditions | Replacement repeat with the pass-through retention driver | Phase 1: Judge authority; Lane B's receipt-5 review of the retained packet |
+| Defer | Guard-level retention (prevention); receipt 5; B-050 disposition; B-077; parents; push | Phase 1: in order |
+| Reject | Reconstructing C2's timings from file times; treating the first run's equality as complete receipt-4 evidence | Phase 1 |
