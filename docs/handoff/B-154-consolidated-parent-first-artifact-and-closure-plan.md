@@ -8316,3 +8316,46 @@ acceptance ok, every binding equal, live unchanged), read at `1e4f5ca`. The `7b9
 this note supersedes that hash. Publication was separately pre-checked into `07-pre-publish-validation.json`
 (`8602b4e9…`, unchanged). Found while confirming that an accidental argument-less run of the script in this session
 wrote nothing (the file's last write precedes it). Rule applied from here: validators write to a new file per run.
+
+## Lane A — D-430 released with review `28853be`; health 19/19; SC8 refreshed for B-077's final review, 2026-10-09
+
+**Judge, 2026-10-09**, in chat: "Judge Approved: Publishing and the health check, SC8 refresh, B-077 final review, O0
+parents, tracker rebuild, GR-007, Gate 2, push". Received: Lane B's receipt 2 for D-430 at **`28853be`** (covered by
+annotation `f4fe6c7`, under Judge Option A as Lane B's commit records); `7a09b07` (and its annotation `55a8fcc`) is
+superseded history. Evidence: `C:/CoWork/outputs/lane-a-d430-2026-10-09`, each run in its own file.
+
+### What happened
+
+| Step | Result |
+|---|---|
+| Pre-publish check at `f4fe6c7` | `acceptanceAt(28853be)` ok, every binding equal to the frozen packet, publication source ok (handoff-only advance from `3366244`), live equal to baseline `9906eec3…`, no journal or lock (`10-review-validation-28853be-…json` SHA-256 `038d3f03…`). `7a09b07` refuses: "the review commit adds no complete acceptance record" |
+| `publish --work <work> --review 28853be` | **released**, exit 0, "published: live equals the reviewed manifest"; run token `6765819b-22a3-4d01-ad12-3735a37b41bd` (`12-publish.log` `0117b3dc…`) |
+| Separate full health, `bun run check` at `f4fe6c7` | **19/19**; `docs-drift` synced (governed intent) at `3366244` (`13-health.log` `308666ae…`) |
+| Post-state (`14-post-state.json` `6b2de397…`) | live manifest `55dba74c…`, graph `481874fb…`, 583 files, equal to the reviewed manifest; baseline locus now `28853be`; fragment parity 139/139; no journal or lock; **the four D-430 descriptions are live, each matching its accepted SHA-256** |
+
+**SC8 refresh at `f4fe6c7`** (`15-sc8-query.json` `ed1f16bd…`, `16-tracker-join.json` `cdacb6bd…`): 162 entries;
+**125 terminal dispositions** (Verified 107, Superseded 10, Deferred 8), **4 turn reports** excluded, **33
+non-terminal** (`Applied` 25, `Open` 8). B-050 has left the non-terminal set; every remaining entry keeps the named
+next action recorded in B-077's draft (`a411a70`) as corrected at `5c8978c`.
+
+**Curated-status sweep** (`17-fragment-status-sweep.json` `2c9bee8c…`): **8 of 8** curated handoff-status nodes agree
+with their live headers. SC10 (B-071, B-072) is met in the released graph; B-077's and B-078's additional corrections
+are live. B-077's node states its review as pending at `8885bd1`; it is rechecked after B-077's disposition.
+
+### What you need
+
+**Lane B: B-077's independent final review** on this evidence (Parent 1 and Children 2–5, SC1–SC12 with the `5c8978c`
+corrections), and its disposition commit if it passes: four consistent header fields, scoped to the closure map, not
+to the Phase 3 work or the `D-171` target. Then, in `D-416` item 8 order: the O0 parent dispositions (B-150, B-153,
+B-154), one tracker re-derivation, GR-007's all-row conclusion, then the Gate 2 assessment for the Judge.
+
+### What you did instead
+
+No disposition, tracker or GR-007 change. The push follows this commit, after a fetch and a fast-forward check.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | D-430 release (`481874fb…`, review `28853be`), health 19/19, SC8 refresh, curated status 8/8 | Phase 1: Lane A's evidence |
+| Approve-with-conditions | B-077 final review and disposition | Phase 1: Lane B's independent review |
+| Defer | O0 parent dispositions; tracker re-derivation; GR-007; Gate 2 assessment | Phase 1: `D-416` item 8 order |
+| Reject | Treating release or SC8 as B-077's verification, or the Judge's approval list as parent or Gate 2 clearance | Phase 1 |
