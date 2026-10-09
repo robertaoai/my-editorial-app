@@ -8244,3 +8244,64 @@ item 3: one guarded `prepare` from the commit containing this receipt, captured 
 ### What you did instead
 
 No publication, fetch or push. No disposition, tracker or GR-007 change. B-077 stays `Deferred`; B-154 stays Open.
+
+## Lane A — D-430 candidate ready at `3366244`; review request and one channel gap, 2026-10-09
+
+Under D-430 item 3. Evidence: `C:/CoWork/outputs/lane-a-d430-2026-10-09` (work folder `work`, workId
+`4871f1b7-89ba-4027-a0f8-f173ccd7e434`).
+
+### What happened
+
+| Item | Value |
+|---|---|
+| Source HEAD (captured) | `3366244f8e8fed844be4aeeccadbb92db49807a1`; delta since `90de7fb`: the D-430 recording (`b0b98fe`), the four fragment values (`967c27b`) and handoff files only |
+| Check at that HEAD | `docs-drift` the sole failure (`D-428`); `07-check-at-source.log` |
+| Baseline | live R1, locus `da81575`, guard-treeDigest-v1 `9906eec3…`, 583 files |
+| Run | `prepare` → pending (exit 3; 0 descriptions, 8 communities) → `prepare --resume --answers` → **ready** (exit 0) |
+| Candidate | graph SHA-256 `481874fb43b7713355df6377a9c124ee84ae65bc0d02f77ff2cf0eb55a227756`; manifest `55dba74cdf6ac0be22d2ff153db299b6e4f63cd4b1a213285cc70eac3e93797d`; 583 files; frozenAt 2026-10-09T13:32:44.909Z |
+| Selection / D-429 packet | oracle `c6edd74a…`; final observation 2026-10-09T13:24:44.117Z; validated ignored count 698, AST cache 322, transient 1 |
+| Answers | `answers.json` SHA-256 `cdf6de9c…`: 0 descriptions pending (no code changed; curated texts enter through the fragments); **8 community names, all newly written from their members**, none equal to any R1 label (`write-names.mjs`, `names-override.json`) |
+
+**Lane A's read-only verification** (`05-candidate-verification.json`): manifest, graph hash, file count and answers
+hash recomputed from staging and equal; 2,504 nodes, 5,477 links, 132 communities, 0 undescribed; fragment parity
+139/139 exact; name binding 0 findings; every name applied; 0 foreign-path hits; staged branch record analyzed
+`3366244`, `stale: false`; **the four D-430 nodes carry exactly the accepted strings** (all four hashes match); live
+unchanged, no journal, no lock.
+
+The eight new names (member-set hash prefix → name): `9fb681e7` D-424–D-427 F3 Plan, Receipt and Amendment Commits;
+`1c9f4fc7` D-426 Receipts 2–4, D-428 and D-429 Drafting Commits; `3796c970` D-429 Implementation, Receipts 1–4 and
+Retention Plan Commits; `9b89e6a1` B-050 Verification, B-077 Reconciliation and D-430 Commits; `86b0a27a` D-405–D-408
+Retention, Route 1 and Migration Commits; `654bb3f1` D-398 Containment Repair, Lane C and Convergence Commits;
+`9cff7b56` D-393–D-397 P4a Isolation, Delivery and Verification Commits; `0f34dad7` D-362–D-367 B-130 and B-152
+Re-close Verification Commits.
+
+### Channel gap (found before the request; needs a Judge decision)
+
+The guard accepts Lane B's typed `### F3 acceptance record` only when the review commit itself adds it to **B-050**
+(`acceptanceAt`, `guarded-rebuild.mjs:2182`). B-050 became `Verified` (terminal) at `8885bd1`, so that review commit
+is a substantive change inside a terminal episode: `terminal-return` fails on it until a **second, record-only commit**
+adds a `## Terminal annotation record` citing it (the record cannot be in the same commit, because it must cite that
+commit's own SHA). `D-428`'s exception covers only `docs-drift`. Options:
+
+| Option | Effect |
+|---|---|
+| **A (recommended)** — narrow Judge ruling | For D-430's candidate only: Lane B's review commit may add its acceptance record to B-050 with `terminal-return` as the sole additional expected failure, immediately followed by Lane B's record-only Terminal annotation commit citing it; full check results retained; no other failure tolerated; B-050's `Verified` resolution unchanged; no precedent |
+| B — guard change | Read the acceptance from another handoff: a guard source change, so a new readiness and candidate cycle; also the trigger for the native-retention custody item |
+
+### What you need
+
+**Judge:** choose A or B. **Lane B (after A):** receipt 2 for D-430: exact bytes and meaning of graph `481874fb…` /
+manifest `9906eec3…` → `55dba74c…` from source `3366244`, including the four corrected descriptions and the eight new
+names, as one typed acceptance record added to B-050 by Lane B's own review commit, then its annotation commit.
+
+### What you did instead
+
+No publication, fetch or push. No disposition, tracker or GR-007 change. Drift stays expected until the guarded
+publication.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | D-430 candidate `481874fb…` prepared from `3366244`; the four accepted strings applied | Phase 1: Lane A's evidence |
+| Approve-with-conditions | Receipt 2 for D-430 | Phase 1: the Judge's channel choice (A or B), then Lane B's review commit |
+| Defer | Publication and health; SC8 refresh; B-077 final review; parents; tracker; GR-007; Gate 2; push | Phase 1: in order |
+| Reject | Treating the candidate as accepted; a review commit in B-050 without the covering record; a general red-check permission | Phase 1 |
