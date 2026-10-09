@@ -4223,3 +4223,11 @@ stays open. The handoff commit stays separate from any canonical edit.
 | Approve-with-conditions | B-077 final reconciliation | Phase 1: Lane B's independent review; B-050's disposition first; G1 reading; G2 applied and synced |
 | Defer | G2/G3 canonical unit and guarded sync; O0 parent dispositions; GR-007 conclusion; Gate 2; push | Phase 1: `D-416` item 8 order |
 | Reject | Snapshot or tally used as live state; any `Applied` entry promoted in bulk; Phase 3 or `D-171` work implied complete | Phase 1 |
+
+## Terminal annotation record
+
+- **Current-Resolution:** Deferred
+- **Annotation-Type:** verification-evidence
+- **Annotation-Act:** Lane A's final reconciliation draft for Lane B's independent review, under the Judge's 2026-10-09 instruction "draft the B-077 final reconciliation for Lane B review"; evidence only, appended at `a411a70`
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** a411a702ed9f1d5a84d23de1a8cc5af9bcbfa783
