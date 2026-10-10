@@ -7393,3 +7393,12 @@ Evidence folder: C:/CoWork/outputs/lane-b-d433-4a-review-2026-10-11/.
 | Approve-with-conditions | Publication and separate health | Phase 1: Judge's publication authority; all frozen bindings still match |
 | Defer | DoD refresh/assessment, batch 2/cycle 2, SCOPE-1–3 and FN leaf, P15, GR-007 | Phase 1: recorded dependency order and own acts; Gate 2/push separately |
 | Reject | Using 931deb9; editing a frozen name in place; treating candidate acceptance as publication or P15 acceptance | Phase 1 |
+
+
+## Terminal annotation record
+
+- **Current-Resolution:** Verified
+- **Annotation-Type:** verification-evidence
+- **Annotation-Act:** D-433 item 6, cycle-1 replacement after amendment 4a and S-a. This immediately following record-only commit covers Lane B's fresh receipt 2 at 8800053d9f109d2a6fcb0bbbe4dbec4232c596a6, for work fba4b947-659c-46ed-a345-9bfae2c7a339, graph 81ab5cd62e6787b0b87d1a69f18331564dc024f9181b798ee54ccfe74c0c487f, manifest b56afd6356198e907a68be958bb15cbc11e1aee9cf040a7b47f5826828cb148d, source 93aa02f4ded4b9e39a9742720ac986b7b593e583. B-050's header, Resolution and Lane A answer remain unchanged; no disposition is reopened. This ends the temporary terminal-return interval. The Judge's publication decision remains separate; full health follows an authorized release, with its result in B-136. No build, trial, fetch, push, P15 or Gate 2 clearance. The old 931deb9 acceptance stays withdrawn. Hooks are never bypassed.
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** 8800053d9f109d2a6fcb0bbbe4dbec4232c596a6
