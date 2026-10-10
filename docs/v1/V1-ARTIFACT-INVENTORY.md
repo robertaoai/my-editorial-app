@@ -581,7 +581,9 @@ and its test. The README §4 and sync-docs §7 change in place.
 **`D-433` (2026-10-10) — no file added or retired, stated explicitly.** `Modular_PRD.md`,
 `FN-MULTI-LANE-AI-GOVERNANCE.md`, `SPECS-MULTI-LANE-AI-GOVERNANCE.md`, `UX-MULTI-LANE-AI-GOVERNANCE.md`, `SV-002.md`
 and `SV2-U03-code-navigation-evaluation.md` change in place, and so does one description leaf in `frag139.json`. The
-SPECS §6 and UX §4 sections are new sections, not new files.
+SPECS §6 and UX §4 sections are new sections, not new files. **Item 4a (2026-10-11):** no file added or retired.
+`SV-002.md`, the U03 evaluation, the FN and SPECS files, one leaf each in `frag139.json` and `frag140.json`, and this
+file's own rows for `SV-002.md` and the evaluation change in place.
 
 ## Temporary / Draft Artifacts
 

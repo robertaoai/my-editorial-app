@@ -151,7 +151,10 @@ explicitly). Lane B verifies. `V1-SM05` stays `BLOCKED`.
 measured navigation route on Claude Code, Codex and the Antigravity IDE, within the scope check. The `AIG-04` surface
 applicability is accepted. Batch 1 applies the reviewed `AIG-04` drafts, then guarded cycle 1 runs under a
 unit-scoped receipt route. Evidence only: no V1 scope, sequence or DoD change. `SV2-DOD-04` is checked by the Judge
-after cycle 1. The S2 order is unchanged. `V1-SM05` stays `BLOCKED`.
+after cycle 1. The S2 order is unchanged. `V1-SM05` stays `BLOCKED`. **Item 4a (2026-10-11):** the stale
+current-status claims are repaired and the deleted cross-surface rule is restored before a replacement candidate (the
+first candidate is superseded unpublished). Sequence S-a: the use-case scope text goes to batch 2. No scope, sequence
+or DoD change.
 
 **`D-432` (2026-10-10) — D-431 receipt-2 route A2: candidate `4dd5029b…` superseded unpublished; this recording
 first, then one replacement guarded cycle; one unit-scoped `terminal-return` recording exception.** Graph currency

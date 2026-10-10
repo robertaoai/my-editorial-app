@@ -28073,6 +28073,39 @@ item 6 (P15) and the conditional S2 order. It changes no V1 scope or sequence.
    pending consumer evidence and the Judge's outcome. That is a current record of the same evaluation. The
    `frag140.json` descriptions of the FN, SPECS and UX files are incomplete but not false. They stay for batch 2,
    with owner Lane A.
+
+   **Item 4a (amendment, 2026-10-11).** Authority: the Judge, in chat: "Issue D-433 amendment 4a from revision 2
+   Part 3, using the packet and companion bindings recorded in a5f1446. Select S-a. Lane A records the act, applies the
+   bounded repairs and prepares a replacement, then stops for fresh Lane B receipt 2. Publication remains separate. No
+   build, push or Gate 2 closure." Input: Lane B's withdrawal of receipt 2 (`931deb9` withdrawn at B-136 `0e4adb2`;
+   findings D433-R1, D433-R2) and its acceptance of the repair plan (B-136 `a5f1446`). Bindings:
+   - packet `D433R-DRAFT-r2.md`, SHA-256 `cac06ac473ca08a5c1fa20190e7f5ea342a24fd95c1b0d15b2b3a15a22275791`;
+   - ledger `ledger/LEDGER.md`, `04745df5729eea070583ffb0edceeb4efee56a48bbe5fb9e38526cd8fe3e7b01`;
+   - leaves `leaves.json`, `a4abb1f8ee964d5db77ee61f66aab9f7a24e9f31de74f09f1a1479b1e36f687f`.
+
+   All three are under `C:/CoWork/outputs/lane-a-d433r-2026-10-11/`. The act:
+   1. Batch 1 also corrects the current-status claims C1–C8, C10 and C11 of the packet. These are:
+      - `SV-002` §0 and §2.2 `P3`;
+      - the U03 evaluation `Status` and `Method` lines;
+      - two Inventory rows (the evaluation and `SV-002.md`);
+      - the FN and SPECS `Status` lines;
+      - two curated description leaves (`frag140` `specs_multi_lane_ai_governance`, `frag139`
+        `attempt_sv002_setup_validation`), with the exact values in `leaves.json`.
+
+      Each superseded text stays as dated or struck history.
+   2. Content groups (a)–(k) already in batch 1 stand as listed in the ledger (Lane B accepted, `a5f1446`). The FN
+      §4.4 sentence that batch 1 deleted is restored as "One surface's evidence never proves another surface's
+      availability." Group (e)'s sentence is labelled as dated.
+   3. The note above that the `frag140` descriptions are "incomplete but not false" is **withdrawn** for
+      `specs_multi_lane_ai_governance`, whose description was false (C9). The FN and UX descriptions are incomplete,
+      not false.
+   4. No other change. The sequence is **S-a**: the reviewed SCOPE-1–3 text and the `frag140`
+      `fn_multi_lane_ai_governance` leaf go to batch 2's applying act, with owner Lane A. Candidate `c7ce4f5f…` stays
+      superseded and unpublished, and `931deb9` is never used for publication. The replacement follows item 6.
+      Publication is a separate Judge decision.
+
+   Lane A's earlier claim that batch 1 was "otherwise byte-for-byte revision 3" (B-136 `dcf8d53`) is withdrawn. The
+   ledger records the actual difference.
 5. **`SV2-DOD-04` is not checked by this act.** Its evidence is assembled here. The Judge checks it on exact-revision
    evidence after cycle 1, together with the DOD-01/02 refresh.
 6. **Cycle-1 receipt route (unit-scoped; route A).** This entry and batch 1 are committed before prepare.
@@ -28106,6 +28139,7 @@ item 6 (P15) and the conditional S2 order. It changes no V1 scope or sequence.
 | Modular_PRD §7.2a; fn-specs `FN-MULTI-LANE-AI-GOVERNANCE.md`; SPECS and UX `MULTI-LANE-AI-GOVERNANCE` | Follow: the batch-1 applying commit (item 4) |
 | `SV-002.md` and `SV2-U03-code-navigation-evaluation.md` | Follow: the batch-1 applying commit (item 4) |
 | Curated fragment `frag139.json` (one description leaf, item 4 amendment) | Follow: the batch-1 applying commit |
+| Item 4a repairs: `SV-002.md`, the U03 evaluation, FN, SPECS, `frag139.json`, `frag140.json`, and two Inventory rows | Follow: the 4a applying commit |
 | B-136 (receipts) and B-050 (Lane B's candidate receipt) | Follow: their own handoff commits |
 | Rule files, Phase Closure, frozen sources | — unaffected |
 | **Encyclopedia** | unaffected (`docs/ENCYCLOPEDIA-SYNC.md` maps no section this act changes; Entry 02's `Modular_PRD.md` §0.2/§0.4/§12 are untouched) |
