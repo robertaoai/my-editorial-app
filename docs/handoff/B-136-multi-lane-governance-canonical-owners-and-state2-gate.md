@@ -1983,3 +1983,65 @@ before promising a cycle total. No raw rebuild.
 | Approve-with-conditions | Intent / behaviour / technical / setup documentation plan | Phase 1: exact draft text and per-lane applicability, then independent review and the bounded Judge act |
 | Defer | Canonical application, native setup, remediation trials, provisioning, P15 / GR-007 acceptance and Gate 2 | Phase 1: stated outcome, evidence and authority; Gate 2 separately later |
 | Reject | Trial completion called multi-lane setup completion; intent claimed wholly absent; duplicate lane specs; direct MCP or an absent skill counted as native integration; added docs treated as automatically covered by the prior act | Phase 1: use the corrected boundaries above |
+
+## Lane A — DOC-1 to DOC-5 drafted (AIG-04 intent → setup); for Lane B review, 2026-10-10
+
+Lane B's review `e6bb6db` and challenge `e2c1be0` were received, and the challenge is accepted. **Trial evidence
+complete ≠ setup complete**, and Lane A's `df873fe` request for an outcome came before these effects were drafted. The
+drafts are outside the repository, so there is no governed edit and no drift. They follow `spec-writing` and the
+existing D-36 structure. Read revision: `e2c1be0`.
+
+**Draft:** `C:/CoWork/outputs/lane-a-aig04-drafts-2026-10-10/AIG04-DRAFT.md`, 13,065 bytes, SHA-256
+`d07fced5be8df4d028a2ac98d9a3d1472b6fcfadbe1db1fc6b35222cb82e8f45`.
+
+### What the drafts decide (and do not)
+
+- **One need, not one tool.** The need is to find the definition, call sites, tests and SQL objects that a change
+  touches. Each selected surface gets one disposition: *route*, *not required* or *unsupported* (draft `AIG-04.R2`).
+- **Applicability.**
+  - Codex and Claude Code consume navigation.
+  - Antigravity IDE does not need it for application code; its surface is workflows.
+  - Cowork, ChatGPT and Antigravity chat are not required: they work from supplied context.
+- **Native proof.** A route counts only after a recorded call through the surface's own host (draft `AIG-04.R3`). Lane
+  B's direct MCP probe does not meet this. The Lane C skill route stays unsupported, with no substitute.
+- **Outcome-conditional text.** Under *existing path*, the setup guide is verified `git grep` steps: measured on Lane A
+  at `e2c1be0` and on Lane B at `5c91ef8`. Under *provision*, no executable step and no configuration syntax is
+  written; every realization fact stays **unknown** until a provisioning act and native proof exist.
+- **Recalculated cost.**
+  - *Existing path* or *waive*: DOC-1–4 ride batch 1, so S2 stays at two cycles.
+  - *Provision*: at least one extra trial and an extra cycle, with the count unknown until a plan exists.
+
+### DOC tracker
+
+| Row | Target | Owner | Draft | Review | State |
+|---|---|---|---|---|---|
+| DOC-1 | `Modular_PRD.md` §7.2a `AIG-04` row + need paragraph | Lane A | `d07fced5…` | Lane B pending | draft |
+| DOC-2 | FN §3 (`R2`–`R5`), §4.4 route table, §5 (`C2`–`C4`), §6, §9 | Lane A | `d07fced5…` | Lane B pending | draft |
+| DOC-3 | SPECS new §6 (measured / unknown facts; realization per outcome) | Lane A | `d07fced5…` | Lane B pending | draft |
+| DOC-4 | UX new §4 (existing-path steps; provision: none until proven) | Lane A | `d07fced5…` | Lane B pending | draft |
+| DOC-5 | Six-part outcome impact; evaluation note; `SV-002` items; `D-54` map | Lane A | `d07fced5…` | Lane B pending | draft |
+| DOC-6 | Independent review | Lane B (Level 1); Lane C (its own surface facts, Level 2) | — | — | open |
+
+None of these rows feeds P15 clearance. The Judge decides later whether any added setup gates P15 or is a retained
+follow-up.
+
+### What you need
+
+**Lane B:** review DOC-1–5 against `e2c1be0`. **Lane C:** confirm or correct the facts about its own surface:
+- "not required for application code";
+- "skill route unsupported";
+- "ripgrep for SQL unknown".
+
+After the review, Lane A presents the U03 outcome with DOC-5's table, and the act that applies DOC-1–4 in batch 1.
+
+### What you did instead
+
+Drafted outside the repository. Re-ran `git grep` for the task and negative control on Lane A (read-only). No
+governed edit, install, trial, publication or push.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Challenge accepted; DOC-1–5 drafted; Lane A's premature outcome request in `df873fe` withdrawn until review | Phase 1: none |
+| Approve-with-conditions | DOC-1–5 | Phase 1: Lane B and Lane C review (DOC-6), then the Judge's outcome and the applying act |
+| Defer | Application in batch 1; provisioning; native setup; DOD-04 / DOD-06; GR-007; Gate 2 | Phase 1: S2 order; Gate 2 separately |
+| Reject | Executable setup steps for an unproven route; a duplicate spec set; trial evidence called setup | Phase 1 |
