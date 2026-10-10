@@ -33,7 +33,9 @@ scopes or silently re-aliased:
 | `involvement_code` | `R`, `A`, `C`, `I`, or `EA`. `EA` is never stored as `A` |
 | `party_id` | A canonical `ROLE-*` (`raci-involvement-matrix.md` §8) for an internal actor, or `EXT-GRC` (`Modular_PRD.md` §2.3.1) for the external regulator. Never a display name |
 | `source_code` | The original CSV mark for that cell (`R`/`A`/`C`/`I`), retained for provenance — it does not change the normalized meaning above |
-| `verification_status` | `VERIFIED` (unambiguous in source), `UNVERIFIED` (source is genuinely ambiguous — see §2), or `DECIDED` (Chief Editor supplied it) |
+| `verification_status` | **Source mapping only (`D-414`, GR-011):** `VERIFIED` = the scoped `raci_scope`, subject, party and original `source_code` (including real blanks) are faithfully and unambiguously supported by named source cells; `UNVERIFIED` = an ambiguous or unproved source cell, named; `DECIDED` = a separate Chief Editor decision, with its provenance kept. Multiple `R`, no `R` or no `A` can be mapped faithfully. Status never measures unique executor, accountability completeness, milestone decomposition or execution readiness; application defaults and transition eligibility never overwrite a source row. *(History, until `D-414`: "`VERIFIED` (unambiguous in source), `UNVERIFIED` (source is genuinely ambiguous — see §2), or `DECIDED` (Chief Editor supplied it)", which was applied as a cardinality test.)* |
+
+> **Namespace note (`D-414`, GR-010).** This document records Sheet-sourced factory RACI only. `business:T1–T5` are newsroom judgment stages; V1 `EG` task/evidence records supply business-stage facts and execute no transition; `transition:T1–T6` and `FN-GATES-01-05` §11 `EG1–EG5` are `D-171`-held technical transitions and logical nodes. A shared `T`/`EG` label is a cross-reference, not identity, execution, approval or V1 scope. Stored/API identifiers are unchanged.
 
 ## 1. Route master (Sheet 1 — "Newsroom Workflow Stage Phase Gates")
 
@@ -42,17 +44,19 @@ the seven rows carries exactly one `R` and one `A`, no blank cells, and no ambig
 
 | `route_id` | Source label | Route class | `R` (`party_id`) | `A` (`party_id`) | `C` | `I` | `verification_status` |
 |---|---|---|---|---|---|---|---|
-| `ROUTE-PROD-1` | Tier 1: Low-Impact Daily News Production | Production, Tier 1 | `ROLE-REPORTER` | `ROLE-DESK-EDITOR` | — | `ROLE-INVESTIGATOR`, `ROLE-JOURNALIST`, `ROLE-SENIOR-JOURNALIST`, `ROLE-CHIEF-EDITORIAL-DESK`, `EDITORIAL-ROLE-EDITOR-IN-CHIEF`, `EXT-GRC` | `VERIFIED` |
-| `ROUTE-PROD-2` | Tier 2: Mid-Impact Enterprise & Feature Writing | Production, Tier 2 | `ROLE-JOURNALIST` | `ROLE-CHIEF-EDITORIAL-DESK` | `ROLE-SENIOR-JOURNALIST` | `ROLE-REPORTER`, `ROLE-INVESTIGATOR`, `ROLE-DESK-EDITOR`, `EDITORIAL-ROLE-EDITOR-IN-CHIEF`, `EXT-GRC` | `VERIFIED` |
-| `ROUTE-PROD-3` | Tier 3: High-Impact Investigative Exploits | Production, Tier 3 | `ROLE-INVESTIGATOR` | `ROLE-CHIEF-EDITORIAL-DESK` | `ROLE-SENIOR-JOURNALIST` | `ROLE-REPORTER`, `ROLE-JOURNALIST`, `ROLE-DESK-EDITOR`, `EDITORIAL-ROLE-EDITOR-IN-CHIEF`, `EXT-GRC` | `VERIFIED` |
-| `ROUTE-FALLOUT-1` | Tier 1 Fallout: Low-Risk Copy & Fact Editing | Fallout, Tier 1 | `ROLE-SENIOR-JOURNALIST` | `EDITORIAL-ROLE-EDITOR-IN-CHIEF` | `ROLE-DESK-EDITOR` | `ROLE-REPORTER`, `ROLE-INVESTIGATOR`, `ROLE-JOURNALIST`, `ROLE-CHIEF-EDITORIAL-DESK`, `EXT-GRC` | `VERIFIED` |
-| `ROUTE-FALLOUT-2` | Tier 2 Fallout: Mid-Risk Retractions & Corrections | Fallout, Tier 2 | `ROLE-CHIEF-EDITORIAL-DESK` | `EDITORIAL-ROLE-EDITOR-IN-CHIEF` | `ROLE-DESK-EDITOR` | `ROLE-REPORTER`, `ROLE-INVESTIGATOR`, `ROLE-JOURNALIST`, `ROLE-SENIOR-JOURNALIST`, `EXT-GRC` | `VERIFIED` |
-| `ROUTE-FALLOUT-3` | Tier 3 Fallout: High-Risk Legal & Defamation Crises | Fallout, Tier 3 | `ROLE-CHIEF-EDITORIAL-DESK` | **`EXT-GRC`** (`involvement_code = EA`; `source_code = A`) | `EDITORIAL-ROLE-EDITOR-IN-CHIEF` | `ROLE-REPORTER`, `ROLE-INVESTIGATOR`, `ROLE-JOURNALIST`, `ROLE-SENIOR-JOURNALIST`, `ROLE-DESK-EDITOR` | `VERIFIED` |
-| `ROUTE-GRC` | Regulatory GRC Compliance & Licensing | Regulatory | `EDITORIAL-ROLE-EDITOR-IN-CHIEF` | **`EXT-GRC`** (`involvement_code = EA`; `source_code = A`) | `ROLE-DESK-EDITOR` | `ROLE-REPORTER`, `ROLE-INVESTIGATOR`, `ROLE-JOURNALIST`, `ROLE-SENIOR-JOURNALIST`, `ROLE-CHIEF-EDITORIAL-DESK` | `VERIFIED` |
+| `ROUTE-PROD-1` | Tier 1: Low-Impact Daily News Production | Production, Tier 1 | `ROLE-REPORTER` | `ROLE-DESK-EDITOR` | — | `ROLE-INVESTIGATOR`, `ROLE-JOURNALIST`, `ROLE-SENIOR-JOURNALIST`, `ROLE-CHIEF-JOURNALIST`, `EDITORIAL-ROLE-EDITOR-IN-CHIEF`, `EXT-GRC` | `VERIFIED` |
+| `ROUTE-PROD-2` | Tier 2: Mid-Impact Enterprise & Feature Writing | Production, Tier 2 | `ROLE-JOURNALIST` | `ROLE-CHIEF-JOURNALIST` | `ROLE-SENIOR-JOURNALIST` | `ROLE-REPORTER`, `ROLE-INVESTIGATOR`, `ROLE-DESK-EDITOR`, `EDITORIAL-ROLE-EDITOR-IN-CHIEF`, `EXT-GRC` | `VERIFIED` |
+| `ROUTE-PROD-3` | Tier 3: High-Impact Investigative Exploits | Production, Tier 3 | `ROLE-INVESTIGATOR` | `ROLE-CHIEF-JOURNALIST` | `ROLE-SENIOR-JOURNALIST` | `ROLE-REPORTER`, `ROLE-JOURNALIST`, `ROLE-DESK-EDITOR`, `EDITORIAL-ROLE-EDITOR-IN-CHIEF`, `EXT-GRC` | `VERIFIED` |
+| `ROUTE-FALLOUT-1` | Tier 1 Fallout: Low-Risk Copy & Fact Editing | Fallout, Tier 1 | `ROLE-SENIOR-JOURNALIST` | `EDITORIAL-ROLE-EDITOR-IN-CHIEF` | `ROLE-DESK-EDITOR` | `ROLE-REPORTER`, `ROLE-INVESTIGATOR`, `ROLE-JOURNALIST`, `ROLE-CHIEF-JOURNALIST`, `EXT-GRC` | `VERIFIED` |
+| `ROUTE-FALLOUT-2` | Tier 2 Fallout: Mid-Risk Retractions & Corrections | Fallout, Tier 2 | `ROLE-CHIEF-JOURNALIST` | `EDITORIAL-ROLE-EDITOR-IN-CHIEF` | `ROLE-DESK-EDITOR` | `ROLE-REPORTER`, `ROLE-INVESTIGATOR`, `ROLE-JOURNALIST`, `ROLE-SENIOR-JOURNALIST`, `EXT-GRC` | `VERIFIED` |
+| `ROUTE-FALLOUT-3` | Tier 3 Fallout: High-Risk Legal & Defamation Crises | Fallout, Tier 3 | `ROLE-CHIEF-JOURNALIST` | **`EXT-GRC`** (`involvement_code = EA`; `source_code = A`) | `EDITORIAL-ROLE-EDITOR-IN-CHIEF` | `ROLE-REPORTER`, `ROLE-INVESTIGATOR`, `ROLE-JOURNALIST`, `ROLE-SENIOR-JOURNALIST`, `ROLE-DESK-EDITOR` | `VERIFIED` |
+| `ROUTE-GRC` | Regulatory GRC Compliance & Licensing | Regulatory | `EDITORIAL-ROLE-EDITOR-IN-CHIEF` | **`EXT-GRC`** (`involvement_code = EA`; `source_code = A`) | `ROLE-DESK-EDITOR` | `ROLE-REPORTER`, `ROLE-INVESTIGATOR`, `ROLE-JOURNALIST`, `ROLE-SENIOR-JOURNALIST`, `ROLE-CHIEF-JOURNALIST` | `VERIFIED` |
 
 `ROUTE-PROD-1`'s `A` (`ROLE-DESK-EDITOR`) is **confirmed unaffected** by `T5`/`EG4`'s Chief Editorial
 Desk review function (`D-175`, closing `B068-R22`, 2026-09-01) — route accountability and gate-review
 function are separate fields; neither is inferred from the other.
+
+> **Correction, 2026-10-04 (`D-414`, `docs/handoff/B-154`).** Sheet 1 column F is **Chief Journalist** (original CSV, SHA-256 `E7B063DC…`, hash-matching `B-068`). All seven rows above previously mapped it to `ROLE-CHIEF-EDITORIAL-DESK`: `F2=I` (`ROUTE-PROD-1`), `F3=A` (`ROUTE-PROD-2`), `F4=A` (`ROUTE-PROD-3`), `F5=I` (`ROUTE-FALLOUT-1`), `F6=R` (`ROUTE-FALLOUT-2`), `F7=R` (`ROUTE-FALLOUT-3`), `F8=I` (`ROUTE-GRC`). Each is corrected to `ROLE-CHIEF-JOURNALIST`. This completes for Sheet 1 the correction `D-236` made for Sheet 2. Only the Sheet-sourced party identity changes; the other seven columns already matched. **Application routing is unchanged:** `D-175`'s route-dependent `T5`/`EG4` reviewer (Chief Editorial Desk on `ROUTE-PROD-1`, Chief Journalist on `PROD-2`/`PROD-3`), `D-233`'s application-default `A` and `D-239`'s `business:T5` ranking are decisions, not this column, and every governed consumer already cites them (`B-154`, `1394edd`).
 
 ## 2. Operation master (Sheet 2 — "Newsroom Workflow Task Operations")
 
@@ -60,18 +64,31 @@ function are separate fields; neither is inferred from the other.
 
 | `operation_id` | Source label | Shape | `R` (`party_id`) | `A` (`party_id`) | `verification_status` |
 |---|---|---|---|---|---|
-| `OP-PITCH` | Daily Story Pitch & Beat Tracking | `UNVERIFIED` | **Two `R`**: `ROLE-REPORTER`, `ROLE-JOURNALIST` | `ROLE-DESK-EDITOR` | `UNVERIFIED` — multiple `R`, no milestone marker in source |
-| `OP-RESEARCH` | Deep Fact-Checking & OSINT Research | `UNVERIFIED` | **Two `R`**: `ROLE-INVESTIGATOR`, `ROLE-SENIOR-JOURNALIST` | `ROLE-DESK-EDITOR` | `UNVERIFIED` — multiple `R`, no milestone marker in source |
-| `OP-DRAFT` | Drafting Standard News Copy | `UNVERIFIED` | **Two `R`**: `ROLE-REPORTER`, `ROLE-JOURNALIST` | **none** | `UNVERIFIED` — multiple `R` and no `A` at all in source |
-| `OP-COMPLEX-SERIES` | Executing Complex Investigative Series | `milestone` (source-marked "Mult task R") | **Three `R`**: `ROLE-INVESTIGATOR`, `ROLE-SENIOR-JOURNALIST`, `ROLE-CHIEF-JOURNALIST` | `EDITORIAL-ROLE-EDITOR-IN-CHIEF` | `UNVERIFIED` — milestone shape known, atomic children not yet decomposed |
+| `OP-PITCH` | Daily Story Pitch & Beat Tracking | `UNVERIFIED` | **Two `R`**: `ROLE-REPORTER`, `ROLE-JOURNALIST` | `ROLE-DESK-EDITOR` | **`VERIFIED`** (source mapping, `D-414`): two source `R`, Desk Editor `A`, all columns `B`–`I` faithful. Unique executor unresolved (§4). *(History: `UNVERIFIED` — multiple `R`, no milestone marker in source)* |
+| `OP-RESEARCH` | Deep Fact-Checking & OSINT Research | `UNVERIFIED` | **Two `R`**: `ROLE-INVESTIGATOR`, `ROLE-SENIOR-JOURNALIST` | `ROLE-DESK-EDITOR` | **`VERIFIED`** (source mapping, `D-414`): two source `R`, Desk Editor `A`. Unique executor unresolved (§4). *(History: `UNVERIFIED` — multiple `R`, no milestone marker in source)* |
+| `OP-DRAFT` | Drafting Standard News Copy | `UNVERIFIED` | **Two `R`**: `ROLE-REPORTER`, `ROLE-JOURNALIST` | **none** | **`VERIFIED`** (source mapping, `D-414`): two source `R` and the faithful **absence** of a source `A` (Desk Editor is `C`). No CSV `A` is invented; `D-233`'s application-default `A` is a separate decision (§4.1). *(History: `UNVERIFIED` — multiple `R` and no `A` at all in source)* |
+| `OP-COMPLEX-SERIES` | Executing Complex Investigative Series | `milestone` (source-marked "Mult task R") | **Three `R`**: `ROLE-INVESTIGATOR`, `ROLE-SENIOR-JOURNALIST`, `ROLE-CHIEF-JOURNALIST` | `EDITORIAL-ROLE-EDITOR-IN-CHIEF` | **`VERIFIED`** (source mapping, `D-414`): three source `R`, Editor-in-Chief `A`. Atomic children remain undecomposed (§4). *(History: `UNVERIFIED` — milestone shape known, atomic children not yet decomposed)* |
 | `OP-COPY-EDIT` | First-Line Copy Editing & Formatting | `atomic` | `ROLE-CHIEF-JOURNALIST` (one `R`) | `ROLE-DESK-EDITOR` | **`VERIFIED`** — single `R`, single `A`, no ambiguity |
-| `OP-LEGAL-RISK` | Legal, Ethical & Risk Review | `milestone` (source-marked "Multi Task R") | **Two `R`**: `ROLE-SENIOR-JOURNALIST`, `ROLE-CHIEF-JOURNALIST` | `EDITORIAL-ROLE-EDITOR-IN-CHIEF` | `UNVERIFIED` — milestone shape known, atomic children not yet decomposed |
+| `OP-LEGAL-RISK` | Legal, Ethical & Risk Review | `milestone` (source-marked "Multi Task R") | **Two `R`**: `ROLE-SENIOR-JOURNALIST`, `ROLE-CHIEF-JOURNALIST` | `EDITORIAL-ROLE-EDITOR-IN-CHIEF` | **`VERIFIED`** (source mapping, `D-414`): two source `R`, Editor-in-Chief `A`. Atomic children remain undecomposed (§4). *(History: `UNVERIFIED` — milestone shape known, atomic children not yet decomposed)* |
 | `OP-FINAL-SIGNOFF` | Final Publication Sign-Off | `control_point` (candidate) | **none** | `EDITORIAL-ROLE-EDITOR-IN-CHIEF` (`ROLE-DESK-EDITOR` is `C`, not `A` — corrected `D-237`; party identity narrowed `D-238`) | **`DECIDED`** — Chief Editor-confirmed re-read of the source cell, 2026-09-17; previously `UNVERIFIED`/misread as Desk Editor, not independently re-derived by Lane A |
 | `OP-CRISIS` | Crisis Management & Retractions | `atomic` | `EDITORIAL-ROLE-EDITOR-IN-CHIEF` (one `R`) | **`EXT-GRC`** (`involvement_code = EA`; `source_code = A`) | **`VERIFIED`** — single `R`, single `A`, no ambiguity |
 
-Row-shape verification is unchanged by `D-176`: 2 of 8 (`OP-COPY-EDIT`, `OP-CRISIS`) `VERIFIED`, 1
-(`OP-FINAL-SIGNOFF`) `DECIDED` (`D-237`, 2026-09-17 — corrected from `UNVERIFIED`); five remain
-`UNVERIFIED` at the row-shape level. Row shape and route applicability are separate questions
+**Source mapping (`D-414`, GR-011):** 7 of 8 `VERIFIED`, 1 (`OP-FINAL-SIGNOFF`) `DECIDED` — **source mapping only.** The `Shape` column and §4 still govern executor, milestone decomposition and readiness; none of those is settled by this status. *(History, until `D-414`: "Row-shape verification is unchanged by `D-176`: 2 of 8 (`OP-COPY-EDIT`, `OP-CRISIS`) `VERIFIED`, 1 (`OP-FINAL-SIGNOFF`) `DECIDED` (`D-237`, 2026-09-17 — corrected from `UNVERIFIED`); five remain `UNVERIFIED` at the row-shape level.")*
+
+**Full-cell source ledger (`D-414`).** Original Sheet 2 CSV, SHA-256 `D8740E8A…` (hash-matching `B-068`). Columns `B`–`I` = Reporter, Investigator, Journalist, Senior Journalist, Chief Journalist, Desk Editor, Editor-in-Chief, GRC; `∅` = a genuinely blank cell (GRC blanks stay `unknown`, §4).
+
+| Operation | CSV row | Columns `B`–`I` |
+|---|---|---|
+| `OP-PITCH` | 2 | `R I R C C A I ∅` |
+| `OP-RESEARCH` | 3 | `I R C R C A I ∅` |
+| `OP-DRAFT` | 4 | `R I R I I C I ∅` |
+| `OP-COMPLEX-SERIES` | 5 | `C R C R R C A ∅` |
+| `OP-COPY-EDIT` | 6 | `I I I I R A I ∅` |
+| `OP-LEGAL-RISK` | 7 | `I C C R R C A ∅` |
+| `OP-FINAL-SIGNOFF` | 8 | `I I I I I C A ∅` |
+| `OP-CRISIS` | 9 | `I I I C C C R A` (GRC `A` normalized to `EXT-GRC` `EA`) |
+
+The CSV note (row 11) explains "Mult task R" as a milestone marker; it supplies no atomic children. Row shape and route applicability are separate questions
 (`D-174`, `B068-R20`) — §3 now answers applicability for all eight regardless of row-shape status.
 
 > **Correction, 2026-09-17 (`D-236`, `docs/handoff/B-118`).** `OP-COMPLEX-SERIES`'s third `R`,
@@ -189,6 +206,8 @@ Lane A draft.
 | `OP-CRISIS` | not applicable to the normal sequence — reached only via reclassification | `true` | `C6` trigger, or a fallout/GRC route selected directly | Crisis disposition recorded; prior route preserved as history | Not a reroute — creates a new route-selection event (§3.1) |
 
 ## 4. Operation work-design and external-authority defaults — CONFIRMED (`D-176`, 2026-09-01)
+
+> **Qualification, 2026-10-04 (`D-414`).** §2's source-mapping `VERIFIED` status (GR-011) does not decide any shape below; every placeholder here stands.
 
 **Child B1 — unresolved operation shapes.** The Chief Editor confirmed the conservative placeholder
 approach rather than deciding each shape individually:

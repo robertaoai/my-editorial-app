@@ -30,9 +30,9 @@
 | **Document** | `docs/Modular_PRD.md` — the governed requirement specification. Complements `docs/PRD.md`, which is retained unchanged |
 | **PRD Owner** | Chief Editor (robertaoai) — Line 2, Risk & Compliance |
 | **Reviewers / Approvers** | Chief Editor is the sole human approver. **No Eng Lead, Design Lead, Data Lead, or Legal function exists on this project.** Not an omission — see §0.3 |
-| **Status** | `Draft` — planning only. No application code, no migration applied, no env pulled, no push |
-| **Version** | 1.8 — this document's own lineage; it does not continue `docs/PRD.md`'s version history, and it is **not** a build version — see §8.0 |
-| **Last Updated** | 2026-08-16 |
+| **Status** | `Draft` — planning only. ~~No application code, no migration applied, no env pulled, no push~~ **Current, 2026-09-26 (`D-268`):** application scaffolding exists; `supabase/migrations/0002_s1_editorial_schema.sql` is applied and tested on local PostgreSQL (`D-114`, `D-121`); hosted Supabase behaviour is unverified (`DEP-05`); `V1-SM05` construction is `BLOCKED` (`D-264`); the working branch is pushed. No claim is made here about environment files |
+| **Version** | 1.44 *(was stated as 1.8 until 2026-09-26, `D-267`)* — this document's own lineage; it does not continue `docs/PRD.md`'s version history, and it is **not** a build version — see §8.0 |
+| **Last Updated** | 2026-09-27 (`D-271`) |
 | **Jira Project Key** | **Not provisioned.** **Current execution tracking is `docs/v1/V1-BUILD-SPEC.md` §4 for sprint scope and holds, `docs/LANE-B-WORK-ORDER.md` §2.2d for the executable unit, and `docs/v1/V1-PHASE-CLOSURE.md` §5 for lane state.** `docs/journal/2026-08-16-sprint-plan.md` §6 is **historical lineage**, not current tracking *(corrected 2026-09-08, `B-084`; it had been named as the execution tracker)* |
 | **Confluence / Wiki Link** | **Not provisioned.** This repo's `docs/` is the wiki |
 | **Design Figma Link** | **Not provisioned.** No design function on this project |
@@ -83,6 +83,12 @@
 | **1.36** | **2026-09-17** | Claude, `D-233` (split from `D-232`), independent-review corrections | **Tracking correction, no scope change.** These facts are now recorded under **`D-233`**, not `D-232` — filing them under the slot-assignment decision was itself a defect, corrected. `OP-DRAFT`'s Route-1 executor is **Reporter**, not Journalist (row 1.35 above named the wrong role for Route-1's DoR scope — Journalist belongs to `ROUTE-PROD-2`). `OP-FINAL-SIGNOFF` is now **accepted**, not proposed — five conditions in `D-233`. No FR/AC/NFR requirement text changed; no construction authorized. |
 | **1.37** | **2026-09-24** | Claude, `D-258`, Judge approval via `docs/handoff/B-132` Parent 1 | **Tracking change, no scope change.** §8.1: `SETUP-SPIKE-000` closed — `S2`–`S4` terminally `Deferred — closed without DoD credit`, residual owners unchanged (`D-244`). Status cells annotated, not relabelled. No FR/AC/NFR text changed; `D-171`'s hold is not lifted; no V2 opens. |
 | **1.38** | **2026-09-24** | Claude, `D-261`, Judge approval via `docs/handoff/B-134` | **Scope addition, `[V1]`.** New Product feature group owning `V1-SM05`'s `business:T1`–`T5` evidence slice (Judge Option A, `D-260`): `US-15` (§4), `FR-15` (§5), `AC-23`–`AC-26` (§9.1). Closes the `D-29` inversion `B-134` found — `FN-GATES-01-05.md` §4.3/§4.4 scenarios now elaborate these rows instead of standing in for them. **No existing row changed**: `FR-01`–`FR-05`, `FR-04a`/`FR-05a`, `AC-01`, `AC-03`–`AC-06a`, `AC-11`/`AC-12` keep their text and tags; the held `transition:T5`/`T6` rows stay under `D-171`. §8 unaffected (no sprint closes, no tier opens). |
+| **1.39** *(was 1.38; relabelled 2026-09-26, `D-267`)* | **2026-09-25** | Claude, `D-264`, Judge rulings via `docs/handoff/B-136` | **Tracking change, no scope change.** §8.1: `SETUP-SPIKE-000` root continues (supersedes 1.37's root closure) as the container for attempt `SV-002`; `S2`–`S4` stay terminally deferred; `V1-SM05` packet status `BLOCKED`. No FR/AC/NFR text changed; no tier opens. |
+| **1.40** *(was 1.39; relabelled 2026-09-26, `D-267`)* | **2026-09-25** | Claude, `D-265`, `docs/handoff/B-137` | **Correction, no scope change.** Current-state clauses corrected in place with strikethrough and a dated successor: the Migration row and `XF-05` (`0002_s1_editorial_schema.sql` is the delivered candidate, local replay only); `XF-03`/`XF-04` Done on evidence; the Investigator actor, `US-02`, `TR-DM-04` and `AC-03` (`reliability_tier` exists in schema, while T2 behaviour is not built). No FR/AC/NFR requirement text changed. |
+| **1.41** | **2026-09-26** | Claude, `D-267`, Judge answer G4 option (a) via `docs/handoff/B-139` | **Document-control correction, no scope change.** Two rows carried 1.38: `D-261` (`719e72b`) and `D-264` (`10ec465`), and `D-261`'s row sat after 1.39. Renumbered in commit order: `D-261` keeps 1.38 and moves above `D-264`; `D-264` is relabelled 1.39 and `D-265` (`0d4fc73`) 1.40. Decision dates and commit order are separate facts; each row keeps its own date. Register citations *"changelog 1.38"* in `D-264` and *"changelog 1.39"* in `D-265` read as 1.39 and 1.40 (`D-267` item 7). §0 header set to 1.41, 2026-09-26. No FR/AC/NFR text changed; §8 unaffected. |
+| **1.42** | **2026-09-26** | Claude, `D-268`, Judge answers via `docs/handoff/B-139` (Lane B finding R3) | **Document-control correction, no scope change.** §0 `Status` said *"No application code, no migration applied, no env pulled, no push"*; that clause is kept struck through and a dated current-state statement follows it: scaffolding exists, `0002` is applied and tested locally, hosted behaviour is unverified, `V1-SM05` is `BLOCKED`, the branch is pushed. Header set to 1.42. No FR/AC/NFR text changed; §8 unaffected. |
+| **1.43** | **2026-09-27** | Claude, `D-271`, Judge confirmation in chat of the clarifications Lane B recorded in `docs/handoff/B-139` | **Project-scope addition, no Product scope change.** §0.5 registers the `AIG-` prefix (global Project-scope AI governance; `AIG-NN.Rn`/`.Cn`). §0.6 records this document as the live overall Project/Product tracker, refining `D-203`; tracking is not owning. New §7.2a: a non-feature global Project-scope index, `AIG-01`–`AIG-06`, with no Sprint column. No `US`/`FR`/`AC`/`NFR` text changed; §0.6.1 and `docs/modules/` unchanged; §8 unaffected. |
+| **1.44** | **2026-09-27** | Claude, `D-283`, Judge approval "apply TR-DM data requirement" | **Product data-requirement addition.** It adds `TR-DM-07`, the working editorial-metadata package, to §6.3, the immutability table, §7.1 and §7.3's `FR-01` row. It is logical only; the physical store is Lane B's, at the `D-242` work order. The contract is `FN-GATES` §4.5 (`D-281`/`D-282`). It closes the Gate 1B limb of `SV-002` §3.3 `B-096.TR-DM-01`, pending Lane B verification |
 
 ### 0.2 Decision Log
 
@@ -157,6 +163,7 @@ Project Charter v1            ← source of truth; frozen; OD1–OD3 Open
 | `AT-xxx` | Acceptance tests | Addendum §8, Blueprint §14.8 | — |
 | `SC1`–`SC6` | Success criteria | Sprint plan §7 | — |
 | `Q0`–`Q6` | Decision requests | Sprint plan §8 | `Q-01`… below — **this PRD uses `Q0`–`Q6` directly rather than minting new ids** |
+| `AIG-01`… | **Global Project-scope AI-governance keys** — the AI tools that build the codebase (`D-271`). Requirements `AIG-NN.Rn`, governance checks `AIG-NN.Cn` | this document §7.2a (index); `docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md` (behaviour) | — *added 2026-09-27. Distinct from the editorial-business `PSK-*` keys; never a Product `US-*`/`FR-*`/`AC-*`* |
 
 **New in this PRD, chosen to avoid every prefix above:** `O-xx` objectives · `NG-xx` non-goals · `K-xx` KPIs · `G-0x` guardrails *(hyphenated, distinct from Addendum `G1`–`G10`)* · `US-xx` user stories · `FR-xx` functional requirements · `NFR-xx` non-functional requirements · `SEC-xx` security · `TR-DM-xx` data model · `AC-xx` acceptance criteria · `DEP-xx` dependencies · `AS-xx` assumptions · `RK-xx` risks · `XF-xx` cross-functional tasks.
 
@@ -181,6 +188,13 @@ own documents**; only the index row lives in this file.
 | **Portfolio** | Cross-project continuity, closure, business case | `docs/governance/alpha-portfolio-business-continuity-implementation-plan.md` *(Tier 1, `D-74`)* | Product behaviour |
 | **Project** | All scopes — commercial, operational, product | `docs/PRD.md` *(**frozen**)* + `docs/source/project-charter-v1.md` *(**frozen**)* | Edited by any agent |
 | **Product** | Behaviour of **one** product module | this document, per module below | Portfolio or project scope |
+
+> **Tracker role, corrected 2026-09-27 (`D-271`, Judge).** This document is the **live overall Project/Product
+> tracker**, refining `D-203`'s *"product-level tracker"*. **Tracking is not owning:** the Product row above still
+> never owns Project scope, and `docs/PRD.md` and the Charter stay frozen. What this adds is a **global Project-scope
+> index** at §7.2a for work that serves every module and has no customer story — first, the AI tools that build the
+> codebase (`AIG-*`). §0.6.1 keeps module status authority; `docs/modules/M-*` keep module tracking; `M-MVP`'s
+> requirements stay where they are (`D-203`'s positional checks).
 
 #### 0.6.1 Module register
 
@@ -277,7 +291,7 @@ Every published article carries a complete, tamper-evident record of who reviewe
 |---|---|---|---|---|
 | **Chief Editor** | Sole human operator. The only Line 2 executor | Line 2 | See pipeline state at a glance; review at T5 with enough context to judge; never be the bottleneck for work that doesn't need judgment | Single point of failure. Addendum §6.4 documents the risk and specifies no mitigation beyond stalling |
 | **Reporter agent** | Origination — finds and logs articles, tags at intake | Line 1 | Log a URL with topic tags and a trend signal without human handoff | — *(new capability)* |
-| **Investigator agent** | Verification — validates source, confirms trend evidence | Line 1 | Source metadata and reliability tier available to validate against | **Blocked: `sources.reliability_tier` does not exist** (TC3) |
+| **Investigator agent** | Verification — validates source, confirms trend evidence | Line 1 | Source metadata and reliability tier available to validate against | ~~**Blocked: `sources.reliability_tier` does not exist** (TC3)~~ **Corrected 2026-09-25 (`D-265`):** the column exists in `0002` (line 132, local replay only); T2 validation behaviour is **not yet built or accepted** |
 | **Journalist agent** | Standards fit — drafts the editorial adaptation | Line 1 | Preserve the original's meaning while adapting it | — |
 | **Chief Journalist agent** | Operational final approval at T6 | Line 1 | Confirm all prior gates before releasing to publication | — |
 | **Line 3 assurance** | Independent audit, triggered by risk signal | Line 3 | Unrestricted read access to relevant evidence and an independent reporting/authority path — Lines 1/2 cannot control its scope or conclusions (`D-166`) | **Not built in v1** (`D-57`, answering `Q2`) — v1 discloses no independent assurance; `C-13`'s BCP surface is a compensating control, never Line 3. Governed directly by `D-57`; neither `OD3` (agent headcount/roster shape) nor `OD4` (deferred Proposer→Critics→Judge remedy) governs this disposition (`D-168`) |
@@ -534,7 +548,7 @@ This means **no KPI in §3.2 can be judged before S1 completes**, and the north-
 | ID | Persona | Story | Priority | Linked FRs | Linked ACs | Depends on | Sprint | Edge cases / unhappy paths |
 |---|---|---|---|---|---|---|---|---|
 | `US-01` | Reporter agent | As a Reporter agent, I want to log an article from a source reference with **exactly one subject topic** and a trend signal — **all supplied by the Chief Editor** (`D-194`, `D-197` `A1`) — so that it enters the pipeline with the supply and the execution **recorded as separate facts**. *(Corrected 2026-09-08, `B-084`: read "by URL with topic tags … without human handoff" — pre-`D-38` cardinality, and a no-human-handoff claim that the ratified manual contract contradicts. Analytical tags remain separate and many, `G39`.)* | P0 | FR-01 | AC-01, AC-02 | — | S1 | Same submitter, same brief, same day at the POC surface → refused with a reason (`AC-02`, re-keyed by `D-121`); **the same brief on a different day and manual trigger creation are permitted** — there is **no global source-URL uniqueness condition** *(corrected 2026-09-08, `B-085`; read "Duplicate URL → blocked … no unique index, TC5" before)*. Missing subject topic or trend-signal description → `T1` refused, naming the component. Metadata extraction fails → nullable fields flagged for the Investigator, **without blocking `T1`** |
-| `US-02` | Investigator agent | As an Investigator agent, I want to validate the source and confirm trend evidence, so that unverified material never reaches drafting | P0 | FR-02 | AC-03 | US-01 | S1 | **Blocked: `sources.reliability_tier` does not exist**, so T2's required fields cannot be satisfied (TC3) |
+| `US-02` | Investigator agent | As an Investigator agent, I want to validate the source and confirm trend evidence, so that unverified material never reaches drafting | P0 | FR-02 | AC-03 | US-01 | S1 | ~~**Blocked: `sources.reliability_tier` does not exist**, so T2's required fields cannot be satisfied (TC3)~~ **Corrected 2026-09-25 (`D-265`):** the column exists in `0002` (line 132, local replay only); T2 behaviour is **not yet built or accepted** |
 | `US-03` | Journalist agent | As a Journalist agent, I want to draft the editorial adaptation against a meaning-invariance checklist, so that adaptation does not distort the original | P0 | FR-03 | AC-04 | US-02 | S1 | Angle drifts from the one identified at T3 → `plan_deviation` flag (Entry 007 S2) |
 | `US-04` `[historical_current_documented_held]` | Chief Editor | As the Chief Editor, I want T5 review to be mine alone and recorded as mine, so that accountability is unambiguous | P0 | FR-04 | AC-05, AC-06 | US-03 | S2 | Agent assistance recorded as `assisting_agent_id`, never as executor. **The shipped seed violates this** (X4). **Superseded as a target by `US-04a` below (`D-179`)** — this row remains the current-build record; not build-authorized (`D-171`) |
 | `US-05` ⚠ `[historical_current_documented_held]` | Chief Editor | As the Chief Editor, I want the system to refuse to mark a transition independent when it isn't, so that compliance is never silently assumed | P0 | FR-05 | AC-07, AC-08 | US-04 | S2 | Chief Editor executes a Line 1 gate → `HumanOverride` + `override_not_four_eyes`, allowed but never counted as compliant. ⚠ OD2. **Superseded as a target by `US-05a` below (`D-179`)** — this row remains the current-build record; not build-authorized (`D-171`) |
@@ -634,9 +648,10 @@ The most consequential requirement, and the one most at risk of being quietly ov
 | `TR-DM-01` | `articles` | + `revision_reason`, `revision_target_state`, `return_count`, `emergency_publish`, `source_id`, `source_author`, `source_published_date`, `editorial_angle`, `editorial_adaptation`, **`risk_tier`** (`standard` | `sensitive` | `high_sensitivity` — typed, **never a lifecycle state**, never silently recomputed after publication; `D-11`, domain decided `D-112` closing `C-29`) with **`risk_tier_assigned_by`, `risk_tier_assigned_at`, `risk_tier_reason`, `risk_tier_ruleset_version`** (null in v1), **`article_kind`** (`standard` | `retraction_notice`) and **`original_article_id`** (`D-110`); ⛔ **NO unique index on the source reference** — **specified for removal by `D-121`**: the row is the **brief/trigger** (`D-111`), so two commissions on one source are two rows and a unique index on the source forbids the second. **`supabase/` is Lane B's surface — specified, not applied** (`D-56`). Plus **`brief_hash`** — hash of the **normalized source reference alone** (`G95` closed by `D-133`; framing/notes are not hashed, so the reuse-window has something to gate and a pre-gate edit to prose is inert) and a **submitter** (`G96` — no column exists, and until **S6** the value is self-asserted); ten-state enum | **Extend — S1.** Current enum omits `Discovered`, `Validated`, `Needs Revision` and collapses T2/T3 (X3) | FR-01…FR-06 |
 | `TR-DM-02` | `workflow_transitions` | + `actor_id`, `line_assignment`, `line_separation_status` **(`Q11` CLOSED — `D-97` the three-value shape, `D-111` the name. Typed and non-null per `D-110`.)**, `identity_assurance`, `event_type`, `agent_id`, `agent_run_id`, `supervising_human_id`, `assisting_agent_id`; `actor_type` + `system` | **Extend — S1. No longer blocked**; `0002` authorized by `D-112`. No executor identity column exists at all (TC4) | FR-05, FR-07 |
 | `TR-DM-03` | `publication_targets`, `publications` | Per-article, per-target status, retry count, `published_url`. **Append-only status EVENTS, never a mutable status column** (`D-114` 5c-3) — otherwise retry and partial-failure history is lost. **`publication_targets` rows are created EAGERLY at approval** (`D-114`, closing `C-12`): a target that was never attempted is then a row with **no events**, so non-performance is queryable rather than inferred from absence. **The seven values are `Pending` \| `Published` \| `Failed` \| `Scheduled` \| `Cancelled` \| `ManualReady` \| `MockPublished`** — from `v1-build-readiness-addendum.md` §231 and `blueprint.md` §500/§969, both **governing** documents. *(`G85` claimed they were "listed nowhere in the corpus" and was **WITHDRAWN** by `D-118`, raised as `B-042`: the search that opened it never covered `docs/source/`. **`MockPublished` never satisfies `Published`** — a mock target does not transition the article, and that rule is fixed, not configurable.)* | **Create — S1.** A single `publication_target` enum cannot represent "WordPress Published + LinkedIn ManualReady" (TC2) | FR-09, FR-10 |
-| `TR-DM-04` | `sources` | + `reliability_tier`, `ingestion_method`; unique on name | **Extend — S1.** Absence blocks T2's required fields and the trend-score tier weight (TC3) | FR-02 |
+| `TR-DM-04` | `sources` | + `reliability_tier`, `ingestion_method`; unique on name | **Extend — S1.** ~~Absence blocks T2's required fields and the trend-score tier weight (TC3)~~ **Corrected 2026-09-25 (`D-265`):** both columns exist in `0002` (lines 132–133, local replay only); schema presence is not T2 behaviour or a working score | FR-02 |
 | `TR-DM-05` | `topics` | + `evolves_from`, `evolution_notes`, `scope_boundary` | **Extend — S1.** Absence blocks editorial-priority lineage depth (TC3) | FR-01 |
 | `TR-DM-06` | `allowed_transitions` | from_state, to_state, gate_role, line | **Create — S1.** Backs the NFR-01 trigger; makes the sequence data-driven rather than hard-coded | FR-02, FR-06 |
+| `TR-DM-07` `[V1]` | **Working editorial-metadata package** *(logical; the physical entity and its name are Lane B's, `D-56`)* | Package identity, one per commission (`FN-GATES-01-05.md` §4.3 commission identity); version identity and a version number increasing by one; the version payload, which for version 1 is the `FR-01` entry set (source reference, exactly one subject topic, trend-signal description) plus source information; supplier and entry time as separate facts. **No workflow or publication state** | **Required — `V1-SM05` (`D-283`).** The logical contract is `FN-GATES-01-05.md` §4.5 (accepted `D-282`), and its parent is Choice A (`D-281`). **Append-only**: versions are never updated or deleted. Absent from `0001` and `0002`; `0002`'s `editorial_reports` is the frozen report, **not** this store. The physical store, its migration and the real-database proof are named in the `D-242` work order (Gate 2) | FR-01, FR-15 |
 
 #### Table classification — immutability and retention *(adopted `D-114`, closing `GA2` and `C-11`)*
 
@@ -654,6 +669,7 @@ and still be lawfully disposed of at end of life under policy.
 | `allowed_transitions` | **Effective-dated** | An audit must show which rules were in force *then*, not now (`PSK-09`) |
 | `articles` | **Mutable by design** | `revision_reason`, `return_count`, changing state. **This is *why* reports carry frozen snapshots rather than references** |
 | `topics`, `sources` | Mutable master data | Resolved values are **frozen into the report snapshot** — a renamed topic or re-tiered source must not silently rewrite historical reports |
+| **Working editorial-metadata package** (`TR-DM-07`) | **Append-only versions** | A change appends a new version, and earlier versions stay readable. It never carries state, and it is never the report (`FN-GATES-01-05.md` §4.5, Choice A `D-281`). Added `D-283` |
 
 **Enforcement:** `REVOKE UPDATE, DELETE` **and** a `BEFORE UPDATE OR DELETE` trigger. `REVOKE`
 is the declaration; the trigger is what survives a privileged session, since `REVOKE` does not bind
@@ -674,10 +690,38 @@ wording applied `D-135`).
 the word was used here and in `AC-12a` and defined nowhere)*. **Archival and disposal are both
 EXTERNAL to this system** — operations on the database substrate, not product behaviour. The
 application neither archives nor disposes; `DATA_RETENTION_ARCHIVE_DAYS` **describes an external
-archival boundary**, not a disposal date, and is **RATIFIED at 5 years** for rejected/unpublished
-editorial work (`D-134`, house-policy placeholder, amendable — `A6`). **Confirmed independent of
-the workflow's `REUSE-WINDOW-90`** (90 days) — not the same clock, `D-134` correcting `D-128`'s
-earlier guess.
+archival boundary**, not a disposal date, and is **RATIFIED at 90 days** (`A6`) as the first
+UI-visible operational/PDPA boundary *(corrected `[V1]` 2026-10-03, `D-404`, applying `D-381`; it read
+"5 years for rejected/unpublished editorial work" under `D-134`)*. At that boundary the application may
+consume a supplied external handoff or archive fact and remove the record from its current view. It
+never performs archival, disposal or deletion, and never infers them from elapsed time. Where the
+external record is a TAX/ACRA financial record, the external records system then applies the five-year
+rule, and a financial or legal retention duty prevents disposal at day 90. **The editorial UI shows no
+five-year value.** Other external retention follows its own record class in `RET-EDITORIAL`.
+**Confirmed independent of the workflow's `REUSE-WINDOW-90`** (also 90 days) — not the same clock,
+`D-134` correcting `D-128`'s earlier guess.
+
+> **Product intake receipt `[V1]`, 2026-10-01 (`D-374`, from `docs/handoff/B-106`).** This section, and `RK-05`
+> in §7.6, receive `B-106`'s configuration ratification as Product scope; the Judge classified it as Product. **No
+> value changes here.** The Chief Editor's 2026-09-15 act approved `DATA_RETENTION_ARCHIVE_DAYS = 90` (`A6`) and
+> `SCORING_REVIEW_THRESHOLD_ARTICLES = 50` (`A4`). The paragraph above still reads `A6` as ratified at 5 years
+> (`D-134`). `B-106` records a Judge clarification: 90 days is the first UI-visible operational boundary, and the
+> 5-year tax rule is an external, financial-record-only workflow. **That collision awaits a Register arbitration
+> act** after the reads `B-106` requires (`D-134`, `D-135`, `D-198`, `B-085`). Until then, the text above governs.
+> The runtime values in `lib/config/build-config.ts` sit on Lane B's surface (`D-56`). This receipt establishes
+> ownership; it does not clear `B-106` (`D-364` item 4).
+>
+> **Arbitrated `[V1]`, 2026-10-02 (`D-381`).** The Register now records the sequential model: 90 days is the first
+> UI-visible operational/PDPA boundary, where the record leaves the current view and is handed to the external
+> workflow (never deletion, never inferred from elapsed time); where the external record is a TAX/ACRA financial
+> record, the external system then applies five-year retention, and a financial or legal hold prevents disposal.
+> The editorial UI shows no five-year value. **The paragraph above and `AC-12a` are not yet rewritten**: that
+> literal correction is `B-106`'s remaining propagation. Until it lands, `D-381` governs where they conflict
+> (`D-58`).
+>
+> **Applied `[V1]`, 2026-10-03 (`D-404`).** The paragraph above and `AC-12a` now state `D-381`'s sequential model,
+> and `A6` is ratified at 90 days under that meaning. The sentence above saying they are not yet rewritten is kept as
+> history. Lane B verifies the applied diff (`B-106`); `B-106` is not closed by this application.
 
 **Rejected work archives; published work does not — and that is two regimes, not an inconsistency**
 *(resolved `D-115`)*. **GRC on retraction binds data while it is in the CURRENT set**, so:
@@ -753,7 +797,7 @@ rejected work (`D-134`) is its concrete v1 case.**
 | Aspect | Detail |
 |---|---|
 | **Platforms** | Web only, desktop-first. WordPress REST; LinkedIn manual until OAuth review; Facebook manual in v1 |
-| **Migration** | `0001_init.sql` is never edited. `0002_three_lines.sql` is additive: new state enum alongside the old, backfill, cut over, drop later. **Written but not applied under this plan** |
+| **Migration** | `0001_init.sql` is never edited. ~~`0002_three_lines.sql` is additive: new state enum alongside the old, backfill, cut over, drop later. **Written but not applied under this plan**~~ **Corrected 2026-09-25 (`D-265`):** no `0002_three_lines.sql` exists; the delivered candidate is `supabase/migrations/0002_s1_editorial_schema.sql`, replayed on disposable local PostgreSQL only; **not applied to hosted Supabase** (`D-252`; live behaviour unverified under `DEP-05`). It is allocated to `V1-SM05` |
 | **Backward compatibility** | Seed data must survive migration with corrected states. The seed rows encoding an agent-executed T5 are **corrected, not preserved** (X4) |
 | **Rollback** | Git revert plus a down-migration per `0002` step. **Untested — no staging environment exists** |
 
@@ -788,13 +832,14 @@ rejected work (`D-134`) is its concrete v1 case.**
 | TR-DM-04 | Data requirement | Represent article sources | CR-05 | Direct | S1 |
 | TR-DM-05 | Data requirement | Represent topic taxonomy | CR-04 | Direct | S1 |
 | TR-DM-06 | Data/integrity requirement | Represent the allowed sequential transitions | CR-10, CR-19 | Derived quality | S1 |
+| TR-DM-07 | Data requirement | Represent each commission's working editorial metadata as a versioned, append-only package, separate from state and from the report | CR-09 | Derived: Choice A (`D-281`), with the bounded contract at `FN-GATES` §4.5 (`D-282`) | `V1-SM05` |
 
 #### Product-scope gaps
 
 | Customer request | Missing or incomplete Product Scope | Classification |
 |---|---|---|
 | CR-06 | Trend-signal scoring is not computable on the current schema | Partial non-functional/data requirement — FB-06 |
-| CR-14 | No FR requires AI topic, source, and trend-signal tagging at the Reporter gate | **Missing functional requirement — FB-05** |
+| CR-14 | ~~No FR requires AI topic, source, and trend-signal tagging at the Reporter gate~~ **Corrected 2026-10-02 (`D-392`, `GR-004`):** covered by `FR-01` as the ratified manual-input contract (`D-194`/`D-197`); application-generated tagging and scoring is future `PBL-11`, not a V1 gap | **Covered — no Product-scope gap** (historical: Missing functional requirement — FB-05) |
 
 ### 7.2 Project Scope Matrix
 
@@ -821,11 +866,34 @@ rejected work (`D-134`) is its concrete v1 case.**
 
 > Data contracts `TR-DM-01…06` remain in Product Scope because the Customer Request explicitly names the tracked objects and workflow semantics. Writing and applying migration `0002` is Project Scope execution work; it does not move those data requirements out of Product Scope.
 
+### 7.2a Global Project-scope index — non-feature (`D-271`) `[V1]`
+
+**Added 2026-09-27.** Work that serves **every module** and has **no customer story**. It is not a Product feature: no
+`US-*`, `FR-*` or `AC-*`, no module, and **no Sprint column**, because it takes no Product sprint slot. It is still
+real, scheduled work: its sequence and gates live in `docs/v1/V1-BUILD-SPEC.md` §1 and attempt `SV-002`
+(`SETUP-SPIKE-000`). Behaviour: `docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md`.
+
+| Key | Concern | Governing decisions | Evidence path |
+|---|---|---|---|
+| `AIG-01` | Lane ownership, the commit lock, and request/response between lanes | `D-75`, `D-156`, `D-227`, `D-271` | `lane-state`, `lane-boundary`; `SV-002` §3.1 |
+| `AIG-02` | The handoff channel and its lifecycle | `D-90`, `D-184`; `B-097`, `B-113` | `handoff-response`, `terminal-return` |
+| `AIG-03` | What each AI tool actually loads, and silence diagnosis before removal | `D-266` items 2–3, `D-270`, `D-271` | `SV2-U02` (`SV2-DOD-03`) |
+| `AIG-04` | Code navigation: before a change or a review, a surface finds the definitions, call sites, tests, SQL objects and workflow dependencies that the change touches, within a declared scope. Each selected surface has a bounded task and an applicability rationale, recorded separately from tool availability *(amended `[V1]`, `D-433`)* | `D-266` item 7, `D-270`, `D-433` | `SV2-U03` (`SV2-DOD-04`); surface tables in `FN-MULTI-LANE-AI-GOVERNANCE.md` §4.4 |
+| `AIG-05` | Review levels and independent verification | `D-266` item 1, `D-102`, `D-183` | `closure-readiness`; `Verified-By` |
+| `AIG-06` | Rule-file size targets and the measured refactor | `D-266` items 2–4 | After the `SV2-U02` report; `shared-core-hash` |
+
+> **`AIG-04` need and limits** *(added `[V1]`, `D-433`)*. The need is a dependable answer to "what does this change
+> touch?" for each surface that changes code, reviews it, or runs it through a workflow. A tool name is not the need.
+> Lane ownership restricts writes. It does not prove that reading dependency code is unnecessary. Tool availability
+> is a separate, measured status. Navigation is separate from Graphify (which maps governed documents and some code
+> symbols, and is orientation, not proven caller completeness) and from the SQL fallback (migration logic that a code
+> parser may not read). Navigation proves how code is found. It never proves that product behaviour is correct.
+
 ### 7.3 Functional-to-Quality/Technical Cross-Reference
 
 | Functional requirement | Served or constrained by | Coverage |
 |---|---|---|
-| FR-01 | NFR-04, NFR-08, TR-DM-01, TR-DM-05, SHARED-01 | Covered |
+| FR-01 | NFR-04, NFR-08, TR-DM-01, TR-DM-05, TR-DM-07, SHARED-01 | Covered |
 | FR-02 | **NFR-01**, NFR-04, TR-DM-04, TR-DM-06 | Covered |
 | FR-03 | NFR-04, TR-DM-01 | Covered |
 | FR-04 ⚠ | NFR-03, SEC-01, NFR-04 | Covered — **pending OD1** |
@@ -979,6 +1047,10 @@ rejected work (`D-134`) is its concrete v1 case.**
 > credit`**, and the `SETUP-SPIKE-000` root is closed under `D-248`'s condition. Every residual keeps its one
 > `D-244` owner: the `D-171` held scope, or the V2-target backlog. The rows below keep their history and gain
 > a closure annotation only, with no relabelling. No DoD is credited, no V2 opens and no build is authorized.
+>
+> **Setup continues — 2026-09-25 (`D-264`), superseding the root closure above.** `SETUP-SPIKE-000` remains open as the
+> container for validation attempt `SV-002`, while `S2`–`S4` stay terminally deferred. `V1-SM05` is **`BLOCKED`** (a
+> packet status) until `SV-002` is accepted and the Judge lifts the block. No FR/AC/NFR changes and no tier opens.
 
 | Sprint | Theme | Objective | FRs | TRs / NFRs | ACs | Priority | Status |
 |---|---|---|---|---|---|---|---|
@@ -996,9 +1068,9 @@ rejected work (`D-134`) is its concrete v1 case.**
 |---|---|---|---|---|---|
 | `XF-01` | Governance | **Record A2's ratification in Addendum §2.4 — `Ratified?`, date, artifact** | Chief Editor | Not started | Q0 |
 | `XF-02` | Governance | Amend Blueprint §2.2/§7/D1 and Business Case §A2 off FastAPI | Chief Editor | Not started | XF-01 |
-| `XF-03` | Engineering | Amend `CLAUDE.md` — it directs agents to the plan pack as authoritative and carries a superseded git identity | Line 1 | Not started | — |
-| `XF-04` | Engineering | Stand up test runner and CI | Line 1 | Not started | — |
-| `XF-05` | Engineering | Write `0002_three_lines.sql`. **Do not apply** | Line 1 | Not started | XF-04 |
+| `XF-03` | Engineering | Amend `CLAUDE.md` — it directs agents to the plan pack as authoritative and carries a superseded git identity | Line 1 | ~~Not started~~ **Corrected 2026-09-25 (`D-265`):** **Done** — `CLAUDE.md` now opens with the plan-pack warning (`D5`) and pins the current git identity (Deploy & data) | — |
+| `XF-04` | Engineering | Stand up test runner and CI | Line 1 | ~~Not started~~ **Corrected 2026-09-25 (`D-265`):** **Done** — `bun test` runs `__tests__/`, and `.github/workflows/ci.yml` runs typecheck, lint, tests and `bun run check` (three checks SKIP in CI, `D-89`) | — |
+| `XF-05` | Engineering | ~~Write `0002_three_lines.sql`. **Do not apply**~~ **Corrected 2026-09-25 (`D-265`):** superseded — the delivered candidate is `0002_s1_editorial_schema.sql`, replayed on disposable local PostgreSQL only; **not applied to hosted Supabase** (`D-252`; live behaviour unverified under `DEP-05`) | Line 1 | ~~Not started~~ **Written** (hosted application follows `D-252`) | XF-04 |
 | `XF-06` | Governance | Answer Q1 and Q2, or state Line 3 is human/external for v1 | Chief Editor | **Done — Q1 answered Phase-0 (`D-163`), Q2 answered (`D-57`): Line 3 absent for v1** | — |
 | `XF-07` | Governance | Decide Q4 — G9 scope as the OD2 detector | Chief Editor | Not started | — |
 | `XF-08` | Engineering | Decide Q3 and Q5 — publish path, retry scheduler | Line 1 | Not started | — |
@@ -1020,7 +1092,7 @@ rejected work (`D-134`) is its concrete v1 case.**
 | `AC-02` | FR-01 | AT-004 | **The same submitter** already logged **the same brief** — matched on its **hash of key fields** (`G95`) — **today** | The same submitter attempts it again **on the same day** | **The POC surface refuses it and says why.** **The same brief on a different day is permitted**, and **trigger creation is never blocked** — the Chief Editor may always submit a brief manually to start the MVP flow *(re-keyed `D-121`; read *"a second log of URL X is rejected"* until 2026-08-25)* |
 | `AC-01b` `[decided_target_held]` (renumbered from `AC-01a` by `D-181`, correcting `D-180`/`B068-R54` — `AC-01a` is the existing Fn_Spec analytical-tag criterion, `G39`, `FN-GATES-01-05.md` §3.1; this row never shared that meaning, only the ID) | FR-01 | — | A route is entered | A Senior Journalist action emits the `EW`-start trigger | The trigger is logged and linked to the route/work order; it cannot itself advance or substitute for `T1`–`T4` (`FN-GATES-01-05.md` §11.1 owns the full behavior table this elaborates) |
 | `AC-02a` | FR-01 | — | The guard above | It is enforced | ⚠️ **At the SURFACE, not the database.** Until **S6** no API authentication exists and **executor identity is self-asserted** (`X7`, §6.2's Phase 0 note), so a submitter-keyed database constraint would build a control on a field this system calls a claim. **`TC5` inverts**: it records the *absence* of `articles_url_uidx` as the defect, and under `D-121` **the index is the defect**. Not rewritten — `TC5` is a journal entry recording what was true when found (`D-121`) |
-| `AC-03` | FR-02 | AT-010, AT-011 | An article is at `Logged` | The Investigator validates, then investigates | Two distinct transitions are recorded, each `not_applicable` for independence. **Blocked — `sources.reliability_tier` missing** (TC3) |
+| `AC-03` | FR-02 | AT-010, AT-011 | An article is at `Logged` | The Investigator validates, then investigates | Two distinct transitions are recorded, each `not_applicable` for independence. ~~**Blocked — `sources.reliability_tier` missing** (TC3)~~ **Corrected 2026-09-25 (`D-265`):** the column exists in `0002`; the acceptance case is **not yet run** |
 | `AC-04` | FR-03 | AT-012 | An article is at `Investigated` | A Journalist agent drafts | State becomes `Drafted` with a non-empty adaptation, ≥1 target, and a completed checklist |
 | `AC-05` ⚠ `[historical]` | FR-04 | AT-016 | An article is at `Drafted` | The Chief Editor executes T5 | State becomes `Reviewed`; the record shows `executor_type = human`, `line_assignment = Line2`, independence `satisfied`; any assisting agent appears only as `assisting_agent_id`. **Not build-authorized** (`D-171`) |
 | `AC-06` ⚠ `[historical]` | FR-04 | AT-016 | An article is at `Drafted` | **An agent attempts T5** | **The transition is refused.** Line 2 is human-primary. *This is the case the committed seed data currently violates* (X4). **Not build-authorized** (`D-171`) |
@@ -1036,7 +1108,7 @@ rejected work (`D-134`) is its concrete v1 case.**
 | `AC-10` | FR-06 | AT-014 | An article has been returned to the same state `RETURN_LIMIT_BEFORE_ESCALATION` times | A further return is attempted | It auto-escalates to the Chief Editor for a reject-or-keep decision |
 | `AC-11` | FR-07 | AT-040 | Any transition occurs | It completes | Exactly one transition row precedes the state change, carrying article, executor, type, Line, from, to, decision, reason, timestamp, independence status — **no nulls** |
 | `AC-12` | FR-07 | AT-041 | A transition row exists | UPDATE or DELETE is attempted, including with the anon key | The database refuses. **Fails today** (`G-06`) |
-| `AC-12a` | FR-07 | — | Records for a period are **missing from a view** — in v1 this is the **5-year archival of rejected/unpublished editorial work** (ruled `D-134`), which is external to this system (`D-115`) | The board or audit surface is opened for that period | It states that records **existed and are not shown here**, and names the governing policy and version, the period, and where they went — the fields are fully specified in `RET-EDITORIAL`'s *"Supplied absence fact"* section. **It never renders absence as "nothing happened"** (`G41`). *(Promoted from `FN-AUDIT-VISIBILITY-07-08` by `D-116`: it was a `[V1]` commitment made in a derived tier with **no creating decision** — `G89`, still open. Its **archived** limb is the v1 requirement; its **disposed** limb has a ruled policy (`D-134`) but no v1 disposal act. **Testable acceptance criterion — not yet built or tested; the ruling supplies its input, not its implementation.**)* |
+| `AC-12a` | FR-07 | — | Records for a period are **missing from a view** — in v1 this is an applicable record **leaving the current view at the `A6` 90-day boundary on a supplied external archive or handoff fact** (`D-381`, applied `D-404`; it read "the 5-year archival of rejected/unpublished editorial work", `D-134`), which is external to this system (`D-115`) | The board or audit surface is opened for that period | It states that records **existed and are not shown here**, and names the governing policy and version, the period, and where they went — the fields are fully specified in `RET-EDITORIAL`'s *"Supplied absence fact"* section. **It never renders absence as "nothing happened"** (`G41`). **Elapsed time alone never establishes archival or disposal:** with no valid supplied fact, the record stays in its last proved state, and missing or invalid external evidence is shown as not established. No five-year financial value is shown (`D-381`). *(Promoted from `FN-AUDIT-VISIBILITY-07-08` by `D-116`: it was a `[V1]` commitment made in a derived tier with **no creating decision** — `G89`, still open. Its **archived** limb is the v1 requirement; its **disposed** limb has a ruled policy (`D-134`) but no v1 disposal act. **Testable acceptance criterion — not yet built or tested; the ruling supplies its input, not its implementation.**)* |
 | `AC-13` | FR-08 | AT-050…AT-053 | `SUCCESS_ARTICLES_LOGGED_MIN` articles span states, topics, categories, and Lines | The Chief Editor filters on each dimension | Only matching articles show; a no-match filter shows an explicit empty state |
 | `AC-14` | FR-09 | AT-020 | An article is `Approved` with a WordPress target | The publication job runs | The post is created; `published_url` is stored; the target is `Published`; the article becomes `Published`. **V1 current scope (`D-243`):** WordPress automation is a V2 target; this criterion is outside V1. `[V1]` origin retained |
 | `AC-15` | FR-09 | AT-021, AT-023 | An article has WordPress and LinkedIn targets and WordPress succeeds while LinkedIn does not | The job completes | WordPress is `Published`, LinkedIn is `Failed` or `ManualReady`, **both statuses held simultaneously**, article `Published`. **Not representable today** (TC2). **V1 current scope (`D-243`):** outside V1 — only the LinkedIn `ManualReady` event is in scope. `[V1]` origin retained |

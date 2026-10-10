@@ -1,0 +1,48 @@
+{
+  "nodes": [
+    {
+      "id": "d271_global_project_scope_ai_governance",
+      "label": "D-271: global Project scope for AI governance (AIG-*); overall Project/Product tracker; request/response; D-270 item 4 amended",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e96",
+      "description": "Judge answers 2026-09-27 confirming Lane B's B-139 record. AI build tooling is global Project scope: no Product feature, module, US/FR/AC or sprint slot. Modular_PRD.md is the live overall Project/Product tracker (refines D-203; tracking is not owning), with a non-feature index at section 7.2a and the AIG- prefix in section 0.5, distinct from editorial PSK-*. Three control files: FN -> SPECS -> ux/UX for multi-lane AI governance. Requester and responder are distinct: Lane A coordinates, the owning lane responds; the lock governs writes to owned files, so read-only measurements need none. SV2-DOR-04 is checked on pre-run access proof; section 3.4 gains blind controls and an inconclusive outcome."
+    },
+    {
+      "id": "fn_multi_lane_ai_governance",
+      "label": "Fn_Specs: Multi-Lane AI Governance (AIG-01..AIG-06)",
+      "file_type": "document",
+      "source_file": "docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md",
+      "source_location": "whole document",
+      "description": "Platform-independent behaviour for the global Project-scope family AIG-01..AIG-06: lane request/response and the lock over owned files, the handoff channel (pointing to the SOP), instruction-loading measurement with silence diagnosis (dead, discovery failure, wrong owner, wrong tier; only dead permits removal), code navigation, review levels and independent verification, and the measured rule-file refactor. Requirements AIG-NN.Rn, governance checks AIG-NN.Cn with existing or planned mechanisms, and a D-30 SPECS candidate filter."
+    },
+    {
+      "id": "specs_multi_lane_ai_governance",
+      "label": "SPECS: Multi-Lane AI Governance (platforms, loader surfaces, measurement channels)",
+      "file_type": "document",
+      "source_file": "docs/specs/SPECS-MULTI-LANE-AI-GOVERNANCE.md",
+      "source_location": "whole document",
+      "description": "Selected-platform realization of the AIG family: Claude Code/Cowork, Codex/ChatGPT Chat-Work, Antigravity IDE/chat; rule and skill file sizes measured at 21170aa; loading claims each carry their own mark, with SV2-U02 complete (D-362); measurement channels per tool; request/response route per measurement run; section 6 records the code-navigation realization per surface selected by D-433 (git grep plus source reading)."
+    },
+    {
+      "id": "ux_multi_lane_ai_governance",
+      "label": "UX: Multi-Lane AI Governance (platform interaction)",
+      "file_type": "document",
+      "source_file": "docs/specs/ux/UX-MULTI-LANE-AI-GOVERNANCE.md",
+      "source_location": "whole document",
+      "description": "Platform interaction only: how a request reaches each surface and how work returns, the Judge as relay between surfaces, per-tool differences for fresh sessions, tool withholding and context readout during SV2-U02 probes, and review hand-offs. Links to the handoff template, SOP, rule files and Register rather than copying them. First file in docs/specs/ux/."
+    }
+  ],
+  "edges": [
+    { "source": "d271_global_project_scope_ai_governance", "target": "v1_decision_register", "relation": "part_of", "confidence": "EXTRACTED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "section 5.14e96", "weight": 1 },
+    { "source": "d271_global_project_scope_ai_governance", "target": "fn_multi_lane_ai_governance", "relation": "creates", "confidence": "EXTRACTED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "section 5.14e96 item 5", "weight": 1 },
+    { "source": "d271_global_project_scope_ai_governance", "target": "specs_multi_lane_ai_governance", "relation": "creates", "confidence": "EXTRACTED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "section 5.14e96 item 5", "weight": 1 },
+    { "source": "d271_global_project_scope_ai_governance", "target": "ux_multi_lane_ai_governance", "relation": "creates", "confidence": "EXTRACTED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "section 5.14e96 item 5", "weight": 1 },
+    { "source": "d271_global_project_scope_ai_governance", "target": "modular_prd", "relation": "updates", "confidence": "EXTRACTED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "section 5.14e96 items 2-4", "weight": 1 },
+    { "source": "d271_global_project_scope_ai_governance", "target": "attempt_sv002_setup_validation", "relation": "amends", "confidence": "EXTRACTED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "section 5.14e96 item 8", "weight": 1 },
+    { "source": "fn_multi_lane_ai_governance", "target": "modular_prd", "relation": "anchored_to", "confidence": "EXTRACTED", "source_file": "docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md", "source_location": "header Source", "weight": 1 },
+    { "source": "specs_multi_lane_ai_governance", "target": "fn_multi_lane_ai_governance", "relation": "specifies_implementation_of", "confidence": "EXTRACTED", "source_file": "docs/specs/SPECS-MULTI-LANE-AI-GOVERNANCE.md", "source_location": "header", "weight": 1 },
+    { "source": "ux_multi_lane_ai_governance", "target": "specs_multi_lane_ai_governance", "relation": "refines", "confidence": "EXTRACTED", "source_file": "docs/specs/ux/UX-MULTI-LANE-AI-GOVERNANCE.md", "source_location": "header", "weight": 1 },
+    { "source": "fn_multi_lane_ai_governance", "target": "attempt_sv002_setup_validation", "relation": "depends_on", "confidence": "EXTRACTED", "source_file": "docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md", "source_location": "section 7", "weight": 1 }
+  ]
+}

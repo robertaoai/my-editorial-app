@@ -8,8 +8,6 @@
       "source_file": "docs/handoff/B-060-gap-9-run-approval-not-applied.md",
       "source_location": "whole document",
       "description": "Lane B raised a recording gap after asserting the Judge had ruled it Active. The Chief Editor confirmed the approval was real but that Lane B itself declined the transition, since the Gap 9 packet was verification work rather than an application-code execution run. D-161 recorded both the approval and the decline, and assigned LB-S1-03 as a review-only turn held without the lock, following the exact LB-S0-02/B-022 precedent rather than inventing a new mechanism.",
-      "community": 8,
-      "community_name": "Decision Register",
       "source_url": null,
       "captured_at": null,
       "author": null,

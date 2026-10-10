@@ -277,6 +277,13 @@ assignment): `OP-PITCH`/`OP-DRAFT` have a decided, Route-1-scoped application-se
 SIGNOFF` has an **accepted** A-only execution contract (same §4.1). `OP-COPY-EDIT` is the one Sheet 2
 operation already `VERIFIED` and unaffected.
 
+**`[V1]` Dated current-state pointer, 2026-09-26 (`D-267`, from `docs/handoff/B-139` G2).** The `DOR-R1`–`DOR-R6`
+reference above is history. `D-259` added `DOR-R7` (the Jev System One readiness receipt), so `V1-SM05`'s pre-selection
+readiness is `DOR-R1`–`DOR-R7`, all checked (`D-259`–`D-261`). That completed handoff validation is now the Gate 1A
+attempt `SV-001` (`D-264`, `D-266`), not a feature DoR/DoD. `V1-SM05`'s normal/revision journey and data flow have one
+visual owner: storyboard Panel A11, accepted by `D-259`. Panel A10 keeps its stated scope, the `ManualReady` normal,
+refusal and replay sequence; it is not the whole `V1-SM06` journey.
+
 **Forward engineering:** a customer want becomes an objective, a story, a requirement, a sprint, a test.
 **Backward engineering:** a failing test resolves to a requirement, to a story, to a customer sentence with a verifiable hash — even years later, and even if nobody involved is still on the project.
 
@@ -293,7 +300,9 @@ namespace is split below into gate and non-gate rows — an earlier pass here gr
 | Namespace | Meaning | Source | Example |
 |---|---|---|---|
 | `business:T1`–`T5` | The Chief Editor's newsroom judgment stages — each selects a contextual role, which then executes that stage's applicable Sheet 2 operations (§6.1 above; `factory-route-operation-crosswalk.md` §4.1) | Chief Editor's own business narrative | `business:T1` = Reporter stage |
-| `transition:T1`–`T6`, `EG1`–`EG5` | Judgment gates — editorial state-changing transitions and their virtual-node executors | `FN-GATES-01-05.md`, `docs/specs/SPECS-TRANSITION-ENFORCEMENT.md` §3 | `transition:T5` = Independent review |
+| `transition:T1`–`T6` | **Held** technical editorial transitions (`D-171`), documented but not V1 scope. *(Split `D-414`, GR-010; until then one row read "`transition:T1`–`T6`, `EG1`–`EG5` — Judgment gates — editorial state-changing transitions and their virtual-node executors".)* | `FN-GATES-01-05.md` §1–§10, `docs/specs/SPECS-TRANSITION-ENFORCEMENT.md` §3 | `transition:T5` = Independent review |
+| `EG1`–`EG5` (§11 nodes) | `decided_target_held` logical nodes mapped to those held technical transitions (`D-171`/`D-179`) | `FN-GATES-01-05.md` §11 | `EG4` = the held `T5` node |
+| V1 `EG` task/evidence record | Records supplied `business:T1`–`T5` stage facts in `V1-SM05`; executes no transition (`D-249`/`D-260`) | `FN-GATES-01-05.md` §4.4–§4.6; `V1-SM05` | `SM05-N6` = the `business:T5` ranking record |
 | `transition:T7`–`T11` | Non-gate transition mechanics — wildcard sources (`T8`/`T9`), a dynamic target (`T8a`), a **non-state-changing** publication event (`T10`), and a conditional rule (`T11`); not all are judgment gates | `docs/specs/SPECS-TRANSITION-ENFORCEMENT.md` §3.1 | `transition:T10` = publication-status event, no state change |
 | `planning:T1` | An Alpha-Portfolio sprint-readiness item, unrelated to editorial gates | `docs/specs/SPECS-VERIFICATION-APPARATUS.md` | `planning:T1` = precondition for `S0` |
 

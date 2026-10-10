@@ -17,7 +17,7 @@ The knowledge graph at `.graphify/` has **two layers**, and only one of them is 
 | **Extracted** | `graphify` reading `docs/` | **Yes** — re-run extraction |
 | **Curated** | Hand-authored fragments merged in by script | **No** — extraction cannot infer them |
 
-The curated layer carries the concepts that exist **because a human decided something**, not because a document happened to say it: `D-39`–`D-50`, the `GA5` retention/erasure resolution, the two-tier lifecycle, the fork at publish, and communities 28 and 29.
+The curated layer carries the concepts that exist **because a human decided something**, not because a document happened to say it: `D-39`–`D-50`, the `GA5` retention/erasure resolution, the two-tier lifecycle and the fork at publish. They are held by stable node ids (`separation_of_duties_d39` … `not_newsworthy_outcome_d50` in `frag6.json`, `two_tier_lifecycle_d44`, `fork_at_publish_d47`, `ga5_retention_erasure_conflict`), never by a community number. *History, until `D-408`: this sentence ended "and communities 28 and 29". Community ids and names are graphify-derived and re-assigned on every re-cluster, so fragments no longer store them (`D-213`, `D-407`, `D-408`).*
 
 **`.graphify/` is gitignored.** Before this directory existed, the curated layer lived **only** in a session-scoped temp directory. It was one session expiry — or one `npm uninstall` — from being gone, with no error and no warning. That is `G51`.
 
@@ -80,7 +80,7 @@ Merge **in this order** — later fragments reference nodes earlier ones introdu
 | 5 | `v1-fragment.json` | V1 tracking, sprints, artifacts |
 | 6 | `frag5.json` | `Fn_Specs` tier, gates and publication |
 | 7 | `frag6.json` | `D-39`–`D-50`, lifecycle and compliance |
-| 8 | `frag7.json` | Tooling provenance, graph durability, `D-51`, community 30 |
+| 8 | `frag7.json` | Tooling provenance, graph durability, `D-51` *(history: "community 30" removed by `D-408`; communities are graphify-derived)* |
 | 9 | `frag8.json` | Step 0 index integrity — `G55`, `G56`, `G40` detail |
 | 10 | `frag9.json` | Step 1 — `D-52`, `G33b` resolved, the four `SPECS` documents |
 | 11 | `frag10.json` | `D-53` — `SPECS-TRANSITION-ENFORCEMENT`, `G57` |
@@ -119,13 +119,28 @@ The graph fell from roughly 1800 nodes to roughly 480 at the 2026-09-17 rebuild 
 unnoticed for days: `graph-coverage` reported a backlog and no check said why. The fast rebuild keeps
 code and handoff nodes; the docs nodes are gone, and **every curated fragment then fails `merge7.js`
 on a dangling edge** because its endpoints were those docs nodes. Do not re-author them. Replay them by
-id from the newest dated backup that still has them:
+id from the verified baseline copy. **`guarded-rebuild.mjs prepare` (`D-425`) performs this inside its disposable
+checkout:** a rebuild, then `restore-docs-layer.js` against its baseline copy's `graph.json`, then every mergeable
+fragment in dependency order (this section), each named. Never run these steps against the live state: the manual
+route is retired, with no fallback.
 
-```bash
-npx graphify hook-rebuild
-node docs/graph-fragments/restore-docs-layer.js .graphify/<date>/graph.json   # newest backup with the docs layer
-# then merge every mergeable fragment in dependency order (section 4), naming each one
-```
+**Retire stale generated code symbols AFTER the restore, before merging (`D-421`, order fixed by `D-422`).**
+`restore-docs-layer.js` restores every node whose source file is under `docs/` — including generated code in
+`docs/graph-fragments/*.js` — so a prune run before it is partly undone (`D-422` saw 11 stale `merge7.js`
+nodes return). Run the restore shown above first, then this step, then the fragment merges. `hook-rebuild` carries the existing
+`graph.json` forward, so a generated code node the current extraction no longer produces survives
+indefinitely: neither `graphify update --force` nor clearing `cache/` removes it, and a from-empty rebuild in
+place would drop the accumulated commit, handoff and docs layers with it. Make a from-empty extraction of the
+SAME commit in a disposable clone whose `origin` is the caller's, then retire by id.
+
+`prepare` does this in a second disposable clone. The clone carries the snapshot's `origin` and exact ref map,
+has no `.graphify` copied in, and runs with a sanitized environment. `prepare` then runs
+`prune-stale-symbols.js` against it, after the restore and before the merges, and refuses unless the persisted
+graph verifies.
+
+It retires only `file_type: code` nodes absent from the fresh extraction and not declared by any fragment,
+with their links, lists each one, refuses a fragment-declared code node, and refuses a fresh extraction of a
+different commit.
 
 `restore-docs-layer.js` copies only docs-source nodes, fragment endpoints and the links between them,
 overwrites nothing, and reports any endpoint found in neither place. The restored descriptions are the
@@ -161,10 +176,30 @@ Run all four. A merge is not done until each passes:
 
 1. `bun run check`'s `graph-coverage` — every doc that requires a node has one whose `source_file` equals its path (`D-246`). `node docs/graph-fragments/missing.js` remains as a reference report, but it only tests whether a **basename appears anywhere** in the graph and is not evidence that a document has a node of its own — the older wording of this step relied on it. One exclusion is expected and correct: `docs/.graphify/GRAPH_REPORT.md` is a graphify artifact, not a source doc.
 2. `graphify path "<new node>" "<existing node>"` — the new nodes are **connected**, not orphaned. This is the check that catches the `edges`/`links` trap.
-3. `graphify explain "<new concept>"` — resolves, with the right community and a non-zero degree.
+3. `graphify explain "<new concept>"` — resolves by its label, with a non-zero degree. Its community is graphify-derived and is not checked against the fragment (`D-408`; until then this step read "with the right community"). `explain` matches labels, not ids: an id lookup returning "no match" is a CLI limit, not a missing node (`D-406`).
 4. `graphify portable-check .graphify` — commit-safe artifacts carry repo-relative paths.
 
-**Back up `.graphify/graph.json` before merging.** Every merge in this project has been preceded by one.
+**Never merge into the live state directly (`D-425`).** Every merge happens inside `prepare`'s disposable
+checkout. The guarded `publish` keeps a verified backup beside the live state, and its outcome table (exit 0, 2,
+5, 6 or 7) says only what was verified.
+
+**Review provenance (G-F3-8, `D-426`).** The guard validates the review record's history, schema and candidate
+identity; it does not authenticate the reviewer. The publisher must use the exact review commit delivered
+independently by Lane B, never a commit containing the publisher's own draft acceptance. A Git author or message
+marker is not proof of independence. If provenance is absent or disputed, stop and raise the handoff. Governed
+edits after prepare require a fresh candidate and a fresh exact-byte review.
+
+**Community names: prove them applied (`D-410`).** After description/community update, compare the final saved
+graph's global community labels and every node's community_name against the intended names bound to complete
+current member sets. Answer JSON or a current tool state is not applied-name evidence. In the graphify 0.17.1
+cached-label case observed in D-409, update retained older names; the existing graphify label assistant
+emit/answer/ingest cycle applied the member-derived names. When needed, use that supported cycle, then
+independently compare complete member sets before/after, all intended global/node names, zero map
+contradictions/multi-name IDs, every fragment-owned node/edge field, completed semantic work and exact
+branch/analyzed revision. `prepare` re-merges after its destructive steps, and composition refuses fragment-field, name-binding and
+raw lifecycle mismatches; complete before/after member-set comparison stays part of Lane B's exact-hash review. On failure, keep the
+evidence and use `recover` or a new work folder. Publication requires Lane B's acceptance record for the exact bytes
+(`D-425`).
 
 ## 6. `G54` — closed, and what a swap would actually cost `[V1]`
 

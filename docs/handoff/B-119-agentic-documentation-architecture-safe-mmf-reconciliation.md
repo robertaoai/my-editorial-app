@@ -12,6 +12,7 @@
   stopped for independent review; the header stays `Open` under the weakest-child rule.
   **Statement C applied 2026-09-21** (last section, "Lane A answer — Judge statement C"): `D-247`–`D-251`
   returned for Lane B and Lane C review; still `Open`.
+- **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** attached Lane C analysis dated 2026-09-20; attached B-119 proposal; `D-29`, `D-34`,
   `D-75`, `D-84`, `D-87`, `D-100`, `D-159`, `D-227`, `D-232`, `D-240`; `B-061`, `B-071`,
   `B-114`, `B-115`; `package.json`; `scripts/check-consistency.mjs`; `scripts/checks/lane-boundary.mjs`;
@@ -5014,3 +5015,31 @@ committed blob, verified equal in byte length to `git cat-file -s`.
 
 These are historical record hashes for the completed receipts themselves; they do not stand in for `Executed-SHA256`,
 which the operator already recorded per SQL file inside each receipt.
+
+## Lane A current topic record — 2026-10-04 (B-154 P3c, for B-119's individual reason)
+
+Read at `17ee659`. Lane A, as receiver, records the **current** disposition of every topic B-119 carries. It uses the
+durable review aliases from this entry's own crosswalk, plus the later applied topics. This does **not** rewrite the
+2026-09-21 statement-A table or any historical answer. It is **not** whole-source verification, it does **not**
+complete the SM06 DoR, and it **does not** recreate the original direct Judge messages or SQL blobs. Lane B supplied
+the source pointers (`B-154`, `17ee659`); Lane A re-read the owning sources at this revision.
+
+| Topic (alias) | Owning source, re-read | Current disposition | Residual, receiver and evidence limit |
+|---|---|---|---|
+| `B119-AUTH`: Scrum/MMF, SAFe/Lean | `D-241` | **Applied.** `D-100` Scrum and the `D-232` MMFs stand; SAFe/Lean are explanatory analogies only | None. No new methodology, MMF adoption or lifecycle tier |
+| `B119-METHOD`: Intent/Build/DevOps | `B-114`, `B-115` (both **Verified**); `D-242`; `LANE-B-WORK-ORDER` §7; `V1-SM06` `SM06-P3-06` | **Resolved at source.** Lane B chooses the build method per child; the B→C signal/workflow belongs to `SM06-P3-06`, which "does not add a producer obligation to `V1-SM05`" | `SM06-P3-06` owns the later workflow proof. This is a current-contract read, not a re-check of the original Judge messages |
+| Setup/namespace transfer | Build Spec `D-244`, amended `D-248`/`D-258`/`D-264` | Setup evidence and V1 delivery namespaces are distinct. S2–S4 stay Deferred with no DoD credit. `SV-002` keeps the setup root open, and `V1-SM05` is `BLOCKED` | Existing setup/attempt/packet owners. `D-244`'s original intended closure is history, not current status |
+| ManualReady/URL (the three statement-A children) | `D-243`, `D-247`–`D-250`; `FN-PUBLICATION` §12; `V1-SM06` DoR | **Decided:** a LinkedIn target-level event, not an article state. `ROLE-SENIOR-JOURNALIST` is the sole requester (`D-250`), and `ACCESS-ROLE-CHIEF-EDITOR` stays distinct. Exact-snapshot behaviour is decided. No Published/WordPress/`FR-10`; CR-19 stays partial | The physical revision/scope identity, replay key and effective-current read are Lane B's mechanism, in the `V1-SM06` DoR before its work order. Not implemented. The statement-A "three open children" wording is history |
+| Hosted explanation, Encyclopedia Entry 04 | `docs/ENCYCLOPEDIA-SYNC.md` | **Deferred** to the `V1-SM06` Entry 04 DoR box: a hosted read plus a recorded comparison, or the Judge's explicit acceptance naming it | Lane A with the Judge. Reading the local ledger is not a hosted comparison |
+| `B119-GRAPH`: extraction and coverage | `D-246`; `governed-intent.mjs`; `D-412` release | **Resolved for its stated failure.** The coverage-only manifest is separate from drift inclusion, `graph-coverage` reports 0 absent, and the `D-412` snapshot is independently accepted. The crosswalk's "current sole consistency failure" is history | The graph is a version-bound navigation aid. A current graph is not semantic proof of every topic |
+| `D-251` assessment / A01 / A02 | B-119 accepted-artifact records; Inventory `D-255`; `V1-SM06` `SM06-P3-01` | The accepted assessment bytes and syntax proof are artifact evidence. A01 is a setup baseline only. The hosted `0002` migration and then A02 come after an accepted SM05 DoD and baseline promotion (`D-252` order) | `SM06-P3-01`. No SQL rerun, blob re-verification or production classification here |
+| `B119-CONTEXT`: derived system-context projection (original Parent 2) | This entry's crosswalk | **Unselected recommendation:** a conditional proposal, with no named consumer accepted | No execution obligation is admitted. A future proposal needs its own named consumer, generator, source validation, owner and authority. No new file, `GOV-RES` row or MMF gate |
+| `B119-CONTROLS`: SQL naming, typegen, PR authorization, actor-aware lane checks (original Parent 4) | This entry's crosswalk | **Unselected recommendations,** deferred as independent candidate units | Each would need its own owner, authority and positive/refusal fixtures. No control, dependency or check is selected |
+| `B119-HANDOFF`: recursive channel partition | `B-118` / `GOV-RES-001` `GR-006` | Cross-reference only; it is held as `B-118.RH1`–`RH3` custody | `GR-006`. Nothing moves |
+| `B119-MMF`: `V1-SM05` readiness/selection | `V1-SM05` packet; `SV-002` | Not selected; `BLOCKED` | Existing packet; Gate 2 acts are separate |
+| `B119-V2`: future boundary | `D-36`/`D-203`; living backlog | Deferred; V2 not opened | None here |
+
+**Census result:** every topic has a current owner and disposition. No discrepancy or unowned capability was found,
+and no new Product capability is implied. **Evidence limits, stated once:** the original direct Judge messages and
+SQL blobs were not recreated or compared; hosted Entry 04 was not read; no environment was measured. `B-119` stays
+Open.

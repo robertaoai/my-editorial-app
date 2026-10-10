@@ -62,6 +62,14 @@ tallies from four documents after they drifted; `bun run check` prints the total
 
 ## 4. Queued items
 
+**Receiving packet (`D-381`, 2026-10-02).** These items, with `C-001`/`B-016`'s `C-24` and `C-25`, are received by
+`V1-SM06` as `SM06-P3-02`–`05` — the first increment to carry Phase 3 CI work. Receipt is custody, not a work
+order: nothing below runs before a separately authorized Phase 3 work order and lane act. The existing `ci.yml`
+job is unchanged. The `D-230` Stage 2 workflow (§8's evidence contract, exercised for real) is `SM06-P3-06`
+(`D-382`). **Timing (`D-383`):** the existing CI keeps running on every push, but its result is not a `V1-SM05` DoD
+prerequisite; `V1-SM05` DoD is met by local validation. None of these items starts before `V1-SM06` entry, which
+requires a separately accepted baseline-promotion PR.
+
 ### `C-Q1` — `fetch-depth: 0`, so `source-sweep` runs in CI
 
 **Change:** add `with: fetch-depth: 0` to the `Checkout` step in `ci.yml`.
@@ -115,6 +123,12 @@ A Lane C item is done when:
 `blocked-on-decision` | `finding`, then stop. **The directory belongs to no lane**, so writing
 there is not a crossing. Lane A must acknowledge every open entry; `bun run check` fails on one
 left unread. **Acknowledging is not answering** — a queue is expected.
+
+> **Amended by `D-272`, 2026-09-27 (Judge).** Your `C-` entries are yours: commit them yourself, **whatever your lane
+> state**, by the one-entry procedure in `docs/handoff/README.md`. Name the answering lane in **`Receiver:`** —
+> **`Lane B`** by default (DevOps depends on the codebase, and §7 routes signal gaps there), **`Lane A`** when the
+> dependency sits on a Lane A surface (`scripts/`, `bun run check`, build config) or you are answering a Lane A request.
+> The receiver, not always Lane A, acknowledges and answers.
 
 **Never edit:** `docs/PRD.md`, `docs/source/project-charter-v1.md`,
 `supabase/migrations/0001_init.sql`. **Never put secrets in a workflow file** — use repository

@@ -39,8 +39,8 @@ it does not author them and does not edit this file.
 | `SUCCESS_ARTICLES_LOGGED_MIN` | 5 | Charter; Addendum §1; Blueprint §8; Business Case | — | No |
 | `SUCCESS_ARTICLES_PUBLISHED_MIN` | 2 | Same four | — | No |
 | `REVIEW_GATE_ROLE_COUNT` | 4 | Charter — "four review gates", review *roles* after the Reporter (`A4`) | — | No |
-| `PIPELINE_GATE_COUNT` | 6 | Addendum §3.1 `T1`–`T6` — executor *transitions* | — | No |
-| `PIPELINE_TRANSITION_COUNT_TO_PUBLISHED` | 7 | `T1`–`T7`, including the system publish step | — | No |
+| `PIPELINE_GATE_COUNT` | 6 | Addendum §3.1 `T1`–`T6` — the legacy symbol for the **held** `transition:T1`–`T6` members (`D-171`); it does not assert six V1 judgment gates (`D-414`) | — | No |
+| `PIPELINE_TRANSITION_COUNT_TO_PUBLISHED` | 7 | `T1`–`T7`, including the system publish step — a **held** publication-reaching target, not the bounded V1 outcome (`D-414`) | — | No |
 | `PIPELINE_ACTIVE_STATES` | ordered list of 8 | Addendum §4.1, minus the two side states | — | No |
 | `PIPELINE_SIDE_STATES` | `["Needs Revision", "Rejected"]` | Addendum §4.1 | — | No |
 | `BOARD_FILTER_DIMENSIONS` | `["state","topic","category","line_assignment"]` | Charter names the first three; Addendum, Blueprint and Business Case add Line | — | No |
@@ -50,15 +50,17 @@ it does not author them and does not edit this file.
 **`REVIEW_GATE_ROLE_COUNT` = 4 and `PIPELINE_GATE_COUNT` = 6 are not in conflict** — different
 granularity, roles versus transitions. This has been mistaken for a contradiction before.
 
+**Catalog meaning (`D-414`, GR-009).** `REVIEW_GATE_ROLE_COUNT` counts Charter review roles. `PIPELINE_GATE_COUNT` and `PIPELINE_TRANSITION_COUNT_TO_PUBLISHED` cite the held technical transition catalog; neither is a V1 completion criterion, and V1 `EG` task/evidence records are not counted as transitions. The values are unchanged; `D-171`'s alternative symbol names stay unadopted candidates. **Specified, not built:** a later Lane B unit derives a version-bound member set from one named catalog and fails when count, member identity, namespace or lifecycle changes — including an equal-total member swap.
+
 ## 2. Workflow and operational thresholds — §4.2
 
 | Variable | Value | Source | Ratified |
 |---|---|---|---|
 | `RETURN_LIMIT_BEFORE_ESCALATION` | 3 | Addendum §3.3 | Yes |
 | `PUBLISH_RETRY_MAX` | 3 | Addendum §7.2 | Yes |
-| `PUBLISH_RETRY_BACKOFF_MINUTES` | 5 | Addendum §7.2 | Yes — **but nothing fires it** (`TC7`: no scheduler; `Q5`) |
-| `DATA_RETENTION_ARCHIVE_DAYS` | 90 | `A6` | **No — unratified** |
-| `SCORING_REVIEW_THRESHOLD_ARTICLES` | 50 | `A4` | **No — unratified** |
+| `PUBLISH_RETRY_BACKOFF_MINUTES` | 5 | Addendum §7.2 | Yes — **but nothing fires it** (`TC7`: no scheduler; `Q5`). **Corrected 2026-09-25 (`D-265`):** `Q5` is decided — `pg_cron` invoking the publication Edge Function (`D-143`/`D-146`) — but no scheduler is built, so nothing fires it yet |
+| `DATA_RETENTION_ARCHIVE_DAYS` | 90 | `A6` | **Yes — ratified 2026-10-03 (`D-404`)**, in the propagation named below: `Modular_PRD.md`'s retention paragraph, `AC-12a` and the Business Case now carry `D-381`'s meaning. The value is unchanged; the runtime metadata in `lib/config/` is Lane B's surface and moves only under a bounded work order. *History:* **No — unratified.** Meaning arbitrated 2026-10-02 (`D-381`): 90 days is the first UI-visible operational/PDPA boundary (removal from the current view and external handoff, never deletion); five-year TAX/ACRA retention is a later external, financial-record-only workflow. This row becomes `Yes` only in the propagation that also corrects `Modular_PRD.md`'s retention paragraph, `AC-12a` and the Business Case (`B-106` lines 137, 145) |
+| `SCORING_REVIEW_THRESHOLD_ARTICLES` | 50 | `A4` | **Yes — review threshold approved** 2026-09-15 (Chief Editor presented-row act, `B-106`), received by `D-414`. Threshold only: the A4 weighted-sum formula and weights stay unratified. Runtime metadata waits for its Lane B unit. *History:* **No — unratified** |
 | `CHIEF_EDITOR_ABSENCE_DEGRADED_HOURS` | 48 | Addendum §6.4 — the boundary `S7` was corrected to | Yes |
 | `SLA_DWELL_HOURS` | Discovered 48 · Logged 24 · Validated 48 · Investigated 72 · Drafted 72 · Reviewed 48 · Approved 24 | Blueprint §6 | Yes |
 
@@ -90,7 +92,9 @@ stated in a sentence is not an authoritative row, and an abbreviated name is not
 **`TC3` blocks this section.** The scoring inputs do not exist in `0001_init.sql` —
 `sources.reliability_tier`, `articles.source_id`, `trend_signals.engagement_metrics`,
 `evidence_url`, `reviewer_confidence`, `topics.evolves_from` are all absent. These variables are
-**declarable now and not computable until `0002`.** Declaring them is not a claim that they work.
+**declarable now and** ~~**not computable until `0002`.**~~ *(superseded: `0002` is not sufficient — see the `D-265` note below)* Declaring them is not a claim that they work.
+
+**Corrected 2026-09-25 (`D-265`):** `0002_s1_editorial_schema.sql` adds five of these inputs — `sources.reliability_tier` (line 132), `articles.source_id` (94), `trend_signals.evidence_url`/`reviewer_confidence` (144–145) and `topics.evolves_from` (137) — replayed locally only (`D-252`). `trend_signals.engagement_metrics` is **still absent**, and **no scoring engine consumes `TREND_WEIGHTS`**, so the score is still not computable. The weights are unchanged.
 
 ## 4. OD-derived values — flagged, never literals — §4.4
 
@@ -100,7 +104,7 @@ what could change it. Ratification lands in `DECISION_LOG.md`, not here.
 | Variable | Phase 0 value | OD | Rule |
 |---|---|---|---|
 | `LINE2_EXECUTOR_TYPE` | `"human_primary"` | `OD1` | Provisional per Entry 007 |
-| `LINE2_MAY_EXECUTE_LINE1_GATES` | `true` — via `HumanOverride` only | `OD1` | Every use writes `event_type=HumanOverride` and `judgment_independence_status=override_not_four_eyes` |
+| `LINE2_MAY_EXECUTE_LINE1_GATES` | `true` — via `HumanOverride` only | `OD1` | Every use writes `event_type=HumanOverride` and `line_separation_status=override_not_four_eyes` (the stored column, renamed from `judgment_independence_status` by `D-111`; prose corrected by `D-265`) |
 | `FOUR_EYES_MODE` | `"line_separation"` | `OD2` | Provisional per Entry 007. **No valid replacement exists if `OD2` resolves negatively** — sprint plan §8 |
 | `JUDGMENT_INDEPENDENCE_STATUS_VALUES` | `["satisfied","not_applicable","override_not_four_eyes"]` | `OD2` | Addendum §4.1. `contingent_on_OD2` and `blocked` stay **retired**. **`G64`/`Q11` decided the shape and name** (`D-97`, `D-111` — stored column `line_separation_status`); `0002` is written and applied, no longer blocked *(corrected 2026-08-30, `D-161`/`B-061`)*. This config constant's own name is unchanged pending a separate symbol-rename pass |
 | `AGENT_HEADCOUNT` | **UNSET** | `OD3` | No number exists at any level. **Not defaulted, not rounded, not back-derived from "four review gates"** |
