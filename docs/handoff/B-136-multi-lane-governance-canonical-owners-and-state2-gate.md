@@ -2597,3 +2597,75 @@ publication, fetch or push. Handoff-only commit, so no sync.
 | Approve-with-conditions | U03 decision packet | Phase 1: Judge outcome act; under existing path, C-a or C-b |
 | Defer | Batch 1 and cycle 1; DOD-04/06; P15; GR-007 | Phase 1: after the outcome act; Gate 2 separately later |
 | Reject | Lane C's self-acceptance of applicability; one-step Gate 1B and Gate 2 clearance; a check count as a criterion; any governed edit before D-NNN | Phase 1 |
+
+## Lane A — Judge selected U03 existing path with C-a; C-a measurement request to Lane C, 2026-10-10
+
+### What happened
+
+**Judge selection (verbatim, in chat):** "Judge Approved: existing path with C-a". It refers to the decision packet in
+the entry above (`1bf7d90`). The selection is recorded here. It becomes a Register act (`D-433`) only in the governed
+batch below. Until then, no governed file changes.
+
+**Order, parents first.** C-a comes before batch 1 is frozen, because its result sets the Antigravity IDE row of
+FN §4.4 Table B and SPECS §6.2. This also keeps the drift interval short: the Register commit opens it, and guarded
+cycle 1 closes it.
+1. **C-a measurement** — Lane C, read-only, this request.
+2. **C-a review** — Lane B, Level 1 for Lane C work (`D-324`).
+3. **Governed batch 1** — Lane A records `D-433` (Register, Build Spec, Inventory, with the cycle-1 receipt route),
+   then applies DOC-1–4 and the current records from revision 3. Only the Lane C rows and the Lane C return condition
+   change. The act is committed before prepare.
+4. **Guarded cycle 1** — prepare → Lane B candidate acceptance → the Judge's publication authority → publish → health.
+5. DOD-01/02 refresh → the Judge's DOD-06 assessment → batch 2 and cycle 2. Gate 2 stays separate.
+
+**Frozen C-a procedure.** Script: `C:/CoWork/outputs/lane-a-u03-ca-plan-2026-10-10/capture-ca.mjs`, 4,829 bytes,
+SHA-256 `0001d3fac829656f274b504ebcf66f14a38ae712d67d151ef9911ce0686cc900`. It runs each `git` call with no shell,
+so PowerShell cannot re-encode the output. It writes nothing inside the repository. It records the git path, hash
+and version, HEAD, input stability since `156ebac`, the required-root scope check (r3 `AIG-04.R4`), the exit code,
+the stdout bytes and hash, the stderr bytes, the r3 classification, and `git status --porcelain` before and after.
+
+**Lane A baseline** (same script, at `1bf7d90`; git 2.54.0, SHA-256 `cab4c4ee…`; inputs unchanged since `156ebac`;
+status equal before and after):
+
+| Probe | Required roots (files) | Exit | stdout bytes | stdout SHA-256 | Class |
+|---|---|---|---|---|---|
+| task: `git grep -n -w requireConfigured -- lib app __tests__` | lib 5, app 4, `__tests__` 3 | 0 | 221 | `f6ade0b46f8c…` | success |
+| negative: `SV2_U03_NO_SUCH_SYMBOL_57da611`, same roots | same | 1 | 0 | `e3b0c44298fc…` | no-match |
+| SQL: `git grep -n -i enforce_article_state_transition -- supabase/migrations` | migrations 2 | 0 | 223 | `31b59a1b2617…` | success |
+| wfRuns: `git grep -n -E "bun run [a-z]+" -- .github/workflows` | workflows 1 | 0 | 168 | `f1f0f874bfad…` | success (3 lines: typecheck, lint, check) |
+| wfDefs: `git grep -n -E "\"(typecheck\|lint\|check)\":" -- package.json` | package.json 1 | 0 | 155 | `477e2ccba1a9…` | success (3 definitions) |
+| wfEntry: `git ls-files -- scripts/check-consistency.mjs` | scripts 32 | 0 | 30 | `09456e1c9174…` | success (entry point exists) |
+
+The three `wf*` probes are Lane C's own Table A task in its smallest form: a workflow, the package scripts it runs,
+their definitions, and the script file.
+
+### What you need
+
+**Lane C — the C-a measurement (Judge authority above; read-only; no lock needed under `AIG-01.R2`):**
+
+| Part | Content |
+|---|---|
+| Authority | Judge selection "existing path with C-a" (this entry). No install, no configuration change, no repository write |
+| Prerequisites | Read the script before you run it and confirm its hash. Use the Antigravity IDE terminal on the checkout `C:\robertaoai\my-editorial-app` at the current HEAD |
+| Command | `node C:/CoWork/outputs/lane-a-u03-ca-plan-2026-10-10/capture-ca.mjs C:/CoWork/outputs/lane-c-u03-ca-2026-10-10` |
+| Pass (route available on the IDE) | All six probes pass the scope check. task, SQL and the three `wf*` probes are *success*, negative is *no-match*, all stderr is empty, and status is equal before and after. Byte and hash equality with the Lane A baseline is comparison evidence. Explain any difference; do not hide it |
+| Refusal (recorded as a finding, not a route) | Any *incomplete scope*, *error*, unexpected class, changed inputs, or a status difference. Stop at the first refusal. Do not retry with other options |
+| Return | Commit a Lane C receipt (or relay it) with the `ca-record.json` SHA-256, the summary output, the surface name (IDE) and the git path. Retain the out-dir |
+| Sync cost | None. Handoff-only |
+| Stop point | The receipt. Lane C does not edit Table B or any governed file |
+
+**Lane B:** after the receipt, carry out the Level 1 review of the C-a result against this frozen procedure.
+
+**Judge:** nothing now. Your next decision point is publication authority in guarded cycle 1.
+
+### What you did instead
+
+Froze the C-a procedure and ran it on Lane A for the baseline (read-only; evidence in
+`C:/CoWork/outputs/lane-a-u03-ca-plan-2026-10-10/lane-a-baseline/`). No governed edit, Register act, install, graph
+mutation, publication, fetch or push. Handoff-only commit, so no sync.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Judge selection recorded; the order C-a → review → `D-433` with batch 1 → cycle 1; frozen C-a procedure and Lane A baseline | Phase 1: none |
+| Approve-with-conditions | C-a on the Antigravity IDE | Phase 1: Lane C receipt, then Lane B Level 1 review |
+| Defer | `D-433` Register act and batch 1; guarded cycle 1; DOD-01/02 refresh; DOD-06; P15; GR-007 | Phase 1: after the C-a review; Gate 2 separately later |
+| Reject | A governed edit before C-a and `D-433`; Lane A's baseline counted as Lane C evidence; a refused probe retried until it passes | Phase 1 |
