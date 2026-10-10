@@ -2783,3 +2783,70 @@ authorized guarded cycle.
 | Approve-with-conditions | Lane A recording/application handoff | Phase 1: receive acceptance, normalize the relay, record D-433 and the exact batch/receipt route before prepare |
 | Defer | Candidate acceptance/publication, DOD-06, batch 2/cycle 2, P15 and GR-007 | Phase 1: stated S2 order; Gate 2 and push separately |
 | Reject | Stale C-a rerun instructions; automatic rollback claims; navigation evidence treated as CI/product proof; omitted second cycle; combined Gate 1B/Gate 2 activation | Phase 1: use the consolidated order above |
+
+## Lane A — C-a receipt and Lane B acceptance received; D-433 recording and batch 1 follow, 2026-10-10
+
+### What happened
+
+**Lane C C-a receipt (as received).** The Judge relayed Lane C's receipt in chat
+(`C:/CoWork/outputs/lane-b-b-136/c_a_b-136.txt`). Lane C ran the frozen script in the Antigravity IDE terminal at
+`7d9ae68`. Record: `C:/CoWork/outputs/lane-c-u03-ca-2026-10-10/ca-record.json`, 4,034 bytes, SHA-256
+`6f0e9050a588389803484bf03c0c947ab4814805af6c5685e50d0c8454d35e42`. Lane A checked that hash. Lane A also compared
+all six stdout files with its own baseline: each is byte-identical.
+
+**Lane B Level 1 acceptance received** (`f9af4d6`). Lane B accepts C-a within the frozen procedure and the reported
+IDE session. Its scope is bounded navigation and entry-existence evidence. It is not CI execution, complete
+dependency coverage or Ripwire integration. Lane B also retains a different git executable path and hash on Lane C
+(`cmd/git.exe`), with the same Git version.
+
+**Relay corrections accepted (Lane B `f9af4d6`).** Lane C's planning summaries are not adopted where they:
+- still schedule C-a;
+- omit batch 2 and cycle 2;
+- combine Gate 1B with the `V1-SM05` unblock and Lane B activation;
+- claim an automatic rejection and rollback;
+- fix a future criterion at a check count;
+- name `V1-INVENTORY.md` instead of `V1-ARTIFACT-INVENTORY.md`.
+
+The full conditional S2 order stands: batch 1 → cycle 1 → DOD-01/02 refresh → the Judge's DOD-06 assessment →
+batch 2 (SV-002 acceptance, P15 and GR-007 records) → cycle 2. Gate 2, the work order, lane activation and push
+stay separate.
+
+**Application text, frozen.** Batch 1 applies revision 3 (`a41e060d…`), with only these selection deltas:
+1. **FN §4.4 Table A** becomes *accepted* (`D-433`). The Antigravity IDE input access cites Lane C's confirmation
+   (`1bf7d90`). Its return condition is Lane C's wording.
+2. **Table B and SPECS §6.2** give the IDE `git grep` 2.54.0 as **available (measured)**, bounded to the frozen C-a
+   probes and the reported session (`7d9ae68` record; Lane B `f9af4d6`). The "any: unknown" row is removed.
+3. **SPECS §6.1** adds the C-a facts.
+4. A line stating the selection is added. Provision and waive text stays as the recorded rules, marked
+   *not selected*.
+
+DOC-1–4 are otherwise byte-for-byte revision 3, apart from the `D-NNN` → `D-433` substitution.
+
+### DOC tracker
+
+| Row | State |
+|---|---|
+| DOC-1–5 | Accepted draft r3 (Lane B `63a7ecf`); selection deltas above; to be applied by `D-433` batch 1 |
+| DOC-6 | Complete; C-a measured (Lane C) and accepted (Lane B `f9af4d6`) |
+
+### What you need
+
+**Lane A (next, in this session):** record `D-433` (Register, Build Spec, `V1-ARTIFACT-INVENTORY.md`, cycle-1 receipt
+route) as its own commit. Then apply batch 1 as a separate commit, and prepare one guarded candidate from the final
+source. `docs-drift` is the only failure permitted between the recording and publication (`D-428`).
+
+**Lane B:** after the candidate is ready, carry out the exact-byte and semantic review of the candidate and of the
+batch 1 diff against this frozen text.
+
+**Judge:** publication authority after Lane B's candidate review.
+
+### What you did instead
+
+Received the receipts and checked the hashes. No governed edit in this commit. No push or fetch.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | C-a receipt and Lane B acceptance; relay corrections; frozen application text | Phase 1: none |
+| Approve-with-conditions | `D-433` and batch 1 | Phase 1: own commits, then Lane B candidate review |
+| Defer | Publication; DOD-01/02 refresh; DOD-06; batch 2 and cycle 2; P15; GR-007 | Phase 1: S2 order; Gate 2 and push separately |
+| Reject | Lane C's combined Gate 1B/Gate 2 step; automatic rollback claims; a count as a criterion | Phase 1 |
