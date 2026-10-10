@@ -1419,3 +1419,70 @@ Plan text only. No download, trial, configuration change, governed edit, publica
 | Approve-with-conditions | Corrected U03 plan | Phase 1: Lane B's bounded review |
 | Defer | Trial; U03 outcome; batches and cycles; DOD-06; GR-007 | Phase 1: in S2 order, each under its own authority |
 | Reject | An error or inconclusive result passing the negative control; cleanup claimed beyond checked locations; S1 without its prerequisite test | Phase 1 |
+
+
+## Lane B — Bounded acceptance of P1–P3 at f9af228, 2026-10-10
+
+### What happened
+
+Read revision: `f9af2282a84da2eed7c59725cdbb795dc86c0c31`. The commit adds 64 lines to B-136 only.
+Earlier content is byte-for-byte preserved. This review covers the P1–P3 correction from `bc4f0dc`, not a new
+trial or a fresh review of settled units. The Judge's direct instruction carries existing approvals forward and
+excludes trial execution, build, push and Gate 2 closure.
+
+**Result: P1–P3 are accepted as preparation. No further preparation fix is required within this bounded review.**
+
+| Finding | Independent assessment | Result |
+|---|---|---|
+| P1 — Result classification | The baseline and candidate rules are separate. Candidate rules are sourced and frozen before task execution; unknown rules are classified explicitly. Complete MCP results are retained. Transport/protocol errors, error results and timeouts cannot pass as empty. Unsupported content is inconclusive. The negative control needs a supported success/no-match classification. | Accepted |
+| P2 — Cleanup proof | The plan identifies and records trial-owned storage and consumer configurations. Before/after evidence is required; pre-existing files are protected. Unaccounted locations produce an incomplete-cleanup result. The claim is limited to checked locations, and retained evidence survives cleanup. | Accepted |
+| P3 — Cycle choice | S2 is the plan. DOD-01/02 are refreshed after cycle 1. S1 requires an exact-revision prerequisite map for DOD-01–05 and an explicit account of ordering, health and sync cost. Each future Judge option includes authority, prerequisites, affected artifacts, success/refusal checks, sync cost and stop point. | Accepted |
+
+The raw 221-byte baseline, semantic sets, input-freeze rule, no-trimming rule, discovery stop, no-overwrite rule,
+evidence retention and R6 receipt-route requirement are unchanged. Their earlier reviews stand. There is no
+candidate-tool result yet, so no tool success or failure is established and no criterion is relaxed.
+
+### What you need
+
+**Parent-first tracking:**
+
+| Item | State after this review | Completion requirement |
+|---|---|---|
+| Gate 2 / V1-SM05-FV-001 | Outside this unit | Separate later authority and evidence |
+| Gate 1B / SV-002 / B-136 P15 | Open | Exact-revision evidence for DOD-01/02/04, then the Judge's DOD-06 assessment |
+| U03 preparation packet | Independently accepted | Complete within this preparation scope; no further review loop on unchanged text |
+| U03 trial and outcome | Not run | Later trial instruction; actual task/control, consumer and cleanup evidence; recorded Judge outcome |
+| GR-007 | Assessed; incomplete | P15 clearance, then the final conclusion |
+| D-431/D-432 and the Verified B-050/B-077/B-150/B-153/B-154 units | Complete within their recorded scopes | Preserve those limits; no reopening here |
+
+**Lane A follow-up:** receive this acceptance as a routine handoff receipt under the existing preparation approval.
+Keep the frozen packet. Do not request approval again for P1–P3 or repeat this review without a changed input.
+Stop before download or execution. The explicit no-trial instruction controls this stop point.
+
+After a later trial instruction, use the approved discovery, classification and cleanup plan. Retain the critical
+artifacts: raw task/control outputs, complete consumer results, the measurements and cleanup proof. Present the
+Judge's provision / existing-path / waive options with their evidence and the six-part impact statement. No option
+by itself supplies DOD-06 acceptance or a Gate 2 work order.
+
+Keep the S2 dependency order: outcome and §5 corrections → guarded cycle 1 → refreshed DOD-01/02 index → Judge
+DOD-06 assessment → acceptance/P15/GR-007 records → guarded cycle 2. Each future cycle's act must name its receipt
+route before prepare; D-432's ended exception is not reused. No trial or future cycle is started by this review.
+
+**Chief Editor boundary:** Lane B raises and independently reviews; Lane A answers and retains the plan. The Judge
+chooses execution scope, any criterion change, the outcome and later acceptance. No new Lane C result is supplied;
+its future consumer result must be recorded as observed, including unavailable access or an inconclusive result.
+
+### What you did instead
+
+Compared the corrected sections with the recorded findings and governed criteria, queried Graphify, and appended
+this Lane B acceptance. The full consistency-check log is retained in
+`C:/CoWork/outputs/lane-b-p15-u03-p1-p3-review-2026-10-10/`. No header, Resolution, DoD checkbox or tracker row changed.
+No binary download, trial, configuration change, governed edit, graph mutation, build, fetch or push. This review
+is handoff-only and requires no graph sync; the later governed batches retain their guarded-cycle obligations.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | P1–P3 and the corrected P15 index/U03 preparation packet | Phase 1 preparation: independent review complete at f9af228 |
+| Approve-with-conditions | Future use of the plan | Phase 1 execution: later trial instruction, unchanged inputs or the recorded re-capture/review procedure; actual evidence required |
+| Defer | Trial, U03 outcome, governed batches/cycles, DOD-06/P15 acceptance and GR-007 conclusion | Phase 1: their recorded evidence and authority, in S2 dependency order |
+| Reject | Repeated approval requests for completed P1–P3; plan review treated as trial authority, measured success or closure | Phase 1: carry forward existing approvals and honor the current no-trial stop |
