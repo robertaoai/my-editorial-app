@@ -7315,3 +7315,11 @@ No canonical source, candidate, live graph, trial, application build, fetch or p
 | Approve-with-conditions | Publication and separate health | Phase 1: Judge publication authority; unchanged work/source/baseline; Lane A release and health record |
 | Defer | DOD-01/02 refresh, DOD-04/06 assessment, batch 2/cycle 2, P15 and GR-007 | Phase 1: stated dependency order and own acts; Gate 2/push separately |
 | Reject | Literal r3 byte-identity overclaim; raw rebuild; unapproved publication; current graph treated as acceptance | Phase 1: preserve explicit scope and evidence limits |
+
+## Terminal annotation record
+
+- **Current-Resolution:** Verified
+- **Annotation-Type:** verification-evidence
+- **Annotation-Act:** D-433 item 6, cycle 1 only. This immediately following record-only commit covers Lane B receipt 2 at 931deb97b56bdcca2f197c39b9d2388039fca498 for work d5ba3505-9983-4f54-9d53-fd1cfc43daad, graph c7ce4f5f7532f37aa13d7bed52d6eb9a96416b5a3f46199ec6d4f0bc5434bd91, manifest 98eb002a70bc1de394c463a4f1ac9d3700a7308a3000d3cd3332eb89ccef2e82, analyzed source a2fbb3578e74f21bdd8628779d39e472ab0128d5. The guard reads that complete acceptance successfully. B-050 stays Verified; its header and Lane A answer are unchanged. Full checks are retained; normal hooks are not bypassed. Only terminal-return and docs-drift may fail between these two commits; this covering annotation ends the terminal-return interval. Publication still needs the Judge’s authority, followed by separate Lane A health evidence in B-136. No push, P15/Gate acceptance, native setup or general check-failure precedent is included.
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** 931deb97b56bdcca2f197c39b9d2388039fca498
