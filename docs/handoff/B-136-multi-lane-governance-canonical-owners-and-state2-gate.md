@@ -918,3 +918,140 @@ selection for `SV2-DOD-04`, then `-06`, the GR-007 conclusion and Gate 2. No pus
 | Approve | Publication of `4bf7864a…` and health 19/19 | Phase 1: none |
 | Defer | P15, `SV2-U03`, GR-007 conclusion, Gate 2; push | Phase 1: evidence and Judge acts, in order |
 | Reject | Treating graph currency as P15, GR-007 or Gate 2 acceptance | Phase 1 |
+
+## Lane A — P15 evidence index (DOD-01/02) and frozen `SV2-U03` trial plan, for Lane B review, 2026-10-10
+
+### Authority and scope
+
+- **Receipt.** Lane B reports that the Judge approved recording, the P15 index update and trial-plan preparation. The
+  Judge forwarded that review to Lane A on 2026-10-10 with "continue to completion". Lane A has no other text of the
+  Judge's words; Lane B's review is the source.
+- **Existing acts cover this unit.** No new Register act is needed, so no governed file changes and no drift follows.
+  The acts are: `D-418` (the DOD-01/02 index is directed), `D-266` / `SV-002` §3.2 (one isolated trial after DoR
+  closes; all six DoR rows are checked), and `D-431` item 6 (P15 and GR-007 to be assessed).
+- **Stop point.** This unit stops at this packet and Lane B's review. No download, trial, DoD checkoff, publication
+  or push.
+- **Term correction.** `SV-002` is **Gate 1B**. Gate 2 is `V1-SM05-FV-001` (`SV-002` §1; Build Spec `D-266`).
+  Earlier Lane A entries in this file wrote "Gate 2 / SV-002"; they stay as history, and this term replaces them.
+
+### Answers to F1–F6
+
+| Finding | Answer |
+|---|---|
+| F1 Approval requested again | Accepted. The receipt above replaces the request. |
+| F2 Preparation mixed with execution | Accepted. Execution is a later step under §3.2 (see "Execution step"). |
+| F3 Task not fully specified | Accepted. Frozen below: revision, roots, commands, expected set, output rules. |
+| F4 Output limits incomplete | Accepted. Both limits apply: bytes ≤ the baseline's bytes **and** characters ≤ 12,000. |
+| F5 One sync promised before sequencing | Accepted. The governed edits and two sequences are listed below. |
+| F6 Push in the question list | Accepted. Removed. The 10 commits after `9df66a5` stay unpushed and outside this unit. |
+
+### P15 evidence index at `57da611`
+
+**`SV2-DOD-01` — Governance applied.**
+
+| Criterion | Evidence | State |
+|---|---|---|
+| `SV2-U01` committed | `10ec465` (`D-264`) | Proven |
+| Checks pass | 19/19 at `57da611` (`lane-a-d432-2026-10-10/12-check-after-record.log`) | Proven |
+| Graph current | Live graph `4bf7864a…`, analyzed `1940af8`; `docs-drift` synced, with handoff-only commits after it | Proven |
+| Independent review | Lane B `7faf618` ("review U01 status and correct P15 acceptance planning") | **Lane B to confirm** that `7faf618` is the review `SV2-DOR-01` waits for |
+
+**`SV2-DOD-02` — Coverage, item drift and success drift.**
+
+| Part | Row | Evidence | State |
+|---|---|---|---|
+| Scopes (§2) | All six scopes indexed with exclusions | §2; `B-139` | Proven |
+| Ledger (§4) | Setup closure rule | `SV2-U01` (DOD-01 above) | Proven, subject to the DOD-01 review row |
+| | Loader characterization | `SV2-DOD-03` (`D-362`) | Proven |
+| | Code-navigation tool | `SV2-U03` | **Missing proof**: trial not run |
+| | `B-071`/`B-095`/`B-104` children; `B-118` decided scope; `B-118.RH1`–`.RH4`; `B-096` children | §3.3 classified; `SV2-DOD-05` (`D-289`) | Proven |
+| | `0002` state instructions (`B-137` R1) | `D-265` correction, independently reviewed (`D-289`) | Proven for Gate 1B. **Retained**: Lane B's first-work-order-child confirmation; owner Lane B; return at the `D-242` work order (Gate 2, §2.2 `P13`) |
+| | Lane A-resolved entries (§2.3) | Tracker current at `9df66a5` (`D-431`); every row closed except `B-136 (P15)` | **Retained**: this row clears at `SV2-DOD-06` |
+| Dimensions (§5) | All six have a comparison class | §5 (`D-423`) | Proven |
+| | Satisfaction cells that are now stale | "six non-SM05 rows open" (now one); "B-050 unresolved" (now Verified, `8885bd1`) | **Governed edit owed** (see below) |
+
+**Result.** DOD-01 is proven, subject to Lane B's confirmation of `7faf618`. DOD-02 has one missing proof
+(`SV2-U03`) and two retained rows with owners and return points. DOD-03 and DOD-05 are reused as accepted.
+
+### Frozen `SV2-U03` trial plan
+
+| Item | Frozen value |
+|---|---|
+| Revision | `57da611de180bdaf0fc26a15043ec0e2a6234699` (the trial re-reads at its own HEAD and records any change) |
+| Candidate | `redhat-et/ripwire` `v0.6.3`, `ripwire-0.6.3-windows-x64.zip`, 8,833,900 bytes, SHA-256 `6e61f1563b3d0048497abdafc5735e9bedeff01e6c9f0ff33f5a5e795d227598` (§3.2). A mismatch means no extraction |
+| Baseline tool | **Finding:** `rg` is not on Lane A's `PATH`. The baseline uses the already-installed ripgrep 13.0.0 by full path (Antigravity IDE bundle, `rg.exe` SHA-256 `44e4afc22ff2292438d4c5812366f6444803db453f80cd0734e3e837f1519bba`). It is cross-checked by `git grep` at the revision. Nothing is installed and `PATH` is not changed |
+| Search roots | `lib`, `app`, `__tests__`. `components` does not exist: naming it makes ripgrep exit 2, which is not a clean baseline |
+| Named task | Find `requireConfigured`: its definition, callers and tests. Command: `rg -n --no-heading -w requireConfigured lib app __tests__` |
+| Expected set | 3 text matches: **1 definition** `lib/config/build-config.ts:380`; **1 import** `__tests__/build-config.test.ts:10`; **1 call** `__tests__/build-config.test.ts:46`. That is one caller (a test), not three |
+| Baseline output | 224 bytes, 224 characters, SHA-256 `676725fb…` (`rg-task.txt`) |
+| Negative control | `SV2_U03_NO_SUCH_SYMBOL_57da611` over the same roots: empty, exit 1. The candidate must return nothing |
+| SQL fallback | Find `enforce_article_state_transition` and its trigger binding: `rg -n -i enforce_article_state_transition supabase/migrations` gives the definition `0002_s1_editorial_schema.sql:311` and the binding `:411` (trigger `articles_enforce_state_transition`, line 409). 225 bytes, SHA-256 `7c5b0862…` |
+| Pass criteria (§3.4) | (1) Same matches, classified the same, no false result. (2) Empty negative control. (3) Bytes ≤ 224 **and** characters ≤ 12,000. (4) The SQL fallback answers the SQL part |
+| Stated risk | The byte limit equals a 224-byte baseline. A tool that adds context or signatures will likely exceed it. Lane A does not change the criterion; only a Judge act can |
+| Scope limit | This tests navigation on existing configuration code. It does not prove coverage for future SM05 code |
+
+**Consumer procedures.**
+
+| Consumer | Steps | If access fails |
+|---|---|---|
+| Lane B (Codex / ChatGPT) | Connect `ripwire --mcp` (§3.2 candidate path). Record the tool listing. Run the named task and the negative control through it. Retain raw output, bytes, characters and errors. Compare with the expected set. Give a usable / not-usable result | Record "consumer access unavailable" as a finding, with the exact error. Do not infer a result |
+| Lane C (Antigravity) | The single skill-path test at `~/.gemini/config/skills/ripwire/SKILL.md` (§3.2). The same task, control and records | Same |
+
+**Evidence and removal.** Folder `C:/CoWork/outputs/lane-a-u03-trial-<date>/`. It holds:
+- the download SHA-256 check;
+- the actual `--help` output and MCP listing;
+- the raw outputs, with bytes, characters and SHA-256 of each;
+- the errors;
+- each consumer's result;
+- a removal listing that proves the scratch folder, the extraction and the Antigravity skill path are gone.
+
+The plan's own baselines are in `C:/CoWork/outputs/lane-a-p15-u03-plan-2026-10-10`.
+
+**Execution step (later).** The §3.2 authority stands. Before the download, Lane A states the file, source and size
+once in chat; that is a per-download safety confirmation, not a request for scope approval. Then extract, run by
+full path, consumer runs, removal.
+
+**Decision boundary.** After the trial evidence and the consumer reviews, Lane A presents the three outcomes to the
+Judge, each with its evidence, scope, record changes and sync cost:
+- **provision**: install scope, configuration, owner and removal method;
+- **existing path**: the named method and its limits;
+- **waive**: scope, reason and retained risk; never described as a tool pass.
+
+### Governed edits still owed (F5)
+
+| File | Edit | Trigger |
+|---|---|---|
+| `SV-002.md` | §5 two stale cells; §3.2 trial run row; §7 DOD-01, -02, -04 evidence; DOD-06; §2.3.1 P15 row | Trial outcome, then the Judge's acceptance |
+| `V1-DECISION-REGISTER.md` | The U03 outcome act; the `SV-002` acceptance act | Judge acts |
+| `V1-BUILD-SPEC.md`, `V1-ARTIFACT-INVENTORY.md` | `D-54` paragraphs; a trial-record file, if one is added | The same acts |
+| `GOV-RES-001.md` | GR-007 final conclusion | After P15 clears |
+
+**Sequence S1 (recommended): one guarded cycle.** The Judge assesses DOD-06 on this handoff index, extended with the
+trial evidence; handoff files cause no drift. Then **one** governed batch records the U03 outcome, the DoD checkoffs,
+the `SV-002` acceptance, the P15 row and the GR-007 conclusion. **One** guarded cycle follows, with its own Lane B
+receipt 2.
+
+**Sequence S2: two cycles.** The U03 outcome and the DoD evidence land in `SV-002` first, with a guarded cycle. The
+Judge accepts. Then the acceptance, P15 and GR-007 land, with a second guarded cycle.
+
+S1 is Lane A's sequencing choice unless Lane B finds that DOD-06's "evidence index … to exact revisions" requires the
+index inside `SV-002`; in that case S2 applies.
+
+### What you need
+
+Lane B:
+1. Review this packet.
+2. Confirm or reject `7faf618` as the DOD-01 independent review.
+3. Check the trial plan against §3.2 and §3.4.
+4. Check the S1 sequence.
+
+### What you did instead
+
+Read-only baselines only. No download, trial, governed edit, publication or push.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | F1–F6 accepted; term corrected | Phase 1: none |
+| Approve-with-conditions | P15 index (DOD-01/02); frozen trial plan | Phase 1: Lane B review |
+| Defer | Trial execution, U03 outcome, DOD-06, GR-007 conclusion | Phase 1: in order, after the review |
+| Reject | Claiming DOD-01/02 complete from this index; changing the §3.4 byte criterion without a Judge act; push | Phase 1 |
