@@ -3303,3 +3303,93 @@ publication, fetch or push. Handoff-only commit; `docs-drift` stays the sole fai
 | Approve-with-conditions | Amendment 4a and option S-a | Phase 1: Lane B accepts revision 2; then the Judge's act |
 | Defer | 4a recording, source repair, replacement candidate, publication, health, DoD, batch 2, P15, GR-007 | Phase 1: in order; Gate 2 and push separately |
 | Reject | Issuing the revision 1 4a text; any meaning-neutral claim before review; `AIG-07` made a prerequisite | Phase 1 |
+
+
+---
+
+## Lane B — D433R revision 2 independent review: RR1-RR4 drafting accepted; amendment 4a and sequence ready for Judge selection, 2026-10-11
+
+- **Read at:** 44f3b6293f0fe982aaf29dea7b97fb48da92ff6c, clean tree before review; governed source unchanged since a2fbb35.
+- **Phase / actors:** Phase 1. Lane B raises/reviews, Lane A answers/applies only under authority. No new Lane C fact or execution is needed for this unchanged surface evidence. The B-136 header and receiver answer field are unchanged.
+- **Reviewed packet:** D433R-DRAFT-r2.md, 15,975 bytes, SHA-256 cac06ac473ca08a5c1fa20190e7f5ea342a24fd95c1b0d15b2b3a15a22275791.
+- **Companion bindings:** ledger/LEDGER.md SHA-256 04745df5729eea070583ffb0edceeb4efee56a48bbe5fb9e38526cd8fe3e7b01; leaves.json SHA-256 a4abb1f8ee964d5db77ee61f66aab9f7a24e9f31de74f09f1a1479b1e36f687f. All are under C:/CoWork/outputs/lane-a-d433r-2026-10-11/.
+
+### What happened
+
+Lane A received 1aefba0, retained the finding IDs, and produced revision 2 without asking again for drafting approval. Lane B has now independently reviewed its claim map, complete comparison material, proposed dispositions and frozen leaf values. RR1-RR4 are accepted as completed drafting/review corrections. This accepts the repair plan, not its execution, a replacement candidate, publication or P15 clearance.
+
+Independent checks reproduced the packet and companion hashes. Every one of the ten applied diff hunks across four DOC targets is paired in the ledger, including deletions. All three curated nodes are unique; each old value equals the current source; all six old/new string hashes agree. The third leaf (the FN summary) belongs only to S-b now, or the later batch under S-a; it is not included silently in S-a cycle 1.
+
+The ledger identifies a real lost safeguard: revision 3 contained A/B evidence does not prove C availability, and applied batch 1 omits it. AIG-04.R3's own-host proof rule remains in source, so this is not evidence that cross-host proof became permitted. The proposed restoration, One surface's evidence never proves another surface's availability, makes the existing safeguard explicit again. It is accepted as a bounded repair. No trial rerun follows from this wording repair.
+
+### What you need
+
+#### Parent-first status and closure layers
+
+| Parent / child | State after this review | Remaining action |
+|---|---|---|
+| Same editorial project | Governance/document, codebase and knowledgebase uses remain distinct | Credit evidence only to its named use and scope |
+| Gate 1B / SV-002 / P15 | Open | Repaired cycle 1 and health, exact DoD refresh and Judge DOD-04/06 assessment, then authorized batch 2 / cycle 2 |
+| D-433 cycle 1 | Original candidate remains superseded unpublished; acceptance 931deb9 remains withdrawn | Judge's bounded 4a and sequence act, source repair, new replacement and fresh receipt 2 |
+| RR1-RR4 | Draft/review corrections accepted at this read revision | Lane A receives this outcome; no further packet revision requested by this review |
+| D433-R1 / C1-C11 | Repair text accepted; source repair still not applied | Named changes only under 4a; confirm in replacement source and candidate |
+| D433-R2 | Comparison and dispositions accepted; restoration (l) still not applied | Restore the sentence and dated label; correct the byte-identity claim in the receipt/history |
+| Existing path / C-a | Accepted and unchanged | Reuse bounded task/host evidence; no native Ripwire setup |
+| SCOPE-1-5 | Proposed wording and arrangement A accepted for planning | S-a: applying batch 2 act; S-b: explicit widened 4a act |
+| Proposed AIG-07 | Formal retrieval remains deferred by D-424 | No new P15 prerequisite or retrieval delivery claim |
+| GR-007 | Incomplete | P15 and the final governed conclusion |
+| Gate 2 / V1-SM05-FV-001 | Separate | Separate authority and evidence |
+
+#### Independent disposition of the four corrections
+
+| ID | Lane B outcome | Evidence / limit |
+|---|---|---|
+| RR1 | Accept the named repair map C1-C11 | C8 correctly labels the original evaluation method; C9 withdraws the contrary SPECS-summary assertion; C10/C11 agree with D-275's completed DoR and run selection. C7/C11 full values and hashes verified. This is a bounded claim sweep, not whole-repository semantic certification. |
+| RR2 | Accept the section ledger and proposed dispositions | Marks/format remain marks/format. Groups (a)-(e), (g), (i) reflect the accepted outcome and dated C-a facts. Groups (f)/(k) preserve the unselected waiver safeguards while removing an obsolete example. Groups (h)/(j) constrain evidence to navigation/entry existence and specify the accepted workflow task. Group (l) restores the explicit own-surface proof safeguard. No blanket meaning-neutral claim is retained. |
+| RR3 | Accept the revised proof boundaries | Query/path support discovery; coverage proves only its defined condition; sources determine authority. Formal AIG-07 remains deferred; permitted queries do not deliver it. No use case inherits another's acceptance. |
+| RR4 | Accept the revised option impacts | Complete source content, existing (a)-(k), restoration (l), dated label (e), exact S-b values, Inventory disposition, receipt route and stop points are now exposed. S-c is a hold with an owner/return condition. No measured time saving or automatic removal of cycle 2 is claimed. |
+
+Groups (a)-(k) are reviewed within the exact current D-433 selection and bounded source context; this review does not turn dated host measurements into universal availability. The correction ledger is scoped to the four DOC targets and the named repair map. Other inherited AIG-family prose or checker pointers are not certified current by this acceptance and do not become new prerequisites through it.
+
+#### Judge decisions now ready
+
+| Decision / option | What it permits | What it does not establish | Recommendation |
+|---|---|---|---|
+| Issue 4a from revision 2 Part 3 | Record the bounded amendment, apply the named source repairs, retain reviewed (a)-(k), restore (l), date (e), withdraw C9 and prepare a replacement under D-433 item 6 | Does not issue publication, check DoD, clear P15, activate a lane, build or push | Ready for the Judge; bind the packet, ledger and leaves full hashes above in the record |
+| S-a | Repair-only replacement cycle 1; scope wording and its related FN summary move to batch 2 | Scope clarification is reviewed, but not applied yet; AIG-07 delivery is not required | Recommended; owner Lane A, return at batch 2's applying act after cycle-1 health and required DoD assessment |
+| S-b | Same repair plus exact Part 4 SCOPE text and the third frozen FN leaf in replacement cycle 1 | Batch 2 / cycle 2 are still needed for later acceptance records | Acceptable if the Judge explicitly widens 4a to Part 4 and the FN leaf; no implicit expansion of No other change |
+| S-c | Hold, owner Lane A, until review and act conditions are met; resume selected S-a/S-b | No source repair or cleared drift | Review prerequisite is now met. Remaining release condition is the Judge's bounded act and sequence choice |
+
+Draft Judge instruction, recommended S-a, NOT ISSUED by this review:
+
+> Issue D-433 amendment 4a exactly as revision 2 Part 3, bound to packet cac06ac473ca08a5c1fa20190e7f5ea342a24fd95c1b0d15b2b3a15a22275791, ledger 04745df5729eea070583ffb0edceeb4efee56a48bbe5fb9e38526cd8fe3e7b01 and leaves a4abb1f8ee964d5db77ee61f66aab9f7a24e9f31de74f09f1a1479b1e36f687f. Select S-a. Lane A records the act per D-54, applies the bounded repairs and prepares one replacement from the final committed source, then stops for fresh Lane B receipt 2. Carry forward existing approvals and D-433 item 6's unit route. Publication remains a separate Judge decision; no build, fetch, push or Gate 2 closure. Lane A retains the reviewed SCOPE clarification for batch 2 under its own applying act.
+
+This is a concrete decision proposal. Neither this review nor an Approve row issues it. No new U03 selection or trial is requested.
+
+#### Lane A follow-up after the Judge's act
+
+1. Receive this independent acceptance and preserve prior packet/candidate history. Do not repeat drafting or consumer measurements for receipt alone.
+2. Record the selected act with full bindings and D-54 dispositions before application; keep governed and handoff commits separate under the existing rules.
+3. Apply exactly the chosen option. Recheck old leaf hashes before replacement; a mismatch is a finding, not permission to overwrite. Keep all other JSON fields unchanged. Preserve dated history and unchecked DoD rows.
+4. Confirm all named source claims and summaries agree; restore (l), date (e), correct C9 and retain the reviewed content dispositions. Run consistency checks; only authorized docs-drift failure is allowed in the pre-sync interval.
+5. Prepare a fresh work/candidate at the final committed source, record its bindings and captured HEAD, and stop for Lane B's fresh exact-byte and semantic receipt 2 plus covering annotation under D-433 item 6. Do not use withdrawn 931deb9 or publish the superseded c7ce4f5f candidate.
+6. Obtain separate publication authority, publish only reviewed bytes, and run/record separate full health. Then refresh exact DoD proof and present DOD-04/06 and the later batch-2 act in their existing order.
+
+Construction/verification artifacts have different jobs: intent/FN/SPECS/UX define the approved task and route; the ledger proves what changed; leaf hashes bind intended text; the candidate binds generated bytes; independent acceptance and health prove their own release conditions. These artifacts do not authorize or prove application behavior. Chief Editor/customer effects stay separate from the Judge's project-control decisions. Lane C's accepted evidence is reused within scope; no new Lane C result is claimed.
+
+### What you did instead
+
+Read the attachment, revision 2 and companion files; verified hashes, full hunk coverage, leaf bindings, the deleted rule and D-275; queried Graphify read-only for orientation; retained packet-audit.json under C:/CoWork/outputs/lane-b-d433r2-review-2026-10-11/. Only this independent review addendum is changed. No Lane A answer/header, canonical source, graph, trial, build, fetch or push is changed.
+
+The full consistency check at read HEAD 44f3b62 completed: 18/19 pass, with docs-drift the sole failure; terminal-return passes. Its log is retained in the review folder. docs-drift remains stale at 1940af8 with ten governed-intent paths changed. This handoff adds no governed drift. Required sync is through the authorized replacement prepare, fresh acceptance, separately authorized publish and health; no raw rebuild.
+
+Certain failures/invalid claims: unsynced governed source keeps docs-drift red; a withdrawn acceptance cannot establish current reviewer approval; an old-hash mismatch invalidates the frozen leaf precondition; preparation or draft acceptance cannot prove release, DoD or P15 completion. These are specific preconditions, not a forecast that every option will fail.
+
+**Readiness:** revision 2 is accepted for Judge issuance/sequence selection. No further drafting loop is required by this review. Source correction and fresh candidate acceptance remain pending; RR draft review completion is not closure of the source findings.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Revision 2 plan; RR1-RR4 draft corrections; ledger dispositions and frozen values | Phase 1: independent review complete at 44f3b62 |
+| Approve-with-conditions | 4a/S-a execution; S-b as explicit alternative | Phase 1: Judge act with exact bindings/selected sequence, then Lane A application and fresh Lane B review |
+| Defer | Publication, health, DoD, P15, GR-007 and batch 2 / cycle 2 | Phase 1: existing dependency order and separate acts; Gate 2 and push separate |
+| Reject | Withdrawn receipt reused, plans called applied/closed, trial repeated for receipt alone, scope clarification used to reopen AIG-07 or imply build authority | Phase 1: unsupported execution/acceptance claims |
