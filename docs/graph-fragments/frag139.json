@@ -38,7 +38,7 @@
       "file_type": "concept",
       "source_file": "docs/v1/work-packets/SETUP-SPIKE-000/SV2-U03-code-navigation-evaluation.md",
       "source_location": "whole document",
-      "description": "Read-only Lane A evaluation (D-264): ripwire cannot parse SQL, where most V1-SM05 logic lives; its Windows build is a preview; it is pre-1.0. Recommends the existing rg/tsc/test path and no ripwire for V1-SM05, pending Lane B consumer evidence and the Judge's outcome."
+      "description": "Read-only Lane A evaluation (D-264), kept as history: ripwire cannot parse SQL, where most V1-SM05 logic lives; its Windows build is a preview; it is pre-1.0. It recommended the existing rg/tsc/test path and no ripwire for V1-SM05. The trial then ran and failed criteria 1 to 3; D-433 recorded the outcome: existing path, ripwire not adopted, git grep the measured route on every applicable surface."
     }
   ],
   "edges": [

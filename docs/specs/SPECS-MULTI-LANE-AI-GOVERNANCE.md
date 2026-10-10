@@ -105,3 +105,66 @@ All three are **read-only responses**: no owned file is written, so no lock is n
 
 Already built; listed so this file does not restate them: `scripts/checks/shared-core-hash.mjs`, `lane-state.mjs`,
 `lane-boundary.mjs`, `handoff-response.mjs`, `terminal-return.mjs`, `closure-readiness.mjs`; `.githooks/commit-msg`.
+
+## 6. Code-navigation realization per surface `[V1]` *(added, `D-433`)*
+
+Behaviour, applicability and availability: FN §4.4 (Tables A and B). Selected outcome: **existing path** (`D-433`).
+
+### 6.1 Measured facts (2026-10-10, B-136)
+
+| Fact | Mark | Record |
+|---|---|---|
+| `git grep -n -w requireConfigured -- lib app __tests__`: exit 0, 221 bytes | **measured** on Lane A, Lane B (Codex terminal) and Lane C (Antigravity IDE) | B-136 `5c91ef8`, `156ebac`; C-a at `1bf7d90` (Lane A) and `7d9ae68` (Lane C, record `6f0e9050…`) |
+| Negative control `SV2_U03_NO_SUCH_SYMBOL_57da611` over the same roots: exit 1, 0/0 bytes | **measured** (A, B, C) | same |
+| A nonexistent pathspec: exit 1, 0/0 bytes — the same as the negative control | **measured** (A, B) | B-136 `156ebac`; Lane A re-run at `156ebac` |
+| Tracked-file inventory at `156ebac`: `lib` 5, `app` 4, `__tests__` 3, `supabase/migrations` 2, `.github/workflows` 1, `components` 0 | **measured** on Lane A; the same counts on Lane C at `7d9ae68` | B-136 `5c0ff8b`; C-a record |
+| Default `git grep` searches tracked files only; `--untracked` and `--no-index` exist but are not measured | **measured** (help text, A and B) | B-136 `156ebac` |
+| SQL fallback: `git grep -n -i enforce_article_state_transition -- supabase/migrations`: exit 0, 223 bytes | **measured** (A, B, C) | B-136 `90ce74f`, `156ebac`; C-a |
+| Workflow dependency: `ci.yml` runs `bun run typecheck`, `lint` and `check` (168 bytes); `package.json` defines all three (155 bytes); `scripts/check-consistency.mjs` is tracked (30 bytes). Byte-identical on A and C | **measured** (A, C) | C-a at `1bf7d90` and `7d9ae68`; Lane B `f9af4d6` |
+| Lane C ran `C:\Users\rober_24syk4j\AppData\Local\Programs\Git\cmd\git.exe`; Lane A ran `…\Git\mingw64\bin\git.exe`. Different paths and hashes, the same Git 2.54.0.windows.1 | **measured** | C-a records; Lane B `f9af4d6` |
+| ripgrep is **not** on Lane A's `PATH`; ripgrep 13.0.0 exists inside the Antigravity IDE bundle | **measured** on Lane A | `lane-a-p15-u03-plan-2026-10-10/baseline-raw.json` |
+| ripwire 0.6.3 CLI, `--uses=requireConfigured`: call site found; definition file not named; negative = exit 1 refusal; 1,077 bytes | **measured** (trial only; binary removed) | `lane-a-u03-trial-2026-10-10/evidence/03-results.json` |
+| ripwire `--mcp` via a direct stdio client: same text; negative = JSON-RPC `-32602` | **measured** (protocol only) | B-136 `5c91ef8` |
+| ripwire default cache: per-root TMPDIR; a cache file was written with `--no-cache` on the MCP path | **measured** (Lane B) | B-136 `5c91ef8` |
+| ripwire registered and called natively inside any host | **unknown** | — |
+| Antigravity skill route `skills/ripwire/SKILL.md` | **unsupported** — absent; the release ships 17 `ripwire-*` skill folders | B-136 `df873fe`; Lane C `1bf7d90` |
+
+### 6.2 Realization — *existing path* (selected, `D-433`)
+
+| Surface | Method | Invocation (measured) | Scope | Writes | Failure handling |
+|---|---|---|---|---|---|
+| Claude Code (A) | `git grep` | Scope check, then `git grep -n -w <SYMBOL> -- <roots>`; SQL: `git grep -n -i <NAME> -- supabase/migrations` | Tracked files in the declared roots | None | See the rule below |
+| Codex (B) | `git grep` | Same | Same | None | Same |
+| Antigravity IDE (C) | `git grep` | Same; workflow dependency: `git grep -n -E "bun run [a-z]+" -- .github/workflows`, then the `package.json` definitions, then `git ls-files -- <entry>` | Same | None | Same |
+
+**Scope check (before every search: task, negative control and SQL).** (1) `git rev-parse --show-toplevel` equals the
+intended repository. (2) For each required root, `git ls-files -- <root>` lists at least one file. A required root
+with no file stops the search as **incomplete scope**; it is never removed to obtain a pass. An optional root is
+excluded only with a reason recorded before the search, and the result makes no claim about it. The frozen task roots
+(`lib app __tests__`) and SQL root (`supabase/migrations`) are required roots.
+
+**Classification (from the `git grep` documentation).** Scope check failed → **incomplete scope**. Exit 0 →
+**success**. Exit 1 with empty stdout and empty stderr, after a passed scope check → **no-match**. Any other exit,
+or any stderr → **error**. Retain the full outputs.
+
+**Recorded limits.** The search returns text matches. Telling a call from an import or a definition needs source
+reading. One symbol and one line never prove complete call-graph coverage. Untracked and ignored files are outside
+the scope; a wider mode is a separate, declared and measured procedure. Entry-point existence is not CI execution.
+
+### 6.3 Realization — *provision* (not selected by `D-433`; proposed and unexecuted)
+
+Kept as the proposed procedure for any later provisioning act. Every row is **proposed** or **unknown**. Drafting it
+does not authorize installation. Each unresolved value has a named discovery check and a stop point. Native
+availability is claimed only after an authorized run through the selected host records its result (`AIG-04.R3`).
+
+| Value per consuming host | Current mark | Discovery check before freezing | Stop point |
+|---|---|---|---|
+| Pinned release and hash | **unknown** | The publisher's release record and checksum for the pinned version | No published checksum → stop |
+| Install location (Lane A-owned, outside the repository) | **proposed** | Path is outside every governed root and every other actor's profile | A path inside the repository or a shared profile → stop |
+| CLI invocation and options | **measured** for 0.6.3 in the trial (`--uses`, `--mcp`) | Re-read the pinned version's own help; record its bytes | Help differs from the trial syntax → stop and re-draft |
+| Host registration (Codex MCP; Claude Code MCP) | **unknown** | The selected host's supported interface for its installed version (its help or official documentation) | Syntax not found in that interface → stop; do not guess |
+| Antigravity IDE route | **unsupported** | A scoped act naming the exact shipped file, hash, destination, trigger, invocation and restore | No such act → stays unsupported |
+| Discovery | **unknown** | The host lists the tool after registration and restart | Not listed → protocol response only; stop |
+| Cache location and redirection | **measured** default per-root TMPDIR; redirection **unknown** | The pinned help for a cache path option | No option → record the cache in the before/after inventory |
+| Permitted writes | **proposed**: install location, host registration file, cache | Before/after inventory of the named locations (`AIG-04.R5`) | An unlisted write → error; restore and stop |
+| Removal and restore | **proposed** | Created objects deleted; changed objects restored to captured bytes | Mismatch → stop; retain evidence |

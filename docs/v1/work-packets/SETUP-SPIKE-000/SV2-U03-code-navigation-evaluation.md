@@ -4,6 +4,11 @@
 **Method:** Public sources and repository measurement only. **Nothing was installed, downloaded or executed.**
 **Status:** Lane A evaluation drafted; it awaits Lane B consumer evidence and the Judge's outcome.
 
+> **Dated note 2026-10-10 (`D-433`):** the trial ran (B-136 `90ce74f`, `5c91ef8`, `df873fe`). The candidate did not
+> pass §3.4 criteria (1)–(3); criterion (4) was met by the existing tool; Lane C's route was unsupported; cleanup was
+> proven. The outcome is recorded in `D-433`: **existing path**; Ripwire is not adopted. The text below is the
+> 2026-09-25 evaluation, kept unchanged as history.
+
 ## 1. Consumer need, measured
 
 The first `V1-SM05` child is not yet named (no work order exists). Measured at `3973e73`, the application surface is:

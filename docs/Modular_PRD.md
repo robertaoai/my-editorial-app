@@ -878,9 +878,16 @@ real, scheduled work: its sequence and gates live in `docs/v1/V1-BUILD-SPEC.md` 
 | `AIG-01` | Lane ownership, the commit lock, and request/response between lanes | `D-75`, `D-156`, `D-227`, `D-271` | `lane-state`, `lane-boundary`; `SV-002` §3.1 |
 | `AIG-02` | The handoff channel and its lifecycle | `D-90`, `D-184`; `B-097`, `B-113` | `handoff-response`, `terminal-return` |
 | `AIG-03` | What each AI tool actually loads, and silence diagnosis before removal | `D-266` items 2–3, `D-270`, `D-271` | `SV2-U02` (`SV2-DOD-03`) |
-| `AIG-04` | Code navigation for construction | `D-266` item 7, `D-270` | `SV2-U03` (`SV2-DOD-04`) |
+| `AIG-04` | Code navigation: before a change or a review, a surface finds the definitions, call sites, tests, SQL objects and workflow dependencies that the change touches, within a declared scope. Each selected surface has a bounded task and an applicability rationale, recorded separately from tool availability *(amended `[V1]`, `D-433`)* | `D-266` item 7, `D-270`, `D-433` | `SV2-U03` (`SV2-DOD-04`); surface tables in `FN-MULTI-LANE-AI-GOVERNANCE.md` §4.4 |
 | `AIG-05` | Review levels and independent verification | `D-266` item 1, `D-102`, `D-183` | `closure-readiness`; `Verified-By` |
 | `AIG-06` | Rule-file size targets and the measured refactor | `D-266` items 2–4 | After the `SV2-U02` report; `shared-core-hash` |
+
+> **`AIG-04` need and limits** *(added `[V1]`, `D-433`)*. The need is a dependable answer to "what does this change
+> touch?" for each surface that changes code, reviews it, or runs it through a workflow. A tool name is not the need.
+> Lane ownership restricts writes. It does not prove that reading dependency code is unnecessary. Tool availability
+> is a separate, measured status. Navigation is separate from Graphify (which maps governed documents and some code
+> symbols, and is orientation, not proven caller completeness) and from the SQL fallback (migration logic that a code
+> parser may not read). Navigation proves how code is found. It never proves that product behaviour is correct.
 
 ### 7.3 Functional-to-Quality/Technical Cross-Reference
 

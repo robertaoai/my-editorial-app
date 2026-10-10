@@ -50,7 +50,7 @@ Project-actor stories, not customer stories; they carry `AIG` keys and never `US
 | `AIG-01` | the Judge | one lane to coordinate each request and the owning lane to respond with the work | ownership is never ambiguous, and a request never becomes an unowned edit |
 | `AIG-02` | a raising lane | one channel with a lifecycle that cannot silently go false | nothing sent is lost, and nothing closed can quietly reopen |
 | `AIG-03` | Lane A | a measured record of what each tool loads | rule-file changes rest on evidence, not on size targets or vendor claims |
-| `AIG-04` | Lane B | a proven way to find the code a change touches | construction does not start blind |
+| `AIG-04` | a lane that changes, reviews or runs code | a proven way to find the code a change touches, within a declared scope *(amended `[V1]`, `D-433`)* | construction and review do not start blind |
 | `AIG-05` | the Judge | review and verification recorded as separate facts by separate actors | "applied" is never mistaken for "verified" |
 | `AIG-06` | every lane | rule files that meet the size targets without losing a needed rule | context stays focused and nothing required disappears |
 
@@ -68,6 +68,10 @@ Project-actor stories, not customer stories; they carry `AIG` keys and never `US
 | `AIG-03.R2` | Silence is diagnosed before removal: dead, discovery failure, wrong owner or wrong loading tier | `D-271` item 7; external review §3, advisory |
 | `AIG-03.R3` | A probe that cannot separate loader route from truncation or response error reports `inconclusive` | `D-271` item 8 |
 | `AIG-04.R1` | A navigation tool is adopted only on a trial against a baseline with a negative control, then a Judge outcome | `D-266` item 7, `D-270` |
+| `AIG-04.R2` | Each selected surface (§1) has one row with: surface and host; bounded task; input access; **applicability** (*applicable*, *not required* or *waived*) with its rationale and status (*proposed* or *accepted*); **method**; **availability** (*available*, *unsupported* or *unknown*) with its claim mark; evidence revision; owner; and return condition. A *not required* or *waived* row also names its scope and the act that records it. Applicability and availability are separate facts: *unknown* or *unsupported* availability never proves that the task is unnecessary *(added `[V1]`, `D-433`)* | B-136 DOC-R1/R2 (`156ebac`); `D-433` |
+| `AIG-04.R3` | A method counts as **available** on a surface only after a recorded call through that surface's own host. A direct protocol client, a file on disk or another surface's result is not that proof *(added `[V1]`, `D-433`)* | `5c91ef8`; `D-433` |
+| `AIG-04.R4` | Before a call is classified, its scope is checked: the working directory is the intended repository, and each required root has at least one eligible file. A required root with no eligible file stops the search as **incomplete scope**; it is never removed to obtain a passing result. An optional root is excluded only with a reason recorded before the search, and the result makes no claim about it. The check applies to the task, the negative control and the SQL search. Only then is a call classified **success**, **no-match**, **error** or **inconclusive**, by rules taken from the method's own documentation before the call. Empty output over no eligible files is **incomplete scope**, never no-match and never a passing negative control. A refusal or error is never counted as an empty result *(added `[V1]`, `D-433`)* | B-136 P1 (`f9af228`), DOC-R4 (`156ebac`); `D-433` |
+| `AIG-04.R5` | A unit removes only the objects it created and restores each pre-existing object it changed to its captured bytes or hash. It never deletes a pre-existing file or another actor's work. It compares the named locations before and after, explains each change, and keeps the raw evidence outside disposable locations. It states its limits and infers no global cleanup. A flag is not proof *(added `[V1]`, `D-433`)* | B-136 P2, DOC-R5 (`156ebac`); `5c91ef8`; `D-433` |
 | `AIG-05.R1` | Review runs Level 1 then Level 2; `Verified` needs one independent actor; action and verification are separate facts | `D-266` item 1, `D-102` |
 | `AIG-05.R2` | An `Approve` verdict is not permission to apply | `D-183` |
 | `AIG-06.R1` | Targets bind: `AGENTS.md` < 6,000 characters; `CLAUDE.md` < 300 lines, inheriting `@AGENTS.md`; skills < 12,000 characters | `D-266` item 3 |
@@ -108,9 +112,53 @@ trigger.
 
 ### 4.4 `AIG-04` — code navigation
 
-A candidate tool is trialled on one named task against an `rg` baseline and a negative control, with the SQL fallback,
-under `SV-002` §3.2/§3.4. The Judge records provision, existing path or waive. Navigation proves how code is found; it
-never proves that product behaviour is correct.
+*(Amended `[V1]`, `D-433`.)*
+
+A candidate tool is trialled on one named task against a baseline and a negative control, with the SQL fallback,
+under `SV-002` §3.2/§3.4. The Judge records provision, existing path or waive, and accepts or changes the proposed
+applicability below. Navigation proves how code is found. It never proves that product behaviour is correct.
+
+**Selected outcome (`D-433`): existing path.** Ripwire is not adopted. The provision and waive rules below are not
+selected; they stay as the rules for any later act.
+
+**Table A — task and applicability per surface (the same for every outcome).** Status: **accepted** (`D-433`).
+
+| Surface (host) | Bounded task | Input access | Applicability and rationale | Owner | Return condition |
+|---|---|---|---|---|---|
+| Claude Code (Lane A) | Find the touch-points of a governance or script change; Level 1 review of Lane B work and Level 2 review of Lane C work (§4.5); provisioning owner (`D-86`) | Local checkout, read | *Applicable* — Lane A changes `scripts/` and reviews code it does not own | Lane A | Host or checkout changes; the method changes |
+| Codex (Lane B) | Find the definition, call sites, tests and SQL objects before an application-code change | Local checkout, read | *Applicable* — it builds application code | Lane B | Host changes; the method changes |
+| Antigravity IDE (Lane C) | Read-only trace of a workflow to the scripts, configuration and tests it runs (`.github/workflows/` → `scripts/`, `package.json`, `__tests__/`) | Local checkout, read — confirmed by Lane C for its current session (B-136 `1bf7d90`); dated fact: an IDE session read the checkout at `fa38edd` (`SV-002` route C; `C-002` `9514b51`). Read access is not write permission (`D-75`, as amended) | *Applicable* — Lane C owns workflows, which call repository scripts and tools; it must confirm that referenced entry points exist (Lane C's recommendation, B-136 `1bf7d90`) | Lane C | A workflow references a new script or flag, or a workflow file changes |
+| Claude Cowork | Draft Lane A's handoff answers from evidence that Claude Code supplies | Supplied context — **unknown** whether it can read the checkout | *Not required* — Claude Code runs every search and supplies the record. Evidence: the search record in the packet (UX §4.5) | Lane A | A draft claim about code location that has no supplied search record |
+| ChatGPT Chat/Work | Level 1 review of Lane A and Lane C work | **Dated fact:** a ChatGPT Work desktop session on the Codex runtime read the checkout at `8515bc6` on 2026-09-27 (`SV-002` route B, as corrected by `D-329`). Not evidence for the Codex build surface or for every current Work session. ChatGPT Chat: **unknown** | *Not required* when the reviewed packet carries its full search record (UX §4.5). A new search is routed to Codex | Lane B | A Level 1 finding that needs a search the packet does not carry |
+| Antigravity chat | Level 2 review of Lane A and Lane B work | Tool-assisted; a checkout read without a tool call is not guaranteed (Lane C, B-136 `1bf7d90`). Not established for every session | *Not required* on the same terms. A new search is routed to the Antigravity IDE | Lane C | A Level 2 finding that needs a search the packet does not carry |
+
+**Table B — method and availability per *applicable* surface.** Only measured methods name a route.
+
+| Surface | Method | Availability | Evidence revision |
+|---|---|---|---|
+| Claude Code | `git grep` 2.54.0 | **available** (measured) | B-136 `e2c1be0`; DOC-R4 inventory at `156ebac`; C-a baseline at `1bf7d90` |
+| Claude Code | ripgrep on `PATH` | **unsupported** — not on `PATH` (measured) | `lane-a-p15-u03-plan-2026-10-10/baseline-raw.json` |
+| Claude Code | Antigravity-bundled ripgrep 13.0.0 by full path | measured as the U03 criterion-4 instrument only; **not a route** | same |
+| Codex | `git grep` 2.54.0 | **available** (measured, Codex terminal) | B-136 `5c91ef8`, `156ebac` |
+| Codex | ripgrep | Binary **discovered** on the Codex `PATH` (`C:/Users/rober_24syk4j/AppData/Local/OpenAI/Codex/bin/9a7ba4b9ea0c44a3/rg.exe`); route **unknown** — no task, control or SQL measurement | B-136 `4320539` |
+| Antigravity IDE | `git grep` 2.54.0 | **available** (measured) for the frozen task, negative control, SQL search and workflow-dependency probes in the reported session. Not CI execution or complete dependency coverage | C-a record `6f0e9050…` at `7d9ae68`; Lane B `f9af4d6` |
+| Antigravity IDE | ripwire skill `skills/ripwire/SKILL.md` | **unsupported** — absent from the release | B-136 `df873fe` |
+| Any | ripwire native host call | **unknown** — not measured; the trial binary is removed | B-136 `5c91ef8`, `df873fe` |
+
+**Per outcome.**
+- **Existing path (selected, `D-433`):** each *applicable* surface uses its *available* method from Table B. An
+  applicable surface with no available method keeps an **unknown** row with owner and return condition as a
+  **proposed residual; not accepted**. An unknown or unsupported method supplies no navigation proof. Before
+  `SV2-DOD-04` / P15 credit, the Judge's outcome act either names a measured route for that surface or explicitly
+  accepts the remaining gap, with its scope, risk, owner, return condition and the affected acceptance claim. At
+  `D-433`, every applicable surface has a measured route.
+- **Provision (not selected):** the provisioned tool becomes a method only after `AIG-04.R3` proof on that host. Until
+  then, Table B stays as above.
+- **Waive (not selected):** a waiver concerns delivery of a proven navigation route for a named surface and its
+  Table A task. The act states its scope, risk, owner and return condition. `AIG-04.R1`'s adoption safeguard stays in
+  force, and so do the proof requirements (`AIG-04.R3`, `R4`, `C3`) for every route claimed as available. The waived
+  route stays undelivered. An *applicable* task with a waived route is not a *not required* task; Table A does not
+  change.
 
 ### 4.5 `AIG-05` — review and verification
 
@@ -157,6 +205,9 @@ Named `AIG-NN.Cn` (registered in `Modular_PRD.md` §0.5). They are Project gover
 | `AIG-03.C1` | Each `SV2-U02` run receipt carries sentinel results, controls and an outcome from §4.3's list | `SV-002` §3.4; review | planned |
 | `AIG-03.C2` | Every rule removed in `AIG-06` carries a **dead** diagnosis | refactor packet review | planned |
 | `AIG-04.C1` | The trial record shows baseline, negative control, SQL fallback and the Judge's outcome | `SV-002` §3.2/§3.4 | planned |
+| `AIG-04.C2` | Every selected surface has a complete `AIG-04.R2` row, and every *not required* or *waived* row names its scope and act *(added `[V1]`, `D-433`)* | Table A/B review | planned |
+| `AIG-04.C3` | Every *applicable* surface with an *available* method has a recorded call through its own host (`AIG-04.R3`), with a scope check and an `AIG-04.R4` classification *(added `[V1]`, `D-433`)* | Per-surface receipt | planned |
+| `AIG-04.C4` | Every unit that installs, caches or configures has an `AIG-04.R5` before/after record *(added `[V1]`, `D-433`)* | Cleanup record review | planned |
 | `AIG-05.C1` | `Verified` carries an independent `Verified-By` and an existing commit | `closure-readiness` check | exists |
 | `AIG-06.C1` | The three rule files keep a byte-identical shared core | `shared-core-hash` check | exists |
 | `AIG-06.C2` | After the refactor, each file meets its `AIG-06.R1` target | size check at the refactor commit | planned |
@@ -171,6 +222,15 @@ Named `AIG-NN.Cn` (registered in `Modular_PRD.md` §0.5). They are Project gover
 | The same text loads twice (native plus import) | `duplicated loading`, recorded with both sources |
 | A response writes into another lane's surface | Crossing: declared with a trailer, or withdrawn |
 | A review is green but no independent actor signed | Stays `Applied`, never `Verified` |
+| A required root has no eligible file (for example `components`, 0 tracked files at `156ebac`) | **incomplete scope** — stop. Do not remove the root to obtain a passing result; matches in the other roots do not pass the task. Never no-match (`AIG-04.R4`) *(added `[V1]`, `D-433`)* |
+| An optional root is excluded | Its reason is recorded before the search; the result makes no claim about that root (`AIG-04.R4`) *(added `[V1]`, `D-433`)* |
+| A search runs over a nonexistent pathspec | Exit 1 with empty output, the same as no-match. Only the scope check separates them (`AIG-04.R4`) *(added `[V1]`, `D-433`)* |
+| A change adds untracked files | Default `git grep` searches tracked files only. List untracked files with `git status --porcelain` and read them directly, or run a separately measured wider mode *(added `[V1]`, `D-433`)* |
+| A frozen setup path does not exist in the shipped release | **unsupported**; no substitute file is chosen without a scoped act naming file, hash, destination and restore *(added `[V1]`, `D-433`)* |
+| A tool refuses an unknown symbol (non-zero exit, JSON-RPC error) | **error**, not empty; the negative control does not pass on it *(added `[V1]`, `D-433`)* |
+| A tool writes a cache although a no-cache option was set | Recorded; the before/after record covers it (`AIG-04.R5`) *(added `[V1]`, `D-433`)* |
+| A direct protocol call works but the host does not list the tool | Protocol response only; the surface is not **available** *(added `[V1]`, `D-433`)* |
+| A supplied-evidence reviewer needs a search the packet does not carry | The return condition in Table A fires; the search is routed to the named host *(added `[V1]`, `D-433`)* |
 
 ## 7. Dependencies and assumptions `[V1]`
 
@@ -197,6 +257,8 @@ Named `AIG-NN.Cn` (registered in `Modular_PRD.md` §0.5). They are Project gover
 | How each vendor surface raises, reviews and receives handoffs | No — interaction differs by surface | **Yes** → `ux/UX-MULTI-LANE-AI-GOVERNANCE.md` |
 | Check implementations (`scripts/checks/*.mjs`) | Already built and owned by Lane A | No — pointer only |
 | Handoff fields and lifecycle | Yes — owned by the SOP | No |
+| Code-navigation realization per surface: method, version or pin, invocation, scope check, host registration, discovery, permitted writes, failure handling *(added `[V1]`, `D-433`)* | No — surface-specific | **Yes** → `SPECS-MULTI-LANE-AI-GOVERNANCE.md` §6 |
+| Setup, verify, use, diagnose and restore steps per surface *(added `[V1]`, `D-433`)* | No — interaction differs by surface | **Yes** → `ux/UX-MULTI-LANE-AI-GOVERNANCE.md` §4 |
 
 ## 10. Scope limits `[V1]`
 
