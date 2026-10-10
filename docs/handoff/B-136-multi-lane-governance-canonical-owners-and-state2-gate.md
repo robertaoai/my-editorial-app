@@ -1271,3 +1271,87 @@ trial, configuration change, governed edit, publication or push.
 | Approve-with-conditions | Corrected P15 index and U03 plan | Phase 1: Lane B review |
 | Defer | Trial; U03 outcome; batch 1 and cycle 1; DOD-06; batch 2 and cycle 2; GR-007 | Phase 1: in that order, each under its own authority |
 | Reject | The 224-byte figure as a baseline; S1 as a default; reusing `D-432`'s exception; automatic trial | Phase 1 |
+
+
+## Lane B — Independent review of 222b903: raw baseline accepted; three plan corrections, 2026-10-10
+
+### What happened
+
+Read revision: `222b903ba3eb38ff74592b4bcb04a8ee601a1528`. Its change is 144 added lines in B-136 only.
+The Judge's direct R1–R6 instruction authorizes preparation and review. Earlier approvals carry forward.
+The explicit exclusions still apply: no trial execution, build, push or Gate 2 closure.
+Lane B reviews here; Lane A owns the answer. No new Lane C trial or review result is supplied.
+
+**Confirmed evidence.** Lane B re-ran the three baseline invocations by direct process execution, without a shell,
+using the pinned executable and arguments. The executable hash, saved-output hashes and record hash all match.
+The task is 221 bytes/221 Unicode code points; the negative control is empty with ripgrep exit 1; the SQL fallback
+is 223 bytes/223 code points. All stderr streams are empty. The searched roots are clean and unchanged from
+`57da611`. Evidence: `C:/CoWork/outputs/lane-b-p15-u03-corrected-plan-review-2026-10-10/baseline-verification.json`.
+
+The old 224-byte task file is not raw producer output. Lane B's earlier review verified that saved file's bytes,
+not a direct producer capture. The new 221-byte capture supersedes it. This corrects the measurement; it does not
+relax the governed output criterion. There is still no candidate-tool trial result, predicted failure or checkoff.
+The independent U01 review `7faf618` remains confirmed within its recorded intended-status scope.
+
+**Parent-first state.** Parents are listed first; dependent evidence must exist before their acceptance.
+
+| Parent / child | State | Evidence still required |
+|---|---|---|
+| Gate 2 / `V1-SM05-FV-001` | Outside this unit | Its own later work order and acceptance; Gate 1B is separate |
+| Gate 1B / SV-002 / B-136 P15 | Open | DOD-01/02/04 evidence at exact revisions, then the Judge's DOD-06 act |
+| DOD-01 | Historical independent review confirmed; current health checked separately | Refresh consistency and graph evidence at the final consuming revision |
+| DOD-02 | Incomplete | U03 outcome, §5 corrections, and final coverage/ledger/dimension reassessment |
+| DOD-04 / U03 | Corrected preparation packet under review; no trial result | The three corrections below, later trial authority, consumer evidence and recorded outcome |
+| GR-007 | Assessed; incomplete | P15 clearance, then its final conclusion |
+| D-431/D-432 graph cycle; B-050/B-077/B-150/B-153/B-154 | Completed within their recorded scopes | Preserve those scope limits |
+
+### What you need
+
+**Accepted now:** R1's preparation boundary; R2's raw capture and input freeze; the semantic sets and no-trimming
+rule in R3; R4's discovery, no-overwrite and evidence-retention provisions; S2 as the budgeted sequence in R5;
+R6's requirement to name a receipt route in each future cycle's own act before prepare. D-432 is not reused.
+
+Three precise corrections remain. They concern the plan, not a measured trial failure.
+
+| ID | Gap and impact | Draft fix and acceptance test |
+|---|---|---|
+| P1 — R3 result classification | The exit-0-or-1 rule is proven for the ripgrep baseline only. It does not define the candidate CLI's error status or MCP failures. Concatenating text can also omit a non-text result. A failed request must not pass the negative control as empty. | Before task execution, record the candidate interface's success/no-match/error rules from discovery. For MCP, retain the complete result, classify transport/protocol failures and an explicit error result as errors, and classify unhandled content as unsupported or inconclusive. Freeze which consumer-visible content is measured. Accept an empty negative control only after the request succeeds under that interface's rule. Do not inherit ripgrep exit 1 for another tool without evidence. |
+| P2 — R4 cleanup proof | A repository status and scratch listing cover those locations only. They cannot prove removal of a cache created elsewhere. No outside cache has been observed; the current guarantee exceeds the proposed checks. | During the authorized discovery stage, identify actual storage locations and use supported redirection to scratch where possible. Record before/after evidence for each trial-owned location and consumer configuration. If a location cannot be accounted for, report cleanup as incomplete. Do not delete unrelated or pre-existing files. The retained evidence must survive cleanup. |
+| P3 — R5 S1 exception | R5 names a simultaneous Judge choice as a condition for S1, but does not map the other prerequisites for that option: DOD-02/04 proof at exact revisions and current DOD-01 evidence. One batch is not automatically one valid cycle. | Keep S2 as the budgeted plan. Replace the incomplete S1 condition with a prerequisite test. A later S1 proposal must map every prerequisite to an existing revision, explain any explicit change to ordering, and show the health and sync cost before the Judge chooses. Without that proof, use S2. Recheck DOD-01 and DOD-02 after cycle 1 before DOD-06. |
+
+**Source anchors:** SV-002 §3.2 requires discovery, consumer results and removal proof; §3.4 fixes the four trial
+criteria; §5 requires reassessment at the final pinned revision; §7 ties DOD-06 to an exact-revision index for
+DOD-01–05. These criteria remain unchanged by this review.
+
+**Lane A follow-up:**
+1. Receive this review. Apply P1–P3 in B-136 only. Keep the confirmed raw baseline and earlier approvals.
+2. State the authority, inputs, affected artifacts, success/refusal checks, sync cost and stop point together for
+   each future Judge option. Name unresolved dependencies before asking for a decision.
+3. Return the corrected plan for Lane B's bounded review. Stop there. Review acceptance does not release the trial.
+4. After a later trial instruction, keep raw task/control results, complete consumer results and cleanup proof.
+   Present provision / existing path / waive with their evidence, effects, limits and governed edits.
+5. Use the budgeted S2 order: batch 1 outcome and §5 corrections → guarded cycle 1 → refreshed evidence index →
+   Judge DOD-06 assessment → batch 2 acceptance/P15/GR-007 → guarded cycle 2. Each cycle needs its own receipt route.
+   Two cycles are a budget, not a guarantee if new governed findings arise.
+
+**Chief Editor control.** Distinguish observed facts, an accepted plan, execution authority, recorded outcomes and
+closure. Lane B raises and reviews; Lane A answers; the Judge chooses changes to criteria or scope. A missing
+Lane C result remains missing. None of these tooling results proves working-software acceptance.
+
+No new Judge decision is required to correct this preparation packet. The 221-byte limit is tight, but no tool
+failure is established. Relaxing the criterion, selecting an outcome or executing the trial remains a later act.
+
+### What you did instead
+
+Read the governed sources and queried Graphify. Reproduced only the read-only ripgrep baselines and retained the
+verification record. Appended this Lane B review; no header, Resolution, DoD checkbox or tracker row changed.
+No binary download, trial, consumer configuration change, governed edit, graph mutation, build, fetch or push.
+The full consistency check is retained with this review. Source drift is clear at analyzed revision `1940af8`;
+this handoff-only review needs no graph sync. Later governed batches each need their planned guarded cycle.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Raw 221-byte baseline, semantic source facts, U01 review scope, preparation boundary and expired-exception handling | Phase 1: independently confirmed here |
+| Approve-with-conditions | Corrected P15 index and frozen U03 plan; S2 budget | Phase 1 preparation: Lane A applies P1–P3; Lane B reviews the bounded correction |
+| Defer | Trial, U03 outcome, governed batches/cycles, DOD-06/P15 acceptance and GR-007 conclusion | Phase 1: their named evidence and authority in dependency order; no automatic execution |
+| Reject | Empty output treated as successful without interface status; unproved cleanup; simultaneous decisions treated as prerequisite evidence; preparation treated as closure | Phase 1: use the corrections above; no Gate 2 closure |
