@@ -3,7 +3,7 @@
 **Date:** 2026-09-27
 **Tier:** `Fn_Specs` — third tier of `D-29`, applied to a **global Project-scope** family by `D-271` (scoped application
 of `D-29`/`D-33`). Not a Product feature group.
-**Status:** Draft. Planning and measurement design only — no rule-file refactor, loader run or construction authorized.
+**Status:** Draft. ~~Planning and measurement design only — no rule-file refactor, loader run or construction authorized.~~ *(Dated 2026-10-10, `D-433`):* the rule-file refactor is applied (`D-337`), the loader runs are complete (`D-362`), and the `AIG-04` applicability and routes are accepted (`D-433`). This file authorizes no construction.
 **Source:** `Modular_PRD.md` §7.2a (`AIG-01`–`AIG-06`, the governed intent anchor for this family); decisions `D-56`,
 `D-75`, `D-88`, `D-90`, `D-102`, `D-156`, `D-183`, `D-184`, `D-227`, `D-266`, `D-270`, `D-271`, `D-272`; the handoff SOP
 (`docs/handoff/README.md`, `TEMPLATE.md`); attempt `SV-002` (`SV2-U02`–`SV2-U04`).
@@ -150,8 +150,9 @@ selected; they stay as the rules for any later act.
   applicable surface with no available method keeps an **unknown** row with owner and return condition as a
   **proposed residual; not accepted**. An unknown or unsupported method supplies no navigation proof. Before
   `SV2-DOD-04` / P15 credit, the Judge's outcome act either names a measured route for that surface or explicitly
-  accepts the remaining gap, with its scope, risk, owner, return condition and the affected acceptance claim. At
-  `D-433`, every applicable surface has a measured route.
+  accepts the remaining gap, with its scope, risk, owner, return condition and the affected acceptance claim. One
+  surface's evidence never proves another surface's availability. *(Dated, at `D-433`:)* every applicable surface has a
+  measured route.
 - **Provision (not selected):** the provisioned tool becomes a method only after `AIG-04.R3` proof on that host. Until
   then, Table B stays as above.
 - **Waive (not selected):** a waiver concerns delivery of a proven navigation route for a named surface and its

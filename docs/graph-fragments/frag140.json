@@ -22,7 +22,7 @@
       "file_type": "document",
       "source_file": "docs/specs/SPECS-MULTI-LANE-AI-GOVERNANCE.md",
       "source_location": "whole document",
-      "description": "Selected-platform realization of the AIG family: Claude Code/Cowork, Codex/ChatGPT Chat-Work, Antigravity IDE/chat; rule and skill file sizes measured at 21170aa; loading marked planned or unknown until SV2-U02 measures it; measurement channels per tool; request/response route per measurement run."
+      "description": "Selected-platform realization of the AIG family: Claude Code/Cowork, Codex/ChatGPT Chat-Work, Antigravity IDE/chat; rule and skill file sizes measured at 21170aa; loading claims each carry their own mark, with SV2-U02 complete (D-362); measurement channels per tool; request/response route per measurement run; section 6 records the code-navigation realization per surface selected by D-433 (git grep plus source reading)."
     },
     {
       "id": "ux_multi_lane_ai_governance",

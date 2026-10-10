@@ -1,8 +1,8 @@
 # `SV2-U03` — code-navigation evaluation (`ripwire` as candidate)
 
 **Drafted:** 2026-09-25 by Lane A (`D-264`, Judge Q4: evaluate now, read-only). **Attempt:** `SV-002`.
-**Method:** Public sources and repository measurement only. **Nothing was installed, downloaded or executed.**
-**Status:** Lane A evaluation drafted; it awaits Lane B consumer evidence and the Judge's outcome.
+**Method (original evaluation, 2026-09-25):** Public sources and repository measurement only. **Nothing was installed, downloaded or executed for this evaluation.** The later trial is recorded in the dated note below and in `SV-002` `SV2-U03-R1`.
+**Status:** ~~Lane A evaluation drafted; it awaits Lane B consumer evidence and the Judge's outcome.~~ *(Superseded by `D-433`):* kept as history; the outcome is recorded (dated note below).
 
 > **Dated note 2026-10-10 (`D-433`):** the trial ran (B-136 `90ce74f`, `5c91ef8`, `df873fe`). The candidate did not
 > pass §3.4 criteria (1)–(3); criterion (4) was met by the existing tool; Lane C's route was unsupported; cleanup was

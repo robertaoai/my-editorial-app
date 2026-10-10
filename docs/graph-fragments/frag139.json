@@ -30,7 +30,7 @@
       "file_type": "concept",
       "source_file": "docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md",
       "source_location": "whole document",
-      "description": "First run of dor-dod-validation/v1 (D-264), DoR open. Units SV2-U01 governance application, SV2-U02 loader characterization (Lane B parent run tracker, Lane C child run tracker), SV2-U03 code navigation, SV2-U04 B-071/B-095/B-104 dependency map. Blocks V1-SM05 selection until accepted and the Judge lifts the block."
+      "description": "First run of dor-dod-validation/v1 (D-264); DoR complete 2026-09-27 and the run selected (D-275). Units SV2-U01 governance application, SV2-U02 loader characterization (Lane B parent run tracker, Lane C child run tracker), SV2-U03 code navigation (outcome D-433: existing path), SV2-U04 B-071/B-095/B-104 dependency map. Blocks V1-SM05 selection until accepted and the Judge lifts the block."
     },
     {
       "id": "sv2_u03_code_navigation_evaluation",

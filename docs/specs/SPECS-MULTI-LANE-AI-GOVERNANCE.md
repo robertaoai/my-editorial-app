@@ -4,7 +4,7 @@
 **Tier:** `SPECS` — fourth tier of `D-29`, for the global Project-scope family `AIG-01`–`AIG-06` (`D-271`).
 **Behaviour owner:** `docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md` — this file adds only what that file cannot
 determine (`D-30`): its §9 candidates *"which files each vendor tool loads"* and *"measurement channels per tool"*.
-**Status:** Draft. Every loading claim below is **planned** or **unknown** until an `SV2-U02` run measures it.
+**Status:** Draft. ~~Every loading claim below is **planned** or **unknown** until an `SV2-U02` run measures it.~~ *(Dated 2026-10-10, `D-433`):* each claim carries its own mark; `SV2-U02` is complete (`D-362`), and §6 records measured code-navigation facts.
 
 **Claim marks.** **measured** — observed and recorded with its commit; **planned** — the intended route, not yet
 observed; **unknown** — not known and not assumed. A vendor's documentation is recorded as **planned** until a run
