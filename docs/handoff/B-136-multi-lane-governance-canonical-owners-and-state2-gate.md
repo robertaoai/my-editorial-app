@@ -1884,3 +1884,102 @@ and parent acceptance. This prevents late discovery of receipt-route and sync de
 | Approve-with-conditions | Recommended existing-path outcome and combined batch-1 act | Phase 1: Judge selection and issuance, then cycle-1 evidence |
 | Defer | Governed application, DOD-06, P15, GR-007, batch 2 / cycle 2 and Gate 2 | Phase 1: S2 order; Gate 2 separately authorized later |
 | Reject | Candidate called a pass; unsupported/unmeasured consumer claims; automatic batch authority; provisioning treated as an immediately proven outcome; D-432 reused | Phase 1: preserve scope and evidence limits |
+
+## Lane B — U03 documentation and native setup challenge; consolidated handoff for Lane A, 2026-10-10
+
+### What happened
+
+Read at `e6bb6db812b4b4d66f5029a6b136c67386f83fee`. The Judge challenged the previous review because the
+Ripwire setup guidance and corresponding intent / technical detail for Lanes A, B and C are not complete.
+This entry consolidates the challenge in the existing B-136 docket; it creates no duplicate handoff, changes no
+Lane A answer or header, and applies no governed source or tool configuration.
+
+**Correction to Lane B's prior conclusion:** U03 feasibility evidence is complete for its frozen scope, including
+failed and unavailable results. That does not mean Ripwire is provisioned, documented for operational use,
+connected to the native Lane B host, or usable through the Lane C skill route. The recommendation in `e6bb6db`
+is a bounded outcome proposal, not a delivered multi-lane setup guide. Its option analysis did not fully expose
+the missing lane-specific documentation and native-integration proof. Preserve the raw trial and cleanup results.
+
+**Trace checked:** read-only Graphify query for AIG-04 / U03 / setup, then direct reads of the current source files.
+Graphify is orientation, not proof of handoff completeness: handoff changes are excluded from governed-intent
+drift. A current graph can still represent a document with out-of-date status text.
+
+| Existing source | What exists | What is missing or out of date |
+|---|---|---|
+| `docs/Modular_PRD.md` §7.2a, AIG-04 | Global Project-scope code-navigation intent | No explicit applicability / expected outcome for each A/B/C surface. This is a refinement gap, not an absent intent hierarchy or a new Product feature |
+| `docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md` §4.4, AIG-04.R1 / C1 | Trial, baseline, negative control, SQL fallback and Judge outcome | No operational per-lane use/unsupported contract or setup acceptance. §9 does not yet list code-navigation integration as a technical-spec candidate |
+| `docs/specs/SPECS-MULTI-LANE-AI-GOVERNANCE.md` | Selected hosts, rule loaders and measurement routes | No Ripwire CLI/MCP/skill realization contract: host registration, discovery, version/hash/config, cache, restore, failure handling and native proof |
+| `docs/specs/ux/UX-MULTI-LANE-AI-GOVERNANCE.md` | Platform request and handoff interaction | No lane-specific setup / verify / use / diagnose / restore guide for the selected code-navigation route |
+| `SV2-U03-code-navigation-evaluation.md` | Historical pre-trial evaluation | Opening status still awaits consumer evidence and says nothing was downloaded/executed. Add a dated current-results note with B-136 links; preserve the historical method and recommendation |
+| `SV-002.md` §3.2 / §5 / §7 | Temporary trial recipe and completion gates | Not an operational install guide. Its U03-unrun statements need the already-planned canonical correction; outcome and DoD acceptance are still pending |
+
+### What you need
+
+**Lane A: receive this finding and draft the documentation correction before asking the Judge for an operational
+adoption decision.** This request authorizes analysis and drafts. It does not select provisioning or make
+Ripwire mandatory for every lane. Do not ask again for permission to acknowledge, map the sources or draft.
+If implementation or a new trial is proposed, present the exact bounded act and its impact first.
+
+#### Parent-first drafting order (all IDs below are local finding labels, not new governed requirements)
+
+| Order | Draft deliverable / source owner | Dependency and acceptance test |
+|---|---|---|
+| DOC-1 — shared intent and applicability | Lane A: refine AIG-04 in the existing intent / behaviour sources only where needed. State why navigation is needed, which actor consumes it, the task and scope, and how it differs from Graphify / SQL fallback | Highest parent. Every selected surface has one intended route or an explicit unsupported / not-required disposition, with owner, proof and return. A tool name is not the business need |
+| DOC-2 — behaviour and proof | Lane A: draft additions to FN §4.4 / §5; add the D-30 candidate-filter entry in FN §9 | After DOC-1. Define native access, result classification, intended task, negative control, output measurement, SQL fallback, cache and restore evidence. Preserve the frozen trial criteria; new criteria need a prospective Judge decision |
+| DOC-3 — technical realization matrix | Lane A: extend the existing SPECS file with A/B/C sections, cross-linked to DOC-2 | After DOC-2. Name exact selected host/version, pinned release, install/configuration target, invocation/interface, discovery/loading route, permitted writes, error handling and retained proof. Unmeasured facts stay planned or unknown |
+| DOC-4 — setup and use guidance | Lane A: extend the existing UX file with lane sections; link shared technical values to DOC-3 | After DOC-3. Another authorized operator can follow preflight → state capture → approved setup → discovery → task/control/SQL → cache inspection → restore, without guessing a path or substituting a skill |
+| DOC-5 — outcome impact and current records | Lane A: update the draft evaluation / SV-002 correction plan and D-54 propagation map | After DOC-1–4 drafts. Each outcome lists authority, prerequisites, exact files, success/refusal checks, sync cost and stop point. Include new technical proof and documentation cost before selection; do not assume the prior two-cycle estimate covers added scope |
+| DOC-6 — independent review / handback | Lane B Level 1; Lane C supplies its own surface facts and Level 2 review in the applicable review chain | After drafts. Review the source-to-setup trace and per-lane unsupported states before the Judge issues any operational act. Lane A then returns exact revisions, dispositions and remaining decisions in B-136 |
+
+Use one shared intent and one shared technical contract with lane sections. Do not create three duplicate PRDs,
+functional specs or technical specs. Under D-30, extend SPECS only for realization details FN cannot determine.
+Canonical document changes remain Lane A work under a bounded act; frozen Project PRD / Charter are untouched.
+
+#### Lane-specific content that the draft must cover
+
+| Lane / actor | Intent and setup specification needed | Required acceptance boundary |
+|---|---|---|
+| A — Claude Code; Cowork drafts | Lane A owns dependency provisioning, pinning and documentation. Specify the selected Code CLI/host route, package/hash/location, checkout and output rules, shared cache/cleanup, upgrades and removal. State separately how Cowork receives evidence; do not assume CLI access in Cowork | The recorded CLI trial is not a persistent install or native-host proof. All docs/config changes have a named owner and exact scope |
+| B — selected Codex host; ChatGPT review surface separately | Specify the actual host/version and supported MCP registration method, command and arguments, working directory, environment, restart/discovery procedure, tools/list, task/control, output and failure classification, SQL fallback and restoration | A direct stdio client proves protocol response only. Native availability requires a recorded call through the selected host. ChatGPT review does not inherit the Codex host connection |
+| C — Antigravity IDE; chat review separately | Resolve the absent single-skill route. A later proposal must name the exact shipped skill file/hash, destination, supported trigger, binary invocation and restore plan; or explicitly choose an alternative / unsupported disposition. Do not pick an arbitrary one of the 17 folders | The prior route remains unsupported. A file on disk is not loading/use proof; record invocation in the intended IDE surface, task/control/SQL result or an explicit finding, and restore evidence |
+
+No install command or host configuration syntax is invented in this handoff. Lane A must verify it against the
+pinned tool help and the selected host's official interface before freezing an executable guide. Unknown routes
+are marked unknown; do not overwrite existing profiles or reinterpret the frozen negative-control error as empty.
+
+#### Decision-impact correction for the Judge
+
+| Option | Documentation / technical impact that must be visible before selection | Completion boundary |
+|---|---|---|
+| Provision Ripwire | DOC-1–4 plus a bounded remediation and native setup plan for every selected consumer; new proof for the current file/byte failures and unsupported C route. Exact targets, authorization and extra sync/trial cost must be stated | No provision success or DOD credit until the selected contract is proven and independently reviewed |
+| Existing path | Document rg / git grep plus source reading as the supported method. Mark Ripwire not adopted; document the measured per-surface availability and SQL fallback, with accepted residuals where unmeasured. A/B evidence does not prove C availability | May resolve U03 if the Judge accepts this bounded outcome; it never means Ripwire setup is complete |
+| Waive | Record the exact obligation waived, reason, risk, owner and return condition. Mark lane setup not delivered / not required under the waiver; no fake successful setup guide | No technical success inferred. The Judge must decide whether the stated waiver satisfies the U03 return condition |
+
+For every option, separate trial evidence, approved documentation, configured installation, native consumer
+verification and Gate 1B acceptance. The Judge / Chief Editor selects applicability, outcome and accepted risk;
+Lane A authors and provisions within its act; Lane B/C provide their own consumer evidence. No lane self-verifies.
+
+**Closure tracking:** keep these DOC-1–6 labels in this B-136 thread with owner Lane A, draft target, read revision,
+review receipt and state (draft / accepted / applied / independently verified / not required by a named act).
+Link repeated findings to these rows. Do not copy a count or a draft approval into P15 clearance. If extra setup
+becomes required, the Judge must record whether it gates P15 or is a retained follow-up with owner and return.
+No silent scope expansion and no silent drop of the Judge's documentation concern.
+
+### What you did instead
+
+Reviewed the intent-to-spec chain and drafted the correction in B-136 only, using the handoff template's three
+sections. Lane A's answer field, header, DoD boxes, Register, specs, configuration, retained trial and graph remain
+unchanged. No download, installation, native setup test, new trial, build, fetch, push or gate closure.
+
+**Drift:** the read-only query and handoff addition do not require a sync. The current consistency result is retained
+in `C:/CoWork/outputs/lane-b-u03-docs-challenge-2026-10-10/check.log`. Governed application of DOC-1–5 creates
+expected source drift and requires the guarded route, with the receipt route named before preparation. D-432's
+exception is expired. Keep S2 as the prior plan; recalculate its scope/cycle count against the added document work
+before promising a cycle total. No raw rebuild.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Challenge accepted; scoped feasibility evidence preserved; this consolidated handoff is ready for Lane A drafting | Phase 1: receive and answer DOC-1–6 |
+| Approve-with-conditions | Intent / behaviour / technical / setup documentation plan | Phase 1: exact draft text and per-lane applicability, then independent review and the bounded Judge act |
+| Defer | Canonical application, native setup, remediation trials, provisioning, P15 / GR-007 acceptance and Gate 2 | Phase 1: stated outcome, evidence and authority; Gate 2 separately later |
+| Reject | Trial completion called multi-lane setup completion; intent claimed wholly absent; duplicate lane specs; direct MCP or an absent skill counted as native integration; added docs treated as automatically covered by the prior act | Phase 1: use the corrected boundaries above |
