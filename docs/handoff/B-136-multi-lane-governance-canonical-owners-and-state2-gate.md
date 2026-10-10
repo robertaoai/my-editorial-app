@@ -2045,3 +2045,110 @@ governed edit, install, trial, publication or push.
 | Approve-with-conditions | DOC-1–5 | Phase 1: Lane B and Lane C review (DOC-6), then the Judge's outcome and the applying act |
 | Defer | Application in batch 1; provisioning; native setup; DOD-04 / DOD-06; GR-007; Gate 2 | Phase 1: S2 order; Gate 2 separately |
 | Reject | Executable setup steps for an unproven route; a duplicate spec set; trial evidence called setup | Phase 1 |
+
+## Lane B — DOC-1–5 review at 8850ee7: return for six bounded corrections, 2026-10-10
+
+### What happened
+
+Read `8850ee721c83b4680c1de92c2a7282254d2cf5b6`. Lane A's packet is 13,065 bytes, SHA-256
+`d07fced5be8df4d028a2ac98d9a3d1472b6fcfadbe1db1fc6b35222cb82e8f45`.
+Review snapshot and raw read-only Git probes are retained at
+`C:/CoWork/outputs/lane-b-aig04-draft-review-2026-10-10/`. The packet hash matches the B-136 receipt.
+Graphify query supplied orientation; current source and draft reads supplied the evidence.
+
+**Not accepted as application-ready.** The shared source chain, explicit claim marks, preserved failed trial,
+no duplicate specs and early-decision withdrawal are accepted. DOC-1–5 still need DOC-R1–R6 below. These are
+one complete correction set for this revision, not new U03 trial conditions. The original trial is not rerun.
+
+**Lane B correction to its own wording in e2c1be0:** "reject executable setup steps for an unproven route" was too
+broad. A proposed, unexecuted setup procedure is valid planning work and must exist before an authorized setup
+probe. Reject fabricated commands and a proposed route presented as verified. Do not require operational proof
+before its test procedure can be drafted. This correction is part of DOC-R3, not a new Judge permission request.
+
+### What you need
+
+Lane A receives and corrects DOC-R1–R6 within the current draft scope. No new scope request is needed to revise
+or acknowledge the packet. Do not apply a governed source, install or run a new native setup trial under this review.
+
+| ID / parent order | Finding in the current packet | Draft fix and re-review condition |
+|---|---|---|
+| DOC-R1 — intent / applicability, DOC-1–4 | The need is narrowed to the lane that builds application code, while A is included for governance. C is then marked not required because it writes workflows. Write ownership does not determine read/dependency-analysis needs. The three chat/review surfaces are grouped as if supplied-context access were a permanent fact | Define the bounded task and input access per surface first. C may need workflow-to-script/config/test dependency reading without owning application code. Keep applicability proposed until task/rationale is reviewed; do not invent a requirement for Ripwire on every surface. Split Cowork, ChatGPT Chat/Work and Antigravity chat rows. A scoped supplied-evidence review may legitimately need no local tool, but name its evidence and return trigger |
+| DOC-R2 — behaviour / route table, DOC-2 | Draft R2 requires owner, proof and return on every surface, but §4.4 rows omit them. Waive cells say not delivered, outside R2's three values. Unsupported availability and not-required intent are mixed. C2 would not accept this table on its own terms | Record separately: surface/host, bounded task, applicability and rationale, method, availability/claim mark, evidence revision, owner, return condition and outcome act if waived/not required. Represent a waiver explicitly. All rows must satisfy the revised rule; unknown or unsupported is not proof that the task is unnecessary |
+| DOC-R3 — technical plan / guide, DOC-3–4 | Provision has no proposed procedure until the act and native proof exist. Native proof itself requires a procedure; this reverses the dependency | Draft the proposed preflight/setup/discovery/task/control/SQL/cache/restore sequence now. Verify candidate commands against pinned help and host syntax against its supported interface before freezing it. Mark unresolved syntax as a discovery stop, not a guessed command. Order: proposed plan → independent review → bounded setup/test act → native execution evidence → accepted operational guide. Do not install or test now |
+| DOC-R4 — existing-path safety and scope, DOC-3–4 | UX step 5 claims a missing directory produces an error. A nonexistent pathspec instead returned exit 1 with empty stdout/stderr, exactly like the negative control. The commands also default to tracked files and cannot establish complete navigation for future untracked work | Before interpreting empty as no-match, verify the intended repository, declared roots and non-empty eligible file inventory. State tracked / untracked / ignored scope explicitly. Default tracked-only searches need an explicit limitation; a wider mode is a separately declared and measured procedure. Retain the frozen trial commands/results. Read enough source context to classify a hit; do not claim complete call-graph coverage from one line or from this single symbol |
+| DOC-R5 — restore / retained evidence, DOC-2 R5 and DOC-4 | Any temporary configuration is removed can mean deleting a pre-existing profile. Nothing to restore omits the end-state comparison for the procedure | Delete only objects created by this authorized unit; restore modified pre-existing configuration to its recorded bytes/hash. Never delete pre-existing files or another actor's work. Keep raw evidence outside disposable locations. Pure read-only search requires no install rollback, but compare declared before/after state and explain changes. Cleanup scope remains the listed locations |
+| DOC-R6 — option impacts / route / cost, DOC-5 | The waive file set omits FN rules/checks, SPECS and UX, while the propagation map and summary say DOC-1–4 apply for waive. Route A is named but its new exception is not drafted. A mandatory extra provisioning cycle is asserted without a dependency plan | Give each outcome one consistent exact file/section set; either apply the conditional DOC-1–4 set or state and justify what is unaffected. Draft a new unit-scoped receipt route before each prepare; D-432 is expired. Keep S2 as the baseline: two cycles for existing/waive only if all cycle-1 docs/decisions are frozen before prepare and no later governed repair is owed. Provisioning cost is TBD from its reviewed plan, not a guaranteed extra count |
+
+#### Reproduced search evidence (DOC-R4)
+
+Git 2.54.0, cwd `C:/robertaoai/my-editorial-app`, argv passed directly without a shell:
+
+| Probe | Exit | stdout / stderr bytes | Meaning |
+|---|---|---|---|
+| `git grep -n -w requireConfigured -- lib app __tests__` | 0 | 221 / 0 | Frozen task still matches the baseline |
+| Same roots, `SV2_U03_NO_SUCH_SYMBOL_57da611` | 1 | 0 / 0 | Known negative in a separately verified scope |
+| `git grep -n -w requireConfigured -- SV2_U03_PATH_DOES_NOT_EXIST_8850ee7` | 1 | 0 / 0 | Missing scope is indistinguishable from no-match by exit/output alone |
+| `git ls-files -z -- SV2_U03_PATH_DOES_NOT_EXIST_8850ee7` | 0 | 0 / 0 | No eligible tracked files in that scope |
+| `git grep -n -i enforce_article_state_transition -- supabase/migrations` | 0 | 223 / 0 | Frozen SQL fallback still matches |
+
+Installed `git grep -h` lists `--untracked` / `--no-index`; ordinary search does not establish coverage of future
+untracked code. The false-negative finding does not invalidate the correctly scoped 221-byte frozen baseline.
+
+#### Draft replacement clauses
+
+**Applicability:** "Each selected surface has a bounded navigation or supplied-evidence review task, an owner,
+an input-access description, and a proposed or accepted applicability rationale. Lane ownership restricts writes;
+it does not prove that reading dependency code is unnecessary. Tool availability is a separate measured status.
+A not-required or waived outcome names its scope, decision/evidence and return condition."
+
+**Provisioning guide status:** "The setup procedure below is proposed and unexecuted. Drafting it does not
+authorize installation. Each unresolved command/interface has a named discovery check and stop point. Native
+consumer availability is claimed only after an authorized run through the selected host records its result."
+
+**Search classification:** "Check the cwd, roots and eligible file scope first. Only then may exit 1 with empty
+stdout/stderr be classified as no-match within that scope. Empty output over no eligible files is incomplete scope,
+not a passing negative control. Record errors separately and retain full outputs."
+
+**Restore:** "Remove only files created by this unit. Restore modified pre-existing files to their captured
+pre-state. Retain evidence. Compare the named locations and state the limits; do not infer global cleanup."
+
+**Receipt-route drafting:** "Before preparing a cycle, record its own bounded route. If terminal B-050 route A
+is chosen, name Lane B's acceptance commit and immediate record-only covering-annotation commit as separate
+one-file commits; only terminal-return and docs-drift may fail between them, and hooks are never skipped. State
+its unit and end point. Outside that interval only the authorized D-428 pre-sync rule applies. State independent
+candidate acceptance, publication authority and separate health, plus the no-fetch/no-push interval. D-432 is not
+reused." Both future batches need their route settled before their own candidate is frozen.
+
+#### Lane C review request and parent-first return sequence
+
+Lane C confirms the supported/unsupported route and any measured search access on its actual named host. It
+provides a workflow-dependency task or a scoped applicability recommendation, with inputs, rationale and return.
+It does not determine a global not-required decision solely from its workflow write boundary. No new install or
+consumer test is requested by this review. Existing forwarded unsupported-route evidence remains valid.
+
+Lane A: (1) answer DOC-R1/2 and align the shared scope/table; (2) apply DOC-R3/4/5 to the proposed technical plan
+and guide; (3) align all outcome file sets, routes and conditional cost under DOC-R6; (4) update the existing DOC
+tracker and return one corrected packet with full hash, byte count and changes mapped to these six findings.
+Lane B then reviews this bounded correction set; Lane C's fact receipt and applicable Level 2 review remain
+explicit. The Judge receives a complete outcome/impact proposal afterwards, not an early selection request.
+
+Keep Gate 1B / P15 as the parent; U03 and DOC-1–6 are its evidence/drafting children, not clearance. GR-007 waits
+on P15. Gate 2, build, work order, activation and push stay separate. Whether added setup gates P15 or is retained
+with owner and return is part of the later bounded act, not decided by this review.
+
+### What you did instead
+
+Reviewed and retained the exact draft; reproduced only read-only Git searches and scope/help checks. No Ripwire
+trial rerun, install, profile change, governed edit, graph mutation, publication, fetch or push. Only Lane B's review
+is appended to B-136; the Lane A answer, DOC tracker and header are unchanged.
+
+Full consistency evidence is retained in `C:/CoWork/outputs/lane-b-aig04-draft-review-2026-10-10/check.log`.
+This handoff-only review requires no graph sync. Canonical application later creates governed drift and needs its
+own authorized guarded route; a green graph does not make this draft correct.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Shared document chain, preserved trial evidence, packet hash and withdrawal of the early selection request | Phase 1: reviewed at 8850ee7 |
+| Approve-with-conditions | Revised DOC-1–5 / DOC-6 review | Phase 1: Lane A DOC-R1–R6 answer, corrected packet and bounded Lane B/C review |
+| Defer | U03 outcome, canonical batches, native setup, P15 / GR-007 acceptance and Gate 2 | Phase 1: corrected impact plan and bounded act; Gate 2 separately later |
+| Reject | Current draft as application-ready; ownership-based no-navigation inference; missing-root empty output as success; deleting pre-existing config; native proof required before its plan; inconsistent waiver / route / cycle promises | Phase 1: use the six corrections above |
