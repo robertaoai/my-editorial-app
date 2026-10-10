@@ -1713,3 +1713,96 @@ with Lane B's evidence. This B-136-only review needs no graph sync; later govern
 | Approve-with-conditions | Complete U03 trial evidence packet | Phase 1 trial: Lane A corrects the facts; Lane C supplies its own receipt/finding; Lane A proves shared cleanup |
 | Defer | Judge U03 outcome, provisioning, governed batches/cycles, DOD-06/P15 and GR-007 | Phase 1: complete reviewed evidence, then S2 order |
 | Reject | Calling this candidate a pass; error-to-empty relabeling; blanket criterion relaxation; inferred native integration/Lane C result; flag-only cleanup proof | Phase 1: preserve results and use the corrections above |
+
+## Lane A — U03 trial evidence complete: Lane B review received; Lane C receipt recorded; shared cleanup proven, 2026-10-10
+
+Lane B's review `5c91ef8` was received. Lane C's consumer receipt was received in chat: its worklog, forwarded by the
+Judge, read at `5c91ef8`. Lane A records Lane C's receipt here; Lane C owns no `docs/` file (`AGENTS.md` lanes).
+Evidence: `C:/CoWork/outputs/lane-a-u03-trial-2026-10-10/evidence/`. No governed edit, publication or push.
+
+### Lane C consumer receipt (as received)
+
+| Item | Lane C's record | Lane A check |
+|---|---|---|
+| Route | §3.2 route `~/.gemini/config/skills/ripwire/SKILL.md` is **unsupported**: the release has no single `ripwire` skill | Agreed |
+| Substitution | Lane C did not install another `ripwire-*` skill: a substitution is outside the frozen plan (`D-266`, `D-270`) | Agreed |
+| Intervention | No skill installed, no environment change, no repository change | Consistent with the post-state below |
+| Pre/post state | Skills folder `graphify` only, before and after | Equal (`06-cleanup.json`) |
+| SQL fallback | "Native ripgrep available" | **Not measured** by Lane C: no command or output is in the receipt. The SQL proof stays Lane A's ripgrep run and Lane B's `git grep` run |
+
+**Lane C result: consumer access unavailable (unsupported route).** This is a recorded finding, not a tool result.
+
+### Corrections (Lane B items 1–5)
+
+1. **Skill count.** The release has **17** `skills/ripwire-*/SKILL.md` folders, not 20 (verified again before
+   cleanup). None is the frozen `skills/ripwire/SKILL.md`. The unsupported-path finding stands.
+2. **No substitution.** No skill folder replaces the frozen Lane C route. Any later mapping needs a scoped decision
+   that names the file and hash, the destination, the effect and the restoration proof.
+3. **Chronology.** For Lane A's run, the CLI help (`d01`–`d04`) and the rules file (`02`) came **before** the CLI task.
+   The MCP listing (`d05`) came **after** the CLI task. Lane B's MCP rules came before its MCP task.
+4. **Cache.** `--no-cache` does not prove there was no cache write: Lane B's MCP probe wrote an 11,283,266-byte file
+   into its redirected scratch. Lane A's `scratch/cache` was empty at cleanup. Cleanup proof is file inventory, never
+   flags.
+5. **Existing-path evidence, bounded.** Replaces "meets (1)–(4) by construction" and "available on every lane".
+
+   | Measurement | Tool | Result |
+   |---|---|---|
+   | Lane A | ripgrep 13.0.0 by full path | task exit 0, 221 bytes; negative exit 1, empty; SQL exit 0, 223 bytes |
+   | Lane B | `git grep` | task exit 0, 221 bytes; negative exit 1, empty stdout and stderr; SQL exit 0, 223 bytes |
+
+   The task returns 3 text matches. The 1-call, 2-file reading comes from the recorded source reading, not from the
+   tool. This proves this task on this checkout only: not general caller analysis, and not availability on Lane C's
+   unmeasured surface.
+
+**Term correction for Lane C's framework.** Lane C ordered "U03 outcome" as Parent 1, above Gate 1B. In `SV-002`,
+**Gate 1B (SV-002 acceptance) is the parent**, `SV2-DOD-04` is its child, and the U03 outcome feeds DOD-04. The SM05
+unblock, the `D-242` work order and Lane B activation (Lane C's step 8 and Parent 3) are **Gate 2 acts**, outside
+this unit. Lane C's "existing path: zero sync cost" is corrected: **every** outcome lands in batch 1 with guarded
+cycle 1.
+
+### Shared cleanup (Lane A, P2)
+
+`06-cleanup.json` SHA-256 `54da1f2926392c3bc0ff229f2f40c20e95ffe10e79b607550d7f9a03eeca8c44`:
+- Scratch inventory recorded with SHA-256: 32 files (the zip and 31 extracted files; `scratch/cache` empty). Then
+  `scratch/` was removed.
+- **All 9 listed locations equal their pre-state**: the repository (`!! .graphify` only), the Codex config
+  (`bf1e5587…`), the Gemini skills (`graphify`), no `ripwire` skill, and no `ripwire` under `%LOCALAPPDATA%`,
+  `%APPDATA%`, `~/.ripwire`, `~/.cache` or `%TEMP%`.
+- No ripwire process is running. 28 evidence files are retained.
+- Limit: the proof covers the listed locations only.
+- Lane B's own scratch was removed and proven by Lane B (`5c91ef8`).
+
+### Complete U03 evidence packet
+
+| Source | Result |
+|---|---|
+| Lane A CLI (`90ce74f`) | Criteria (1)–(3) not met, (4) met: **the candidate does not pass** |
+| Lane B MCP probe (`5c91ef8`) | The same 1,077-byte text; the negative is a JSON-RPC `-32602` refusal; the contract is not met; native host integration is not measured |
+| Lane C (this entry) | Access unavailable: the route is unsupported |
+| Existing path | ripgrep and `git grep` answer the named task and the SQL fallback on this checkout, within the limits in item 5 |
+| Cleanup | Proven for Lane A's listed locations and Lane B's scratch |
+
+The evidence is complete for the Judge's U03 outcome. The three options and their six-part statement are in the
+`90ce74f` entry, as narrowed by Lane B's impact table in `5c91ef8`.
+
+### What you need
+
+**The Judge: the `SV2-U03` outcome.** It is one of provision, existing path or waive. Lane A recommends
+**existing path**, recorded as `git grep -n -w` / ripgrep with source reading, with the limits in item 5.
+- Provision is not justified by this configuration: it would need a new candidate or configuration, or criterion
+  changes and re-measurement.
+- Waive is available, but it records no technical success.
+- Whichever outcome is chosen, its act goes in batch 1 with the §5 corrections. It names receipt route A for guarded
+  cycle 1 before prepare, and includes publication and separate health (S2).
+
+### What you did instead
+
+Recorded the receipts and corrections, and removed the trial scratch with proof. No governed edit, publication,
+fetch or push.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Lane B review; Lane C unsupported-route receipt; corrections 1–5; shared cleanup proven | Phase 1: none |
+| Approve-with-conditions | U03 outcome: existing path (recommended) | Phase 1: Judge act, recorded in batch 1 with route A, then cycle 1 |
+| Defer | DOD-02/04 refresh; DOD-06; batch 2 and cycle 2; GR-007 | Phase 1: S2 order |
+| Reject | The candidate as a pass; Lane C's unmeasured SQL claim as evidence; Gate 2 acts inside this unit; "zero sync cost" | Phase 1 |
