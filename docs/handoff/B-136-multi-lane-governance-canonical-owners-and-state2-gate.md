@@ -1055,3 +1055,75 @@ Read-only baselines only. No download, trial, governed edit, publication or push
 | Approve-with-conditions | P15 index (DOD-01/02); frozen trial plan | Phase 1: Lane B review |
 | Defer | Trial execution, U03 outcome, DOD-06, GR-007 conclusion | Phase 1: in order, after the review |
 | Reject | Claiming DOD-01/02 complete from this index; changing the §3.4 byte criterion without a Judge act; push | Phase 1 |
+
+## Lane B independent review — P15 index and U03 plan at `1ac1b19`, 2026-10-10
+
+**Read:** `1ac1b19d4cc03f86c95f6ee622106b2a598db80f`, clean tree. Lane B raises this review; Lane A answers it.
+This review changes no header, Resolution, DoD checkbox, tracker clearance or Judge acceptance.
+
+### What happened
+
+Lane A supplied the P15 DOD-01/02 index and the frozen U03 plan. The Judge's direct instruction in this review
+channel is: "Judge approved: Lane A apply F1–F6, record the approval, update the P15 evidence index and freeze the
+SV2-U03 trial plan in B-136 for Lane B review. Carry forward existing approvals; no trial execution, build, push
+or Gate 2 closure." The current unit stops at preparation and review. It does not advance automatically to a
+download or trial after this review.
+
+**Checks and evidence independently confirmed:**
+- Full configured consistency check (`node scripts/check-consistency.mjs`, the `bun run check` script): 19/19 at
+  `1ac1b19`; docs-drift synced at `1940af8`, with only excluded handoff advances. No sync is needed now.
+- `1ac1b19` changes B-136 only. The frozen source resolves to `57da611de180bdaf0fc26a15043ec0e2a6234699`.
+- Saved task baseline: 224 bytes; SHA-256
+  `676725fbc6c5bfaac148d970ec4bc683601f5d010fdd7ff8afbd90af8442f00d`.
+- Saved SQL baseline: 225 bytes; SHA-256
+  `7c5b0862730d0d588589bbaf1d9f7f978679e79b5878d24efcde02ee4cbda6a9`.
+- `git grep` at `57da611` agrees on the definition, import and test call. These are three text matches and one
+  call site, not three callers. The SQL file contains the definition and trigger binding at the stated lines.
+
+**U01 independent review: confirmed.** `7faf618297e7b5623c55352a94f2fe7af6682e9c` explicitly supplies the
+independent intended-status review of U01 `10ec465110c068257cfaf3781cd2e1810378cf1e`. This matches SV-002
+section 3's U01 return condition: only the intended status changes, with no DoR/DoD, lane, construction or deployment
+authority moved. Its historical mechanical-correctness limit remains. Current checks and released graph evidence
+are separate current proofs. Replace "Lane B to confirm" with this bounded confirmation; no DOD-01 checkoff is
+made by this review.
+
+**Index assessment.** Its structure, accepted DOD-03/05 references, gate-label correction and retained Gate 2
+consumer obligation are suitable. DOD-02 is not complete: U03 has no result, the declared section 5 source
+corrections remain owed, and final criterion satisfaction must be assessed at a named revision. P15 alone can
+receive its own concurrent clearance reason at DOD-06 (`D-382` item 6); this is not earlier clearance or a waiver
+for another required row.
+
+### What you need
+
+Lane A answers the following scoped findings in this entry. These repairs remain plan work; no new trial or
+construction authority is supplied here.
+
+| Finding | Gap and draft repair | Acceptance test / phase |
+|---|---|---|
+| R1 Authority receipt | The packet cites Lane B's report rather than the direct Judge wording. Append the direct instruction quoted above, preserving the earlier provenance as history. Existing D-418 and D-266 cover this preparation; no duplicate Register act is requested for a handoff-only index and plan. Keep the current no-trial stop. | Exact approval source and preparation endpoint are explicit. Phase 1: receipt correction. |
+| R2 Reproducible baseline | Version and executable hash are recorded, but the executable's absolute path and full invocation are absent. Also, merely recording a changed trial HEAD does not preserve a frozen baseline. Add the actual path, working directory, arguments and exit codes; use the frozen source or prove the measured inputs unchanged. A changed measured input requires re-freeze and review before the task runs. | Another reviewer can reproduce the baseline without guessing the executable or accepting changed inputs. Phase 1: plan correction. |
+| R3 Comparison and output measurement | Section 3.4 requires the same callers/files, not byte-identical ripgrep text or three callers. State the semantic expected set separately from the three audit matches. Define which complete consumer-visible result is measured, its encoding, byte/character counting, and handling of empty/error results. Preserve raw results; do not remove context after seeing an over-budget result. | Caller/file comparison and both output limits are deterministic. Phase 1: plan correction. |
+| R4 Consumer and cleanup procedure | Consumer steps name surfaces but do not define the interface-discovery stop or protect pre-existing skill content. Record help/listing discovery before choosing supported arguments; record an unsupported interface as a finding. Separate retained evidence from disposable extraction/cache. Capture skill-path pre-state, refuse an unapproved overwrite and restore that state after the temporary test. | Both consumers have recorded inputs/results; trial-created items are removed, prior content is preserved, and raw evidence survives cleanup. Phase 1: plan correction. |
+| R5 S1/S2 dependency test | A handoff-hosted index is not forbidden by DOD-06; its location alone does not select S1 or S2. S1 is not an approved default merely because the index is in B-136. Before recommending it, map when the U03 outcome, section 5 corrections, all DOD-01–05 proofs and P15's individual reason exist relative to assessment, recording, publication and health. If a prerequisite governed correction must land before acceptance, budget S2. | Neither sequence claims final acceptance from a future proof. Cycle count follows required recording order, not index location. Phase 1: sequencing proposal; later acts remain separate. |
+| R6 Future receipt-2 route | D-432 item 4 ended at publication. Neither S1 nor S2 may assume its B-050 terminal-recording exception still applies. The later cycle proposal must name a valid acceptance-record route before prepare. Under the present guard, any required unit-scoped exception must be recorded before preparation; a non-terminal reader is a separate governed guard change, outside this unit. Include publication authority and separate health in that later proposal. | No future candidate reaches review with an unresolved recording/check conflict. Phase 1: impact analysis now; cycle authority later. |
+
+**Byte-budget precision.** A 224-byte baseline creates an output-size risk. The trial has not run, so failure is
+not established. Keep both current limits. Any later proposed amendment must show the raw result, the changed
+criterion and its effect; neither excess bytes nor missing access implies a waiver.
+
+**Order, parents first:** Gate 2 stays outside this unit; Gate 1B/P15 remains open; its DOD-01/02 index and U03 plan
+receive these corrections; Lane B reviews the corrected packet. DOD-04 waits on actual trial evidence, consumer
+reviews and a Judge outcome. DOD-06 follows its prerequisites. GR-007's final conclusion follows P15 clearance.
+No new Lane C consumer result is available.
+
+### What you did instead
+
+Read-only source and retained-evidence review, then this Lane B review record. No binary download or trial,
+governed source edit, graph mutation, build, fetch, push or Gate 2 closure.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | U01 review `7faf618` within its intended-status scope; baseline facts and saved hashes; gate labels; current graph currency | Phase 1: bounded independent confirmation recorded here. |
+| Approve-with-conditions | P15 index and trial plan | Phase 1: Lane A answers R1–R6; Lane B reviews the corrected packet. No DOD checkoff. |
+| Defer | Trial execution; final U03 outcome; DOD-06/P15 acceptance; GR-007 completion; any later guarded cycle | Their own evidence and authority boundaries, after this preparation review. |
+| Reject | S1 as an automatic default; reuse of D-432's expired exception; a predicted byte-limit failure treated as a measured result; automatic download after this review | Phase 1: correct the plan; current no-trial boundary remains. |
