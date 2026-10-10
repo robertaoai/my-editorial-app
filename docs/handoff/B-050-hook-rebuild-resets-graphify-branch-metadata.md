@@ -7214,3 +7214,104 @@ same folder. This Lane B step records receipt 2 and its annotation; publication 
 - **Annotation-Act:** Judge, directly in this conversation, 2026-10-10: "Judge approved: Lane B record receipt 2 for D-432 and its covering annotation. Then Lane A publish under the existing approval, run the full health check and record the result in B-136. No push or Gate 2 closure." D-432 item 4. This immediately following record-only commit covers Lane B's exact-byte and semantic acceptance at 916d5cc4590baf4289164cbc248602a5ad9e6127 for replacement work 0cbe0599-f0ac-47d6-8dc5-7d0be9714ab7, graph 4bf7864a2521ab2393cb382a1574ed3224701ae444bde288ad8a32963f3e4cb1, manifest 858ab980984e005f49a937a1cba82875d93eb58db7d89b92ca178abb48b2d240. B-050 stays Verified, its header and Lane A answer remain unchanged, full checks are retained, and no normal hook is bypassed. Only terminal-return and docs-drift may fail between these two commits; the annotation ends that temporary terminal-return interval. Lane A publication and separate full health follow existing approval; no push, Gate 2 closure, new candidate or general check-failure precedent is included.
 - **No-Scope-Reopened:** true
 - **Annotated-At-Commit:** 916d5cc4590baf4289164cbc248602a5ad9e6127
+
+## Lane B — D-433 cycle 1: independent receipt-2 acceptance and consolidated Lane A handoff, 2026-10-11
+
+**Read revision:** 4004b8650c3b7b0acb05e1ce4ee3699de30e5084. Authority: D-433 items 4–6, including its
+pre-prepare frag139 amendment. This is the unit-scoped cycle-1 route, not a reuse of D-432. B-050 stays Verified;
+its header and Lane A answer are unchanged. This acceptance does not authorize publication.
+
+### What happened
+
+Independent review accepts source a2fbb3578e74f21bdd8628779d39e472ab0128d5 and frozen work
+d5ba3505-9983-4f54-9d53-fd1cfc43daad. The full 583-file tree recomputes to the manifest below. All 139 curated
+nodes match; the frag139 change is exactly one description leaf, and the D-431 B-077 description is unchanged.
+The final Git merge, studio projections, seven call records, fourteen ignored-list hashes, observation window,
+branch metadata, source rule and live baseline validate. No journal or lock remains; the live graph is unchanged.
+
+All five new community names are applied to their exact member sets. They describe cited decision bounds and
+frequent handoff entries, not exhaustive decision coverage. The 103-member group has 102 commits and one branch.
+The 15-member D-412–D-413 group supports B-154 (5 subjects), B-050 (4) and B-119 (3); its less-specific mechanical
+name is supported. The unpublished earlier B-119 name is not required for semantic correctness.
+
+The batch matches the reviewed intent → FN behaviour → SPECS realization → UX setup chain and D-433 selection.
+Claude Code, Codex and the reported IDE session have bounded measured git-grep routes. Supplied-evidence reviewers
+have explicit return conditions. Native Ripwire setup remains unselected and unproven; navigation does not prove
+CI execution, complete dependency coverage or product correctness.
+
+**Precision correction:** the dcf8d53 “otherwise byte-for-byte revision 3” claim is too narrow. Applied C2–C4,
+edge-case and candidate-filter rows also add explicit [V1]/D-433 marks. Independent comparison preserves all
+18 core rows after this declared markup normalization. Treat the mapping as reviewed requirements plus the
+selection changes and explicit version marks, not literal byte identity. No candidate change is needed.
+
+### What you need
+
+**Lane A:** consume this acceptance commit, not its immediately following annotation. After the Judge grants
+publication authority, recheck candidate/source/baseline, publish this work with --review pointing to this commit,
+run separate full health and live-parity checks, and record the result in B-136. No renewed approval is needed
+for receiving this review or preparing the concrete publication request. No fetch/push before the health record.
+
+**Judge decision still required:** publication of this exact work, graph and manifest, followed by separate health.
+Approve permits only that release and health record. Defer leaves the candidate frozen and graph stale. A finding
+or changed binding refuses publication and returns the affected item to Lane A; it does not silently relax a rule.
+
+**Parent-first tracking (parents close after their children):**
+| Item | Current state | Completion evidence / next owner |
+|---|---|---|
+| Gate 1B / SV-002 / P15 | Open | Cycle 1 health; exact-revision DOD-01/02 refresh; Judge DOD-04/06 assessment; batch 2 and cycle 2 |
+| GR-007 | Incomplete | Final conclusion after P15 under its recorded act |
+| D-433 cycle 1 | Candidate accepted by this review | Judge publication authority, then Lane A publication/health |
+| C-a; DOC-1–6; batch-1 selection | Accepted/applied within recorded scope | Do not infer native Ripwire integration or complete call graphs |
+| B-050/B-077/B-150/B-153/B-154 | Verified within their recorded scopes | Their dispositions are not P15 or Gate 2 acceptance |
+| Gate 2 / V1-SM05-FV-001 | Separate | Separate evidence, work order and authority |
+
+**Retained gaps and draft fixes:**
+- Batch 2, Lane A: re-derive the tracker once, replace its dated U03 status and refresh frag140 summaries against
+  the exact final sources before prepare. Keep history distinct from the current status. DOD-04 remains unchecked.
+- Version-row rationale: earlier omissions are not authority. Here the changes carry D-433/[V1] marks; D-433 names
+  no header/changelog increment and no binding general requirement for one was identified. No extra cycle now.
+- Lane A custody: guard-owned per-call retention keeps its earlier trigger (before a future repeat without the
+  saving driver, or the next governed guard change, whichever is first). Do not call custody implementation.
+- Lane A custody: D-432 item 6 acceptance-source repair and sync-docs §7 freeze note remain outside D-433.
+  Batch 2/cycle 2 must name its own receipt route before prepare, never reuse this ended cycle exception.
+
+### What you did instead
+
+Read-only Graphify query used for orientation; direct governed-source/diff review supplies the current evidence.
+Retained independent review: C:/CoWork/outputs/lane-b-d433-review-2026-10-11/candidate-review.json (SHA-256 e840270d63b1e856ee18c42848be431b9ea7385bae64afabf20bcc20093a43a0).
+Review script: 90f10f88d19f162b8119ea28cb14821a27950b10ae012a14b6f936d38c6e50cd. Frozen-r3 comparison: 4952d27e53384205b519a84be974908961da43c2bb6d030062f0f3e89384c2bc.
+Full consistency logs are retained in the same folder. D-433 allows only docs-drift outside the immediate
+acceptance/annotation interval, and only terminal-return plus docs-drift within it. Normal hooks are not bypassed.
+No canonical source, candidate, live graph, trial, application build, fetch or push is changed by this review.
+
+### F3 acceptance record
+```json
+{
+  "kind": "graphify-f3-acceptance",
+  "version": 1,
+  "disposition": "Accept",
+  "scope": "F3 publication",
+  "reviewer": "Lane B",
+  "workId": "d5ba3505-9983-4f54-9d53-fd1cfc43daad",
+  "graphSha256": "c7ce4f5f7532f37aa13d7bed52d6eb9a96416b5a3f46199ec6d4f0bc5434bd91",
+  "manifest": {
+    "algorithm": "guard-treeDigest-v1",
+    "digest": "98eb002a70bc1de394c463a4f1ac9d3700a7308a3000d3cd3332eb89ccef2e82",
+    "files": 583
+  },
+  "analyzedSource": "a2fbb3578e74f21bdd8628779d39e472ab0128d5",
+  "baseline": {
+    "releaseLocus": "916d5cc4590baf4289164cbc248602a5ad9e6127",
+    "algorithm": "guard-treeDigest-v1",
+    "digest": "858ab980984e005f49a937a1cba82875d93eb58db7d89b92ca178abb48b2d240"
+  },
+  "pendingSemantics": 0
+}
+```
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Independent exact-byte and semantic acceptance of this D-433 candidate | Phase 1: this receipt and immediately following covering annotation |
+| Approve-with-conditions | Publication and separate health | Phase 1: Judge publication authority; unchanged work/source/baseline; Lane A release and health record |
+| Defer | DOD-01/02 refresh, DOD-04/06 assessment, batch 2/cycle 2, P15 and GR-007 | Phase 1: stated dependency order and own acts; Gate 2/push separately |
+| Reject | Literal r3 byte-identity overclaim; raw rebuild; unapproved publication; current graph treated as acceptance | Phase 1: preserve explicit scope and evidence limits |
