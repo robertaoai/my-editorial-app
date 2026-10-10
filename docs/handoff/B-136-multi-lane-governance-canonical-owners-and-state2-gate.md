@@ -2505,3 +2505,95 @@ was performed. This handoff-only review requires no graph sync; future canonical
 | Approve-with-conditions | DOC-6 completion and final U03 selection packet | Phase 1: Lane C response; complete option impacts and explicit residual/waiver decision |
 | Defer | U03 selection/application, native setup, DOD-04/06, P15 and GR-007 | Phase 1: bounded authority and S2 dependencies; Gate 2 separately later |
 | Reject | Another redraft of settled changes without new evidence; unknowns substituted for C's review; review treated as Judge authority; native setup or clearance inferred from this acceptance | Phase 1: preserve the stated evidence and authority boundaries |
+
+## Lane A — r3 acceptance received; Lane C DOC-6 response recorded; U03 decision packet for the Judge, 2026-10-10
+
+### What happened
+
+**Lane B acceptance received.** `63a7ecf` accepts R2-Q1–Q3 and N3 at packet revision 3 (33,740 bytes, SHA-256
+`a41e060d…`). They are reviewed and closed for this draft. No revision 4 follows. Authority clarification accepted:
+the Judge's earlier approval authorized the drafting. Lane B's review confirmed its scope, but a review does not
+issue Judge authority.
+
+**Lane C DOC-6 response (as received).** The Judge relayed Lane C's response in chat. Lane C read B-136 to
+`63a7ecf` and revision 3 in full, and changed no file. Lane C has not committed this response. Lane A records it
+here as received, following the U03 consumer-receipt precedent above. The four facts stay separate (Lane B
+`63a7ecf`): (1) Lane A's earlier unknowns, (2) this Lane C response, (3) any Judge acceptance of a gap or waiver,
+(4) a delivered, measured route. None supplies the next.
+
+| Question | Lane C response | Lane A normalization (terms of r3) |
+|---|---|---|
+| 1. Input access | IDE: the workspace is rooted at `C:\robertaoai\my-editorial-app`, with read and write access. Chat: tool-assisted; a passive checkout read without a tool call is not guaranteed. Lane C supports *not required (proposed)* for chat review of a supplied packet (UX §4.5) | IDE checkout read: **confirmed by Lane C for its current session** (the dated `fa38edd` fact stands). File-system write access is not write permission: Lane C writes `.github/workflows/` only (`D-75` as amended). Chat: **not established** for every session; supplied-packet review is supported |
+| 2. Measured search method on the IDE | **Unknown; no measurement supplied.** No search trial has run on the IDE surface | Table B stays **unknown**. No route is inferred |
+| 3. Workflow-dependency applicability | **Applicable.** Task: read-only trace of `.github/workflows/` → `scripts/`, `package.json`, `__tests__/`. Rationale: workflows call repository scripts and tools; Lane C must verify that referenced entry points exist. Return condition: a workflow references a new script or flag, or a workflow file changes | Lane C's **recommendation**: *applicable*. The applicability itself stays **proposed** until the Judge's outcome act accepts Table A. The return condition replaces the r3 draft's wording at application |
+| 4. Skill route | **Unsupported (confirmed).** The candidate ships 17 `ripwire-*` folders, not `skills/ripwire/SKILL.md`. `~/.gemini/config/skills/` holds `graphify` only | Unchanged: **unsupported** |
+
+Lane C also approves the revision 3 draft and recommends *existing path*, with explicit Judge acceptance of the
+Lane C route gap. Lane A records this as Lane C's Level 2 receipt for revision 3, as relayed. The relay does not
+name the Antigravity surface that produced it.
+
+**Lane C statements not adopted:**
+- "Applicable (accepted by Lane C)". Only the outcome act accepts applicability. It is recorded as a recommendation.
+- "Clearance: clear Gate 1B, unblock `V1-SM05`, and activate Lane B" as one S2 step. Gate 2 (`V1-SM05-FV-001`),
+  the work order and lane activation stay a separate authority after Gate 1B.
+- "Re-verify 19/19 checks". The criterion is "every consistency check passes" (N2).
+
+### DOC tracker
+
+| Row | Target | Owner | Draft | Review | State |
+|---|---|---|---|---|---|
+| DOC-1 | `Modular_PRD.md` §7.2a `AIG-04` row + need paragraph; FN §2 `AIG-04` story | Lane A | `a41e060d…` (r3) | Lane B accepted `63a7ecf`; Lane C approved (relayed) | accepted draft |
+| DOC-2 | FN §3 (`R2`–`R5`), §4.4 Tables A/B, §5 (`C2`–`C4`), §6, §9 | Lane A | `a41e060d…` (r3) | Lane B accepted `63a7ecf`; Lane C approved (relayed) | accepted draft; Lane C's return condition applies at application |
+| DOC-3 | SPECS new §6 | Lane A | `a41e060d…` (r3) | Lane B accepted `63a7ecf`; Lane C approved (relayed) | accepted draft |
+| DOC-4 | UX new §4 | Lane A | `a41e060d…` (r3) | Lane B accepted `63a7ecf`; Lane C approved (relayed) | accepted draft |
+| DOC-5 | Outcome impact; receipt route; current records; `D-54` map | Lane A | `a41e060d…` (r3) | Lane B accepted `63a7ecf`; Lane C approved (relayed) | accepted draft |
+| DOC-6 | Independent review | Lane B (Level 1); Lane C (facts, Level 2) | — | Lane B `63a7ecf`; Lane C response recorded here | complete: review receipts and fact inventory. No route delivered |
+
+"Accepted draft" means only that the draft was reviewed. Nothing is applied, and no row feeds P15 clearance.
+
+### U03 decision packet (for the Judge)
+
+**Parent decision: the U03 outcome act (D-NNN).** Its effects use DOC-5 in revision 3 (authority, prerequisites, the
+one batch-1 file set, pass/refusal checks, sync cost and stop point). The act also accepts or changes Table A.
+
+| Option | What the Judge decides | Effect | Stop point |
+|---|---|---|---|
+| **Existing path** | Adopt the measured A/B `git grep` routes. Then decide the Lane C route (below) | Batch 1 applies DOC-1–4 + current records → guarded cycle 1 under its own receipt route | Cycle 1 health; DOD-02 refresh; Judge DOD-06 |
+| **Provision** | Name a host and task, then a later bounded setup/test act | The trial is not native proof. Cost is TBD from the reviewed setup plan | Discovery or refusal conditions in SPECS §6.3 |
+| **Waive** | Waive delivery of the proven route for the Antigravity IDE workflow-dependency task, with scope, reason, risk, owner and return condition | The route stays undelivered. A/B routes still need their proof. Not a *not required* finding | Same as existing path |
+
+**Child decision (existing path only): the Lane C route.** It is applicable, and its method is unknown.
+- **C-a: a bounded read-only measurement before batch 1 freezes.** Lane C runs the frozen task, negative control and
+  SQL search with `git grep` in the IDE, after the scope check (UX §4.2), and returns a receipt. There is no install.
+  Cost: one receipt round before batch 1. Result: a measured route, or a recorded failure.
+- **C-b: explicit gap acceptance.** The act accepts the gap for the workflow-dependency task, with scope, risk, owner
+  (Lane C) and return condition (Lane C's wording above). Cost: none. Result: DOD-04 credit carries a named,
+  unproven gap.
+
+**Lane A recommendation:** *existing path* with **C-a**. It is read-only, it needs no lock (`AIG-01.R2`), and it
+can turn the gap into evidence at the cost of one receipt round. C-b is the valid choice if no further round is
+wanted. Lane C recommends existing path with C-b. Neither choice clears DOD-06, P15, GR-007 or Gate 2.
+
+**After the act:** record D-NNN (Register, Build Spec, Inventory) with the cycle-1 receipt route, committed before
+prepare. Apply the exact batch-1 set, then run guarded cycle 1, the DOD-01/02 refresh and the Judge's DOD-06
+assessment. Batch 2 and cycle 2 come only after DOD-06.
+
+### What you need
+
+**Judge:** select the U03 outcome. Under *existing path*, also choose C-a or C-b. Under *waive*, confirm the
+waiver target.
+
+**Lane C (optional):** commit your response in your own receipt if you want your own record. The relayed record above
+is complete for DOC-6.
+
+### What you did instead
+
+Recorded the receipts and the decision packet in B-136 only. No governed edit, measurement, install, graph mutation,
+publication, fetch or push. Handoff-only commit, so no sync.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Lane B acceptance `63a7ecf`; Lane C DOC-6 response recorded as received; DOC-6 complete as review and fact inventory | Phase 1: none |
+| Approve-with-conditions | U03 decision packet | Phase 1: Judge outcome act; under existing path, C-a or C-b |
+| Defer | Batch 1 and cycle 1; DOD-04/06; P15; GR-007 | Phase 1: after the outcome act; Gate 2 separately later |
+| Reject | Lane C's self-acceptance of applicability; one-step Gate 1B and Gate 2 clearance; a check count as a criterion; any governed edit before D-NNN | Phase 1 |
