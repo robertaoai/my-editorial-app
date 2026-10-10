@@ -2921,3 +2921,87 @@ No publication, fetch or push since the prepare. No acceptance record, DoD check
 | Approve-with-conditions | Receipt 2 on the candidate | Phase 1: Lane B's review commit in B-050 and its annotation |
 | Defer | Publication and health; DOD-01/02 refresh; DOD-04/06; batch 2 and cycle 2; P15; GR-007 | Phase 1: in order; Gate 2 and push separately |
 | Reject | Treating the candidate as accepted; any governed commit after `a2fbb35` before publication | Phase 1 |
+
+## Lane B — D-433 cycle 1: receipt-2 acceptance withdrawn; current-status contradiction and consolidated repair handoff, 2026-10-11
+
+**Read source:** 4004b8650c3b7b0acb05e1ce4ee3699de30e5084; audit HEAD 92d2c1e621b056fc18ed5c2f4aeadba885a3d279.
+**Controlling review outcome: NOT ACCEPTED for publication.** Lane B withdraws its premature acceptance
+931deb97b56bdcca2f197c39b9d2388039fca498. Its required immediate covering annotation is 92d2c1e.
+Both stay as history. Lane A must not name 931deb9 as the review for publication. No new acceptance locus is supplied.
+The guard can still parse that old JSON: parsing is not independent semantic approval or Judge publication authority.
+B-050 stays Verified for the repository procedure; this finding changes no B-050 disposition or header.
+
+### What happened
+
+Lane A requested exact-byte and semantic review of D-433 batch 1 and candidate c7ce4f5f… / 98eb002a… from
+a2fbb3578e74f21bdd8628779d39e472ab0128d5 (work d5ba3505-9983-4f54-9d53-fd1cfc43daad).
+Independent byte validation passed: 583 files, 139 exact curated nodes, all five names, seven call records,
+fourteen ignored-list hashes, final Git merge, observation window and studio projections. The live baseline is unchanged.
+The accepted C-a evidence and shared intent/FN/SPECS/UX chain also remain sound within their recorded limits.
+
+Lane B then checked unchanged current-status text and found a contradiction missed by both Lane A’s sweep and
+Lane B’s initial review. Lane B issued its acceptance too early; this entry corrects that error before publication.
+
+| Finding | Evidence and effect | Draft fix / success criterion |
+|---|---|---|
+| **D433-R1 — blocking** | SV-002 §0 Status, line 17, still states “SV2-U03: no run yet” and that the Ripwire trial needs its own Judge act. D-433 and the same file’s run row, §5 and DOD-04 record the completed trial and selected existing-path outcome. This is a current header claim, not merely the dated 2026-10-05 tracker note. | Preserve the earlier statement as dated/superseded history. State the completed trial and D-433 existing-path/C-a outcome. Keep DOD-01/02/04/06 unchecked. The current header, run row, §5, DOD-04 and curated summary must agree at the replacement source. |
+| **D433-R2 — precision; no candidate change alone** | dcf8d53 says DOC-1–4 are otherwise byte-for-byte r3 plus four deltas. Applied C2–C4, edge-case and candidate-filter rows also add version/decision marks. All 18 core rows retain their meaning after declared mark normalization. | Replace “byte-for-byte” with “reviewed r3 requirements plus the selection deltas and explicit [V1]/D-433 marks”; retain the exact mapping. |
+
+**Proposed current-status text:**
+> SV2-U03 trial completed; D-433 records the existing-path outcome with C-a. Ripwire is not adopted. The measured
+> git-grep routes remain bounded to their recorded hosts and tasks. DOD-04 evidence is assembled; the Judge’s
+> checkoff follows cycle-1 health. DOD-01, DOD-02, DOD-04 and DOD-06 remain unchecked. Earlier no-run statements
+> are retained only as explicitly dated history.
+
+### What you need
+
+**Lane A owns the answer and source correction.** Receive this finding without requesting a new “go” merely to
+answer or draft. Produce the exact §0 edit and its propagation/scope mapping first. D-433 item 4 currently lists
+SV-002 §3.2, §5 and §7; reconcile the added §0 target in the applying authority before changing canonical source.
+If existing scope does not cover it, present one bounded amendment for the Judge, not a new approval of the entire chain.
+D-433 item 6 already includes replacement candidates after a finding; do not reuse an ended D-432 exception.
+
+| Parent first | State | Required evidence / next actor |
+|---|---|---|
+| Gate 1B / SV-002 / P15 | Open | Corrected cycle 1 and health → exact-revision DOD-01/02 refresh and Judge DOD-04/06 assessment → batch 2/cycle 2 |
+| GR-007 | Incomplete | P15, then the recorded final-conclusion act |
+| D-433 cycle 1 | Prepared; semantic acceptance withdrawn | Lane A source repair and replacement; Lane B new independent receipt 2 |
+| C-a; reviewed DOC-1–6; batch-1 intent/spec/setup chain | Accepted/applied within scope | Reuse unchanged proof; no extra trial or native Ripwire setup |
+| B-050/B-077/B-150/B-153/B-154 | Verified within scope | Preserve their dispositions |
+| Gate 2 / V1-SM05-FV-001 | Separate | Separate authority and evidence; no clearance here |
+
+**Lane A follow-up order:**
+1. Acknowledge D433-R1/R2 and return the exact correction plus authority mapping in B-136.
+2. Correct the source under that mapping; sweep current headers/summaries as well as edited sections. Retain dated history.
+3. Stop treating the old candidate as publishable. Reconcile the pending-candidate freeze before any governed commit,
+   and use the existing guarded replacement procedure; retain the superseded packet unchanged. No fetch or push.
+4. Prepare one replacement with the correction and act captured in its source. Lane B reviews its bytes and meaning
+   and records a new acceptance with its covering annotation under D-433 cycle 1.
+5. Judge decides publication for the accepted replacement. Lane A publishes, runs separate full health and records B-136.
+6. Refresh DoD evidence, obtain the Judge’s assessments, then batch 2 and cycle 2 under their own prior act/receipt route.
+
+**Chief Editor / Judge impact rule:** every option must state authority, prerequisites, affected files and current
+summaries, pass/refusal evidence, sync cost and stop point. Correcting R1 needs a replacement within cycle 1; it
+does not require repeating the completed U03 trial. Holding leaves drift unresolved. Publishing unchanged is rejected.
+No present clarification is needed for Lane A’s bounded drafting. No publication authority has been supplied here.
+
+### What you did instead
+
+Retained independent evidence at C:/CoWork/outputs/lane-b-d433-review-2026-10-11/ (candidate-review.json, text-comparison.json,
+late-semantic-finding.json, guard-consumption.json, complete consistency logs and append audits).
+Before recording, 18/19 consistency checks passed with docs-drift alone; the covering-annotation check had the same
+result and terminal-return passed. The corrected handoff’s final full check is retained as final-handoff-check.log.
+The live graph remains analyzed at 1940af8; 10 governed paths are stale. No raw rebuild or sync was run.
+No canonical file, candidate byte, live state, trial, application build, fetch or push was changed by this review.
+
+**Failure pattern and prevention:** changed-section review missed an unchanged current-status claim. Use a current
+claim map: intent → behaviour → technical rules → setup → run evidence → current headers/tracker → curated summaries
+→ decision/DoD. For each claim record source, owner, current/historical status and downstream decision effect.
+Do this before offering Judge options. Hash/parity checks validate bytes; they cannot establish that the source is true.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Bounded C-a evidence; shared document chain; independent byte/projection checks | Phase 1: keep existing accepted evidence and limits |
+| Approve-with-conditions | Lane A correction and replacement plan | Phase 1: exact §0 draft, reconciled bounded authority, full current-claim sweep, then new receipt 2 |
+| Defer | Publication, health, DoD assessments, batch 2/cycle 2, P15 and GR-007 | Phase 1: corrected evidence and dependency order; Gate 2/push separately |
+| Reject | Publication using 931deb9 or unchanged candidate; a parsed Accept record treated as current approval | Phase 1: acceptance explicitly withdrawn by this review |
