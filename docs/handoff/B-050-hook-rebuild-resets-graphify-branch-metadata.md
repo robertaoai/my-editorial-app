@@ -7206,3 +7206,11 @@ same folder. This Lane B step records receipt 2 and its annotation; publication 
 | Approve-with-conditions | Lane A publication and health | Phase 1: guard consumes this commit; source, candidate and baseline remain valid; publish and retain separate full health |
 | Defer | U03 outcome, P15, GR-007 completion, Gate 2 and push | Their separate evidence, acts and phases; none is cleared here |
 | Reject | Old-candidate acceptance, annotation SHA used as review, changed frozen bytes or a broader check exception | Phase 1: exact replacement bindings and bounded exception only |
+
+## Terminal annotation record
+
+- **Current-Resolution:** Verified
+- **Annotation-Type:** verification-evidence
+- **Annotation-Act:** Judge, directly in this conversation, 2026-10-10: "Judge approved: Lane B record receipt 2 for D-432 and its covering annotation. Then Lane A publish under the existing approval, run the full health check and record the result in B-136. No push or Gate 2 closure." D-432 item 4. This immediately following record-only commit covers Lane B's exact-byte and semantic acceptance at 916d5cc4590baf4289164cbc248602a5ad9e6127 for replacement work 0cbe0599-f0ac-47d6-8dc5-7d0be9714ab7, graph 4bf7864a2521ab2393cb382a1574ed3224701ae444bde288ad8a32963f3e4cb1, manifest 858ab980984e005f49a937a1cba82875d93eb58db7d89b92ca178abb48b2d240. B-050 stays Verified, its header and Lane A answer remain unchanged, full checks are retained, and no normal hook is bypassed. Only terminal-return and docs-drift may fail between these two commits; the annotation ends that temporary terminal-return interval. Lane A publication and separate full health follow existing approval; no push, Gate 2 closure, new candidate or general check-failure precedent is included.
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** 916d5cc4590baf4289164cbc248602a5ad9e6127
