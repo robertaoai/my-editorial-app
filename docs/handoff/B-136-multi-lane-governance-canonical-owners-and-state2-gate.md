@@ -1502,3 +1502,95 @@ in chat with the six-part statement (P3). If the instruction is given, the trial
 | Approve | U03 preparation packet, accepted by Lane B | Phase 1: none |
 | Defer | Trial; U03 outcome; S2 batches and cycles; DOD-06; GR-007 | Phase 1: the Judge's trial instruction first |
 | Reject | Treating plan acceptance as trial authority or closure | Phase 1 |
+
+## Lane A — `SV2-U03` trial: Lane A run recorded; consumer runs requested; three outcomes, 2026-10-10
+
+**Authority.** Judge, in chat to Lane A, 2026-10-10: "yes". That answered the trial instruction presented with the
+six-part statement, and it also confirmed the named download. Trial authority is `SV-002` §3.2 (`D-266`). Evidence:
+`C:/CoWork/outputs/lane-a-u03-trial-2026-10-10` (folders `evidence/` retained, `scratch/` disposable, `scripts/`).
+No governed edit, publication or push.
+
+### What happened
+
+| Step | Result |
+|---|---|
+| Input freeze (R2) | At HEAD `b2b94c3`, `git diff --quiet 57da611 … -- lib app __tests__ supabase/migrations` is equal and the roots are clean. The 221-byte baseline stands |
+| Pre-state (P2) | `00-pre-state.json`: repository `!! .graphify` only; Codex config SHA-256 `bf1e5587…`; Gemini skills `graphify` only; no `ripwire` under `%LOCALAPPDATA%`, `%APPDATA%`, `~/.ripwire`, `~/.cache` or `%TEMP%` |
+| Download | `01-download-check.json`: GitHub release v0.6.3 asset, 8,833,900 bytes, SHA-256 `6e61f156…` — **match**. Extracted to `scratch/extract` |
+| Discovery | `--help` (`d01`), `--help=--callers` (`d02`), `--help=--no-cache` (`d03`), `--help=all` (`d04`), MCP `tools/list` (`d05`: 33 tools, including `uses` and `find_referencing_symbols`). Cache: a warm per-root TMPDIR cache by default; every run used `--no-cache`, with `TMP`/`TEMP`/`TMPDIR` set to `scratch/cache` |
+| Rules frozen (P1) | `02-frozen-rules.json` SHA-256 `5261ac70…`, written before any task output. Measured task: `ripwire C:\robertaoai\my-editorial-app --uses=requireConfigured --no-cache`. Negative: the same with `SV2_U03_NO_SUCH_SYMBOL_57da611`. Classification rules are sourced from the help text |
+| Results | `03-results.json` SHA-256 `3cdcb464…` |
+
+**The four §3.4 criteria, Lane A's CLI run:**
+
+| Criterion | Measured | Result |
+|---|---|---|
+| (1) Same callers/files, no false result | Call sites: exactly `__tests__/build-config.test.ts:46` (role `call`), with no false result; the import at `:10` is correctly not a caller. Files named: only the test file. The definition is counted (`defs="1"`) but its file `lib/config/build-config.ts` is **not named** | **Not met** (files 1 of 2) |
+| (2) Nothing on the negative control | Exit 1, stdout empty, stderr "`--uses selector matched no indexed definition: SV2_U03_NO_SUCH_SYMBOL_57da611`". Under the frozen rules, a non-zero exit or any stderr is an **error**, so it cannot pass as empty | **Not met** under the frozen rules (see note) |
+| (3) Bytes ≤ 221 and characters ≤ 12,000 | **1,077 bytes**; 1,075 characters | **Not met** (bytes); characters within limit |
+| (4) SQL fallback | ripgrep baseline: `0002_s1_editorial_schema.sql:311` (definition) and `:411` (trigger binding); exit 0, 223 bytes | Met (existing tool) |
+
+**Candidate result: does not pass §3.4 on Lane A's run.** The `--callers` supplementary run (`t03`, not measured)
+also named only the test file's module scope.
+
+**Note on (2).** The refusal is a clear, explicit no-match message; the help text documents the same refusal style
+for unmatched names in `--graph-query`. The frozen rules still classify it as an error. Lane A does **not**
+re-classify after seeing the output. Whether a documented refusal may count as "returns nothing" is a reading of
+§3.4 for Lane B to assess and, if changed, for the Judge to decide.
+
+**Findings.**
+1. §3.2's Lane C path `~/.gemini/config/skills/ripwire/SKILL.md` does not exist in the release. The release ships
+   20 `skills/ripwire-*/SKILL.md` folders and no single `ripwire` skill. Lane C must name which skill it tests, or
+   record the path as unsupported.
+2. No write outside `scratch/` was observed: the repository status is unchanged, and `scratch/cache`, `%TEMP%` and
+   the four default locations are empty of ripwire files.
+
+### Cleanup state
+
+**Cleanup is pending, by design.** `scratch/extract` (the binary) stays until both consumer runs finish or record
+access as unavailable, because the consumers need it. Owner: Lane A. Then remove `scratch/`. Prove the pre-state
+for every listed location (P2), and compare the Codex config and Gemini skills hashes and listings. Retained
+evidence stays in `evidence/`.
+
+### What you need
+
+**Lane B (consumer, Codex):**
+- Add the temporary MCP server: `C:/CoWork/outputs/lane-a-u03-trial-2026-10-10/scratch/extract/ripwire-0.6.3-windows-x64/ripwire.exe`, args
+  `["C:\\robertaoai\\my-editorial-app", "--mcp", "--no-cache"]`.
+- Record your config hash first.
+- Call `uses` (or `find_referencing_symbols`) for `requireConfigured` and for the negative symbol.
+- Retain the complete results. Classify them by P1. Give a usable / not-usable result.
+- Restore the config and show an equal hash.
+- Also review the measured criteria and the note on (2).
+
+**Lane C (consumer, Antigravity):**
+- Choose one shipped `ripwire-*` skill (for example `ripwire-navigate`), or record the §3.2 path as unsupported.
+- Record the skills folder's pre-state. Run the same task and control. Remove the skill and prove the pre-state.
+- If access is unavailable, record it as a finding.
+
+### Three outcomes for the Judge (after the consumer results)
+
+| Part | Provision | Existing path | Waive |
+|---|---|---|---|
+| **Authority** | Judge U03 outcome act (`SV-002` §3 U03 return condition); **plus** a §3.4 criterion change, because the candidate failed (1)–(3) | Judge U03 outcome act | Judge U03 outcome act, with an explicit waiver scope |
+| **Prerequisites** | Consumer results; a criterion change with the raw results and its effect | Consumer results; evidence that the existing path meets the task: the baseline meets (1)–(4) by construction; `git grep -n -w` is available on every lane; ripgrep is not on Lane A's `PATH` | A stated reason and the retained risk |
+| **Affected artifacts** | Register; `SV-002` §3.2 run row, §3.4, §7 DOD-04; Build Spec; Inventory; install location, configuration, owner and removal method | Register; `SV-002` §3.2 run row and §7 DOD-04 (supported method `git grep` / ripgrep and its limits: text matches only; import vs call needs reading); Build Spec | Register; `SV-002` §3.2 and §7 DOD-04 (waiver); Build Spec |
+| **Success / refusal checks** | Re-measured criteria pass under the changed text; install reproducible; removal tested | The named task re-run with the supported method at the batch-1 revision | The waiver names what stays unproven; never called a pass |
+| **Sync cost** | Batch 1, with guarded cycle 1 (S2). Its act names receipt route A. Possibly a dependency change (Lane A, `D-86`) | Batch 1, with guarded cycle 1 (S2), route A | Batch 1, with guarded cycle 1 (S2), route A |
+| **Stop point** | After cycle 1 health | After cycle 1 health | After cycle 1 health |
+
+**Lane A's provisional reading, from Lane A's run only:** *existing path* is the outcome the evidence supports. The
+candidate found the call site correctly, but failed three of the four frozen criteria, while the baseline method
+meets the task. This is not a recommendation until the consumer results exist.
+
+### What you did instead
+
+Ran only the authorized trial steps. No `PATH` change, no profile install, no repository write, no governed edit,
+publication or push.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Download verified; discovery; frozen rules; Lane A's measured run and results | Phase 1: none |
+| Approve-with-conditions | Consumer runs; then cleanup with pre-state proof | Phase 1: Lane B and Lane C, then Lane A |
+| Defer | U03 outcome (Judge); batch 1 and cycle 1; DOD-02/04; DOD-06; GR-007 | Phase 1: S2 order |
+| Reject | Re-classifying the negative control after seeing it; calling the candidate a pass; inferring a consumer result | Phase 1 |
