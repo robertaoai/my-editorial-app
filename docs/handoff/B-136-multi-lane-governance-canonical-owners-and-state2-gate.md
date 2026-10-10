@@ -4020,3 +4020,55 @@ B-077 review remains accepted throughout. P15/GR-007 conclusions do not authoriz
 | Approve-with-conditions | Revised D-434 packet | Phase 1: Lane A answers Q1–Q4; Lane B reviews corrected fields and full bindings |
 | Defer | Judge issuance, final acceptance records, cycle 2 | Phase 1: after the corrected draft review; no execution by this review |
 | Reject | Current draft treated as exact issuance-ready text; pending called complete; byte review substituted for semantic review; future tracker pin; B10 left unknown until application | Phase 1: bounded corrections above |
+
+## Lane A — D434-Q1–Q4 answered; D-434 draft revision 2 frozen; one open decision surfaced, 2026-10-11
+
+### What happened
+
+Lane B's review `f69cbc1` and its companions were received. Q1–Q4 are accepted. Lane A checked each claim against the
+source:
+- the `Status` cell is in `SV-002` **§1 Identity**, not §0;
+- the Build Spec §1 `V1-SM05` cell still reads "attempt `SV-002` open";
+- both `proposed-leaf.json` hashes verify against the current `frag139` value.
+
+Read revision: `f69cbc1`.
+
+**Revision 2:** `C:/CoWork/outputs/lane-a-d434-draft-2026-10-11/D434-DRAFT-r2.md`, 13,118 bytes, SHA-256
+`4225647fd0bf2905ae8c05ec22542473d75aeed82896ecbae535ed3ef2abc336`. Revision 1 (`5d86bea9…`) is history.
+Companion: `leaf-frag139.json`, SHA-256 `376a8497594a9dae6f55016c5761103395c89c2be5e9259b56f743feb7ee7cf9`
+(byte-identical to Lane B's `proposed-leaf.json`). The D433R bindings for the SCOPE text (`cac06ac4…`) and the FN
+leaf (`a4abb1f8…`) are unchanged.
+
+| Finding | Correction in revision 2 | Part |
+|---|---|---|
+| Q1 | Two explicit branches. The acceptance branch is Lane B's text unchanged: it accepts and checks DOD-01/02/04, accepts SV-002 under DOD-06, and accepts B-136.P15 individually. The rejection branch keeps the named row and DOD-06/P15/GR-007 open. No "if accepted" wording remains | 1 |
+| Q2 | B-077's review at `fdf06dc` is preserved. The new GR-007 conclusion is a dated snapshot at T ("awaits Lane B's explicit cycle-2 semantic acceptance"). Receipt 2 must assess bytes **and** the new conclusion; it is the single completion transition. No governed edit follows acceptance | 2 (item 4), 3 (B8) |
+| Q3 | B3 now targets the §1 `Status` cell as a whole replacement, with the old cell kept once as dated history. B9 replaces the active `V1-SM05` clause. New: B12 (Build Spec §1 SM05 cell) and B13 (the six §5 satisfaction cells, texts inline). B10 is frozen in full (`d8a96b0f…` → `d6d19f7f…`) | 3 |
+| Q4 | The tracker method names T: an existing commit after the recording and before the tracker edit, never the candidate hash. The full tracker is reconciled, not regenerated. Pass needs the `closure-readiness` zeros **and** a manual check of each new Basis | 3 |
+
+**Lane A's own sweep of the batch-2 files** found one more item, which is outside `D-434`. `Modular_PRD` §8.1's
+dated annotation says `SETUP-SPIKE-000` "remains open as the container for validation attempt `SV-002`". The note
+stays true for its date. No act says whether accepting `SV-002` ends that container. Revision 2 records this as B14
+(no change) and as an open decision (Part 5). Lane A recommends (a): the root stays open until the `V1-SM05` unblock
+decision.
+
+### What you need
+
+**Lane B:** review only the corrected sections (Parts 1, 2 item 4, 3 B3/B8–B14 and the tracker method, and 5) and the
+companion binding.
+
+**Judge (after Lane B's review):**
+1. Issue the acceptance branch (or name rejected rows).
+2. Select P-cond (recommended) or P-res.
+3. Note Part 5 (`SETUP-SPIKE-000` root) for the later unblock decision. Nothing is needed now unless you prefer (b).
+
+### What you did instead
+
+Drafted outside the repository; read-only checks. No DoD box, Register act or prepare. Handoff-only commit.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Q1–Q4 answered; revision 2 and companion frozen | Phase 1: none |
+| Approve-with-conditions | The Judge's branch and the P-cond/P-res choice | Phase 1: Lane B reviews the corrected fields |
+| Defer | `D-434` recording, application, cycle 2; the `SETUP-SPIKE-000` root (later unblock decision) | Phase 1: in order; Gate 2 separately |
+| Reject | Partial "if accepted" issuance; governed edits after acceptance to flip "awaits"; a tracker pinned to a future or candidate hash; `SV-002` acceptance read as closing `SETUP-SPIKE-000` or lifting `V1-SM05` | Phase 1 |
