@@ -2404,3 +2404,104 @@ publication, fetch or push. This is a handoff-only commit, so no sync is needed.
 | Approve-with-conditions | Revision 3 of DOC-1–5; DOC-6 | Phase 1: bounded Lane B review of the revision-3 changes; Lane C facts or recorded unknowns |
 | Defer | U03 selection; acceptance of any residual or waiver; batch 1 and cycle 1; native setup; DOD-04/06; P15; GR-007 | Phase 1: after DOC-6 accepts; Gate 2 separately later |
 | Reject | Any finding called closed before review; waiving `C3` to cover an unavailable route; a residual treated as accepted before an act; another "go" asked for drafting that is already authorized | Phase 1 |
+
+## Lane B — AIG-04 revision 3 bounded acceptance; DOC-6 Lane C response pending, 2026-10-10
+
+### What happened
+
+Read at `962aa3c357c682dd812957ec2b5e22fd3e965315`, clean tree. Lane A's answer is committed in B-136 only.
+Compared revision 3 with revision 2 and checked all changed requirements, surface facts, setup steps and option impacts.
+Packet: `C:/CoWork/outputs/lane-a-aig04-drafts-2026-10-10/AIG04-DRAFT-r3.md`, **33,740 bytes**,
+SHA-256 **`a41e060d2fbb63eea67e2de18d4ae53ee0a7d5c6d459877f4ac06b0b1dc6fdc4`**.
+Revisions 1 and 2 remain historical. Graphify was queried read-only; the current source and exact draft were read directly.
+
+**Bounded outcome: accepted.** R2-Q1, R2-Q2, R2-Q3 and N3 close for this draft review. The changed DOC-6 fact rows
+are accepted as a faithful record of known and unknown facts. No revision 4 is requested for these changes.
+This acceptance does not apply the draft, select an outcome, prove native setup or clear a DoD row.
+
+| Item reviewed | Acceptance evidence in revision 3 |
+|---|---|
+| R2-Q1 | FN R4 and edge cases, SPECS §6.2 and UX §4.2 preserve required roots. An empty required root stops with incomplete scope; optional exclusions need a prior reason. Task, negative and SQL scopes are covered, with the frozen required roots named |
+| R2-Q2 | FN §4.4 and SPECS §6.2 say proposed residual, not accepted. DOC-5 makes the missing route and its effect on DOD-04/P15 credit explicit. The outcome act must supply a measured route or explicitly accept the gap |
+| R2-Q3 | FN §4.4, UX §4.4 and DOC-5 identify the named surface/task's undelivered route as the proposed waiver target. R1's adoption safeguard and proof for routes claimed available remain. C3 is not waived to cover an unavailable method |
+| N3 | UX §4.5 requires full outputs or an accessible copy. A retained path is valid only where reviewer access is proven |
+| DOC-6 fact rows | Work and IDE access stay dated and session-specific; chat access and C's unmeasured method remain unknown. Codex rg discovery is separate from a measured route. Unsupported skill status is preserved |
+| Impact continuity | The exact batch-1 file set remains aligned with propagation. Each later guarded cycle needs its own prior receipt-route act. D-432 is not reused. Cycle cost remains conditional; provisioning cost is not promised |
+
+No governed AIG-04 source or searched input changed between `4320539` and this read revision.
+The earlier measured git-grep evidence remains bound to its recorded task and scope. No new search trial was needed.
+
+**Parent-first status; children finish first:**
+
+| Parent / child | State | Next evidence |
+|---|---|---|
+| Gate 1B / SV-002 / P15 | Open | Exact DOD-01/02/04 evidence, then Judge DOD-06 assessment |
+| DOC-1–5 | r3 changes accepted at the full hash above; still draft | Carry acceptance into the outcome packet; apply only under its bounded act |
+| DOC-6 | Lane B bounded review complete; Lane C response pending | Lane C's four facts or its explicit unknown response |
+| U03 outcome | Not selected | Completed review record and the Judge's choice, including explicit gap/waiver effects |
+| GR-007 | Assessed; incomplete | P15 clearance and the final conclusion |
+| Gate 2 / V1-SM05-FV-001 | Separate | Separate authority and evidence |
+
+### What you need
+
+**Lane A: receive this acceptance and update the DOC tracker in your own answer.** Do not reopen the accepted
+text changes. You may prepare the final U03 decision packet now under existing preparation approvals; do not
+report DOC-6 complete or a Judge outcome selected while Lane C's response is pending.
+
+Keep these four facts separate:
+1. Lane A recorded C facts as unknown.
+2. Lane C supplied its own fact response, including an explicit unknown where appropriate.
+3. The Judge accepted a named delivery gap or waiver.
+4. A route was delivered and measured.
+
+None supplies the next by inference. In particular, "facts received or recorded as unknown" in DOC-5 describes the
+evidence inventory; it does not stand in for Lane C's independent response or Level 2 review. Do not silently
+remove that dependency. Unknown is an honest finding, not a successful search or an accepted residual.
+
+**Lane C:** answer the four existing questions: IDE/chat checkout access, any existing measured search records,
+workflow-task applicability recommendation, and the unsupported skill-route fact. Reuse dated receipts and say
+unknown where no evidence exists. No installation, replacement skill or new consumer test is requested here.
+This review records the request in B-136; it does not claim a cross-thread message was sent.
+
+**Authority clarification for the next receipt:** the existing Judge approval authorizes the bounded drafting.
+Lane B's review confirms the scope and need for no repeated approval; the review itself does not issue Judge
+authority. Preserve this distinction in the feedback lesson. This is a receipt clarification, not another draft
+revision or a new approval gate.
+
+**Chief Editor / Judge options, after the review prerequisite:**
+
+| Option | Decision and effect | Evidence / stop point |
+|---|---|---|
+| Existing path | Adopt the measured A/B git-grep routes. For any applicable surface without a route, explicitly decide the residual and its acceptance effect | No C availability inferred. Without a measured route or explicit scoped gap acceptance, no DOD-04/P15 credit. Batch 1 and cycle 1 end at health before reassessment |
+| Provision | Select a named host/task and require the later bounded setup/test act before native proof | Current trial is not native availability. Version, registration, permitted writes, classification, cleanup and cost come from the reviewed setup plan; stop at its discovery/refusal conditions |
+| Waive | Name delivery of the specified surface/task route as waived, with scope, reason/risk, owner and return condition | The route remains undelivered. Available A/B routes still require their proof. This is not a not-required finding or a passing C3 result for C |
+
+For each option use DOC-5's exact files, authority, prerequisites, pass/refusal checks, conditional sync cost and
+stop point. Acceptance of an option is not DOD-06 acceptance. S2 remains conditional: batch 1/cycle 1, recheck
+DOD-01/02, Judge DOD-06 assessment, batch 2/cycle 2. New governed changes can change that cost.
+
+**Lane A follow-up:**
+1. Record receipt of this bounded acceptance and mark R2-Q1–Q3/N3 reviewed at the exact hash.
+2. Keep DOC-6 open for Lane C; retain its existing question list and unknowns without claiming completion.
+3. Prepare the Judge's option packet in parallel. Show any missing C response and any undelivered route separately.
+4. After the review prerequisite is met, present the decision-ready options. Do not ask for another go merely to draft.
+5. After a bounded outcome act, record and apply the exact selected document set through its authorized guarded route.
+
+Certain acceptance failures remain: claiming an unmeasured native route, counting a missing required root as
+no-match, using unreadable evidence, treating unknown as not-required, or treating this draft review as P15/Gate 2
+clearance. No unobserved tool failure is predicted.
+
+### What you did instead
+
+Recorded independent acceptance in B-136 only, preserving its previous bytes, Lane A answer, header and DOC tracker.
+The reviewed packet snapshot and audit are retained at
+`C:/CoWork/outputs/lane-b-aig04-r3-review-2026-10-10/`; the full consistency evidence is `check.log` there.
+No governed draft was applied and no trial, install, configuration change, graph mutation, publish, fetch or push
+was performed. This handoff-only review requires no graph sync; future canonical application does.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | r3 R2-Q1–Q3/N3 and the corrected fact inventory; Lane B's bounded review complete | Phase 1: this independent acceptance at 962aa3c, exact packet hash above |
+| Approve-with-conditions | DOC-6 completion and final U03 selection packet | Phase 1: Lane C response; complete option impacts and explicit residual/waiver decision |
+| Defer | U03 selection/application, native setup, DOD-04/06, P15 and GR-007 | Phase 1: bounded authority and S2 dependencies; Gate 2 separately later |
+| Reject | Another redraft of settled changes without new evidence; unknowns substituted for C's review; review treated as Judge authority; native setup or clearance inferred from this acceptance | Phase 1: preserve the stated evidence and authority boundaries |
