@@ -3168,3 +3168,93 @@ pre-sync interval (`D-428`).
 | Approve-with-conditions | D433-R1/R2 answers; SCOPE draft | Phase 1: Lane B review; Judge 4a and sequencing |
 | Defer | 4a recording, source repair, replacement candidate, publication, health, DoD, batch 2, P15, GR-007 | Phase 1: in order; Gate 2 and push separately |
 | Reject | Publication with `931deb9` or `c7ce4f5f…`; "byte-for-byte" as a claim; knowledgebase retrieval treated as delivered | Phase 1 |
+
+
+---
+
+## Lane B — Review of Lane A 548944e: D433R repair direction accepted; decision packet needs four bounded corrections, 2026-10-11
+
+- **Read at:** 548944e96df016d5ed5cc0705f702d27da5b66ba; clean tree before this review.
+- **Phase / actors:** Phase 1. Lane B raises and independently reviews; Lane A answers. B-136 header and Lane A answer field are unchanged.
+- **Packet reviewed:** D433R-DRAFT.md, 12,130 bytes, SHA-256 e653a13902426cdd5e9346cde89ef832410cfb2fd043b59bf24c2d88548c21e9, plus r2-mapping.mjs / .json and the actual applied diff. Evidence retained at C:/CoWork/outputs/lane-b-d433r-review-2026-10-11/.
+
+### What happened
+
+Lane A has received the withdrawal at 0e4adb2 and scope addendum at f2f38e6. The previous statement that these are unread is now superseded by Lane A's receipt at 548944e. Receipt does not close the source findings.
+
+The repair direction is accepted: preserve the unpublished superseded candidate, do not publish with 931deb9, correct stale status, keep the selected existing path with C-a, and retain one project with separate governance/document, codebase and knowledgebase uses. C1-C7 point to real stale or false claims. D-337 supports the completed rule refactor; D-362 supports completed U02. D-433 item 4 does not itself name all proposed status targets, so a concrete bounded amendment remains necessary before those edits.
+
+Lane A also found the proposed AIG-07 retrieval home. This improves Lane B's earlier source map: B-154's retrieval draft and D-424's Later already govern that deferred proposal. Do not duplicate it or reopen it through the scope clarification. Existing read-only Graphify discovery remains permitted; a formally accepted retrieval capability is not thereby delivered.
+
+The earlier Lane B acceptance also missed the current-status contradiction. This was a shared review failure: byte/projection checks and changed-section review did not reconcile the whole current claim. No new Lane C review result is supplied, so this record makes no claim about what Lane C accepted.
+
+The Judge decision packet is not final yet. The following corrections concern evidence, exact text and option effects. They require drafting and review, not another trial or another approval to draft.
+
+### What you need
+
+#### Parent-first status and closure tracking
+
+| Parent / child | Confirmed state | Next proof / actor |
+|---|---|---|
+| Same editorial project | One project; three distinct use cases | Preserve source authority and separate acceptance claims |
+| Gate 1B / SV-002 / P15 | Open | Corrected cycle 1 and health, DoD refresh and Judge DOD-04/06 decisions; batch 2 / cycle 2 under their own act |
+| D-433 cycle 1 | Original candidate superseded unpublished; receipt 2 withdrawn | Correct source and prepare a replacement only after bounded authority; fresh Lane B acceptance, separate Judge publication authority, then health |
+| D433-R1 / C1-C7 | Answered, repair direction accepted; not applied or closed | RR1 below, amendment, applied source and replacement review |
+| D433-R2 | Literal byte-identity claim withdrawn; disclosure improved | RR2 below; complete content comparison and independent disposition |
+| SCOPE-1-5 | Drafted, not applied or closed | RR3 / RR4; reviewed exact text and chosen sequence |
+| Existing path / C-a | Accepted within D-433's bounded hosts/tasks | Reuse; no repeat trial or native Ripwire setup |
+| Proposed AIG-07 | Retrieval refinement deferred by D-424 | Not a new P15 prerequisite; later explicit selection |
+| GR-007 | Incomplete | P15 and its final conclusion |
+| Gate 2 / V1-SM05-FV-001 | Separate | Separate authority and proof; not cleared by this review |
+
+#### Four corrections to the packet
+
+| ID | Finding and evidence | Draft fix | Success criterion |
+|---|---|---|---|
+| RR1 — complete current/history map | The evaluation's top Method line also says Nothing was installed, downloaded or executed, without explicitly naming the original desk study. A later dated trial note exists, but C3 changes only Status. The Register still carries D-433's frag140 descriptions are incomplete but not false sentence, which Lane A now correctly disputes for the SPECS node. C7 supplies only a replacement clause, not a full frozen JSON value. | Label the Method statement as the 2026-09-25 original evaluation method, not a current trial guarantee; retain the trial note. In the amendment explicitly supersede the Register's contrary SPECS-summary assertion while preserving history. Return the full old/new C7 description, exact path/node and hashes. Extend or qualify the C1-C7 claim map before asking for issuance. Do not silently widen the amendment. | No current/historical ambiguity about trial execution; no operative Register assertion that the known false summary is true; every authorized leaf change is exact and independently reviewable. Dated historical notes and unchecked DoD rows remain intact. |
+| RR2 — bounded comparison is not an exact semantic ledger | The script scans added lines only, compares against a Set from all of r3 rather than the owning section, and truncates retained strings to 160 characters. It does not pair old/new clauses or identify deletions. Categories (a)-(k) are eleven groups, not a reliable count of changed lines. Its output cannot prove none changes a requirement's meaning. Lane B retained the full applied diffs independently. | Keep r2-mapping.json as a discovery aid. Add a section-bound old/new ledger with full untruncated text, deletions, authority/evidence and intended effect. Distinguish marks, formatting, selected outcome, dated evidence and behavioral changes. Replace the blanket no-meaning-change assertion with a claim pending independent review. Include the actual generalized waiver text and the expanded workflow task. | Every semantic delta has a reviewed disposition. The already accepted selection and C-a evidence are not re-run; any genuinely new behavior needs bounded authority rather than being called formatting. |
+| RR3 — distinguish coverage, discovery and deferred retrieval | Part 4 calls a Graphify coverage pass orientation. A coverage check proves its named coverage condition; query/path output provides discovery. These are different results. The all-knowledgebase-unproven shorthand also obscures permitted existing queries versus the deferred AIG-07 contract. | Proposed wording: Graphify query and path support discovery. A coverage pass proves only its defined coverage condition. Neither establishes caller completeness, retrieval quality or the truth of a graph summary. Governed sources decide authority. Formal governed-reference retrieval remains the proposed AIG-07 track deferred by D-424; this clarification neither delivers nor allocates it. | No transferred acceptance between the three use cases; existing query permission preserved; no new retrieval prerequisite for U03 or P15. |
+| RR4 — decision effects and propagation are incomplete | S-a correctly requires Parts 1-3 review, but the shortened worklog says C1-C7 only and can hide that the replacement still contains all existing (a)-(k) deltas. S-b adds a frag140 FN leaf without exact replacement text. Part 4 calls Inventory unaffected only because no file is added or retired; that does not dispense with D-54 disposition/propagation where the applying act creates or sequences artifacts. S-c is a hold, not a complete delivery route. | For S-a, explicitly keep RR2 adjudication as a prerequisite, and carry reviewed SCOPE wording to batch 2 without making deferred AIG-07 delivery a prerequisite. For S-b, freeze all extra FN text and the FN description, with hashes and an expanded authority/file map. Record an Inventory propagation/disposition decision even when no artifact is added or retired. For S-c, state owner, release condition and resumed S-a/S-b route. Keep authority, prerequisites, files, pass/refusal checks, sync cost and stop point for each option. | The Judge can see the entire candidate and downstream sequence. No claimed cycle or earlier completion depends on unreviewed text, missing receipt authority or inferred clearance. |
+
+Draft replacement for the D433-R2 summary:
+
+> Batch 1 includes revision 3 requirements, the selected existing-path/C-a changes, version and decision marks, and the additional content groups (a)-(k). The comparison aid is not a complete semantic diff. The section-bound ledger and independent review determine each group's effect and authority. No literal byte-identity or blanket semantic-equivalence claim is made.
+
+#### Judge decisions: prepare now, issue only after the packet is corrected
+
+| Decision | Impact | Recommendation / gate |
+|---|---|---|
+| Bounded D-433 amendment | Adds precise current/history repairs outside item 4's named targets. Must include the final claim map, exact curated leaf and the contrary Register assertion's disposition. Source edits cause governed drift; replacement stays inside item 6's unit-scoped route A. | Do not issue the incomplete 4a text yet. Lane A corrects and freezes it; Lane B reviews. Judge then issues a bounded act. Preserve D-428 limits and normal hooks. |
+| S-a | Correct current-status claims and adjudicate the existing applied deltas before replacement cycle 1. Apply reviewed SCOPE clarification in batch 2. | Recommended starting point, conditional on RR1/RR2 closure for preparation and a recorded owner/return point for RR3/RR4. Expected two planned cycles, not a guaranteed run count. |
+| S-b | Adds reviewed SCOPE clarification to replacement cycle 1. Batch 2 still holds later acceptance/closure records. | Valid only after full exact-text and expanded-authority review. No demonstrated elimination of cycle 2; no known duration for the extra review. |
+| S-c | Makes no source repair and does not clear drift; waits for completed reviews. | Treat as a temporary hold with owner and release condition, not an alternative acceptance outcome. |
+
+The original U03 outcome is already selected. Do not ask the Judge to select it again. Neither amendment issuance nor sequence selection authorizes publication, application build, push or Gate 2 closure. This review does not issue either decision.
+
+#### Lane A follow-up
+
+1. Receive this review in B-136. Keep the existing finding IDs; record RR1-RR4 as bounded corrections to the packet, not duplicate handoffs.
+2. Produce a revised frozen draft and complete semantic ledger. Keep prior packets and the superseded candidate unchanged.
+3. Return exact amendment text, full JSON values/hashes, the affected/unaffected map and the expanded option-impact table. Correct the whole-current-claim sweep assertion to its actual scope.
+4. Lane B reviews the revised material. Lane C confirms its own surface claims only if changed; no new Lane C result is claimed here.
+5. After a bounded Judge act, Lane A records authority per D-54 and applies the authorized repair. Prepare a fresh replacement at the final committed source, with all required bindings.
+6. Fresh Lane B receipt 2 and covering annotation follow D-433 item 6; Judge publication authority and separate full health follow. Then refresh DoD evidence and present the remaining bounded decisions in S2 order.
+
+The Chief Editor needs to understand the customer effect and remaining limits. The Judge needs the exact authority and option impact. Lane A's answer, Lane B's independent review, Lane C's surface evidence and the user's decision are separate artifacts. Hash parity proves bytes, not that the words are true.
+
+### What you did instead
+
+Reviewed the attached worklog, verified the draft's full hash, read current sources and the applied diff, and retained independent audit evidence. Graphify was queried read-only for orientation; its stale graph was not treated as current source evidence. Only this Lane B review addendum is written. No Lane A answer/header, canonical file, live graph, trial, build, fetch, push or gate state is changed.
+
+The full consistency check at read HEAD 548944e completed: 18/19 pass, with docs-drift the only failure; terminal-return passes. Its docs-drift result is stale: analyzed 1940af8; ten governed-intent paths changed. Final result is retained in the review check.log. Handoff-only review adds no governed drift. A guarded replacement sync is required after source repair and fresh independent acceptance, never a raw rebuild or publication with withdrawn 931deb9.
+
+Certain failure: the docs-drift check remains red while the governed source is unsynced. Invalid acceptance claims: using the withdrawn receipt, treating preparation as release, treating a coverage pass as caller/retrieval proof, or treating these drafts as P15 clearance. No evidence establishes that S-a is faster by a measured duration, that every content change is harmless, or that all historical prose must be rewritten.
+
+**Readiness:** ready for Lane A's bounded correction work without another drafting go-ahead. Not ready for Judge issuance of the current 4a/options packet, source application, candidate acceptance or closure. This review narrows remaining work; accepted outcome and consumer evidence stay accepted.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Lane A receipt, withdrawal honoured, real stale-claim findings, existing path/C-a limits and reuse of the deferred retrieval source | Phase 1: accepted review facts, not applied repairs |
+| Approve-with-conditions | Current-status repair and S-a direction | Phase 1: RR1/RR2 review, exact bounded act and sequence; RR3/RR4 tracked for their applying batch |
+| Defer | Current 4a issuance, S-b application, replacement preparation/publication, health, DoD, P15 and GR-007 | Phase 1: revised decision packet and bounded authority; Gate 2 and push separate |
+| Reject | Full closure from receipt, truncated comparison called exact, blanket semantic equivalence, withdrawn acceptance reused, deferred AIG-07 made an automatic prerequisite | Phase 1: unsupported conclusions |
