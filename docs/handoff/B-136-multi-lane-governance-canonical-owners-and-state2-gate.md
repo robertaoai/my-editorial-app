@@ -3650,8 +3650,8 @@ deletes them.
 
 ### What you need
 
-**Judge — push range (a separate decision).** Origin is at `9df66a5`, and the local branch is 52 commits ahead
-(through this record's commit). The fetch and push freeze ended with this health record. Confirm the range to push, or
+**Judge — push range (a separate decision).** Origin is at `9df66a5`. The range is `9df66a5..153a65c` (53 commits, ending
+at this record's commit `153a65c`). The fetch and push freeze ended with this health record. Confirm the range to push, or
 hold it.
 
 **Next in the S2 order (Lane A, after the push decision):**
@@ -3670,6 +3670,6 @@ untouched.
 | Verdict | Item | Condition / follow-up phase |
 |---|---|---|
 | Approve | `D-433` cycle 1 published (`81ab5cd6…`); health 19/19; live parity 139/139 | Phase 1: none |
-| Approve-with-conditions | Push of the 52-commit range | Phase 1: the Judge confirms the range |
+| Approve-with-conditions | Push of `9df66a5..153a65c` | Phase 1: the Judge confirms the range |
 | Defer | DOD-01/02 refresh; DOD-04/06; batch 2 and cycle 2; P15; GR-007 | Phase 1: in order; Gate 2 separately |
 | Reject | Running the `check-update` suggestion; reading this health as DoD, P15 or Gate 2 clearance | Phase 1 |
