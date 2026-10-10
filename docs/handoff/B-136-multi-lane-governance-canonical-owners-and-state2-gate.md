@@ -1594,3 +1594,122 @@ publication or push.
 | Approve-with-conditions | Consumer runs; then cleanup with pre-state proof | Phase 1: Lane B and Lane C, then Lane A |
 | Defer | U03 outcome (Judge); batch 1 and cycle 1; DOD-02/04; DOD-06; GR-007 | Phase 1: S2 order |
 | Reject | Re-classifying the negative control after seeing it; calling the candidate a pass; inferring a consumer result | Phase 1 |
+
+
+## Lane B — U03 evidence review and bounded MCP consumer probe at 90ce74f, 2026-10-10
+
+### What happened
+
+Read revision: `90ce74f5fe8453d0776c0968c549e131832a415a`. The Judge directly authorized execution of the frozen
+SV2-U03 trial, including Lane B/C consumer checks and cleanup proof, with no build, push or Gate 2 closure.
+That instruction releases the earlier no-trial stop. Existing approvals carry forward. No new approval is needed
+for the remaining consumer receipts or routine cleanup inside that trial scope.
+
+**Independent evidence review.** The pinned zip is present: 8,833,900 bytes, SHA-256
+`6e61f1563b3d0048497abdafc5735e9bedeff01e6c9f0ff33f5a5e795d227598`. Every non-null raw-input hash referenced by
+Lane A's `03-results.json` matches. The searched roots remain clean and unchanged from `57da611`.
+The retained task output is 1,077 bytes / 1,075 Unicode code points, with the one correct call site and only the
+caller file named. It does not identify the definition file. The CLI negative control exits 1 with an explicit
+refusal. SQL fallback matches its retained baseline. Lane A's no-pass assessment is supported.
+
+| Frozen criterion | Lane A CLI evidence | Independent assessment |
+|---|---|---|
+| Same callers/files, no false result | One correct call at test line 46; no false caller; definition file not named | Not met: one of two required files |
+| Empty negative control after a valid request | Exit 1 and refusal text | Not met under the frozen rules; do not relabel it after seeing the output |
+| Task output ≤221 bytes AND ≤12,000 characters | 1,077 bytes; 1,075 characters | Not met: byte limit exceeded; character limit met |
+| SQL fallback answers the question | Existing ripgrep finds definition and trigger binding | Met for this bounded task |
+
+**Negative-control reading.** A clear refusal is useful evidence that no symbol was resolved, but it is not a
+successful empty response under the accepted classification. Lane B does not change the criterion. Even a later
+Judge change to this criterion would leave the file-set and byte-budget failures unresolved; it cannot by itself
+make this candidate run pass. Preserve the refusal and its original classification.
+
+**Lane B consumer probe.** Executed one direct stdio MCP connection from the Codex terminal against the verified
+scratch binary, with `--mcp --no-cache` and TMP/TEMP/TMPDIR redirected to Lane B's own scratch folder. Discovery
+returned 33 tools. Lane B retained the complete transcript and froze the `uses` schema, arguments and measurement
+rules before its task/control calls. No consumer configuration was installed or modified.
+
+| Observation | Result |
+|---|---|
+| Task `uses(requireConfigured)` | Successful MCP response; same 1,077-byte / 1,075-character text as Lane A's CLI; caller file only |
+| Negative `uses(SV2_U03_NO_SUCH_SYMBOL_57da611)` | JSON-RPC error `-32602`, explicit symbol-not-found refusal; not a passing empty result |
+| Process | Exited with code 0; no probe server left running |
+| Repository and Codex configuration | Before/after repository status and configuration SHA-256 equal |
+| Native Codex tool integration | Not measured. No ripwire tool is exposed in this session's tool inventory. The direct protocol probe is not proof of native host registration or discovery |
+
+**Consumer conclusion:** the direct MCP route can answer the named task, but does not meet the frozen file/budget/
+negative-control contract. Native host integration remains unproven. No Lane C run or receipt is inferred.
+
+Evidence: `C:/CoWork/outputs/lane-b-u03-consumer-2026-10-10/evidence/`: `before.json`, `frozen-rules.json`, complete
+`transcript.json`, raw stdout/stderr, `result.json`, `cache-inventory.json` and `cleanup.json`.
+
+**Cleanup finding.** Lane B's MCP probe created one 11,283,266-byte file under its redirected scratch cache despite
+`--no-cache`. The file's inventory and SHA-256 are retained. This establishes that the flag alone does not prove
+no cache write for this observed MCP path. Lane A's scratch cache was inspected separately and contained no files;
+Lane B does not attribute its own cache to Lane A. After inspection, Lane B verified the cleanup target was its
+own output-directory scratch subtree and removed it. `cleanup.json` proves Lane B's scratch is absent; retained
+evidence remains. This follow-up supersedes `result.json`'s intermediate `ownScratchRemoved: false` state.
+Lane A's shared binary and its full-trial cleanup remain pending for Lane C; Lane B did not remove them.
+
+### What you need
+
+**Parent-first status:**
+
+| Item | State | Completion requirement |
+|---|---|---|
+| Gate 2 / V1-SM05-FV-001 | Outside this unit | Separate later authority and evidence |
+| Gate 1B / SV-002 / P15 | Open | Reviewed U03 outcome plus final DOD-01/02 index, then Judge DOD-06 assessment |
+| U03 preparation | Accepted | Retain it and the raw 221-byte baseline |
+| Lane A measured CLI evidence | Reviewed; tested candidate does not pass | Keep all raw results; no retrospective pass |
+| Lane B direct MCP probe | Recorded; usable protocol, contract not met | Retain native-host limitation separately |
+| Lane C consumer | No receipt yet | Its own result or an explicit access/unsupported-route finding |
+| Full-trial cleanup | Pending, owner Lane A | After remaining consumer work, remove shared scratch and prove all listed pre-states |
+| GR-007 | Assessed; incomplete | P15 clearance and its final conclusion |
+
+**Corrections for Lane A, within existing authority:**
+1. The extracted release has **17** `skills/ripwire-*/SKILL.md` folders, not 20. None is the frozen single
+   `skills/ripwire/SKILL.md` path. Correct the count; retain the unsupported-path finding.
+2. Do not silently replace the frozen Lane C route with any installed skill folder. Lane C can record the named
+   route as unsupported. Any proposed mapping must name the shipped file/hash, destination, effect and restoration
+   proof before use; a change outside the already approved single-path trial needs its own scoped decision.
+3. Narrow the discovery chronology claim: retained file times and the worklog place CLI help/rules before the CLI
+   task, and MCP listing after that task. This does not invalidate CLI evidence. Lane B's MCP discovery/rules were
+   fixed before its MCP task. Do not claim all discovery preceded every invocation.
+4. Carry forward the observed cache-write finding. Keep TMP/TEMP/TMPDIR containment and inspect actual files; do
+   not use `--no-cache` as cleanup proof. Keep Lane B's completed cleanup separate from Lane A's pending cleanup.
+5. Replace "baseline meets (1)–(4) by construction" and "git grep available on every lane" with bounded evidence.
+   Lane B independently ran git grep here: task exit 0, 221 bytes; negative exit 1 with empty stdout/stderr; SQL
+   exit 0, 223 bytes. The task matches three text occurrences; the one-call/two-file conclusion still needs the
+   already recorded source reading. This proves this task on this checkout, not universal semantic navigation or
+   availability on an unmeasured Lane C surface.
+
+**Judge option impact, after the remaining evidence:**
+
+| Option | What the present evidence permits | Missing proof / effect |
+|---|---|---|
+| Provision | Not justified by this tested configuration under the frozen criteria | A separately bounded corrected candidate/configuration and fresh admissible evidence, or an explicit Judge criterion change plus re-measurement. Changing criterion (2) alone is insufficient. Installation, ownership/removal and consumer usability need proof. Additional governed tool changes can add sync work |
+| Existing path | Supported here for the named task by retained ripgrep and independently measured git grep, plus source reading | Confirm the other required consumer evidence or record unavailable access; state text-search limits. Record the Judge outcome and §5 corrections in batch 1; no general caller-analysis guarantee |
+| Waive | A possible Judge outcome, not a tool pass | Name the exact unmet requirement, reason, retained risk and return condition. Record it honestly; no inferred technical success |
+
+All three options require the Judge's recorded outcome; none supplies DOD-06 or Gate 2 acceptance by itself.
+Keep S2: batch 1 outcome/§5 corrections with its receipt route → cycle 1 → refreshed DOD-01/02 evidence → Judge
+DOD-06 assessment → batch 2 acceptance/P15/GR-007 → cycle 2. No current Judge choice is needed merely to receive
+this review, correct the facts, obtain the remaining consumer receipt or perform already authorized cleanup.
+
+**Chief Editor:** distinguish candidate failure, a consumer access limit, an incomplete trial and an outcome choice.
+Lane B raises/reviews; Lane A answers and owns shared cleanup; Lane C records its own consumer observation. Do not
+present a direct protocol probe as native integration, or a useful refusal as a passed frozen control.
+
+### What you did instead
+
+Reviewed the retained hashes and criteria, performed the bounded Lane B MCP probe, measured the existing git-grep
+path, retained complete evidence and removed only Lane B's disposable scratch. No profile edit, new download,
+application build, governed edit, graph mutation, fetch, push or closure. The full consistency-check log is retained
+with Lane B's evidence. This B-136-only review needs no graph sync; later governed outcome batches still do.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Verified retained evidence; Lane A no-pass assessment; bounded Lane B MCP observations and own cleanup; existing-path measurements here | Phase 1 trial: recorded with stated limits |
+| Approve-with-conditions | Complete U03 trial evidence packet | Phase 1 trial: Lane A corrects the facts; Lane C supplies its own receipt/finding; Lane A proves shared cleanup |
+| Defer | Judge U03 outcome, provisioning, governed batches/cycles, DOD-06/P15 and GR-007 | Phase 1: complete reviewed evidence, then S2 order |
+| Reject | Calling this candidate a pass; error-to-empty relabeling; blanket criterion relaxation; inferred native integration/Lane C result; flag-only cleanup proof | Phase 1: preserve results and use the corrections above |
