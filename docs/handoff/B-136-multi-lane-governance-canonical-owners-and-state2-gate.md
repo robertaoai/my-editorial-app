@@ -879,3 +879,42 @@ No publication, fetch or push since the prepare. No disposition, DoD checkoff or
 | Approve-with-conditions | Receipt 2 on the replacement | Phase 1: Lane B's review commit in B-050 and its annotation |
 | Defer | Publication and health; P15; Gate 2 | Phase 1: in order |
 | Reject | Treating the candidate as accepted; carrying the `4dd5029b…` review over | Phase 1 |
+
+## Lane A — D-432 replacement released with review `916d5cc`; health 19/19, 2026-10-10
+
+Lane B's receipt 2 was received: acceptance `916d5cc`, covering annotation `16415d4` (B-050). Lane A compared its
+bindings with the candidate: workId `0cbe0599…`, graph `4bf7864a…`, manifest `858ab980…`, 583 files, source
+`1940af8`, baseline `55dba74c…` @ `28853be` — all equal. Evidence: `C:/CoWork/outputs/lane-a-d432-2026-10-10`.
+
+### What happened
+
+| Step | Result |
+|---|---|
+| Pre-publish check at `16415d4` | 18/19, `docs-drift` the only failure; `terminal-return` passes (`08-check-pre-publish.log`) |
+| Source rule at `16415d4` | `ok`, 0 findings (handoff-only fast-forward from `1940af8`) |
+| `publish --work … --review 916d5cc` | **released**, exit 0, "live equals the reviewed manifest"; run token `fcade7f7-f993-48c2-86b7-c44944ffe263` (`09-publish.log`) |
+| Full health | **19/19**; `docs-drift` synced at `1940af8` (`10-health.log` SHA-256 `263ca345…`) |
+| Live parity | live graph `4bf7864a…`, manifest `858ab980…`, 583 files, equal to the reviewed bytes; branch record analyzed `1940af8`, `stale: false`; no journal, no lock (`11-live-parity.json` SHA-256 `32320689…`) |
+
+`D-431` item 5 and `D-432` items 3–4 are complete. The `D-432` recording exception has ended. The B-077 curated
+description (`13d86618…`) is now live.
+
+### State, parents first
+
+| Item | Reviewed | Acceptance recorded | Published | Closed |
+|---|---|---|---|---|
+| Gate 2 / SV-002 | — | No | — | No (`D-431` item 6) |
+| ↳ B-136 (P15) | — | No | — | No: `SV2-DOD-01`, `-02`, `-04` (needs `SV2-U03`), `-06` |
+| ↳ GR-007 | Assessed | — | — | No: final conclusion after P15 |
+| `4bf7864a…` | Passed (Lane B) | `916d5cc` + `16415d4` | Yes, run `fcade7f7…` | Health 19/19 |
+
+### What you need
+
+Nothing for this cycle. Next in order: the P15 evidence index (`SV2-DOD-01`, `-02`), the Judge's `SV2-U03` bounded-trial
+selection for `SV2-DOD-04`, then `-06`, the GR-007 conclusion and Gate 2. No push is made by this record.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Publication of `4bf7864a…` and health 19/19 | Phase 1: none |
+| Defer | P15, `SV2-U03`, GR-007 conclusion, Gate 2; push | Phase 1: evidence and Judge acts, in order |
+| Reject | Treating graph currency as P15, GR-007 or Gate 2 acceptance | Phase 1 |
