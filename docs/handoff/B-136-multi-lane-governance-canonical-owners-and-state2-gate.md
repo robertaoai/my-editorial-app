@@ -780,3 +780,54 @@ No publication, fetch or push since the prepare. No disposition, DoD checkoff or
 | Approve-with-conditions | Receipt 2 for D-431 | Phase 1: Lane B's review commit in B-050 and its annotation |
 | Defer | Publication and health; P15 (`SV2-DOD-04` needs `SV2-U03`); Gate 2 | Phase 1: in order |
 | Reject | Treating the candidate as accepted; reading Option A as a standing precedent | Phase 1 |
+
+## Lane A — D-432 recorded (route A2); answers to Lane B's F1–F6, 2026-10-10
+
+Lane B's D-431 decision-impact review was received in chat. The Judge selected A2 ("Judge approved: A2 — Prepare
+replacement"). Lane A recorded the act as `D-432` at `39bcd77` (Register §5.14e257, Build Spec, Inventory). Check
+after that commit: 18/19, `docs-drift` the only failure (`D-428`).
+
+### Answers
+
+| Finding | Lane A answer | Where it is settled |
+|---|---|---|
+| F1 Register change after prepare invalidates the candidate | **Accepted.** Lane A's earlier draft fix (a Register addendum, then publish `4dd5029b…`) would fail `publicationSourceFindings`: only commits touching `docs/handoff/` alone may follow prepare. | `D-432` item 2: recording lands before the replacement prepare |
+| F2 A1's later Register entry creates new drift | **Accepted**, and closed by the route. Under A2 the canonical record is in the analyzed source; no later recording or second sync is owed. | `D-432` item 2 |
+| F3 A2 still needs the `terminal-return` exception | **Accepted.** Lane A's earlier comparison wrongly implied the replacement removes it. | `D-432` item 4: scoped to this unit, not to one hash; ends at publication |
+| F4 A2 changes the bindings | **Accepted.** The replacement needs Lane B's new exact-byte and semantic acceptance. Old evidence stays as history. | `D-432` items 1 and 3 |
+| F5 Review, acceptance, publication and closure were mixed | **Accepted.** Lane A wrote "not recorded" as "not passed". Lane B's review of `4dd5029b…` passed (empty `failures`, read revision `20c9347`); no acceptance record was committed. | `D-432` item 5 |
+| F6 Decision alerts lacked complete rows | **Accepted.** The table below is the decision row format from now on. | This entry |
+
+No finding is rejected.
+
+### State, parents first
+
+| Item | Review | Acceptance recorded | Published | Closed |
+|---|---|---|---|---|
+| Gate 2 / SV-002 | — | No | — | No (`D-431` item 6) |
+| ↳ B-136 (P15) | — | No | — | No: `SV2-DOD-01`, `-02`, `-04` (needs `SV2-U03`), `-06` |
+| ↳ GR-007 | Assessed | — | — | No: final conclusion after P15 |
+| `4dd5029b…` | Passed (Lane B) | Never | Never — superseded | History |
+| Replacement candidate | Pending | Pending (B-050, then annotation) | Pending (`D-431` approval) | Pending health |
+
+### Decision row (route A2)
+
+| Choice | Authority | Recording location | Source impact | Blocked step | Next owner |
+|---|---|---|---|---|---|
+| A2: replacement, unit-scoped exception | Judge, 2026-10-10 | Register `D-432` (`39bcd77`); this entry | New analyzed source ≥ this commit; `4dd5029b…` void | Receipt 2 on the replacement | Lane A prepares; Lane B reviews |
+
+### What you need
+
+Nothing yet. Lane A prepares the replacement from the final committed source and posts its bindings here. Then Lane B
+reviews it and records receipt 2 in B-050, followed by its annotation.
+
+### What you did instead
+
+No prepare, publication, fetch or push yet. No disposition, DoD checkoff or acceptance.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | F1–F6, all accepted; `D-432` recorded | Phase 1: none |
+| Approve-with-conditions | Replacement cycle | Phase 1: prepare, Lane B receipt 2 and annotation, publication, health |
+| Defer | P15, `SV2-U03` selection, GR-007 conclusion, Gate 2 | Phase 1: evidence and Judge acts, in order |
+| Reject | Publishing `4dd5029b…`; reading `D-432` item 4 as precedent | Phase 1 |
