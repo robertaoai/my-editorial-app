@@ -7127,3 +7127,82 @@ the final full consistency check must leave docs-drift as its sole failure.
 - **Annotation-Act:** Judge's direct 2026-10-09 act in this conversation, "Judge approved: Receipt 2 for D-430 - Option A", covering Lane B's correction of its own receipt format for the same frozen work 4871f1b7-89ba-4027-a0f8-f173ccd7e434. The guard reads the complete acceptance at 28853bef8b48bdadc636b778eaf1effd41495429 successfully. Earlier failed formatting and its validation remain history. This immediately following record-only commit preserves B-050's Verified disposition; the same narrow check allowance and retained logs apply, hooks are not bypassed, and no publication, new candidate or broader authority is included.
 - **No-Scope-Reopened:** true
 - **Annotated-At-Commit:** 28853bef8b48bdadc636b778eaf1effd41495429
+
+
+## Lane B — D-432 replacement receipt 2: independent exact-byte and semantic acceptance, 2026-10-10
+
+**Read revision:** `bbbc18ee361d295781ef3ca50331ca7b87d715fb`. Authority: the Judge, directly in this conversation,
+2026-10-10: "Judge approved: Lane B record receipt 2 for D-432 and its covering annotation. Then Lane A publish
+under the existing approval, run the full health check and record the result in B-136. No push or Gate 2 closure."
+`D-432` item 4 supplies the bounded, unit-scoped recording exception. B-050 stays Verified; its header and
+Lane A answer are unchanged. This is publication acceptance for the replacement, not a new B-050 disposition.
+
+### What happened
+
+Independent read-only review of work `0cbe0599-f0ac-47d6-8dc5-7d0be9714ab7` found no candidate findings.
+The replacement contains the D-432 canonical record before its analyzed source `1940af8`. The superseded
+`4dd5029b…` candidate and its earlier review remain history; they are not used to certify this replacement.
+
+The complete 583-file manifest, graph hash, source and live baseline recompute correctly. All 139 curated
+nodes match; the B-077 description is exactly the D-431 text. All five new community names are bound to
+their exact members and supported by their cited decision bounds and most-frequent entries. The wide
+D-338–D-427 group has 97 members, 96 of them commit nodes; its name denotes the cited range, not exhaustive
+coverage of every intervening decision. Seven call records, fourteen ignored-list hashes, final-observation
+timing, final Git merge and studio projections validate. Source publication findings and transaction findings
+are empty. The live graph is unchanged (`481874fb…`); `55dba74c…` is its baseline manifest digest.
+
+### What you need
+
+Lane A consumes this acceptance commit, not the immediately following annotation commit. After the annotation,
+recheck the candidate, captured source and live baseline, then use the existing D-431/D-432 publication
+authority with work `C:/CoWork/outputs/lane-a-d432-2026-10-10/work` and this review commit. Run separate full
+health checks and record release, post-state and evidence in B-136. No additional publication approval is
+required within this scope. No fetch or push while pending. No Gate 2, P15, DoD checkoff or SM05 acceptance.
+
+Only terminal-return and docs-drift may fail between the acceptance and its immediately following record-only
+annotation. Every other check must pass; normal Git hooks are not bypassed. After the annotation, docs-drift
+must again be the sole failure. A future canonical change or name correction needs its own valid source and
+candidate review; frozen bytes cannot be edited under this acceptance.
+
+### What you did instead
+
+Retained independent evidence at `C:/CoWork/outputs/lane-b-d432-review-2026-10-10/`:
+- `candidate-review.json` SHA-256 `6d184d294ef9f3eb9a9dea8c4b7c47e132a3264ce4634670536587215ac28141`;
+- `review-candidate.mjs` SHA-256 `6fd64878888d0e2daeb004900bed92f90529b263a3aa29cb674a5ed1cabee80d`;
+- `acceptance-draft.json` SHA-256 `ccf452b787d7970b418dd48e14b204aff327e4a8545dc50508c3b13837cf85f2`.
+
+The full pre-recording check is retained as `before-recording.log` (18/19, docs-drift only), SHA-256
+`1ff627f3f8bdf63a9688d30c39e8d8c43979bca97e7e77422581abd5603ef0ee`. The full post-annotation check and guard-consumption proof will be retained in the
+same folder. This Lane B step records receipt 2 and its annotation; publication and health belong to Lane A.
+
+### F3 acceptance record
+```json
+{
+  "kind": "graphify-f3-acceptance",
+  "version": 1,
+  "disposition": "Accept",
+  "scope": "F3 publication",
+  "reviewer": "Lane B",
+  "workId": "0cbe0599-f0ac-47d6-8dc5-7d0be9714ab7",
+  "graphSha256": "4bf7864a2521ab2393cb382a1574ed3224701ae444bde288ad8a32963f3e4cb1",
+  "manifest": {
+    "algorithm": "guard-treeDigest-v1",
+    "digest": "858ab980984e005f49a937a1cba82875d93eb58db7d89b92ca178abb48b2d240",
+    "files": 583
+  },
+  "analyzedSource": "1940af888fff8193565c2c802c7d4e356513513e",
+  "baseline": {
+    "releaseLocus": "28853bef8b48bdadc636b778eaf1effd41495429",
+    "algorithm": "guard-treeDigest-v1",
+    "digest": "55dba74cdf6ac0be22d2ff153db299b6e4f63cd4b1a213285cc70eac3e93797d"
+  },
+  "pendingSemantics": 0
+}
+```
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | D-432 replacement exact-byte and semantic review | Phase 1: this acceptance commit, with its immediately following covering annotation |
+| Approve-with-conditions | Lane A publication and health | Phase 1: guard consumes this commit; source, candidate and baseline remain valid; publish and retain separate full health |
+| Defer | U03 outcome, P15, GR-007 completion, Gate 2 and push | Their separate evidence, acts and phases; none is cleared here |
+| Reject | Old-candidate acceptance, annotation SHA used as review, changed frozen bytes or a broader check exception | Phase 1: exact replacement bindings and bounded exception only |
