@@ -3758,3 +3758,137 @@ This handoff-only commit is unpushed.
 | Approve-with-conditions | DOD-01/02/04 checkoffs; DOD-06 assessment | Phase 1: Lane B review, then the Judge's assessment |
 | Defer | Batch 2 act (`D-434`) and cycle 2; P15 record; GR-007 conclusion | Phase 1: after DOD-06; Gate 2 separately |
 | Reject | Reading item 2 as a DoD checkoff or as Gate 2 / `V1-SM05` authority; batch 2 conclusions written before DOD-06 | Phase 1 |
+
+## Lane B — independent review of the refreshed P15 index and D-433 cycle-1 health, 2026-10-11
+
+### What happened
+
+**Read at:** `469fde01400f36502a43ff41ac551de319861a19`. The governed sources are unchanged from
+`e1077bc4b0559175fdc373e42cc11cdcd66046ec`; only this handoff changed. This is a Phase 1 Level 1 review, not a
+DoD checkoff, a disposition of the whole B-136 entry, or an execution act.
+
+**Result:** the refreshed index and the D-433 cycle-1 health evidence are accepted for the Judge's assessment,
+with the three recording clarifications below. Lane A can draft the remaining assessment and batch-2 packet now.
+No new permission is needed for that drafting. Final acceptance statements must remain proposed until the Judge
+assesses their evidence.
+
+#### Independent verification
+
+- The approved push range `9df66a5..e1077bc` contains 54 commits. The local origin tracking ref is at `e1077bc`.
+  Lane B did not fetch or contact the remote, so this review does not claim a new observation of the remote server.
+- The configured consistency checker (`node scripts/check-consistency.mjs`, the `bun run check` entry) passes
+  19/19 at the read revision. The tracker is current at `9df66a5`: 106 rows, one non-SM05 row unclosed (P15),
+  no unreceived SM05 rows and no unlisted or invalid row.
+- The live graph is `81ab5cd62e6787b0b87d1a69f18331564dc024f9181b798ee54ccfe74c0c487f`. Its manifest is
+  `b56afd6356198e907a68be958bb15cbc11e1aee9cf040a7b47f5826828cb148d`: 583 files, 139/139 fragments equal,
+  no name or transaction findings. The work state is published. The branch record is non-stale and analyzed at
+  `93aa02f4ded4b9e39a9742720ac986b7b593e583`.
+- Lane A's release and separate health records agree with those live bytes. Health log SHA-256:
+  `22d001ab927750b1cf5b33ffd8f4eba145ee09fdc70b3e5f1bf24fba0388f119`. The index check log SHA-256 is
+  `efe69ff0011f9ac9841d5103361695a11b35e7f6e3cd378ab73733d6f1d52daf`.
+- Lane B's retained review files are `C:/CoWork/outputs/lane-b-p15-index-review-2026-10-11/check.log` and
+  `live-review.json`. Local retained paths are evidence locations, not proof that every other surface can read them.
+
+No sync is required now. Batch 2's governed edits will require the planned guarded cycle.
+
+#### DoD assessment index
+
+| Row | Lane B assessment at the read revision | Limit / next actor |
+|---|---|---|
+| DOD-01 | Ready for the Judge: U01 `10ec465`; independent intended-status review `7faf618`, confirmed at `9c4db11`; current checks and graph verified above | The historical review's scope is retained; this is not a new audit of every historical edit |
+| DOD-02 | Ready for the Judge on the indexed scope and retained-obligation basis below | The Judge must give P15 its own reason; retained later construction is not completed construction |
+| DOD-03 | Already Judge-checked under D-362 | Do not reopen the deferred activation/adherence probes as this row's gate |
+| DOD-04 | Ready for the Judge: D-433 selected the existing path with C-a; applicable routes reviewed; cycle 1 released and healthy | Ripwire is not adopted. A selected, proven existing route meets this outcome; no native Ripwire setup is inferred |
+| DOD-05 | Already Judge-checked under D-289 | Later SM05 feature proof remains separate |
+| DOD-06 | Ready to present the combined index, not accepted by this review | The Judge assesses SV-002 and P15; SM05 unblock, work order and activation remain separate |
+
+**DOD-02 scope check.** The six scopes in SV-002 §2 have named sources and dispositions: project authority and
+frozen-source exclusions; product/MMF boundaries; the U01–U04 execution container; keyed backlog/refinement
+receipts; historical dialogue/tooling as provenance; and SV-001 as the historical attempt. B-139 supplies the scope
+review. This checks the keyed scope ledger, not the full contents of every historical source again.
+
+**DOD-02 ledger check.** SV-002 §4's nine rows are accounted for: setup closure by U01; loader by D-362; code
+navigation by D-433 and the published cycle; B-071/B-095/B-104, B-118's decided scope, B-118.RH1–RH4 and B-096's
+children by their §3.3 dispositions and later recorded receipts; B-137 R1 by D-265/D-289 for Gate 1B, with Lane B's
+first work-order check retained at D-242; and Lane A-resolved entries by the current tracker. The last tracker
+condition is P15. Its concurrent DOD-06 route is D-382 item 6, not a claim that P15 is already closed.
+
+**DOD-02 success dimensions.** SV-002 §5 separates comparison class from criterion satisfaction. The classes
+remain unchanged. This review supplies the current evidence after cycle 1; it does not check a DoD box.
+
+| Dimension | Existing comparison class | Current evidence and limit |
+|---|---|---|
+| Scope coverage | Improved | Six keyed scopes and exclusions checked above |
+| Transfer completeness | Improved | Required parent dispositions are recorded; B-137's later work has its owner/return; P15 retains its individual Judge acceptance route |
+| Evidence strength | Newly visible | U01 review, accepted U02/U04 and reviewed U03 outcome are pinned; cycle 1 now has actual release and separate health evidence |
+| Blocker disposition | Newly visible | U01–U04 results and dispositions are indexed; combined acceptance and P15 remain the Judge's assessment |
+| Gate result | Improved | The SM05 block still holds; green checks and graph currency have not lifted it |
+| Discovery timing | Improved | The named gaps were found inside SV-002 before any lift/selection; no claim is made that future gaps cannot occur |
+
+### What you need
+
+#### Three recording clarifications for Lane A
+
+| ID | Gap | Required clarification / acceptance test |
+|---|---|---|
+| IDX-1 | "P15 clears at DOD-06" omits its individual reason | Apply D-382 item 6 and D-364 item 4: the Judge's acceptance must name B-136.P15 with its own reason. Keep the reviewed prospective reason in B-154. Do not infer disposition of the whole B-136 header or later P14a/P14b obligations |
+| IDX-2 | "The Judge can object" leaves cycle-2 publication scope to silence | Carry forward the existing item-2 approval. Before prepare, the batch-2 act must state its own receipt route and whether publication is conditionally covered after a valid Lane B receipt 2, or reserved for a separate publication decision. D-431 is not standing authority for a new unit; ended D-432/D-433 exceptions are not reused |
+| IDX-3 | Waiting for final conclusions can delay preparation that is already authorized | Draft the exact assessment, conditional acceptance text, tracker derivation method, propagation map and cycle route now. Label conclusions proposed. Apply final factual conclusions only after the Judge's assessment and the recorded bounded act |
+
+These are bounded corrections to the handoff and next act. They do not require another trial, a new tool outcome,
+or a new review of already accepted U02/U04 work.
+
+#### Draft assessment text for the Judge — not issued
+
+> On Lane A's index at `469fde0` and Lane B's independent review against that revision, I assess DOD-01, DOD-02
+> and DOD-04. If accepted, DOD-03 and DOD-05 retain their existing decisions. I accept SV-002 under DOD-06 and
+> individually accept B-136.P15 under D-364 item 4 and D-382 item 6 because its attempt docket and combined
+> acceptance obligation are now evidenced by this revision-pinned DOD-01–05 index. This clears P15 from this act
+> onward and proves no earlier clearance. B-137's later first work-order check and P14a/P14b's later obligations
+> retain their own owners, receipts and triggers. GR-007's final conclusion may then be recorded against the
+> re-derived tracker. SM05 unblock, Gate 2, the D-242 work order, lane activation, construction and push remain
+> outside this assessment.
+
+The Judge can reject a named row instead. Lane A must then retain that row and its dependent conclusions as open;
+there is no automatic acceptance from the approval list or from the draft above.
+
+#### Batch-2 packet: finish the impact analysis before the act is issued
+
+Draft D-434 remains a proposed number; confirm it is free when recording. Use the existing S-a file boundary:
+Register/Build Spec/Inventory propagation (D-54), SV-002 acceptance/DoD and tracker, GOV-RES-001's GR-007 conclusion,
+the reviewed SCOPE-1–3 text and frag140 FN leaf. Put the handoff receipt in its own one-file commit. Confirm the
+exact paths and four-tier dispositions in the proposed act before application.
+
+| Publication option in the batch-2 act | Authority and prerequisites | Effects, checks, sync cost and stop |
+|---|---|---|
+| Conditional publication included | Explicit issued clause; committed batch; unit-scoped receipt route; Lane B's valid receipt 2; unchanged candidate/source/baseline bindings | Same batch file set; one planned guarded cycle. Publish only the reviewed bytes, then separate full health. Stop if a binding or check fails. No new generic permission request after these conditions pass |
+| Publication reserved | Explicit issued clause covering recording/application/prepare only; same candidate and independent review requirements | Same file set and one planned guarded cycle. Stop after accepted receipt 2 for the named publication decision; then publish and separate health if authorized |
+
+Both options keep no fetch/push while the candidate is pending. The act must specify how terminal B-050 receipt
+recording is covered under the current guard. A proposed temporary exception must state its unit, permitted check
+failure, immediately required covering annotation and end condition. Do not rely on an expired exception or silently
+extend D-428, which permits only docs-drift. Changing the guard's acceptance source remains a separately held unit.
+
+**Chief Editor check:** keep the same project with distinct governance/docs, codebase and knowledgebase use cases.
+Trace each to its intent, behaviour, technical specification, setup route and verification evidence. D-433's existing
+codebase route does not adopt Ripwire, extend Graphify to code construction, or accept the deferred knowledgebase
+capability. Preserve Lane C's measured C-a scope. Do not turn unknown, unsupported, not required or waived into
+synonyms. Keep observation, proposal, authority, application, independent review and gate acceptance distinct.
+
+### What you did instead
+
+Lane B completed the read-only review and recorded it here. No Lane A answer, header, DoD box, tracker, Register,
+fragment, graph, application code or workflow was changed. No fetch, push, trial, prepare or publication was run.
+
+**Next:** Lane A receives IDX-1–3 and finishes the concrete assessment/batch-2 draft under existing approvals.
+The Judge then assesses the named DoD evidence and P15 reason; Lane A records the issued act before prepare;
+Lane B reviews the exact candidate; publication follows the act's explicit stop rule; health and the GR-007 record
+follow the recorded dependency order. Gate 2 remains separate.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Cycle-1 release/health; current graph; refreshed evidence accepted for assessment | Phase 1: independent review complete at the read revision |
+| Approve-with-conditions | DOD-01/02/04 checkoffs, DOD-06 and P15 | Phase 1: Judge's evidence assessment and P15's individual reason; no whole-entry or feature clearance inferred |
+| Approve-with-conditions | Batch-2 preparation and cycle-2 plan | Phase 1: Lane A drafts IDX-1–3; own issued act states receipt route, publication trigger, checks and stop before prepare |
+| Defer | Final governed acceptance records, GR-007 completion and cycle 2 execution | Phase 1: after the evidence assessment and bounded act; no execution by this review |
+| Reject | Silence used as publication authority; ended recording exception reused; retained future work called delivered; graph currency treated as Gate 2 or build readiness | Phase 1: preserve the explicit boundaries above |
