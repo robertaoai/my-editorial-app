@@ -3103,3 +3103,68 @@ The full consistency check at read revision 0e4adb2 reports **18/19**, with only
 | Approve-with-conditions | Consolidated handoff and proposed scope wording | Phase 1: Lane A receipt and exact draft answer, then independent Lane B review |
 | Defer | Canonical repair, replacement cycle, health, P15 / GR-007 and later gates; any file split | Phase 1: mapped authority and dependency order; Gate 2 separate |
 | Reject | Merged acceptance, invented customer requirements, unread feedback called closed, publication using withdrawn 931deb9, new trial or push inferred from this review | Phase 1: no execution authority in this addendum |
+
+## Lane A — receipt of the D-433 withdrawal and the three-use-case addendum; D433-R1/R2 and SCOPE drafts, 2026-10-11
+
+### What happened
+
+**Received (read at `f2f38e6`):**
+- Lane B's acceptance `931deb9` (with annotation `92d2c1e`) is **withdrawn** by `0e4adb2`. Lane A will not name
+  `931deb9` for publication. Candidate `c7ce4f5f…` (work `d5ba3505…`) is superseded unpublished and kept unchanged.
+- D433-R1 and D433-R2 (`0e4adb2`), and SCOPE-1–5 with the Judge's clarification "same project; distinct use cases"
+  (`f2f38e6`).
+
+Both findings are accepted. **Lane A's own errors:**
+1. The batch-1 sweep read only the changed sections. It missed the current `Status` line of `SV-002` and five other
+   current claims.
+2. The `dcf8d53` statement "otherwise byte-for-byte revision 3" is wrong. The applied text also has about ten unnamed
+   content changes, in addition to the version marks.
+3. The `cdfee6b` note called the `frag140` descriptions "incomplete but not false". The SPECS node is false.
+
+**Draft packet:** `C:/CoWork/outputs/lane-a-d433r-2026-10-11/D433R-DRAFT.md`, 12,130 bytes, SHA-256
+`e653a13902426cdd5e9346cde89ef832410cfb2fd043b59bf24c2d88548c21e9`. The mechanical comparison is `r2-mapping.mjs`
+(`e51d9e3e…`) → `r2-mapping.json` (`fa43fc07…`).
+
+| Finding | Lane A answer (packet part) | State |
+|---|---|---|
+| D433-R1 | Part 1: a current-claim sweep of the six touched files and every `SV2-U03` mention found **seven** current claims (C1–C7) with exact replacement text. C1 is Lane B's `SV-002` §0 line. C2–C7: §2.2 `P3` status; the evaluation `Status`; its Inventory row; the FN and SPECS `Status` lines; the `frag140` SPECS description. Superseded text stays as dated history. The dated tracker note stays for batch 2 | Answered; awaits Lane B review |
+| D433-R2 | Part 2: the exact difference, classified as marks, heading form, the four named deltas and **unnamed changes (a)–(k)**, with a replacement statement. Lane B reviews (a)–(k) as content | Answered; awaits Lane B review |
+| Withdrawn acceptance | Received. Replacement only, inside `D-433` item 6 | Received |
+| Authority | Part 3: C1–C7 are **not** in `D-433` item 4. A one-item amendment (4a) is drafted for the Judge | Judge decision |
+| SCOPE-1–5 | Part 4: the use-case map, with arrangement A recommended. Knowledgebase is linked to the proposed `AIG-07` retrieval packet (B-154, `D-423`; the Judge's "Later", `D-424`) and stays **unproven**. There is exact text for FN §1, the introduction and §4.4, plus an affected/unaffected list | Draft; awaits Lane B review |
+| Sequencing | Part 5: S-a (recommended): replacement carries C1–C7 only, and SCOPE goes to batch 2. Alternatives: S-b (both in cycle 1) or S-c (hold) | Judge decision |
+
+### Tracker (SCOPE-5 form)
+
+| Item | Raiser | Answer | Evidence | Reviewer outcome | Residual / trigger | Closure authority |
+|---|---|---|---|---|---|---|
+| D433-R1 | Lane B `0e4adb2` | this entry | Part 1 | pending | Batch 2 tracker note | Lane B review, then Judge 4a |
+| D433-R2 | Lane B `0e4adb2` | this entry | Part 2, `r2-mapping.json` | pending | — | Lane B review |
+| SCOPE-1–5 | Lane B `f2f38e6` | this entry | Part 4 | pending | Knowledgebase unproven (`AIG-07` deferred) | Lane B review, then the applying act |
+
+### What you need
+
+**Lane B:** review Parts 1–4 of the packet. Check content changes (a)–(k) as content, and the claim map's
+completeness.
+
+**Lane C:** no new fact is needed for Parts 1–3. For Part 4, confirm only your own surface facts, if Lane B asks.
+
+**Judge:**
+1. The `D-433` item 4a amendment (Part 3).
+2. Sequencing: S-a, S-b or S-c (Part 5).
+
+Lane A then records 4a in the Register, applies C1–C7 and prepares the replacement candidate. Lane B gives a new
+receipt 2, and the Judge decides publication.
+
+### What you did instead
+
+Drafted outside the repository and computed the mapping read-only. No governed edit, Register act, prepare,
+publication, fetch or push. This is a handoff-only commit; `docs-drift` stays the sole failure inside `D-433`'s
+pre-sync interval (`D-428`).
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Receipt of `0e4adb2` and `f2f38e6`; withdrawal honoured; Lane A's three errors stated | Phase 1: none |
+| Approve-with-conditions | D433-R1/R2 answers; SCOPE draft | Phase 1: Lane B review; Judge 4a and sequencing |
+| Defer | 4a recording, source repair, replacement candidate, publication, health, DoD, batch 2, P15, GR-007 | Phase 1: in order; Gate 2 and push separately |
+| Reject | Publication with `931deb9` or `c7ce4f5f…`; "byte-for-byte" as a claim; knowledgebase retrieval treated as delivered | Phase 1 |
