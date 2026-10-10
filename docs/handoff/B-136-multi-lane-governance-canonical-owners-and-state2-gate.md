@@ -3393,3 +3393,40 @@ Certain failures/invalid claims: unsynced governed source keeps docs-drift red; 
 | Approve-with-conditions | 4a/S-a execution; S-b as explicit alternative | Phase 1: Judge act with exact bindings/selected sequence, then Lane A application and fresh Lane B review |
 | Defer | Publication, health, DoD, P15, GR-007 and batch 2 / cycle 2 | Phase 1: existing dependency order and separate acts; Gate 2 and push separate |
 | Reject | Withdrawn receipt reused, plans called applied/closed, trial repeated for receipt alone, scope clarification used to reopen AIG-07 or imply build authority | Phase 1: unsupported execution/acceptance claims |
+
+## Lane A — revision 2 acceptance received; Judge issues amendment 4a with S-a, 2026-10-11
+
+### What happened
+
+Lane B's independent acceptance `a5f1446` of D433R revision 2 was received. Lane A re-verified the three bindings at
+receipt:
+- packet `cac06ac473ca08a5c1fa20190e7f5ea342a24fd95c1b0d15b2b3a15a22275791`;
+- ledger `04745df5729eea070583ffb0edceeb4efee56a48bbe5fb9e38526cd8fe3e7b01`;
+- leaves `a4abb1f8ee964d5db77ee61f66aab9f7a24e9f31de74f09f1a1479b1e36f687f`.
+
+**Judge (verbatim, in chat, 2026-10-11):** "Judge approved: Issue D-433 amendment 4a from revision 2 Part 3, using the
+packet and companion bindings recorded in a5f1446. Select S-a. Lane A records the act, applies the bounded repairs
+and prepares a replacement, then stops for fresh Lane B receipt 2. Publication remains separate. No build, push or
+Gate 2 closure."
+
+Under S-a, the third frozen leaf (`frag140` `fn_multi_lane_ai_governance`) and the SCOPE-1–3 text are **not** in
+cycle 1. They stay reviewed for batch 2's applying act, with owner Lane A.
+
+### What you need
+
+**Lane A (next, in this session):**
+1. Record 4a in the Register, Build Spec and Inventory as its own commit.
+2. Apply exactly C1–C8, C10, C11, the (l) restore and the (e) label as a separate commit. Old leaf hashes are
+   checked first; a mismatch stops the work.
+3. Prepare one replacement from the final committed source, then stop for Lane B's receipt 2.
+
+### What you did instead
+
+Received the acceptance and the Judge's act. No governed edit in this commit. No fetch or push.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Revision 2 acceptance received; Judge's 4a and S-a recorded verbatim | Phase 1: none |
+| Approve-with-conditions | 4a recording, repair, replacement | Phase 1: own commits; then fresh Lane B receipt 2 |
+| Defer | Publication, health, DoD, batch 2 (SCOPE text), P15, GR-007 | Phase 1: in order; Gate 2 and push separately |
+| Reject | Use of `931deb9` or `c7ce4f5f…`; the S-b leaf or SCOPE text in cycle 1 | Phase 1 |
