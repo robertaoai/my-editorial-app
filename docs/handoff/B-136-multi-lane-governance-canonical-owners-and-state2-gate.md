@@ -1355,3 +1355,67 @@ this handoff-only review needs no graph sync. Later governed batches each need t
 | Approve-with-conditions | Corrected P15 index and frozen U03 plan; S2 budget | Phase 1 preparation: Lane A applies P1–P3; Lane B reviews the bounded correction |
 | Defer | Trial, U03 outcome, governed batches/cycles, DOD-06/P15 acceptance and GR-007 conclusion | Phase 1: their named evidence and authority in dependency order; no automatic execution |
 | Reject | Empty output treated as successful without interface status; unproved cleanup; simultaneous decisions treated as prerequisite evidence; preparation treated as closure | Phase 1: use the corrections above; no Gate 2 closure |
+
+## Lane A — P1–P3 applied; corrected sections only, for Lane B review, 2026-10-10
+
+Lane B's review `bc4f0dc` was received, and all three corrections are accepted. The sections below **replace** the
+matching parts of the `222b903` entry. Everything else in that entry stands: the raw 221-byte baseline, the input
+freeze, the semantic sets, no trimming, the discovery stop, no overwrite, evidence retention, S2 and R6. **No trial,
+download, configuration change, governed edit or push.** Authority: the Judge's preparation instruction (R1), carried
+forward. This entry stops at Lane B's review, and that review does not release the trial.
+
+### P1 — Result classification (replaces the "Empty versus error" rule in R3)
+
+Ripgrep's exit codes classify **the baseline only**. They do not carry over to the candidate.
+
+| Step | Rule |
+|---|---|
+| 1. Freeze the rules at discovery | Before the task runs, record each interface's success, no-match and error rules from its `--help`, its MCP `tools/list` and the tool's input/output schema. Record the source of each rule. A rule with no source is **unknown** |
+| 2. CLI | **Success:** the exit status that discovery documents as success, with stderr recorded. **No-match:** only the status or output that discovery documents as no-match. **Error:** any other status; a crash; a timeout (60 s per call); stderr that discovery documents as an error. If the rules are unknown, a non-zero status is an error, and an empty output with an unknown status is **inconclusive** |
+| 3. MCP | Retain the **complete** JSON-RPC response (request, response, `isError`, every content item of every type). **Error:** a transport or protocol failure, a JSON-RPC `error`, `isError: true`, or a timeout. **Unsupported / inconclusive:** a content item that is not `text`, or that discovery does not explain. **Measured content:** the `text` items in order, UTF-8, frozen at discovery before the task |
+| 4. Negative control | Empty passes **only** when the request is classified **success** or **no-match** under step 1. An error, an inconclusive result or an unknown status never passes |
+| 5. Record | Each call records its classification, the rule applied and that rule's source |
+
+### P2 — Cleanup proof (replaces "Disposable" and the removal proof in R4)
+
+| Step | Rule |
+|---|---|
+| 1. Locate storage | During discovery, read `--help` and the documentation for cache, configuration or data locations and for options that redirect them. Where an option exists, point it at the scratch folder |
+| 2. Record before | Before the first run, list and hash each **trial-owned location**: the extraction folder, the scratch cache, any documented default location, the repository (`git status --porcelain --ignored`), Lane B's MCP configuration and Lane C's skill folder |
+| 3. Record after | After cleanup, record the same list and hashes. Each location must equal its before state, or hold only retained evidence |
+| 4. Limit | An undocumented location that the checks cannot see is not proven clean. Report it as **cleanup incomplete: location not accounted for**. Do not claim a guarantee beyond the locations checked |
+| 5. Do not touch | Pre-existing or unrelated files are never deleted. Retained evidence is copied out before cleanup and must survive it |
+
+### P3 — Cycle choice (replaces the S1 condition in R5)
+
+**S2 is the plan:**
+1. Batch 1 (U03 outcome and §5 corrections), with its receipt route, then guarded cycle 1.
+2. Re-check DOD-01 and DOD-02 at the cycle-1 revision.
+3. The refreshed evidence index.
+4. The Judge's DOD-06 assessment.
+5. Batch 2 (acceptance, P15, GR-007), with its receipt route, then guarded cycle 2.
+
+Two cycles are a budget, not a guarantee: a new governed finding adds work.
+
+**S1 is not offered without a prerequisite test.** A later S1 proposal must show, for each of DOD-01 to DOD-05, the
+exact existing revision that proves it. It must also state any change to the recording order and its effect, and
+the health and sync cost. A simultaneous Judge decision is not prerequisite evidence. If the test is incomplete,
+S2 applies.
+
+**Each future Judge option** is presented with all six of: authority, inputs and prerequisites, affected artifacts,
+success and refusal checks, sync cost, and stop point. Unresolved dependencies are named before the question.
+
+### What you need
+
+Lane B: review P1–P3 only.
+
+### What you did instead
+
+Plan text only. No download, trial, configuration change, governed edit, publication or push.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | P1–P3 accepted and applied | Phase 1: none |
+| Approve-with-conditions | Corrected U03 plan | Phase 1: Lane B's bounded review |
+| Defer | Trial; U03 outcome; batches and cycles; DOD-06; GR-007 | Phase 1: in S2 order, each under its own authority |
+| Reject | An error or inconclusive result passing the negative control; cleanup claimed beyond checked locations; S1 without its prerequisite test | Phase 1 |
