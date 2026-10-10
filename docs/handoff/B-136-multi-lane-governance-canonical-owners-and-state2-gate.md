@@ -1127,3 +1127,147 @@ governed source edit, graph mutation, build, fetch, push or Gate 2 closure.
 | Approve-with-conditions | P15 index and trial plan | Phase 1: Lane A answers R1–R6; Lane B reviews the corrected packet. No DOD checkoff. |
 | Defer | Trial execution; final U03 outcome; DOD-06/P15 acceptance; GR-007 completion; any later guarded cycle | Their own evidence and authority boundaries, after this preparation review. |
 | Reject | S1 as an automatic default; reuse of D-432's expired exception; a predicted byte-limit failure treated as a measured result; automatic download after this review | Phase 1: correct the plan; current no-trial boundary remains. |
+
+## Lane A — R1–R6 answered; corrected P15 index and U03 plan, for Lane B review, 2026-10-10
+
+Lane B's review `9c4db11` was received. All six findings are accepted. This entry **replaces** the plan sections
+of the `1ac1b19` entry where they differ; that entry stays as history. **No trial, download, governed edit or push.**
+Evidence: `C:/CoWork/outputs/lane-a-p15-u03-plan-2026-10-10`.
+
+### R1 — Authority
+
+- **Judge's direct instruction**, as recorded by Lane B in `9c4db11`: "Judge approved: Lane A apply F1–F6, record the
+  approval, update the P15 evidence index and freeze the SV2-U03 trial plan in B-136 for Lane B review. Carry
+  forward existing approvals; no trial execution, build, push or Gate 2 closure."
+- The earlier receipt in `1ac1b19` (from Lane B's report) stays as provenance.
+- `D-418` and `D-266` cover this preparation. No Register act is made.
+- **Stop point:** the end of Lane B's review of this entry. The trial needs a later instruction.
+
+### DOD-01 — U01 review
+
+Replace "Lane B to confirm" with: **`7faf618` is the independent intended-status review of U01 `10ec465`**,
+confirmed by Lane B in `9c4db11`. Its historical mechanical-correctness limit remains. The 19/19 check and the
+released graph are separate, current proofs. No DOD-01 checkoff is made here.
+
+### R2 — Reproducible baseline (re-captured)
+
+**Correction to `1ac1b19`.** The 224-byte and 225-byte files were written through PowerShell `Set-Content`, which
+re-encoded the output with CRLF line endings. They are not ripgrep's raw stdout. The raw re-capture is below. The
+earlier files are kept, and are superseded as measurement baselines.
+
+| Item | Value |
+|---|---|
+| Script | `capture-baseline.mjs` (no shell; spawns the executable directly) |
+| Executable | `C:\Users\rober_24syk4j\AppData\Local\Programs\Antigravity IDE\resources\app\node_modules\@vscode\ripgrep\bin\rg.exe`, ripgrep 13.0.0 (rev af6b6c543b), SHA-256 `44e4afc22ff2292438d4c5812366f6444803db453f80cd0734e3e837f1519bba` |
+| Working directory | `C:\robertaoai\my-editorial-app` |
+| Frozen source | `57da611`. At the capture HEAD `9c4db11`: `git diff --quiet 57da611 9c4db11 -- lib app __tests__ supabase/migrations` is equal, and those roots are clean |
+| Record | `baseline-raw.json` SHA-256 `351024d817022874e494d859893bc63d5713b6ae059846652898beada2ad4c23`; raw stdout in `baseline-raw/*.stdout` |
+
+| Run | Arguments | Exit | Bytes | Characters | SHA-256 (raw stdout) |
+|---|---|---|---|---|---|
+| task | `-n --no-heading -w requireConfigured lib app __tests__` | 0 | **221** | 221 | `969ba4b5a606e1a896de0389d6d33708ebb950e4ba7f7f9ff91453e2c1fa4fc9` |
+| negative | `-n --no-heading -w SV2_U03_NO_SUCH_SYMBOL_57da611 lib app __tests__` | 1 | 0 | 0 | `e3b0c442…` (empty) |
+| sql | `-n --no-heading -i enforce_article_state_transition supabase/migrations` | 0 | 223 | 223 | `bc05a20a21be356ad5d46f0651d9f6c9fbd4a94cd66106ff09d768fe87c38877` |
+
+All three runs have empty stderr and LF line endings.
+
+**Input freeze rule.** Immediately before the trial, re-run the same `git diff --quiet 57da611 <trial HEAD> -- lib
+app __tests__ supabase/migrations` and the clean-roots check.
+- If both pass, the baseline above stands.
+- If either fails, stop. Re-capture the baseline, then return it to Lane B for review before the task runs.
+
+### R3 — Comparison and measurement
+
+**The semantic expected set, kept separate from the three audit text matches:**
+
+| Set | Members |
+|---|---|
+| Definition | `lib/config/build-config.ts:380` |
+| Callers (call sites) | 1: `__tests__/build-config.test.ts:46` |
+| Files | 2: `lib/config/build-config.ts`, `__tests__/build-config.test.ts` |
+| Tests | 1 file: `__tests__/build-config.test.ts` |
+| Audit text matches (not callers) | 3: the definition, the import at `:10`, the call at `:46` |
+
+- **Criterion (1).** The candidate passes if the files and call sites it reports equal these sets, with no extra
+  file or call site.
+- **Path comparison.** Repo-relative paths, `\` normalized to `/`. A line number is compared only for call sites.
+- **An import is not a caller.** Reporting the import as a caller is a false result.
+
+**Measurement.**
+- **What is measured:** the complete consumer-visible result of **one** invocation.
+  - CLI: the raw stdout bytes.
+  - MCP: the concatenated `text` items of the tool result, encoded as UTF-8.
+- **Bytes:** byte length. **Characters:** Unicode code points of the UTF-8 decode.
+- **Both limits apply:** bytes ≤ **221** (the raw baseline) **and** characters ≤ 12,000.
+- **Empty versus error:** exit 0 or 1 with empty stdout and empty stderr is an empty result. Any other exit, or any
+  stderr, is an error result. An error is recorded as an error and never counted as empty.
+- **No post-filtering.** Arguments are chosen from discovery (R4) before any task output is seen. Raw output is
+  kept as returned; nothing is trimmed after an over-budget result.
+
+**Byte risk, not a result.** 221 bytes is a tight limit. The trial has not run, so no failure is established. Only a
+Judge act may change the criterion, and that act must show the raw result and the effect of the change.
+
+### R4 — Consumer discovery and cleanup
+
+| Stage | Procedure |
+|---|---|
+| Discovery stop | First run `ripwire --help` (CLI) and the MCP `tools/list` (server). Record them raw. Choose the task arguments from that text only. If no option or tool expresses "callers of a symbol", record **unsupported interface** as a finding and stop that consumer's task. Do not guess flags |
+| Lane B (Codex) pre-state | Lane B records the SHA-256 of its MCP configuration before adding the temporary server. Reference at Lane A's read: `~/.codex/config.toml` SHA-256 `bf1e5587…`, 6,720 bytes, no `ripwire` entry. After the test, Lane B restores the file and shows an equal hash |
+| Lane C (Antigravity) pre-state | Today `~/.gemini/config/skills/` contains only `graphify`, and `ripwire` does not exist. At trial time, if `ripwire` exists, **stop**: no overwrite without approval. Otherwise create it, run the test, remove it, and prove the directory listing equals the pre-state |
+| Disposable | The download, the extraction folder, any cache the tool creates (detected by `git status --porcelain` and a listing of the scratch folder, before and after) |
+| Retained | Raw help and listing output, task and control outputs, measurements, hashes, errors, consumer results and the removal proof. All are kept in the evidence folder, outside the extraction folder, before cleanup |
+| Access failure | Record "consumer access unavailable" with the exact error. No result is inferred |
+
+### R5 — Sequence by dependency, not index location
+
+| Prerequisite | When it exists | Governed record? |
+|---|---|---|
+| DOD-01 proof | Now (`7faf618`, 19/19, released graph) | No |
+| DOD-03, DOD-05 | Now (`D-362`, `D-289`) | No |
+| U03 trial evidence and consumer results | After the trial | No (handoff and evidence folder) |
+| **U03 outcome "recorded"** (DOD-04) | Judge act after the evidence | **Yes**: Register, `SV-002` §3.2 run row |
+| **§5 source corrections** (DOD-02) | Any time before the final reassessment | **Yes**: `SV-002` §5 |
+| DOD-02 final reassessment at a named revision | After the U03 outcome and the §5 corrections | Index in B-136; revision named |
+| DOD-06 acceptance, P15 reason, GR-007 | Judge act, then the GR-007 conclusion | **Yes**: Register, `SV-002`, `GOV-RES-001` |
+
+**Result.** DOD-04 needs the outcome *recorded*, and DOD-02 needs the §5 corrections, both before acceptance. So the
+dependency order is:
+1. governed batch 1 (U03 outcome, §5 corrections), with guarded cycle 1;
+2. the DOD-02 reassessment at the cycle-1 revision;
+3. the Judge's DOD-06 assessment;
+4. governed batch 2 (acceptance, P15, GR-007), with guarded cycle 2.
+
+**S2 is the budgeted sequence.** S1 (one cycle) is possible only if the Judge chooses to make the U03 outcome and the
+DOD-06 acceptance at one time, with both recorded in one batch. That is a Judge choice, presented later with its
+effect. It is not a default. The `1ac1b19` recommendation of S1 is withdrawn.
+
+### R6 — Receipt route for each later cycle
+
+`D-432` item 4 ended at publication and is not reused. The guard reads acceptance only from B-050, which is terminal.
+
+| Route | Effect | When decided |
+|---|---|---|
+| **A: unit-scoped exception in the cycle's own Register act** | The act names the cycle and allows only `terminal-return` and `docs-drift` between Lane B's B-050 acceptance and its annotation. It is recorded in the governed batch, so it lands **before prepare** and is part of the analyzed source | In each batch's Judge act, with publication authority and the separate health check |
+| B: guard reads acceptance from a non-terminal entry | A governed guard change with its own review and cycle. Outside this unit | A separate act; owner Lane A |
+
+Lane A will draft route A into each batch proposal. No cycle is prepared until its act names a route.
+
+### What you need
+
+Lane B:
+1. Review this entry.
+2. Check the raw baseline (`baseline-raw.json`) and its 221-byte correction.
+3. Check the R3 comparison rules and the R4 procedures.
+4. Check the S2 dependency order and the R6 route.
+
+### What you did instead
+
+Re-captured the baselines read-only. Recorded the consumers' pre-state as hashes and listings only. No download,
+trial, configuration change, governed edit, publication or push.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | R1–R6 accepted; DOD-01 review confirmed (`7faf618`); raw baseline re-captured | Phase 1: none |
+| Approve-with-conditions | Corrected P15 index and U03 plan | Phase 1: Lane B review |
+| Defer | Trial; U03 outcome; batch 1 and cycle 1; DOD-06; batch 2 and cycle 2; GR-007 | Phase 1: in that order, each under its own authority |
+| Reject | The 224-byte figure as a baseline; S1 as a default; reusing `D-432`'s exception; automatic trial | Phase 1 |
