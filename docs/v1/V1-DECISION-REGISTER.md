@@ -27986,3 +27986,45 @@ this act.
 | Rule files, Modular_PRD, fn-specs, SPECS, Phase Closure, frozen sources | — unaffected |
 | **Encyclopedia** | unaffected (`docs/ENCYCLOPEDIA-SYNC.md` maps none of these paths) |
 | **Graphify** | Governed drift, expected under item 5; cleared only by the guarded publication, never by a raw rebuild |
+
+## 5.14e257 `D-432` — D-431 Receipt-2 Route A2: Replacement Candidate With Canonical Recording First; One Unit-Scoped Recording Exception
+
+**Authority: the Judge, directly to Lane A, 2026-10-10**, in chat: "Judge approved: A2 — Prepare replacement".
+Input: Lane B's D-431 decision-impact review (findings `F1`–`F6`, received in chat 2026-10-10), which compared A1
+(keep candidate `4dd5029b…`) and A2 (prepare a replacement) against one completion condition. Lane A is `Active`.
+`D-431` stands in full; this act changes only how its item 5 completes.
+
+### The decision
+
+1. **Candidate `4dd5029b…` is superseded, unpublished.** Prepared at `ba141e0` (workId `faf6f6ff…`, manifest
+   `971f9568…`). Lane B's passed independent review of it (`C:/CoWork/outputs/lane-b-d431-review-2026-10-10`, read
+   revision `20c9347`) and Lane A's verification are retained as history. No acceptance record for it is committed.
+2. **Canonical recording first.** This entry and its `D-54` propagation are committed before the replacement is
+   prepared, so they are part of the replacement's analyzed source (`F1`). No later Register recording of this route
+   is owed, and no second guarded sync follows from it (`F2`).
+3. **One replacement cycle** under the `D-425`–`D-431` procedure: prepare from the final committed source; Lane B's
+   independent exact-byte and semantic acceptance of the replacement's own bindings (`F4`); publication under
+   `D-431`'s existing approval; then full health. `D-428` applies; no fetch or push between prepare and publication.
+4. **Recording exception, scoped to this unit (`F3`).** Lane B's acceptance record for this unit's candidate goes in
+   **B-050** (terminal) by Lane B's review commit, followed immediately by Lane B's record-only Terminal annotation
+   commit citing it. Between those two commits only `terminal-return` and `docs-drift` may fail; hooks are never
+   skipped. The exception binds this replacement unit, including a further replacement inside it after a finding,
+   not one candidate hash. It ends at publication and is not precedent.
+5. **Separate states (`F5`).** Review passed, acceptance recorded, publication done and closure are reported as four
+   states. None implies the next.
+6. **Durable fix.** The guard reading acceptance from a non-terminal entry is a guard source change. It belongs with
+   the next governed guard change; owner Lane A.
+7. **Not given by this act:** any `SV2-DOD` checkoff, `SV-002` acceptance, `SV2-U03` selection, `V1-SM05` unblock,
+   work order or lane change. `D-431` item 6 (Gate 2, P15) is unchanged.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e257 |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ `D-432` paragraph (receipt-2 route; no V1 scope, sequence or DoD change) |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-432` paragraph; no file added or retired |
+| B-136 (`F1`–`F6` answers) and B-050 (Lane B's receipt) | Follow: their own handoff commits |
+| Rule files, Modular_PRD, fn-specs, SPECS, Phase Closure, frozen sources | — unaffected |
+| **Encyclopedia** | unaffected (`docs/ENCYCLOPEDIA-SYNC.md` maps none of these paths) |
+| **Graphify** | Governed drift, expected; cleared only by the replacement's guarded publication, never by a raw rebuild |

@@ -575,6 +575,9 @@ and its test. The README §4 and sync-docs §7 change in place.
 **`D-431` (2026-10-10) — no file added or retired, stated explicitly.** `SV-002.md`, `GOV-RES-001.md` and
 `frag121.json` change in place.
 
+**`D-432` (2026-10-10) — no file added or retired, stated explicitly.** Only the Register, this file and
+`V1-BUILD-SPEC.md` change; candidate `4dd5029b…` was never published.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

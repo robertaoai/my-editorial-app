@@ -147,6 +147,10 @@ PR #2 comment, `SV-002` acceptance and the `V1-SM05` unblock remain separate Jud
 **`D-401` (2026-10-03) — `GR-012` observation: no writer seen, accepted by Judge reason** (31-minute window accepted
 explicitly). Lane B verifies. `V1-SM05` stays `BLOCKED`.
 
+**`D-432` (2026-10-10) — D-431 receipt-2 route A2: candidate `4dd5029b…` superseded unpublished; this recording
+first, then one replacement guarded cycle; one unit-scoped `terminal-return` recording exception.** Graph currency
+only; no V1 scope, sequence or DoD change. `V1-SM05` stays `BLOCKED`.
+
 **`D-431` (2026-10-10) — final Gate 2 tracker re-derivation after the O0 dispositions; B-077 description update;
 GR-007 all-row assessment (not complete: `B-136 (P15)` open); one guarded cycle.** Accounting only; no V1 scope,
 sequence or DoD change; Gate 2 not claimed. `V1-SM05` stays `BLOCKED`.
