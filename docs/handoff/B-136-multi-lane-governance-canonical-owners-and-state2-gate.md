@@ -2850,3 +2850,74 @@ Received the receipts and checked the hashes. No governed edit in this commit. N
 | Approve-with-conditions | `D-433` and batch 1 | Phase 1: own commits, then Lane B candidate review |
 | Defer | Publication; DOD-01/02 refresh; DOD-06; batch 2 and cycle 2; P15; GR-007 | Phase 1: S2 order; Gate 2 and push separately |
 | Reject | Lane C's combined Gate 1B/Gate 2 step; automatic rollback claims; a count as a criterion | Phase 1 |
+
+## Lane A — D-433 recorded and batch 1 applied; cycle-1 candidate ready at `a2fbb35`; receipt-2 request, 2026-10-10
+
+Under `D-433` items 4 and 6. Evidence: `C:/CoWork/outputs/lane-a-d433-2026-10-10` (work folder `work`, workId
+`d5ba3505-9983-4f54-9d53-fd1cfc43daad`); each run in its own file.
+
+### What happened
+
+| Commit | Content | Check after it |
+|---|---|---|
+| `9eb477e` | `D-433` recording: Register §5.14e258, Build Spec, Inventory (cycle-1 receipt route, item 6) | `docs-drift` the sole failure (`D-428`); `02-check-after-recording.log` |
+| `cdfee6b` | `D-433` item 4, amended before prepare: one curated leaf in `frag139` (the U03 evaluation's node still said "pending … the Judge's outcome"). The `frag140` FN/SPECS/UX descriptions are incomplete but not false; they stay for batch 2, owner Lane A | same |
+| `a2fbb35` | Batch 1: `Modular_PRD` §7.2a; FN §2, §3, §4.4, §5, §6, §9; SPECS §6; UX §4; evaluation note; `SV-002` §3.2 `SV2-U03-R1` row, §5 cells, §7 `SV2-DOD-04` evidence (box unchecked); `frag139` leaf | `docs-drift` the sole failure; `04-check-after-batch1.log` |
+
+**Negative test (sync-docs §8):** a false ✅ claim (Phase Closure cites `D-433`) was added to the tier table.
+`tier-sweep` then failed, and the file was restored. Batch 1 is revision 3 plus the selection deltas frozen at
+`dcf8d53`. Review the exact diff `dcf8d53..a2fbb35` against that frozen text.
+
+| Item | Value |
+|---|---|
+| Source HEAD (captured) | `a2fbb3578e74f21bdd8628779d39e472ab0128d5` |
+| Check at that HEAD | `docs-drift` the sole failure (`D-428`); `08-check-at-source.log` SHA-256 `25c29e87…` |
+| Baseline | live release, locus `916d5cc`, guard-treeDigest-v1 `858ab980…`, 583 files (unchanged) |
+| Run | `prepare` → pending (exit 3; 0 descriptions, 5 communities) → `prepare --resume --answers` → **ready** (exit 0; attempt 2) |
+| Candidate | graph SHA-256 `c7ce4f5f7532f37aa13d7bed52d6eb9a96416b5a3f46199ec6d4f0bc5434bd91`; manifest `98eb002a70bc1de394c463a4f1ac9d3700a7308a3000d3cd3332eb89ccef2e82`; 583 files; frozenAt 2026-10-10T15:37:35.739Z |
+| Answers | `answers.json` SHA-256 `a83d9dff…`: 0 descriptions; **5 community names**, all commit-history groups, by the `D-431`/`D-432` mechanical rule (`derive-names.mjs`; basis `04-name-basis.json` SHA-256 `40706f74…`; every member-set hash recomputed) |
+
+The five names are:
+- `D-324–D-427 B-050/B-154 Commits` (103 members);
+- `D-385–D-432 B-077/B-136 Commits` (27);
+- `D-433 B-136 Commits` (19);
+- `D-412–D-413 B-050/B-154 Commits` (15);
+- `D-231–D-402 B-154/B-155 Commits` (33).
+
+The fourth group has the same members as the unpublished `D-431` group named "D-412–D-413 B-119 Docket and P2 Draft
+Commits". The mechanical rule gives a less specific name. Rename it on a stated finding if it misleads.
+
+**Lane A's read-only verification** (`07-candidate-verification.json` SHA-256 `6e9f0b02…`):
+- manifest, graph hash, file count and answers hash recomputed and equal;
+- 2,556 nodes, 5,581 links, 132 communities, 0 undescribed;
+- fragment parity 139/139 exact; name binding 0 findings; every answer applied; 0 foreign-path hits;
+- staged branch record analyzed `a2fbb35`, `stale: false`;
+- the `frag139` node carries exactly the committed leaf (SHA-256 `59ff6eee…`);
+- the B-077 node still carries `D-431`'s text (`13d86618…`);
+- live unchanged, no journal, no lock.
+
+### What you need
+
+**Lane B: receipt 2 for `D-433` cycle 1.** Review the exact bytes and meaning of graph `c7ce4f5f…` / manifest
+`98eb002a…` from source `a2fbb35` and baseline `858ab980…`. Include:
+- the batch 1 diff against the text frozen at `dcf8d53`;
+- the `D-433` entry and its item 4 amendment;
+- the `frag139` leaf;
+- the five names.
+
+Under `D-433` item 6, record the typed acceptance in **B-050** by your own review commit. Your record-only Terminal
+annotation commit citing it follows immediately. Only `terminal-return` and `docs-drift` may fail between them. Commits
+after `a2fbb35` must touch `docs/handoff/` only.
+
+**Judge:** publication authority after Lane B's acceptance. Then publication and a separate full health check.
+
+### What you did instead
+
+No publication, fetch or push since the prepare. No acceptance record, DoD checkoff, P15 or Gate 2 claim.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | `D-433` recorded; batch 1 applied; candidate `c7ce4f5f…` prepared from `a2fbb35` | Phase 1: Lane A's evidence |
+| Approve-with-conditions | Receipt 2 on the candidate | Phase 1: Lane B's review commit in B-050 and its annotation |
+| Defer | Publication and health; DOD-01/02 refresh; DOD-04/06; batch 2 and cycle 2; P15; GR-007 | Phase 1: in order; Gate 2 and push separately |
+| Reject | Treating the candidate as accepted; any governed commit after `a2fbb35` before publication | Phase 1 |
