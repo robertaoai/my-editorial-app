@@ -1806,3 +1806,81 @@ fetch or push.
 | Approve-with-conditions | U03 outcome: existing path (recommended) | Phase 1: Judge act, recorded in batch 1 with route A, then cycle 1 |
 | Defer | DOD-02/04 refresh; DOD-06; batch 2 and cycle 2; GR-007 | Phase 1: S2 order |
 | Reject | The candidate as a pass; Lane C's unmeasured SQL claim as evidence; Gate 2 acts inside this unit; "zero sync cost" | Phase 1 |
+
+## Lane B — Complete U03 packet review at df873fe; outcome decision ready, 2026-10-10
+
+### What happened
+
+Independent review of Lane A's packet at `df873fe740a050a63bc0f2dbc8cdcebd2af16ea2`, its retained trial
+evidence and `06-cleanup.json`. Receives Lane A's answer to `5c91ef8`. This is Lane B's review, not a Lane A
+answer or a disposition. The Judge's current act covers completion and review of this packet. It gives no
+U03 outcome selection, governed batch, build, push or Gate 2 closure.
+
+**Outcome: the packet is complete for the Judge's U03 decision.** No further trial or packet revision is required
+for that decision. The candidate remains a failed candidate under the frozen criteria.
+
+| Evidence | Review result and limit |
+|---|---|
+| Lane A CLI | Prior independent review stands: criteria (1)–(3) not met; SQL fallback met. No retrospective rule change |
+| Lane B direct MCP probe | Recorded in `5c91ef8`: same 1,077-byte task result; negative is a refusal. Native Codex integration remains unmeasured |
+| Lane C receipt | Accept as an attributed, Judge-forwarded chat receipt of the unsupported frozen route. It is not an executed tool result. No Lane C SQL measurement or skill substitution is inferred |
+| Shared cleanup | Cleanup SHA-256 matches `54da1f2926392c3bc0ff229f2f40c20e95ffe10e79b607550d7f9a03eeca8c44`; 32 unique inventory entries, including the pinned zip/executable and 17 skill folders. Nine recorded comparisons equal the pre-state |
+| Current post-state | Independently checked: both scratch folders absent; Codex config hash unchanged; Gemini skills lists only graphify; named default locations and temp matches absent; no ripwire process found |
+| Retention count | 28 files before writing the cleanup record, 29 including it, 31 after the two later check logs. Use this dated count; do not rewrite the retained cleanup record |
+
+Cleanup acceptance is limited to the recorded observations and listed locations. Folder listings and absence
+checks do not prove byte equality of every pre-existing file. Deleted scratch bytes are supported by the retained
+inventory and prior measurements; this review did not observe deletion itself. All retained evidence stays kept.
+
+### What you need
+
+**Judge decision: choose the U03 outcome.** Lane B recommends the bounded existing path. Lane A has finished the
+approved packet work; the next missing input is an outcome act, not another permission to record this review.
+
+| Option | Authority and prerequisites | Affected artifacts | Success / refusal | Cost and stop |
+|---|---|---|---|---|
+| Existing path (recommended) | Judge outcome and bounded batch-1 act; retained task/SQL proof, refreshed at the batch revision | Register, Build Spec, Inventory disposition; SV-002 §3 U03 record, §5 comparison and §7 DOD-04 evidence | rg / git grep text search plus source reading for this task and checkout. Preserve 221-byte task and 223-byte SQL evidence; no universal caller or Lane C availability claim | S2 cycle 1, then stop after separate health; later DOD-06 and batch 2 / cycle 2 |
+| Provision | Separate bounded remediation/configuration and trial authority; fresh proof before claiming provision success. Any criterion amendment must be explicit and prospectively measured | Above records plus exact install/configuration targets, ownership and restore plan | Current candidate cannot justify provisioning as passed. Changing only the negative-control reading leaves the file and byte failures unresolved | Remediation/review may add cycles; the eventual outcome batch still needs its guarded cycle. Stop at each authorized review boundary |
+| Waive | Judge states the exact unproven obligation, reason, accepted risk, owner and return condition | Outcome records and explicit waiver in SV-002; no tool installation inferred | Record a waiver, never technical success or an implicit pass | S2 cycle 1, then stop after health; later DOD-06 and cycle 2 |
+
+**Draft correction to the worklog:** replace "your answer also lets me start batch 1" with "the Judge can select
+an outcome and issue the bounded batch-1 act together. A selection alone does not supply an unnamed receipt
+exception or extra execution scope." Replace "all three outcomes follow the same route" with "existing-path and
+waiver recording use S2; provisioning first requires its own corrected technical proof."
+
+**Draft combined act for the recommended option, not issued:** select existing path for the named U03 task,
+using rg / git grep plus source reading within the measured limits. Authorize Lane A to record the outcome and
+§5 corrections in the Register, Build Spec, Inventory disposition and SV-002, refreshing task/input evidence at
+the final batch revision. State unaffected tiers under D-54. Check DOD-04 only against the recorded selected
+outcome and proof; do not infer DOD-02 or DOD-06 acceptance. Before preparation, record receipt route A and its
+new unit-scoped exception: Lane B acceptance in terminal B-050 followed immediately by its covering annotation;
+only terminal-return and docs-drift may fail between those two commits, hooks never skipped. D-432 is not reused.
+Elsewhere D-428 permits only docs-drift during the authorized pre-sync sequence. Prepare from the final committed
+source, record its HEAD, stop for Lane B exact-byte and semantic acceptance, then publish under this combined act
+and run separate full health. Keep governed and single-file handoff commits separate; no fetch/push while the
+candidate is pending. Stop after cycle-1 health. No trial rerun, build, tool installation, push, DOD-06 acceptance,
+P15 closure, GR-007 completion or Gate 2 act is included. Once this complete act is issued, do not ask again for
+its contained steps. A new refusal or changed scope must name the exact unmet condition.
+
+### What you did instead
+
+Kept this review in B-136 only. No trial rerun, governed edit, publication, cleanup action, fetch or push.
+Check evidence is retained in `C:/CoWork/outputs/lane-b-u03-complete-packet-review-2026-10-10/`.
+
+**Follow-up order:** Judge outcome / batch-1 act → Lane A recording → guarded cycle 1 with Lane B acceptance →
+Lane A exact-revision DOD-01/02/04 reassessment → Judge DOD-06 assessment → separately authorized batch 2
+(SV-002 acceptance, P15 and GR-007 records) / cycle 2. Gate 1B is the parent. Gate 2, SM05 work order and lane
+activation remain separate. Parent status is shown first; child proof is completed before parent closure.
+
+**Failure-pattern control:** before asking the Judge, Lane A presents authority, prerequisites, affected files,
+pass/refusal checks, sync cost and stop point for each option. Lane B challenges these before selection. Lane C
+reports only its own measured access/result and restore evidence. The Chief Editor / Judge chooses outcome and
+risk; a role title alone is not an execution act. Separate evidence completion, criterion pass, recorded outcome
+and parent acceptance. This prevents late discovery of receipt-route and sync dependencies.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Complete U03 evidence packet, corrections and bounded cleanup proof | Phase 1 trial: review complete at df873fe |
+| Approve-with-conditions | Recommended existing-path outcome and combined batch-1 act | Phase 1: Judge selection and issuance, then cycle-1 evidence |
+| Defer | Governed application, DOD-06, P15, GR-007, batch 2 / cycle 2 and Gate 2 | Phase 1: S2 order; Gate 2 separately authorized later |
+| Reject | Candidate called a pass; unsupported/unmeasured consumer claims; automatic batch authority; provisioning treated as an immediately proven outcome; D-432 reused | Phase 1: preserve scope and evidence limits |
