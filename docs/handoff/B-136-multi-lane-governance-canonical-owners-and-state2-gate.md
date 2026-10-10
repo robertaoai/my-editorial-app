@@ -3943,3 +3943,80 @@ commit.
 | Approve-with-conditions | The Judge's assessment and the P-cond/P-res choice | Phase 1: Lane B review of the draft |
 | Defer | `D-434` recording, application, cycle 2, the GR-007 final review | Phase 1: in order; Gate 2 separately |
 | Reject | Silence as publication authority; DoD boxes checked by list approval; GR-007 called complete before its independent review; `V1-SM05` unblocked by `SV-002` acceptance | Phase 1 |
+
+## Lane B — D-434 draft reviewed; four bounded corrections before issuance, 2026-10-11
+
+### What happened
+
+**Read revision:** `20e8a1cfbd2e153a798afac4d4fd6bcc882b057c`. Lane A's frozen `D434-DRAFT.md` reproduces
+SHA-256 `5d86bea9d25025c273624a32e18421fbe238af77248c73d2f90dfb3310ee7af1`. This is a Phase 1 Level 1
+review of the draft and the IDX-1–3 answer, not an act or a DoD checkoff.
+
+**Accepted:** the individual P15 reason; explicit P-cond/P-res options; a new cycle-scoped route A rather than an
+ended exception; continuing authorized drafting; preserving BLOCKED while correcting the V1-SM05 status. The
+underlying DOD-01/02/04 evidence remains accepted for Judge assessment at `d2c4238`. No new U03 trial, outcome,
+native Ripwire setup or old parent verification is required by this review.
+
+**Not yet accepted:** the draft as an exact issuance/application packet. Four bounded corrections follow. Lane A
+can do this drafting under the carried-forward approvals; no new "go" is needed to answer this review.
+
+| ID | Finding | Draft fix / acceptance test |
+|---|---|---|
+| D434-Q1 | Part 1 says "I assess ... If accepted ... I accept SV-002", while Part 2 assumes three explicit checkoffs | Lane B supplied the earlier phrase and corrects it. The accepted branch must explicitly accept/check DOD-01, -02 and -04, retain -03/-05, then accept -06 and individually name P15. A separate rejection branch retains every dependent conclusion. No conditional ambiguity in the issued accepted branch |
+| D434-Q2 | Part 2 item 4 assigns GR-007's final review to receipt 2; Part 5 step 9 assigns it after health; "complete, pending independent review" confuses states | Preserve B-077's already accepted final review (`fdf06dc`, D-431 item 4). Explicitly review the **new** tracker/P15/GR-007 conclusion as candidate semantics at receipt 2; byte acceptance alone is insufficient. Record its source/manifest-bound outcome in B-136. Health completes the publication cycle separately. Use a dated pre-review snapshot in GOV-RES-001, not an unqualified completion claim or a second identical review |
+| D434-Q3 | B3 targets §0, but the active Status cell is in SV-002 §1 and still starts "Run selected — executing". B9 retains an old Current clause. The Build Spec §1 active SM05 row still says SV-002 open; SV-002 §5 satisfaction cells still project pending final proof. B10 postpones its full value until application | Freeze the complete new active status and §5 satisfaction values, preserving full old values as clearly dated history and leaving comparison classes unchanged. These omissions are in files already inside batch 2. Freeze B10's full old/new value and full hashes **before issuance**. Companion proposed-leaf.json supplies one exact proposed replacement. Only routine date/existing-revision substitutions remain mechanical |
+| D434-Q4 | "Batch-2 source revision" does not distinguish tracker observation from final candidate source | Name an existing observation commit T after the Judge act is recorded and before the tracker edit. Keep the full ledger, old reasons and receipts; reconcile against headers and the issued P15 reason. Pin T, never a future/self-referential SHA. Keep Gate 2 clearance claimed: no. Check zero unclosed/unreceived/unlisted/unreferenced/invalid rows, and manually verify new Basis reasons |
+
+Q4 is a precision correction, not a new gate: `closure-readiness` checks row identities, scope, clearance and age;
+it does not parse the Basis cell or prove the Judge's individual reason. A zero tally cannot replace that review.
+
+**Independent checks:** the full configured consistency checker passes 19/19 at the read revision; docs-drift is
+synced at `93aa02f`, with only handoff changes after it. The graph hash remains
+`81ab5cd62e6787b0b87d1a69f18331564dc024f9181b798ee54ccfe74c0c487f`. The population check reproduces 162
+handoff entries and 158 ledger keys: the only unkeyed entries are turn reports B-022/B-026/B-047/B-059. No
+non-turn-report entry is unkeyed. Counts are evidence here, not replacement governed claims. No sync is needed now.
+
+### What you need
+
+**Lane A:** adopt or answer Q1–Q4, freeze the revised packet and companions by full hashes, then return only those
+corrections for review. Full proposed replacement text is retained under
+`C:/CoWork/outputs/lane-b-d434-draft-review-2026-10-11/`:
+
+- `REVIEW-AND-DRAFT-FIXES.md`, SHA-256
+  `80b4651d80f598a265f58feed0b637b04758fc3de8dee7998db7ac77b79707fe`;
+- `proposed-leaf.json`, SHA-256
+  `376a8497594a9dae6f55016c5761103395c89c2be5e9259b56f743feb7ee7cf9`;
+- `population.json` and `check-before-review.log`, supporting evidence.
+
+The proposed leaf binds `docs/graph-fragments/frag139.json`, node `attempt_sv002_setup_validation`, field
+`description`: old UTF-8 value SHA-256 `d8a96b0f4a07ce82aa9f1dd243ede25d04ac3c0f5e45911290a5bf5aa6951fa0`,
+new `d6d19f7f22fd1a3bbb01b052d5e57dbe957afe7aaf50b515a687a03b6270ffc5`. It states the proposed acceptance
+and preserves the separate SM05 block. It is not applied. Every other fragment field remains outside the change.
+
+**Judge:** no new drafting permission is requested. After the bounded correction review, assess the named DoD
+rows and individual P15 reason and select P-cond or P-res in the issued act. P-cond permits publication only after
+its explicit receipt and binding conditions. P-res retains a checkpoint to inspect that receipt; it does not require
+another technical cycle. Rejecting a required row keeps its dependent acceptance conclusions open.
+
+**Chief Editor:** preserve one project and three use cases (governance/docs, codebase, knowledgebase). D-433's
+measured codebase route is not Ripwire adoption or formal knowledgebase delivery. Preserve Lane C's measured
+C-a limits. Keep accepted old review, new semantic review, exact-byte acceptance, publication health and gate
+acceptance as distinct facts. Do not request a new Lane C test for unchanged surface claims.
+
+### What you did instead
+
+Reviewed sources and drafted replacements outside the repository. Only this Lane B review is appended here; no
+Lane A answer, header, DoD cell, Register act, governed status, tracker, fragment or live graph is changed. No trial,
+prepare, publication, fetch, push or build is run.
+
+**Order:** Lane A correction/freeze → bounded Lane B review → Judge assessment and publication-option selection
+→ recorded act → observation T and bounded application → prepare → Lane B's exact-byte **and new GR-007 semantic**
+receipt plus annotation → publication under the selected option → separate health and receipt. The completed
+B-077 review remains accepted throughout. P15/GR-007 conclusions do not authorize Gate 2, SM05 or construction.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | IDX-1–3 substance, publication options, evidence review and reproduced ledger population | Phase 1: planning review complete |
+| Approve-with-conditions | Revised D-434 packet | Phase 1: Lane A answers Q1–Q4; Lane B reviews corrected fields and full bindings |
+| Defer | Judge issuance, final acceptance records, cycle 2 | Phase 1: after the corrected draft review; no execution by this review |
+| Reject | Current draft treated as exact issuance-ready text; pending called complete; byte review substituted for semantic review; future tracker pin; B10 left unknown until application | Phase 1: bounded corrections above |
