@@ -2669,3 +2669,117 @@ mutation, publication, fetch or push. Handoff-only commit, so no sync.
 | Approve-with-conditions | C-a on the Antigravity IDE | Phase 1: Lane C receipt, then Lane B Level 1 review |
 | Defer | `D-433` Register act and batch 1; guarded cycle 1; DOD-01/02 refresh; DOD-06; P15; GR-007 | Phase 1: after the C-a review; Gate 2 separately later |
 | Reject | A governed edit before C-a and `D-433`; Lane A's baseline counted as Lane C evidence; a refused probe retried until it passes | Phase 1 |
+
+## Lane B — C-a Level 1 acceptance and consolidated Lane A handoff, 2026-10-10
+
+### What happened
+
+Read at `7d9ae68bc7fb6bb739c8ec8911e64fdd9676e0b4`, clean tree. The Judge relayed Lane C's measurement receipt
+and two planning summaries. The selection **"existing path with C-a"** is already recorded in B-136 at this
+revision, referring to the decision packet at `1bf7d90`. It is not an open selection question.
+
+**C-a Level 1 result: accepted within the frozen procedure and reported IDE session.**
+Reviewed the script without executing it, the complete Lane C record, all 12 raw stdout/stderr files and the
+Lane A baseline. No measurement or Ripwire trial was rerun.
+
+| Binding / check | Independent result |
+|---|---|
+| Frozen script | 4,829 bytes; SHA-256 `0001d3fac829656f274b504ebcf66f14a38ae712d67d151ef9911ce0686cc900`; matches B-136's pin |
+| Lane C record | 4,034 bytes; SHA-256 `6f0e9050a588389803484bf03c0c947ab4814805af6c5685e50d0c8454d35e42`; matches the relayed receipt |
+| Captured source / scope | HEAD `7d9ae68`; intended repository; required-root counts match the record; no relevant source changes since `156ebac` |
+| Before / after | Both captured status strings empty; statusEqual true. Current repository also clean before this review |
+| Executable binding | Lane C's recorded cmd/git.exe hash matches that file. Lane A used mingw64/bin/git.exe: different path and hash, same reported Git 2.54.0.windows.1. The protocol does not require identical executable bytes; the difference is retained |
+| Raw outputs | All 12 files agree with the C record. Each stdout is byte-identical to its Lane A baseline; all stderr files are empty |
+| Surface boundary | The IDE session identity is Lane C's relayed statement. JSON/file hashes bind retained evidence, not independent host authentication |
+
+| Probe | Exit | stdout bytes | Class | Baseline |
+|---|---|---|---|---|
+| task | 0 | 221 | success | equal |
+| negative | 1 | 0 | no-match | equal |
+| sql | 0 | 223 | success | equal |
+| wfRuns | 0 | 168 | success | equal |
+| wfDefs | 0 | 155 | success | equal |
+| wfEntry | 0 | 30 | success (tracked entry exists) | equal |
+
+All six scope checks pass. The three text hits still mean one call site, an import and a definition, not three
+callers. The workflow probes find the three workflow invocations, their package definitions and the tracked check
+entry. They do not execute CI, prove every transitive dependency or prove product behaviour.
+
+**Meaning:** Lane C's git-grep route is available (measured) for this frozen task and reported IDE session.
+This replaces the earlier unknown route for that bounded scope. Ripwire's absent skill route remains unsupported.
+Ripwire native integration, unmeasured chat access and complete semantic call-graph coverage are not established.
+
+**Parent-first status; execution order is stated below:**
+
+| Parent / child | State | Remaining requirement |
+|---|---|---|
+| Gate 2 / V1-SM05-FV-001 | Separate; not cleared | Separate Judge authority, work-order requirements under D-242 and lane activation |
+| Gate 1B / SV-002 / P15 | Open | Governed outcome proof, DOD-01/02 refresh, then Judge DOD-06 assessment |
+| GR-007 | Assessed; incomplete | P15 clearance and final governed conclusion |
+| U03 outcome | Existing path with C-a selected | Record the selected outcome in the bounded canonical batch; do not ask the Judge to choose again |
+| DOC-6 / C-a review | Earlier DOC-6 relay recorded at 1bf7d90; C-a now independently accepted here | Lane A receives this acceptance and cites the exact record |
+| D-433 / batch 1 | Not yet recorded / applied at read revision | Lane A's bounded recording and application under the existing selected packet |
+| Guarded cycle 1 | Not prepared | Final committed source, unit receipt route, Lane B exact-byte review, separate publication authority and health |
+
+### What you need
+
+**Lane A: this handoff is ready for your receiving and recording work.** Carry forward the existing Judge
+selection and approvals. Do not rerun C-a or reopen the U03 alternatives merely to receive this review.
+Use the accepted r3 packet and the permitted C-row / return-condition updates named in `7d9ae68`.
+
+Normalize the attached planning summaries as follows; these are corrections to the handover, not a request to
+redraft the accepted r3 packet:
+
+| Gap in the relay | Draft correction |
+|---|---|
+| One IDE summary still says await/execute C-a; another treats "calling measurement unverified" as a rejection condition | C-a execution and this Level 1 review are complete. Independent review is a prerequisite, not misconduct. Replace the stale pending step with receipt of this acceptance; do not schedule another run |
+| The diagrams omit batch 2 / cycle 2, and one sequence grants Gate 1B clearance, SM05 unblock and Lane B activation together | Keep full S2: batch 1 -> cycle 1 -> DOD-01/02 refresh -> Judge DOD-06 -> batch 2 (SV-002 acceptance, P15 and GR-007 records) -> cycle 2. Gate 2 and activation remain separate after those obligations; DOD-06 does not authorize them |
+| Git navigation / entry existence is presented as verification of workflow or editorial-system correctness | Say "bounded navigation and entry-existence evidence". Do not infer CI execution, complete dependency coverage, transition correctness or application readiness |
+| One text names V1-INVENTORY.md; future checks are fixed at 19/19; unauthorized edits are said to guarantee immediate rejection and rollback | Use V1-ARTIFACT-INVENTORY.md. Future criterion: every consistency check passes at cycle closure. Unauthorized work violates the scope; no automatic rollback is proven. Expected sole docs-drift failure is permitted only in the authorized D-428 pre-sync interval |
+
+The second S2 cycle is conditional on the reviewed sequence and the remaining governed changes; it is not
+erased by C-a success. Do not widen the next act into Gate 2, product work, native Ripwire setup or push.
+
+**Lane A follow-up, in dependency order:**
+1. Receive the relayed Lane C receipt and this Lane B acceptance in B-136. Update your DOC tracker without changing
+   B-136's overall lifecycle or claiming P15 clearance.
+2. Freeze the selected application text: r3 plus the bounded Lane C Table B / SPECS availability evidence and
+   the agreed Lane C return condition. Preserve the dated surface-access limits and unsupported skill fact.
+3. Confirm D-433 remains unused (it is unused at this read revision). Record the selected outcome in the Register,
+   Build Spec and V1-ARTIFACT-INVENTORY, with the cycle-1 receipt route and D-54 dispositions. Commit the act before
+   prepare. D-432's expired exception is not reused.
+4. Apply the exact DOC-1–4 and DOC-5 current-record file set from the selected packet. Governed recording starts
+   drift. Keep governed edits separate from handoff receipts under D-385.
+5. Prepare one guarded candidate from the final committed source. Retain the captured HEAD and exact bindings.
+   Stop for Lane B's independent exact-byte and semantic review; retain the prepare-to-health fetch/push freeze.
+6. Present the reviewed candidate for the Judge's separate publication authority. Then guarded publish and a
+   separate full health check. No raw Graphify rebuild.
+7. Refresh DOD-01/02 against exact post-cycle evidence; present DOD-06. After the Judge's assessment, follow batch 2
+   and its own prior receipt-route act and guarded cycle, including the P15 and GR-007 records.
+8. Keep Gate 2, work order, lane activation and push as separate decisions. No application construction starts here.
+
+**Chief Editor / Judge:** the U03 choice and C-a measurement authority are already recorded. No repeated
+selection or C-a go-ahead is needed now. The next named decision point is cycle-1 publication after candidate
+review. DOD-06 assessment is later; it is not supplied by a green graph or the C-a result.
+
+**Acceptance failures to avoid:** a changed input, missing required root, unexpected class, nonempty stderr or
+status difference would refuse the frozen measurement. None occurred in this retained run. Future unauthorized
+edits or conflated gate claims fail the authority/acceptance boundary; this review claims no guaranteed automatic
+commit rejection, rollback or product failure.
+
+### What you did instead
+
+Performed a read-only audit of the retained measurement and recorded this consolidated review in B-136 only.
+The previous content, Lane A answer, header and DOC tracker are preserved. Evidence snapshots, the relay and
+`measurement-audit.json` are retained at `C:/CoWork/outputs/lane-b-u03-ca-review-2026-10-10/`.
+The full consistency log is `check.log` there. No measurement was repeated; no governed file, setup, configuration,
+graph, application code or workflow was changed. No installation, publication, fetch, push or cross-thread
+message was performed. This handoff needs no graph sync. D-433's governed recording/application will need one
+authorized guarded cycle.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Retained C-a measurement and bounded Lane B Level 1 acceptance; existing Judge choice carried forward | Phase 1: reviewed at 7d9ae68; exact script and record hashes above |
+| Approve-with-conditions | Lane A recording/application handoff | Phase 1: receive acceptance, normalize the relay, record D-433 and the exact batch/receipt route before prepare |
+| Defer | Candidate acceptance/publication, DOD-06, batch 2/cycle 2, P15 and GR-007 | Phase 1: stated S2 order; Gate 2 and push separately |
+| Reject | Stale C-a rerun instructions; automatic rollback claims; navigation evidence treated as CI/product proof; omitted second cycle; combined Gate 1B/Gate 2 activation | Phase 1: use the consolidated order above |
