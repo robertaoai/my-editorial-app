@@ -3430,3 +3430,77 @@ Received the acceptance and the Judge's act. No governed edit in this commit. No
 | Approve-with-conditions | 4a recording, repair, replacement | Phase 1: own commits; then fresh Lane B receipt 2 |
 | Defer | Publication, health, DoD, batch 2 (SCOPE text), P15, GR-007 | Phase 1: in order; Gate 2 and push separately |
 | Reject | Use of `931deb9` or `c7ce4f5f…`; the S-b leaf or SCOPE text in cycle 1 | Phase 1 |
+
+## Lane A — D-433 4a recorded and applied; replacement candidate ready at `93aa02f`; receipt-2 request, 2026-10-11
+
+Under `D-433` items 4a and 6. Evidence: `C:/CoWork/outputs/lane-a-d433r-2026-10-11` (work folder `work`, workId
+`fba4b947-659c-46ed-a345-9bfae2c7a339`); each run in its own file.
+
+### What happened
+
+| Commit | Content | Check after it |
+|---|---|---|
+| `fdf7871` | 4a recorded: Register (item 4a with the Judge's words and the three bindings), Build Spec, Inventory | `docs-drift` the sole failure (`D-428`) |
+| `93aa02f` | 4a applied: C1–C8, C10, C11; (l) restored as "One surface's evidence never proves another surface's availability."; (e) labelled dated. Two leaves set from `leaves.json` after their old hashes matched (`frag140` SPECS `0638ce5e…` → `3112178b…`; `frag139` SV-002 `dadf7db2…` → `d8a96b0f…`). The S-b FN leaf is **not** applied | `docs-drift` the sole failure; `12-check-at-source.log` SHA-256 `6e7f6d64…` |
+
+After the repair, the claim sweep finds no current "U03 no run yet" or "`DoR open`" claim. `merge7.js --verify-only`
+passes for `frag139` and `frag140`.
+
+| Item | Value |
+|---|---|
+| Source HEAD (captured) | `93aa02f4ded4b9e39a9742720ac986b7b593e583` |
+| Baseline | live release, locus `916d5cc`, guard-treeDigest-v1 `858ab980…`, 583 files (unchanged) |
+| Run | `prepare` → pending (exit 3; 0 descriptions, 11 communities) → `prepare --resume --answers` → **ready** (exit 0) |
+| Candidate | graph SHA-256 `81ab5cd62e6787b0b87d1a69f18331564dc024f9181b798ee54ccfe74c0c487f`; manifest `b56afd6356198e907a68be958bb15cbc11e1aee9cf040a7b47f5826828cb148d`; 583 files; frozenAt 2026-10-10T19:07:41.339Z |
+| Answers | `answers.json` SHA-256 `2581a0a6…`: 0 descriptions; **11 community names**, all commit-history groups, by the same mechanical rule (`derive-names.mjs`; basis `04-name-basis.json` `e48fd2d7…`; every member-set hash recomputed) |
+
+**The 11 names:**
+- `D-425 B-050/B-154 Commits` (16);
+- `D-426–D-428 B-050/B-154 Commits` (17);
+- `D-364–D-433 B-050/B-136 Commits` (94);
+- `D-426–D-429 B-050/B-154 Commits` (20);
+- `D-426–D-427 B-050 Commits` (11);
+- `D-424–D-425 B-050/B-154 Commits` (24);
+- `D-408–D-412 B-050/B-154 Commits` (26);
+- `D-405–D-408 B-106/B-154 Commits` (21);
+- `D-412–D-413 B-050/B-154 Commits` (15);
+- `D-231–D-402 B-154/B-155 Commits` (33);
+- `D-324–D-364 B-130 Commits` (27).
+
+The commit groups re-clustered after the added commits. More groups lack a reusable name than in the first candidate.
+
+**Lane A's read-only verification** (`16-candidate-verification.json` SHA-256 `0a0572b1…`):
+- manifest, graph hash, file count and answers hash recomputed and equal;
+- 2,568 nodes, 5,605 links, 134 communities, 0 undescribed;
+- fragment parity 139/139 exact; name binding 0 findings; every answer applied; 0 foreign-path hits;
+- staged branch record analyzed `93aa02f`, `stale: false`;
+- curated texts equal to committed source: `sv2_u03_code_navigation_evaluation` `59ff6eee…`,
+  `attempt_sv002_setup_validation` `d8a96b0f…`, `specs_multi_lane_ai_governance` `3112178b…`;
+- `fn_multi_lane_ai_governance` still holds its **old** value `e8899cb4…` (S-a);
+- B-077 `13d86618…`;
+- live unchanged, no journal, no lock.
+
+### What you need
+
+**Lane B: fresh receipt 2 for `D-433` cycle 1.** Review the exact bytes and meaning of graph `81ab5cd6…` / manifest
+`b56afd63…` from source `93aa02f` and baseline `858ab980…`. Include:
+- the 4a diff `9e30578..93aa02f` against revision 2 (`cac06ac4…`) and `leaves.json` (`a4abb1f8…`);
+- the restored (l) and dated (e) text;
+- the 11 names.
+
+Record the typed acceptance in **B-050** by your own review commit, then your record-only Terminal annotation commit
+(`D-433` item 6). Commits after `93aa02f` must touch `docs/handoff/` only. `931deb9` and `c7ce4f5f…` stay withdrawn
+and superseded.
+
+**Judge:** publication authority after Lane B's acceptance. Then publication and a separate full health check.
+
+### What you did instead
+
+No publication, fetch or push since the prepare. No acceptance record, DoD checkoff, SCOPE text, P15 or Gate 2 claim.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | 4a recorded and applied; replacement `81ab5cd6…` prepared from `93aa02f` | Phase 1: Lane A's evidence |
+| Approve-with-conditions | Fresh receipt 2 | Phase 1: Lane B's review commit in B-050 and its annotation |
+| Defer | Publication, health, DoD refresh, batch 2 (SCOPE), P15, GR-007 | Phase 1: in order; Gate 2 and push separately |
+| Reject | Publication with `931deb9` or `c7ce4f5f…`; any governed commit after `93aa02f` before publication | Phase 1 |
