@@ -3005,3 +3005,101 @@ Do this before offering Judge options. Hash/parity checks validate bytes; they c
 | Approve-with-conditions | Lane A correction and replacement plan | Phase 1: exact §0 draft, reconciled bounded authority, full current-claim sweep, then new receipt 2 |
 | Defer | Publication, health, DoD assessments, batch 2/cycle 2, P15 and GR-007 | Phase 1: corrected evidence and dependency order; Gate 2/push separately |
 | Reject | Publication using 931deb9 or unchanged candidate; a parsed Accept record treated as current approval | Phase 1: acceptance explicitly withdrawn by this review |
+
+
+---
+
+## Lane B — Consolidated unread feedback: one project, three use cases; Lane A answer requested, 2026-10-11
+
+- **Read at:** 0e4adb2045b28bcfd9c037660f8d3dcd6571bc18.
+- **Sender / receiver:** Lane B raises and independently reviews; Lane A answers. This is an addendum to existing B-136, not a new duplicate entry. The header and Lane A answer field are unchanged.
+- **Phase / boundary:** Phase 1 planning and review. No build, trial, install, canonical edit, graph mutation, publication, fetch, push or gate clearance in this unit.
+- **Lane A receipt:** pending. Neither this addendum nor the earlier D-433 corrective handoff is represented as read or answered by Lane A.
+
+### What happened
+
+The analysis used the shared MULTI-LANE-AI-GOVERNANCE document family as if it established one requirement and one completion test for Graphify and Ripwire. That inference is rejected. D-271 authorizes the shared Project-scope files, but shared storage does not merge needs, evidence or acceptance.
+
+The Judge has clarified the boundary directly: **same project; distinct use cases for governance/documents, codebase and knowledgebase**. Carry this clarification forward. Do not ask the Judge again whether to create separate projects. Do not invent separate customer charters or product features.
+
+The source map is:
+
+| Parent first | Source and meaning | Completion boundary |
+|---|---|---|
+| Same editorial project | Frozen PRD and Charter provide customer intent. D-271 classifies AI tooling as global Project scope and says the Product tracker tracks, rather than owns, that scope. | Customer acceptance remains separate from tooling assurance. No new customer requirement is inferred from a tool name. |
+| Governance / documents use case | D-231 / D-246 govern coverage and currency; D-425 onward and B-050 govern safe graph publication. | Current, traceable governed sources and an independently reviewed guarded release. Coverage and a green check do not prove semantic correctness. |
+| Codebase use case | Modular_PRD §7.2a AIG-04, D-266 item 7, SV-002 U03, and D-433 govern finding definitions, callers, tests, SQL and workflow dependencies. | Task and consumer evidence at exact revisions, with route availability and residuals stated. D-433 selects existing git grep plus source reading; Ripwire is not adopted. |
+| Knowledgebase use case | docs/graph-fragments/README.md §1 describes extracted and curated knowledge; .agents/workflows/graphify.md permits read-only query, path and explain. | Navigation to sources and decided concepts, with provenance, access and currency limits. A broader knowledgebase service has no acceptance evidence in this review. |
+| Shared coordination | D-271 and the FN / SPECS / UX family hold lane coordination and AIG-01–06. D-266 separately rules on Graphify skill measurement and the Ripwire candidate. | A common process or file may serve several use cases. Each use case keeps its own requirement and acceptance evidence. |
+
+Graphify is a realization that can serve document assurance and knowledge retrieval. Its graph can also contain code and Git information; that alone does not prove caller-search completeness. Ripwire was a candidate for code navigation. Tools can overlap in capability without becoming the requirement parent or proving each other's results.
+
+### What you need
+
+#### 1. Carry forward the unread D-433 findings
+
+Do not duplicate or close them by reference alone. The preceding handoff at 0e4adb2 remains controlling:
+
+| ID | Required Lane A answer | Review success criterion |
+|---|---|---|
+| D433-R1, blocking | Draft the correction to SV-002 §0's current claim that U03 has not run. Reconcile it with the retained trial and D-433. Map authority before applying any source change. | Current status agrees with the trial and selected outcome; historical wording stays dated; unchecked DoD rows and later Judge decisions remain explicit. |
+| D433-R2, precision | Correct the claim of literal byte identity between revision 3 plus selection deltas and the applied packet. Identify the additional version-mark normalization. | The claim matches the actual diff, without withdrawing accepted core meaning. |
+| Withdrawn acceptance | Receive the withdrawal recorded at 0e4adb2. | **Do not publish using 931deb97b56bdcca2f197c39b9d2388039fca498.** Its typed acceptance was withdrawn, even if the guard can still parse it. Preserve the old candidate and review history. |
+
+D-433's selected existing path and accepted C-a evidence are carried forward. This scope clarification does not order a new trial or silently change that outcome.
+
+#### 2. Correct the requirement map before presenting another Judge option
+
+| ID | Gap | Draft repair | Acceptance test |
+|---|---|---|---|
+| SCOPE-1 | Tool names or a shared title have replaced the parent need. | Add the three-use-case map above. For each use, name need, governing source, task, inputs, output, owner, route and acceptance evidence. | A reviewer can identify the need before seeing a tool name. No use inherits another use's completion. |
+| SCOPE-2 | The FN introduction says the six keys cannot function apart. Its examples establish coordination dependencies, not one acceptance boundary for every capability. | Qualify that sentence: shared coordination does not merge use-case scope or completion. Name actual dependencies individually. | AIG-04 can be assessed without claiming that document assurance or all knowledgebase use is delivered. |
+| SCOPE-3 | Governance currency and knowledge retrieval are being treated as the same result. | Keep a governed source as authority; identify the graph as its derived navigation representation. Draft bounded retrieval cases and source/currency checks only where required. | A query result cannot substitute for the governing decision or prove semantic truth. A graph coverage pass cannot substitute for retrieval or code-navigation evidence. |
+| SCOPE-4 | Lane ownership, input access, applicability and method availability can be conflated. | Keep separate rows per surface and task. Limit ownership to writes. Use measured, planned, unknown and unsupported with dated evidence. | No route is claimed from a disk path, direct server probe or another lane's result alone. Unmeasured knowledgebase or code-search behavior stays unproven. |
+| SCOPE-5 | Findings answered have been presented as findings closed. | Track raiser, answer revision, evidence, reviewer outcome, residual owner/trigger and closure authority. | Lane A records its answer; Lane B records independent review; Judge decisions state the selected option and limits. No self-verification or inferred Lane C result. |
+
+Draft boundary paragraph for Lane A to place in the appropriate existing sources, subject to review and authority mapping:
+
+> This is one project with distinct governance/document, codebase and knowledgebase use cases. Shared coordination documents do not merge their requirements or acceptance. Graphify supports governed-source assurance and knowledge navigation through a derived graph. Code navigation is assessed against AIG-04 tasks and measured consumer routes; D-433 selects the existing path, and Ripwire is not adopted. An artifact or tool may support more than one use case, but evidence is credited only to the named requirement and scope. Source authority remains with the governed documents.
+
+This is draft wording, not a Register act or applied source change.
+
+#### 3. Compare document arrangements inside the same project
+
+The Judge has settled the project boundary. The remaining arrangement is an implementation-planning choice; do not turn it into another project-selection question.
+
+| Option | Authority and prerequisites | Affected artifacts | Checks, sync cost and stop point |
+|---|---|---|---|
+| A, recommended starting point: distinct use-case sections in current files | D-271 already permits the shared family. Lane A maps the exact clarification and any necessary amendment. | Existing intent / FN / SPECS / UX sections and trace links; cross-reference existing Graphify controls rather than duplicate them. | Prove three separate source-to-acceptance chains and no unintended outcome change. Governed edits cause drift. Name the bounded receipt route before prepare; cost depends on approved file set and sequence. Stop at review before application. |
+| B: separate use-case files within the same project | Only if Lane A shows a concrete cohesion or maintenance benefit. Requires a bounded file/propagation plan under D-54 and any D-271 amendment. | New or split files, Inventory, Register dispositions and inbound references; graph fragments only if affected. | Prove no lost requirements, broken links or duplicate authority. More migration and review work; no assumed cycle count. Stop at review before creating or moving files. |
+| C: one merged requirement and acceptance result | No support from the shared title or current sources. | Would blur currency, retrieval and code-search evidence. | Reject. It permits a passed graph check to mask an unavailable navigation route. |
+
+Every future Judge option must state: **authority, prerequisites, affected files, pass/refusal checks, sync cost and stop point**. Name any missing decision before work reaches it. Distinguish a decision needed now from one needed at a later boundary. Do not reopen approvals that already cover drafting.
+
+#### 4. Lane A follow-up, in execution dependency order
+
+1. Receive this addendum and the D-433 withdrawal; cite their read revisions in the Lane A answer. Preserve earlier receipts and approvals.
+2. Draft D433-R1 and R2 fixes; reconcile the withdrawn candidate's source-freeze rule before applying governed changes.
+3. Draft the three-use-case source map and SCOPE-1–5 repairs. Retain the selected existing path and C-a limits.
+4. Return exact proposed text and an affected-artifact list, including explicit unaffected sources. Recommend arrangement A unless evidence supports B. Carry each unread finding in a single tracking row.
+5. Lane B reviews the requirement boundaries, source/claim agreement and option impacts. Lane C confirms only its own surface facts and performs its assigned independent review; no new Lane C result is claimed here.
+6. Only after that review, present any necessary bounded Judge act. Then use the authorized replacement candidate and fresh independent acceptance route. Publication, health, DoD reassessment and later gate acts remain distinct.
+
+The Chief Editor/Judge needs a need-to-requirement-to-evidence map and the effect of each option. Chief Editor is a product role; Judge is the user's governance authority. A requirements explanation does not itself authorize a build or clear a gate.
+
+### What you did instead
+
+Lane B inspected the governing sources, queried Graphify read-only for orientation, and used current source text to assess claims because the graph is stale. Only this independent review addendum is changed. Lane A's answer, all canonical files, selected outcomes and live graph are unchanged.
+
+The full consistency check at read revision 0e4adb2 reports **18/19**, with only docs-drift failing: graph analyzed at 1940af8; ten governed-intent paths changed. terminal-return passes. This addendum changes only a handoff file and adds no source drift. Existing drift requires a guarded sync, but publication must wait for the D433-R1 repair and a fresh accepted replacement candidate. Do not run a raw rebuild or use the withdrawn acceptance.
+
+**Certain failures / invalid claims:** publication on a withdrawn acceptance is unacceptable; the stale graph check remains red without an authorized guarded sync; incomplete source scope cannot pass as an empty search; a graph check alone cannot satisfy code-navigation or knowledge-retrieval acceptance. No claim is made that every draft wording change mechanically fails a checker.
+
+**Readiness challenge:** ready for Lane A to answer and draft repairs; not ready for application, publication, P15 clearance or Gate 2. The project boundary is settled. Remaining work is the source map, existing D-433 defects, independent review and bounded acts where required.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | One project with three distinct use cases; current shared-file authority; retained D-433 outcome and evidence limits | Phase 1: carry forward, no new project selection |
+| Approve-with-conditions | Consolidated handoff and proposed scope wording | Phase 1: Lane A receipt and exact draft answer, then independent Lane B review |
+| Defer | Canonical repair, replacement cycle, health, P15 / GR-007 and later gates; any file split | Phase 1: mapped authority and dependency order; Gate 2 separate |
+| Reject | Merged acceptance, invented customer requirements, unread feedback called closed, publication using withdrawn 931deb9, new trial or push inferred from this review | Phase 1: no execution authority in this addendum |
