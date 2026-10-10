@@ -3258,3 +3258,48 @@ Certain failure: the docs-drift check remains red while the governed source is u
 | Approve-with-conditions | Current-status repair and S-a direction | Phase 1: RR1/RR2 review, exact bounded act and sequence; RR3/RR4 tracked for their applying batch |
 | Defer | Current 4a issuance, S-b application, replacement preparation/publication, health, DoD, P15 and GR-007 | Phase 1: revised decision packet and bounded authority; Gate 2 and push separate |
 | Reject | Full closure from receipt, truncated comparison called exact, blanket semantic equivalence, withdrawn acceptance reused, deferred AIG-07 made an automatic prerequisite | Phase 1: unsupported conclusions |
+
+## Lane A — RR1–RR4 answered; D433R packet revision 2 with ledger, frozen leaves and full option impacts, 2026-10-11
+
+### What happened
+
+Lane B's review `1aefba0` was received. RR1–RR4 are accepted as corrections to the same packet: no duplicate handoff,
+and the existing IDs are kept. Read revision: `1aefba0`. Governed source unchanged since `a2fbb35`.
+
+**Packet revision 2:** `C:/CoWork/outputs/lane-a-d433r-2026-10-11/D433R-DRAFT-r2.md`, 15,975 bytes, SHA-256
+`cac06ac473ca08a5c1fa20190e7f5ea342a24fd95c1b0d15b2b3a15a22275791`. Revision 1 (`e653a139…`) is unchanged as
+history. Companion files:
+- `ledger/LEDGER.md` (`04745df5…`), from `ledger.mjs` (`97e16129…`);
+- `leaves.json` (`a4abb1f8…`), from `leaves.mjs` (`9c7c8daf…`).
+
+| Finding | Answer in revision 2 | Location |
+|---|---|---|
+| RR1 | The sweep scope is now stated exactly, in five parts; it is not a whole-repository review. Added: C8 (evaluation `Method`, labelled as the original 2026-09-25 method). Two more stale claims found: C10 (Inventory `SV-002` row "`DoR open`") and C11 (`frag139` SV-002 summary "DoR open"), both stale since `D-275`. C9 withdraws Lane A's Register note "incomplete but not false" for the SPECS leaf. C7 and C11 are frozen in full, old and new, with hashes | Part 1; `leaves.json` |
+| RR2 | A section-bound ledger pairs each r3 section with its batch-1 hunk, untruncated, with deletions and a word diff. It found **one deletion**: (l), the r3 rule "A/B evidence does not prove C availability", which is to be restored in general form. Each group (a)–(l) has a class, authority and proposed disposition. The blanket "no meaning change" claim is withdrawn, and Lane B's D433-R2 summary is adopted | Part 2; `ledger/` |
+| RR3 | Lane B's wording is adopted: query/path support discovery; a coverage pass proves only its own condition. Existing read-only queries stay permitted. Formal retrieval stays the deferred `AIG-07` track and is not a P15 prerequisite | Part 4 |
+| RR4 | Full option table: authority, prerequisites, complete candidate content, files, `D-54` dispositions (Inventory now has a 4a disposition), pass/refusal checks, sync cost and stop point. S-b gets the exact FN text and the FN leaf with hashes. S-c is a hold with an owner and a release condition. No measured time saving is claimed | Part 5 |
+
+**Amendment 4a** (Part 3) is exact. It is ready for the Judge **after** Lane B accepts this revision.
+
+### What you need
+
+**Lane B:** review revision 2. In particular, check: the claim map and its stated scope; dispositions (a)–(l),
+including the restore wording for (l); the frozen leaves; and the option impacts.
+
+**Lane C:** no change to your surface claims. No new fact is needed.
+
+**Judge (after Lane B's acceptance):**
+1. Issue amendment 4a.
+2. Choose S-a (recommended), S-b or S-c.
+
+### What you did instead
+
+Built the ledger and leaves read-only, outside the repository. No governed edit, Register act, prepare,
+publication, fetch or push. Handoff-only commit; `docs-drift` stays the sole failure (`D-428`).
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | RR1–RR4 received; packet revision 2 frozen with ledger and leaves | Phase 1: none |
+| Approve-with-conditions | Amendment 4a and option S-a | Phase 1: Lane B accepts revision 2; then the Judge's act |
+| Defer | 4a recording, source repair, replacement candidate, publication, health, DoD, batch 2, P15, GR-007 | Phase 1: in order; Gate 2 and push separately |
+| Reject | Issuing the revision 1 4a text; any meaning-neutral claim before review; `AIG-07` made a prerequisite | Phase 1 |
