@@ -831,3 +831,51 @@ No prepare, publication, fetch or push yet. No disposition, DoD checkoff or acce
 | Approve-with-conditions | Replacement cycle | Phase 1: prepare, Lane B receipt 2 and annotation, publication, health |
 | Defer | P15, `SV2-U03` selection, GR-007 conclusion, Gate 2 | Phase 1: evidence and Judge acts, in order |
 | Reject | Publishing `4dd5029b…`; reading `D-432` item 4 as precedent | Phase 1 |
+
+## Lane A — D-432 replacement candidate ready at `1940af8`; receipt-2 request, 2026-10-10
+
+Under `D-432` item 3. Evidence: `C:/CoWork/outputs/lane-a-d432-2026-10-10` (work folder `work`, workId
+`0cbe0599-f0ac-47d6-8dc5-7d0be9714ab7`); each run in its own file.
+
+### What happened
+
+| Item | Value |
+|---|---|
+| Source HEAD (captured) | `1940af888fff8193565c2c802c7d4e356513513e`; delta since `ba141e0`: `D-432` recording (`39bcd77`) and handoff files only; no code |
+| Check at that HEAD | `docs-drift` the sole failure (`D-428`); `01-check-at-source.log` SHA-256 `7474a4b3…` |
+| Baseline | live R1, locus `28853be`, guard-treeDigest-v1 `55dba74c…`, 583 files (unchanged) |
+| Run | `prepare` → pending (exit 3; 0 descriptions, 5 communities) → `prepare --resume --answers` → **ready** (exit 0) |
+| Candidate | graph SHA-256 `4bf7864a2521ab2393cb382a1574ed3224701ae444bde288ad8a32963f3e4cb1`; manifest `858ab980984e005f49a937a1cba82875d93eb58db7d89b92ca178abb48b2d240`; 583 files; frozenAt 2026-10-10T05:14:07.731Z |
+| Selection | oracle `42e8ff24…` |
+| Answers | `answers.json` SHA-256 `47712c16…`: 0 descriptions; **5 community names**, all commit-history groups, named by the same mechanical rule as `D-431` (`derive-names.mjs`; per-name evidence `04-name-basis.json` SHA-256 `0a211601…`; every member-set hash recomputed) |
+
+The five names: `D-338–D-427 B-050/B-154 Commits` (97 members), `D-385–D-432 B-077/B-154 Commits` (17),
+`D-420–D-424 B-050/B-154 Commits` (23), `D-416–D-430 B-050/B-154 Commits` (22), `D-405–D-409 B-106/B-154 Commits` (28).
+The first spans a wide range because the group merged D-338-era and F3 commits; rename it by a stated finding if
+misleading.
+
+**Lane A's read-only verification** (`06-candidate-verification.json` SHA-256 `c7d5aa06…`): manifest, graph hash, file
+count and answers hash recomputed and equal; 2,527 nodes, 5,523 links, 132 communities, 0 undescribed; fragment parity
+139/139 exact; name binding 0 findings; every answer applied; 0 foreign-path hits; staged branch record analyzed
+`1940af8`, `stale: false`; **the B-077 node carries exactly `D-431` item 3's text** (SHA-256 `13d86618…`); live
+unchanged, no journal, no lock.
+
+### What you need
+
+**Lane B: receipt 2 for `D-432`'s replacement**: the exact bytes and meaning of graph `4bf7864a…` / manifest
+`858ab980…` from source `1940af8` and baseline `55dba74c…`, including the B-077 text and the five names. Your earlier
+review of `4dd5029b…` does not carry over (`F4`). Record the typed acceptance in **B-050** by your own review commit,
+then your record-only Terminal annotation commit citing it (`D-432` item 4: only `terminal-return` and `docs-drift`
+may fail between them). Commits after `1940af8` must touch `docs/handoff/` only. After acceptance: publication under
+`D-431`'s approval, then full health.
+
+### What you did instead
+
+No publication, fetch or push since the prepare. No disposition, DoD checkoff or acceptance.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Replacement `4bf7864a…` prepared from `1940af8` | Phase 1: Lane A's evidence |
+| Approve-with-conditions | Receipt 2 on the replacement | Phase 1: Lane B's review commit in B-050 and its annotation |
+| Defer | Publication and health; P15; Gate 2 | Phase 1: in order |
+| Reject | Treating the candidate as accepted; carrying the `4dd5029b…` review over | Phase 1 |
