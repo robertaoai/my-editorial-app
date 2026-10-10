@@ -2325,3 +2325,82 @@ semantic correctness; the handoff does not require a sync. Future canonical appl
 | Approve-with-conditions | Revised DOC-1–5 and DOC-6 completion | Phase 1: R2-Q1–Q3, Lane C facts, corrected hash and bounded review |
 | Defer | U03 selection, canonical application, native setup, DOD-04/06, P15 and GR-007 | Phase 1: complete impacts and bounded authority in the stated order; Gate 2 separately |
 | Reject | r2 as application-ready; dropping required roots; automatic residual acceptance; an undefined waiver; trial evidence presented as native setup or product readiness | Phase 1: correct the three bounded items before selection |
+
+## Lane A — R2-Q1–Q3 and N3 answered; packet revision 3 for bounded review, 2026-10-10
+
+### What happened
+
+Lane B's review `4320539` was received, together with Lane B's worklog on Lane A's proposed fixes. Both corrections
+in that worklog are accepted:
+- **Completion wording.** DOC-R1–R6, N1 and N2 each **received an answer** in revision 2. That is not closure.
+  R2-Q1–Q3 stayed open before application, and they are answered here.
+- **R2-Q3 target.** Lane A's proposed target (waive `AIG-04.C3` for the surface with no route) was wrong. `C3` binds
+  only a surface with an available method, so waiving it would not resolve the missing delivery. Revision 3 uses Lane
+  B's wording, kept **proposed** until the Judge selects the outcome.
+
+Lane A had paused for a new "go". Lane B's review already says these draft corrections need no new Judge approval,
+so the pause was unnecessary. Lane A worked under the existing approvals. Lane A's own critic pass added **N3**: a
+packet must carry outputs that the reviewing surface can open. Read revision: `4320539`.
+
+**Packet revision 3:** `C:/CoWork/outputs/lane-a-aig04-drafts-2026-10-10/AIG04-DRAFT-r3.md`, 33,740 bytes,
+SHA-256 `a41e060d2fbb63eea67e2de18d4ae53ee0a7d5c6d459877f4ac06b0b1dc6fdc4`. Revisions 1 and 2 are unchanged as history.
+The packet ends with a table that maps each revision-3 change to its location.
+
+| Finding | Response and location in revision 3 |
+|---|---|
+| R2-Q1 | Accepted. Required roots are kept. A required root with no eligible file stops the search as *incomplete scope*. An optional exclusion needs a reason recorded before the search. The check applies to the task, negative-control and SQL searches. The frozen task and SQL roots are named as required. FN §3 `R4`; FN §6 rows 1–2; SPECS §6.2; UX §4.2 steps 2 and 6 |
+| R2-Q2 | Accepted. "Proposed residual; not accepted." An unknown method supplies no proof. Before `SV2-DOD-04` / P15 credit, the outcome act names a measured route or explicitly accepts the gap with scope, risk, owner, return condition and the affected acceptance claim. FN §4.4 "Per outcome"; SPECS §6.2 Lane C row; new DOC-5 row "Unresolved surface" |
+| R2-Q3 | Accepted with Lane B's wording. The waiver concerns delivery of a proven navigation route for the named surface and its Table A task. `AIG-04.R1`, `R3`, `R4` and `C3` stay in force for every route claimed as available. The waived route stays undelivered. An *applicable* task with a waived route stays separate from a *not required* task. FN §4.4 "Per outcome"; UX §4.4; new DOC-5 row "Waiver target"; DOC-5 waive files and checks |
+| N3 | UX §4.5: a packet carries full outputs, or a copy the reviewing surface can open. A retained path is valid only where that surface's access to it is proven |
+
+**DOC-6 facts recorded (dated; not extended to other sessions):**
+
+| Surface | Fact | Source |
+|---|---|---|
+| ChatGPT Work desktop (Codex runtime) | Read the checkout at `8515bc6`, 2026-09-27. Not evidence for the Codex build surface or for every current Work session | `SV-002` route B row; `D-329` |
+| ChatGPT Chat | Checkout access **unknown** | — |
+| Codex (this review session) | Read the checkout at `4320539` | B-136 `4320539` |
+| Codex | `rg.exe` **discovered** on `PATH`; route **unknown** (no task, control or SQL measurement) | B-136 `4320539` |
+| Antigravity IDE | An IDE session read the checkout at `fa38edd`. Current sessions **unknown**. Search method **unknown; no measurement supplied** | `SV-002` route C row; `C-002` `9514b51` |
+| Antigravity chat | Access **unknown** | — |
+| Antigravity skill route | **Unsupported** (unchanged) | B-136 `df873fe` |
+
+Lane C has not answered the four questions in Lane A's revision-2 entry. Those facts stay **unknown**. A missing fact
+does not authorize a new test.
+
+### DOC tracker
+
+| Row | Target | Owner | Draft | Review | State |
+|---|---|---|---|---|---|
+| DOC-1 | `Modular_PRD.md` §7.2a `AIG-04` row + need paragraph; FN §2 `AIG-04` story | Lane A | `a41e060d…` (r3) | r2 reviewed `4320539` (no change requested here); r3 Lane B pending | draft r3 |
+| DOC-2 | FN §3 (`R2`–`R5`), §4.4 Tables A/B, §5 (`C2`–`C4`), §6, §9 | Lane A | `a41e060d…` (r3) | r2 returned `4320539` (R2-Q1–Q3); r3 Lane B pending | draft r3 |
+| DOC-3 | SPECS new §6 (§6.1 facts, §6.2 existing path, §6.3 proposed provisioning) | Lane A | `a41e060d…` (r3) | r2 returned `4320539` (R2-Q1, Q2); r3 Lane B pending | draft r3 |
+| DOC-4 | UX new §4 (§4.1–§4.5) | Lane A | `a41e060d…` (r3) | r2 returned `4320539` (R2-Q1, Q3); N3; r3 Lane B pending | draft r3 |
+| DOC-5 | Six-part outcome impact (+ unresolved surface, waiver target); receipt route; current records; `D-54` map | Lane A | `a41e060d…` (r3) | r2 returned `4320539` (R2-Q2, Q3); r3 Lane B pending | draft r3 |
+| DOC-6 | Independent review | Lane B (Level 1); Lane C (its own surface facts, Level 2) | — | Lane B r2 done `4320539`; Lane C facts not received (recorded unknown) | open |
+
+None of these rows feeds P15 clearance.
+
+### What you need
+
+**Lane B:** review only the revision-3 changes (R2-Q1–Q3, N3 and the DOC-6 fact rows). DOC-R1–R6, N1 and N2 are not
+reopened.
+
+**Lane C:** answer the four questions in Lane A's revision-2 entry, or say "unknown; no measurement supplied". Reuse
+dated receipts where they apply. No install, replacement skill or consumer test is requested.
+
+After the review accepts, Lane A presents the U03 options with DOC-5's table. Each option shows its authority,
+prerequisites, file set, pass and refusal checks, sync cost and stop point. It also states any unresolved surface or
+waived route. The Judge then selects the outcome.
+
+### What you did instead
+
+Revision 3 was drafted outside the repository. There was no governed edit, install, trial, graph mutation,
+publication, fetch or push. This is a handoff-only commit, so no sync is needed.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Lane B's corrections to the completion wording and the R2-Q3 target; revision 3 recorded with its hash and byte count | Phase 1: none |
+| Approve-with-conditions | Revision 3 of DOC-1–5; DOC-6 | Phase 1: bounded Lane B review of the revision-3 changes; Lane C facts or recorded unknowns |
+| Defer | U03 selection; acceptance of any residual or waiver; batch 1 and cycle 1; native setup; DOD-04/06; P15; GR-007 | Phase 1: after DOC-6 accepts; Gate 2 separately later |
+| Reject | Any finding called closed before review; waiving `C3` to cover an unavailable route; a residual treated as accepted before an act; another "go" asked for drafting that is already authorized | Phase 1 |
