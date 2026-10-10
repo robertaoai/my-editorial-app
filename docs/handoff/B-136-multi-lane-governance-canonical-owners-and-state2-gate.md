@@ -3892,3 +3892,54 @@ follow the recorded dependency order. Gate 2 remains separate.
 | Approve-with-conditions | Batch-2 preparation and cycle-2 plan | Phase 1: Lane A drafts IDX-1–3; own issued act states receipt route, publication trigger, checks and stop before prepare |
 | Defer | Final governed acceptance records, GR-007 completion and cycle 2 execution | Phase 1: after the evidence assessment and bounded act; no execution by this review |
 | Reject | Silence used as publication authority; ended recording exception reused; retained future work called delivered; graph currency treated as Gate 2 or build readiness | Phase 1: preserve the explicit boundaries above |
+
+## Lane A — IDX-1–3 answered; D-434 batch-2 draft with assessment text, conditional records and cycle-2 options, 2026-10-11
+
+### What happened
+
+Lane B's review `d2c4238` was received, and IDX-1–3 are accepted. Read revision: `d2c4238`. Governed source
+unchanged since `93aa02f`.
+
+**Draft:** `C:/CoWork/outputs/lane-a-d434-draft-2026-10-11/D434-DRAFT.md`, 10,793 bytes, SHA-256
+`5d86bea9d25025c273624a32e18421fbe238af77248c73d2f90dfb3310ee7af1`. Every acceptance statement in it is **proposed**.
+
+| Finding | Answer | Draft part |
+|---|---|---|
+| IDX-1 | Lane B's assessment text is adopted unchanged: it names `B-136.P15` with its own reason under `D-364` item 4 and `D-382` item 6, with clearance from the act onward. The four P15 refusal rules held since B-154 `9f8a872` are checked, and none is met. Each row is accepted or rejected separately; a rejection keeps the dependent conclusions open | Part 1 |
+| IDX-2 | The act states its own receipt route (unit-scoped route A for cycle 2; no reuse of `D-432`/`D-433`). The Judge selects, inside the act, **P-cond** (conditional publication after a valid receipt 2 with unchanged bindings) or **P-res** (stop after receipt 2). Lane A's earlier reading of `D-431` as covering publication is withdrawn; silence gives no authority | Parts 2 and 4 |
+| IDX-3 | Exact conditional records are drafted now: DoD cells, the §0 status, the P15 cell, the tracker re-derivation method and P15 row, the §2.3.2 note, the GR-007 conclusion, the `V1-SM05` status, `frag139`, and the Inventory row. Also the scope text, the FN leaf and the `D-54` map | Part 3 |
+
+**Two findings from the drafting:**
+1. **`V1-SM05.md` Status** still says "attempt SV-002 open". Once SV-002 is accepted, that is stale (B9). The packet
+   stays `BLOCKED`.
+2. **GR-007's own condition** requires "final independent review by an actor who neither answered nor applied". The
+   conclusion is therefore recorded as "complete, pending the final independent review", and Lane B's cycle-2 receipt
+   completes it. Population check at `d2c4238`: every non-turn-report handoff entry has a §2.3.2 row. The only
+   unkeyed entries are the turn reports B-022, B-026, B-047 and B-059.
+
+### What you need
+
+**Lane B:** review the draft, especially:
+- the claim map B1–B11;
+- the tracker method;
+- the GR-007 pending-review wording;
+- the P-cond and P-res options.
+
+**Judge (after Lane B's review):**
+1. Issue the assessment (Part 1), or reject named rows.
+2. Select P-cond (recommended) or P-res for `D-434`.
+
+**Lane A then:** records `D-434` before prepare, applies Part 3, sweeps the current claims again, prepares, and stops
+for Lane B's receipt 2.
+
+### What you did instead
+
+Drafted outside the repository, plus a read-only population check. No DoD box, Register act or prepare. Handoff-only
+commit.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | IDX-1–3 answered; D-434 draft frozen (`5d86bea9…`) | Phase 1: none |
+| Approve-with-conditions | The Judge's assessment and the P-cond/P-res choice | Phase 1: Lane B review of the draft |
+| Defer | `D-434` recording, application, cycle 2, the GR-007 final review | Phase 1: in order; Gate 2 separately |
+| Reject | Silence as publication authority; DoD boxes checked by list approval; GR-007 called complete before its independent review; `V1-SM05` unblocked by `SV-002` acceptance | Phase 1 |
