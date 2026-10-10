@@ -7323,3 +7323,73 @@ No canonical source, candidate, live graph, trial, application build, fetch or p
 - **Annotation-Act:** D-433 item 6, cycle 1 only. This immediately following record-only commit covers Lane B receipt 2 at 931deb97b56bdcca2f197c39b9d2388039fca498 for work d5ba3505-9983-4f54-9d53-fd1cfc43daad, graph c7ce4f5f7532f37aa13d7bed52d6eb9a96416b5a3f46199ec6d4f0bc5434bd91, manifest 98eb002a70bc1de394c463a4f1ac9d3700a7308a3000d3cd3332eb89ccef2e82, analyzed source a2fbb3578e74f21bdd8628779d39e472ab0128d5. The guard reads that complete acceptance successfully. B-050 stays Verified; its header and Lane A answer are unchanged. Full checks are retained; normal hooks are not bypassed. Only terminal-return and docs-drift may fail between these two commits; this covering annotation ends the terminal-return interval. Publication still needs the Judge’s authority, followed by separate Lane A health evidence in B-136. No push, P15/Gate acceptance, native setup or general check-failure precedent is included.
 - **No-Scope-Reopened:** true
 - **Annotated-At-Commit:** 931deb97b56bdcca2f197c39b9d2388039fca498
+
+
+## Lane B — D-433 4a / S-a replacement: fresh independent receipt 2, 2026-10-11
+
+Read at 063750f2f3dae6497019cb77f974001683702dc2. Authority: D-433 items 4a and 6; bounded cycle-1 replacement review. This is Lane B's independent review, not a Lane A answer or a new B-050 disposition. The B-050 header and original scope remain unchanged.
+
+### What happened
+
+**Accept the replacement only.** Independent source review confirms the 9e30578..93aa02f repair matches amendment 4a and S-a: C1–C8, C10 and C11; restoration of the cross-surface rule; the dated (e) sentence; and the two exact curated leaves. C9's false SPECS statement and the literal revision-3 byte-identity claim are withdrawn in the Register. The three packet/ledger/leaves bindings match. DOD-01/02/04/06 remain unchecked. The current-claim review covers the approved map, not every claim in the repository.
+
+Independent candidate review recomputed:
+- work fba4b947-659c-46ed-a345-9bfae2c7a339; source 93aa02f4ded4b9e39a9742720ac986b7b593e583;
+- graph 81ab5cd62e6787b0b87d1a69f18331564dc024f9181b798ee54ccfe74c0c487f;
+- guard-treeDigest-v1 b56afd6356198e907a68be958bb15cbc11e1aee9cf040a7b47f5826828cb148d; 583 files;
+- 139/139 fragments exact, source and baseline bindings valid, no staging/studio/path/classification/transaction findings;
+- seven calls, each with stable selection at both ends; all fourteen saved ignored lists match their hashes and counts; final observation validates;
+- all eleven names independently derived from the exact member sets, decision bounds and frequent handoff subjects. The 94-member group has 93 commit nodes; its name describes the dominant subject, not every member;
+- the original U03 leaf and B-077 text remain exact; the two amended leaves match the frozen new values; the S-a FN leaf still matches its frozen OLD value; every other field in frag139/140 is unchanged by 4a;
+- the live graph remains 4bf7864a… with baseline 858ab980… (release locus 916d5cc); nothing is published.
+
+Names accepted as frozen in answers.json: D-425 B-050/B-154 Commits; D-426–D-428 B-050/B-154 Commits; D-364–D-433 B-050/B-136 Commits; D-426–D-429 B-050/B-154 Commits; D-426–D-427 B-050 Commits; D-424–D-425 B-050/B-154 Commits; D-408–D-412 B-050/B-154 Commits; D-405–D-408 B-106/B-154 Commits; D-412–D-413 B-050/B-154 Commits; D-231–D-402 B-154/B-155 Commits; D-324–D-364 B-130 Commits.
+
+### What you need
+
+**Lane A:** receive this review without another approval request. After its immediately following covering annotation, present the exact replacement and this review commit for the Judge's publication decision. Do not use the annotation commit as --review. Recheck source, candidate, baseline and acceptance immediately before any authorized publication. Then run separate full health and live-parity checks and record them in B-136. No fetch or push before that health record.
+
+**Judge:** publication is the next decision, not a new U03 outcome or S-a choice. Approval would cover only this frozen replacement, guarded publication and separate health evidence. Deferral leaves the candidate frozen and live drift unresolved. A changed binding or new finding returns the affected item to Lane A. No publication is authorized by this review.
+
+**History:** 931deb9 is withdrawn; c7ce4f5f… remains superseded and unpublished. Their historical typed record is not authority for this work.
+
+### What you did instead
+
+Read-only graph query supplied orientation. Governed sources, the full repair diff and independent byte/semantic checks supplied the decision evidence. No build, trial, canonical edit, candidate edit, live change, fetch or push.
+
+Evidence folder: C:/CoWork/outputs/lane-b-d433-4a-review-2026-10-11/.
+- candidate-review.json SHA-256 dd20d0934b43a402e98318d80889c76153d7ac025cefd228ffb52b23193131f0; review-candidate.mjs f35378c104c9698c7741982f4100d210954cc5be74ac583ee081e02648bbe71f.
+- semantic-audit.json SHA-256 74f6485479a113e6d4884d9a4540bdd2f608a936b291c993f69676accd8c74cd.
+- check.log SHA-256 05b8d9216b144e3796191256ddd25764c2aa836026a5b4dd6776ad70911412c7: 18/19; docs-drift alone. Eleven governed paths changed since 1940af8, including frag140. D-428 applies outside the immediate item-6 acceptance/annotation interval.
+
+### F3 acceptance record
+```json
+{
+  "kind": "graphify-f3-acceptance",
+  "version": 1,
+  "disposition": "Accept",
+  "scope": "F3 publication",
+  "reviewer": "Lane B",
+  "workId": "fba4b947-659c-46ed-a345-9bfae2c7a339",
+  "graphSha256": "81ab5cd62e6787b0b87d1a69f18331564dc024f9181b798ee54ccfe74c0c487f",
+  "manifest": {
+    "algorithm": "guard-treeDigest-v1",
+    "digest": "b56afd6356198e907a68be958bb15cbc11e1aee9cf040a7b47f5826828cb148d",
+    "files": 583
+  },
+  "analyzedSource": "93aa02f4ded4b9e39a9742720ac986b7b593e583",
+  "baseline": {
+    "releaseLocus": "916d5cc4590baf4289164cbc248602a5ad9e6127",
+    "algorithm": "guard-treeDigest-v1",
+    "digest": "858ab980984e005f49a937a1cba82875d93eb58db7d89b92ca178abb48b2d240"
+  },
+  "pendingSemantics": 0
+}
+```
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Amendment 4a applied within S-a; independent receipt 2 for this replacement | Phase 1: this review and immediately following annotation |
+| Approve-with-conditions | Publication and separate health | Phase 1: Judge's publication authority; all frozen bindings still match |
+| Defer | DoD refresh/assessment, batch 2/cycle 2, SCOPE-1–3 and FN leaf, P15, GR-007 | Phase 1: recorded dependency order and own acts; Gate 2/push separately |
+| Reject | Using 931deb9; editing a frozen name in place; treating candidate acceptance as publication or P15 acceptance | Phase 1 |
