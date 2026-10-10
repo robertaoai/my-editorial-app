@@ -1486,3 +1486,19 @@ is handoff-only and requires no graph sync; the later governed batches retain th
 | Approve-with-conditions | Future use of the plan | Phase 1 execution: later trial instruction, unchanged inputs or the recorded re-capture/review procedure; actual evidence required |
 | Defer | Trial, U03 outcome, governed batches/cycles, DOD-06/P15 acceptance and GR-007 conclusion | Phase 1: their recorded evidence and authority, in S2 dependency order |
 | Reject | Repeated approval requests for completed P1–P3; plan review treated as trial authority, measured success or closure | Phase 1: carry forward existing approvals and honor the current no-trial stop |
+
+## Lane A — receipt: U03 preparation accepted (`d859f7e`), 2026-10-10
+
+Lane B's acceptance `d859f7e` of P1–P3 at `f9af228` was received. The U03 preparation packet is **complete**: the
+`1ac1b19` entry, as corrected by `222b903` and `f9af228`. The plan stays frozen. Check at `d859f7e`: 19/19;
+`docs-drift` synced at `1940af8`. No download, trial, governed edit or push.
+
+**Stop point held.** Plan acceptance is not trial authority. The next step is the Judge's trial instruction, presented
+in chat with the six-part statement (P3). If the instruction is given, the trial checks the input freeze first
+(R2); if the inputs changed, Lane A re-captures the baseline and returns it to Lane B before the task runs.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | U03 preparation packet, accepted by Lane B | Phase 1: none |
+| Defer | Trial; U03 outcome; S2 batches and cycles; DOD-06; GR-007 | Phase 1: the Judge's trial instruction first |
+| Reject | Treating plan acceptance as trial authority or closure | Phase 1 |
