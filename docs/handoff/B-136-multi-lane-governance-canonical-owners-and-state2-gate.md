@@ -3572,3 +3572,53 @@ Review and handoff recording only. No canonical repair, application build, trial
 | Approve-with-conditions | Publication and separate health | Phase 1: separate Judge act; unchanged full bindings; Lane A records the actual result |
 | Defer | DOD-01/02 refresh, DOD-04/06 assessment, batch 2/cycle 2, P15 and GR-007 | Phase 1: stated order and own acts; Gate 2/push separately |
 | Reject | Reusing 931deb9; altering frozen bytes; claiming a global semantic guarantee, native Ripwire setup or gate clearance | Phase 1 |
+
+## Lane A — fresh receipt 2 received (`8800053`, `5d7d140`); publication request to the Judge, 2026-10-11
+
+### What happened
+
+Lane B's fresh receipt 2 (`8800053`), its covering annotation (`5d7d140`) and its consolidation (`6bee435`) were
+received.
+
+**Lane A's read-only validation** used the guard's own `acceptanceAt` and `publicationSourceFindings`
+(`17-review-validation.json`, SHA-256 `f4ad3035…`):
+- source check `ok`, no findings, publication head `6bee435`;
+- the acceptance record was introduced by `8800053` (B-050, lines 7365–7388) and is typed and canonical;
+- workId, graph, manifest digest and files, analyzed source `93aa02f`, baseline locus and digest, and the staging
+  bytes recomputed now: **all equal**;
+- live unchanged, no journal, no lock.
+
+**Lane B's wording corrections, accepted:**
+- "All stale claims are gone" becomes "the approved current-claim map passes". It is not a repository-wide
+  certification.
+- A name change is a Lane B finding. Lane A then changes and re-freezes the candidate, and a fresh review follows.
+  Lane B does not rename frozen bytes.
+- Publication alone does not clear drift. Clearance needs unchanged bindings, a successful publication and a separate
+  passing health check.
+- Each state is recorded separately: drafted, applied, accepted, published.
+
+### What you need
+
+**Judge — publication authority (the decision now open):**
+
+| Part | Content |
+|---|---|
+| Authority | Your publication decision for `D-433` cycle 1 (item 6) |
+| What is published | Graph `81ab5cd62e6787b0b87d1a69f18331564dc024f9181b798ee54ccfe74c0c487f`, manifest `b56afd6356198e907a68be958bb15cbc11e1aee9cf040a7b47f5826828cb148d`, 583 files, from source `93aa02f`, baseline `858ab980…` |
+| Command | `node scripts/graphify/guarded-rebuild.mjs publish --work C:/CoWork/outputs/lane-a-d433r-2026-10-11/work --review 8800053d9f109d2a6fcb0bbbe4dbec4232c596a6` |
+| Prerequisites | Bindings rechecked just before publication; stop on any mismatch. No fetch or push before health |
+| Pass | Exit 0 (published). Then a separate full health check: every consistency check passes, `docs-drift` synced, and live parity per fragment |
+| Refusal | Exit 2, 4, 5 or 7 → stop and report. Never use `931deb9`. Never run a raw rebuild |
+| Sync cost | This publication only |
+| Stop point | The health record in B-136. Then a push range for you to confirm separately, the DoD refresh, and batch 2 |
+
+### What you did instead
+
+Validated the receipt read-only. No publication, fetch or push. Handoff-only commit.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Fresh receipt 2 received and validated; Lane B's wording corrections | Phase 1: none |
+| Approve-with-conditions | Publication of `81ab5cd6…` | Phase 1: the Judge's publication authority; bindings rechecked |
+| Defer | Health, push, DoD refresh, DOD-04/06, batch 2 and cycle 2, P15, GR-007 | Phase 1: in order; Gate 2 separately |
+| Reject | Publication with `931deb9` or `c7ce4f5f…`; any governed commit before publication | Phase 1 |
