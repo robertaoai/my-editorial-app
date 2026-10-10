@@ -147,6 +147,12 @@ PR #2 comment, `SV-002` acceptance and the `V1-SM05` unblock remain separate Jud
 **`D-401` (2026-10-03) — `GR-012` observation: no writer seen, accepted by Judge reason** (31-minute window accepted
 explicitly). Lane B verifies. `V1-SM05` stays `BLOCKED`.
 
+**`D-433` (2026-10-10) — `SV2-U03` outcome: existing path with C-a.** Ripwire is not adopted. `git grep` is the
+measured navigation route on Claude Code, Codex and the Antigravity IDE, within the scope check. The `AIG-04` surface
+applicability is accepted. Batch 1 applies the reviewed `AIG-04` drafts, then guarded cycle 1 runs under a
+unit-scoped receipt route. Evidence only: no V1 scope, sequence or DoD change. `SV2-DOD-04` is checked by the Judge
+after cycle 1. The S2 order is unchanged. `V1-SM05` stays `BLOCKED`.
+
 **`D-432` (2026-10-10) — D-431 receipt-2 route A2: candidate `4dd5029b…` superseded unpublished; this recording
 first, then one replacement guarded cycle; one unit-scoped `terminal-return` recording exception.** Graph currency
 only; no V1 scope, sequence or DoD change. `V1-SM05` stays `BLOCKED`.

@@ -578,6 +578,11 @@ and its test. The README §4 and sync-docs §7 change in place.
 **`D-432` (2026-10-10) — no file added or retired, stated explicitly.** Only the Register, this file and
 `V1-BUILD-SPEC.md` change; candidate `4dd5029b…` was never published.
 
+**`D-433` (2026-10-10) — no file added or retired, stated explicitly.** `Modular_PRD.md`,
+`FN-MULTI-LANE-AI-GOVERNANCE.md`, `SPECS-MULTI-LANE-AI-GOVERNANCE.md`, `UX-MULTI-LANE-AI-GOVERNANCE.md`, `SV-002.md`
+and `SV2-U03-code-navigation-evaluation.md` change in place. The SPECS §6 and UX §4 sections are new sections, not
+new files.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

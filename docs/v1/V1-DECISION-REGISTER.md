@@ -28028,3 +28028,78 @@ Input: Lane B's D-431 decision-impact review (findings `F1`–`F6`, received in 
 | Rule files, Modular_PRD, fn-specs, SPECS, Phase Closure, frozen sources | — unaffected |
 | **Encyclopedia** | unaffected (`docs/ENCYCLOPEDIA-SYNC.md` maps none of these paths) |
 | **Graphify** | Governed drift, expected; cleared only by the replacement's guarded publication, never by a raw rebuild |
+
+## 5.14e258 `D-433` — `SV2-U03` Outcome: Existing Path With C-a; `AIG-04` Surface Applicability; Batch 1 and Guarded Cycle 1
+
+**Authority: the Judge, directly to Lane A, 2026-10-10**, in chat: "Judge Approved: existing path with C-a". It
+selects from the U03 decision packet in B-136 (`1bf7d90`). That packet followed Lane B's acceptance of the `AIG-04`
+draft revision 3 (`63a7ecf`; packet `AIG04-DRAFT-r3.md`, SHA-256 `a41e060d…`) and DOC-6. Its sequence was recorded
+at `7d9ae68`. Lane C measured C-a (record `6f0e9050…`, at `7d9ae68`), and Lane B accepted it at Level 1
+(`f9af4d6`). The application text was frozen at `dcf8d53`. Lane A is `Active`. This act runs inside `D-418`/`D-431`
+item 6 (P15) and the conditional S2 order. It changes no V1 scope or sequence.
+
+### The decision
+
+1. **`SV2-U03` outcome: existing path.** Ripwire is not adopted. The trial record is preserved:
+   - §3.4 criteria (1)–(3) failed;
+   - criterion (4) was met by the existing tool;
+   - the Antigravity skill route is unsupported;
+   - cleanup was proven.
+
+   The navigation method is `git grep` (Git 2.54.0) plus source reading. Its scope is tracked files in declared
+   required roots, with the scope check before every classification (`AIG-04.R4`).
+2. **`AIG-04` surface applicability is accepted** as FN §4.4 Table A states it:
+   - Claude Code, Codex and the Antigravity IDE are *applicable*.
+   - Claude Cowork, ChatGPT Chat/Work and Antigravity chat are *not required*. They review from a supplied search
+     record, and any new search goes to a named host.
+
+   Lane ownership restricts writes; it does not decide reading needs.
+3. **C-a result.** The Antigravity IDE route is **available (measured)** for the frozen task, negative control, SQL
+   search and workflow-dependency probes in the reported session. No residual remains open for an applicable surface.
+   Limits: this is navigation and entry-existence evidence only. It is not CI execution, complete dependency coverage,
+   Ripwire integration or chat access.
+4. **Batch 1.** The applying commit changes:
+   - `Modular_PRD.md` §7.2a;
+   - FN §2, §3, §4.4, §5, §6 and §9;
+   - SPECS §6 and UX §4;
+   - a dated note in `SV2-U03-code-navigation-evaluation.md`;
+   - in `SV-002.md`: a §3.2 run row, the §5 stale cells and the §7 `SV2-DOD-04` evidence.
+
+   The text is revision 3 plus the selection deltas frozen at `dcf8d53`. The provisioning and waiver procedures stay
+   as rules, marked *not selected*.
+5. **`SV2-DOD-04` is not checked by this act.** Its evidence is assembled here. The Judge checks it on exact-revision
+   evidence after cycle 1, together with the DOD-01/02 refresh.
+6. **Cycle-1 receipt route (unit-scoped; route A).** This entry and batch 1 are committed before prepare.
+   - Lane B's acceptance record for this unit's candidate goes in **B-050** (terminal) by Lane B's review commit.
+     Lane B's record-only Terminal annotation commit follows immediately. These are separate one-file commits.
+   - Between those two commits, only `terminal-return` and `docs-drift` may fail. Hooks are never skipped.
+   - The unit is cycle 1, including a replacement candidate inside it after a finding. Its end point is the
+     health-record commit after publication.
+   - Outside that interval only the `D-428` pre-sync rule applies.
+   - Lane B accepts the candidate independently. The Judge holds publication authority. Health is recorded
+     separately.
+   - No fetch and no push run from prepare to the health record. `D-432`'s exception is not reused, and this route
+     is not precedent.
+7. **Not given by this act:**
+   - `SV2-DOD-06` or `SV-002` acceptance;
+   - P15 clearance or a GR-007 conclusion;
+   - the `V1-SM05` unblock, a work order, a lane change or Gate 2;
+   - a push;
+   - native Ripwire setup.
+
+   Batch 2 and cycle 2 need their own prior act, with their own receipt route. `D-432` item 6 (guard acceptance
+   source) and the deferred `sync-docs` §7 freeze note stay outside this unit, with owner Lane A.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e258 |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ `D-433` paragraph (U03 outcome; no V1 scope, sequence or DoD change) |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-433` paragraph; no file added or retired |
+| Modular_PRD §7.2a; fn-specs `FN-MULTI-LANE-AI-GOVERNANCE.md`; SPECS and UX `MULTI-LANE-AI-GOVERNANCE` | Follow: the batch-1 applying commit (item 4) |
+| `SV-002.md` and `SV2-U03-code-navigation-evaluation.md` | Follow: the batch-1 applying commit (item 4) |
+| B-136 (receipts) and B-050 (Lane B's candidate receipt) | Follow: their own handoff commits |
+| Rule files, Phase Closure, frozen sources | — unaffected |
+| **Encyclopedia** | unaffected (`docs/ENCYCLOPEDIA-SYNC.md` maps no section this act changes; Entry 02's `Modular_PRD.md` §0.2/§0.4/§12 are untouched) |
+| **Graphify** | Governed drift, expected; cleared only by guarded cycle 1, never by a raw rebuild |
