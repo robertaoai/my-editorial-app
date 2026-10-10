@@ -3673,3 +3673,88 @@ untouched.
 | Approve-with-conditions | Push of `9df66a5..153a65c` | Phase 1: the Judge confirms the range |
 | Defer | DOD-01/02 refresh; DOD-04/06; batch 2 and cycle 2; P15; GR-007 | Phase 1: in order; Gate 2 separately |
 | Reject | Running the `check-update` suggestion; reading this health as DoD, P15 or Gate 2 clearance | Phase 1 |
+
+## Lane A — push done; readiness challenge for the Judge's item 2; DOD-01/02 refreshed for assessment, 2026-10-11
+
+### What happened
+
+**Judge (verbatim, in chat, 2026-10-11):** "Judge Approved: 1. Push of 9df66a5..e1077bc 2. DOD-01/02 refresh;
+DOD-04/06; batch 2 and cycle 2; P15; GR-007".
+
+**Item 1 — done.** Before the push, a fetch confirmed origin at `9df66a5`, HEAD at `e1077bc` and a fast-forward of 54
+commits. The command was `git push origin e1077bc4b0559175fdc373e42cc11cdcd66046ec:refs/heads/features/feature-V1-SM05`
+(`9df66a5..e1077bc`). Origin now equals `e1077bc`.
+
+#### Readiness challenge: what item 2 authorizes, and what still needs a later act
+
+| Part of item 2 | Ready for Lane A now? | Why / limit |
+|---|---|---|
+| DOD-01/02 refresh | **Yes — done below** | Evidence work only |
+| DOD-04, DOD-06 | **Partly.** Lane A presents the evidence; the **Judge** checks each box | DoD boxes are checked by the Judge on exact evidence (`D-289`, `D-362`). A list approval before the evidence exists is not a checkoff. DOD-06 also needs Lane B's review of the refreshed index |
+| Batch 2 | **Drafting yes; content waits for the DOD-06 outcome** | The SV-002 acceptance, P15 and GR-007 records state conclusions that exist only after the Judge assesses DOD-06. The SCOPE-1–3 text and the FN leaf are reviewed. The tracker re-derivation is not yet drafted |
+| Cycle 2 | Yes, after batch 2's act is recorded before prepare, with its own receipt route | Read, as in `D-431`, as including publication after Lane B accepts the candidate. **The Judge can object to this reading** |
+| P15, GR-007 | Records only, after DOD-06 | P15 clears at the Judge's DOD-06 acceptance. GR-007's conclusion follows P15 |
+| **Not in item 2** | — | Gate 2 (`V1-SM05-FV-001`), the `V1-SM05` unblock, the `D-242` work order, lane activation, `D-432` item 6 (guard), the `sync-docs` §7 freeze note, and any build |
+
+#### `SV2-DOD-01` / `-02` evidence, refreshed at `e1077bc`
+
+Check at `e1077bc`: **19/19**, `docs-drift` synced at `93aa02f`
+(`C:/CoWork/outputs/lane-a-dod-refresh-2026-10-11/01-check-at-e1077bc.log`, SHA-256 `efe69ff0…`). Live graph:
+`81ab5cd6…`, manifest `b56afd63…`, analyzed `93aa02f` (published, run `6773e19a`).
+
+**`SV2-DOD-01` — Governance applied.**
+
+| Criterion | Evidence | State |
+|---|---|---|
+| `SV2-U01` committed | `10ec465` (`D-264`) | Proven |
+| Checks pass | 19/19 at `e1077bc` (log above) | Proven |
+| Graph current | Live `81ab5cd6…`; `docs-drift` synced at `93aa02f`; only handoff commits after it | Proven |
+| Independent review | Lane B `7faf618`, confirmed as the U01 review at `9c4db11` | Proven |
+
+**`SV2-DOD-02` — Coverage, item drift and success drift.**
+
+| Part | Row | Evidence | State |
+|---|---|---|---|
+| Scopes (§2) | All six indexed with exclusions | §2; `B-139` | Proven |
+| Ledger (§4) | Setup closure rule | DOD-01 above | Proven |
+| | Loader characterization | `SV2-DOD-03` (`D-362`) | Proven |
+| | Code-navigation tool | `SV2-U03-R1`; `D-433` (existing path with C-a); 4a; cycle 1 published | **Proven** (it was "missing proof" at `57da611`) |
+| | `B-071`/`B-095`/`B-104`, `B-118`, `B-096` children | §3.3; `SV2-DOD-05` (`D-289`) | Proven |
+| | `0002` state instructions (`B-137` R1) | `D-265`, reviewed (`D-289`) | Proven for Gate 1B. **Retained:** owner Lane B; return at the `D-242` work order (Gate 2) |
+| | Lane A-resolved entries (§2.3) | Tracker current at `9df66a5` (`D-431`); every row closed except `B-136 (P15)` | **Retained:** clears at `SV2-DOD-06` |
+| Dimensions (§5) | Six classes; the stale satisfaction cells were corrected by `D-433` | §5 at `93aa02f` | Proven |
+
+**Known residual (not a DOD-02 blocker):** the `SV-002` §2.3.1 `B-136 (P15)` row keeps a dated 2026-10-05 note,
+"U03 unselected". Batch 2 re-derives the tracker.
+
+**`SV2-DOD-04` — Code navigation resolved.** The evidence is assembled in `SV-002` §7 (`D-433`): the outcome is
+recorded, and the route is proven on every applicable surface at exact revisions. The live graph carries it
+(`81ab5cd6…`).
+
+### What you need
+
+**Lane B (Level 1):** review the refreshed DOD-01/02 index above and the DOD-04 evidence at `e1077bc`.
+
+**Judge, after Lane B's review**, in this order:
+1. Assess and check `SV2-DOD-01`, `-02` and `-04` (or name a gap).
+2. Assess `SV2-DOD-06`: accept `SV-002` or not. The `V1-SM05` unblock stays a separate decision.
+
+**Lane A, then:** draft batch 2's act (`D-434`) with its receipt route, containing the exact text of:
+- the SV-002 acceptance record;
+- the P15 record and the GR-007 conclusion;
+- the tracker re-derivation;
+- SCOPE-1–3 and the `frag140` FN leaf `c4283f75…`.
+
+Lane B reviews it, the act is recorded before prepare, then cycle 2 runs: receipt 2 → publication → health.
+
+### What you did instead
+
+Pushed only the approved range. Refreshed the evidence read-only. No DoD box checked, no Register act, no prepare.
+This handoff-only commit is unpushed.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Push `9df66a5..e1077bc` done; DOD-01/02 refreshed; DOD-04 evidence assembled | Phase 1: none |
+| Approve-with-conditions | DOD-01/02/04 checkoffs; DOD-06 assessment | Phase 1: Lane B review, then the Judge's assessment |
+| Defer | Batch 2 act (`D-434`) and cycle 2; P15 record; GR-007 conclusion | Phase 1: after DOD-06; Gate 2 separately |
+| Reject | Reading item 2 as a DoD checkoff or as Gate 2 / `V1-SM05` authority; batch 2 conclusions written before DOD-06 | Phase 1 |
