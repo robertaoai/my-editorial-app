@@ -3622,3 +3622,54 @@ Validated the receipt read-only. No publication, fetch or push. Handoff-only com
 | Approve-with-conditions | Publication of `81ab5cd6…` | Phase 1: the Judge's publication authority; bindings rechecked |
 | Defer | Health, push, DoD refresh, DOD-04/06, batch 2 and cycle 2, P15, GR-007 | Phase 1: in order; Gate 2 separately |
 | Reject | Publication with `931deb9` or `c7ce4f5f…`; any governed commit before publication | Phase 1 |
+
+## Lane A — D-433 cycle 1 published with review `8800053`; separate health recorded, 2026-10-11
+
+### What happened
+
+**Judge (verbatim, in chat, 2026-10-11):** "Publish approved".
+
+| Step | Result | Evidence (`C:/CoWork/outputs/lane-a-d433r-2026-10-11`) |
+|---|---|---|
+| Binding recheck before publication (HEAD `0c31fc5`) | Every binding equal; source rule `ok`; live unchanged; no journal or lock | `18-review-validation-prepublish.json`; `18-publish-head.txt` |
+| `publish --work …/work --review 8800053d9f109d2a6fcb0bbbe4dbec4232c596a6` | **exit 0, `released`**, run token `6773e19a-0309-44c4-a51e-c8ff96d363aa` | `19-publish.log` |
+| Live graph and manifest | Graph `81ab5cd6…` and manifest `b56afd63…`, **equal to the accepted bytes** | `21-live-parity.json` |
+| Live fragment parity and names | 139/139 exact; name binding 0 findings | same |
+| Live branch record | analyzed `93aa02f`, `stale: false` | same |
+| Journal / lock after publication | None | same |
+| `bun run check` (separate health, after publication) | **19/19 pass**; `docs-drift` "synced (governed intent) at 93aa02f; HEAD 0c31fc5 advanced by excluded-only commits" | `20-health-check.log` |
+| `graphify check-update` | "graph.json built from 93aa02f but HEAD is 0c31fc5". This notice comes only from handoff commits (G-F3-9); `docs-drift` confirms no governed drift. The suggested `--update` was **not** run | `22-check-update.log` |
+
+The retained folders `.graphify-bak-6773e19a…` and `.graphify-old-6773e19a…` sit beside the live state. The person
+deletes them.
+
+**State, kept separate:**
+- Amendment 4a repairs: applied (`93aa02f`), accepted (`8800053`) and published (`6773e19a`).
+- Health: recorded here.
+- The current-claim map passes for its stated scope. That is not a repository-wide certification.
+
+### What you need
+
+**Judge — push range (a separate decision).** Origin is at `9df66a5`, and the local branch is 52 commits ahead
+(through this record's commit). The fetch and push freeze ended with this health record. Confirm the range to push, or
+hold it.
+
+**Next in the S2 order (Lane A, after the push decision):**
+1. Refresh the DOD-01/02 evidence at exact revisions.
+2. Present DOD-04 and DOD-06 for your assessment.
+3. Draft batch 2's act, with its own receipt route: the SCOPE-1–3 text, the `frag140` FN leaf `c4283f75…`, the
+   tracker re-derivation, the SV-002 acceptance and the P15/GR-007 records. Then cycle 2.
+
+**Lane B:** the health record above is available for independent review.
+
+### What you did instead
+
+Published only the reviewed bytes, through the guard. No raw rebuild, no `graphify --update`, no push. Gate 2 is
+untouched.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | `D-433` cycle 1 published (`81ab5cd6…`); health 19/19; live parity 139/139 | Phase 1: none |
+| Approve-with-conditions | Push of the 52-commit range | Phase 1: the Judge confirms the range |
+| Defer | DOD-01/02 refresh; DOD-04/06; batch 2 and cycle 2; P15; GR-007 | Phase 1: in order; Gate 2 separately |
+| Reject | Running the `check-update` suggestion; reading this health as DoD, P15 or Gate 2 clearance | Phase 1 |
