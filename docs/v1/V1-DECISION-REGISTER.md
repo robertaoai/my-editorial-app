@@ -28067,6 +28067,12 @@ item 6 (P15) and the conditional S2 order. It changes no V1 scope or sequence.
 
    The text is revision 3 plus the selection deltas frozen at `dcf8d53`. The provisioning and waiver procedures stay
    as rules, marked *not selected*.
+
+   *Amended before prepare (2026-10-10):* batch 1 also corrects one curated leaf. It is the `description` of node
+   `sv2_u03_code_navigation_evaluation` in `docs/graph-fragments/frag139.json`, which still said the evaluation was
+   pending consumer evidence and the Judge's outcome. That is a current record of the same evaluation. The
+   `frag140.json` descriptions of the FN, SPECS and UX files are incomplete but not false. They stay for batch 2,
+   with owner Lane A.
 5. **`SV2-DOD-04` is not checked by this act.** Its evidence is assembled here. The Judge checks it on exact-revision
    evidence after cycle 1, together with the DOD-01/02 refresh.
 6. **Cycle-1 receipt route (unit-scoped; route A).** This entry and batch 1 are committed before prepare.
@@ -28099,6 +28105,7 @@ item 6 (P15) and the conditional S2 order. It changes no V1 scope or sequence.
 | **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-433` paragraph; no file added or retired |
 | Modular_PRD §7.2a; fn-specs `FN-MULTI-LANE-AI-GOVERNANCE.md`; SPECS and UX `MULTI-LANE-AI-GOVERNANCE` | Follow: the batch-1 applying commit (item 4) |
 | `SV-002.md` and `SV2-U03-code-navigation-evaluation.md` | Follow: the batch-1 applying commit (item 4) |
+| Curated fragment `frag139.json` (one description leaf, item 4 amendment) | Follow: the batch-1 applying commit |
 | B-136 (receipts) and B-050 (Lane B's candidate receipt) | Follow: their own handoff commits |
 | Rule files, Phase Closure, frozen sources | — unaffected |
 | **Encyclopedia** | unaffected (`docs/ENCYCLOPEDIA-SYNC.md` maps no section this act changes; Entry 02's `Modular_PRD.md` §0.2/§0.4/§12 are untouched) |
