@@ -2152,3 +2152,69 @@ own authorized guarded route; a green graph does not make this draft correct.
 | Approve-with-conditions | Revised DOC-1–5 / DOC-6 review | Phase 1: Lane A DOC-R1–R6 answer, corrected packet and bounded Lane B/C review |
 | Defer | U03 outcome, canonical batches, native setup, P15 / GR-007 acceptance and Gate 2 | Phase 1: corrected impact plan and bounded act; Gate 2 separately later |
 | Reject | Current draft as application-ready; ownership-based no-navigation inference; missing-root empty output as success; deleting pre-existing config; native proof required before its plan; inconsistent waiver / route / cycle promises | Phase 1: use the six corrections above |
+
+## Lane A — DOC-R1–R6 and N1–N2 corrected; packet revision 2 for Lane B review and Lane C facts, 2026-10-10
+
+### What happened
+
+Lane B's review `156ebac` was received, and all six findings are accepted. Lane A's own critic pass added two:
+**N1** (the route table named ripgrep for Claude Code, but ripgrep is measured as not on Lane A's `PATH`) and **N2**
+(a pass condition stated as a check count, `G55`). The Judge approved: "Corrected DOC-1 to DOC-5 - Phase 1: Lane A
+fixes DOC-R1 to R6 plus N1 and N2". Read revision: `156ebac`.
+
+**Packet revision 2:** `C:/CoWork/outputs/lane-a-aig04-drafts-2026-10-10/AIG04-DRAFT-r2.md`, 28,111 bytes, SHA-256
+`d6e10e1b822358970ca24f57663f5d59cb8ee351d67ce93735f50df7b47e3273`. Revision 1 (`d07fced5…`, 13,065 bytes) is
+unchanged as history. The packet ends with a full table of changes mapped to each finding.
+
+| Finding | Response |
+|---|---|
+| DOC-R1 | Accepted. The need covers every surface that changes, reviews or runs code. "Ownership restricts writes" is stated. FN §2's story is widened. Table A gives each surface its own task, input access, rationale, owner and return condition. The three chat surfaces have separate rows. Lane C is *applicable (proposed)* for workflow-dependency reading. All applicability stays *proposed* until the outcome act |
+| DOC-R2 | Accepted. `AIG-04.R2` names every field and keeps applicability separate from availability. Table A and Table B cover every row, including *unsupported* and *unknown*. The waiver is explicit, with its fields. "Not delivered" is removed |
+| DOC-R3 | Accepted. SPECS §6.3 and UX §4.3 give the proposed provisioning sequence now. It is labelled unexecuted, with a discovery check and stop point for each unresolved value. No command is guessed |
+| DOC-R4 | Accepted and reproduced on Lane A: a nonexistent pathspec returns exit 1 with 0/0 bytes. A scope check (repository top level and a non-empty `git ls-files` per root) now comes before classification. *Incomplete scope* is added. Tracked-only scope is stated. Inventory at `156ebac`: `lib` 5, `app` 4, `__tests__` 3, `supabase/migrations` 2, `.github/workflows` 1, `components` 0 |
+| DOC-R5 | Accepted. Remove only created objects. Restore changed pre-existing objects to captured bytes. Compare before and after. Keep evidence. State limits |
+| DOC-R6 | Accepted. One batch-1 file set for every outcome, with the reason. A unit-scoped receipt-route text is drafted for each cycle's act; `D-432` is not reused. The cycle count is conditional; the provisioning cost is TBD |
+| N1 | Table B names `git grep` as the only measured route for A and B. ripgrep is *unsupported* on Lane A's `PATH` and *unknown* on Codex. The bundled copy is the U03 instrument only |
+| N2 | "19/19 after cycle 1" → "every consistency check passes after cycle 1" |
+
+### DOC tracker
+
+| Row | Target | Owner | Draft | Review | State |
+|---|---|---|---|---|---|
+| DOC-1 | `Modular_PRD.md` §7.2a `AIG-04` row + need paragraph; FN §2 `AIG-04` story | Lane A | `d6e10e1b…` (r2) | r1 returned `156ebac`; r2 Lane B pending | draft r2 |
+| DOC-2 | FN §3 (`R2`–`R5`), §4.4 Tables A/B, §5 (`C2`–`C4`), §6, §9 | Lane A | `d6e10e1b…` (r2) | r1 returned `156ebac`; r2 Lane B pending | draft r2 |
+| DOC-3 | SPECS new §6 (§6.1 facts, §6.2 existing path, §6.3 proposed provisioning) | Lane A | `d6e10e1b…` (r2) | r1 returned `156ebac`; r2 Lane B pending | draft r2 |
+| DOC-4 | UX new §4 (§4.1–§4.5) | Lane A | `d6e10e1b…` (r2) | r1 returned `156ebac`; r2 Lane B pending | draft r2 |
+| DOC-5 | Six-part outcome impact; receipt-route text; evaluation note; `SV-002` items; `D-54` map | Lane A | `d6e10e1b…` (r2) | r1 returned `156ebac`; r2 Lane B pending | draft r2 |
+| DOC-6 | Independent review | Lane B (Level 1); Lane C (its own surface facts, Level 2) | — | Lane B r1 done `156ebac`; Lane C facts pending | open |
+
+None of these rows feeds P15 clearance.
+
+### What you need
+
+**Lane B:** review revision 2 against the eight findings above. Also state ChatGPT Chat/Work's input access (Table A
+marks it **unknown**).
+
+**Lane C:** confirm or correct the facts about your own surface. No install or consumer test is requested.
+1. Input access: can the Antigravity IDE read the local checkout? Can Antigravity chat?
+2. A measured search method on the IDE, if any (`git grep` or bundled ripgrep), with exit codes and byte counts for
+   the frozen task, the negative control and the SQL fallback.
+3. A scoped applicability recommendation for the proposed workflow-dependency task (Table A), with inputs, rationale
+   and return condition.
+4. The existing fact stands unless you correct it: the `skills/ripwire/SKILL.md` route is unsupported.
+
+After both reviews accept, Lane A presents the U03 outcome with DOC-5's table and the act that applies DOC-1–4 in
+batch 1.
+
+### What you did instead
+
+Drafted outside the repository. Re-ran read-only probes on Lane A: the frozen task (221 bytes), the nonexistent
+pathspec, root inventories and `git grep -h`. No governed edit, install, trial, graph mutation, publication, fetch or
+push. Drift: handoff-only commit, so no sync.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | DOC-R1–R6 and N1–N2 answered; packet revision 2 recorded with hash and byte count | Phase 1: none |
+| Approve-with-conditions | Revision 2 of DOC-1–5 | Phase 1: Lane B review and Lane C facts (DOC-6) |
+| Defer | U03 outcome; acceptance of Table A applicability; batch 1 and guarded cycle 1; native setup; P15 / GR-007; Gate 2 | Phase 1: after DOC-6 accepts; Gate 2 separately later |
+| Reject | Revision 1 as a basis for application; any provisioning step treated as authorized by this draft | Phase 1 |
