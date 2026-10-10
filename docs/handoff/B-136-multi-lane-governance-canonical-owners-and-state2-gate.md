@@ -3504,3 +3504,71 @@ No publication, fetch or push since the prepare. No acceptance record, DoD check
 | Approve-with-conditions | Fresh receipt 2 | Phase 1: Lane B's review commit in B-050 and its annotation |
 | Defer | Publication, health, DoD refresh, batch 2 (SCOPE), P15, GR-007 | Phase 1: in order; Gate 2 and push separately |
 | Reject | Publication with `931deb9` or `c7ce4f5f…`; any governed commit after `93aa02f` before publication | Phase 1 |
+
+
+## Lane B — D-433 4a / S-a: consolidated handoff to Lane A, 2026-10-11
+
+- **Kind:** finding / independent review within B-136; not a new entry or Lane A answer.
+- **Phase:** 1.
+- **Blocks:** publication until the Judge's separate decision; no new block on authorized receipt or draft work.
+- **Read at:** 063750f2f3dae6497019cb77f974001683702dc2 (repair source 93aa02f).
+- **Authority:** D-433 items 4a and 6. Carry forward existing-path/C-a and S-a. No outcome choice is reopened.
+
+### What happened
+
+**Fresh receipt 2 is accepted and recorded in B-050 at 8800053d9f109d2a6fcb0bbbe4dbec4232c596a6 (8800053).** Its immediately following one-path covering annotation is 5d7d140. Use the acceptance commit, not the annotation, for any later authorized --review invocation. Both commits leave B-050's existing Verified header and repository-procedure limits unchanged. The original 931deb9 receipt stays withdrawn and the c7ce4f5f… candidate remains unpublished and superseded.
+
+Independent evidence: C:/CoWork/outputs/lane-b-d433-4a-review-2026-10-11/ (candidate-review.json; semantic-audit.json; acceptance-draft.json; check.log). The graph and manifest were recomputed, not copied from Lane A's verifier: 583 files, fragments 139/139 exact, seven calls, fourteen saved ignored-list hashes/counts, stable selection and valid final observation; zero findings. Eleven names match their exact member sets and the recorded derivation rule.
+
+**Repair findings:** D433-R1 is corrected within the approved current-claim map. D433-R2's false literal comparison claim is withdrawn; ledger groups (a)–(k) remain accepted under 4a. The deleted cross-surface rule is restored; the selected-route sentence is explicitly dated. The three frozen input bindings match, both amended leaves carry the exact new text, the FN leaf keeps its old text under S-a, and all other fragment fields are unchanged. DOD-01/02/04/06 remain unchecked.
+
+**Parent-first tracking.** Parents are shown first and complete after their dependencies.
+
+| Item | Current state | Next owner / completion condition |
+|---|---|---|
+| Gate 1B / SV-002 / P15 | Open | Cycle-1 publication and separate health; exact-revision DOD-01/02 refresh; Judge DOD-04/06 assessment; own batch-2/cycle-2 act |
+| GR-007 | Incomplete | Final conclusion after the P15 condition is met |
+| D-433 cycle 1 | Replacement accepted by fresh receipt 2 | Judge's publication decision, then Lane A's guarded release and separate health record |
+| Amendment 4a source repair | Independently accepted in the approved scope | Carry into the accepted candidate; live installation remains pending |
+| SCOPE-1–3 text and FN description | Reviewed, not applied (S-a) | Lane A includes them in batch 2's own act; no extra cycle solely for them now |
+| C-a / existing-path outcome | Accepted within recorded host/task limits | Preserve the bounded claims; Ripwire is not adopted |
+| B-050, B-077, B-150, B-153, B-154 | Verified within their own scopes | No reopening from this review |
+| Formal retrieval / proposed AIG-07 | Deferred by D-424 | Its own later authority; not a P15 prerequisite |
+| Gate 2 / V1-SM05-FV-001 | Separate | Separate evidence and authority; not included here |
+
+### What you need
+
+**Lane A follow-up, in order:**
+1. Receive 8800053 and 5d7d140. Do not request a new drafting approval. Do not edit any frozen name or candidate byte.
+2. Present the concrete publication decision below. The user has not issued it by asking for this planning review.
+3. After publication authority exists, recheck the complete acceptance, work identity, captured source, actual staging hashes, live baseline and publication source rule. Any mismatch stops this release.
+4. Publish with --review 8800053. Then run a separate full consistency check and live-parity/post-state checks. Retain outputs and record the result in B-136. Only a successful release plus health can clear the expected drift.
+5. Refresh DOD-01/02 at the post-health revision; present DOD-04 and DOD-06 with their separate evidence. Do not check a row because this candidate passed.
+6. Prepare batch 2's full impact table before its act: authority, prerequisites, affected files, pass/refusal tests, sync cost, stop point. Include SCOPE-1–3, the FN leaf and tracker re-derivation; name its own receipt route before prepare. Then follow the accepted S2 dependency order.
+
+**Next Judge decision — draft, not issued:**
+> Authorize Lane A to publish D-433 cycle-1 replacement work fba4b947-659c-46ed-a345-9bfae2c7a339 under Lane B acceptance 8800053d9f109d2a6fcb0bbbe4dbec4232c596a6; graph 81ab5cd62e6787b0b87d1a69f18331564dc024f9181b798ee54ccfe74c0c487f, manifest guard-treeDigest-v1 b56afd6356198e907a68be958bb15cbc11e1aee9cf040a7b47f5826828cb148d (583 files), captured source 93aa02f4ded4b9e39a9742720ac986b7b593e583, baseline release 916d5cc / 858ab980…. Recheck all full frozen bindings before release; refuse any mismatch. Run separate full health and live parity, retain the evidence and record it in B-136. No build, trial, push, batch-2 application, DoD checkoff, P15 or Gate 2 closure.
+
+Approve allows only that release and health. Defer preserves the frozen candidate and leaves drift unresolved. Reject returns a specific finding to Lane A. It does not authorize a raw rebuild or a broader allowance.
+
+**Chief Editor: gaps to avoid.**
+- Lane A's new names cannot be changed by Lane B in a frozen candidate. A naming finding requires Lane A to prepare/refreeze under the governed route and obtain a new binding and review.
+- “All stale claims are gone” means the bounded claim-map sweep passed. It is not a global semantic guarantee.
+- A full review must compare current headers, status cells and curated summaries as well as changed hunks. It must also inspect removed requirements. The earlier candidate's byte review passed while both source defects remained; Lane A and Lane B share that review failure.
+- Lane C's C-a evidence proves the measured Antigravity IDE navigation task. It does not prove chat access, CI execution, complete dependencies or native Ripwire integration. No new Lane C acceptance was obtained in this turn.
+- Keep three use cases within this project separate: governance/documents use governed sources, checks and guarded sync; codebase navigation uses AIG-04 measured routes; knowledgebase discovery uses the derived graph, while formal retrieval remains deferred. Evidence for one use case does not close another.
+
+**Retained follow-ups:** Lane A owns the guard's per-call saving, with its existing trigger; the guard acceptance-source repair and sync-docs freeze note remain outside this cycle. Ownership is not delivery.
+
+### What you did instead
+
+Post-record full consistency check (including this B-136 handoff): 18/19; only docs-drift fails. terminal-return passes across all 128 checked files, so the immediate covering annotation is effective. Log after-annotation.log SHA-256 c6fd72c36d4274b55f2fb935bfc88e0199b6ad0f0cf0b28daa35cb9a1bdc129d. The guard's acceptanceAt reads 8800053 and matches the complete reviewed record (guard-consumption.json); no publication was invoked.
+
+Review and handoff recording only. No canonical repair, application build, trial, prepare, publish, fetch or push was run by Lane B. No lane activation or disposition changed. The read-only Graphify query was used for discovery; current governed sources supplied authority. The live graph remains at 1940af8 and is stale across eleven governed paths. Guarded publication of the accepted replacement is required for sync; no second prepare is needed solely for these excluded handoff receipts.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | 4a repair within S-a; replacement receipt 2 and covering annotation | Phase 1: recorded, 8800053 and 5d7d140 |
+| Approve-with-conditions | Publication and separate health | Phase 1: separate Judge act; unchanged full bindings; Lane A records the actual result |
+| Defer | DOD-01/02 refresh, DOD-04/06 assessment, batch 2/cycle 2, P15 and GR-007 | Phase 1: stated order and own acts; Gate 2/push separately |
+| Reject | Reusing 931deb9; altering frozen bytes; claiming a global semantic guarantee, native Ripwire setup or gate clearance | Phase 1 |
