@@ -1361,3 +1361,97 @@ this supplement was written. No build, install, trial, graph producer, fetch, pu
 | Approve-with-conditions | Corrected packet for Lane A F2b/F2c/F3-F6 work | Phase 1: existing drafting approvals; preserve findings, residuals, 224-path reconciliation and independent review |
 | Defer | Governed application, new trials/adoption, baseline acceptance, push and gate conclusions | Their existing or future complete impact packets, bounded acts and checkpoints; no action here |
 | Reject | Raw Lane C replacement template, old counts, wrong finding meanings, non-existent commit binding and blanket read-only stop | Phase 1: use this correction; do not reset the header or reopen accepted work |
+
+## Lane B — Judge clarification: V1 exclusion is not Project retirement; claim-level governance evidence, 2026-10-12
+
+**Raised / Kind / Phase / Blocks:** 2026-10-12 by Lane B / finding / 1 / nothing, reporting only.
+**Examined revision:** `25381c220c9ab4fd649815a8946a60b58394ff04`.
+**Input:** the Judge distinguishes the recorded Stripe V1 exclusion/deferral from an undocumented gstack
+retirement, and requests a diagnosis of Lane C's repeated missing governance/document evidence.
+**Receiver:** Lane A through this existing entry. This refines AG-2 and F6; it creates no second audit or gate.
+The entry header, Lane A answer and accepted F1/F2a dispositions remain unchanged.
+
+### What happened — scope correction and source chain
+
+The Judge's scope distinction is correct. Lane B's earlier wording that the Charter excludes monetization
+was incomplete when it omitted the V1 qualifier and the retained capability. That omission also affected
+the consolidation of Lane C's review. This clarification supplies the controlling scope and return path.
+Do not describe Stripe/payment as permanently retired from the overall Project.
+
+| Object | Supported disposition | Governance/document evidence and boundary |
+|---|---|---|
+| V1 in-app monetization | Excluded from V1 while the live Charter-level condition holds | Register D-121, section "Three Lane A claims retracted", L8111 explicitly corrects omission of "v1" and permits ongoing payment backlog. Modular_PRD section 2.5 NG-03 L351 supplies the live exclusion and its reconsideration condition. |
+| Future monetization capability | Retained as PBL-02, unranked and not refinement-ready; no delivery authorized | Modular_PRD section 2.5.2 L413 and Register D-187/D-188 distinguish capability identity from version scope, rank, refinement and build authority. The edge is V1/NG-03 excludes PBL-02, not a Project-wide retirement. PBL-02 does not select Stripe as its future provider. |
+| Original Stripe implementation | Scaffold/dependency removal completed and independently Verified | B-003 header and body; Verified-At-Commit 67706ca; Register X8/D-121; Build Spec S0. B-003's Verified resolution is not a Deferred handoff state or a retirement of the future capability. Historical substrate and external business payments retain their separately stated limits. |
+| gstack workflow claim | Initial-file claim exists; current governed adoption or retirement is unconfirmed in the searched corpus | AGENTS.md at 62c8d8c L94-L102 claims use. Current searches across docs/governance, FN/spec/UX/v1 sources, Modular_PRD and root rules/package located no act retiring gstack or establishing current adoption. B-156 references are review claims, not those acts. Host availability and workflow compatibility remain unassessed. Do not infer retired, prohibited, installed or adopted. |
+| shared-core-hash check | Explicitly retired; a useful control example of a supported retirement claim | Register D-337 items 2-3 retire the old check and replace it with rule-budget. This affirmative act exists; no equivalent gstack retirement act was found. AG-1's current-text reconciliation remains open. |
+
+The listed line numbers are at the examined revision; section/decision identities are the stable locators.
+Earlier unqualified Stripe exclusion/retirement language is narrowed by this correction, not silently erased.
+For the scope intent described by the Judge, use "excluded/deferred from V1 delivery; future capability
+retained". Keep the exact canonical fields: PBL-02 is unranked/not refinement-ready and B-003 is Verified.
+
+**Return conditions are separate:** Modular_PRD section 2.5.1 and D-148/D-150 distinguish reconsidering a
+version exclusion from authorizing a bounded unit. V1 NG-03's condition is direct amendment of the Charter's
+line 54; only the Judge can change that frozen source. Lifting the exclusion does not authorize implementation.
+D-188 also says absence from a later version's non-goal list does not establish inclusion. A future capability
+needs its own intake/refinement, accepted requirements and execution authority. No restoration of the old
+Stripe scaffold, future provider selection or gstack setup is authorized here.
+
+### What you need — diagnose the repeated evidence failure
+
+The supplied Lane C worklog cites B-156 and a consistency run, but it does not provide a claim-level source
+chain for the asserted gstack retirement or the V1-to-Project scope extension. This is an observable defect
+in the review record. It does not prove that Lane C lacked access, never read a document or has a loader fault.
+Lane B must check the same source chain before accepting or relaying Lane C's assertions.
+
+| Observed failure | Effect | Draft correction for the F6 review method |
+|---|---|---|
+| A prior summary or whole-document link replaces the owning decision/section | Earlier scope omissions are repeated as supported facts | For every material scope/disposition claim, cite the owning requirement or decision, the exact section/locus and the revision read. Explain how its wording supports the claim. |
+| Version, capability, implementation and tool are treated as one object | V1 exclusion or scaffold removal becomes Project retirement | Record object identity, use case, version and change type separately before assigning a disposition. Preserve V1/NG-03, PBL-02, the Stripe scaffold and gstack as different objects. |
+| A decision ID is cited without checking its content and later amendment | A real citation appears to support a meaning it does not have | Read the operative clause and relevant later amendments. D-188 corrects D-187's relationship direction; copying the older direction would still be wrong. |
+| A failed search is promoted to a positive lifecycle claim | "No current adoption located" becomes "retired" | Retain the searched corpus, method, revision and search outcome. Use unconfirmed/unknown when the positive act is absent. A Git/search error is not evidence of absence. |
+| Green checks or architectural agreement replace claim verification | Incorrect counts, IDs or scope survive a positive review | Report mechanical checks, governance support, implementation evidence and semantic assessment separately. A passing suite is not a retirement act or business acceptance. |
+
+Proposed F6 evidence-row format, for review rather than a new enforced gate:
+
+> Claim ID | object/use case/version | proposed conclusion | governing decision/section and read revision |
+> bounded supporting text | implementation/verification evidence, if applicable | observed limit or conflict |
+> answering owner, review outcome and return condition.
+
+Keep supplied observations, independent checks, inferences and unknowns distinct. A reviewer must either
+show support for a material conclusion or return that conclusion as unsupported/unknown. Do not reclassify
+the whole audit, require a requirement ID for every sentence or rerun unchanged capability trials.
+
+### What you did instead — consolidated Lane A handoff and readiness
+
+Lane B read the owning scope records, checked the later D-188 clarification and recorded this correction
+inside AG-2's originating entry. No C-series answer, governing source, source implementation or lane rule changes.
+
+1. Lane A receives this Judge clarification in its next substantive B-156 answer, with no new start request.
+2. In F3, replace any proposed Project-wide Stripe retirement with the V1 exclusion, verified scaffold removal
+   and retained PBL-02 distinction above. Keep Stripe provider selection unassessed.
+3. Keep gstack's current disposition unconfirmed unless a governing act is located. F3 drafts any needed
+   placement or proposal; it does not invent an adoption or retirement decision to fill the gap.
+4. In F6, include the claim-level source rows for Lane C and Lane B review. Request review of the specific
+   unsupported claims, not a generic "agree" response. Lane A answers; independent actors verify the changed work.
+5. Continue independent F2c/F3-F5 drafting. Escalate only a complete new scope/execution option, showing
+   authority, prerequisites, affected artifacts, pass/refusal evidence, sync cost and stop point.
+
+**Readiness:** yes for Lane A's authorized review/draft work. The Stripe scope correction is source-supported.
+gstack's unresolved disposition is ready to be tracked as unknown, not ready to be declared retired or adopted.
+No additional Judge decision is needed to draft the corrections. Applying governed text or changing a tool's
+adoption, configuration or implementation remains outside this handoff-only unit.
+
+**Checks and graph:** read-only Graphify query was used for navigation; direct sources decided the scope.
+At examined 25381c2, docs-drift, handoff-response, text-integrity and lane-state pass. The retained full suite
+passed 19/19 at d8ca854; it was not rerun merely to restate that unchanged source evidence. Only handoff files
+have changed since governed intent was synced at 93aa02f. No graph sync is needed; this does not prove semantic
+currency. No build, install, trial, graph producer, fetch, push, lifecycle disposition or gate closure occurs here.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Judge's V1-versus-Project distinction; source-supported scope correction | Phase 1: recorded here; preserve live NG-03 and PBL-02's exact readiness limits |
+| Approve-with-conditions | Lane A F3/F6 correction drafts and claim-level evidence method | Phase 1: existing drafting approval; bounded independent review, with no extra start gate |
+| Defer | gstack disposition/adoption proposal, future monetization refinement and any governed application | Complete source/impact packet and the relevant bounded Judge act; no provider selected |
+| Reject | Permanent Project retirement inferred from V1 exclusion or removed scaffold; undocumented gstack retirement; summary/check pass as sufficient authority | Phase 1: use the corrected distinctions and return unsupported claims explicitly |
