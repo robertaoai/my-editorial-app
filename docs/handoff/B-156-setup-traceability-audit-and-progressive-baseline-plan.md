@@ -141,7 +141,7 @@ may be linked; they do not become another register. Add rows here rather than in
 
 | Finding | Owner answering | Status | Resolution | Required evidence |
 |---|---|---|---|---|
-| F1 — Inventory and scope reconciliation | Lane A | Answered (Lane A, 2026-10-11; revision 2 answers Lane B F1-R1–R4; awaits Lane B delta review) | None | Frozen lists, applicable/excluded decisions and complete reconciliation |
+| F1 — Inventory and scope reconciliation | Lane A | Verified (Lane B, 2026-10-11; revision 2 examined at 0a63ea5; baseline for F2 only) | Verified | Frozen lists, applicable/excluded decisions and complete reconciliation; Lane B revision-2 review below |
 | F2 — Intent-to-implementation audit | Lane A | Open | None | Source references, implementation revision, evidence and review limits |
 | F3 — Section-level repairs | Lane A | Open | None | Proposed patches, owning tiers and inferred-intent labels |
 | F4 — Instrument plans | Lane A | Open | None | Existing/proposed boundary, host matrix, expected results, refusal and cleanup rules |
@@ -417,3 +417,64 @@ Lane B reviews the delta at the commit that records this answer. When Lane B acc
 baseline, Lane A starts F2 in the order stated in F1.6.
 
 **Drift:** handoff-only; governed intent is synced at `93aa02f`. No graph sync is needed.
+
+## Lane B — F1 revision 2 accepted as the F2 baseline, 2026-10-11
+
+**Examined revision:** `0a63ea59b8b8ac528492de920169b8f1a7366552`. **Answering actor:** Lane A.
+**Independent reviewer:** Lane B. The Judge's direct instruction in this review turn was:
+
+> Judge Approved: review F1 as baseline for F2, and gaps for : F2–F6, the lane-map fixes, the missing §5A row question, the tracker row;
+
+Existing planning approvals carry forward. This review grants no build, tool trial, governed application, push
+or Gate 2 closure. Lane A's answer and evidence remain unchanged. F1's child disposition is Verified, limited
+to the frozen inventory as the baseline for F2. The B-156 header stays Open because F2–F6 remain Open.
+
+### What happened: independent delta review
+
+Lane B inspected the revision-2 script and reproduced its output against the same frozen input,
+`1640ff7bc1b7d1e70ab6a421ced8a054dafda993`. The committed script, TSV and summary hashes all match R2.1.
+The reproduced TSV is `dcb86641ef20f5a569a664dbb6493dd9c2db2dbb7a42a17689e2513b4e017769`; the reproduced
+summary is `fc71c0a1405b5e88450dbaee8137e227882ff8aa3842dc7068013f90892da287`. Revision-1 files are unchanged.
+
+| Correction | Independent result | Disposition |
+|---|---|---|
+| F1-R1 | `bun.lockb` is included with its frozen blob identity and D-64 / G59 source. Present dependency resolution is not claimed. The union remains 225: 224 included, README alone excluded. | Verified for F1 |
+| F1-R2 | Literal hits, proposed roles/use cases and governing-source status are separate. The two setup/product and projection/retrieval boundaries are preserved. Exact §5A matches total 28 candidate paths, including one exclusion; 197 candidates have no exact row. This is not the total size or completeness of the phase manifest. | Verified for F1; semantic authority assessment remains F2 |
+| F1-R3 | The imported classifier is read from frozen Git blob `276f83406519a2692a7d3bbb51e666127f157d84`. The script and phase-document identities are retained. Working-tree classifier identity is informational only. | Verified for F1 |
+| F1-R4 | Code distinguishes a no-match result from other Git errors and checks accumulated errors before writing output. Lane B additionally injected a Git-search failure in an isolated review runner without changing the committed script: exit 2, zero inventory files. Normal reproduction succeeds. | Verified for F1 |
+
+The isolated runner restricted temporary-directory removal to its named review directory. Reproduction and fault
+logs are retained under `C:/CoWork/outputs/lane-b-b156-f1-r2-review-2026-10-11/`. These are supplementary review
+records; the canonical input script and inventory remain the committed R2.1 artifacts. No live graph, setup,
+application or consumer configuration changed.
+
+### What is needed: parent-first plan and existing gap destinations
+
+| Parent / item | Owner and next work | Observable completion and return path |
+|---|---|---|
+| B-156 / F2 | Lane A audits the 224 included candidates from accepted F1, in the existing review order. Read the frozen sources and identify later evidence revisions explicitly. | Map intent/decision, requirement/specification, implementation and verification. Record supported agreement, differences, missing support, unknowns and disputes with sources and limits. Return the answer in B-156; no path-hit count substitutes for semantic review. |
+| F1-a: three classifier gaps | Lane A resolves governing ownership in F2, then drafts only justified lane-map changes in F3. | For `middleware.ts`, `.env.example` and `.onlyaiapp`, separate an unmatched classifier from missing ownership. A patch names its authority, affected paths, expected attribution and refusal checks. No map change is applied in this planning unit. |
+| R2.3: §5A question | Lane A assesses scope in F2 before proposing any F3 manifest repair. | §5A defines a Phase 1 governance snapshot, not a complete setup inventory; §5A.6 excludes `lib/` and `__tests__/`, and §5B explicitly records both build-config files as early Phase 2 S0 evidence. Explain their correct destination using those sources and Build Spec §1. Do not infer a missing §5A row solely from completed setup status. |
+| B-156 / F3 | Lane A drafts repairs from established F2 findings, at the owning sections. | Name exact source revision, owning tier, inferred-intent status and D-434 overlap. Frozen authority is not edited. Applying repairs remains outside this planning unit. |
+| B-156 / F4–F5 | Lane A drafts instrument plans and the progressive baseline contract from the accepted scope and audit findings. | Separate operative Graphify projection, proposed Ripwire uses and unallocated retrieval. Define task/host evidence, negative controls, cleanup and the four truth layers. Reuse existing scenarios and Jev evidence within their limits. No installation or trial is implied. |
+| B-156 / F6 | Lane B independently reviews; Lane C supplies scoped workflow/host facts and review. Lane A answers resulting findings. | Each option states authority, prerequisites, affected artifacts, pass/refusal checks, sync cost and stop point. Retained work has an owner, destination and return condition. No unchanged capability needs a new trial merely for wording. |
+| Q3: unlisted B-156 tracker row | Lane A retains the existing next-re-derivation action. | Add the B-156 row with its actual Open state at the next authorized tracker re-derivation, before a consuming gate claim. A tracker edit is governed and needs its bounded application/sync sequence; this handoff does not perform it. |
+
+The scope is ready for Lane A's F2 assessment and subsequent authorized planning. No new Judge question is needed
+to start F2. The Judge decides a later option only after its impacts are complete. Carry forward existing approvals
+and identify their exact boundaries; do not ask again for already-authorized drafting. P15 / D-434 remains a
+separate docket, and this audit creates no new product gate or SM05 credit.
+
+### What Lane B did instead
+
+Lane B recorded independent F1 acceptance and consolidated the existing gap destinations in this entry. No new
+backlog or requirements register was created. Literal hits and hashes remain measurement evidence; F2 establishes
+semantic support. A green consistency check does not close B-156. The full consistency check is required before
+this one-path review commit. Only handoff content changes, so no graph sync is needed.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | F1 revision 2 and closure of F1-R1–R4 within inventory scope | Phase 1: independently Verified at 0a63ea5; Lane A may start F2 under C1 |
+| Approve-with-conditions | F2–F6 planning outputs | Phase 1: existing order, source-pinned assessment, complete option impacts and independent review; no new drafting approval required |
+| Defer | Applying lane-map/manifest repairs and the Q3 tracker edit | Existing bounded application sequence after justified drafts; Q3 at the next authorized re-derivation |
+| Reject | An absent exact §5A match as proof of a defect; unassessed authority as agreement; F1 verification as whole-entry or gate closure | Phase 1: preserve the inventory, phase and scope distinctions above |
