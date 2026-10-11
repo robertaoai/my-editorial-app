@@ -5,7 +5,7 @@
 - **Phase:** 1
 - **Blocks:** nothing, reporting only
 - **Status:** Open
-- **Lane A:** **Acknowledged 2026-10-11, receipt only.** Read in full as Lane B's uncommitted file on HEAD `1640ff7` (SHA-256 `751b4be7609e06d8e2c3e68c81d02a844a82fdb85958324ab65d2ca1d788f02f`, before this line). Lane A withdraws its blanket curated-JSON exclusion (graph-fragments README §1). F1–F6 are not answered by this receipt.
+- **Lane A:** **Acknowledged 2026-10-11, receipt only.** Read in full as Lane B's uncommitted file on HEAD `1640ff7` (SHA-256 `751b4be7609e06d8e2c3e68c81d02a844a82fdb85958324ab65d2ca1d788f02f`, before this line). Lane A withdraws its blanket curated-JSON exclusion (graph-fragments README §1). F1–F6 are not answered by this receipt. **F1 answered 2026-10-11** in "Lane A — F1 answer" below (evidence `bab52d0`); F2–F6 remain open. The entry stays Open.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Judge's supplied Lane A/B/C worklogs and scope clarification; frozen tree at 1640ff7bc1b7d1e70ab6a421ced8a054dafda993; Build Spec §1; D-242, D-271, D-424 and D-433; graph-fragments README §1; SPECS-VERIFICATION-APPARATUS §18; B-136's D-434 revision-2 review; the inventory method and review requirements below
 - **Verified-At-Commit:** 1640ff7bc1b7d1e70ab6a421ced8a054dafda993
@@ -141,7 +141,7 @@ may be linked; they do not become another register. Add rows here rather than in
 
 | Finding | Owner answering | Status | Resolution | Required evidence |
 |---|---|---|---|---|
-| F1 — Inventory and scope reconciliation | Lane A | Open | None | Frozen lists, applicable/excluded decisions and complete reconciliation |
+| F1 — Inventory and scope reconciliation | Lane A | Answered (Lane A, 2026-10-11; awaits Lane B review) | None | Frozen lists, applicable/excluded decisions and complete reconciliation |
 | F2 — Intent-to-implementation audit | Lane A | Open | None | Source references, implementation revision, evidence and review limits |
 | F3 — Section-level repairs | Lane A | Open | None | Proposed patches, owning tiers and inferred-intent labels |
 | F4 — Instrument plans | Lane A | Open | None | Existing/proposed boundary, host matrix, expected results, refusal and cleanup rules |
@@ -178,3 +178,108 @@ sync. A green consistency result will not be presented as proof that the traceab
 | Approve-with-conditions | Lane A audit and repair packet | Phase 1: answer F1-F6 and return the revision-pinned packet for independent review |
 | Defer | Governed application, new trials, provisioning and acceptance changes | Later bounded acts after complete impact analysis; no new gate created here |
 | Reject | Blanket exclusion of curated JSON; mentions as semantic agreement; setup credit as Product delivery; self-verification | Phase 1: preserve the stated evidence and scope boundaries |
+
+## Lane A — F1 answer: inventory and scope reconciliation, 2026-10-11
+
+**Authority:** the Judge, in chat, 2026-10-11: "Lane A starts the B-156 work; Phase 1. Apply C1–C4 and add the Q2
+note in the F1 answer." Lane A is `Active`. This answer is read-only measurement and classification. It changes no
+governed source, fragment or graph. Read at `bab52d0`; measured at frozen revision `1640ff7`.
+
+**Return scope (C1).** This answer returns F1 alone, for Lane B review. F2–F5 start from the inventory that Lane B
+accepts. F6 follows F2–F5.
+
+### F1.1 Evidence (C3)
+
+The evidence is in `docs/handoff/artifacts/B-156/`, committed at `bab52d0`:
+
+| File | SHA-256 | Content |
+|---|---|---|
+| `F1-inventory.mjs` | `79fe687cb30c5e27ba0b3e6797d7250f9c6dfa6bb4ae623fd39307646cf81fcc` | The reproducing script. It reads git objects only and uses no shell. |
+| `F1-candidates-1640ff7.tsv` | `074982203b5d206ba942a306d0be883183760df37e5e028f21ea9f1b591b5255` | One row for each candidate (225 rows) |
+| `F1-summary-1640ff7.json` | `bda79ca8f8dd85d3d9bbf480b47e96a88469d113f1cce6de1432952159527107` | Group counts and the reconciliation result |
+
+Reproduce: `node docs/handoff/artifacts/B-156/F1-inventory.mjs <repo> 1640ff7 <out dir>`. The script uses
+`git ls-tree -r --name-only` for the lists and `git grep -F -l` over `docs/` Markdown for mentions. It uses the
+`classify` export of `scripts/checks/lane-boundary.mjs` for the lane, and backticked paths in
+`docs/v1/V1-PHASE-CLOSURE.md` for phase-manifest membership.
+
+### F1.2 Reconciliation
+
+| Group | Count at `1640ff7` | Included | Excluded |
+|---|---:|---:|---:|
+| G1 — tracked paths outside `docs/` | 73 | 71 | 2 |
+| G2 — executables in `docs/graph-fragments/` | 6 | 6 | 0 |
+| G3 — curated JSON in `docs/graph-fragments/` | 142 | 142 | 0 |
+| G4 — other JSON under `docs/` (Jev readiness receipt) | 1 | 1 | 0 |
+| G5 — log and text under `docs/` | 3 | 3 | 0 |
+| G6 — other non-Markdown under `docs/` | 0 | 0 | 0 |
+| **Total** | **225** | **223** | **2** |
+
+Each candidate occurs in exactly one row. No candidate is lost (`reconciled: true`). Governing Markdown is not a
+candidate group; it is the source that F2 reads.
+
+**Exclusions, with reasons.** These two paths stay in the inventory, but they are excluded from the semantic audit:
+
+- `bun.lockb` — a derived lockfile. F2 audits it through `package.json` and the `D-86` provisioning path.
+- `README.md` — template boilerplate, not authoritative (`AGENTS.md`, `D5`). It is recorded as metadata only.
+
+**Notes on included paths:**
+
+- `supabase/migrations/0001_init.sql` is frozen authority. F2 audits agreement only. F3 proposes no repair to it.
+- `.onlyaiapp` is a platform initialization marker. F1 found no governing intent for it.
+
+### F1.3 Classification
+
+Each class is assigned by purpose. The directory is only the first hint. The rules are in `classOf` in the script,
+so a reviewer can challenge one rule, not 225 rows.
+
+| Use case | Count | Classes |
+|---|---:|---|
+| Knowledgebase | 150 | 142 curated source data, 6 graph-fragment executables (one is a test), the guarded rebuild, the graphify agent workflow |
+| Governance/docs | 38 | 24 controls (checks, gate, hook), 4 tooling tests, 4 agent instructions, 3 channel templates or specs, 3 retained evidence |
+| Product codebase | 18 | 8 application implementation, 2 application configuration, 2 schema, 4 product tests, 2 Supabase configuration |
+| Project setup | 14 | Root configuration and lockfile, `.env.example`, agent settings (`.claude/settings.json`, `.codex/hooks.json`), the CI workflow, `.onlyaiapp`, `README.md` |
+| Product interface | 5 | The Jev manifest, 3 Jev tooling files, the SM05 readiness receipt |
+
+Product-codebase rows are setup artifacts on a product surface. They earn no SM05 credit. F5 defines how SM05
+baselines refer to them.
+
+### F1.4 Findings from F1
+
+1. **F1-a — The lane map has three gaps.** `scripts/checks/lane-boundary.mjs` maps no lane for `middleware.ts`
+   (application implementation at the repository root), `.env.example` or `.onlyaiapp`. The three
+   `docs/handoff/artifacts/` paths are unmapped by design (`D-90`), so they are not gaps. A change to the lane map is
+   a Lane A source change, so F3 drafts it. F1 does not apply it.
+2. **F1-b — A path mention cannot measure curated JSON.** 124 of the 142 fragments have no path mention, and 7 have
+   only handoff mentions. The graph-fragments README §1 identifies fragments by directory, not by name. F2 assesses
+   G3 through the README and the merge scripts, not by mentions.
+3. **F1-c — One graph-fragment executable has no mention.** `docs/graph-fragments/merge6.js` has no mention in
+   `docs/`. `merge7.js` has one. It stays in review order 3.
+4. **F1-d — There are nine handoff-only mentions in total.** Two are in G1: `scripts/checks/terminal-return.mjs` and
+   `supabase/tests/database/s1_transition_enforcement.test.sql`. Seven are in G3.
+5. **F1-e — Mention totals.** Across all 225 candidates: 85 have a governing-doc mention, 9 have only handoff
+   mentions and 131 have no mention. G1 repeats Lane B's measurement: 67 mentioned (65 governing, 2 handoff-only)
+   and 6 not mentioned. A mention is not an agreement finding.
+
+### F1.5 Conditions applied
+
+- **C1:** F1 returns alone, as stated above.
+- **C2 — self-assessment.** 201 of the 225 candidates are on Lane A surfaces. Lane A's F1 classes and any later
+  "agrees" claim on those paths are **proposed** until Lane B reviews them. Lane A does not verify its own surface.
+- **C3:** the evidence is in the repository, not only in `C:/CoWork/outputs`.
+- **C4:** F1 changes no section that `D-434` changes. F3 drafts will name a revision and will flag any overlap with
+  `D-434`.
+- **Q2 — evidence access.** The header's `Evidence:` field cites "Judge's supplied Lane A/B/C worklogs". They are
+  chat-supplied and not retained in the repository. A reviewer can verify the measurements in F1.1, not those
+  worklogs. Lane A does not edit Lane B's header line.
+- **Q3:** `closure-readiness` lists B-156 as one unlisted live entry. The next tracker re-derivation adds its row,
+  before any Gate 2 claim. The owner is Lane A.
+
+### F1.6 Next
+
+Lane B reviews F1 at the commit that records this answer. When Lane B accepts the inventory or corrects it, Lane A
+starts F2 in this order: the 6 unmentioned paths, the 2 G1 handoff-only paths, the 6 G2 executables, the remaining
+included G1 paths, and then G3–G5.
+
+**Drift:** governed intent is synced at `93aa02f`. This answer and its evidence are handoff-only, so no graph sync
+is needed.
