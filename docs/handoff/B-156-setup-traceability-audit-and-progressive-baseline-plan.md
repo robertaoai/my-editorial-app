@@ -858,3 +858,84 @@ F2c (146 paths), and drafts F3–F6, without a new approval. Only conclusions th
 | Approve-with-conditions | Verifier revision 2, its nine control arms and the narrowed rows | Phase 1: Lane B bounded review |
 | Defer | The batch push; repair application; allocations; tracker row | Next authorized checkpoint; later bounded acts |
 | Reject | An error read as absence; holding R1–R3 on R4; a push for each correction; consistency or CI green as behavioural proof | Phase 1: no action |
+
+## Lane B — F2a revision 2 independently accepted, 2026-10-11
+
+**Examined revision:** `b87a2d04ad30fc70c6c6989afc0880542e1e1520`.
+**Answering actor:** Lane A. **Independent reviewer:** Lane B (Codex).
+**Evidence revision:** `34602c1`; inventory/implementation baseline remains `1640ff7`.
+This is a bounded review of F2a-R1-R4. No receiver answer, whole-entry header, governed document,
+lane map, tracker, graph or workflow is changed. No build, fetch, push or gate closure is performed.
+
+### What happened / independent evidence
+
+Lane A returned the corrected verifier and evidence, narrowed assessment wording, retained prune proof and
+R4 clarification. Lane B independently inspected both revision-2 scripts and reproduced their controls.
+
+- All five evidence hashes match R2-F2a.1; revision-1 artifacts are unchanged.
+- The real-Git valid arm passes: **16 paths, 59 citations, 16 unchanged implementation blobs**, exit 0,
+  one result file. The result equals the committed retained result in every field except the measured `head`
+  (`6234da4` originally; `b87a2d0` in this review). Neither that difference nor the output path changes the baseline.
+- All eight negative arms independently exit **2**, with **zero result files**: false citation; the original
+  object-read failure; HEAD identity; HEAD path lookup; frozen path lookup; file read; grep error; spawn error.
+  The captured diagnostics identify the intended failed read/citation. The earlier error-as-absence defect is
+  refused through the revised successful-tree-lookup rule. These are bounded controls, not exhaustive fault coverage.
+- Retained independent outputs: `C:/CoWork/outputs/lane-b-b156-f2a-r2-review-2026-10-11/`.
+  `control-results.json` SHA-256: `50c62bb7eee864169225eee7fda9630f01eca55b6983ada03e627f56785de212`.
+  Reproduction uses the two commands in R2-F2a.1 with a new output directory; the outcomes are also retained here
+  so acceptance does not depend solely on another lane's access to the local directory.
+
+### Child acceptance, parent first
+
+| Item | Status / Resolution | Evidence and limit |
+|---|---|---|
+| B-156 | Open; no whole-entry disposition | F2b/F2c and F3-F6 remain outstanding |
+| F1 revision 2 | Answered / Verified, unchanged | Accepted inventory only: 224 included candidates |
+| F2 assessment | Open | F2a accepted within the limits below; the remaining 62 and 146 paths are not assessed by this acceptance |
+| F2a revision 2 / F2a-R1-R4 | Answered / Verified, independently by Lane B at `b87a2d0` | Correction obligations satisfied; residual intent and ownership unknowns are preserved, not resolved |
+| F3-F6 | Open; independent drafting remains authorized | Repairs, instrument proposals, progressive baselines and the consolidated decision packet still need answers/review |
+| Q3 tracker row | Existing Lane A custody and trigger | Next authorized re-derivation before a claim that consumes the tracker |
+| P15 / D-434, SM05 / Gate 2 | Separate dockets | No credit or authority is added by this acceptance |
+
+### What is accepted, and what remains
+
+| Finding | Independent disposition | Residual / follow-up phase |
+|---|---|---|
+| F2a-R1 | Verified: failed Git reads refuse; real input and eight targeted failure controls reproduced | Phase 1 F4/F5: do not promote this citation verifier into a general semantic or behavioral oracle |
+| F2a-R2 | Verified: no-support statements are bounded by the search corpus; aliases remain unresolved; O3 no longer asserts all redirects absent; ignore/placeholder checks are limited | Phase 1 F2b: assess shared setup/framework authority. Unresolved intent remains unknown; no missing-intent conclusion is accepted from literal absence alone |
+| F2a-R3 | Verified: retained 10/10 prune run, unchanged blobs and independent D-423 review are cited separately from fresh execution | Retain the dated proof and source identity. This review runs no prune operation and grants no new product verification |
+| F2a-R4 | Verified as a recording correction: clarified push purpose, both reported instructions without invented chronology, and no hold of independent corrections | At the next authorized checkpoint, validate the completed batch and applicable range/actor authority. This is no retrospective push ruling, standing permission or executable control |
+
+**One worklog precision correction, not a reopened R4:** the supplied worklog's deferred range
+`6234da4..b87a2d0` contains **two** commits because the left endpoint is excluded. At the examined revision,
+the three local commits are `6234da4`, `34602c1`, `b87a2d0`, hence `08ad416..b87a2d0`. The repository's
+R2-F2a.3 lists those three correctly. No push is requested here; after this review or later work, the final
+range/count must be derived again at the actual authorized checkpoint. A cached upstream ref is not pre-push proof.
+
+### What Lane A needs / next steps
+
+1. Receive this bounded acceptance in the next appropriate B-156 answer; do not request another drafting go-ahead.
+2. Continue F2b (62), then F2c (146), preserving 16/62/146 = 224 and naming any dependencies on unresolved intent.
+3. Draft F3 repairs from the accepted findings. Preserve the C-33 historical record and DEP-05 limit; check D-54
+   tiers and D-434 overlaps. Ownership proposals remain proposals; no lane-map edit is applied by acceptance.
+4. Continue F4-F6 under existing scope. Separate operative Graphify governance/docs projection, proposed Ripwire
+   uses and unallocated knowledge retrieval. Keep project setup evidence distinct from future SM05 delivery credit.
+5. Name the claims that require Lane C's independent workflow/host review. No new Lane C acceptance was supplied.
+6. Present only complete execution options to the Judge: authority, prerequisites, affected files, pass/refusal
+   checks, sync cost and stop point. Preserve the batch-push intent; do not push each correction.
+
+**Chief Editor checks:** distinguish observation, semantic assessment, proposal, independent acceptance and execution
+authority. This acceptance closes the four correction obligations, not the remaining unknowns, audit, product or gate.
+No new Judge decision is needed for the independent drafting above.
+
+**Drift/check scope:** the full declared `node scripts/check-consistency.mjs` body passes **19/19** on the
+reviewed revision `b87a2d0`. `bun run check` fails before launch with `CouldntReadCurrentDirectory`.
+The appended acceptance passes `handoff-response`, `text-integrity` and `git diff --check`. This acceptance
+is handoff-only; governed intent remains synced at `93aa02f`, and no graph producer is run.
+
+| Verdict | Item | Follow-up phase |
+|---|---|---|
+| Approve | F2a revision 2; independent 9/9 controls; F2a-R1-R4 correction closure | Phase 1: bounded acceptance at `b87a2d0`; keep the residuals above |
+| Approve-with-conditions | Independent F2b/F2c and F3-F6 drafting | Phase 1: existing approvals, frozen reconciliation and explicit dependency/residual tracking; no extra slice gate |
+| Defer | Repair application, lane allocations, tracker edit and batch push | Their existing bounded acts, triggers and validated final range; no action here |
+| Reject | Closing all F2/B-156 from F2a; treating unknown intent as absent; calling the two-commit range three; treating test success as push or Gate 2 authority | Phase 1: preserve the scope and evidence boundaries |
