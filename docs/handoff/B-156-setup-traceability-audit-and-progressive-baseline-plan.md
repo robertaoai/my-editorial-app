@@ -5,7 +5,7 @@
 - **Phase:** 1
 - **Blocks:** nothing, reporting only
 - **Status:** Open
-- **Lane A:** **Acknowledged 2026-10-11, receipt only.** Read in full as Lane B's uncommitted file on HEAD `1640ff7` (SHA-256 `751b4be7609e06d8e2c3e68c81d02a844a82fdb85958324ab65d2ca1d788f02f`, before this line). Lane A withdraws its blanket curated-JSON exclusion (graph-fragments README §1). F1–F6 are not answered by this receipt. **F1 answered 2026-10-11** in "Lane A — F1 answer" below (evidence `bab52d0`); F2–F6 remain open. The entry stays Open.
+- **Lane A:** **Acknowledged 2026-10-11, receipt only.** Read in full as Lane B's uncommitted file on HEAD `1640ff7` (SHA-256 `751b4be7609e06d8e2c3e68c81d02a844a82fdb85958324ab65d2ca1d788f02f`, before this line). Lane A withdraws its blanket curated-JSON exclusion (graph-fragments README §1). F1–F6 are not answered by this receipt. **F1 answered 2026-10-11** in "Lane A — F1 answer" below (evidence `bab52d0`); **F1-R1–R4 answered 2026-10-11** in "Lane A — F1 revision 2" below (evidence `a77b321`). F2–F6 remain open. The entry stays Open.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Judge's supplied Lane A/B/C worklogs and scope clarification; frozen tree at 1640ff7bc1b7d1e70ab6a421ced8a054dafda993; Build Spec §1; D-242, D-271, D-424 and D-433; graph-fragments README §1; SPECS-VERIFICATION-APPARATUS §18; B-136's D-434 revision-2 review; the inventory method and review requirements below
 - **Verified-At-Commit:** 1640ff7bc1b7d1e70ab6a421ced8a054dafda993
@@ -141,7 +141,7 @@ may be linked; they do not become another register. Add rows here rather than in
 
 | Finding | Owner answering | Status | Resolution | Required evidence |
 |---|---|---|---|---|
-| F1 — Inventory and scope reconciliation | Lane A | Answered (Lane A, 2026-10-11; awaits Lane B review) | None | Frozen lists, applicable/excluded decisions and complete reconciliation |
+| F1 — Inventory and scope reconciliation | Lane A | Answered (Lane A, 2026-10-11; revision 2 answers Lane B F1-R1–R4; awaits Lane B delta review) | None | Frozen lists, applicable/excluded decisions and complete reconciliation |
 | F2 — Intent-to-implementation audit | Lane A | Open | None | Source references, implementation revision, evidence and review limits |
 | F3 — Section-level repairs | Lane A | Open | None | Proposed patches, owning tiers and inferred-intent labels |
 | F4 — Instrument plans | Lane A | Open | None | Existing/proposed boundary, host matrix, expected results, refusal and cleanup rules |
@@ -350,3 +350,70 @@ before committing the review and retain its log. Graph currency and a green chec
 | Approve-with-conditions | Corrected F1 inventory as the C1 baseline | Phase 1: Lane A answers F1-R1–R4; Lane B reviews the revised evidence before F2 |
 | Defer | F2–F6 completion, lane-map repairs, tracker re-derivation and any governed application | Their existing order and authority; this review adds no gate or execution act |
 | Reject | Package manifest as lockfile proof; mentions as authority; inferred retrieval or product delivery; search errors counted as no matches | Phase 1: apply the four bounded corrections above |
+
+## Lane A — F1 revision 2: answers to F1-R1–R4, 2026-10-11
+
+**Read at:** `a77b321` (Lane B review `085f4d3` plus the revision-2 evidence commit). **Measured at:** frozen
+revision `1640ff7bc1b7d1e70ab6a421ced8a054dafda993`, unchanged. **Authority:** the existing B-156 drafting scope;
+Lane B states that no new Judge decision is needed. Read-only. No install, lane-map repair, governed edit, graph
+mutation or push.
+
+Lane A accepts all four corrections. Lane B's correction to F1.1 is also accepted: `bab52d0` holds three evidence
+files. The one-path commit is `3d8077b`, the answer.
+
+### R2.1 Evidence
+
+Revision-1 files stay unchanged as history (`bab52d0`). Revision 2 is in `docs/handoff/artifacts/B-156/`,
+committed at `a77b321`. The hashes are of the committed bytes:
+
+| File | SHA-256 |
+|---|---|
+| `F1-inventory-r2.mjs` | `d7873e0920d5e5f3b9cae7a1d21798b57d343ca6dff2977ee13aa22c57ee4397` |
+| `F1-candidates-1640ff7-r2.tsv` | `dcb86641ef20f5a569a664dbb6493dd9c2db2dbb7a42a17689e2513b4e017769` |
+| `F1-summary-1640ff7-r2.json` | `fc71c0a1405b5e88450dbaee8137e227882ff8aa3842dc7068013f90892da287` |
+
+Reproduce: `node docs/handoff/artifacts/B-156/F1-inventory-r2.mjs <repo> 1640ff7 <out dir>`.
+
+### R2.2 Answers
+
+| ID | Correction applied | Evidence in revision 2 |
+|---|---|---|
+| F1-R1 | `bun.lockb` is included as a **reproducibility control**. Its governing source is `D-64` / `G59`, recorded as historical evidence (bun 1.1.30, `--frozen-lockfile` exit 0). No claim is made about present dependency resolution. No install was run. Every row now carries its frozen Git blob id, so the lockfile identity is retained. | Row `bun.lockb`: `included`; summary `included: 224`, `excluded: 1` (`README.md`); `candidates: 225` |
+| F1-R2 | The fields are separated. **Measured:** `lane`, `literalHitState`, `literalHitsOutsideHandoff`, `literalHitsHandoff`, `phaseManifestRow`, `blob`. **Proposed:** `proposedRole`, `proposedUseCase`. **Authority:** `governingSourceStatus`, which is `unassessed (F2)` for 222 rows. Only three rows name a recorded source: the frozen migration, `README.md` (D5) and `bun.lockb` (D-64). The label "governing-doc mention" is now "literal hit outside handoff". The label "knowledgebase" is now "governance/docs searchable projection (operative under D-425/D-426; no retrieval scope implied)". The label "product codebase" is now "product-facing setup source (no SM05 delivery credit)". §5A membership now comes from the first cell of the §5A.1–§5A.6 rows. That is the same grammar as `phase-manifest`. | Summary `labels` statement; `byGoverningSourceStatus`; `byPhaseManifestRow` |
+| F1-R3 | The script reads the classifier from the frozen blob and imports that copy. It never imports the working-tree file. It records the classifier blob `276f834…` and SHA-256 `3b0d5a8c…`. It also records the working-tree blob, for information only; at this run the two were equal. The phase document is also read from the frozen revision (blob `a96e5c1…`). The script records its own SHA-256. | Summary `classifier`, `phaseDocument`, `script` |
+| F1-R4 | A `git grep` exit 1 with empty stderr is the only no-match result. Any other Git error is retained, and the run stops with exit 2 **before any file is written**. A failed revision lookup also stops the run before any write. **Negative control:** revision `deadbeef` gave exit 1 and wrote 0 files. **Limit:** a grep-stage fault was not injected, so that branch is proven by reading the code only. | Summary `gitErrors: 0`; this record |
+
+### R2.3 Changed rows and reconciliation
+
+Five rows changed in applicability or §5A membership. Every row changed its field names, as F1-R2 requires.
+
+| Path | Revision 1 | Revision 2 | Cause |
+|---|---|---|---|
+| `bun.lockb` | excluded | included, reproducibility control | F1-R1 |
+| `.gitattributes` | manifest: yes | §5A row: none | F1-R2: the hit was not a §5A row |
+| `package.json` | manifest: yes | §5A row: none | F1-R2 |
+| `lib/config/build-config.ts` | manifest: yes | §5A row: none | F1-R2 |
+| `__tests__/build-config.test.ts` | manifest: yes | §5A row: none | F1-R2 |
+
+§5A membership changed from 32 backticked hits to 28 rows: 7 in §5A.4, 20 in §5A.5 and 1 in §5A.6 (exclusion).
+The other 197 rows are in no §5A row. The candidate union is unchanged: 225 = 73 + 6 + 142 + 1 + 3, G6 = 0,
+`reconciled: true`. The literal-hit counts are unchanged (85 / 9 / 131), and so are the lane counts (A 201, B 17,
+C 1, no classifier match 6).
+
+**For F2:** the two `build-config` files are named in the phase document but are not in a §5A row. The Build Spec
+§1 calls them completed setup evidence. F2 must check whether a §5A row is missing. F1 does not decide this.
+
+### R2.4 Row check (Lane B's closing condition)
+
+The script applies each check to every row: frozen input (blob id, frozen classifier), a measured label, a
+governing-source status, an inclusion reason where one applies, and a failure outcome (stop, no write). A "no
+literal hit" means only that no literal path hit was found under this rule. It does not mean that no governing
+intent exists. The three classifier gaps (`middleware.ts`, `.env.example`, `.onlyaiapp`) stay findings for F2 and
+F3. They are not proof that no owner exists.
+
+### R2.5 Next
+
+Lane B reviews the delta at the commit that records this answer. When Lane B accepts revision 2 as the C1
+baseline, Lane A starts F2 in the order stated in F1.6.
+
+**Drift:** handoff-only; governed intent is synced at `93aa02f`. No graph sync is needed.
