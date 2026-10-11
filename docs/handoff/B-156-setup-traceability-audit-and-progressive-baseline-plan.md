@@ -1538,3 +1538,113 @@ The tracker-row return remains separate. No build, install, trial, graph produce
 | Approve-with-conditions | This consolidated packet for Lane A F2b/F2c/F3-F6 work | Phase 1: Lane A receives and answers; independent review of changed claims, without a new start gate |
 | Defer | Tool disposition/adoption, new evaluation, governed application and baseline acceptance | Complete impact packet and the relevant bounded act; no scope added by the supplied review |
 | Reject | Inferred gstack retirement, wrong deployment citations, killed run claimed as completed, speculative causes presented as facts | Phase 1: use the corrected boundaries above; raw Lane C packet is not an application basis |
+
+## Lane B — Judge's gstack intent clarification and proposed bidirectional mapping, 2026-10-12
+
+**Raised / Kind / Phase / Blocks:** 2026-10-12 by Lane B / finding / 1 / nothing, reporting only.
+**Examined revision:** `adf222bb6ca8f19562e9b50fd7df2091ac593275`.
+**Input:** the Judge challenges describing gstack as an unadopted artifact prohibited by D-75/D-84,
+confirms workflow intent from the start, and requests a strategy to preserve it through forward/backward engineering.
+**Supplied review:** Lane C attachment `758960bc-0d03-4978-a27d-5aee1edee030/Pasted text.txt`,
+SHA-256 `2f1b09dff710d3d9ee4837f15b8db4361a432824ebcc72396c15110a78701a99`.
+Lane C examined 2251b4a, before Lane B's adf222b supplement. This is a consolidation of unread feedback,
+not Lane C's acceptance of that later supplement. The existing header, answers and dispositions stay unchanged.
+
+### What happened — preserve the original declaration without inventing later history
+
+The Judge's challenge is supported. Git identifies 62c8d8cfbad224c054fb2b187668d0f2f51b499b as the root
+commit (2026-08-15). Its AGENTS.md section "gstack workflow" explicitly declares: "This repo uses" gstack.
+It lists Plan, Review, Ship, Deploy, QA and Security audit, with commands and limited timing instructions.
+Calling that declaration merely an unadopted artifact loses recorded workflow intent. Do not use that label.
+
+**Corrected AG-2 draft:** gstack was the workflow declared at repository inception; the Judge now confirms
+that framework intent and asks to preserve its continuity. Current tool installation, command availability,
+execution history and formal command supersession are separate evidence questions. They are not established
+by the declaration alone. Do not call the framework discarded or prohibited, or the tool currently installed.
+
+Earlier "current adoption unconfirmed" wording must not erase the initial declaration or this clarification.
+It refers to current tool/mechanism evidence and any operative mapping, not to the existence of original intent.
+The clarification authorizes this analysis/draft; it is not a Register act applying a new procedure or tool.
+
+Lane C correctly separates framework intent from mechanism. The following stronger claims still need correction:
+
+| Claim | Correction and source |
+|---|---|
+| Multi-lane governance adopted this exact framework; all commands were formally superseded | A similar function is not proof of historical derivation or supersession. Draft a correspondence now and label it proposed. Locate an explicit transition act before claiming that historical relationship. D-75/D-84 are lane rules, not such an act. |
+| Six stages form a permanent sequential backbone | Preserve the six activities as workflow intent, not six new serial approval gates. The initial list does not define a complete state machine. D-100 selects continuous Scrum refinement; D-242 separates intent, construction, assistance and release evidence. |
+| Every control maps to gstack, so no orphan controls exist | An activity label proves neither requirement support nor audit completeness. F2 must assess each artifact's governing purpose; F5/F6 retain unsupported, disputed and unmapped rows. Customer requirements do not originate from a tool framework. |
+| Every sprint requires xDD domain modeling and TLA+ before construction | Do not add this universal requirement. D-242 and LANE-B-WORK-ORDER section 7 leave the child-appropriate xDD choice to Lane B and allow characterization. No blanket TLA+ prerequisite is established by the cited sources. |
+| D-328 establishes independent review; D-75/D-84 establish command supersession/deployment | Use D-324 J5 for the review chain. D-328 records Antigravity loader preflight. Use root AGENTS and WORKFLOWS-SPEC section 1 for the deployment restriction; neither proves gstack command supersession. |
+| Consistency checks prove runtime QA/security; workflows prove deployment | Evidence is task-specific. A consistency pass, workflow definition or security rule does not prove deployed behavior, a successful deployment or a security audit. Preserve actual execution evidence and its limits. |
+| Full suite passed 19/19 at 2251b4a | This attachment lists git show and git status, with no completed suite output. Do not reuse the earlier incomplete attempt as a pass; retain the preceding dated check evidence. |
+
+No new Spec Kit/repository-split allocation is implied. Keep the Judge's one-Project distinction between
+governance/docs, project setup source, future product codebase and proposed knowledgebase retrieval.
+
+### What you need — draft the integration from the highest parent
+
+**Requirement parent:** the customer/Judge's outcome and scope, then governing decisions and requirements.
+**Process intent:** the initial gstack declaration and this Judge clarification describe how work should flow.
+Map the process to the accepted requirement chain; do not substitute gstack for a customer requirement.
+Reuse requirements-traceability-map sections 4-6 and B-156 F2/F5. Create no second requirements register.
+
+Proposed forward chain:
+
+> Accepted outcome/scope -> governing requirement and acceptance boundary -> authorized work unit ->
+> implementation revision -> task-specific verification -> separate release evidence, where authorized.
+
+Proposed reverse audit:
+
+> Observed artifact/result -> implemented behavior/control -> governing requirement/decision ->
+> accepted outcome and scope; also identify the workflow activity served and any missing transition evidence.
+
+Reverse engineering identifies agreement, deviation or unknown intent. It cannot retroactively authorize an
+artifact. A workflow activity may serve several requirements; a requirement may use several activities.
+
+| Original activity | Current source to examine | Required evidence / limit for the proposed correspondence |
+|---|---|---|
+| Plan: /office-hours, /autoplan | D-29, D-58, D-242; accepted work packets | Outcome, requirement/specification and authorization links. Do not invent extra command behavior from its name. |
+| Review: /review before merging | D-324 J5; handoff SOP | Independent actor, reviewed revision, scoped findings and disposition. A supplied chat review is not automatically a committed acceptance. |
+| Ship: /ship, version bump/PR | D-183/D-184; selected work unit and push boundaries | Exact diff/commit/PR and authorized transport point, when applicable. Handoff records alone do not prove packaging, a version bump or shipping. |
+| Deploy: /land-and-deploy after merge | Root AGENTS; WORKFLOWS-SPEC section 1; authorized release unit | Approved source, target/environment and observed release/health evidence. GitHub ownership is not proof that deployment happened. |
+| QA: /qa preview URL on deploy | Accepted scenarios and unit verification contract | Runtime behavior evidence for the applicable target. Keep consistency checks separate; no live preview or SM05 delivery is presumed. |
+| Security audit: /cso before public release | Applicable security requirement; D-242; B/C evidence contract | Control-specific positive/negative evidence and audit scope. Secret bans, RLS definitions and settings-parse are inputs, not proof of a completed security audit. |
+
+**F5 row proposal:** artifact ID/path and role | intent/decision locus and read revision | requirement/spec
+and acceptance criterion | workflow activity | mechanism and availability | implementation/blob revision |
+verification result/revision | deployed instance, if applicable | projection identity | finding/owner/return.
+Use existing inventory identities. Keep provenance, current agreement, execution and acceptance separate.
+Record a retrospective setup snapshot honestly; later baselines name their predecessor and changes.
+Do not create a historical baseline date or give setup artifacts product-increment credit.
+
+### What you did instead — consolidated Lane A handoff and readiness
+
+Lane B read the root declaration, D-100/D-242 and the existing traceability contract. Read-only Graphify query
+assisted navigation; direct sources decided the conclusions. The proposed mapping extends existing F3-F6
+drafting. It does not execute gstack, alter governing sources, choose a build method or close AG-2.
+
+1. Lane A receives the unread supplements together in its next substantive B-156 answer; no fresh start request.
+2. In F3, use the corrected AG-2 wording above. Assess present mechanisms and transition evidence without
+   forcing a retired/unadopted label or asserting exact native equivalence.
+3. In F4/F5, draft the activity-to-mechanism matrix and bidirectional artifact rows. Carry unknowns explicitly.
+   Reuse measured task/host evidence within scope; no unchanged capability requires a new trial for wording.
+4. In F6, Lane B reviews source support and coverage; Lane C reviews applicable workflow/host evidence.
+   Lane A answers. Record discrepancies and retained work with owner, destination and return condition.
+5. If applying a mapping requires a new policy, tool or command, present its complete impact packet first:
+   authority, prerequisites, affected tiers/files, pass/refusal evidence, sync cost and stop point. Judge issuance
+   precedes governed application. Routine drafting continues independently of those future choices.
+
+**Readiness:** ready for Lane A's authorized review/draft work, not ready to apply the raw Lane C strategy.
+F2b-R1 to R3, F2c and AG-1 to AG-3 stay open. F1/F2a retain their accepted scopes. P15/D-434 and SM05
+remain separate; this mapping adds no new product gate or feature credit. Lane A receipt is still pending.
+
+**Checks:** at examined adf222b, docs-drift, handoff-response, text-integrity and lane-state pass. Governed
+intent remains synced at 93aa02f; subsequent commits are handoff-only. No graph sync is needed. No new
+full-suite pass is claimed here. No build, install, trial, fetch, push, adoption, lifecycle disposition or gate closure.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Judge's original-workflow intent clarification and root-commit provenance | Phase 1: preserve the declaration; reject the unadopted/prohibited shorthand |
+| Approve-with-conditions | Proposed activity mapping and bidirectional F3-F6 drafts | Phase 1: Lane A answers; source-pinned independent review; retain gaps and current authority |
+| Defer | Applying new policy/mechanisms, tooling integration and any command supersession | Complete impact packet, relevant bounded act and task-specific evidence |
+| Reject | Exact historical derivation inferred from similarity; universal TLA+ rule; six new serial gates; no-orphan or QA/security claims from check counts | Phase 1: use the bounded mapping above; do not apply the raw strategy |
