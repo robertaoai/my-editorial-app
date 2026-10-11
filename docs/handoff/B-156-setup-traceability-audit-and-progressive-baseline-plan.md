@@ -1262,3 +1262,102 @@ install, graph producer, fetch or push ran.
 | Approve-with-conditions | Lane A F2b correction and F3-F6 draft work | Phase 1: answer AG-1-AG-3, preserve existing findings and independent review; existing drafting approval applies |
 | Defer | Governed repairs, new tool/framework adoption, host execution, product delivery and push | Their complete impact packets, bounded acts and review/checkpoints; Gate 2 remains separate |
 | Reject | Initial template as current authority; retired parity check as operative proof; graph currency as semantic or product acceptance | Phase 1: correct the draft assessment without executing the attachment |
+
+## Lane B — Supplied Lane C review consolidated and corrected for Lane A, 2026-10-12
+
+**Raised / Kind / Phase / Blocks:** 2026-10-12 by Lane B / finding / 1 / nothing, reporting only.
+**Examined revision:** `d8ca854cbd1d07a9c379ed18556e886013f4e23b` (clean before this supplement).
+**Receiver:** Lane A, through the existing B-156 channel. No Lane A answer or entry header is replaced.
+**Input:** the Judge supplied Lane C's chat worklog and requested consolidation before Lane A receives it.
+This records the supplied review and its limits; it does not attribute this Lane B commit to Lane C.
+
+### What happened — review receipt and evidence
+
+Lane C supports the initial-file comparison, AG-1-AG-3, separate use cases, and drafting before application.
+Those useful points are retained. Its proposed handoff also changes accepted counts, finding meanings and
+evidence bindings. The raw proposal is therefore not ready to copy into the channel as authoritative text.
+The corrected packet below is ready for Lane A's existing review and draft work.
+
+- Supplied worklog: `C:/Users/rober_24syk4j/.codex/attachments/a58c185e-eabf-4918-9ce0-6c74383699e1/Pasted text.txt`.
+- SHA-256: `880f37cc722690dfa54c92b93b6513adc97cf3c1f2a41617951a4e48edcf23f3`.
+- The worklog reports a clean tree, read-only review and a 19/19 Node consistency run at short revision d8ca854.
+  Those are Lane C's supplied observations. They do not establish a hosted CI run or close F2b/AG findings.
+- Its full SHA `d8ca8548981f422e11e8dd4122d4f2ea0df6b4b4` is not a local commit: object lookup exits 128.
+  The existing commit named by the short prefix is `d8ca854cbd1d07a9c379ed18556e886013f4e23b`.
+- Source authority for corrections: F1 revision-2 acceptance c34bffe; the disjoint F2 plan at 87ac7ad;
+  F2a revision-2 acceptance 072de37; F2b review 9ce192a; the initial-file supplement d8ca854.
+  The outcomes below are recorded here so the corrected handoff does not depend on access to the attachment.
+
+### Corrections before handover
+
+| Supplied claim | Corrected fact and consequence |
+|---|---|
+| F1 has 223 included paths and excludes bun.lockb and README | That is revision-1 history. Accepted revision 2 has 225 candidates, 224 included, one excluded README. bun.lockb is included as a reproducibility control. F1 acceptance is c34bffe, not the F2a acceptance 072de37. |
+| F2a is the 62-path audit | F2a is 16 paths: 10 G1 and all 6 G2 executables. F2b is the remaining 62 included G1 paths. F2c is 146: G3 142 curated JSON, G4 one Jev receipt, G5 three log/text files. 16 + 62 + 146 = 224, disjoint. Do not audit G2 again as an unassessed F2c group. |
+| F2b-R1 is rule composition; R2 is generic verification; R3 is database schema | Preserve the actual findings: R1 is incomplete semantic assessment, with AG-1 as an added counterexample; R2 is terminal-return's omitted shallow-history SKIP; R3 is obsolete ignoreDuringBuilds wording after the ESLint property was removed. No database-schema finding is raised by these IDs. |
+| The replacement B-156 template leaves Lane A blank and supplies a new full SHA | Do not replace the existing header, answer or prior dispositions. Append this consolidation and Lane A's later answer. Use the real examined commit above, never the non-existent SHA. |
+| Stripe and gstack are both retired/prohibited; the Charter exclusion is CR-19 | Stripe's exclusion/removal is supported by the frozen Charter and B-003/D-121. CR-19 is a customer success scenario, not the monetization exclusion identifier. gstack's initial adoption claim has no located current adoption record in the stated corpus; host availability is unknown. That is not evidence of a universal tool ban or a formal retirement act. Its compatibility must be assessed if adoption is proposed. |
+| All tool execution needs another act; all work must follow one serial chain | Existing read-only queries, source review and independent drafting remain authorized. Only dependent conclusions wait. Installation, changed configuration, new trials, governed application and construction retain their specific boundaries; no broad new gate is added. |
+| Physical repository separation is a future architectural vision and would break checks | No such selected vision or measured failure is established by this packet. Keep one project with distinct use cases. Neither propose a split as already selected nor claim its effects without an impact analysis. |
+| Green checks prove zero documentation drift and confirm all findings | The docs-drift pass concerns governed-source projection currency. Current meaning contradictions remain AG-1/F2b findings. A suite pass supports review; it does not prove all requirements, product behaviour or closure. |
+
+The failure pattern is a review summary that rewrites source facts, then uses general agreement and a green
+suite to imply confirmation. Prevent it by preserving finding IDs, accepted revision/counts and exact evidence
+bindings. Record whether each statement is independently checked, supplied, proposed or unknown.
+Corrections to this supplied summary are already given here; Lane A need not wait for another review cycle
+before doing unrelated authorized drafting.
+
+### What you need — parent scope, current state and Lane A outputs
+
+The frozen Project PRD and Charter constrain Project/Product allocation. The Register resolves conflicts;
+the living specifications carry accepted requirements. AIG supplies global Project governance controls.
+It supports product delivery but does not own or redefine the customer's product requirements.
+The governance/docs, existing project source, future product codebase and knowledge-retrieval distinctions
+are audit views/use cases within one project, not four newly chartered projects or allocated feature branches.
+
+| Parent / child | Status and accepted boundary | Lane A next output / success condition |
+|---|---|---|
+| B-156 audit | Open; no whole-entry disposition | Consolidated F2-F6 planning packet, with evidence and independent review. No SM05 or P15 acceptance is inferred. |
+| F1 revision 2 | Answered / Verified; 224 included paths at frozen 1640ff7 | Reuse the accepted inventory and reconcile each path once. No restart due to this chat review. |
+| F2a revision 2 | Answered / Verified; 16 paths, within accepted scope | Keep residual intent/ownership unknowns and their destinations. Verified correction obligations do not resolve every residual. |
+| F2b / F2b-R1-R3 | Answered; corrections Open | Supply the per-path semantic assessment or explicit unassessed status. Correct the shallow-history SKIP and removed lint-option claims. Return only the changed evidence/assessment for bounded Lane B review. |
+| AG-1-AG-3 | Open; Lane C supports the bounded concerns | Add the AIG composition counterexample; draft classifications for initial conventions; separate evidence measures. A supporting review does not supply Lane A's answer or close the findings. |
+| F2c | Open; independent drafting authorized | Assess the 146 G3-G5 paths using relevant source assertions and retained-evidence limits. Group methods may be shared; a sample or decision-ID existence cannot pass the whole group. |
+| F3 repairs | Open; drafts only | Exact current-state replacement text, owning tier, source revision, D-54 propagation and D-434 overlap. Preserve verbatim historical records. Proposed lane-map allocations remain proposals. |
+| F4 instrument plans | Open; drafts only | Separate Graphify projection from adopted git-grep/source-reading navigation. Ripwire remains a candidate, not adopted. Preserve SQL and host limits; unchanged accepted capability needs no new trial. |
+| F5 progressive baselines | Open; drafts only | State each baseline's revision, eligible corpus, requirement links, verification, unknowns and predecessor comparison. B0/P0 are proposed labels, not accepted baselines. Keep setup evidence separate from later product-increment acceptance. |
+| F6 review/decision packet | Open; uses completed dependent outputs | Identify changed claims for Lane B and specific workflow/host claims for Lane C. Show complete options before asking the Judge. No new Lane C workflow execution evidence is supplied here. |
+| Tracker / P15-D-434 / SM05-Gate 2 / push | Separate records, triggers and authority | Retain the existing tracker re-derivation owner/trigger, accepted D-434 text and batch-push checkpoint. Do not add execution authority or close another docket. |
+
+### What you did instead — handover route and Lane A work
+
+Lane B checked the source bindings and corrected the supplied Lane C summary in this originating entry.
+No C-series record, governed file, source implementation, lane allocation or existing Lane A answer changes.
+
+1. Lane A receives d8ca854 and this consolidated Lane C input in its next substantive B-156 answer.
+   Carry existing approvals forward; no separate start request or receipt-only commit is needed.
+2. Answer the actual F2b-R1-R3 and integrate AG-1-AG-3 where their inputs overlap.
+3. Continue F2c and independent F3-F5 drafting. A dependency blocks its conclusion, not unrelated preparation.
+4. Return corrected F2b for bounded Lane B review. In F6, name the exact Lane C workflow/host claims and evidence needed.
+   Preserve the prescribed independent review roles; this consolidation does not impersonate a later review.
+5. Present a Judge decision only for a concrete new choice. For every option state authority, prerequisites,
+   affected artifacts, pass/refusal evidence, sync cost and stop point. Unknown cost remains unknown.
+
+**Ready for Lane A drafting:** yes, using this corrected consolidation and the source-pinned prior entries.
+**Ready to apply or close:** no. Draft completeness, independent acceptance, Judge authority, graph publication,
+product behaviour and handoff closure are separate facts. No extra Judge decision is needed to start these drafts.
+
+**Checks and graph:** Graphify query was used for read-only navigation; source files decided the corrections.
+At examined HEAD d8ca854, docs-drift, handoff-response, text-integrity and lane-state pass. Governed intent is
+synced at 93aa02f; the intervening changed paths are handoff-only. This supplement needs no Graphify sync.
+The tracker is stale and B-156 is unlisted under its existing return trigger; neither fact is semantic proof
+or a new graph-sync requirement. Bun again fails before script launch with CouldntReadCurrentDirectory;
+the exact package-script body, node scripts/check-consistency.mjs, passed 19/19 at clean d8ca854 before
+this supplement was written. No build, install, trial, graph producer, fetch, push or gate closure occurs here.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Supplied Lane C receipt; source-pinned corrections; distinct use cases and drafting/application boundary | Phase 1: recorded here, within the stated review limits |
+| Approve-with-conditions | Corrected packet for Lane A F2b/F2c/F3-F6 work | Phase 1: existing drafting approvals; preserve findings, residuals, 224-path reconciliation and independent review |
+| Defer | Governed application, new trials/adoption, baseline acceptance, push and gate conclusions | Their existing or future complete impact packets, bounded acts and checkpoints; no action here |
+| Reject | Raw Lane C replacement template, old counts, wrong finding meanings, non-existent commit binding and blanket read-only stop | Phase 1: use this correction; do not reset the header or reopen accepted work |
