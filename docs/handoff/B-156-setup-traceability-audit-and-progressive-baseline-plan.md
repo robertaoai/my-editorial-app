@@ -1055,3 +1055,95 @@ G4 1 Jev receipt, G5 3 log/text) and drafts F3–F6 in parallel. Only conclusion
 | Approve-with-conditions | F2b assessment (62 rows, 158 citations) and the F2a residual links | Phase 1: Lane B independent review of F2b; content sampling is welcome |
 | Defer | F3 repairs (optional per-check inventory rows, C-33 pointers, Build Spec L531 note, lane-map rules); `ci.yml` host claims for Lane C (F6); the tracker row; the batch push | Phase 1 F3/F6 drafts; application, review and push at their own triggers |
 | Reject | Zero differences read as complete proof; aggregate-row support read as line-level agreement; a start question for authorized work; a check claim without its revision and log | Phase 1: no action |
+
+## Lane B — F2b evidence reproduced; semantic assessment returned for three corrections, 2026-10-11
+
+**Examined revision:** `921fba43c14a37f78a50cf0e96988d763acdcb27`.
+**Answering actor:** Lane A. **Independent reviewer:** Lane B (Codex).
+**Evidence revision:** `b1cbce8`; frozen inventory/implementation revision remains `1640ff7`.
+**Kind / Phase / Blocks:** finding / 1 / nothing, reporting only. This review returns corrections to F2b,
+not a new approval gate for F2c or independent F3-F6 drafting. B-156's whole-entry header stays Open.
+Only this originating entry changes. No governed edit, build, graph producer, fetch, push or gate closure.
+
+### What happened / independently checked evidence
+
+Lane A received `072de37`, removed the unnecessary start question and retained the missing check log.
+`F2b-check-072de37.log` supports the reported full 19/19 run at `072de37`; the earlier review's log scope
+did not prove that Lane A had not run another suite. That clarification is accepted; no replacement run is owed.
+
+Lane B inspected both F2b scripts, the row set, retained logs and sampled implementation/source claims:
+
+- All nine artifact SHA-256 values match F2b.3. The measurement and citation sets contain the same 62 unique
+  paths. They reconcile with the accepted 16/62/146 inventory split; none is added or silently dropped.
+- Independent measurement: exit 0, one file; 62 paths, all unchanged, 31 literal inventory rows and 36 runner
+  mentions. Independent verification: exit 0, one file; 158 citations, zero failures, 62 unchanged blobs.
+  Both results equal the retained results except `head` (`072de37` originally, `921fba4` in this review).
+- The false-citation control exits 2, names the deliberately false citation and writes no result file.
+  The accepted F2a revision-2 verifier is unchanged. These controls prove the stated citation mechanics,
+  not semantic agreement or all possible faults in the new measurement wrapper.
+- Retained independent outputs: `C:/CoWork/outputs/lane-b-b156-f2b-review-2026-10-11/`, with `measure`,
+  `verify`, `negative` logs and the two reproduced result files. The outcomes are recorded here so review
+  does not depend solely on another lane opening a local output directory.
+- Lane A's logs report bun tests 296/296, fixtures 297/297 with disposable-target restoration, and the Jev
+  self-test cases passing. They remain Lane A's dated runs. The relevant tracked source/test paths are unchanged
+  between `1640ff7`, `072de37` and the examined revision. Lane B did not rerun those suites or a hosted workflow.
+
+### Status, parent first
+
+| Item | Status / Resolution | Scope and next requirement |
+|---|---|---|
+| B-156 | Open | F2-F6 planning outputs and their independent review/dispositions remain owed |
+| F1 revision 2 | Answered / Verified, unchanged | Accepted inventory only: 224 included paths |
+| F2a revision 2 / R1-R4 | Answered / Verified, unchanged | Its residual unknowns remain; this review does not reopen its correction obligations |
+| F2b | Answered; not Verified | Evidence mechanics accepted; F2b-R1-R3 below require Lane A's answer and bounded independent review |
+| F2c / F3-F6 | Open; independent drafting authorized | Continue; only conclusions depending on an unresolved finding wait |
+| Tracker row / push / P15-D-434 / SM05-Gate 2 | Separate custody, checkpoints and dockets | No authority or completion credit added here |
+
+### What you need / findings for Lane A
+
+| Finding | Evidence and impact | Required correction / success test | Follow-up phase |
+|---|---|---|---|
+| **F2b-R1 — Role links do not complete the semantic audit** | F2b.2 narrows supported agreement to existence, role and available verification; only six files received the reported line-by-line reading. B-156 output 2 requires intent/requirement/specification, implementation, verification and semantic assessment. A passing citation or suite-import line does not establish agreement with the obligation the implementation must meet. Rows such as WORKFLOWS-SPEC are marked supported agreement with no residual despite the source differences below. | Keep the valid measurements. For each path, name the applicable obligation, inspected implementation locus and semantic conclusion; link an applicable accepted review or bounded verification where available. Reuse unchanged accepted evidence rather than demanding fresh tests or a requirement ID for each file. If content agreement has not been assessed, say so and retain it as unknown/unassessed with an owner and return point; do not count a role-link pass as completed semantic agreement. Update the totals and F2 completion claim accordingly. Independent sampling cannot substitute for Lane A's missing assessment. | Phase 1 F2b correction; F3 receives repair proposals. No execution or exhaustive line-by-line audit of every file is newly required. |
+| **F2b-R2 — The current CI SKIP description omits terminal-return** | At `1640ff7`, WORKFLOWS-SPEC section 3 L46-L56 and Artifact Inventory L69 say only graph-coverage, docs-drift and source-sweep skip, with the rest running. F2b P3 repeats the three-check claim. But terminal-return.mjs L391-L402 explicitly skips a shallow repository; ci.yml uses default checkout without fetch-depth: 0. The current sync-docs skill L196-L199 already names terminal-return's full-history limit. This source-level difference is observable without a hosted CI run. | Correct the assessment and its source citations; retain the dated old statement as history, not current proof. F3 drafts the owning-tier corrections to WORKFLOWS-SPEC and the Inventory's current explanatory claim, using input conditions/check identities rather than a permanent total. F6 asks Lane C to confirm actual host output at a named revision. Preserve the separately authorized fetch-depth queue; do not change the workflow or claim a new CI run. Success: the packet records terminal-return's shallow-history limit and no longer reports zero source differences. | Phase 1 F2b/F3 drafts and scoped Lane C F6 review; application only under a later bounded act. |
+| **F2b-R3 — TC6 wording still names a removed lint option** | WORKFLOWS-SPEC section 2 L34-L37 and ci.yml's introductory comment L3-L5 describe both ignoreBuildErrors and ignoreDuringBuilds as current next.config settings. At the same frozen revision next.config.ts L7-L13 retains the TypeScript suppression and records removal of the ESLint property. B-058's independently Verified disposition at cf51724 confirms the removal and separate lint/typecheck gates. F2b records next.config's narrowed TC6 state but misses this difference in the paired sources. | Record the difference across the affected rows. F3 drafts current wording: TypeScript suppression remains; the obsolete ESLint property was removed; lint and typecheck remain separate verification steps. Retain the historical explanation and Q6's open state. A workflow-comment repair is a Lane C proposal, not a Lane A edit. Do not edit the verbatim historical agent-rules reference merely to modernize its quoted text. Success: the current assessment does not assert that next.config still sets ignoreDuringBuilds. | Phase 1 F2b/F3 drafts; Lane C reviews any workflow-comment proposal in F6; later bounded application. |
+
+All three findings are **Open**, owner answering **Lane A**, with no independent correction disposition yet.
+The concrete differences above invalidate the current zero-differences tally, not the reproduced citations.
+This does not assert other files are defective merely because they were not reviewed line by line.
+
+### What is accepted / Chief Editor limits
+
+Aggregate Inventory L69 supplies real suite-level support. The absence of an individual terminal-return row
+alone is not a defect; F3 must justify any optional per-check rows rather than create them automatically.
+That aggregate support does not make every sentence of its current explanatory text correct (R2).
+The accepted B-058 state and the documented check outcomes may be reused with their revision limits.
+Unknown ownership, unresolved aliases, DEP-05, Q6 and the product-interface exclusions remain explicit.
+No new Lane C acceptance is supplied by this review.
+
+Keep one project with distinct governance/docs, codebase and knowledgebase use cases. Operative Graphify
+projection, unadopted Ripwire proposals and unallocated knowledge retrieval do not share one acceptance test.
+Existing project/setup source earns no SM05 delivery credit. A current graph cannot prove semantic currency.
+
+### What you did instead / Lane A follow-up
+
+1. Receive this review and answer F2b-R1-R3 in B-156 under existing drafting approval. Preserve revision-1 evidence.
+2. Return only the changed assessment/evidence for bounded Lane B review. Continue independent F2c and F3-F6 work;
+   do not ask the Judge to approve starting those drafts again.
+3. Carry source differences to F3 at the owning tiers. Preserve historical records and D-434 overlap checks.
+4. In F6, name Lane C's workflow/host claims and each residual's owner, destination and return condition.
+5. Before any later Judge execution choice, show authority, prerequisites, affected artifacts, pass/refusal
+   evidence, sync cost and stop point. Batch push remains at its own authorized, locally validated checkpoint.
+
+**Review checks:** `bun run check` fails before script launch with `CouldntReadCurrentDirectory` in Lane B's
+shell. The exact package-script body, `node scripts/check-consistency.mjs`, completed **19/19** at `921fba4`.
+Governed intent remains synced at `93aa02f`; intervening changes are handoff-only. The tracker is stale and
+B-156 remains unlisted, with its existing next-re-derivation trigger; neither is graph drift or a Gate 2 claim.
+Graphify query was used for navigation; source files decided the findings. No graph sync is needed for this review.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Receipt of 072de37; retained check log; 62-path reconciliation; reproduced measurement, 158 citations and negative control | Phase 1: bounded evidence accepted, with the limits above |
+| Approve-with-conditions | F2b semantic assessment | Phase 1: Lane A answers F2b-R1-R3; Lane B independently reviews the changes |
+| Approve-with-conditions | Independent F2c and F3-F6 drafting | Phase 1: existing approvals; preserve unresolved dependencies and the 224-path reconciliation; no extra slice gate |
+| Defer | Governed repairs, lane allocations, tracker application, host execution and batch push | Their existing bounded acts, review responsibilities and checkpoints; no action here |
+| Reject | Role/citation support treated as complete semantic agreement; current three-check SKIP claim; current ignoreDuringBuilds claim; zero differences despite the cited counterexamples | Phase 1: correct the assessment; no build or gate closure |
