@@ -1455,3 +1455,86 @@ currency. No build, install, trial, graph producer, fetch, push, lifecycle dispo
 | Approve-with-conditions | Lane A F3/F6 correction drafts and claim-level evidence method | Phase 1: existing drafting approval; bounded independent review, with no extra start gate |
 | Defer | gstack disposition/adoption proposal, future monetization refinement and any governed application | Complete source/impact packet and the relevant bounded Judge act; no provider selected |
 | Reject | Permanent Project retirement inferred from V1 exclusion or removed scaffold; undocumented gstack retirement; summary/check pass as sufficient authority | Phase 1: use the corrected distinctions and return unsupported claims explicitly |
+
+## Lane B — Consolidated review of Lane C's second supplied worklog, 2026-10-12
+
+**Raised / Kind / Phase / Blocks:** 2026-10-12 by Lane B / finding / 1 / nothing, reporting only.
+**Examined revision:** `2251b4a0c77798cf27c3f5e9551a52056826f0c1`.
+**Input:** supplied Lane C worklog, attachment `c70175ae-513d-433e-82cd-a19d440dc66f/Pasted text.txt`.
+**Input SHA-256:** `e69e23ec3d479ed8cbb25d2bd302b3e7c1f9b515622c3adf5534d5ba8acf8cbb`.
+**Receiver:** Lane A through B-156. This is Lane B's review of supplied text, not a Lane C repository commit.
+The preceding Judge clarification remains the scope baseline. This supplement refines AG-2 and F6 without
+changing the header, Lane A's answer, prior independent dispositions or execution authority.
+
+### What happened — supported corrections and remaining contradictions
+
+Lane C now gives the accepted inventory and Stripe scope distinctions. F1 has 225 candidates, with 224
+included and README.md excluded. The F2 slices remain 16 / 62 / 146. F2a is independently accepted;
+F2b-R1 to R3 remain open. AG-1 to AG-3 remain open. No accepted slice is reopened here.
+
+The raw proposal is not ready for direct adoption. Its gstack recommendations contradict its own rule
+against inferring retirement from an absent act. Its check-completion claim also exceeds the supplied record.
+
+| Claim in the supplied worklog | Supported boundary / correction | Owning evidence or limit |
+|---|---|---|
+| gstack was silently retired; F3 must record it as unadopted/retired | Current adoption and retirement remain unconfirmed. F3 records the gap or drafts a proposed disposition; writing that draft cannot establish a past decision. | Initial AGENTS at 62c8d8c L94-L102 is a historical workflow claim. The preceding source search found no current governing adoption/retirement act. Absence does not prove either lifecycle event. |
+| An exhaustive sweep found zero gstack records | Do not claim exhaustiveness from the supplied command list. It shows a Stripe search, not a reproducible gstack sweep; historical and B-156 references exist. | Keep the preceding bounded corpus/search result. Distinguish references from operative adoption or retirement acts. |
+| D-75/D-84 prohibit gstack or all external deploy scripts | Those decisions establish lane boundaries, not a named tool ban. Map each proposed command to the actual action restriction before judging compatibility. | Root AGENTS, Never, prohibits vercel deploy/vercel --prod; WORKFLOWS-SPEC section 1 assigns deployment through GitHub. These do not establish gstack adoption, installation or retirement. |
+| Stripe has a formal Project retirement act because its scaffold was removed | Preserve three objects: V1 NG-03 exclusion, PBL-02 future capability, and B-003's Verified scaffold removal. Do not label the third as retirement of the first two. | Modular_PRD sections 2.5 and 2.5.2; Register D-121/D-187/D-188; B-003 at 67706ca. PBL-02 remains unranked/not refinement-ready and does not select Stripe. |
+| The consistency suite passed 19/19 at 2251b4a | Completion is not established by this attachment. The displayed attempt ends with Killed task; it is incomplete, not a demonstrated test failure. | Cite a separate completed log and its actual revision if one exists. Do not relabel the retained completed run at d8ca854 as a run at 2251b4a. |
+| Lane ownership myopia or an authority-loader failure caused the omissions | These are possible explanations, not demonstrated causes. The observable defect is unsupported inference and contradictory recommendations. | Write ownership does not limit reads (D-433). The supplied record does not establish what Lane C read, could access or internally prioritised. |
+| Ripwire cannot parse SQL; Graphify must now be evaluated for SQL | Bound capability claims to the evaluated version/interface and retained evidence. A new SQL evaluation is a proposal, not a required task in this unit. | SPECS AIG section 6.1 and the historical Ripwire evaluation; D-433's measured git grep SQL fallback remains accepted within scope. |
+| Repository separation/Spec Kit is part of the strategy; repairs move to Phase 2 | No such selection or phase allocation is established here. Keep one Project with distinct use cases. The correction's owning phase determines its Phase field. | This entry's Phase 1 scope; TEMPLATE/README and D-104. A new repository/tool proposal needs its own complete impact packet. |
+
+Use exact inventory groups, not "root files" or "governance files" for all G1 paths. G1 contains tracked
+paths outside docs/, including setup source. "Returned" describes F2b's review, not a new header lifecycle state.
+Keep the 142 JSON, one readiness receipt and three log/text files distinct within F2c's 146 paths.
+
+### What you need — apply the evidence rule to the actual conclusion
+
+The repeated failure is now visible within one review: Lane C states the correct evidence rule, then
+approves a recommendation that violates it. Lane B must detect this before forwarding the recommendation.
+More references alone will not fix the problem. The cited clause must support the stated conclusion.
+
+For each material decision row in F6:
+
+1. Name the object, use case, version and proposed disposition.
+2. Read the operative clause and relevant amendments at a named revision.
+3. Explain the support. Separate a positive act, a bounded negative search and an inference.
+4. Compare the recommendation against the review's own limits and other rows. Return contradictions.
+5. For execution claims, require the completed result at the stated revision. A started or killed task is insufficient.
+6. Keep unsupported conclusions unknown or proposed. Request a Judge decision only for a complete new choice.
+
+Policy claims need their governing act; they do not all require a runtime test or implementation commit.
+This is a proposed review method within F6, not a newly enforced checker or an extra approval gate.
+
+### What you did instead — consolidated handoff and readiness
+
+Lane B consolidated the supplied review in its originating entry. Lane A has not yet acknowledged this
+supplement; recording it does not prove delivery, receipt or closure. Lane A should:
+
+1. Receive this supplement and the preceding unread consolidations in the next substantive B-156 answer.
+2. Answer existing F2b-R1 to R3. Continue independent F2c/F3-F5 drafting under the existing approvals.
+3. In F3, preserve the Stripe distinctions and gstack's unconfirmed status. Reconcile current AG-1 wording
+   with D-337, while retaining historical records. Check D-54 propagation and D-434 overlap before application.
+4. In F4/F5, distinguish governance/docs navigation, setup-source traceability, future product-codebase
+   baselines and proposed knowledgebase retrieval. Instrument evidence gives no SM05 feature credit.
+5. In F6, list each changed claim and its evidence, owner, independent reviewer and return condition.
+   Lane A answers; Lane B and Lane C independently review the appropriate claims. Do not self-verify.
+
+**Ready:** authorized investigation, correction drafts and review. No new start approval is needed.
+**Not ready:** copying the raw Lane C retirement/health claims, applying governed repairs, adopting tools,
+or accepting baselines. New scope/execution options must show authority, prerequisites, affected artifacts,
+pass/refusal evidence, sync cost and stop point. Existing unknowns do not themselves require a new trial.
+
+**Checks and graph:** at examined 2251b4a, docs-drift, handoff-response, text-integrity and lane-state pass.
+The retained full suite passed at d8ca854; no new 19/19 claim is made from Lane C's incomplete attempt.
+Governed intent remains synced at 93aa02f; subsequent changes are handoff-only. No graph sync is required.
+The tracker-row return remains separate. No build, install, trial, graph producer, fetch, push or gate closure.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Corrected inventory, Stripe scope distinctions and bounded drafting readiness | Phase 1: preserve the accepted slices and preceding source-supported clarification |
+| Approve-with-conditions | This consolidated packet for Lane A F2b/F2c/F3-F6 work | Phase 1: Lane A receives and answers; independent review of changed claims, without a new start gate |
+| Defer | Tool disposition/adoption, new evaluation, governed application and baseline acceptance | Complete impact packet and the relevant bounded act; no scope added by the supplied review |
+| Reject | Inferred gstack retirement, wrong deployment citations, killed run claimed as completed, speculative causes presented as facts | Phase 1: use the corrected boundaries above; raw Lane C packet is not an application basis |
