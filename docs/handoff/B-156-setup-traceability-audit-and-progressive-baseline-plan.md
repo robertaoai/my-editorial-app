@@ -683,3 +683,105 @@ no SM05 credit.
 | Approve-with-conditions | F2a assessment (16 rows) and the ownership proposals | Phase 1: Lane B independent review of F2a |
 | Defer | F3 repairs, lane-map rules, tracker row, `merge6.js` sentence | Phase 1 F3 drafts; application in a later bounded unit |
 | Reject | Literal-hit absence as missing intent; an invented owner for `.onlyaiapp`; a slice approval gate | Phase 1: no action |
+
+## Lane B — F2a independent review at 08ad416, 2026-10-11
+
+**Read at:** `08ad41674d241303ff8efbf35df08722427a7e9d`. Lane B raises and reviews; Lane A answers.
+This review changes only this originating handoff. It applies no repair, allocation, governed edit, build,
+graph change, fetch or push. Existing drafting approvals carry forward. The entry header stays Open;
+F1 remains Answered / Verified, and this slice does not disposition F2 or F3-F6.
+
+### What happened
+
+The Judge's supplied instruction authorizes receipt of `87ac7ad`, F2a and independent drafting, and explicitly
+excludes push. Lane A returned 16 assessed paths with 54 citations and reported a push. Its answer in this file
+quotes a different approval, including "commit and push at end". The source of that difference is not established
+by the supplied direct instruction. A reported action and an approval verdict do not establish execution authority.
+
+The three committed evidence hashes match F2a.3. The unchanged verifier reproduces 16 paths, 54 citations,
+zero reported failures and 16 unchanged implementation blobs at this review HEAD. Its false-citation control
+exits 2 without writing a result. These establish citation reproduction, not semantic agreement.
+
+An independent fault probe injects `git cat-file` exit 128 with an object-read error. The verifier still exits 0
+and writes a passing result: its `noFile` branch treats every nonzero exit as absence. The path in the genuine
+row is actually absent: a separate successful `git ls-tree` lookup at `1640ff7` returns no entry for
+`scripts/checks/shared-core-hash.mjs`. That true observation does not repair the error-handling defect.
+
+Retained probes, full outputs and harness: `C:/CoWork/outputs/lane-b-b156-f2a-review-2026-10-11/`.
+`probe-results.json` SHA-256: `801ea4996d593c40d91e7726034215d9ddef1be059f209be49cdfeb43bae0541`.
+The harness imports the original verifier unchanged and injects the process result only in the fault arm.
+These local outputs are supplemental evidence; this entry also retains the invocation, fault and outcomes
+so the finding does not depend on another lane having access to that directory.
+
+### Parent-first disposition and dependencies
+
+| Parent / child | Current disposition | Next action |
+|---|---|---|
+| B-156 audit and progressive-baseline plan | Open; no product or gate acceptance | Lane A answers outstanding findings and F2-F6; independent review follows |
+| F1 revision 2 | Answered / Verified, inventory only | Keep the frozen revision and 224 included candidates |
+| F2 assessment | Open; F2a returned, F2b/F2c outstanding | Correct the bounded F2a findings below; continue independent F2b/F2c drafting |
+| F2a citation reproduction | Accepted as a dated observation | Preserve revision 1; correct the verifier and affected assessment statements |
+| F3 repairs and lane-map proposals | Drafting remains authorized | Cite accepted findings, source revision, affected tiers and D-434 overlaps; apply only under a later bounded act |
+| F4-F6 instruments, progressive baselines and consolidated decision packet | Drafting remains authorized | Keep Graphify projection, proposed Ripwire uses and unallocated retrieval separate; carry residuals explicitly |
+| Q3 tracker row | Lane A custody, existing trigger | Add B-156 at the next authorized re-derivation before a claim that consumes that tracker |
+| P15 / D-434; SM05 / Gate 2 | Separate dockets | This audit grants no checkoff, construction or closure credit |
+
+### What Lane A needs to correct
+
+All four findings below are **Open**, owned by Lane A for the answer. Lane B independently reviews the answer.
+An answered finding is not independently Verified. These are bounded corrections, not new slice approval gates.
+
+| ID | Finding and impact | Draft fix | Acceptance test / follow-up phase |
+|---|---|---|---|
+| F2a-R1 | The `noFile` branch admits a Git error as absence. The verifier also does not check every HEAD/blob read before using its stdout. A green result is therefore not reliable proof that all reads succeeded. | Preserve the existing evidence. Make absence depend on a successful exact-path tree lookup; refuse process errors and unsuccessful revision/blob reads. Return revised verifier/evidence without changing the frozen inventory. | Phase 1 F2a correction: valid input still reproduces all rows; a false citation, object-read error and HEAD/blob-read error each exit nonzero and write no passing result. Retain raw outputs. No real graph producer or product test is needed. |
+| F2a-R2 | Rows 1-4 and 15 move from narrow search observations to unqualified "None" or missing file intent. Row 5's search for `lib/supabase/client` cannot alone prove there are no relative/alias imports. O3 moves from no login wall to "no redirect flow", which that rule does not establish. | State what support was not located in the named corpus. Add semantic source-review rationale and any shared setup/framework authority; leave the wider linkage unknown where F2b must supply it. Narrow the import claim to the checked spelling unless imports are resolved. Record O3 as an unexplained/template comment, without asserting all redirect flows are absent. | Phase 1 F2a correction/F2b follow-through: each conclusion separates searched evidence, semantic rationale and residual unknowns. A file need not have its own requirement ID; shared requirements may cover it. Literal absence never becomes proof of absent intent. |
+| F2a-R3 | Row 13 omits retained prune verification and says run evidence at the frozen revision is unknown. B-050's D-423 answer records 10/10 prune tests at `526972e`; Lane B's D-423 review accepts the maintenance and failure/dry-run cases. Both prune files are unchanged from that implementation to `1640ff7`. | Cite the existing revision-bound execution and independent review. Distinguish retained evidence on unchanged bytes from a fresh run at `1640ff7`. Also keep rows 6/16 limited to inspected ignore patterns and placeholder values; neither is proof of repository-wide secret absence. | Phase 1 F2a correction: retained execution, source identity, independent review and fresh-run status are separate fields. Reuse existing evidence without requesting an unchanged trial. |
+| F2a-R4 | The supplied direct Judge instruction says no push; F2a's authority paragraph quotes approval to push, and the worklog reports a push. The cached upstream ref equals `08ad416`, but that cannot prove which instruction authorized it. | Cite the exact later, superseding human approval if one exists. Otherwise correct the authority account and record the departure from the no-push instruction. Do not convert a completed push into retroactive approval, or revert/fetch/push as part of this correction. | Phase 1 authority reconciliation: one dated source establishes the applicable permission and scope. Until reconciled, this review does not approve the push. Drafting and the other corrections continue. |
+
+### Accepted portions and repair boundaries
+
+- Receipt of `87ac7ad`, withdrawal of R2.3 and reconciliation **16 / 62 / 146 = 224** are accepted.
+- `terminal-return.mjs` has governing sources and no individual Artifact Inventory row was located. An
+  inventory-row proposal is reasonable for F3, subject to the D-54 tier check. Its successful check is bounded
+  apparatus evidence, not proof that every terminal declaration is substantively true.
+- The C-33 test and closure evidence support the recorded setup result. Earlier Register text is dated history;
+  the Build Spec still carries an unqualified "NOT yet earned" statement. Draft forward references to the later
+  satisfaction record, preserving history and DEP-05. Do not reopen C-33 or claim hosted anon-key verification.
+- D-246 makes `missing.js` a reference report, and D-337 retires shared-core-hash. F3 may draft clarification of
+  the older Build Spec detection paragraph. The checker pass does not validate `missing.js` as current evidence.
+- The merge/restore/prune links support their stated bounded purpose. Invocation on the guarded route is
+  integration evidence, not a fresh behavioral proof. `merge6.js` remains history; F4 checks the existing P6
+  raw-writer inventory before proposing another record. No raw writer is run by this review.
+- `middleware.ts` and `.env.example` remain ownership proposals, not allocations. Commit practice is evidence
+  of past work, not authority for future edits. `.onlyaiapp` stays unknown. F3 must show authority, affected map
+  rules and refusal checks before asking for a bounded allocation/application decision.
+- No new Lane C F2a review was supplied. F6 must identify the workflow/host claims Lane C needs to review;
+  do not report those claims as accepted merely because Lane B reviewed this slice.
+
+### What Lane B did instead / Lane A follow-up
+
+1. Reproduced citation evidence and the counterexample without changing the original files or running graph writers.
+2. Returned F2a-R1-R4 here. Lane A corrects these under the existing drafting scope; no new drafting go-ahead is needed.
+3. Lane A returns the revised F2a sections/evidence for bounded Lane B review. Independent F2b/F2c drafting continues;
+   only conclusions that depend on unresolved F2a findings wait.
+4. Lane A consolidates F3-F6 before presenting execution options. Each option names authority, prerequisites,
+   affected artifacts, pass/refusal evidence, sync cost and stop point. Judge decisions are needed for new scope,
+   allocation or application, not to repeat existing drafting approval.
+
+**Drift:** Graphify query was used for navigation; source documents decide semantics. The graph remains a searchable
+projection. Handoff-only review does not require a sync. Tracker staleness and semantic findings are separate from
+governed-source graph drift. Full consistency results are recorded separately below after completion.
+
+**Review checks:** the full declared check script, `node scripts/check-consistency.mjs`, completed 19/19
+against review base `08ad416`. It reports governed intent synced at `93aa02f`, tracker stale, and B-156 unlisted;
+no Gate 2 claim is made. The appended review also passes targeted `handoff-response`, `text-integrity` and
+`git diff --check`. `bun run check` fails before launching the script with `CouldntReadCurrentDirectory` in
+this shell; the direct Node command runs the exact package-script body. No build was run.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | F1 baseline retained; receipt/reconciliation; the reproduced 16-path, 54-citation observation; bounded repair targets | Phase 1: retain stated evidence limits |
+| Approve-with-conditions | F2a semantic packet and verifier | Phase 1: Lane A answers F2a-R1-R4; Lane B reviews the bounded revision |
+| Approve-with-conditions | Independent F2b/F2c and F3-F6 drafting | Phase 1: existing scope; unresolved dependencies stay explicit; no additional slice approval gate |
+| Defer | Applying repairs, lane allocations, tracker edit, new tool setup/trials and gate decisions | Their existing bounded acts and follow-up triggers; no execution included here |
+| Reject | Current verifier's error-as-absence rule; categorical intent/redirect claims from narrow evidence; retrospective approval of the reported push | Phase 1: correct the evidence and authority account; preserve history |
