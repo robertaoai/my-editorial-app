@@ -5,7 +5,7 @@
 - **Phase:** 1
 - **Blocks:** nothing, reporting only
 - **Status:** Open
-- **Lane A:** **Acknowledged 2026-10-11, receipt only.** Read in full as Lane B's uncommitted file on HEAD `1640ff7` (SHA-256 `751b4be7609e06d8e2c3e68c81d02a844a82fdb85958324ab65d2ca1d788f02f`, before this line). Lane A withdraws its blanket curated-JSON exclusion (graph-fragments README §1). F1–F6 are not answered by this receipt. **F1 answered 2026-10-11** in "Lane A — F1 answer" below (evidence `bab52d0`); **F1-R1–R4 answered 2026-10-11** in "Lane A — F1 revision 2" below (evidence `a77b321`). F2–F6 remain open. The entry stays Open.
+- **Lane A:** **Acknowledged 2026-10-11, receipt only.** Read in full as Lane B's uncommitted file on HEAD `1640ff7` (SHA-256 `751b4be7609e06d8e2c3e68c81d02a844a82fdb85958324ab65d2ca1d788f02f`, before this line). Lane A withdraws its blanket curated-JSON exclusion (graph-fragments README §1). F1–F6 are not answered by this receipt. **F1 answered 2026-10-11** in "Lane A — F1 answer" below (evidence `bab52d0`); **F1-R1–R4 answered 2026-10-11** in "Lane A — F1 revision 2" below (evidence `a77b321`). **Lane B review `87ac7ad` received 2026-10-11; F2a answered** in "Lane A — F2 readiness review received; F2a answer" below (evidence `2c7801b`). F2b, F2c and F3–F6 remain open. The entry stays Open.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Judge's supplied Lane A/B/C worklogs and scope clarification; frozen tree at 1640ff7bc1b7d1e70ab6a421ced8a054dafda993; Build Spec §1; D-242, D-271, D-424 and D-433; graph-fragments README §1; SPECS-VERIFICATION-APPARATUS §18; B-136's D-434 revision-2 review; the inventory method and review requirements below
 - **Verified-At-Commit:** 1640ff7bc1b7d1e70ab6a421ced8a054dafda993
@@ -552,3 +552,134 @@ correction and review only. No graph sync is needed; tracker staleness is separa
 | Approve-with-conditions | F2 staged returns under existing drafting approval | Phase 1: use 16 / 62 / 146, source-pinned findings, explicit vocabulary and independent review of conclusions |
 | Defer | Applying justified repairs, Q3 tracker edit and any push | Existing bounded application sequence; Q3 at next authorized re-derivation; no push included |
 | Reject | 57-path remainder; rejecting a single packet solely because of row count; automatic slice approval gates; decision-ID existence as semantic proof | Phase 1: use the corrected reconciliation and evidence limits above |
+
+## Lane A — F2 readiness review received; F2a answer, 2026-10-11
+
+**Authority:** the Judge, in chat, 2026-10-11: "Judge Approve: Lane A starts F2a with gap fixes 1, 2, 4 and 5;
+commit and push at end". Lane A is `Active`. **Read at:** `87ac7ad`. **Measured at:** frozen revision
+`1640ff7bc1b7d1e70ab6a421ced8a054dafda993`. This answer is read-only assessment. It changes no governed source,
+lane map, tracker, fragment or graph. F2a returns alone for Lane B review. Lane A continues F2b and F2c drafting
+while Lane B reviews it; no slice waits for a separate approval.
+
+### F2a.1 Receipt of Lane B review `87ac7ad` (gap fix 1)
+
+Lane A receives the review in full and accepts it.
+
+- **Status/Resolution correction:** accepted. F1 reads Status Answered, Resolution Verified.
+- **Slices:** accepted as F2a 16 / F2b 62 / F2c 146 = 224. Lane A checked the assignment against
+  `F1-candidates-1640ff7-r2.tsv`: 72 included G1 paths = 10 in F2a + 62 in F2b; 6 G2 paths in F2a;
+  142 + 1 + 3 in F2c. Each included path occurs once. `README.md` stays excluded.
+- **R2.3 withdrawn.** Lane A withdraws its R2.3 inference that a §5A row may be missing for
+  `lib/config/build-config.ts` and `__tests__/build-config.test.ts`. §5A is the Phase 1 governance snapshot;
+  §5A.6 excludes `lib/`, `app/` and `__tests__/`; §5B records both files as early Phase 2 S0 work at `43c51ce`;
+  Build Spec §1 keeps them as setup evidence with no V1 delivery credit. Their absence from §5A is not a manifest
+  defect. Their semantic agreement is assessed in F2b.
+
+### F2a.2 Terms and revision binding (gap fix 5)
+
+**Finding terms (K2):** supported agreement, difference, missing support, unknown, disputed. These are audit
+findings only. They are not drift classes, success comparisons or handoff resolutions. "No literal hit" is a
+measurement. It is not missing intent. A decision ID that exists is not semantic proof.
+
+| Binding | Revision |
+|---|---|
+| Inventory | F1 revision 2, `a77b321`; Verified by Lane B at `0a63ea5` |
+| Governing and evidence sources read | `1640ff7` (frozen); handoff evidence as cited |
+| Implementation | `1640ff7`. All 16 F2a paths have the same blob at `87ac7ad` (`F2a-result-1640ff7.json`, `unchangedAtHead: 16`) |
+| D-434 | Not landed at `87ac7ad`. If a governed change lands later, Lane A reassesses only the rows that it affects and keeps this result |
+
+### F2a.3 Evidence
+
+The evidence is in `docs/handoff/artifacts/B-156/`, committed at `2c7801b`. The hashes are of the committed bytes:
+
+| File | SHA-256 | Content |
+|---|---|---|
+| `F2a-citations-1640ff7.json` | `968ab99028a8703bd4863fc2f12cbcfaf5320df7da090f8fa66e63cbff68100e` | One row per F2a path: result, ownership status, cited sources |
+| `F2a-verify.mjs` | `04dade901e6efd72cc701fed6177d62876b93b171f6a39aa2628abbbcff1d07d` | Re-checks every citation at the frozen revision. Git objects only; no shell |
+| `F2a-result-1640ff7.json` | `8cf550cd639041768e3f9695cfb1a5efa4914c8e8691a1622cb3ebd86eb245df` | The passing run: 16 paths, 54 citations, 0 failures |
+
+Reproduce: `node docs/handoff/artifacts/B-156/F2a-verify.mjs <repo> docs/handoff/artifacts/B-156/F2a-citations-1640ff7.json <new out dir>`.
+A "line" citation passes only when the stated line holds the stated text. An "absent" citation passes only on
+`git grep` exit 1 with empty stderr. Any other result stops the run with exit 2 before a file is written.
+**Negative control:** `--negative-control` adds one false citation in memory. The run gave exit 2 and wrote no
+file. **Limit:** the citations prove that the cited text exists at the cited place. The semantic reading below is
+Lane A's assessment. 9 of the 16 paths are on Lane B surfaces (6) or unmapped (3). The other 7 (the 6 G2 paths and
+`terminal-return.mjs`) are Lane A surfaces; their results stay **proposed** until Lane B reviews them (C2).
+
+### F2a.4 Assessment
+
+| # | Path | Intent / decision | Requirement / spec | Verification | Result |
+|---|---|---|---|---|---|
+| 1 | `.onlyaiapp` | None found. No `docs/` text outside handoffs names it or OnlyAIApp. Commit `8992d63` says "bind deploy identity". | None | None | **Missing support** |
+| 2 | `app/api/health/route.ts` | None. Template file, `62c8d8c`. No code, test, CI or doc uses `/api/health`. | None | None | **Missing support** |
+| 3 | `app/globals.css` | None. Template file (one Tailwind import). | None at file level; the Tailwind toolchain is F2b (`package.json`, `postcss.config.mjs`) | None | **Missing support** |
+| 4 | `app/layout.tsx` | None. Its metadata title is `vibe-stack-supabase`, the template identity that Register L3969 and agent-rules-reference L387 call boilerplate for `README.md`. | None | None | **Missing support.** Observation O1 below |
+| 5 | `lib/supabase/client.ts` | None at file level. Template file. No file imports it. | `AC-NF-04` (Modular_PRD L1135): no service-role key in the client bundle. The file reads only the public URL and anon key. | No bundle-inspection evidence found | **Supported agreement** for `AC-NF-04` by code reading; verification **unknown** |
+| 6 | `supabase/.gitignore` | `D-120`: `supabase init` is Lane B's act (work order L122; Build Spec L657). The file is that act's output, `1cf6479`. | AGENTS.md L21: no secrets in the repository. The file ignores `.env.keys`, `.env.local`, `.env.*.local`. | None needed beyond content | **Supported agreement.** Limit: no path-level intent |
+| 7 | `scripts/checks/terminal-return.mjs` | `D-90`, `D-184`, `B-097`, `B-113`, `D-364` (Register L24287) | Modular_PRD L879 (`AIG-02`); FN-MULTI-LANE L205 (`AIG-02.C2`, "exists"); SPECS-MULTI-LANE L107; handoff README L409 | Check 18 passes in `bun run check` | **Supported agreement.** **Missing support** at the Artifact Inventory tier: it has no row, although 15 other checks have one. The handoff-only literal hit is a rule artifact: governing docs name it by check name or basename |
+| 8 | `supabase/tests/database/s1_transition_enforcement.test.sql` | `C-33` (`D-118`, from `B-044`); closes when a disposable PostgreSQL runs `0001` then `0002` and the eight cases behave (Register L2983) | The eight-case contract (work order L128); pgTAP `plan(30)` | `B-044` Verified by Lane B at `cf51724` (30 assertions); Phase Closure L429–430: "`C-33` is satisfied" | **Supported agreement** from intent to verification. **Difference** between tiers: Register §5.14by `C-33` (L2962–2985) and Build Spec L660 still say the DoD phrase is "NOT yet earned" and give no forward pointer to the satisfaction record. The `DEP-05` limit (live anon-key behaviour unverified) stays |
+| 9 | `docs/graph-fragments/merge6.js` | README §4 L111: "retained for history"; merge7.js L6: "Supersedes merge6.js" | None; history only | Not on the guarded route (no `scripts/` reference; guarded-rebuild L1343–1370 runs restore, prune and merge7 only) | **Supported agreement** as retained history. F1-c's "no mention" is a full-path rule artifact; README §4 names it by basename. Observation O2 below |
+| 10 | `docs/graph-fragments/merge7.js` | `D-51`; `B-071` R46–R66; `D-408` | README §4 L111 (reference merge script); agent-rules-reference L179 | Runs in every guarded cycle (guarded-rebuild L1350, L1370) | **Supported agreement** |
+| 11 | `docs/graph-fragments/missing.js` | `D-246` | README §5 L177: a reference report only, not evidence; `graph-coverage` is the check | `graph-coverage` passes | **Difference.** Build Spec L531 still names `missing.js`, with "the shared-core hash", as the detection half of `G11`. `scripts/checks/shared-core-hash.mjs` does not exist at `1640ff7` (retired under `D-337`) |
+| 12 | `docs/graph-fragments/prune-stale-symbols.js` | `D-421`; order `D-422`; completion proof `D-423` | Artifact Inventory L54; README §4 L138 | Runs in every guarded cycle (guarded-rebuild L1346); test file below | **Supported agreement** |
+| 13 | `docs/graph-fragments/prune-stale-symbols.test.mjs` | `D-421` | Artifact Inventory L55; runs under `bun test` (`package.json` L11) | Lane A did not run it in F2a | **Supported agreement**; run evidence at `1640ff7` **unknown** |
+| 14 | `docs/graph-fragments/restore-docs-layer.js` | `D-246` (Register L18351) | Artifact Inventory L94; README §4 L123 | Runs in every guarded cycle (guarded-rebuild L1343) | **Supported agreement** |
+| 15 | `middleware.ts` | None at file level. Template file, `62c8d8c`. | No-login-wall rule: Modular_PRD L642; agent-rules-reference L122. The file only refreshes the Supabase session; neither it nor `lib/supabase/middleware.ts` redirects. `Q3` is decided (`D-143`, Modular_PRD L1176): the publish path is a Supabase Edge Function, so this file is not the publish path (journal L69 asked). | None specific | **Missing support** (file intent); **supported agreement** with the no-login-wall rule |
+| 16 | `.env.example` | `X8`, `NG-03`: S0 removed the Stripe keys (agent-rules-reference L426; done at `43c51ce`) | Modular_PRD L639 (`TR-API-03`) says it declares `SUPABASE_SERVICE_ROLE_KEY`, used nowhere. Lane A checked the values: placeholders or empty only (AGENTS.md L21). | None needed beyond content | **Supported agreement.** Observation O3 below |
+
+**Totals (F2a only):** supported agreement 8 rows (rows 6, 7, 9, 10, 12, 13, 14, 16), with row 7 also showing missing
+support at one tier; supported agreement with unknown verification 1 (row 5); supported agreement plus a tier
+difference 1 (row 8); difference 1 (row 11); missing support 5 (rows 1–4, 15; row 15 also agrees with the
+no-login-wall rule). Disputed: 0. These counts describe this slice only. They are not a pass rate.
+
+**Observations, not findings:**
+
+- **O1.** `app/layout.tsx` shows a template identity on a product surface. This is product scope (B-127, the SM05
+  packet). The setup audit proposes no repair. It gives no SM05 credit and creates no SM05 gate.
+- **O2.** `merge6.js` writes `./.graphify/graph.json` directly when someone runs it from the repository root.
+  `D-425` allows no route outside the guarded procedure. README §4 says "retained for history" but does not say
+  "do not run". F4 includes it in the raw-writer inventory. F3 may propose one sentence. Lane A has not checked
+  whether the `D-426` P6 inventory already lists it; that stays **unknown** until F4.
+- **O3.** The `NEXT_PUBLIC_APP_URL` comment says "used for redirect URLs". V1 has no login and no redirect flow, so
+  the comment is template residue. It is product-facing text on a Lane B surface; F3 routes it, or leaves it.
+
+### F2a.5 Ownership of the three classifier gaps (gap fix 4)
+
+The classifier gaps stay findings. Each result below is **proposed** or **unknown**. None is a new allocation.
+F2a applies no lane-map change.
+
+| Path | Purpose | Existing authority read | Result |
+|---|---|---|---|
+| `middleware.ts` | Next.js request middleware. It imports `@/lib/supabase/middleware` (a Lane B path). | `D-75`/`D-84` lane table: Lane B owns application code under `app/`, `lib/`, `components/`, `supabase/`, `__tests__/`; Lane A owns build config (`D-86`: toolchain and dependencies). Middleware is application code, not toolchain. | **Proposed: Lane B.** F3 may draft a map rule: add `middleware.ts` to Lane B's test, with a fixture that attributes it to B and a refusal check that `next.config.ts` stays Lane A |
+| `.env.example` | Environment-variable template | `43c51ce` changed it as "Lane B's own work", committed apart from the Lane A `package.json`/lockfile change under `D-88`/`D-86`. The S0 deliverable that removed its Stripe keys was Lane B's (agent-rules-reference L426). `D-86` does not name env templates. | **Proposed: Lane B**, from practice and the S0 assignment. Limit: no decision states it. F3 drafts a map rule only with this limit stated |
+| `.onlyaiapp` | Platform initialization marker | No governed text names it. AGENTS.md says deployment is by git push through GitHub; that does not allocate this file. | **Unknown.** F3 does not invent an owner. F3 states the options: allocation by a Register act, or an explicit unmapped-with-reason rule like `D-90` |
+
+### F2a.6 Candidate repairs for F3 (drafts follow in F3, not here)
+
+| From | Candidate | Owning tier | Note |
+|---|---|---|---|
+| Row 7 | Add an Artifact Inventory row for `scripts/checks/terminal-return.mjs` | `V1-ARTIFACT-INVENTORY.md` | `D-54` propagation check needed |
+| Row 8 | Add forward pointers from Register `C-33` and Build Spec L660 to the satisfaction record (Phase Closure L429–430; `B-044` at `cf51724`), keeping the `DEP-05` limit | Register; Build Spec | Check the `[V1]` markers and any `D-434` overlap first |
+| Row 11 | Annotate Build Spec L531: `missing.js` is a reference report (`D-246`); the shared-core hash is retired (`D-337`) | Build Spec | Same checks |
+| F2a.5 | Lane-map rules for `middleware.ts` and `.env.example`; options for `.onlyaiapp` | `scripts/checks/lane-boundary.mjs` | Lane A source change; applied only in a later bounded unit |
+| O2 | One "history only; do not run" sentence for `merge6.js` | graph-fragments README §4 | Governed edit; it makes the graph stale, so it rides a guarded cycle |
+
+**In passing (F2b context, not an F2a finding):** SPECS-MULTI-LANE L107 still lists
+`scripts/checks/shared-core-hash.mjs`, and the Artifact Inventory still has a row for it. F2b assesses this with
+`rule-budget.mjs`.
+
+### F2a.7 Next
+
+Lane B reviews F2a at the commit that records this answer. Lane A continues F2b (62 paths) and then F2c (146 paths)
+in the stated order. Lane A answers any F2a finding before it claims a dependent conclusion. Q3 (the B-156 tracker
+row) stays with Lane A for the next authorized re-derivation. This answer applies no repair, adds no gate and claims
+no SM05 credit.
+
+**Drift:** handoff-only; governed intent is synced at `93aa02f`. No graph sync is needed.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Receipt of `87ac7ad`; R2.3 withdrawal; 16 / 62 / 146 = 224 checked | Phase 1: recorded |
+| Approve-with-conditions | F2a assessment (16 rows) and the ownership proposals | Phase 1: Lane B independent review of F2a |
+| Defer | F3 repairs, lane-map rules, tracker row, `merge6.js` sentence | Phase 1 F3 drafts; application in a later bounded unit |
+| Reject | Literal-hit absence as missing intent; an invented owner for `.onlyaiapp`; a slice approval gate | Phase 1: no action |
