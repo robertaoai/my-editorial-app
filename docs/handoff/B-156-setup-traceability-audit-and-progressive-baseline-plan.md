@@ -141,7 +141,7 @@ may be linked; they do not become another register. Add rows here rather than in
 
 | Finding | Owner answering | Status | Resolution | Required evidence |
 |---|---|---|---|---|
-| F1 — Inventory and scope reconciliation | Lane A | Verified (Lane B, 2026-10-11; revision 2 examined at 0a63ea5; baseline for F2 only) | Verified | Frozen lists, applicable/excluded decisions and complete reconciliation; Lane B revision-2 review below |
+| F1 — Inventory and scope reconciliation | Lane A | Answered | Verified | Lane B, 2026-10-11; revision 2 examined at 0a63ea5; inventory baseline for F2 only; independent review below |
 | F2 — Intent-to-implementation audit | Lane A | Open | None | Source references, implementation revision, evidence and review limits |
 | F3 — Section-level repairs | Lane A | Open | None | Proposed patches, owning tiers and inferred-intent labels |
 | F4 — Instrument plans | Lane A | Open | None | Existing/proposed boundary, host matrix, expected results, refusal and cleanup rules |
@@ -478,3 +478,77 @@ this one-path review commit. Only handoff content changes, so no graph sync is n
 | Approve-with-conditions | F2–F6 planning outputs | Phase 1: existing order, source-pinned assessment, complete option impacts and independent review; no new drafting approval required |
 | Defer | Applying lane-map/manifest repairs and the Q3 tracker edit | Existing bounded application sequence after justified drafts; Q3 at the next authorized re-derivation |
 | Reject | An absent exact §5A match as proof of a defect; unassessed authority as agreement; F1 verification as whole-entry or gate closure | Phase 1: preserve the inventory, phase and scope distinctions above |
+
+## Lane B — Review of Lane A's F2 readiness worklog, 2026-10-11
+
+**Examined revision:** `c34bffe`. **Input:** the Judge-supplied Lane A worklog attached to this review turn.
+That worklog is a supplied review, not a committed Lane A answer. This section records Lane B's own assessment;
+it does not edit the Lane A field or rewrite earlier answers. Existing drafting approvals carry forward.
+
+### What happened
+
+Lane A correctly identified a precision error in Lane B's F1 row. Lane B had put Verified in the Status column.
+The row now reads Status Answered, Resolution Verified, with the independent actor and examined revision in its
+evidence. F1 acceptance is unchanged. The whole entry stays Open; F2–F6 remain Open.
+
+Lane B also accepts the supplied §5A conclusion for the two build-config files: their absence from §5A is not a
+manifest defect. The frozen phase document defines §5A as the Phase 1 governance snapshot; §5A.6 excludes lib/,
+app/ and __tests__/; §5B records both files under early Phase 2 S0 work at 43c51ce. Build Spec §1 preserves them
+as setup evidence without V1 delivery credit. Lane A should record its own withdrawal of the R2.3 inference in
+its next answer. This conclusion does not prove those files semantically match their governing requirements;
+that assessment remains F2.
+
+### What is needed: corrections to K1–K3 and the bounded return plan
+
+| Point | Independent assessment | Fix and success criterion |
+|---|---|---|
+| K1: staged returns | Useful workload control, but 224 rows do not prove a single packet must fail. C1 required acceptance of F1 before F2–F5; it did not establish an approval gate between every F2 slice. | Return F2a first for early feedback, then F2b and F2c. Lane A may continue independent authorized reading and drafting while a slice is reviewed. Hold only conclusions that depend on an unresolved finding. Do not seek another Judge approval for routine packaging. |
+| K1: slice arithmetic | The proposed 14-path first slice contains .onlyaiapp already. Adding the three classifier-gap paths adds only .env.example and middleware.ts. The proposed 57-path G1 remainder loses five paths. | Use the disjoint assignment below. It reconciles to all 224 included rows, with 224 distinct paths and zero omissions. Keep the accepted F1 inventory unchanged. |
+| K1: grouped G3–G5 assessment | Shared methods may be reviewed as groups. A decision-ID existence check alone does not establish semantic agreement, and not every curated assertion is sourced by a decision ID. | Keep a disposition and evidence link for every included path. For G3, assess relevant node/edge assertions against their actual sources, including requirements where applicable; list unsupported and disputed assertions explicitly. Keep G4's Jev receipt limits and G5's retained-evidence limits. No group-wide pass from a sample or ID existence alone. |
+| K2: vocabulary | The proposed separation is correct. The validation template's drift and comparison terms measure different facts from an audit finding or handoff lifecycle. | F2 uses supported agreement / difference / missing support / unknown / disputed. F5 uses the existing drift and success-comparison terms when their respective baselines exist. No automatic one-to-one translation; no comparison claim without a predecessor and criterion. |
+| K3: changing sources | Revision pinning and selective reassessment are correct. D-434 is a separate docket; it must not invalidate an unchanged frozen inventory or silently replace historical sources. | Each slice names the inventory revision, implementation revision and governing/evidence revisions. If D-434 or another governed change lands, identify the affected rows and claims, reassess those dependencies and retain the earlier result. Unaffected findings need no automatic restart. |
+
+The assignment is computed from F1 revision 2's included rows at frozen revision
+`1640ff7bc1b7d1e70ab6a421ced8a054dafda993`:
+
+| Slice | Exact assignment rule | Included paths |
+|---|---|---:|
+| F2a | Orders 1–3, plus middleware.ts and .env.example; .onlyaiapp already occurs in order 1. The §5A explanation is context, not another candidate. | 16: 10 G1 and 6 G2 |
+| F2b | All included G1 paths not assigned to F2a. | 62 |
+| F2c | All included G3, G4 and G5 paths. | 146: 142 + 1 + 3 |
+| Total | Disjoint union; each included path assigned once. README remains excluded under the accepted F1 rule. | 224 |
+
+### What Lane B did instead and the Lane A follow-up
+
+Lane B corrected its own status/resolution error and recorded this consolidated review in B-156. No governed
+source, artifact inventory, lane map, tracker, graph or Lane A answer changed. K4's reviewer-local fault logs
+remain supplementary; their location does not block F2 or require a new trial. Push remains outside scope.
+
+Lane A can now do the following without another permission request:
+
+1. Receive this review and retain F1's accepted inventory scope.
+2. Start F2a, record the §5A conclusion and its own R2.3 withdrawal, and assess the three ownership questions
+   from existing authority. Unknown ownership remains explicit; proposed ownership is not a new allocation.
+3. State the finding vocabulary and source revisions. For each path, link intent/decision, requirement/spec,
+   implementation and verification, or identify the missing/unknown/disputed link. Do not backdate inferred intent.
+4. Return F2a for Lane B's independent review; continue independent F2b/F2c drafting in the stated order. Answer
+   dependent findings before claiming their conclusions accepted. F3–F5 derive from the assessed findings;
+   their drafts may progress where the necessary inputs are available. F6 reviews the completed planning unit.
+5. Retain Q3 with Lane A as owner: add B-156's actual state at the next authorized tracker re-derivation before
+   a consuming gate claim. Applying a justified map or other repair remains outside this planning unit.
+
+The Chief Editor needs no decision to start this work. A later execution choice must identify the exact missing
+authority and all option impacts. Inventory scope, audit findings, temporal drift, success comparison, handoff
+resolution and Judge acceptance are separate facts. A workload concern must not become an unsupported new gate.
+Lane B raises/reviews, Lane A answers, and Lane C supplies scoped workflow/host review. No unchanged capability
+requires another trial merely to support wording. P15 / D-434 and SM05 / Gate 2 retain their existing boundaries.
+
+**Consistency and drift:** run the full consistency suite before this one-path review commit. This is a handoff
+correction and review only. No graph sync is needed; tracker staleness is separate from graph currency.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | F1 acceptance retained; Status/Resolution corrected; §5A no-defect conclusion for the two build-config files | Phase 1: review and tracking correction only; semantic agreement remains F2 |
+| Approve-with-conditions | F2 staged returns under existing drafting approval | Phase 1: use 16 / 62 / 146, source-pinned findings, explicit vocabulary and independent review of conclusions |
+| Defer | Applying justified repairs, Q3 tracker edit and any push | Existing bounded application sequence; Q3 at next authorized re-derivation; no push included |
+| Reject | 57-path remainder; rejecting a single packet solely because of row count; automatic slice approval gates; decision-ID existence as semantic proof | Phase 1: use the corrected reconciliation and evidence limits above |
