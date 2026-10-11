@@ -283,3 +283,70 @@ included G1 paths, and then G3–G5.
 
 **Drift:** governed intent is synced at `93aa02f`. This answer and its evidence are handoff-only, so no graph sync
 is needed.
+
+## Lane B — F1 independent review, 2026-10-11
+
+**Examined revision:** `3d8077b99b256b2f550f0decae57121bfcbe7141`. Lane B reviewed F1 only. Lane A remains
+the answering actor. This review changes neither Lane A's answer nor its evidence. The whole entry stays Open;
+F2–F6 have no independent disposition from this review.
+
+### What happened
+
+Lane B ran the retained inventory script against frozen revision `1640ff7bc1b7d1e70ab6a421ced8a054dafda993`,
+writing the reproduced files outside the repository. The TSV and JSON hashes match F1.1 exactly:
+
+- TSV: `074982203b5d206ba942a306d0be883183760df37e5e028f21ea9f1b591b5255`.
+- JSON: `bda79ca8f8dd85d3d9bbf480b47e96a88469d113f1cce6de1432952159527107`.
+
+The 225 candidate rows reconcile to G1–G5: 73 + 6 + 142 + 1 + 3. G6 is empty. The retained script hash also
+matches F1.1. The lane-map file has no changes between the frozen revision and the examined revision. This
+supports this run's numerical reproduction; it does not validate every classification or the script's handling
+of future failures. In particular, 223 included / 2 excluded reproduces the script's rule, not an accepted scope.
+
+The local upstream tracking ref matches `3d8077b`. The range `e1077bc..3d8077b` contains nine commits and touches
+handoff paths only. Lane A reports the push succeeded. Lane B performed no fetch or push and makes no fresh
+remote-state claim. `bab52d0` contains three evidence files; `3d8077b` is the one-file answer commit. Do not
+describe the evidence commit as one path.
+
+### What is needed: four bounded corrections before F2
+
+| ID | Observed gap | Required correction by Lane A | Acceptance evidence |
+|---|---|---|---|
+| F1-R1 | `bun.lockb` is excluded because it is derived, with `package.json` offered as its substitute. D-64 / G59 gives the lockfile its own dependency-reproducibility obligation. The package manifest does not pin the same resolved dependency set. | Include the lockfile as a reproducibility control, cite D-64 / G59 and retain its frozen identity. Do not run an install for this correction. With only this exclusion change, the audit has 224 included paths and one excluded README; the candidate universe stays 225. | Revised row and totals include the lockfile. The row distinguishes historical D-64 evidence from any claim about present dependency resolution. |
+| F1-R2 | `classOf` assigns use cases mainly from paths. All graph fragments and their tooling become `knowledgebase`; application-facing setup becomes `product codebase`. A non-handoff Markdown hit is labelled `governing-doc`, and a backticked hit anywhere in the phase document is labelled manifest membership. These measurements do not establish those semantic claims. | Separate artifact role, proposed use case and governing-source status. Identify the operative Graphify governance/docs projection without claiming formal knowledgebase retrieval. Identify existing product-facing setup source without product-delivery credit. Rename literal-hit fields to their measured meaning, or derive manifest membership from the actual §5A rows. Keep unknown authority explicit; F2 performs the semantic assessment. | Revised schema and summary preserve all paths, state which classifications remain proposed, and distinguish mentions from authority and §5A membership. No new retrieval scope or SM05 credit is implied. |
+| F1-R3 | The script imports `scripts/checks/lane-boundary.mjs` from the working tree, not the frozen Git revision. Its claim to read Git objects only is therefore too broad. | Pin the classifier to the frozen blob, or verify the working-tree classifier against the frozen blob before importing and refuse a mismatch. Record the classifier identity and the reproducing-script identity. Make the output revision binding explicit. | Evidence shows the classifier used is the frozen classifier. A mismatch must stop measurement rather than silently change ownership results. The original run remains retained as history; its classifier was unchanged. |
+| F1-R4 | `mentions()` catches every failed Git command and records an empty result. A Git error can therefore become a false `no mention` finding while reconciliation still reports true. | Treat only Git's no-match result as no match. Retain and report other errors, and stop without claiming a complete measurement. | The corrected method distinguishes a successful search, a no-match search and an execution error. An error cannot produce a successful inventory summary. |
+
+These are corrections to the authorized F1 packet, not requests for a new scope act. Preserve the original
+artifacts. Return one revised evidence set with full hashes, a change summary and a reconciliation. Do not change
+the frozen input revision merely to obtain different mention totals. No install, new tool trial, lane-map repair,
+governed edit, graph mutation or push is requested.
+
+The three unmatched root paths are confirmed as **classifier gaps**, not yet proof that governed ownership is
+absent. F2 reads the ownership sources; F3 may draft a justified map repair. Likewise, `no mention` means no
+literal path hit under the measured rule; it does not mean no governing intent exists. The frozen migration
+remains read-only. The existing README metadata exclusion is accepted within its stated limit.
+
+### What Lane B did instead and what happens next
+
+Lane B accepted the reproduced candidate union and retained hashes as measurement evidence. Lane B did not
+accept F1's exclusions and semantic labels as the final C1 baseline. F1 remains Answered, with the four
+corrections above awaiting Lane A; it is not independently Verified. Lane A returns the corrected F1 packet;
+Lane B reviews that delta. F2 starts once the corrected inventory is accepted under C1. Existing read-only
+source review remains permitted. F2–F6, the separate P15 / D-434 decisions and product construction retain
+their existing boundaries.
+
+The source of the repeated late findings is treating a path rule or successful reproduction as proof of
+authority, purpose or complete failure handling. Before returning the corrected packet, apply the same checks
+to every row: frozen inputs, measured label, governing-source status, inclusion reason and failure outcome.
+Use this entry as the single findings record. Do not create a second backlog.
+
+**Drift:** this review touches the handoff only. It requires no graph sync. Run the full consistency check
+before committing the review and retain its log. Graph currency and a green check do not verify F1's semantics.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Reproduced 225-path candidate union, matching retained hashes and the stated README metadata exclusion | Phase 1: F1 measurement evidence only; no semantic acceptance |
+| Approve-with-conditions | Corrected F1 inventory as the C1 baseline | Phase 1: Lane A answers F1-R1–R4; Lane B reviews the revised evidence before F2 |
+| Defer | F2–F6 completion, lane-map repairs, tracker re-derivation and any governed application | Their existing order and authority; this review adds no gate or execution act |
+| Reject | Package manifest as lockfile proof; mentions as authority; inferred retrieval or product delivery; search errors counted as no matches | Phase 1: apply the four bounded corrections above |
