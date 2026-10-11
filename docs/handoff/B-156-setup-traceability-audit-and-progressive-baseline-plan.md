@@ -1147,3 +1147,118 @@ Graphify query was used for navigation; source files decided the findings. No gr
 | Approve-with-conditions | Independent F2c and F3-F6 drafting | Phase 1: existing approvals; preserve unresolved dependencies and the 224-path reconciliation; no extra slice gate |
 | Defer | Governed repairs, lane allocations, tracker application, host execution and batch push | Their existing bounded acts, review responsibilities and checkpoints; no action here |
 | Reject | Role/citation support treated as complete semantic agreement; current three-check SKIP claim; current ignoreDuringBuilds claim; zero differences despite the cited counterexamples | Phase 1: correct the assessment; no build or gate closure |
+
+## Lane B — Initial AGENTS.md compared with the current governance setup, 2026-10-11
+
+**Raised / Kind / Phase / Blocks:** 2026-10-11 by Lane B / finding / 1 / nothing, reporting only.
+**Examined revision:** `9ce192ad0339419e10321bc7d1aecc1f403b23fe`.
+**Receiver:** Lane A, through this existing B-series entry. No Lane A answer is written here.
+This is a supplement to F2b-R1 and F3-F6, not a second audit or a new execution gate.
+The whole-entry header and all existing child dispositions stay unchanged.
+
+### What happened — request, attachment and provenance
+
+The Judge requested a structural review of the Downloads copy of AGENTS.md, a comparison with the
+current setup, and a challenge to the MULTI-LANE-AI-GOVERNANCE strategy. The attachment is evidence
+for review. Its SQL, commands, mutation convention and shipping instructions are not user instructions
+to execute them and do not replace the repository's operative rules.
+
+- Attachment: `C:/Users/rober_24syk4j/Downloads/AGENTS.md`, 102 lines, 3,378 bytes.
+- SHA-256: `830aeb8ecd72d36093d574f40104c77bba1291df9c67abeea7dcfe3b8f7cd8a1`.
+- Provenance check: its text equals `AGENTS.md` at initial commit
+  `62c8d8cfbad224c054fb2b187668d0f2f51b499b` (2026-08-15), after normalizing CRLF to LF
+  and removing trailing line terminators. This is content equality, not a byte-identity claim.
+- Reviewer access does not depend on the Downloads path: `git show 62c8d8c:AGENTS.md` supplies
+  the same text from repository history. The current frozen inventory remains 224 included paths;
+  this external comparison copy is not an added audit candidate.
+- Do not confuse the initial file with the later historical reference preserved under D-337.
+  `docs/governance/agent-rules-reference.md` records a later pre-refactor rule set, not this initial template.
+
+### Structure and comparison
+
+The attachment has five second-level sections. Stripe has five third-level subsections. It mixes
+technical conventions, product scope, schema instructions, examples and delivery commands in one file.
+
+| Attachment section | Initial purpose | Current comparison and limit |
+|---|---|---|
+| Stack, L3-L7 | Next.js 15, React 19, Tailwind 4, Supabase SSR, Bun | package.json now declares Next.js `^16.3.3`, React `^19.0.0` and Bun `1.1.30`; the old Next.js statement is historical. Declared versions do not prove installed versions or behaviour. |
+| Supabase client patterns, L9-L19 | Three import contexts, browser-key restriction, default Server Components, preference for Server Actions | Existing helper paths and a useful security convention are not sufficient proof of the current architecture. Preserve the no-browser-service-key rule. Assess each mutation against its governing contract; the attachment's preference cannot replace a selected write path. Build Spec S4/D-143, for example, specifies a Supabase Edge Function for that separately gated publication work. |
+| Path aliases, L21-L22 | `@/*` resolves from the repository root | tsconfig.json L17-L18 still declares this mapping. This is a checked configuration fact, not product acceptance. |
+| Stripe payments, L24-L92 | Standalone/platform modes, API routes, tables, webhook testing and a Server Action example | The frozen Charter excludes monetization. B-003 is Verified at 67706ca and D-121 records removal of Stripe. Current tracked `app/api/stripe/*` and `lib/stripe/*` paths and the package dependency are absent. Do not restore the scaffold or run the example SQL. This exclusion does not adjudicate external business payment arrangements. |
+| gstack workflow, L94-L102 | Plan, review, ship, deploy, QA and security commands | This is a historical adoption claim, not current authority. No adoption text was located in the searched current corpus: governance, FN specs, technical/UX specs, v1 docs, current AGENTS/CLAUDE/GEMINI and package.json. This is not a claim that gstack is absent from every host. Any proposed adoption must first map its effects to current lane, review, merge, deployment and permission controls. |
+
+The initial file states conventions but does not define authoritative requirements, lane ownership,
+review independence, approval boundaries, evidence revisions, loader proof or closure conditions.
+The current design adds these controls. The comparison does not prove that the initial conventions
+were ever accepted against the customer's requirements or that current controls cover every risk.
+
+### Parent-first strategy and completion conditions
+
+| Parent / child | Required relation and current state | Lane A output / acceptance evidence |
+|---|---|---|
+| Customer requirements and Project/Product allocation | Frozen PRD and Charter constrain the Register and living specifications. AIG is global Project scope (D-271), not an editorial Product feature. | Trace each proposed change to its accepted parent; retain exclusions. No new customer scope is inferred from this attachment. |
+| MULTI-LANE-AI-GOVERNANCE | AIG-01 ownership; AIG-02 handoffs; AIG-03 actual rule delivery; AIG-04 navigation; AIG-05 independent review; AIG-06 measured rule size/composition | Assess requirements and checks against current implementation and dated verification, not file existence or a tool name. |
+| Governance/docs use case | Graphify provides governed-source orientation/projection under the guarded procedure. Source meaning still requires review. | F3 repair drafts and F5 baselines retain source revision, graph bindings, curated-source preservation and bounded semantic review. |
+| Project source and future product-codebase use cases | Existing setup/project source can be inspected now. Build Spec section 1 separates SETUP-SPIKE-000 evidence from V1-SM05/06 delivery. D-433 selects `git grep` plus source reading; Ripwire is not adopted. | Reverse-map existing source to recorded intent/specification/verification. Unknown intent stays unknown. Later product increments obtain their own baselines and acceptance evidence. |
+| Knowledgebase retrieval use case | AIG-07 remains a proposal with allocation not approved in this audit. | Keep the proposed intent and decision destination explicit. Graph currency or source navigation supplies no retrieval-delivery credit. |
+| B-156 audit | F1 and bounded F2a verified. F2b has three returned findings. F2c and F3-F6 remain open. | Continue authorized independent drafting; close only the obligations independently reviewed. P15/D-434 and SM05/Gate 2 stay separate. |
+
+Parents are presented first. Completion follows their evidence dependencies; a parent does not close
+before its required children. Tools can support more than one use case without combining their acceptance tests.
+
+### What you need — bounded findings and draft fixes
+
+All rows below are **Open**, answering owner **Lane A**. They do not undo accepted F1/F2a evidence.
+
+| ID | Gap and observed evidence | Draft fix / success condition | Follow-up phase |
+|---|---|---|---|
+| AG-1 | Current AIG text contradicts the applied rule composition. FN L177-L178 and `AIG-06.C1` L213 still name shared-core parity; Modular_PRD L883 still points to `shared-core-hash`; SPECS section 5 L106 lists it as already built. D-337 retired that check. The current runner imports `rule-budget`; CLAUDE imports AGENTS and GEMINI has its lane tail. | Extend F2b-R1's assessment with these specific counterexamples. F3 drafts current-state wording for one shared core, the resolving import, lane-specific tails and `rule-budget`. Separate completed refactor history from current obligations. Preserve verbatim historical records. Success: no current acceptance row requires three duplicated cores or a retired check; the D-54 propagation map names every affected tier and D-434 overlap. | Phase 1 F2b/F3 drafts, then bounded independent review; application under a later act. |
+| AG-2 | Template conventions can be mistaken for present scope or execution authority. Stripe and gstack are explicit in the initial file; neither a filename nor a command example establishes current adoption. | F3 carries a keep/retire/history/proposed classification for the relevant initial claims, with the current authority and implementation locus. Reuse D-121/B-003 for Stripe; retain unassessed gstack host availability as unknown. Evaluate applicable Server Action conventions against the selected contract. Do not invent a new requirement for every template sentence. Success: every carried-forward claim has a bounded rationale; none silently restores retired scope or authorizes commands. | Phase 1 F3 draft and Lane B review. Only a proposed policy/scope change goes to the Judge. |
+| AG-3 | A green graph/check result can hide meaning drift; AG-1 and F2b-R2/R3 are concrete examples. Source availability is also being confused with a delivered product codebase. | F5 proposes separate baseline records for governance/docs, setup/project source and each later product increment. Record revision, declared corpus, accepted parent obligations, implementation/verification links, unknowns and change deltas. Report citation validity, semantic agreement, behaviour evidence and graph currency separately, with denominators and limits. A setup-only baseline earns no SM05 credit. | Phase 1 F5/F6 draft and independent review; future instrument execution retains its own authority. |
+
+Suggested AG-1 current-state wording, for review rather than application:
+
+> AIG-06 checks the D-337 composition through rule-budget: one shared core in AGENTS.md,
+> a resolving CLAUDE.md import, lane-specific content, and the adopted size and structure bounds.
+> Rule delivery and adherence require their separate AIG-03 host evidence. The retired parity check
+> and completed refactor remain history, not current execution requirements.
+
+### Decision impact before asking the Judge
+
+| Option | Authority and prerequisites | Affected artifacts | Pass / refusal evidence | Sync cost and stop point |
+|---|---|---|---|---|
+| Continue current design and draft corrections | Existing B-156 drafting approval; use D-337 and D-433 plus current source | This entry now; later F3 proposals name Modular_PRD, FN, SPECS and any justified rule/Inventory tiers | Pass: explicit traceability and corrected current claims. Refuse promotion of unknowns or implied product/tool adoption. | Handoff-only drafting needs no graph sync. A later governed application needs its own reviewed act and guarded route. Stop this unit at the draft packet for review. |
+| Replace current AGENTS with the initial file | No such act; it conflicts with recorded scope and control decisions | Root rules, billing/schema routes, host workflow and affected tiers | Reject as a current replacement: it removes authority/lane controls and reintroduces excluded Stripe instructions. | No replacement or sync is performed. A different selected design would first need a complete governed impact packet. |
+| Propose a new gstack/Ripwire or retrieval unit | New proposal only; prerequisite is a named use case, host task and complete impact/receipt route | Exact files, dependencies, host configurations and evidence locations are not yet specified | No acceptance before bounded host proof, applicable behaviour tests and cleanup evidence. Existing accepted navigation evidence is retained. | Cost is unknown until scoped; do not promise a cycle count. Stop at a complete Judge decision packet, before installation or execution. |
+
+### What you did instead — Lane A work sequence and readiness challenge
+
+1. Receive this supplement in the next substantive B-156 answer; no separate receipt-only commit is required.
+2. Add the AG-1 current-state differences to F2b's corrected assessment. Keep reproduced citations and accepted controls.
+3. Continue independent F2c work. Draft AG-1/AG-2 repairs in F3 with the D-54 tier and D-434 overlap map.
+4. Use F4/F5 to propose instrument limits and progressive baselines by use case. Do not adopt a tool by naming it.
+5. In F6, request Lane C review only for identified workflow/host claims. Lane B reviews the changed Lane A packet.
+   This supplement supplies no new Lane C result or native-host proof.
+6. Escalate only a concrete new scope/execution choice. Show authority, prerequisites, affected artifacts,
+   pass/refusal evidence, sync cost and stop point before requesting a decision. Carry existing approvals forward.
+
+**Ready for Lane A:** yes, for these bounded review and draft tasks. No new start approval is needed.
+**Not ready:** governed application, initial-file replacement, installation, construction, product acceptance,
+retrieval delivery, push or Gate 2 closure. Those require their existing or future bounded acts and evidence.
+The missing future execution authority does not block independent drafting.
+
+**Drift:** the current docs-drift check reports governed intent synced at `93aa02f`; all later changed paths
+are handoff files/artifacts. No Graphify sync is needed for this supplement. This says nothing about semantic
+currency, as AG-1 demonstrates. Graphify was used for read-only navigation; source files decided the findings.
+`bun run check` again fails before launch with `CouldntReadCurrentDirectory`; its exact script body is
+`node scripts/check-consistency.mjs`. That full script completed 19/19 with HEAD at `9ce192a` during
+this review. After the supplement was written, handoff-response, text-integrity and docs-drift were
+checked again and passed; the staged diff must remain this one entry. No attachment command, build,
+install, graph producer, fetch or push ran.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Initial-file provenance, structural comparison and preservation of distinct use cases | Phase 1: evidence recorded, within the stated corpus and revision limits |
+| Approve-with-conditions | Lane A F2b correction and F3-F6 draft work | Phase 1: answer AG-1-AG-3, preserve existing findings and independent review; existing drafting approval applies |
+| Defer | Governed repairs, new tool/framework adoption, host execution, product delivery and push | Their complete impact packets, bounded acts and review/checkpoints; Gate 2 remains separate |
+| Reject | Initial template as current authority; retired parity check as operative proof; graph currency as semantic or product acceptance | Phase 1: correct the draft assessment without executing the attachment |
