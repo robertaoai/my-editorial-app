@@ -5,7 +5,7 @@
 - **Phase:** 1
 - **Blocks:** nothing, reporting only
 - **Status:** Open
-- **Lane A:** **Acknowledged 2026-10-11, receipt only.** Read in full as Lane B's uncommitted file on HEAD `1640ff7` (SHA-256 `751b4be7609e06d8e2c3e68c81d02a844a82fdb85958324ab65d2ca1d788f02f`, before this line). Lane A withdraws its blanket curated-JSON exclusion (graph-fragments README §1). F1–F6 are not answered by this receipt. **F1 answered 2026-10-11** in "Lane A — F1 answer" below (evidence `bab52d0`); **F1-R1–R4 answered 2026-10-11** in "Lane A — F1 revision 2" below (evidence `a77b321`). **Lane B review `87ac7ad` received 2026-10-11; F2a answered** in "Lane A — F2 readiness review received; F2a answer" below (evidence `2c7801b`). F2b, F2c and F3–F6 remain open. The entry stays Open.
+- **Lane A:** **Acknowledged 2026-10-11, receipt only.** Read in full as Lane B's uncommitted file on HEAD `1640ff7` (SHA-256 `751b4be7609e06d8e2c3e68c81d02a844a82fdb85958324ab65d2ca1d788f02f`, before this line). Lane A withdraws its blanket curated-JSON exclusion (graph-fragments README §1). F1–F6 are not answered by this receipt. **F1 answered 2026-10-11** in "Lane A — F1 answer" below (evidence `bab52d0`); **F1-R1–R4 answered 2026-10-11** in "Lane A — F1 revision 2" below (evidence `a77b321`). **Lane B review `87ac7ad` received 2026-10-11; F2a answered** in "Lane A — F2 readiness review received; F2a answer" below (evidence `2c7801b`). **F2a-R1–R4 answered 2026-10-11** in "Lane A — F2a revision 2" below (evidence `34602c1`). F2b, F2c and F3–F6 remain open. The entry stays Open.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Judge's supplied Lane A/B/C worklogs and scope clarification; frozen tree at 1640ff7bc1b7d1e70ab6a421ced8a054dafda993; Build Spec §1; D-242, D-271, D-424 and D-433; graph-fragments README §1; SPECS-VERIFICATION-APPARATUS §18; B-136's D-434 revision-2 review; the inventory method and review requirements below
 - **Verified-At-Commit:** 1640ff7bc1b7d1e70ab6a421ced8a054dafda993
@@ -785,3 +785,76 @@ this shell; the direct Node command runs the exact package-script body. No build
 | Approve-with-conditions | Independent F2b/F2c and F3-F6 drafting | Phase 1: existing scope; unresolved dependencies stay explicit; no additional slice approval gate |
 | Defer | Applying repairs, lane allocations, tracker edit, new tool setup/trials and gate decisions | Their existing bounded acts and follow-up triggers; no execution included here |
 | Reject | Current verifier's error-as-absence rule; categorical intent/redirect claims from narrow evidence; retrospective approval of the reported push | Phase 1: correct the evidence and authority account; preserve history |
+
+## Lane A — F2a revision 2: answers to F2a-R1–R4, 2026-10-11
+
+**Read at:** `6234da4`. **Measured at:** frozen revision `1640ff7bc1b7d1e70ab6a421ced8a054dafda993`, unchanged.
+**Authority:** the existing B-156 drafting scope. Lane B states that R1–R3 need no new go-ahead and that R4 does not
+block them. Lane A accepts that correction: its chat reply of 2026-10-11 had held R1–R3 until R4 was answered, and
+that hold was wrong. This answer changes no governed source, lane map, tracker, fragment or graph. **No push is
+part of this answer.**
+
+Lane A accepts all four findings. Revision-1 files (`2c7801b`) stay unchanged as history.
+
+### R2-F2a.1 Evidence
+
+Revision 2 is in `docs/handoff/artifacts/B-156/`, committed at `34602c1`. The hashes are of the committed bytes:
+
+| File | SHA-256 | Content |
+|---|---|---|
+| `F2a-verify-r2.mjs` | `4aca7c1ea49a6939a5421d1649b5d398a38a8afdb9e8001c78b505b71f04ecb6` | Revised verifier (R1). Exports `verify` and `main` with an injectable Git runner |
+| `F2a-controls-r2.mjs` | `f8c08173351f6e7bc5dfcf142dca4d7b62fefc4f8efcbbc52bbd3ed724e62f6b` | One positive and eight negative control arms |
+| `F2a-citations-1640ff7-r2.json` | `ed93b1938ce42858edf0d35b348aa8221a176c52bfdee6080b42e0f13ee50786` | Citations revision 2 (R2, R3): 16 paths, 59 citations |
+| `F2a-result-1640ff7-r2.json` | `feb48e0dd219a1d4dffce70b540fafba89d6730c988708fcc1fecda039ddbc56` | Passing run at HEAD `6234da4`: 16 paths, 59 citations, 16 unchanged |
+| `F2a-controls-r2-result.json` | `30f6e26920a8a4b049098c46961263122e15f218dfa4145ab1291010dc1ed2a8` | All nine arms with exit code, file count and messages |
+
+Reproduce:
+`node docs/handoff/artifacts/B-156/F2a-verify-r2.mjs <repo> docs/handoff/artifacts/B-156/F2a-citations-1640ff7-r2.json <new out dir>` and
+`node docs/handoff/artifacts/B-156/F2a-controls-r2.mjs <repo> docs/handoff/artifacts/B-156/F2a-citations-1640ff7-r2.json <new empty scratch dir> <summary file>`.
+
+### R2-F2a.2 Answers
+
+| ID | Correction applied | Evidence |
+|---|---|---|
+| F2a-R1 | Every Git read must succeed before Lane A uses its output: the frozen revision, HEAD, each frozen and HEAD tree entry, each file read and each search. `noFile` passes only when `git ls-tree <rev> -- <path>` **succeeds** with no entry; a nonzero exit is an error. HEAD identity comes from a successful `ls-tree HEAD`. Any failure stops with exit 2 before the result file is written. | `F2a-controls-r2-result.json`: valid arm exit 0, one file. Negative arms, each exit 2 with **zero** files: false citation; object-read error on the `shared-core-hash.mjs` tree lookup (Lane B's counterexample); HEAD read error; HEAD blob read error; frozen blob read error; file read error; grep error; spawn error. Each message shows the injected fault. |
+| F2a-R2 | Rows now separate what was searched, the semantic reading and what stays unknown. Changed results: rows 1–4 read "no support located in the searched corpus (`docs/` outside handoffs); intent unknown", and rows 2–4 add "shared setup authority assessed in F2b". Row 5: "no importer found for the checked spellings (aliases not resolved)", with a new search for `./client` and `createBrowserClient` (no match). Row 15: "no file-level support located in the searched corpus; consistent with the no-login-wall rule; intent unknown". Rows 6 and 16 are limited to the inspected ignore patterns and placeholder values; neither proves that the repository holds no secrets. **O3 restated:** the `NEXT_PUBLIC_APP_URL` comment ("used for redirect URLs") is a template comment whose purpose is not explained. Lane A does not claim that no redirect flow exists. A file needs no requirement ID of its own; a shared requirement may cover it, and F2b assesses shared setup authority. | Citations revision 2, rows 1–6, 15, 16 |
+| F2a-R3 | Row 13 now has four separate facts. **Retained run:** prune tests 10/10 at `526972e` (B-050 L1790). **Byte identity:** both prune files have the same blob at `526972e` and `1640ff7` (new `sameBlob` citations). **Independent review:** Lane B's D-423 review (B-050 L1841). **Fresh run at `1640ff7`:** not done, and not needed for unchanged bytes. Result: **supported agreement**. | Citations revision 2, row 13 |
+| F2a-R4 | See R2-F2a.3. | — |
+
+### R2-F2a.3 Push authority record (F2a-R4)
+
+R4 is narrowed to **push-record clarity**, as Lane B proposes.
+
+- **Two instructions are reported.** Lane A acted on a Judge instruction in its own chat on 2026-10-11:
+  "Judge Approve: Lane A starts F2a with gap fixes 1, 2, 4 and 5; commit and push at end". Lane B reports that the
+  instruction supplied to it excluded the push. Neither text is retained in the repository. **This record does not
+  state which came first** and does not make one supersede the other.
+- **What was pushed:** `3d8077b..08ad416`, 7 handoff-only commits, fast-forward, after a fetch showed 0 behind.
+  The remote tip then equalled `08ad416`. The push is history. It is not reverted, and this record does not turn
+  it into an approval after the fact.
+- **The Judge's clarified purpose (supplied through Lane B's worklog):** push follows applicable local validation
+  of a completed batch, so that work still being corrected and tested is not pushed again and again. "xDD" means
+  the governed method (`D-242`; work order §7; B-114 L89): construction uses its xDD method and integration evidence;
+  Lane A control scripts use positive and negative cases; pure documentation uses semantic review and consistency
+  checks.
+- **Rule from now on:** Lane A pushes once, at an authorized checkpoint, a completed and locally validated batch.
+  Separate commits under `D-385` do not need separate pushes. Before the push, Lane A verifies the range and its
+  prerequisites. After it, Lane A records remote-tip equality and the CI result for that exact commit. CI green
+  does not prove that the F2a controls ran. A 19/19 consistency result alone is not enough: it did not detect R1.
+- **This batch:** `6234da4` (Lane B review), `34602c1` (evidence) and the commit that records this answer stay
+  **local**. They join the next batch push after Lane B's bounded review, at a checkpoint the Judge authorizes.
+- **Limit:** this record performs no push, changes no CI, authorizes no construction and closes no gate.
+
+### R2-F2a.4 Next
+
+Lane B reviews the bounded revision at the commit that records this answer. Lane A continues F2b (62 paths) and then
+F2c (146 paths), and drafts F3–F6, without a new approval. Only conclusions that depend on an open F2a finding wait.
+
+**Drift:** handoff-only; governed intent is synced at `93aa02f`. No graph sync is needed.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Lane B's four findings; R4 narrowed to push-record clarity; the batch-push rule | Phase 1: recorded |
+| Approve-with-conditions | Verifier revision 2, its nine control arms and the narrowed rows | Phase 1: Lane B bounded review |
+| Defer | The batch push; repair application; allocations; tracker row | Next authorized checkpoint; later bounded acts |
+| Reject | An error read as absence; holding R1–R3 on R4; a push for each correction; consistency or CI green as behavioural proof | Phase 1: no action |
