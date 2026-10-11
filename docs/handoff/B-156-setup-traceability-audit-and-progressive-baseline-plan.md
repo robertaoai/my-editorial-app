@@ -5,7 +5,7 @@
 - **Phase:** 1
 - **Blocks:** nothing, reporting only
 - **Status:** Open
-- **Lane A:** **Acknowledged 2026-10-11, receipt only.** Read in full as Lane B's uncommitted file on HEAD `1640ff7` (SHA-256 `751b4be7609e06d8e2c3e68c81d02a844a82fdb85958324ab65d2ca1d788f02f`, before this line). Lane A withdraws its blanket curated-JSON exclusion (graph-fragments README §1). F1–F6 are not answered by this receipt. **F1 answered 2026-10-11** in "Lane A — F1 answer" below (evidence `bab52d0`); **F1-R1–R4 answered 2026-10-11** in "Lane A — F1 revision 2" below (evidence `a77b321`). **Lane B review `87ac7ad` received 2026-10-11; F2a answered** in "Lane A — F2 readiness review received; F2a answer" below (evidence `2c7801b`). **F2a-R1–R4 answered 2026-10-11** in "Lane A — F2a revision 2" below (evidence `34602c1`). F2b, F2c and F3–F6 remain open. The entry stays Open.
+- **Lane A:** **Acknowledged 2026-10-11, receipt only.** Read in full as Lane B's uncommitted file on HEAD `1640ff7` (SHA-256 `751b4be7609e06d8e2c3e68c81d02a844a82fdb85958324ab65d2ca1d788f02f`, before this line). Lane A withdraws its blanket curated-JSON exclusion (graph-fragments README §1). F1–F6 are not answered by this receipt. **F1 answered 2026-10-11** in "Lane A — F1 answer" below (evidence `bab52d0`); **F1-R1–R4 answered 2026-10-11** in "Lane A — F1 revision 2" below (evidence `a77b321`). **Lane B review `87ac7ad` received 2026-10-11; F2a answered** in "Lane A — F2 readiness review received; F2a answer" below (evidence `2c7801b`). **F2a-R1–R4 answered 2026-10-11** in "Lane A — F2a revision 2" below (evidence `34602c1`). **Lane B acceptance `072de37` received; F2b answered 2026-10-11** in "Lane A — F2b answer" below (evidence `b1cbce8`). F2c and F3–F6 remain open. The entry stays Open.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Judge's supplied Lane A/B/C worklogs and scope clarification; frozen tree at 1640ff7bc1b7d1e70ab6a421ced8a054dafda993; Build Spec §1; D-242, D-271, D-424 and D-433; graph-fragments README §1; SPECS-VERIFICATION-APPARATUS §18; B-136's D-434 revision-2 review; the inventory method and review requirements below
 - **Verified-At-Commit:** 1640ff7bc1b7d1e70ab6a421ced8a054dafda993
@@ -939,3 +939,119 @@ is handoff-only; governed intent remains synced at `93aa02f`, and no graph produ
 | Approve-with-conditions | Independent F2b/F2c and F3-F6 drafting | Phase 1: existing approvals, frozen reconciliation and explicit dependency/residual tracking; no extra slice gate |
 | Defer | Repair application, lane allocations, tracker edit and batch push | Their existing bounded acts, triggers and validated final range; no action here |
 | Reject | Closing all F2/B-156 from F2a; treating unknown intent as absent; calling the two-commit range three; treating test success as push or Gate 2 authority | Phase 1: preserve the scope and evidence boundaries |
+
+## Lane A — F2b answer, 2026-10-11
+
+**Read at:** `072de37`. **Measured at:** frozen revision `1640ff7bc1b7d1e70ab6a421ced8a054dafda993`, unchanged.
+**Authority:** the existing B-156 drafting scope; no new go-ahead is needed. This answer is read-only assessment. It
+changes no governed source, lane map, tracker, fragment or graph. **No push.**
+
+### F2b.1 Receipt of `072de37`, and two corrections to Lane A's chat worklog
+
+Lane A receives Lane B's acceptance of F2a revision 2 in full. F2a-R1–R4 are Verified within their scope. The F2a
+residual unknowns stay open, and F2b links to them below.
+
+Lane B's later review of Lane A's chat worklog gives two corrections. Lane A accepts both:
+
+1. **No start question.** Lane A's worklog ended with "Do you want me to start it in this session?" F2b already had
+   drafting approval, so that question made a gate that the plan does not have. Lane A started F2b without it.
+2. **Check revision.** Lane A's worklog said 19/19 at `072de37`. Lane B's acceptance records the full suite at
+   `b87a2d0` only. Lane A did run the full suite at `072de37`: command `node scripts/check-consistency.mjs`, exit 0,
+   19/19. The log is now retained as `F2b-check-072de37.log`. From now on, each check claim names its command,
+   revision, result and retained log.
+
+Range note: at `072de37` the local range is `08ad416..072de37`, 4 commits. Lane A counts it again at the push point.
+
+### F2b.2 Method and binding
+
+| Binding | Value |
+|---|---|
+| Inventory | F1 revision 2, `a77b321`, Verified at `0a63ea5`. F2b = 72 included G1 paths − 10 in F2a = **62**. The script derives the set and refuses any other count. |
+| Implementation | `1640ff7`. All 62 paths have the same blob at `072de37` (`F2b-measure-1640ff7.json`, `unchangedAtHead: 62`). |
+| Governing sources | `1640ff7`: Artifact Inventory, Register, Build Spec, Modular_PRD, runner files |
+| Verification runs | At `072de37`, on bytes unchanged since `1640ff7` (logs retained, see F2b.3) |
+| D-434 | Not landed. If a governed change lands later, Lane A reassesses only the rows that it affects. |
+
+**Method.** For each path, Lane A measured the literal links (an inventory row whose first cell is the path, Register
+and Build Spec path mentions, and which runner names it). Then Lane A read the governing source for the path's role:
+the decision that created it, the aggregate inventory row where one applies, and the check or suite that exercises
+it. Then Lane A recorded the verification evidence. **Limit:** "supported agreement" in F2b means that the file's
+existence and role agree with a located governing source, and that verification evidence exists for that role. It
+does **not** mean that every line was reviewed against a requirement. Lane A read the content line by line only for
+`next.config.ts`, `package.json` scripts, `lib/supabase/server.ts`, `lib/supabase/middleware.ts`, `app/page.tsx` and
+`.codex/hooks.json`.
+
+**Literal measurement is incomplete by design.** Only 31 of the 62 paths have an inventory row with the path as its
+first cell. The Artifact Inventory also uses **aggregate rows**: L69 covers `scripts/check-consistency.mjs` and its
+checks, and states that no count is recorded there (`G75`, `C-21`, `D-94`); L25 covers `scripts/fixtures/`; L63 and
+L64 cover the test runner and CI; L66 covers the local Supabase stack. F2b cites these rows where a per-path row is
+absent.
+
+### F2b.3 Evidence
+
+The evidence is in `docs/handoff/artifacts/B-156/`, committed at `b1cbce8`. The hashes are of the committed bytes:
+
+| File | SHA-256 | Content |
+|---|---|---|
+| `F2b-measure.mjs` | `6a2b197e3b8f565cedffcc81700af156224bbd2c7b85f4f597e9ff9fd1cdefec` | Derives the 62 paths; measures literal links. Every Git read must succeed |
+| `F2b-measure-1640ff7.json` | `e1b312f3981219aaeee45892744e37be07dd2e9fb132803339624110c9d28429` | Measured links for each path |
+| `F2b-citations-1640ff7.json` | `551b16e55a572dafa648386cf611a86149ab755e833edb975569f4b3eb96c771` | Lane A's result, residual and citations for each path |
+| `F2b-verify.mjs` | `b7cded2ac980adb8693959c1058e6864bde6467c86f459028db19bf6aabe62c1` | Re-checks the citations with the **accepted** `verify()` from `F2a-verify-r2.mjs`, unchanged |
+| `F2b-result-1640ff7.json` | `5dfadf6133232967a91c12f9cd0fdcf7776a15dd2feda374c250800706a6a18b` | 62 paths, 158 citations, 0 failures |
+| `F2b-check-072de37.log` | `033eca5889b826c987bde25eb785792d5d36e32a3cfd80347ca19bde922d4c41` | `node scripts/check-consistency.mjs` at `072de37`: 19/19 |
+| `F2b-run-072de37-bun-test.log` | `025bc5bb6c9cfa4bfe419ec704c889cdc39c5d588ad5c4a8e72af0b163154d62` | `bun test`: 296 pass, 0 fail, 5 files |
+| `F2b-run-072de37-jev-selftest.log` | `c4c39e1927ffce5cf82bada6fe99952e37b3ff114e7ab633e1d054648403ac1e` | `bun run jev:selftest`: every case behaved as named |
+| `F2b-run-072de37-fixtures.log` | `18d41fc4617371fb57074bcdd45b7fe46901052f2495c2054b21fae96b2a5791` | `bun run fixtures`: 297/297, disposable worktree pinned to `072de37`, checkout not written |
+
+Reproduce: `node docs/handoff/artifacts/B-156/F2b-measure.mjs <repo> docs/handoff/artifacts/B-156/F1-candidates-1640ff7-r2.tsv <new out dir>`
+and `node docs/handoff/artifacts/B-156/F2b-verify.mjs <repo> docs/handoff/artifacts/B-156/F2b-citations-1640ff7.json <new out dir>`.
+**Negative control:** `--negative-control` adds one false citation in memory: exit 2, no file. **Limits:** the three
+suite runs are Lane A's own runs, so they are not independent. They ran at `072de37`, not at `1640ff7`; the 62 paths
+and every check, fixture and test file have the same bytes at both. The runs do not cover the CI host (Lane C).
+
+### F2b.4 Assessment, by group
+
+Every one of the 62 paths has its own row, citations and residual in `F2b-citations-1640ff7.json`. The groups below
+share one method. The table lists every path.
+
+| Group | Paths | Governing source (examples; per-path citations in the file) | Verification | Result |
+|---|---|---|---|---|
+| **P1 Agent instructions and configuration (7)** | `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `.agents/workflows/graphify.md`, `.claude/settings.json`, `.claude/skills/sync-docs/SKILL.md`, `.codex/hooks.json` | `D-324`/`D-337` (one shared core; Inventory L19, L21); `G66` (settings); Inventory L56 (skill); `D-426` (workflow file, hook = configuration, Register L20987) | `rule-budget`, `settings-parse`, `sync-docs-unique` pass (19/19) | **Supported agreement**, 7. Limits: the checks measure size, import, parse and uniqueness, not the correctness of each rule. `graphify hook-check` was not executed. |
+| **P2 Root build configuration (8)** | `.gitattributes`, `.gitignore`, `bun.lockb`, `eslint.config.mjs`, `next.config.ts`, `package.json`, `postcss.config.mjs`, `tsconfig.json` | `D-84` lane table names build config (Register L4228); `G63`; `D-64`/`G108`; `D-66`/`D-70`; Register L14734 (`postcss.config.mjs` is Lane A) | `typecheck`, `lint`, `test`, `check` are the CI steps (Inventory L64); local runs above | **Supported agreement**, 7. **`next.config.ts`: supported agreement with a recorded open question.** Its comment states that TC6 is narrowed, not resolved, and `Q6` is Open (Modular_PRD L1179). That is an open governed question, not a setup defect. `bun.lockb`: historical `D-64` evidence only. |
+| **P3 Channel templates and spec (4)** | `.github/ISSUE_TEMPLATE/v1-mmf.md`, `.github/PULL_REQUEST_TEMPLATE/v1-mmf.md`, `.github/WORKFLOWS-SPEC.md`, `.github/workflows/ci.yml` | Inventory L98 (`D-259`/`D-254`), L97 (`D-245`), L40 (`D-92`); L63–L64 (`R3`, `D-70`) | `channel-docs` passes. Lane A did not run CI. | **Supported agreement**, 3. **`ci.yml`: supported agreement as recorded; current host result unknown.** It is a Lane C surface. F6 names its claims for Lane C review: the step order, the three checks that SKIP in CI (Inventory L69) and the host result. |
+| **P4 Controls (23)** | `scripts/check-consistency.mjs`; `scripts/checks/` `channel-docs`, `closure-readiness`, `config-coupling`, `decision-status`, `docs-drift`, `duplicate-ids`, `governed-intent`, `graph-coverage`, `handoff-fields`, `handoff-response`, `lane-boundary`, `lane-state`, `phase-manifest`, `retention-policy-coupling`, `rule-budget`, `settings-parse`, `source-sweep`, `sync-docs-uniqueness`, `text-integrity`, `tier-sweep`; `scripts/lane-gate.mjs`; `.githooks/commit-msg` | Aggregate Inventory L69 (`C-14`/`G11`, `D-58`, `D-70`) plus per-check rows for 13 checks; the import line in `check-consistency.mjs` L14–L32 for each run check; `governed-intent` and `handoff-fields` are shared libraries that checks import | 19/19; fixtures 297/297 (positive and negative cases per suite) | **Supported agreement**, 23. Six checks have no per-check row (`decision-status`, `docs-drift`, `duplicate-ids`, `graph-coverage`, `settings-parse`, `tier-sweep`); L69 covers them. `commit-msg` runs only where the `prepare` script set `core.hooksPath`. A green suite is bounded apparatus evidence: it did not detect F2a-R1. |
+| **P5 Tooling (9)** | `scripts/fixtures/` `graphify-guard.test.mjs`, `harness.mjs`, `run.mjs`, `suites.mjs`; `scripts/graphify/guarded-rebuild.mjs`; `scripts/jev/` `jev.mjs`, `lib.mjs`, `manifests/V1-SM05.json`, `selftest.mjs` | Inventory L25 (fixtures), L52–L53 (`D-418`, guard and tests; later changed by `D-425`–`D-429`), L99–L100 (`D-259`/`D-260`, Jev) | `bun test` 296/296 (includes the guard tests); fixtures 297/297; Jev self-test | **Supported agreement**, 8. **`V1-SM05.json`: supported agreement for identity and decision; its row semantics are product scope.** Scenario parity belongs to `B-134`/`B-127`; F2b does not repeat it. Jev is product-interface tooling and earns no SM05 credit. |
+| **P6 Product-facing setup source (11)** | `__tests__/build-config.test.ts`, `__tests__/s1-schema.test.ts`, `__tests__/smoke.test.ts`, `app/page.tsx`, `lib/config/build-config.ts`, `lib/config/flags.ts`, `lib/supabase/middleware.ts`, `lib/supabase/server.ts`, `supabase/config.toml`, `supabase/migrations/0001_init.sql`, `supabase/migrations/0002_s1_editorial_schema.sql` | Inventory L57–L58 (`D-94`/`D-161`), L61, L63, L66 (`D-120`), L74; `C-33` (Register L2965); `TC6` fix (Register L2140); `TC1` (sprint plan L138) | `bun test` (includes `__tests__/`); `config-coupling`; the 0002 PostgreSQL test is F2a row 8 | **Supported agreement**, 6 (`build-config.test.ts`, `smoke.test.ts`, `build-config.ts`, `flags.ts`, `config.toml`, `0002`). **`s1-schema.test.ts`:** supported agreement as a static migration-contract test (`C-33`). **`middleware.ts` (lib):** supported agreement with the recorded TC6 type fix. **`server.ts`:** supported agreement with the recorded TC1 state (anon key only; the first privileged path is `TR-API-03`, not built). **`0001_init.sql`:** frozen authority, identity only; it is not assessed against itself. **`app/page.tsx`: no setup support located; product requirement not yet built** (see F2b.5). No row earns SM05 credit. |
+
+**Totals (F2b, 62):** supported agreement 54; supported agreement with a stated qualifier 6 (`next.config.ts`,
+`ci.yml`, `s1-schema.test.ts`, `lib/supabase/middleware.ts`, `lib/supabase/server.ts`, `V1-SM05.json`); frozen
+authority, identity only, 1; no setup support located 1 (`app/page.tsx`). **Differences: 0. Disputed: 0.** A slice
+with zero differences is itself a signal to check: the method in F2b.2 assesses role and existence, and Lane A read
+content line by line only for six files. Lane B may sample content in other rows.
+
+### F2b.5 Links to the F2a residuals
+
+| F2a item | What F2b adds | Status after F2b |
+|---|---|---|
+| Row 3 `app/globals.css` | `postcss.config.mjs` (Lane A, Register L14734) and the Tailwind dependency are the toolchain that processes it | Framework linkage located; product intent **unknown** |
+| Rows 4 and O1 `app/layout.tsx` | `app/page.tsx` carries the same template identity (`vibe-stack-supabase`). The governed demo-first rule says that the homepage IS the working app (agent-rules-reference L122). That is an SM05 product requirement for an unbuilt increment. | Product scope (`B-127`/SM05). No setup repair. `scripts/fixtures/suites.mjs` L799 uses `app/page.tsx` only as a lane sample path; a later product change keeps that path or updates the fixture. |
+| Row 5 `lib/supabase/client.ts` | `lib/supabase/server.ts` is the server counterpart (TC1 state). No importer of `client.ts` was found. | Aliases still not resolved; verification **unknown** |
+| Row 7 `terminal-return.mjs` (no per-check inventory row) | Aggregate Inventory L69 covers the check suite. Six other checks also have no per-check row. | **Refined:** support exists at the aggregate row. The F3 candidate changes from "missing support" to an optional consistency choice: add per-check rows for all seven, or state the aggregate rule. |
+| Row 15 and F2a.5 `middleware.ts` (root) | `lib/supabase/middleware.ts` has the recorded TC6 fix and no redirect | File-level intent stays **unknown**; ownership stays **proposed: Lane B** |
+| F2a.5 `.env.example` | The `D-84` lane table lists build config exactly: `package.json`, `tsconfig.json`, `eslint.config.mjs`, `next.config.ts`, `.gitattributes`, `.gitignore` (Register L4228). `.env.example` is not in that list. The same table says unmapped paths are reported, not passed over. | Ownership stays **proposed: Lane B**, still not a decision. F3 drafts the map rule with that limit. |
+| F2a.5 `.onlyaiapp` | Nothing in shared setup authority names it | Stays **unknown** |
+
+### F2b.6 Next
+
+Lane B reviews F2b at the commit that records this answer. Lane A continues F2c (146 paths: G3 142 curated JSON,
+G4 1 Jev receipt, G5 3 log/text) and drafts F3–F6 in parallel. Only conclusions that depend on an open finding wait.
+**16 + 62 + 146 = 224:** F2a and F2b have assessed 78 paths; 146 remain.
+
+**Drift:** handoff-only; governed intent is synced at `93aa02f`. No graph sync is needed.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Receipt of `072de37`; the two worklog corrections (no start question; the check revision named, with its log) | Phase 1: recorded |
+| Approve-with-conditions | F2b assessment (62 rows, 158 citations) and the F2a residual links | Phase 1: Lane B independent review of F2b; content sampling is welcome |
+| Defer | F3 repairs (optional per-check inventory rows, C-33 pointers, Build Spec L531 note, lane-map rules); `ci.yml` host claims for Lane C (F6); the tracker row; the batch push | Phase 1 F3/F6 drafts; application, review and push at their own triggers |
+| Reject | Zero differences read as complete proof; aggregate-row support read as line-level agreement; a start question for authorized work; a check claim without its revision and log | Phase 1: no action |
