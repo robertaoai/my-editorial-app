@@ -4072,3 +4072,67 @@ Drafted outside the repository; read-only checks. No DoD box, Register act or pr
 | Approve-with-conditions | The Judge's branch and the P-cond/P-res choice | Phase 1: Lane B reviews the corrected fields |
 | Defer | `D-434` recording, application, cycle 2; the `SETUP-SPIKE-000` root (later unblock decision) | Phase 1: in order; Gate 2 separately |
 | Reject | Partial "if accepted" issuance; governed edits after acceptance to flip "awaits"; a tracker pinned to a future or candidate hash; `SV-002` acceptance read as closing `SETUP-SPIKE-000` or lifting `V1-SM05` | Phase 1 |
+
+## Lane B — D-434 revision 2 accepted for Judge assessment and issuance; root closure remains separate, 2026-10-11
+
+### What happened
+
+Read revision: `abc9218ab95c94e062cb6094b1149655872a3d5e`. Lane B reviewed the bounded Q1–Q4 changes in
+`C:/CoWork/outputs/lane-a-d434-draft-2026-10-11/D434-DRAFT-r2.md` (13,118 bytes), SHA-256
+`4225647fd0bf2905ae8c05ec22542473d75aeed82896ecbae535ed3ef2abc336`.
+The companion `leaf-frag139.json` matches SHA-256
+`376a8497594a9dae6f55016c5761103395c89c2be5e9259b56f743feb7ee7cf9`.
+Its old value matches the live fragment; both UTF-8 value hashes and the proposed 515-byte value verify.
+The earlier evidence review `d2c4238` and unchanged SCOPE/FN bindings remain accepted within their scopes.
+
+| Finding | Independent outcome |
+|---|---|
+| Q1 | Accepted: named DoD checkoffs and individual P15 reason on the acceptance branch; dependent conclusions stay open on rejection |
+| Q2 | Accepted: preserve B-077's `fdf06dc` review; one new GR-007 semantic acceptance in receipt 2, bound to source and manifest; publication health is separate |
+| Q3 | Accepted: whole active status cells replaced, B12/B13 included, prior text dated, and B10 fully frozen; no fragment field outside the named leaves changes |
+| Q4 | Accepted: existing observation T before the tracker edit, separate final candidate source, full reconciliation and manual Basis review in addition to checker results |
+
+Q1–Q4 are closed by this bounded review. Revision 2 is ready for the Judge's assessment and issuance. This is not
+issuance, a DoD checkoff, candidate acceptance, a P15 clearance or permission to execute.
+
+**Root precision (Part 5/B14):** D-264 item 2 already supplies the closure-transfer rule: terminal children and an
+accepted disposition or a named destination, owner, acceptance proof, return condition and destination receipt
+for every unresolved item. No automatic closure follows from SV-002 acceptance or a later SM05 unblock.
+Lane A's recommendation to revisit the root at the unblock decision is a proposed scheduling choice, not an
+accepted closure condition. Keep it outside D-434. Lane A owns the later preparation in this docket; the Judge
+decides the root disposition after that proof. It is not a third decision required to issue this bounded act.
+
+### What you need
+
+**Judge:** two choices remain. (1) Issue Part 1's acceptance branch, or name the rejected DoD rows and evidence
+gaps. (2) If accepting, select P-cond or P-res in item 8. P-cond includes publication only after Lane B's byte and
+semantic receipt and unchanged bindings. P-res stops at that receipt for a later publication decision. Both use
+the same file set and one guarded cycle. P-cond is the recommendation; this review selects neither option.
+
+**Lane A:** carry forward existing drafting approvals. After issuance, record the act and its D-54 propagation,
+observe T, apply only the bounded claim/leaf changes, preserve history and reconcile the tracker. Check the old
+hashes and each new Basis; stop on a mismatch. Retain full checks under D-428, then prepare from the final committed
+source. Lane B independently reviews the bytes and new GR-007 conclusion and records the covering annotation.
+Publication follows the issued option, followed by separate health evidence in B-136. Keep handoff receipts in
+their own one-path commits. No governed edit follows candidate acceptance merely to change its dated snapshot.
+
+**Chief Editor:** keep one project and three distinct use cases: governance/docs, codebase and knowledgebase.
+D-433's codebase route is existing git grep plus source reading, not Ripwire adoption. Formal knowledgebase
+retrieval remains outside this unit. Preserve Lane C's accepted C-a limits; unchanged facts require no new trial.
+An answered finding is closed only by review; a reviewed plan is applied only under its issued act.
+
+### What you did instead
+
+Reviewed sources and used a read-only Graphify query. The configured consistency runner
+(`node scripts/check-consistency.mjs`, the package's `check` entry) passed 19/19 at the read revision; log retained at
+`C:/CoWork/outputs/lane-b-d434-r2-review-2026-10-11/check-at-abc9218.log`.
+The graph remains `81ab5cd6…`, synced at `93aa02f`, with one non-SM05 tracker row open (P15).
+Only this independent review is appended to B-136. No header, DoD cell, governed source, fragment or live graph is
+changed. No trial, construction, prepare, publish, fetch, push or Gate 2 closure is performed.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Q1–Q4 corrections; revision 2 and companion bindings; packet ready for Judge assessment | Phase 1: bounded planning review complete |
+| Approve-with-conditions | DoD/P15 acceptance and D-434 execution | Phase 1: Judge issues the named assessment branch and selects P-cond or P-res; later receipt and binding conditions remain |
+| Defer | Cycle 2, new GR-007 semantic confirmation, publication and health; root disposition | Phase 1: issued act and cycle order; root separately under D-264 item 2 |
+| Reject | This review treated as issuance; automatic root closure or SM05 unblock; byte-only semantic acceptance; raw rebuild, push, construction or Gate 2 inferred | Phase 1: scope boundaries remain |
