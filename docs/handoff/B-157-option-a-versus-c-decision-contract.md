@@ -212,3 +212,47 @@ graph sync needed.
 | Approve-with-conditions | AC1–AC7 answers | Phase 1: Lane B reviews the answers and the changed evidence; Lane B records each child's outcome |
 | Defer | The Judge's choice of A or C; application; publication; the batch push | After `D-434` publication and health, under a bounded act |
 | Reject | "Fewer cycles" as proof of lower risk; health as proof of meaning; C2 bound with pre-C1 line numbers; "C1 published; C2 incomplete" read as full completion | Phase 1: no action |
+
+## Lane A — AC2-R1 and AC6-R1 answered (changed items only), 2026-10-12
+
+**Read at:** `cdbc767`. **Measured at:** `1640ff7`. Existing planning scope; no new Judge act. **No push.**
+
+**Receipt.** The Judge supplied Lane B's bounded review of `cdbc767` as an external draft:
+`C:/CoWork/outputs/b157-review-2026-10-12/HANDOFF-REVIEW.md`, SHA-256
+`046a1ba8a974553f0965f709a437b8349c55959fe9f3d648be34649d5919768d`, with `review-result.json`
+(`c5ed080aa3339fcad200d02bc70a7ea528b0e372d36f8b6633521ccac4d0fc5e`). It is **supplied evidence**: Lane B has not
+recorded it in this entry. Lane A records its two findings here and accepts both. Its other outcomes are noted as
+supplied: AC1, AC3, AC4, AC5 and AC7 accepted within planning scope; the current 23-value packet independently
+matches A and the frozen Git source.
+
+**Evidence:** committed at `e363aa3` in `docs/handoff/artifacts/B-157/`. Revision 1 (`C-reconcile.mjs`, `99ad817`)
+stays unchanged as history.
+
+| File | SHA-256 |
+|---|---|
+| `C-reconcile-r2.mjs` | `b61f373668b4f6f28a2c066f23691e91ea08aa7beec56545b0fce3e51c5d7e20` |
+| `C-reconcile-r2-controls.mjs` | `72ff12ed207bf72ea8c5e6d949931eed54eacc366319e61015b64449ca2c7702` |
+| `C-reconcile-r2-1640ff7.json` | `b6cf6b78fdad6962474a510be02cdedfb49a665c60f32309f8686208bcc4a00c` |
+| `C-reconcile-r2-controls-result.json` | `49d56df6945802d187a34715837c18fdc4e5ce16f873338b7a8d2bbd7f8f3444` |
+
+Check: `node scripts/check-consistency.mjs` with this evidence staged on `cdbc767`: exit 0, 19/19.
+
+### Changed items
+
+| ID | Origin → correction | Lane A answer (evidence `e363aa3`) | Status |
+|---|---|---|---|
+| AC2-R1 | Lane B review of `cdbc767`: revision 1 compared stored hash fields and counts only, so it accepted (a) a full value altered with its stored hash unchanged and (b) one binding duplicated with another omitted | **Corrected, not narrowed.** Revision 2: (1) exactly one binding per manifest target, no duplicate and no extra binding id; (2) each binding's locator equals its target's; (3) the SHA-256 of every full value is **recomputed** and must equal the stored hash **and** A's recomputed hash; (4) A's own bindings get the same checks. **Controls:** the valid arm passes; five negative arms each exit 2 and write no output: overlap; altered value with unchanged hash; duplicated/omitted binding; locator change; value and hash changed together. **Cross-check:** Lane B's own two counterexample inputs both refuse under revision 2 (exit 2, no file), and revision 1 still accepts the altered-value input. The current 18 + 5 = 23 packet passes revision 2 unchanged. Limit: revision 2 checks recorded values against A; it does not re-read Git (B-156 `F3-oldvalues.mjs` binds values from Git) | Answered |
+| AC6-R1 | Lane B review of `cdbc767`: the `cdbc767` Defer row placed the Judge's A/C choice after `D-434` publication, which contradicts AC6 | **Corrected.** The `cdbc767` verdict rows stay as history. The verdict rows below **replace** them. They separate conditional assessment (now) from application (after `D-434` publication and health) and from the push (its own checkpoint) | Answered |
+
+### Corrected verdict (replaces the `cdbc767` verdict rows)
+
+| Verdict | Item | Condition and follow-up phase |
+|---|---|---|
+| Approve | Receipt of `2d3650a`; AC2 evidence (`99ad817`) and its revision-2 reconciliation (`e363aa3`) | Phase 1: recorded |
+| Approve-with-conditions | AC1–AC7 answers, with AC2-R1 and AC6-R1 | Phase 1: Lane B reviews the changed items and records each child's outcome |
+| Approve-with-conditions | **Conditional A/C assessment** | **Available now**, using the reviewed comparison. It does not authorize application |
+| Defer | **Applying A or C and publishing its candidate** | Later bounded act(s), after `D-434` publication and its separate health record |
+| Defer | **Batch push** | A separately authorized checkpoint after the required validation; the graph cycle count does not set the push count |
+| Reject | "Fewer cycles" as proof of lower risk; health as proof of meaning; C2 bound with pre-C1 line numbers; "C1 published; C2 incomplete" read as full completion; revision-1 reconciliation output as proof of full-value integrity | Phase 1: no action |
+
+**Drift:** handoff-only; governed intent synced at `93aa02f`; no graph sync needed.
