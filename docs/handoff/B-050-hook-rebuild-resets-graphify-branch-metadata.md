@@ -7481,3 +7481,11 @@ The prior 186e77ea... candidate and d87af4af... manifest remain superseded, unpu
 | Approve-with-conditions | Publication under existing P-cond, then separate health | Phase 1: unchanged bindings, Lane A publication and health record |
 | Defer | Option A application; batch push; SM05/Gate 2 and root disposition | Option A after health; other items retain their own authority |
 | Reject | Publishing the superseded candidate; byte-only acceptance; inferred product delivery or Gate 2 clearance | Phase 1: preserve scope limits |
+
+## Terminal annotation record
+
+- **Current-Resolution:** Verified
+- **Annotation-Type:** verification-evidence
+- **Annotation-Act:** D-434 item 7, guarded cycle 2 including its replacement, route A. This immediately following record-only commit covers Lane B's receipt 2 at 6bb88ed20b8531ac54b9605b14b0fa82ef58e194, for work 7b0900c2-7494-4f59-9621-5f38ef257058, graph c9f65b189abf0473098631285c71216dc68ad0d35fca4a58f15f72ef994a8d3b, manifest 8d1ca497e04c3c7301e7d0e563fc16f3bb7907efcb538049ef077bbac4fafd86, source 44a4b1e735a98f8cb377935f8e8f79095b444cb1. B-050's header, Resolution and Lane A answer stay unchanged; no scope is reopened. This ends the temporary terminal-return recording interval. Lane B also accepts the GR-007 semantics against these bindings; that explicit outcome is recorded in B-136 under D-434 item 4. Lane A uses the receipt commit, not this annotation commit, for publication under existing P-cond, then records separate full health evidence in B-136. No fetch or push before that health record. No construction, SM05 unblock, Gate 2 closure, lane activation or root disposition. D-432/D-433 exceptions are not reused; normal hooks are never bypassed.
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** 6bb88ed20b8531ac54b9605b14b0fa82ef58e194
