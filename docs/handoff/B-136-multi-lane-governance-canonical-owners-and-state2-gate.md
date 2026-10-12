@@ -5079,3 +5079,119 @@ Nothing is recorded in the Register, applied, prepared, published, fetched or pu
 | Approve-with-conditions | Recording `D-435` | Phase 1: Lane B accepts revision 3's changed parts |
 | Defer | Application, prepare, receipt, publication, health; push | Phase 1: the act's order; push at its own fixed range |
 | Reject | Recording the A-res branch; reusing any earlier exception | Phase 1: no action |
+
+
+## Lane B — D-435 revision 3 accepted for recording; R1-R4 Verified (2026-10-12)
+
+- **Raised:** 2026-10-12 by Lane B, follow-up in the existing B-136 parent
+- **Kind:** finding
+- **Phase:** 1
+- **Blocks:** nothing further in this draft review; execution follows the applicable recorded act and its checks
+- **Examined-By:** Lane B
+- **Examined source:** `fb49c43fb75816087433d8e60c1eec12392bd506`, clean tree
+- **Evidence:** Lane A answer `12cd8c47a3f92833b01d11d47b8981b8f31bf07a`; confirmation record `fb49c43`; complete draft and independently inspected primary question/answer below
+- **Parent state:** B-136 remains Open; this is a child review, not the whole entry's disposition
+
+### What happened
+
+Lane B received Lane A's answer and confirmation record, read the complete revision 3, and checked the changed
+clauses against the accepted packet and both earlier reviews. This review accepts the complete proposed act for
+recording with the confirmed A-cond branch. It closes D435-R1 to R4 and the two revision-2 follow-ups. No new
+Judge confirmation or new draft-start instruction is needed for these accepted corrections.
+
+**Accepted object:** `C:/CoWork/outputs/lane-a-optionA-draft-2026-10-12/D435-OPTIONA-DRAFT-r3.md`, 15,961 bytes,
+SHA-256 `6112b553bb3e79b327a5d2770e8f2df5c60997d5ce35be56b808262c5a8d0a60`.
+The frozen file is preserved. Filling its authority paragraph, removing proposed markers and recording only the
+confirmed A-cond branch are the specified recording steps, not a new option or an expansion of the repair scope.
+
+#### Completion map, parent first
+
+| Parent / child | State and evidence | Next obligation |
+|---|---|---|
+| B-136 | Open; this review does not dispose of its other obligations | Keep separate scope and work-order boundaries |
+| D-435 draft-review child | Accepted at the examined source, within the immutable revision-3 scope | Lane A records the confirmed act and tier paragraphs |
+| D-434 prerequisite | Already complete within scope | No repeat publication or health cycle |
+| D435-R1 | Verified by Lane B at `fb49c43`: corrected binding evidence and Lane A's durable answer agree | Rebind at the actual recording commit before application |
+| D435-R2 | Verified by Lane B at `fb49c43`: old-value proof precedes application; accepted-new-text/diff proof follows it | Apply the correct proof at each stage |
+| D435-R3 | Verified by Lane B at `fb49c43`: primary linked user answers confirm Option A as a record, A-cond and the unit receipt exception | Record this provenance; never reuse a previous unit's exception |
+| D435-R4 | Verified by Lane B at `fb49c43`: source and draft identities are separate and valid | Capture each later executing revision separately |
+| Revision-2 fallback and completeness findings | Verified: no automatic A-res; all ten clauses, full D-54 table and both tier paragraphs are present | Record only the selected branch; no placeholders in the issued text |
+| D-435 application, candidate receipt, publication and health | Not performed by this review | Recorded act, old proof, application, new proof, prepare, independent receipt, publication, separate health |
+| Push, SM05, Gate 2 and root disposition | Outside this unit | Their own existing triggers; no clearance follows from this acceptance |
+
+**Independent source proof.** Six frozen packet/instrument input hashes match. All 23 bound full values across
+14 paths match the frozen values and the corrected binding file; all 14 source blobs remain unchanged through
+`fb49c43`. R17 now correctly names the Inventory's "Concurrent-edit detection check" row. R12 keeps its description
+byte-equal and changes only its source fields. CH-1 to CH-5 carry forward without widening their accepted limits.
+
+#### Primary authority, checked independently
+
+Lane B found the actual question/answer pair in Lane A's project session, rather than relying only on its memory
+or on the B-136 report. The request names D-435 revision 3 (`6112b553...`), item 7 and Option A, and asks separately
+about item 5's bounded exception. The user response is linked to that exact tool request and records:
+
+| Confirmed object | User answer | Scope |
+|---|---|---|
+| Item 7, also confirming the recorded Option A selection | `A-cond` | Publish after independent receipt with unchanged bindings; separate health; stop at B-136 health record |
+| Item 5 | `Authorize` | B-050 acceptance, then its covering Terminal annotation; only terminal-return and docs-drift may fail between them; this cycle only |
+
+Request UUID `19708e6b-cd64-4d66-ac9b-545cd1a8750c`; linked user-answer UUID
+`f9687e55-c7de-4f48-b4c6-22645e5a73b6`; answer timestamp `2026-10-12T13:13:40.845Z`.
+Both questions match the text Lane A recorded at `fb49c43`. The primary excerpt, including the option descriptions,
+is retained in `C:/CoWork/outputs/lane-b-d435-r3-review-2026-10-12/authority.json`, SHA-256
+`a1ee04b8b693e2d9d4a3754187d2b4c91cb11cb88a6835ba55e06b9c624d2fa0`.
+Independent results are in the same folder's `results.json`, SHA-256
+`5aa18e9bb550ee7c93f67a10d54c4a6a00b8401c8920640d39966db54843ffed`.
+
+Part 6 of the frozen draft describes its pre-confirmation state. It is now historical for these confirmed items;
+do not mistake it for a current blocker or rewrite the frozen file. D-183's registration step still applies.
+Lane B's acceptance supplies independent review; the Judge's linked answers supply the confirmed authority.
+
+### What you need
+
+#### Lane A: recording and follow-up order
+
+1. Receive this review in the next necessary answer/application record, without an acknowledgement-only gate or
+   a new permission request. Preserve all prior answer and review text.
+2. Record D-435 and the Build Spec and Inventory paragraphs. Fill the Authority paragraph with the actual
+   confirmed answers, their revision and provenance. Record item 5 as authorized and item 7 as A-cond only.
+   Do not copy the A-res alternative, proposed markers or authority placeholder into the issued act. Carry the
+   item-4 expected-change table or an explicit immutable source reference so "Part 4" has a resolvable referent.
+3. At that recording commit, derive the actual working manifest and prove the selected old values. Line movement
+   is expected from the recording itself: review new relocations under item 2. A changed value requires
+   reassessment before editing. This is a source check, not another choice of Option A.
+4. Apply only R1-R25 and R29 with the accepted amendments and exclusions. Prove the accepted new text, expected
+   deletions/appends and complete allowed diff. Run the final configured checks and merge-attribute probes.
+5. Prepare from the final committed source. Lane B reviews candidate bytes and meaning, then records receipt in
+   B-050 and its covering annotation as the act specifies. No receipt is granted in advance by this draft review.
+6. Under A-cond, publish only the accepted candidate with unchanged bindings. Run the separate full health and
+   live-parity checks; record the outcome in B-136. Keep the no-fetch/no-push interval through that health record.
+
+**Chief Editor proof chain.** Requirement/decision -> accepted repair -> source and complete allowed diff ->
+observed proof -> independent candidate review -> published bytes and separate health. Each check proves its own
+stage. A capture exit 0, a consistency pass or this draft acceptance cannot stand in for the later evidence.
+
+**Retained limits.** Lane C's existing C5/C7/C8 outcomes stay under this B-series parent with their observation
+limits. No C5 host output is invented; no new trial, C-series file or native tool setup is commissioned. R26-R28,
+P1/P2, the FN lane-map sentence, product construction, SM05, Gate 2 and root clearance stay excluded.
+No new finding or decision is raised for unchanged accepted material.
+
+### What you did instead
+
+Read-only graph navigation, source/draft review, narrow primary-authority inspection, independent external evidence
+and this one Lane B review. Lane A's answer/header, governed sources, frozen packets and live graph are unchanged.
+No build, trial, application, prepare, publication, fetch, push, deletion or lane-state change.
+
+Fresh full configured check at `fb49c43`: 19/19, exit 0, via `node scripts/check-consistency.mjs` after Bun could
+not load the current directory in Lane B's shell. Log: `C:/CoWork/outputs/lane-b-d435-r2-review-2026-10-12/check-fb49c43.log`,
+SHA-256 `52f1bd17bf11d2adca359983d7e81307cda6e6ef38e55a1d5d453946f6cec927`.
+Governed intent remains synced at `44a4b1e`; subsequent repository changes are handoff-only. No graph sync is
+needed for this review. D-435 recording/application creates expected drift, cleared by its own guarded cycle.
+At the examined tip there are 61 commits after `08ad416`; this review is outside that tip. No range is approved.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | D435-R1 to R4; complete revision 3; confirmed A-cond and unit-scoped item 5; CH-1 to CH-5 limits | Phase 1: independently reviewed and Verified within scope |
+| Approve-with-conditions | D-435 recording and subsequent bounded cycle | Phase 1: record confirmed text and D-54 paragraphs; actual-source proof; apply/new-diff proof; independent candidate receipt; A-cond publication and separate health |
+| Defer | Push, excluded repairs, product construction, SM05, Gate 2 and root disposition | Their own existing phases and triggers; this review grants none |
+| Reject | Another Option A choice or repeat confirmation; recording A-res/placeholders; treating this review as candidate receipt or application/publication evidence | Phase 1: follow the confirmed contract and prove each later stage |
