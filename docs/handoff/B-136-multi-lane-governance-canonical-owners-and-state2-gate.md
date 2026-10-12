@@ -4572,3 +4572,94 @@ No fetch, push, rebuild or `--update` was run. No governed file changed. The FN 
 | Approve-with-conditions | Option A application | Phase 1: its own bounded unit and receipt route |
 | Defer | Batch push; FN lane-map repair; retained backup folders | Judge push decision; a later repair act; the person |
 | Reject | Running the suggested `--update`; inferring SM05/Gate 2 or root clearance | Phase 1: no action |
+
+## Lane B — D-434 health accepted; consolidated Option A follow-up, 2026-10-12
+
+**Examined:** `88f523d62b800001a21321eba0db655e784506fe`, clean working tree. This is Lane B's independent review
+of Lane A's health record and its next-step claims. It leaves the B-136 header and Lane A answer field unchanged.
+Phase 1; finding and review, reporting only. Receiver for the follow-up below: Lane A.
+
+### What happened
+
+D-434 items 7-8 authorize this cycle's receipt route and conditional publication. Lane B independently read the
+release receipt and recomputed the live tree, graph, fragments and names. All bindings agree:
+
+| Evidence | Independently observed result |
+|---|---|
+| Release | run `a7db2f21-68b3-4942-8f2e-8d2e4ad36f93`; publication HEAD `424baefe93a2f3df8e291ac4528622ed994d1d88`; receipt `6bb88ed20b8531ac54b9605b14b0fa82ef58e194` |
+| Source / work | `44a4b1e735a98f8cb377935f8e8f79095b444cb1`; work `7b0900c2-7494-4f59-9621-5f38ef257058` |
+| Live graph | SHA-256 `c9f65b189abf0473098631285c71216dc68ad0d35fca4a58f15f72ef994a8d3b` |
+| Live manifest | `guard-treeDigest-v1`, SHA-256 `8d1ca497e04c3c7301e7d0e563fc16f3bb7907efcb538049ef077bbac4fafd86`, 583 files; equal to the accepted manifest |
+| Parity / names | 139/139 curated fragments exact; zero name findings |
+| Runtime / lineage | journal, lock and recovery marker absent at the guard's own paths; released baseline chain valid; analyzed source `44a4b1e`, stale false |
+| Health record | `88f523d` changes only B-136. Its supplied publication, parity and health log hashes match. Only B-050 and B-136 changed after the analyzed source |
+| Retained state | Both `bak` and `old` folders for this run exist and each matches predecessor manifest `b56afd6356198e907a68be958bb15cbc11e1aee9cf040a7b47f5826828cb148d` |
+
+Lane A's separate `bun run check` logs show 19/19. For this review, `bun run check` could not load the current
+directory in Lane B's shell. Lane B then ran its exact package-script target, `node scripts/check-consistency.mjs`:
+19/19, exit 0, at `88f523d`. This is a direct checker run, not a successful Bun invocation. No governed drift;
+no graph sync is needed now. A later governed repair starts its own drift and guarded cycle.
+
+Review evidence: `C:/CoWork/outputs/lane-b-d434-health-review-2026-10-12/`:
+- `health-review.json`, SHA-256 `50b87528bc3b85c7cc0c26493b97ae3d9d06a6aa0128d96b1637efb9d9bffd36`.
+- `review-health.mjs`, SHA-256 `261a66344a70f9b60593126d4382360e8b14120e221336686c1be582bdfd9dd9`.
+- `check-before-review.log`, SHA-256 `40ffbd1f2b55d905e39d69410072b53b15cbc6a6a4d96e0023b4af0f5ccb2f13`.
+
+### What you need
+
+#### Parent-first completion map
+
+| Parent / child | State and completion boundary | Next owner / return condition |
+|---|---|---|
+| Project purpose: progressive traceability | Keep intent, requirements, setup source, verification and dated baselines linked. Documentation/governance, code navigation and knowledge retrieval remain distinct use cases | Lane A preserves these links in each repair; no product sprint credit from this review |
+| B-136 | Open; this review does not disposition its whole header or P14a/P14b | Existing owners and return conditions remain |
+| SV-002 / P15 | Accepted / closed by D-434's own recorded reason | Do not present these as awaiting a new assessment |
+| GR-007 | Semantic conclusion independently accepted at `424baef`; D-434 publication and separate health now complete | Preserve that single semantic transition; no new governed edit just to replace dated `awaits` wording |
+| D-434 cycle 2 | Publication and health independently accepted by this review | Cycle-2 receipt exception and fetch/push freeze have ended |
+| B-156 / B-157 | Verified for planning within scope | Keep terminal; no new C-series file or reopening for an acknowledgement |
+| Option A, R1-R25 and R29 | Selected under the carried-forward approval; D-434 health prerequisite met. Repairs not applied by this review | Lane A rebinds actual source and records the selected bounded act before application/prepare; Lane B reviews any changed bindings and the resulting candidate |
+| Retained audit work | 173 unassessed rows, nine partly read fragments and open F2a items remain with their accepted owners and F5 return points | No wider audit, root or capability completion claim |
+| SM05 / Gate 2 / construction | Outside this unit | Separate existing work-order and gate requirements |
+
+#### Gaps and draft fixes
+
+| ID | Gap / risk | Draft fix and pass / refusal check |
+|---|---|---|
+| H1 | The accepted Option A packet binds frozen source `1640ff7`; D-434 has since changed shared documents | Locate all 23 values across 14 repair-source paths by semantic locus at an exact post-D-434 revision. Compare full values/hashes with the accepted packet. A relocation receives bounded review; a changed value receives reassessment and review before prepare. Keep R26-R28 and P1/P2 excluded. Record both source revisions |
+| H2 | A fulfilled start condition is not the selected unit's execution record | Draft/review and record the carried-forward Option A act under D-54, with affected and unaffected tiers, hooks/check rules, its own receipt and health destinations, publication scope and stop point. Do not ask the Judge to select A again. Escalate only a real authority or scope change. Do not reuse D-434's ended exception |
+| H3 | The last candidate's comments misstated what evidence code does | For each new evidence-code node, compare its description with executed branches and accepted controls. Describe repeated fault matching and actual object-read behaviour where applicable. Unchanged accepted evidence needs no new trial. A byte match alone does not pass a false semantic claim |
+| H4 | A floating push endpoint can add review commits without the Judge seeing them | The supplied proposal is exactly `08ad416..88f523d`, 55 commits, excluding its lower endpoint. This new review is not in that range. Before a requested broader batch push, name the new fixed tip and recount; never silently broaden approval. Local upstream was cached at `08ad416`; it is not fresh remote proof |
+| H5 | Backup maintenance is presented beside a push decision | B-050's retention rule (lines 2421-2422) makes removal a person's act; the guard retains the folders. They are not a health failure or Option A prerequisite. Leave them intact in this review; report their full paths and predecessor digest in the evidence |
+| H6 | The stale FN lane-map sentence remains | Its semantic locus starts `The lane map lives in` in FN-MULTI-LANE-AI-GOVERNANCE.md, now line 20. Owner Lane A, later repair act; outside D-434 and the accepted Option A scope. Do not add it silently |
+
+#### Lane A follow-up, in order
+
+1. Receive this review in the next useful answer; do not create a receipt-only prerequisite.
+2. Continue authorized preparation now: actual-source binding (H1), the bounded act draft (H2), and a completion map
+   linking each repair to its governing requirement, implementation artifact and verification evidence. Record
+   owner, exact revision, accepted limits and return point for every retained item.
+3. Return only changed bindings, impacts and act text for Lane B review. Include Lane C only for changed host or
+   workflow claims. Preserve C5's absent host output and the accepted provenance limits; do not invent new trials.
+4. After the selected act is recorded and its conditions hold, the separate Option A unit may apply its bound
+   repairs and prepare its candidate. Lane B reviews exact bytes and meaning; publication follows that unit's
+   authority, then separate health. This review/planning turn performs none of those execution steps.
+5. At the separate authorized batch-push checkpoint, use the Judge's fixed range, fresh fetch, whole-batch local
+   validation, fast-forward checks and post-push upstream equality. A check pass alone grants no push authority;
+   do not invent an XDD suite or push each correction separately.
+
+The Chief Editor needs the source-to-requirement-to-artifact-to-proof chain, retained limits and option effects.
+Counts, commits and consistency checks support that chain but do not replace semantic proof. Read governing clauses
+in full, including retained gaps and exclusions. Treat unavailable proof as unknown, not as absence or acceptance.
+
+### What you did instead
+
+Lane B independently checked live bytes and retained evidence and recorded this one review under the existing
+B-136 parent. No build, repair application, governed edit, graph prepare/rebuild/publication, fetch, push, deletion,
+new tool adoption, formal retrieval delivery or Gate 2 closure. Lane A's answer and all entry headers are preserved.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | D-434 cycle 2 publication, separate health, and Option A's start condition | Phase 1: independently confirmed at `88f523d` |
+| Approve-with-conditions | Option A's next bounded unit | Phase 1: carried-forward approval, actual-source bindings, D-54 recording and its own review/receipt/health contract; no repeated choice of A |
+| Defer | Batch push; backup removal; FN lane-map repair; retained audit work | Fixed-range Judge checkpoint; person's maintenance act; later repair act; existing F5 return points, respectively |
+| Reject | Expanding the push tip or repair scope silently; reusing the ended receipt exception; comments as behavioural proof; health as product or Gate 2 acceptance | Phase 1: stop the affected step and state the exact failed binding or missing authority |
