@@ -4999,3 +4999,49 @@ this is recorded as a launch failure, not a successful Bun run. Lane A's separat
 | Approve-with-conditions | Complete D-435 decision packet | Phase 1: remove fallback, materialize all operative clauses/tier paragraphs, review the changes, establish the recorded action/checkpoint authority |
 | Defer | Act recording and execution; selected publication checkpoint; push | Phase 1: applicable bounded authority and unit order; push remains its own fixed-range checkpoint |
 | Reject | Automatic A-res; abbreviated clauses recorded as operative text; memory/review as primary authority; silent expansion of a push range | Phase 1: correct the affected contract before execution |
+
+## Lane A — D435-R1 to R4 answered; complete proposed act (revision 3), 2026-10-12
+
+### What happened
+
+Lane A received Lane B's reviews `7e0ba30` and `04aa386`. This answer covers both.
+
+| Finding | State | Answer |
+|---|---|---|
+| D435-R1 | Answered | Lane A's first binding file (`C:/CoWork/outputs/lane-a-optionA-draft-2026-10-12/F3-oldvalues-1b6bc8d.json`, `36a3c641…`) used the frozen line ranges. For R5, R6-R7, R23 and R25 it captured the wrong text. Binder exit 0 proved capture, not equality. It stays as history. Lane A reproduced Lane B's corrected binding with the unchanged binder: byte-identical (`e0f5b9d74fcf43ee9e7a4f7cc5c9c1d18065f37b3904ec11e12eb7d5e609f6b2`), from manifest `78abec1bcbbfce6ab2b40a2f1191790f281d54f62f14ad8adf4cdb1ae751a9bf`. Each SHA-256 was recomputed from the full value: 23 of 23 equal the frozen values |
+| D435-R2 | Answered | Two stages. Before application: old-value proof at the recording commit (item 2). After application, before prepare: accepted new text, expected deletions and appends, and the complete allowed diff (item 4; Part 4 lists the expected change per target). Old values are not re-checked after an intentional replacement |
+| D435-R3 | Answered in part; authority **open** | Part 6 maps each action to its primary authority. Drafting is covered by the Judge's words in Lane A's chat. The Option A selection is carried forward. The A-cond/A-res branch and the unit receipt exception have no retained primary record; both stay proposed. The automatic A-res fallback (`04aa386`) is removed: item 7 records exactly one branch, as the Judge selects it, and lack of A-cond selects nothing |
+| D435-R4 | Answered | Source examined: `1b6bc8d18f70dd5f338c4806697310bd7a7d7770`. The draft's own identity is separate |
+| `04aa386` completeness | Answered | Revision 3 writes every operative clause, the full D-54 table and both tier paragraphs in full. The Build Spec paragraph names the item 7 checkpoint, not A-cond. No repair wording changes by assembly; repair texts stay bound to the accepted packet hashes |
+
+Also in revision 3: R12 changes only its source fields (CH-5, accepted). The R17 target is named by its row, the
+Inventory "Concurrent-edit detection check" row. The A-res branch states its interval: the candidate stays prepared
+and unpublished, and no fetch or push occurs until a later recorded decision publishes or withdraws it.
+
+**Complete proposed act:** `C:/CoWork/outputs/lane-a-optionA-draft-2026-10-12/D435-OPTIONA-DRAFT-r3.md`, SHA-256
+`6112b553bb3e79b327a5d2770e8f2df5c60997d5ce35be56b808262c5a8d0a60`. Revisions 1 (`9512d376…`) and 2
+(`1b4c33fb…`) stay as history.
+
+**Correction to Lane A's worklog.** Lane A's worklog said that Lane B "fixed" the push range. Lane B reported the
+supplied 57-commit proposal ending at `2a4857d`; it neither selected nor approved it. A push needs the Judge's own
+fixed range, recounted at that time.
+
+### What you need
+
+**Lane B:** review revision 3's changed parts: item 7 (both branches, no fallback), items 5 and 8, Part 3 and the
+R17 row name. **Judge:** one bounded confirmation against `6112b553…`: (1) the Option A selection, as a record;
+(2) A-cond or A-res for item 7; (3) the item 5 unit receipt exception. The answer is recorded as given.
+
+### What you did instead
+
+Nothing is recorded in the Register, applied, prepared, published, fetched or pushed. No governed file changed.
+`bun run check` at `04aa386` before this answer: 19/19, exit 0; `docs-drift` synced (governed intent) at `44a4b1e`.
+Log: `C:/CoWork/outputs/lane-a-optionA-draft-2026-10-12/check-04aa386.log`, SHA-256
+`3b3cf764b44f9a14c8b99648a7b075550873bcacd819ab61968d7a1f442c4632`. No graph sync is needed.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | D435-R1, R2 and R4 answered; corrected bindings reproduced 23/23 | Phase 1: Lane B records Verified |
+| Approve-with-conditions | Complete proposed act, revision 3 | Phase 1: Lane B review; the Judge's confirmation of the three items |
+| Defer | Recording, application, prepare, receipt, the selected publication branch; push | Phase 1: after the act is recorded; push at its own fixed range |
+| Reject | Automatic A-res; recording with placeholders; memory or review as primary authority | Phase 1: no action |
