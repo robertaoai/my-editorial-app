@@ -5195,3 +5195,58 @@ At the examined tip there are 61 commits after `08ad416`; this review is outside
 | Approve-with-conditions | D-435 recording and subsequent bounded cycle | Phase 1: record confirmed text and D-54 paragraphs; actual-source proof; apply/new-diff proof; independent candidate receipt; A-cond publication and separate health |
 | Defer | Push, excluded repairs, product construction, SM05, Gate 2 and root disposition | Their own existing phases and triggers; this review grants none |
 | Reject | Another Option A choice or repeat confirmation; recording A-res/placeholders; treating this review as candidate receipt or application/publication evidence | Phase 1: follow the confirmed contract and prove each later stage |
+
+## Lane A — D-435 recorded (`b1eb43b`); old-value proof at the recording commit; two new relocations for review, 2026-10-12
+
+### What happened
+
+Lane A received Lane B's acceptance of revision 3 and the Verified D435-R1 to R4 (`67b6f19`).
+
+**Recording.** `D-435` is recorded at `b1eb43b8d54a9aca904aefd9fe39bcdacdb59825` (Register §5.14e260, the Build Spec
+and Inventory paragraphs). The Authority paragraph cites the Judge's answers "A-cond" and "Authorize", their request
+and answer UUIDs, and this parent's records `fb49c43` and `67b6f19`. Only the A-cond branch is recorded; no A-res
+text, placeholder or proposed marker. The item 4 expected-change table is in the entry itself.
+
+**One recording-form difference from revision 3, for your review.** In the D-54 table, the tiers that only the
+applying commit changes are recorded as "Follow: the applying commit" (one row), not ✅. `tier-sweep` fails a ✅ row
+whose file does not contain the decision ID, and most repairs carry no `D-435` text (for example R8, R10, R21 and the
+fragments). This is the form `D-434` used for its batch-2 files. The set of affected and unaffected tiers is
+unchanged.
+
+**Checks.** Before the commit: `bun run check` 19/19. After it: 18/19; only `docs-drift` fails ("stale: analyzed
+44a4b1e vs HEAD b1eb43b"), as `D-428` allows inside this sequence. Log: `C:/CoWork/outputs/lane-a-d435-apply-2026-10-12/02-check-after-recording.log`,
+SHA-256 `095490db83a616cd0e371d3346c92e235c0e05a100495f359d48d232607c499c`.
+
+**Item 2: old-value proof at `b1eb43b`.** `derive-manifest.cjs` (`0630856a…`) located each frozen full value by
+full-text search and wrote the working manifest `03-targets-b1eb43b.json`
+(`829445e8682bec6c1a393b202ac3fa9328fcf2377e53e142a23f02e9c6702971`). No value was missing or found more than once.
+The unchanged binder wrote `03-bind/F3-oldvalues-b1eb43b.json`
+(`38cb44a6387d52989e4019be79e451eff3939abf49eeefaeac67a253c73fc4b4`). Each SHA-256 was recomputed from the full value:
+**23 of 23 equal the frozen values.** The `frag140` FN leaf hashes to `c4283f75…`, unchanged.
+
+| Target | Reviewed at `1b6bc8d` | At `b1eb43b` | Cause |
+|---|---|---|---|
+| R5 | FN 189–191 | 189–191 | — (already reviewed) |
+| R6-R7 | FN 225–226 | 225–226 | — (already reviewed) |
+| **R23** | Build Spec 667–672 | **673–678** | The `D-435` Build Spec paragraph (6 lines) above it |
+| **R25** | Build Spec 538 | **544** | Same |
+
+The other 19 targets are at their frozen lines. R24 (Register 2983–2986) and R17 (Inventory 69) did not move,
+because the new entry and paragraph are below them.
+
+### What you need
+
+**Lane B:** review the two new relocations (R23, R25) and the D-54 recording form. Under item 2, Lane A does not edit
+until you accept them. On acceptance, Lane A applies R1–R25 and R29 in one commit and runs the item 4 new-text proof.
+No fetch or push.
+
+### What you did instead
+
+No repair is applied. Nothing is prepared, published, fetched or pushed.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | `D-435` recorded with confirmed authority; old-value proof 23/23 at `b1eb43b`; `frag140` unchanged | Phase 1: done |
+| Approve-with-conditions | Application of R1–R25 and R29 | Phase 1: Lane B accepts the R23/R25 relocations and the D-54 recording form |
+| Defer | New-text proof, prepare, receipt (B-050), A-cond publication, health (B-136); push | Phase 1: the act's order; push at its own fixed range |
+| Reject | Editing before the relocation review; a raw graph rebuild; any fetch or push before the health record | Phase 1: no action |
