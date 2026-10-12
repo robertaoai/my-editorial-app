@@ -189,6 +189,7 @@ handoff answers, and Claude Code owns and commits them (`D-227`).
 After the `SV2-U02` report is accepted, the three rule files are refactored **atomically**, with the shared-core parity
 check and its fixtures, toward the `AIG-06.R1` targets. Every rule leaving a root file is classified under `AIG-03`
 first and lands in a named owner: a lane's file, a skill, or its governed source.
+*(Corrected `[V1]`, `D-435`:* the refactor was applied atomically by `D-337`. Current state: one shared core in `AGENTS.md`; `CLAUDE.md` imports it through `@AGENTS.md`; `GEMINI.md` carries only Lane C's rules; `rule-budget` replaced the parity check. *)*
 
 *Added `[V1]`, `D-324` (the Judge's platform clarification):* **Each platform gets the framework built for it.**
 - `AGENTS.md` is the open, cross-tool base that every tool can read.
@@ -222,8 +223,8 @@ Named `AIG-NN.Cn` (registered in `Modular_PRD.md` §0.5). They are Project gover
 | `AIG-04.C3` | Every *applicable* surface with an *available* method has a recorded call through its own host (`AIG-04.R3`), with a scope check and an `AIG-04.R4` classification *(added `[V1]`, `D-433`)* | Per-surface receipt | planned |
 | `AIG-04.C4` | Every unit that installs, caches or configures has an `AIG-04.R5` before/after record *(added `[V1]`, `D-433`)* | Cleanup record review | planned |
 | `AIG-05.C1` | `Verified` carries an independent `Verified-By` and an existing commit | `closure-readiness` check | exists |
-| `AIG-06.C1` | The three rule files keep a byte-identical shared core | `shared-core-hash` check | exists |
-| `AIG-06.C2` | After the refactor, each file meets its `AIG-06.R1` target | size check at the refactor commit | planned |
+| `AIG-06.C1` | One shared core in `AGENTS.md`, imported by `CLAUDE.md` and not copied into `CLAUDE.md` or `GEMINI.md` *(corrected `[V1]`, `D-435`; was the byte-identical three-file core, retired by `D-337`)* | `rule-budget` check | exists |
+| `AIG-06.C2` | Each rule file meets its `AIG-06.R1` target | `rule-budget` check (sizes, import, one copy) | exists *(corrected `[V1]`, `D-435`; the refactor landed at `D-337`)* |
 
 ## 6. Edge cases `[V1]`
 

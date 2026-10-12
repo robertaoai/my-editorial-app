@@ -108,7 +108,7 @@ existing document nodes: `modular_prd_doc` became `modular_prd`, and `requiremen
 became `traceability_map_doc`. `merge7.js` stops at the first dangling edge, so the second was
 hidden behind the first; list every dangling endpoint before declaring a fragment repaired.
 
-`merge7.js` is the reference merge script (repo-relative; `merge6.js` is retained for history but hard-codes an absolute path). `missing.js` reports which docs are absent from the graph.
+`merge7.js` is the reference merge script (repo-relative; `merge6.js` is retained for history but hard-codes an absolute path. Do not run it: it writes `./.graphify/graph.json` directly, which `D-425` forbids outside the guarded procedure). `missing.js` reports which docs are absent from the graph.
 
 **Format note, and it is the one that bites:** `graph.json` stores relationships under **`links`**; fragments declare them under **`edges`**. A merge that copies `edges` straight into `graph.json` produces a graph whose new nodes have **degree zero** — present, findable by `explain`, and reachable by nothing. It fails silently. `merge7.js` handles the translation; anything hand-rolled must too.
 

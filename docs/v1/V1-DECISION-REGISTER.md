@@ -2985,6 +2985,8 @@ report reading *"local PostgreSQL unit-tested; live Supabase anon-key behaviour 
 **Lane B's surface, Lane B's work** — and it may need a dependency, which is Lane A's to provision
 (`D-86`).
 
+**Satisfied (recorded in `V1-PHASE-CLOSURE.md`; `B-044` Verified at `cf51724`).** The DEP-05 limit stays.
+
 ### `C-32` — the Project Scope retention and archival policy is **owed**
 
 **Opened by `D-116`, 2026-08-25. Owner: the business.** Retention and archival are **Project Scope

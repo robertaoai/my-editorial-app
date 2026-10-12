@@ -10,7 +10,6 @@ workflow.**
 
 **You own `.github/workflows/` and nothing else.** Not `scripts/`, not `package.json`, not
 `.gitattributes` — `D-75`'s original map placed some of those here and **`D-84` corrected it.**
-Everything above this line is the shared core, identical in all three agents' rule files.
 
 **Phase 3 — last.** Lane A (orchestration) runs first, Lane B (application code) second. If
 Lane B's sprint has not closed, **your phase has not opened**; check `docs/v1/V1-BUILD-SPEC.md`
@@ -28,11 +27,11 @@ blocks every pull request. Raise it, do not push it.
   Lane A's (`D-84`). Need one? Raise a `docs/handoff/C-NNN-<slug>.md` entry of kind
   `dependency` and stop. **Do not inline it in the workflow** — that produces a job which
   passes while calling something nobody else can run.
-- **Never fix a SKIP by making a check pass vacuously.** `graph-coverage`, `docs-drift` and
-  `source-sweep` skip in CI because of what they read, not because they are broken. **A CI
+- **Never fix a SKIP by making a check pass vacuously.** `graph-coverage`, `docs-drift`,
+  `source-sweep` and `terminal-return` skip in a default CI checkout because of what they read, not because they are broken. **A CI
   total below the local total is correct.** A check that cannot fail is worse than no check.
-- **`bun run build` is not a verification gate.** `TC6` disables the type and lint gates at
-  build, so typecheck and lint stay **separate steps**.
+- **`bun run build` is not a verification gate.** `TC6` disables the type gate at build, and
+  `next build` never runs lint, so typecheck and lint stay **separate steps**.
 - **Never assert how many checks there are.** `D-92` removed those tallies from four documents
   after they drifted; `bun run check` prints the total.
 

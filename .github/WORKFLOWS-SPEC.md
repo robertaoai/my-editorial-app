@@ -31,8 +31,9 @@ report.
 | `bun test` | bun's built-in runner |
 | `bun run check` | the `C-14` consistency apparatus |
 
-**`bun run build` is not a verification gate.** `TC6` sets `ignoreBuildErrors` and
-`ignoreDuringBuilds`, so a build stays green on broken types. **A CI job that runs only
+**`bun run build` is not a verification gate.** `TC6` sets `ignoreBuildErrors`, and
+`next build` never runs lint (the `ignoreDuringBuilds` line was removed for Next 16, `B-058`), so a build
+stays green on broken types and unlinted code. **A CI job that runs only
 `next build` would pass with broken types and unlinted code** — it did exactly that while ten
 real type errors sat in `lib/supabase/`. Typecheck and lint stay **separate steps**.
 
@@ -43,17 +44,18 @@ something nobody else can run: green CI that checks something no local run repro
 
 ## 3. The SKIP contract — read this before touching `bun run check`
 
-**`graph-coverage`, `docs-drift` and `source-sweep` cannot run in a default CI checkout, and the reason is what they read, not their
-number.**
+**`graph-coverage`, `docs-drift`, `source-sweep` and `terminal-return` cannot run in a default CI checkout, and the reason is what
+they read, not their number.**
 
 | Check | Why it skips in CI |
 |---|---|
 | `graph-coverage` | reads `.graphify/`, which is **gitignored** — a fresh checkout has no input |
 | `docs-drift` | same |
 | `source-sweep` | needs **per-file history**; `actions/checkout@v4` clones at depth 1 |
+| `terminal-return` | walks **per-file history** of handoff entries; at depth 1 it reports SKIP (`scripts/checks/terminal-return.mjs`, the shallow-clone branch) |
 
-**A CI total below the local total is correct, not a regression.** They differ by exactly these
-three. **Do not "fix" a SKIP by making the check pass vacuously** — a check that cannot fail is
+**A CI total below the local total is correct, not a regression.** They differ by the checks that this
+table names, and only for the reason each row gives. **Do not "fix" a SKIP by making the check pass vacuously** — a check that cannot fail is
 worse than no check, and this repository has a named failure mode for it
 (`probe_that_cannot_fail`).
 
@@ -76,7 +78,8 @@ requires a separately accepted baseline-promotion PR.
 
 **Why:** `source-sweep` (`G70`) compares each governing document's last-commit date against its
 derived tiers. At depth 1 that history does not exist, so the check reports SKIP and the
-source-side of `D-54` propagation is unverified on every merge.
+source-side of `D-54` propagation is unverified on every merge. The same depth also makes
+`terminal-return` SKIP; `fetch-depth: 0` lets both run.
 
 **Cost, stated:** a full clone is slower. Accepted — the alternative is a governance check that
 never runs on the only gate that blocks a merge.

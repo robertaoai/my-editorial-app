@@ -20,7 +20,7 @@
       "file_type": "concept",
       "source_file": "docs/specs/SPECS-VERIFICATION-APPARATUS.md",
       "source_location": "§4.1",
-      "description": "next.config.ts sets ignoreBuildErrors and ignoreDuringBuilds, so a CI job running only next build passes with broken types and lint errors. Green would mean the bundler completed, not that the code is sound. CI must run typecheck and lint as separate explicit steps. TC6 is not resolved by this — it is compensated for in CI, leaving deployment behaviour untouched.",
+      "description": "next.config.ts sets ignoreBuildErrors, so a CI job running only next build passes with broken types; next build never runs lint (the ignoreDuringBuilds line was removed for Next 16, B-058). Green would mean the bundler completed, not that the code is sound. CI must run typecheck and lint as separate explicit steps. TC6 is narrowed, not resolved: it is compensated for in CI, deployment behaviour is untouched, and Q6 stays open.",
       "source_url": null,
       "captured_at": null,
       "author": null,

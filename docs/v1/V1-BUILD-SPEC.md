@@ -541,7 +541,7 @@ Additional T1 items beyond the table below: `D-15` `docs/v1/` pointer · `D-16` 
 
 > `R3` is the precondition for every sprint having a verdict. **Installed 2026-08-21 (`D-70`)** — runner, `__tests__/` and CI all exist and CI is green on a real run. `next.config.ts` still disables type and lint gates at build (`TC6`), which is why CI runs them as **separate** steps; re-enabling the build gates is `Q6`, still open.
 >
-> **`C-14` travels with this item (`D-58`).** `G11`'s detection half — the shared-core hash, the `D-54` tier sweep, the §5.1 duplicate scan, and `missing.js` — is verification apparatus and waits on the same guardrail. **Precedence without detection is inert:** git here has one identity and zero merges, so a conflicting edit is a silent overwrite that nothing announces.
+> **`C-14` travels with this item (`D-58`).** `G11`'s detection half — the shared-core hash, the `D-54` tier sweep, the §5.1 duplicate scan, and `missing.js` — is verification apparatus and waits on the same guardrail. **Precedence without detection is inert:** git here has one identity and zero merges, so a conflicting edit is a silent overwrite that nothing announces. *(Later state: `D-337` replaced the shared-core hash with `rule-budget`; `D-246` made `graph-coverage` the node check and `missing.js` a reference report only.)*
 
 **Specified 2026-08-20 — `D-56`, `docs/specs/SPECS-VERIFICATION-APPARATUS.md`.** Runner, layout, CI steps and DoD are settled. *(Superseded 2026-08-21 by `D-70` — **all of it is now installed**; this sentence read "nothing is installed" until `D-71` corrected it.)* Two rules carry forward: CI must run **typecheck and lint as explicit steps**, because `TC6`'s flags make a `next build`-only job green on broken types; and `R3`'s original *"written, locally unverified"* statement predates the installed toolchain —
 `D-64` records bun and the lockfile verification directly; `D-70` records installation of the
@@ -676,6 +676,7 @@ so a rule about when a lane may begin belongs in the reader's line of sight.
 > green while the SQL is syntactically invalid.** **Two unverified things are held apart**: `DEP-05`
 > permits **live anon-key** behaviour to remain unverified; a **local PostgreSQL** unit test needs no
 > credentials and is still required. `C-33` carries the eight-case contract.
+> *Later state: `B-059`'s narrow S1 claim was accepted and `C-33` is satisfied (`V1-PHASE-CLOSURE.md` L429–L430); `B-044` is Verified at `cf51724` (30 PostgreSQL assertions). Live hosted anon-key behaviour stays unverified under `DEP-05`.*
 **OD gating:** none. Sequence enforcement is a Charter-level invariant.
 
 ### S2 — Line assignment and four-eyes

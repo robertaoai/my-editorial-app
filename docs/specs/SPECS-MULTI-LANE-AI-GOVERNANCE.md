@@ -103,8 +103,8 @@ All three are **read-only responses**: no owned file is written, so no lock is n
 
 ## 5. Implementation pointers `[V1]`
 
-Already built; listed so this file does not restate them: `scripts/checks/shared-core-hash.mjs`, `lane-state.mjs`,
-`lane-boundary.mjs`, `handoff-response.mjs`, `terminal-return.mjs`, `closure-readiness.mjs`; `.githooks/commit-msg`.
+Already built; listed so this file does not restate them: `scripts/checks/rule-budget.mjs` (replaced `shared-core-hash.mjs`, `D-337`), `lane-state.mjs`,
+`lane-boundary.mjs`, `handoff-response.mjs`, `terminal-return.mjs`, `closure-readiness.mjs`; `.githooks/commit-msg`. *(corrected `[V1]`, `D-435`)*
 
 ## 6. Code-navigation realization per surface `[V1]` *(added, `D-433`)*
 
