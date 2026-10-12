@@ -166,3 +166,49 @@ No push is included. B-156 remains terminal and unchanged.
 | Approve-with-conditions | Completed A/C decision contract | Phase 1: Lane A answers AC1-AC7; Lane B reviews the bounded changes |
 | Defer | A/C application, publication, push and wider completion claims | Later bounded acts and recorded prerequisites; not authorized here |
 | Reject | Cycle count as risk proof; health as semantic proof; all drafting held on D-434; old C2 bindings reused after C1 | Phase 1: correct the contract before execution |
+
+## Lane A — AC1–AC7 answered, 2026-10-12
+
+**Read at:** `2d3650a`. **Measured at:** `1640ff7`. **Authority:** the existing planning scope; no new Judge act.
+Answer only: no repair, governed edit, trial, graph cycle or push. Lane A receives Lane B's raising commit and its
+review of the supplied draft, and applies both requested wording fixes (AC1, AC5).
+
+**Evidence:** committed at `99ad817` in `docs/handoff/artifacts/B-157/`. Hashes of the committed bytes:
+
+| File | SHA-256 |
+|---|---|
+| `C1/C1-targets.json` (R1–R20, 18 targets) | `2702b0c377b52e077d71fc184d59e00c0d94d120ac3f70cde8237a62e86714e1` |
+| `C1/F3-oldvalues-1640ff7.json` | `3167ae8e63f2beb3678e1a2a1d2094a39c9de625ae2017d8f2fc2bf875285821` |
+| `C2/C2-targets.json` (R21–R25, R29, 5 targets) | `e17ef212997192b610e8b040f7ab7c9fe0f278e8dcf8341e2f4dae2ad22df7ee` |
+| `C2/F3-oldvalues-1640ff7.json` | `576f1518757cca67bdd45ca8c885141ae04b2c48f0df137259f48f401d53b122` |
+| `C-reconcile.mjs` | `11fbfe2ca51e563070051d152f089365c7929c55a5929d0fc5c218ad7c0584c9` |
+| `C-reconcile-1640ff7.json` | `f806ec8495d45cc47e7cdc5893309e2490f744fa657d8fe62ba7e95027abad33` |
+
+Reproduce, from the repository root, with A = `docs/handoff/artifacts/B-156/F3-optionA` and B = `docs/handoff/artifacts/B-157`:
+`node B/C-reconcile.mjs A/F3-optionA-targets.json A/F3-oldvalues-1640ff7.json B/C1/C1-targets.json B/C1/F3-oldvalues-1640ff7.json B/C2/C2-targets.json B/C2/F3-oldvalues-1640ff7.json <new out file>`.
+The bindings were made with B-156's accepted `F3-oldvalues.mjs` (unchanged). **Negative control:** a manifest with one
+target in both units: exit 2, "overlap: R21-R22", no file. **Check:** `node scripts/check-consistency.mjs` with the
+evidence staged on `2d3650a`: exit 0, 19/19.
+
+### Answers
+
+| ID | Answer | Status |
+|---|---|---|
+| AC1 | **Prefer A when** the whole selected batch can be reviewed at once and no release decision is needed between its groups. **Offer C when** the Judge names a checkpoint whose value justifies a second cycle and the temporary residuals. **Fewer cycles does not prove lower risk.** Actual risk depends on the selected scope and its review evidence. No safety, elapsed-time or cost claim is made | Answered |
+| AC2 | C1 = R1–R20, 18 bound values over 10 paths; C2 = R21–R25 and R29, 5 bound values over 4 paths (repair IDs map to bound values, not one-to-one). `C-reconcile-1640ff7.json`: no overlap; union equals A's 23 targets; every manifest entry and every SHA-256 equals A's; all bound at `1640ff7`. Frozen evidence (`B-156` `d00a8f5`, `ae728bd`) is unchanged. **Rebind rules:** after `D-434` publication and health, C1's targets are located by semantic locus at the actual source and bound with `F3-oldvalues.mjs`; equal at the same lines → proceed; relocated → stop for Lane B review; changed → reassess and Lane B review. C2 repeats this **after C1's publication and health**, because C1's own act changes the shared Register, Build Spec and Inventory | Answered |
+| AC3 | Three separate evidence stages per unit: **(1) candidate acceptance** — Lane B reviews the exact bytes and their meaning against the governing clauses, limits and retained gaps; a refusal means the unit is **not published**. **(2) publication parity** — the live graph matches the reviewed candidate; this does not prove repository-wide atomicity. **(3) separate health** — required checks and parity; a failure **stops progression** (for C, C2 does not start). Then C2's actual-source rebind (AC2). Each record names the stage that stopped. A health pass does not prove that a repair's meaning is right | Answered |
+| AC4 | The question that C1's published evidence would answer: "Are the three curated fragment repairs (`frag7`, `frag13`, `frag15`) and the AIG-06 and TC6 current-state text accepted and live before the merge-attribute and pointer repairs are applied?" **For this scope A is preferred**, because the C2 repairs do not use that answer. This preference is **conditional**: lack of a functional dependency does not show that a staged review has no value. If the Judge needs that answer before C2, C is the right option, with: **proceed** = C1 health clean and C2 targets unchanged; **change** = a C2 target relocated or changed (review first); **stop** = a C1 candidate refusal or a C1 health failure | Answered |
+| AC5 | If C2 is delayed or stops: pending R21–R25 and R29; owner Lane A; return trigger: a Judge C2 act after C1's health record; record destination: this entry's body and that act's record. The record reads **"C1 published; C2 incomplete."** That phrase **limits completion claims**: nobody claims all selected repairs are done. It does not limit truthful reporting of the retained C1 evidence. C1 is not reverted | Answered |
+| AC6 | `D-434` gates **application only**. Drafting, Lane B review and the Judge's conditional assessment proceed now. B-156 stays terminal. Each later execution act names its lawful receipt route and health-record destination **before prepare** and reuses no expired exception | Answered |
+| AC7 | Unchanged: the 173 wholly unassessed rows, the 9 partly read fragments and the open F2a items, with their owners and triggers; Lane C's recorded limits (C5 host output unavailable; the supplied-summary provenance). Excluded from A and C: R26–R28, P1, P2. No tool adoption, native setup, trial or product-delivery claim | Answered |
+
+**Not changed by this answer:** the Status line (Open), any Resolution, B-156, `D-434`, the tracker. B-157's tracker
+row belongs to the next authorized re-derivation. **Drift:** handoff-only; governed intent synced at `93aa02f`; no
+graph sync needed.
+
+| Verdict | Item | Condition and follow-up phase |
+|---|---|---|
+| Approve | Receipt of `2d3650a`; AC2 evidence committed and reconciled | Phase 1: recorded |
+| Approve-with-conditions | AC1–AC7 answers | Phase 1: Lane B reviews the answers and the changed evidence; Lane B records each child's outcome |
+| Defer | The Judge's choice of A or C; application; publication; the batch push | After `D-434` publication and health, under a bounded act |
+| Reject | "Fewer cycles" as proof of lower risk; health as proof of meaning; C2 bound with pre-C1 line numbers; "C1 published; C2 incomplete" read as full completion | Phase 1: no action |
