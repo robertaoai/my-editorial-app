@@ -4260,3 +4260,97 @@ inside the guarded sequence (`D-428`).
 | Approve-with-conditions | Candidate `186e77ea…` | Phase 1: Lane B receipt 2 covering bytes **and** GR-007 semantics, recorded in B-050 with its annotation |
 | Defer | Publication (P-cond), health, Option A's act, the batch push | After receipt 2; Option A after the health record; push at an authorized point |
 | Reject | Publication from a Lane A-authored review; any fetch or push before the health record | Phase 1: no action |
+
+## Lane B — D-434 cycle-2 receipt review: one description returned, 2026-10-12
+
+### What happened
+
+Read revision `b60a435c14edc0d7bbfba906d7843f39f4609a27`. The Judge's D-434 acceptance branch and P-cond
+are recorded at `fa51ce0`; batch 2 is applied at `29bce67`. Option A is selected, but its application still
+waits for D-434 publication and the separate health record. These are existing conditions, not new decisions.
+
+Lane B reviewed the prepared candidate against its source and the new GR-007 conclusion. Receipt 2 is **withheld**
+for one inaccurate generated description. This is a return within the existing semantic review, not a return of
+the already accepted B-156 or B-157 planning units. B-136's header and Lane A's answer remain unchanged.
+
+| Binding | Observed value |
+|---|---|
+| Work | `C:/CoWork/outputs/lane-a-d434-apply-2026-10-12/work`, workId `aaefe7b0-03dd-4b0d-b258-5b0f60866699`, attempt 2, ready |
+| Source | `067a40591dd7f3c61a0c51101c1485857c44a675` |
+| Candidate graph SHA-256 | `186e77eaca72d8c002da7776e5a091b37d89f2de9c8099f34898f5d067eeb142` |
+| Candidate manifest SHA-256 | `d87af4af7aa8d26e2551c4b09b314a82648f160b7eaca4c1b05a892f26fdf771`, 583 files |
+| Answer SHA-256 | `764b142ac08b40c72b2f98ac82780f3b55933972ec6247678c38c907f100cc3a` |
+| Live graph, unchanged | `81ab5cd62e6787b0b87d1a69f18331564dc024f9181b798ee54ccfe74c0c487f`, analyzed at `93aa02f` |
+
+**Checks without structural findings:** graph and manifest hashes; all 583 manifest files; captured source and
+baseline; publication source rule; staging and transaction checks; all seven call records and their selection
+oracles; foreign-path scan; 202 descriptions against the answers; 50 names against their member bindings;
+139 curated fragments with exact parity; the two changed leaves and unchanged other fields. Leaf hashes match
+the authorized values: `attempt_sv002_setup_validation` = `d6d19f7f22fd1a3bbb01b052d5e57dbe957afe7aaf50b515a687a03b6270ffc5`,
+`fn_multi_lane_ai_governance` = `c4283f75aceeb1f1d652d79ea118712401440fae6d947b5eb0cbc2b17ce1b575`.
+Description/source review found D434-R1 below; answer replay alone is not semantic proof.
+
+**GR-007 review:** no finding against the appended conclusion at `29bce67`. The tracker is current at observation
+T = `fa51ce0`; all five closure counters are zero. Lane B separately checked the new P15 Basis against D-434's
+individual Judge reason, D-382 item 6 and D-364 item 4. The non-turn-report population and keyed ledger both
+contain 160 entries, including B-156 and B-157, with no missing or extra keys. Their verification stays planning-only.
+This result does not complete receipt 2: the replacement candidate still needs a source/manifest-bound acceptance
+covering both bytes and GR-007 semantics. No governed edit is needed merely to replace its dated "awaits" snapshot.
+
+### What you need
+
+| Finding | State / owner | Source and failure | Bounded correction and pass condition |
+|---|---|---|---|
+| D434-R1 | Open / Lane A | Candidate node `b_156_f2a_controls_r2_inject` says "first matching call". `docs/handoff/artifacts/B-156/F2a-controls-r2.mjs:23` replaces every matching call; it has no one-shot state. | Correct this generated answer, prepare a replacement through the guard, and return its new bindings. Pass: the description agrees with the function body, the replacement passes the guard checks, and Lane B accepts its bytes and GR-007 meaning. |
+
+Source at the frozen revision:
+
+```javascript
+const inject = (match, result) => (args) => (match(args) ? result : real(args));
+```
+
+Proposed description:
+
+> Wraps the real Git runner so that each matching call returns the chosen failure and other calls use real Git.
+
+The source comment also says "first"; copying that comment preserved its error. Two matching calls both return
+the injected failure; a nonmatching call uses real Git. Correct the generated description, not the accepted evidence
+script. Do not alter the ready graph in place or reuse its old hash as a replacement binding. D-434 item 7 already
+covers replacement candidates within this cycle; no new Judge choice is required for this correction.
+
+**Follow-up, in dependency order:**
+1. Lane A corrects the answer and prepares the replacement, preserving this reviewed attempt as evidence.
+2. Lane B reviews the replacement bindings, changed description and continuing GR-007 basis. Only on acceptance
+   does Lane B record receipt 2 in B-050, followed immediately by its covering Terminal annotation under D-434's route A.
+3. Lane A publishes under existing P-cond after receipt 2 and unchanged bindings, then records separate full health
+   evidence in B-136. No fetch or push before that health record.
+4. Option A's authorized work follows only after those prerequisites. Its application is not performed by this review.
+
+**Chief Editor evidence boundary:** keep the customer/use-case requirement, governing decision, source behavior,
+verification and current projection linked. One project can contain separate governance/docs, codebase and knowledgebase
+use cases. SETUP-SPIKE source evidence is not product-codebase or SM05 delivery credit. This cycle adopts no Ripwire route
+and supplies no formal knowledgebase retrieval. Preserve Lane C's accepted limits; this generated-description correction
+does not require a new consumer trial. Lane C's claim reviews remain under their B-series parent, not an invented C-series file.
+
+### What you did instead
+
+Ran read-only source, candidate and graph checks. The full configured check at `b60a435` passed 18 of 19 checks;
+only `docs-drift` failed (live analysis `93aa02f`, nine governed paths changed). `terminal-return` passed.
+This is the allowed D-428 pre-sync state, not a release-health result. The drift clears through guarded publication,
+not a raw rebuild. This handoff-only review creates no additional governed drift.
+
+Retained review evidence in `C:/CoWork/outputs/lane-b-d434-review-2026-10-12/`:
+- `review-candidate.mjs`: SHA-256 `20f1767087b10f80d437228b1198a1e65df8fbbe6df5e91c34e760cfa6254c40`.
+- `candidate-review.json`: SHA-256 `eae4aab2ef3ec6ad2b5ed206dc8953be388711aee1d52773c9507c33b1e90ff4`.
+- `check-at-b60a435.log`: SHA-256 `776a3a171e22e53208623b16e88005346b0aab6a7bb68855b644b48c9dc54f33`.
+
+The external files are supporting evidence; the finding, source line, correction and completion condition are kept
+in this parent entry. No B-050 acceptance, graph preparation/publication, product build, fetch, push or Gate 2 closure
+was performed by Lane B.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | D-434 recorded authority; structural checks; tracker and GR-007 source review | Phase 1: review completed at the named revision; not receipt 2 |
+| Approve-with-conditions | Replacement candidate and receipt 2 | Phase 1: fix D434-R1, prepare replacement, then Lane B accepts new bindings and GR-007 semantics |
+| Defer | Publication, separate health record, then Option A application | Phase 1: existing P-cond and Option A prerequisites, in order |
+| Reject | Current "first matching call" description; byte parity treated as semantic acceptance; publication before receipt 2; SM05 or Gate 2 clearance inferred | Phase 1: no action |
