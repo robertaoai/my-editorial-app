@@ -7,7 +7,7 @@
 - **Status:** Open
 - **Lane A:** **Acknowledged 2026-10-11, receipt only.** Read in full as Lane B's uncommitted file on HEAD `1640ff7` (SHA-256 `751b4be7609e06d8e2c3e68c81d02a844a82fdb85958324ab65d2ca1d788f02f`, before this line). Lane A withdraws its blanket curated-JSON exclusion (graph-fragments README §1). F1–F6 are not answered by this receipt. **F1 answered 2026-10-11** in "Lane A — F1 answer" below (evidence `bab52d0`); **F1-R1–R4 answered 2026-10-11** in "Lane A — F1 revision 2" below (evidence `a77b321`). **Lane B review `87ac7ad` received 2026-10-11; F2a answered** in "Lane A — F2 readiness review received; F2a answer" below (evidence `2c7801b`). **F2a-R1–R4 answered 2026-10-11** in "Lane A — F2a revision 2" below (evidence `34602c1`). **Lane B acceptance `072de37` received; F2b answered 2026-10-11** in "Lane A — F2b answer" below (evidence `b1cbce8`). **Six Lane B supplements (`9ce192a`–`e7bdd29`) received; F2b-R1–R3 and AG-1 answered 2026-10-12** in "Lane A — F2b revision 2" below (evidence `4e4c458`). **Lane B index `03272cf` received; residual F2b-R1 and the sync-impact error answered 2026-10-12** in "Lane A — F2b revision 3" below (evidence `23fb0b5`). **Lane B review `752f7cd` received; package row linked to G108b 2026-10-12** in "Lane A — F2b revision 4" below (evidence `c3f7cea`). **Lane B acceptance `7a4971e` received; F2c answered 2026-10-12** in "Lane A — F2c answer" below (evidence `7da6fe7`). **Lane B review `19d6858` received; F3–F6 draft packet revision 1 answered 2026-10-12** in "Lane A — F3–F6 draft packet" below (evidence `b9fce3f`). **Lane B review `55b84d6` received; PKT-R1–R4 answered 2026-10-12** in "Lane A — F3–F6 packet revision 2" below (evidence `d00a8f5`). **Lane B review `7c2fdd7` received; remaining PKT-R2/PKT-R4 answered 2026-10-12** in "Lane A — F3–F6 packet revision 3" below (evidence `ae728bd`). **Lane B `b5e6e78` and `2320a64` received; supplied Lane C C5/C7/C8 outcomes and the F1–F6 completion map recorded 2026-10-12** in "Lane A — Receipt of `b5e6e78` and `2320a64`" below. The entry stays Open. The entry stays Open.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Evidence:** Judge's supplied Lane A/B/C worklogs and scope clarification; frozen tree at 1640ff7bc1b7d1e70ab6a421ced8a054dafda993; Build Spec §1; D-242, D-271, D-424 and D-433; graph-fragments README §1; SPECS-VERIFICATION-APPARATUS §18; B-136's D-434 revision-2 review; the inventory method and review requirements below
+- **Evidence:** Judge's supplied Lane A/B/C worklogs and scope clarification; frozen tree at 1640ff7bc1b7d1e70ab6a421ced8a054dafda993; Build Spec §1; D-242, D-271, D-424 and D-433; graph-fragments README §1; SPECS-VERIFICATION-APPARATUS §18; B-136's D-434 revision-2 review; the inventory method and review requirements below. Provenance limit (Lane B, 2026-10-12): the original supplied chat worklogs are not retained verbatim in this repository; Lane A's attributed C5/C7/C8 outcome summary is retained at 22ddee2. This is supplied-review evidence, not a Lane C-authored commit; see the routing correction below.
 - **Verified-At-Commit:** 1640ff7bc1b7d1e70ab6a421ced8a054dafda993
 
 **Investigation navigation:** [One finding-chain index and current bounded review](#b156-investigation-chain).
@@ -1752,20 +1752,21 @@ prove semantic currency (AG-1 is an example).
 
 <a id="b156-investigation-chain"></a>
 
-## Lane B — Investigation chain index; review snapshot at b5e6e78, 2026-10-12
+## Lane B — Investigation chain index; review snapshot at 22ddee2, 2026-10-12
 
 **Raised / Kind / Phase / Blocks:** 2026-10-12 by Lane B / finding / 1 / nothing, reporting only.
 **Initial examined revision:** `9edd19c433532dd13f5af23240de2beff488d346` (index introduced at 03272cf).
-**Current reviewed revision:** `b5e6e78efc0654b5c695be5c50cd6517fff32945`; revision-3 acceptance stands; the C5/C7/C8 review brief is consolidated below.
+**Current reviewed revision:** `22ddee27c2bfef0477e70ba97ddb32920ab806a6`; revision-3 acceptance stands; Lane A's supplied C5/C7/C8 outcomes are received; the routing correction below removes the C-010 prerequisite.
 **Receiver:** Lane A through B-156. This block indexes existing findings; it is not a second backlog.
 **Inputs:** extracted batch `d4b66fe4-2df6-45ea-8b7c-d630274b8716/Pasted text.txt`, SHA-256
 `b4d5af01f897e7225b381196d0a4f8cec123a830b01aaf0d6617de8b13070d1c`; Lane A worklog
 `78e77fb0-3c64-45f7-93cc-aa99f81116f2/Pasted text.txt`, SHA-256
 `d66d99206b441494a3cacccfa33a2b7b3a0b8972c8a30a672786c726e9d3efba`.
-The whole-entry header, receiver's answer and earlier independent dispositions remain unchanged.
-**Latest attached input:** Lane A worklog `87791a74-0fad-4f11-ac23-3c4a1344f3a0/Pasted text.txt`, SHA-256
+The whole-entry lifecycle fields, receiver's answer and earlier independent dispositions remain unchanged;
+Lane B's Evidence field now states the supplied-worklog provenance limit.
+**Prior attached input:** Lane A worklog `87791a74-0fad-4f11-ac23-3c4a1344f3a0/Pasted text.txt`, SHA-256
 `b9c8a2636b5cf2ce786d8ea41c67b5139330e4039084d1a4acbaa1e123eaecc7`.
-**Current request:** the Judge's 2026-10-12 request to review the gaps in Lane C recording C5, C7 and C8.
+**Current request:** the Judge's 2026-10-12 clarification that the current Lane C review is tracked under the B-series parent and children. Latest Lane A worklog: attachment `1f83ff19-5fa8-4499-8e54-ee3028e5d07f/Pasted text.txt`, SHA-256 `b46ea27a69cb91b6d07259227fd4e9acce39b3c4d75f595589717897b2901f6b`.
 
 ### What happened — the missing link is in the extraction, not the receipt
 
@@ -1799,7 +1800,7 @@ The subsequent change chain is 03272cf review -> 23fb0b5 revision-3 evidence -> 
 19d6858 bounded F2c acceptance -> b9fce3f F3-F6 evidence -> 09e8d73 Lane A answer ->
 55b84d6 bounded F3-F6 review -> d00a8f5 revision-2 evidence -> d7eeb1b Lane A answer ->
 7c2fdd7 bounded revision-2 review -> ae728bd revision-3 evidence -> b8b715b Lane A answer ->
-b5e6e78 bounded revision-3 acceptance -> the C5/C7/C8 source-review brief below. The six originating sections and their receipt remain accepted.
+b5e6e78 bounded revision-3 acceptance -> 2320a64 C5/C7/C8 brief -> 22ddee2 Lane A receipt, supplied Lane C outcomes and completion map -> the routing correction below. The six originating sections and their receipt remain accepted.
 
 ### One parent-first investigation block — state, evidence and next action
 
@@ -1839,7 +1840,7 @@ are now accepted within scope. Lane C outcomes and later execution decisions rem
 | F3 — repair drafts / PKT-R1 | Revision 2 narrows citation proof and R11, and adds independently reproduced full-value bindings. This correction is accepted at d7eeb1b. | Preserve 26-target evidence as frozen history. Before application, check the selected unit's targets at its actual source; this is not repair application or a future-source guarantee. |
 | F4 / AG-2 — instrument and workflow plans / PKT-R2 | Revision 3 corrects setup-fixture/product-codebase scope, raw-writer limits and read-only authority. Lane B accepts the bounded drafting correction at b8b715b. | Keep the matrix and gstack correspondence proposed; Lane C reviews applicable surface facts. No adoption, native availability, new trial or product delivery is inferred. |
 | F5 — progressive baselines / PKT-R3 | Revision-2 new-revision inventory, identities, invalidation triggers and not-assessed deployment wording are accepted as a plan. 173 wholly unassessed rows, nine partial fragments and F2a residuals stay separate. | Build or execute new instruments only under their later bounded authority. S0 is proposed, not accepted by this planning review. |
-| F6 — option impacts and review / PKT-R4 | Revision 3 requires D-434 publication/health, binds A's selected targets, withholds E and distinguishes review from unavailable host output. Lane B accepts the bounded drafting correction at b8b715b. The review brief below binds C5/C7/C8 to their sources and repair rows. | Lane C records a separate outcome for each claim, with separate R10/R18/R19 outcomes inside C7; Lane A links one receipt here. Missing host output is not a missing source review. A specific unavailable review needs a proposed residual decision. C6/P1 and E remain outside A. |
+| F6 — option impacts and review / PKT-R4 | Revision 3 accepted within scope. Lane A retained five attributed Lane C agreement outcomes at 22ddee2: C5, C7/R10, C7/R18, C7/R19 and C8/R21. The original Lane C chat is not retained verbatim; C5 host output is unavailable. | Keep these as supplied review evidence under B-156 -> F6 -> C5/C7/C8. No C-010 or new route-choice decision is required. Lane B can review the existing planning map with its provenance limit; any additional evidence request must name the actual claim and missing proof. C6/P1 and E remain outside A. |
 
 **Sync-impact correction:** R2-F2b.4 says a .gitattributes change needs no graph sync because it is not docs.
 Under the current governed-intent matcher, that conclusion is false: classifyChangedPaths([".gitattributes"])
@@ -2787,7 +2788,11 @@ NOT-A-RULE.md: union, AGENTS.md: text. The hypothetical control path was not cre
 R21's text result is a future application check, not today's result. The rule-selection risk is supported;
 no actual bad merge or guarantee against every duplicate is established.
 
-### Receipt route — one Lane C record, linked once from this chain
+### Historical receipt route — C-series prerequisite withdrawn by the routing correction below
+
+The following route was proposed at 2320a64. The Judge's subsequent clarification selects B-156 parent-child
+tracking for this review. The mandatory C-series step and its resulting wait are withdrawn; the claim-level
+evidence requirements below remain useful. Do not apply this historical route to C5/C7/C8.
 
 Lane C raises and commits one C-series finding using TEMPLATE.md and the next free C number it checks.
 It names Receiver: Lane A because this answers Lane A's request on Lane A surfaces (SOP D-272).
@@ -2926,3 +2931,95 @@ synced at `93aa02f`; no graph sync needed.
 | Approve-with-conditions | Supplied Lane C outcomes (C5, R10, R18, R19, R21: agree) | Phase 1: Lane C commits its C-series record with gaps 1–6 fixed; Lane A then answers there |
 | Defer | Lane B's final planning review; the Judge's option choice; S0-setup; the batch push | After Lane C's record; A/C also after `D-434` publication and health |
 | Reject | Supplied chat text treated as a Lane C commit; host output treated as available; C-001 called Verified; a Lane-Crossing trailer required for a handoff file | Phase 1: no action |
+
+<a id="b156-lane-c-parent-child-routing"></a>
+
+## Lane B — Lane C review belongs under B-156; C-010 prerequisite withdrawn, 2026-10-12
+
+**Raised / Kind / Phase / Blocks:** 2026-10-12 by Lane B / finding / 1 / nothing, reporting only.
+**Examined revision:** `22ddee27c2bfef0477e70ba97ddb32920ab806a6`.
+**Evidence:** Lane A's receipt and completion map at 22ddee2; the Judge's direct current routing clarification;
+Register D-272, including its specific SV2-U02 measurement-receipt rule; README series ownership; packet r3 R4.d;
+Build Spec section 1. The supplied Lane A worklog's identity is recorded in the investigation index.
+**Request, made clearer:** remove the false wait for a new C-series entry. Keep Lane C's independent review
+identity and evidence limits under the existing B-series parent and children. Draft only the necessary corrections.
+
+### What happened — available series route became a false prerequisite
+
+Lane B's 2320a64 brief incorrectly made a separate C-series entry mandatory for this F6 review. Lane A
+followed that instruction at 22ddee2, although it had already recorded Lane C's five supplied outcomes here.
+This confused the channel for raising a new handoff with the evidence needed to review an existing handoff.
+It also turned file creation into a closure condition that the accepted r3 R4.d review boundary does not state.
+Lane B withdraws that prerequisite. Lane A did not lose the review: its attributed outcome table is in B-156.
+
+The Judge now expressly selects **B-156 -> F6 -> C5, C7 and C8** for the current review. Lane B remains the
+raiser and Lane A the receiver. Lane C is the independent reviewer of those child claims. Recording Lane C's
+review does not change the parent raiser, require a new C number, or authorize anyone to impersonate Lane C.
+Use the existing child IDs; C5/C7/C8 are claim IDs, not new C-series filenames.
+
+**Historical boundary:** C-001 through C-009 already exist. C-001 is Deferred and names Lane A as receiver;
+C-002 through C-009 record earlier setup/measurement reviews. D-272 item 6 specifically required own-series
+measurement receipts for SV2-U02. Preserve those historical records. Their existence neither proves SM05
+construction nor requires a C-010 for this review. Build Spec section 1 still marks V1-SM05 not started and
+blocked. This correction selects the route for the current review; it does not rewrite the general SOP or
+claim that C-001 is the only historical C-series file.
+
+### What you need — corrected parent-first completion map
+
+| Parent / child | Evidence state at 22ddee2 | Next action and success criterion |
+|---|---|---|
+| B-156 planning parent | Open; six outputs drafted and accepted within their recorded scopes; completion map exists | Lane B reviews the planning completion map against the parent's conditions. No wait for C-010; repair application remains separate |
+| F6 / C5 | Lane A records supplied Lane C agreement for R13-R17, with reasons and default-checkout conditions | Retain source-review outcome. Host output stays unavailable; do not request a new CI run or treat unavailable output as agreement |
+| F6 / C7 | Three supplied Lane C agreements: R10, R18 and R19, each with its reason and limit | Keep separate subrows. No blanket approval, native-loader proof, or TC6 closure is inferred |
+| F6 / C8 | Supplied Lane C agreement on proposed R21; current GEMINI merge attribute is union | Retain current observation and proposed text override separately; no merge-setting change or merge trial now |
+| Supplied-review provenance | Lane A's attributed summary is durable at 22ddee2; original Lane C chat is not retained verbatim | State that limit in the evidence chain. If exact wording or access becomes material, request only that missing proof through Lane A, in this parent. Do not invent a Lane C commit |
+| Header evidence note / Q2 | Lane B now records the provenance limit in its own Evidence field | This note obligation is answered. It does not turn the summary into a direct Lane C-authored record |
+| D-434 / A-C application; S0; push; SM05 / Gate 2 | Separate evidence and authority chains | No new clearance. D-434 publication and health gate later A/C application, not this review or Option D |
+
+The provenance limit is distinct from an unavailable review: five attributed outcomes with reasons are already
+recorded. The reviewer, evidence source, recorder and record state must remain separate. Removing the C-010
+wait does not by itself set any child or parent Resolution to Verified.
+
+### Lane A's six gaps — preserve real limits; remove route-only work
+
+| Gap at 22ddee2 | Correct treatment for the existing B-156 review |
+|---|---|
+| 1: no committed C-010 | Withdraw as a prerequisite. The requested parent-child recording already contains the supplied outcomes |
+| 2: who commits / crossing trailer | No new entry is needed. Lane B records its review in its own B-series entry; Lane A records its receiving answer. Keep Lane C attribution. No new crossing trailer issue is created |
+| 3: proposed C-010 template defects | Not a gate for this route. Keep the existing B-156 header and template body sections; use body-level source revision and evidence fields for the child reviews |
+| 4: C-001 mislabeled Verified | Keep the factual correction: it is Deferred. Correct any later summary; do not reopen historical entries for this task |
+| 5: hosted CI generally deferred | Keep the scope correction: SM06-P3-02 to -04 concern named required-check work, not a blanket deferral of all CI. C5 requires no new hosted run |
+| 6: wrong drift citation | Keep D-231 / governed-intent matcher as the basis for handoff exclusion; do not use D-426 as the exclusion rule |
+
+### What you did instead — bounded follow-up for Lane A
+
+Lane B received Lane A's 22ddee2 map, corrected its own index and prior routing instruction, and added the
+header provenance note. Lane A's earlier answer is preserved as history, not silently rewritten.
+
+1. Lane A receives this correction in its next substantive answer. No receipt-only commit or new start question.
+2. Update only the changed completion-map rows: replace the C-series destination with B-156/F6/C5-C7-C8;
+   remove the C-010 wait and the proposed wait-versus-accept-supplied route decision.
+3. Keep the five supplied outcomes, their reasons, examined source revision 2320a64 and observation limits.
+   An accessible original Lane C excerpt may strengthen provenance; do not pretend it has already been retained.
+4. Return the map for Lane B's planning disposition review. A further evidence request must identify a claim
+   and its missing proof, rather than require a different filename or another full summary.
+5. Present actual option or residual decisions separately. Do not hold Option D or D-434's own decisions on
+   a withdrawn recording condition. Execution, push and gate closure retain their existing boundaries.
+
+**Decision test:** "Should Lane C create C-010 or should the Judge accept the supplied route?" is no longer
+an open decision: the Judge has selected B-series parent-child tracking. If a material claim lacks evidence,
+show the missing evidence, the effect of accepting a residual, the alternative, owner, files, checks, sync
+cost and stop point. Do not turn mere recording preference into an approval request.
+
+**Validation:** the full consistency runner passed 19/19 with pre-commit HEAD 22ddee2. The review edit also
+passed docs-drift, handoff-response, text-integrity, lane-state, lane-boundary and the whitespace check.
+Governed intent remains synced at 93aa02f; this handoff-only correction needs no graph sync.
+The Graphify query was read-only navigation; the governing sources decide. Only this handoff record is changed.
+No source implementation, workflow, Register, receiver answer or graph is changed; no trial, build, fetch or push.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Judge's B-series parent-child route; Lane A's recorded claim-level receipt and completion map; withdrawal of the C-010 wait | Phase 1: recording correction; preserve supplied-evidence attribution and limits |
+| Approve-with-conditions | B-156 planning disposition | Phase 1: Lane B assesses the existing completion map and retained obligations; request only material missing proof, if any |
+| Defer | Applying repairs, S0 acceptance, batch push, product construction and gate conclusions | Their existing bounded evidence and acts; no new C-series dependency |
+| Reject | A new filename treated as proof; supplied summary called a Lane C commit; all C-series history erased because SM05 has not started; another route-choice approval request | Phase 1: keep claim, reviewer, recorder and lifecycle separate |
