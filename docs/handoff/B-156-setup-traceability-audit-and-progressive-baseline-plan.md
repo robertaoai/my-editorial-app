@@ -4,11 +4,17 @@
 - **Kind:** finding
 - **Phase:** 1
 - **Blocks:** nothing, reporting only
-- **Status:** Open
+- **Status:** Answered
+- **Resolution:** Verified
 - **Lane A:** **Acknowledged 2026-10-11, receipt only.** Read in full as Lane B's uncommitted file on HEAD `1640ff7` (SHA-256 `751b4be7609e06d8e2c3e68c81d02a844a82fdb85958324ab65d2ca1d788f02f`, before this line). Lane A withdraws its blanket curated-JSON exclusion (graph-fragments README §1). F1–F6 are not answered by this receipt. **F1 answered 2026-10-11** in "Lane A — F1 answer" below (evidence `bab52d0`); **F1-R1–R4 answered 2026-10-11** in "Lane A — F1 revision 2" below (evidence `a77b321`). **Lane B review `87ac7ad` received 2026-10-11; F2a answered** in "Lane A — F2 readiness review received; F2a answer" below (evidence `2c7801b`). **F2a-R1–R4 answered 2026-10-11** in "Lane A — F2a revision 2" below (evidence `34602c1`). **Lane B acceptance `072de37` received; F2b answered 2026-10-11** in "Lane A — F2b answer" below (evidence `b1cbce8`). **Six Lane B supplements (`9ce192a`–`e7bdd29`) received; F2b-R1–R3 and AG-1 answered 2026-10-12** in "Lane A — F2b revision 2" below (evidence `4e4c458`). **Lane B index `03272cf` received; residual F2b-R1 and the sync-impact error answered 2026-10-12** in "Lane A — F2b revision 3" below (evidence `23fb0b5`). **Lane B review `752f7cd` received; package row linked to G108b 2026-10-12** in "Lane A — F2b revision 4" below (evidence `c3f7cea`). **Lane B acceptance `7a4971e` received; F2c answered 2026-10-12** in "Lane A — F2c answer" below (evidence `7da6fe7`). **Lane B review `19d6858` received; F3–F6 draft packet revision 1 answered 2026-10-12** in "Lane A — F3–F6 draft packet" below (evidence `b9fce3f`). **Lane B review `55b84d6` received; PKT-R1–R4 answered 2026-10-12** in "Lane A — F3–F6 packet revision 2" below (evidence `d00a8f5`). **Lane B review `7c2fdd7` received; remaining PKT-R2/PKT-R4 answered 2026-10-12** in "Lane A — F3–F6 packet revision 3" below (evidence `ae728bd`). **Lane B `b5e6e78` and `2320a64` received; supplied Lane C C5/C7/C8 outcomes and the F1–F6 completion map recorded 2026-10-12** in "Lane A — Receipt of `b5e6e78` and `2320a64`" below. **Lane B `c896291` received; map rows updated for the B-156/F6 route** in "Lane A — Receipt of `c896291`" below. The entry stays Open. The entry stays Open.
-- **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Evidence:** Judge's supplied Lane A/B/C worklogs and scope clarification; frozen tree at 1640ff7bc1b7d1e70ab6a421ced8a054dafda993; Build Spec §1; D-242, D-271, D-424 and D-433; graph-fragments README §1; SPECS-VERIFICATION-APPARATUS §18; B-136's D-434 revision-2 review; the inventory method and review requirements below. Provenance limit (Lane B, 2026-10-12): the original supplied chat worklogs are not retained verbatim in this repository; Lane A's attributed C5/C7/C8 outcome summary is retained at 22ddee2. This is supplied-review evidence, not a Lane C-authored commit; see the routing correction below.
-- **Verified-At-Commit:** 1640ff7bc1b7d1e70ab6a421ced8a054dafda993
+- **Verified-By:** Lane B
+- **Evidence:** Independent planning disposition at examined 42150bc (final review below), accepted F1/F2 evidence, unchanged F3-F6 packet r1-r3, and Lane A's 22ddee2/42150bc completion map; Judge's supplied Lane A/B/C worklogs and scope clarification; frozen tree at 1640ff7bc1b7d1e70ab6a421ced8a054dafda993; Build Spec §1; D-242, D-271, D-424 and D-433; graph-fragments README §1; SPECS-VERIFICATION-APPARATUS §18; B-136's D-434 revision-2 review. Provenance limit (Lane B, 2026-10-12): original supplied chat worklogs are not retained verbatim in this repository; Lane A's attributed C5/C7/C8 summary is retained at 22ddee2. This is supplied-review evidence, not a Lane C-authored commit.
+- **Verified-At-Commit:** 42150bc929ea15528f0a76a6dffba06993152c76
+
+**Planning verification scope, Lane B 2026-10-12:** the final disposition record below verifies the six
+planning outputs, reconciliation, recorded independent outcomes and explicit retention of future work.
+It does not verify all setup semantics, apply repairs, accept S0-setup, adopt tools or clear any Product gate.
+Lane A's dated Open-state wording remains as its historical answer; the current lifecycle is the header above.
 
 **Investigation navigation:** [One finding-chain index and current bounded review](#b156-investigation-chain).
 Use the dated index to locate origins, corrections, Lane A answers and remaining work. Earlier sections remain evidence.
@@ -145,11 +151,11 @@ may be linked; they do not become another register. Add rows here rather than in
 | Finding | Owner answering | Status | Resolution | Required evidence |
 |---|---|---|---|---|
 | F1 — Inventory and scope reconciliation | Lane A | Answered | Verified | Lane B, 2026-10-11; revision 2 examined at 0a63ea5; inventory baseline for F2 only; independent review below |
-| F2 — Intent-to-implementation audit | Lane A | Open | None | Source references, implementation revision, evidence and review limits |
-| F3 — Section-level repairs | Lane A | Open | None | Proposed patches, owning tiers and inferred-intent labels |
-| F4 — Instrument plans | Lane A | Open | None | Existing/proposed boundary, host matrix, expected results, refusal and cleanup rules |
-| F5 — Progressive baseline contract | Lane A | Open | None | Revision-pinned comparison and interface to existing product verification |
-| F6 — Independent review and option impacts | Lane A | Open | None | Reviewer-accessible packet, findings outcomes and complete execution options |
+| F2 — Intent-to-implementation audit | Lane A | Answered | Verified | Lane B at 42150bc: 224 first-pass rows reconcile (16/62/146); prior slice reviews stand. The 173 wholly unassessed rows, nine partial fragments and F2a residuals remain retained, not semantically verified |
+| F3 — Section-level repairs | Lane A | Answered | Verified | Lane B at 42150bc: accepted r1-r3 proposed patches, owning tiers, full-value bindings and selected Option A scope; no application |
+| F4 — Instrument plans | Lane A | Answered | Verified | Lane B at 42150bc: accepted use-case/host matrix, controls, refusal and cleanup plans; no adoption, new execution or native availability claim |
+| F5 — Progressive baseline contract | Lane A | Answered | Verified | Lane B at 42150bc: accepted revision-aware contract, invalidation rules and existing product interface; S0-setup remains proposed |
+| F6 — Independent review and option impacts | Lane A | Answered | Verified | Lane B at 42150bc: accepted A/C/D option plans, withheld E, B not offered; supplied Lane C claim outcomes retained at 22ddee2 and routed by 42150bc; provenance and host-output limits remain explicit |
 
 Lane A records its answer and evidence revision. Lane B independently reviews the packet. Lane C supplies
 scoped workflow/host facts and review; no unchanged capability needs a new trial merely for wording.
@@ -1752,21 +1758,22 @@ prove semantic currency (AG-1 is an example).
 
 <a id="b156-investigation-chain"></a>
 
-## Lane B — Investigation chain index; review snapshot at 22ddee2, 2026-10-12
+## Lane B — Investigation chain index; final planning review at 42150bc, 2026-10-12
 
 **Raised / Kind / Phase / Blocks:** 2026-10-12 by Lane B / finding / 1 / nothing, reporting only.
 **Initial examined revision:** `9edd19c433532dd13f5af23240de2beff488d346` (index introduced at 03272cf).
-**Current reviewed revision:** `22ddee27c2bfef0477e70ba97ddb32920ab806a6`; revision-3 acceptance stands; Lane A's supplied C5/C7/C8 outcomes are received; the routing correction below removes the C-010 prerequisite.
+**Current reviewed revision:** `42150bc929ea15528f0a76a6dffba06993152c76`; Lane A receives the route correction; the final planning disposition below verifies B-156 within its stated scope. No C-010 prerequisite remains.
 **Receiver:** Lane A through B-156. This block indexes existing findings; it is not a second backlog.
 **Inputs:** extracted batch `d4b66fe4-2df6-45ea-8b7c-d630274b8716/Pasted text.txt`, SHA-256
 `b4d5af01f897e7225b381196d0a4f8cec123a830b01aaf0d6617de8b13070d1c`; Lane A worklog
 `78e77fb0-3c64-45f7-93cc-aa99f81116f2/Pasted text.txt`, SHA-256
 `d66d99206b441494a3cacccfa33a2b7b3a0b8972c8a30a672786c726e9d3efba`.
-The whole-entry lifecycle fields, receiver's answer and earlier independent dispositions remain unchanged;
-Lane B's Evidence field now states the supplied-worklog provenance limit.
+The receiver's answer and earlier scoped acceptances remain unchanged. Lane B records the final independent
+planning disposition in the header, F1-F6 table and final review below; the provenance note remains explicit.
 **Prior attached input:** Lane A worklog `87791a74-0fad-4f11-ac23-3c4a1344f3a0/Pasted text.txt`, SHA-256
 `b9c8a2636b5cf2ce786d8ea41c67b5139330e4039084d1a4acbaa1e123eaecc7`.
 **Current request:** the Judge's 2026-10-12 clarification that the current Lane C review is tracked under the B-series parent and children. Latest Lane A worklog: attachment `1f83ff19-5fa8-4499-8e54-ee3028e5d07f/Pasted text.txt`, SHA-256 `b46ea27a69cb91b6d07259227fd4e9acce39b3c4d75f595589717897b2901f6b`.
+**Latest review input:** the Judge's supplied Lane A worklog for 42150bc and request for the planning disposition review, 2026-10-12.
 
 ### What happened — the missing link is in the extraction, not the receipt
 
@@ -1800,7 +1807,7 @@ The subsequent change chain is 03272cf review -> 23fb0b5 revision-3 evidence -> 
 19d6858 bounded F2c acceptance -> b9fce3f F3-F6 evidence -> 09e8d73 Lane A answer ->
 55b84d6 bounded F3-F6 review -> d00a8f5 revision-2 evidence -> d7eeb1b Lane A answer ->
 7c2fdd7 bounded revision-2 review -> ae728bd revision-3 evidence -> b8b715b Lane A answer ->
-b5e6e78 bounded revision-3 acceptance -> 2320a64 C5/C7/C8 brief -> 22ddee2 Lane A receipt, supplied Lane C outcomes and completion map -> the routing correction below. The six originating sections and their receipt remain accepted.
+b5e6e78 bounded revision-3 acceptance -> 2320a64 C5/C7/C8 brief -> 22ddee2 Lane A receipt and completion map -> c896291 routing correction -> 42150bc Lane A changed-row answer -> final planning disposition below. The six originating sections and their receipt remain accepted.
 
 ### One parent-first investigation block — state, evidence and next action
 
@@ -1827,7 +1834,7 @@ are now accepted within scope. Lane C outcomes and later execution decisions rem
 
 | Parent / finding | Current state and evidence chain | Remaining action / success criterion |
 |---|---|---|
-| B-156 parent | Open. F1 and bounded F2a retain their independent acceptance. F2/F3-F6 are not complete. | Complete the six planning outputs and their independent review; preserve retained work and scope limits. No product delivery or repair application is inferred. |
+| B-156 parent | Verified as a planning unit by Lane B at examined 42150bc. Six outputs, reconciliation, review outcomes and retained-item map satisfy the original completion condition. | No further drafting return. Keep the execution and semantic obligations below; no product delivery, repair application, S0 acceptance or gate clearance is inferred. |
 | F2b-R1 — semantic support | Revision 3 resolves the role-only rule-budget assessment: the implementation checks the named contract, with the 60-character copy-detection limit stated. 62 rows reconcile; 43 remain unassessed with returns. | This assessment correction is accepted by Lane B at 30234f2. Carry the limit into F4 and AG-1 text into F3. Do not infer exhaustive copy detection, host delivery or whole F2 completion. |
 | F2b-R1 — partial-locus returns | Revision 3's GEMINI and tsconfig scoped assessments remain accepted. Revision 4 links package.json to the known retained G108b/D-157 gap. Lane B accepts this source-link correction at 955a140; this bounded return is complete. | Lane A carries the existing G108b into F5, with compatibility unresolved. Keep the accepted other rows and owner/return. Do not invent a second gap or select a version. |
 | F2b-R2 — SKIP conditions | Source-assessment correction accepted by Lane B at 9edd19c. R2-F2b.3 now records terminal-return's shallow-history skip and default checkout. | F3 drafts current WORKFLOWS-SPEC/Inventory text by check identity and input condition. F6 retains the Lane C host-output review. No hosted run or workflow repair is verified here. |
@@ -1840,7 +1847,7 @@ are now accepted within scope. Lane C outcomes and later execution decisions rem
 | F3 — repair drafts / PKT-R1 | Revision 2 narrows citation proof and R11, and adds independently reproduced full-value bindings. This correction is accepted at d7eeb1b. | Preserve 26-target evidence as frozen history. Before application, check the selected unit's targets at its actual source; this is not repair application or a future-source guarantee. |
 | F4 / AG-2 — instrument and workflow plans / PKT-R2 | Revision 3 corrects setup-fixture/product-codebase scope, raw-writer limits and read-only authority. Lane B accepts the bounded drafting correction at b8b715b. | Keep the matrix and gstack correspondence proposed; Lane C reviews applicable surface facts. No adoption, native availability, new trial or product delivery is inferred. |
 | F5 — progressive baselines / PKT-R3 | Revision-2 new-revision inventory, identities, invalidation triggers and not-assessed deployment wording are accepted as a plan. 173 wholly unassessed rows, nine partial fragments and F2a residuals stay separate. | Build or execute new instruments only under their later bounded authority. S0 is proposed, not accepted by this planning review. |
-| F6 — option impacts and review / PKT-R4 | Revision 3 accepted within scope. Lane A retained five attributed Lane C agreement outcomes at 22ddee2: C5, C7/R10, C7/R18, C7/R19 and C8/R21. The original Lane C chat is not retained verbatim; C5 host output is unavailable. | Keep these as supplied review evidence under B-156 -> F6 -> C5/C7/C8. No C-010 or new route-choice decision is required. Lane B can review the existing planning map with its provenance limit; any additional evidence request must name the actual claim and missing proof. C6/P1 and E remain outside A. |
+| F6 — option impacts and review / PKT-R4 | Verified within planning scope at examined 42150bc. Lane A retained five attributed Lane C agreement outcomes at 22ddee2: C5, C7/R10, C7/R18, C7/R19 and C8/R21. Original Lane C chat is not retained verbatim; C5 host output is unavailable. | Keep supplied-review attribution and the existing B-156/F6 child route. No C-010 or route-choice decision remains. Future evidence requests must name a claim and its missing proof; execution prerequisites, C6/P1 and E remain separate. |
 
 **Sync-impact correction:** R2-F2b.4 says a .gitattributes change needs no graph sync because it is not docs.
 Under the current governed-intent matcher, that conclusion is false: classifyChangedPaths([".gitattributes"])
@@ -3056,3 +3063,102 @@ a return condition. **Drift:** handoff-only; governed intent synced at `93aa02f`
 | Approve-with-conditions | B-156 planning disposition | Phase 1: Lane B assesses the completion map; any further request names a claim and its missing proof |
 | Defer | Option choice (A, C, D); S0-setup; the batch push; repair application | Their existing triggers and bounded acts |
 | Reject | A new filename as proof; the supplied summary called a Lane C commit; a recording preference presented as a decision | Phase 1: no action |
+
+<a id="b156-final-planning-disposition"></a>
+
+## Lane B — Final planning disposition: B-156 Verified within scope, 2026-10-12
+
+**Raised / Kind / Phase / Blocks:** 2026-10-12 by Lane B / finding / 1 / nothing, reporting only.
+**Examined revision:** `42150bc929ea15528f0a76a6dffba06993152c76`.
+**Evidence:** the original completion condition in section 4 above; accepted F1/F2 slice evidence; packet r1-r3;
+the prior bounded independent reviews; Lane A's completion map at 22ddee2 and changed-row answer at 42150bc.
+**Request, made clearer:** assess the planning unit against its own completion condition, record the independent
+disposition, and preserve the future work without turning it into a new closure gate.
+
+### What happened — the planning condition is satisfied
+
+The original condition is: six planning outputs available, inventory reconciled, independent outcomes recorded,
+and remaining work explicitly dispositioned. Application, new instruments, S0 acceptance and Product delivery
+are explicitly outside that condition. Lane A produced the outputs and answers. Lane B independently reviewed
+them; the SOP permits the raiser to verify work answered by another actor. Lane C's scoped supplied outcomes
+remain attributed to Lane C and recorded by Lane A, with their provenance limit.
+
+Lane B verifies **B-156 as the completed planning unit**. The header now records Status: Answered,
+Resolution: Verified, Verified-By: Lane B, and the exact examined commit above. The original F2-F6 status
+table is aligned with the reviewed completion map. Lane A's dated answer and Open-state wording are kept as
+history; they are not the current lifecycle. No unassessed semantic row is promoted to agreement.
+
+### Completion test — parent first, evidence for every planning output
+
+| Output | Independent result and evidence | Limit retained |
+|---|---|---|
+| B-156 parent | Verified at examined 42150bc: each condition below is met | Planning only; no implementation or gate clearance |
+| F1 scope inventory | Accepted revision-2 inventory: 225 candidates, 224 included, one explained exclusion | Frozen 1640ff7; counts are dated observations |
+| F2 traceability assessment | Latest citation sets contain 16, 62 and 146 rows. Independently reconciled again: 224 unique paths, exactly the included inventory; zero missing or extra paths. Prior slice reviews stand | First-pass coverage, not complete semantic verification; the three open lists remain separate |
+| F3 repair drafts | Accepted r1-r3 section-level proposals, owning tiers, history/inferred-intent labels and full-value evidence; selected A manifest has 23 targets | Proposed changes only; targets are not a count of repair IDs; source must be rebound at any later application |
+| F4 instrument plan | Accepted use-case/host matrix, expected results, limits, refusal controls and cleanup plan; existing read-only authority is explicit | No Ripwire adoption, native-host delivery, gstack installation, knowledge-retrieval delivery or product-codebase claim |
+| F5 baseline contract | Accepted predecessor/new-revision inventory, instrument/source identities, reassessment triggers and existing product-verification interface | S0-setup remains proposed; deployed instances not assessed; no new mandatory product-entry gate |
+| F6 impacts and review | Accepted A/C/D plans, E explicitly withheld, B not offered; five supplied Lane C outcomes with reasons at 22ddee2, route confirmed at 42150bc | No new C-series file; no host-output claim; no Judge option selection inferred |
+
+**Evidence identity:** every artifact under `docs/handoff/artifacts/B-156/` is unchanged from the accepted
+b5e6e78 review to 42150bc. Packet hashes independently read again:
+
+- r1: `86e9e4088b609d813e414967c32c4d9ad98876735a7b1006902154322396f8a6`.
+- r2: `55472bcbc597e321cbde13e324d3878c876acded1f5d76738095498d44654bda`.
+- r3: `734ef2981fdda34037d99b107ef82bf7f8d7cdd080c99fa685f089d144f9b398`.
+- Option A manifest: `72b1fa21a069e2ba91cc2100072cc5d238b602ffcbff4f4fab72e23f61acf199`.
+
+These checks preserve the prior independent proof chain. They do not rerun or extend every historical test.
+Lane A's 42150bc commit changes only this file: 34 lines added and one line changed, matching its worklog.
+No Lane B source text was silently included in that commit.
+
+### Retained work — planning closure is not abandonment or delivery
+
+| Obligation | Owner / destination | Return condition and claim limit |
+|---|---|---|
+| 173 wholly unassessed rows; nine partial fragments; F2a residuals | Lane A / F5 S0-setup assessment | Before S0 acceptance or a claim that consumes a row: assess it or obtain explicit retained-scope acceptance. No bulk semantic pass |
+| G108b package pairing | Lane A / F5 dependency baseline | A baseline claim that consumes compatibility; lint success does not resolve it |
+| G4 Jev receipt | Lane A / future product-interface baseline | A product baseline at its own revision; the existing receipt proves only its original 31bcf3a scope |
+| F3 Lane A repairs | Lane A / later A, C or D disposition | Judge selects the option and any execution act. A/C require D-434 publication plus health and selected-source checks; D remains available without that prerequisite |
+| P1 CI comment | Lane C / its later bounded workflow unit | When Lane C raises that unit or the Judge requests it; C6 is outside A. No CI work is activated now |
+| P2 env comment | Lane B / its later bounded source unit | When Lane B proposes that unit or the Judge requests it; no self-authorization or change to .env.example now |
+| E allocations | Lane A / withheld E packet | Judge requests allocation or Lane B requests completion of E; A does not depend on E |
+| New instruments and proposed tool/workflow correspondence | Lane A / the named later use-case unit | A use case or AIG-07 allocation is selected; setup/control source remains an instrument fixture, not delivered Product code |
+| B-156 tracker row | Lane A / next authorized tracker re-derivation | Before a claim that consumes the tracker. Reflect this terminal planning disposition; do not require a tracker edit for this handoff-only closure |
+| Original Lane C chat and C5 host output | Lane A preserves attribution / F6 evidence chain | Original chat is not retained verbatim; C5 host output is unavailable. Revisit only if a later claim needs that proof. Neither is invented or counted as an observed host run |
+| D-434; S0 acceptance; batch push; SM05 / Gate 2 | Their existing dockets and actors | Existing evidence and bounded decisions; no automatic clearance from B-156 verification |
+
+The three semantic open lists remain obligations, with owners and returns, outside the completed planning
+deliverables. This accepts their recorded retention as part of the planning map; it does not accept S0-setup's
+residual scope or waive a future criterion. Any later substantive reopening of this terminal entry follows
+the existing return protocol; ordinary audit receipts remain subject to the SOP's audit-only rules.
+
+### What you need — Lane A follow-up and Judge decision boundary
+
+No correction is returned to Lane A for this planning unit. Lane A receives the scoped verification in its next
+substantive record and carries the retained obligations forward. Do not ask for another drafting start, C-010,
+original-packet rewrite, or graph cycle just to acknowledge this disposition.
+
+The Judge may choose D (no application) independently. A/C application waits for its stated prerequisites;
+its future act must name selected repairs, receipt route, allowed pre-sync failures, publication choice and
+health endpoint. D-434's own assessment and issuance are not hidden behind its publication prerequisite.
+The withheld E option is not offered until its missing impact analysis is completed. A batch push remains
+separate and requires its authorized checkpoint and freshly counted range.
+
+### What you did instead — record consistency and validation
+
+Lane B aligned the parent lifecycle, F1-F6 disposition table and investigation index with this independent
+review. Lane A's answer is unchanged. The remaining defect was stale tracking, not missing planning work.
+The Graphify query was read-only navigation. The full consistency runner passed 19/19 with pre-commit HEAD
+42150bc. Final-edit docs-drift, handoff-response, text-integrity, lane-state, lane-boundary and closure-readiness
+passed; the diff whitespace check passed. The closure check observes 112 Verified records, five Open records,
+no live entry unlisted, a stale tracker and Gate 2 not claimed. These are dated observations, not new gates.
+This handoff-only disposition needs no graph sync while governed intent stays synced at 93aa02f.
+No product build, governed application, install, trial, graph mutation, fetch or push took place.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | B-156 planning disposition and six scoped outputs; reconciliation; retained-work map | Phase 1: independently Verified by Lane B at examined 42150bc |
+| Approve-with-conditions | Later A/C repair application | Later bounded act; D-434 publication/health, selected-source checks, applicable review and the chosen guarded route |
+| Defer | S0 acceptance, semantic assessments, P1/P2, E, new instruments, tracker update, push and gate conclusions | Their owners, destinations and return conditions above |
+| Reject | Planning verification counted as applied repairs, setup semantic parity, tool adoption, product delivery or gate clearance; a new C-series wait | Phase 1: preserve the verified scope and retained obligations |
