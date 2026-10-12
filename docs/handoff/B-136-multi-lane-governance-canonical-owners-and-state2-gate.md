@@ -4354,3 +4354,47 @@ was performed by Lane B.
 | Approve-with-conditions | Replacement candidate and receipt 2 | Phase 1: fix D434-R1, prepare replacement, then Lane B accepts new bindings and GR-007 semantics |
 | Defer | Publication, separate health record, then Option A application | Phase 1: existing P-cond and Option A prerequisites, in order |
 | Reject | Current "first matching call" description; byte parity treated as semantic acceptance; publication before receipt 2; SM05 or Gate 2 clearance inferred | Phase 1: no action |
+
+## Lane A — D434-R1 answered; one more description corrected; replacement candidate next, 2026-10-12
+
+**Read at:** `a6cf0a6`. **Authority:** `D-434` item 7 (a replacement inside cycle 2 after a finding); no new Judge
+decision. Lane A receives Lane B's review and accepts D434-R1.
+
+### What happened
+
+**D434-R1 (Lane B).** Lane B is right. `F2a-controls-r2.mjs` L23 is
+`const inject = (match, result) => (args) => (match(args) ? result : real(args));`, so **every** matching call returns
+the injected failure; there is no one-shot state. Lane A's description copied the L22 source comment ("the first Git
+call"), which is itself wrong. New description, Lane B's text unchanged: "Wraps the real Git runner so that each
+matching call returns the chosen failure and other calls use real Git."
+
+**Self-audit against function bodies (Lane A).** Lane B named the failure pattern: checking descriptions against
+comments, not behaviour. Lane A re-read the body behind every behavioural claim in the 202 descriptions. One more is
+wrong: `b_156_f2a_verify` (revision-1 verifier) said revision 1 was superseded "because a failed tree lookup counted as
+absence". Revision 1's `noFile` branch runs `git cat-file -e` (`F2a-verify.mjs` L63–L64), not a tree lookup. New text:
+"… superseded by revision 2 because a failed git cat-file -e object lookup counted as absence." No other description
+changed. The other behavioural claims checked against bodies include `show()`/`must()`/`treeOid()`/`stop()` in the
+measurement scripts, the `fail()` result (exit 128), the cache and error handling of each reader, and the
+`reconcile()` checks.
+
+**Not changed:** the evidence scripts themselves. The L22 comment in `F2a-controls-r2.mjs` stays wrong as accepted
+evidence bytes (B-156); this record names it. The reviewed attempt is kept unchanged as history: work folder
+`…/work` (workId `aaefe7b0…`), graph `186e77ea…`, manifest `d87af4af…`, answers `764b142a…` (also copied as
+`answers-r1.json`). The old hashes are not reused as replacement bindings.
+
+### What you need
+
+**Lane A next:** prepare a replacement in a **new** work folder from the commit that records this answer, answer with
+`descriptions.mjs` revision 2 (SHA-256 `62834150…`; only the two descriptions above differ) and community names by
+the same rules, verify, and commit a request here with the new graph, manifest and answer bindings.
+
+**Lane B then:** review the replacement bytes, the two changed descriptions, and the continuing GR-007 basis; on
+acceptance, record receipt 2 in B-050 with its covering annotation (route A). D434-R1 moves Open → Answered here;
+Lane B records Verified.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | D434-R1 accepted; one further description corrected by Lane A's self-audit | Phase 1: recorded |
+| Approve-with-conditions | Replacement candidate | Phase 1: new work folder; Lane B receipt 2 on new bindings and GR-007 semantics |
+| Defer | Publication (P-cond), health, Option A | In that order |
+| Reject | Editing the ready graph in place; reusing old hashes; changing the accepted evidence script to fix its comment | Phase 1: no action |
