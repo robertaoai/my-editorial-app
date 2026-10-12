@@ -4519,3 +4519,56 @@ publication, fetch, push or Gate 2 closure was performed by Lane B.
 | Approve-with-conditions | D-434 publication and cycle completion | Phase 1: existing P-cond, unchanged bindings, Lane A publication and separate full health |
 | Defer | Option A application | Phase 1: successful D-434 health record first; existing approvals carry forward |
 | Reject | Reopening a settled approval question; publishing the superseded candidate; byte-only semantic proof; inferred SM05/Gate 2 or root clearance | Phase 1: preserve the authority and evidence boundaries |
+
+## Lane A — D-434 cycle 2 published with review `6bb88ed`; separate health recorded, 2026-10-12
+
+### What happened
+
+Lane A received Lane B's receipt 2 (`6bb88ed`), its covering annotation (`75f9e45`) and the outcome above (`424baef`).
+**Judge (verbatim, in chat, 2026-10-12):** "go ahead and publish with --review 6bb88ed". P-cond already gave the
+publication authority; this instruction started it.
+
+| Step | Result | Evidence (`C:/CoWork/outputs/lane-a-d434-apply-2026-10-12`) |
+|---|---|---|
+| Binding recheck before publication (HEAD `424baef`, clean tree) | Candidate graph `c9f65b18…` unchanged; `STATE.json` workId `7b0900c2…`, answers `3adcda31…`, frozen source `44a4b1e`; the only changes since `44a4b1e` are B-050 and B-136 | `work-r2/STATE.json` |
+| `publish --work …/work-r2 --review 6bb88ed20b8531ac54b9605b14b0fa82ef58e194` | **exit 0, `released`**, "live equals the reviewed manifest", run token `a7db2f21-68b3-4942-8f2e-8d2e4ad36f93` | `publish-r2.log` (SHA-256 `1942b60e…`) |
+| Live graph and manifest | Graph `c9f65b18…` and manifest `8d1ca497…`, **equal to the accepted bytes** | `21-live-parity-r2.json` (`cdd82758…`), from `health-r2.mjs` |
+| Live fragment parity and names | 139/139 exact; name binding 0 findings | same |
+| Live branch record | analyzed `44a4b1e`, `stale: false` | same |
+| Journal / lock after publication | None | same |
+| `bun run check` (separate health, after publication) | **19/19 pass**; `docs-drift` "synced (governed intent) at 44a4b1e; HEAD 424baef advanced by excluded-only commits" | `20-health-check-r2.log` (`2a6c5c78…`) |
+| `graphify check-update` | "graph.json built from 44a4b1e but HEAD is 424baef". This notice comes only from handoff commits (G-F3-9); `docs-drift` confirms no governed drift. The suggested `--update` was **not** run | `22-check-update-r2.log` (`567560e5…`) |
+
+The retained folders `.graphify-bak-a7db2f21…` and `.graphify-old-a7db2f21…` sit beside the live state. The person
+deletes them. The superseded candidate `186e77ea…` stays unpublished.
+
+**Locator correction (no scope change).** The observation above names "FN L18". Batch 2 moved that sentence. Its
+semantic locus is the sentence in `docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md` that starts "The lane map lives in"
+(now L20). Its owner and destination are unchanged: Lane A, a later repair act, outside `D-434` and Option A.
+
+**State, kept separate:**
+- D-434 cycle 2: applied (`29bce67`), accepted (`6bb88ed`), published (`a7db2f21`) and health recorded here.
+- Option A: its start condition (a successful D-434 health record) is met by this record. Its application stays a
+  separate bounded unit.
+- No SM05, Gate 2, root disposition or lane change follows from this record.
+
+### What you need
+
+**Judge — push range (a separate decision).** Origin is at `08ad416`. The range is `08ad416..` this record's commit
+(the range excludes `08ad416`). The fetch and push freeze ended with this record. Confirm the range to push, or hold it.
+
+**Lane A, next:** Option A's authorized bounded unit (R1–R25, R29). Its next cycle must describe the new B-156/B-157
+evidence code nodes from their behaviour, not from their comments (the D434-R1 lesson).
+
+**Lane B:** this health record is available for independent review.
+
+### What you did instead
+
+No fetch, push, rebuild or `--update` was run. No governed file changed. The FN lane-map sentence is not repaired here.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | D-434 cycle 2 publication and separate health | Phase 1: complete |
+| Approve-with-conditions | Option A application | Phase 1: its own bounded unit and receipt route |
+| Defer | Batch push; FN lane-map repair; retained backup folders | Judge push decision; a later repair act; the person |
+| Reject | Running the suggested `--update`; inferring SM05/Gate 2 or root clearance | Phase 1: no action |
