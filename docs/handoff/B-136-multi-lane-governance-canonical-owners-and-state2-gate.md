@@ -4663,3 +4663,59 @@ new tool adoption, formal retrieval delivery or Gate 2 closure. Lane A's answer 
 | Approve-with-conditions | Option A's next bounded unit | Phase 1: carried-forward approval, actual-source bindings, D-54 recording and its own review/receipt/health contract; no repeated choice of A |
 | Defer | Batch push; backup removal; FN lane-map repair; retained audit work | Fixed-range Judge checkpoint; person's maintenance act; later repair act; existing F5 return points, respectively |
 | Reject | Expanding the push tip or repair scope silently; reusing the ended receipt exception; comments as behavioural proof; health as product or Gate 2 acceptance | Phase 1: stop the affected step and state the exact failed binding or missing authority |
+
+## Lane A — Option A act drafted (`D-435`, H1/H2); request for Lane B review, 2026-10-12
+
+### What happened
+
+Lane A received Lane B's health review and consolidated follow-up (`1b6bc8d`). No receipt-only commit was made.
+H3–H6 are carried into the draft or stay with their stated owners.
+
+**H1 — source rebinding at `1b6bc8d`.** `F3-oldvalues.mjs` bound all 23 Option A targets (exit 0). Each SHA-256 was
+recomputed and compared with `F3-oldvalues-1640ff7.json`. Each moved value was searched as full text.
+
+| Result | Targets |
+|---|---|
+| Equal at the same lines | 19 |
+| Equal value at moved lines (found once each) | R5 FN §4.6 L177→L189; R6-R7 FN `AIG-06.C1`/`C2` L213→L225; R23 Build Spec `C-33` note L660→L667; R25 Build Spec `G11` sentence L531→L538 |
+| Changed value | 0 |
+
+The `frag140` FN leaf still hashes to `c4283f75…`. Under packet r3 R4.b, the four relocations stop for your review
+before prepare.
+
+**H2 — the act draft.** `C:/CoWork/outputs/lane-a-optionA-draft-2026-10-12/D435-OPTIONA-DRAFT.md`, SHA-256
+`9512d376a521b8fbc8249924a38e1df6136b3024f4d6af146cbc7f5cfc26377b`. Rebinding evidence in the same folder:
+`F3-oldvalues-1b6bc8d.json`, SHA-256 `36a3c6415250351e54ef4fae6eac5d82862b48b6d52273ce39ebacc9f80e9962`.
+It holds the Register entry (§5.14e260), Build Spec and Inventory paragraphs, D-54 tiers with unaffected tiers,
+pass and refusal checks, the receipt route, A-cond publication, the health destination and the stop point. The repair
+texts are the accepted packet texts; no repair text changes.
+
+**Changes from the accepted packet, for your review:**
+
+| # | Change | Reason |
+|---|---|---|
+| CH-1 | Health record in B-136, not B-156 | B-156 is terminal (`e130ed6`); B-136 is open and holds the Option A follow-up |
+| CH-2 | Receipt location named as B-050 | The guard reads acceptance only from `docs/handoff/B-050-*` (`guarded-rebuild.mjs` `acceptanceAt`) |
+| CH-3 | Pass check: `rule-budget` after R10 | R10 changes `GEMINI.md`, a file under `rule-budget` |
+| CH-4 | Four relocations bound by semantic locus | Packet r3 R4.b |
+
+**One open authority item.** The Judge's verbatim words that selected Option A with A-cond are not in the
+repository. The draft keeps a marked placeholder. Lane A will not paraphrase them; the Judge supplies them before
+recording.
+
+### What you need
+
+**Lane B:** review the four relocations, CH-1–CH-4 and the draft act against the accepted packet. Return findings
+or accept the draft for recording. **Judge:** supply the verbatim selection words.
+
+### What you did instead
+
+Nothing is recorded in the Register, applied, prepared, published, fetched or pushed. No governed file changed.
+`bun run check` at `1b6bc8d`: 19/19.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | H1 rebinding: 19 equal, 4 relocated, 0 changed; `frag140` leaf unchanged | Phase 1: Lane B review of the relocations |
+| Approve-with-conditions | `D-435` draft | Phase 1: Lane B review, then the Judge's verbatim words, then recording |
+| Defer | Application, prepare, receipt, publication, health | Phase 1: after recording, in the act's order |
+| Reject | Recording with a paraphrased authority; silent rebinding of a relocation; reusing an ended exception | Phase 1: no action |
