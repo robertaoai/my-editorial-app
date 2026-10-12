@@ -4,11 +4,12 @@
 - **Kind:** finding
 - **Phase:** 1
 - **Blocks:** nothing, reporting only
-- **Status:** Open
+- **Status:** Answered
 - **Lane A:** **Acknowledged 2026-10-12, receipt only.** Read in full as Lane B's uncommitted file on HEAD `e130ed6` (SHA-256 `b911ec585052815e3557d5789f13fab0abf2ef1448b47e88cc2822b89e012f83`, before this line). AC1–AC7 are not answered by this receipt; Lane A answers them after Lane B's raising commit, with C1/C2 evidence in its own commit. The entry stays Open.
-- **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Evidence:** Examined e130ed60eaf0131dec6e8d006cc750c520e657cd; B-156 final planning disposition; F3-F6-packet-r2.md groups and option matrix as amended by F3-F6-packet-r3.md; F3-optionA/F3-optionA-targets.json; Judge-supplied Lane A worklog, source and provenance below.
-- **Verified-At-Commit:** e130ed60eaf0131dec6e8d006cc750c520e657cd
+- **Resolution:** Verified
+- **Verified-By:** Lane B — independent review of Lane A's answers; planning only
+- **Evidence:** Examined 3cad30b8e44e61f676d9058cfadd9eaf80948e62; AC1-AC7 answers at cdbc767; AC2-R1/AC6-R1 answers at 3cad30b and revision-2 evidence at e363aa3; Lane B's review and child completion map below. The unchanged 23-value packet matches Option A and the frozen Git source at 1640ff7; revision-2 controls and direct CLI checks reproduced. No application, publication, push, product or gate acceptance.
+- **Verified-At-Commit:** 3cad30b8e44e61f676d9058cfadd9eaf80948e62
 
 ## What happened
 
@@ -256,3 +257,80 @@ Check: `node scripts/check-consistency.mjs` with this evidence staged on `cdbc76
 | Reject | "Fewer cycles" as proof of lower risk; health as proof of meaning; C2 bound with pre-C1 line numbers; "C1 published; C2 incomplete" read as full completion; revision-1 reconciliation output as proof of full-value integrity | Phase 1: no action |
 
 **Drift:** handoff-only; governed intent synced at `93aa02f`; no graph sync needed.
+
+## Lane B — final planning review and disposition, 2026-10-12
+
+**Examined:** `3cad30b8e44e61f676d9058cfadd9eaf80948e62`. **Receiver:** Lane A.
+This is Lane B's independent review of Lane A's answers, recorded in the originating entry.
+It completes the existing AC1-AC7 checks; it adds no success criterion or execution condition.
+The Lane A header line remains its historical receipt. Its completed answers are the two Lane A sections above.
+Earlier Open states and verdicts remain history; this review supplies the current planning disposition.
+
+### Source, evidence and limits
+
+- Initial bounded review of `cdbc767`: `C:/CoWork/outputs/b157-review-2026-10-12/HANDOFF-REVIEW.md`,
+  SHA-256 `046a1ba8a974553f0965f709a437b8349c55959fe9f3d648be34649d5919768d`.
+  Lane A's receipt accurately records AC2-R1 and AC6-R1 from that review. Lane B now records its own outcomes here.
+- Independent rerun: `C:/CoWork/outputs/b157-review-r2-2026-10-12/review-result.json`,
+  SHA-256 `1b68e6fa780e11d9a0a308ac2f28b72156aeedd570c30c0e5de93ecb990edf15`.
+  All four revision-2 file hashes match Lane A's evidence table. The six control arms pass:
+  valid input exits 0 and writes output; each of the five bad inputs exits 2 and writes no output.
+- Direct command-line checks, separate from the imported control harness: the valid packet exits 0 and
+  writes its result; Lane B's original altered-value and duplicate/omitted-binding inputs each exit 2,
+  with no output file. This also confirms that direct invocation runs the revised checker.
+- C1/C2 manifests, bindings and revision-1 evidence are byte-identical to `99ad817`.
+  The earlier independent source check found no difference between the 23 recorded values, Option A
+  and the frozen Git source at `1640ff7`. Revision 2 checks the recorded values against A; it does not
+  read Git. The accepted source-binding script and the later actual-source rebind remain separate steps.
+- Revision 1 remains history. Its result is not proof of full-value integrity.
+  Local rerun paths supplement the committed evidence; an inaccessible local path alone is not proof for another reviewer.
+
+### Completion map — parent first
+
+| Item | Outcome | Evidence or retained limit |
+|---|---|---|
+| B-156 source planning unit | Verified; unchanged | Its accepted scope and residuals remain |
+| B-157 decision contract | Verified, planning only | Every existing AC1-AC7 completion check is met below |
+| AC1 | Verified | A/C selection conditions are explicit; cycle count is not a risk, time or cost measurement |
+| AC2 | Verified | C1 18 + C2 5 = A 23, no overlap; full-value/locator checks and actual-source refusal rules stated |
+| AC2-R1 | Verified | One binding per target; recomputed hashes; six controls and three direct CLI checks reproduced |
+| AC3 | Verified | Candidate meaning/byte acceptance, publication parity and separate health are distinct; refusal stops publication or progression |
+| AC4 | Verified | C1 checkpoint question and proceed/change/stop evidence stated; A preference remains conditional |
+| AC5 | Verified | Pending C2 has an owner, return trigger and truthful intermediate-state wording; C1 evidence remains valid within scope |
+| AC6 | Verified | Assessment can proceed now; application waits for D-434 publication and separate health; each act names its receipt and health route before prepare |
+| AC6-R1 | Verified | Corrected verdict separates assessment, application and the push checkpoint |
+| AC7 | Verified | Retained gaps, Lane C limits and exclusions are explicit; no delivery credit inferred |
+
+The 173 unassessed rows, nine partly read fragments and open F2a items keep their existing owners and
+return points. Lane C's C5 host output remains unavailable, and supplied-summary provenance stays explicit.
+R26-R28, P1 and P2 remain outside A/C. These are retained limits, not new B-157 closure conditions.
+
+### Lane A follow-up and Judge decision contract
+
+1. Use this disposition as the current B-157 result. Do not add a handoff-only acknowledgement to this
+   now-terminal entry merely to repeat the result. Any necessary later amendment follows the terminal-record SOP.
+2. Present the reviewed A/C comparison for conditional assessment now. Prefer A only if the entire selected
+   batch is reviewable and no useful intermediate release decision is required. Offer C if the Judge names
+   a checkpoint whose value justifies a second cycle and temporary residuals. This review selects neither option.
+3. Before application, require D-434 publication and its separate health record, then the bounded act(s).
+   Each act names authority, prerequisites, affected files, pass/refusal checks, sync cost and stop point,
+   including its receipt route and health-record destination. Bind the targets to the actual source.
+4. For C, rebind C2 after C1 publication and health, including changes to shared act-recording documents.
+   Report "C1 published; C2 incomplete" until C2 is complete. A changed or relocated target needs review first.
+5. Keep the tracker row at its existing next authorized re-derivation. Push only at its separately authorized,
+   validated batch checkpoint. No setup, tool adoption, product build, P15 or Gate 2 closure follows from this review.
+
+**Chief Editor check:** each future completion claim must identify its requirement, governing clause and limit,
+source revision, evidence, independent reviewer and remaining obligation. Do not substitute a path mention,
+stored hash label, consistency pass or new file name for that chain. The two observed failures were an unchecked
+assumption about value integrity and a verdict that contradicted the authority boundary. Both are corrected here.
+
+### Current verdict
+
+| Verdict | Item | Condition and follow-up phase |
+|---|---|---|
+| Approve | AC1-AC7; AC2-R1 and AC6-R1; B-157 planning closure | Phase 1: independently Verified at the examined commit |
+| Approve-with-conditions | Conditional A/C assessment | Available now; Judge applies the reviewed selection conditions; no execution authority implied |
+| Defer | A/C application and publication | Execution unit: D-434 publication plus separate health, bounded act(s), actual-source binding and independent candidate review |
+| Defer | Push, tracker update and wider completion claims | Their existing authorized checkpoints; no new prerequisite added to planning closure |
+| Reject | Revision-1 result as full-value proof; assessment held on D-434; planning verification read as execution or Gate 2 acceptance | Phase 1: do not use these inferences |
