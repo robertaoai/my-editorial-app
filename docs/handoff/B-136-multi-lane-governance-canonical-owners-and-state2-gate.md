@@ -4719,3 +4719,145 @@ Nothing is recorded in the Register, applied, prepared, published, fetched or pu
 | Approve-with-conditions | `D-435` draft | Phase 1: Lane B review, then the Judge's verbatim words, then recording |
 | Defer | Application, prepare, receipt, publication, health | Phase 1: after recording, in the act's order |
 | Reject | Recording with a paraphrased authority; silent rebinding of a relocation; reusing an ended exception | Phase 1: no action |
+
+## Lane B — D-435 draft review: four findings and corrected relocation evidence, 2026-10-12
+
+**Examined:** `2a4857d37fe13f43b4a0a9f13cbed64060cdbf53`, clean working tree. **Draft reviewed:**
+`C:/CoWork/outputs/lane-a-optionA-draft-2026-10-12/D435-OPTIONA-DRAFT.md`, SHA-256
+`9512d376a521b8fbc8249924a38e1df6136b3024f4d6af146cbc7f5cfc26377b`.
+Phase 1; finding and independent review under B-136. Lane B raises the findings; Lane A answers here.
+This review preserves the header, Lane A answer and terminal B-156/B-157 entries.
+
+### What happened
+
+Lane B checked the accepted packet revisions 1-3, the selected manifest, binder source, frozen and supplied values,
+D-183/D-186, the guard's acceptance route, and D-434's completion. All six packet/input hashes in the draft match.
+The draft is **not ready for recording**. The missing quotation is not its only gap.
+
+#### Parent-first state
+
+| Parent / child | State | Follow-up |
+|---|---|---|
+| Project purpose | Progressive traceability from governed intent and requirements through setup source to verification and dated baselines | Keep governance/docs, future product-code navigation and knowledge retrieval distinct; no new tool adoption or product credit |
+| B-136 | Open; this review does not disposition its whole header | Existing P14 obligations remain |
+| D-434 / P15 / GR-007 | Retain the accepted decisions and completed cycle-2 health | No repeated D-434 approval or raw graph update |
+| Option A | Selected under the carried-forward approval; its D-434 prerequisite is met | Do not ask the Judge to choose A again |
+| D-435 draft | Returned with D435-R1 to R4 below | Lane A corrects under existing drafting approval, then Lane B reviews the changed sections |
+| Option A execution | Not performed by this review | Recorded bounded act, source and post-application proofs, independent candidate receipt, authorized publication, separate health |
+| Push / FN lane-map repair / retained audit work / Gate 2 | Separate | Keep existing owners, ranges, exclusions and return conditions |
+
+#### CH-1 to CH-4
+
+| Change | Review result | Boundary |
+|---|---|---|
+| CH-1: health in B-136 | Accept | B-136 is open and owns this follow-up. B-156 stays terminal. Say this avoids a terminal-entry procedure; do not turn every audit-only append into a mandatory Return |
+| CH-2: receipt in B-050 | Accept as the proposed route | `acceptanceAt` selects `docs/handoff/B-050-*` (guard line 2182). This does not authorize a new exception: D-435 must record its own unit-scoped receipt route before prepare |
+| CH-3: explicit rule-budget check | Accept | Check the final GEMINI.md after the whole repair set, including R18/R19. The full configured suite already includes rule-budget; an intermediate check after R10 cannot replace the final check |
+| CH-4: semantic relocation | Independently confirmed | The four full values each occur once at the proposed new lines. No intended target text changed. D435-R1 concerns the saved evidence, not the validity of these relocations |
+
+#### Findings and completion checks
+
+| ID / state | Finding | Required answer / pass condition |
+|---|---|---|
+| D435-R1 — Open | The supplied `F3-oldvalues-1b6bc8d.json` still uses the frozen line ranges. Four saved values and hashes differ from the intended targets: R5, R6-R7, R23 and R25. A binder exit 0 proves capture succeeded, not that the captured text equals the accepted old value | Reference or reproduce the corrected manifest and bindings below; retain the earlier artifact as history. Update the draft's input hashes and the B-136 claim. All 23 recomputed values must equal the frozen values at the reviewed semantic locations |
+| D435-R2 — Open | Part 1 requires another old-value bind at prepare and says any new difference stops; item 4(a) also requires all 23 values equal before prepare. After application, accepted repairs intentionally change values. R10 alone deletes its bound sentence, so the old-value condition cannot remain a post-application pass test | Separate the pre-application old-value proof from the post-application accepted-new-text/diff proof. Record expected changes, including deletions and dated appends. Stop on unexpected changes, not on the authorized replacement itself |
+| D435-R3 — Open | The draft treats a verbatim quote as the required form of authority and calls it the only remaining gap. D-183 requires traceable direct authority and its object/revision, action, scope/exclusions and checkpoint. It does not impose a universal verbatim-quote format. A handoff's own report or this review cannot supply missing primary authority | Preserve the settled A selection. Identify the direct instruction or unambiguous approval referent and establish whether it also covers A-cond and this unit's terminal-return exception. Quote only words actually retained. If that provenance cannot be recovered, name the exact unproven checkpoint and seek only its bounded clarification after the corrected draft is reviewable; do not ask for another choice of A or invent an old quote |
+| D435-R4 — Open | The draft header names `1b6bc8d0`; that abbreviation resolves to no commit | Use `1b6bc8d18f70dd5f338c4806697310bd7a7d7770` for the source examined. Keep the revised draft's own creation revision and SHA-256 separate |
+
+**R1 independent reproduction.** At `1b6bc8d`, the intended source has 23 equal values across 14 paths: 19 at their
+old lines and four relocated. The supplied artifact correctly hashes its captured text, but those four captures are
+from the wrong ranges. Lane B derived the corrected ranges from each full frozen value, then ran the unchanged,
+hash-pinned accepted binder with that relocated manifest. All 23 resulting values equal the frozen values.
+Only B-136 changed between `1b6bc8d` and the examined `2a4857d`; the repair sources did not change.
+
+| Target | Frozen lines | Reviewed lines at `1b6bc8d` |
+|---|---|---|
+| R5 | FN 177-179 | FN 189-191 |
+| R6-R7 | FN 213-214 | FN 225-226 |
+| R23 | Build Spec 660-665 | Build Spec 667-672 |
+| R25 | Build Spec 531 | Build Spec 538 |
+
+The frag140 FN leaf independently hashes to
+`c4283f75aceeb1f1d652d79ea118712401440fae6d947b5eb0cbc2b17ce1b575`, unchanged.
+
+Corrected review evidence, under `C:/CoWork/outputs/lane-b-d435-review-2026-10-12/`:
+- `targets-rebound-1b6bc8d.json`, SHA-256 `78abec1bcbbfce6ab2b40a2f1191790f281d54f62f14ad8adf4cdb1ae751a9bf`.
+- `bindings/F3-oldvalues-1b6bc8d.json`, SHA-256 `e0f5b9d74fcf43ee9e7a4f7cc5c9c1d18065f37b3904ec11e12eb7d5e609f6b2`.
+- `review-results.json`, SHA-256 `a6099b68a4cbaa7e5cda479748f6f50e16c43bb17acb2592022da3729321687b`.
+- `review-d435.mjs`, SHA-256 `96fec7b71bed394e21ad454b3fc4743a89ba6660fb34e0c779973eb762489f1e`.
+
+### What you need
+
+#### Draft replacement for the binding and pass clauses (R2)
+
+> Before application, locate each selected old value by semantic locus at the actual recorded source. Bind its full
+> value and compare with the accepted frozen value. Review each relocation; reassess a changed value before editing.
+> Recording the act can move later lines again, so the working manifest must name the source and actual locations.
+>
+> After application and before prepare, verify the selected accepted new text, expected deletions and appends, and
+> the complete allowed diff. Preserve all unselected fields and source content. Capture the final committed source.
+> Re-reading old values is not the pass test for values intentionally replaced or deleted. Any unexpected change,
+> ambiguous target, omitted repair or extra edit stops the affected unit for review.
+>
+> Run the configured consistency and applicable behavioural/configuration checks on the final batch. Before the
+> graph sync, only docs-drift may fail under D-428, except during this unit's separately authorized receipt interval.
+> Require the accepted candidate's exact bytes and meaning, authorized publication, then separate live parity and
+> full health. Stop at the B-136 health record.
+
+#### Authority correction (R3)
+
+D-183 points 1, 4-7 and D-186 separate a selected option, permission to draft, authority to apply, a publication
+checkpoint and push. Preserve existing approval for its actual action; do not expand it. My `1b6bc8d` health review
+confirms the D-434 prerequisite and carries forward the reported A selection. It does **not** independently prove
+an unrecorded A-cond instruction or grant a new terminal-return exception.
+
+Replace "the Judge's exact words are the only missing piece" with:
+> Option A selection is carried forward. The draft must state the traceable primary authority for the bounded
+> actions and checkpoints it records. A retained quote may be used verbatim; do not invent one. If a specific
+> action/checkpoint is not covered by recoverable authority, label only that part proposed and state the precise
+> remaining Judge clarification. Correction drafting and independent review continue meanwhile.
+
+Do not record a placeholder as an issued act. Do not label a paraphrase as a verbatim statement. A missing transcript
+and a missing authorization are different claims; the evidence must establish which one is true.
+
+#### Lane A follow-up in dependency order
+
+1. Receive this review in the correction answer. Use the independently corrected relocation evidence or reproduce it;
+   no new trial or separate start question is needed.
+2. Apply R1, R2 and R4 to the draft and answer R3 with the actual provenance and checkpoint boundary. Freeze the
+   corrected draft and evidence hashes. Preserve packet revisions and the earlier failed binding artifact as history.
+3. Return the bounded changes to Lane B. Findings move Open -> Answered -> Verified in this parent; only the
+   independent reviewer records Verified. No new C-series file is required.
+4. The Judge is asked only about a demonstrated missing or materially changed authority, against the corrected
+   immutable object. The settled option selection is not re-opened. Once the applicable act is lawfully recorded,
+   the executing lane follows its bounded application, candidate review, publication and health contract.
+5. Keep R26-R28, P1/P2, the FN lane-map sentence, retained audit work, native tool setup, product construction,
+   Gate 2 and push outside this unit. Lane C's unchanged C5/C7/C8 outcomes and their limits carry forward.
+
+**Chief Editor evidence.** The decision needs the requirement -> accepted repair -> actual source -> observed proof
+chain, exact allowed diff, authority/checkpoint, retained gaps, sync cost and stop point. The pattern in this review
+is capture success being promoted into comparison proof, and a pre-change criterion being carried into the
+post-change stage. Neither a successful command nor a green consistency suite proves those semantics.
+
+### What you did instead
+
+Read-only graph navigation and source/evidence review; external corrected binding evidence; this one Lane B review
+under B-136. No changes to Lane A's draft, frozen packet, governed files or live graph. No build, trial, application,
+prepare, publication, fetch, push, deletion, lane transition or Gate 2 closure.
+
+The fresh configured checker at `2a4857d` passed 19/19, exit 0, through `node scripts/check-consistency.mjs` after
+`bun run check` failed to load the current directory. This is not a successful Bun invocation. Log:
+`C:/CoWork/outputs/lane-b-d435-review-2026-10-12/check-before-review.log`, SHA-256
+`d7adc57bbaceb8796bdf1a5bcbe7d9033409b9cc72389602803e8c32b252d489`.
+Governed intent remains synced at `44a4b1e`; live graph SHA-256 remains `c9f65b18...`. No sync is needed for this
+handoff-only review. D-435 recording/application will create its own expected drift.
+
+The supplied push proposal `08ad416..2a4857d` has 57 commits and excludes the lower endpoint. This review is outside
+that fixed range; a later broader proposal must name and recount its own tip. No push approval is inferred.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Four relocations and corrected 23-value evidence; unchanged frag140; CH-1 to CH-4 within the stated boundaries | Phase 1: independently checked; accepted process design is not execution authority |
+| Approve-with-conditions | Corrected D-435 draft for recording | Phase 1: Lane A answers R1-R4; Lane B reviews the changed clauses/evidence; traceable authority covers the recorded actions/checkpoints |
+| Defer | Recording, application, prepare, candidate receipt, publication and health; push | Phase 1: corrected draft and applicable recorded authority, then the unit's order; push at its own fixed-range checkpoint |
+| Reject | The supplied four wrong-range captures as equality proof; an old-value equality gate after intentional replacement; invented quotations; a review as primary authority; a silently broadened push | Phase 1: correct the affected proof or checkpoint before proceeding |
