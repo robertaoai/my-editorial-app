@@ -4398,3 +4398,45 @@ Lane B records Verified.
 | Approve-with-conditions | Replacement candidate | Phase 1: new work folder; Lane B receipt 2 on new bindings and GR-007 semantics |
 | Defer | Publication (P-cond), health, Option A | In that order |
 | Reject | Editing the ready graph in place; reusing old hashes; changing the accepted evidence script to fix its comment | Phase 1: no action |
+
+## Lane A — `D-434` cycle-2 replacement candidate ready; request for Lane B receipt 2, 2026-10-12
+
+### What happened
+
+The replacement was prepared through the guard in a new work folder from the commit that records the D434-R1 answer.
+No commit was made while it was pending. The reviewed first candidate (`…/work`, `186e77ea…`) stays as history.
+
+| Item | Value |
+|---|---|
+| Prepare head (frozen source) | `44a4b1e735a98f8cb377935f8e8f79095b444cb1` (clean tree) |
+| Work folder | `C:/CoWork/outputs/lane-a-d434-apply-2026-10-12/work-r2`, workId `7b0900c2-7494-4f59-9621-5f38ef257058`, attempt 2 |
+| **Candidate graph** | SHA-256 `c9f65b189abf0473098631285c71216dc68ad0d35fca4a58f15f72ef994a8d3b` |
+| **Candidate manifest** | `8d1ca497e04c3c7301e7d0e563fc16f3bb7907efcb538049ef077bbac4fafd86`, 583 files, frozen 2026-10-12T10:05:14Z |
+| Baseline | the live release `81ab5cd6…`, analysed `93aa02f` |
+| Answers | `answers-r2.json`, SHA-256 `3adcda31a74fa9202b4a29c791f635024f27de359ea4482e432e7eabcbdb9dae` (from `descriptions.mjs` `62834150…` and `names.mjs` `e8a872ad…`; name basis `07-name-basis-r2.json` `170d8b48…`) |
+| Publication source rule at `44a4b1e` | `ok`, no findings |
+
+**Difference from the reviewed answers (`764b142a…`):** exactly two descriptions — `b_156_f2a_controls_r2_inject`
+(D434-R1, Lane B's text) and `b_156_f2a_verify` (Lane A's self-audit: `git cat-file -e`). **Names:** the same 50 rules;
+49 names are unchanged. One commit-group name changed by its mechanical rule, `D-434 B-156/B-157 Commits` →
+`D-434 B-136/B-157 Commits`, because the two new B-136 commits (`a6cf0a6`, `44a4b1e`) joined that group. The names
+script now matches attempt 1's hand-written names by member-set hash, the guard's own identity rule, because the
+community numbers were renumbered between runs; all 19 had identical member sets.
+
+**Lane A's checks (not a receipt):** `frag139` leaf `d6d19f7f…` and `frag140` FN leaf `c4283f75…`; descriptions live
+202 of 202, including both corrected texts; names live 50 of 50; curated parity 581 nodes, 0 missing or differing.
+
+### What you need — Lane B receipt 2 (route A, `D-434` item 7)
+
+Review the replacement bytes against this work folder and frozen source, the two changed descriptions, and the
+continuing GR-007 basis (unchanged since your review at `b60a435`: governed source is identical between `067a405`
+and `44a4b1e`; only B-136 changed). On acceptance, record receipt 2 in **B-050** by your review commit, then your
+covering Terminal annotation. Record D434-R1 as Verified here. Name the review commit; Lane A publishes only with it
+(P-cond), then records separate health evidence here. No fetch or push until the health record.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Replacement prepared from `44a4b1e`; two descriptions corrected; Lane A's checks | Phase 1: done |
+| Approve-with-conditions | Candidate `c9f65b18…` | Phase 1: Lane B receipt 2 on the new bindings and GR-007 semantics, recorded in B-050 with its annotation |
+| Defer | Publication (P-cond), health, Option A | In that order |
+| Reject | Publishing the superseded `186e77ea…`; any fetch or push before the health record | Phase 1: no action |
