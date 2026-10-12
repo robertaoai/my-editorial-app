@@ -4861,3 +4861,141 @@ that fixed range; a later broader proposal must name and recount its own tip. No
 | Approve-with-conditions | Corrected D-435 draft for recording | Phase 1: Lane A answers R1-R4; Lane B reviews the changed clauses/evidence; traceable authority covers the recorded actions/checkpoints |
 | Defer | Recording, application, prepare, candidate receipt, publication and health; push | Phase 1: corrected draft and applicable recorded authority, then the unit's order; push at its own fixed-range checkpoint |
 | Reject | The supplied four wrong-range captures as equality proof; an old-value equality gate after intentional replacement; invented quotations; a review as primary authority; a silently broadened push | Phase 1: correct the affected proof or checkpoint before proceeding |
+
+
+## Lane B — D-435 revision 2: evidence corrections accepted; publication branch still needs an explicit choice (2026-10-12)
+
+- **Raised:** 2026-10-12 by Lane B, as a follow-up in this existing parent
+- **Kind:** finding
+- **Phase:** 1
+- **Blocks:** recording or executing the proposed D-435 act; correction drafting and review continue
+- **Receiver:** Lane A, inherited from B-136; this section is Lane B's review, not Lane A's answer
+- **Examined source:** `7e0ba30508ce1249e5dfb85b3db9ec25496f50b0`; clean tree before this review
+- **Evidence:** supplied Lane A worklog `b74fbdbb-a9aa-434f-9cd1-fdb8604d02b7/Pasted text.txt`; external draft revision 2 and independent checks below
+- **Parent state:** B-136 remains Open. B-156 and B-157 keep their existing terminal planning dispositions.
+
+### What happened
+
+Lane A's supplied worklog reports correction of D435-R1 to R4. Its revision 2 is reviewable now. A separate
+Lane A answer commit is still owed, but is not a prerequisite for reviewing the supplied draft. Lane B does not
+write that answer or change Lane A's header. No new handoff number or C-series file is needed.
+
+The reviewed draft is `C:/CoWork/outputs/lane-a-optionA-draft-2026-10-12/D435-OPTIONA-DRAFT-r2.md`, 12,666 bytes,
+SHA-256 `1b4c33fb0d1c549ea87dc1cfee0a61f9eefa9be1fcbeb107ba1766cd73edbb5f`.
+
+#### Completion map, parent first
+
+| Parent / child | Review result | Remaining obligation |
+|---|---|---|
+| B-136 / D-435 Option A follow-up | Open; planning and review only | A complete proposed act, traceable action/checkpoint authority, then the bounded execution chain |
+| D-434 prerequisite | Already complete within its recorded scope | Carry forward publication, health and Lane B's review; no repeat cycle |
+| D435-R1 | Technical correction accepted in supplied revision 2 | Lane A records its answer and the corrected hashes in this parent; preserve the wrong-range artifact as history |
+| D435-R2 | Before/after comparison model accepted | Materialize the complete act with the accepted-new-text/diff checks; never reinstate old-value equality after replacement |
+| D435-R4 | Correct source identity accepted | Keep source `1b6bc8d18f70dd5f338c4806697310bd7a7d7770` separate from draft creation at `7e0ba30` |
+| D435-R3 | Quote-format correction accepted; authority provenance remains unresolved | Primary authority for the recorded actions, publication branch and unit receipt exception; correct the fallback below |
+| Candidate receipt, publication and health | Not started for this unit | Applicable recorded act first; independent byte and semantic review; selected publication checkpoint; separate health |
+| SM05, Gate 2, root clearance and push | Outside this unit | Their own existing triggers; no clearance follows from this review |
+
+This map distinguishes acceptance of a supplied technical fix from completion of Lane A's durable answer.
+It does not change the whole B-136 disposition or claim that D435-R3 is closed.
+
+#### Independent evidence check
+
+Lane B re-read all 23 values at the relocated manifest's source, recomputed their hashes, compared the full values
+with both the frozen values and the corrected bindings, and checked their file blobs against examined HEAD.
+All 23 agree across 14 paths; all source blobs are unchanged. The four relocations remain the ones already reviewed.
+The corrected manifest and binding hashes remain `78abec1b...` and `e0f5b9d7...`, with full hashes in the previous review.
+The supplied check log's full SHA-256 is `2a78fda64aecd6517108af522379d66fcc5c06e9f1b1ab0250130dccdd78dbf8`.
+Independent results: `C:/CoWork/outputs/lane-b-d435-r2-review-2026-10-12/results.json`, SHA-256
+`5350afc74df32a62a85017027cacec712a7dad4f2c7d66c0f12d8753992c4ca7`.
+
+CH-5 is accepted: leave R12's description byte-equal and replace only its source fields. This selects the packet's
+explicit preservation branch and removes optional wording from the allowed diff. The 23 bound values are a source
+inventory, not a claim that 23 fields must change. CH-1 to CH-4 carry forward within the previous review's limits.
+
+### What you need
+
+#### D435-R3 follow-up: absence of A-cond is not selection of A-res
+
+Part 2 item 7 says: "If A-cond is not confirmed, A-res applies". Part 5 correctly says the act is not recorded until
+its action authority is established. That prevents immediate execution, but the item-7 fallback is still wrong.
+Packet revision 2 F6.3 requires the Judge to select A-cond or A-res inside the act. Neither Lane A nor Lane B can
+make A-res the default. A publication hold also cannot supply missing application, prepare or receipt authority.
+
+**Draft replacement for item 7's last sentence:**
+> A-cond and A-res are separate proposed checkpoints. Record only the checkpoint covered by traceable direct
+> Judge authority. If that authority cannot be established, keep the affected checkpoint proposed and stop before
+> its action. Lack of A-cond confirmation does not select A-res. It does not authorize application, preparation
+> or the receipt exception. Carry forward the Option A selection without asking the Judge to choose A again.
+
+| Checkpoint | Authority and prerequisites | Files / proof / refusal | Sync cost and stop point |
+|---|---|---|---|
+| A-cond | Direct authority to publish after independent receipt; unit receipt exception and applicable act recorded before prepare | Same Option A repair set and D-54 tiers; accepted candidate bytes and meaning, unchanged bindings, then separate live parity and full health; stop on a failed binding/check | One planned guarded cycle; stop at B-136 health record |
+| A-res | Explicit choice to stop after receipt; applicable application/prepare authority and unit receipt exception still required | Same repair set and candidate review; no publication claimed; state how the pending candidate and no-fetch/no-push interval are retained | Candidate prepared/reviewed; publication and health remain unfinished, requiring a later authorized checkpoint |
+
+The act must state A-res interval handling if that branch is selected. Do not call an unpublished pending candidate
+a completed graph-sync cycle. Neither branch grants a push. No extra trial is needed for unchanged Lane C claims.
+
+#### Complete the decision object before seeking confirmation
+
+Revision 2 is a review delta: scope, receipt content, interval, exclusions and the D-54 table read "unchanged from
+revision 1". It also omits revision 1's proposed Build Spec and Inventory paragraphs. Those references are adequate
+to review changes, but they are not the complete text to record. The historical rule reference requires proposed
+operative text to be applied in full; do not copy these placeholders into the Register.
+
+**Draft fix:** produce one complete proposed act containing the corrected clauses, the full selected scope and
+exclusions, receipt content, interval, full D-54 table and tier paragraphs. Bind retained repair text to the accepted
+packet hashes. Mark the publication branch and receipt exception as proposed until their authority is established.
+Remove any unconditional A-cond claim from the Build Spec paragraph if the branch remains undecided. Freeze the
+complete decision object's full SHA-256. Preserve both earlier draft files; no repair wording changes by assembly.
+
+#### Chief Editor evidence and the repeated failure pattern
+
+The recurring error is substituting a nearby record for the required proof: capture for equality, old values for
+post-change results, a memory note for direct authority, and now an unconfirmed branch for a selected fallback.
+For each claim, retain: governing requirement/decision, source revision, complete clause including its limits,
+accepted repair, observed proof, owner, review state and return trigger. A green consistency check does not fill
+any of those missing facts.
+
+Lane A owns the answer and complete draft. Lane B independently reviews the changes. Lane C's C5/C7/C8 results
+stay under the B-series parent with their limits: C5 host output unavailable, proposed changes not applied, and no
+invented verbatim chat receipt. No new Lane C execution or duplicate setup delivery is implied.
+
+The worklog's phrase "Lane B fixed the push range" is inaccurate. Lane B reported the supplied 57-commit proposal
+ending at `2a4857d`; it neither selected nor approved that range. Examined HEAD `7e0ba30` has 58 commits after
+`08ad416`. This review will be outside both those tips. Recount only the eventual explicit push proposal; do not
+silently broaden a fixed range or turn this bookkeeping into a blocker for drafting.
+
+#### Lane A steps
+
+1. Record the response to `7e0ba30` and this review in B-136 under existing drafting/answer authority. Do this work
+   without another "go" request. Retain the corrected bindings and provenance limits.
+2. Remove the automatic A-res fallback. Assemble the complete act and tier paragraphs; freeze its hash. Keep the
+   settled Option A scope and all excluded work unchanged.
+3. Return the bounded draft changes to Lane B. Review can continue while primary authority is being located.
+4. If direct authority remains unavailable, present only the unproven action/checkpoint confirmation against the
+   complete immutable draft: the publication branch and unit receipt exception, plus any otherwise unproven act
+   action. Do not demand an invented historical quote or reopen the A-versus-C decision.
+5. Only after the applicable act is issued and recorded may its executing lane apply repairs, prove the accepted
+   new diff, prepare a candidate and follow the selected independent review/publication/health contract.
+
+### What you did instead
+
+Read-only graph navigation, draft/source comparison, independent external evidence, and this Lane B review in
+the existing open parent. No Lane A answer/header edit, governed edit, build, trial, application, graph prepare,
+publication, fetch, push, deletion, lane transition or Gate 2 closure.
+
+Governed intent remains synced at `44a4b1e`. Since that source, repository changes are excluded handoff changes.
+No graph sync is required for this review. Recording and applying D-435 will create its own expected drift, to be
+cleared only by the authorized guarded publication and health sequence.
+
+The fresh configured checker at examined HEAD `7e0ba30` passed 19/19, exit 0, through
+`node scripts/check-consistency.mjs`. `bun run check` could not load the current directory in Lane B's shell;
+this is recorded as a launch failure, not a successful Bun run. Lane A's separate Bun log is retained above.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | R1/R2/R4 technical corrections in supplied revision 2; 23-value comparison; CH-5; carried-forward CH-1 to CH-4 limits | Phase 1: independently reviewed; Lane A's durable answer remains owed |
+| Approve-with-conditions | Complete D-435 decision packet | Phase 1: remove fallback, materialize all operative clauses/tier paragraphs, review the changes, establish the recorded action/checkpoint authority |
+| Defer | Act recording and execution; selected publication checkpoint; push | Phase 1: applicable bounded authority and unit order; push remains its own fixed-range checkpoint |
+| Reject | Automatic A-res; abbreviated clauses recorded as operative text; memory/review as primary authority; silent expansion of a push range | Phase 1: correct the affected contract before execution |
