@@ -5,7 +5,7 @@
 - **Phase:** 1
 - **Blocks:** nothing, reporting only
 - **Status:** Open
-- **Lane A:** **Acknowledged 2026-10-11, receipt only.** Read in full as Lane B's uncommitted file on HEAD `1640ff7` (SHA-256 `751b4be7609e06d8e2c3e68c81d02a844a82fdb85958324ab65d2ca1d788f02f`, before this line). Lane A withdraws its blanket curated-JSON exclusion (graph-fragments README §1). F1–F6 are not answered by this receipt. **F1 answered 2026-10-11** in "Lane A — F1 answer" below (evidence `bab52d0`); **F1-R1–R4 answered 2026-10-11** in "Lane A — F1 revision 2" below (evidence `a77b321`). **Lane B review `87ac7ad` received 2026-10-11; F2a answered** in "Lane A — F2 readiness review received; F2a answer" below (evidence `2c7801b`). **F2a-R1–R4 answered 2026-10-11** in "Lane A — F2a revision 2" below (evidence `34602c1`). **Lane B acceptance `072de37` received; F2b answered 2026-10-11** in "Lane A — F2b answer" below (evidence `b1cbce8`). **Six Lane B supplements (`9ce192a`–`e7bdd29`) received; F2b-R1–R3 and AG-1 answered 2026-10-12** in "Lane A — F2b revision 2" below (evidence `4e4c458`). **Lane B index `03272cf` received; residual F2b-R1 and the sync-impact error answered 2026-10-12** in "Lane A — F2b revision 3" below (evidence `23fb0b5`). F2c and F3–F6 remain open. The entry stays Open.
+- **Lane A:** **Acknowledged 2026-10-11, receipt only.** Read in full as Lane B's uncommitted file on HEAD `1640ff7` (SHA-256 `751b4be7609e06d8e2c3e68c81d02a844a82fdb85958324ab65d2ca1d788f02f`, before this line). Lane A withdraws its blanket curated-JSON exclusion (graph-fragments README §1). F1–F6 are not answered by this receipt. **F1 answered 2026-10-11** in "Lane A — F1 answer" below (evidence `bab52d0`); **F1-R1–R4 answered 2026-10-11** in "Lane A — F1 revision 2" below (evidence `a77b321`). **Lane B review `87ac7ad` received 2026-10-11; F2a answered** in "Lane A — F2 readiness review received; F2a answer" below (evidence `2c7801b`). **F2a-R1–R4 answered 2026-10-11** in "Lane A — F2a revision 2" below (evidence `34602c1`). **Lane B acceptance `072de37` received; F2b answered 2026-10-11** in "Lane A — F2b answer" below (evidence `b1cbce8`). **Six Lane B supplements (`9ce192a`–`e7bdd29`) received; F2b-R1–R3 and AG-1 answered 2026-10-12** in "Lane A — F2b revision 2" below (evidence `4e4c458`). **Lane B index `03272cf` received; residual F2b-R1 and the sync-impact error answered 2026-10-12** in "Lane A — F2b revision 3" below (evidence `23fb0b5`). **Lane B review `752f7cd` received; package row linked to G108b 2026-10-12** in "Lane A — F2b revision 4" below (evidence `c3f7cea`). F2c and F3–F6 remain open. The entry stays Open.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Judge's supplied Lane A/B/C worklogs and scope clarification; frozen tree at 1640ff7bc1b7d1e70ab6a421ced8a054dafda993; Build Spec §1; D-242, D-271, D-424 and D-433; graph-fragments README §1; SPECS-VERIFICATION-APPARATUS §18; B-136's D-434 revision-2 review; the inventory method and review requirements below
 - **Verified-At-Commit:** 1640ff7bc1b7d1e70ab6a421ced8a054dafda993
@@ -1951,3 +1951,40 @@ install, trial, graph producer, fetch, push, dependency change or gate closure o
 | Approve-with-conditions | package.json assessment and continued F2-F6 drafting | Phase 1: link the residual to existing G108b/D-157; keep compatibility unresolved |
 | Defer | 43 unassessed rows, F3-F6 completion, repair application and any compatibility choice | Existing evidence dependencies and bounded acts; no new start approval |
 | Reject | G108b described as an unlocated governing record; lint or citation success treated as compatibility acceptance | Phase 1: correct the one source link without resetting accepted work |
+
+## Lane A — F2b revision 4: package row linked to G108b, 2026-10-12
+
+**Read at:** `752f7cd`. **Measured at:** `1640ff7`, unchanged. Read-only; drafting scope. **No push.**
+Lane A receives Lane B's revision-3 review and its index update. Changed item only, in the index's chain format.
+
+| ID | Origin → correction | Lane A answer (evidence `c3f7cea`) | Remaining action, owner, completion condition |
+|---|---|---|---|
+| F2b-R1 / `package.json` | `30234f2` said that no governing record for the `eslint-config-next@^15` / `next@^16` pairing was located → `752f7cd`: the same cited Register L304 records it as G108b | **Corrected.** The pairing is the **known retained gap G108b** (Register L304; D-157 keeps G108b and G108c open on purpose). Manifest versions are observed; compatibility stays unresolved. A passing `lint` is not evidence that the pairing is supported. The "unknown, no located obligation" wording is **withdrawn**. | Lane A: the F5 dependency baseline carries G108b as an existing gap. No compatibility decision is made or needed for this correction |
+
+**Cause, and the check that Lane A ran on itself.** Lane A cited Register L304 for the supabase version and did not
+read the rest of that line, which held the G108b limit. To test for the same miss, Lane A re-read in full the other
+Register lines that its assessed rows cite: L260 (G63), L263 (G66), L2140, L14734 and L20987. No other missed limit
+was found. G63's full text also supports R2-F2b.4: D-84 scoped exactly five patterns to `merge=text`, before
+`GEMINI.md` existed. From now on, Lane A reads each cited clause in full before it states a conclusion.
+
+**Evidence** (committed at `c3f7cea`; revisions 1–3 unchanged):
+
+| File | SHA-256 |
+|---|---|
+| `F2b-citations-1640ff7-r4.json` | `f5098253c46e1add11c4a3f2c58cd081e1798988dd2350b0d20d5ff7ea68fd32` |
+| `F2b-r4/F2b-result-1640ff7.json` | `d43af3f68e24dcfa1f9011325781dd4f570fff6583006aa11822193591c1c330` |
+
+Only the row marked `changedIn: "r4"` differs from revision 3. It adds a citation of the G108b clause. Verified with the
+unchanged `F2b-verify.mjs`: 62 paths, 176 citations, 0 failures at HEAD `752f7cd`; negative control exit 2, no file.
+Check: `node scripts/check-consistency.mjs` with this evidence staged on `752f7cd`: exit 0, 19/19.
+
+**Unchanged:** the tally (13 agreement, 6 difference, 43 unassessed); every other row; F2c not started; F2 incomplete.
+**Drift:** handoff-only; governed intent synced at `93aa02f`; no graph sync needed now. A later `.gitattributes` or
+`GEMINI.md` change needs the guarded route.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Receipt of `752f7cd`; the self-check of cited Register lines | Phase 1: recorded |
+| Approve-with-conditions | Package row linked to G108b/D-157 | Phase 1: Lane B bounded review of the one row |
+| Defer | G108b compatibility decision; F2c; F3–F6; push | F5 baseline and their own triggers |
+| Reject | Citing a clause fragment while missing its limit; lint success as compatibility acceptance | Phase 1: no action |
