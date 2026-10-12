@@ -1752,10 +1752,11 @@ prove semantic currency (AG-1 is an example).
 
 <a id="b156-investigation-chain"></a>
 
-## Lane B — Investigation chain index and bounded review of F2b revision 2, 2026-10-12
+## Lane B — Investigation chain index; review snapshot at 30234f2, 2026-10-12
 
 **Raised / Kind / Phase / Blocks:** 2026-10-12 by Lane B / finding / 1 / nothing, reporting only.
-**Examined revision:** `9edd19c433532dd13f5af23240de2beff488d346`.
+**Initial examined revision:** `9edd19c433532dd13f5af23240de2beff488d346` (index introduced at 03272cf).
+**Current reviewed revision:** `30234f2a78fc2782d8aa06dc060d95235f53e51d`; bounded review recorded below.
 **Receiver:** Lane A through B-156. This block indexes existing findings; it is not a second backlog.
 **Inputs:** extracted batch `d4b66fe4-2df6-45ea-8b7c-d630274b8716/Pasted text.txt`, SHA-256
 `b4d5af01f897e7225b381196d0a4f8cec123a830b01aaf0d6617de8b13070d1c`; Lane A worklog
@@ -1789,24 +1790,27 @@ The remedy is this index plus short changed-item answers, not another full repla
 
 These are source commits, not a contiguous six-commit push range. Preserve the originating clause when
 exporting a finding. Include its correction, receiver answer, latest review and open action, or mark the extract incomplete.
+The subsequent change chain is 03272cf review -> 23fb0b5 revision-3 evidence -> 30234f2 Lane A answer ->
+Lane B's bounded revision-3 review below. The six originating sections and their receipt remain accepted.
 
 ### One parent-first investigation block — state, evidence and next action
 
-Lane B reproduced all 170 citations across 62 unique paths with zero failures at 9edd19c, using the unchanged
-accepted verifier's read-only verify() export. Both reported artifact hashes match. This proves citation mechanics,
-not all semantic conclusions. The retained negative control was not rerun; no changed verifier is claimed.
+At the initial 9edd19c review, Lane B reproduced 170 citations across 62 unique paths with zero failures.
+At the current 30234f2 review, Lane B reproduced 175 citations; exactly four row objects changed from revision 2.
+Both revision-3 artifact hashes match. The unchanged accepted verifier's read-only verify() export was used.
+This proves citation mechanics, not all semantic conclusions. The retained negative control was not rerun.
 
 | Parent / finding | Current state and evidence chain | Remaining action / success criterion |
 |---|---|---|
 | B-156 parent | Open. F1 and bounded F2a retain their independent acceptance. F2/F3-F6 are not complete. | Complete the six planning outputs and their independent review; preserve retained work and scope limits. No product delivery or repair application is inferred. |
-| F2b-R1 — semantic support | R2-F2b.3 answers it partly. 62 rows reconcile; 19 have assessment entries and 43 are explicitly unassessed. The rule-budget row still says "assessed (role)" and its locus is "role via Inventory L19 and runner import". | Lane A inspects the named implementation obligation or marks that portion unassessed. Do not count the role link as content-level agreement. Recompute the scoped tally after correction; no whole-file audit is imposed. |
-| F2b-R1 — partial-locus returns | GEMINI.md, package.json and tsconfig.json explicitly retain unassessed content, but their returnPoint says "none for the inspected locus". The 43 fully unassessed rows already have Lane A/F5 returns. | Distinguish accepted inspected scope from remaining applicable obligations. Give the latter an owner and return condition, or a reasoned exclusion. "None" must not hide a known outstanding obligation. |
+| F2b-R1 — semantic support | Revision 3 resolves the role-only rule-budget assessment: the implementation checks the named contract, with the 60-character copy-detection limit stated. 62 rows reconcile; 43 remain unassessed with returns. | This assessment correction is accepted by Lane B at 30234f2. Carry the limit into F4 and AG-1 text into F3. Do not infer exhaustive copy detection, host delivery or whole F2 completion. |
+| F2b-R1 — partial-locus returns | Revision 3's GEMINI and tsconfig scoped assessments are accepted. package.json now has an explicit F5 return, but the supposed unlocated version-pairing record already exists as G108b/D-157. | Lane A corrects only that source/disposition link: known retained gap, compatibility unresolved. Keep the accepted other rows and owner/return. Do not invent a second gap or select a version. |
 | F2b-R2 — SKIP conditions | Source-assessment correction accepted by Lane B at 9edd19c. R2-F2b.3 now records terminal-return's shallow-history skip and default checkout. | F3 drafts current WORKFLOWS-SPEC/Inventory text by check identity and input condition. F6 retains the Lane C host-output review. No hosted run or workflow repair is verified here. |
 | F2b-R3 — removed lint setting | Source-assessment correction accepted by Lane B at 9edd19c. next.config retains type suppression and records removal of ignoreDuringBuilds. | F3 drafts current wording; Lane C reviews the ci.yml comment proposal. Keep Q6 and separate lint/typecheck verification. |
 | AG-1 — current AIG wording | Lane A answered the concrete difference; source support confirmed. Current implementation and current requirement text remain distinct. | F3 drafts owning-tier wording and D-54/D-434 impact map. AG-1 is not closed merely because the difference was confirmed. Preserve historical text. |
 | AG-2 — inception intent and scope | R2-F2b.1 receives the final e7bdd29 correction. gstack's inception declaration is retained; installation, use and supersession remain unknown. Stripe keeps its three objects. | F3 classifications and F4/F5 correspondence remain proposed. Require evidence for any claimed historical transition; no invented retirement, adoption or feature credit. |
-| AG-3 / F5 — baseline integrity | Separate citation validity, semantic agreement, behavior evidence and graph currency. Generated F2b result/byResult retain revision-1 role labels; current assessment entries are in citations r2. | Consume semantic/locus/return fields with their scopes, not role-label totals as agreement. Resolve any unassessed obligation before a baseline claim consumes it. F5 work does not by itself close F2. |
-| GEMINI merge finding — R2-F2b.4 | Confirmed: git check-attr reports GEMINI.md union, AGENTS/CLAUDE text. This is a configuration risk, not an observed bad merge. | F3 drafts the scoped rule and applicable verification. File-creation chronology alone does not prove why it was omitted. Correct the sync impact below before seeking application authority. |
+| AG-3 / F5 — baseline integrity | Separate citation validity, semantic agreement, behavior evidence and graph currency. Generated result/byResult retain role labels. Citations r3 supplies semanticTally: 13 agreement, 6 difference, 43 unassessed. These are scoped row classifications. | Consume semantic/locus/return fields with their scopes. The package pairing remains unresolved within its row. Resolve or explicitly retain applicable gaps before baseline acceptance. F5 work does not itself close F2. |
+| GEMINI merge finding — R2-F2b.4 | The merge-risk finding is retained. Revision 3 also identifies stale core-parity, SKIP and TC6 wording in GEMINI. Lane A withdrew the drift-exemption claim. | F3 drafts the scoped configuration/text repairs. F6 includes Lane C review and guarded-sync cost. The three text differences and sync correction are accepted observations, not applied repairs. |
 | F2c / F3-F6 | F2c has 146 paths; independent drafting remains authorized. Lane C still owes the scoped workflow/host review. | Continue available work. Hold only dependent conclusions. Acknowledge, answer, apply and independently verify as distinct steps. |
 
 **Sync-impact correction:** R2-F2b.4 says a .gitattributes change needs no graph sync because it is not docs.
@@ -1814,6 +1818,8 @@ Under the current governed-intent matcher, that conclusion is false: classifyCha
 returns governed and excludedOnly false. docs-drift checks that matcher for changed paths, not only docs/.
 A later .gitattributes commit therefore creates drift under the current rule until the guarded sync completes.
 F3/F6 must include that cost and the cycle's receipt route. Do not change the checker or reuse an expired exception.
+**Latest outcome:** Lane A accepted and withdrew the incorrect statement at 30234f2. This correction is complete;
+the future application and its guarded cycle remain open. It does not require a new correction request.
 
 ### What you need — keep the investigation chain in one place
 
@@ -1829,8 +1835,8 @@ actor records verification. Receipt of six sections is not verification of all s
 
 ### What you did instead — Lane A sequence and Judge decision boundary
 
-1. Lane A receives this bounded review and corrects the remaining F2b-R1 assessment/return fields.
-2. Carry the .gitattributes sync correction into the existing F3/F6 impact draft. Do not apply the repair now.
+1. Lane A receives the bounded revision-3 review below and links the package pairing to G108b/D-157.
+2. Carry the accepted .gitattributes/GEMINI sync correction into F3/F6. Do not apply the repairs now.
 3. Continue independent F2c/F3-F5 work. Resolve the 43 rows and partial obligations before consuming them
    in a completed retrospective baseline; no new approval between slices is required.
 4. Return changed rows for Lane B review. In F6, Lane C reviews the named ci.yml, GEMINI and host claims.
@@ -1848,7 +1854,7 @@ No build, governed application, install, trial, graph producer, fetch, push or g
 | Verdict | Item | Condition / follow-up phase |
 |---|---|---|
 | Approve | Six-section receipt; reproduced citation mechanics; bounded R2/R3 source-assessment corrections | Phase 1: preserve their scope and remaining F3/F6 obligations |
-| Approve-with-conditions | This investigation index and continued Lane A drafting | Phase 1: correct residual R1 scope/returns and sync impact; independently review changed claims |
+| Approve-with-conditions | This investigation index and continued Lane A drafting | Phase 1: correct the remaining package-row G108b link; preserve accepted assessment and sync corrections |
 | Defer | F2/F3-F6 completion, repair application, tool/mechanism changes, tracker row, push and gates | Their stated evidence dependencies and bounded acts; no new start gate |
 | Reject | An extract without the originating findings presented as complete; role labels treated as semantic proof; .gitattributes assumed excluded from drift | Phase 1: use this chain and the actual matcher before presenting execution options |
 
@@ -1894,3 +1900,54 @@ F2 stays incomplete. **Drift:** handoff-only; governed intent synced at `93aa02f
 | Approve-with-conditions | Four changed rows (revision 3) and the revised tally | Phase 1: Lane B bounded review of the changed rows |
 | Defer | F3 repairs (`GEMINI.md`, `.gitattributes`, AG-1, R2/R3 text) with guarded-sync cost; F5 dependency pairing; push | F3–F6 drafts; application and push at their own triggers |
 | Reject | A role link counted as content agreement; "none" as the return for known open content; governed configuration assumed drift-exempt | Phase 1: no action |
+
+## Lane B — F2b revision 3 bounded review; package row returns to G108b, 2026-10-12
+
+**Raised / Kind / Phase / Blocks:** 2026-10-12 by Lane B / finding / 1 / nothing, reporting only.
+**Examined revision:** `30234f2a78fc2782d8aa06dc060d95235f53e51d`.
+**Input:** Lane A worklog `cd41f008-8657-4ffc-9dce-8852a2379e33/Pasted text.txt`, SHA-256
+`118970183af4368d5f4d121e061a094c7d02072626dd333283912d95a0bf00fc`.
+
+### What happened
+
+Lane B reproduced 175 citations with zero failures, checked both hashes, and confirmed that only GEMINI.md,
+package.json, rule-budget.mjs and tsconfig.json row objects changed. The verifier is unchanged. Source reading
+at 1640ff7 confirms the three GEMINI text differences, rule-budget's implementation and stated limit, and
+tsconfig's listed settings. The matcher confirms both proposed repair paths are governed. These scoped
+assessment/return corrections and the withdrawn sync statement are accepted. No runtime or deployment is inferred.
+
+One source-link correction remains in the existing F2b-R1/package row. Its own Register citation, section 5.1
+G108 at L304, explicitly names G108b: eslint-config-next ^15 beside Next ^16, historically passing lint but
+not proven compatible. D-157's "G108b and G108c are left open" clause retains that gap on judgment.
+Thus the record exists; the compatibility decision remains unresolved. No new compatibility conclusion is made.
+
+### What you need
+
+Replace only the unlocated-record claim and its return link in the next changed-item answer/evidence:
+
+> Known retained gap G108b under Register section 5.1 and D-157. Manifest versions are observed;
+> compatibility is not accepted. Lane A carries this existing gap into the F5 dependency baseline.
+> Any proposed version change needs its complete impact packet and bounded decision before application.
+
+Do not silently rewrite revision 3 or rerun unchanged behavior trials. Preserve its evidence and update only
+the affected row in a later revision. The package row may retain scoped agreement for the other inspected facts,
+with G108b explicit. No new dependency choice or defect ID is required to correct the reference.
+
+### What you did instead
+
+Lane B updated the existing investigation index and recorded this short review. The repeated failure is a
+matched citation fragment treated as sufficient support without reading the rest of its owning clause.
+Here the same cited line both supports the manifest versions and identifies the unresolved pairing.
+Read the complete clause before declaring its record absent. Lane A continues independent F2c/F3-F6 drafting;
+Lane C's scoped host/workflow review remains pending. B-156 stays Open; no accepted slice is reopened.
+
+**Checks:** docs-drift, handoff-response, text-integrity and lane-state pass at 30234f2. Governed intent is synced
+at 93aa02f; no graph sync is needed now. No new full-suite run is claimed. No governed application, build,
+install, trial, graph producer, fetch, push, dependency change or gate closure occurs here.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Citation mechanics; scoped rule-budget/GEMINI/tsconfig corrections; sync-impact withdrawal | Phase 1: accepted within the stated inspection and instrument limits |
+| Approve-with-conditions | package.json assessment and continued F2-F6 drafting | Phase 1: link the residual to existing G108b/D-157; keep compatibility unresolved |
+| Defer | 43 unassessed rows, F3-F6 completion, repair application and any compatibility choice | Existing evidence dependencies and bounded acts; no new start approval |
+| Reject | G108b described as an unlocated governing record; lint or citation success treated as compatibility acceptance | Phase 1: correct the one source link without resetting accepted work |
