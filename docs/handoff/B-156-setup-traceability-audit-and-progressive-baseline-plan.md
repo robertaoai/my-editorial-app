@@ -10,6 +10,9 @@
 - **Evidence:** Judge's supplied Lane A/B/C worklogs and scope clarification; frozen tree at 1640ff7bc1b7d1e70ab6a421ced8a054dafda993; Build Spec §1; D-242, D-271, D-424 and D-433; graph-fragments README §1; SPECS-VERIFICATION-APPARATUS §18; B-136's D-434 revision-2 review; the inventory method and review requirements below
 - **Verified-At-Commit:** 1640ff7bc1b7d1e70ab6a421ced8a054dafda993
 
+**Investigation navigation:** [One finding-chain index and current bounded review](#b156-investigation-chain).
+Use the dated index to locate origins, corrections, Lane A answers and remaining work. Earlier sections remain evidence.
+
 ## What happened
 
 The Judge requested a retrospective audit of SETUP-SPIKE-000 implementation and a plan for progressive
@@ -1746,3 +1749,105 @@ prove semantic currency (AG-1 is an example).
 | Approve-with-conditions | F2b revision 2: 19 assessed (14 agreement, 5 difference), 43 unassessed with owner and return; the new `GEMINI.md` merge finding | Phase 1: Lane B bounded review; Lane C comment on the `GEMINI.md` and `ci.yml` claims in F6 |
 | Defer | F3 repairs (including `GEMINI.md merge=text`); gstack mechanism assessment; the tracker row; the batch push | F3–F6 drafts; application, host review and push at their own triggers |
 | Reject | Role links counted as semantic agreement; the zero-differences tally; gstack called retired, prohibited or installed; Stripe called retired from the Project | Phase 1: no action |
+
+<a id="b156-investigation-chain"></a>
+
+## Lane B — Investigation chain index and bounded review of F2b revision 2, 2026-10-12
+
+**Raised / Kind / Phase / Blocks:** 2026-10-12 by Lane B / finding / 1 / nothing, reporting only.
+**Examined revision:** `9edd19c433532dd13f5af23240de2beff488d346`.
+**Receiver:** Lane A through B-156. This block indexes existing findings; it is not a second backlog.
+**Inputs:** extracted batch `d4b66fe4-2df6-45ea-8b7c-d630274b8716/Pasted text.txt`, SHA-256
+`b4d5af01f897e7225b381196d0a4f8cec123a830b01aaf0d6617de8b13070d1c`; Lane A worklog
+`78e77fb0-3c64-45f7-93cc-aa99f81116f2/Pasted text.txt`, SHA-256
+`d66d99206b441494a3cacccfa33a2b7b3a0b8972c8a30a672786c726e9d3efba`.
+The whole-entry header, receiver's answer and earlier independent dispositions remain unchanged.
+
+### What happened — the missing link is in the extraction, not the receipt
+
+Lane A has received all six Lane B sections at 9edd19c, in R2-F2b.1. The earlier receipt gap is closed.
+The extracted batch contains five Lane B sections followed by that Lane A answer. Its normalized text is
+a contiguous part of this file. It omits the originating 9ce192a F2b review, while its answer refers to it.
+Thus the extract is faithful but incomplete for investigating F2b-R1 to R3. Do not report that Lane A failed
+to read those findings, or that the findings are absent from the repository.
+
+The observed pattern is repeated full summaries without one navigable finding-to-answer-to-review chain.
+Late corrections remain separated from the original assertions. A destination such as "F5" also does not
+show whether an obligation is answered, assessed, independently verified or still required for completion.
+The remedy is this index plus short changed-item answers, not another full replacement handoff.
+
+### Source chain — include these six origins when extracting the batch
+
+| Source commit / section in this entry | Contribution | Receiver's answer at 9edd19c |
+|---|---|---|
+| 9ce192a — F2b evidence reproduced; semantic assessment returned | Origin of F2b-R1, R2 and R3; missing from supplied extract | R2-F2b.1 and R2-F2b.3; R1 remains partly open as explained below |
+| d8ca854 — Initial AGENTS.md comparison | Origin of AG-1 to AG-3 | R2-F2b.3, R2-F2b.6; assessment and repair destinations are distinct |
+| 25381c2 — Supplied Lane C review consolidated | Corrects inventory counts, finding meanings and source bindings | R2-F2b.1; accepted slices are preserved |
+| 2251b4a — V1 exclusion is not Project retirement | Corrects Stripe scope; proposes claim-level evidence rows | R2-F2b.1 and R2-F2b.6 |
+| adf222b — Second Lane C worklog consolidated | Returns unsupported retirement, deployment and check-completion claims | R2-F2b.1; no unsupported full-suite pass is adopted |
+| e7bdd29 — Judge's gstack intent clarification | Preserves inception workflow intent; bounds the proposed bidirectional mapping | R2-F2b.1 and R2-F2b.6; current mechanism evidence remains unknown |
+
+These are source commits, not a contiguous six-commit push range. Preserve the originating clause when
+exporting a finding. Include its correction, receiver answer, latest review and open action, or mark the extract incomplete.
+
+### One parent-first investigation block — state, evidence and next action
+
+Lane B reproduced all 170 citations across 62 unique paths with zero failures at 9edd19c, using the unchanged
+accepted verifier's read-only verify() export. Both reported artifact hashes match. This proves citation mechanics,
+not all semantic conclusions. The retained negative control was not rerun; no changed verifier is claimed.
+
+| Parent / finding | Current state and evidence chain | Remaining action / success criterion |
+|---|---|---|
+| B-156 parent | Open. F1 and bounded F2a retain their independent acceptance. F2/F3-F6 are not complete. | Complete the six planning outputs and their independent review; preserve retained work and scope limits. No product delivery or repair application is inferred. |
+| F2b-R1 — semantic support | R2-F2b.3 answers it partly. 62 rows reconcile; 19 have assessment entries and 43 are explicitly unassessed. The rule-budget row still says "assessed (role)" and its locus is "role via Inventory L19 and runner import". | Lane A inspects the named implementation obligation or marks that portion unassessed. Do not count the role link as content-level agreement. Recompute the scoped tally after correction; no whole-file audit is imposed. |
+| F2b-R1 — partial-locus returns | GEMINI.md, package.json and tsconfig.json explicitly retain unassessed content, but their returnPoint says "none for the inspected locus". The 43 fully unassessed rows already have Lane A/F5 returns. | Distinguish accepted inspected scope from remaining applicable obligations. Give the latter an owner and return condition, or a reasoned exclusion. "None" must not hide a known outstanding obligation. |
+| F2b-R2 — SKIP conditions | Source-assessment correction accepted by Lane B at 9edd19c. R2-F2b.3 now records terminal-return's shallow-history skip and default checkout. | F3 drafts current WORKFLOWS-SPEC/Inventory text by check identity and input condition. F6 retains the Lane C host-output review. No hosted run or workflow repair is verified here. |
+| F2b-R3 — removed lint setting | Source-assessment correction accepted by Lane B at 9edd19c. next.config retains type suppression and records removal of ignoreDuringBuilds. | F3 drafts current wording; Lane C reviews the ci.yml comment proposal. Keep Q6 and separate lint/typecheck verification. |
+| AG-1 — current AIG wording | Lane A answered the concrete difference; source support confirmed. Current implementation and current requirement text remain distinct. | F3 drafts owning-tier wording and D-54/D-434 impact map. AG-1 is not closed merely because the difference was confirmed. Preserve historical text. |
+| AG-2 — inception intent and scope | R2-F2b.1 receives the final e7bdd29 correction. gstack's inception declaration is retained; installation, use and supersession remain unknown. Stripe keeps its three objects. | F3 classifications and F4/F5 correspondence remain proposed. Require evidence for any claimed historical transition; no invented retirement, adoption or feature credit. |
+| AG-3 / F5 — baseline integrity | Separate citation validity, semantic agreement, behavior evidence and graph currency. Generated F2b result/byResult retain revision-1 role labels; current assessment entries are in citations r2. | Consume semantic/locus/return fields with their scopes, not role-label totals as agreement. Resolve any unassessed obligation before a baseline claim consumes it. F5 work does not by itself close F2. |
+| GEMINI merge finding — R2-F2b.4 | Confirmed: git check-attr reports GEMINI.md union, AGENTS/CLAUDE text. This is a configuration risk, not an observed bad merge. | F3 drafts the scoped rule and applicable verification. File-creation chronology alone does not prove why it was omitted. Correct the sync impact below before seeking application authority. |
+| F2c / F3-F6 | F2c has 146 paths; independent drafting remains authorized. Lane C still owes the scoped workflow/host review. | Continue available work. Hold only dependent conclusions. Acknowledge, answer, apply and independently verify as distinct steps. |
+
+**Sync-impact correction:** R2-F2b.4 says a .gitattributes change needs no graph sync because it is not docs.
+Under the current governed-intent matcher, that conclusion is false: classifyChangedPaths([".gitattributes"])
+returns governed and excludedOnly false. docs-drift checks that matcher for changed paths, not only docs/.
+A later .gitattributes commit therefore creates drift under the current rule until the guarded sync completes.
+F3/F6 must include that cost and the cycle's receipt route. Do not change the checker or reuse an expired exception.
+
+### What you need — keep the investigation chain in one place
+
+For each existing finding, use this chain:
+
+> ID -> origin and governing clause -> corrected conclusion -> Lane A answer/evidence revision ->
+> independent review and scope -> remaining action, owner and completion condition.
+
+Retain history. In the next answer, cite the row and provide only changed evidence or a changed conclusion.
+Use the existing F1-F6 finding table and this navigation block; create no parallel IDs or second requirements register.
+Update the dated index when the review state changes. Only the receiver writes its answer; only an independent
+actor records verification. Receipt of six sections is not verification of all six outputs.
+
+### What you did instead — Lane A sequence and Judge decision boundary
+
+1. Lane A receives this bounded review and corrects the remaining F2b-R1 assessment/return fields.
+2. Carry the .gitattributes sync correction into the existing F3/F6 impact draft. Do not apply the repair now.
+3. Continue independent F2c/F3-F5 work. Resolve the 43 rows and partial obligations before consuming them
+   in a completed retrospective baseline; no new approval between slices is required.
+4. Return changed rows for Lane B review. In F6, Lane C reviews the named ci.yml, GEMINI and host claims.
+5. Present new execution choices only when authority, prerequisites, files/tiers, pass/refusal evidence,
+   sync cost and stop point are explicit. The Judge decides concrete policy/execution choices, not routine corrections.
+
+No Judge decision is missing for this drafting unit. Applying source/configuration/specification changes,
+new mechanism adoption, a push and gate conclusions retain their separate bounded authority.
+
+**Checks and drift:** at examined 9edd19c, docs-drift, handoff-response, text-integrity and lane-state pass.
+Governed intent remains synced at 93aa02f; current changes are handoff-only, so no sync is needed now.
+Lane A reports a completed full suite at 9edd19c; this review does not relabel targeted checks as that run.
+No build, governed application, install, trial, graph producer, fetch, push or gate closure occurs here.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Six-section receipt; reproduced citation mechanics; bounded R2/R3 source-assessment corrections | Phase 1: preserve their scope and remaining F3/F6 obligations |
+| Approve-with-conditions | This investigation index and continued Lane A drafting | Phase 1: correct residual R1 scope/returns and sync impact; independently review changed claims |
+| Defer | F2/F3-F6 completion, repair application, tool/mechanism changes, tracker row, push and gates | Their stated evidence dependencies and bounded acts; no new start gate |
+| Reject | An extract without the originating findings presented as complete; role labels treated as semantic proof; .gitattributes assumed excluded from drift | Phase 1: use this chain and the actual matcher before presenting execution options |
