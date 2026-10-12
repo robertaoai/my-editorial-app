@@ -4202,3 +4202,61 @@ published, and nothing is pushed. `V1-SM05` stays `BLOCKED`; Gate 2 is not claim
 | Approve-with-conditions | Cycle-2 candidate | Phase 1: Lane A prepares to `ready`; Lane B's receipt 2 covers bytes and GR-007 semantics |
 | Defer | Publication (P-cond) and health; the FN L18 repair; the batch push | After receipt 2; a later repair act; an authorized push point |
 | Reject | A byte-only receipt; a governed edit after candidate acceptance to turn "awaits" into "complete"; the `V1-SM05` block treated as lifted | Phase 1: no action |
+
+## Lane A — `D-434` cycle-2 candidate ready; request for Lane B receipt 2, 2026-10-12
+
+### What happened
+
+Lane A prepared the cycle-2 candidate from the final committed source and stopped at `ready`. No commit was made
+while prepare was pending.
+
+| Item | Value |
+|---|---|
+| Prepare head (frozen source) | `067a40591dd7f3c61a0c51101c1485857c44a675` (clean tree) |
+| Work folder | `C:/CoWork/outputs/lane-a-d434-apply-2026-10-12/work`, workId `aaefe7b0-03dd-4b0d-b258-5b0f60866699`, attempt 2 |
+| **Candidate graph** | SHA-256 `186e77eaca72d8c002da7776e5a091b37d89f2de9c8099f34898f5d067eeb142` |
+| **Candidate manifest** | `d87af4af7aa8d26e2551c4b09b314a82648f160b7eaca4c1b05a892f26fdf771`, 583 files, frozen 2026-10-12T09:08:46Z |
+| Baseline | the live release `81ab5cd6…`, analysed `93aa02f` |
+| First attempt | `pending`: 202 descriptions, 50 community names (`06-prepare.log`) |
+| Answers | `answers.json`, SHA-256 `764b142ac08b40c72b2f98ac82780f3b55933972ec6247678c38c907f100cc3a` (built by `names.mjs` `46d74a56…` from `descriptions.mjs` `1d2f4655…`; name basis `07-name-basis.json` `23ea58aa…`) |
+| Publication source rule at `067a405` | `ok`, no findings (`source-rule.mjs`) |
+
+**The 202 descriptions** are all for code symbols in the B-156 and B-157 evidence scripts
+(`docs/handoff/artifacts/B-156/*.mjs`, `docs/handoff/artifacts/B-157/*.mjs`), which the extractor reads as code.
+Lane A wrote each one from the script's source; revision-1 scripts are described as superseded history. None quotes an
+absolute path. **The 50 names:** 16 by the existing mechanical commit-group rule (D-431/D-433); 15 reuse the name of
+the one R1 community they clearly continue (Jaccard overlap 0.62–0.95), where no unchanged community still holds it;
+19 written from the members (13 evidence-script groups, and 6 split lesson/check groups with R1 overlap ≤ 0.36). The
+guard binds names by member-set hash and refuses duplicates.
+
+**Lane A's own candidate checks** (not a receipt):
+- `frag139` `attempt_sv002_setup_validation` description hashes to `d6d19f7f…`; `frag140` `fn_multi_lane_ai_governance`
+  to `c4283f75…`, the bound new values.
+- Descriptions live: 202 of 202 equal `answers.json`. Names live: 50 of 50.
+- Curated parity: 581 fragment nodes, 0 missing or differing in any fragment-declared field.
+
+### What you need — Lane B receipt 2 (route A, `D-434` item 7)
+
+1. **Bytes:** the candidate graph and manifest above against the work folder, the answers and the frozen source.
+2. **GR-007 semantics (required; a byte-only receipt is insufficient):** the new conclusion appended to `GR-007` at
+   `29bce67` — its source-specific clearance reasons (P15 closed on the Judge's individual reason), the ledger
+   population at T including the two new §2.3.2 rows for `B-156` and `B-157`, and the tracker at `fa51ce0`
+   (`closure-readiness` all zeros).
+3. **Recording:** Lane B's acceptance record in **B-050** by Lane B's review commit, then Lane B's record-only Terminal
+   annotation commit. Between them only `terminal-return` and `docs-drift` may fail. Name the review commit in your
+   answer; Lane A publishes only with the exact commit Lane B names.
+
+**Then (P-cond):** Lane A runs `publish --work <work folder> --review <Lane B's review commit>`, then records separate
+health evidence here. No fetch and no push until the health record.
+
+### What you did instead
+
+Prepared to `ready` and checked the candidate. Nothing published or pushed. `docs-drift` stays red until publication,
+inside the guarded sequence (`D-428`).
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Cycle-2 candidate prepared from `067a405`; Lane A's leaf, description, name and parity checks | Phase 1: done |
+| Approve-with-conditions | Candidate `186e77ea…` | Phase 1: Lane B receipt 2 covering bytes **and** GR-007 semantics, recorded in B-050 with its annotation |
+| Defer | Publication (P-cond), health, Option A's act, the batch push | After receipt 2; Option A after the health record; push at an authorized point |
+| Reject | Publication from a Lane A-authored review; any fetch or push before the health record | Phase 1: no action |
