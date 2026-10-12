@@ -5374,3 +5374,55 @@ the configured checker after Bun failed to load the current directory in Lane B'
 | Approve-with-conditions | Application and remaining guarded cycle | Phase 1: unchanged source or reviewed reassessment; item-4 proof; independent candidate receipt; A-cond publication and separate health |
 | Defer | D435-M1 helper certification; push and excluded work | Phase 1: helper correction/controls before reuse; other work at its own trigger |
 | Reject | Helper exit 0 treated as uniqueness proof; follow rows treated as applied repairs; raw rebuild; draft/relocation review treated as candidate receipt or Gate 2 clearance | Phase 1: prove the actual stage and preserve the limits |
+
+## Lane A — D-435 repairs applied (`b77d186`); new-text proof; candidate ready; request for receipt, 2026-10-12
+
+### What happened
+
+Lane A received Lane B's acceptance of the recording and the R23/R25 relocations (`5e5b587`), and D435-M1.
+**Judge (verbatim, in chat, 2026-10-12):** "go ahead and start at S1".
+Evidence folder: `C:/CoWork/outputs/lane-a-d435-apply-2026-10-12`.
+
+| Step | Result | Evidence |
+|---|---|---|
+| S1 source check | All 14 repair files byte-equal at HEAD `5e5b587` and recording `b1eb43b`; only B-136 changed since | Blob comparison per path |
+| S2 apply | One applying commit **`b77d1869fc57fe275a9a7ce78a0d159d8d9867de`**: 30 edits (R1–R25, R29; R11 three fields; R12 two source fields) in exactly the 14 target files. The script requires each old string exactly once and writes nothing if any check fails | `apply-d435.cjs` (`52c15abc…`) |
+| S3(a)(b) new text, allowed diff | Diff reviewed against the item 4 table. Only the 14 files changed; R10 deletes its sentence; R5, R16, R17, R22–R25, R29 append; R14, R21 add; R12 `description` byte-equal; no whitespace error. Diff of `b77d186` equals the reviewed working diff | `05-applying.diff` (`bf8e273c…`) |
+| S3(c) merge probes | `GEMINI.md: merge: text`; temporary `NOT-A-RULE.md: merge: union` (removed, never staged) | Command output |
+| S3(d) checks | Before and after the commit: 18/19; only `docs-drift` fails (`D-428`); `rule-budget` passes on the final `GEMINI.md` (3,641 B) | `06-check-applied.log` (`fb75c0d0…`), `07-check-after-apply-commit.log` (`67da0de6…`) |
+| S3(e) prepare source | `b77d186` | — |
+| S4 prepare | **READY.** workId `53746210-e1af-4065-a967-ef261c2d1fc6`, attempt 2; graph **`ed7463f32bfffe07850759939025abdb8444abe9267e543dff279dc654c2e22b`**; manifest **`702b9dfb5a5e3d8474ed991183290cef39c498917483c8b21e90cc7ba76a875a`**, 583 files; frozen 2026-10-12T15:17:22Z | `08-prepare.log`, `09-resume.log` (`bfc206d6…`) |
+| Answers | 0 descriptions pending; 23 community names: 20 by the commit-group rule, 2 successors (Jaccard 0.85, 0.80), 1 written from members | `answers.json` (`115b181c…`), `names.mjs` (`6061c5dd…`), `07-name-basis.json` (`c72a7227…`) |
+
+**The one hand-written name.** Community 9 (41 code nodes) merges five earlier communities: the F2a control harness,
+the F2a r2 verifier, and the F2b, F2c and F3 verifiers (`docs/handoff/artifacts/B-156/`). Name: "B-156 F2a–F3
+Citation Verifiers and F2a Control Harness". No node description was generated or changed.
+
+**Lane A's candidate checks (not a receipt):** curated parity 139/139 exact; name binding 0 findings; 0 unnamed
+communities; the R4, R11 and R12 fields in the candidate equal the committed fragments; `frag140` FN leaf
+`c4283f75…` unchanged. Two commit nodes (`7acac90`, `b66de8f`) have no description, the same as the live graph.
+This candidate does not add them. `10-candidate-check.json` (`2ded1b1d…`), from `candidate-check.mjs` (`79b61075…`).
+
+**D435-M1:** received; stays Open, owner Lane A. `derive-manifest.cjs` was used only at the recording stage, which
+Lane B checked independently. The applying step used a separate fail-closed script. The helper is not reused until
+it is fixed and its controls are kept.
+
+### What you need
+
+**Lane B — receipt (D-435 items 5–6).** Review the candidate bytes against the work folder and source `b77d186`,
+and their meaning: the R4, R11 and R12 fragment texts, SPECS-VERIFICATION §4.1, the community 9 name, and the
+applying diff against the item 4 table. On acceptance, record the receipt in **B-050** by your review commit, then
+your covering Terminal annotation. Name the review commit; Lane A publishes only with it (A-cond). No fetch or push
+until the health record.
+
+### What you did instead
+
+Nothing is published, fetched or pushed. The full result above is retained; `docs-drift` is the only failing check
+inside this sequence (`D-428`).
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | S1–S4: source check, application, new-text proof, READY candidate | Phase 1: Lane A's evidence |
+| Approve-with-conditions | Candidate `ed7463f3…` | Phase 1: Lane B receipt (bytes and meaning) in B-050 with its annotation |
+| Defer | A-cond publication, health (B-136); D435-M1 fix; push | Phase 1: in that order; M1 before any helper reuse; push at its own fixed range |
+| Reject | Publication from a Lane A-authored review; any fetch or push before the health record | Phase 1: no action |
