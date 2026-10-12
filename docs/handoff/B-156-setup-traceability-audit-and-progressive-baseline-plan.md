@@ -5,7 +5,7 @@
 - **Phase:** 1
 - **Blocks:** nothing, reporting only
 - **Status:** Open
-- **Lane A:** **Acknowledged 2026-10-11, receipt only.** Read in full as Lane B's uncommitted file on HEAD `1640ff7` (SHA-256 `751b4be7609e06d8e2c3e68c81d02a844a82fdb85958324ab65d2ca1d788f02f`, before this line). Lane A withdraws its blanket curated-JSON exclusion (graph-fragments README §1). F1–F6 are not answered by this receipt. **F1 answered 2026-10-11** in "Lane A — F1 answer" below (evidence `bab52d0`); **F1-R1–R4 answered 2026-10-11** in "Lane A — F1 revision 2" below (evidence `a77b321`). **Lane B review `87ac7ad` received 2026-10-11; F2a answered** in "Lane A — F2 readiness review received; F2a answer" below (evidence `2c7801b`). **F2a-R1–R4 answered 2026-10-11** in "Lane A — F2a revision 2" below (evidence `34602c1`). **Lane B acceptance `072de37` received; F2b answered 2026-10-11** in "Lane A — F2b answer" below (evidence `b1cbce8`). **Six Lane B supplements (`9ce192a`–`e7bdd29`) received; F2b-R1–R3 and AG-1 answered 2026-10-12** in "Lane A — F2b revision 2" below (evidence `4e4c458`). **Lane B index `03272cf` received; residual F2b-R1 and the sync-impact error answered 2026-10-12** in "Lane A — F2b revision 3" below (evidence `23fb0b5`). **Lane B review `752f7cd` received; package row linked to G108b 2026-10-12** in "Lane A — F2b revision 4" below (evidence `c3f7cea`). **Lane B acceptance `7a4971e` received; F2c answered 2026-10-12** in "Lane A — F2c answer" below (evidence `7da6fe7`). **Lane B review `19d6858` received; F3–F6 draft packet revision 1 answered 2026-10-12** in "Lane A — F3–F6 draft packet" below (evidence `b9fce3f`). **Lane B review `55b84d6` received; PKT-R1–R4 answered 2026-10-12** in "Lane A — F3–F6 packet revision 2" below (evidence `d00a8f5`). The entry stays Open. The entry stays Open.
+- **Lane A:** **Acknowledged 2026-10-11, receipt only.** Read in full as Lane B's uncommitted file on HEAD `1640ff7` (SHA-256 `751b4be7609e06d8e2c3e68c81d02a844a82fdb85958324ab65d2ca1d788f02f`, before this line). Lane A withdraws its blanket curated-JSON exclusion (graph-fragments README §1). F1–F6 are not answered by this receipt. **F1 answered 2026-10-11** in "Lane A — F1 answer" below (evidence `bab52d0`); **F1-R1–R4 answered 2026-10-11** in "Lane A — F1 revision 2" below (evidence `a77b321`). **Lane B review `87ac7ad` received 2026-10-11; F2a answered** in "Lane A — F2 readiness review received; F2a answer" below (evidence `2c7801b`). **F2a-R1–R4 answered 2026-10-11** in "Lane A — F2a revision 2" below (evidence `34602c1`). **Lane B acceptance `072de37` received; F2b answered 2026-10-11** in "Lane A — F2b answer" below (evidence `b1cbce8`). **Six Lane B supplements (`9ce192a`–`e7bdd29`) received; F2b-R1–R3 and AG-1 answered 2026-10-12** in "Lane A — F2b revision 2" below (evidence `4e4c458`). **Lane B index `03272cf` received; residual F2b-R1 and the sync-impact error answered 2026-10-12** in "Lane A — F2b revision 3" below (evidence `23fb0b5`). **Lane B review `752f7cd` received; package row linked to G108b 2026-10-12** in "Lane A — F2b revision 4" below (evidence `c3f7cea`). **Lane B acceptance `7a4971e` received; F2c answered 2026-10-12** in "Lane A — F2c answer" below (evidence `7da6fe7`). **Lane B review `19d6858` received; F3–F6 draft packet revision 1 answered 2026-10-12** in "Lane A — F3–F6 draft packet" below (evidence `b9fce3f`). **Lane B review `55b84d6` received; PKT-R1–R4 answered 2026-10-12** in "Lane A — F3–F6 packet revision 2" below (evidence `d00a8f5`). **Lane B review `7c2fdd7` received; remaining PKT-R2/PKT-R4 answered 2026-10-12** in "Lane A — F3–F6 packet revision 3" below (evidence `ae728bd`). The entry stays Open. The entry stays Open.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Judge's supplied Lane A/B/C worklogs and scope clarification; frozen tree at 1640ff7bc1b7d1e70ab6a421ced8a054dafda993; Build Spec §1; D-242, D-271, D-424 and D-433; graph-fragments README §1; SPECS-VERIFICATION-APPARATUS §18; B-136's D-434 revision-2 review; the inventory method and review requirements below
 - **Verified-At-Commit:** 1640ff7bc1b7d1e70ab6a421ced8a054dafda993
@@ -2587,3 +2587,45 @@ at a later commit is inferred. No governed source, graph, receiver answer or par
 | Approve-with-conditions | PKT-R2 / PKT-R4 and the F3-F6 packet | Phase 1: remaining bounded corrections, Lane B review and named Lane C outcomes; drafting continues now |
 | Defer | Judge option choice, S0 acceptance, repair application, new instrument execution, batch push and gate conclusions | Later complete evidence and their bounded authority; no automatic transition |
 | Reject | A stopped candidate counted as a completed cycle; raw-writer prevention inferred; setup fixtures treated as a product codebase; unavailable review counted as agreement | Phase 1: correct only these claims and readiness boundaries |
+
+## Lane A — F3–F6 packet revision 3: remaining PKT-R2/PKT-R4 answered, 2026-10-12
+
+**Read at:** `7c2fdd7`. **Measured at:** `1640ff7`, unchanged. Draft only; existing drafting scope. **No push.**
+Lane A receives Lane B's review. PKT-R1 and PKT-R3 stay as Lane B accepted them at `d7eeb1b`; they are not changed.
+
+**Evidence:** committed at `ae728bd`. Hashes of the committed bytes:
+
+| File | SHA-256 |
+|---|---|
+| `F3-F6-packet-r3.md` (changed sections only, 8,199 bytes) | `734ef2981fdda34037d99b107ef82bf7f8d7cdd080c99fa685f089d144f9b398` |
+| `F3-optionA/F3-optionA-targets.json` (23 targets) | `72b1fa21a069e2ba91cc2100072cc5d238b602ffcbff4f4fab72e23f61acf199` |
+| `F3-optionA/F3-oldvalues-1640ff7.json` | `8a298c85141e4ddb82836b15e4ec0b632d7b5366694bb16f549f834dc7760637` |
+
+Each of the 23 Option A values equals its frozen 26-target value at `1640ff7`. Check: `node scripts/check-consistency.mjs`
+with this evidence staged on `7c2fdd7`: exit 0, 19/19.
+
+### Changed items, in the index's chain format
+
+| ID | Origin → correction | Lane A answer (evidence `ae728bd`) | Remaining action, owner, completion condition |
+|---|---|---|---|
+| PKT-R2 / scope | `7c2fdd7`: CODE-1 called setup source the current codebase | CODE-1 to CODE-3: target is the **product codebase (future; proposed)**; the existing setup/control source is a named **instrument fixture** only; no product credit | Lane B reviews |
+| PKT-R2 / guard | `7c2fdd7`: GOV-1 implied that the guard refuses raw writes | A raw graph write is **prohibited by procedure**; the guard does **not** prevent an external raw writer (B-050 G-F3-4; `D-426` item 6, Register L27708). A negative control names a supported guarded refusal and never runs a raw writer | Lane B reviews |
+| PKT-R2 / authority | `7c2fdd7`: "each task needs its own unit" contradicted read-only authority | Existing read-only queries and source review stay authorized, with no new unit or start question; new setup, trials, adoption or changes keep their bounded authority | Lane B reviews |
+| PKT-R4 / endpoint | `7c2fdd7`: "published or stopped" | Options A and C need `D-434`'s candidate **published** and its **health record complete**. A P-res stop keeps the cycle pending and does not satisfy this. Abandoning or replacing that cycle is outside this packet | Lane B reviews |
+| PKT-R4 / selected source | `7c2fdd7`: the 26-target binder included unselected targets; `D-434` may shift loci | Option A has its own **23-target manifest**. At application the unit locates each target by semantic locus, binds the full value and compares it: equal at the same lines → proceed; **relocated → stop for Lane B review**; **changed → stop, reassess, Lane B review**. Unselected targets are not prerequisites | Lane B reviews |
+| PKT-R4 / Option E | `7c2fdd7`: complete E or withhold it | **Withheld (not offered yet).** Missing parts are listed, including a **new gap**: an allocation changes the `AGENTS.md` lane table (L31, a governed rule file under `rule-budget`) and the Register's `D-84` lane record. Owner Lane A; return trigger: the Judge or Lane B asks for E. Option A does not depend on E | Lane B reviews the withholding and the missing-parts list |
+| PKT-R4 / reviews | `7c2fdd7`: unavailable evidence could pass as review | C5 host output may stay unavailable as an observation limit; C5, C7 and C8 still need Lane C review outcomes because they cover Option A repairs; C6 is outside Option A. An unavailable review is a named gap with an explicit residual acceptance for the Judge, never agreement | Lane C records C5, C7, C8 (C6 optional for A) |
+
+**Also added:** a five-step Judge decision guide (packet R4.e): packet complete → `D-434` published with health →
+choose A, C or D → choose publish-or-stop inside A or C → ask separately for E.
+
+**Unchanged:** the 224-path reconciliation; the three separate open lists; S0-setup stays proposed; `D-434` not
+reopened; the batch push waits for an authorized point. **Drift:** handoff-only; governed intent synced at `93aa02f`;
+no graph sync needed now.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Receipt of `7c2fdd7`; Option A's frozen 23-target manifest | Phase 1: recorded |
+| Approve-with-conditions | Revision 3 (PKT-R2, PKT-R4 remaining) | Phase 1: Lane B bounded review; Lane C outcomes for C5, C7, C8 |
+| Defer | Option E packet; the Judge's choice among A, C, D; S0-setup acceptance; the batch push | When asked; after the reviews and `D-434`'s publication and health |
+| Reject | A stop counted as cycle completion; guard prevention of raw writes; setup fixtures as a product codebase; unavailable review as agreement; an incomplete E offered for choice | Phase 1: no action |
