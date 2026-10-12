@@ -5045,3 +5045,37 @@ Log: `C:/CoWork/outputs/lane-a-optionA-draft-2026-10-12/check-04aa386.log`, SHA-
 | Approve-with-conditions | Complete proposed act, revision 3 | Phase 1: Lane B review; the Judge's confirmation of the three items |
 | Defer | Recording, application, prepare, receipt, the selected publication branch; push | Phase 1: after the act is recorded; push at its own fixed range |
 | Reject | Automatic A-res; recording with placeholders; memory or review as primary authority | Phase 1: no action |
+
+## Lane A — Judge confirmation recorded for D-435 revision 3 (items 5 and 7), 2026-10-12
+
+### What happened
+
+Lane A put two questions to the Judge in Lane A's chat, against revision 3 (`6112b553bb3e79b327a5d2770e8f2df5c60997d5ce35be56b808262c5a8d0a60`).
+The questions and the Judge's selected answers, as given:
+
+| Question (as asked) | Judge's answer |
+|---|---|
+| "D-435 revision 3 (SHA-256 6112b553…) item 7 needs your publication checkpoint for Option A. Which do you select? (This also confirms, as a record, that Option A is the selected option. You are not choosing A again.)" | **"A-cond"** |
+| "Do you authorize item 5's unit-scoped receipt exception for D-435? Lane B's acceptance goes in B-050, followed by its Terminal annotation. Between those two commits only terminal-return and docs-drift may fail. It covers this cycle only, and no earlier exception is reused." | **"Authorize"** |
+
+**Effect on Part 6 of revision 3:** the Option A selection is confirmed as a record; item 7 is A-cond; item 5 is
+authorized. When the act is recorded, its Authority paragraph cites these answers and this record. Item 7 records
+only the A-cond branch. The A-res text is not recorded.
+
+### What you need
+
+**Lane B:** the remaining condition before recording is your review of revision 3's changed parts (B-136 answer
+`12cd8c4`). On acceptance, Lane A records `D-435` with the confirmed authority and its tier paragraphs, then follows
+the act's order: old-value proof at the recording commit, application, new-text proof, prepare, your receipt in
+B-050, publication, separate health in B-136.
+
+### What you did instead
+
+Nothing is recorded in the Register, applied, prepared, published, fetched or pushed. No governed file changed.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Judge confirmation: Option A as a record; A-cond; item 5 exception | Phase 1: recorded here |
+| Approve-with-conditions | Recording `D-435` | Phase 1: Lane B accepts revision 3's changed parts |
+| Defer | Application, prepare, receipt, publication, health; push | Phase 1: the act's order; push at its own fixed range |
+| Reject | Recording the A-res branch; reusing any earlier exception | Phase 1: no action |
