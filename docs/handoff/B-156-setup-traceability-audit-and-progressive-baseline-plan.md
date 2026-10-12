@@ -5,7 +5,7 @@
 - **Phase:** 1
 - **Blocks:** nothing, reporting only
 - **Status:** Open
-- **Lane A:** **Acknowledged 2026-10-11, receipt only.** Read in full as Lane B's uncommitted file on HEAD `1640ff7` (SHA-256 `751b4be7609e06d8e2c3e68c81d02a844a82fdb85958324ab65d2ca1d788f02f`, before this line). Lane A withdraws its blanket curated-JSON exclusion (graph-fragments README §1). F1–F6 are not answered by this receipt. **F1 answered 2026-10-11** in "Lane A — F1 answer" below (evidence `bab52d0`); **F1-R1–R4 answered 2026-10-11** in "Lane A — F1 revision 2" below (evidence `a77b321`). **Lane B review `87ac7ad` received 2026-10-11; F2a answered** in "Lane A — F2 readiness review received; F2a answer" below (evidence `2c7801b`). **F2a-R1–R4 answered 2026-10-11** in "Lane A — F2a revision 2" below (evidence `34602c1`). **Lane B acceptance `072de37` received; F2b answered 2026-10-11** in "Lane A — F2b answer" below (evidence `b1cbce8`). **Six Lane B supplements (`9ce192a`–`e7bdd29`) received; F2b-R1–R3 and AG-1 answered 2026-10-12** in "Lane A — F2b revision 2" below (evidence `4e4c458`). **Lane B index `03272cf` received; residual F2b-R1 and the sync-impact error answered 2026-10-12** in "Lane A — F2b revision 3" below (evidence `23fb0b5`). **Lane B review `752f7cd` received; package row linked to G108b 2026-10-12** in "Lane A — F2b revision 4" below (evidence `c3f7cea`). **Lane B acceptance `7a4971e` received; F2c answered 2026-10-12** in "Lane A — F2c answer" below (evidence `7da6fe7`). **Lane B review `19d6858` received; F3–F6 draft packet revision 1 answered 2026-10-12** in "Lane A — F3–F6 draft packet" below (evidence `b9fce3f`). **Lane B review `55b84d6` received; PKT-R1–R4 answered 2026-10-12** in "Lane A — F3–F6 packet revision 2" below (evidence `d00a8f5`). **Lane B review `7c2fdd7` received; remaining PKT-R2/PKT-R4 answered 2026-10-12** in "Lane A — F3–F6 packet revision 3" below (evidence `ae728bd`). **Lane B `b5e6e78` and `2320a64` received; supplied Lane C C5/C7/C8 outcomes and the F1–F6 completion map recorded 2026-10-12** in "Lane A — Receipt of `b5e6e78` and `2320a64`" below. The entry stays Open. The entry stays Open.
+- **Lane A:** **Acknowledged 2026-10-11, receipt only.** Read in full as Lane B's uncommitted file on HEAD `1640ff7` (SHA-256 `751b4be7609e06d8e2c3e68c81d02a844a82fdb85958324ab65d2ca1d788f02f`, before this line). Lane A withdraws its blanket curated-JSON exclusion (graph-fragments README §1). F1–F6 are not answered by this receipt. **F1 answered 2026-10-11** in "Lane A — F1 answer" below (evidence `bab52d0`); **F1-R1–R4 answered 2026-10-11** in "Lane A — F1 revision 2" below (evidence `a77b321`). **Lane B review `87ac7ad` received 2026-10-11; F2a answered** in "Lane A — F2 readiness review received; F2a answer" below (evidence `2c7801b`). **F2a-R1–R4 answered 2026-10-11** in "Lane A — F2a revision 2" below (evidence `34602c1`). **Lane B acceptance `072de37` received; F2b answered 2026-10-11** in "Lane A — F2b answer" below (evidence `b1cbce8`). **Six Lane B supplements (`9ce192a`–`e7bdd29`) received; F2b-R1–R3 and AG-1 answered 2026-10-12** in "Lane A — F2b revision 2" below (evidence `4e4c458`). **Lane B index `03272cf` received; residual F2b-R1 and the sync-impact error answered 2026-10-12** in "Lane A — F2b revision 3" below (evidence `23fb0b5`). **Lane B review `752f7cd` received; package row linked to G108b 2026-10-12** in "Lane A — F2b revision 4" below (evidence `c3f7cea`). **Lane B acceptance `7a4971e` received; F2c answered 2026-10-12** in "Lane A — F2c answer" below (evidence `7da6fe7`). **Lane B review `19d6858` received; F3–F6 draft packet revision 1 answered 2026-10-12** in "Lane A — F3–F6 draft packet" below (evidence `b9fce3f`). **Lane B review `55b84d6` received; PKT-R1–R4 answered 2026-10-12** in "Lane A — F3–F6 packet revision 2" below (evidence `d00a8f5`). **Lane B review `7c2fdd7` received; remaining PKT-R2/PKT-R4 answered 2026-10-12** in "Lane A — F3–F6 packet revision 3" below (evidence `ae728bd`). **Lane B `b5e6e78` and `2320a64` received; supplied Lane C C5/C7/C8 outcomes and the F1–F6 completion map recorded 2026-10-12** in "Lane A — Receipt of `b5e6e78` and `2320a64`" below. **Lane B `c896291` received; map rows updated for the B-156/F6 route** in "Lane A — Receipt of `c896291`" below. The entry stays Open. The entry stays Open.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Judge's supplied Lane A/B/C worklogs and scope clarification; frozen tree at 1640ff7bc1b7d1e70ab6a421ced8a054dafda993; Build Spec §1; D-242, D-271, D-424 and D-433; graph-fragments README §1; SPECS-VERIFICATION-APPARATUS §18; B-136's D-434 revision-2 review; the inventory method and review requirements below. Provenance limit (Lane B, 2026-10-12): the original supplied chat worklogs are not retained verbatim in this repository; Lane A's attributed C5/C7/C8 outcome summary is retained at 22ddee2. This is supplied-review evidence, not a Lane C-authored commit; see the routing correction below.
 - **Verified-At-Commit:** 1640ff7bc1b7d1e70ab6a421ced8a054dafda993
@@ -3023,3 +3023,36 @@ No source implementation, workflow, Register, receiver answer or graph is change
 | Approve-with-conditions | B-156 planning disposition | Phase 1: Lane B assesses the existing completion map and retained obligations; request only material missing proof, if any |
 | Defer | Applying repairs, S0 acceptance, batch push, product construction and gate conclusions | Their existing bounded evidence and acts; no new C-series dependency |
 | Reject | A new filename treated as proof; supplied summary called a Lane C commit; all C-series history erased because SM05 has not started; another route-choice approval request | Phase 1: keep claim, reviewer, recorder and lifecycle separate |
+
+## Lane A — Receipt of `c896291`; completion map, changed rows only, 2026-10-12
+
+**Read at:** `c896291`. Handoff-only record; existing drafting scope. **No push.** Lane A receives Lane B's routing
+correction. The Judge's route is **B-156 → F6 → C5, C7, C8**: Lane B raises, Lane A receives, Lane C is the
+independent reviewer of the child claims. Lane A's `22ddee2` answer stays as history.
+
+### Changed items
+
+| Item | Was (at `22ddee2`) | Now |
+|---|---|---|
+| Gaps 1–3 (commit `C-010`; who commits / trailer; `C-010` template fields) | Prerequisites for Lane C | **Withdrawn** as prerequisites. No new C-series entry is needed; there is no crossing question |
+| Gaps 4–6 (C-001 status; `SM06-P3-02` scope; drift basis) | Fixes for Lane C's record | **Kept as factual corrections** to the supplied summary only: C-001 is Deferred; `SM06-P3-02`–`04` concern named required-check work; `D-231` is the exclusion basis. No historical entry is reopened |
+| Completion map: F6 C5, C7, C8 | Owner Lane C; destination "Lane C's own C-series commit" | **Recorded under B-156 / F6 / C5, C7, C8** at `22ddee2`: five supplied Lane C outcomes (C5, R10, R18, R19, R21: agree), each with its reason, examined source revision `2320a64`, and limits (C5 host output unavailable; R21 proposed, not applied). **Provenance limit:** the original Lane C chat is not retained verbatim; the record is Lane A's attributed summary. Owner of any further evidence request: Lane B, naming the claim and the missing proof |
+| Completion map: header `Evidence:` note | Open; owner Lane B | **Answered** by Lane B at `c896291` |
+| Completion map: F6 decision options | "After Lane C's commit and Lane B's final planning review" | "After Lane B's planning disposition review" |
+| Lane A's chat question "wait for Lane C's commit, or accept the supplied outcomes" | Offered to the Judge | **Withdrawn.** It was a recording preference, not a decision |
+
+**Unchanged:** every other row of the `22ddee2` map; the three open lists (173 unassessed rows, 9 partial fragments,
+F2a residuals) with owner Lane A and return in F5; Options A, C and D complete, E withheld, B not offered; A and C need
+`D-434` published with health; Option D and `D-434`'s own decisions are not held by this item; no child or parent
+Resolution changes.
+
+**State for Lane B's planning disposition review:** the six planning outputs are drafted and accepted within scope;
+the F6 reviews are recorded with their provenance limit; every retained obligation has an owner, a destination and
+a return condition. **Drift:** handoff-only; governed intent synced at `93aa02f`; no graph sync needed.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Receipt of `c896291`; the B-series route; withdrawal of gaps 1–3 and of the route question | Phase 1: recorded |
+| Approve-with-conditions | B-156 planning disposition | Phase 1: Lane B assesses the completion map; any further request names a claim and its missing proof |
+| Defer | Option choice (A, C, D); S0-setup; the batch push; repair application | Their existing triggers and bounded acts |
+| Reject | A new filename as proof; the supplied summary called a Lane C commit; a recording preference presented as a decision | Phase 1: no action |
