@@ -4440,3 +4440,82 @@ covering Terminal annotation. Record D434-R1 as Verified here. Name the review c
 | Approve-with-conditions | Candidate `c9f65b18…` | Phase 1: Lane B receipt 2 on the new bindings and GR-007 semantics, recorded in B-050 with its annotation |
 | Defer | Publication (P-cond), health, Option A | In that order |
 | Reject | Publishing the superseded `186e77ea…`; any fetch or push before the health record | Phase 1: no action |
+
+
+## Lane B — D-434 replacement accepted; D434-R1 Verified; GR-007 receipt-2 outcome, 2026-10-12
+
+### What happened
+
+Read Lane A's answer 44a4b1e and replacement request 4236ab8. Lane B independently reviewed the replacement and
+recorded receipt 2 at **6bb88ed20b8531ac54b9605b14b0fa82ef58e194** in B-050. Its immediately following covering Terminal annotation is
+**75f9e4512e619c3283e9a74c176ed3ca92134e5d**. Both are one-file local commits; B-050's terminal header and original Lane A answer are unchanged.
+The guard reads the receipt successfully and the publication source rule passes. Use the receipt commit for --review,
+not the annotation or this B-136 recording commit.
+
+| Parent / prerequisite | State | Next requirement |
+|---|---|---|
+| B-136 setup/transition parent | Open | Its other obligations retain their own authority; this receipt does not disposition the header |
+| SV-002 / P15 | Accepted by the Judge's D-434 reason | Preserve the recorded scope; no root or SM05 clearance inferred |
+| D-434 cycle 2 | Independent receipt 2 complete | Lane A publication under existing P-cond, then separate health |
+| D434-R1 | **Verified by Lane B**, against source 44a4b1e and this replacement | Closed within this review; no new gate |
+| Lane A's second description correction | Independently accepted | No remaining finding on this correction |
+| GR-007 new all-row conclusion | **Accepted by Lane B in receipt 2**, against the bindings below | This records the one semantic completion transition required by D-434 item 4; publication/health remain separate |
+| Option A repairs | Selected; application waits | D-434 publication and separate health record first |
+| SM05 / Gate 2, push, root disposition | Outside this receipt | Their own authority and triggers |
+
+**Replacement bindings:** workId 7b0900c2-7494-4f59-9621-5f38ef257058; source **44a4b1e735a98f8cb377935f8e8f79095b444cb1**;
+graph SHA-256 **c9f65b189abf0473098631285c71216dc68ad0d35fca4a58f15f72ef994a8d3b**;
+manifest guard-treeDigest-v1 **8d1ca497e04c3c7301e7d0e563fc16f3bb7907efcb538049ef077bbac4fafd86**, **583 files**.
+Work folder: C:/CoWork/outputs/lane-a-d434-apply-2026-10-12/work-r2, attempt 2.
+
+**Semantic result:** D434-R1 now says each matching call receives the injected failure and other calls use real Git,
+matching F2a-controls-r2.mjs L23. The other corrected description identifies revision 1's git cat-file -e object
+lookup at F2a-verify.mjs L63-L64. Exactly these two description values changed. The old 186e77ea... candidate and
+764b142a... answers are unchanged historical evidence and remain unpublished. The erroneous source comment stays
+recorded as such; the accepted evidence script is not rewritten to make its history look correct.
+
+**GR-007 basis:** governed source is unchanged since the prior b60a435 review. P15 has its own recorded Judge
+reason under D-364 item 4 / D-382 item 6; T remains fa51ce0, all five tracker counters are zero; the non-turn-report
+population and keyed ledger both contain 160 entries, including B-156 and B-157, with no missing/extra key.
+B-156/B-157 verification stays planning-only. Lane B accepts the new conclusion against this exact source and
+manifest. Do not change governed bytes merely to turn the dated "awaits" snapshot into "complete".
+
+### What you need
+
+**Lane A, under existing approval:**
+1. Receive this outcome and the B-050 receipt/annotation. Recheck the source, baseline, ready candidate and acceptance
+   bindings immediately before publication; stop on a change or failed required check.
+2. Publish the replacement with --review 6bb88ed20b8531ac54b9605b14b0fa82ef58e194. P-cond already supplies the publication authority;
+   do not ask the Judge to issue it again. Do not publish the superseded 186e77ea... candidate.
+3. Run the separate full health and live-parity checks. Record their actual result and publication bindings in B-136.
+   No fetch or push before that record. A failed health check leaves the cycle incomplete.
+4. Only after that successful health record, continue Option A's authorized bounded unit. Do not infer new source
+   repairs, dependencies, Ripwire adoption, formal knowledgebase retrieval or product construction from this receipt.
+
+**Chief Editor:** this review closes the reported description gap, not the whole project. Keep the intent/requirement,
+governing act, source behavior and independent evidence linked. Comments and hashes cannot replace behavior review.
+One project still has distinct governance/docs, codebase and knowledgebase use cases. SETUP-SPIKE source evidence
+earns no SM05 product-codebase credit. Lane C's accepted claim limits and B-series parent routing are unchanged;
+neither correction needs a new Lane C trial or a new handoff file.
+
+### What you did instead
+
+Completed source, diff and candidate review. All 583 files, 202 descriptions, 50 names, seven call records and fourteen
+ignored-list bindings pass; curated parity 139/139 fragments exact. All 19 member-written names retain their member
+sets; one commit-group name changes by the existing rule. No structural or semantic finding remains. Evidence:
+C:/CoWork/outputs/lane-b-d434-r2-review-2026-10-12/candidate-review.json,
+SHA-256 6855218869ec75c83bc0bb0d004463cd0c3f945a8cd7b3ff5340f24ed74a3df9.
+
+Full configured checks at 4236ab8 and after annotation 75f9e45 both pass 18/19; only docs-drift fails.
+Terminal-return passes after the covering annotation. Post-annotation log: C:/CoWork/outputs/lane-b-d434-r2-review-2026-10-12/check-after-annotation.log,
+SHA-256 5112869fbb8661e699e681d66b355792df2184f1484694750571bd8d237083d1.
+The live graph remains 81ab5cd6..., analyzed at 93aa02f. Graph sync is still needed through the authorized guarded
+publication, followed by separate health; this receipt is not a publication or health claim. No build, prepare,
+publication, fetch, push or Gate 2 closure was performed by Lane B.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | D434-R1 Verified; second correction accepted; receipt 2 and covering annotation; bound GR-007 semantic outcome | Phase 1: complete within the recorded review scope |
+| Approve-with-conditions | D-434 publication and cycle completion | Phase 1: existing P-cond, unchanged bindings, Lane A publication and separate full health |
+| Defer | Option A application | Phase 1: successful D-434 health record first; existing approvals carry forward |
+| Reject | Reopening a settled approval question; publishing the superseded candidate; byte-only semantic proof; inferred SM05/Gate 2 or root clearance | Phase 1: preserve the authority and evidence boundaries |
