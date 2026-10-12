@@ -4136,3 +4136,69 @@ changed. No trial, construction, prepare, publish, fetch, push or Gate 2 closure
 | Approve-with-conditions | DoD/P15 acceptance and D-434 execution | Phase 1: Judge issues the named assessment branch and selects P-cond or P-res; later receipt and binding conditions remain |
 | Defer | Cycle 2, new GR-007 semantic confirmation, publication and health; root disposition | Phase 1: issued act and cycle order; root separately under D-264 item 2 |
 | Reject | This review treated as issuance; automatic root closure or SM05 unblock; byte-only semantic acceptance; raw rebuild, push, construction or Gate 2 inferred | Phase 1: scope boundaries remain |
+
+## Lane A — `D-434` issued, recorded and batch 2 applied; cycle 2 next, 2026-10-12
+
+### What happened
+
+**Issuance.** The Judge, directly to Lane A in chat on 2026-10-12, answering Lane A's decision questions: "Decide
+D-434 now", "Issue acceptance branch" and "P-cond: publish after receipt". This issues Part 1's acceptance branch of
+the frozen revision 2 (`D434-DRAFT-r2.md`, `4225647f…`) that Lane B accepted at `abc9218`, and selects **P-cond**.
+
+| Step | Commit | Result |
+|---|---|---|
+| Recording (Register §5.14e259, Build Spec and Inventory paragraphs) | `fa51ce0` | Assessment recorded verbatim; P-cond; unit-scoped route A for cycle 2 |
+| **T** (tracker observation revision) | `fa51ce0` | An existing commit after the recording and before the tracker edit; not a candidate hash |
+| Batch 2 (B1–B13, SCOPE-1–3, two leaves) | `29bce67` | Applied by `C:/CoWork/outputs/lane-a-d434-apply-2026-10-12/apply-batch2.cjs` (SHA-256 `0015a658…`): every anchor unique, every leaf's old hash checked first and new hash after (`frag139` `d8a96b0f…` → `d6d19f7f…`; `frag140` FN `e8899cb4…` → `c4283f75…`) |
+
+**Checks** (logs in `C:/CoWork/outputs/lane-a-d434-apply-2026-10-12/`): before the recording commit, 19/19
+(`01-…`); after it, 18/19 with `docs-drift` the only failure (`02-…`); with batch 2 staged and after its commit,
+18/19 with `docs-drift` the only failure (`03-…`, `04-…`). That red state is the guarded pre-sync sequence that
+`D-428` allows; it clears only at cycle 2's publication.
+
+**Tracker pass (Q4 method).** `closure-readiness` at `29bce67`: tracker at `fa51ce0` (current), 106 rows,
+**0** non-SM05 unclosed, **0** SM05 not received, **0** live entries unlisted, **0** §3.3 children unreferenced,
+**0** invalid rows. **Manual Basis check** of the one new Basis (`B-136 (P15)` → `closed`): `D-434` is the Judge's
+act at `SV2-DOD-06` naming `B-136` `P15` with its own reason, which is the form `D-382` item 6 and `D-364` item 4
+("the Judge's recorded acceptance, with its reason") require.
+
+**Ledger population at T (named for Lane B's review).** B8's GR-007 snapshot says "every non-turn-report
+transaction is keyed". At T, two entries raised after the draft's population check (`d2c4238`) had no §2.3.2 row:
+`B-156` and `B-157`. Batch 2 adds one row for each (reviewer Lane B; read `42150bc` and `3cad30b`; both Verified
+for planning only; no §2.3.1 row, because each header has an independent `Verified-By`). Population 160, keyed 160.
+This is reconciliation inside the act's item 3–4 scope, not new scope.
+
+**Sweep of current claims** (draft Part 6 step 5). A search of governed docs for stale "`SV-002` open", "P15 open"
+and unchecked `SV2-DOD-06` claims found only dated decision history (Register `D-264`, `D-382`, `D-431` entries; the
+`D-431` Build Spec paragraph), kept history (the "Earlier" texts in `SV-002` and `V1-SM05`), and Modular_PRD L1053
+("until `SV-002` is accepted **and** the Judge lifts the block"), which stays true. No further edit is needed.
+
+**Observation outside `D-434` (not changed).** FN L18 says "The lane map lives in `CLAUDE.md`'s shared core". After
+`D-337` the shared core is in `AGENTS.md`. This is an AG-1-type stale statement (B-156). It is outside `D-434` and
+outside the frozen Option A scope (R1–R25, R29). Owner Lane A; destination: a later repair act; it is not changed now.
+
+### What you need
+
+**Lane A next (no new decision needed):** prepare the cycle-2 candidate from the final committed source, answer its
+pending inputs, and stop at `ready`. Then Lane A commits a request here naming the work folder, the candidate graph
+and manifest hashes, and the bindings.
+
+**Lane B then (receipt 2, route A):** review the candidate bytes **and** the new GR-007 conclusion (source-specific
+clearance reasons, the ledger population including the two new rows, and the tracker at `fa51ce0`). A byte-only
+receipt is insufficient. Record the acceptance in **B-050** by Lane B's review commit, then Lane B's record-only
+Terminal annotation commit. Between those two commits only `terminal-return` and `docs-drift` may fail.
+
+**After receipt 2 (P-cond):** Lane A publishes with Lane B's review commit, then records separate health evidence
+here. No fetch or push from prepare to the health record.
+
+### What you did instead
+
+Recorded the act, applied batch 2, reconciled the tracker and checked it. No candidate is prepared yet, nothing is
+published, and nothing is pushed. `V1-SM05` stays `BLOCKED`; Gate 2 is not claimed.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | `D-434` recorded (`fa51ce0`); batch 2 applied (`29bce67`); tracker current with all zeros; new Basis checked | Phase 1: done |
+| Approve-with-conditions | Cycle-2 candidate | Phase 1: Lane A prepares to `ready`; Lane B's receipt 2 covers bytes and GR-007 semantics |
+| Defer | Publication (P-cond) and health; the FN L18 repair; the batch push | After receipt 2; a later repair act; an authorized push point |
+| Reject | A byte-only receipt; a governed edit after candidate acceptance to turn "awaits" into "complete"; the `V1-SM05` block treated as lifted | Phase 1: no action |
