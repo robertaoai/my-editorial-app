@@ -589,6 +589,11 @@ file's own rows for `SV-002.md` and the evaluation change in place.
 `FN-MULTI-LANE-AI-GOVERNANCE.md`, `V1-BUILD-SPEC.md` (its §1 `V1-SM05` cell), one description leaf each in
 `frag139.json` and `frag140.json`, and this file's own row for `SV-002.md` change in place.
 
+**`D-435` (2026-10-12) — no file added or retired, stated explicitly.** The act corrects text in governed files:
+the Register, the Build Spec, this file's "Concurrent-edit detection check" row (R17), `Modular_PRD.md`, the FN and two
+SPECS files, `WORKFLOWS-SPEC.md`, `GEMINI.md`, `.gitattributes`, `frag7`/`frag13`/`frag15` and the graph-fragments
+README. Every file keeps its inventory row and status.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

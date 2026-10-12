@@ -28213,3 +28213,112 @@ item 6 (P15) and the conditional S2 order. It changes no V1 scope or sequence.
 | Rule files, Phase Closure, frozen sources | — unaffected |
 | **Encyclopedia** | unaffected (`docs/ENCYCLOPEDIA-SYNC.md` maps no section this act changes) |
 | **Graphify** | Governed drift, expected; cleared only by guarded cycle 2, never by a raw rebuild |
+
+## 5.14e260 `D-435` — B-156 Option A: Section-Level Repairs R1–R25 and R29; One Guarded Cycle (A-cond)
+
+**Authority: the Judge, directly to Lane A, 2026-10-12**, in Lane A's chat, answering two questions put against the
+complete proposed act revision 3 (`C:/CoWork/outputs/lane-a-optionA-draft-2026-10-12/D435-OPTIONA-DRAFT-r3.md`,
+SHA-256 `6112b553bb3e79b327a5d2770e8f2df5c60997d5ce35be56b808262c5a8d0a60`). To the item 7 question, which also
+confirmed as a record that Option A is the selected option: **"A-cond"**. To the item 5 question (the unit-scoped
+receipt exception): **"Authorize"**. Question request `19708e6b-cd64-4d66-ac9b-545cd1a8750c`, linked answer
+`f9687e55-c7de-4f48-b4c6-22645e5a73b6`, 2026-10-12T13:13:40.845Z. Recorded at B-136 `fb49c43`; independently checked
+against the primary question/answer by Lane B, which accepted revision 3 for recording and Verified D435-R1 to R4 at
+B-136 `67b6f19` (excerpt `C:/CoWork/outputs/lane-b-d435-r3-review-2026-10-12/authority.json`, `a1ee04b8…`).
+
+The object is B-156 Option A as defined in packet revision 2 F6.3
+(`docs/handoff/artifacts/B-156/F3-F6-packet-r2.md`, `55472bcb…`), amended by revision 3 (`F3-F6-packet-r3.md`,
+`734ef298…`), accepted by Lane B at `b5e6e78`; B-156 is Verified (planning only) at `e130ed6`. The repair texts are
+packet revision 1 (`F3-F6-packet-r1.md`, `86e9e408…`) F3.1–F3.5 and R29. Lane C outcomes for C5, C7 and C8 are
+recorded at `22ddee2` as supplied evidence: agree on C5, R10, R18, R19 and R21; **C5 host output not available**, a
+retained observation limit. Prerequisite (1) is met: `D-434`'s candidate is published (run `a7db2f21`), its separate
+health is recorded (B-136 `88f523d`), and Lane B accepted both (B-136 `1b6bc8d`). Lane A is `Active`. This act
+changes no V1 scope, sequence or DoD.
+
+### The decision
+
+1. **Scope (frozen).** Apply R1–R25 and R29 exactly as accepted: packet r1 F3.1–F3.5 and R29, with r2's R11
+   `rule-budget` sentence and r2's R21 location. Each `D-NNN` marker in those texts reads `D-435`. R12 replaces
+   only `source_file` and `source_location`; its `description` stays byte-equal and the optional clause is not
+   applied. **Not in scope:** R26–R28 (Option E, withheld), P1 (Lane C), P2 (Lane B), the FN sentence starting
+   "The lane map lives in" (a later repair act), and any other text.
+2. **Before application: old-value proof.** At this act's recording commit, locate each of the 23 targets of
+   `F3-optionA/F3-optionA-targets.json` (`72b1fa21…`) by its semantic locus. Write a working manifest that names that
+   source revision and the actual locations. Bind each full value with `F3-oldvalues.mjs` (`f7473c49…`) and compare
+   its recomputed SHA-256 with the frozen value (`F3-oldvalues-1640ff7.json`, `8a298c85…`). Lane B reviews any new
+   relocation before editing. Lane A reassesses any changed value, and Lane B reviews it, before editing. The
+   `frag140` FN leaf must still hash to `c4283f75…`. At `1b6bc8d` all 23 values were equal; R5, R6-R7, R23 and R25
+   had moved (reviewed, B-136 `7e0ba30`).
+3. **Batch.** This act and its tier paragraphs are committed first. The repairs follow in one applying commit, with
+   R24 in this Register. Inside that guarded pre-sync sequence only `docs-drift` may fail (`D-428`). Hooks are never
+   skipped.
+4. **After application, before prepare: new-text proof.** Old values are not re-checked for targets that the unit
+   intentionally replaces or deletes.
+   (a) Each target shows its accepted new text, by the expected change below.
+   (b) The applying commit's complete diff contains only those changes: no other path, line or fragment field.
+       Unselected fields and content stay byte-equal.
+   (c) `git check-attr merge -- GEMINI.md` reports `text`; a temporary, uncommitted path `NOT-A-RULE.md` reports
+       `union`.
+   (d) `bun run check` on the final batch: only `docs-drift` fails. This includes `rule-budget` on the final
+       `GEMINI.md`, after R10, R18 and R19.
+   (e) The final committed source revision is captured as the prepare source.
+   Any unexpected change, ambiguous target, omitted repair or extra edit stops the unit for review.
+
+   | Target | Expected change | Kind |
+   |---|---|---|
+   | R1–R3 | SPECS-VERIFICATION §4.1: R1 replaces the "currently reads" line and code block; R2 and R3 replace one sentence each | Replace |
+   | R4 | `frag13` `ci_that_cannot_fail` `description` | Replace one field |
+   | R5 | FN §4.6 paragraph kept; corrected note appended | Append |
+   | R6, R7 | FN `AIG-06.C1`, `AIG-06.C2` rows | Replace two rows |
+   | R8 | `Modular_PRD` §8 `AIG-06` row, last cell | Replace one cell |
+   | R9 | SPECS-ML §5 check list | Replace one item |
+   | R10 | `GEMINI.md` sentence "Everything above this line is the shared core…" | **Delete** |
+   | R11 | `frag7` `shared_core_agent_rules`: `description`, `source_file`, `source_location` | Replace three fields |
+   | R12 | `frag15` `rule_must_reach_its_subjects`: `source_file`, `source_location` | Replace two fields; `description` byte-equal |
+   | R13, R15 | WORKFLOWS-SPEC §3, two sentences | Replace |
+   | R14 | WORKFLOWS-SPEC §3 table, after the `source-sweep` row | Add one row |
+   | R16 | WORKFLOWS-SPEC §4 `C-Q1` "Why" paragraph | Append one sentence |
+   | R17 | Inventory "Concurrent-edit detection check" row, the SKIP sentence | Replace one sentence; append one sentence |
+   | R18, R19 | `GEMINI.md`, two lines | Replace |
+   | R20 | WORKFLOWS-SPEC §2 sentence | Replace |
+   | R21 | `.gitattributes` current-value list | Add one line |
+   | R22 | `.gitattributes` comment | Append |
+   | R23 | Build Spec S1 `C-33` note | Append dated note |
+   | R24 | This Register, §5.14by, end of the `C-33` section | Add one dated line |
+   | R25 | Build Spec `G11` sentence | Append |
+   | R29 | graph-fragments README §4, after the `merge6.js` sentence | Add one sentence |
+
+   The 23 bound values are a source inventory. They are not a claim that 23 fields change.
+5. **Receipt route (unit-scoped; route A).** Authorized by the Judge ("Authorize"). Lane B's acceptance record goes
+   in **B-050**, the only path that the guard reads, by Lane B's review commit. Lane B's record-only Terminal
+   annotation follows immediately, as a separate one-file commit. Between those two commits only `terminal-return`
+   and `docs-drift` may fail. The unit is this cycle, including a replacement after a finding. No earlier unit's
+   exception (`D-432`, `D-433`, `D-434`) is reused.
+6. **Receipt content.** Lane B reviews the candidate bytes **and** meaning: the fragment texts changed by R4, R11 and
+   R12; SPECS-VERIFICATION §4.1; and every generated description of a new code node, compared with what the code
+   does, not with its comments. A byte-only receipt is insufficient.
+7. **Publication: A-cond** (the Judge: "A-cond"). After Lane B's receipt with unchanged bindings, Lane A publishes
+   the reviewed candidate with `--review <Lane B's receipt commit>`. A separate health check follows: full check,
+   live parity, fragments, names, and check-update classification. The unit stops at the health record in
+   **B-136**. Any binding or check failure stops the run, with no bypass.
+8. **Interval.** No fetch and no push from prepare to the health record. A push needs its own fixed-range
+   checkpoint.
+9. **Refusal.** A changed or ambiguous old value before application; an unexpected diff after application; a check
+   failure other than the permitted ones; a Lane A-authored receipt; or a changed `frag140` leaf without a reviewed
+   reassessment. Any of these stops the unit. There is no bypass.
+10. **Not given:** Option E, P1, P2, the FN lane-map repair, the `V1-SM05` unblock, Gate 2 (`V1-SM05-FV-001`), the
+    `D-242` work order, lane activation, construction, push, the `SETUP-SPIKE-000` root disposition, and any change
+    to B-156's terminal state.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e260; R24 follows in the applying commit |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ `D-435` paragraph; R23 and R25 follow in the applying commit; no V1 scope, sequence or DoD change |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-435` paragraph (no file added or retired); R17 follows in the applying commit |
+| `Modular_PRD.md` (R8); fn-specs `FN-MULTI-LANE-AI-GOVERNANCE.md` (R5–R7); `SPECS-VERIFICATION-APPARATUS.md` (R1–R3); `SPECS-MULTI-LANE-AI-GOVERNANCE.md` (R9); `.github/WORKFLOWS-SPEC.md` (R13–R16, R20); `GEMINI.md` (R10, R18, R19); `.gitattributes` (R21, R22); `frag7.json` (R11), `frag13.json` (R4), `frag15.json` (R12); `docs/graph-fragments/README.md` (R29) | Follow: the applying commit |
+| `AGENTS.md`, `CLAUDE.md`, Phase Closure, `lane-boundary.mjs`, `suites.mjs`, `.github/workflows/`, application code, frozen sources | — unaffected |
+| B-050 (Lane B's receipt); B-136 (answers; health record) | Follow: their own handoff commits |
+| B-156 | — unaffected; stays terminal (Verified, planning only) |
+| **Encyclopedia** | unaffected (`docs/ENCYCLOPEDIA-SYNC.md` maps `Modular_PRD` §0.2, §0.4, §2.5.1, §4, §6.5, §12 only; none changes) |
+| **Graphify** | Governed drift, expected; cleared only by this act's guarded cycle, never by a raw rebuild |

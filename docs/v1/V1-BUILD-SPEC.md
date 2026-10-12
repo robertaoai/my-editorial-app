@@ -147,6 +147,12 @@ PR #2 comment, `SV-002` acceptance and the `V1-SM05` unblock remain separate Jud
 **`D-401` (2026-10-03) — `GR-012` observation: no writer seen, accepted by Judge reason** (31-minute window accepted
 explicitly). Lane B verifies. `V1-SM05` stays `BLOCKED`.
 
+**`D-435` (2026-10-12) — B-156 Option A repairs R1–R25 and R29.** Section-level corrections of stale current-state
+text (TC6 wording, the retired three-file shared core, the CI SKIP set, rule-file merge scoping, two pointers and
+the `merge6.js` note), in one guarded cycle. The publication checkpoint is the one recorded in `D-435` item 7 (A-cond).
+No V1 scope, sequence or DoD change. R23 and R25 append dated later-state notes in this file. Option E, P1, P2 and the
+FN lane-map sentence are not in scope.
+
 **`D-434` (2026-10-12) — `SV-002` accepted (`SV2-DOD-06`); `B-136 (P15)` closed by its own reason.** The Judge
 checks `SV2-DOD-01`, `-02`, `-04` and `-06`; `-03` and `-05` keep their earlier checkoffs. P15 clears from this act
 onward. Batch 2 corrects the current-status claims that the acceptance makes stale (the §1 `V1-SM05` cell among
