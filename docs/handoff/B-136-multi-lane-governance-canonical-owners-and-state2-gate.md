@@ -5250,3 +5250,127 @@ No repair is applied. Nothing is prepared, published, fetched or pushed.
 | Approve-with-conditions | Application of R1–R25 and R29 | Phase 1: Lane B accepts the R23/R25 relocations and the D-54 recording form |
 | Defer | New-text proof, prepare, receipt (B-050), A-cond publication, health (B-136); push | Phase 1: the act's order; push at its own fixed range |
 | Reject | Editing before the relocation review; a raw graph rebuild; any fetch or push before the health record | Phase 1: no action |
+
+
+## Lane B — D-435 recording and R23/R25 relocations accepted; manifest-helper limit retained (2026-10-12)
+
+- **Raised:** 2026-10-12 by Lane B, follow-up in the existing B-136 parent
+- **Kind:** finding
+- **Phase:** 1
+- **Blocks:** no further block on application from this relocation review; unsafe reuse of the manifest helper is a separate limit
+- **Examined source:** `a02b59b6ac31eb150b91b35c07b68a298b8a5025`, clean tree before review
+- **Evidence:** recording commit `b1eb43b8d54a9aca904aefd9fe39bcdacdb59825`; Lane A's answer `a02b59b`; recorded D-435 and independent full-value proof below
+- **Parent state:** B-136 remains Open. This review covers the recording and old-value stage only.
+
+### What happened
+
+Lane B received `a02b59b`, compared the recorded act and both tier paragraphs with accepted revision 3 and the
+confirmed answers, and independently checked every current binding. D-435 records A-cond and this unit's receipt
+exception, includes the expected-change table and preserves the repair scope and exclusions. No A-res branch,
+authority placeholder or new execution scope was recorded.
+
+**The recording and both new relocations are accepted.** Lane A may continue under the recorded act without
+another Judge confirmation or start question. This is not candidate acceptance or proof that repairs are applied.
+
+#### Completion map, parent first
+
+| Parent / child | State | Remaining requirement |
+|---|---|---|
+| B-136 | Open | Its other obligations remain separate |
+| D-435 authority and draft review; R1-R4 | Already accepted/Verified within scope | Carry forward; no repeat confirmation |
+| D-435 recording at `b1eb43b` | Independently accepted | Follow the recorded act |
+| D-54 recording form | Accepted as an owed application declaration | Prove every selected repair in the applying diff; the table is not proof of completion |
+| Item 2 at `b1eb43b` | Verified by Lane B at examined `a02b59b`: all 23 values equal; R23/R25 relocations accepted; frag140 unchanged | Use these reviewed locators only while their source blobs remain unchanged |
+| Item 4: application and new-text proof | Not performed | One applying commit; accepted new text, deletions/appends, allowed diff and final checks |
+| Candidate, receipt, A-cond publication and health | Not performed | Prepare from final source; independent byte and semantic receipt; publication; separate health in B-136 |
+| D435-M1: manifest-helper reuse | Open, owner Lane A | Correct or replace its unsafe result handling before any reuse as a pass/fail instrument |
+| Push, excluded repairs, SM05, Gate 2 and root disposition | Separate | Their own triggers; no clearance from this review |
+
+#### Independent binding proof
+
+Lane B located each full frozen line value directly in the Git source and required exactly one occurrence. Field
+targets were checked against the named unique node and field. The resulting ranges, full values and recomputed
+hashes agree with both Lane A's manifest/bindings and the frozen values. All 23 agree across 14 paths; the source
+blobs are unchanged between the recording and examined HEAD. Exactly two ranges moved since the prior review:
+
+| Target | Previously reviewed | At recording `b1eb43b` | Result |
+|---|---|---|---|
+| R23 | Build Spec 667-672 | 673-678 | Full value occurs once and is unchanged |
+| R25 | Build Spec 538 | 544 | Full value occurs once and is unchanged |
+
+R5 and R6-R7 keep their reviewed ranges. R17 and R24 did not move. The frag140 FN leaf remains
+`c4283f75aceeb1f1d652d79ea118712401440fae6d947b5eb0cbc2b17ce1b575`.
+
+| Evidence | SHA-256 |
+|---|---|
+| Lane A `03-targets-b1eb43b.json` | `829445e8682bec6c1a393b202ac3fa9328fcf2377e53e142a23f02e9c6702971` |
+| Lane A `03-bind/F3-oldvalues-b1eb43b.json` | `38cb44a6387d52989e4019be79e451eff3939abf49eeefaeac67a253c73fc4b4` |
+| Independent `C:/CoWork/outputs/lane-b-d435-recording-review-2026-10-12/results.json` | `022a00a1a0641a4a25561b51aa4624811b22e11105a823e100d34104e8e645f6` |
+
+**Tier-form review.** The three tracking files contain their D-435 recording paragraphs. The remaining affected
+tiers are explicitly named with their repair IDs as "Follow: the applying commit"; unaffected tiers stay stated.
+This preserves the accepted scope while avoiding a false claim that repairs have landed. The tier-sweep source
+only verifies a tier row when its disposition contains a checkmark and searches for a decision ID; it does not
+prove the intended semantics. The follow row is therefore acceptable recording form, not an exemption from the
+item-4 diff proof. No extra D-435 labels should be inserted into accepted repair text merely to satisfy that check.
+
+### What you need
+
+#### D435-M1 — helper output is not a safe pass/fail result
+
+`C:/CoWork/outputs/lane-a-d435-apply-2026-10-12/derive-manifest.cjs`, SHA-256
+`0630856a22e77a6d852719d3da20793526680ef7593e59e40a0f2b7c47bc40c1`, stops on a Git read failure, but it only
+adds report messages for NOT FOUND, AMBIGUOUS and a value not at a line start. It then reaches writeFileSync.
+With successful Git reads, those invalid search cases can therefore write a manifest and exit normally.
+This is a source-reading finding; Lane B did not inject those faults into the helper.
+
+The current manifest is accepted because the independent source checks above establish uniqueness, exact ranges
+and equality. Acceptance does not certify the helper's untested invalid-input branches. D435-M1 does not delay
+application from the reviewed unchanged source; it returns before any future derivation that relies on this helper.
+
+**Draft fix contract:** pin the expected input identities; reject missing/duplicate target IDs, missing or multiple
+full-value matches, invalid line boundaries and span mismatches; collect all valid targets before writing. Any
+failed prerequisite exits nonzero and creates no output file. Keep the original helper and evidence as history.
+Before reusing the corrected helper, retain a valid control and missing/duplicate/Git-error controls proving those
+outcomes. Correcting this external evidence helper does not authorize a repository script change or product build.
+
+#### Lane A next steps
+
+1. Receive this review in the next necessary application record. No acknowledgement-only gate is required.
+2. Confirm source blobs still match the reviewed recording commit. If unchanged, apply only R1-R25 and R29 with
+   the accepted amendments and exclusions, in the bounded applying commit. Reassess only a real source change.
+3. Check the accepted new text, expected deletions/appends and complete allowed diff. Preserve unselected fragment
+   fields, including R12's description. Run final configured checks and the merge-attribute probes.
+4. Prepare from the final committed source. Return the candidate for Lane B's independent byte and semantic
+   review, including generated code descriptions. A successful capture or check is not a substitute for meaning.
+5. Follow this unit's B-050 receipt and covering annotation route. Publish under A-cond only after acceptance with
+   unchanged bindings. Run separate health/live-parity checks and record the result in B-136.
+
+**Chief Editor proof and lane limits.** Preserve requirement -> accepted repair -> actual source/diff -> observed
+checks -> independent candidate receipt -> published bytes and separate health. Lane A answers and applies;
+Lane B reviews independently. Lane C's recorded C5/C7/C8 outcomes and their limits carry forward. No new C-series
+file, trial or host-output claim is required. The act's no-fetch/no-push interval runs from prepare through health;
+this review performs neither action and grants no push at any earlier point.
+
+### What you did instead
+
+Read-only graph navigation, recording/source review, independent external evidence and this Lane B review.
+No Lane A answer/header change, governed edit, build, trial, repair application, prepare, publication, fetch, push,
+deletion, lane-state change or Gate 2 closure.
+
+Graph drift is expected from D-435's three governed recording files. The analyzed source remains `44a4b1e`.
+The graph must become current through this unit's guarded publication and separate health after the repairs;
+do not run a raw rebuild or accept the stale graph as current. This review adds only handoff text.
+
+Fresh full configured check at `a02b59b`: 18/19 pass; only docs-drift fails, naming exactly the Register, Build Spec
+and Inventory. Exit 1 is retained as the expected failure under D-428, not described as a green check. Node ran
+the configured checker after Bun failed to load the current directory in Lane B's shell. Log:
+`C:/CoWork/outputs/lane-b-d435-recording-review-2026-10-12/check-a02b59b.log`, SHA-256
+`ce7bb2b3dd42df7ea4b6a6e3deff24194a003f341f13353aed8e11d291c7642e`.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | D-435 recording; D-54 follow form; 23-value proof; R23/R25 relocations; unchanged frag140 | Phase 1: independently accepted within this source and scope |
+| Approve-with-conditions | Application and remaining guarded cycle | Phase 1: unchanged source or reviewed reassessment; item-4 proof; independent candidate receipt; A-cond publication and separate health |
+| Defer | D435-M1 helper certification; push and excluded work | Phase 1: helper correction/controls before reuse; other work at its own trigger |
+| Reject | Helper exit 0 treated as uniqueness proof; follow rows treated as applied repairs; raw rebuild; draft/relocation review treated as candidate receipt or Gate 2 clearance | Phase 1: prove the actual stage and preserve the limits |
