@@ -12,9 +12,10 @@ of `D-29`/`D-33`). Not a Product feature group.
 
 > **Why this is one group, and why it is not a Product feature.** The AI tools that build this codebase have no
 > customer and no customer story (`D-271` item 1). They support development across every module, so they are **global
-> Project scope**: no `US-*`, `FR-*` or `AC-*`, no module, no feature sprint entitlement. The six keys cannot function
-> apart — measurement (`AIG-03`) is requested and received through the lanes (`AIG-01`) and the channel (`AIG-02`),
-> judged by review (`AIG-05`), and only then permits the rule-file refactor (`AIG-06`).
+> Project scope**: no `US-*`, `FR-*` or `AC-*`, no module, no feature sprint entitlement. The six keys share coordination
+> dependencies — measurement (`AIG-03`) is requested and received through the lanes (`AIG-01`) and the channel (`AIG-02`),
+> judged by review (`AIG-05`), and only then permits the rule-file refactor (`AIG-06`). Shared coordination does not
+> merge their scope or completion: each key is accepted on its own evidence. *(Corrected `[V1]`, `D-434`, SCOPE-2.)*
 
 **This file points to rules; it does not restate them.** The lane map lives in `CLAUDE.md`'s shared core, the handoff
 lifecycle in `docs/handoff/README.md`, the field syntax in `TEMPLATE.md`, and every decision in the Register. A copy
@@ -36,6 +37,14 @@ Three development lanes build this project, each run by AI tools under one Judge
 | **A** | Claude Code (governance and docs owner); Claude Cowork (handoff dialogue) | Orchestration surfaces — see `CLAUDE.md` |
 | **B** | Codex (code and scripting); ChatGPT Chat/Work (raises handoffs, **Level 1** review) | Application surfaces — see `CLAUDE.md` |
 | **C** | Antigravity IDE (DevOps); Antigravity chat (**Level 2** review) | `.github/workflows/` only |
+
+*Added `[V1]`, `D-434` (SCOPE-1):* This is one project with distinct governance/document, codebase and knowledgebase use cases. Shared coordination
+documents do not merge their requirements or acceptance. Graphify supports governed-source assurance and knowledge
+discovery through a derived graph. Code navigation is assessed against `AIG-04` tasks and measured consumer routes
+(`D-433`: existing path; Ripwire not adopted). A tool or artifact may support more than one use case, but evidence is
+credited only to the named requirement and scope. Source authority stays with the governed documents. Formal
+governed-reference retrieval is the proposed `AIG-07` track, deferred by `D-424`; this paragraph neither delivers nor
+allocates it.
 
 This family specifies how those lanes **request and respond**, **exchange handoffs**, **measure what each tool
 actually loads**, **navigate code**, **review and verify**, and **change their own rule files** — independent of which
@@ -116,7 +125,10 @@ trigger.
 
 A candidate tool is trialled on one named task against a baseline and a negative control, with the SQL fallback,
 under `SV-002` §3.2/§3.4. The Judge records provision, existing path or waive, and accepts or changes the proposed
-applicability below. Navigation proves how code is found. It never proves that product behaviour is correct.
+applicability below. Navigation proves how code is found. It never proves that product behaviour is correct. *Added `[V1]`, `D-434`
+(SCOPE-3):* Graphify query and path support discovery. A coverage pass proves only its defined coverage condition.
+Neither establishes caller completeness, retrieval quality or the truth of a graph summary. Governed sources decide
+authority.
 
 **Selected outcome (`D-433`): existing path.** Ripwire is not adopted. The provision and waive rules below are not
 selected; they stay as the rules for any later act.

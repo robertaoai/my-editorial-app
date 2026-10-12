@@ -14,7 +14,7 @@
       "file_type": "document",
       "source_file": "docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md",
       "source_location": "whole document",
-      "description": "Platform-independent behaviour for the global Project-scope family AIG-01..AIG-06: lane request/response and the lock over owned files, the handoff channel (pointing to the SOP), instruction-loading measurement with silence diagnosis (dead, discovery failure, wrong owner, wrong tier; only dead permits removal), code navigation, review levels and independent verification, and the measured rule-file refactor. Requirements AIG-NN.Rn, governance checks AIG-NN.Cn with existing or planned mechanisms, and a D-30 SPECS candidate filter."
+      "description": "Platform-independent behaviour for the global Project-scope family AIG-01..AIG-06: lane request/response and the lock over owned files, the handoff channel (pointing to the SOP), instruction-loading measurement with silence diagnosis (dead, discovery failure, wrong owner, wrong tier; only dead permits removal), code navigation, review levels and independent verification, and the measured rule-file refactor. Requirements AIG-NN.Rn, governance checks AIG-NN.Cn with existing or planned mechanisms, and a D-30 SPECS candidate filter. One project with distinct governance/document, codebase and knowledgebase use cases; shared files do not merge their requirements or acceptance."
     },
     {
       "id": "specs_multi_lane_ai_governance",
