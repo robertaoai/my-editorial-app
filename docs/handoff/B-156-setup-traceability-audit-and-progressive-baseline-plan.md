@@ -1752,19 +1752,19 @@ prove semantic currency (AG-1 is an example).
 
 <a id="b156-investigation-chain"></a>
 
-## Lane B — Investigation chain index; review snapshot at 09e8d73, 2026-10-12
+## Lane B — Investigation chain index; review snapshot at d7eeb1b, 2026-10-12
 
 **Raised / Kind / Phase / Blocks:** 2026-10-12 by Lane B / finding / 1 / nothing, reporting only.
 **Initial examined revision:** `9edd19c433532dd13f5af23240de2beff488d346` (index introduced at 03272cf).
-**Current reviewed revision:** `09e8d735b7a735b859b49e708b5ded66bf5b8a69`; bounded F3-F6 review recorded below.
+**Current reviewed revision:** `d7eeb1be5dcbdbee50619bf84fb0390f3f98c76c`; bounded revision-2 review recorded below.
 **Receiver:** Lane A through B-156. This block indexes existing findings; it is not a second backlog.
 **Inputs:** extracted batch `d4b66fe4-2df6-45ea-8b7c-d630274b8716/Pasted text.txt`, SHA-256
 `b4d5af01f897e7225b381196d0a4f8cec123a830b01aaf0d6617de8b13070d1c`; Lane A worklog
 `78e77fb0-3c64-45f7-93cc-aa99f81116f2/Pasted text.txt`, SHA-256
 `d66d99206b441494a3cacccfa33a2b7b3a0b8972c8a30a672786c726e9d3efba`.
 The whole-entry header, receiver's answer and earlier independent dispositions remain unchanged.
-**Latest input:** Lane A worklog `97d02a8e-fa86-45f8-b7cb-2a6b71d464c7/Pasted text.txt`, SHA-256
-`b743b45708954cd0aa477b7edcab9b62b3d3dbee56a4e501d72ac0f0dd90d475`.
+**Latest input:** Lane A worklog `28ac5982-a7bd-4dd9-a047-a0c386885691/Pasted text.txt`, SHA-256
+`7951bff46aa8b3590ab352a9c02ed6d6022e6f4d551e50a75052ace7f21ed287`.
 
 ### What happened — the missing link is in the extraction, not the receipt
 
@@ -1796,7 +1796,8 @@ The subsequent change chain is 03272cf review -> 23fb0b5 revision-3 evidence -> 
 752f7cd bounded revision-3 review -> c3f7cea revision-4 evidence -> 955a140 Lane A answer ->
 7a4971e bounded revision-4 acceptance -> 7da6fe7 F2c evidence -> 45cae70 Lane A F2c answer ->
 19d6858 bounded F2c acceptance -> b9fce3f F3-F6 evidence -> 09e8d73 Lane A answer ->
-Lane B's bounded F3-F6 review below. The six originating sections and their receipt remain accepted.
+55b84d6 bounded F3-F6 review -> d00a8f5 revision-2 evidence -> d7eeb1b Lane A answer ->
+Lane B's bounded revision-2 review below. The six originating sections and their receipt remain accepted.
 
 ### One parent-first investigation block — state, evidence and next action
 
@@ -1809,10 +1810,14 @@ This proves citation mechanics, not all semantic conclusions. The retained negat
 At the 45cae70 review, Lane B reproduced 163 F2c citations across 146 paths and the complete F2c measurement;
 only the measurement's read-HEAD differs. All five evidence hashes match. The three F2 sets reconcile to 224 unique
 paths (16/62/146). This is first-pass coverage, not complete semantic review or a baseline acceptance.
-At the current 09e8d73 review, Lane B matched all four F3-F6 artifact hashes and reproduced 33 citation checks
+At the 09e8d73 review, Lane B matched all four F3-F6 artifact hashes and reproduced 33 citation checks
 across 17 targets, with zero failures. These checks match cited substrings, not every complete quoted value.
 The retained negative control was not rerun. Packet corrections PKT-R1 to PKT-R4 below belong to F3-F6;
 they do not reopen the accepted F1/F2 slices or create another backlog.
+At d7eeb1b, Lane B matched all five revision-2 artifact hashes and reproduced both retained 26-target bindings
+byte-for-byte. All 26 values also match at d7eeb1b. Both documented negative controls were reproduced: exit 2,
+zero output files. PKT-R1 and PKT-R3 are accepted within their planning/proof scope; PKT-R2 and PKT-R4 retain
+only the bounded wording and readiness corrections in the revision-2 review below.
 
 | Parent / finding | Current state and evidence chain | Remaining action / success criterion |
 |---|---|---|
@@ -1826,10 +1831,10 @@ they do not reopen the accepted F1/F2 slices or create another backlog.
 | AG-3 / F5 — baseline integrity | Separate citation validity, semantic agreement, behavior evidence and graph currency. Generated result/byResult retain role labels. Citations r4 retains semanticTally: 13 agreement, 6 difference, 43 unassessed. These are scoped row classifications. | Consume semantic/locus/return fields with their scopes. The package pairing remains unresolved within its row. Resolve or explicitly retain applicable gaps before baseline acceptance. F5 work does not itself close F2. |
 | GEMINI merge finding — R2-F2b.4 | The merge-risk finding is retained. Revision 3 also identifies stale core-parity, SKIP and TC6 wording in GEMINI. Lane A withdrew the drift-exemption claim. | F3 drafts the scoped configuration/text repairs. F6 includes Lane C review and guarded-sync cost. The three text differences and sync correction are accepted observations, not applied repairs. |
 | F2c — measured structure and scoped assessment | Lane B accepts the 45cae70 measurements, nine-node review with three scoped differences, and G4/G5 retained-evidence limits. 130 fragments are unassessed; nine are partial. | F4 states the instrument limits; F5 carries the unassessed and partial obligations. Structural validity and dated agreement do not establish current meaning for the whole corpus. |
-| F3 — repair drafts / PKT-R1 | Revision 1 explicitly pairs SPECS section 4.1 with frag13 and preserves Q6/history. Proof wording and R11's copy-detection claim still need narrowing. | State substring-check scope and the 60-character detector limit; keep exact old/new values for later application. Lane B reviews the changed text only. |
-| F4 / AG-2 — instrument and workflow plans / PKT-R2 | Status and instrument limits are drafted. Ripwire's proposed plan and the six gstack activity correspondences are not supplied by a status label or an empty row format. | Draft the task/host/control/cleanup/evidence plan and activity-to-intent-to-implementation mapping. Mark measured, proposed and unknown separately. No new execution is required. |
-| F5 — progressive baselines / PKT-R3 | 173 wholly unassessed rows (43 F2b + 130 F2c), nine partial fragments and F2a residuals remain explicit. Later-baseline instructions still point to fixed-revision instruments. | Specify new-revision inventory, identities and dependency reassessment; retain unknowns without passing them. Narrow the unproven deployed-instance absence claim. |
-| F6 — option impacts and review / PKT-R4 | Revision 1 drafts Options A-D and Lane C claims C5-C8. Scope, authority, receipt/publication boundaries and semantic overlap still need a complete comparison. | Freeze each ready option's row/path scope and six impact fields; recheck dependent descriptions after D-434. Lane B reviews corrections; Lane C reviews named claims. No option choice or baseline acceptance is requested yet. |
+| F3 — repair drafts / PKT-R1 | Revision 2 narrows citation proof and R11, and adds independently reproduced full-value bindings. This correction is accepted at d7eeb1b. | Preserve 26-target evidence as frozen history. Before application, check the selected unit's targets at its actual source; this is not repair application or a future-source guarantee. |
+| F4 / AG-2 — instrument and workflow plans / PKT-R2 | The populated matrix and six proposed correspondences answer the missing-plan issue. Wording still merges setup source into codebase and overstates raw-writer protection; its opening authority sentence conflicts with the read-only row. | Correct these three statements only; keep instrument, host and SQL unknowns explicit. Lane B reviews changed wording; Lane C reviews its applicable facts. |
+| F5 — progressive baselines / PKT-R3 | Revision-2 new-revision inventory, identities, invalidation triggers and not-assessed deployment wording are accepted as a plan. 173 wholly unassessed rows, nine partial fragments and F2a residuals stay separate. | Build or execute new instruments only under their later bounded authority. S0 is proposed, not accepted by this planning review. |
+| F6 — option impacts and review / PKT-R4 | Frozen repair groups, P1/P2 authority limits and the D-434 FN leaf meaning check are accepted planning improvements. A stopped cycle is still pending; standalone E and selected-target rebasing need complete boundaries. | Correct the cycle dependency, bind selected targets after D-434 and finish or withhold E's standalone choice. Keep Lane C source review separate from unavailable host output. No Judge choice is requested yet. |
 
 **Sync-impact correction:** R2-F2b.4 says a .gitattributes change needs no graph sync because it is not docs.
 Under the current governed-intent matcher, that conclusion is false: classifyChangedPaths([".gitattributes"])
@@ -2467,3 +2472,118 @@ point. **Drift:** handoff-only; governed intent synced at `93aa02f`; no graph sy
 | Approve-with-conditions | Packet revision 2 (PKT-R1–R4) | Phase 1: Lane B bounded review; Lane C records C5–C8 and the surface facts |
 | Defer | The Judge's option choice (A, C, D; E separately); S0-setup acceptance; building parameterized instruments; the batch push | After the reviews; later bounded units; an authorized push point |
 | Reject | Substring checks called full proof; status labels as plans; fixed-revision reruns as new baselines; Option B by routine drafting; a lane authorizing its own execution | Phase 1: no action |
+
+## Lane B — F3-F6 revision 2 review; accepted corrections and two bounded returns, 2026-10-12
+
+**Raised / Kind / Phase / Blocks:** 2026-10-12 by Lane B / finding / 1 / nothing, reporting only.
+**Receiver:** Lane A. **Examined revision:** `d7eeb1be5dcbdbee50619bf84fb0390f3f98c76c`.
+**Evidence:** revision-2 artifacts at `d00a8f5`, Lane A's answer at `d7eeb1b`, the D-434 r2 publication table
+and proposed FN leaf, and the previously accepted B-050 raw-writer limit.
+**Scope:** changed sections only. This records child review outcomes, not a B-156 header disposition.
+
+### What happened
+
+Lane B matched all five artifact hashes. Both retained 26-target binding files reproduce byte-for-byte.
+All 26 full values also agree at d7eeb1b. The unknown-node and unreadable-revision controls each returned
+exit 2 and wrote zero output files. These results prove the listed bindings and the two tested refusal cases;
+they do not prove completeness of a later unit's target list or matching at a future revision.
+
+PKT-R1 is accepted: substring proof is narrowed, R11 has the 60-character detector limit, and full-value
+evidence is separate. PKT-R3 is accepted as a plan: later baselines get their own inventory, identities,
+reassessment triggers and preserved history; deployment is not assessed. No revision-aware measurement
+implementation or new baseline is accepted here.
+
+PKT-R2 now supplies the missing task matrix and six proposed gstack correspondences. Keep their proposed
+status and measured/unknown limits. PKT-R4 now supplies repair groups, separates allocations, withholds
+Option B and states P1/P2's execution limits. Its FN leaf meaning check is supported: the proposed D-434
+leaf says "the measured rule-file refactor", without claiming it is pending. These improvements are accepted.
+Two bounded returns remain under the existing PKT-R2 and PKT-R4; do not create new parent entries.
+
+### What you need — parent first
+
+| Parent / child | Review state at d7eeb1b | Next action / completion condition |
+|---|---|---|
+| B-156 | Open | Six planning outputs, independent outcomes and retained dispositions; no repair application required for planning closure |
+| F1 / bounded F2 | Accepted within scope | Preserve the 224-path reconciliation and semantic limits |
+| F3 / PKT-R1 | Verified by Lane B within the stated proof scope | Keep old evidence; later application checks the selected source/target bindings |
+| F4 / AG-2 / PKT-R2 | Answered; bounded wording return | Correct the three statements below; Lane B reviews changes, Lane C reviews applicable surface facts |
+| F5 / PKT-R3 | Verified by Lane B as a planning correction | Keep 173 wholly unassessed rows, nine partial fragments and F2a residuals separate; S0 stays proposed |
+| F6 / PKT-R4 | Answered; bounded readiness return | Correct the dependency and standalone option boundary below; obtain named Lane C outcomes |
+| P15 / D-434, SM05 / Gate 2, batch push | Separate | No new authority or closure from this review |
+
+#### PKT-R2 remaining — use-case, guard and read-only boundaries
+
+**Source:** revision-2 F4.2 opening sentence and GOV-1/CODE-1 rows; the Judge's setup-source/codebase
+clarification; B-050's G-F3-4 limit (also preserved in Register D-426).
+
+1. CODE-1's use-case cell says "Codebase (setup source now; product code later)". Keep the product codebase
+   as the future target, and name the current setup/control source as a separate instrument fixture. Its
+   measured results do not establish that the product codebase exists or that a product increment passed.
+2. GOV-1 says a raw rebuild is refused by the guard. The guard coordinates cooperating guarded invocations;
+   it cannot stop an external raw writer. State the policy prohibition separately from technical refusal.
+3. "Each task needs its own bounded unit before execution" is too broad and contradicts GOV-1's existing
+   read-only authority. Existing queries and source inspection may continue. New setup, trials, adoption
+   and changes retain their bounded authority. Do not introduce another start question for read-only work.
+
+**Draft fix:** "Product codebase navigation is proposed. Existing setup/control source supplies only the
+named instrument fixture. Existing read-only queries and source review remain authorized. A raw graph write
+is prohibited by procedure; the guard does not prevent an external raw writer. Any proposed negative control
+must name a supported guarded refusal, without invoking a raw writer. New trials or changes need their own
+bounded authority."
+
+**Pass:** these statements agree with the source-scope definition, B-050's retained limit and the authority
+row. Keep the rest of the matrix and correspondence accepted as proposed planning; no new trial is required.
+
+#### PKT-R4 remaining — a stop is not cycle completion; complete or withhold E
+
+**Source:** revision-2 F6 option prerequisites, E's column and Lane C availability paragraph; D-434 r2
+Part 4 P-res stops after receipt 2 for a publication decision. D-434's unit ends at its health record.
+
+**Dependency fix:** replace "cycle 2 complete (published or stopped per its option)" with "D-434's reviewed
+candidate is published and its separate health record is complete". Under P-res, wait for that publication
+decision and health record. A stop preserves a pending cycle; it does not satisfy Option A/C's dependency.
+Any alternative that abandons or replaces the pending cycle needs its own explicit impact and authority;
+do not imply it through the word "stopped" or reopen D-434 by routine drafting.
+
+**Selected-source fix:** the 26-value binder includes G-MAP and other-lane P1/P2, which Option A does not
+apply. D-434 can also shift line ranges or change relevant source context. Keep both frozen binding files.
+After D-434, derive the selected unit's target manifest and recheck its semantic loci, full values and exact
+old/new proposal at the actual source. A mismatch stops application. Relocation or changed meaning goes back
+through the bounded source review before prepare; it is not silently rebound as agreement. Do not make an
+unselected P1/P2 or map target an unexplained prerequisite for applying A.
+
+**Standalone E fix:** either finish E's own decision packet or mark it not offered yet. An allocation choice
+for `.onlyaiapp` must name the proposed lane and classifier change, or choose the exact unmapped-by-reason
+text. State the expected fixture result for every selected mapping, including `.env.example` and `.onlyaiapp`.
+Name E's standalone receipt route, publication choice, health endpoint and no-fetch/no-push interval; "same
+as its carrier" works only when a carrier is selected. Complete the D-54 map, including Build Spec changed
+or explicitly unaffected. If E rides A, freeze the combined scope and bindings before the act and prepare.
+
+**Review boundary:** C5 may retain "host output not available" without a new CI run. That does not supply
+C6-C8's source/wording/configuration reviews. If another review is unavailable, name that gap and any proposed
+residual acceptance separately; merely recording unavailability does not make all options decision-ready.
+Keep P1 as Lane C's proposal for review and later Judge authority, not Lane C's unilateral execution choice.
+
+**Pass:** A/C wait for the actual preceding cycle endpoint; selected bindings match the reviewed source;
+E is either complete in its standalone form or withheld; review outcomes and unavailable observations are
+distinct. This is already authorized drafting. No Judge selection is needed to make these corrections.
+
+### What you did instead / next steps
+
+Lane B updated the existing investigation index and recorded these bounded outcomes. Lane A preserves
+revision 2, answers only the remaining PKT-R2/PKT-R4 points and returns the changed sections. Lane C records
+its named review outcomes and applicable surface facts. The Chief Editor checks authority, scope, evidence,
+retained gaps and the actual stop/end conditions before presenting an option. Then the Judge selects among
+the complete options. Do not reopen accepted PKT-R1/PKT-R3 or request another drafting go-ahead.
+
+**Validation:** the full consistency runner passed 19/19 at examined HEAD d7eeb1b. After this review text
+was finalized, docs-drift, handoff-response, text-integrity, lane-state and lane-boundary passed. Governed
+intent remains synced at 93aa02f; no graph sync is required for this handoff-only review. No full-suite result
+at a later commit is inferred. No governed source, graph, receiver answer or parent header was changed.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | PKT-R1 proof correction and bindings; PKT-R3 baseline plan; populated matrix, proposed gstack mapping and FN leaf meaning check within scope | Phase 1: independently accepted at d7eeb1b within the stated limits |
+| Approve-with-conditions | PKT-R2 / PKT-R4 and the F3-F6 packet | Phase 1: remaining bounded corrections, Lane B review and named Lane C outcomes; drafting continues now |
+| Defer | Judge option choice, S0 acceptance, repair application, new instrument execution, batch push and gate conclusions | Later complete evidence and their bounded authority; no automatic transition |
+| Reject | A stopped candidate counted as a completed cycle; raw-writer prevention inferred; setup fixtures treated as a product codebase; unavailable review counted as agreement | Phase 1: correct only these claims and readiness boundaries |
