@@ -28144,3 +28144,72 @@ item 6 (P15) and the conditional S2 order. It changes no V1 scope or sequence.
 | Rule files, Phase Closure, frozen sources | — unaffected |
 | **Encyclopedia** | unaffected (`docs/ENCYCLOPEDIA-SYNC.md` maps no section this act changes; Entry 02's `Modular_PRD.md` §0.2/§0.4/§12 are untouched) |
 | **Graphify** | Governed drift, expected; cleared only by guarded cycle 1, never by a raw rebuild |
+
+## 5.14e259 `D-434` — `SV-002` Accepted (`SV2-DOD-06`); `B-136 (P15)` Closed by Its Own Reason; GR-007 Reconciliation Snapshot; Batch 2 and Guarded Cycle 2
+
+**Authority: the Judge, directly to Lane A, 2026-10-12**, in chat, answering Lane A's decision questions: "Decide
+D-434 now", then "Issue acceptance branch" and "P-cond: publish after receipt". It issues the acceptance branch of
+the frozen draft revision 2 (`C:/CoWork/outputs/lane-a-d434-draft-2026-10-11/D434-DRAFT-r2.md`, SHA-256
+`4225647fd0bf2905ae8c05ec22542473d75aeed82896ecbae535ed3ef2abc336`; companion `leaf-frag139.json`,
+`376a8497594a9dae6f55016c5761103395c89c2be5e9259b56f743feb7ee7cf9`), which Lane B accepted for assessment and
+issuance at B-136 `abc9218`. Unchanged bindings from `D-433` item 4a: `leaves.json` (`a4abb1f8…`, the `frag140`
+FN leaf) and `D433R-DRAFT-r2.md` (`cac06ac4…`, SCOPE-1–3). Lane A is `Active`. This act runs inside `D-418`/`D-431`
+item 6 (P15) and the conditional S2 order. It changes no V1 scope or sequence.
+
+### The decision
+
+1. **Assessment recorded as issued, verbatim:**
+   > I accept and check SV2-DOD-01, SV2-DOD-02 and SV2-DOD-04 on Lane A's index at 469fde0 and Lane B's
+   > independent evidence review d2c4238. SV2-DOD-03 and SV2-DOD-05 retain their existing Judge checkoffs
+   > under D-362 and D-289. I accept SV-002 under SV2-DOD-06. I individually accept B-136.P15 under
+   > D-364 item 4 and D-382 item 6 because its attempt docket and combined acceptance obligation are
+   > evidenced by that revision-pinned DOD-01–05 index. P15 clears from this act onward, with no earlier
+   > clearance inferred. B-137's later first work-order check and P14a/P14b retain their owners, receipts and
+   > return conditions. The GR-007 conclusion may be recorded against the re-derived tracker. This does not
+   > lift the V1-SM05 block, accept Gate 2, select a work order, activate a lane, authorize construction or push,
+   > or disposition the whole B-136 header.
+
+   DOD-01, -02, -04 and -06 are checked; DOD-03 and -05 are unchanged. The P15 refusal rules (B-154 `9f8a872`) were
+   checked at `e1077bc`; none is met.
+2. **P15** closes from this act onward, by the reason given. B-136's header, P14a/P14b and `B-137` R1 are not
+   dispositioned.
+3. **Tracker** reconciled at an observation revision **T**: an existing commit after this recording and before the
+   tracker edit, never a candidate hash. The full tracker is reconciled, not regenerated. Pass needs the
+   `closure-readiness` zeros **and** Lane A's manual check of each new Basis.
+4. **GR-007.** B-077's accepted final independent review at `fdf06dc` is preserved. The new all-row GR-007
+   conclusion is recorded from the Judge's individual P15 acceptance and the re-derived tracker.
+   - In cycle-2 receipt 2, Lane B explicitly assesses that new conclusion as well as the candidate bytes: its
+     source-specific clearance reasons, the ledger population and the tracker. A byte-only receipt is insufficient.
+   - The semantic outcome is recorded in B-136, bound to the reviewed source and candidate manifest. That explicit
+     receipt-2 review is the **one completion transition**.
+   - No governed byte changes after candidate acceptance just to turn "awaits" into "complete".
+   - Publication and health are separate cycle conditions.
+5. **Scope clarification** (SCOPE-1–3, reviewed `a5f1446`) and the `frag140` FN leaf (`c4283f75…`) are applied.
+6. **Current-status claims** that the acceptance makes stale are corrected (draft Part 3, B1–B13), with old text kept
+   as dated history. B14 (`Modular_PRD` §8.1 dated annotation) is unchanged.
+7. **Cycle-2 receipt route (unit-scoped; route A).** This act and batch 2 are committed before prepare.
+   - Lane B's acceptance record goes in **B-050** (terminal) by Lane B's review commit. Lane B's record-only
+     Terminal annotation commit follows immediately, as a separate one-file commit.
+   - Between those two commits, only `terminal-return` and `docs-drift` may fail. Hooks are never skipped.
+   - The unit is cycle 2, including a replacement inside it after a finding. Its end point is the health record.
+   - Outside that interval, only `D-428` applies.
+   - No fetch and no push from prepare to the health record. The `D-432`/`D-433` exceptions are not reused.
+8. **Publication: P-cond.** After Lane B's receipt 2, which covers the candidate bytes **and** the GR-007 semantic
+   assessment with unchanged bindings, the reviewed candidate is published. A separate health check follows; the
+   unit stops at the health record. Any binding or check failure stops the run, with no bypass.
+9. **Not given:** the `V1-SM05` unblock, Gate 2 (`V1-SM05-FV-001`), the `D-242` work order, lane activation,
+   construction, push, the `SETUP-SPIKE-000` root disposition, `D-432` item 6, and the `sync-docs` §7 freeze note.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e259 |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ `D-434` paragraph, and B12 in the §1 `V1-SM05` cell; no V1 scope, sequence or DoD change |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-434` paragraph and B11; no file added or retired |
+| `SV-002.md`, `GOV-RES-001.md`, `V1-SM05.md`, fn-specs `FN-MULTI-LANE-AI-GOVERNANCE.md`, `frag139.json`, `frag140.json` | Follow: the batch-2 applying commit |
+| `Modular_PRD.md` | — unaffected in `D-434` (B14 dated annotation unchanged; §8 sprint/tier unchanged) |
+| B-136 (receipts) and B-050 (Lane B's candidate receipt) | Follow: their own handoff commits |
+| Rule files, Phase Closure, frozen sources | — unaffected |
+| **Encyclopedia** | unaffected (`docs/ENCYCLOPEDIA-SYNC.md` maps no section this act changes) |
+| **Graphify** | Governed drift, expected; cleared only by guarded cycle 2, never by a raw rebuild |

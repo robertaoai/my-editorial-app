@@ -585,6 +585,10 @@ SPECS §6 and UX §4 sections are new sections, not new files. **Item 4a (2026-1
 `SV-002.md`, the U03 evaluation, the FN and SPECS files, one leaf each in `frag139.json` and `frag140.json`, and this
 file's own rows for `SV-002.md` and the evaluation change in place.
 
+**`D-434` (2026-10-12) — no file added or retired, stated explicitly.** `SV-002.md`, `GOV-RES-001.md`, `V1-SM05.md`,
+`FN-MULTI-LANE-AI-GOVERNANCE.md`, `V1-BUILD-SPEC.md` (its §1 `V1-SM05` cell), one description leaf each in
+`frag139.json` and `frag140.json`, and this file's own row for `SV-002.md` change in place.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |
