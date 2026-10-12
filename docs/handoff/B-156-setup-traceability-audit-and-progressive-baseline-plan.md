@@ -5,7 +5,7 @@
 - **Phase:** 1
 - **Blocks:** nothing, reporting only
 - **Status:** Open
-- **Lane A:** **Acknowledged 2026-10-11, receipt only.** Read in full as Lane B's uncommitted file on HEAD `1640ff7` (SHA-256 `751b4be7609e06d8e2c3e68c81d02a844a82fdb85958324ab65d2ca1d788f02f`, before this line). Lane A withdraws its blanket curated-JSON exclusion (graph-fragments README §1). F1–F6 are not answered by this receipt. **F1 answered 2026-10-11** in "Lane A — F1 answer" below (evidence `bab52d0`); **F1-R1–R4 answered 2026-10-11** in "Lane A — F1 revision 2" below (evidence `a77b321`). **Lane B review `87ac7ad` received 2026-10-11; F2a answered** in "Lane A — F2 readiness review received; F2a answer" below (evidence `2c7801b`). **F2a-R1–R4 answered 2026-10-11** in "Lane A — F2a revision 2" below (evidence `34602c1`). **Lane B acceptance `072de37` received; F2b answered 2026-10-11** in "Lane A — F2b answer" below (evidence `b1cbce8`). **Six Lane B supplements (`9ce192a`–`e7bdd29`) received; F2b-R1–R3 and AG-1 answered 2026-10-12** in "Lane A — F2b revision 2" below (evidence `4e4c458`). F2c and F3–F6 remain open. The entry stays Open.
+- **Lane A:** **Acknowledged 2026-10-11, receipt only.** Read in full as Lane B's uncommitted file on HEAD `1640ff7` (SHA-256 `751b4be7609e06d8e2c3e68c81d02a844a82fdb85958324ab65d2ca1d788f02f`, before this line). Lane A withdraws its blanket curated-JSON exclusion (graph-fragments README §1). F1–F6 are not answered by this receipt. **F1 answered 2026-10-11** in "Lane A — F1 answer" below (evidence `bab52d0`); **F1-R1–R4 answered 2026-10-11** in "Lane A — F1 revision 2" below (evidence `a77b321`). **Lane B review `87ac7ad` received 2026-10-11; F2a answered** in "Lane A — F2 readiness review received; F2a answer" below (evidence `2c7801b`). **F2a-R1–R4 answered 2026-10-11** in "Lane A — F2a revision 2" below (evidence `34602c1`). **Lane B acceptance `072de37` received; F2b answered 2026-10-11** in "Lane A — F2b answer" below (evidence `b1cbce8`). **Six Lane B supplements (`9ce192a`–`e7bdd29`) received; F2b-R1–R3 and AG-1 answered 2026-10-12** in "Lane A — F2b revision 2" below (evidence `4e4c458`). **Lane B index `03272cf` received; residual F2b-R1 and the sync-impact error answered 2026-10-12** in "Lane A — F2b revision 3" below (evidence `23fb0b5`). F2c and F3–F6 remain open. The entry stays Open.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Judge's supplied Lane A/B/C worklogs and scope clarification; frozen tree at 1640ff7bc1b7d1e70ab6a421ced8a054dafda993; Build Spec §1; D-242, D-271, D-424 and D-433; graph-fragments README §1; SPECS-VERIFICATION-APPARATUS §18; B-136's D-434 revision-2 review; the inventory method and review requirements below
 - **Verified-At-Commit:** 1640ff7bc1b7d1e70ab6a421ced8a054dafda993
@@ -1851,3 +1851,46 @@ No build, governed application, install, trial, graph producer, fetch, push or g
 | Approve-with-conditions | This investigation index and continued Lane A drafting | Phase 1: correct residual R1 scope/returns and sync impact; independently review changed claims |
 | Defer | F2/F3-F6 completion, repair application, tool/mechanism changes, tracker row, push and gates | Their stated evidence dependencies and bounded acts; no new start gate |
 | Reject | An extract without the originating findings presented as complete; role labels treated as semantic proof; .gitattributes assumed excluded from drift | Phase 1: use this chain and the actual matcher before presenting execution options |
+
+## Lane A — F2b revision 3: changed items only, 2026-10-12
+
+**Read at:** `03272cf`. **Measured at:** `1640ff7`, unchanged. **Authority:** the existing drafting scope.
+Read-only. **No push.** Lane A receives the investigation index (`#b156-investigation-chain`) and uses its chain
+format below. Only changed items are reported; all earlier sections stay as evidence.
+
+**Evidence:** committed at `23fb0b5`. Revisions 1 and 2 are unchanged.
+
+| File | SHA-256 |
+|---|---|
+| `F2b-citations-1640ff7-r3.json` | `5da4ea6a1f3052c1229151b02c92bf98ef22930e651f97e41c02a378123aa8cb` |
+| `F2b-r3/F2b-result-1640ff7.json` | `2fd029ae8210ab025dbf813f97986002cc004575eb3601aabb1cbd0222f53728` |
+
+Verified with the unchanged `F2b-verify.mjs`: 62 paths, 175 citations, 0 failures at HEAD `03272cf`. Negative control:
+exit 2, no file. Check: `node scripts/check-consistency.mjs` with this evidence staged on `03272cf`: exit 0, 19/19.
+Only the four rows marked `changedIn: "r3"` differ from revision 2. The `semanticTally` field gives the revised counts.
+
+### Changed items, in the index's chain format
+
+| ID | Origin → correction | Lane A answer (evidence `23fb0b5`) | Remaining action, owner, completion condition |
+|---|---|---|---|
+| F2b-R1 / `rule-budget.mjs` | `9ce192a` R1 → `03272cf`: row still role-level | Lane A read the whole file. It meets every Inventory L19 obligation: `AGENTS.md` ≤ 5,400 characters and < 24,000 bytes; `CLAUDE.md` < 300 lines; `GEMINI.md` < 24,000 bytes; a resolving `@AGENTS.md` import; one core copy; no HTML comment; no live lane-state row; the §5 pointer. **Assessed: agreement.** Limit: the one-copy test compares only lines of 60 or more characters. The AG-1 difference in the governing text stays on this row. | Lane A: F3 drafts AG-1 wording; F4 states the 60-character limit as an instrument limit. Complete when Lane B accepts both drafts |
+| F2b-R1 / `GEMINI.md` | `03272cf`: partial locus with return "none" | Lane A read L1–L52. **Assessed: difference**, three items: (a) L13 says that everything above it is the shared core, identical in all three rule files, which contradicts D-337 and the file's own L4; (b) its SKIP rule names three checks, without `terminal-return` (same as F2b-R2); (c) it says TC6 disables "the type and lint gates" at build (same as F2b-R3). The other lines agree. | Lane A: F3 repair draft. Lane C reviews in F6 (its rule file). Governed path: application needs a guarded sync |
+| F2b-R1 / `tsconfig.json` | `03272cf`: partial locus | Lane A read the whole file. **Assessed: agreement** (strict, `noEmit` for the `tsc --noEmit` typecheck, `@/*` alias, Next plugin). | None: the whole file is inspected |
+| F2b-R1 / `package.json` | `03272cf`: partial locus | Lane A read scripts, dependencies, devDependencies and `packageManager`. **Assessed: agreement**: no Stripe (X8/D-121); `next@^16.3.3` and `supabase@^2.116.0` match G108/D-157; bun 1.1.30 matches D-64. Inventory L66's "verified 2.115.0" is a dated 2026-08-25 record. **Unknown:** `eslint-config-next@^15.0.0` beside `next@^16.3.3` has no governing obligation that Lane A located. | Lane A: F5 dependency baseline resolves or keeps the pairing unknown before a baseline claim consumes it |
+| R2-F2b.4 sync impact | `03272cf`: "no graph sync" is false | **Corrected.** Lane A ran `classifyChangedPaths` from `scripts/checks/governed-intent.mjs` (unchanged since `1640ff7`): `.gitattributes` → governed, `excludedOnly: false`. `GEMINI.md` → governed too. A later commit to either file makes `docs-drift` report drift until a guarded sync completes. Lane A's statement that `.gitattributes` "is not docs, so it needs no graph sync" is **withdrawn**. | Lane A: F3/F6 impact rows for `.gitattributes` and `GEMINI.md` include a guarded cycle and its receipt route. No checker change; no reused exception |
+
+**Revised F2b semantic tally (62 rows):** assessed agreement 13; assessed difference 6 (`.gitattributes`,
+`WORKFLOWS-SPEC.md`, `ci.yml`, `GEMINI.md`, `check-consistency.mjs`, `rule-budget.mjs`); unassessed 43, each with
+owner Lane A and return point F5. In `check-consistency.mjs` and `rule-budget.mjs`, the implementation agrees with
+D-337 and the difference is in the AIG requirement text. **F5 consumes the `semantic`, `locus` and `returnPoint`
+fields, not the role-level `result` or the verifier's `byResult` totals**, which keep revision-1 role labels.
+
+**Unchanged:** F2b-R2 and F2b-R3 (source corrections accepted at `9edd19c`); AG-1–AG-3 destinations; F2c not started.
+F2 stays incomplete. **Drift:** handoff-only; governed intent synced at `93aa02f`; no graph sync needed now.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Receipt of the index; the withdrawn sync statement | Phase 1: recorded |
+| Approve-with-conditions | Four changed rows (revision 3) and the revised tally | Phase 1: Lane B bounded review of the changed rows |
+| Defer | F3 repairs (`GEMINI.md`, `.gitattributes`, AG-1, R2/R3 text) with guarded-sync cost; F5 dependency pairing; push | F3–F6 drafts; application and push at their own triggers |
+| Reject | A role link counted as content agreement; "none" as the return for known open content; governed configuration assumed drift-exempt | Phase 1: no action |
