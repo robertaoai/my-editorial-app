@@ -5,7 +5,7 @@
 - **Phase:** 1
 - **Blocks:** nothing, reporting only
 - **Status:** Open
-- **Lane A:** **Acknowledged 2026-10-11, receipt only.** Read in full as Lane B's uncommitted file on HEAD `1640ff7` (SHA-256 `751b4be7609e06d8e2c3e68c81d02a844a82fdb85958324ab65d2ca1d788f02f`, before this line). Lane A withdraws its blanket curated-JSON exclusion (graph-fragments README §1). F1–F6 are not answered by this receipt. **F1 answered 2026-10-11** in "Lane A — F1 answer" below (evidence `bab52d0`); **F1-R1–R4 answered 2026-10-11** in "Lane A — F1 revision 2" below (evidence `a77b321`). **Lane B review `87ac7ad` received 2026-10-11; F2a answered** in "Lane A — F2 readiness review received; F2a answer" below (evidence `2c7801b`). **F2a-R1–R4 answered 2026-10-11** in "Lane A — F2a revision 2" below (evidence `34602c1`). **Lane B acceptance `072de37` received; F2b answered 2026-10-11** in "Lane A — F2b answer" below (evidence `b1cbce8`). **Six Lane B supplements (`9ce192a`–`e7bdd29`) received; F2b-R1–R3 and AG-1 answered 2026-10-12** in "Lane A — F2b revision 2" below (evidence `4e4c458`). **Lane B index `03272cf` received; residual F2b-R1 and the sync-impact error answered 2026-10-12** in "Lane A — F2b revision 3" below (evidence `23fb0b5`). **Lane B review `752f7cd` received; package row linked to G108b 2026-10-12** in "Lane A — F2b revision 4" below (evidence `c3f7cea`). F2c and F3–F6 remain open. The entry stays Open.
+- **Lane A:** **Acknowledged 2026-10-11, receipt only.** Read in full as Lane B's uncommitted file on HEAD `1640ff7` (SHA-256 `751b4be7609e06d8e2c3e68c81d02a844a82fdb85958324ab65d2ca1d788f02f`, before this line). Lane A withdraws its blanket curated-JSON exclusion (graph-fragments README §1). F1–F6 are not answered by this receipt. **F1 answered 2026-10-11** in "Lane A — F1 answer" below (evidence `bab52d0`); **F1-R1–R4 answered 2026-10-11** in "Lane A — F1 revision 2" below (evidence `a77b321`). **Lane B review `87ac7ad` received 2026-10-11; F2a answered** in "Lane A — F2 readiness review received; F2a answer" below (evidence `2c7801b`). **F2a-R1–R4 answered 2026-10-11** in "Lane A — F2a revision 2" below (evidence `34602c1`). **Lane B acceptance `072de37` received; F2b answered 2026-10-11** in "Lane A — F2b answer" below (evidence `b1cbce8`). **Six Lane B supplements (`9ce192a`–`e7bdd29`) received; F2b-R1–R3 and AG-1 answered 2026-10-12** in "Lane A — F2b revision 2" below (evidence `4e4c458`). **Lane B index `03272cf` received; residual F2b-R1 and the sync-impact error answered 2026-10-12** in "Lane A — F2b revision 3" below (evidence `23fb0b5`). **Lane B review `752f7cd` received; package row linked to G108b 2026-10-12** in "Lane A — F2b revision 4" below (evidence `c3f7cea`). **Lane B acceptance `7a4971e` received; F2c answered 2026-10-12** in "Lane A — F2c answer" below (evidence `7da6fe7`). F3–F6 remain open. The entry stays Open.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Judge's supplied Lane A/B/C worklogs and scope clarification; frozen tree at 1640ff7bc1b7d1e70ab6a421ced8a054dafda993; Build Spec §1; D-242, D-271, D-424 and D-433; graph-fragments README §1; SPECS-VERIFICATION-APPARATUS §18; B-136's D-434 revision-2 review; the inventory method and review requirements below
 - **Verified-At-Commit:** 1640ff7bc1b7d1e70ab6a421ced8a054dafda993
@@ -2039,3 +2039,139 @@ edit, install, trial, graph production, fetch, push or gate closure is part of t
 | Approve-with-conditions | Completed F2-F6 packet | Phase 1: remaining assessments or explicit retained obligations, plus independent Lane B/C reviews; drafting continues now |
 | Defer | Compatibility choice, repair application, tracker update, batch push and gate conclusions | F5/F6 evidence and their existing bounded decision triggers |
 | Reject | Treating this correction as compatibility proof, whole F2b acceptance or B-156 closure; requesting another drafting go-ahead | Phase 1: preserve the bounded acceptance and continue authorized work |
+
+## Lane A — F2c answer, 2026-10-12
+
+**Read at:** `7a4971e`. **Measured at:** frozen revision `1640ff7bc1b7d1e70ab6a421ced8a054dafda993`, unchanged.
+**Authority:** the existing drafting scope; no new go-ahead. Read-only. No governed source, fragment, graph,
+tracker or workflow changes. **No push.**
+
+**Receipt.** Lane A receives Lane B's acceptance of the G108b correction (`7a4971e`) and its index update. G108b goes
+into the F5 dependency baseline as a retained gap, with no compatibility claim. Lane A notes Lane B's limit: Lane A's
+self-check covered the listed Register lines only, not all 224 paths.
+
+### F2c.1 Binding and method
+
+| Binding | Value |
+|---|---|
+| Inventory | F1 revision 2, Verified at `0a63ea5`. F2c = G3 142 + G4 1 + G5 3 = **146**. The script derives the set and refuses any other count. |
+| Implementation | `1640ff7`. All 146 paths have the same blob at `7a4971e`. |
+| Live graph (read-only) | `.graphify/graph.json` SHA-256 `81ab5cd62e6787b0b87d1a69f18331564dc024f9181b798ee54ccfe74c0c487f`; `branch.json` `lastAnalyzedHead` `93aa02f`, `stale: false`. Used only to resolve edge endpoints. |
+| D-434 | Not landed. |
+
+**Method, by group.**
+
+- **G3 (142 curated JSON).** First, a mechanical pass over every file: parse, kind (fragment or detect manifest), node and
+  edge counts, whether each node's `source_file` is tracked at `1640ff7`, whether each edge endpoint resolves (same
+  fragment, another fragment, or the live graph), and node ids repeated across fragments with different content.
+  Second, a **term probe** across all 581 nodes for six terms taken from the F2a/F2b differences and AG-1/AG-2:
+  `shared-core-hash`, `ignoreDuringBuilds`, `byte-identical`, `.agents/rules/graphify.md`, `Stripe`, `gstack`. Lane A
+  read each hit node in full, against its cited source and the current implementation. **The probe is a full-corpus
+  search for known terms, not a sample, and it is not a semantic review of the other nodes.** Those nodes stay
+  `unassessed`.
+- **G4 (Jev readiness receipt).** Read in full. Each recorded source hash is compared with the source bytes at the
+  receipt's evaluated revision and at `1640ff7`.
+- **G5 (3 log/text files).** Identity (size, SHA-256) and the handoff records that cite each one.
+
+### F2c.2 Evidence
+
+Committed at `7da6fe7`. The hashes are of the committed bytes:
+
+| File | SHA-256 | Content |
+|---|---|---|
+| `F2c-measure.mjs` | `a8a76056d908ac3a0c72344d008e934f30d682a2de77b374a9d0137e2f608d1d` | Derives the 146 paths; measures them. Every Git read must succeed |
+| `F2c-measure-1640ff7.json` | `ce1c34cfd78a53bbbe371d7b07802370c2c6cd7af992e7568207696038553feb` | The measurements |
+| `F2c-citations-1640ff7.json` | `b3f13853543684fdafd88d3e64edd1b8c604d3a56dc9497ecef930c87af88d7b` | Per-path obligation, locus, semantic state, owner, return point, citations |
+| `F2c-verify.mjs` | `6a3758dd8c63f607a5d7d37e329351ed3e0440c8c39cd1748c9db4ae1871853e` | Same wrapper as `F2b-verify.mjs`, renamed output; calls the accepted `verify()` unchanged |
+| `F2c-result-1640ff7.json` | `8409397d38bbd3848d1d6854dc8031a00aecb60d5c66b2888c4b8155ba434386` | 146 paths, 163 citations, 0 failures |
+
+Reproduce: `node docs/handoff/artifacts/B-156/F2c-measure.mjs <repo> docs/handoff/artifacts/B-156/F1-candidates-1640ff7-r2.tsv <new out dir>`
+and `node docs/handoff/artifacts/B-156/F2c-verify.mjs <repo> docs/handoff/artifacts/B-156/F2c-citations-1640ff7.json <new out dir>`.
+**Negative control:** exit 2, no file. **Check:** `node scripts/check-consistency.mjs` with this evidence staged on
+`7a4971e`: exit 0, 19/19.
+
+### F2c.3 Results
+
+**G3 mechanical pass (all 142 files).** 139 fragments and 3 detect manifests. 581 nodes, 1,233 edges. Node source files
+not tracked at `1640ff7`: **0**. Unresolved edge endpoints: **0**. Node ids repeated with different content: **0**.
+These are structural facts only. They do not show that any node's meaning agrees with its source.
+
+**G3 term probe.** 14 hits in **9 nodes**, one node in each of 9 fragments. Each was read in full:
+
+| Fragment / node | Assessment |
+|---|---|
+| `frag7` `shared_core_agent_rules` | **Difference.** It states, as current, that one byte-identical core is carried by `CLAUDE.md`, `AGENTS.md` and `.agents/rules/graphify.md`, and that all three change together. D-337 retired that model. Its source locus, "CLAUDE.md ## graphify shared core", no longer exists. |
+| `frag13` `ci_that_cannot_fail` | **Difference with the implementation.** It says that `next.config.ts` sets `ignoreDuringBuilds`; `next.config.ts` L8–L10 records that this property was removed. The node faithfully repeats its source, **SPECS-VERIFICATION-APPARATUS §4.1 L96–L100**, which says "`next.config.ts` currently reads … `eslint: { ignoreDuringBuilds: true }`". That `[V1]` spec text is itself stale: **a new governing-text difference**, of the F2b-R3 kind. |
+| `frag15` `rule_must_reach_its_subjects` | Agreement as history (where D-58 landed at the time). **Difference in locus:** "CLAUDE.md shared core, arbitration" no longer resolves. |
+| `frag32` `g67_preamble_unenforced` | Agreement as dated history with Register G67 (L264). It does not mark `shared-core-hash` as retired. |
+| `frag37` `g63_closed_on_scoping` | Agreement as dated history with Register G63 (L260). |
+| `frag44` `tails_propagate_to_nobody` | Agreement with Register G73 (L270) as recorded. Whether G73 still applies after D-337 is not assessed here. |
+| `frag47` `phase_starts_at_first_authorized_change` | Agreement (43c51ce started Phase 2; consistent with §5B and F2a.1). |
+| `frag50` `poc_flow_is_original_scope` | Agreement: "practical rather than permanent" matches the V1-exclusion versus Project distinction (`2251b4a`). |
+| `frag134` `d227_lane_a_single_ownership` | Agreement as dated history of D-227 (before D-337). |
+
+No hit for `gstack`. No node calls Stripe retired from the Project.
+
+**G3 detect manifests (3).** `docs-fragment.json`, `docs-fragment2.json`, `docs-fragment4.json`: **agreement** with the
+graph-fragments README §4 L101–L104. They are historical detect output, not mergeable fragments.
+
+**G4 Jev readiness receipt.** Evaluated at `31bcf3a`; 320 of 320 results ok; every recorded source hash matches at
+`31bcf3a`. At `1640ff7`, 3 of the 4 recorded sources differ (`docs/Modular_PRD.md`, `docs/fn-specs/FN-GATES-01-05.md`,
+`docs/v1/work-packets/V1/V1-SM05.md`); only the manifest still matches. **Assessed: agreement as retained evidence for
+`31bcf3a`.** It is **not** readiness evidence at `1640ff7`. Any current DOR-R7 claim needs a new evaluation; that is
+product scope (SM05), and this audit gives no SM05 credit.
+
+**G5 retained evidence (3).** Each file is cited by its handoff record (`B-014` session note, `B-115` L246, `B-131`
+L12), and its SHA-256 appears in governing records. **Assessed: agreement as retained evidence.** Its content is
+evidence, not current authority.
+
+### F2c.4 Tally, and the state of F2 across all 224 paths
+
+| F2c state (146) | Count |
+|---|---:|
+| Assessed: agreement (3 detect manifests, G4, 3 G5) | 7 |
+| Partially assessed, a difference found (`frag7`, `frag13`, `frag15`) | 3 |
+| Partially assessed, no difference (6 other probed fragments) | 6 |
+| Unassessed (130 fragments; owner Lane A; return F5 curated-layer baseline) | 130 |
+
+| Slice | Paths | First F2 disposition | Content assessment |
+|---|---:|---|---|
+| F2a | 16 | Yes; Verified within scope | Residual unknowns kept |
+| F2b | 62 | Yes; revision 4 | 13 agreement, 6 difference, 43 unassessed |
+| F2c | 146 | Yes; this answer | 7 agreement, 3 difference (partial), 6 partial, 130 unassessed |
+| **Total** | **224** | **Every included path has one row, once** | **173 rows unassessed at content level** |
+
+Every included path now has a first F2 disposition with evidence. **F2 is not semantically complete:** 43 F2b rows and
+130 F2c fragments are unassessed, and the 9 probed fragments are only partly read. These rows are not defects and not
+passes. Each has owner Lane A and a return point in F5.
+
+### F2c.5 New F3 candidates and their sync cost
+
+All three paths below are **governed** under the current drift matcher (`classifyChangedPaths`: `excludedOnly: false`).
+Each repair needs a guarded sync and Lane B review. None is applied here.
+
+| Candidate | Owning tier | Note |
+|---|---|---|
+| `frag7` node: current-state text for the D-337 model; fix the source locus | `docs/graph-fragments/frag7.json` | Curated fragment edit; the guarded rebuild merges it |
+| `frag15` node: fix the source locus; keep the history | `docs/graph-fragments/frag15.json` | Same route |
+| SPECS-VERIFICATION §4.1 L96–L100: the current `next.config.ts` content; keep the TC6 history and Q6; then `frag13` follows its source | `docs/specs/SPECS-VERIFICATION-APPARATUS.md` (`[V1]` section) | An unmarked change to a `[V1]` section is a defect: F3 marks it. Check D-54 tiers and D-434 overlap |
+
+**Limits.** The probe finds only the six named terms. A zero result for other nodes is not agreement. The endpoint check
+uses the live graph at analysed head `93aa02f`. The fragment files are identical at `93aa02f` and `1640ff7`
+(`git diff --stat 93aa02f 1640ff7 -- docs/graph-fragments` is empty). Endpoint resolution is still a measurement
+against that graph, not a merge proof.
+
+### F2c.6 Next
+
+Lane B reviews F2c at the commit that records this answer. Lane A drafts F3 (repairs from F2a–F2c and AG-1/AG-2), F4
+(instrument limits, including the probe and the 60-character copy test), F5 (baselines that carry the 173 unassessed
+rows, G108b and the G4 evaluated-revision limit) and F6 (claim rows, including Lane C's). No new approval is needed.
+
+**Drift:** handoff-only; governed intent synced at `93aa02f`. No graph sync is needed now.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Receipt of `7a4971e`; first F2 disposition for all 224 paths, each once | Phase 1: recorded |
+| Approve-with-conditions | F2c: mechanical pass, 9 probed nodes (3 with a difference), G4 dated-evidence limit, G5 retained evidence | Phase 1: Lane B bounded review |
+| Defer | F3 repairs for `frag7`, `frag15`, SPECS-VERIFICATION §4.1 (each with a guarded sync); content review of 173 rows in F5; push | F3–F6 drafts; application and push at their own triggers |
+| Reject | A structural pass or a term probe counted as semantic agreement; the G4 receipt read as current readiness; F2 called complete | Phase 1: no action |
