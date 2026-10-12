@@ -5,7 +5,7 @@
 - **Phase:** 1
 - **Blocks:** nothing, reporting only
 - **Status:** Open
-- **Lane A:** **Acknowledged 2026-10-11, receipt only.** Read in full as Lane B's uncommitted file on HEAD `1640ff7` (SHA-256 `751b4be7609e06d8e2c3e68c81d02a844a82fdb85958324ab65d2ca1d788f02f`, before this line). Lane A withdraws its blanket curated-JSON exclusion (graph-fragments README §1). F1–F6 are not answered by this receipt. **F1 answered 2026-10-11** in "Lane A — F1 answer" below (evidence `bab52d0`); **F1-R1–R4 answered 2026-10-11** in "Lane A — F1 revision 2" below (evidence `a77b321`). **Lane B review `87ac7ad` received 2026-10-11; F2a answered** in "Lane A — F2 readiness review received; F2a answer" below (evidence `2c7801b`). **F2a-R1–R4 answered 2026-10-11** in "Lane A — F2a revision 2" below (evidence `34602c1`). **Lane B acceptance `072de37` received; F2b answered 2026-10-11** in "Lane A — F2b answer" below (evidence `b1cbce8`). F2c and F3–F6 remain open. The entry stays Open.
+- **Lane A:** **Acknowledged 2026-10-11, receipt only.** Read in full as Lane B's uncommitted file on HEAD `1640ff7` (SHA-256 `751b4be7609e06d8e2c3e68c81d02a844a82fdb85958324ab65d2ca1d788f02f`, before this line). Lane A withdraws its blanket curated-JSON exclusion (graph-fragments README §1). F1–F6 are not answered by this receipt. **F1 answered 2026-10-11** in "Lane A — F1 answer" below (evidence `bab52d0`); **F1-R1–R4 answered 2026-10-11** in "Lane A — F1 revision 2" below (evidence `a77b321`). **Lane B review `87ac7ad` received 2026-10-11; F2a answered** in "Lane A — F2 readiness review received; F2a answer" below (evidence `2c7801b`). **F2a-R1–R4 answered 2026-10-11** in "Lane A — F2a revision 2" below (evidence `34602c1`). **Lane B acceptance `072de37` received; F2b answered 2026-10-11** in "Lane A — F2b answer" below (evidence `b1cbce8`). **Six Lane B supplements (`9ce192a`–`e7bdd29`) received; F2b-R1–R3 and AG-1 answered 2026-10-12** in "Lane A — F2b revision 2" below (evidence `4e4c458`). F2c and F3–F6 remain open. The entry stays Open.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Judge's supplied Lane A/B/C worklogs and scope clarification; frozen tree at 1640ff7bc1b7d1e70ab6a421ced8a054dafda993; Build Spec §1; D-242, D-271, D-424 and D-433; graph-fragments README §1; SPECS-VERIFICATION-APPARATUS §18; B-136's D-434 revision-2 review; the inventory method and review requirements below
 - **Verified-At-Commit:** 1640ff7bc1b7d1e70ab6a421ced8a054dafda993
@@ -1648,3 +1648,101 @@ full-suite pass is claimed here. No build, install, trial, fetch, push, adoption
 | Approve-with-conditions | Proposed activity mapping and bidirectional F3-F6 drafts | Phase 1: Lane A answers; source-pinned independent review; retain gaps and current authority |
 | Defer | Applying new policy/mechanisms, tooling integration and any command supersession | Complete impact packet, relevant bounded act and task-specific evidence |
 | Reject | Exact historical derivation inferred from similarity; universal TLA+ rule; six new serial gates; no-orphan or QA/security claims from check counts | Phase 1: use the bounded mapping above; do not apply the raw strategy |
+
+## Lane A — F2b revision 2: answers to F2b-R1–R3 and AG-1; six supplements received, 2026-10-12
+
+**Read at:** `e7bdd29`. **Measured at:** frozen revision `1640ff7bc1b7d1e70ab6a421ced8a054dafda993`, unchanged.
+**Authority:** the existing B-156 drafting scope; no new go-ahead is needed. Read-only assessment. No governed
+source, lane map, tracker, fragment, graph or workflow changes. **No push.**
+
+### R2-F2b.1 Receipt of the six Lane B supplements
+
+Lane A received each supplement in full. Lane A checked each cited counterexample against `1640ff7` before it
+accepted it.
+
+| Supplement | Lane A receipt |
+|---|---|
+| `9ce192a` F2b review (F2b-R1–R3) | Accepted. All three findings are confirmed in the source; answered below |
+| `d8ca854` Initial AGENTS.md comparison (AG-1–AG-3) | Accepted. AG-1 is confirmed (FN L177–L178 and L213, Modular_PRD L883, SPECS L106) and answered below. AG-2 and AG-3 go to F3 and F5 |
+| `25381c2` Lane C review consolidated | Accepted. Lane A uses Lane B's corrected facts (225/224/1; 16/62/146; the real F2b-R1–R3 meanings; real commit `d8ca854cbd1d…`), not the raw supplied text |
+| `2251b4a` Judge clarification: V1 exclusion is not Project retirement | Accepted. Three separate objects: V1 NG-03 exclusion (live), PBL-02 future capability (unranked, not refinement-ready, no provider selected), B-003's Verified scaffold removal at `67706ca`. Lane A's own B-156 answers never called Stripe or payment retired from the Project; F3 keeps the three objects separate |
+| `adf222b` Second Lane C worklog consolidated | Accepted. No gstack retirement is inferred; no 19/19 claim is taken from a killed run; D-75/D-84 are lane rules, not a tool ban |
+| `e7bdd29` Judge gstack intent; bidirectional mapping | Accepted. Lane A adopts the corrected AG-2 wording: gstack was the workflow **declared at repository inception** (`62c8d8c` AGENTS.md L94–L102: Plan, Review, Ship, Deploy, QA, Security audit), and the Judge confirms that intent. Current installation, command availability, execution history and any formal supersession are separate questions and stay **unknown**. The six activities are workflow intent, not six serial gates. Lane A's own answers never used "unadopted" or "prohibited" for gstack |
+
+The F6 claim-row format proposed in `2251b4a` (claim, object/use case/version, conclusion, governing locus and
+read revision, supporting text, evidence, limit, owner/review/return) is adopted for F6.
+
+### R2-F2b.2 Evidence
+
+Revision 2 is committed at `4e4c458`. Revision-1 files (`b1cbce8`) are unchanged. The hashes are of the committed bytes:
+
+| File | SHA-256 | Content |
+|---|---|---|
+| `F2b-citations-1640ff7-r2.json` | `614e1fdb8c56c0c565e4c67ceb914973ff6f4617cbf68eab954a8f80c3ad4bc1` | All 62 rows, each now with `obligation`, `locus`, `semantic`, `owner`, `returnPoint`; 170 citations |
+| `F2b-r2/F2b-result-1640ff7.json` | `25af1d8ee609f08449148fef1046afbb02aafb39e0092f29c28f67456cfb7010` | Verification at HEAD `e7bdd29`: 62 paths, 170 citations, 0 failures |
+
+Reproduce: `node docs/handoff/artifacts/B-156/F2b-verify.mjs <repo> docs/handoff/artifacts/B-156/F2b-citations-1640ff7-r2.json <new out dir>`.
+The verifier is unchanged, and it calls the accepted F2a revision-2 `verify()`. **Negative control:** exit 2, no file.
+**Check:** `node scripts/check-consistency.mjs` at `4e4c458`'s parent `e7bdd29` plus the staged evidence: exit 0, 19/19.
+
+### R2-F2b.3 Answers
+
+| ID | Correction applied | Evidence |
+|---|---|---|
+| **F2b-R1** | Each of the 62 rows now names its **obligation**, the **implementation locus** inspected and a **semantic conclusion**. Lane A inspected the content of **19** rows: 14 agree, 5 show a difference. The other **43** rows read `unassessed`, with owner Lane A and return point "F5 retrospective setup snapshot: content review before any claim that consumes this row". A role link is no longer counted as semantic agreement. The revision-1 `result` field is kept, labelled role-level. | Citations r2, fields `semantic`, `locus`, `returnPoint` |
+| **F2b-R2** | Recorded on the `WORKFLOWS-SPEC.md` row (§3 L46–L56 names three CI skips) and the `ci.yml` row (L22: default `actions/checkout@v4` depth). `terminal-return.mjs` L391–L402 also skips a shallow clone, so four checks skip, not three. Inventory L69's explanatory sentence has the same gap; that is docs text, so it goes to F3, not to an F2b row. The dated three-check statements stay as history. Lane A changes no workflow. It keeps the separately authorized fetch-depth queue that Lane B names, and claims no CI run. | `WORKFLOWS-SPEC.md` and `ci.yml` rows; `terminal-return.mjs` L401 citation |
+| **F2b-R3** | Recorded on the `WORKFLOWS-SPEC.md` row (§2 L34–L35) and the `ci.yml` row (L3–L5). Both say that TC6 sets `ignoreDuringBuilds`; `next.config.ts` L8–L10 records that this ESLint property was removed (B-058, Verified at `cf51724`). The `next.config.ts` row is **agreement**: TypeScript suppression stays, TC6 is narrowed, Q6 is Open. The `ci.yml` comment repair is a Lane C proposal for F6. `agent-rules-reference.md` is verbatim history and is not modernized. | Same rows; `next.config.ts` row |
+| **AG-1** | Recorded on the `check-consistency.mjs` row (agreement with D-337: it runs `rule-budget` and no `shared-core-hash`; SPECS L106 still lists `shared-core-hash.mjs` as built) and the `rule-budget.mjs` row (FN `AIG-06.C1` L213 and Modular_PRD L883 still name `shared-core-hash`). `AGENTS.md`, `CLAUDE.md` (L1 `@AGENTS.md`) and `GEMINI.md` (L4, "never copies the shared core") agree with D-337 for the inspected loci. The difference is in the AIG requirement text, not in the implementation. F3 drafts the current-state wording, using Lane B's suggested text as the basis, and keeps the refactor history. | Those five rows |
+
+### R2-F2b.4 New Lane A finding: `GEMINI.md` falls under `merge=union`
+
+While reading `.gitattributes` for F2b-R1, Lane A found a difference that the earlier reviews did not name.
+
+- `.gitattributes` (G63/D-84) gives `*.md` `merge=union` for append-only audit text, and then lists current-value
+  files as `merge=text`: `docs/v1/**/*.md`, `docs/Modular_PRD.md`, `CLAUDE.md` (L36), `AGENTS.md` (L37) and
+  `.agents/**/*.md`. Its own comment explains that union merge is **wrong** for current-value content.
+- `GEMINI.md` is a current-value rule file, created by D-337 on 2026-09-29. The last change to `.gitattributes` was
+  2026-09-24. `git check-attr merge -- GEMINI.md` reports `merge: union`. `AGENTS.md` and `CLAUDE.md` report `text`.
+- The comment at L31 still cites `shared-core-hash` as its example. That is history after D-337.
+- **Impact:** a concurrent edit to `GEMINI.md` would union-merge without a conflict marker, which is the failure the
+  G63 comment describes. No such merge has been observed; this is a configuration difference, not a recorded defect.
+- **F3 candidate:** add `GEMINI.md merge=text` and refresh the L31 example. `.gitattributes` is Lane A build
+  configuration (D-84, Register L4228). Applying it needs a bounded unit; it is not docs, so it needs no graph sync.
+  It needs Lane B review first, and Lane C may comment because `GEMINI.md` is its rule file.
+
+### R2-F2b.5 Corrected F2b totals and F2 completion
+
+| Semantic state (62 F2b rows) | Count | Rows |
+|---|---:|---|
+| Assessed: agreement | 14 | `AGENTS.md`, `CLAUDE.md`, `GEMINI.md` (inspected lines), `.codex/hooks.json`, `.gitignore`, `eslint.config.mjs`, `next.config.ts`, `package.json` (scripts), `postcss.config.mjs`, `tsconfig.json` (alias), `.githooks/commit-msg`, `lib/supabase/server.ts`, `lib/supabase/middleware.ts`, `app/page.tsx` (no setup obligation; product scope) |
+| Assessed: difference | 5 | `.gitattributes` (R2-F2b.4), `.github/WORKFLOWS-SPEC.md` (R2, R3), `.github/workflows/ci.yml` (R2, R3; Lane C), `scripts/check-consistency.mjs` (AG-1, governing text), `scripts/checks/rule-budget.mjs` (AG-1, governing text) |
+| Unassessed (owner Lane A; return F5) | 43 | All other rows, listed in the citations file |
+| Disputed | 0 | — |
+
+The revision-1 claim of zero differences is **withdrawn**. **F2 is not complete:** F2a is Verified within its scope;
+F2b has 43 rows unassessed at content level; F2c (146) is not started. The 43 rows are not claimed as defects.
+
+### R2-F2b.6 Destinations of the received work
+
+| Item | Destination | Note |
+|---|---|---|
+| R2-F2b.4, F2b-R2/R3 text, AG-1 wording, Inventory L69 | F3 repair drafts at the owning tiers | D-54 tier map and D-434 overlap check for each; workflow comment as a Lane C proposal |
+| AG-2: initial conventions (Stripe three objects; gstack declared intent; Server Action preference; alias) | F3 keep / history / proposed classification | No retirement or adoption is invented; gstack mechanism availability stays unknown |
+| Six-activity mapping; forward and reverse chains; F5 row format | F4/F5 drafts | Correspondence is labelled proposed; no serial gates; no universal TLA+ rule; customer requirements stay the parent |
+| AG-3: separate baselines and measures | F5 | Citation validity, semantic agreement, behaviour evidence and graph currency reported separately, with denominators |
+| `ci.yml` host output; the workflow comment; `GEMINI.md` | F6 claim rows for Lane C | Specific claims only, not a general review request |
+
+### R2-F2b.7 Next
+
+Lane B reviews this revision at the commit that records it. Lane A continues F2c (146 paths) and drafts F3–F6 in
+parallel. The 43 unassessed F2b rows return in F5 or earlier if a dependent conclusion needs one.
+
+**Drift:** handoff-only; governed intent is synced at `93aa02f`. No graph sync is needed. A current graph does not
+prove semantic currency (AG-1 is an example).
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Receipt of the six supplements; corrected AG-2 wording; Stripe three-object distinction; F6 claim-row format | Phase 1: recorded |
+| Approve-with-conditions | F2b revision 2: 19 assessed (14 agreement, 5 difference), 43 unassessed with owner and return; the new `GEMINI.md` merge finding | Phase 1: Lane B bounded review; Lane C comment on the `GEMINI.md` and `ci.yml` claims in F6 |
+| Defer | F3 repairs (including `GEMINI.md merge=text`); gstack mechanism assessment; the tracker row; the batch push | F3–F6 drafts; application, host review and push at their own triggers |
+| Reject | Role links counted as semantic agreement; the zero-differences tally; gstack called retired, prohibited or installed; Stripe called retired from the Project | Phase 1: no action |
