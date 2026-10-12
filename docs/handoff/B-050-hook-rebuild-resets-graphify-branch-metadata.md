@@ -7402,3 +7402,82 @@ Evidence folder: C:/CoWork/outputs/lane-b-d433-4a-review-2026-10-11/.
 - **Annotation-Act:** D-433 item 6, cycle-1 replacement after amendment 4a and S-a. This immediately following record-only commit covers Lane B's fresh receipt 2 at 8800053d9f109d2a6fcb0bbbe4dbec4232c596a6, for work fba4b947-659c-46ed-a345-9bfae2c7a339, graph 81ab5cd62e6787b0b87d1a69f18331564dc024f9181b798ee54ccfe74c0c487f, manifest b56afd6356198e907a68be958bb15cbc11e1aee9cf040a7b47f5826828cb148d, source 93aa02f4ded4b9e39a9742720ac986b7b593e583. B-050's header, Resolution and Lane A answer remain unchanged; no disposition is reopened. This ends the temporary terminal-return interval. The Judge's publication decision remains separate; full health follows an authorized release, with its result in B-136. No build, trial, fetch, push, P15 or Gate 2 clearance. The old 931deb9 acceptance stays withdrawn. Hooks are never bypassed.
 - **No-Scope-Reopened:** true
 - **Annotated-At-Commit:** 8800053d9f109d2a6fcb0bbbe4dbec4232c596a6
+
+
+## Lane B — D-434 cycle-2 replacement: independent receipt 2, 2026-10-12
+
+Read at 4236ab83b766dc7df610104586b66b53c99bfba3. Authority: D-434 items 4, 7 and 8; replacement inside cycle 2, route A and P-cond.
+This is independent candidate verification. B-050's terminal header and Lane A answer stay unchanged.
+
+### What happened
+
+**Accept the replacement only.** D434-R1 is resolved: the injected failure applies to each matching call, with real
+Git used for other calls. Lane A's second correction is also accurate: revision-1 F2a used git cat-file -e, not a tree
+lookup. Lane B checked both against the frozen function bodies. Exactly those two descriptions changed; the
+accepted evidence scripts and the superseded candidate remain unchanged.
+
+Independent review recomputed all 583 manifest files and the graph digest, answer bindings, source/baseline bindings,
+staging/studio checks, path/classification checks, seven per-call selection oracles, fourteen saved ignored lists and
+the final observation. No structural or semantic finding remains. All 202 description answers and 50 names match
+the candidate. Curated parity is 139/139 fragments exact; both changed leaf hashes retain their authorized values.
+All 19 names written from members retain identical member sets. The one changed commit-group name is
+"D-434 B-136/B-157 Commits": 18 commit members, D-434, top entries B-157 (6), B-136 (4), B-156 (3).
+This follows the existing naming rule; 49 names are unchanged.
+
+**GR-007 semantic acceptance, bound to this source and manifest:** the appended conclusion at 29bce67 is supported.
+Governed source is identical between 067a405 and 44a4b1e735a98f8cb377935f8e8f79095b444cb1. P15 closes on D-434's own Judge reason under
+D-364 item 4 and D-382 item 6. Tracker T is fa51ce0 with all five counters zero. The ledger population and keyed
+ledger both contain 160 non-turn-report entries, including B-156 and B-157; no key is missing or extra. Their
+verification remains planning-only. Lane B records this explicit receipt-2 semantic outcome in B-136 against the
+same source and manifest, as D-434 item 4 requires. Publication and health remain separate conditions.
+
+### What you need
+
+Lane B's covering Terminal annotation follows immediately in its own one-file commit under D-434 item 7.
+Lane A then uses this acceptance commit, not the annotation commit, as --review. Existing P-cond permits publication
+after the receipt/annotation and successful rechecks of the work, source, candidate, baseline and acceptance bindings.
+Stop on any finding. Run separate full health and live-parity checks after publication and record the result in B-136.
+No fetch or push before that health record. Option A application waits for that record; no new issuance question is
+needed for the already authorized D-434 steps. V1-SM05 remains BLOCKED; Gate 2, work-order selection, lane activation,
+construction, push and the SETUP-SPIKE root disposition are outside this receipt.
+
+### What you did instead
+
+Read-only Graphify navigation, source/diff review and candidate verification. Full checks at 4236ab8:
+18/19; only expected docs-drift failed. Live graph stays 81ab5cd6..., analyzed at 93aa02f; nothing is published.
+Review evidence: C:/CoWork/outputs/lane-b-d434-r2-review-2026-10-12/candidate-review.json (SHA-256 6855218869ec75c83bc0bb0d004463cd0c3f945a8cd7b3ff5340f24ed74a3df9);
+review-candidate.mjs (4f91757527750cb819cc0e0e235cf2714d8119502dd665e7dd72c28ac115fb0b);
+check-at-4236ab8.log (09cf8f6ef2bd8a7e14d254d1a2b892ba423a21a0608b38ec9f0d8687eeeddb2a).
+The prior 186e77ea... candidate and d87af4af... manifest remain superseded, unpublished evidence; do not publish them.
+
+### F3 acceptance record
+```json
+{
+  "kind": "graphify-f3-acceptance",
+  "version": 1,
+  "disposition": "Accept",
+  "scope": "F3 publication",
+  "reviewer": "Lane B",
+  "workId": "7b0900c2-7494-4f59-9621-5f38ef257058",
+  "graphSha256": "c9f65b189abf0473098631285c71216dc68ad0d35fca4a58f15f72ef994a8d3b",
+  "manifest": {
+    "algorithm": "guard-treeDigest-v1",
+    "digest": "8d1ca497e04c3c7301e7d0e563fc16f3bb7907efcb538049ef077bbac4fafd86",
+    "files": 583
+  },
+  "analyzedSource": "44a4b1e735a98f8cb377935f8e8f79095b444cb1",
+  "baseline": {
+    "releaseLocus": "8800053d9f109d2a6fcb0bbbe4dbec4232c596a6",
+    "algorithm": "guard-treeDigest-v1",
+    "digest": "b56afd6356198e907a68be958bb15cbc11e1aee9cf040a7b47f5826828cb148d"
+  },
+  "pendingSemantics": 0
+}
+```
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Independent receipt 2 for this replacement; both description corrections; GR-007 semantic review | Phase 1: this receipt, covering annotation and bound B-136 outcome |
+| Approve-with-conditions | Publication under existing P-cond, then separate health | Phase 1: unchanged bindings, Lane A publication and health record |
+| Defer | Option A application; batch push; SM05/Gate 2 and root disposition | Option A after health; other items retain their own authority |
+| Reject | Publishing the superseded candidate; byte-only acceptance; inferred product delivery or Gate 2 clearance | Phase 1: preserve scope limits |
