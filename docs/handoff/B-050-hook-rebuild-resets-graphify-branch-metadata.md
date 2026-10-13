@@ -7608,3 +7608,102 @@ finalize-review.mjs `c9997ffbe8f33e60e345106e82d3995d3d6e04a1f50b9a647951e662dae
 - **Annotation-Act:** D-435 item 5, this guarded Option A cycle, route A. This immediately following record-only commit covers Lane B's receipt at 8f3fdd0333db9651107b5bc915c05dbe4d25476e, for work 53746210-e1af-4065-a967-ef261c2d1fc6, graph ed7463f32bfffe07850759939025abdb8444abe9267e543dff279dc654c2e22b, manifest 702b9dfb5a5e3d8474ed991183290cef39c498917483c8b21e90cc7ba76a875a, source b77d1869fc57fe275a9a7ce78a0d159d8d9867de. B-050's terminal header, Resolution and Lane A answer remain unchanged; no scope is reopened. This ends the permitted temporary terminal-return interval. Lane A uses the receipt commit, not this annotation commit, as --review under existing A-cond, then records separate full health and the D435-C1 reporting correction in B-136. D435-M1 remains open before helper reuse and does not block this candidate. No fetch or push before the health record, no construction, Gate 2 closure, lane activation or root disposition. Earlier units' recording exceptions are not reused. Normal hooks remain enabled.
 - **No-Scope-Reopened:** true
 - **Annotated-At-Commit:** 8f3fdd0333db9651107b5bc915c05dbe4d25476e
+
+## Lane B — D-436 replacement candidate accepted (bytes and meaning), 2026-10-13
+
+### What happened
+
+Lane B received the D436-N1 answer (`b308d1c`) and replacement request in B-136 at
+`eadb1845f5e7f6cf5d38f7df4e895d5c5fa008dc`. Codex (Lane B), independent of Lane A's preparation, accepts
+the replacement below under D-436 items 6 and 6a. The earlier candidate `5681fde1...` remains unaccepted and
+unchanged. B-050's existing terminal header, Resolution and Lane A answer are unchanged; no scope is reopened.
+
+| Binding | Independently observed value |
+|---|---|
+| Work / attempt | `767c2515-692f-4123-b14d-6669d03a822f`, attempt 2, `C:/CoWork/outputs/lane-a-d436-2026-10-13/work-r2` |
+| Analyzed source | `b308d1cb954a2ce044e9623f3c51b041ae910a4e` |
+| Graph SHA-256 | `11245fc866a7bb432fed933d41ea2c63e2ae643b5805a0f4a95c8b3f42d0e8b9` |
+| Manifest | `guard-treeDigest-v1`, `f23855ef437ddeb36fd361bb52012ec13f476cd28cc3f957c0c7bc960860be39`, 583 files |
+| Baseline release locus | `8f3fdd0333db9651107b5bc915c05dbe4d25476e` |
+| Baseline digest | `702b9dfb5a5e3d8474ed991183290cef39c498917483c8b21e90cc7ba76a875a` |
+
+Recomputed graph and tree digests equal READY state. The publication source rule passes; governed source is
+unchanged from the accepted D-436 repair and route recording. Staging, producer studio validation and state
+classification have no findings. Curated parity is 139/139 exact, names are bound correctly, and no community
+is unnamed. The old returned candidate's graph and manifest remain byte-identical to their recorded bindings.
+
+**Semantic review.** D436-N1 is accepted as corrected. `names-r2.mjs`, SHA-256
+`1d6687c745c7451c6502a5894edd4c3b9e7547862f5b5223006994805db310a7`, checks the reviewed member-set hash
+table before commit and successor selection. The c8 hash `55fc7884db090d3ab8252cc524b595bd703f0ffeea66b431127f01698eb5a77f`
+now binds "Consistency Runner and Source Sweep Checks"; the stale name is absent. Its members still exclude
+the decision-status file and symbols, which have their own "Decision Status Check" community.
+
+All eight reviewed-name member sets are unchanged. Lane B checked all 33 supplied names: eight reviewed hash
+bindings, three successor names and 22 commit-group names. The successor names still describe the guard-test
+cluster, fixture harness/runner/retry cluster and sprint-handover/lane-state cluster. The seven previously
+reviewed member-written names retain their source/lesson evidence. Review relied on the code's actual branch
+order, not the older comment's abbreviated rule list.
+
+The delta against live is exactly 19 added Git commit nodes, equal to `b77d186..b308d1c`, with no removed nodes
+or changed existing descriptions. There are zero code-description answers. The FN leaf description stays
+`c4283f75aceeb1f1...`; the same two historical commit nodes remain undescribed. No new code behaviour or host
+claim is supplied by this receipt. The repaired FN pointer agrees with D-337, AGENTS.md and CLAUDE.md's import.
+
+### What you need
+
+1. Lane B immediately follows this receipt with its separate record-only covering Terminal annotation under
+   D-436 item 6a. Between those commits only terminal-return and docs-drift may fail; full logs are retained.
+2. Lane A re-checks all source, candidate and baseline bindings. If unchanged, publish under the existing
+   D-436 approval, using **this receipt commit** as `--review`, not the annotation commit. No renewed Judge
+   publication approval is needed. Any binding or unexpected check failure stops the unit.
+3. Run separate full health: live parity with these reviewed bytes, curated fragments, names, full configured
+   checks and check-update classification. Record this receipt, D436-N1 closure and health in B-136.
+4. No fetch or push until that health record. Health ends the freeze but does not authorize a new push:
+   Lane A's proposed final push still needs its own fixed-range checkpoint. Do not silently extend earlier tips.
+
+The Chief Editor evidence chain remains source authority -> applied repair -> independent candidate receipt
+-> publication -> separate health. B-136 remains Open. D-435/M1 acceptance and Lane C's B-156/F6 limits carry
+forward. No new C-series file, trial, lane allocation, construction, SM05 credit, Gate 2 or root disposition follows.
+
+### What you did instead
+
+Independent read-only source and candidate review, binding recomputation, staging/studio validation and this
+receipt. No governed edit, candidate edit, prepare, publication, build, dependency, cleanup, fetch or push.
+Fresh full configured check at examined `eadb184`: 18/19, exit 1; only authorized docs-drift fails. Governed
+intent remains analyzed at `b77d186`; a receipt alone does not clear drift. Node ran the configured checker
+directly in Lane B's shell. Evidence: `C:/CoWork/outputs/lane-b-d436-r2-review-2026-10-13/`.
+`review.json` SHA-256 `f40f51e19b7b702ba6666fa20b7f227d411a3d28ea4d760db05ba4b1fa75c1ce`;
+`review.mjs` `a500194cffc4ec8cbaff8be1fca53da43d4aff22a67f424a0cbcb057ff0d8e87`;
+`check-eadb184.log` `88882f029d0f8102435b322179a588a12500d9e8ca94a998c8558d85828f8a26`.
+
+### F3 acceptance record
+```json
+{
+  "kind": "graphify-f3-acceptance",
+  "version": 1,
+  "disposition": "Accept",
+  "scope": "F3 publication",
+  "reviewer": "Lane B",
+  "workId": "767c2515-692f-4123-b14d-6669d03a822f",
+  "graphSha256": "11245fc866a7bb432fed933d41ea2c63e2ae643b5805a0f4a95c8b3f42d0e8b9",
+  "manifest": {
+    "algorithm": "guard-treeDigest-v1",
+    "digest": "f23855ef437ddeb36fd361bb52012ec13f476cd28cc3f957c0c7bc960860be39",
+    "files": 583
+  },
+  "analyzedSource": "b308d1cb954a2ce044e9623f3c51b041ae910a4e",
+  "baseline": {
+    "releaseLocus": "8f3fdd0333db9651107b5bc915c05dbe4d25476e",
+    "algorithm": "guard-treeDigest-v1",
+    "digest": "702b9dfb5a5e3d8474ed991183290cef39c498917483c8b21e90cc7ba76a875a"
+  },
+  "pendingSemantics": 0
+}
+```
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | D-436 replacement bytes and meaning; D436-N1 correction | Phase 1: accepted within these exact bindings |
+| Approve-with-conditions | Existing publication and cycle completion | Phase 1: covering annotation, unchanged bindings, Lane A publication and separate health in B-136 |
+| Defer | Push and excluded parent/product work | Their existing triggers; any push has its own fixed-range authority after health |
+| Reject | Publishing returned `5681fde1...`; acceptance treated as publication; freeze expiry treated as push permission or Gate 2 clearance | Phase 1: preserve the stage, scope and authority boundaries |
