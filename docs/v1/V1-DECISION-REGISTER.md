@@ -28367,3 +28367,28 @@ outside `D-434` and `D-435` item 10). Lane A is `Active`. This act changes no V1
 | B-136 (records) | Follow: its own handoff commits |
 | **Encyclopedia** | unaffected (`docs/ENCYCLOPEDIA-SYNC.md` maps no section this act changes) |
 | **Graphify** | Governed drift, expected; cleared only by this act's guarded cycle after a receipt route is authorized, never by a raw rebuild |
+
+### Item 6a — receipt route authorized (2026-10-13)
+
+**Authority: the Judge, directly to Lane A, 2026-10-13**, in chat: **"Judge Approved: authorize D-436 receipt
+route"**. This replaces item 6's "Not yet". The route text is Lane B's draft at B-136 `07cd6b0`, issued as written:
+
+> For D-436's guarded cycle only, Lane B commits the independent candidate acceptance in **B-050**, followed
+> immediately by its covering Terminal annotation in a separate one-file commit. Between those two commits only
+> `terminal-return` and `docs-drift` may fail; full logs are retained and hooks are never skipped. After the
+> annotation, `terminal-return` must pass, and only the already permitted `docs-drift` may remain until publication.
+> This route applies to this cycle, including a reviewed replacement after a finding, and expires at its health
+> record. No fetch or push occurs from prepare through the health record. Publication stays conditional on Lane B's
+> receipt and unchanged bindings (item 6). No earlier unit's exception (`D-432` to `D-435`) is reused. No
+> construction, lane change, Gate 2 or additional push is authorized.
+
+Lane B's receipt reviews the candidate bytes **and** meaning: the changed FN pointer and any generated description,
+compared with what the source says or does. Prepare follows this recording.
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this item, under §5.14e261 |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ `D-436` paragraph updated: the receipt route is authorized |
+| Inventory, fn-specs, rule files, fragments, Phase Closure, frozen sources | — unaffected |
+| **Encyclopedia** | unaffected |
+| **Graphify** | Governed drift, expected; cleared only by this cycle's publication |
