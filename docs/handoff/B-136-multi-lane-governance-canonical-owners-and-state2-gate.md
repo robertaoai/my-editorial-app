@@ -6660,3 +6660,120 @@ Attachment SHA-256 `2d2ececb66a903caf734402a4557446bb269b1532a9f2f34f8d97e85e4cc
 | Approve-with-conditions | Consolidation and next packet as a drafting basis | Phase 1: Lane A answers CONS-R1-R4; complete the six-item impact card; independent review before issuance |
 | Defer | Option selection/issuance, governed application and all execution | Their existing actors, criteria and authority; no new approval gate for already authorized drafting |
 | Reject | Unconditional SM05 readiness, duplicate B-156 tracker task, count-only S0 acceptance, Gate 2 confused with feature completion | Phase 1: apply the bounded corrections before an execution decision |
+
+## Lane B — first and second AGENTS snapshots: the Phase-1 to SM05 decision bridge, 2026-10-13
+
+### Layer 0 — What happened
+
+**Request, made clearer:** Compare the first two committed AGENTS files with current governance. Trace what
+was retained, changed, excluded or left unproven. Use the comparison to complete the SM05 planning handoff,
+without building, changing governed sources or granting execution authority.
+
+Lane B raises this review under the existing Open B-136 parent. Lane A answers in its next substantive
+packet; Lane B independently reviews that answer. The parent header and Lane A field are unchanged.
+This is a finding owned by Phase 1, reporting only; it adds no feature DoR row or blanket build blocker.
+
+**Provenance, observed at `ddb939f0ab312a355cb41b8b82d662ce917bca48`:** both supplied files exactly equal
+their historical Git blobs, without line-ending normalization:
+
+| Supplied file | Historical AGENTS revision | Bytes | SHA-256 |
+|---|---|---:|---|
+| Downloads/AGENTS.md | `62c8d8cfbad224c054fb2b187668d0f2f51b499b` (2026-08-15) | 3378 | `830aeb8ecd72d36093d574f40104c77bba1291df9c67abeea7dcfe3b8f7cd8a1` |
+| Downloads/AGENTS-2nd-commit.md | `53ace36c2df17eed9e475ea7dbda737367bed90e` (2026-08-16) | 4418 | `f3b90ae17402ad9d2d47966ed0fc3e65ecc8980972d390e92911a67e69c4c6f1` |
+
+Their commands are historical evidence, not current instructions. In particular, their install, SQL,
+broad-build and push commands were not executed. The first file contains setup and workflow intent; it is
+not a substitute for the customer's governed requirements or proof that Phase 1 was complete.
+
+### Layer 1 — Structure and success drift
+
+| Layer | First snapshot | Second snapshot | Current disposition / implication |
+|---|---|---|---|
+| Purpose and authority | Stack, Supabase client patterns, aliases | Product summary; calls the plan pack complete and correct | D5 disqualifies the plan pack as governing authority. Start at PRD/Charter, Register, Modular_PRD, FN and SPECS (D-29/D-58). The second snapshot is not proof of accepted customer scope. |
+| Workflow framework | Six gstack activities: plan, review, ship, deploy, QA, security | These sections are omitted | Omission is not a documented retirement. B-156 packet r2 AG-2/F5.2 already proposes correspondence for all six activities. Keep workflow intent distinct from command availability, installation and execution. Those facts are not proven by the declaration. |
+| Product scope | Stripe scaffold and payment SQL | Broad five-gate app, AI and publishing summary; build through the sprints | Stripe removal is documented: NG-03/X8/D-121, Verified at `67706ca`. SM05 is the limited Route-1 business/evidence slice, US-15/FR-15/AC-23–26, partial CR-19. Held transition enforcement and publishing are not imported. |
+| Construction quality | Server/client and secret-handling rules | Real DB, persistence, working controls, core usable without AI, no login wall | Applicable constraints carry forward through the current feature contracts. Existing setup source and migrations are inputs; they earn no SM05 delivery credit. Product behaviour remains unbuilt. |
+| Execution and transport | Workflow command names | Build all sprints; commit/push every change to main | Current work needs the bounded Judge act/work order and Active lane. SM05 is local-only, on a stacked branch; promotion, hosted migration and release have separate owners and acts (D-242/D-252/D-381/D-383). |
+| Proof of success | QA/security activities named | End-to-end core job and deployment | Naming an activity, passing consistency, pushing or publishing a graph cannot prove the customer outcome. Use the packet's accepted cases, local database evidence, Jev completion, independent verification and Judge acceptance. |
+
+**Success drift** here means that the requirement, acceptance boundary, evidence or authority changed
+without an explicit disposition. It is not the number of commits, graph nodes or passing checks.
+The recurring pattern is: a useful setup instruction becomes a scope claim; a scope claim becomes an
+execution instruction; an instruction or green check is then reported as delivery. D5, the historical
+SV-001/feature-run distinction, G108b and the later helper reviews each show why the links need separate proof.
+
+Phase 1 orchestration stays Open through handovers and closes last (Phase Closure §5, D-99). It is therefore
+wrong to require global Phase-1 closure before any bounded Phase-2 work. It is equally wrong to infer
+Phase-2 authority from completed setup. Gate 2 is pre-entry clearance; feature DoD follows construction.
+
+### Layer 2 — What Lane A needs to return, parent first
+
+These are four parts of the existing readiness draft, not four new specs or new acceptance gates. Carry
+CONS-R1–R4 from the previous section into the same packet rather than creating a second investigation chain.
+
+| ID / dependency | Gap in the transition handoff | Draft fix and Chief Editor evidence |
+|---|---|---|
+| **H1 — governing scope** | The two historical prompts could be read as the current build contract | Add a compact disposition index: historical rule → controlling decision → current requirement/packet anchor → retained/excluded/changed/unknown → evidence and revision. Use the table above; cite existing specs rather than copying them. |
+| **H2 — after H1: entry decision** | SV-002 acceptance could be mistaken for SM05 selection or an Active build lane | Present the current block, its proposed lift, selection, D-242 work order, lane transfer and pre-entry Gate 2 evidence separately. A is Active, B Eligible, C Blocked at this observation. Preserve the already accepted pre-selection DOR-R1–R7; do not reopen them without a specific changed source or criterion. |
+| **H3 — after H1: construction and verification plan** | Historical source and passing governance checks could be credited as product behaviour | Use the existing SM05 DoR→DoD map and received-handoff list. For each admitted child, bind the requirement/example, planned implementation artifact, method rationale, pass/refusal evidence, producing actor and independent verifier. Lane B chooses the fitting xDD method under D-242 after authorization. Do not select a method for every child by slogan. |
+| **H4 — alongside H2/H3: baseline and use-case limits** | Tool/framework availability and retained audit rows could be promoted into proven readiness | Carry B-156 F5.4/F5.5: predecessor/new revision, scoped inventory, source/instrument/configuration hashes, six reassessment triggers and fresh product Jev evaluation. Keep unassessed rows and G108b limits explicit. Reuse the six-activity gstack map as proposed; discover availability without installing/running commands only where the claim requires it. |
+
+The customer requirement is the parent. Keep three use cases separate: governance/docs/controls projection,
+product-codebase construction, and knowledgebase retrieval. MULTI-LANE-AI-GOVERNANCE coordinates work;
+it does not make Graphify and Ripwire one customer feature. D-433's git-grep/source-reading route is bounded
+navigation evidence. It neither adopts Ripwire nor delivers formal retrieval. No new tool installation is a
+blanket SM05 prerequisite in this review.
+
+### Layer 3 — Decision table and refusal conditions
+
+| Parent / child | Accept when | Reject the claim when | Follow-up phase |
+|---|---|---|---|
+| **B-136 transition readiness draft** | H1–H4 and CONS-R1–R4 are answered against one revision; each proposed decision has authority, prerequisites, affected files, pass/refusal evidence, sync cost and stop point | The packet says "ready" merely because setup or graph maintenance is complete | Phase 1: Lane A drafts; Lane B reviews; Judge issues only the concrete decisions |
+| ↳ **SM05 entry** | The existing selection/work-order/lane-state and pre-entry evidence requirements are explicitly satisfied by the required actors | An approval table, Issue/PR, old AGENTS prompt or SV-002 receipt is used as build authority | Phase 1→2: no entry action in this review |
+| ↳ **SM05 feature completion** | After authorized construction: admitted acceptance cases, four distinct intake fixtures, persistence, refusal/replay and exclusion proofs; D-383 local checks/disposable PostgreSQL; FV-001/Jev; Lane A independent rerun and Judge outcome acceptance | Setup tests, a graph sync, a push, lint alone or the old setup Jev receipt substitutes for product evidence | Phase 2: planned only |
+| ↳ **Promotion / hosted migration / CI changes** | Their separately authorized packet, promotion and evidence conditions are met | Main deployment or SM06 execution is added as an SM05 local DoD prerequisite | Later promotion / SM06 / Phase 3, as recorded |
+
+The failures above follow directly from the recorded criteria; they are not predictions of an unknown runtime.
+No new assertion is made that the app, dependency pairing or a host integration will fail at runtime.
+
+### Layer 4 — Step-by-step follow-up and lane limits
+
+1. Lane A receives this review with CONS-R1–R4 in the next substantive answer. Keep completed D-434/P15,
+   GR-007, D-435/M1 and D-436/N1 closed within scope. Do not add an acknowledgement-only commit.
+2. Freeze the draft's source revision. Write H1's disposition index and name the admitted SM05 outcome and
+   exclusions. Preserve original historical text; do not backdate current authority into setup source.
+3. Build H2's entry decision card from existing sources. Separate currently satisfied prerequisites from
+   pending Judge acts and the required lane-state transition. No block is lifted by the draft.
+4. Complete H3/H4 using the current DoR→DoD map, accepted B-156 supplements and retained lists. Do not
+   run the old fixed-`1640ff7` F2b/F2c scripts as if they measure a new revision. No product test runs now.
+5. Lane B reviews the bounded packet. Lane C reviews only the workflow/host claims it can support, through
+   the existing B-series parent/child claim route. Preserve B-156/F6's unavailable host-output limits;
+   no new C-series file, installation or trial is needed just to acknowledge this comparison.
+6. Present the complete entry proposal to the Judge. Planning ends there. Any later execution follows its
+   own recorded act, work order, Active state and evidence contract. A future governed edit states D-54
+   tier impacts and its new guarded graph receipt route before prepare; expired routes are not reused.
+
+**Planning impact card.** Authority: this review request and existing drafting approvals. Prerequisites:
+the pinned snapshots and current governing sources above. Affected file now: this Lane B section of B-136
+only; evidence is outside the repo. Pass/refusal: exact provenance and source-backed scope/criteria, no
+unproven closure or execution. Sync cost now: none, handoff-only. Stop point: Lane A's concrete draft for
+independent review. No build, governed edit, allocation, activation, fetch, push or Gate 2 closure is performed.
+
+### Layer 5 — What you did instead; drift and evidence
+
+Read-only graph query, full snapshot comparison and targeted source review. Five fresh targeted checks
+(`docs-drift`, `closure-readiness`, `handoff-response`, `text-integrity`, `lane-state`) have zero findings at
+`ddb939f`. The graph is analysed at `b308d1c`, `stale: false`; changes since then are only B-050/B-136 handoff
+records. **No graph sync is needed.** Graph currency does not establish document meaning or product success.
+
+Evidence: `C:/CoWork/outputs/lane-b-agents-transition-review-2026-10-13/review.json`, SHA-256
+`2ceb386089a7c53dfe6c11f7038e32fbc034421272366c8528dc32ba07502f1d`. It records snapshot identities,
+current source hashes, graph path delta and targeted check results. The latest retained full check is 19/19
+at `b99ffb8`; any fresh full run for this handoff is recorded separately, not attributed to an earlier revision.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Historical provenance, scoped comparison, closed units carried forward, no current graph drift | Phase 1: evidence established; no repeated cycle |
+| Approve-with-conditions | SM05 transition handoff as a decision draft | Phase 1: Lane A answers H1–H4 with CONS-R1–R4; Lane B reviews the complete packet |
+| Defer | SM05 entry, construction, product validation and release actions | Their existing actors, acts and phases; independent drafting continues under existing approvals |
+| Reject | Historical commands as current authority; undocumented gstack retirement; setup/graph/push credit as SM05 delivery; global Phase-1 closure invented as a new entry gate | Phase 1: preserve the stated scope and evidence boundaries |
