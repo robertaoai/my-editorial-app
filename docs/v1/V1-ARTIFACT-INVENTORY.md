@@ -594,6 +594,9 @@ the Register, the Build Spec, this file's "Concurrent-edit detection check" row 
 SPECS files, `WORKFLOWS-SPEC.md`, `GEMINI.md`, `.gitattributes`, `frag7`/`frag13`/`frag15` and the graph-fragments
 README. Every file keeps its inventory row and status.
 
+**`D-436` (2026-10-13) — no file added or retired, stated explicitly.** One sentence in
+`FN-MULTI-LANE-AI-GOVERNANCE.md` changes in place; the file keeps its inventory row and status.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

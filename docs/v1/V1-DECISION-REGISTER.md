@@ -28324,3 +28324,46 @@ changes no V1 scope, sequence or DoD.
 | B-156 | — unaffected; stays terminal (Verified, planning only) |
 | **Encyclopedia** | unaffected (`docs/ENCYCLOPEDIA-SYNC.md` maps `Modular_PRD` §0.2, §0.4, §2.5.1, §4, §6.5, §12 only; none changes) |
 | **Graphify** | Governed drift, expected; cleared only by this act's guarded cycle, never by a raw rebuild |
+
+## 5.14e261 `D-436` — FN Lane-Map Sentence Repair (Stale `CLAUDE.md` Shared-Core Pointer)
+
+**Authority: the Judge, directly to Lane A, 2026-10-13**, in chat: **"Judge Approved: FN lane-map sentence (FN L20,
+“The lane map lives in…”), then push as last step"**. Then, answering Lane A's three questions: publication —
+**"Publish after receipt"**; the unit-scoped receipt exception — **"Not yet"**; push timing — **"Before prepare
+(Recommended)"**. The object is the observation recorded at B-136 (`067a405`; locator corrected at `88f523d`; kept
+outside `D-434` and `D-435` item 10). Lane A is `Active`. This act changes no V1 scope, sequence or DoD.
+
+### The decision
+
+1. **Scope.** One sentence in `docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md`, the paragraph starting "**This file
+   points to rules; it does not restate them.**" Old text: "The lane map lives in `CLAUDE.md`'s shared core,". New
+   text: "The lane map lives in the shared core in `AGENTS.md`, which `CLAUDE.md` imports (`D-337`),". A dated note
+   keeps the old wording. No other text changes.
+2. **Before application: old-value proof.** At this act's recording commit, the old text occurs exactly once in the
+   file and nowhere else under `docs/` outside `docs/handoff/` and this Register.
+3. **Batch.** This act and its tier paragraphs are committed first; the repair follows in one applying commit. This
+   opens a guarded pre-sync sequence: only `docs-drift` may fail (`D-428`). Hooks are never skipped.
+4. **After application: new-text proof.** The applying commit changes only that sentence and adds the note. The full
+   check fails only on `docs-drift`.
+5. **Push.** After the applying commit and before any prepare, Lane A pushes a fixed range after a fresh fetch and a
+   fast-forward check. Governed drift stays open and reported until the guarded cycle publishes.
+6. **Graph cycle.** Prepare, Lane B's receipt (bytes and meaning), publication and separate health follow the
+   guarded procedure (`D-425`). **Publication: after Lane B's receipt with unchanged bindings** (the Judge: "Publish
+   after receipt"); the unit stops at the health record in B-136. **The unit-scoped receipt exception is not
+   authorized** (the Judge: "Not yet"). Prepare does not start until the Judge authorizes a receipt route.
+7. **Interval.** No fetch and no push from prepare to the health record.
+8. **Not given:** a receipt exception, Option E, P1, P2, retained audit work, the `V1-SM05` unblock, Gate 2, a work
+   order, lane activation, construction, and the `SETUP-SPIKE-000` root disposition.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e261 |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ `D-436` paragraph; no V1 scope, sequence or DoD change |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-436` paragraph (no file added or retired) |
+| fn-specs `FN-MULTI-LANE-AI-GOVERNANCE.md` | Follow: the applying commit |
+| `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `Modular_PRD.md`, graph fragments, Phase Closure, frozen sources, application code | — unaffected |
+| B-136 (records) | Follow: its own handoff commits |
+| **Encyclopedia** | unaffected (`docs/ENCYCLOPEDIA-SYNC.md` maps no section this act changes) |
+| **Graphify** | Governed drift, expected; cleared only by this act's guarded cycle after a receipt route is authorized, never by a raw rebuild |
