@@ -5479,3 +5479,91 @@ No fetch, push, rebuild or `--update` was run. No governed file changed in this 
 | Approve-with-conditions | D435-M1 helper fix | Phase 1: before any helper reuse; Lane B verifies the controls |
 | Defer | Push; backup folder removal | The Judge's fixed range; the person |
 | Reject | Running the suggested `--update`; inferring SM05, Gate 2 or root clearance | Phase 1: no action |
+
+## Lane B — D-435 publication and health accepted; D435-C1 Verified, 2026-10-13
+
+Read at `e0732b7446def8902b2e040f1f5a6602ec546356`. Source: Lane A's preceding health and correction record.
+This is the independent review under the existing B-136 / D-435 chain. The parent header and Lane A answer
+remain unchanged. No new handoff number, Return record or Judge issuance is needed for this review.
+
+### What happened
+
+**Accept D-435 completion within its recorded scope.** Lane B independently recomputed the live graph hash and
+complete 583-file manifest, checked the release/predecessor chain and its bound acceptance, and compared the live
+fragment fields and names. The work is published with run `78c65526-6e2d-4878-acaa-ec3161eeaf05`; its release
+receipt names publication HEAD `5423e11e224fd0b6df99087f991a2fead22ec86c` and Lane B review
+`8f3fdd0333db9651107b5bc915c05dbe4d25476e`. No blocking finding remains.
+
+| Parent / child | Current state | Evidence / next condition |
+|---|---|---|
+| B-136 parent | Open | Other obligations keep their existing scope and triggers; this review does not dispose of the parent |
+| D-435 bounded cycle | Complete; independently accepted | Recording b1eb43b -> application b77d186 -> receipt 8f3fdd0 and annotation 5423e11 -> release 78c65526 -> separate health e0732b7 -> this independent review |
+| D435-C1 | Verified by Lane B at e0732b7446def8902b2e040f1f5a6602ec546356 | Lane A's correction matches the independently recounted changes below; no further answer required |
+| D435-M1 | Open; owner Lane A | Fix and verify the external manifest helper before any reuse; not a condition for reopening this completed cycle |
+| Retained backup folders | Present; manual cleanup remains | Their presence is not an incomplete publication or a transaction journal; the person controls deletion |
+| Batch push | Not authorized by this review | Separate fixed-base/fixed-tip checkpoint; expiration of a freeze is not push authority |
+| V1-SM05, Gate 2, lane activation, SETUP-SPIKE root disposition and excluded repairs | Outside this unit | Their own authority and acceptance evidence |
+
+**Live proof.** Graph SHA-256:
+`ed7463f32bfffe07850759939025abdb8444abe9267e543dff279dc654c2e22b`.
+Manifest (`guard-treeDigest-v1`, 583 files):
+`702b9dfb5a5e3d8474ed991183290cef39c498917483c8b21e90cc7ba76a875a`.
+Both equal the independently accepted candidate and frozen acceptance. The staging path was consumed by the
+guard's publication rename; it need not remain as a second candidate folder. The complete live-tree digest,
+accepted manifest and release chain establish parity. No raw rebuild or new candidate was made by this review.
+
+Curated parity: **139/139 exact**. Name binding: **zero findings**. Live branch: analyzed source
+`b77d1869fc57fe275a9a7ce78a0d159d8d9867de`, stale false. No journal or lock remains. Only B-050 and B-136
+changed between that source and the reviewed HEAD. The check-update HEAD notice is therefore excluded handoff
+history, not governed drift. **No graph sync is needed.** Do not run its suggested raw update.
+
+**D435-C1 closure.** Lane B independently compared the published graph with the prior released baseline: 16 nodes
+added, all deterministic Git commit nodes; zero removed; exactly two changed curated descriptions (R4 and R11).
+There are zero new code-description answers. Lane A's corrected statement is accurate. This verifies the child
+finding only; it neither closes B-136 nor claims delivered product behaviour.
+
+### What you need
+
+1. Lane A carries this review into the next necessary parent record; an acknowledgement-only commit or new
+   approval gate is not required. Keep D-435 complete and D435-C1 Verified, while B-136 remains Open.
+2. Preserve D435-M1's complete earlier fix contract: pin input identities; reject missing/duplicate target IDs,
+   missing/multiple full-value matches, invalid line boundaries, span mismatches and Git errors; validate all inputs
+   before writing output. Failed prerequisites must return nonzero and write no output. The four control families
+   (valid, missing, duplicate, Git error) must cover that contract; they are not permission to omit its range checks.
+   Keep the original evidence as history. Lane B verifies the correction before helper reuse. No correction is
+   applied or certified by this review.
+3. Keep manual backup deletion separate. Both run-scoped backup folders exist; this review does not delete them or
+   make their deletion a closure gate.
+4. At a future authorized push checkpoint, bind and count the exact range again, retain the applicable local
+   verification evidence, and verify remote fast-forward safety. `08ad416..e0732b7` contains exactly 70 commits and
+   excludes its base. That is the worklog's historical proposal. This review commit is outside that proposed tip;
+   do not silently replace the tip with HEAD or push once per correction. No remote fetch or push was done here.
+5. Continue other authorized planning work only within its existing scope. Construction, new tool adoption,
+   product acceptance, Gate 2 and root clearance remain separate.
+
+**Chief Editor proof and lane limits.** The D-435 chain now includes governed intent, accepted repair text,
+actual source/diff, independent candidate review, published bytes and separate health. Lane A answered/applied;
+Lane B independently verified. Lane C's C5/C7/C8 results and their host-evidence limits carry forward through
+B-156/F6. No new C-series file or repeated trial is required. Graph currency supplies governance projection
+evidence; it does not supply SM05 product behaviour, Ripwire adoption or formal knowledgebase delivery.
+
+### What you did instead
+
+Read-only graph navigation, source/record review, independent live-state verification and this Lane B review.
+No governed edit, build, trial, install, helper change, publication, raw rebuild, deletion, fetch, push or lane change.
+
+Fresh full configured check at e0732b7: **19/19 pass, exit 0**, including docs-drift and terminal-return. Node ran
+the checker configured by package.json directly in Lane B's shell. This observation is bound to that revision;
+the present review adds handoff text only. The working tree was clean when the live-state review was captured.
+Evidence directory: C:/CoWork/outputs/lane-b-d435-health-review-2026-10-13/.
+health-review.json SHA-256 `fbf6e0843326f1fbcfa7a4a2ccecf3ef9f537507a5abcbdf7e1ea475bdf5a579`;
+review-health.mjs `9ce30b162458fc40dbf0f0a9e925384790fd9dbb80226f05d67fdb2a51e50efc`;
+check-e0732b7.log `d383265f6aff26747cfe9dcc150cafda6997b483cce208f86bbfebd4b091810c`.
+Lane A's retained publish/health log hashes were also recomputed and are listed in health-review.json.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | D-435 publication, separate health and D435-C1 closure | Phase 1: independently accepted within the recorded unit |
+| Approve-with-conditions | Reuse of a corrected manifest helper | Phase 1: full D435-M1 fix contract and independent control review before reuse |
+| Defer | D435-M1 closure; manual backups; batch push; B-136 disposition and excluded work | Phase 1: helper review, manual cleanup, fixed-range push act and each parent's existing trigger respectively |
+| Reject | Freeze expiry treated as push authority; silently extending the proposed tip; helper correctness inferred from this cycle; graph currency treated as product/Gate 2/root clearance | Phase 1: retain separate scope, evidence and authority |
