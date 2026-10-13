@@ -5719,3 +5719,68 @@ Evidence: `C:/CoWork/outputs/lane-b-d435-m1-review-2026-10-13/` (fixtures, raw o
 | Approve-with-conditions | Bounded external-helper correction | Phase 1: Lane A fixes R1/R2 and returns the new hash and controls for independent review before reuse |
 | Defer | D435-M1 Verified; B-136 parent disposition; manual cleanup and excluded work | Phase 1: full M1 contract passes independent review; all other obligations keep their own triggers |
 | Reject | Revision 2 as a certified pass/fail helper; control count or consistency pass treated as complete contract proof | Phase 1: two counterexamples remain open; D-435's completed publication is unaffected |
+
+## Lane A — D435-M1-R1 and R2 answered; one more gap (M1-A3) found and fixed; helper revision 3, 2026-10-13
+
+### What happened
+
+Lane A received Lane B's review `ddc49593c17466d9a8e5d7441410c1d349e6972c`.
+**Judge (verbatim, in chat, 2026-10-13):** "go ahead and record the M1 answer in B-136".
+D-435 stays complete; this answer does not reopen it.
+
+**Reproduced.** Revision 2 (`1e41f8c9…`) on Lane B's own fixtures `missing-paired-id` and `partial-line-end`: both
+exit 0 and write a manifest. Both findings are correct.
+
+**Lane A's own finding, M1-A3 (new).** Revision 2 passed every non-`lines` target through as "locator unchanged".
+It never proved that a field target's node exists once, that the field exists, or that its value equals the frozen
+value (R4, R11, R12). It also accepted any unknown kind and any `from`/`to`.
+
+**Revision 3:** `C:/CoWork/outputs/lane-a-d435-apply-2026-10-12/derive-manifest-r3.cjs`, SHA-256
+`76ffbd473a4d9957908a25b7fdd04f4f995e3134d3da31b533d24a9c6dae6f39`. Revisions 1 (`0630856a…`) and 2 (`1e41f8c9…`)
+and their evidence stay unchanged as history.
+
+| Finding | State | Answer |
+|---|---|---|
+| D435-M1-R1 (missing ID) | Answered | Every target and every value must carry a non-empty string `id`. This is checked before any duplicate check or lookup |
+| D435-M1-R2 (end boundary) | Answered | A `lines` match must end at a line end: the value ends with a newline, the next character is a newline (or `\r\n`), or the match ends at end of file |
+| D435-M1-A3 (field targets) | Answered | A `field` target reads its fragment at the revision: exactly one node with that id, the field present, the value equal to the frozen value. An unknown kind and an invalid `from`/`to` refuse |
+
+**Clause-to-evidence map.** Controls: `m1-controls-r3.cjs` (`6a590c07768bbed929f4fef7f47278b8ee33f77d69ce86982d1aa089dff8da41`)
+runs Lane B's twelve fixtures from `C:/CoWork/outputs/lane-b-d435-m1-review-2026-10-13/` unchanged, plus five Lane A
+cases, all at `b1eb43b`. Results: `m1-controls-r3/results.json` (`3de87fcba368975dc72a04fbf17fe821b0ceac45594f0cae3449db789a6f3a16`):
+**17 of 17 pass.**
+
+| Contract clause | Source check in revision 3 | Control(s) |
+|---|---|---|
+| Input identities pinned | SHA-256 of both inputs against the given values | LB `hash-mismatch` |
+| IDs present (M1-R1) | Non-empty string id on every target and value | LB `missing-paired-id`; LA `empty-id` |
+| IDs unique | Duplicate target ids; duplicate value ids | LB `duplicate-target-id`, `duplicate-value-id` |
+| Every target has a frozen value | Lookup by id | LB `missing-value-row` |
+| Exactly one full-value match | Zero or more than one occurrence | LB `missing-match`, `multiple-matches` |
+| Line start | Preceding character is a newline or start of file | LB `mid-line-start` |
+| Line end (M1-R2) | Match ends at a line end or end of file | LB `partial-line-end` |
+| Span | Value line count equals the frozen span; valid `from`/`to` | LB `span-mismatch`; LA `invalid-span` |
+| Field targets (M1-A3) | One node; field present; value equals frozen value | LA `field-node-absent`, `field-value-differs` |
+| Known kind | Only `lines` and `field` | LA `unknown-kind` |
+| Git errors | Unreadable revision or path | LB `git-error` |
+| No partial output | Every refusal exits 2 before any write; write flag `wx` | All 16 refusal cases: exit 2, no file |
+| Valid input | — | LB `valid`: exit 0; targets equal the accepted `03-targets-b1eb43b.json` (`829445e8…`) |
+
+**Limit.** Revision 3 binds old values. At a revision after an intentional repair, it refuses the repaired targets
+by design. It is an external evidence helper; no repository script changed.
+
+### What you need
+
+**Lane B:** review revision 3, the clause-to-evidence map and the 17 results. Only an independent reviewer records
+D435-M1 Verified. Until then the helper is not reused as a pass/fail tool.
+
+### What you did instead
+
+No governed file, build, graph, publication, fetch or push changed. `bun run check` at `ddc4959`: 19/19.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | M1-R1 and M1-R2 reproduced and answered; M1-A3 found and answered; 17/17 controls | Phase 1: Lane B verifies |
+| Approve-with-conditions | Helper reuse | Phase 1: after Lane B records Verified |
+| Defer | Push of the local commits; backup folders; B-136 parent disposition | A fixed range the Judge names; the person; their own triggers |
+| Reject | Revision 2 as a verified helper; a control count without a clause map as contract proof | Phase 1: no action |
