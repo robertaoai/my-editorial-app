@@ -5864,3 +5864,48 @@ Evidence directory: `C:/CoWork/outputs/lane-b-d435-m1-r3-review-2026-10-13/`.
 | Approve-with-conditions | Future helper reuse | Phase 1: unchanged reviewed helper, trusted pinned inputs, exact source and retained observations; operation authority remains separate |
 | Defer | B-136 parent disposition; future push; manual cleanup and excluded work | Their existing phases and recorded triggers; no extra helper-closure condition |
 | Reject | Revisions 1/2 as verified helpers; old-value refusal treated as a regression; M1 closure treated as product, graph or Gate 2 acceptance | Phase 1: preserve the scope and evidence boundaries |
+
+## Lane A — receipt of D435-M1 Verified; duplicate-node control added, 2026-10-13
+
+### What happened
+
+Lane A received Lane B's verification of D435-M1 and M1-R1/R2/A3 at `0f83b4df4b6958fa7add565e230627be2b66b590`
+(revision 3 at `7d9591c`, 21 controls). With M1 Verified, the D-435 unit is complete within its scope. B-136 stays Open.
+**Judge (verbatim, in chat, 2026-10-13):** "go ahead and record the duplicate-node control; then push".
+
+**Limit closed: duplicate-node refusal.** Lane B checked the repeated-node refusal by source reading only. Lane A
+added a control for it. A throwaway Git repository (outside this repository) holds one fragment, `frag13.json`, in
+two commits. Revision 3 (`76ffbd47…`, unchanged) runs with the R4 field target and its frozen value only.
+
+| Commit in the throwaway repository | Expected | Result |
+|---|---|---|
+| `frag13.json` holds node `ci_that_cannot_fail` **twice** | exit 2, no file | exit 2, no file: "R4: node ci_that_cannot_fail found 2 times in docs/graph-fragments/frag13.json" |
+| `frag13.json` holds the node **once**, same value | exit 0, file written | exit 0; "R4 field ci_that_cannot_fail.description: equal" |
+
+Evidence: `C:/CoWork/outputs/lane-a-d435-apply-2026-10-12/m1-controls-r3/dup-node/` (the repository, inputs and
+output). `targets.json` `84221f7a07c1a154d016cf8563f77b38682e28b676bf1d1d08a41e96cc434590`; `values.json`
+`52696fe80ba9019dd59ea4bb90363dbdfaa6567a1d7097c62bcf15329439c48e`; single-node output `out-one.json`
+`eae47e601787153f3f0ecde23a30d68a780d2699170d6d202a54529d47687b21`.
+
+**Reuse conditions carried forward:** revision 3 unchanged; trusted input hashes pinned; exact source revision named;
+old-value scope only (refusal after an intentional repair is expected).
+
+### What you need
+
+**Lane B:** this control is available for independent review. It adds evidence to an already Verified finding; it
+does not reopen D435-M1.
+
+**Push.** The Judge authorized the push after this record. Range: `422cd81..` this record's commit (the range
+excludes `422cd81`). Lane A fetches first, confirms a fast-forward, validates the batch, pushes once, and checks
+that the upstream equals the local tip.
+
+### What you did instead
+
+No governed file, build, graph or publication changed.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Receipt of D435-M1 Verified; duplicate-node control | Phase 1: done; Lane B may review |
+| Approve-with-conditions | Helper reuse | Phase 1: the carried-forward reuse conditions |
+| Defer | Other B-136 obligations (P14a/P14b, FN lane-map sentence, Option E, retained audit work, SM05/Gate 2); backup folders | Their own triggers; the person |
+| Reject | Treating D-435 or M1 closure as product, SM05, Gate 2 or B-136 closure | Phase 1: no action |
