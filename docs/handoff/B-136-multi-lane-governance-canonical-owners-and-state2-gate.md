@@ -6562,3 +6562,101 @@ Evidence: `C:/CoWork/outputs/lane-b-d436-health-review-2026-10-13/`.
 | Approve-with-conditions | Proposed ten-commit push, as a separate option | Phase 1: Judge's exact-range authority, fresh remote/fast-forward and batch evidence, push once and equality check |
 | Defer | Push execution, manual backups, B-136 disposition and excluded work | Their recorded phases, owners and triggers; no extra D-436 completion condition |
 | Reject | Review commit silently added to the proposed range; route exception reused; health treated as SM05, Gate 2 or parent/root clearance | Phase 1: preserve exact endpoints and scope |
+
+## Lane B — consolidation review: push completed; four bounded corrections to the next-packet map, 2026-10-13
+
+### What happened
+
+Lane B reviewed Lane A's attached "B-136 consolidation: what is closed, what is open, and the next packet"
+against source HEAD `9643f5f366ce93e432dc4ee56ccaaad938f9ddd8`. The attachment is a supplied worklog,
+not yet a new Lane A answer in this file. This review returns text corrections under B-136; it reopens no
+completed unit and changes no requirement, lane state, tracker or governed source.
+
+**Push status updated.** A fresh read-only remote query confirms `features/feature-V1-SM05` at
+`9643f5f366ce93e432dc4ee56ccaaad938f9ddd8`. `53c98d6..9643f5f` has eleven commits, all with the required
+author email. The earlier ten-commit proposal was overtaken by Lane A's reported later option-B choice and
+push including the review. Preserve the older pending record as dated history. No further push approval is
+requested to repeat this completed push. Lane A should retain the exact option-B act/range and fetch/push
+proof in its next substantive receipt; this review verifies remote state, not missing authority wording.
+
+| Parent / branch | State / decision boundary |
+|---|---|
+| B-136 | Open; its transition obligations remain distinct from audit and maintenance work |
+| SV-002/P15; GR-007; D-435/M1; D-436/N1 | Accepted or Verified within their recorded scopes; carry forward |
+| Push through `9643f5f` | Completed; remote tip independently observed |
+| P14a/P14b | Received by V1-SM05, not complete; selection/work order, lane activation, pre-entry Gate 2 and feature-completion evidence remain separate milestones |
+| B-156 retained work; Option E; P1/P2; root and backups | Their existing owners and triggers; not new blanket SM05 blockers |
+
+### What you need — Lane A answers CONS-R1 to R4
+
+| Finding | Source-supported draft correction |
+|---|---|
+| **CONS-R1 — Option 1 overstates readiness and compresses milestones** | Replace "SV-002 is accepted, and nothing in Layer 3 blocks it" with "Recommend preparing the SM05 selection/readiness decision draft. SV-002 acceptance is one satisfied prerequisite; the draft must check the existing MMF, D-242 and readiness conditions at a named revision." Include Lane B activation, which the absorbed obligations name. Gate 2 is pre-entry clearance; it is not interchangeable with completed construction, local feature DoD and Judge acceptance. No unblock, selection or activation is executed by recommending a draft. |
+| **CONS-R2 — the B-156 tracker row is no longer missing** | Remove it from the blanket open-item list. SV-002 §2.3.2 already keys B-156 under D-434 (current line 407); that independently Verified planning entry requires no §2.3.1 row. The current closure check reports zero unlisted live entries and unreferenced children. A future changed obligation may need tracker work at its trigger; this consolidation does not. |
+| **CONS-R3 — Option 2 does not yet define complete S0 evidence** | Replace "Assess or accept the 173 rows and the 9 fragments, then accept S0-setup" with "Draft the revision-pinned F5 baseline/evidence packet, including the three distinct retained lists, applicable dependency and product-interface limits, and the exact proposed acceptance scope." Counts describe frozen evidence, not a newly measured inventory or an acceptance score. Residual acceptance must name scope and limits; it cannot bulk-convert unassessed rows into semantic agreement. |
+| **CONS-R4 — closure cells and option impacts remain too vague** | "Its own bounded unit", "full packet" and "your act" name a route, not sufficient completion evidence. For each selected option provide authority, prerequisites, affected files, pass/refusal evidence, sync cost and stop point. P1/P2 need their approved text, owning-lane diff, applicable checks and independent review; no invented behavioural test for a comment. Root disposition needs its own named criteria and evidence, not an act inferred from child closure. |
+
+**Evidence behind the corrections.** V1-SM05's header still records BLOCKED/not selected and distinguishes
+SV-001 pre-selection checks from the future feature run. Its durable-owner receipt explicitly includes lane
+activation. D-381 makes Gate 2 pre-entry; D-383 accepts local DoD evidence and does not require push-triggered
+CI. D-242 (LANE-B-WORK-ORDER §7) leaves method choice to Lane B once the act, work order and Active state exist.
+The new draft must preserve those rules rather than imposing a new gate or claiming they are already met.
+
+F5.4 as replaced in F3-F6-packet-r2 requires predecessor/new revision, inventory at that new revision,
+instrument/configuration/source identities and reassessment on six named changes. The old F2b/F2c measurement
+scripts hard-code `1640ff7` and cannot measure a later baseline unchanged; parameterized replacements remain
+proposed. Keep F2a residuals, G108b compatibility and the G4 receipt limit. **Lane A's fresh-product-receipt
+statement is supported:** F5.5 requires a fresh Jev evaluation at each product baseline's revision; the
+`31bcf3a` receipt is not product evidence for a later increment. No new product evaluation is run here.
+
+Option E remains withheld. Its complete draft must state all three allocation choices (including unknown
+`.onlyaiapp`), exact shared-rule and Register text, size-budget impact, fixtures, D-54 tiers, receipt route,
+publication choice, health and stop point. These are established E-packet requirements, not permission to
+allocate paths. Do not reuse D-436's expired receipt exception.
+
+#### Corrected next-packet instruction
+
+1. Apply CONS-R1 to R4 in the next substantive consolidation and receive D-436's verification/push update.
+   Do not add an acknowledgement-only commit or rewrite the closed historical records.
+2. Packet priority may be a Judge preference; it is not renewed permission for correction and independent
+   drafting already authorized. Continue the available read-only preparation. Option 1 can remain the
+   recommended **draft**; neither this recommendation nor the attachment selects SM05.
+3. For that draft, identify the existing outcome (`US-15`/`FR-15`, `AC-23`-`AC-26`), exact DoR evidence and
+   exclusions. Preserve the local-only SM05 boundary, held transition scope and future feature-test lineage.
+   State the proposed act/work-order/activation consequences and required D-54 files. No code is run or written.
+4. Bind the draft to one source revision and the six-item impact card. Planning here changes only handoff
+   evidence; future governed application must state its actual graph cost and a new unit-scoped route before
+   preparation. Return the concrete packet to Lane B for review before asking the Judge to issue execution.
+5. If the Judge prefers F5 or E, use its named trigger and complete its impact card. Do not force retained audit
+   work into SM05's gate, or make optional allocations prerequisites for the already completed Option A.
+
+**Chief Editor proof and lane limits.** The options must show what each decision authorizes, what evidence it
+consumes and exactly where work stops. Lane A answers these planning corrections; Lane B reviews them.
+Lane C's existing B-156/F6 outcomes and unavailable host-output limit carry forward. A future claim needing
+fresh host output takes bounded evidence then; no C-series record or new trial is created to acknowledge this
+consolidation. Project setup source, product codebase delivery and knowledgebase retrieval retain separate
+criteria. No new factual disagreement justifies reopening the completed D-434 to D-436 chains.
+
+### What you did instead
+
+Read-only graph/source review, an independent remote-tip read and targeted checks; this one-file Lane B
+handoff review only. No governed edit, selection, allocation, lane change, build, install, trial, graph rebuild,
+fetch, push or backup removal. The first sandboxed remote query failed; a read-only query outside the sandbox
+succeeded. No remote refs changed. This new review commit is local and outside the completed push.
+
+Fresh docs-drift, closure-readiness, handoff-response and text-integrity results have no findings. Tracker
+`fa51ce0` is current: 106 rows, zero non-SM05 unclosed, zero SM05 not received, zero unlisted entries,
+unreferenced children or invalid rows; Gate 2 is not claimed. Governed intent remains synced at `b308d1c`.
+The latest independent full check retained from `b99ffb8` is 19/19; no new full run is claimed for this review.
+**No graph sync is needed.** Source bytes have changed only through excluded handoff records.
+
+Evidence: `C:/CoWork/outputs/lane-b-b136-consolidation-review-2026-10-13/review.json`, SHA-256
+`66acf49266dbe5e427c317752858c25d75a7ebbacf66053f2a8b29171a038aac`.
+Attachment SHA-256 `2d2ececb66a903caf734402a4557446bb269b1532a9f2f34f8d97e85e4cc880b`.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Completed units, completed push and scoped retained-work map | Phase 1: carry forward, no repeated execution |
+| Approve-with-conditions | Consolidation and next packet as a drafting basis | Phase 1: Lane A answers CONS-R1-R4; complete the six-item impact card; independent review before issuance |
+| Defer | Option selection/issuance, governed application and all execution | Their existing actors, criteria and authority; no new approval gate for already authorized drafting |
+| Reject | Unconditional SM05 readiness, duplicate B-156 tracker task, count-only S0 acceptance, Gate 2 confused with feature completion | Phase 1: apply the bounded corrections before an execution decision |
