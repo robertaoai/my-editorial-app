@@ -6434,3 +6434,50 @@ temporary recording interval is closed; governed drift remains open until public
 | Approve-with-conditions | Already authorized publication and cycle completion | Phase 1: unchanged bindings and checks, Lane A publication, then separate health in B-136 |
 | Defer | D-436 completion, B-136 disposition and separate push | Phase 1: health first; parent and push retain their own evidence and authority |
 | Reject | Returned candidate published; receipt treated as live parity; health expiry treated as push, SM05 or Gate 2 authority | Phase 1: preserve stage, scope and exact range boundaries |
+
+## Lane A — D-436 published with review `d4ba110`; separate health recorded, 2026-10-13
+
+### What happened
+
+Lane A received Lane B's receipt **`d4ba11046645d0b11cf60083de933b1e12e81fff`** in B-050, its covering annotation
+`c088aef`, and D436-N1 Verified (`d02699f`). All three add text only, by the required identity. Publication rests on
+`D-436` item 6 ("Publish after receipt"); no new approval was needed.
+
+| Step | Result | Evidence (`C:/CoWork/outputs/lane-a-d436-2026-10-13`) |
+|---|---|---|
+| Acceptance parse | `acceptanceAt` reads B-050 L7679–L7702: Accept, workId `767c2515…`, graph `11245fc8…`, manifest `f23855ef…` (583 files), source `b308d1c`, baseline `702b9dfb…` at `8f3fdd0` (the live D-435 release), `pendingSemantics` 0 | Guard output |
+| Binding recheck (HEAD `d02699f`, clean tree) | Staged graph `11245fc8…` unchanged; live `ed7463f3…` unchanged; no journal or lock; only B-050 and B-136 changed since `b308d1c` | `17-publish-head.txt` |
+| `publish --work …/work-r2 --review d4ba11046645d0b11cf60083de933b1e12e81fff` | **exit 0, `released`**, "live equals the reviewed manifest", run token `5ac0fbe0-87bd-4550-bd78-c9901e12e095` | `18-publish.log` (`311f3fe0…`) |
+| Live graph and manifest | Graph `11245fc8…`, manifest `f23855ef…`, **equal to the accepted bytes** | `19-live-parity.json` (`7b66e469…`), from `health.mjs` (`ad6a80f3…`) |
+| Live fragment parity and names | 139/139 exact; name binding 0 findings | same |
+| Live branch record | analysed `b308d1c`, `stale: false` | same |
+| Journal / lock after publication | None | same |
+| `bun run check` (separate health) | **19/19 pass**; `docs-drift` "synced (governed intent) at b308d1c; HEAD d02699f advanced by excluded-only commits" | `20-health-check.log` (`42967b2d…`) |
+| `graphify check-update` | "graph.json built from b308d1c but HEAD is d02699f". Only handoff commits cause this notice (G-F3-9); `docs-drift` confirms no governed drift. The suggested `--update` was **not** run | `21-check-update.log` (`ef0a197d…`) |
+
+The retained folders `.graphify-bak-5ac0fbe0…` and `.graphify-old-5ac0fbe0…` sit beside the live state. The person
+deletes them.
+
+**State, kept separate:**
+- D-436: recorded (`2d7c9bc`), applied (`42af457`), route recorded (`058518a`), N1 corrected (`b308d1c`), accepted
+  (`d4ba110`), published (`5ac0fbe0`); health recorded here. The item 6a route expires with this record.
+- The no-fetch/no-push interval ends with this record. That is not push authority.
+- No SM05, Gate 2, root disposition, lane change or construction follows from this record.
+
+### What you need
+
+**Judge — push (a separate fixed-range checkpoint).** Origin is at `53c98d6`. Proposed range: `53c98d6..` this
+record's commit (the range excludes `53c98d6`). Lane A fetches first, confirms a fast-forward, pushes once and checks
+that the upstream equals the local tip. Confirm the range, or hold it.
+
+**Lane B:** this health record is available for independent review.
+
+### What you did instead
+
+No fetch, push, rebuild or `--update`. No governed file changed in this record.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | D-436 publication and separate health | Phase 1: complete; Lane B may verify |
+| Defer | Push; backup folder removal; other B-136 obligations | The Judge's fixed range; the person; their own triggers |
+| Reject | Running the suggested `--update`; treating health as push, SM05 or Gate 2 authority | Phase 1: no action |
