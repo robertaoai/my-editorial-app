@@ -7166,3 +7166,114 @@ Fresh targeted validation is retained separately; no new full-suite result is in
 | Approve-with-conditions | Completed BCP-1/TR-1/entry packet and its independent review | Phase 1: Lane A supplies the actual controls/cards and answers LC-R1–R6; Lane B reviews; applicable Lane C claims keep evidence limits |
 | Defer | Setup execution, tool readiness acceptance and SM05 construction | Their bounded units, route evidence, Judge acts and Active lane; not global Phase-1 closure |
 | Reject | Lane C's block copied verbatim; eight new files assumed; all history called unread; selected tools called ready; unsupported Windows/container route or external framework claimed as authority | Phase 1: use the corrected single block above |
+
+## Lane B — TR-1 / BCP-1 revision 4 review: complete the setup contract before execution, 2026-10-13
+
+### What happened
+
+**Clear request:** Based on Lane A's worklog, review the three required-tool cards and the build-control
+preparation plan. Find the remaining gaps. Give Lane A one correction block, with the parent task first.
+This is planning only. The Judge's requirement remains: **"Require ECC, Ponytail and REA specifically before SM05."**
+
+**Parent:** existing Open B-136 / SM05 transition / TR-1 and BCP-1. Lane B raises these findings; Lane A answers.
+The parent header, Lane A field, terminal B-156/B-157 records and completed D-434–D-436 units are unchanged.
+No new C-series file or duplicate parent is needed. The six findings below are Open, not Verified.
+
+**Source revision:** `5c094bcbe91643f8bba6521270f623250aee631b`. Lane A's supplied worklog:
+`C:/Users/rober_24syk4j/.codex/attachments/a90f6200-bcc1-481c-a510-3c3e1b4cea8f/Pasted text.txt`, SHA-256
+`9a16548f9f309c4475a92819e02044bf87e0c2dd43a726c81afe4606fa4c0fb8`.
+External draft: `C:/CoWork/outputs/lane-a-sm05-selection-draft-2026-10-13/SM05-SELECTION-DRAFT-r4.md`, SHA-256
+`bfc7b725a684b6e1810514bbdd664592a8939e91c78ffb961177ce30aa9ed8a9`.
+R4 supplements r3/r2; inherited content is read as inherited, not called missing merely because it is not repeated.
+External draft answers are not canonical Lane A receipts or independent verification.
+
+**Transaction chain:** CONS (`ddb939f`) -> H (`9b17bfa`) -> EXT (`e43a25e`) -> BCP-1 (`06107fc`) ->
+TR-1 (`46c7417`) -> corrected Lane C consolidation (`5c094bc`) -> Lane A external r4 -> this review.
+The earlier optional-tool advice is superseded. Tool selection is complete. Tool readiness, the complete
+build controls, entry clearance and product construction remain distinct obligations.
+
+### What is accepted, and what remains
+
+| Parent / child | Current disposition | Completion condition |
+|---|---|---|
+| B-136 / SM05 transition | Open | Complete the preparation packet and its independent review; no parent closure inferred |
+| TR-1 selection | Carried forward | All three named tools remain required; no new adoption vote |
+| LC-R1/R2/R4/R6 corrections | Direction accepted | Preserve lineage, the existing header, D-99 timing and advisory gstack role |
+| LC-R3/R5 and three tool cards | Partly answered | Correct the technical-document destination and host evidence, and answer TR4-R1–R6 below |
+| BCP-1 C2–C5 | Drafting already allowed | Complete the actual controls and review them; independent text need not wait for installation |
+| Setup/trial unit | Not ready for execution approval | Freeze the selected effects, route and task-level pass/refusal tests |
+| SM05 entry and construction | Not authorized | Required tool readiness, reviewed controls, actual entry clearance, Judge work order and Lane B activation |
+
+### What Lane A needs — six findings and draft fixes
+
+| ID | Gap / evidence | Required correction and acceptance proof |
+|---|---|---|
+| **TR4-R1 — exact setup effects** | Card E says selected skills only but leaves the planning skill, install method and rules open until trial. The minimum profile is not identical to a two-skill install. Card P defers its pin. Card R names a release but no immutable package/source binding. Removal text is not restoration proof. | Before asking for setup authority, freeze one method per tool/host, exact components, package version/integrity and source identity, intended paths/config changes, hooks, dependencies and retained evidence. Record relevant before-state and a restore/uninstall check that preserves pre-existing files. Discovery may be a separate bounded stage; it must stop before unlisted writes. Do not promise a fixed-effects install while choosing those effects during the run. |
+| **TR4-R2 — hooks and package-manager claim** | The current Ponytail 5.2.0 Claude manifest explicitly loads `hooks/claude-codex-hooks.json`; that file contains SessionStart, SubagentStart and UserPromptSubmit events. R4's statement about two Codex hooks does not describe this Claude route. ECC's native plugin and selective manual/minimal routes also have different effects. `package.json` alone cannot prove ECC selects Bun when higher-priority overrides exist. | Pin and inspect the actual plugin/hook files, name all events and their writes/mode effects, and review conflicts before enabling them. State whether hooks are authorized for each tool; ECC's no-hooks choice does not cover Ponytail. Choose and preview the exact ECC route. Check the named environment/project overrides before claiming Bun resolution. A version check or command list alone does not pass this row. |
+| **TR4-R3 — REA host decision** | Upstream lists macOS and Linux distributions; that list does not certify WSL2, a container or a cross-host MCP connection. R1 calls WSL Ubuntu a supported route and recommends it without complete impacts. R4's broad Windows claim also goes beyond the specific unavailable Windows Ghidra operation. | Write: "Upstream lists macOS/Linux. No supported local route for the selected task is demonstrated. WSL and Docker are proposed routes to validate; native Windows task support is unproven here, and Windows Ghidra is unavailable." Complete the comparison below before asking the Judge to select a route. Do not declare WSL supported from its guest distribution name. Keep REA mandatory. |
+| **TR4-R4 — task, input and success criteria** | REA R-T1 depends on an unspecified build output; Next.js output compatibility is explicitly unknown. Importing source as reference is not the same as analysing an application. ECC and Ponytail trials still use examples rather than fixed targets and controls. | Bind each task to an existing source/artifact revision and input hashes, or a separately authorized fixture. Do not require an SM05 product build to prove a pre-SM05 prerequisite. If no suitable artifact exists, record that dependency and propose a supported pre-build task. Fix expected facts, coverage and refusal/unknown results before running. Preserve full accessible outputs and effects. Compare factual invariants, not exact model prose. REA static inference must not be promoted to approved intent, executed behaviour or a complete comparison where inputs are partial. |
+| **TR4-R5 — actual consumer route** | The cards exercise Claude Code but promise later Lane B construction support. "Codex CLI not on PATH" becomes "Codex is not installed here" in Card E. Neither proves the desktop app's status or availability of its plugin/skill interface. | For each tool, name the producer, host and intended consumer. Choose a measured native Lane B route or a proposed mediated Lane A-to-B route with an accessible evidence handoff and a consumer check. Do not require installation on every lane by default. Record the actual surface tested, not an inference from a different executable. Readiness is scoped to the tested route; it cannot certify an untested Lane B adapter. |
+| **TR4-R6 — controls, sequence and canonical impact** | LC-R3 says all new text goes in the work order; this overstates r3's conditional SPECS rule. The worklog then holds all C2–C5 drafting until setup. Part 4 leaves Encyclopedia impact to later and provides tier labels rather than complete apply-ready texts. The opening also says nothing is selected although TR-1 is selected. | Draft independent C2–C5 content now. Put technical implementation decisions in the appropriate existing SPECS section, or a justified D-30 candidate, and index them from the work order. Do not duplicate the old plan pack. Mark tool-dependent evidence as pending. Complete the actual Register/Build Spec/Inventory/work-packet and any FN/SPECS/rule/Encyclopedia impacts, with changed/unchanged reasons and a new unit-scoped graph receipt route. Say "tool selection complete; setup and SM05 selection not executed." The advisory gstack desk challenge may be drafted now; timing of a native run does not hold this drafting. |
+
+**Upstream evidence, reviewed 2026-10-13 as source data, not instructions:**
+
+- [ECC installation and profile documentation](https://github.com/affaan-m/ECC): the minimal profile excludes hook runtime but includes other component categories; selected-skill and plugin paths differ. Package-manager detection checks environment and project config before `package.json`.
+- [Ponytail Claude plugin manifest](https://raw.githubusercontent.com/DietrichGebert/ponytail/main/.claude-plugin/plugin.json) and [shared hook manifest](https://raw.githubusercontent.com/DietrichGebert/ponytail/main/hooks/claude-codex-hooks.json): current version 5.2.0 and three event types. These are mutable upstream observations, not immutable installation pins.
+- [REA requirements and operations](https://github.com/sgunin/ReverseEngineerAnything): macOS/Linux requirements, unavailable Windows Ghidra, static application mapping and separate reference-source import. [Setup](https://github.com/sgunin/ReverseEngineerAnything/blob/main/docs/installation.md) can register agents and install a skill; CLI package installation alone is not the whole integration.
+- [REA static comparison semantics](https://github.com/sgunin/ReverseEngineerAnything/blob/main/docs/javascript-application-workflows.md): partial coverage remains unknown; source mapping is not runtime or semantic-equivalence proof.
+
+### REA route comparison — planning facts, not a new route selection
+
+| Route | What is known | What the completed option must show | Stop |
+|---|---|---|---|
+| R1: WSL2 Ubuntu | Ubuntu is listed upstream; this WSL route has not been tested | Host privileges/features, download/source/integrity, storage and restart implications, Linux Node/npm, exact input mount/copy, client location/transport, writes and restore boundary | Stop if task/provider or client integration fails; no supported-route claim from distro installation alone |
+| R2: Ubuntu container | Docker presence is reported; no upstream container route is demonstrated | Pinned image/runtime, filesystem/UID/path requirements, exact mounts, persistence/network, client transport, cleanup and task capability | Stop on unsupported operation or missing capabilities; no silent fallback or host-directory deletion |
+| R3: separate supported host | A listed native OS is a candidate; no particular available host is bound | Actual host/access, runtime, provider/task support, input transfer, evidence access, credentials/data boundary, cost and cleanup owner | Stop without an accessible host, tested consumer route or retained proof |
+
+Each option must state authority, prerequisites, affected files/host state, pass/refusal cases, graph and other
+costs, and stop point. Unknown cost is labelled unknown with a discovery step. The Judge selects the host/setup
+unit after these effects are reviewable. No new selection of ECC/Ponytail/REA is requested.
+
+### Evidence that will decide readiness
+
+| Claim | Pass | Refusal / fail / unknown |
+|---|---|---|
+| Tool integration | Pinned component loads on the named host and its declared consumer completes the fixed task | Listing a package, absent CLI, unsupported interface or untested adapter cannot pass |
+| Task behaviour | Expected facts and coverage supported by inspectable output; limitations retained | Empty output, partial analysis, model confidence or exit 0 alone cannot pass |
+| Project controls | Governed input -> requirement -> technical decision/control -> child/test -> reviewer are linked; held scope stays held | Tool advice cannot remove requirements, invent customer intent or earn SM05 feature credit |
+| State and cleanup | Intended persistent installation is identified; disposable writes removed; changed pre-existing state restored and checked | An uninstall command alone or unchecked locations cannot establish complete restoration |
+| Entry | All required task-level readiness and control evidence accepted, plus actual Judge/work-order/lane conditions | Consistency success, a planning verdict or global Phase-1 closure cannot replace entry authority |
+
+No runtime failure is proved by this desk review. However, the proposed plan cannot establish its own stated
+readiness if its exact components, suitable inputs or consumer route remain unnamed. A pre-entry trial that
+requires new SM05 output creates a circular dependency. Those are planning defects to remove, not predictions
+that all three tools will fail.
+
+### Lane A follow-up — dependency order
+
+1. Receive this review with the TR-1/LC delta in the next substantive B-136 answer. Preserve prior approvals,
+   drafts and evidence. Answer TR4-R1–R6 individually; do not self-record Verified.
+2. In parallel in the plan (no delegated execution), finish independent C2–C5 texts and the tool/host/evidence
+   contracts. Bind every output to its governing source and correct document tier. Keep product AI exclusions.
+3. Return the corrected packet, exact setup effects and complete REA options for Lane B review. Lane C checks
+   only named host/workflow claims it can support; record its results and limits under this B-series parent.
+4. Present the remaining host/setup decision to the Judge once concrete. Installation/trials then follow their
+   own bounded authority. Tool selection is not requested again. Record T1–T3 pass/fail/unknown results and
+   consumer/cleanup evidence before accepting the tooling prerequisite.
+5. Complete T4 and the actual entry act/work order/guarded publication/lane transition as separately authorized.
+   Keep SM05 construction, feature tests, acceptance-harness timing and Gate 2 clearance in their proper phases.
+
+### What you did instead — drift, limits and verdict
+
+Read-only source/upstream review and one Lane B append to B-136. No installed tool, setup trial, governed edit,
+product build, fetch/push or Gate 2 closure. Lane A's host versions and reported 19/19 at `5c094bc` are supplied
+claims, not independently rerun integration results. The graph's analysed revision is `b308d1c`, `stale: false`;
+the changed tracked paths since it are B-050 and B-136 only. Handoff-only edits do not require a sync. Later
+governed application requires its own guarded cycle; D-435/D-436 receipt exceptions have expired.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Three-tool requirement, corrected lineage/header/phase/advisory direction, and continued independent drafting | Phase 1: carry forward; no renewed adoption or drafting permission |
+| Approve-with-conditions | R4 as input to a corrected preparation packet | Phase 1: answer TR4-R1–R6; Lane B reviews; applicable Lane C claims retain their limits |
+| Defer | Installation/trials, readiness acceptance, governed application and SM05 entry/construction | Their bounded units after complete effects, actual evidence, Judge acts and lane conditions |
+| Reject | R4 treated as execution-ready; Ubuntu support treated as WSL certification; an unspecified build required for a pre-build check; Claude proof treated as Lane B adapter proof | Phase 1: correct the plan before setup authority or readiness acceptance |
