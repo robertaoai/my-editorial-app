@@ -5909,3 +5909,66 @@ No governed file, build, graph or publication changed.
 | Approve-with-conditions | Helper reuse | Phase 1: the carried-forward reuse conditions |
 | Defer | Other B-136 obligations (P14a/P14b, FN lane-map sentence, Option E, retained audit work, SM05/Gate 2); backup folders | Their own triggers; the person |
 | Reject | Treating D-435 or M1 closure as product, SM05, Gate 2 or B-136 closure | Phase 1: no action |
+
+## Lane B — independent acceptance of the M1 duplicate-node control supplement, 2026-10-13
+
+### What happened
+
+Lane B reviewed Lane A's receipt and control supplement at `47b8d3b789e5aa755873d94d89e8ccac5f6c55f8`.
+The supplied message had no worklog attachment; the committed B-136 section is the source reviewed.
+This is additional evidence under B-136 -> D435-M1 -> M1-A3. M1 was already Verified at `0f83b4d` against
+revision `7d9591c`; that closure is preserved. No new entry, return record or parent disposition is needed.
+
+**Supplement independently accepted by Codex (Lane B), examined at `47b8d3b789e5aa755873d94d89e8ccac5f6c55f8`.**
+Lane B recomputed the helper and fixture hashes and ran the unchanged revision-3 helper in the external
+fixture repository. Separate reviewer outputs were retained; Lane A's files and both repositories stayed unchanged.
+
+| Parent / child | State | Evidence / follow-up |
+|---|---|---|
+| B-136 | Open | Other obligations keep their recorded triggers |
+| D-435 publication / health; D435-M1 and R1/R2/A3 | Complete / Verified within scope | Prior independent acceptance carries forward |
+| M1-A3 duplicate-node control supplement | Independently accepted | Duplicate and single-node cases observed below; no further fix required |
+| Push, backups, P14a/P14b, FN lane-map sentence, retained audit work, SM05 / Gate 2 | Separate | Existing acts and triggers; no clearance from this supplement |
+
+| Frozen fixture revision | Independent result |
+|---|---|
+| `955faf52d8e617c6d7d41898fea20ebeeb052cf5` | Exactly two matching nodes, both holding the frozen description. Helper exits 2 with the duplicate-node message and creates no manifest. |
+| `a577c5fec7f4d7baecb5b9eaed40323c69bcc8a8` | Exactly one matching node, holding the same description. Helper exits 0; output targets equal the one-target input and output bytes equal Lane A's `out-one.json`. |
+
+This supplement covers R4 in a controlled one-field fixture, not the complete 23-target manifest. The earlier
+full-manifest verification remains the evidence for that scope. The repeated-node branch previously supported
+by source reading now also has an independently observed refusal control. No new blocking gap was found.
+
+### What you need
+
+1. Lane A receives this acceptance in its next substantive answer; no separate acknowledgement-only commit is needed.
+2. Keep the supplement linked to M1-A3 and retain its exact revisions, hashes, raw outputs and scope. Do not
+   replace the earlier complete clause map with this narrower example or repeat the same closed review.
+3. Continue other approved work at its own trigger. Helper reuse retains the reviewed hash, trusted input
+   identities and old-value limit. No new Judge choice or Lane C receipt is required for this supplement.
+
+The Chief Editor can accept this added evidence without inferring parent closure or construction readiness.
+The failure pattern to avoid remains evidence substitution: one tested field does not prove all targets;
+a verified helper does not prove product behaviour. Lane C's accepted B-156/F6 limits carry forward unchanged.
+
+### What you did instead
+
+Read-only graph navigation and fixture inspection, two independent helper controls, and this Lane B handoff
+review. No governed edit, helper edit, build, installation, publication, graph rebuild, deletion, fetch or push.
+Register, Build Spec, Inventory and intent/spec tiers are unaffected. Graph synchronization is not required.
+Local Git shows four commits in `422cd81..47b8d3b`, and the cached upstream equals `47b8d3b`. No fresh remote
+query was made; this is not independent proof of remote state. This review does not extend that push range.
+
+Evidence: `C:/CoWork/outputs/lane-b-d435-m1-duplicate-review-2026-10-13/`.
+`review.json` SHA-256 `24df3b638b997361e50d27f85382b0a4f51098338ec5d3fa76fbb54cb8843dc2`;
+`review-duplicate.cjs` `fce43ca7c615f2933b1fb443e08c93f44bb57b73ac4b473d5e110410c7a5b69c`.
+Full configured consistency check, started at `47b8d3b`: 19/19, exit 0, run directly with Node in Lane B's shell.
+`docs-drift` reports governed intent synced at `b77d186`; later commits change excluded handoff files only.
+`check-47b8d3b.log` SHA-256 `fc94d5bdafd30ad0d3707189b28b989c796f9a17437963de52217f8b5a1eb02c`.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Lane A's M1 receipt and duplicate-node supplement | Phase 1: independently accepted at `47b8d3b`; no new correction |
+| Approve-with-conditions | Future helper reuse | Phase 1: carry forward the existing hash, trusted-input and old-value conditions |
+| Defer | B-136 disposition and separate work | Their existing phases and triggers; no repeated M1 gate |
+| Reject | One-field fixture treated as full-manifest or product proof; supplement treated as parent or push authority | Phase 1: preserve the distinct evidence and authority scopes |
