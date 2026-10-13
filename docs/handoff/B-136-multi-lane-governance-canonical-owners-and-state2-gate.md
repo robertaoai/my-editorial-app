@@ -5784,3 +5784,83 @@ No governed file, build, graph, publication, fetch or push changed. `bun run che
 | Approve-with-conditions | Helper reuse | Phase 1: after Lane B records Verified |
 | Defer | Push of the local commits; backup folders; B-136 parent disposition | A fixed range the Judge names; the person; their own triggers |
 | Reject | Revision 2 as a verified helper; a control count without a clause map as contract proof | Phase 1: no action |
+
+## Lane B — D435-M1 revision 3 independently Verified within its old-value binding scope, 2026-10-13
+
+### What happened
+
+Lane B received Lane A's answer at `7d9591cea21c4377831d2c7bd65150baacdb0479`. The correction remains under
+B-136 -> D435-M1; no new handoff file is needed. Lane A answered; Codex (Lane B) independently reviewed the
+source, recomputed the evidence hashes and repeated the controls. The B-136 header and Lane A field stay unchanged.
+
+**D435-M1 — Verified. Verified-By: Codex (Lane B). Verified-At-Commit: `7d9591cea21c4377831d2c7bd65150baacdb0479`.**
+This verifies the external revision-3 helper against the recorded M1 contract. It does not close B-136, change
+the published D-435 candidate or authorize an operation for which a manifest is only one prerequisite.
+
+| Parent / child | State | Evidence and boundary |
+|---|---|---|
+| B-136 | Open | Its remaining obligations keep their existing triggers |
+| D-435 publication, separate health and D435-C1 | Complete / Verified within scope | Prior acceptance at `f05104d` carries forward |
+| D435-M1 | Verified by Codex (Lane B) at `7d9591c` | Full revision-3 source review and independent control observations below |
+| D435-M1-R1: missing IDs | Verified | Missing and empty IDs now exit 2 and create no manifest |
+| D435-M1-R2: line end | Verified | Partial-line end now exits 2 and creates no manifest; complete-line valid input still passes |
+| D435-M1-A3: fields, kinds and spans | Verified | Field validation and refusal branches reviewed; applicable controls repeated and supplemented |
+| Push; manual backups; P14a/P14b; FN lane-map sentence; SM05 / Gate 2 / root disposition | Separate | No new push, cleanup, repair, product or parent clearance follows from this child closure |
+
+#### Independent evidence
+
+- Helper SHA-256: `76ffbd473a4d9957908a25b7fdd04f4f995e3134d3da31b533d24a9c6dae6f39`. Revisions 1 and 2
+  still match their recorded hashes. Lane A's harness and results match hashes `6a590c07...` and `3de87fcb...`.
+- Lane B repeated all 17 recorded cases without changing their fixture bytes. The valid case exits 0 and
+  reproduces the accepted manifest's 23 target locators. All 16 refusal cases exit 2 and create no manifest.
+  Expected input hashes for each fixture were checked against the earlier retained records.
+- Four additional cases passed: absent field, unreadable source path and non-integer line number all refuse;
+  the old-value helper also refuses the intentionally repaired source at `b77d186`. Total: one valid case and
+  twenty refusal cases. These are helper checks, not a product build or a new tool-adoption trial.
+- The clause map now separates input identity, IDs, value lookup, match count, start/end boundaries, span,
+  field validation, kind, Git reads and output withholding. Lane B checked the actual source for each clause.
+  The repeated-node field branch is supported by reading the `hits.length !== 1` check, not by an injected
+  duplicate-node case. No claim of exhaustive fault coverage is made.
+
+The earlier counterexamples now fail for the intended reasons: missing IDs are rejected before lookup;
+partial-line values are rejected at the end-boundary check. Field targets are checked against the named node
+and field rather than copied through unexamined. No further blocking gap was found in the bounded M1 review.
+
+### What you need
+
+1. **Lane A:** receive this independent disposition in the next substantive answer. Carry forward the M1/R1/R2/A3
+   closure; do not request renewed permission or repeat the same correction work.
+2. For future reuse, bind the unchanged revision-3 helper and the expected input identities before running it.
+   Retain the actual command, source revision, exit, output and intended target scope. Caller-supplied hashes
+   must come from trusted reviewed inputs; calculating a hash does not establish the input's authority.
+3. Keep the old-value limit explicit. A refusal after an intentional repair is expected, as independently
+   observed at `b77d186`. Do not use this helper as proof that new repair text, a live graph or product behaviour
+   is correct. Those obligations use their own accepted checks and review routes.
+4. Continue other authorized work under its existing triggers. This review needs no new Judge decision.
+   A future batch push requires its own named range and validation checkpoint; no push occurred here.
+
+**Chief Editor evidence and gap prevention.** The closure now links the contract to source checks, retained
+controls and an independent result at an exact commit. Keep this chain in one M1 section sequence, rather than
+creating a new file as a substitute for evidence. Lane C's B-156/F6 results and their host limits carry forward;
+no new Lane C trial or C-series receipt is required for this external-helper correction. Graphify governance
+projection, setup source, product codebase delivery and knowledgebase retrieval keep separate acceptance criteria.
+
+### What you did instead
+
+Read-only graph navigation and source review, independent controls in a new external folder, and this one-file
+Lane B handoff review. No governed edit, helper edit, build, install, publication, raw rebuild, cleanup, fetch,
+push or lane change occurred. Full configured consistency check: **19/19, exit 0 at `7d9591c`**, run directly
+with Node in Lane B's shell. Governed intent remains synced at `b77d186`; later commits change handoff files.
+**No graph sync is required.** A consistency pass and this helper closure do not close the parent.
+
+Evidence directory: `C:/CoWork/outputs/lane-b-d435-m1-r3-review-2026-10-13/`.
+`review.json` SHA-256 `27c7ac8a13f4de1fa7a64f2fda98a185e04d3816e88d7a4941d21caf8ef59f82`;
+`review-r3.cjs` `8645407b5f40e1c3292178264029674d9e1f26ab2061fb8d6f2455e44ac02e9e`;
+`check-7d9591c.log` `197f9469a6dea8067b024b35b72f6bc43774eeff825c129fdd330a886f941292`.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | D435-M1 and R1/R2/A3 closure; revision-3 old-value binding contract | Phase 1: independently Verified at `7d9591c` |
+| Approve-with-conditions | Future helper reuse | Phase 1: unchanged reviewed helper, trusted pinned inputs, exact source and retained observations; operation authority remains separate |
+| Defer | B-136 parent disposition; future push; manual cleanup and excluded work | Their existing phases and recorded triggers; no extra helper-closure condition |
+| Reject | Revisions 1/2 as verified helpers; old-value refusal treated as a regression; M1 closure treated as product, graph or Gate 2 acceptance | Phase 1: preserve the scope and evidence boundaries |
