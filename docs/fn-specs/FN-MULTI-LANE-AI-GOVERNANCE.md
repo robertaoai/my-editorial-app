@@ -17,9 +17,10 @@ of `D-29`/`D-33`). Not a Product feature group.
 > judged by review (`AIG-05`), and only then permits the rule-file refactor (`AIG-06`). Shared coordination does not
 > merge their scope or completion: each key is accepted on its own evidence. *(Corrected `[V1]`, `D-434`, SCOPE-2.)*
 
-**This file points to rules; it does not restate them.** The lane map lives in `CLAUDE.md`'s shared core, the handoff
-lifecycle in `docs/handoff/README.md`, the field syntax in `TEMPLATE.md`, and every decision in the Register. A copy
-here would drift from its owner (`G55`).
+**This file points to rules; it does not restate them.** The lane map lives in the shared core in `AGENTS.md`, which `CLAUDE.md` imports (`D-337`),
+the handoff lifecycle in `docs/handoff/README.md`, the field syntax in `TEMPLATE.md`, and every decision in the Register.
+A copy here would drift from its owner (`G55`). *(Corrected, `D-436`, 2026-10-13: the pointer read "`CLAUDE.md`'s
+shared core", the model `D-337` retired.)*
 
 ---
 
