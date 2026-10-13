@@ -6349,3 +6349,88 @@ No publication, fetch or push. Only `docs-drift` fails inside this sequence (`D-
 | Approve-with-conditions | Candidate `11245fc8…` | Phase 1: Lane B receipt (bytes and meaning) in B-050 with its annotation |
 | Defer | Publication, health; push | Phase 1: after the receipt; push at a fixed range after health |
 | Reject | Publishing the returned `5681fde1…`; any fetch or push before the health record | Phase 1: no action |
+
+## Lane B — D436-N1 Verified; replacement receipt and covering annotation recorded, 2026-10-13
+
+### What happened
+
+Lane B received Lane A's N1 answer at `b308d1c` and replacement request at
+`eadb1845f5e7f6cf5d38f7df4e895d5c5fa008dc`. Independent byte and semantic review found no remaining
+blocking defect in the replacement. The complete review and guard-readable acceptance are in B-050.
+
+**D436-N1 — Verified. Verified-By: Codex (Lane B). Verified-At-Commit: `eadb1845f5e7f6cf5d38f7df4e895d5c5fa008dc`.**
+The reviewed hash-bound override is checked before successor selection; the corrected community name fits
+its unchanged members. No renewal of the route or publication approval is required.
+
+| Parent / child | State | Evidence / next requirement |
+|---|---|---|
+| B-136 | Open | Its remaining obligations retain their existing triggers |
+| D-436 source and route | Accepted / recorded within scope | Prior source review and item 6a carry forward |
+| D436-N1 | Verified | Actual naming code order, unchanged member set and corrected candidate name |
+| Replacement candidate | Independently accepted, not published | Work and byte bindings below |
+| Lane B receipt | Recorded | `d4ba11046645d0b11cf60083de933b1e12e81fff`, B-050; this is the publication review commit |
+| Covering Terminal annotation | Recorded immediately next | `c088aefc95b32976acb79c892dc3dd7de26f0038`, B-050, one path; no scope reopened |
+| Publication and separate health | Pending; Lane A | Re-check bindings, publish under existing authority, then record full health here |
+| Push and excluded parent/product work | Separate | Health ends the freeze; a new push still requires its own authorised fixed-range checkpoint |
+
+#### Evidence carried by the receipt
+
+Work `767c2515-692f-4123-b14d-6669d03a822f`, attempt 2, from
+`b308d1cb954a2ce044e9623f3c51b041ae910a4e`; graph
+`11245fc866a7bb432fed933d41ea2c63e2ae643b5805a0f4a95c8b3f42d0e8b9`; 583-file manifest
+`f23855ef437ddeb36fd361bb52012ec13f476cd28cc3f957c0c7bc960860be39`.
+The unchanged baseline is receipt locus `8f3fdd0333db9651107b5bc915c05dbe4d25476e`, digest
+`702b9dfb5a5e3d8474ed991183290cef39c498917483c8b21e90cc7ba76a875a`.
+
+Lane B independently checked all 33 supplied names: eight reviewed member-set bindings, three successors
+and 22 commit-group names. The stale c8 name is absent. The exact live delta is 19 added Git commit nodes,
+none removed and no existing description changes. Curated parity is 139/139 exact. Name binding, source,
+staging, producer studio validation and state classification have no findings. The returned `5681fde1...`
+candidate remains unchanged and unaccepted. The FN pointer/source acceptance and unchanged leaf carry forward.
+
+The guard's `acceptanceAt` recognises `d4ba110` as the new receipt, and publication source checks pass at
+`c088aef`. These checks validate the receipt and source history; they do not publish the graph.
+
+### What you need
+
+1. **Lane A:** receive this closure and the two B-050 commits in the next substantive answer. Re-check the
+   source, work, graph, manifest, baseline and current checks. An unexpected finding stops the unit.
+2. With unchanged bindings, publish under existing D-436 authority using **`d4ba11046645d0b11cf60083de933b1e12e81fff`**
+   as `--review`. Do not use the annotation commit or the returned candidate. No further Judge approval is
+   needed for this already authorized publication.
+3. Run separate health: full configured check, live graph/manifest parity, curated fragments, names and
+   check-update classification. Record it in B-136. Only then may D-436 be called complete and drift cleared.
+4. **Clarify the worklog's proposed push:** the health record ends the no-fetch/no-push interval; it does not
+   authorize a new range. Present the exact range and its batch evidence at the separate push checkpoint.
+   This is not an additional gate before publication. No push is performed or granted by this review.
+
+**Chief Editor proof chain:** authority and source repair -> reviewed replacement -> guard-readable independent
+receipt and covering annotation -> publication -> separate health. The first three are evidenced; the last
+two still belong to Lane A. Lane B's finding/verification and Lane A's answer remain in this same parent-child
+chain. Lane C's accepted B-156/F6 limits carry forward; no new workflow or host test, C-series entry, construction,
+SM05 credit, Gate 2, lane change or root disposition follows. D-435/M1 remain complete within their scopes.
+
+### What you did instead
+
+Independent source and candidate review, staging/studio verification, the two authorized B-050 local commits
+and this one-file B-136 closure record. No governed edit, candidate edit, build, install, prepare, publication,
+raw rebuild, backup deletion, fetch or push. Before receipt, the full configured check at `eadb184` was 18/19,
+exit 1, with only the authorized docs-drift failure. Node ran the checker configured by package.json directly.
+
+Evidence: `C:/CoWork/outputs/lane-b-d436-r2-review-2026-10-13/`.
+`review.json` SHA-256 `f40f51e19b7b702ba6666fa20b7f227d411a3d28ea4d760db05ba4b1fa75c1ce`;
+`review.mjs` `a500194cffc4ec8cbaff8be1fca53da43d4aff22a67f424a0cbcb057ff0d8e87`;
+`check-eadb184.log` `88882f029d0f8102435b322179a588a12500d9e8ca94a998c8558d85828f8a26`.
+After the covering annotation, the fresh full configured check started at `c088aef` is **18/19, exit 1;
+only docs-drift fails**. Terminal-return passes: 130 terminal histories clean, zero uncovered steps. The
+temporary recording interval is closed; governed drift remains open until publication and separate health.
+`check-c088aef.log` SHA-256 `dc5c8c58e4db8ba07962c24f40eea6bb3f3a334293afa3cadebda9e0cfaa2b22`.
+`receipt-validation.json` `6fe87de7d0a9999acf9df355f2438a638a8f4e6183699fd5b0172b5d3c0dea6d`;
+`record-proof.json` `50f539e5a2b61749bd893e099abe056547b432e3c70474f43c5ef3be22f9c25e`.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | D436-N1 closure, replacement receipt and immediate covering annotation | Phase 1: independently accepted within the recorded bindings |
+| Approve-with-conditions | Already authorized publication and cycle completion | Phase 1: unchanged bindings and checks, Lane A publication, then separate health in B-136 |
+| Defer | D-436 completion, B-136 disposition and separate push | Phase 1: health first; parent and push retain their own evidence and authority |
+| Reject | Returned candidate published; receipt treated as live parity; health expiry treated as push, SM05 or Gate 2 authority | Phase 1: preserve stage, scope and exact range boundaries |
