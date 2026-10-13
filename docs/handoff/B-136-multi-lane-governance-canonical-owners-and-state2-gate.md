@@ -5426,3 +5426,56 @@ inside this sequence (`D-428`).
 | Approve-with-conditions | Candidate `ed7463f3…` | Phase 1: Lane B receipt (bytes and meaning) in B-050 with its annotation |
 | Defer | A-cond publication, health (B-136); D435-M1 fix; push | Phase 1: in that order; M1 before any helper reuse; push at its own fixed range |
 | Reject | Publication from a Lane A-authored review; any fetch or push before the health record | Phase 1: no action |
+
+## Lane A — D-435 published with review `8f3fdd0` (A-cond); separate health recorded, 2026-10-13
+
+### What happened
+
+Lane A received Lane B's receipt **`8f3fdd0333db9651107b5bc915c05dbe4d25476e`** in B-050 and its covering Terminal
+annotation **`5423e11`**. Both change B-050 only. The receipt's one deleted line is the previous last line, re-added
+with its missing end-of-file newline; its text is unchanged.
+
+| Step | Result | Evidence (`C:/CoWork/outputs/lane-a-d435-apply-2026-10-12`) |
+|---|---|---|
+| Acceptance parse | The guard's `acceptanceAt` reads the record at B-050 L7572–L7595: Accept, workId `53746210…`, graph `ed7463f3…`, manifest `702b9dfb…` (583 files), analysed source `b77d186`, baseline `8d1ca497…` at `6bb88ed`, `pendingSemantics` 0 | Guard output |
+| Binding recheck (HEAD `5423e11`, clean tree) | Staged graph `ed7463f3…` unchanged; live `c9f65b18…` unchanged; no journal or lock; only B-050 and B-136 changed since `b77d186` | `12-publish-head.txt` |
+| `publish --work …/work --review 8f3fdd0333db9651107b5bc915c05dbe4d25476e` | **exit 0, `released`**, "live equals the reviewed manifest", run token `78c65526-6e2d-4878-acaa-ec3161eeaf05` | `13-publish.log` (`61fb833a…`) |
+| Live graph and manifest | Graph `ed7463f3…`, manifest `702b9dfb…`, **equal to the accepted bytes** | `14-live-parity.json` (`dfca1672…`), from `health.mjs` (`b34d0f08…`) |
+| Live fragment parity and names | 139/139 exact; name binding 0 findings | same |
+| Live branch record | analysed `b77d186`, `stale: false` | same |
+| Journal / lock after publication | None | same |
+| `bun run check` (separate health) | **19/19 pass**; `docs-drift` "synced (governed intent) at b77d186; HEAD 5423e11 advanced by excluded-only commits" | `15-health-check.log` (`40408ba7…`) |
+| `graphify check-update` | "graph.json built from b77d186 but HEAD is 5423e11". Only handoff commits cause this notice (G-F3-9); `docs-drift` confirms no governed drift. The suggested `--update` was **not** run | `16-check-update.log` (`9426d765…`) |
+
+The retained folders `.graphify-bak-78c65526…` and `.graphify-old-78c65526…` sit beside the live state. The
+person deletes them.
+
+**D435-C1, answered (correction to `4799c31`).** Lane A's sentence "No node description was generated or changed"
+was wider than its evidence. Corrected statement: **zero new code-description answers; two authorized curated
+description changes (`ci_that_cannot_fail` by R4, `shared_core_agent_rules` by R11); 16 new deterministic Git commit
+nodes.** Lane A re-counted against the previous live graph: 16 nodes added, all commit nodes; 0 removed; description
+changes on exactly those two nodes.
+
+**State, kept separate:**
+- D-435: recorded (`b1eb43b`), applied (`b77d186`), accepted (`8f3fdd0`), published (`78c65526`); health recorded here.
+- The fetch and push freeze ends with this record.
+- D435-M1 stays Open (owner Lane A): the manifest helper is not reused until fixed with its controls.
+- No SM05, Gate 2, root disposition, lane change or construction follows from this record.
+
+### What you need
+
+**Judge — push range (a separate decision).** Origin is at `08ad416`. The proposed range is `08ad416..` this
+record's commit (the range excludes `08ad416`). Confirm the range, or hold it.
+
+**Lane B:** this health record and the D435-C1 correction are available for independent review.
+
+### What you did instead
+
+No fetch, push, rebuild or `--update` was run. No governed file changed in this record.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | D-435 publication (A-cond) and separate health; D435-C1 correction | Phase 1: complete; Lane B may verify |
+| Approve-with-conditions | D435-M1 helper fix | Phase 1: before any helper reuse; Lane B verifies the controls |
+| Defer | Push; backup folder removal | The Judge's fixed range; the person |
+| Reject | Running the suggested `--update`; inferring SM05, Gate 2 or root clearance | Phase 1: no action |
