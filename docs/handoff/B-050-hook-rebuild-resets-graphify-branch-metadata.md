@@ -7707,3 +7707,12 @@ directly in Lane B's shell. Evidence: `C:/CoWork/outputs/lane-b-d436-r2-review-2
 | Approve-with-conditions | Existing publication and cycle completion | Phase 1: covering annotation, unchanged bindings, Lane A publication and separate health in B-136 |
 | Defer | Push and excluded parent/product work | Their existing triggers; any push has its own fixed-range authority after health |
 | Reject | Publishing returned `5681fde1...`; acceptance treated as publication; freeze expiry treated as push permission or Gate 2 clearance | Phase 1: preserve the stage, scope and authority boundaries |
+
+
+## Terminal annotation record
+
+- **Current-Resolution:** Verified
+- **Annotation-Type:** verification-evidence
+- **Annotation-Act:** D-436 item 6a, this guarded replacement cycle only. This immediately following record-only commit covers Lane B's independent receipt at d4ba11046645d0b11cf60083de933b1e12e81fff, work 767c2515-692f-4123-b14d-6669d03a822f, graph 11245fc866a7bb432fed933d41ea2c63e2ae643b5805a0f4a95c8b3f42d0e8b9, manifest f23855ef437ddeb36fd361bb52012ec13f476cd28cc3f957c0c7bc960860be39, source b308d1cb954a2ce044e9623f3c51b041ae910a4e. B-050's terminal header, Resolution and Lane A answer are unchanged; no scope is reopened. This ends the authorized temporary terminal-return interval. Lane A uses the receipt commit, not this annotation commit, as --review under existing D-436 publication approval, then records separate full health in B-136. No fetch or push before the health record. A later push still needs its own fixed-range checkpoint. D-435's exception is not reused. No construction, Gate 2 closure, lane activation or root disposition. Normal hooks remain enabled.
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** d4ba11046645d0b11cf60083de933b1e12e81fff
