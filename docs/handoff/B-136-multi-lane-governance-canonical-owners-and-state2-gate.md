@@ -6481,3 +6481,84 @@ No fetch, push, rebuild or `--update`. No governed file changed in this record.
 | Approve | D-436 publication and separate health | Phase 1: complete; Lane B may verify |
 | Defer | Push; backup folder removal; other B-136 obligations | The Judge's fixed range; the person; their own triggers |
 | Reject | Running the suggested `--update`; treating health as push, SM05 or Gate 2 authority | Phase 1: no action |
+
+## Lane B — D-436 publication and separate health independently Verified, 2026-10-13
+
+### What happened
+
+Lane B reviewed Lane A's health record at `b99ffb8fc618a8b5e327603d076c7b51b86a9f3c`, the immutable receipt,
+release record and current live state. Lane A applied and published; Codex (Lane B) independently verified.
+
+**D-436 — Verified within its FN-pointer repair and guarded-sync scope. Verified-By: Codex (Lane B).
+Verified-At-Commit: `b99ffb8fc618a8b5e327603d076c7b51b86a9f3c`.** No blocking gap remains in this unit.
+This is a child disposition under B-136, not a change to B-136's Open header or Lane A answer field.
+
+| Parent / child | State | Evidence / remaining trigger |
+|---|---|---|
+| B-136 | Open | Its other obligations keep their own triggers |
+| D-436 | Complete; independently Verified | Authority, applied source, route, corrected replacement, receipt, publication and separate health are linked |
+| D436-N1 | Verified; carried forward | Corrected name and reviewed member-set naming order remain in the published bytes |
+| D-436 item 6a route | Used; expired at health record `b99ffb8` | No standing receipt exception for another cycle |
+| Proposed push `53c98d6..b99ffb8` | Not authorized by this review | Judge's exact-range decision, then fresh remote/batch checks |
+| Backups; Option E, P1/P2, retained audit work, P14a/P14b, SM05 / Gate 2 / root | Separate | Manual cleanup and each obligation's recorded trigger |
+
+#### Independent health evidence
+
+Release `5ac0fbe0-87bd-4550-bd78-c9901e12e095` records publication HEAD `d02699f`, source
+`b308d1cb954a2ce044e9623f3c51b041ae910a4e`, and Lane B receipt
+`d4ba11046645d0b11cf60083de933b1e12e81fff` (B-050 L7679-L7702). The acceptance parses, and the release
+predecessor matches the reviewed D-435 baseline. The current release chain resolves without ambiguity.
+
+Lane B rehashed every live file. Graph SHA-256 is
+`11245fc866a7bb432fed933d41ea2c63e2ae643b5805a0f4a95c8b3f42d0e8b9`; the 583-file tree digest is
+`f23855ef437ddeb36fd361bb52012ec13f476cd28cc3f957c0c7bc960860be39`. Both equal the immutable acceptance
+and Lane B's pinned pre-publication review. Publication promoted staging into live, so the retired staging
+path is not required to remain. The accepted manifest is the retained byte-identity boundary.
+
+Curated parity is 139/139 exact; name binding has zero findings. The corrected consistency/source-sweep name
+is present and its stale predecessor is absent. Branch metadata records `b308d1c`, `stale: false`. No transaction
+journal, transaction finding or publication lock remains. Lane A's retained health facts agree with these
+independent observations, and its publish/health log hashes were recomputed.
+
+Fresh full configured consistency check at examined `b99ffb8`: **19/19, exit 0**, including docs-drift and
+terminal-return. Node ran the package-configured checker directly in Lane B's shell. Only B-050 and B-136
+changed after the analyzed source; those excluded handoff changes explain check-update's HEAD notice.
+**No further graph sync is needed.** No suggested raw `--update` was run.
+
+### What you need
+
+1. **Lane A:** receive this independent disposition in the next substantive answer. Carry forward D-436's
+   completion and D436-N1's closure; do not repeat the cycle or request renewed publication approval.
+2. **Judge, separate push checkpoint:** the proposed `53c98d6..b99ffb8` contains exactly ten commits, excluding
+   the base. All ten have the required author email. The local cached upstream is `53c98d6`; Lane B did not
+   query or fetch the remote. Accept the named range or keep it on hold; this review does not select either.
+3. If that exact range is authorized, Lane A re-fetches, checks the current upstream/fast-forward and whole-batch
+   evidence, pushes once to the approved tip, then checks remote equality to that tip. **Do not substitute HEAD**:
+   this independent review's local commit is outside `53c98d6..b99ffb8`. Include it only in an explicitly revised
+   range. A changed remote or failed prerequisite stops the push for reassessment.
+4. Keep the two `...-5ac0fbe0` backup folders until the person chooses their manual removal. Their retention
+   does not keep D-436 open. Continue other approved planning only at its existing triggers.
+
+**Chief Editor proof and gap prevention.** This chain now has authority, applied source/diff, corrected semantic
+names, independent receipt, released-byte parity and separate health. There is no missing evidence to close
+D-436. Keep completion, push authority and parent readiness separate. Lane C's B-156/F6 limits carry forward;
+no workflow, host delivery or product behaviour was newly verified. Governance projection, project setup
+source, product codebase construction and knowledgebase retrieval retain their separate acceptance criteria.
+
+### What you did instead
+
+Read-only graph navigation, source/release/live-state verification and this one-file B-136 review. No governed
+edit, helper change, build, install, trial, prepare, publication, raw rebuild, backup removal, fetch, push,
+lane change, root disposition or Gate 2 closure. The working tree was clean at the independent observation.
+
+Evidence: `C:/CoWork/outputs/lane-b-d436-health-review-2026-10-13/`.
+`review.json` SHA-256 `8883b900ab2cf8847a17ca01128114c8ec2105ce129abe883a614d04019215d6`;
+`review-health.mjs` `3b296c79a3c1a623c09f8c75218f537129aa2182decc639aa753f224413b8616`;
+`check-b99ffb8.log` `2b6f2fb3bb3500ed38fc98071c40af228dd720d089654a9af536e0b8320c3807`.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | D-436 publication, separate health and child disposition | Phase 1: independently Verified at `b99ffb8`; no further cycle |
+| Approve-with-conditions | Proposed ten-commit push, as a separate option | Phase 1: Judge's exact-range authority, fresh remote/fast-forward and batch evidence, push once and equality check |
+| Defer | Push execution, manual backups, B-136 disposition and excluded work | Their recorded phases, owners and triggers; no extra D-436 completion condition |
+| Reject | Review commit silently added to the proposed range; route exception reused; health treated as SM05, Gate 2 or parent/root clearance | Phase 1: preserve exact endpoints and scope |
