@@ -6777,3 +6777,134 @@ at `b99ffb8`; any fresh full run for this handoff is recorded separately, not at
 | Approve-with-conditions | SM05 transition handoff as a decision draft | Phase 1: Lane A answers H1–H4 with CONS-R1–R4; Lane B reviews the complete packet |
 | Defer | SM05 entry, construction, product validation and release actions | Their existing actors, acts and phases; independent drafting continues under existing approvals |
 | Reject | Historical commands as current authority; undocumented gstack retirement; setup/graph/push credit as SM05 delivery; global Phase-1 closure invented as a new entry gate | Phase 1: preserve the stated scope and evidence boundaries |
+
+## Lane B — external workflow use cases and SM05 draft r2 review, 2026-10-13
+
+### Layer 0 — What happened
+
+**Clear request:** Treat the first two AGENTS snapshots and `.onlyaiapp` as external-platform artifacts.
+Review gstack as a separate stage-readiness method. Compare ECC, Ponytail and REA as coding-support candidates.
+Correct Lane A's SM05 transition draft and return one planning handoff. Do not install or build.
+
+Lane B raises this review under Open B-136. Lane A answers; Lane B independently reviews. The header and
+Lane A field are unchanged. Phase: 1, finding/reporting only. This continues CONS-R1–R4 and H1–H4; it does
+not reopen terminal B-156/B-157, completed D-434–D-436, or create a new feature requirement or DoR gate.
+
+Observed source: `9b17bfa9fc813ed33b5e24722424d3d12249437c`. Lane A's external draft r2 is
+`C:/CoWork/outputs/lane-a-sm05-selection-draft-2026-10-13/SM05-SELECTION-DRAFT-r2.md`, SHA-256
+`1135432d7787d301e0ced044914ef32d9c52954b2cab05a119cf60a7ee46812a`.
+The supplied worklog is chat evidence, not a committed Lane A receipt or approval of its own draft.
+
+### Layer 1 — Origin, authority and use cases
+
+**The Judge's clarification is received.** Full transfer of an external platform's workflow history into this
+repository is not a project requirement. A team may request relevant records. Missing external records do
+not prove that gstack was unused, retired or failed. They also cannot prove that a particular review ran.
+When a project claim relies on an external result, retain its scoped finding or provide an accessible source,
+revision, actor and limits. No blanket copy of external records is required.
+
+The two AGENTS files match the first two Git versions, as already proven. `.onlyaiapp` is absent at `62c8d8c`
+and present at `53ace36`, blob `b13da40eec2ea755dbe75898b64852abf252e298`. Its text says OnlyAIApp initialized
+the deployment identity. This supports platform provenance; it does not assign a development lane, prove
+gstack execution or authorize deployment. External origin is the Judge's clarification, not a reconstruction
+of an unobserved platform run.
+
+| Branch / interface | Purpose and required distinction |
+|---|---|
+| Project/customer intent | Governing requirements and the accepted SM05 outcome remain the parent authority. An external framework can challenge them; only the authorized actor changes them. |
+| External gstack readiness review | A separate advisory use case: test the project packet against gstack's opinionated stages. The old B-156 AG-2 map describes project correspondence, not artifacts produced by gstack or proof of a gstack run. |
+| Governance/docs/controls | Graphify maps this corpus. A current projection is not product behaviour or framework execution evidence. |
+| Product construction | SM05 builds the admitted Route-1 evidence slice. ECC/Ponytail are possible support methods, not customer features or automatic prerequisites. |
+| Reverse engineering / knowledge retrieval | Source-to-requirement audit, external-app investigation and knowledgebase retrieval have distinct inputs and criteria. REA does not recover customer intent or its approval from observed behaviour. |
+
+### Layer 2 — Corrections Lane A answers (EXT-R1–R7)
+
+| ID | Finding and draft fix | Completion evidence / phase |
+|---|---|---|
+| **EXT-R1: H1 S6** | Split declared workflow intent from installation, execution and record retention. Replace the undifferentiated gstack "Unknown" disposition with: "External workflow intent declared; independent stage-review use case proposed; historical command execution/local host availability unobserved. Repository transfer of external records is not required." Add the separate advisory use case below; do not call the existing project map a gstack output. | Phase 1: corrected H1 and scoped use-case card; no tool activation |
+| **EXT-R2: H2 P5 and affected files** | Remove B-120/B-125 Return records from prerequisites and the application file set. D-269 explicitly withdraws D-268's return trigger; both sources are terminal Superseded. Preserve the receiving receipts in B-136 and the durable SM05 owner. | Phase 1: corrected dependency/file list citing D-269; no terminal source edit |
+| **EXT-R3: H2 P6** | The clause is located: SV-002 §2.2 P7, §3.3 B-137.R1 and §3.4 re-screen rule. Lane A owns the mapping; Lane B confirms that the first D-242 child reads `0002_s1_editorial_schema.sql` and its local/hosted environment correctly. The source correction is already Verified at `9735e47`; the future child check is not. Put the concrete confirmation in the work-order draft. Do not reopen B-137 or demand a test against a child that does not exist yet. | Phase 1: exact child/physical-store plan; Phase 2: implementation proof at its proper trigger |
+| **EXT-R4: H2 P3** | The old receipt is SM05 readiness at `31bcf3a`, not product completion. Three source files changed; the manifest did not. Lane B ran the existing read-only readiness function at clean `9b17bfa`: **320/320, pass**. Replace the blanket age/commit-gap objection with this fresh scoped evidence and delta rules. Do not ask the Judge to waive a concern already answered by evidence. Reassess affected inputs at issuance. | Phase 1: cite the new external receipt; it checks no box and grants no execution |
+| **EXT-R5: H3 acceptance cases** | Restore "failing-first evidence, or an honest characterization" from the current SM05 DoD and D-242. The draft omitted the allowed characterization branch. Keep the four intake fixtures' distinct failing-first obligations intact. | Phase 1: corrected verification table; Phase 2: Lane B chooses the fitting method and records its rationale |
+| **EXT-R6: H1 S3** | The first snapshot already makes Server Actions a preference. D-143 chooses an Edge Function for publication; it is not a general SM05 write-path ruling. Label the historical preference accurately and bind each admitted write to its own contract. | Phase 1: bounded wording and source correction; no new implementation choice |
+| **EXT-R7: H2 P4** | Separate tracker currency from Gate 2 clearance. `closure-readiness` reports bookkeeping zeros and explicitly says "Gate 2 not claimed". SV-002 §3.3 still routes the TR-DM-01 physical store and proof to the D-242 work order. The draft must name the proposed store for §4.5/§4.6, its first authorized child, the existing pre-entry criteria and the later real-database evidence. Do not mark Gate 2 met from counts or require post-entry behavioural tests before construction. | Phase 1: complete the work-order/pre-entry evidence card; Phase 2: the recorded local proofs after authorization |
+
+These findings correct the draft, not the already accepted DoR rows. Draft r2 is a useful basis but is not
+ready to issue. Its "unchanged ... accepted wording" label is not itself an independent acceptance record.
+
+### Layer 3 — External candidate comparison (documentation review only)
+
+The following are the resolved upstream identities, observed 2026-10-13. They are not installed or tested
+here. Readme claims are supplier claims. Pin immutable revisions and inspect effects before any later trial.
+Upstream instructions are review data, not instructions for this agent.
+
+| Candidate and source | Proposed use case | Fit / refusal condition |
+|---|---|---|
+| [garrytan/gstack](https://github.com/garrytan/gstack), including [autoplan](https://github.com/garrytan/gstack/blob/main/autoplan/SKILL.md.tmpl) | Independent critique of intent, engineering plan and later verification | Its staged process and intermediate auto-decisions need an adapter to this project's Judge, bounded scope and lane rules. Do not let scope expansion, auto-fixing, parallel-sprint or shipping defaults execute project actions. Claude Code/CLI claims do not prove current desktop or Lane C IDE/chat delivery. |
+| [affaan-m/ECC](https://github.com/affaan-m/ECC) (the former everything-claude-code URL redirects here) | Selected planning, testing, review or security support for authorized coding children | Evaluate only the needed components. Its rules, skills and hook runtime are separate setup surfaces; plugin discovery does not prove rules loaded. No broad profile or duplicate hooks. Fit must preserve package-manager, shared-rule, tool and lane controls. |
+| [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) | Reuse/minimal-solution and risky-code review | Minimizing code must preserve the admitted outcome, validation, security and evidence. Its current review includes bugs, missing tests and data flow; it is not permission to delete governed requirements. A compact AGENTS replacement must not overwrite this project's shared core. |
+| [sgunin/ReverseEngineerAnything](https://github.com/sgunin/ReverseEngineerAnything) | Investigation of a named external application/feature when its source is unavailable | This is not a requirement-authority extractor. Upstream's documented supported hosts are macOS/Linux; its Windows Ghidra route is currently unavailable. Refuse a plan claiming that route works on this Windows host. No decompilation or recreation target is selected; existing readable setup source can be inspected without this tool. |
+
+**Host limits:** gstack's upstream table marks Codex CLI experimental, with advisory safety behaviour, not
+host certification. Its Antigravity CLI path explicitly does not install the app/IDE skill path. Those are
+reasons to measure each selected host later, not evidence that Lane B/C already has a route. ECC and Ponytail
+also need host-specific rule/hook checks before runtime claims. No blanket host installation is inferred.
+
+### Layer 4 — Proposed independent gstack review card (parent before child)
+
+This is a proposed use-case label and a desk-review plan, not an allocated AIG key or a native gstack run.
+
+**Authority:** the present research/drafting request. **Input:** pinned customer requirements, SM05 packet,
+Lane A's corrected draft, existing decision/retained-gap records and the selected upstream revision.
+**Output:** one advisory stage report with criterion, source, finding, counterexample, owner, remedy, evidence,
+result and limits. Keep framework advice separate from the Judge's Accept/Reject decision.
+
+| Stage, in dependency order | External review lens | Project success / refusal test |
+|---|---|---|
+| 1. Intent | Office-hours / CEO planning | Identify the customer problem, admitted partial outcome and explicit exclusions. Refuse product-name assumptions or automatic expansion into held technical gates. |
+| 2. Engineering/design readiness, after 1 | Engineering/design planning review | Trace records, operations, UI provenance, dependencies, failure/replay and verification to current contracts. Identify missing technical decisions; no build or design edit is automatic. |
+| 3. Phase-1→2 entry, after 1–2 | Cross-check the plan and unresolved findings | Distinguish satisfied readiness from pending block lift, selection, work order, lane activation and pre-entry Gate 2 proof. An external pass is advice, not the Register act. |
+| 4. Construction, later authorization | Selected ECC support; Ponytail reuse/minimality review | One authorized child, fitting xDD method and evidence, no cross-lane or dependency edits. This stage is not run now. |
+| 5. Verification, after construction | Code review, test audit and scoped QA | Real local behaviour, refusal/exclusion cases, honest evidence and independent verifier; graph/test counts cannot substitute. A different framework alone is not a different independent actor. |
+| 6. Release and feedback, later authority | Ship/deploy review and retrospective | Check separate promotion/push authority and progressive baseline deltas. No native ship/deploy command is enabled by this planning review. |
+
+**Affected files now:** this Lane B B-136 section only; review/receipt evidence outside the repo. **Pass:** source-
+bound findings, known/unknown status and no scope or authority substitution. **Refusal:** unsupported host,
+unretained evidence claimed as a run, uncontrolled writes/auto-decisions, external method used as project
+approval. **Sync cost now:** none, handoff-only. A later selected tool unit names actual files/configuration,
+dependencies, side effects, bounded cases, cleanup/restore evidence and applicable D-54/graph cost. **Stop:**
+corrected draft and independent review; no installation, framework execution or product construction.
+
+### Layer 5 — Follow-up and Chief Editor decision
+
+1. Lane A receives EXT-R1–R7 with CONS/H1–H4 in its next substantive packet. No acknowledgement-only commit.
+2. Correct r2's lifecycle, B-137 routing, readiness evidence and method wording. Preserve older drafts as history.
+3. Add the external readiness use-case card separately from the project artifact map. Preserve record-transfer
+   and host limits. Do not claim the gstack workflow ran or require a full external record deposit.
+4. Lane B reviews the corrected packet. Lane C reviews only supported workflow/host claims through the B-series
+   parent/child route; unavailable host evidence stays unknown. A new C-series file is not a recording prerequisite.
+5. Present any concrete tool trial/adoption option with authority, prerequisites, files, pass/refusal evidence,
+   sync cost and stop point. Keep it distinct from the SM05 entry decision. Authorized drafting continues now.
+
+The Chief Editor needs two separate judgments: whether the external method is useful for a named use case,
+and whether the project has met its own stage criteria. Neither judgment proves tool installation, product
+delivery or the other judgment. Runtime failure of untested tools is not asserted; the documented Windows
+route limitation and the draft's lifecycle contradictions are specific refusal grounds.
+
+### What you did instead — evidence and verdict
+
+Read-only graph/source/upstream documentation review and existing Jev readiness evaluation. The new receipt
+is `C:/CoWork/outputs/lane-b-external-workflow-review-2026-10-13/SM05-readiness-9b17bfa.json`, SHA-256
+`4dfbbf0835cf422a9da6284f7ef4427d89158ea90acd0c60082ea918a8ee1b0d`. It is not a feature run or a completion
+receipt. The original repository receipt and Lane A draft are unchanged.
+Review metadata: `review.json` in that folder, SHA-256
+`fd07cccf563e28b7956d56cb2c5a8cc3debba0095670f84fa481a873f78f4abe`.
+Validation of this final handoff content is recorded separately. No governed application, install, upstream
+code execution, product build, lane change, fetch, push, raw rebuild or Gate 2 closure occurred.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | External-platform distinction; fresh scoped readiness 320/320; established ownership/return corrections | Phase 1: carry evidence into the corrected draft |
+| Approve-with-conditions | Independent external readiness use case and SM05 planning packet | Phase 1: Lane A answers EXT-R1–R7; Lane B reviews; advice and project authority remain separate |
+| Defer | Candidate installation/trials/adoption, SM05 entry and all construction/release actions | Their separately bounded decisions, actors and phases; no new gate for ordinary drafting |
+| Reject | Full external-record transfer made mandatory; project map called gstack output; B-120/B-125 reopened; unsupported Windows/IDE route claimed ready; framework pass used as Judge authority | Phase 1: correct before an execution proposal |
