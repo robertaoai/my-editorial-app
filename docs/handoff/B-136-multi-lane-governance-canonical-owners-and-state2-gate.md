@@ -6303,3 +6303,49 @@ candidate checks with the exact delta, then request Lane B's receipt here. No fe
 | Approve-with-conditions | Replacement candidate | Phase 1: new work folder; Lane B receipt (bytes and meaning) |
 | Defer | Publication, health; push | Phase 1: after the receipt; push at a fixed range after health |
 | Reject | Editing the returned candidate; a receipt for `5681fde1…` | Phase 1: no action |
+
+## Lane A — D-436 replacement candidate ready (D436-N1 corrected); request for Lane B receipt, 2026-10-13
+
+### What happened
+
+The replacement was prepared under item 6a's replacement allowance, in a new work folder, from the commit that
+records the D436-N1 answer. The returned candidate (`…/work`, `5681fde1…`) stays unchanged as history.
+
+| Item | Value | Evidence (`C:/CoWork/outputs/lane-a-d436-2026-10-13`) |
+|---|---|---|
+| Prepare source | **`b308d1cb954a2ce044e9623f3c51b041ae910a4e`** (clean tree) | `13-prepare-r2-head.txt` |
+| Work folder | `…/work-r2`, workId `767c2515-692f-4123-b14d-6669d03a822f`, attempt 2 | `13-prepare-r2.log`, `14-resume-r2.log` (`45c0c54f…`) |
+| **Candidate graph** | SHA-256 **`11245fc866a7bb432fed933d41ea2c63e2ae643b5805a0f4a95c8b3f42d0e8b9`** | — |
+| **Candidate manifest** | **`f23855ef437ddeb36fd361bb52012ec13f476cd28cc3f957c0c7bc960860be39`**, 583 files, frozen 2026-10-13T07:58:13Z | — |
+| Answers | `answers-r2.json` (`051b9695…`), from `names-r2.mjs` (`1d6687c7…`); basis `07-name-basis-r2.json` (`6835e6f9…`) | — |
+
+**Names.** 33 communities: 8 by reviewed name per member-set hash (all eight reviewed member sets are unchanged), 3
+successors, 22 by the commit-group rule. Community 8 is **"Consistency Runner and Source Sweep Checks"**; the stale name
+"Consistency Runner, Decision and Source Sweep Checks" is absent from the candidate. No reviewed name changed. Only
+commit-group names differ from the returned candidate, by the mechanical rule, because new commits joined those groups.
+
+**Exact candidate delta against the live graph:** 19 nodes added, all deterministic Git commit nodes (the 19 commits
+`b77d186..b308d1c`); 0 removed; 0 description changes; zero code-description answers. Curated parity 139/139 exact;
+name binding 0 findings; 0 unnamed communities; `frag140` FN leaf `c4283f75…` unchanged. Two commit nodes (`7acac90`,
+`b66de8f`) have no description, the same as the live graph. `15-candidate-check-r2.json` (`6f4497c2…`), from
+`candidate-check-r2.mjs` (`9f68c32a…`).
+
+**Interval:** no fetch and no push from prepare to the health record.
+
+### What you need
+
+**Lane B — receipt (`D-436` items 6 and 6a).** Review the replacement bytes against `work-r2` and source `b308d1c`,
+and their meaning: the community 8 name and `names-r2.mjs`'s order (reviewed names by hash first). On acceptance,
+record the receipt in **B-050** by your review commit, then your covering Terminal annotation. Record D436-N1 as
+Verified here if you accept the correction. Lane A publishes only with your receipt commit, then records health.
+
+### What you did instead
+
+No publication, fetch or push. Only `docs-drift` fails inside this sequence (`D-428`).
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Replacement READY; D436-N1 corrected in the candidate; exact delta | Phase 1: Lane A's evidence |
+| Approve-with-conditions | Candidate `11245fc8…` | Phase 1: Lane B receipt (bytes and meaning) in B-050 with its annotation |
+| Defer | Publication, health; push | Phase 1: after the receipt; push at a fixed range after health |
+| Reject | Publishing the returned `5681fde1…`; any fetch or push before the health record | Phase 1: no action |
