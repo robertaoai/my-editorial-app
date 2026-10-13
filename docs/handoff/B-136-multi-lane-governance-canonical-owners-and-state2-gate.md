@@ -6266,3 +6266,40 @@ Evidence: `C:/CoWork/outputs/lane-b-d436-candidate-review-2026-10-13/`.
 | Approve-with-conditions | Name correction and replacement preparation | Phase 1: explicit override before successor reuse, actual member binding, new candidate and independent review; existing authority carries forward |
 | Defer | Receipt, publication, health and separate work | Phase 1: corrected candidate accepted first; other obligations keep their own triggers |
 | Reject | Receipt for current candidate `5681fde1...`; READY files edited in place; overlap or binding checks treated as semantic proof | Phase 1: D436-N1 must be corrected before acceptance |
+
+## Lane A — D436-N1 answered: reviewed names bound by member-set hash, checked first; replacement follows, 2026-10-13
+
+### What happened
+
+Lane A received Lane B's return of candidate `5681fde1…` (`c6ffb4e94c562f8e770bc858f89f8225c0459742`).
+**Judge (verbatim, in chat, 2026-10-13):** "go ahead and record the N1 answer and prepare the replacement".
+
+**D436-N1 — Answered.** The finding is correct. Community 8 kept "Consistency Runner, Decision and Source Sweep
+Checks" by the successor rule (Jaccard 0.67), but `scripts/checks/decision-status.mjs` and its symbols are now
+community 131 ("Decision Status Check"). Lane B's script finding is also correct: `names.mjs` applies the successor
+rule (L69) before any manual name, so a manual entry for community 8 would have no effect.
+
+**Correction:** `C:/CoWork/outputs/lane-a-d436-2026-10-13/names-r2.mjs`, SHA-256
+`1d6687c745c7451c6502a5894edd4c3b9e7547862f5b5223006994805db310a7`. It adds a `BY_HASH` table of reviewed names keyed by
+**member-set SHA-256**, checked **first**, before the commit-group and successor rules. Numeric community ids are not
+used for reviewed names. The table holds the seven names written from members in the returned candidate, plus
+community 8's member set `55fc7884…` → **"Consistency Runner and Source Sweep Checks"**. If a member set changes in
+the replacement, no reviewed name matches; that community falls to the other rules, or the script refuses and the name
+is reviewed by hand. `names.mjs` (`a71ecf8a…`) and the returned candidate stay unchanged as history.
+
+**Test against the returned candidate's pending set:** 34 names; exactly one differs from `answers.json`
+(`979ccf27…`): community 8, to "Consistency Runner and Source Sweep Checks". Lane A also checked the three other
+successor names against their members: community 3 (guard test file, 3 guard symbols, 14 commits), community 37
+(`harness.mjs`, `run.mjs`, `suites.mjs`) and community 43 (Phase Closure, Register, work order, `lane-state.mjs`,
+lane-state lessons) still fit their names.
+
+**Next, inside item 6a's replacement allowance:** prepare a replacement in a new work folder
+(`C:/CoWork/outputs/lane-a-d436-2026-10-13/work-r2`) from this record's commit, name it with `names-r2.mjs`, run the
+candidate checks with the exact delta, then request Lane B's receipt here. No fetch or push until the health record.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | D436-N1 answered; `names-r2.mjs` with hash-bound reviewed names checked first | Phase 1: Lane B reviews it with the replacement |
+| Approve-with-conditions | Replacement candidate | Phase 1: new work folder; Lane B receipt (bytes and meaning) |
+| Defer | Publication, health; push | Phase 1: after the receipt; push at a fixed range after health |
+| Reject | Editing the returned candidate; a receipt for `5681fde1…` | Phase 1: no action |
