@@ -5622,3 +5622,100 @@ No governed file, build, graph or publication changed.
 | Approve-with-conditions | Helper reuse | Phase 1: after Lane B records Verified |
 | Defer | Backup folder removal; B-136 parent disposition | The person; their own triggers |
 | Reject | Reusing revision 1; treating this answer as Verified | Phase 1: no action |
+
+## Lane B — D435-M1 revision 2 review: two reproduced contract failures, 2026-10-13
+
+### What happened
+
+Lane B received Lane A's answer at `422cd81210cc00440c0146d596e71d0726369b75`. This review uses the existing
+B-136 -> D435-M1 route. Lane A answers; Lane B independently reviews. B-136 stays Open. Its header and Lane A
+answer field are unchanged. D-435 publication, health and D435-C1 remain complete within their accepted scope.
+
+**D435-M1 is not Verified.** Revision 2 fixes the originally reported search failures, but does not meet the
+whole contract at `5e5b587`, under "Draft fix contract". Lane B independently ran twelve cases against the
+unchanged helper. The valid case returned exit 0 and reproduced all 23 accepted target locators. Nine refusal
+cases returned exit 2 and wrote no manifest. Two invalid cases returned exit 0 and wrote manifests.
+
+The helper's SHA-256 is `1e41f8c955e38a6e0b5492ded4b008f113736e01051b215207d349fd1da42adf`.
+The original helper remains byte-identical to its recorded hash
+`0630856a22e77a6d852719d3da20793526680ef7593e59e40a0f2b7c47bc40c1`.
+
+#### Completion map, parent first
+
+| Parent / child | State | Evidence or return condition |
+|---|---|---|
+| B-136 | Open | Other obligations keep their existing triggers; this review is not a parent disposition |
+| D-435 publication / health; D435-C1 | Complete / Verified within scope | Prior independent acceptance at `f05104d`; no reopening |
+| D435-M1 | Answered; verification withheld | Revision 2 passes its seven reported cases but fails two further contract cases |
+| D435-M1-R1: missing ID | Open; Lane A answers | Correct ID validation, then independent control review |
+| D435-M1-R2: end boundary | Open; Lane A answers | Correct complete-line validation, then independent control review |
+| Reported batch push | Completed by Lane A to `422cd81` | 72 commits in `08ad416..422cd81`; no new push authorized by this review |
+| Backup removal; P14a/P14b; FN lane-map sentence; SM05 / Gate 2 / root disposition | Separate | Manual cleanup and each obligation's recorded trigger; no completion credit from the helper or graph |
+
+#### Reproduced findings and draft fixes
+
+| Finding | Expected / observed | Source and bounded draft fix |
+|---|---|---|
+| D435-M1-R1 | A missing target/value ID must refuse. Delete the `id` from the R10 target and its matching value row: exit 0, manifest written, R10's identity absent. | Helper lines 29-38 check duplicates and look up values, but accept a single missing ID on each side. Require every target and value ID to be a non-empty string before building the lookup. Retain duplicate checks and require a matching value for each target. |
+| D435-M1-R2 | A value ending inside a source line must refuse. Replace R10's value with `Everything above this line`: exit 0, manifest written, target locators still equal the accepted manifest. | Lines 42-48 check uniqueness, start boundary and line count, but not the end boundary. Require the located value to cover complete source lines, with an explicit final-newline rule. Retain the start-boundary and span checks. |
+
+These are fault fixtures, not changes to the accepted frozen inputs. Each fixture has its own supplied expected
+SHA-256, as in Lane A's controls. They test validation after the input-hash check. No defect in the already
+independently accepted manifest or published candidate is inferred from these failures.
+
+The independently repeated seven cases were: valid, missing match, multiple matches, duplicate target ID,
+span mismatch, unreadable Git revision and input-hash mismatch. Three additional refusal cases also passed:
+match inside a line, missing value row and duplicate value ID. The two cases above did not refuse.
+
+**Failure pattern:** the control list was treated as coverage of the whole contract. A duplicate-ID control
+does not prove that IDs exist. A start-boundary control does not prove an end boundary. A consistency pass
+does not exercise this external helper. Map each contract clause to its source check and observed control;
+keep untested claims explicit. This is the same evidence omission pattern raised in earlier source reviews.
+
+### What you need
+
+1. **Lane A:** keep revisions 1 and 2 and their evidence unchanged. Draft revision 3 of this external helper,
+   applying only D435-M1-R1 and R2. No governed source, dependency or product change is required for these fixes.
+2. Retain the valid control and existing refusal cases. Add the missing-paired-ID and partial-line-end cases.
+   The valid case must reproduce the accepted 23 targets; every invalid case must exit nonzero and create no
+   manifest. State whether each branch is tested or supported only by source reading.
+3. Record the corrected helper's full hash, input identities, arguments, exits and output-file observations
+   in the Lane A answer under this M1 chain. Return that bounded revision for Lane B review before reuse.
+4. **Lane B:** independently review the corrections and controls. Only then record D435-M1 Verified at the
+   examined commit. Do not close B-136 or reopen B-050/B-156 to record this helper review.
+
+No new Judge choice is needed for this bounded correction within the existing M1 work. A changed scope or
+future push keeps its own authority. Carry forward the recorded approvals; do not request them again.
+
+**Push evidence boundary.** Local Git proves the 72-commit range, the required author email on all 72 commits,
+and `422cd81`'s one-file diff (55 insertions, no deletions). The cached upstream equals `422cd81`. Lane A reports
+the fetch, fast-forward and completed push under the Judge quote in its answer. Lane B performed no network
+query, fetch or push in this review, so cached equality is not represented as fresh remote evidence. The local
+review commit is outside that completed range; it does not silently extend the authorized push tip.
+
+**Chief Editor evidence.** The decision record must distinguish an answered helper from a verified helper,
+and a verified child from its open parent. Lane C's existing B-156/F6 review limits carry forward; these two
+external-helper findings require no new host test or C-series entry. Governance projection, project setup
+source, product codebase delivery and knowledgebase retrieval keep their separate acceptance criteria.
+
+### What you did instead
+
+Read-only graph navigation, source inspection and twelve controls in a new external review directory. No
+helper was edited or reused to authorize an operation. No governed edit, build, install, trial, publication,
+raw graph rebuild, backup deletion, lane change, fetch or push occurred. This section is Lane B's own review.
+
+The full configured consistency checker passed **19/19, exit 0 at `422cd81`**, run directly with Node in Lane B's
+shell. `docs-drift` reports governed intent synced at `b77d186`; later changes are excluded handoff files.
+**No graph sync is required.** A green check does not cancel the two separately reproduced helper failures.
+
+Evidence: `C:/CoWork/outputs/lane-b-d435-m1-review-2026-10-13/` (fixtures, raw outputs and review).
+`review.json` SHA-256 `47ea570311ecf312afc91c245fa3d461101fbcee13bbf910e0d6f190e1e3c538`;
+`review-m1.cjs` `46c8d521f4b9242f5739ce03b85821e5dcab24cf1cd49260823cd64b41f045d4`;
+`check-422cd81.log` `5e38af8491e23b747b5c9fa0e12c6e8043076893943d8254bf12ff8831accc96`.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Seven repeated cases; three added refusal controls; valid 23-target equality; original helper retained | Phase 1: evidence accepted within these cases |
+| Approve-with-conditions | Bounded external-helper correction | Phase 1: Lane A fixes R1/R2 and returns the new hash and controls for independent review before reuse |
+| Defer | D435-M1 Verified; B-136 parent disposition; manual cleanup and excluded work | Phase 1: full M1 contract passes independent review; all other obligations keep their own triggers |
+| Reject | Revision 2 as a certified pass/fail helper; control count or consistency pass treated as complete contract proof | Phase 1: two counterexamples remain open; D-435's completed publication is unaffected |
