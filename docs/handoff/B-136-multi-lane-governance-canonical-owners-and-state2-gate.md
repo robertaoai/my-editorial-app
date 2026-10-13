@@ -6161,3 +6161,108 @@ No publication, fetch or push. Only `docs-drift` fails inside this sequence (`D-
 | Approve-with-conditions | Candidate `5681fde1…` | Phase 1: Lane B receipt (bytes and meaning) in B-050 with its annotation |
 | Defer | Publication, health; push | Phase 1: after the receipt; push at its own fixed range after health |
 | Reject | Publication without Lane B's receipt; any fetch or push before the health record | Phase 1: no action |
+
+## Lane B — D-436 candidate review: bindings pass; community 8 name returned for correction, 2026-10-13
+
+### What happened
+
+Lane B reviewed the attached Lane A worklog and receipt request at `8c526e1fc5c66fead33d8ac4aeba762f69bd558e`.
+D-436 item 6a is now authorized and recorded at `058518af0c91baec8de271834a3f41931c7653aa`; it replaces the
+earlier "Not yet". This review does not request that approval again. Lane A's source repair remains accepted.
+
+**Receipt withheld for candidate `5681fde1...`: D436-N1, community 8's name.** Lane B agrees with Lane A's
+proposed correction after inspecting the actual members. No F3 acceptance block was recorded in B-050, and
+the temporary terminal-return exception was not consumed. This finding is tracked under B-136 -> D-436.
+
+| Parent / child | State | Evidence / next requirement |
+|---|---|---|
+| B-136 | Open | Its other obligations keep their existing triggers |
+| D-436 source repair and receipt route | Accepted / recorded within scope | Carry forward the source review and item 6a; no renewed Judge choice |
+| Candidate bindings and technical checks | Independently checked | Exact identity and findings below |
+| D436-N1: community 8 name | Open; Lane A answers | Correct the name from its members and prepare a replacement |
+| Lane B receipt and covering annotation | Not recorded | Review the replacement's bytes and meaning first |
+| Publication and separate health | Pending | Existing conditional authority applies after an accepted receipt |
+| Push and excluded work | Separate | No fetch or push until the health record; no product or parent clearance |
+
+#### Independent byte and source evidence
+
+Work `c43dd8bf-f405-4097-bc21-840216b3d530`, attempt 2, is READY from source
+`058518af0c91baec8de271834a3f41931c7653aa`. Recomputed graph SHA-256:
+`5681fde1912a0c569f850c54c60039183e62ff75431a677af65d15ee44f4a8c6`.
+Recomputed 583-file tree digest: `19e92994562955a801994cc71db0f96b24af75f25a4a47969f177d737c1ef1dd`.
+Both equal the recorded READY bindings. The current reviewed baseline is release locus
+`8f3fdd0333db9651107b5bc915c05dbe4d25476e`, digest
+`702b9dfb5a5e3d8474ed991183290cef39c498917483c8b21e90cc7ba76a875a`.
+
+Publication source checks, staging validation, producer studio validation and state classification have no
+findings. Curated parity is 139/139 exact; name-binding checks have no findings. The answer-file hash matches
+the frozen state. Since the analyzed source, only B-136 has changed in the source repository.
+
+Against the live graph, exactly 16 Git commit nodes were added, equal to `b77d186..058518a`; none were removed.
+No existing description changed. There are no code-description answers. The frag140 FN leaf hash remains
+`c4283f75aceeb1f1...`; the two undescribed historical commit nodes remain the same. These facts do not prove
+the community names are accurate or the candidate has been published.
+
+#### D436-N1 — draft fix and success criteria
+
+Community 8 has 41 members: the consistency runner and checks for channels, configuration, duplicate IDs,
+lane state, phase manifest, retention, settings, source sweep and text integrity, plus associated fixture/Git
+nodes. The decision-status file and all eight of its nodes are in community 131, named "Decision Status Check".
+The c8 member-set SHA-256 is `55fc7884db090d3ab8252cc524b595bd703f0ffeea66b431127f01698eb5a77f`.
+
+**Replace:** "Consistency Runner, Decision and Source Sweep Checks".
+**With:** "Consistency Runner and Source Sweep Checks".
+
+The other supplied names were reviewed against their members. The 23 commit-group bases and four successor
+overlaps reproduce; the seven member-written names fit the verifier sources and reporting/required-field
+lesson nodes. Community 8's overlap rule is mechanically correct but carries a stale topic into its name.
+
+**Implementation detail needed for the fix:** `names.mjs` takes the Jaccard successor branch before consulting
+MANUAL. Adding only `MANUAL[8]` would leave this successor name unchanged. Put an explicit reviewed member-set
+override before successor selection, or use an equivalent answer-generation correction that actually reaches
+the emitted name. Bind it to the current member set, not only a numeric community ID that may change.
+
+### What you need
+
+1. **Lane A:** answer D436-N1, retaining this candidate and its evidence unchanged. No new Judge decision is
+   needed: item 6a explicitly covers a reviewed replacement after a finding.
+2. Correct the name answer and its basis. Prepare a replacement through the guard in a new work folder;
+   do not edit the READY staging tree or replace its manifest by hand. Capture the actual final source and
+   re-check governed-source equality. If membership changes, reassess the name from those new members.
+3. Report the replacement's complete bindings and exact delta, including any additional commit nodes caused
+   by later handoff commits. Do not promise the old graph hash, source HEAD or 16-node delta will remain equal.
+4. **Lane B:** independently review the replacement. Only on acceptance record B-050 receipt and its immediate
+   separate covering annotation under D-436 item 6a. Lane A then publishes using that receipt commit and runs
+   the separate health checks. D-436 stops at its B-136 health record; B-136 itself remains Open.
+
+**Report-only correction:** the worklog says four commits were ahead at `8c526e1`; the range
+`53c98d6..8c526e1` contains three (`07cd6b0`, `058518a`, `8c526e1`). The local cached upstream is `53c98d6`.
+Correct this in the next substantive answer; no separate commit or approval gate is needed. This review adds
+another local commit and stays outside the earlier reported push. No fresh remote query was performed.
+
+**Chief Editor evidence and failure pattern:** member overlap proposes a name; it does not establish meaning.
+The independent semantic gate caught the stale topic before publication. Keep source acceptance, READY status,
+candidate receipt, publication and health separate. The receipt-route decision is resolved; do not recreate it
+as a new question. Lane C's prior B-156/F6 limits carry forward; no workflow, host claim or product scope changed.
+
+### What you did instead
+
+Read-only graph navigation, source and candidate review, recomputation of bindings, independent staging/studio
+validation and this Lane B finding. No governed edit, candidate edit, receipt, publication, rebuild, build,
+trial, dependency, cleanup, fetch, push or lane change. Fresh full configured check started at `8c526e1`:
+**18/19, exit 1; only docs-drift fails**, as authorized during D-436. Governed sync remains at `b77d186`;
+the four changed governed paths still need the guarded publication and separate health. A READY candidate
+does not clear drift. Node ran the package-configured checker directly in Lane B's shell.
+
+Evidence: `C:/CoWork/outputs/lane-b-d436-candidate-review-2026-10-13/`.
+`review.json` SHA-256 `d8ac095bdbe86927c83226c04b334dd3f871b1f19ebb787f78b3cb9175ae83c9`;
+`review.mjs` `eb283acc04f14529fc80a2e105024871913f49c5caf2c76dafaae925d03bcdf7`;
+`names-review.json` `324cbffcc20e426902588b688ada53c0d8f4d9942aaeeaa8ebca187f73c57c2b3`;
+`check-8c526e1.log` `ebd66ce15eebbf64207dd12a2dcb7d9ca945a4178d51678233097a7c70911b08`.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Item 6a authority, source carry-forward, candidate byte/baseline checks and exact delta | Phase 1: evidence accepted within the reviewed bindings; no receipt issued |
+| Approve-with-conditions | Name correction and replacement preparation | Phase 1: explicit override before successor reuse, actual member binding, new candidate and independent review; existing authority carries forward |
+| Defer | Receipt, publication, health and separate work | Phase 1: corrected candidate accepted first; other obligations keep their own triggers |
+| Reject | Receipt for current candidate `5681fde1...`; READY files edited in place; overlap or binding checks treated as semantic proof | Phase 1: D436-N1 must be corrected before acceptance |
