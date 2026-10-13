@@ -6014,3 +6014,101 @@ No prepare, publication or raw rebuild. Option E, P1, P2, retained audit work, S
 | Approve-with-conditions | Push before prepare | Phase 1: fresh fetch, fast-forward, upstream equals local |
 | Defer | Prepare, receipt, publication, health | Phase 1: after the Judge authorizes a receipt route |
 | Reject | A raw rebuild or `--update` to clear the drift; publication without a receipt | Phase 1: no action |
+
+## Lane B — D-436 source repair accepted; receipt-route decision remains open, 2026-10-13
+
+### What happened
+
+Lane B reviewed Lane A's record at `53c98d6a8c5d6b21d9a937fc68d38f420db4e48e`, the full D-436 act and its
+applying diff. This review stays under B-136 -> D-436. Lane A answered and applied; Codex (Lane B) independently
+accepts the recording form and sentence repair within that scope. **D-436's graph cycle is not complete.**
+
+| Parent / child | State | Evidence / next requirement |
+|---|---|---|
+| B-136 | Open | Its other obligations retain their existing triggers |
+| D-436 | Recorded and applied; cycle incomplete | Receipt-route authority, then guarded preparation through separate health |
+| Recording at `2d7c9bc` | Independently accepted | Register, Build Spec and Inventory updated in one recording commit; unaffected tiers stated |
+| Sentence repair at `42af457` | Independently accepted by Codex (Lane B), examined at `53c98d6` | Exact scope and semantic proof below; this is not a candidate receipt |
+| Receipt-route authority | Not authorized | Judge's "Not yet" remains operative under D-436 item 6; prepare stays paused |
+| Candidate, Lane B receipt, publication and health | Not performed | Execute in that order only after the route act is recorded |
+| D-435 and M1 | Complete / Verified within scope | Carry forward; neither exception nor acceptance is inherited by D-436 |
+| Push and excluded work | Separate | Prior push evidence and each obligation's own trigger; no new push permission from this review |
+
+#### Independent source proof
+
+- At recording `2d7c9bc93da9dc8c864ed90af1f267b4a91c7071`, the exact old text occurs once in the FN file,
+  and nowhere else in the corpus D-436 item 2 defines. It starts inside line 20, not at a line start.
+- Applying `42af4573c4577571d226d82424d11d797cb4cb05` changes only the FN file. Content outside the one
+  paragraph is byte-identical. Inside it, only the approved pointer and dated note change, with line reflow.
+- The actual Git diff equals Lane A's retained `03-applying.diff` byte for byte, SHA-256
+  `ce74b1fa1cc8e298e10552357893d2f85bbfb7ea197980d56c40e4b166a03687`.
+- The new sentence agrees with the full D-337 decision, AGENTS.md's lane table and CLAUDE.md's `@AGENTS.md`
+  import. It corrects a source-location pointer; it changes no lane allocation or product requirement.
+- The current FN blob is still `a1c608ec3c5473cef66370d1c4c3fcb3aebfb80a`, equal to the applying commit.
+  No new blocking defect was found in the sentence repair. This acceptance does not prove the future graph bytes.
+
+### What you need
+
+**One pending Judge decision: the D-436 receipt route.** "Publish after receipt" is existing conditional
+publication authority. It does not authorize a temporary `terminal-return` failure. D-435's exception has ended.
+The guard's `acceptanceAt` reads its new acceptance block from B-050; a B-136 source review cannot substitute.
+
+| Judge choice | Authority and prerequisites | Impact, pass/refusal checks, sync cost and stop point |
+|---|---|---|
+| Authorize the unit-scoped B-050 route | New explicit receipt-route act for D-436; accepted source repair; unchanged bindings | Lane A records the route with its D-54 tier updates before prepare. Lane B commits receipt and immediate covering annotation as separate one-path commits. Only `docs-drift` and the bounded intermediate `terminal-return` may fail at their authorized stages. One guarded cycle is planned if the candidate is accepted; a finding requires correction and review. Stop at separate health in B-136. |
+| Keep "Not yet" | Current D-436 item 6 remains in force | No prepare or B-050 receipt. Drift remains open and reported. Independent authorized work may continue. No graph cycle runs. |
+
+**Draft route text for the Judge to accept or reject; not issued by this review:**
+
+> For D-436's guarded cycle only, authorize Lane B to commit the independent candidate acceptance in B-050,
+> followed immediately by its covering Terminal annotation in a separate one-file commit. Between those two
+> commits only terminal-return and docs-drift may fail; retain full logs and never skip hooks. After annotation,
+> terminal-return must pass and only the already permitted docs-drift may remain until publication. This route
+> applies to this cycle, including a reviewed replacement after a finding, and expires at its health record.
+> Lane A records this route in the Register and affected D-54 tracking tiers before prepare. No fetch or push
+> occurs from prepare through the health record. Existing publication authority remains conditional on Lane B's
+> receipt and unchanged bindings. No construction, lane change, Gate 2 or additional push is authorized.
+
+#### Lane A follow-up, in dependency order
+
+1. Receive this source acceptance in the next substantive answer. Keep B-136 and D-436's cycle open.
+2. Until the Judge changes "Not yet", stop before prepare. Do not request publication approval again.
+3. If the route is authorized, record it with the required tier propagation and retain the final full-check log.
+   Confirm unchanged source or obtain a reviewed reassessment; capture the final committed prepare source.
+4. Prepare one guarded candidate. Lane B independently reviews exact bytes and meaning, including the changed
+   FN pointer and generated descriptions against their sources. Record the receipt and covering annotation
+   only through the newly authorized route. No Lane A self-receipt is permitted.
+5. Lane A publishes under existing authority if bindings still match. Run separate full health, live parity,
+   curated-fragment and name checks; classify any excluded handoff-only HEAD difference. Record health in B-136.
+6. Dispose only the D-436 unit when its complete evidence exists. P14a/P14b, Option E, P1/P2, retained audit work,
+   SM05 and Gate 2 retain their own triggers. A later push needs its own checkpoint.
+
+**Chief Editor evidence and failure pattern.** The repaired source can be accepted now. The live graph cannot
+be called current while docs-drift fails. Keep authority, source application, candidate acceptance, publication
+and health as separate facts. The receipt decision is now visible before preparation, rather than discovered
+afterward. Lane C's existing review limits carry forward; no changed workflow or host claim needs a new Lane C
+test for this pointer correction. Do not manufacture a C-series file or a new product requirement.
+
+### What you did instead
+
+Read-only graph navigation, governed-source review and independent old/new-value and diff proof. No governed
+edit, build, install, prepare, receipt, publication, raw rebuild, cleanup, fetch, push or lane-state change.
+The local cached upstream equals `53c98d6`; the reported range `47b8d3b..53c98d6` holds four commits, all with
+the required author email. Lane B did not query the remote; cached equality is not fresh remote verification.
+This review's local commit is outside that completed reported range and does not extend its push authority.
+
+Evidence: `C:/CoWork/outputs/lane-b-d436-review-2026-10-13/`.
+`review.json` SHA-256 `ca59422317d1a849e4d1951ffa413b344a3c59627f4bd9365311ae324b53b4c8`;
+`review-d436.cjs` `3a944980996121b0a410eec0f7b4d86bc7d2120cb3b72f127e4e2e02ab3ab6dc`.
+Fresh full configured check, started at `53c98d6`: **18/19, exit 1; only docs-drift fails**, as permitted by
+D-436 item 3 / D-428. Node ran the package-configured checker directly in Lane B's shell. Governed intent was
+last analyzed at `b77d186`; the FN file, Register, Build Spec and Inventory have changed. Graph sync is needed
+but cannot start before receipt-route authority. `check-53c98d6.log` SHA-256
+`da617a82a1b1dfec1e65adb340c480bf181cc92661e140d19938325ac5582dd1`.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | D-436 recording form, old-value proof and applied sentence | Phase 1: independently accepted at `53c98d6`; graph cycle remains open |
+| Approve-with-conditions | Future guarded cycle and already approved publication | Phase 1: new receipt-route act before prepare, unchanged source/bindings, independent receipt and separate health |
+| Defer | Preparation, receipt, publication and health; parent disposition and excluded work | Phase 1: receipt-route decision first; other work retains its own triggers |
+| Reject | Reusing D-435's exception; treating source review as candidate receipt; calling drift current; raw rebuild or inferred Gate 2 authority | Phase 1: maintain the explicit stop and evidence boundaries |
