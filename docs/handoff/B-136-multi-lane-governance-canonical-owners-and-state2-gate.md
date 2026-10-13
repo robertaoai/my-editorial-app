@@ -5972,3 +5972,45 @@ Full configured consistency check, started at `47b8d3b`: 19/19, exit 0, run dire
 | Approve-with-conditions | Future helper reuse | Phase 1: carry forward the existing hash, trusted-input and old-value conditions |
 | Defer | B-136 disposition and separate work | Their existing phases and triggers; no repeated M1 gate |
 | Reject | One-field fixture treated as full-manifest or product proof; supplement treated as parent or push authority | Phase 1: preserve the distinct evidence and authority scopes |
+
+## Lane A — D-436 FN lane-map sentence: recorded and applied; graph cycle waits for a receipt route, 2026-10-13
+
+### What happened
+
+Lane A received Lane B's acceptance of the duplicate-node supplement (`3c98857`). The D-435 thread stays complete.
+
+**Judge (verbatim, in chat, 2026-10-13):** "Judge Approved: FN lane-map sentence (FN L20, “The lane map lives in…”),
+then push as last step". Answers to Lane A's questions, as given: publication — "Publish after receipt"; the
+unit-scoped receipt exception — "Not yet"; push timing — "Before prepare (Recommended)".
+
+| Step | Result | Evidence (`C:/CoWork/outputs/lane-a-d436-2026-10-13`) |
+|---|---|---|
+| Recording | **`D-436`** at **`2d7c9bc93da9dc8c864ed90af1f267b4a91c7071`**: Register §5.14e261, Build Spec and Inventory paragraphs. Before: 19/19. After: only `docs-drift` fails (`D-428`) | `01-check-recording.log`, `02-check-after-recording.log` (`62e40bd8…`) |
+| Item 2 old-value proof at `2d7c9bc` | The old text occurs once in the FN file and in no other file under `docs/` outside `docs/handoff/` and the Register | `git grep` result |
+| Application | **`42af4573c4577571d226d82424d11d797cb4cb05`**: FN paragraph "**This file points to rules; it does not restate them.**" now reads "The lane map lives in the shared core in `AGENTS.md`, which `CLAUDE.md` imports (`D-337`)," and a dated note keeps the old pointer. One file; the diff equals the reviewed diff | `03-applying.diff` (`ce74b1fa…`) |
+| Item 4 new-text proof | Only that paragraph changed; full check fails only on `docs-drift` | `05-check-after-apply.log` (`4fd1f560…`) |
+
+**Graph state.** Governed drift is open: analysed `b77d186`, HEAD after `42af457`. Under `D-436` item 6, prepare does
+not start, because the Judge has not yet authorized a receipt route. No raw rebuild was run.
+
+### What you need
+
+**Judge:** a receipt route for `D-436`'s guarded cycle (for example the unit-scoped B-050 exception, as in `D-435`
+item 5). Until then the drift stays open and reported.
+
+**Lane B:** the applied sentence is available for review now (its meaning against `AGENTS.md` L26 and `D-337`). Your
+candidate receipt follows prepare, after a receipt route exists.
+
+**Push.** Under `D-436` item 5 and the Judge's answer, Lane A pushes after this record and before any prepare: a
+fresh fetch, a fast-forward check, one push, upstream equal to local.
+
+### What you did instead
+
+No prepare, publication or raw rebuild. Option E, P1, P2, retained audit work, SM05 and Gate 2 are untouched.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | `D-436` recorded and applied; old-value and new-text proofs | Phase 1: done; Lane B may review the sentence |
+| Approve-with-conditions | Push before prepare | Phase 1: fresh fetch, fast-forward, upstream equals local |
+| Defer | Prepare, receipt, publication, health | Phase 1: after the Judge authorizes a receipt route |
+| Reject | A raw rebuild or `--update` to clear the drift; publication without a receipt | Phase 1: no action |
