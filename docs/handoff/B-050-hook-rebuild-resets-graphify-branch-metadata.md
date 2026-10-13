@@ -7489,3 +7489,114 @@ The prior 186e77ea... candidate and d87af4af... manifest remain superseded, unpu
 - **Annotation-Act:** D-434 item 7, guarded cycle 2 including its replacement, route A. This immediately following record-only commit covers Lane B's receipt 2 at 6bb88ed20b8531ac54b9605b14b0fa82ef58e194, for work 7b0900c2-7494-4f59-9621-5f38ef257058, graph c9f65b189abf0473098631285c71216dc68ad0d35fca4a58f15f72ef994a8d3b, manifest 8d1ca497e04c3c7301e7d0e563fc16f3bb7907efcb538049ef077bbac4fafd86, source 44a4b1e735a98f8cb377935f8e8f79095b444cb1. B-050's header, Resolution and Lane A answer stay unchanged; no scope is reopened. This ends the temporary terminal-return recording interval. Lane B also accepts the GR-007 semantics against these bindings; that explicit outcome is recorded in B-136 under D-434 item 4. Lane A uses the receipt commit, not this annotation commit, for publication under existing P-cond, then records separate full health evidence in B-136. No fetch or push before that health record. No construction, SM05 unblock, Gate 2 closure, lane activation or root disposition. D-432/D-433 exceptions are not reused; normal hooks are never bypassed.
 - **No-Scope-Reopened:** true
 - **Annotated-At-Commit:** 6bb88ed20b8531ac54b9605b14b0fa82ef58e194
+
+## Lane B — D-435 Option A: independent candidate receipt, 2026-10-13
+
+Read at `4799c31243f49188f47cd9c47b2a8259e30a39d7`. Parent: B-136 / D-435; source request: Lane A's
+application and candidate record at `4799c31`. Authority: D-435 items 5-8, this unit's route A and A-cond.
+This is independent candidate verification. B-050's terminal header and Lane A answer stay unchanged.
+
+### What happened
+
+**Accept this candidate's bytes and meaning.** Lane B independently checked the recording-to-application chain,
+the complete applying diff and the prepared candidate. No blocking structural or semantic finding remains.
+
+| Parent / child | Evidence and state | Remaining condition |
+|---|---|---|
+| B-136 | Open; this receipt completes only the D-435 candidate-review obligation | Lane A's publication and separate health record; other parent obligations keep their own scope |
+| D-435 recording / S1 | Recorded at b1eb43b; all 14 repair-file blobs unchanged through 5e5b587 | None for this reviewed application |
+| S2-S3 application | b77d186: 30 edits in exactly 14 files; full committed bytes equal the reviewed replacements replayed in memory from recording blobs | No omitted repair, extra path or unselected fragment-field change found |
+| S4 candidate | Graph ed7463f3...; manifest 702b9dfb...; all 583 files recomputed | Accepted only with the full bindings below |
+| S5 receipt | This independent review and acceptance record | Immediate covering annotation, then Lane A's bound publication and health |
+| D435-M1 | Open, owner Lane A; external derive-manifest.cjs remains uncertified | Correct and retain valid/missing/duplicate/Git-error controls before any reuse; does not block this candidate |
+
+**Application proof.** Lane B reviewed every changed line against the accepted packet and D-435 item 4, and
+replayed the applying script against read-only Git blobs with all writes captured in memory. All 14 resulting files
+are byte-identical to the applying commit. The actual change set is exactly those 14 files. R12 changes only its
+two source fields; its description and all other unselected fragment content remain unchanged. The merge attributes
+are text for GEMINI.md and union for the untracked control name. No control file was created by this review.
+The D-54 follow rows are now supported by the actual application, not merely by the earlier recording paragraph.
+
+**Candidate proof.** Lane B recomputed the graph hash, all 583 manifest files, source and released-baseline bindings,
+answer identities, staging/studio validation, path/classification checks, seven per-call selection oracles and fourteen
+saved ignored-list identities. Curated parity is 139/139 exact; name binding has zero findings. All 23 name answers
+replay exactly: 20 commit groups, two successors and one name written from 41 members. No unnamed or duplicate
+community name remains. The frag140 FN description retains SHA-256
+`c4283f75aceeb1f1d652d79ea118712401440fae6d947b5eb0cbc2b17ce1b575`.
+
+**Meaning.** R4 and SPECS-VERIFICATION section 4.1 correctly distinguish ignored type errors from lint that does
+not run through next build. They retain the TC6/Q6 limits. R11 describes D-337's current one-core layout and the
+60-character duplicate-line detection limit of rule-budget. R12 now cites the historical D-58 record and preserves
+its historical description. The community name "B-156 F2a-F3 Citation Verifiers and F2a Control Harness" names
+the actual F2a revision-2 verifier, its control harness and the F2b/F2c/F3 wrappers. Its candidate spelling uses an
+en dash between F2a and F3. All five source files are unchanged from the accepted D-434 source. The inject function
+returns an injected result on each matching call, irrespective of its first-call comment; that accepted description
+remains accurate. There are zero new code nodes and zero new code-description answers to assess in this cycle.
+
+**D435-C1, reporting precision (non-blocking).** Lane A's sentence "No node description was generated or changed"
+is too broad. Against the released baseline, two authorized curated descriptions change, and 16 new Git commit
+nodes carry deterministic subject descriptions. Lane B checked those subjects against the Git commits. Two older
+commit nodes without descriptions remain unchanged. Owner: Lane A. Return: correct this wording in the next
+B-136 health record. Use "zero new code-description answers", not "zero changed node descriptions".
+
+### What you need
+
+1. Lane B records the covering Terminal annotation immediately in a separate one-file commit under D-435 item 5.
+2. Lane A rechecks work, source, candidate, baseline and receipt bindings. Stop on any finding; do not bypass it.
+3. With unchanged bindings, publish under the existing A-cond using this receipt commit as --review, not the
+   annotation commit. A further Judge issuance is not required for this already recorded branch.
+4. Run separate full health: live graph/manifest equality, curated fragments, names, configured checks and
+   check-update classification. Record the evidence, this receipt and the D435-C1 wording correction in B-136.
+5. Stop at that health record. Only then can this guarded cycle be described as complete and drift as cleared.
+
+**Chief Editor proof chain:** governed intent -> accepted repair -> actual source/diff -> observed checks -> this
+independent candidate receipt -> published bytes -> separate health. Lane A answers and applies; Lane B reviews
+independently. Lane C's recorded C5/C7/C8 outcomes and limits carry forward under B-156/F6. No new C-series entry,
+host output, trial or lane allocation is supplied by this receipt. B-156 and B-157 remain terminal planning records;
+their retained unassessed rows and residuals are not closed by these repairs.
+
+### What you did instead
+
+Read-only graph navigation, source/diff review and independent candidate verification. No governed edit, application,
+build, trial, prepare, publication, fetch, push, deletion, lane activation, root disposition or Gate 2 closure.
+
+Fresh full configured check at 4799c31: 18/19 pass; only expected docs-drift fails, naming the 14 governed paths.
+The live graph remains c9f65b18..., analyzed at 44a4b1e. It needs this guarded publication and separate health;
+a ready or accepted candidate does not clear drift. Node ran the configured checker directly in Lane B's shell.
+Evidence directory: C:/CoWork/outputs/lane-b-d435-review-2026-10-13/.
+review.json SHA-256 `922b5b77fd822f517ecb74156efde3ba2d04044fa346541bf0496005f0ba6411`;
+review.mjs `c07cf7ed73cac79eb2c329cca7b66ea82ccdb933c0c3c91c81324133f30fffe2`;
+finalize-review.mjs `c9997ffbe8f33e60e345106e82d3995d3d6e04a1f50b9a647951e662daeaaed6`;
+01-check-before-receipt.log `df7d49032ddee08d73a0e94a63f377472a4b4eedc08f10f94291b3b9e954f99e`.
+
+### F3 acceptance record
+```json
+{
+  "kind": "graphify-f3-acceptance",
+  "version": 1,
+  "disposition": "Accept",
+  "scope": "F3 publication",
+  "reviewer": "Lane B",
+  "workId": "53746210-e1af-4065-a967-ef261c2d1fc6",
+  "graphSha256": "ed7463f32bfffe07850759939025abdb8444abe9267e543dff279dc654c2e22b",
+  "manifest": {
+    "algorithm": "guard-treeDigest-v1",
+    "digest": "702b9dfb5a5e3d8474ed991183290cef39c498917483c8b21e90cc7ba76a875a",
+    "files": 583
+  },
+  "analyzedSource": "b77d1869fc57fe275a9a7ce78a0d159d8d9867de",
+  "baseline": {
+    "releaseLocus": "6bb88ed20b8531ac54b9605b14b0fa82ef58e194",
+    "algorithm": "guard-treeDigest-v1",
+    "digest": "8d1ca497e04c3c7301e7d0e563fc16f3bb7907efcb538049ef077bbac4fafd86"
+  },
+  "pendingSemantics": 0
+}
+```
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | D-435 application and this independent candidate receipt | Phase 1: accepted within these exact bindings |
+| Approve-with-conditions | A-cond publication and completion of the graph cycle | Phase 1: covering annotation; unchanged bindings; Lane A publication and separate health in B-136 |
+| Defer | D435-M1 helper certification; D435-C1 wording; batch push and excluded work | Phase 1: M1 before helper reuse; C1 in the health record; push and other work keep their own triggers |
+| Reject | Accepted candidate treated as published; checks treated as semantic proof; raw rebuild; reopened planning residuals or product/Gate 2 credit inferred | Phase 1: preserve stage and scope limits |
