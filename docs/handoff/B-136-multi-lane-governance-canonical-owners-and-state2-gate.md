@@ -6908,3 +6908,80 @@ code execution, product build, lane change, fetch, push, raw rebuild or Gate 2 c
 | Approve-with-conditions | Independent external readiness use case and SM05 planning packet | Phase 1: Lane A answers EXT-R1–R7; Lane B reviews; advice and project authority remain separate |
 | Defer | Candidate installation/trials/adoption, SM05 entry and all construction/release actions | Their separately bounded decisions, actors and phases; no new gate for ordinary drafting |
 | Reject | Full external-record transfer made mandatory; project map called gstack output; B-120/B-125 reopened; unsupported Windows/IDE route claimed ready; framework pass used as Judge authority | Phase 1: correct before an execution proposal |
+
+## Lane B — consolidated handoff: SM05 build-control preparation plan (BCP-1), 2026-10-13
+
+### What happened
+
+**Clear request:** Use the second AGENTS snapshot's document list to check whether the current SM05 packet
+explains how its build controls will be prepared. Consolidate the unread review into one Lane A drafting task.
+Do not build, install, apply governed text or grant entry authority.
+
+**Raised by:** Lane B. **Kind:** finding. **Phase:** 1. **Blocks:** claiming the build-control preparation plan
+is complete; no new DoR row or blanket construction gate. **Receiver:** Lane A, under this existing B-series
+parent. **Child state:** Open; Lane A receipt of this consolidated request is not observed. These body fields
+do not replace the parent header or write Lane A's answer.
+
+Source HEAD: `e43a25e866e611d656ca98229612350f9d16c43b`. The second supplied AGENTS file matches `53ace36`.
+Its eight paths identify concerns to cover, not eight currently authoritative documents to regenerate.
+PRD is frozen; D5 excludes the scaffold plan pack as authority. Existing technical specs, setup source,
+verification controls, work-order rules and SM05's DoR→DoD map already cover parts of construction planning.
+The supported gap is narrower than "all files are intent-only" or "no plan exists": Lane A's reviewed r2
+does not consolidate a complete production record for the build controls needed by this SM05 slice.
+
+### What you need — one packet, parent first
+
+**BCP-1:** Add one build-control preparation matrix to the next consolidated draft. Each row records:
+governed input/revision → reuse/refresh/draft/exclude decision → authoring method/tool and its status →
+exact output path/section → dependencies → owner/reviewer → completion proof → when needed/stop point.
+For an undecided value, name its decision owner and trigger. A required unresolved value cannot be labelled ready.
+
+| Order / historical concern | Existing governed input | Preparation work and output to name |
+|---|---|---|
+| **1. PRD / accepted outcome** | Frozen PRD → Modular_PRD US-15/FR-15/AC-23–26; SM05 exclusions | Reuse the accepted scope and map every control to it. Do not rewrite PRD or revive full five-gate/publishing scope. |
+| **2. ARCHITECTURE / DATA_MODEL**, after 1 | FN-GATES contracts and metadata/source-pair rules; TR-DM-07; existing `0001`/`0002`; applicable SPECS only | Name the SM05 component/data-flow and physical-store decisions, exact technical-section destinations, first-child consumer and local database proof. Screen historical transition-enforcement scope before reuse. Missing technical choices retain their proper owner; source existence is not product completion. |
+| **3. SECURITY / AGENTIC_LAYER**, after 1–2 | Current security requirements, role/operation contracts and display-versus-enforcement boundary | Name applicable secret/access/refusal controls and their verification. Exclude held enforcement, autonomous agent behaviour and publication. No scaffold permission statement becomes an execution rule. |
+| **4. INTELLIGENCE_LAYER**, after 1 | Ratified manual-input contract and current deferred intelligence scope | State exactly what is excluded, reused or needed. Do not invent an AI layer as an SM05 dependency. |
+| **5. TASKS**, after 1–3 | SM05 packet and D-242 work-order rules | Name the bounded technical-child plan, dependencies, intended file sets, evidence destinations and lane handoffs. Lane A prepares governing/provisioning content; Lane B owns construction choices and fitting xDD method under D-242. |
+| **6. TEST_PLAN**, after 2–5 | Existing DoR→DoD map, four intake fixtures, refusal/replay cases, Jev manifest and D-383 local validation | Name the verification-plan location, executable evidence to be produced later, verifier and timing. Preserve allowed honest characterization and mandatory distinct intake proofs. `scripts/acceptance/` is already contract-only in Inventory, to be built/run by Lane A after Lane B's handover; do not mislabel its scheduled absence as an unowned defect. |
+| **7. Preparation/review method**, alongside 2–6 | D-33/D-36 spec-writing standard; D-30 redundancy filter; existing EXT review | State what will prepare each actual output. Use the governed feature group and existing authoring pipeline for needed specs; a reference can satisfy a row where no new spec is needed. gstack is the separate proposed advisory review, not proof of authorship. ECC/Ponytail/REA remain candidates, not adopted prerequisites or a substitute for a production plan. |
+
+**Carry one correction index, not several new handoffs:** CONS-R1–R4, H1–H4 and EXT-R1–R7 remain linked
+from this packet. Prior review is at `e43a25e`, preceding history review at `9b17bfa` and consolidation at
+`ddb939f`. Keep their exact findings and closed-unit limits. This consolidation is not an assertion that
+Lane A has received or answered them. External platform record transfer remains optional; a project claim
+still needs accessible scoped evidence. B-120/B-125 remain terminal; no new C-series review file is required.
+
+### Lane A follow-up and decision contract
+
+1. Receive this consolidated request in the next substantive answer; freeze the draft revision.
+2. Complete BCP-1 using existing inputs first. Propose only missing output sections, with the D-30 reason.
+   Do not copy the historical architecture/data/test documents into a second source of authority.
+3. Return the matrix with the prior correction index. Lane B reviews feasibility, technical ownership and
+   evidence coverage; Lane C reviews only supported workflow/host claims under the B-series parent/child route.
+4. Present any unresolved scope/tool/provisioning choice as a concrete impact card: authority, prerequisites,
+   files, pass/refusal evidence, sync cost and stop point. Ordinary authorized drafting needs no new "go".
+5. Stop at planning review. Later governed application, setup, activation and construction follow their own
+   recorded authority and lane state. Do not demand later product tests before authorized construction.
+
+**Accept the preparation plan** when every required control has a justified reuse/draft decision and a
+complete preparation record, with unresolved decisions explicit and reviewable. **Reject readiness** if
+the packet merely lists files/tools, calls historical scaffold files authoritative, treats a generator or
+graph pass as a reviewed control, or omits who produces and verifies a required artifact. Drafting the plan,
+producing its controls and delivering the product are three separate completion claims.
+
+**Impact now:** this Lane B section only; no governed file, product code, tool setup or lane state changes.
+Handoff-only work needs no graph sync. Any later governed edits state their own D-54 and guarded-cycle costs.
+Targeted validation is retained separately; no new full-suite result is inferred from a prior run.
+
+### What you did instead
+
+Read-only graph/source review, the concise BCP-1 drafting contract and this existing-parent handoff. No build,
+install, test-harness construction, governed application, external framework run, fetch, push or Gate 2 closure.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | BCP-1 as the consolidated Lane A drafting task | Phase 1: ready to receive and draft under existing approvals |
+| Approve-with-conditions | Build-control preparation plan | Phase 1: complete the row records and prior correction index; Lane B reviews |
+| Defer | Control production/application and SM05 construction | Their existing actors, dependencies and recorded authority; no premature product proof |
+| Reject | File/tool list called a complete preparation plan; all technical work called absent; historical eight-file pack reinstated as authority | Phase 1: preserve the scoped distinction and reuse existing evidence |
