@@ -7079,3 +7079,90 @@ is withdrawn for these three tools. Detailed targeted validation is retained out
 | Approve-with-conditions | Corrected tool-readiness and BCP-1 preparation packet | Phase 1: complete the three cards, REA route and source/output mapping; Lane B reviews |
 | Defer | Installation/trials, canonical application, readiness acceptance and construction | Their bounded future units and recorded authority; ordinary drafting continues now |
 | Reject | "None is an SM05 prerequisite" retained as current advice; invented historical ECC/Ponytail/REA removal; silent REA omission; installation or intent-tool removal inferred from selection | Phase 1: correct without reopening unrelated completed units |
+
+## Lane B — one consolidated Lane A handoff, with Lane C review and transaction history, 2026-10-13
+
+### What happened
+
+**Clear request:** Receive Lane C's supplied independent review. Consolidate the current requirement,
+build-control plan, open corrections and transaction history into one Lane A drafting task. Do not build.
+
+This is Lane B's Phase-1 finding under the existing Open B-136 parent. Lane A answers; Lane B independently
+reviews its answer. The parent header and Lane A field stay unchanged. No C-series file, duplicate header or
+placeholder verification actor is introduced. Receipt of this current consolidation by Lane A is pending.
+
+**Observed source:** `46c74179f13bad0eb1b9b5e5c64da7c3d04af000`. Lane C's supplied chat review is retained
+as input, not recast as a committed C-series entry or a Verified disposition. Attachment:
+`C:/Users/rober_24syk4j/.codex/attachments/00fb40cd-9f0f-4683-aada-21d631ff1a69/Pasted text.txt`, SHA-256
+`d14145e8d605a2b46bd7601bcd44e055a27c99e58649054a044542a6191a02f9`.
+
+### Transaction history — carry the latest meaning, preserve earlier records
+
+| Transaction | What it established | Current use |
+|---|---|---|
+| `ddb939f` | CONS-R1–R4: bounded entry draft, actual tracker state, baseline limits and complete impact cards | Parent review omitted from Lane C's four-row lineage; include it |
+| `9b17bfa` | H1–H4: historical rule disposition, entry, verification and progressive baselines | Historical files are evidence, not current execution instructions |
+| `e43a25e` | EXT-R1–R7: external workflow distinction, r2 corrections, gstack advisory review and host limits | Earlier optional-tool wording is overtaken by TR-1, not current advice |
+| `06107fc` | BCP-1: how build controls are prepared, owned and verified | One preparation matrix; no mandate to create eight new files |
+| `46c7417` | TR-1: records the Judge's exact requirement for ECC, Ponytail and REA before SM05 | Latest tool-selection instruction; integration/readiness still unproven |
+
+All five transactions change B-136 only. Lane A's external r3 draft already references CONS/H/EXT/BCP-1,
+so those four groups cannot all be described as unread or wholly unanswered. R3 is a draft answer, not
+independent verification or a canonical receipt of TR-1. Its SHA-256 is
+`2bce93820683199430414292ba06bbba2ffd7112492dc366ebb084965fa67e2e` at the existing external draft path.
+The latest TR-1 correction and this supplied Lane C review still need Lane A's next substantive receipt.
+
+### Lane C review — accepted direction and six corrections
+
+Lane C agrees that planning may proceed, all three tools are required, intent remains governing, and setup
+and product execution are not authorized by this handoff. Those conclusions carry forward. Its proposed
+copyable block is not used verbatim for the reasons below.
+
+| ID | Supplied review claim / problem | Corrected handoff text |
+|---|---|---|
+| **LC-R1: transaction/receipt** | All recent blocks are unread; four rows are the complete lineage | Include CONS at `ddb939f` and r3's existing draft answers. Receive the new TR-1/C-review delta without repeating completed analysis or inventing Lane A's receipt. |
+| **LC-R2: lifecycle/template** | The proposed B-136 header contains `Receiver`, a Lane A placeholder, a pending verifier and a literal omit marker | Keep the existing B-136 header. `Receiver` is a C-series field; only the receiver writes its answer. No placeholder audit values or duplicate root disposition. Keep this review in the B-series parent/child body. |
+| **LC-R3: build-control scope/state** | Eight new files must be built; no plan exists; all existing material is intent-only | Eight historical paths identify concerns, not eight mandatory outputs. Technical specs, setup source and controls already exist; r3 contains a preparation matrix. The complete current plan/control set is not yet accepted or produced. Reuse existing authority, apply D-30 and name missing outputs precisely. |
+| **LC-R4: phase/ownership** | Construction waits because Phase 1 is not closed; Lane A writes no code | D-99 keeps Phase 1 open through handovers and closes it last. Construction waits on the actual SM05 entry/work-order/lane conditions and the newly required tool readiness. Lane B owns product construction; Lane A may produce owned tooling/control code under its proper authority. Namespaces, phases and lane states are distinct. |
+| **LC-R5: tool/host proof** | Tooling gate PASSED; REA operates via artifact analysis on Windows; artifact-only/container route is mandatory or ready | Tool selection is complete, readiness is unproven. Windows Ghidra is unavailable. Artifact-only avoids some native-engine requirements, but does not prove host support for the chosen operation. A container is also a route to validate, not evidence. Select a task-specific supported route; keep REA mandatory. [Upstream](https://github.com/sgunin/ReverseEngineerAnything) |
+| **LC-R6: framework role** | The project uses gstack; its release stage governs deployment | The separate stage-review use case is proposed; a native run is not observed. External advice may challenge readiness but does not govern deployment, replace Judge acts or prove tool installation/independent verification. |
+
+### What Lane A needs — one corrected packet, parent first
+
+**Authority to carry forward, verbatim:** "Require ECC, Ponytail and REA specifically before SM05."
+Selection is complete. The three impact cards explain fulfilment; they are not renewed adoption questions.
+No uninstall of intent tools or removal of intent governance was selected.
+
+| Parent / child | Required planning output | Acceptance proof / stop |
+|---|---|---|
+| **B-136 / SM05 transition** | One corrected draft, this transaction/receipt index, H1–H4/CONS/EXT disposition index, and proposed recording/D-54 effects | Judge requirements and actual entry conditions are explicit; no closure, lane transfer or execution inferred |
+| ↳ **BCP-1** | For each required control: input/revision, reuse/refresh/draft/exclude, authoring method/tool, exact output path/section, dependency, owner/reviewer, proof and timing | Preserve the accepted SM05 slice and held exclusions. Complete missing C2–C5 content, not just row labels; do not force redundant SPECS or recreate the old plan pack |
+| ↳ **TR-1: ECC, Ponytail, REA** | Three sections with actual task, pinned component/version, host/adapter, paths/hooks/dependencies/effects, setup plan, bounded pass/refusal cases, evidence access, rollback/cleanup, owner/verifier and stop | Later readiness requires actual named-tool task evidence. Selection, a card or an installed package is not readiness. REA's target/host is an unresolved dependency, not grounds for silent omission |
+| ↳ **Independent gstack review** | Stage criteria and findings bound to project inputs; required/advisory actions and limits separated | Review advice does not change scope or issue authority. A different method alone is not an independent actor |
+
+### Lane A follow-up
+
+1. Receive TR-1 and this corrected Lane C consolidation in the next substantive answer; keep older r3 answers
+   and transaction history. Do not add an acknowledgement-only commit or reopen terminal B-156/B-157.
+2. Correct r3's C8/Part G/entry dependencies and incorporate LC-R1–R6. Prepare the actual missing controls and
+   the three integration plans under existing drafting authority; no extra "go" is needed for that work.
+3. Bind the packet to a source revision. Draft the Register/Build Spec/Inventory and other actual tier impacts;
+   do not apply them in this planning-only turn. Preserve the frozen PRD and SM05's partial CR-19 boundary.
+4. Return one packet for Lane B review and applicable Lane C host/workflow review, with exact claim results and
+   limits. Known unknowns stay open. Then present any remaining setup/route choice as a concrete option.
+5. Stop at planning review. Setup/trials, readiness acceptance, guarded publication and product construction
+   follow their own authorized units and lane states. No global Phase-1 closure or fabricated host pass is added.
+
+### What you did instead — readiness verdict
+
+Read-only graph/source/upstream review and this one consolidated Lane B section. No governed application,
+installation, trial, framework run, product build, fetch/push, lane change or Gate 2 closure. All prior completed
+units retain their scopes. Governed intent is analysed at `b308d1c`; handoff-only changes need no graph sync.
+Fresh targeted validation is retained separately; no new full-suite result is inferred from Lane C's worklog.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Corrected consolidated handoff, transaction history and required three-tool selection | Phase 1: ready for Lane A receipt and drafting now |
+| Approve-with-conditions | Completed BCP-1/TR-1/entry packet and its independent review | Phase 1: Lane A supplies the actual controls/cards and answers LC-R1–R6; Lane B reviews; applicable Lane C claims keep evidence limits |
+| Defer | Setup execution, tool readiness acceptance and SM05 construction | Their bounded units, route evidence, Judge acts and Active lane; not global Phase-1 closure |
+| Reject | Lane C's block copied verbatim; eight new files assumed; all history called unread; selected tools called ready; unsupported Windows/container route or external framework claimed as authority | Phase 1: use the corrected single block above |
