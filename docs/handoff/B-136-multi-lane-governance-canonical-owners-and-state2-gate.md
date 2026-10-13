@@ -5567,3 +5567,58 @@ Lane A's retained publish/health log hashes were also recomputed and are listed 
 | Approve-with-conditions | Reuse of a corrected manifest helper | Phase 1: full D435-M1 fix contract and independent control review before reuse |
 | Defer | D435-M1 closure; manual backups; batch push; B-136 disposition and excluded work | Phase 1: helper review, manual cleanup, fixed-range push act and each parent's existing trigger respectively |
 | Reject | Freeze expiry treated as push authority; silently extending the proposed tip; helper correctness inferred from this cycle; graph currency treated as product/Gate 2/root clearance | Phase 1: retain separate scope, evidence and authority |
+
+## Lane A — D435-M1 answered: fail-closed manifest helper (revision 2) with controls, 2026-10-13
+
+### What happened
+
+Lane A received Lane B's acceptance of the D-435 publication and health, and D435-C1 Verified (`f05104d`). D-435
+stays complete; this answer does not reopen it.
+**Judge (verbatim, in chat, 2026-10-13):** "go ahead and record M1 first; then push after this task".
+
+**D435-M1 — Answered.** Revision 1 (`C:/CoWork/outputs/lane-a-d435-apply-2026-10-12/derive-manifest.cjs`,
+`0630856a…`) stays unchanged as history. Revision 2: `…/derive-manifest-r2.cjs`, SHA-256
+`1e41f8c955e38a6e0b5492ded4b008f113736e01051b215207d349fd1da42adf`.
+
+| Contract item (`5e5b587`) | Revision 2 |
+|---|---|
+| Pin the input identities | The targets and values files are passed with their expected SHA-256; a mismatch stops |
+| Reject missing or duplicate target IDs | Duplicate target or value IDs, and a target with no frozen value, stop |
+| Reject missing or multiple full-value matches | Zero or more than one occurrence stops |
+| Reject invalid line boundaries and span mismatches | A match not at a line start, or a value whose line count differs from the frozen span, stops |
+| Collect every target before writing | All targets are checked first; any failure exits 2 and writes **no** file. The write uses flag `wx`, so an existing output is never overwritten |
+| Git errors | All Git calls use argument arrays (no shell); an unreadable revision or path stops |
+
+**Controls** (`…/m1-controls/`; combined output SHA-256 `e9ee789988933e512365cf95203dfa5cafcbbbd6ea3ee23f9f95a6ad02ecb9cd`):
+
+| Control | Result |
+|---|---|
+| Valid: frozen inputs at `b1eb43b` | exit 0; the output's targets equal the accepted manifest `03-targets-b1eb43b.json` (`829445e8…`) |
+| Missing value (R10 changed to absent text) | exit 2, no file |
+| Value found more than once (R10 = a newline) | exit 2, no file |
+| Duplicate target ID (R1-R3 twice) | exit 2, no file |
+| Span mismatch (R5 cut to two lines) | exit 2, no file |
+| Git error (revision `deadbeefdeadbeef`) | exit 2, no file |
+| Input hash mismatch | exit 2, no file |
+
+The helper is an external evidence script. No repository script changed.
+
+### What you need
+
+**Lane B:** review revision 2 and its controls. Only an independent reviewer records D435-M1 Verified. Until then the
+helper is not reused as a pass/fail tool.
+
+**Push.** The Judge authorized the push after this record. Range: `08ad416..` this record's commit (the range excludes
+`08ad416`). Lane A fetches first, confirms a fast-forward, validates the whole batch locally, pushes once, and checks
+that the upstream equals the local tip.
+
+### What you did instead
+
+No governed file, build, graph or publication changed.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | D435-M1 answered: revision 2 helper; seven controls | Phase 1: Lane B verifies |
+| Approve-with-conditions | Helper reuse | Phase 1: after Lane B records Verified |
+| Defer | Backup folder removal; B-136 parent disposition | The person; their own triggers |
+| Reject | Reusing revision 1; treating this answer as Verified | Phase 1: no action |
