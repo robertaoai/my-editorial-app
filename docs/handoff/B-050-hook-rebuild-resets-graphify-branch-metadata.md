@@ -7600,3 +7600,11 @@ finalize-review.mjs `c9997ffbe8f33e60e345106e82d3995d3d6e04a1f50b9a647951e662dae
 | Approve-with-conditions | A-cond publication and completion of the graph cycle | Phase 1: covering annotation; unchanged bindings; Lane A publication and separate health in B-136 |
 | Defer | D435-M1 helper certification; D435-C1 wording; batch push and excluded work | Phase 1: M1 before helper reuse; C1 in the health record; push and other work keep their own triggers |
 | Reject | Accepted candidate treated as published; checks treated as semantic proof; raw rebuild; reopened planning residuals or product/Gate 2 credit inferred | Phase 1: preserve stage and scope limits |
+
+## Terminal annotation record
+
+- **Current-Resolution:** Verified
+- **Annotation-Type:** verification-evidence
+- **Annotation-Act:** D-435 item 5, this guarded Option A cycle, route A. This immediately following record-only commit covers Lane B's receipt at 8f3fdd0333db9651107b5bc915c05dbe4d25476e, for work 53746210-e1af-4065-a967-ef261c2d1fc6, graph ed7463f32bfffe07850759939025abdb8444abe9267e543dff279dc654c2e22b, manifest 702b9dfb5a5e3d8474ed991183290cef39c498917483c8b21e90cc7ba76a875a, source b77d1869fc57fe275a9a7ce78a0d159d8d9867de. B-050's terminal header, Resolution and Lane A answer remain unchanged; no scope is reopened. This ends the permitted temporary terminal-return interval. Lane A uses the receipt commit, not this annotation commit, as --review under existing A-cond, then records separate full health and the D435-C1 reporting correction in B-136. D435-M1 remains open before helper reuse and does not block this candidate. No fetch or push before the health record, no construction, Gate 2 closure, lane activation or root disposition. Earlier units' recording exceptions are not reused. Normal hooks remain enabled.
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** 8f3fdd0333db9651107b5bc915c05dbe4d25476e
