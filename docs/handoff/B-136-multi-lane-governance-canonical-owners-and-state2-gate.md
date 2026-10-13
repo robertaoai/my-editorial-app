@@ -6985,3 +6985,97 @@ install, test-harness construction, governed application, external framework run
 | Approve-with-conditions | Build-control preparation plan | Phase 1: complete the row records and prior correction index; Lane B reviews |
 | Defer | Control production/application and SM05 construction | Their existing actors, dependencies and recorded authority; no premature product proof |
 | Reject | File/tool list called a complete preparation plan; all technical work called absent; historical eight-file pack reinstated as authority | Phase 1: preserve the scoped distinction and reuse existing evidence |
+
+## Lane B — Judge requires ECC, Ponytail and REA before SM05: tool-readiness handoff (TR-1), 2026-10-13
+
+### What happened — authority and history
+
+**Clear request:** Correct Lane A's r3 optional-tool classification. Prepare a bounded integration and
+verification plan for ECC, Ponytail and REA as required pre-SM05 tools. Preserve intent governance and the
+planning-only guardrail. Consolidate this change into BCP-1 and the existing transition packet.
+
+**Judge clarification, verbatim:** "Require ECC, Ponytail and REA specifically before SM05."
+This answers Lane B's question about whether "removal" meant restoring missing preparation, requiring the
+named tools, or uninstalling intent tools. The selected meaning is the second. No uninstall is instructed.
+The requirement is selected now; it does not authorize an installation/trial in this planning-only unit.
+
+**Raised by:** Lane B. **Phase:** 1. **Kind:** finding. **Child state:** Open. Lane A answers under this
+existing B-series parent; Lane B independently reviews. Parent and receiver fields are unchanged. This
+record is not Lane A's receipt. Source HEAD: `06107fc46563d765f708181e5e9f13af77386d46`.
+
+Historical evidence is narrower than the removal claim. The first AGENTS version `62c8d8c` names gstack;
+the second `53ace36` removes that section and lists the eight build-document paths. The next AGENTS change,
+`e3fa9b7`, still lists those paths. **ECC, Ponytail and REA are named in none of these three snapshots.**
+Their required status therefore comes from the present Judge clarification, not an invented historical
+adoption/removal act. Intent and build governance remain necessary; document omission is not tool removal.
+
+### What you need — one corrected packet, parent first
+
+Lane A draft r3 (`C:/CoWork/outputs/lane-a-sm05-selection-draft-2026-10-13/SM05-SELECTION-DRAFT-r3.md`,
+SHA-256 `2bce93820683199430414292ba06bbba2ffd7112492dc366ebb084965fa67e2e`) answers earlier findings as
+a draft only. Its C8 "optional", Part G "None is an SM05 prerequisite", and REA exclusion are overtaken by
+the Judge's clarification. Earlier records remain dated history, not current tool-selection advice.
+
+**Replacement wording:** "ECC, Ponytail and REA are required pre-SM05 engineering tools by the Judge's
+2026-10-13 clarification. Each needs a bounded integration and verification plan and accepted readiness
+evidence before SM05 entry/construction is released. Selection is complete; readiness is not proven.
+The impact cards specify how to fulfil the requirement, not whether to adopt the tools. No installation,
+trial, removal, build or lane activation is authorized by this planning packet."
+
+| Dependency | Required action / artifact | Accept / refuse evidence |
+|---|---|---|
+| **TR-1 parent: new entry prerequisite** | Add three named readiness rows to the entry/work-order draft; draft the Judge's recording/propagation text and actual D-54 tier impacts. Keep original accepted DoR evidence and closed units within scope. | All three actual tools have a selected task, host/adapter, immutable version, reviewed setup plan and independent readiness proof before release of construction. A written card or installed package alone is not completion. |
+| ↳ **ECC** | Choose the actual components for planning, testing/review or security support and bind them to BCP-1 outputs and authorized children. Name rule/skill/hook locations, package-manager interaction, dependencies and exact configuration changes. | Prove that the selected component loads on its named host and produces the expected bounded output/refusal. No duplicate hooks, shared-core replacement or unapproved dependencies. Upstream supports component/no-hooks choices; requiring ECC does not select every component. [ECC](https://github.com/affaan-m/ECC) |
+| ↳ **Ponytail** | Select the actual skill/plugin and adapter for minimal-solution and risky-code review. Bind it to a bounded fixture or existing setup-source review, with expected findings and preserved controls. | Prove load/invocation and useful review output while preserving validation, security and required behaviour. Generic "write less code" advice is not proof of using Ponytail. Do not overwrite the project's AGENTS core. [Ponytail](https://github.com/DietrichGebert/ponytail) |
+| ↳ **REA** | Name the target and analysis operation first. Consider a documented artifact/source-only operation on owned setup material; determine its exact host support. If local support is not established, present a supported-host route with its access, data and provider requirements. Do not invent an external app or require external-platform record transfer. | Upstream Windows Ghidra operations remain unavailable. Artifact-only operations can avoid a native engine, but this is not proof of Windows support for the selected task. Prove capability, input hash, observed result, evidence/limitations and cleanup on the actual route. No generic git-grep substitution, silent waiver or unsupported-host success. [REA](https://github.com/sgunin/ReverseEngineerAnything), [provider model](https://github.com/sgunin/ReverseEngineerAnything/blob/main/docs/adr/0001-provider-selection-and-analysis-profiles.md) |
+| **BCP-1 control production**, using the above | C2–C6 state which actual tool/component assists which output, and what remains human/Lane A/Lane B responsibility. Preserve source → requirement → technical decision → implementation → verification links. | A tool result does not recover approved customer intent or independently authorize a requirement. Required source and control production must still have their own proof. |
+
+**Common integration-card fields:** authority already selected; bounded task and expected contribution;
+upstream repository/revision; actual host, adapter and invocation; installed components and dependencies;
+all repository/global paths, hooks and configuration effects; existing-state capture; setup procedure;
+positive, negative and unsupported-interface cases; output location, provenance and reviewer access;
+cleanup/rollback and retained evidence; D-54/graph impact; owner, verifier, completion condition and stop point.
+These can be three sections of one packet. Do not create three repeated adoption-approval loops.
+
+### Draft corrections and Lane A follow-up
+
+1. **Record the clarified requirement** in the next substantive Lane A answer and revise C8, Part G, the entry
+   dependencies and verdict. Do not ask whether the Judge wants these tools; that choice is made. Draft the
+   canonical act/propagation plan rather than applying governed sources in this unit.
+2. **Preserve the product/engineering distinction.** C4's exclusion of an application AI layer does not
+   exclude AI-assisted development. Intent continues to govern Phase 2; no rule file or intent tool is removed.
+3. **Complete the three integration cards** with BCP-1's required output paths, owners and proof. REA's
+   target/host route is an explicit unresolved dependency, not grounds to omit a required tool. A real blocker
+   returns a supported, scoped route proposal; the requirement stays open until satisfied or changed by the Judge.
+4. **Continue C2–C5 and independent desk-review drafting now.** The earlier approval already covers this work;
+   r3's proposed hold until Lane B accepts r3 is not a new permission gate. Review the actual card/controls
+   together before the later setup/application unit. Do not call the four controls complete from their matrix.
+5. **Keep document tiers distinct.** The work order indexes governing contracts and intended files. Any
+   nonredundant technical spec belongs in its governed SPECS destination, with its exact path/section and
+   owner. FN-GATES §9 includes historical/held transition content; filter for admitted SM05 scope before reuse.
+6. **Lane B reviews the corrected packet; Lane C reviews applicable host/workflow claims** through the current
+   B-series parent/child route. Retain unobserved host facts as unknown. Then present a concrete setup/validation
+   unit under the new prerequisite; this turn does not execute it. Native product construction waits on accepted
+   readiness for all three and the other recorded entry requirements.
+
+### Chief Editor decision table and stop
+
+| Item | Current state | Accept / reject boundary | Follow-up phase |
+|---|---|---|---|
+| Required ECC/Ponytail/REA selection | **Selected by the Judge** | Carry forward the exact clarification; no renewed adoption question | Phase 1: Lane A records and plans propagation |
+| Three integration/verification plans | Not complete in r3 | Accept when tasks, hosts, effects, evidence and stop points are concrete; reject optional-tool wording | Phase 1: draft and independent review |
+| Tool readiness | Unproven | Accept actual named-tool task evidence under the later bounded unit; reject an impact card/version string as readiness | Pre-SM05 setup validation after its authority |
+| SM05 construction | Still blocked/not authorized | Release only after the new tool conditions and other entry requirements are satisfied and the authorized lane/work order exist | Phase 2: not executed here |
+
+**Impact now:** one Lane B B-136 section only. No governed file, installed tool, configuration or lane-state
+change; no fetch/push, native tool run, product build or Gate 2 closure. Handoff-only edits create no graph
+drift. Later canonical requirement application and setup must state their actual graph/receipt and host costs.
+Existing impact-card detail is retained as an implementation specification; its use as another adoption vote
+is withdrawn for these three tools. Detailed targeted validation is retained outside the repository.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Judge's selection of all three named tools as pre-SM05 prerequisites; verified history distinction | Phase 1: recorded as received by Lane B; Lane A carries it into the corrected packet |
+| Approve-with-conditions | Corrected tool-readiness and BCP-1 preparation packet | Phase 1: complete the three cards, REA route and source/output mapping; Lane B reviews |
+| Defer | Installation/trials, canonical application, readiness acceptance and construction | Their bounded future units and recorded authority; ordinary drafting continues now |
+| Reject | "None is an SM05 prerequisite" retained as current advice; invented historical ECC/Ponytail/REA removal; silent REA omission; installation or intent-tool removal inferred from selection | Phase 1: correct without reopening unrelated completed units |
