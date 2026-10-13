@@ -6112,3 +6112,52 @@ but cannot start before receipt-route authority. `check-53c98d6.log` SHA-256
 | Approve-with-conditions | Future guarded cycle and already approved publication | Phase 1: new receipt-route act before prepare, unchanged source/bindings, independent receipt and separate health |
 | Defer | Preparation, receipt, publication and health; parent disposition and excluded work | Phase 1: receipt-route decision first; other work retains its own triggers |
 | Reject | Reusing D-435's exception; treating source review as candidate receipt; calling drift current; raw rebuild or inferred Gate 2 authority | Phase 1: maintain the explicit stop and evidence boundaries |
+
+## Lane A — D-436 receipt route recorded (item 6a); candidate ready; request for Lane B receipt, 2026-10-13
+
+### What happened
+
+Lane A received Lane B's source acceptance and route draft (`07cd6b0`).
+**Judge (verbatim, in chat, 2026-10-13):** "Judge Approved: authorize D-436 receipt route".
+
+| Step | Result | Evidence (`C:/CoWork/outputs/lane-a-d436-2026-10-13`) |
+|---|---|---|
+| Route recording | `D-436` item 6a at **`058518af0c91baec8de271834a3f41931c7653aa`**: Lane B's draft route issued as written (B-050 acceptance, then the covering annotation; only `terminal-return` and `docs-drift` may fail between them; this cycle only; expires at the health record). Build Spec `D-436` paragraph updated. Check: only `docs-drift` fails | `07-check-route.log` (`26bcb63e…`) |
+| Source | Since the applying commit `42af457`, only the route recording and B-136 changed; the FN repair is unchanged | `git diff --name-only 42af457 058518a` |
+| Prepare (from `058518a`, clean tree) | **READY.** workId `c43dd8bf-f405-4097-bc21-840216b3d530`, attempt 2; graph **`5681fde1912a0c569f850c54c60039183e62ff75431a677af65d15ee44f4a8c6`**; manifest **`19e92994562955a801994cc71db0f96b24af75f25a4a47969f177d737c1ef1dd`**, 583 files; frozen 2026-10-13T06:18:17Z | `08-prepare.log`, `09-resume.log` (`cccddff8…`) |
+| Answers | 0 descriptions; 34 community names: 23 by the commit-group rule, 4 successors, 7 written from members | `answers.json` (`979ccf27…`), `names.mjs` (`a71ecf8a…`), `07-name-basis.json` (`9284a1c4…`) |
+
+**Names written from members (for your semantic review).** The D-435 merged community split again into its five
+evidence scripts. Their D-434 names are restored, each matched to its single source file: "B-156 F2a Verifier Control
+Harness" (`F2a-controls-r2.mjs`, with three F2a commits), "B-156 F2a Citation Verifier, Revision 2", "B-156 F2b
+Citation Verifier" (with two F2b commits), "B-156 F2c Citation Verifier", "B-156 F3 Quote Verifier". Two new names:
+"Decision Status Check" (`scripts/checks/decision-status.mjs`, split from the consistency-runner community) and
+"Turn-Report and Required-Field Lessons" (seven lesson nodes about reports and required fields). One successor name
+to check: community 8 keeps "Consistency Runner, Decision and Source Sweep Checks" (Jaccard 0.67), although the
+decision-status check is now its own community.
+
+**Exact candidate delta against the live graph** (D435-C1 rule): 16 nodes added, all deterministic Git commit nodes
+(the 16 commits `b77d186..058518a`); 0 removed; **0 description changes** (the FN sentence is not held in any node
+description; the `frag140` FN leaf is unchanged at `c4283f75…`). Zero code-description answers. Curated parity
+139/139 exact; name binding 0 findings; 0 unnamed communities. Two commit nodes (`7acac90`, `b66de8f`) have no
+description, the same as the live graph. `10-candidate-check.json` (`9574830e…`), from `candidate-check.mjs` (`1f2c5f8e…`).
+
+**Interval:** no fetch and no push from prepare to the health record.
+
+### What you need
+
+**Lane B — receipt (`D-436` items 6 and 6a).** Review the candidate bytes against the work folder and source
+`058518a`, and their meaning: the community names above and the unchanged node descriptions. On acceptance, record
+the receipt in **B-050** by your review commit, then your covering Terminal annotation. Name the review commit; Lane A
+publishes only with it, then records separate health here.
+
+### What you did instead
+
+No publication, fetch or push. Only `docs-drift` fails inside this sequence (`D-428`).
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Route recorded; source unchanged; READY candidate; exact delta | Phase 1: Lane A's evidence |
+| Approve-with-conditions | Candidate `5681fde1…` | Phase 1: Lane B receipt (bytes and meaning) in B-050 with its annotation |
+| Defer | Publication, health; push | Phase 1: after the receipt; push at its own fixed range after health |
+| Reject | Publication without Lane B's receipt; any fetch or push before the health record | Phase 1: no action |
