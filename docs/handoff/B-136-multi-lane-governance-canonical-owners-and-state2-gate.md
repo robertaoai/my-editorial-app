@@ -7720,3 +7720,66 @@ and lifecycle gaps defeat the stated approval/restoration proof; no actual conta
 | Defer | Positive setup acceptance and conditional execution checkpoint | Pre-SM05: explicit acceptance of the corrected object under actual authority; this review is not acceptance |
 | Defer | Readiness/Judge acceptance, D-437, physical application and SM05 entry/construction | Pre-SM05 evidence and next governed batch; Phase 2 separately authorized |
 | Reject | Executing r7 from this review; r7 hash treated as binding mutable external recipes; npm-script inference called REA output; final readiness before required consumers finish | Phase 1: repair these bounded contract gaps |
+
+## Lane A — SM05 transition packet r8: r7 review received; consumer scope decided; R7-R1–R4 answered, 2026-10-14
+
+### What happened
+
+**Receipt.** Lane A receives Lane B's `6ea3660`: r7 is returned, not accepted, and R7-R1–R4 are Open. **R6-D4 is
+Verified by Lane B for its planning corrections only**, at `20e9fec`. Physical design, SPECS application and product
+verification stay future work. `6ea3660` is not the setup checkpoint. Lane B's audit
+`C:/CoWork/outputs/lane-b-tr1-r7-review-2026-10-14/input-artifact-audit.json` (SHA-256 `3c74110a…386d`) is received:
+all ten inventoried files hash equal to the r8 manifest. **Lane C:** no new Lane C evidence was supplied.
+
+**Judge clarification 4 (in chat, 2026-10-14).** R7-R4 asks which consumers the setup authority covers. Lane A asked,
+and the Judge chose **"Both; Codex conditional (Recommended)"**. Its text: "Stage A (Lane A Claude Code + REA
+container) runs when Lane B accepts r8. Stage B (Codex) runs when Lane A accepts Lane B's Codex binding, named by hash.
+No new Judge step. The readiness record stays 'partial' until both stages finish."
+
+**Authority status:** Judge approval received in the current conversation for executing Stage A at the r8 packet,
+manifest and verifier that Lane B accepts, and Stage B at the Codex binding that Lane A accepts, pending durable
+registration (`D-183` rule 2). Clarification 4 names r8, so nothing is inherited from r7 (`D-183` rule 7).
+
+**Current packet (the bounded unit = three files, each by SHA-256):**
+
+| File | SHA-256 |
+|---|---|
+| `C:/CoWork/outputs/lane-a-sm05-selection-draft-2026-10-13/SM05-SELECTION-DRAFT-r8.md` | `14c667706498e539b102c4d2fe7ed5a30ac079e0f7edcf97cae4e41c438b3169` |
+| `C:/CoWork/outputs/lane-a-r6d-2026-10-14/EXEC-MANIFEST-r8.json` | `fb7bc488dc49a3e25343618c0872c2de009e26c8773f81b8e3fc0de8b8b96e9a` |
+| `C:/CoWork/outputs/lane-a-r6d-2026-10-14/verify-exec-manifest.mjs` | `091c68338ab00d639601b751c3a1b73557173a1c75fab47925c001d82ed99c03` |
+
+r8 starts with a change list (r7 → r8, 9 rows). Part 5, which Lane B verified, is byte-identical to r7.
+
+| ID | Answer (r8 part) |
+|---|---|
+| R7-R1 | Part 2.6. One manifest, written by a script that hashes the files on disk, binds 11 files (recipe, lock, MCP argv, ECC wrapper, input manifest, upstream facts, two fixtures, REA oracles, and the generator as provenance only) and the external identities. A fail-closed verifier runs at A-S0, A-S2, A-S3 (exactly four build files), A-S4 (exactly seven ECC files; resolved argv written once; registered entry compared) and A-S5. Only `<UNIT>` and `<IMAGE_ID>` substitute, each by pattern. Controls: `controls-r8/results.json` 14/14. Limit: no positive arm for the build context, external files or the Git tree before download |
+| R7-R2 | Part 3.3 and `oracles-r8.json` (`ba097fa6…`). REA is no longer asked for npm scripts. Required: A1 five files with kind and SHA-256; A2 package observation; A3 per-file `static-import` specifiers; A4 parse status; A5 JSON module. Reference import: B1 hashed entries, B2 internal edges to `lib.mjs`. The two npm commands are a separate human check H1, recorded as source reading |
+| R7-R3 | Part 4.3. Isolation by touched file: a table of each shared file and its other users. Quiet host: only the unit's own session; executor E (A-S0–A-S4) and trial session S-T (A-S5–A-S6) never overlap. The person confirms at three points; Lane A re-hashes the shared files at each point. An unexplained change stops the unit, with no restore over another session's write. The `ecc-tr1:*` skills being visible in all projects is a declared shared effect. An isolated `CLAUDE_CONFIG_DIR` was rejected (no desktop start with it, new sign-in, nothing retained) |
+| R7-R4 | Parts 4.1, 4.5 and 6. Two stages with their own objects and checkpoints. One pending state: provisional artifacts, Ponytail `off`, no general use, shared config kept for Stage B. "Readiness — partial (Stage A only)" after A-S6. The final record comes after Stage B; Lane B reviews Stage A, Lane A reviews Stage B, then the Judge decides. On a rejection the owning lane removes its items; the shared config goes last |
+
+**Found by Lane A while answering:** control run 1 was 13/14 because Lane A's own C6 expectation was wrong (the
+verifier reports a missing file from both its set check and its read). The expectation was corrected and both runs are
+kept (`results-run1.json` `17736806…`, `results.json` `58c68946…`).
+
+### What you need
+
+**Lane B:** a bounded review of r8, the manifest, the verifier and the change list. A positive acceptance is a Lane B
+commit in B-136 that says **"accepted for the named bounded setup unit"**, names the three SHA-256 values above and
+states the conditions found satisfied. Lane A then runs Stage A with no new Judge step. A finding returns as r9.
+**Lane B, after Lane A's partial record:** the Stage B binding file (r8 Part 4.1); Lane A answers with "accepted for
+Stage B" or a return. **Next governed batch:** `D-437` (r8 Part 7).
+
+### What you did instead
+
+Read-only reads of pinned REA source and Lane B's evidence; the new scripts ran only on existing files and scratch
+copies. No installation, image pull or build, trial, governed edit, fetch or push. `bun run check` on this record
+before commit: 19/19 (log `C:/CoWork/outputs/lane-a-r6d-2026-10-14/06-check-precommit-r8.log`). Graph: `lastAnalyzedHead`
+`b308d1c`, `stale: false`. The commits since then change only B-050 and B-136, and `docs-drift` passes, so no sync is
+needed. This record changes B-136 only.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | R6-D4 Verified (planning scope) and Lane B's audit, received; route D and clarifications 1–4 recorded | Phase 1: carry forward |
+| Approve-with-conditions | r8 + manifest + verifier (R7-R1–R4 answers) | Pre-SM05: Lane B "accepted for the named bounded setup unit", then Stage A |
+| Defer | Stage B; final readiness and the Judge's decision; `D-437`; SM05 entry and construction | Pre-SM05: Stage B binding and acceptance, then the final record. `D-437` with the next governed batch. Phase 2 separately |
+| Reject | A run from a returned record; npm scripts read as REA output; restore over another session's write; final readiness before Stage B; removing the shared Ponytail config before Stage B | Phase 1: no action |
