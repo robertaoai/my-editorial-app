@@ -12103,3 +12103,89 @@ Evidence/checks: C:/CoWork/outputs/lane-b-speckit-code-layer-2026-10-15/.
 | **Approve-with-conditions** | B-maintained feature packets and A-provisioned shared controls | Phase 1: exact file/owner/trace/preservation map, independent review and later governed allocation before creation |
 | **Defer** | Adoption, tool execution, construction, SM05/Gate 2 and push | Their existing bounded acts and evidence |
 | **Reject** | All new specs assigned to A; separation treated as disconnection; automatic synchronization or gate closure claims | Phase 1: retain the explicit source and return contract |
+
+---
+
+## Lane B — Current receiver brief: partition Phase 1 intent and Phase 2 delivery, 2026-10-15
+
+### Layer 0 — Handoff and executive correction
+
+**Raised:** 2026-10-15 by Lane B. **Kind:** finding. **Phase:** 1 (transition-contract correction).
+**Parent:** Open B-136 / Parent 3 / BCP-1 / T5. **Blocks:** completion of this draft transition/file map only.
+**Evidence observed at:** 1e4e7e01f5ff536381a48cc07e00108da53abb23. Lane A answers; answer pending.
+
+**Precise request:** track governed intent and built delivery in separate partitions, linked by requirement IDs
+and revisions. Define the Phase 2 creation trigger and the behavior-test -> specs -> application sequence.
+Lane A receives this single brief; earlier blocks are transaction history. No build or selection occurs here.
+
+**Correction:** my earlier map separated purposes but did not state their phase/creation boundary. Phase 1
+specifies the future outputs and their acceptance contract. Phase 2 creates executable tests, then its root
+specs/ packet, then application implementation. The behavioral test code is itself the first Phase 2 artifact;
+it cannot be a requirement that every Phase 2 artifact wait until that same code already exists.
+
+**DoD distinction:** D-254 and Build Spec §1 require a complete, testable DoD definition before construction.
+That is a checklist-completeness review, not earned DoD. Selection alone is insufficient: the recorded selection,
+bounded work order, Lane B Active state and existing entry clearance must all hold before test/code creation.
+The current SM05 packet remains BLOCKED, not selected; feature DoR/DoD has not run.
+
+### Layer 1 — What happened: transaction and parent state
+
+| Parent / record | Retained state and bounded change |
+|---|---|
+| B-136 / Parent 3 -> V1-SM05 | Open transition; existing work packet owns selection/work order and feature evidence. This handoff changes no header, readiness row or gate |
+| 340f70d | r11 r6 design/receipt acceptance kept; BCP2-R1/R2 and grading-link correction remain due once |
+| 1cf821a -> 6c60e23 | Two-repository SM05 proposal withdrawn; one repository and Flow-Forward retained |
+| 1e4e7e0 -> present clarification | B's feature-packet meaning ownership retained; phase partitions and test-first creation order are now explicit |
+
+### Layer 2 — Partitioned tracking: intent to built delivery
+
+Paths below are relative to C:/robertaoai/my-editorial-app. They describe future outputs, not files created here.
+
+| Partition / artifact | Phase and creation trigger | What it may prove |
+|---|---|---|
+| Governed docs/ intent and existing MMF checklist | Phase 1 defines accepted scope, ACs, DoD evidence classes, dependencies and return conditions | Intent and readiness definition/review only; no behavior pass |
+| Executable behavior cases in B-owned __tests__/ and required test fixtures | Phase 2 starts after the authorized entry above; B selects the fitting xDD method under D-242 | Test IDs, exact source ACs, runner/environment and failing-first reason; an infrastructure failure does not prove missing behavior |
+| specs/<feature-id>/spec.md, plan.md, tasks.md | Phase 2, after the bounded behavior-test baseline is recorded; precise lane allocation must exist before writing | B's implementation contract and work breakdown; reference the intent revision and test IDs/results, then guide the application changes |
+| app/, lib/, components/ and authorized supabase/ changes | Phase 2, under that implementation contract and work order | Implemented behavior, passing child/regression/integration evidence and local database replay where required |
+| Existing V1-SM05-FV-001 tracking/evidence destination | Create after selection; run only once behavioral test code exists, as the current SM05 packet states | Failing-first and later passing evidence toward feature DoD; exact path/custodian follows the existing packet, not a new duplicate ledger |
+| .specify/ plus selected integration files | Shared support for the Phase 2 workflow; A provisions under a separate bounded tool/control act before B needs it | Tool/control availability and source-rule/provisioning trace, tracked separately from product-behavior completion proof |
+
+Do not classify every file under docs/ as Phase 1 work: the existing work packet and feature-run records there
+also track Phase 2 evidence. Keep their established destinations. Partition the tracking rows by their obligation,
+phase, producer and evidence state; do not move them merely to make the folder names look consistent.
+
+**The two parent relationships:** approved intent is the authority parent; executable behavior cases are the
+verification reference; specs/ is the implementation parent for the application changes. A test observation
+cannot amend intent. The trace is intent ID/revision -> test ID and baseline -> specs packet/revision -> code
+commit -> passing result -> independent DoD review. The MMF remains one outcome containing multiple children.
+
+This tests-before-packet sequence is a project proposal, not a claim about the upstream command order. The
+[Flow-Forward guide](https://github.github.io/spec-kit/guides/evolving-specs.html) normally creates the feature
+specification before plan/tasks/implementation. Its preservation model still applies: retain the accepted
+completed packet; use a linked new packet for a later substantial change. D-36 keeps canonical docs/specs/ living.
+
+### Layer 3 — What Lane A must return; acceptance and refusal
+
+1. Keep one BCP-1 map with separate intent, test-baseline, implementation-packet and result rows. Add phase,
+   creation trigger, authority/test/code links and evidence state to the existing ownership/custody fields.
+2. Map every applicable SM05 DoD obligation to an accepted AC/scenario, intended test/evidence and reviewer.
+   Return missing coverage as a named gap. Do not check completion from the existence of a planned file.
+3. Specify the smallest test-baseline boundary before specs/ creation. Lane B chooses the child methods; preserve
+   honest characterization for behavior that already exists instead of inventing a red result (D-242).
+4. Define entry refusal when selection, work order, Active state or required clearance is missing. Define result
+   refusal for wrong-scope tests, missing trace links, an unrelated failing run, or a green result without the
+   required database/integration evidence. No automatic DoD or push follows a test pass.
+5. Return one hash-bound design answer in B-136, covering the retained corrections and this delta. Lane B reviews
+   it. Any new-root allocation/adoption needs its later D-54 rule/check/tier plan before creation; no execution now.
+
+**What Lane B did instead:** queried the graph and checked D-242, D-254, Build Spec §1, the SM05 packet and the
+work-order method contract. Only this handoff changes. Handoff-only drift needs no graph sync; future specs/
+and .specify/ coverage must be assessed explicitly. Existing tool/runtime blockers keep their own triggers.
+Evidence: C:/CoWork/outputs/lane-b-phase-partition-2026-10-15/.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| **Approve** | Separate intent and delivery tracking; distinguish DoD definition from achieved DoD | Phase 1: corrected transition contract |
+| **Approve-with-conditions** | Tests -> specs packet -> application order | Phase 1: bounded test-baseline/coverage map and independent design review; Phase 2: authorized entry before creation |
+| **Defer** | Executable tests, feature packet, application construction, feature-run evidence and achieved DoD | Phase 2: selected bounded work order, Active state and existing clearance |
+| **Reject** | Achieved DoD demanded before construction; Phase 2 tests called Phase 1 proof; completed app required before its own implementation contract; duplicated intent or tracking ledgers | Phase 1: remove circular or cross-phase conditions |
