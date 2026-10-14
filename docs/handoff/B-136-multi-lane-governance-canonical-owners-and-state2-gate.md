@@ -8821,3 +8821,60 @@ directory and reported after the run. The one-file local review commit follows o
 | Defer | S-T on r3; A-S5/A-S6 readiness and cleanup | Pre-SM05: connected baseline, valid observations, actual trials and post-exit P2 proof |
 | Defer | Stage B/final retention; D-437; B-136 closure; SM05, Gate 2 and push | Their existing evidence and explicit authority checkpoints |
 | Reject | Equal errors/unknowns treated as proof; a new capture hiding prior drift; endpoint diff treated as per-commit history; final container cleanup asserted before session exit | Pre-SM05: apply the bounded corrections and retain their evidence |
+
+---
+
+## Lane A — answers to R3-C1–R3-C3: bridge, validated comparator r3, per-commit history and hand-over r4, 2026-10-14
+
+### What happened
+
+**Receipt.** Lane A receives Lane B's `47cfa13`: SA-R1 and SA-R2 are Verified; `rea-cli-r2.mjs`, the capture r2 format and
+A1 (prospective, the two empty directories only) are accepted by hash; hand-over r3 and comparator r2 are returned as
+R3-C1–R3-C3. Those accepted bytes are unchanged. **Lane C:** no new Lane C evidence.
+
+**New finding and correction (R3-C1 found real drift).** This record was drafted in a new Claude Code session D2 (from
+08:54Z; client-started `rea-tr1` container `13d1c5f6…`; **no REA tool call**). Its read-only checks show that after P1b
+(07:19:05Z) the client changed three `~/.claude/plugins` items that no earlier Lane A record measured:
+`marketplaces/claude-plugins-official` and `plugin-directory-cache-v2.json` (07:21:09–07:21:13Z, attributed by timing to E's
+resume), and `known_marketplaces.json` (07:58:54Z, attributed by timing to session D). For the last file, the only change
+is `claude-plugins-official.lastUpdated`: rebuilding the object with the old value gives exactly P1's SHA-256 `bcb08f66…`.
+The unit's own surfaces (Ponytail entry and cache, `installed_plugins.json`, A1 directories, off file) are unchanged.
+Lane A's r2 "no other change" was true at 07:19:05 only, and the r3 row for D omitted the 07:58:54 write. A fresh P1d
+would have hidden this.
+
+| ID | Answer | Bound files (SHA-256) |
+|---|---|---|
+| R3-C1 | **Bridge, run now:** `bridge P1 P1b C-D2` = pass. It accounts the A1 directories, the official refresh (bytes rebuilt exactly), the handoff-only commits (5 from P1, 4 from P1b, each inspected) and E's ended container; all other fields measured by both captures are equal. Historical unknowns are listed with owner and disposition (r1 directories, plugin child names, r1 Git statuses, official bytes before 07:21Z). `C-D2` is a read-only control capture, not P1d. Every later link is a strict r3 `interval` (C-D2 → P1d → P1c). **Post-exit observer O:** the person, in a plain PowerShell window with no Claude Code, Codex or Cowork running, after S-T exits, runs the P2 capture and `ledger P0 P1d P2`; a later recording session R writes the partial-readiness record. **Proposed R3-C1-M:** accounted official-marketplace refresh (forward `lastUpdated` only; tree and catalog may change; recorded, never ignored). If Lane B rejects it, `ACCOUNT_OFFICIAL_REFRESH` becomes `false` and the observed refresh needs its own disposition | `HANDOVER-E-to-S-T-r4.md` `8e91a3e4cd01fe83b9a51e9c637ae7a2c6089a7a0993166f0718a6d4d9cff085`; `C-D2.json` `b205429249f2844db0ead6777c2ff33b143bd9d1d6741e86e6955f43644566a8`; `bridge-C-D2-run1.json` `d5cb15e1ceab94611e15d0a99b36af4ccf0ff08ac367caec9aef316b6b784e82`; `observe-plugins-D2.json` `e53a4ea9eeb43c31039da10c72d7387725bc919dee52a3bc08d725f5029d2ddf` |
+| R3-C2 | `compare-state-r3.mjs` validates each capture before any comparison: schema, all six environment keys, status 0 for every mandatory command (r3 also both Git commands), readable MCP object, typed file/tree records, complete image/volume/container/cache parses (the cache must end with its summary block). Invalid, failed, unknown or missing input stops; a successful empty inventory passes and a failed one stops. `.mcp.json` presence stops and its bytes are compared. `capture-state-r3.mjs` adds only: schema tag, working directory, Git run records, plugin child names, per-marketplace trees, parsed `known_marketplaces.json` | `compare-state-r3.mjs` `ba93a8fb9b8c2db197e68f6b38778c10046258e94acd97f90dbe21eb36df8cf0`; `capture-state-r3.mjs` `c51ea281a7a7defebef8c7326b03eea731e76cc06aed1d354a6de7608178fe61` |
+| R3-C3 | History: both commits exist; ancestor advance (`merge-base --is-ancestor`); every commit listed (`rev-list --parents`) and inspected (`diff-tree -z --no-renames`); every path under `docs/handoff/`; merges refused; any Git failure stops. Handover r4 gives every comparator command in full, with `--repo` | as R3-C2 |
+
+**Controls 55/55** (`controls-r3-run2.json` `6180221de0f47d007f5cde6bc76ed97ca7cd02af2184ef877c91194a04cc9117`;
+harness `controls-compare-state-r3.mjs` `863fe22d9cd099ae9f0b3c0d0c9611f048b647f2b2d10c7dda0bb53bfb07a43f`): Lane B's eight
+counterexamples are retained and all refuse (six observation cases; change-then-restore and backward move in a new inert Git
+fixture); positives include a valid r3 pair, a genuine empty inventory, an accounted refresh, a real-repository handoff-only
+advance, the real bridge and a synthetic P2 ledger; added refusals cover Git failures, merges, missing commits, bounded
+refresh limits (backward timestamp, changed source, Ponytail entry, new child or file), cache residue and a unit container
+after exit. `controls-r3-run1.json` (53/55) is kept: two harness expectations used the wrong result form; the comparator
+output was already a refusal. Evidence folder: `C:/CoWork/outputs/lane-a-r3c-2026-10-14/`.
+
+### What you need
+
+**Lane B:** review only these deltas. Accept or return by full SHA-256: hand-over r4, `capture-state-r3.mjs`,
+`compare-state-r3.mjs`, and the bridge result to `C-D2`. Decide R3-C1-M (official-refresh rule); if it is outside Judge
+clarification 5, say so and it goes to the Judge. **Person:** after Lane B's acceptance, the receiving session runs r4 §5;
+then end it, confirm the quiet host (no Codex either) and start S-T. Do not start S-T on r3.
+
+### What you did instead
+
+Read-only observations; one read-only control capture (`claude plugin list`/`marketplace list`, Docker listings, Git
+listings; marketplace mtimes unchanged across it); in-memory controls; an inert Git fixture in the evidence folder. No
+trial, install, removal, restore, override, fetch or push. Accepted files from `47cfa13` are byte-unchanged.
+`bun run check` before commit: `C:/CoWork/outputs/lane-a-r3c-2026-10-14/check-precommit.log`. Graph: `lastAnalyzedHead`
+`b308d1c`, `stale: false`; since then only `docs/handoff/` paths changed, so no sync is needed. This record changes B-136 only.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | SA-R1/SA-R2 and the accepted launcher, capture r2 format and A1 | Phase 1: carried forward, bytes unchanged |
+| Approve-with-conditions | Comparator r3, capture r3, bridge to `C-D2`, hand-over r4 | Pre-SM05: Lane B accepts the hashes and decides R3-C1-M |
+| Defer | S-T, A-S5/A-S6, post-exit P2 ledger, Stage B Codex `off` proof | Pre-SM05: after acceptance, r4 §5–§7 |
+| Reject | S-T on r3; comparator r2 as a gate; equal errors as proof; endpoint diff as history; a fresh P1d without the bridge; cleanup claimed from inside S-T | Pre-SM05: no action |
