@@ -9463,3 +9463,52 @@ are handoff-only, so no graph sync is needed. Final-byte consistency evidence is
 | Approve-with-conditions | Strict B comparator / handover | Pre-SM05: full-hash Lane B review with byte-change refusal controls |
 | Defer | S-T, actual readiness, parent closure, Stage B, SM05, Gate 2 and push | Their existing evidence and authority checkpoints |
 | Reject | Timestamp-enabled comparator used for B; parsed equality treated as byte equality; residual acceptance treated as equivalence or cleanup | Pre-SM05: keep the selected strict boundary |
+
+---
+
+## Lane A — receipt of option B; strict comparator r6 and hand-over r7, 2026-10-14
+
+### What happened
+
+**Receipt.** Lane A receives Lane B's `4137ee6` (R5-F1/F2 Verified; receipt r2, comparator r5 and hand-over r6 accepted by
+hash; residual card ready) and `60928f7` (the Judge's exact selection, quoted there: "B — Accept the exact residual; use
+strict future byte checks after comparator review"). Lane A records option B as received: the two historical pairs are an
+owned Stage A limit; the bridge stays `residual`; acceptance proves neither content equivalence nor cleanup; the `build/`
+timing deviation stays. Propagation goes to the next D-437 governed batch. **Lane C:** no new Lane C evidence.
+
+**Disclosure.** This record is drafted in a new Claude Code session D3 (client-started `rea-tr1` container `b18c84aa…` at
+11:43:36Z; no REA tool call). At D3 the two marketplace files still equal `C-D2b` (last writes 08:59:37Z / 08:59:43Z).
+All accepted files were re-hashed in D3 and match.
+
+| Item | Answer | Bound files (SHA-256) |
+|---|---|---|
+| Strict comparator | `compare-state-r6.mjs` = r5 with three changes only: `TIMESTAMP_ONLY_REFRESH = false`; an explicit presence + SHA-256 + size check of `known_marketplaces.json` in `interval` and `ledger` (a formatting-only rewrite with equal parsed values stops); and a clean stop when that file is absent or unreadable on one side. **Self-found defect:** r4 and r5 threw an exception in that case (no result written, so no false pass, but no clean refusal); found by control S10 in run 1 and fixed in r6 | `compare-state-r6.mjs` `882bb2b4a596cc72d9e89f81572536141b88e93e5047d49435f48e2177923320` |
+| Hand-over | r7: r6/r5 stand except the comparator; the option-B record; the three commands with `compare-state-r6.mjs`; under strict checks any later client rewrite stops its link and is never cleared by a new baseline | `HANDOVER-E-to-S-T-r7.md` `c0313fb8b28a4c9aa6c699bb164cf4bdfbfdc507be1313cd6fac0a1192f6b619` |
+
+**Controls 19/19** (`controls-r6-run2.json` `cf464f9a4b38a3c7bc1307b173f1b40e9f7c722ed7b9301f0353e066ca9e37f8`; harness
+`controls-r6.mjs` `25a9462f420ce2e226b60cc7dd42054f7999ba06be7ba36d09ac79f4886e9612`): unchanged pairs pass (r4 and r3 bases);
+forward `lastUpdated`, forward `fetchedAt`, formatting-only rewrites of both files, a catalog content key, an official tree
+file, the Ponytail entry, an absent known file, a backward HEAD and changed known bytes in the ledger all stop; a valid ledger
+passes and a bare receipt label stops; the real bridges to `C-D2` and `C-D2b` return `residual`; outside the pairs stops; the CLI
+reports the rule as `false`. Run 1 (`6a86fd3b…`, 18/19) is kept: it found the S10 defect above. Evidence:
+`C:/CoWork/outputs/lane-a-r6b-2026-10-14/`.
+
+### What you need
+
+**Lane B:** review only the r5 → r6 diff and hand-over r7; accept or return by full SHA-256. **Person:** after acceptance,
+the receiving session runs the r7/r6 pre-S-T steps; then end it, confirm the quiet host (no Codex either) and start S-T.
+Do not start S-T on r6. No Judge decision is open.
+
+### What you did instead
+
+Read-only re-hashing and mtime checks; in-memory controls and fixture UNITs in the evidence folder. No trial, capture of
+P1d, cleanup, restore, fetch or push. `bun run check` before commit:
+`C:/CoWork/outputs/lane-a-r6b-2026-10-14/check-precommit.log`. Graph: `lastAnalyzedHead` `b308d1c`, `stale: false`; only
+`docs/handoff/` paths changed since, so no sync is needed. This record changes B-136 only.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Judge option B as recorded; R5-F1/F2 Verified; receipt r2, map, capture r4 and prior approvals | Pre-SM05: carried forward; D-437 propagation when due |
+| Approve-with-conditions | Comparator r6 and hand-over r7 | Pre-SM05: Lane B accepts both hashes |
+| Defer | S-T, A-S5/A-S6, Stage A readiness; Stage B, SM05, Gate 2, push | Their existing checkpoints |
+| Reject | Comparator r5 (timestamp rule on) as the B route; parsed equality as byte equality; a new baseline to clear a strict stop; residual acceptance as equivalence or cleanup | Pre-SM05: no action |
