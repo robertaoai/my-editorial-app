@@ -10697,3 +10697,137 @@ returns the mismatched trial oracle, preserves authority and requires independen
 | **Approve-with-conditions** | r11 ready for Lane A correction and unified return | Phase 1 / pre-SM05: apply this bounded contract, self-grade final hashes, then Lane B independently reviews |
 | **Defer** | G0–G4 execution/readiness, exact config disposition, Stage B, D-437, SM05, Gate 2 and push | Existing concrete evidence/owner/Judge checkpoints; no generic drafting re-approval |
 | **Reject** | Current r11 as execution-ready; no-trigger story; inferred creator/cleanup; original unset oracle reused in I1; self-grade called Verified | Phase 1 / pre-SM05: correct and return; S-T remains stopped |
+
+## Lane B — r11 r2 delta review and missing Lane A design answer, 2026-10-15
+
+### Layer 0 — Request and handoff fields
+
+Review r11 r2 and the four self-corrections. Separate completed design changes from missing proof and the missing
+receiver record. Give Lane A one return contract. Keep execution stopped.
+
+**Raised:** 2026-10-15 by Lane B. **Kind:** finding. **Phase:** 1 / pre-SM05.
+**Blocks:** existing S-T stop retained; no gate, readiness or parent closure is earned.
+**Evidence observed at:** `ff12ecc6c2a934604c26dbaad1715bcdb6689a73`.
+Lane A answers this B-136 child; Lane B independently reviews. Parent/header fields stay unchanged.
+
+### Layer 1 — What happened and transaction chain
+
+Observed r2: `C:/CoWork/outputs/lane-a-r11-2026-10-15/R11-CONTRACT-PACKET-r2.md`, SHA-256
+`8cd0a16887fc5e837947e7606134eab49adb0a5d68a8eb24b4da8f7b2012e1bb`. r1 stays as history. This review retains a
+byte-identical r2 copy. The new worklog is again an interim self-review; its four edits are not in the observed r2.
+
+**Accept the design progress:** r2 adds the T-P0/T-P0b root/environment delta; writes the image/cache IDs in full;
+marks CLI removals expected until measured; retains the strict stop for new unapproved effects; puts target checks,
+deletion, final P2' and the fresh 15-minute receipt in the correct order; corrects creator certainty and missed selection;
+labels unbuilt tools as candidates and the later Stage A record provisional. This accepts those design facts, not execution.
+
+| Parent / child | Transaction and state | Next owner / return point |
+|---|---|---|
+| **B-136 / SM05 transition** | **Open** | Existing parent obligations retain their triggers |
+| I1 / r11 design | `7b8fc92` → Lane B `9dfd84a` → external r1 → Lane B `ff12ecc` → external r2 → this review | Lane A records a design answer under this parent |
+| I1-R1 routing proof | T-P0 delta improved; actual hook-root proof remains Open | Lane A supplies the positive-observation design; no pass from absence |
+| I1-R3 G0 and I1-R2/R4 G4 | Substantial design corrections accepted; bounded inconsistencies below remain | Lane A answers with one corrected contract |
+| SK-G1 | Trigger diagnosis answered as Lane A's reported missed selection; invocations/source identity now reported in r2 | Retain exact source/call/result loci and final input hash; no independent Verified yet |
+| Lane A r11 handoff record | Missing from B-136 at the observed HEAD | Record receipt/current design now; do not wait for candidate-tool build or G0 execution |
+| Config discrepancy; S2; execution/readiness; Stage B/D-437/SM05/Gate 2/push | Config unchanged/unresolved; S2 inactive; remaining checkpoints unchanged | Their existing owner, review and Judge acts |
+
+### Layer 2 — Remaining gaps and draft fixes (existing IDs retained)
+
+| Existing child / target | Gap | Draft fix and acceptance criterion |
+|---|---|---|
+| **I1-R1 / r2 §§1,3: actual hook root** | D5 requires hook-routing proof at G2, but G2 lists no such observation. G3 infers the root from absent files. In `off`, absence fits either root and cannot distinguish them | Replace the G3 claim with "off-state/non-interference observation; hook routing unproven". Keep the hard routing condition Open. Specify a positive, value-only observation from the actual hook context, its source identity, resolved state paths and valid/wrong-root controls at the exact gate. If that needs new instrumentation/effects, specify them for review before use. Do not patch the pinned hook or turn Ponytail on to manufacture proof. If the condition cannot be met, only an explicit Judge change can relax it; a stated limit alone does not clear the gate |
+| **I1-R3 / r2 §4: owned write set** | C2/C3 expect local-settings removals, but omit those keys from Owned entries; C6 has no owned entries despite naming files for removal. "Any new difference in the real root" also includes the intended cleanup | Add each exact local key and conditionally removable file/directory to its row's owned set and phase map. Replace the blanket sentence with "Any difference outside the exact authorized owned-effect projections stops G0." Keep unrelated keys/bytes strict; keep historical residuals exact. A remaining key or unallocated CLI write stops, rather than authorizing an improvised repair |
+| **I1-R1/R2 / r2 §§1,3: projection scope** | "Real root byte-equal" still exceeds the named capture/comparator coverage unless that wider coverage is actually specified | Use "enumerated protected projection equals P0'" and name its capture/manifest binding. Expand the measured scope only if the candidate genuinely proves it. Missing or unallocated observations do not pass |
+| **I1-R2 / r2 §7: credentials and scan** | Lane A proposes treating `.credentials.json` as an example because its name was not verified. Current official docs do specify that Windows filename under `CLAUDE_CONFIG_DIR`; host presence is a different fact. The r2 scan also omits earlier proposed classes | Say "documented expected name; presence unmeasured in this attempt". Keep credential/name-pattern exclusions before any read/hash/copy; unknown auth-like entries stop for classification. Retain the prior bounded scan classes (private-key headers, authorization headers, credential assignments and named prefixes), or identify the narrower proposal for review. Bind exact matching/case rules and harmless positive/refusal fixtures. Never print a matched value or call a negative scan comprehensive proof |
+| **Config discrepancy / r2 §1 D2 vs §6** | "Removal by its owner" is weaker than §6's bounded-act condition | Use "removal of the exact bound file under a bounded act, or an explicit change of the r10 exclusion" in both places. Ownership or a Stage B binding is not permission. The file remains untouched; creator remains unknown |
+| **SK-G1 / r2 §10** | Invocation 1 wrongly attributes "§6 two claims" to the skill. The supplied r1 self-review raised the creator claim; the no-secret point came from Lane B. Invocation 2 and its final hash still point to a missing B-136 answer | Correct the source attribution. Retain the exact skill source path/provider/version and hash, each invocation's input hash and call/result locus, defects and fixes. Re-grade changed content and bind the result to the final contract hash. Treat the current invocation statements as Lane A reports until supported; a self-grade is not independent verification |
+| **Receiver record / r2 §2 and custody** | The first return is placed after contract acceptance/tool build. This leaves the design itself without Lane A's receipt/answer. §8 is a useful candidate list, but not a complete custody table | Put the design receipt/answer before candidate build. Record the current contract, answered/Open items and return points truthfully; do not wait for every item to close. Extend custody with producer/session, exact path, hash or "planned", input binding, retained location, result/reviewer and close disposition. Include the manifest/registration targets, evidence map and self-grade records. Unbuilt artifacts remain planned; do not invent hashes or results |
+
+**Pinned-source check:** `ponytail-activate.js` L31–35 calls `clearMode()` in `off`. `ponytail-runtime.js` L68–71
+attempts to unlink the resolved project/shared flags. Thus "creates no flag" is supported; "has no filesystem effect"
+is too broad. Runtime L35–42 also has host-marker-dependent state-directory overrides, so `getClaudeDir()` alone is
+not the full state-path oracle. The routing observation must identify the actual resolved paths. These are source
+facts, not evidence that a hook ran or that a host marker was present in this attempt.
+
+D5 cannot be marked passed from a hook observation that is still pending at G3. Align the gate dependency with the
+actual observation and preserve T-P0's first-action rule. A synthetic refusal control should set both roots' flags
+absent but the resolved root wrong: absence alone passes that case; the required routing observation must refuse it.
+
+The three source files' Git blob identities and sizes match the retained tree for Ponytail commit
+`2961b52fc1fe6a5a87c7a959a79512e5c2f3ffe5`; no supplier source was executed.
+[Credential-storage documentation](https://code.claude.com/docs/en/authentication#credential-management) supports the
+documented filename/location only. It does not prove the proposed Windows run's observed state.
+
+### Layer 3 — Missing skill trigger and missing Lane A record
+
+The trigger is no longer an unexplained global capability problem. Lane A admits missed selection on its own Claude
+Code surface and now reports two invocations, with source SHA-256
+`921422d4a032d61c15706dc2e8c5af9f074dd5884b57b9c256e599090cfe6dc1`. This Codex catalog lacks the named skill.
+Searches of 85 visible `SKILL.md` paths across the recorded local roots found neither its exact name nor that hash.
+This does not contradict a separate Claude Code provider; no installation, plugin refresh or invocation occurred here.
+The missing evidence is the concrete source/call/result route, not a new requirement to install the skill in Codex.
+
+The recurring handoff defect is **an external draft or prospective action standing in for the receiver's durable
+answer**. The remedy is one Lane A design record under B-136, with unresolved limits explicit. No new A-series or
+C-series file, generic drafting approval or completed trial is needed to acknowledge and answer a design return.
+
+**Draft answer fields for Lane A to complete (not a Lane A answer written by Lane B):**
+
+- Receipt: identify `9dfd84a`, `ff12ecc` and this review as received; preserve the prior approvals and stop.
+- Object: corrected contract path/full SHA-256 and the unchanged accepted-input manifest reference.
+- Disposition: existing finding ID → answer/section/evidence → Open or Answered → owner/return point.
+- Grading: actual source and invocation/result references; input/final hashes; attribution and remaining limits.
+- Scope: design only; candidate artifacts planned; G0/S-T stopped; B-136 Open; independent review requested.
+
+### Layer 4 — Lane A follow-up and Chief Editor decision contract
+
+1. Complete the four self-corrections, with the credential qualification above, and the bounded remaining items in
+   Layer 2. Specify the hook observation; do not silently downgrade its hard condition.
+2. Complete the design custody table. Self-grade the corrected contract, retain the result and bind its final hash.
+3. Record one Lane A design answer locally in B-136 under the handoff SOP; only the receiver writes it. Return it to
+   Lane B. Existing same-scope drafting authority covers this work; do not hold the receipt for a new generic approval.
+4. After Lane B accepts the design, candidate evidence-tool preparation follows its existing approval and a further
+   hash-bound review. This turn performs review only and builds none of those tools.
+5. Present the reviewed concrete execution unit and config disposition to the Judge. A single bounded act may cover
+   the ordered gates conditionally. Keep G0–G4, Stage B/final readiness, SM05 selection and push at their own checkpoints.
+
+| Parent-first item | Chief Editor / reviewer accepts when | Reject or retain stop when | Follow-up phase |
+|---|---|---|---|
+| **B-136 / r11 design return** | Lane A's own record identifies the current object, answers and remaining limits | Chat/draft/self-grade is substituted for the missing receiver answer | Phase 1 / pre-SM05: current planning work |
+| **r11 evidence/control design** | Routing has a positive-observation method; command ownership, projection scope, custody and scan are consistent | Off-state absence is called routing proof; an intended write falls outside its own ledger | Phase 1 / pre-SM05: design review before candidate preparation |
+| **G0–G4 unit/config disposition** | Reviewed candidates, exact effects, stops and authority are complete; each prerequisite is met | An unproven hard condition is waived by wording, or ownership substitutes for the act | Phase 1 / pre-SM05: bounded execution decision |
+| **Partial Stage A → Stage B → final readiness** | Actual observations and cross-lane reviews satisfy the existing consumer contract | A design, self-grade or consistency pass is treated as runtime acceptance | Existing later checkpoints; SM05/Gate 2/push separate |
+
+Critical artifacts are the contract/trial delta (intended behavior), phase maps/ledger (permitted effects), candidate
+capture/comparator/probe/controls (future verification), and custody/grading/receiver record (evidence chain). Each
+must identify its source and reviewer. Lane B raises/reviews; Lane A answers. Lane C supplied no new evidence; do not
+attribute agreement or make a new C-series file a prerequisite. No Judge decision is requested by this planning return.
+
+### Layer 5 — What you did instead, drift and verdict
+
+Read-only graph query, packet/source comparison and metadata/hash checks only. Three packet/card bindings and all 13
+accepted input hashes reproduce. The config remains untracked, unchanged at `fd3c37f5…`; it was not edited or staged.
+No install, removal, sign-in, hook/REA/client call, supplier trial, governed edit, fetch or push occurred. All governed
+tiers and D-437 propagation triggers remain unchanged. B-136's header remains Open.
+
+Graph analysed at `b308d1c`, `stale: false`; tracked changes since are B-050/B-136 only. No graph sync is needed.
+Repository validation is retained in `C:/CoWork/outputs/lane-b-r11-r2-review-2026-10-15/check-final.log` for the final
+handoff bytes before its one-file local review commit. This review's own self-check is manual; the named skill was not used.
+
+Validation runner limit: `bun run check` failed before the check script loaded (`CouldntReadCurrentDirectory`). Its log
+is retained as `check-bun-runner-failure.log`. The final check uses the exact package-script entry point,
+`node scripts/check-consistency.mjs`; no runtime, dependency or configuration change was made to work around the runner.
+
+| Independent artifact in `C:/CoWork/outputs/lane-b-r11-r2-review-2026-10-15/` | SHA-256 |
+|---|---|
+| `audit.mjs` | `17facee98e9e8763ab0533706c3026c73ba2cd16dd875e1ecabf9c69a57ef0ab` |
+| `audit-results.json` | `9076c5f6207692887dc8ab74abd36405e886084f4c62a543ff2f7e1adbfee6a2` |
+| `sources.json` | `fd6b962708f0373e6cea3d392a460d33bf3ccabccc787ac28884592e899e380a` |
+| `R11-CONTRACT-PACKET-r2-observed.md` | `8cd0a16887fc5e837947e7606134eab49adb0a5d68a8eb24b4da8f7b2012e1bb` |
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| **Approve** | r2's stated design progress; reported missed-selection diagnosis; correction of attribution and bounded-removal wording | Phase 1 / pre-SM05: carry forward; no runtime or invocation certification |
+| **Approve-with-conditions** | Lane A completes and records the r11 design return | Phase 1 / pre-SM05: Layer 2 fixes, exact final hashes and grading evidence; Lane B independently reviews |
+| **Defer** | Candidate implementation pending design acceptance; G0–G4 execution, config disposition, readiness, Stage B/D-437/SM05/Gate 2/push | Their existing preparation, evidence and Judge checkpoints |
+| **Reject** | No-file routing proof; a limit silently waiving a hard gate; owner-only removal authority; claimed invocation or draft replacing the receiver record | Phase 1 / pre-SM05: correct and return; S-T stays stopped |
