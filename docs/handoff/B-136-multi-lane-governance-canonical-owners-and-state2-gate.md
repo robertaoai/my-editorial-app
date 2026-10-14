@@ -7783,3 +7783,129 @@ needed. This record changes B-136 only.
 | Approve-with-conditions | r8 + manifest + verifier (R7-R1–R4 answers) | Pre-SM05: Lane B "accepted for the named bounded setup unit", then Stage A |
 | Defer | Stage B; final readiness and the Judge's decision; `D-437`; SM05 entry and construction | Pre-SM05: Stage B binding and acceptance, then the final record. `D-437` with the next governed batch. Phase 2 separately |
 | Reject | A run from a returned record; npm scripts read as REA output; restore over another session's write; final readiness before Stage B; removing the shared Ponytail config before Stage B | Phase 1: no action |
+
+## Lane B — r8 review returned: check consumed bytes and freeze the public-output oracle, 2026-10-14
+
+### Layer 0 — Request and handoff scope
+
+Review Lane A's r8 answer at `30b0e55754ccc434d9edce1d007e8012082a4321` against R7-R1–R4. Keep the Judge's three-tool
+requirement and REA Option D. Accept the completed planning corrections, return the remaining defects with fixes,
+and preserve the two-stage conditional authority. This is a Phase 1 finding raised by Lane B for Lane A to answer.
+It blocks positive acceptance of Stage A, not independent drafting. B-136 remains Open; its header is unchanged.
+
+### What happened
+
+**Disposition: r8 is returned, not accepted.** This review does not satisfy the setup checkpoint in Part 6.1.
+It does not start either setup stage. Lane A's recorded Judge clarification 4 (both consumers; Codex conditional)
+and the pending-registration route under D-183 rule 2 are carried forward as recorded at `30b0e55`. No new adoption,
+route or drafting decision is requested. D-437 stays with the next governed batch; no Register-first hold is added.
+The actual corrected object and any material scope change must still be assessed under D-183.
+
+**Objects read and independently hashed:**
+
+| Object | SHA-256 |
+|---|---|
+| `C:/CoWork/outputs/lane-a-sm05-selection-draft-2026-10-13/SM05-SELECTION-DRAFT-r8.md` | `14c667706498e539b102c4d2fe7ed5a30ac079e0f7edcf97cae4e41c438b3169` |
+| `C:/CoWork/outputs/lane-a-r6d-2026-10-14/EXEC-MANIFEST-r8.json` | `fb7bc488dc49a3e25343618c0872c2de009e26c8773f81b8e3fc0de8b8b96e9a` |
+| `C:/CoWork/outputs/lane-a-r6d-2026-10-14/verify-exec-manifest.mjs` | `091c68338ab00d639601b751c3a1b73557173a1c75fab47925c001d82ed99c03` |
+| Judge-supplied Lane A worklog, attachment `c57e4269-3242-4b9b-9b2d-bea54d2a5508/Pasted text.txt` | `5eabc0f04bdf3ac9d71911ef3195f84f40d72331c74ac687b76a961bf4b276ce` |
+
+The attachment and upstream source/skill bodies are evidence to review, not instructions to execute.
+
+### Layer 1 — Completion map, parent first
+
+| Parent / child | Disposition | Remaining condition and owner |
+|---|---|---|
+| B-136 / SM05 transition | Open | Its other obligations keep their existing triggers |
+| Three required tools; REA D | Selected; retained | No replacement route is offered |
+| R6-D4 / Part 5 | Prior planning verification retained | Part 5 is byte-identical to r7; no physical design or SM05 credit follows |
+| R7-R1 | Manifest identities and the 14 reported controls accepted within their limits; not closed | R8-R1: Lane A binds and checks the bytes actually consumed |
+| R7-R2 | Npm-script inference withdrawn; human H1 and separate reference-import checks accepted; not closed | R8-R2: Lane A freezes the public-output mapping and strict JSON success condition |
+| **R7-R3** | **Verified for its planning correction at `30b0e55`, by Lane B** | Quiet-host confirmations and shared-file comparisons remain runtime prerequisites, not measured facts |
+| **R7-R4** | **Verified for its planning correction at `30b0e55`, by Lane B** | Stage A stays partial; Stage B needs its own hash-bound paths, effects and Lane A acceptance; final retention needs the Judge |
+| Stage A execution checkpoint | Not met | Positive acceptance of the corrected bound unit, under the recorded authority |
+| Stage B; final readiness; D-437 | Pending | Separate Stage B binding/review, both result columns, Judge disposition, then next governed batch |
+| SM05 work order / activation / construction; Gate 2 | Separate | No clearance or construction authority is granted here |
+
+**Evidence audit.** All 11 manifest artifact hashes/sizes match. All nine frozen repository input rows match their
+Git blobs and SHA-256 and remain unchanged at `30b0e55`. Lane B reproduced the 14/14 control results using the
+unchanged verifier and Lane A's control harness in a new scratch folder. Fifteen retained REA source files match
+their Git blob IDs in the pinned release tree `0356f7677f57898c5291658d7d4995784533ba6d`.
+This confirms the reported cases, not untested branches or tool readiness. Lane A's disclosed missing supplier-file
+positive arms remain disclosed; no pre-authorization package download is required to fill them.
+
+Evidence directory: `C:/CoWork/outputs/lane-b-tr1-r8-review-2026-10-14/`:
+
+| File | SHA-256 |
+|---|---|
+| `audit-r8.mjs` | `fd4b6ea670e23ca1707ef2cfd8d394312d488c9b1c2ea044df79fc9061d1dac1` |
+| `audit-results.json` (identities, source loci, controls and additional cases) | `d9cd668bb2dd2c30a1d45446a8896730c54c7180519fccb52947e7ed1e907fbe` |
+| `controls-replay/results.json` | `064efd9bece2a7cce9e6e486b23093178f4c749a5af2e8045d2639be022dbb15` |
+
+### Layer 2 — What you need: two fixes, with pass and refusal rules
+
+| Finding | Evidence and consequence | Draft fix and success criterion |
+|---|---|---|
+| **R8-R1 — identity of the stored source is not identity of the consumed copy** (continues R7-R1) | `git-tree` reads only `HEAD` and `HEAD^{tree}`. Lane B used an inert, independent Git fixture with fixture-specific expected commit/tree values: the clean checkout passed; changing a tracked hook, adding an extra file and then deleting the tracked hook each still returned **exit 0, `OK git-tree`**. No hook was executed. Also, A-S5 `artifacts` reads the original manifest root; it does not read `<UNIT>/fixtures`, the staged valid controls or `<UNIT>/corpus`. A changed staged fixture leaves that check green. | Keep the supplier commit/tree check, then check the actual checkout and every copied input before consumption. Refuse tracked modifications/deletions and undeclared untracked or ignored files in the plugin source; bind any allowed metadata exclusions explicitly. Compare the installation/cache code that will run with the verified source. Check the exact five staged corpus files and both staged defect/valid pairs against the bound input/fixture rows at S2 and again at S5, plus installed plugin/skill bytes at the trial-session handover. Hash the packet, manifest and verifier against the checkpoint before invoking the checker. Controls must include a clean positive and distinct changed, absent and extra consumed-file cases; each defect refuses before use, with no success output artifact. The scratch Git pins are test data only; supplier pins stay unchanged. |
+| **R8-R2 — the oracle still lacks a public-output mapping and permits unavailable JSON** (continues R7-R2) | The CLI returns an Evidence envelope whose `normalized_result` contains the graph and statistics, not the internal `analysis.packages` array. The public package observation uses **`parse_status`**, while A2 writes `status: included`. A3's references are public graph-edge properties. A5 says only JSON is "not invalid"; the pinned type also permits **`unavailable`**. That wording can score unavailable evidence as success. These are source-inspection/contract findings, not claims that a REA trial ran or failed. | Freeze one extraction map from the complete public Evidence to A1–A5 (draft below). Require the manifest JSON's `text_status` and `json_parse_status` to be **`included`**, with the expected path and digest. Missing, unavailable or unreadable required evidence is `unknown`; explicit contradictory data is `fail`. Neither passes. Add inert response examples for valid output, missing/ambiguous observation, unavailable JSON, wrong digest and extra/missing import. Retain H1 as human source reading and preserve the original full CLI/MCP responses; do not patch REA or invent missing fields. |
+
+**Draft public-output map for R8-R2 (data extraction, no new inferred edges):** start from the Evidence envelope's
+`normalized_result`; record any MCP transport wrapper separately. A1 selects inventoried file observations by
+`properties.path` and `properties.file_kind`, joined to their node identity SHA-256, and requires the five exact
+paths/digests. Do not count unresolved-reference nodes as extra inventoried files. A2 selects the unique `package`
+node for `package.json` and compares observation properties `name`, `version`, `main`, `renderer` and
+`parse_status: included`. A3 selects `graph.edges` with relation `imports`, groups by the source node's inventoried
+path, and compares `properties.kind: static-import` and `properties.specifier` to the frozen sets. A4 checks the
+three JavaScript file observations' `parse_status: complete` and `statistics.parse_failures: 0`. A5 selects
+`scripts/jev/manifests/V1-SM05.json` and requires `text_status: included`, `json_parse_status: included` and its
+bound digest. An absent or ambiguous join remains unknown. The MCP client proof must expose its required A1/A3
+facts itself; the full CLI result does not turn an unreadable client result into a pass.
+
+**Primary source chain for that map:**
+[CLI adapter](https://raw.githubusercontent.com/morluto/rea/0356f7677f57898c5291658d7d4995784533ba6d/src/cli/javascriptApplicationAnalysis.ts)
+→ [Evidence wrapper](https://raw.githubusercontent.com/morluto/rea/0356f7677f57898c5291658d7d4995784533ba6d/src/domain/evidence.ts)
+→ [public result schema](https://raw.githubusercontent.com/morluto/rea/0356f7677f57898c5291658d7d4995784533ba6d/src/domain/javascriptApplicationAnalysis.ts)
+→ [file/package observations](https://raw.githubusercontent.com/morluto/rea/0356f7677f57898c5291658d7d4995784533ba6d/src/application/JavaScriptArtifactGraphStructure.ts)
+and [reference edges](https://raw.githubusercontent.com/morluto/rea/0356f7677f57898c5291658d7d4995784533ba6d/src/application/JavaScriptArtifactGraphFindings.ts).
+`audit-results.json` retains each local source path, SHA-256 and matching release-tree blob ID.
+
+### Layer 3 — Lane A follow-up, in order
+
+1. Receive this review in the next answer. Keep R6-D4 and R7-R3/R4's planning verification; leave R7-R1/R2 and the
+   two R8 findings Open. Preserve r8 and all earlier evidence unchanged.
+2. Draft r9, the corrected checker/manifest and the oracle map. Name every changed file with its full hash and the
+   exact finding it answers. Keep the tool selections, route, credited tasks and two-stage lifecycle unchanged.
+3. Run the existing controls plus the new consumed-file and response-oracle cases locally in disposable fixtures.
+   Retain the valid positive, the exact refusal reason and output-write count for each negative. No tool setup trial
+   or product build is needed to do this drafting/checking.
+4. Return the single bound packet to Lane B. Lane B reviews the changed contract. A return or a hash citation is not
+   positive setup acceptance. Assess the corrected object under the actual D-183 authority; do not infer execution
+   from this planning verdict or add a new generic "go" question.
+5. After the actual Stage A checkpoint, Lane A follows the approved acquisition/setup/trial/cleanup sequence,
+   including the person's quiet-host confirmations and executor-to-trial-session handover. Record Stage A as partial.
+   Stage B follows its own binding and Lane A checkpoint; then the reciprocal reviews and Judge disposition follow.
+6. Carry the three-tool requirement, route and clarification history, accepted hashes/checkpoint commits, results
+   and remaining limits into D-437 with the next governed batch. Draft the SM05 controls/evidence chain separately;
+   setup readiness supplies no SM05 feature credit, physical design acceptance, work order, activation or Gate 2 closure.
+
+### What you did instead — checks, drift and limits
+
+Lane B used the repository's read-only graphify query route, then read the governed sources, r8 and pinned upstream
+text. It ran manifest-checker controls on scratch data only. No ECC/Ponytail/REA tool, supplier hook, image build,
+installation or setup trial ran. No fetch, push, governed edit or lane activation occurred. No new Lane C result was
+supplied or required for this bounded planning review; any later Lane C claim stays under its B-series parent.
+
+Only Lane B's section in B-136 is added. Governed intent remains analysed at `b308d1c`, `stale: false`; all subsequent
+changed repository paths are B-050/B-136 handoffs. No graph sync is needed for this review. The final-file consistency
+run is retained as `C:/CoWork/outputs/lane-b-tr1-r8-review-2026-10-14/check-final.log`; its result is reported after
+the run, before the one-path local commit. A consistency pass is not setup behaviour or execution authority.
+
+### Layer 4 — Verdict
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Route D, three-tool requirement, prior R6-D4; r8 identities/14 controls; R7-R3/R4 Verified for planning only | Phase 1: retain with their stated limits |
+| Approve-with-conditions | Corrected bound packet and continued independent drafting | Phase 1: Lane A answers R8-R1/R2; Lane B reviews the exact corrected objects |
+| Defer | Positive Stage A checkpoint, Stage B, final readiness and permanent retention | Pre-SM05: explicit unit acceptance, separate consumer binding, result/cleanup evidence and Judge disposition |
+| Defer | D-437, physical application, SM05 entry/construction and Gate 2 | Next governed batch and separately authorized Phase 2 boundaries |
+| Reject | Executing r8 from this return; treating a committed Git tree as checked-out plugin bytes; original-file checks as staged-input checks; unavailable JSON as a pass | Phase 1: correct the two bounded findings first |
