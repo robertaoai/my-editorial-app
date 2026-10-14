@@ -10083,3 +10083,122 @@ only `docs/handoff/` paths changed since, so no sync is needed. This record chan
 | Approve-with-conditions | S2 policy packet r1 and allowlist | Pre-SM05: Lane B review; then build capture r5 / comparator r7 before any selection |
 | Defer | S2 or S1 selection; S3 (effect unknown); S-T; readiness; Stage B, SM05, Gate 2, push | Their checkpoints |
 | Reject | Open-ended exemptions; file checks called loaded-state proof; a new baseline; writer claims from timestamps | Pre-SM05: no action |
+
+## Lane B — S2 packet r1 review: freeze identities, complete the bridge and bound the observer, 2026-10-14
+
+### Layer 0 — Request and handoff fields
+
+Review Lane A's `320c9cb` and its hash-bound S2 packet. Keep prior approvals. Separate completed corrections from the
+remaining technical gaps, and give Lane A one correction plan before a Judge execution choice.
+
+**Raised:** 2026-10-14 by Lane B. **Kind:** finding. **Phase:** 1 / pre-SM05.
+**Blocks:** the existing failed link still stops S-T; this packet is not ready for execution selection.
+**Evidence observed at:** `320c9cb33fe1026e2af382c580f179e04c078487`.
+This is a child review in B-136. Lane A answers; Lane B independently reviews. The parent header and Lane A's text are unchanged.
+
+### Layer 1 — Transaction chain and completion, parent first
+
+| Item | Chain / state | Disposition in this review |
+|---|---|---|
+| **B-136 / SM05 transition** | **Open** | No parent or product-construction credit |
+| Option D; Option B; accepted comparator r6 / handover r7; earlier accepted work | Existing approvals | Retained; no new generic "go" is needed for correction drafting |
+| C-D2b → P1d stop | Verified at `b8aa0f6` | Retained; neither a new capture nor a policy draft clears it |
+| PST-R1.a–c / S2 | `4cd1ec5` → Lane A packet `320c9cb` → this review | Partly answered; remaining corrections below are **Open** |
+| PST-R2 / S3 | Same chain | "Effect unknown; not ruled out" is accepted. Runtime support/effect/restore assessment remains unfinished |
+| Candidate evidence tools, then S2 execution selection | Planned | Correct and review the policy first; complete the bound tools/controls/handover before an execution checkpoint |
+| Stage B, D-437, parent closure, SM05, Gate 2 and push | Separate | Their existing triggers remain |
+
+The following are accepted as **planning corrections**: a finite 52-entry catalog candidate; disclosure that all catalog
+`lastSeen` values may need a prospective timestamp exception; full-copy retention for future comparisons; the distinction
+between file checks and loaded-state evidence; the waiver limit between observations; and S3 remaining open. These are
+not acceptance of the waiver or verification of the complete packet.
+
+### Layer 2 — Independent evidence and its limits
+
+Both submitted hashes match: packet `67eae1cff68c652b93d1ce6de1a893b99fa0c8abd2b24d61308b35df33035fad`;
+allowlist `3a8a8bf0d6c965b172d252afb44bd1ac2290f88bca8461c99f640fbe4468d1cf`. It contains 52 unique IDs.
+All 13 accepted execution-input bindings were rehashed and remain unchanged.
+
+The live catalog first matched the D6 source hash `cac0e19d…` in a hash-only read. Before the full audit, it changed.
+The audit refused to call those later bytes D6 evidence. The review retained a later snapshot `bf90cbf4…` and compared it
+with the full D5 copy `dbb74df2…`: **1 listing added, 28 existing listings changed, including 13 outside the candidate
+allowlist**. The 3,366 existing claims changed only by forward `lastSeen`; the added claim is separate. A new ID alone
+requires a stop under packet r1. This is a policy assessment, not a run of an implemented comparator and not a fresh baseline.
+
+The later tree still matches D5's parent projection `6a17dc14…`. Packet §5's parent pair `83bb2bf8…` → `6a17dc14…`
+uses the same projection and is correct. The D6 full catalog is not retained in its packet folder, so this review cannot
+reproduce the 52 rows from that exact source payload or prove that D6 changed timestamps only. Matching a count is insufficient.
+Retain the exact source if recoverable; otherwise record its absence and review the proposed identity set on its own merits.
+
+The review audit initially assumed that an allowlist `name` meant `listing.name`. Revision 3 corrects that assumption:
+it matches `entryNames[id]`, which can differ (for example `code-review-anthropics` versus `code-review`). This is a review
+correction, not an allowlist defect. It shows why each name field needs its own explicit rule.
+
+### Layer 3 — Returned gaps and draft repair contract
+
+| Existing finding / owner | Remaining gap | Draft fix and acceptance criterion |
+|---|---|---|
+| **PST-R1.a / Lane A: catalog identities** | §2 permits "any change" to an official listing object, while some identity refusals apply only to the other 3,314 entries. That can include official `name` or source changes; §6's repository-key refusal is broader than §2. Re-deriving just the 52 IDs does not check identity | For **every** ID, freeze listing ID/name, `entryNames[id]`, claim `repositoryKey`, source type, canonical repository URL and path, and their alias mapping. Only explicitly named non-identity fields of the 52 entries may change. Distinguish mutable reviewed-version/content fields from fixed origin fields. Refuse a new/deleted field unless expressly permitted, malformed/duplicate IDs, any identity/source swap, protected-unit alias and schema/key-set mismatch. Re-derive the fixed identity tuples, not merely the ID set; keep the original listing hashes as historical evidence rather than falsely requiring mutable content to stay equal |
+| **PST-R1.a / Lane A: tree scope** | "Any plugin not installed, enabled or loaded" still admits previously unnamed directories. The 52 catalog entries also include `external_plugins/` paths, which are not the same scope as the tree exception `plugins/` | Freeze a separate tree allowlist of reviewed plugin identities and exact path roots. Additions/removals are eligible only inside those named roots and within stated file/type rules. Unknown/new roots, manifest/registration changes, path escapes and links stop. Give root `.gcs-sha` its own rule. Catalog membership never silently widens the tree rule |
+| **PST-R1.b / Lane A: observer** | Session context plus `claude plugin list --json` is not a demonstrated complete loaded-component inventory. The list can describe enabled settings despite a different loaded copy. "Only these three" also confuses the unit declarations in r10 §4.1 with a complete host inventory | Retain the proposed S-T self-observation as partial evidence. Specify the observable IDs, origins, consumed paths and relevant skill/hook/MCP components, timing, completeness limit and stop oracle. Separate frozen pre-existing context from unit additions. Check the exact r10 unit components; do not replace that contract with three bare names. If completeness is unavailable, state it as unknown and either stop eligibility that depends on "not loaded" or name the lost guarantee explicitly for the Judge. No hidden assumption that context omission proves absence |
+| **PST-R1.c / Lane A: legacy bridge and snapshot integrity** | §3 requires both copies at every link, but C-D2b and the old P1d have no retained full catalog. §5 says later writes are covered by a new P1d without exact bridge bindings. That is not an executable exception to the missing-copy stop | Separate a **legacy residual branch** from fully retained future intervals. Bind each exact historical state/projection pair and its missing evidence to the Judge disposition; retain `residual`, never equality/cleanup. Preserve old P1d under its original name; use fresh attempt-specific labels. Retain the reviewed anchor's bytes before future comparisons. Any subsequent unknown delta returns to review; neither "new P1d" nor an endpoint hash accepts an open-ended future interval. Copy write-once, hash the retained bytes, bind them to the capture, and refuse unstable/incomplete reads, links and inconsistent metadata |
+| **PST-R2 / Lane A: wording and support** | "Effect unknown" is correct, but §7 still calls the observations bound without raw supporting records, and calls nine seconds earlier than the documented delay | Bind safe version, relevant settings/environment and time/surface records when observed; later evidence cannot be backdated. State "nine seconds after the reported session start; first-message time and writer unknown." The documented delay has an upper bound, not a stated minimum. Keep S3's bounded support/effect/restore plan as an open alternative; no setting intervention is authorized here |
+
+The primary reference explains that a plugin list may still show an enabled marketplace row when a session-only copy
+overrides it. It also describes a random delay of up to ten minutes after the first message. Neither fact identifies
+this writer, proves the installed client's effective policy or supplies a complete S-T observer.
+[Plugin loading reference](https://code.claude.com/docs/en/plugins/loading).
+
+### Layer 4 — Lane A follow-up and verification artifacts
+
+1. Receive this bounded return. Keep the accepted work and strict stop. Correct packet r1 as a new revision; preserve r1.
+2. Write one identity/field policy, the separate tree allowlist, the observer contract and the exact legacy-residual ledger.
+   Resolve the worklog's order conflict: it offers Judge selection before tool preparation, while its verdict requires tools
+   before selection. A reviewed policy proposal is not execution permission. No new question is needed to correct that order.
+3. After policy review, prepare the evidence-tool candidates under existing drafting approvals. Return capture/comparator,
+   effects ledger, handover and clause-to-control map by full hashes. Do not run S-T while preparing them.
+4. Prove distinct controls: each allowed field/path change; official and non-official identity/source/alias changes;
+   unlisted tree roots; invalid/equal/backward timestamps as specified; duplicate/schema/read failures; missing or tampered
+   snapshots; missing/partial observer evidence; and exact legacy pairs with absent, wrong or expired authority. Keep the r6
+   controls. Each refusal must produce no pass receipt; each positive must name the exact permitted difference.
+5. Lane B reviews the complete candidate contract and controls. Only then present a fixed, reviewable execution choice
+   and the exact historical rows for the Judge. Propagate the received act to D-437 when due; no new Register-first hold.
+   Lane C supplied no new evidence; future host/workflow claims name their reviewer under this B-series parent.
+
+### Layer 5 — Chief Editor / Judge decision table
+
+| Order / item | Accept criterion | Reject / retain stop criterion | Follow-up phase |
+|---|---|---|---|
+| **Parent: keep S1 hold** | Current state; no new act required | Calling it readiness or cleanup | Pre-SM05: now |
+| **S2 execution** | Exact corrected policy/tool hashes, one named attempt and expiry, every present residual bound, explicit protection lost, protected unit checks and cleanup preserved outside the waiver, observed pass/stop oracles | Blanket official-content exception, assumed loaded-state completeness, missing legacy branch, or new baseline clearing history | Pre-SM05: after Lane B technical review, then the Judge's bounded act |
+| **S3 assessment/intervention** | Complete local support or bounded trial hypothesis, effects and restore plan; present residual separately addressed | Treating unknown effect as disproven, or a setting change as erasing the failed link | Pre-SM05: assessment remains open; intervention needs its own bounded act |
+| **End attempt under S1** | Explicit disposition with retained evidence and cleanup/retention ownership | Silent deletion or discharge of other B-136 obligations | Pre-SM05: Judge disposition if selected |
+
+No decision is requested now. A future refresh is a measured risk, not a guaranteed failure of every attempt. For the
+retained D5 → later-review pair, however, packet r1's new-ID rule necessarily stops. A Judge approval may select a disclosed
+waiver; it cannot turn unknown content, partial observation or a passing consistency check into behavioural proof.
+
+### Layer 6 — Drift, evidence and verdict
+
+Read-only `graphify query` was used. Only B-050/B-136 handoff paths changed after analysed `b308d1c`; `stale: false`.
+No graph sync is needed. This review changes only its Lane B body in B-136. No supplier invocation, setting change,
+product construction, trial, cleanup, fetch or push is performed. Final consistency validation is retained at
+`C:/CoWork/outputs/lane-b-s2p-review-2026-10-14/check-final.log`; it carries no readiness credit.
+
+Independent evidence in `C:/CoWork/outputs/lane-b-s2p-review-2026-10-14/`:
+
+| File | SHA-256 |
+|---|---|
+| `audit-r2.mjs` | `feaf207c63291485eca9ad7a815f8c65e01fe3b8208ad1e684f92a164e80f09a` |
+| `normalize-audit-r3.mjs` | `602b3f500c771c970703aafca5d64e8ff347214aed35aeac7a60cc61f13ad185` |
+| `audit-results-r3.json` | `e61c867ba999332ca05fbc10d5689291a6e0fb99662cbca3edb4d95ca8df9955` |
+| `catalog-current-review-copy.json` | `bf90cbf4100ac5ec87e002a6d27841d7e9142d6bfbd0b06138fd90890bca7e60` |
+| `known-source-review-copy.json` | `7ccd98be4ae5ab4356664e6374ae97f27df5f0e581fb7fe0265343cf3b148139` |
+| `tree-source-review-list.json` | `44164f444c059de94fd56d84ca07ede0075dd754ae7b4518d64102f4db02b7b7` |
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| **Approve** | Submitted hashes; finite candidate and full-copy retention as planning improvements; S3 effect unknown; prior approvals and stop retained | Phase 1 / pre-SM05: keep, within the evidence limits above |
+| **Approve-with-conditions** | Continued correction drafting and the S2 planning unit | Phase 1 / pre-SM05: answer remaining PST-R1.a–c/PST-R2 items; Lane B reviews the complete policy and bound candidate evidence |
+| **Defer** | S2 execution choice; S3 intervention; S-T and readiness; Stage B, D-437, parent closure, SM05, Gate 2 and push | Their concrete evidence and authority checkpoints |
+| **Reject** | "All gaps closed"; any official listing change; unnamed tree roots; context omission as absence; missing-copy failure erased by a new P1d | Phase 1 / pre-SM05: repair the packet before execution selection |
