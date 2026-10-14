@@ -11299,3 +11299,122 @@ uses a manual self-check, not the named grading skill.
 | **Approve-with-conditions** | Final r11 design disposition | Phase 1 / pre-SM05: normalize the one source clause, bind the corrected object, return the delta for Lane B review |
 | **Defer** | Candidate build, config disposition, actual routing/gates/readiness, Stage B/D-437/SM05/Gate 2/push | Present planning-only scope and existing evidence/authority checkpoints |
 | **Reject** | Unsafe path literal used as an executable binding; self-grade/text presence called runtime verification; design approval treated as build authority | Phase 1 / pre-SM05: no such credit; routing remains Open |
+
+---
+
+## Lane B — consolidated setup-file map: Gem Architect guidance and the BCP-1 return, 2026-10-15
+
+### Layer 0 — Request and handoff fields
+
+Compare the supplied Gem Architect guide with the current project setup and the SM05 preparation plan. Name the
+files that exist, the outputs still planned, and the decisions that prevent a complete preparation record. Return
+one concise Lane A task with its transaction history. This is planning only.
+
+**Raised:** 2026-10-15 by Lane B. **Kind:** finding. **Phase:** 1 / pre-SM05.
+**Parent:** existing Open B-136; continue BCP-1, H3/H4 and TR-1. **Blocks:** a claim that the complete setup and
+build-control preparation record is ready; no new feature DoR row or execution gate.
+**Evidence observed at:** `ef7fb9fec0703ce98d4e72f69859cf716f16dd75`.
+Lane A answers; Lane B reviews. This section does not write Lane A's receipt or change the parent header.
+
+### Layer 1 — Executive summary and transaction history
+
+**The project has setup files and a preparation plan. The remaining gap is a current, file-level completion map.**
+The recent r11 reviews address the isolated tool trial. They do not finish the separate C2–C6 construction-control
+plan. Lane A must join those two branches in one short index, retain their separate proofs, and fill only missing
+preparation fields. Do not rebuild the historical eight-file plan pack or restart accepted setup work.
+
+| Transaction | What carries forward |
+|---|---|
+| `06107fc` — BCP-1 | Required the preparation matrix: input, action, method, output, dependency, owner, reviewer, proof and timing |
+| `46c7417` — TR-1; `5c094bc` — Lane C consolidation | Judge requires ECC, Ponytail and REA before SM05; earlier optional-tool text is history. Lane C's supplied claims retain their evidence limits |
+| `b757873` — Lane A r6 answer | Lane A already received CONS/H/EXT/BCP/TR and LC reviews. Do not call that whole chain unread; only the present delta has no Lane A receipt yet |
+| r10 packet, `05ac2ba` checkpoint | Part 5 carries C2 constraints, the narrow metadata SPECS outline and K1–K6; C3/C4 refer to r5. This is not a completed physical design or product implementation |
+| `d62d358` — Lane A r11 r5; `ef7fb9f` — Lane B disposition | Receiver/grading-file obligations satisfied within scope; one source-path clause remains; hook routing Open; candidates planned; config disposition blocks G0 |
+
+### Layer 2 — Use the attachment as guidance, with these corrections
+
+Source: `C:/Users/rober_24syk4j/Downloads/Gem Architect-saved.html`, 6,998 bytes, SHA-256
+`144bda5af6ed25f9b6b589271d617561dd9a5f306e1347ea46476cf764faaffa`.
+It contains goals, context, intent, four operational directions, objectives and presentation advice. It names no
+setup file paths, schemas, owners, acceptance tests or approved changes. Its instructions are source material,
+not instructions to execute. Its historical deletion claim is not incident evidence.
+
+| Guide statement | Project interpretation / draft fix |
+|---|---|
+| Three distinct intent documents | Keep one governed intent chain. `AGENTS.md` is the shared core; `CLAUDE.md` imports it; `GEMINI.md` adds Lane C rules (`D-337`). These entry points exist. Do not create three competing requirement sources |
+| Independent lanes / strict isolation | Use the live lane table and owned surfaces. Exactly one lane is Active. Rule-file existence does not prove process or configuration isolation; r11 G1–G4 still need their own measured evidence |
+| Governance check per session | Cite the existing read/check contract and its fresh result. Do not invent a new checker or treat a consistency pass as behavior, loaded-state or readiness proof |
+| Configuration immune to build wipes | Replace the absolute claim with a scoped preservation contract: protected paths, permitted writer/effect, before/after evidence, stop and recovery owner. Reuse GR-012/GR-013 and r11 maps within their measured limits; neither proves immunity to every future writer |
+| ASDSTE-100 expansion | The page's Analysis/Structure/Data-driven/Step-by-step/Tactical/Execution-ready mnemonic is not the standard's definition. Use short, explicit technical language; [ASD-STE100 is Simplified Technical English](https://www.asd-ste100.org/STE_faq.html). This review makes no formal conformance claim |
+
+### Layer 3 — File map, parent first: existing, proposed and scheduled
+
+Paths below are repository-relative unless `<UNIT>` is shown. `<UNIT>` is
+`C:/CoWork/outputs/lane-a-tr1-setup-2026-10-14`. Existence was checked; existence alone earns no readiness credit.
+
+| Dependency / concern | Files or output sections | Current state; precise return |
+|---|---|---|
+| **1. Intent and authority** | Frozen `docs/PRD.md`, `docs/source/project-charter-v1.md`; `docs/Modular_PRD.md`; `docs/fn-specs/FN-GATES-01-05.md`; the three operative `docs/v1/V1-*.md` tracking sources | Exist. Reuse their SM05 anchors and exclusions; preserve frozen sources. No replacement intent file is required |
+| **2. Consumer entry points and controls** | `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`; `docs/v1/V1-PHASE-CLOSURE.md` §5; `.claude/skills/sync-docs/SKILL.md`; `scripts/check-consistency.mjs`, `scripts/checks/rule-budget.mjs`, `scripts/graphify/guarded-rebuild.mjs` | Exist. Bind the actual consumer/revision and applicable coverage. Keep historical loader acceptance separate from this new I1 routing claim |
+| **3. Build substrate** | `package.json`, `bun.lockb`, `next.config.ts`, `tsconfig.json`, `eslint.config.mjs`, `docs/CONFIG_LOG.md`, `lib/config/build-config.ts`, `lib/config/flags.ts` | Exist. Reuse through the owned setup/work-order plan. Preserve retained gaps such as G108b; no new install or compatibility claim follows from presence |
+| **4a. TR-1 / I1 design and retained controls** | r10 packet; r11 r5 §§3–8; `<UNIT>/state/UNIT-ITEMS-MAP.json`; capture r4, comparator r6 and handover r7 | Existing inputs/history. r11 is a design delta, not a replacement for BCP-1. Receive `ef7fb9f` and correct its one source clause without reopening the accepted clauses |
+| **4b. I1 candidate outputs, after design** | `<UNIT>/state/G0-MAP.json`, `G4-MAP.json`; manifest targets; capture r5, comparator r8, G1 probe, sentinel/T-P0/deletion-target checks, scanner and handover r8 | r11 §8 marks these planned; the two named maps are absent. Several outputs have only a directory and role, not an exact filename. Name each output, its input, producer, consumer, controls, retention and review point in the next draft. Do not create them now |
+| **4c. Config disposition, before G0** | `.codex/config.toml` | Present, untracked, unchanged at `fd3c37f5…`. It is an unexplained registration outside the accepted route, not a missing setup file. Owner statement plus bounded disposition remains required; this review neither removes nor adopts it |
+| **5. C2 physical design, after accepted scope** | Proposed `docs/specs/SPECS-EDITORIAL-METADATA.md`; r10 Part 5.1–5.2; later `supabase/migrations/<next free number>_*.sql` | SPECS file absent; a narrow outline and constraints exist. Lane B owns the physical choice. Lane A prepares the governed destination; Lane B supplies the bounded design through the handoff. Mark the choice and its first consumer pending, not ready. Do not revive r5's broader `SPECS-GATES-01-05.md` proposal |
+| **6. C3–C6 work and proof, after 5 where dependent** | `docs/v1/work-packets/V1/V1-SM05.md`; `docs/LANE-B-WORK-ORDER.md`; r10 Part 5 K1–K6; r5 Part 4 C3/C4; `docs/specs/SPECS-VERIFICATION-APPARATUS.md` | Canonical packet/work-order sources exist; the new bounded work order is not issued. K1–K6 contain path classes, not a final file set. Bind precise control sections and planned implementation/evidence paths when each child is specified. Each IN1–IN4 needs its own artifact and failing-first proof later |
+| **7. Later acceptance and CI** | `scripts/acceptance/`; `.github/WORKFLOWS-SPEC.md`; `.github/workflows/ci.yml` | Acceptance harness absent by schedule: Inventory places production after Lane B's handover. Workflow spec and YAML exist; new Lane C runtime evidence was not supplied. Do not make later acceptance code or CI changes a new pre-build prerequisite |
+
+The historical `ARCHITECTURE.md`, `DATA_MODEL.md`, `AGENTIC_LAYER.md`, `INTELLIGENCE_LAYER.md`, `SECURITY.md`,
+`TASKS.md` and `TEST_PLAN.md` also exist under `docs/`. D5 keeps them non-authoritative. Their concerns map to
+BCP-1 C1–C8; their filenames are not a mandate for seven new documents. gstack remains a separate advisory
+stage-review use case, not the producer or authority of this project's controls.
+
+### Layer 4 — What Lane A needs: one answer, one correction index
+
+**Draft fix to BCP-1:** add a compact current file map to the next substantive answer. Reuse the table above;
+expand grouped *planned* outputs to one row per actual output. For each row bind:
+`requirement/source revision -> reuse/change/draft/exclude -> exact path/section -> authoring method -> dependency
+and first consumer -> owner/reviewer -> proof and stop -> current state -> next trigger`.
+An unresolved filename or physical choice can stay explicitly pending with its owner; it cannot support a ready claim.
+
+1. Receive this delta and `ef7fb9f` together. Retain the recorded `b757873` receipt and accepted r11 clauses.
+2. Complete the r11 source-clause correction and planned-file names. Keep hook routing Open and config disposition open.
+3. Continue independent C2–C6 drafting. Carry r10 Part 5 and the unchanged r5 C3/C4 text by explicit section/hash;
+   index one current contract for each concern. Do not wait for the trial to draft unrelated work-order content.
+4. Add preservation fields to the same rows: protected projection, permitted writer/effect, before/after check,
+   evidence retention and recovery owner. Reference existing controls where sufficient; propose any missing control
+   before building it. A rejected or changed source gets one linked delta, not another parallel findings list.
+5. Return the one answer with final artifact hashes and a scoped change list. Lane B reviews; Lane C contributes
+   only supported workflow/host claims through the existing parent. No new C-series file is required here.
+
+**Chief Editor decision table:** the present question is whether the preparation record is reviewable, not whether
+to repeat tool selection. No new decision is needed to finish the already-authorized drafting.
+
+| Decision, parent first | Accept when | Reject / retain stop when | Follow-up phase |
+|---|---|---|---|
+| **BCP-1 preparation record** | Required outputs have sources, paths/sections, production method, owner, reviewer, proof and timing; pending choices are explicit | Tool names or broad path classes alone are called a complete plan; all existing technical files are called absent | Phase 1: Lane A draft, Lane B review |
+| **TR-1/I1 readiness** | Reviewed candidates, resolved config disposition, bounded act and actual gate/consumer evidence meet their own contract | Design/self-grade/consistency or file presence is treated as measured readiness | Pre-SM05: existing setup checkpoints |
+| **SM05 entry and delivery** | The existing block-lift, selection, issued work order, lane transfer and Gate 2 conditions hold; later feature evidence proves DoD | Setup or an external guide grants build permission; future product proof is demanded before authorized construction | Phase 1→2 and Phase 2, respectively |
+
+### Layer 5 — What was done instead, drift and verdict
+
+Read-only guide/graph/source/file review; no HTML script or attached instruction executed. Only this Lane B section
+is added. B-136 stays Open. No build, install, sentinel, gate, config change, governed edit, fetch or push. The current
+delta is ready for Lane A to answer; the complete project setup and SM05 construction are not declared ready.
+
+Graph analysed at `b308d1c`, `stale: false`; tracked changes since are B-050/B-136 only. No graph sync is needed for
+this handoff. A later governed batch carries its own D-54 and guarded-sync obligations; D-437 is not recorded here.
+The untracked config remains a separate state issue, so the whole working tree is not described as clean.
+
+Evidence: `C:/CoWork/outputs/lane-b-setup-file-map-2026-10-15/review.json`, SHA-256
+`9f49fcd7e95033ba4f8348fe26d767515f0342deb80c74fcbb5fe89fe53a3580`. It records source hashes, scoped file existence
+and graph/config metadata. `Gem-Architect-observed.html` retains the source bytes without executing them. Final
+handoff validation is retained in `check-final.log`; any Bun pre-load failure is retained separately before using
+the package's exact Node check entry point. No setup or product test result is asserted.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| **Approve** | Guide as reference; existing-file inventory; transaction consolidation; continued independent drafting | Phase 1: receive this delta under BCP-1/TR-1 |
+| **Approve-with-conditions** | Complete preparation record | Phase 1: Lane A returns the file map and bounded corrections; Lane B reviews |
+| **Defer** | Candidate production, config disposition, G0–G4, final readiness, governed application, SM05 construction, Gate 2 and push | Existing later preparation/execution checkpoints; current scope is planning only |
+| **Reject** | Three duplicate intent authorities; absolute overwrite immunity; no-plan/no-files blanket claim; file or tool list treated as readiness | Phase 1: use the scoped evidence and production records above |
