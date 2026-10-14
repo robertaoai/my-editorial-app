@@ -11911,3 +11911,103 @@ for this review are retained in `C:/CoWork/outputs/lane-b-bcp-isolation-2026-10-
 | **Approve-with-conditions** | App-source boundary and two-repository architecture as design candidates | Phase 1: complete the allocation, adapter, revision chain and migration proof plan; Lane B reviews |
 | **Defer** | Topology cutover; Spec Kit adoption; Ripwire trial/provision; actual isolation and workflow evidence | Separate later bounded decisions and execution; no inferred SM05 gate |
 | **Reject** | Repo-per-lane ownership by implication; two repos called a sandbox; duplicate live authority; automatic adoption or readiness from folder names | Phase 1: use the explicit contracts above |
+
+---
+
+## Lane B — Consolidated receiver brief: one repository and Flow-Forward feature packets for SM05, 2026-10-15
+
+### Layer 0 — Request and handoff fields
+
+**Raised:** 2026-10-15 by Lane B. **Kind:** finding. **Phase:** 1 / pre-SM05.
+**Parent:** Open B-136 / BCP-1 / T5; narrows the BCP-ISO proposal. **Blocks:** final design of the proposed Spec Kit
+file map only; no new SM05 entry condition. **Evidence observed at:** `1cf821a4541acccaa70e63751f9d6c52fae7deea`.
+Lane B raises/reviews; Lane A answers. The Judge says Lane A has not received the preceding consolidated brief.
+
+**Request, made precise:** keep V1-SM05 in `my-editorial-app`; propose a feature directory under project-root
+`specs/` for each new accepted MMF feature, using Flow-Forward preservation. Distinguish those feature artifacts
+from shared Spec Kit controls and existing canonical intent. Return one concise, source-bound file map.
+
+### Layer 1 — Executive decision and transaction
+
+**Use one repository for the SM05 proposal. Remove the two-repository migration, cross-repository lock/export and
+graph relocation from Lane A's present follow-up.** They were proposals, not adopted controls. No migration packet
+or topology choice is due for SM05. A future split needs a separate demonstrated need and request; it is not an
+automatic next sprint task. Keep the earlier block as history, with this paragraph controlling its current scope.
+
+| Transaction | Keep | Current Lane A obligation |
+|---|---|---|
+| `6d7f044` -> Lane B `340f70d` | r6 source/receipt Verified within design scope; main file-map corrections accepted | Answer BCP2-R1/R2 and the grading-pointer correction once |
+| Lane B `1cf821a` / BCP-ISO | Tool status vs source scope vs host effects; one authority chain; exact evidence links | App-source boundary still needs explicit paths; two-repo topology, migration and export artifacts are removed from this SM05 draft |
+| Judge's present Flow-Forward clarification -> this brief | One repo; each new MMF feature has its own proposed `specs/` packet | Produce the local folder/owner/lifecycle map below, joined to existing F/P/T IDs |
+| B-136 parent; r11 runtime/config; ECC/Ponytail/REA; SM05/Gate 2 | Existing states and triggers | No closure or execution credit from this clarification |
+
+### Layer 2 — Correct folder semantics
+
+The [Flow-Forward guide](https://github.github.io/spec-kit/guides/evolving-specs.html) places new feature artifacts
+under `specs/` and preserves earlier completed feature directories. This supports the proposed single-repo layout;
+it does not require a repository split. The [persistence-model guide](https://github.github.io/spec-kit/concepts/spec-persistence.html)
+states that the model is a team convention, not a required default or a CLI setting.
+
+**Terminology correction:** project-root `specs/` is the proposed feature-packet home. It is not the home of every
+Spec Kit control file. The three similarly named surfaces have separate functions:
+
+| Proposed/current location within `C:/robertaoai/my-editorial-app` | Function and owner | Required relationship |
+|---|---|---|
+| `.specify/memory/constitution.md`, `.specify/templates/`, `.specify/scripts/`, selected agent integration files | Proposed shared Spec Kit controls; Lane A prepares their exact pinned write map | Constitution derives from the existing rules/Register. List integration paths after inspecting the selected version. No second authority or implied installation |
+| `specs/<feature-id>/spec.md`, `plan.md`, `tasks.md` | Proposed per-feature implementation packet; Lane A records governed planning, Lane B contributes physical design/build details, Lane C contributes affected workflow constraints | `spec.md` cites accepted requirements/ACs; `plan.md` cites the physical design; `tasks.md` cites the issued work order. Results link to actual app commits/tests; tasks are not permission |
+| `docs/PRD.md`, `docs/Modular_PRD.md`, `docs/fn-specs/`, `docs/specs/`, `docs/v1/`, `docs/handoff/` | Existing canonical intent, version tracking and handoff records | Retain paths and D-29/D-36/D-58 precedence. `docs/specs/` remains the living technical tier; a completed root `specs/` packet is a historical implementation record |
+| Existing app, migration, test, script/config and workflow paths | Existing A/B/C owners | Code remains outside the feature documentation packet; preserve lane boundaries and the frozen migration |
+
+For the first packet, propose `specs/<allocated-id>-mmf-v1-core/`, explicitly bound to **MMF-V1-CORE / V1-SM05**
+(Build Spec §1). The number is not assigned here. A future MMF feature receives a different linked directory; a
+substantial follow-up also receives a new linked packet. MMF-V1-USABLE / V1-SM06 remains its existing separate
+increment, not a feature silently included in SM05. Record MMF, sprint, requirement and predecessor IDs explicitly;
+a folder name alone does not establish scope or prove all MMF acceptance criteria.
+
+Before completion, revise the active packet through reviewed commits. On its named completion/acceptance commit,
+retain the packet as history. Put later requirement changes in a linked new packet. This preservation rule does
+not freeze the living canonical FN/SPECS tiers or erase their normal governed change process. Read the accepted
+packet's source revision when reviewing old code; do not judge it against an unbound current spec.
+
+### Layer 3 — Remaining gaps, with bounded fixes
+
+| Gap / evidence | Draft fix and acceptance condition |
+|---|---|
+| `specs/` is called the home of all controls | Use the three-way location map above. Shared controls, feature artifacts and canonical specifications each have explicit producers, consumers and preservation rules |
+| New roots are outside the current lane classifier | A read-only call to `classify` reports `specs/example/spec.md` and `.specify/memory/constitution.md` as **unmapped**; the existing `docs/specs/` example is Lane A. Propose Lane A ownership for the planning/control roots and the required governed rule/check changes; do not create roots first and call an unmapped commit protected |
+| Root `specs/` could become a competing intent tree | D-33's earlier rejection concerns the `specs-creator` workflow, not a blanket ban on GitHub Spec Kit. Its duplication risk still matters: define these new packets as anchored implementation records, map every output to the existing tiers, and avoid restating live authority. Keep `spec-writing` and the P13 obligations unless explicitly changed |
+| Flow-Forward fragments the investigation history | Each packet cites source commit/anchors, MMF/sprint IDs, work order, predecessor/successor and result paths. Use existing B-136/work-packet receipts for closure; no new generic lock/export system is required in this one-repo design |
+| Pin, effects and graph treatment remain unspecified | Lane A names the Spec Kit version/integration and exact generated paths, upgrade/restore rules, lane classification and graph coverage/drift treatment. Root-level placement is not an exemption from controls. The existing-project guide warns that initialization can replace conflicting managed files; no init runs in this task |
+
+**Forward/backward chain in the same repository:** accepted intent at commit D -> feature packet citing D and the
+work order -> app implementation/test evidence at commit A -> an existing handoff/receipt citing D and A. A later
+approved intent change produces a new linked feature packet. Shared repository membership does not remove the
+need for these revision bindings, but it removes the proposed cross-repository transport mechanism.
+
+**Ripwire:** D-433 remains unchanged. Any later source-only scope proposal uses an explicit app implementation
+file set, excluding intent/feature-documentation roots where appropriate. Starting from the project root is not
+itself a source-only filter. Required SQL, tests and workflow dependencies must not disappear to obtain a pass.
+No trial, installation or adoption is required to complete this Spec Kit layout draft.
+
+### Layer 4 — Single Lane A handoff and verdict
+
+1. Read this block first as the receiver brief; use `340f70d` for the bounded earlier corrections and `1cf821a`
+   only for the retained boundary/evidence rationale. Do not draft the removed two-repository migration work.
+2. Update one BCP-1/T5 map with the shared controls, first MMF feature packet, canonical links, lane owners and
+   Flow-Forward preservation. State all unbound pins/paths and reconcile existing P13/P17-P21 obligations.
+3. Record one Lane A answer with its file hash and transaction delta. Lane B reviews. No acknowledgement-only
+   loop, new handoff number, generated tool files or application build is required for this drafting step.
+4. Before later adoption/creation, supply the bounded D-54 change plan and owner/check/graph impact. Installation,
+   initialization, implementation, SM05 selection and Gate 2 remain their existing separate acts/evidence.
+
+No new Lane C approval is claimed; changed workflow claims need Lane C's own review. The requested outcome is a
+simpler design scope, not a tool-generated completion claim. The review changes only B-136, so the current
+handoff-only drift result requires no graph sync. Later source/control additions need their own assessed route.
+Evidence and checks: `C:/CoWork/outputs/lane-b-speckit-flow-forward-2026-10-15/`.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| **Approve** | One-repository SM05 proposal; remove the two-repository work from the present brief | Phase 1: revised handoff scope |
+| **Approve-with-conditions** | Root `specs/` packets for new MMF features, with separate `.specify/` controls | Phase 1: pinned artifact/owner/lifecycle map and Lane B review before creation/adoption |
+| **Defer** | Tool adoption/init; actual runtime evidence; construction and Gate 2 | Their existing later bounded acts and checks |
+| **Reject** | Every control placed in `specs/`; a second live authority; MMF/sprint equivalence inferred from a folder; old packets silently rewritten | Phase 1: use the explicit file and lineage contract |
