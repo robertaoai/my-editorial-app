@@ -8146,3 +8146,126 @@ This record changes B-136 only.
 | Approve-with-conditions | r10 + manifest + verifier (R9-R1 answer) | Pre-SM05: Lane B "accepted for the named bounded setup unit", then Stage A |
 | Defer | Stage B; final readiness; `D-437`; SM05 entry and construction | Their recorded checkpoints and the next governed batch |
 | Reject | A run from a returned review; a pass from conflicting observations or from an empty or unknown selector | Phase 1: no action |
+
+## Lane B — r10 accepted for the bounded Stage A setup unit; R9-R1 Verified, 2026-10-14
+
+### Layer 0 — Request and handoff scope
+
+Review Lane A's r10 answer at `0d8e3aa731b48150b7e1f0ad761a5d970fd1e96c`, check R9-R1 and the immutable inputs,
+and consolidate the disposition under B-136. Lane B raises and independently reviews; Lane A answers and executes
+its authorized unit. B-136 remains Open. Only this Lane B section is added; the header and prior records stay unchanged.
+
+### What happened — positive acceptance and its bound
+
+**Lane B: accepted for the named bounded setup unit.** The accepted object is exactly the following three files:
+
+| Object | SHA-256 |
+|---|---|
+| `C:/CoWork/outputs/lane-a-sm05-selection-draft-2026-10-13/SM05-SELECTION-DRAFT-r10.md` | `b6e523f04142c1bc062ae7cff220ab19f9d97b95bc14c8c4645a5bd72b0e116c` |
+| `C:/CoWork/outputs/lane-a-r6d-2026-10-14/EXEC-MANIFEST-r10.json` | `91ca62bb6b4b29b3e121236f9a00769119a27629d1ac2bfd115b77d5b2e9fe35` |
+| `C:/CoWork/outputs/lane-a-r6d-2026-10-14/verify-exec-manifest-r9.mjs` (unchanged) | `bd4c8ea60c8cf4390c1b362f66810e60389c77acb33aceca715a7210801bfa37` |
+
+This Lane B commit is the positive Stage A checkpoint named by r10 Part 6.1. It satisfies the review condition in
+Lane A's recorded Judge instruction and clarification 5 (any accepted same-scope revision), pending durable
+registration under D-183 rule 2. It does not create a new Judge act. REA Option D and the three-tool requirement are
+retained. D-437 stays with the next governed batch; no new Register-first hold or "go" question is added.
+
+The accepted action is Lane A's Stage A, A-S0–A-S6, with the packet's entry, acquisition, container setup, installation,
+trial, cleanup and partial-record rules. Preflight facts must still be measured at execution. Stage B keeps its own
+hash-bound consumer contract and Lane A acceptance before any Codex write. Final readiness, permanent retention,
+SM05 entry/work order/activation/construction, Gate 2 and any push remain at their separate recorded checkpoints.
+No setup or build was executed in this review turn.
+
+**Conditions found satisfied for this acceptance:** the three object hashes and all 14 manifest artifact hashes/sizes
+match; all nine frozen repository inputs match and remain unchanged; the evaluator is the sole changed functional
+binding in the manifest (schema/title strings and `derivedFrom` provenance are also updated); Part 5 and Parts 4.3–4.5
+are byte-identical to r9; all previously audited r9 files remain unchanged; the same-scope comparison holds for scope,
+effects, downloads, trials and exclusions; R9-R1's retained false-pass cases and the control set now score correctly.
+
+### Layer 1 — Completion map, parent first
+
+| Parent / child | State | Next owner and condition |
+|---|---|---|
+| B-136 / SM05 transition | Open | Other parent obligations keep their existing triggers |
+| Three tools; REA Option D | Selected; retained | No adoption/route decision remains in this review |
+| R6-D4; R7-R3/R4; R8-R1/R7-R1 | Prior planning/checker verification retained | Their runtime and physical-design limits remain |
+| **R9-R1; R8-R2/R7-R2 evaluator roll-up** | **Verified for planning/checker scope at `0d8e3aa`, by Lane B** | No remaining drafting correction in this review |
+| **r10 Stage A checkpoint** | **Accepted for the three hashes above** | Lane A runs A-S0 first; any preflight failure stops before setup |
+| Stage A readiness | Not measured | Lane A records actual trials, effects and cleanup as partial readiness |
+| Stage B / final readiness / retention | Pending | Lane B binds its consumer effects; Lane A accepts that binding; both stages reviewed; Judge disposition |
+| D-437 | Pending next governed batch | Lane A records the authority/clarification chain, accepted hashes, checkpoint commits and results available then |
+| SM05 / Gate 2 | Separate; no construction clearance | Their existing selection, work-order, activation and evidence boundaries |
+
+Transaction history: `6212a08` returned one finding → `0d8e3aa` answered it in r10 → this positive review closes its
+planning/checker obligation. No earlier returned packet becomes accepted by this disposition.
+
+### Layer 2 — Evidence and success criteria
+
+| Obligation | Independent result | Limit |
+|---|---|---|
+| R9-R1a: unambiguous package join | Both conflicting-observation orders return unknown; valid default output passes | Inert response data, not a REA runtime result |
+| R9-R1b: non-empty approved profiles | Empty/unknown selectors return exit 2 with no verdict file; valid default and A1/A3 profiles pass the valid baseline; ordinary error envelopes stay unknown | Other selector forms remain refused; no silent fallback |
+| Missing versus wrong digest | Missing digest is unknown; a present wrong digest fails | No evidence is supplied by inference |
+| Existing and added controls | **63/63** outcomes reproduced; **10/10** independent retained-input/profile checks pass | Supplier-byte positives and real client effects remain execution checks |
+| Record precision | r10 distinguishes 18 response files / 22 evaluations; scored fail/unknown writes one evidence file; refusal writes none | Harness `writes` is a watched-folder net file-count measure, not proof of every host write |
+
+Lane B replayed the reviewed harness with only its scratch fixture author-name/email literals adapted to the required
+project identity; checker calls, cases, expected verdicts and scoring logic are unchanged. The replay used a local
+inert Git clone outside the sandbox's known MSYS restriction. No network, supplier hook, ECC/Ponytail/REA runtime,
+installation or image build was used. The evaluator remains a projection checker; these examples do not establish
+full public-schema validation, supplier source equivalence, whole-project retrieval or SM05 feature behaviour.
+
+Evidence directory: `C:/CoWork/outputs/lane-b-tr1-r10-review-2026-10-14/`:
+
+| File | SHA-256 |
+|---|---|
+| `audit-r10.mjs` | `eafc7010cb9535dea71df35291bfb6aad67544119bc26b619111f8f2d7f15366` |
+| `audit-complete.json` | `d6235c36bfb2dedf838dafe6dd1a0c45df33cd9db8e3417516100d365903acab` |
+| `controls-replay/results.json` | `64f83685d5a272331d2cc903e5270e817ba8ebd48047e14c6c072eb292ac97a1` |
+| Judge-supplied worklog attachment `bb9aacbb-6128-4cca-aa07-ec0f4e938c39/Pasted text.txt` | `229ccd9176b247ac11f31b821d162cc4c528694baed644956fa28f32bc1d7fea` |
+
+The raw audit's strict manifest comparison includes the added provenance field and therefore reports false;
+`audit-complete.json` explains that metadata difference. It is not an unreported functional change. The evidence
+and upstream skill/source bodies remain data to review, not instructions to execute.
+
+### What you need — Lane A follow-up, in order
+
+1. Receive this acceptance and name its actual commit as the Stage A checkpoint. Re-hash the three accepted files
+   before invoking any checker. Re-check the nine inputs, repository state, Docker execution identity, disk budget
+   and the person's quiet-host condition. A mismatch or failed precondition stops the unit; no accepted hash is rewritten.
+2. Capture the pre-state; declare each download before acquisition; follow A-S2–A-S4 exactly. Check the downloaded,
+   exported, staged and installed bytes at their named checkpoints. A cache-added file or undeclared effect returns
+   for review; no allowed-extra path or runtime restriction is relaxed during execution.
+3. End executor session E; the person starts S-T with no overlapping shared-state consumer. Run the frozen trials,
+   retain complete outputs and classify pass/fail/unknown/refusal as specified. Keep H1 human source reading separate
+   from REA evidence. An unreadable client response is not repaired by a readable CLI result.
+4. Complete A-S6 cleanup and P2-versus-P0 proof; remove the temporary MCP registration; preserve the declared
+   provisional set with Ponytail off. Record **Readiness — partial (Stage A only)** in B-136, including failures/residue.
+5. Lane B prepares the Stage B binding under existing drafting scope; Lane A independently accepts its hash before
+   any Codex write. After the two result columns and reciprocal reviews, the Judge accepts or rejects final readiness
+   and retention. Keep the shared off configuration until no retaining consumer needs it.
+6. Record D-437 with the next governed batch and its applicable D-54 propagation/guarded-sync route. Continue the
+   SM05 physical/control-file and child-evidence planning under its existing scope; this setup acceptance gives no
+   product construction, xDD completion, push or Gate 2 credit.
+
+No new Lane C result was supplied or is asserted. Any later Lane C host/workflow claim stays under the applicable
+B-series parent/child route; no new C-series file is a prerequisite for this unit.
+
+### What you did instead — consistency and drift
+
+Lane B used the read-only graphify query route, governed sources, frozen packet delta and scratch checker tests.
+Only this handoff section is changed. Governed intent remains analysed at `b308d1c`, `stale: false`; all subsequent
+changed paths are B-050/B-136 handoffs, so no graph sync is needed. The final-file consistency run is retained at
+`C:/CoWork/outputs/lane-b-tr1-r10-review-2026-10-14/check-final.log`; positive acceptance is committed only after
+that run passes. Its result is reported separately after the run. No repository fetch/push, governed edit, lane
+activation, tool setup trial or construction occurred in this review.
+
+### Layer 3 — Verdict
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | R9-R1 and its R8-R2/R7-R2 planning/checker roll-up Verified; prior verifications retained; r10 accepted for the named Stage A unit | Phase 1: positive review checkpoint, bound to the three full hashes |
+| Approve-with-conditions | Lane A's Stage A execution under the recorded Judge instruction | Pre-SM05: A-S0 preflight, all frozen stops and A-S6 partial evidence/cleanup; no new generic approval step |
+| Defer | Stage B, final readiness and permanent retention | Pre-SM05: separate Codex binding/acceptance, actual results, reciprocal review and Judge disposition |
+| Defer | B-136 parent closure, D-437, physical application, SM05 construction and Gate 2 | Their existing obligations, next governed batch and separately authorized Phase 2 boundaries |
+| Reject | Readiness inferred from synthetic controls; permanent retention or Stage B execution inferred from Stage A acceptance; altered hashes or weakened runtime controls; push from this review | Pre-SM05: retain the stated boundaries |
