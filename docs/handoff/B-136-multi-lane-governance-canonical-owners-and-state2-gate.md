@@ -10831,3 +10831,57 @@ is retained as `check-bun-runner-failure.log`. The final check uses the exact pa
 | **Approve-with-conditions** | Lane A completes and records the r11 design return | Phase 1 / pre-SM05: Layer 2 fixes, exact final hashes and grading evidence; Lane B independently reviews |
 | **Defer** | Candidate implementation pending design acceptance; G0–G4 execution, config disposition, readiness, Stage B/D-437/SM05/Gate 2/push | Their existing preparation, evidence and Judge checkpoints |
 | **Reject** | No-file routing proof; a limit silently waiving a hard gate; owner-only removal authority; claimed invocation or draft replacing the receiver record | Phase 1 / pre-SM05: correct and return; S-T stays stopped |
+
+---
+
+## Lane A — r11 design answer (packet r3): answers Lane B `9dfd84a`, `ff12ecc` and `b95fe46`, 2026-10-15
+
+### What happened
+
+**Receipt.** Lane A receives Lane B's `9dfd84a` (G1/G0/G4 corrections; skill diagnosis), `ff12ecc` (T-P0 delta, G0 binding,
+G4 evidence, scan, config wording, custody) and `b95fe46` (positive hook-routing proof, owned write sets, credential wording,
+attribution, custody/recording). This is Lane A's receiver answer; the earlier r1 and r2 files were drafts, not answers.
+**Lane C:** no new Lane C evidence.
+
+**Final design:** `C:/CoWork/outputs/lane-a-r11-2026-10-15/R11-CONTRACT-PACKET-r3.md`, SHA-256
+`a36fee99a2f3728b2c2b730a4a04054dc7b60d8ab14ba41fc5548e107ed41673`. History in the same folder: r1 `74f79549…`, r2 `8cd0a168…`.
+
+| Lane B item | Answer in r3 |
+|---|---|
+| Hook routing (`b95fe46` 1; `ff12ecc` G1/G2) | §3: a **positive** sentinel test as G3's first step. Source: in `off` mode `ponytail-activate.js` L33–34 calls `clearMode()`, which unlinks `<stateDir>\.ponytail-active` and `<stateDir>\ponytail-modes\<H>` (`ponytail-runtime.js` L68–71); `stateDir` = resolved config root (`ponytail-config.js` L73). After the G2 session exits and right before the S-T launch, O writes the two sentinels only in `D_C`; both gone after SessionStart = pass; either present = stop, no trial. Absent state files stay off-state observations, not routing proof. G1 claims only what it observes |
+| G0 owned write sets (`b95fe46` 2; `ff12ecc`) | §4: each row's owned write set includes the expected local-settings keys; expected effects are observed at G0; a change outside the set, a remaining entry or a failed command stops; full image ID and the nine cache IDs named; residual pairs give no new exception |
+| T-P0/T-P0b (`ff12ecc`) | §5: r10 → r11 delta: `CLAUDE_CONFIG_DIR` must equal `D_C` (unset or other = refusal); four state paths checked in `D_C` and in the real root; T-P0b repeats it; manifest targets in `D_C` |
+| G4 order and evidence (`9dfd84a`; `ff12ecc`) | §7: S-T exited → retain evidence (credential files excluded before any read) → optional `P2-preclose` → verify the exact deletion target → the person deletes `D_C` → final P2' → fresh receipt at or after P2' within 15 minutes; named scan patterns, value never printed |
+| Credentials (`b95fe46` 3) | §3/§7: `.credentials.json` is the documented expected name; presence unmeasured; name-pattern exclusion before any read |
+| Authority and attribution (`b95fe46` 4) | §1 D2 and §6 use "removal under a bounded act, or an explicit change of the exclusion"; creator wording = "no Lane A record shows Lane A writing it; creator unknown" (Lane A self-review); the no-secret wording = Lane A's report, Lane B confirms structure and hash only |
+| Custody (`b95fe46` 5; `ff12ecc`) | §8: every artifact with clause, status (**drafted**, **planned** or **recorded**), controls and reviewer; no tool is built |
+| Decision table, guide, critical artifacts, Chief Editor needs (Judge clarifications 1–5) | §1 parent-first D1–D8 with accept/reject and phase; §2 step-by-step guide; §8 artifacts; §9a gaps to avoid, §9b unresolved items |
+
+**Grading skill (separate observations, §10).** Catalog: present in Lane A's Claude Code 2.1.284 session; source `SKILL.md`
+SHA-256 `921422d4a032d61c15706dc2e8c5af9f074dd5884b57b9c256e599090cfe6dc1`. Selection: earlier Lane A deliverables met its
+trigger and Lane A did not select it (a Lane A miss). Invocations on 2026-10-15: r1 → 6 issues; r2 → 4 issues; r3 (`ca49260d…`)
+→ 2 issues; all applied; final input above. This is a self-grade, not independent verification; Lane B's manual self-check
+stays separately labelled.
+
+**Unresolved (truthful):** D2 `.codex/config.toml` (SHA-256 `fd3c37f5…`, untracked, unchanged) owner and disposition; all §8
+"planned" artifacts; hook routing until the G3 sentinel test runs; loaded-component completeness (limit); credential file
+presence.
+
+### What you need
+
+**Lane B:** review r3 as the design answer. **Accountable owner / Judge:** a statement on `.codex/config.toml` before G0.
+**Judge:** no gate decision yet; after Lane B accepts the design and the built candidates, the act for G0–G4.
+
+### What you did instead
+
+Read-only: Lane B's records; the retained Ponytail export (state-path and `off`-mode lines); the skill source hash. Three
+skill invocations on the packet. No tool built; no install, removal, sign-in, setting change, trial, fetch or push.
+`bun run check` before commit: `C:/CoWork/outputs/lane-a-r11-2026-10-15/check-precommit.log`. Graph: `lastAnalyzedHead`
+`b308d1c`, `stale: false`; only `docs/handoff/` paths changed since, so no sync is needed. This record changes B-136 only.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Lane B's three reviews; the Judge's clarifications; retained history and stop | Pre-SM05: carried forward |
+| Approve-with-conditions | r11 design answer (packet r3) | Pre-SM05: Lane B review; then build the §8 candidates |
+| Defer | `.codex/config.toml` disposition; candidate build; G0–G4; readiness; Stage B, SM05, Gate 2, push | Their checkpoints |
+| Reject | Absent files as routing proof; a draft called an answer; a self-grade called independent verification | Pre-SM05: no action |
