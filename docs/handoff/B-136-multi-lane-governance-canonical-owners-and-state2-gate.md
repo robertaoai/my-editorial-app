@@ -11181,3 +11181,121 @@ and interim r5). No tool built, no sentinel created, no install, removal, sign-i
 | Approve-with-conditions | r11 design answer (packet r5) and grading record | Pre-SM05: Lane B review; then build the §8 planned candidates |
 | Defer | `.codex/config.toml` disposition; candidate build; G0–G4; readiness; Stage B, SM05, Gate 2, push | Their checkpoints |
 | Reject | Absent files as routing proof; an unallocated write; an undefined interval; a self-grade as independent verification | Pre-SM05: no action |
+
+## Lane B — r11 r5 disposition: design returns satisfied except one source-path clause, 2026-10-15
+
+### Layer 0 — Request and handoff fields
+
+Review Lane A's recorded r5 and its grading record against `b5d9599` and `ae34a70`. Close the satisfied design/evidence
+requests, return the one carried source-binding detail, and keep design acceptance separate from runtime authority.
+
+**Raised:** 2026-10-15 by Lane B. **Kind:** finding. **Phase:** 1 / pre-SM05.
+**Blocks:** existing S-T stop retained; hook routing remains Open.
+**Evidence observed at:** `d62d3589b21eeee8f5dd4b096547960abe49a68e`.
+Lane A answers; Lane B independently reviews. B-136's header and the lane state remain unchanged.
+
+### Layer 1 — What happened: parent-first completion map
+
+**The main r11 design returns and missing grading-file request are satisfied within their stated design scope.**
+Lane B independently reproduces both bindings in Lane A's one-file receiver commit `d62d358`:
+
+| Recorded artifact in `C:/CoWork/outputs/lane-a-r11-2026-10-15/` | SHA-256 |
+|---|---|
+| `R11-CONTRACT-PACKET-r5.md` | `2bc7cf440b21cfbbcc9a90d605f2abbb2b6d8e5d5c6764684082623f36848fc4` |
+| `GRADING-RECORD-r5.md` | `ba9808268e2f20cc6072d22d24b15c90fee4d3722359b03098061e4654239ab1` |
+
+| Parent / child | Current disposition | Return point |
+|---|---|---|
+| **B-136 / SM05 transition** | **Open** | Other parent obligations retain their triggers |
+| Receiver-record obligation | Verified recording-only in the earlier review; r5 receipt also confirmed at `d62d358` | Keep closed |
+| Sentinel parent, baseline, read-back, observer and deadline | Accepted as design clauses: parent absent/present cases, declared creation, both-root baseline, human prompt confirmation, 120 s and partial-deletion stop | Actual candidate controls and G3 evidence remain future work |
+| G0/equality/scan/custody corrections | Accepted as specified design changes; planned tools remain planned | Bind actual implementations/results when their preparation is authorized |
+| Missing grading file and scoped-text traceability | **Verified by Lane B at `d62d358`, file/recording scope only** | Keep the disclosed historical limits; do not certify skill execution or runtime correctness |
+| I1-R1 source/path wording | One carried normalization remains in §3.1 | Lane A answers the bounded clause below; no new full packet audit requested |
+| Hook routing, config disposition, gates/readiness | Open, unresolved or stopped | Existing owner/evidence/act conditions |
+| Stage B / D-437 / SM05 / Gate 2 / push | Separate | No inferred clearance |
+
+### Layer 2 — Accepted evidence and its limits
+
+r5 implements the three returned corrections: the source citation includes the hash at runtime L56; an absent
+`ponytail-modes` directory may be created as an allocated effect; and the observer records human confirmation and
+finishes within 120 seconds of launch. The parent may remain empty until G4. T-P0 remains the first S-T tool action.
+The 120 seconds remains a unit limit, not a claim that every startup finishes within it.
+
+The grading record exists and is bound. Lane B checked all six quoted scoped-check strings in their named final r3/r5
+files: each occurs exactly once, as recorded. r1–r4 hashes also reproduce. The record expressly says these are text-
+presence checks, not re-grades or proof that other defects do not exist. Its five skill invocations remain Lane A's
+recorded self-report; this review did not independently observe or replay those calls. The two unretained interim
+inputs are declared non-reproducible. No new historical recovery or full grading cycle is required for that honest limit.
+
+### Layer 3 — One bounded source-clause correction
+
+**Existing I1-R1, r5 §3.1:** the expected project key still shows a single-backslash Windows path inside a JavaScript-
+looking quoted literal. If copied literally into JavaScript, backslash escape interpretation changes its value and
+can produce the wrong project hash. The packet already defines `<REPO>` correctly; use that bound variable instead.
+The same paragraph still describes only the initial `getClaudeDir()` selection rather than explicitly noting the
+runtime's host overrides. These are carried source-binding details, not a new requirement or redesign of the sentinel.
+
+**Draft replacement for that source paragraph:**
+
+> In `off`, `ponytail-activate.js` L33–35 calls `clearMode()` and exits. `ponytail-runtime.js` L35–42 starts with
+> `getClaudeDir()` and then applies host-specific overrides. L51 reads the trimmed `CLAUDE_PROJECT_DIR`; L54–57
+> builds the project path and hashes its normalized value (hash expression L56). Derive expected `<H>` from the
+> bound native `<REPO>` variable using the same normalization and SHA-256 hex calculation. Do not use `/c/...`
+> or copy an unescaped Windows path into a JavaScript string. Expected sentinel targets remain
+> `D_C/.ponytail-active` and `D_C/ponytail-modes/<H>`. A wrong project-key/root result refuses in the planned controls.
+
+Accept this condition when the corrected source clause and its final hash are recorded by Lane A, with a scoped
+source/delta check. All unchanged r5 design clauses and the accepted grading-record existence remain accepted.
+Do not repeat the entire grading history or implement a helper to answer this one clause.
+
+### Layer 4 — What Lane A needs next; Chief Editor decision table
+
+1. Receive this disposition. Keep the receiver/grading-file obligations closed and the retained r5/grade history.
+2. Normalize only the source clause above, check it against the pinned runtime, and record the corrected object/hash
+   in one Lane A answer. Return the delta for Lane B's short review; no new generic drafting approval is needed.
+3. Keep maps, capture/comparator/probe/checks and handover as planned. The current request is planning only and gives
+   no candidate-build, sentinel, cleanup, governed-edit, gate, fetch or push authority. The worklog's "then build"
+   describes a later checkpoint, not an action performed or authorized by this review.
+4. At the applicable later checkpoint, prepare the exact config-disposition and execution unit for the accountable
+   owner/Judge. `.codex/config.toml` remains unchanged and blocks G0. An owner statement alone does not remove it or
+   change r10's exclusion; the bounded act and the reviewed candidate/control results are still required.
+
+| Parent-first decision | Accept when | Reject / retain stop when | Follow-up phase |
+|---|---|---|---|
+| **Receiver and grading record** | Both named files and hashes exist in `d62d358`; scoped-check and missing-input limits are retained | A self-report or matching quote is called independent tool/runtime proof | Phase 1 / pre-SM05: recording conditions satisfied |
+| **r11 final design** | Accepted r5 clauses plus the one normalized source paragraph/final binding | The unsafe example is copied as executable JS or the initial root selector is called the whole runtime | Phase 1 / pre-SM05: Lane A delta, Lane B bounded acceptance |
+| **Candidate/control preparation** | Its existing approval and reviewed design conditions permit the exact bounded work | A design verdict is read as permission under the present no-build request | Applicable later preparation checkpoint |
+| **G0/config → G1/G2 → G3 → G4** | Exact config disposition, reviewed candidates and Judge act; actual observations pass in order | Unproven routing, unexplained effects, missing fresh close evidence or inferred authority | Phase 1 / pre-SM05: later authorized execution |
+| **Partial Stage A / Stage B / final readiness / SM05 / Gate 2 / push** | Each existing consumer, independent review, selection and authority condition is met | Setup documentation or consistency is promoted to delivery/clearance | Existing later phases and separate checkpoints |
+
+The critical artifacts now have a clear role: contract/trial delta defines intended behavior; maps define owned
+effects; planned capture/comparator/probe/control tools will measure them; custody/grading/receiver records preserve
+the evidence chain. Their completion gives no product-codebase or SM05 feature credit. Lane B raises/reviews; Lane A
+answers. Lane C supplied no new evidence, so no agreement or new C-series prerequisite is inferred.
+
+### Layer 5 — What was done instead, drift and verdict
+
+Read-only graph query, receiver/file/hash/source and scoped-text comparisons. All 13 accepted input hashes reproduce;
+the runtime matches the pinned Ponytail tree. Config remains untracked and unchanged at `fd3c37f5…`, with no values
+retained, edits or staging. No supplier/hook/client/skill call, build, sentinel, cleanup, governed edit, fetch or push
+occurred. B-136 stays Open; all governed tiers and D-437 triggers remain unchanged.
+
+Graph analysed at `b308d1c`, `stale: false`; tracked changes since are B-050/B-136 only. No graph sync is needed.
+Validation for the final handoff bytes is retained in `C:/CoWork/outputs/lane-b-r11-r5-review-2026-10-15/check-final.log`;
+any Bun pre-load failure is retained separately before using the package's exact Node check entry point. This review
+uses a manual self-check, not the named grading skill.
+
+| Independent artifact in `C:/CoWork/outputs/lane-b-r11-r5-review-2026-10-15/` | SHA-256 |
+|---|---|
+| `audit.mjs` | `eb761fe44bc63002c35b7f39d4d3ed0445da498e7e5570836aa217101f8f9569` |
+| `audit-results.json` | `86d5fe4745421c2d6c43cd12c6af944d7413ecc059f08cdb4c655a6eba53eda2` |
+| `R11-CONTRACT-PACKET-r5-observed.md` | `2bc7cf440b21cfbbcc9a90d605f2abbb2b6d8e5d5c6764684082623f36848fc4` |
+| `GRADING-RECORD-r5-observed.md` | `ba9808268e2f20cc6072d22d24b15c90fee4d3722359b03098061e4654239ab1` |
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| **Approve** | Main r5 design corrections; receiver/grading-file bindings; scoped-text traceability and disclosed historical limits | Phase 1 / pre-SM05: accepted within design/recording scope |
+| **Approve-with-conditions** | Final r11 design disposition | Phase 1 / pre-SM05: normalize the one source clause, bind the corrected object, return the delta for Lane B review |
+| **Defer** | Candidate build, config disposition, actual routing/gates/readiness, Stage B/D-437/SM05/Gate 2/push | Present planning-only scope and existing evidence/authority checkpoints |
+| **Reject** | Unsafe path literal used as an executable binding; self-grade/text presence called runtime verification; design approval treated as build authority | Phase 1 / pre-SM05: no such credit; routing remains Open |
