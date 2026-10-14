@@ -9512,3 +9512,113 @@ P1d, cleanup, restore, fetch or push. `bun run check` before commit:
 | Approve-with-conditions | Comparator r6 and hand-over r7 | Pre-SM05: Lane B accepts both hashes |
 | Defer | S-T, A-S5/A-S6, Stage A readiness; Stage B, SM05, Gate 2, push | Their existing checkpoints |
 | Reject | Comparator r5 (timestamp rule on) as the B route; parsed equality as byte equality; a new baseline to clear a strict stop; residual acceptance as equivalence or cleanup | Pre-SM05: no action |
+
+---
+
+## Lane B — Option B comparator r6 and hand-over r7 accepted; missing-file correction verified, 2026-10-14
+
+### Layer 0 — Request and transaction
+
+Review Lane A's `3bbdf00` answer against the Judge's exact Option B selection (`60928f7`). Verify the strict byte
+checks and disclosed missing-file fix; preserve accepted approvals; consolidate the remaining steps in one
+parent-first handoff. Review/planning only: no supplier trial, setup, real cleanup, product build, governed edit,
+fetch, push or Gate 2 action.
+
+**Raised:** 2026-10-14 by Lane B. **Kind:** finding. **Phase:** 1. **Parent:** B-136 / TR-1 / Stage A.
+**Blocks:** no remaining technical review blocker for these two revisions; actual use retains its entry conditions.
+The B-136 header stays Open. Lane A receives this review; Lane B independently verifies the submitted correction.
+
+**Terms:** Option B is the selected residual-disposition branch. It does not select or activate development Lane B;
+live lane state remains in Phase Closure §5. The accepted pair is **comparator r6 / hand-over r7**. The statement
+"Do not start S-T on r6" in the guide refers to the superseded **hand-over r6**, not to comparator r6.
+
+### What happened — parent-first completion map
+
+All 11 reviewed input hashes match. Lane A's Option B controls replay **19/19**. Lane B additionally reproduced the
+r5 missing-file `TypeError`, observed r6's clean refusal, and ran the unmodified r6 CLI on labelled synthetic
+captures: unchanged pair = exit 0/pass; absent known file = exit 1/stop with a result written. Neither example is
+an actual P1d/P1c or proof of current host continuity.
+
+| Parent / child | Disposition | Next / follow-up phase |
+|---|---|---|
+| B-136 / SM05 transition | Open | Other obligations retain their triggers |
+| Judge's Option B; exact historical pairs and recorded limits | Received by Lane A; retained | Propagate in the next applicable D-437 governed batch, without a new Register-first hold |
+| R5-F1/F2; receipt r2; capture r4; map/dispositions; launcher; A1 | Verified / accepted within prior scope | Keep their hashes and use-time checks |
+| Strict B comparator and bound handover | Accepted by the two full hashes below | Technical review condition satisfied |
+| Lane A's S10 missing-file correction | Verified by Lane B at `3bbdf00` for the captured absence form | Prior failed run remains history; no false-pass claim |
+| S-T; A-S5/A-S6; Stage A partial readiness | Pending actual evidence | Existing input/session, trial and post-exit conditions |
+| Stage B/final retention; D-437; B-136 closure; SM05; Gate 2; push | Separate | Existing evidence and authority checkpoints |
+
+### Layer 1 — Accepted revisions and verification
+
+Files under `C:/CoWork/outputs/lane-a-tr1-setup-2026-10-14/`:
+
+| File | Accepted SHA-256 |
+|---|---|
+| `tools/compare-state-r6.mjs` | `882bb2b4a596cc72d9e89f81572536141b88e93e5047d49435f48e2177923320` |
+| `state/HANDOVER-E-to-S-T-r7.md` | `c0313fb8b28a4c9aa6c699bb164cf4bdfbfdc507be1313cd6fac0a1192f6b619` |
+
+The r5-to-r6 source diff is limited to the header, the timestamp constant becoming false, and the known-marketplace
+helper's byte check/absence guard. Nine exported functions have identical source, including validation, per-commit
+history, interval, bridge and ledger. The changed helper and constant supply the intended new comparison behavior;
+receipt binding and historical bounds remain unchanged. Receipt r2 stays
+`bda056260420e031d5bede8417ce3df79ce6323be051eede43cd32fb5b0ae2b2`; the map stays
+`1ca9937fcc3597ccba480db24b8e428009e9ef68cbed446b4c40ed01abcee823`.
+
+| Obligation | Independent result | Practical limit |
+|---|---|---|
+| Strict future bytes | Forward official `lastUpdated`, forward catalog `fetchedAt`, formatting-only rewrites, content/tree changes and the Ponytail-entry change all stop. Explicit known-file presence/hash/size equality closes the parsed-value gap. Unchanged pairs pass. | A client refresh is a stop under the selected B policy; it is not silently accepted as metadata churn. |
+| Clean missing-file refusal | The old r5 interval throws `TypeError: Cannot convert undefined or null to object` for S10's captured missing-file form. r6 returns stop; the actual CLI writes the refusal and exits 1. | Lane A's r4/r5 defect disclosure is retained; Lane B independently reproduced r5. The old crash was not a successful comparison. |
+| Historical residual bounds | Real retained bridges to C-D2 and C-D2b remain `residual`; a catalog hash outside the accepted pairs stops. | Judge acceptance remains a recorded historical limit, not equivalence or cleanup. |
+| Existing closure gate | Valid synthetic ledger passes; a bare receipt label stops. Receipt checker bytes and ledger binding logic are unchanged. | Actual successful cleanup/P2 is still owed; the build timing deviation remains. |
+
+No new technical finding or Judge decision arises from this bounded review. The same-scope corrections are complete
+for the reviewed revisions. Prior source/fixture checks still provide no product-codebase construction credit.
+
+### What you need — Lane A follow-up, in order
+
+1. Receive this full-hash acceptance in the next relevant B-136 answer; no receipt-only commit is required.
+   Keep Option B, the exact historical pairs, prior approvals and Lane C's accepted limits. No new Lane C claim
+   or C-series entry is required here.
+2. In the receiving session, re-hash the accepted inputs, verify effective off state and perform hand-over r7's
+   C-D2b-to-P1d strict comparison. The reported D3 snapshot at 11:4xZ is Lane A's dated observation, not proof of
+   uninterrupted state or of the state in a later session. Recheck rather than assuming it remains true.
+3. End that receiving session (including D3 if it is still running); confirm the existing quiet-host condition,
+   then use the accepted comparator r6 / hand-over r7 for any already permitted S-T. Prove P1d-to-P1c before the
+   frozen trials. The former session's unit container must not survive into the next interval.
+4. Any strict byte delta or failed observation stops the affected link. Record and return it for review. Do not
+   overwrite shared files, select a new baseline or reuse an older comparator to clear the stop.
+5. After the actual trials and S-T exit, O captures actual P2 and runs the accepted ledger back to back. It must
+   generate the bound UNIT close receipt, prove disposal/retention and refuse residue or changed protected state.
+   R then records **Readiness — partial (Stage A only)**, carrying the accepted historical limit and the build
+   timing deviation. Technical review alone supplies none of that actual-use evidence.
+6. Carry the received selection/revision evidence into D-437 when due. Stage B consumer binding, final retention,
+   the SM05 work order, lane activation, push and Gate 2 retain their own checkpoints. The Chief Editor need not
+   repeat Option B or approve another drafting round for these accepted revisions.
+
+### What you did instead — retained evidence and drift
+
+Evidence: `C:/CoWork/outputs/lane-b-r6b-review-2026-10-14/`:
+
+| File | SHA-256 |
+|---|---|
+| `audit.mjs` | `6401cd302af8a6e02e8ee4e81a207d7f24136d71d79528dcf704810845f70024` |
+| `audit-results.json` | `2fe00815b944d718d2223b12056353bb575d74f93ccecbc115e44544bb4e3f15` |
+| `controls-replay.json` | `cf464f9a4b38a3c7bc1307b173f1b40e9f7c722ed7b9301f0353e066ca9e37f8` |
+| `cli-unchanged.json` | `048f0b14ffdeb8c26aa6949a307c07b744b0eea1e8dcd219b957392d97d19822` |
+| `cli-absent-known-file.json` | `095a1a8803fc12b74df2c1c0d6d95d9ca34e2a2dc0b1318ea8ee3f57b0ad32b9` |
+
+Lane B used a read-only graphify query, governed sources, retained snapshots and inert controls. No live capture,
+supplier runtime, real cleanup, build, fetch or push ran. Only this Lane B body changes in the project repository.
+Governed intent remains analysed at `b308d1c`, `stale: false`; only B-050/B-136 handoffs changed since it. No graph
+sync is needed. Final-file consistency evidence is kept in `check-final.log`; the local one-file review commit
+follows a pass. The Option B control tally above is separate from the repository consistency tally.
+
+### Layer 2 — Verdict
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Comparator r6 / hand-over r7 by full hash; S10 correction verified in scope; prior approvals and exact Option B retained | Pre-SM05: technical review complete; no new Judge decision |
+| Approve-with-conditions | Lane A follows the existing accepted Stage A handover | Pre-SM05: rechecked inputs/off state, session exit, quiet host, strict P1d/P1c chain and actual trial/post-exit evidence |
+| Defer | Actual Stage A readiness, Stage B/final retention, D-437, parent closure, SM05, Gate 2 and push | Their existing evidence and authority checkpoints |
+| Reject | Option B treated as Lane B activation; obsolete guide/comparator fallback; a dated D3 observation treated as continuity; a new baseline clearing a strict stop; controls treated as actual close or construction | Pre-SM05: preserve the selected boundary and evidence limits |
