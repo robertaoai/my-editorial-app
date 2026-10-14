@@ -11132,3 +11132,52 @@ pre-load failure is retained separately before using the package's exact Node ch
 | **Approve-with-conditions** | Corrected r4 design answer | Phase 1 / pre-SM05: apply Layer 2, create/bind the real grading record and final hashes, then Lane B reviews |
 | **Defer** | Candidate build, config disposition, actual routing verification, G0–G4/readiness, Stage B/D-437/SM05/Gate 2/push | Current planning-only scope and existing evidence/authority checkpoints |
 | **Reject** | Required-but-absent parent; unallocated directory creation; vague startup/timeout; a nonexistent grading file or reconstructed interim called proof | Phase 1 / pre-SM05: correct the contract; routing remains Open |
+
+---
+
+## Lane A — r11 design answer, packet r5: answers Lane B `b5d9599` and `ae34a70`, 2026-10-15
+
+### What happened
+
+**Receipt.** Lane A receives Lane B's `b5d9599` (receiver record closed; sentinel accepted as a design candidate; pre-launch
+proof, observation interval, refusal controls, equality wording, G0 wording, scan, custody and final grading evidence returned)
+and `ae34a70` (citation, sentinel parent directory, startup signal, grading file pending; proposed 120 s limit). Hook routing
+stays **Open**. **Lane C:** no new Lane C evidence.
+
+**Final design:** `C:/CoWork/outputs/lane-a-r11-2026-10-15/R11-CONTRACT-PACKET-r5.md`, SHA-256
+`2bc7cf440b21cfbbcc9a90d605f2abbb2b6d8e5d5c6764684082623f36848fc4`. History in the same folder: r1 `74f79549…`, r2 `8cd0a168…`,
+r3 `a36fee99…`, r4 `8e79a4e3…` (r4 was the input Lane B reviewed at `ae34a70`; Lane A had not recorded it).
+
+| Lane B item | Answer in r5 |
+|---|---|
+| Sentinel oracle (`b5d9599`; `ae34a70`) | §3.1 S1–S6 with actors. S1 (O, plain PowerShell, G2 session exited): both targets absent and not links; `D_C` plain; `D_C\ponytail-modes` absent or plain (recorded); the real-root equivalents absent (recorded). S2: create the parent directory only if absent, then both sentinels; read back presence, content and hashes; at most three writes. S3: launch, T0 recorded, nothing typed. S4: the person confirms the input prompt is visible and nothing was typed; O checks both roots; confirmation and observation within **120 s of T0** (unit limit). S5: pass only if both sentinels are gone, the real-root equivalents are still absent and the enumerated protected projection is unchanged; partial deletion stops. S6: T-P0 is the first S-T tool action. On a stop: no other write, no trial, no retry as a pass |
+| Source citation (`ae34a70`) | `ponytail-activate.js` L33–35; `ponytail-runtime.js` L51, L54–57 (hash at L56), L68–71; `ponytail-config.js` L71–73; retained export at pinned `2961b52` |
+| Parent directory allocation (`ae34a70`) | its creation in S2 is allocated in the G4 map as an owned `D_C` effect; it may remain after the hook and is removed with `D_C` at G4 |
+| Equality wording (`b5d9599`) | every "real root equals P0'" now reads "enumerated protected projection of the real root equals P0'" (capture r5 coverage) |
+| G0 blanket sentence (`b5d9599`) | "Any difference outside the exact authorized owned-effect projections stops G0"; residual pairs exact; foreign state protected |
+| Scan (`b5d9599`) | §7: case-insensitive, line-based classes: PEM private-key headers; `Authorization:` / `Bearer` headers; `api_key`, `access_token`, `refresh_token`, `password`, `secret` assignments; `sk-ant-`, `ghp_`, `github_pat_`, `xoxb-` prefixes; value never printed; one harmless fixture per class; a negative scan is a limited check |
+| Custody chain (`b5d9599`) | §8: producer/session, path, hash or "planned", input binding, result locus, close disposition for every artifact; planned artifacts have no invented hash |
+| Grading evidence (`b5d9599`; `ae34a70`) | `GRADING-RECORD-r5.md` SHA-256 `ba9808268e2f20cc6072d22d24b15c90fee4d3722359b03098061e4654239ab1`: five invocations with graded input hashes, issues and fixes; scoped checks of the changed clauses in final r3 and final r5; limit: the interim r3 (`ca49260d…`) and interim r5 (`2831c8d4…`) were edited in place and not kept |
+
+**Unresolved (truthful):** hook routing (Open until a real G3 run); `.codex/config.toml` (`fd3c37f5…`, untracked, unchanged)
+owner statement and bounded disposition before G0; every §8 "planned" artifact; loaded-component completeness (limit);
+credential file presence (unmeasured).
+
+### What you need
+
+**Lane B:** review final r5 and the grading record by hash. **Accountable owner / Judge:** the `.codex/config.toml` statement
+before G0. **Judge:** no gate decision yet.
+
+### What you did instead
+
+Read-only: Lane B's records; the retained Ponytail export (exact line numbers). Two grading-skill invocations this turn (on r4
+and interim r5). No tool built, no sentinel created, no install, removal, sign-in, setting change, trial, fetch or push.
+`bun run check` before commit: `C:/CoWork/outputs/lane-a-r11-2026-10-15/check-precommit-r5.log`. Graph: `lastAnalyzedHead`
+`b308d1c`, `stale: false`; only `docs/handoff/` paths changed since, so no sync is needed. This record changes B-136 only.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Lane B's `b5d9599` and `ae34a70`; the receiver record closed; retained history | Pre-SM05: carried forward |
+| Approve-with-conditions | r11 design answer (packet r5) and grading record | Pre-SM05: Lane B review; then build the §8 planned candidates |
+| Defer | `.codex/config.toml` disposition; candidate build; G0–G4; readiness; Stage B, SM05, Gate 2, push | Their checkpoints |
+| Reject | Absent files as routing proof; an unallocated write; an undefined interval; a self-grade as independent verification | Pre-SM05: no action |
