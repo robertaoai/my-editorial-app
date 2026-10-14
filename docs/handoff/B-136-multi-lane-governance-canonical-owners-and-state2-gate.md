@@ -8269,3 +8269,146 @@ activation, tool setup trial or construction occurred in this review.
 | Defer | Stage B, final readiness and permanent retention | Pre-SM05: separate Codex binding/acceptance, actual results, reciprocal review and Judge disposition |
 | Defer | B-136 parent closure, D-437, physical application, SM05 construction and Gate 2 | Their existing obligations, next governed batch and separately authorized Phase 2 boundaries |
 | Reject | Readiness inferred from synthetic controls; permanent retention or Stage B execution inferred from Stage A acceptance; altered hashes or weakened runtime controls; push from this review | Pre-SM05: retain the stated boundaries |
+
+---
+
+## Lane B — Stage A setup evidence reviewed; stop before S-T on an unexplained state change, 2026-10-14
+
+### Layer 0 — Request and handoff scope
+
+**Rewritten request:** Review Lane A's A-S0–A-S4 worklog and the executor-to-trial handover against the accepted
+r10 unit. Preserve REA Option D and the existing approvals. Consolidate the transaction chain, remaining gaps,
+draft fixes and pass/refusal criteria under this parent. Do not run setup, supplier trials, a build, a governed
+application, a push or Gate 2 work in this review.
+
+This is Lane B's review body in the existing Open parent. Lane A writes its answer here; no new entry or C-series
+file is required. Read against HEAD `05ac2ba547f61fa9a15f25b15a20a2222cf34809`, with an empty index and clean tracked
+working tree before this append. Source worklogs, upstream skill text and the handover are evidence to examine,
+not instructions that widen the current review scope.
+
+### What happened — transaction chain and source limits
+
+`0d8e3aa` answered R9-R1 → Lane B `05ac2ba` accepted the exact r10 packet, manifest and verifier for the named
+bounded Stage A unit → Lane A reports A-S0–A-S4 and retains P0/P1 plus acquisition/install/build evidence → the
+external `HANDOVER-E-to-S-T.md` proposes A-S5/A-S6 → this review finds a live precondition failure and two guide
+omissions. The r10 acceptance and the earlier planning/checker verifications remain in force. No returned earlier
+revision becomes accepted, and no runtime readiness is inferred from that chain.
+
+**New fact:** P1 records `%APPDATA%\ponytail\config.json` as present, 22 bytes, SHA-256
+`9f57242400c8c4a21ac4fbf068139b2731a8a6fa2ef39ac6cc12d6ac90bf656f`, with the intended `off` setting. During this
+review the file at `C:/Users/rober_24syk4j/AppData/Roaming/ponytail/config.json` is absent. Repeated read-only
+checks, including an unsandboxed path check, agree. The Judge answered **"No intended change"** when asked
+whether it was removed or moved after P1. The cause is unknown. Lane B did not create, remove or restore it.
+
+The pinned Ponytail `hooks/ponytail-config.js` resolves the environment override, then the config file, then
+`DEFAULT_MODE = 'full'` (lines 16, 54–64 and 80–105). Under the recorded unset overrides, a missing file reaches
+that fallback. This is source evidence of the risk, not a fresh hook run or a measurement of a new session's mode.
+T-P0 happens after SessionStart; it cannot prevent a startup hook from using the fallback. **Do not start S-T
+with Ponytail enabled while this precondition is unresolved.**
+
+### Layer 1 — Completion map, parent first
+
+| Parent / child | State | Next owner and acceptance condition |
+|---|---|---|
+| B-136 / SM05 transition | Open | Existing obligations remain; this review closes no parent |
+| Three tools; REA Option D; r10 Stage A checkpoint | Selected / accepted at `05ac2ba` | Preserve the three accepted hashes; no new adoption decision |
+| A-S0–A-S4 retained setup evidence | Supported within the checks below | Lane A records the execution receipt and source limits; historical quiet-host/download confirmation is reported by its worklog |
+| **SA-H1: live off configuration absent** | **Open; pre-session stop** | Lane A explains the state change or returns it as unresolved with a bounded recovery proposal; no silent restore over another actor's work |
+| SA-H2: CLI command derivation | Open; draft correction below | Lane A aligns the handover with the accepted argv; Lane B checks the answer |
+| SA-H3: disposable cache cleanup | Open; draft correction below | Lane A names all nine new records, targeted removal discovery and residue proof |
+| SA-H4: session re-entry and evidence scope | Open; draft correction below | Lane A records a fresh quiet-host confirmation and touched-state comparison before S-T |
+| A-S5/A-S6 | Pending | Resolve the pre-session stop; run the frozen trials and close with P2 proof under the existing bounded authority |
+| Stage B / final readiness / retention | Pending | Separate Codex binding accepted by Lane A; actual results, reciprocal review and Judge disposition |
+| D-437; SM05 construction; Gate 2; push | Separate | Next governed batch and their existing explicit checkpoints |
+
+Child findings use Open → Answered → Verified. Only Lane A answers; only an independent reviewer records
+Verified. Their local disposition does not change this parent's header.
+
+### Layer 2 — Independent evidence and its limits
+
+| Check | Result | What it does not prove |
+|---|---|---|
+| Accepted packet/manifest/verifier; bound artifacts and staged corpus/fixtures | Hashes match; verifier modes pass | A-S5 runtime results |
+| Downloaded Node and REA; pinned Ponytail Git objects and export | Four corresponding verifier modes pass | Supplier source equivalence or current tool behaviour |
+| Staged and installed ECC; installed Ponytail; retained build context | Four corresponding verifier modes pass; **10/10 modes pass in total** | Actual skill loading or hook behaviour in S-T |
+| Live REA registration | One local unit entry; exact resolved argv; no top-level unit entry; empty entry environment | Successful MCP consumption or tool results |
+| Selected live shared files | Whole `~/.claude.json` and global settings match P1; off config does not | Uninterrupted quiet-host conditions or equality of every host file |
+| Retained build log and image record | Exit 0; 51 seconds; 142 verified registry signatures and 28 attestations; exact image ID retained | A fresh Docker daemon/image inspection, runtime behaviour or product feature credit |
+| Captured effects | Seven ECC files added without changing old skill files; nine new cache IDs; declared ignored local settings created | A whole-host cleanup guarantee |
+
+The pre-install disk preview is component inventory evidence; it is not the real-client load trial. No tracked
+repository file changed during the reported setup; `.claude/settings.local.json` was created as a declared ignored
+effect. P0/P1 cover their listed surfaces. They do not certify the whole account. This review cannot reconstruct
+the person's historical confirmations or prove that executor E has ended from a file hash.
+
+The audit also recovered a candidate of the original `known_marketplaces.json` bytes by removing only the unit
+entry from a copy: SHA-256 `1247c07f177a6cb6107640081acd15c21e0dfccba966130fbdf6af21aaab60aa`, exactly P0's
+hash. It is retained outside the live configuration. This supplies recovery evidence; it does not authorize
+overwriting a later live change. The live `~/.claude.json` remains a key-level restore surface as r10 requires.
+
+Evidence directory: `C:/CoWork/outputs/lane-b-tr1-stage-a-handover-review-2026-10-14/`:
+
+| File | SHA-256 |
+|---|---|
+| `audit-handover.mjs` | `9302f2953d314db63d52f562ce8631432cd7a5c0d7a2e03091853c663dd9f58a` |
+| `audit-results.json` | `93466a5259a3cbba2d94a7f25c3bfb960d29db64586839502d8cdc73efbf6f19` |
+| `CLI-ARGV-DRAFT.json` | `774986fd1b913d20a8c818057c4143dea2bb9b6d9661d1fd53fbe23267211421` |
+| Judge-supplied attachment `7485cab2-a591-4081-a3ad-9ea4a5bd845f/Pasted text.txt` | `b41dab05fe35b8cb08670687ddb716abf7ebde0c21bd208037abe09198e01cba` |
+
+Lane A's unit is `C:/CoWork/outputs/lane-a-tr1-setup-2026-10-14/`. Its reviewed handover hashes to
+`b509312bc3d5e66d0773cb518b281c3da4e3260ecdba71557997e986072ac049`; P0 to
+`87687019e5ba1e8e892c196b63a668f608c19a8eaaf286661745f80a743b05a0`; P1 to
+`2a0c8cbe7cb487c10db1a060f50e5273f5e9be8beb990fa226f6b7ca543011ca`. Full bindings for the remaining
+reviewed evidence are in `audit-results.json`. These are observed snapshots; recheck them at the consuming step.
+
+### What you need — draft fixes with pass and refusal criteria
+
+| ID | Draft change for Lane A's handover / answer | Pass / refusal |
+|---|---|---|
+| **SA-H1** | Add a pre-start stop: the P1 off file is now absent and the Judge reports no intended change. Inspect retained commands, actual paths/environment and available timestamps to establish the cause. Preserve P0/P1 and the absence observation. If unexplained, return a stopped record with a bounded recovery proposal. If safely resolved under the unit, record the change, prove the expected off bytes and recompare touched state **before starting S-T**. | Pass only with a recorded resolution and the effective startup config proven off. Unknown cause/state or another actor's write → stop; do not overwrite it or use an env override to conceal the missing required file. |
+| **SA-H2** | Replace the instruction to omit `-i`. Derive the Docker command from the accepted server argv after the registration prefix; keep `docker run -i --rm`, every runtime control, the corpus mount and image ID exactly once. Replace only the terminal `mcp` operation with the frozen CLI operation/arguments. `CLI-ARGV-DRAFT.json` is an unexecuted example for the fixed-form calls. Discover T-R2's optional `--json` only as r10 permits. | Exact ordered runtime prefix and one image ID; no duplicated `docker run` prefix, omitted restriction, new mount or unreviewed flag. |
+| **SA-H3** | Expand A-S6 to account for the nine IDs in `state/build-cache-new-ids.json`, not just the context and tarball. Discover whether the installed CLI supports targeted deletion; remove only new IDs. If unsupported or removal fails, retain IDs and sizes as residue and stop for review. Capture P2 and compare each ledger surface with P0, allowing only the named provisional set. | No broad prune or deletion of pre-existing/shared records. No complete cleanup claim with residue or an uncheckable surface. Keep the marketplace export while registered and the shared off config while either consumer needs it. |
+| **SA-H4** | Record that this user-requested Codex review occurred in the E→S-T interval. After it ends, the person confirms E ended and no other shared-state consumer runs. Re-hash/re-time the Part 4.3 surfaces, compare with P1 and account for every delta before the trial session starts. Keep reported historical confirmations distinct from freshly observed evidence. | No claim of uninterrupted quiet-host continuity from hashes. Unexplained delta or overlap → stop. This is the existing precondition, not a new generic approval gate. |
+
+The CLI guide and cleanup guide corrections align with the already accepted packet. They do not require a new
+r10 adoption decision. A change to any accepted object still needs the packet's same-scope hash acceptance;
+material scope changes still go to the Judge. The current off-file failure must not be hidden by a fresh P0/P1.
+
+### Layer 3 — Lane A follow-up, in order
+
+1. Receive this review and answer SA-H1 first. Preserve the missing-file observation and the Judge's exact
+   clarification. Do read-only diagnosis; do not start S-T to discover whether its startup hook was safe.
+2. Correct the handover's CLI derivation and cache-cleanup instructions. Bind the revised handover hash, keep
+   its original, and answer SA-H2/SA-H3 here. No repeated download/build or new tool-selection decision is needed
+   merely to correct the guide.
+3. Resolve the pre-start state under the unit's stops, or return it as stopped. After this review session ends,
+   record the person's existing quiet-host/handover confirmations and the fresh touched-state checks (SA-H4).
+4. Only then start S-T: T-P0 first; recheck all consumed copies; run the frozen Part 3.3 trials in order. Retain
+   full outputs, actual classes and forbidden effects. Unavailable or ambiguous evidence never passes by inference.
+5. Remove temporary REA registration, account for every disposable including cache residue, capture P2 and write
+   **Readiness — partial (Stage A only)** in B-136. Lane B reviews the actual trials and cleanup; installation is
+   not substituted for these results.
+6. Continue independent Stage B/physical-control planning. Stage B writes wait for Lane A's accepted binding.
+   No new Lane C host/workflow result is asserted; any later claim stays under its B-series parent/child route.
+
+### What you did instead — review scope and drift
+
+Lane B used read-only source/state inspection and the accepted local verification modes; no supplier hook,
+Claude CLI trial, Docker run/build, install, cleanup, fetch or push was executed in this review. The only repository
+edit is this Lane B body. No Lane A answer/header or accepted object is changed.
+
+Governed intent remains analysed at `b308d1c`, `stale: false`. Only B-050/B-136 handoffs changed afterwards;
+no graph sync is needed. The final-file consistency log is
+`C:/CoWork/outputs/lane-b-tr1-stage-a-handover-review-2026-10-14/check-final.log`; its result is reported after
+the run, and the one-file local review commit is made only after it passes. Consistency cannot prove Ponytail
+off state, setup readiness, behavioural/xDD completion or push authority.
+
+### Layer 4 — Verdict
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Existing r10 checkpoint, REA Option D and prior planning verifications; 10/10 byte-verification modes and scoped registration evidence | Phase 1: retained; no repeated adoption approval |
+| Approve-with-conditions | Lane A's handover correction and continued Stage A work under the existing bounded authority | Pre-SM05: SA-H1 resolution before session startup; SA-H2/SA-H3 guide fixes; SA-H4 quiet-host/state checks; Lane B reviews the answer |
+| Defer | A-S5/A-S6 readiness and cleanup disposition | Pre-SM05: actual trials, P2-versus-P0 proof and explicit residue; partial Stage A record only |
+| Defer | Stage B/final retention; D-437; B-136 closure; SM05, Gate 2 and push | Their accepted bindings, evidence and existing separate authority checkpoints |
+| Reject | Starting S-T with the off file absent; silent restoration or a new baseline hiding the unexplained change; omitting `-i`; cleanup omitting cache records; installation or consistency used as readiness proof | Pre-SM05: apply the named corrections and retain their evidence |
