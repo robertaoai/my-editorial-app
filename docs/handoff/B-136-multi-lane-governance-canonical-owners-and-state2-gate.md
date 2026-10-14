@@ -10202,3 +10202,50 @@ Independent evidence in `C:/CoWork/outputs/lane-b-s2p-review-2026-10-14/`:
 | **Approve-with-conditions** | Continued correction drafting and the S2 planning unit | Phase 1 / pre-SM05: answer remaining PST-R1.a–c/PST-R2 items; Lane B reviews the complete policy and bound candidate evidence |
 | **Defer** | S2 execution choice; S3 intervention; S-T and readiness; Stage B, D-437, parent closure, SM05, Gate 2 and push | Their concrete evidence and authority checkpoints |
 | **Reject** | "All gaps closed"; any official listing change; unnamed tree roots; context omission as absence; missing-copy failure erased by a new P1d | Phase 1 / pre-SM05: repair the packet before execution selection |
+
+---
+
+## Lane A — receipt of `4db4507`; Judge direction: stop S2 drafting; scope-change card r1 (isolated unit config directory), 2026-10-14
+
+### What happened
+
+**Receipt.** Lane A receives Lane B's `4db4507`: the 52-entry candidate, full-copy retention and "S3 effect unknown" are
+accepted as planning improvements; S2 packet r1 is returned (identity/field policy, tree allowlist, observer contract,
+legacy-residual ledger, order). Lane B's measurement stands: D5 copy → later snapshot = 1 listing added, 28 changed, 13 outside
+the candidate allowlist. **Lane C:** no new Lane C evidence.
+
+**Judge direction (in conversation, 2026-10-14).** Lane A asked whether to continue S2 drafting, choose S1, or draft a
+scope-change card, because the measured churn makes a narrowed S2 likely to stop across S-T. The Judge answered:
+**"Draft scope-change card (Recommended)"**. S2 drafting therefore stops; the returned S2 gaps stay open and are not answered.
+S1 is not selected. The C-D2b → P1d stop stays.
+
+**Card.** `C:/CoWork/outputs/lane-a-iso-2026-10-14/SCOPE-CARD-ISOLATED-CONFIG-r1.md`
+(`704d45fa3d183065bc09b85ae2babfeb3c8708ca1a1eb1fcefe4d367d0a0a688`); documentation source retained as
+`source-env-vars-docs-excerpt.txt` (`be7d34c555390da7f6ac3261c19f04309fbf2ba7f7e586f5915856d1076afd09`).
+
+| Card part | Content |
+|---|---|
+| Proposal I1 | Attempt 2 runs in a unit-owned config directory `D_C` = `<UNIT>/claude-config` via `CLAUDE_CONFIG_DIR` (documented to hold "all settings, session history, and plugins"); S-T is started by the person from a plain terminal; installs go into `D_C` from retained artifacts (no downloads), Ponytail at user scope of `D_C` (local scope would write the shared repository settings file) |
+| Effect on the stop | The client's marketplace refreshes then happen inside `D_C` (unit-internal, removed with it). Option B's strict bytes apply to the real `~/.claude` and `~/.claude.json`, which no default-directory session touches during the attempt (quiet host) |
+| Attempt 1 close | Remove attempt-1 host effects under the r10 4.4 ledger; record attempt 1 as stopped before S-T; keep its official-marketplace residuals recorded with their own disposition |
+| Unknowns U1–U5 | `.claude.json` relocation; credential location for a new directory (the person signs in; never in evidence); the documented child-process scrub of `CLAUDE_CONFIG_DIR` and whether Ponytail hooks then use the real `~/.claude`; official-marketplace auto-add inside `D_C`; reach of a `D_C` user-scope enable in this repository |
+| Contract change | Packet r11 (scope, two roots, T-P0, A-S4', A-S6 deletion of `D_C`), new manifest targets, two-root capture/comparator, controls, hand-over; each accepted by Lane B by hash |
+
+### What you need
+
+**Lane B:** review the card (scope, unknowns, attempt-1 close). **Judge:** after that review, the scope act in card §6.
+**Person:** end this session; S-T stays stopped.
+
+### What you did instead
+
+Read-only: Lane B's record; one official documentation page (environment variables), retained as an excerpt. No setting change,
+removal, install, sign-in, trial, fetch or push. `bun run check` before commit:
+`C:/CoWork/outputs/lane-a-iso-2026-10-14/check-precommit.log`. Graph: `lastAnalyzedHead` `b308d1c`, `stale: false`; only
+`docs/handoff/` paths changed since, so no sync is needed. This record changes B-136 only.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Lane B's planning acceptances; the Judge's direction to stop S2 drafting; the verified stop | Pre-SM05: carried forward |
+| Approve-with-conditions | Scope-change card r1 | Pre-SM05: Lane B review; U1–U5; then a Judge scope act |
+| Defer | Attempt-1 close; attempt 2; S-T; readiness; Stage B, SM05, Gate 2, push | Their checkpoints |
+| Reject | Further S2 rounds without a new direction; a new baseline; any install, removal or sign-in before the act | Pre-SM05: no action |
