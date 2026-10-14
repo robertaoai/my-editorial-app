@@ -12011,3 +12011,95 @@ Evidence and checks: `C:/CoWork/outputs/lane-b-speckit-flow-forward-2026-10-15/`
 | **Approve-with-conditions** | Root `specs/` packets for new MMF features, with separate `.specify/` controls | Phase 1: pinned artifact/owner/lifecycle map and Lane B review before creation/adoption |
 | **Defer** | Tool adoption/init; actual runtime evidence; construction and Gate 2 | Their existing later bounded acts and checks |
 | **Reject** | Every control placed in `specs/`; a second live authority; MMF/sprint equivalence inferred from a folder; old packets silently rewritten | Phase 1: use the explicit file and lineage contract |
+
+---
+
+## Lane B — Current receiver brief: Spec Kit serves Lane B's code workflow, 2026-10-15
+
+### Layer 0 — Handoff and executive result
+
+**Raised:** 2026-10-15 by Lane B. **Kind:** finding. **Phase:** 1 / pre-SM05.
+**Parent:** Open B-136 / BCP-1 / T5. **Blocks:** completion of this proposed file/ownership map only.
+**Evidence observed at:** 6c60e23410c0640b8013b9398607cfd40c373c5d. **Receiver:** Lane A; answer pending.
+
+**Request, made precise:** retain one repository for SM05. Treat root specs/ and .specify/ as the product
+implementation workflow used by Lane B. Link it to Lane A's governed intent. Separate use, maintenance and
+provisioning in one file map; preserve the transaction chain. This is design, not adoption or build authority.
+
+**Correction to my previous brief:** allocating the feature-packet work and all new roots to Lane A was too
+broad. Lane B must maintain the product feature packets with its code and tests. Lane A supplies accepted intent
+and provisions shared controls. Separate purposes require an explicit interface, not separate repositories.
+
+### Layer 1 — What happened: retained transaction chain
+
+| Record | Current disposition |
+|---|---|
+| Lane A 6d7f044 -> Lane B 340f70d | Keep r11 r6 design/receipt acceptance. BCP2-R1 raw-byte proof, BCP2-R2 named custody and the grading-link correction remain the bounded answer due |
+| Lane B 1cf821a | Keep source-scope versus host-effects distinction and Ripwire D-433 status. The two-repository SM05 proposal is withdrawn from current follow-up |
+| Lane B 6c60e23 | Keep one repository, Flow-Forward and per-MMF packets. Replace its blanket Lane A allocation with the map below |
+| Judge's present clarification -> this brief | Spec Kit serves Lane B's product build workflow. Lane A receives one combined answer request, not another receipt-only task |
+| B-136 and existing readiness work | Stay Open under their existing triggers. No new Lane C receipt or runtime proof is claimed |
+
+### Layer 2 — What you need: two linked artifact layers
+
+All paths below are relative to C:/robertaoai/my-editorial-app. New-root ownership is a proposal to record and
+classify before creation; current rules/checks have not changed.
+
+| Surface | Purpose | Producer / maintenance contract |
+|---|---|---|
+| docs/ governed sources, including docs/specs/ | Canonical intent, constraints, acceptance criteria and decisions | Lane A maintains the owning tier under D-29/D-36/D-58. It supplies the bounded source references to Lane B |
+| specs/<feature-id>/spec.md, plan.md, tasks.md and selected feature outputs | Lane B's change specification, implementation plan and work breakdown, aligned with code/test results | Propose Lane B as author/maintainer during authorized implementation work. A supplies intent; B records physical design and actual evidence. Independent review remains required |
+| .specify/memory/constitution.md | Product engineering constraints used by the coding workflow | B supplies implementation needs; A provisions the source-bound constraints under existing rule/control authority. No new policy may arise from a template. Any later delegation must name the exact file |
+| .specify/templates/, .specify/scripts/ and selected agent integration files | Shared machinery for Lane B's Spec Kit workflow | A pins, provisions and maintains the tool/control files under D-86; B consumes them and raises defects. Enumerate integration paths before approval |
+| app/, lib/, components/, supabase/, __tests__/ | Product implementation and tests | Existing Lane B ownership and frozen-file limits remain |
+| .github/workflows/ | Delivery and CI | Existing Lane C ownership remains; involve C only for affected workflow claims |
+
+The [upstream guide](https://github.github.io/spec-kit/guides/evolving-specs.html) distinguishes shared tool-file
+maintenance from feature/code alignment. Its Flow-Forward model preserves completed feature directories and
+uses new linked directories for new features or substantial follow-ups. The [adoption guide](https://github.github.io/spec-kit/guides/existing-projects.html)
+says initialization adds shared files and agent integrations; it does not infer specifications for existing code.
+These are tool facts, not authority to initialize this repository.
+
+**Forward link:** accepted intent revision + requirement/AC IDs + work order -> Lane B feature packet ->
+implementation and tests -> independent result at named revisions. The first proposed packet remains
+MMF-V1-CORE / V1-SM05; retain the unallocated feature ID and existing scope limits.
+**Return link:** a code defect returns to B; a dependency/control defect returns to A; a scope or AC change
+returns to the owning governed tier through a handoff. Stop the affected work until that decision. Do not change
+intent merely to make existing code pass. Within-scope design discoveries update the active packet with reasons.
+**Completion:** review the active packet and code together. Retain the completed packet at its accepted revision;
+a later substantial change uses a new linked packet. D-36's living docs/specs/ does not become frozen.
+
+### Layer 3 — Acceptance conditions and remaining gaps
+
+| Item | Accept when | Reject or keep Open when |
+|---|---|---|
+| Ownership | One row per produced file names user, writer, provisioner and independent reviewer; root specs/ is assigned to B through the future governed map/check change | A is assigned every spec because it is Markdown, or B is given unrestricted control-file writes because it uses the tool |
+| Source and return links | Each feature requirement/AC resolves to an accepted source; code/test results resolve back to the packet; conflicts have a named return route | A copied rule becomes competing authority, code facts become approved requirements, or a generator pass becomes acceptance |
+| Preservation | Pin the tool/integration, retain customized shared controls before refresh, and name old/new packet links | Forced refresh can overwrite governed rules; a completed packet is silently rewritten |
+| Remaining BCP-1 production map | Join existing F/P/T IDs; carry source, action, path, method, dependency, owner, reviewer, proof, state, next trigger and preservation | New roots obscure still-planned P13/P17-P21 outputs or duplicate the map |
+| Enforcement and graph | Assess lane-classifier and graph/drift coverage for both new roots before creation | Unmapped paths or a docs-only check are treated as proof of protection for specs/ and .specify/ |
+
+**Chief Editor requirement:** the present separation is clear; no new conceptual choice is needed. Lane A must
+return a concrete map and a bounded adoption/change proposal. No tool, root, role or gate is activated here.
+Ripwire remains unadopted under D-433; this correction does not reopen it. ECC/Ponytail/REA obligations stay as recorded.
+
+### Layer 4 — Lane A follow-up; what Lane B did instead
+
+1. Use this as the current receiver brief. Apply the three retained corrections from 340f70d once.
+2. Revise one BCP-1/T5 map using the allocation above, including exact Spec Kit integration effects and the
+   forward/return links. Keep shared-control provisioning distinct from B's feature-packet maintenance.
+3. Return one hash-bound Lane A answer in B-136 with the changed rows and acceptance evidence. Lane B reviews
+   this design answer. Later B-authored implementation artifacts need their own independent reviewer.
+4. For later adoption, identify the D-54 Register/Build Spec/Inventory and rule/check impacts, with unaffected
+   tiers stated. No install, initialization, new feature files, governed edits, build, gate or push is part of this task.
+
+Lane B queried the existing graph, read the governing sources and checked upstream guidance. Only this handoff
+is changed. Current handoff-only drift needs no graph sync; later new-root coverage must be assessed separately.
+Evidence/checks: C:/CoWork/outputs/lane-b-speckit-code-layer-2026-10-15/.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| **Approve** | Separate governed intent and code-aligned Spec Kit work in the same repository; corrected receiver brief | Phase 1: planning scope |
+| **Approve-with-conditions** | B-maintained feature packets and A-provisioned shared controls | Phase 1: exact file/owner/trace/preservation map, independent review and later governed allocation before creation |
+| **Defer** | Adoption, tool execution, construction, SM05/Gate 2 and push | Their existing bounded acts and evidence |
+| **Reject** | All new specs assigned to A; separation treated as disconnection; automatic synchronization or gate closure claims | Phase 1: retain the explicit source and return contract |
