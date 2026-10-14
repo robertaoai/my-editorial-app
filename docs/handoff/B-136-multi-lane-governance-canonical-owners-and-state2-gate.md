@@ -11418,3 +11418,143 @@ the package's exact Node check entry point. No setup or product test result is a
 | **Approve-with-conditions** | Complete preparation record | Phase 1: Lane A returns the file map and bounded corrections; Lane B reviews |
 | **Defer** | Candidate production, config disposition, G0–G4, final readiness, governed application, SM05 construction, Gate 2 and push | Existing later preparation/execution checkpoints; current scope is planning only |
 | **Reject** | Three duplicate intent authorities; absolute overwrite immunity; no-plan/no-files blanket claim; file or tool list treated as readiness | Phase 1: use the scoped evidence and production records above |
+
+---
+
+## Lane B — r11 r6 and BCP-1 file map: source correction, ownership and tool locations, 2026-10-15
+
+### Layer 0 — Request and handoff fields
+
+Review Lane A's r11 r6 and BCP-1 file-map draft. Keep accepted work closed. Correct the file map, connect the five
+named tools to the governed intent-to-implementation chain, and return one substantive Lane A answer. Planning only.
+
+**Raised:** 2026-10-15 by Lane B. **Kind:** finding. **Phase:** 1 / pre-SM05.
+**Parent:** Open B-136 / BCP-1 and TR-1/I1. **Blocks:** completion of this preparation record, not a new SM05 gate.
+**Evidence observed at:** `9820c6127d70470cf21ee5163c7eb456e7fca640`.
+Lane B raises/reviews; Lane A answers. This block does not write Lane A's receipt or change B-136's header.
+
+### Layer 1 — Executive disposition and transaction chain
+
+**The r11 source correction is supported. The file map is useful but not ready to close.** Its six self-review
+corrections are still present in the observed draft. The workflow row has the same ownership defect as the config
+row. The map also needs the requested tool locations and their output/consumer links. This is a bounded return of
+the current drafts; it does not reopen accepted r5 clauses, historical residual decisions or tool selection.
+
+| Transaction | Current meaning |
+|---|---|
+| `06107fc` BCP-1; `46c7417` TR-1; `b757873` Lane A receipt | Preparation matrix required; ECC, Ponytail and REA specifically required before SM05; the earlier chain was received |
+| r10 / `05ac2ba`; `d62d358` r11 r5 | Keep the accepted selection/design inputs and their limits; physical SM05 construction and I1 runtime proof are not complete |
+| `ef7fb9f` | One r11 source clause returned; existing receiver/grading-file obligations remain closed |
+| `9820c61` | One current BCP-1 production/preservation map requested; it joins trial preparation and construction-control drafting |
+| Present external r6 and map r1 | Drafts inspected directly. No new Lane A B-136 answer or final r6 grading record was located at this checkpoint |
+
+| Observed artifact | SHA-256 |
+|---|---|
+| `C:/CoWork/outputs/lane-a-r11-2026-10-15/R11-CONTRACT-PACKET-r6.md` | `d23aba422f1c1d8a2a38cc799884ab10ff1f1f7de0d8fd8d47b27851fd5fc7b3` |
+| `C:/CoWork/outputs/lane-a-bcp1-filemap-2026-10-15/BCP1-FILE-MAP-r1.md` | `c6b3fb659135e1fa9f3382a9c0891a9ba0b143a3124d04afbc9a1d8dc5fda407` |
+
+Lane B compared r5 with r6: the substantive delta is the source paragraph; other changes identify the revision,
+history and proposed grading record. The pinned runtime supports the named root overrides and project-key rule.
+Independent Windows normalization/hash calculation gives `d3c51d669585d6aef87eb4d1a5361911fc94c5ef13076b02456a3b5da071d1b3`
+for the bound native repository path, and `8b776715bca9cbbcbb953e63c3df3a44cbe9cf3f1410dccf734486c027fa0722` with a
+lower-case drive letter. This supports the planned wrong-key refusal; no hook or sentinel ran. In the receiver
+answer, call the shown `C:\robertaoai\my-editorial-app` a native backslash path, not a forward-slash path.
+The source condition can close when Lane A records the final object/hash and this scoped delta. Hook routing stays Open.
+
+### Layer 2 — What needs correction: one return, no duplicate findings
+
+| Existing concern | Supported gap and draft fix | Accept when |
+|---|---|---|
+| **BCP-1 naming and anchors** | Apply Lane A's self-findings: P11 and r11 §8 must name one handover artifact; P22 must say **phase P14b**. F9 must bind each file to its own source: sync-docs → D-54 / Inventory's D-80,D-94 row; check runner → C-14,D-70 and its Inventory row; rule-budget → D-324,D-337; guarded-rebuild → D-425,D-426. | Both drafts resolve to the same proposed handover path; phase and row IDs cannot be confused; each control has a supported anchor |
+| **BCP-1 ownership** | Split F11: `docs/CONFIG_LOG.md` is Lane A; `lib/config/*` is Lane B. Apply the same fix to F17: `.github/WORKFLOWS-SPEC.md` is Lane A; `.github/workflows/ci.yml` is Lane C. Update table B to match. For P13/P21, say Lane B supplies the physical contract/method proposal and Lane A records governed SPECS/work-order text. | Every path has one applying owner and a named reviewer; consumer or proposer is not mistaken for the file owner |
+| **BCP-1 preservation and proof** | Add preservation entries for P13, P15–P18, P20–P22. Separate external draft F14 from governed F3–F6. Split P12's control source and each run result into distinct output records. Keep failed results and bind the reviewed source. | Every production output joins to a preservation row by ID; no mixed governance status or omitted output |
+| **Frozen-source proof, self-finding 6** | Confirmed: source-sweep pins exactly PRD, Charter and `0001`. Its code checks existence and last-touch commit, not working-file bytes. Keep it, but use a direct comparison with the pinned Git blobs for any exact-byte claim. All three currently match those blobs. | The record distinguishes historical commit identity from byte equality; no new checker is required for this wording fix |
+| **BCP-1 live check count** | Replace F5/table B's fixed `19/19` requirement with “all applicable checks pass; record command, revision, exit and observed total.” The existing Inventory explicitly avoids a fixed count (G75/C-21). | A historical observed result is not promoted to a permanent acceptance count |
+| **Commit guard activation — new observed setup gap** | The tracked `.githooks/commit-msg` and its `scripts/lane-gate.mjs` entry point exist, but effective `core.hooksPath` lookup returns no value (exit 1) and `.git/hooks/commit-msg` is absent in this checkout. Add these files and the activation setting to F9's control map under D-88. Distinguish file presence from effective invocation; assign the persistent setup proposal to Lane A. | Before later ordinary commits rely on this guard, the approved setup names and verifies the effective hook route. This finding proves neither historical bypass nor another host's state. This one-file review commit explicitly selects `.githooks` for that invocation only |
+| **Tool/source/output locations** | Add the compact crosswalk in Layer 3 to this same map. Keep existing BCP-1 row IDs or explicit joins; do not start five new handoffs. | Source, project adapter/control, output, consumer, state, owner, proof and preservation are distinguishable |
+| **Receiver and grading record** | Record one Lane A answer after the drafts are final. If the answer claims invocation 6, bind the actual grading record, retained input and scoped fixes. The r6 record is currently referenced but absent. | Final files/hashes exist and are named in B-136; an interim draft is not called a committed answer or independently verified execution |
+
+The previous missing-receiver condition remains closed. This is the receipt owed for the new r6/map delta, not a
+new historical defect. No recovery of the two previously disclosed lost interim grading inputs is requested.
+
+### Layer 3 — File locations and the intent-to-implementation chain
+
+Use the existing chain: frozen Project PRD/Charter/schema constraints → Register decisions → `Modular_PRD` feature
+group → FN behavior → necessary SPECS technical decisions → issued work order and K-child → code/migration/test
+artifacts → measured evidence and independent disposition. A failure returns to the owning requirement/decision
+through this handoff. Tool output enters as a proposal or evidence; it does not silently amend an upstream source.
+
+`D-33`/`D-34` map spec labels to this hierarchy; `D-36` governs living specs and versioned tracking. Do not repeat
+the old error of treating a different filename as a missing tier. Conversely, a pathname does not prove that its
+required content exists. P13's physical contract and P17–P19's work-order/verification bindings still need content.
+Independent drafting can proceed while I1 is stopped. Propose the P17 location now in the existing work-order file;
+do not hold that location choice on a tool install. Any alternative file needs an explicit reason and return point.
+
+Path bases: `<REPO>` = `C:/robertaoai/my-editorial-app`; `<UNIT>` =
+`C:/CoWork/outputs/lane-a-tr1-setup-2026-10-14`; `<USER>` = `C:/Users/rober_24syk4j`.
+
+| Tool / status | Source or installation location | Project control and output location | Consumer, proof and draft fix |
+|---|---|---|---|
+| **Graphify — adopted route** | Resolved launcher `<USER>/AppData/Roaming/npm/graphify.ps1`; global guidance `<USER>/.gemini/config/skills/graphify/SKILL.md` | `<REPO>/.agents/workflows/graphify.md`, `.claude/skills/sync-docs/SKILL.md`, `scripts/graphify/guarded-rebuild.mjs`; tracked curated inputs `docs/graph-fragments/`; derived local state `.graphify/graph.json` and `branch.json` | Join F9. Lane A owns the governed route; Lane B reviews accepted candidate/receipt bindings. Graph nodes are a derived navigation aid, not the authoritative intent or a proven complete caller graph. Preserve fragments and guarded publication/health evidence; do not duplicate the global skill into another lane |
+| **Ripwire — not adopted, D-433** | Retained trial evidence `C:/CoWork/outputs/lane-a-u03-trial-2026-10-10/evidence/03-results.json`; no live tool is required by this outcome | `<REPO>/docs/v1/work-packets/SETUP-SPIKE-000/SV2-U03-code-navigation-evaluation.md` and Register D-433 record the existing-path outcome | Record **retained trial / no installation action**, not “missing setup file.” Existing code navigation remains the chosen path. A later concrete consumer failure uses the existing return trigger; keep history and cleanup evidence, do not reinstall to fill a map row |
+| **gstack — proposed advisory stage review** | The historical AGENTS reference is intent history, not proof of a native run. Current pin/source/install location is not bound in this map | Existing proposal: `C:/CoWork/outputs/lane-a-sm05-selection-draft-2026-10-13/SM05-SELECTION-DRAFT-r3.md` Part G and B-136 EXT / `e43a25e`. Propose one external retained source path and one advisory report path, each with a revision, before claiming it is ready | Report criterion → project anchor → finding/counterexample → remedy/owner → proof/limit. Feed the finding back to this hierarchy. Historical omission is not a retirement decision; a different review method is not an independent actor. No native execution or gstack-generated project artifact is proven |
+| **ECC — required TR-1 tool, readiness pending** | Retained bundle `<UNIT>/acquire/ecc-tr1/`; attempt-1 copy `<USER>/.claude/skills/ecc-tr1/` exists. Wrapper/input contract: `C:/CoWork/outputs/lane-a-r6d-2026-10-14/EXEC-MANIFEST-r10.json` and `recipe/ecc-tr1/.claude-plugin/plugin.json` | r11 proposes `<UNIT>/claude-config/skills/ecc-tr1/`; that target is absent, as expected before G2. Join F13/F15/P3; planned maps, captures and comparator bind actual copies/effects | Preserve the pinned selected bundle. Distinguish acquired source, host copy and future target. Adapt any selected method to project requirements and per-child proof; no new parallel ADR/task authority. Stage A presence is not Stage B consumer proof, loaded-state proof or SM05 readiness |
+| **GitHub Spec Kit — assessed here, no project adoption located** | Here “GitHub specs kit” means `github/spec-kit`. No `.specify/`, root `specs/` or adoption reference was found in the searched project corpus; this is not a global installation claim | Upstream uses `.specify/` controls, `.specify/memory/constitution.md`, selected integration files and feature `specs/<feature>/` artifacts. These are upstream conventions, **not approved destinations in this repository** | Keep distinct from the already mapped `spec-writing`/`specs-creator`. If proposed, first draft a pinned adapter/output map in the external planning packet: constitution → existing rules/Register; spec → FN requirements; plan → necessary SPECS; tasks → issued work order; tests/results → existing verification record. Evaluate read paths, generated writes and preservation before any init/install |
+
+Spec Kit's official [existing-project guide](https://github.github.io/spec-kit/guides/existing-projects.html)
+describes managed project files and integration-specific commands/skills; initialization does not infer the product's
+current behavior. Its [artifact-evolution guide](https://github.github.io/spec-kit/guides/evolving-specs.html) separates
+feature artifacts from infrastructure updates and describes `spec.md`, `plan.md` and `tasks.md`. These facts explain
+what needs mapping; they do not establish compatibility or adoption here. The current upstream documentation was
+read on 2026-10-15, not pinned as an executable dependency. A candidate proposal must name the revision it will assess.
+
+Preserve by class: tracked project controls use their owner and Git history; acquired vendor bytes use the bound
+manifest and retained source; generated graph/state use the scoped before/after and guarded route; external review
+reports retain their input hashes and limits. Credentials remain excluded before reads. These are additions to
+the existing preservation map, not a promise that every future writer is prevented.
+
+### Layer 4 — Lane A return and Chief Editor decisions, parent first
+
+1. Receive `ef7fb9f`, `9820c61` and this delta in one answer. Keep the earlier accepted chain closed.
+2. Keep the supported r6 source paragraph. Correct the map items in Layer 2, with row-ID continuity and a short delta.
+3. Add the five tool rows, using **observed**, **proposed**, **not adopted**, or **unbound** as appropriate. Resolve
+   output locations where drafting can decide them; give owner/trigger for the remaining physical-design choices.
+4. Preserve each input before editing. Finish only the grading evidence actually claimed. Return final packet/map/
+   grading hashes in B-136; Lane B reviews the bounded changes. Do not create another acknowledgement-only cycle.
+5. Continue independent C2–C6 planning. Candidate tools, config disposition, G0–G4, Stage B and SM05 retain their own
+   authority/evidence conditions. This request authorizes no build, sentinel, install, cleanup or governed edit.
+
+| Parent-first decision | Accept when | Reject / retain stop when | Follow-up phase |
+|---|---|---|---|
+| **B-136 preparation chain** | One current index links both I1 and construction-control work, with honest open children | A completed draft, tool list or source map closes B-136 | Phase 1: parent remains Open |
+| **r11 source-clause return** | Final hash and scoped source/delta are recorded by Lane A; r6 already supports the correction | The calculation or design is called live hook proof | Pre-SM05: bounded recording review; hook routing Open |
+| **BCP-1 map** | Ownership, preservation, names, proof scope and tool/output links above are complete | Known self-findings remain, or a global tool path stands in for a project control/output | Phase 1: Lane A corrected map, Lane B review |
+| **Tool choice / use** | Preserve D-433, the proposed advisory gstack role and the explicit ECC/Ponytail/REA requirement; any new adoption has its own reviewed impact and authority | All five tools are installed just because they appear in this request, or earlier mandatory TR-1 tools are called optional | Existing selection and later bounded setup checkpoints |
+| **Runtime / construction** | Reviewed tools, exact config disposition, Judge act, actual gate/consumer proof and issued work order satisfy their existing conditions | File existence, self-grade or consistency is promoted to readiness | Pre-SM05 → authorized construction; Gate 2 and push separate |
+
+Chief Editor: no fresh decision is needed to finish this same-scope drafting. `.codex/config.toml` still needs its
+accountable-owner evidence and bounded disposition before G0. It remains untracked and unchanged at `fd3c37f5…`.
+No new Lane C evidence was supplied: Lane C may review its workflow/host claims, but no agreement is inferred.
+The map must distinguish a specified pass condition from an observed pass. For example, source-sweep alone cannot
+prove working-byte equality, and a draft with no final receiver record cannot satisfy the receipt condition.
+
+### Layer 5 — Evidence, drift and verdict
+
+Independent review evidence: `C:/CoWork/outputs/lane-b-r11-r6-filemap-review-2026-10-15/review.json`, SHA-256
+`194e1184ef9f326050505f2b09c4f890237aedbc50165e4229a8962fea3cca2d`. The folder retains the observed r5, r6 and map
+bytes. It records source hashes, native path calculations, frozen-blob comparisons, scoped locations and graph/config
+metadata, plus the commit-hook activation observation. No vendor hook, trial or source-writing command was run.
+No secret values were retained. The persistent hook configuration is unchanged; the local handoff commit uses
+`git -c core.hooksPath=.githooks commit` so the tracked D-88 hook runs for this commit.
+
+Graph query and source review agree on the governing chain. Graph metadata remains analysed at `b308d1c`, not stale;
+tracked changes since are B-050/B-136 only. No graph sync is needed for this handoff. Any later governed application
+uses its own D-54/guarded cycle. Final handoff checks are retained in `check-final.log`; a Bun pre-load failure, if any,
+is retained separately before using the package's exact Node check entry point. No feature/runtime test credit follows.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| **Approve** | r6 source correction at design scope; Lane A's six self-findings; retained decisions and transaction chain | Phase 1 / pre-SM05: preserve accepted scope and record the new delta |
+| **Approve-with-conditions** | Complete BCP-1/r11 preparation answer | Phase 1: fix Layer 2, add Layer 3 locations, record final artifacts/hashes, return to Lane B |
+| **Defer** | Candidate production, config disposition, actual hook routing/gates, new tool adoption, Stage B, SM05, Gate 2 and push | Existing later authority and evidence checkpoints |
+| **Reject** | Mixed applying owners; omitted preservation rows; fixed check totals as permanent criteria; missing tool-folder labels treated as missing intent or automatic adoption | Phase 1: use the file/source/consumer map and scoped evidence above |
