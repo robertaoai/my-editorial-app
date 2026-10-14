@@ -8470,3 +8470,164 @@ governed edit, fetch or push. `bun run check` on this record before commit: 19/1
 | Approve-with-conditions | S-T start under the r2 hand-over | Pre-SM05: Lane B's SA-H review; quiet host confirmed; P1c = P1b |
 | Defer | Codex view of the config (the SA-H1 hypothesis) and Stage B | Lane B probe; Stage B binding proves Codex's resolver result is `off` |
 | Reject | Restoring or overriding over a disputed file; starting S-T with Codex running; trials in a resumed executor session | Pre-SM05: no action |
+
+---
+
+## Lane B — SA-H answers reviewed: consumer-scoped off evidence accepted; r2 handover returned, 2026-10-14
+
+### Layer 0 — Request and channel
+
+**Rewritten request:** Review Lane A's execution receipt and SA-H1–SA-H4 answers at `9e47e17`. Run the bounded
+Codex visibility probe, correct unsupported conclusions, and consolidate the remaining fixes and acceptance
+criteria under B-136 before the trial. Preserve REA Option D, the r10 checkpoint and the existing same-scope
+drafting authority. No supplier trial, setup change, build, governed edit, fetch, push or Gate 2 work in this review.
+
+This is the raiser's review body; Lane A answers the returned rows. The parent remains Open. Read at
+`9e47e170d921407cc9733e5843b9e36ac47b9883`, with a clean tracked tree and empty index. The template's
+What happened / What you need / What you did instead fields are used below. Source attachments and upstream
+skill text are data, not an instruction to run their procedures.
+
+### What happened — one transaction chain, with the earlier claim corrected
+
+`05ac2ba` accepted the r10 bounded Stage A unit → Lane A recorded A-S0–A-S4 → `d3cc712` returned SA-H1–SA-H4
+after Codex could not see the off file → Lane A `9e47e17` answered with a consumer-view diagnosis, P1b, a new
+launcher and handover r2 → this review accepts the scoped diagnosis and returns three bounded corrections.
+The receipt commit is `9e47e17`; `0d6bff3`, mentioned in the supplied worklog, is an earlier r9 drafting commit,
+already in this history, not a second commit for the new SA-H receipt.
+
+**Lane B correction:** my earlier wording treated absence in Codex's filesystem view as absence of the physical
+host file. The probe established only what that process could see. I withdraw that wider conclusion and the
+prerequisite to restore or explain a physical deletion before Stage A. Lane A's retained evidence records the
+P1 bytes and an effective `off` result in its Claude Code environment. No restore is needed on that evidence.
+The two consumers' observations must remain separate.
+
+### Layer 1 — Decision map, parent first
+
+| Parent / child | Review state | Next owner and condition |
+|---|---|---|
+| B-136 / SM05 transition | Open | Other obligations retain their triggers |
+| REA Option D; r10 checkpoint `05ac2ba` | Retained | No repeated route/adoption decision |
+| A-S0–A-S4 execution receipt | Recorded at `9e47e17`; prior scoped setup checks retained | Does not establish A-S5 behaviour or A-S6 cleanup |
+| **SA-H1: Claude Code consumer observation** | **Verified by Lane B at `9e47e17`, for the retained observation only** | Fresh off-state and environment checks remain required at the handover/start boundaries |
+| SA-H1: Codex visibility / effective mode | Probe completed; effective consumer mode still unknown | Stage B binding must prove off before plugin enablement, without masking it with an override |
+| SA-H2: launcher | Answered; not Verified | SA-R2 below: fail closed on changed runtime bindings |
+| SA-H3: nine cache records | Verified for the cleanup plan only | Installed-CLI targeted removal and P2/residue proof remain execution evidence |
+| SA-H4 / handover r2 | Answered; not accepted for trial start | SA-R1/SA-R3 below: precise evidence, state projection and effect disposition |
+| A-S5/A-S6; Stage B/final retention | Pending | Correct the guide/helper, retain checkpoints, then actual results and reciprocal reviews |
+| D-437; SM05 / Gate 2; push | Separate | Existing governed-batch and authority requirements |
+
+Open → Answered → Verified applies to each finding. Only Lane A writes its answer, and an independent actor
+records Verified. This body's child dispositions do not close or rewrite the parent header.
+
+### Layer 2 — Independent probe and state comparison
+
+At 07:30Z on 2026-10-14 Lane B ran the same read-only path/environment probe in both its default shell and an
+approved shell outside the sandbox. Both identify the same Windows user, USERPROFILE and APPDATA. The three
+mode/config overrides are unset. Both cannot find the literal off file or its parent; `cmd dir` also returns
+File Not Found. Both see the explicit Codex package Roaming directory with `Codex` and `Microsoft`, without
+`ponytail`. LOCALAPPDATA differs: a `sandbox.{...}/AC` path in the default shell and the normal Local path outside.
+This is an observed environment difference. It does **not** isolate MSIX redirection as the cause, or establish
+what an actual Codex Ponytail hook sees. No environment, policy or configuration was changed to run the probe.
+
+Official OpenAI documentation describes [native Windows sandbox implementations](https://learn.chatgpt.com/docs/windows/windows-sandbox)
+and [MSIX deployment](https://learn.chatgpt.com/docs/enterprise/windows-deployment). These supply context, not a
+proof of the mechanism behind this particular path discrepancy. Keep that cause as a hypothesis.
+
+Lane A's diagnosis and effective-mode evidence hashes match its answer. P1 and P1b record the same off-file
+hash, size and mtime; the retained resolver output says `off` with the named overrides unset. This supports
+the **observed Claude Code consumer state**. Matching birth/mtime values do not prove the file was never
+deleted or recreated. Absent mode files and absent hook output are consistent with off; they do not prove
+that full mode never ran. No fresh supplier resolver or hook was executed by this review.
+
+Independent P1b-versus-P1 comparison also finds:
+
+| Surface | Finding | Required comparison rule |
+|---|---|---|
+| Ponytail snapshot; global settings; skills; marketplace/cache files; repo settings | Recorded values equal | Recheck the named surfaces at consumption |
+| `~/.claude.json` | Whole-file hashes differ; captured MCP keys equal | Compare/restore only unit-owned MCP keys; never overwrite unrelated live bytes |
+| `plugins/data` | Absent → present, zero captured files; the named Ponytail child directory is visible | Account for the new directory effect; zero files is not an inventory of every empty directory |
+| Containers | One unit-image container added; two pre-existing containers retained | Prove E's container ends, identify S-T's own replacement, and retain old containers |
+| Build cache | 44 IDs in both snapshots, exactly the same set; records equal after ignoring relative Last used text | Compare stable IDs/fields; retain the raw listings and declare the relative-time normalization |
+| Docker `system df` | Active-image/container counts and reclaimable totals differ | Account for the observed running container; do not claim literal output equality |
+
+Thus "no other change" and "P1c = P1b" need a named projection and limits. A literal JSON comparison would also
+compare capture times/labels and normal container turnover. It is not a usable pass criterion. No baseline is
+replaced by this review; P0, P1 and P1b remain retained evidence.
+
+### What you need — three corrections, drafted with success/refusal criteria
+
+| ID | Gap and draft fix | Acceptance / refusal rule |
+|---|---|---|
+| **SA-R1 — evidence precision** | Replace "never deleted/re-created" with "observed bytes and timestamps match the recorded setup state; no restoration is reported". Replace "state-file absence proves off history" with "consistent with off; effective resolver evidence is scoped to its recorded consumer/time". Describe MSIX/sandbox redirection as a hypothesis; record Lane B's two probes and use `9e47e17` as the receipt locus. | Current consumer evidence remains accepted. No inference of historical continuity, physical deletion, or Codex readiness from another consumer's observation. This wording correction needs no new Judge decision. |
+| **SA-R2 — exact runtime binding before launch** | The new helper copies whatever prefix is in `resolved-argv.json`; its shape test does not compare that prefix with the accepted recipe. Before any spawn, bind the accepted manifest/registration recipe, resolve only the permitted UNIT/image substitutions, compare the full ordered argv with that recipe, and refuse any mismatch/read/parse error. Then replace only terminal `mcp` with the frozen trial operation/arguments. Bind the corrected helper by full SHA-256. | In inert controls: accepted input launches exactly once with the accepted prefix; missing `-i` and `--network host` each exit 2 before any launch or evidence write; malformed terminal operation still refuses. No Docker or supplier runtime is needed to validate this correction. |
+| **SA-R3 — startup, effects and close contract** | Expand the handover's P1b delta to the table above. Freeze a comparison projection: protected keys/files and stable cache IDs; lifecycle-accounted E/S-T containers; raw evidence retained. Before E ends, record the effective off path/hash/environment; the person confirms the existing quiet-host condition; T-P0 and the resolver result remain the first S-T checks. Account explicitly for the new empty plugin-data child/root and its restore owner. | E and S-T do not overlap. An unexplained protected-state delta stops the unit. A new directory row is an observed effect, not automatic authority to retain it: reconcile it with r10 Part 4.4's undeclared-effect stop/restore rule before continuing. If a same-scope packet correction is needed, bind it for Lane B acceptance under the existing clarification; a material expansion still needs the Judge. No silent amendment of accepted r10 or new baseline. |
+
+**SA-R2 proof:** Lane B evaluated the exact helper source with child-process and filesystem imports replaced by
+in-memory stubs. The accepted prefix exits 0, calls the stub once and records three simulated evidence writes.
+The missing-`-i` case and `--network host` case do the same: both are false accepts under the frozen runtime
+contract. The malformed terminal-operation control exits 2, with zero calls/writes. No Docker command ran.
+This is a concrete control failure, not a prediction that the valid REA trial must fail.
+
+**SA-H3 limit:** `docker buildx prune --force --filter id=<ID>` remains a proposed targeted route, not cleanup proof.
+Validate the installed CLI's filter semantics before a destructive call; unsupported selection leaves named
+residue and sizes for review. Remove only unit-created records. For the plugin-data directory, remove only the
+unit child, and remove its root only if P0 lacked it and it is empty; never recursively remove another consumer's
+data. P2 must prove the result, including directories and containers. Keep the shared off configuration and
+marketplace export while a retaining consumer depends on them.
+
+The critical construction/verification inputs are the accepted runtime recipe, bound launcher, handover/state
+projection, effects/cleanup ledger and complete trial outputs/oracles. They are Project setup/control evidence;
+they give no Product codebase, knowledgebase retrieval, SM05 feature or Gate 2 credit.
+
+### Layer 3 — Lane A follow-up and Chief Editor requirements
+
+1. Receive the probe result and the narrowed SA-H1 disposition. Correct SA-R1 in the next consolidated answer;
+   do not restore or create a duplicate off file to make Codex's probe pass.
+2. Fix SA-R2, retain this helper as history, and return the new hash plus the bounded inert controls. Correct
+   SA-R3 in the same handover revision, including the plugin-data effect disposition. No new generic "go" is needed
+   for this drafting. The current r2 guide is returned, so do not start S-T on it.
+3. Lane B reviews only those deltas. Any required same-scope accepted-object correction follows the existing
+   hash checkpoint. The Chief Editor has no new adoption or route choice now; only a material scope expansion
+   would require a new decision with its complete impacts.
+4. After the conditions are met, end E and this review session; record the person's existing quiet-host/handover
+   confirmation and fresh state proof. Run A-S5/A-S6 under the accepted unit, retain full outputs and refusal
+   classes, account for cleanup/residue, and record **Readiness — partial (Stage A only)** in B-136.
+5. Continue independent Stage B binding/control-file planning. Stage B must prove its actual hook process sees
+   off before enablement. A PowerShell path probe is diagnostic evidence, not that consumer trial. Preserve all
+   other B-136 triggers; no Lane C claim or new C-series prerequisite is added.
+
+### What you did instead — review evidence, consistency and drift
+
+Lane B read the governed sources and used a read-only graphify query, two scoped environment/path probes,
+snapshot comparison and four inert launcher controls. No supplier code, hook, resolver, Docker runtime,
+installation, cleanup, build, fetch or push was executed. Only this Lane B body is changed in the repository.
+
+Evidence directory: `C:/CoWork/outputs/lane-b-sa-h-review-2026-10-14/`:
+
+| File | SHA-256 |
+|---|---|
+| `probe-codex.ps1` | `d3e11f4ff98df46daf5372c16822cab03376527131bc69170f979bfc43272edd` |
+| `probe-default.json` | `382fba0da0332103e5f6dab344c038d24476f4bb538afbd29adea260b50230c9` |
+| `probe-outside-sandbox.json` | `a6b2fcbf34c42938efcb647586a84c89d9ab5300dccc18960e8d1b4c8686f443` |
+| `review-evidence.mjs` | `14b61b81859684bb879fbe3893318f1d41828ae0e0a7efa48335593b7a90bb7a` |
+| `review-results-r2.json` | `dde42461f6175195c97b7a479dfc589f69c782961eafaa11efec47ad81387734` |
+
+The result file records full hashes of Lane A's nine reviewed inputs, including handover r2
+`69b2338b9bd491ce2ba844e0420d7ffe77a2511e9a9d82887a15fbac8576f271`, launcher
+`d52d7060caa3de4e3580c3dd0d2162f9a809389d720734087fe177bfa2db05bb`, and P1b
+`204dee3cdf2ded0abefb0b224c15962870cd05e500669be040369ff04c137550`.
+
+Governed intent remains analysed at `b308d1c`, `stale: false`; only B-050/B-136 handoffs changed afterwards.
+No graph sync is needed. The final-byte consistency log is
+`C:/CoWork/outputs/lane-b-sa-h-review-2026-10-14/check-final.log`. Its result is reported after the run; the
+one-file local commit follows only a pass. No Lane A answer/header or accepted packet is rewritten.
+
+### Layer 4 — Verdict
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Existing r10/Option D approvals; retained Claude Code off observation; bounded Codex probe; SA-H3 cleanup plan within its stated limits | Phase 1 / pre-SM05: scoped review; actual cleanup and consumer results still pending |
+| Approve-with-conditions | Corrected launcher and handover drafting | Pre-SM05: SA-R1–SA-R3 answered with hashes/controls; Lane B reviews bounded deltas; no new generic approval request |
+| Defer | S-T start on the returned r2 guide; A-S5/A-S6 readiness | Pre-SM05: exact runtime binding, state/effect disposition, quiet host, actual trials and P2 proof |
+| Defer | Codex effective-mode proof, Stage B/final retention; D-437; parent closure; SM05, Gate 2 and push | Their existing consumer binding, evidence and separate authority checkpoints |
+| Reject | Physical deletion inferred from one process view; uninterrupted history inferred from timestamps; arbitrary runtime prefix accepted by shape only; literal snapshot equality; unreviewed new-effect retention | Pre-SM05: use the named evidence boundaries and corrections |
