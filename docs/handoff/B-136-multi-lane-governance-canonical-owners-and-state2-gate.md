@@ -7540,3 +7540,68 @@ No container failure is proved. The deficient equivalence test is a proof gap: e
 | Defer | Image preparation, installation/trials and readiness acceptance | Pre-SM05 setup unit: exact effects, scoped execution authority, actual task/consumer and cleanup evidence |
 | Defer | Canonical application, SM05 entry and construction | Phase 1 governed application/entry conditions, then separately authorized Phase 2 construction |
 | Reject | D treated as already supported/tested; repeated route/adoption questions; filenames treated as byte equivalence; product construction used to prove its own pre-entry prerequisite | Phase 1: correct before readiness acceptance or execution |
+
+## Lane A — SM05 transition packet r7: r6 review received; route D and setup authority recorded; R6-D1–D4 answered, 2026-10-14
+
+### What happened
+
+**Judge (verbatim, in chat, 2026-10-14):** "Judge Approved: REA route D; authorize the setup unit"
+
+**Judge clarifications (in chat, 2026-10-14).** Lane A asked three questions. The Judge chose these option labels:
+
+1. The reading of "authorize the setup unit" → **"After Lane B accepts r7 (Recommended)"**. The authority is for the
+   setup unit at the r7 revision that Lane B accepts. The checkpoint is Lane B's acceptance commit. No new Judge step
+   comes before the trials. A material change after acceptance needs new Judge approval (`D-183` rule 7).
+2. Register timing → **"With next governed batch (Recommended)"**. The unit runs under `D-183` rule 2. `D-437` is
+   recorded with the next governed batch (r7 Part 7).
+3. Readiness credit → **"Load + planning only (Recommended)"**. Before SM05 entry, the three tools are credited for
+   load and planning output only. Coding use stays `unproven`. It is not passed and it is not an entry condition.
+
+**Authority status:** Judge approval received in the current conversation for executing the TR-1 setup unit at the r7
+revision that Lane B accepts, pending durable registration (`D-183` rule 2). It is not readiness, push authority or
+SM05 entry.
+
+**Receipt.** Lane A receives Lane B's `bdcb82b`: the r6 review, the Judge's "Judge Approved: REA route Option D", and
+R6-D1–D4. The route question is removed: D is selected. The accepted r6 corrections are retained. **Lane C:** no new
+Lane C evidence was supplied after `5c094bc`. Nothing new is recorded.
+
+**Current packet:** `C:/CoWork/outputs/lane-a-sm05-selection-draft-2026-10-13/SM05-SELECTION-DRAFT-r7.md`, SHA-256
+`56b889d109746a74a315aa5735a703a44605852b08906e5ed8d960984516ef6c`. Evidence: `C:/CoWork/outputs/lane-a-r6d-2026-10-14/`
+(recipe, lockfile `19695208…`, two seeded fixtures, input manifest `7380e6fc…`, upstream facts `8cc6140d…`). r6
+`7dcee8d6…` stays as history.
+
+| ID | Answer (r7 part) |
+|---|---|
+| R6-D1 | Part 2. The image recipe, runtime, 142-package lockfile (all registry, all integrity-pinned, no install scripts), runtime flags, corpus, transport, writes and budgets are frozen. Claims are separate: integrity (bytes = registry SRI), provenance (the SLSA statement names `morluto/rea` `0356f76`; `npm audit signatures` verifies it in the build), behaviour (trials only). **Source equivalence is not claimed.** r6's file-list test is withdrawn |
+| R6-D2 | Part 3. Credit = load + planning output (clarification 3). Five result classes. Known-defect fixtures and valid controls for T-E2 and T-P1. Each trial names its consumer, input hash, exact prompt or argv, oracle, pass class and evidence path. T-E4/T-E5 use `scripts/checks/rule-budget.mjs`, not the SM05 DoD. T-R3 is a missing-provider control |
+| R6-D3 | Part 4. Declared versus enabled per consumer; Ponytail has three events for both consumers; a pre-state capture with Ponytail's shared flag, per-project file, statusline files and env overrides; a concurrency condition; an effects ledger with a restore method and proof for each write; key-level restore for `~/.claude.json` |
+| R6-D4 | Part 5. An option-neutral constraint matrix (M1 a feasible lead only; M2 reassessed; M3 conditional). **`SM05-IN1`–`IN4` each require their own artifact and failing-first evidence; the characterization allowance does not apply to them.** K1–K6 with prerequisites, path class, evidence destination, method rule and verifier. Proposed D-30/D-54 effects |
+
+**Found while answering, for Lane B review:** (1) ECC's `security-review` has the same name as Claude Code's built-in
+`security-review`. ECC therefore loads as the skills-dir plugin `ecc-tr1`, with namespaced skills and upstream bytes
+unchanged. (2) REA 3.2.1 has no MCP tool for `import-reference-source`, so T-R2 is CLI-only. (3) The Node archive is
+the `.tar.gz` from the same official list, because `xz` is not verified in the base image.
+
+### What you need
+
+**Lane B:** a Level 1 review of r7. An acceptance is a Lane B commit in B-136 that names r7's SHA-256. At that commit
+the Judge's setup authority attaches, and Lane A runs S0–S6 with no new Judge step. A finding returns as r8 instead.
+**Lane B Codex column:** after Lane A's S6, in Lane B's own session (r7 Part 3.3). **Next governed batch:** `D-437`
+(r7 Part 7).
+
+### What you did instead
+
+Read-only reads of upstream files at pinned commits, of the Claude Code `--help` text, and of host config key names.
+One metadata-only npm lockfile resolution in a session scratch folder (own cache, `--package-lock-only
+--ignore-scripts`; cache removed). No installation, image pull or build, trial, governed edit, fetch or push.
+`bun run check` at `bdcb82b`: 19/19, log `C:/CoWork/outputs/lane-a-r6d-2026-10-14/01-check-at-bdcb82b.log` (SHA-256
+`08dbcc735b832131eb97d3105e8bc7b1abc54117aee3f2660bd30bf9ed60806e`). Graph: `lastAnalyzedHead` `b308d1c`,
+`stale: false`. The commits since then change only B-050 and B-136 (excluded paths), and `docs-drift` passes, so no sync
+is needed. This record changes B-136 only.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Route D and the three Judge clarifications, recorded; accepted r6 corrections retained | Phase 1: carry forward; no new route or adoption question |
+| Approve-with-conditions | r7 (R6-D1–D4 answers) and the setup-unit authority | Pre-SM05: Lane B accepts r7 by SHA-256, then setup unit S0–S6 |
+| Defer | Readiness acceptance; `D-437`; SM05 entry, work order and construction | Pre-SM05: after the readiness record and Lane B review. `D-437` with the next governed batch. Phase 2 separately |
+| Reject | Executing r6 as written; a file-list source-equivalence claim; an un-namespaced ECC `security-review`; the SM05 DoD as a trial fixture; coding use called passed | Phase 1: no action |
