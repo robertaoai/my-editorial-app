@@ -11558,3 +11558,69 @@ is retained separately before using the package's exact Node check entry point. 
 | **Approve-with-conditions** | Complete BCP-1/r11 preparation answer | Phase 1: fix Layer 2, add Layer 3 locations, record final artifacts/hashes, return to Lane B |
 | **Defer** | Candidate production, config disposition, actual hook routing/gates, new tool adoption, Stage B, SM05, Gate 2 and push | Existing later authority and evidence checkpoints |
 | **Reject** | Mixed applying owners; omitted preservation rows; fixed check totals as permanent criteria; missing tool-folder labels treated as missing intent or automatic adoption | Phase 1: use the file/source/consumer map and scoped evidence above |
+
+---
+
+## Lane A — r11 r6 final binding and BCP-1 file map r2: answers Lane B `ef7fb9f`, `9820c61` and `38b8ef2`, 2026-10-15
+
+### What happened
+
+**Receipt.** Lane A receives `ef7fb9f` (r5 design accepted except one source clause), `9820c61` (one current BCP-1 file map) and
+`38b8ef2` (r6 correction supported; map corrections; commit-hook activation gap; five tool routes) in this one answer. The
+accepted r5 clauses, the closed receiver and grading-file obligations, and the earlier `b757873` receipt stay closed.
+**Lane C:** no new Lane C evidence.
+
+| Artifact | SHA-256 | Status |
+|---|---|---|
+| `C:/CoWork/outputs/lane-a-r11-2026-10-15/R11-CONTRACT-PACKET-r6.md` | `d23aba422f1c1d8a2a38cc799884ab10ff1f1f7de0d8fd8d47b27851fd5fc7b3` | final; unchanged since Lane B observed it |
+| `C:/CoWork/outputs/lane-a-bcp1-filemap-2026-10-15/BCP1-FILE-MAP-r2.md` | `3d4d6100f5974f42dbb914adf69ee5a577d7a13f11a2d8cf3c025c498e86befb` | final; r1 `c6b3fb65…` kept |
+| `C:/CoWork/outputs/lane-a-r11-2026-10-15/GRADING-RECORD-r6.md` | `db353693f6fa8d9e99775cad5fb7b14e8f01c63ee41905a098e701f3e619f617` | invocations 6–7; every graded input retained |
+
+**r6 scoped delta (source clause).** The only substantive change from r5 is the §3.1 source paragraph: activate L33–35; runtime
+L35 `getClaudeDir()` and **L36–42 host overrides**; L51 trimmed `CLAUDE_PROJECT_DIR`; L54–57 project path with the hash at L56;
+config L71–73. Expected `<H>` comes from the bound `<REPO>`. For the native backslash path `C:\robertaoai\my-editorial-app`
+(upper-case drive letter) the key is `d3c51d669585d6aef87eb4d1a5361911fc94c5ef13076b02456a3b5da071d1b3`; a lower-case drive letter
+gives `8b776715…`, and the sentinel test then stops. No hook or sentinel ran. Hook routing stays **Open**.
+
+**Map r2 changes (from r1).** F9 split into F9a–F9d, each with its own anchor (sync-docs `D-54`/`D-80`,`D-94`; check runner
+`C-14`,`D-70`; rule-budget `D-324`,`D-337`; guarded rebuild `D-425`,`D-426`). F11 split by lane (`CONFIG_LOG.md` Lane A;
+`lib/config/*` Lane B) and F17 split (`WORKFLOWS-SPEC.md` Lane A; `ci.yml` Lane C). P11 = `<UNIT>/state/HANDOVER-E-to-S-T-r8.md`
+(matches r6 §8 "Hand-over r8"). P22 says "phase P14b". P12 split into control source and per-run results (failures kept). P13
+and P21: Lane B proposes; Lane A records governed text. P17 location proposed: a new section "SM05 State-2 work order
+(`D-242`)" in `docs/LANE-B-WORK-ORDER.md`. Fixed "19/19" replaced by "all applicable checks pass; record command, revision,
+exit code and observed total". The frozen-file proof is a blob comparison (`git hash-object` equals the pinned blob; Lane A
+observed equality for PRD, Charter and `0001` at `38b8ef2`); source-sweep proves existence and last-touch commit only. F14 is
+an external draft, apart from governed rows. Every ID has a preservation row. Tool crosswalk T1–T5: Graphify (observed,
+adopted route), Ripwire (not adopted, `D-433`, retained evidence only), gstack (proposed advisory; unbound), ECC (required;
+pinned bundle, host copy and planned target distinct), GitHub Spec Kit (not adopted; unbound; upstream paths not approved
+destinations).
+
+**New setup gap F9e (commit hook).** `.githooks/commit-msg` and `scripts/lane-gate.mjs` exist (`D-88`); `git config --get
+core.hooksPath` exits 1 and `.git/hooks/commit-msg` is absent, so the gate does not run on an ordinary commit in this checkout.
+**Lane A disclosure:** Lane A's earlier B-136 commits in this chain ran without this gate (not bypassed with `--no-verify`; the
+hook was not active). This commit uses `git -c core.hooksPath=.githooks commit` (per-command; no setting changed). The
+persistent activation (`bun run hooks:install`) is a proposed setup step that needs approval; it is not applied.
+
+**Unresolved (truthful):** hook routing (Open); `.codex/config.toml` (`fd3c37f5…`, untracked, unchanged) owner statement and
+bounded disposition before G0; F9e persistent activation (approval); P13 physical contract (Lane B); P17 content; every
+planned P-row; gstack and Spec Kit bindings (unbound).
+
+### What you need
+
+**Lane B:** review r6's recorded binding, map r2 and grading record r6. **Judge:** approve or decline the persistent
+commit-hook activation (`core.hooksPath` = `.githooks`, via `bun run hooks:install`); and the `.codex/config.toml` owner
+evidence before G0. No gate decision now.
+
+### What you did instead
+
+Read-only: Lane B's records, Inventory anchors, frozen-blob comparison, tool-path existence, the hook setting (read only).
+Two grading-skill invocations. No tool built, no sentinel, install, setting change, governed edit, fetch or push.
+`bun run check` before commit: `C:/CoWork/outputs/lane-a-bcp1-filemap-2026-10-15/check-precommit.log`. Graph: analysed at
+`b308d1c`, `stale: false`; only `docs/handoff/` paths changed since, so no sync is needed. This record changes B-136 only.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Lane B's three records; r6 source correction (supported); retained history | Phase 1 / pre-SM05: carried forward |
+| Approve-with-conditions | Map r2 and grading record r6 | Phase 1: Lane B review |
+| Defer | Hook activation (Judge); `.codex/config.toml`; planned outputs; G0–G4; readiness; SM05, Gate 2, push | Their checkpoints |
+| Reject | File presence, consistency or self-grade as readiness; mixed applying owners; fixed check totals as permanent criteria | All phases |
