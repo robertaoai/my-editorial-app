@@ -10249,3 +10249,127 @@ removal, install, sign-in, trial, fetch or push. `bun run check` before commit:
 | Approve-with-conditions | Scope-change card r1 | Pre-SM05: Lane B review; U1–U5; then a Judge scope act |
 | Defer | Attempt-1 close; attempt 2; S-T; readiness; Stage B, SM05, Gate 2, push | Their checkpoints |
 | Reject | Further S2 rounds without a new direction; a new baseline; any install, removal or sign-in before the act | Pre-SM05: no action |
+
+## Lane B — I1 scope-card review: separate the config roots, preserve the proof obligations, 2026-10-14
+
+### Layer 0 — Request and handoff fields
+
+Review Lane A's proposed alternative to S2. Assess its scope, unknowns and attempt-1 close. Return a complete correction
+plan and a parent-first decision table. This is a planning review, not permission to change either attempt.
+
+**Raised:** 2026-10-14 by Lane B. **Kind:** finding. **Phase:** 1 / pre-SM05.
+**Blocks:** the existing S-T stop remains; I1 execution needs the corrected scope/effects contract and its bounded act.
+**Evidence observed at:** `b27938520c52d2e1caea90cec9d4d01e92b589dc`.
+This review is a child of B-136. Lane A answers; Lane B independently reviews. No parent header or Lane A answer is changed.
+
+### Layer 1 — Result and transaction history, parent first
+
+**I1 is a useful planning alternative to another S2 waiver round.** It aims to put client-generated plugin state in an
+attempt-owned root while preserving protection of the default root. It is configuration separation, not a filesystem
+sandbox or a measured isolation result. The writer of the earlier shared-file changes remains unknown, and neither
+future S2 failure nor future I1 success is guaranteed.
+
+| Item | Transaction / state | Next step |
+|---|---|---|
+| **B-136 / SM05 transition** | **Open** | Existing parent obligations remain |
+| Option D; Option B; accepted r6/r7; C-D2b → P1d stop | Retained | No change to accepted scope or the verified stop |
+| S2 packet | Lane B return `4db4507`; Lane A receives at `b279385` | No further S2 drafting in this review; the returned findings are not closed |
+| Reported Judge choice | `b279385` records "Draft scope-change card (Recommended)" | Receipt of a drafting direction; no attempt-close, install, sign-in or trial authority is inferred |
+| **I1 card r1** | `704d45fa…`, reviewed below | Correct the boundary, effect classes, close ledger and conditional execution order |
+| Attempt 1 close → attempt 2 → S-T | Proposed only | Exact owned effects and evidence first; bounded act and hard gates before execution |
+| Stage B, final retention, D-437, parent closure, SM05, Gate 2 and push | Separate | Their existing checkpoints |
+
+The 52-entry candidate and full-copy retention remain accepted planning improvements. A new route does not erase the
+legacy residual or the loaded-component obligation. A future act may dispose of waiver-specific S2 work, but its
+still-relevant requirements must be carried into I1 rather than silently marked Verified.
+
+### Layer 2 — Source checks: U1–U5
+
+The scope-card and retained-document hashes match. All 13 accepted execution-input bindings still match. Five inspected
+Ponytail source files match their frozen Git blobs at `2961b52fc1fe6a5a87c7a959a79512e5c2f3ffe5`. No supplier code was
+imported or run. No live auth file, client configuration or environment was inspected by this review.
+
+| Unknown | What is established | What remains and when it stops |
+|---|---|---|
+| **U1: global state / MCP** | User config relocation is documented; exact `.claude.json` routing is not established here | Name the actual parent-client state/MCP file and effective plugin root. Before registration/trials, a bounded location check must prove the default files unchanged. An unknown critical destination is not a harmless limit |
+| **U2: authentication** | Current docs say Windows file credentials follow the selected config directory. A Console profile sign-in can use an external store | Name the chosen auth route, person-owned login step and all affected stores. Do not assume every credential is separate from `D_C` or every route is confined to it. Preserve secrets outside evidence and commits; no credential migration or general logout is authorized |
+| **U3: child environment** | Scrubbing is **conditional** on `CLAUDE_CODE_SUBPROCESS_ENV_SCRUB=1`; the retained excerpt itself states the condition. Pinned `ponytail-config.js` L71–73 falls back to the real home `.claude` if `CLAUDE_CONFIG_DIR` is absent | Bind the effective parent and child values/paths without printing credentials. `ponytail-runtime.js` L35–64 uses that root; the off branch in `ponytail-activate.js` L31–35 clears mode paths. This proves a fallback, not an observed write. If mandatory policy strips the variable and no accepted propagation route exists, stop I1; do not silently disable the policy |
+| **U4: marketplace bootstrap** | A private root is a plausible destination, not a measured one | Inventory `CLAUDE_CODE_PLUGIN_CACHE_DIR` and any other effective override. Refuse a plugin root outside the accepted footprint. Declare bootstrap/auth/network effects; "no new downloads" cannot also promise an unbounded client refresh. Keep supplier-source acquisition pinned and separate from declared client traffic |
+| **U5: reach / consumer** | A separate user config does not remove project/local or managed precedence | Verify the exact accepted ECC/Ponytail components and REA argv on the **terminal** consumer. Local-source plugins may still consume the retained acquisition directory. Bind those paths; do not claim every executable resides in `D_C`. No desktop or Codex qualification is inferred |
+
+These are documentation/source conclusions, not installed-client measurements.
+[Environment and conditional scrubbing](https://code.claude.com/docs/en/env-vars),
+[authentication storage and account routes](https://code.claude.com/docs/en/authentication#credential-management),
+[settings precedence](https://code.claude.com/docs/en/settings),
+[directory and local-source behavior](https://code.claude.com/docs/en/claude-directory).
+
+### Layer 3 — Returned findings and draft fixes
+
+| Finding / owner | Gap | Required correction and acceptance criterion |
+|---|---|---|
+| **I1-R1 / Lane A: boundary and launch** | Card §§1–2 promise the default-root check can pass from quiet-host status alone; U1/U3/U4 can still route effects outside `D_C`. Its launch example uses POSIX assignment syntax on this Windows PowerShell host | Write a per-process, absolute-path PowerShell launch recipe for the new terminal, with no persistent user/system environment change. Bind config/plugin roots, auth route, scrubbing policy, parent/child resolution, working directory and client version. Preserve the quiet-host requirement. A wrong/missing root or unexplained protected-file change stops before supplier trials. Replace causal/certainty wording with a testable isolation hypothesis |
+| **I1-R2 / Lane A: protection and evidence** | "Everything in D_C recorded, not protected" could hide changes to consumed tool bytes/settings. Deleting the directory could remove required trial evidence or capture credentials with the rest | Split the footprint into (a) pinned tool inputs/copies and enables/argv that stay protected; (b) enumerated disposable client-generated state; (c) auth material excluded from evidence; (d) approved, secret-free trial outputs retained outside `D_C` before deletion. Keep exact-copy checks and a bounded loaded-component observer. No blanket archive of `D_C`, and no cleanup before the required evidence is retained and verified. The unit map and cleanup checker must include the new path/disposition |
+| **I1-R3 / Lane A: attempt-1 close** | Card §§3/6 call for removal of host effects and the whole repository-local settings file without a current ownership/diff ledger. They also leave the shared off-file handoff between attempts unclear | Draft one close ledger: exact owned entries/paths, original/current bindings, intended key-level removals, retained dependencies, owner and proof. P0 records the local settings/off files absent, but historical absence does not prove current exclusive ownership. Refuse a foreign or unexplained edit; never delete the whole file unless exclusive ownership is proven at close. Explicitly carry the `off` config and retained acquisition/evidence forward if attempt 2/Stage B still need them. Keep the earlier build-deletion timing deviation and all residual history |
+| **I1-R4 / Lane A: contract and gate order** | "U1–U5 answered or named as limits" can admit an unresolved condition that invalidates the pass claim; several destinations can only be measured after a client starts | Finish the r11 scope/impact packet and its manifest/verifier, captures, comparator, effects ledger, evidence map and handover. Distinguish read-only findings from a separately authorized **location/auth probe**, and that probe from full supplier trials. A single bounded act may cover ordered stages conditionally, but each hard gate must have its own evidence; do not ask for a new generic "go" when the act already covers the next step. Failed isolation blocks trials rather than becoming a silent limit |
+
+**Attempt-1 residual contract (draft text).** End attempt 1 as "stopped before S-T", only under its own disposition.
+List the exact protected-state endpoints, the already accepted Option B pairs and later unaccepted differences, with any
+missing payload stated. Own-effect cleanup and acceptance of a residual are different records. Preserve both. Attempt 2's
+P0' is a new-attempt baseline after the authorized close; it never repairs, clears or replaces the old failed link.
+
+### Layer 4 — Lane A follow-up, in dependency order
+
+1. Receive this review; preserve the reported drafting direction and the existing stop. Continue I1 planning under that
+   direction. Keep waiver-specific S2 work inactive, with an explicit future disposition and retained cross-references.
+2. Correct U2/U3 now from the cited sources. Complete the root/auth/child-process footprint and answer the remaining
+   source questions. State which questions need an authorized runtime probe; do not claim all can be settled read-only.
+3. Draft attempt-1's close ledger and the carry-forward map before proposing any removal. Preserve all retained source,
+   evidence and residual records; identify how attempt-2 failure would leave the unit and who owns the remaining effects.
+4. Return a complete, hash-bound r11 and I1 scope card with fixed paths, component/copy checks, probe oracles, secret-free
+   evidence retention, refusal controls, cleanup proof and terminal handover. Include Stage B/final-retention impacts.
+5. Lane B reviews the complete design. Then the Judge can authorize the exact ordered close/probe/setup/trial unit, or
+   only its discovery stage. The act must state what follows automatically on accepted proof and where it stops.
+6. After such authority, follow the accepted gates: close/retain attempt 1 as specified; measure the new routing; verify
+   copies and loaded bindings; then S-T only on the accepted terminal route and quiet host. No execution occurs in this
+   review. Lane C has no new evidence; any new host/workflow claim names its reviewer under B-136.
+
+Required candidate controls include inherited and scrubbed child routing, wrong external plugin root, source/cache
+mismatch, project override, missing loaded proof, malformed or missing snapshot, foreign close-file edit, attempted path
+escape/link, cleanup before evidence retention, leftover owned config/MCP state, and a valid close with carried dependencies.
+Each refusal must produce no readiness receipt. A config-directory change does not weaken the original trial oracles.
+
+### Layer 5 — Chief Editor / Judge decision table
+
+| Parent-first decision | Accept criterion | Reject / retain stop criterion | Follow-up phase |
+|---|---|---|---|
+| **I1 planning direction** | Review the private-config route as a scope-change candidate; keep prior approvals/history | Treating the reported "draft card" choice as execution authority | Phase 1 / pre-SM05: now |
+| **Attempt-1 close** | Exact owned-effect ledger, retained dependencies/evidence, residual disposition and independent close proof | Wholesale unproven deletion; restoring over foreign edits; calling residual acceptance cleanup | Phase 1 / pre-SM05: bounded act before removal |
+| **Attempt-2 location/auth probe** | Fixed footprint, human login route, protected-root checks, explicit expected writes and stop point | Assuming config relocation or credential containment from a variable name; treating unknown hard conditions as limits | Phase 1 / pre-SM05: after design review and probe authority |
+| **Attempt-2 trials / partial Stage A credit** | Probe meets hard criteria; r11 and tool hashes accepted; actual terminal components/copies verified; original trials, quiet-host and cleanup/evidence rules retained | Automatic trial after sign-in; blanket unprotected D_C; unproved desktop/Stage B claims | Phase 1 / pre-SM05: only within the act's accepted stages |
+| **Stage B, final retention and SM05/Gate 2** | Their separately accepted consumer binding, evidence and authority | Promoting a terminal setup/probe to product-code readiness or root clearance | Their existing follow-up phases |
+
+No execution decision is requested now. Lane A must make the scope card complete and reviewable first. The critical
+artifacts for the coding transition are the accepted consumer/input contract, source-to-requirement evidence, refusal
+oracles, effects/retention ledger and actual trial results; moving a directory supplies none of those results by itself.
+
+### Layer 6 — Drift, evidence and verdict
+
+Read-only `graphify query` was used. Analysed head remains `b308d1c`, `stale: false`; only B-050/B-136 handoff paths
+changed since. No graph sync is needed. This review adds its Lane B body only. No install, removal, sign-in, client
+launch, supplier trial, settings change, governed edit, fetch or push occurred. Final consistency validation is retained in
+`C:/CoWork/outputs/lane-b-iso-review-2026-10-14/check-final.log`; it proves neither isolation nor readiness.
+
+Independent evidence in `C:/CoWork/outputs/lane-b-iso-review-2026-10-14/`:
+
+| File | SHA-256 |
+|---|---|
+| `audit.mjs` | `5a65acafe96c66f757423fb920093f6169e887f786132b7b456062c5826d5b62` |
+| `audit-results.json` | `0bbf0a66f8459c579ef8433d950eec975cff71681e19305af21e0d718c629cc5` |
+| `sources.json` | `6010b31d3d66c69b9c7956a3d787b67c0bebe272d051758a2656c497eeab0144` |
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| **Approve** | I1 as a planning candidate; submitted hashes; conditional-scrub and pinned fallback findings; prior approvals and stop retained | Phase 1 / pre-SM05: carry forward, no execution credit |
+| **Approve-with-conditions** | Corrected I1 planning packet | Phase 1 / pre-SM05: Lane A answers I1-R1–R4; Lane B reviews the complete bound contract |
+| **Defer** | Attempt-1 removal/close; attempt-2 probe/setup/trials; actual readiness; Stage B, D-437, parent closure, SM05, Gate 2 and push | Their named design, evidence and authority checkpoints |
+| **Reject** | Guaranteed isolation; unconditional scrub claim; all D_C bytes unprotected; blind settings-file deletion; new baseline erasing old failure | Phase 1 / pre-SM05: correct the card before execution selection |
