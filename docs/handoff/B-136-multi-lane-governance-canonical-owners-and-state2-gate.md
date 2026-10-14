@@ -7426,3 +7426,117 @@ No installation, trial, governed edit, build, fetch or push. Upstream and host f
 | Approve-with-conditions | Bounded setup unit | Pre-SM05: REA route and setup authority from the Judge |
 | Defer | Readiness acceptance; SM05 entry and construction | After the setup unit's evidence; then the separate entry process |
 | Reject | Ponytail run before mode `off` is in place; ADR files or skill commits; REA on Windows native for this task; Lane A choosing the physical store | Phase 1: no action |
+
+## Lane B — revision 6 review and Judge-selected REA Option D, 2026-10-14
+
+### What happened
+
+**Clear request:** Based on Lane A's r6 worklog, review the answered R5-Q findings, carry forward the Judge's
+selection of REA Option D, and consolidate the remaining preparation work into one Lane A handoff. Planning only.
+
+**Latest authority, verbatim:** **"Judge Approved: REA route Option D"** (Judge/user, this chat, 2026-10-14).
+Option D is the Ubuntu 24.04 Docker route in r6 Part 6. It is selected. Remove the N/W/D choice question; do not
+ask the Judge to select it again. The same request limits this turn to an implementation plan: no image build,
+installation, container trial, push, governed application, lane activation or Gate 2 closure is performed here.
+The earlier requirement for ECC, Ponytail and REA before SM05 remains in force. Route selection is not a measured
+container-readiness result or a waiver of the trial criteria.
+
+**Parent and roles:** existing Open B-136 / SM05 transition / TR-1 and BCP-1. Lane B raises this review; Lane A
+answers; an independent actor verifies each completed obligation. Keep the existing header and Lane A field.
+No new C-series file or terminal B-156/B-157 return is required. Correction phase: Phase 1.
+
+**Observed HEAD:** `b7578736d376bec2eb2dcab92ed3556060a77609`, initially clean. Lane A's canonical receipt and
+answers are recorded at that commit; the earlier chain is no longer unread. It runs CONS `ddb939f` -> H `9b17bfa`
+-> EXT `e43a25e` -> BCP-1 `06107fc` -> TR-1 `46c7417` -> LC `5c094bc` -> TR4 `eea043a` -> R5 `71ae2e4` ->
+Lane A r6 receipt `b757873` -> this selected-D review.
+
+**Inputs:** worklog `C:/Users/rober_24syk4j/.codex/attachments/e7e03f06-416f-40ff-b375-de5eed078df3/Pasted text.txt`,
+SHA-256 `f9966a32ef588e57417a7990f1fdf717673f935dea7ff2e2b99ca80295a5b1a0`;
+`C:/CoWork/outputs/lane-a-sm05-selection-draft-2026-10-13/SM05-SELECTION-DRAFT-r6.md`, SHA-256
+`7dcee8d6ff76d1605e0e3a3867b0173accc1a3207e1ae297abe5cb668c2f1688`.
+Inherited r5/r4/r3/r2 material is retained; changed r6 text is assessed with that context.
+
+### Completion map — parent first, accepted corrections retained
+
+| Parent / child | Current result | Remaining condition |
+|---|---|---|
+| B-136 / SM05 transition | Open | Complete preparation and independent review; other parent obligations retain their triggers |
+| TR-1 three-tool selection | Complete; carried forward | No renewed adoption question |
+| REA route | **D selected by the Judge** | Complete and validate the selected route; N/W are historical alternatives |
+| R5-Q1 Windows path | Path/resolver correction accepted as a plan | Actual hook-process environment and state checks at the future setup unit |
+| R5-Q2 usage contract | Planning versus coding evidence distinction accepted | Remove the remaining timing ambiguity and bind the declared use, as R6-D2 below |
+| R5-Q3 source and consumers | REA release-source correction accepted; consumer distinctions retained | Complete artifact proof, selected-D effects and actual enabled client state |
+| R5-Q4 trial inputs | Package-manifest inclusion and separate reference-import trial accepted | Complete positive oracles, operation-specific refusal rules and evidence rows |
+| R5-Q5 narrow metadata scope | Narrow `SPECS-EDITORIAL-METADATA` candidate accepted for drafting | Actual technical contract and exact D-30/D-54 effects remain proposed |
+| R5-Q6 scenario bindings | Corrected N2–N6 and RV1/RV2 meanings accepted | Preserve distinct intake RED evidence; complete child/technical and restore details |
+
+This accepts the named corrections, not a whole-unit setup pass. Four remaining rows below start Open. Lane A
+answers them in the next substantive record; completed subparts do not need another research round unless changed.
+
+### What Lane A needs — four remaining corrections
+
+| ID | Gap | Draft fix and closure proof |
+|---|---|---|
+| **R6-D1 — selected container and artifact contract** | R6 still asks for a route and says only "a container image; MCP reachability". The proposed tarball file-list/`package.json` comparison cannot establish byte equivalence with a Git commit, especially for published generated files. | Replace the route question with the selected-D plan below. Freeze the image recipe, runtime, package/dependency artifacts, allowed writes, host-client transport, outputs and cleanup. Verify downloaded package bytes against the recorded registry SRI; retain the file/hash inventory. Treat release Git identity as provenance, not proof of generated-file equality. Review the actual shipped code or provide an explicit reproducible/byte comparison for any source-equivalence claim. Matching names and version text alone never pass that claim. |
+| **R6-D2 — readiness evidence and controls** | Part 3 says working workflow only in Lane B construction, then says it will be proved in setup. A pre-SM05 prerequisite cannot depend on constructing SM05. T-P1 still passes on any specific finding or "none" and has no known-defect detection control. A native-binary request is not intrinsically unsupported by REA; this unit excludes that operation. | State the exact pre-entry tasks the Judge's tool requirement will be credited for. Load/planning output may prove only those declared uses. Prove any promised coding support on a separately authorized disposable fixture in the setup unit, or retain that capability as unproven without calling it passed. Do not use SM05 product code or its DoD as the pre-entry fixture. Add a known-defect review fixture and a valid control. Distinguish unit-policy refusal, missing provider, unsupported interface and error; no workaround or empty/error pass. Bind each trial to host/consumer, input hash, exact prompt/operation, expected facts, evidence path and limits. |
+| **R6-D3 — consumer effects and restoration** | Codex ECC says components will be recorded later; that is not a frozen enabled set. Ponytail still says two Codex hooks although its pinned manifest references the three-event shared file. Its active/project-mode files and override-resolved state are absent from the new pre-state table. REA agent/skill integration is unspecified. | Separate declared events/components from what each installed host supports and enables. Preview and bind actual ECC MCP/hook/skill effects; no silent broad install. Keep Ponytail default off and capture settings, plugin state, config, live mode and project/shared flags before the first hook, with a concurrency condition. Record the selected REA producer/client and any host-side routing skill/references. Restore changed existing bytes and preserve unrelated state; delete only unit-created artifacts. A host mode setting or uninstallation alone is not complete restoration proof. |
+| **R6-D4 — technical and child evidence contract** | M1's table shape does not itself prove §4.5 rules 1–7. M2 is not intrinsically weaker if commission identity supplies a stable unique package identity. A shared event store is not forbidden merely by its name; independent authoritative state and metadata behaviour must be shown. The K-table's general characterization allowance can obscure the four intake fixtures' stricter RED requirement. | Keep M1 as a feasible lead, not an accepted design or proof. Compare options against identity/uniqueness, contiguous version order and concurrency, append-only refusal, state separation, exact-text retention/digest, URL-anchored duplicate checks and traceability. Lane B specifies the physical contract; Lane A drafts the narrow SPECS and work-order references. State explicitly that SM05-IN1–IN4 each require their own artifact and failing-first evidence; characterization remains allowed only where the DoD allows it. Complete child prerequisites, intended paths, verifier and evidence destinations using the existing H3 map. No application or database run is authorized by this review. |
+
+### Selected Option D — concrete proposed implementation plan, not executed
+
+These values are planning proposals under the selected route. They do not replace a reviewed bounded setup act.
+No Docker image was pulled or built to obtain them; only public metadata and daemon information were read.
+
+| Part | Proposed contract / evidence |
+|---|---|
+| Host prerequisite | Existing Docker daemon reports **Linux/x86_64** in an authorized read-only query. The ordinary sandbox query was denied; the read-only elevated query succeeded. Record the execution identity/access in the eventual unit; this is not a container or REA pass. No new WSL distro is part of D. |
+| Base image | Official `ubuntu:24.04`, proposed `linux/amd64` manifest digest `sha256:f610ab94648195aa356059f5b41d6085c9d4d903c072430cdd1af7bdb646106b`. The observed multi-platform index is `sha256:534baea6a22c03a63003dbc8dbe78fe34bc0d7e595d9a9dc9834884ff530eb55`. Use immutable digest plus platform, not a floating tag at run time. |
+| Runtime | Proposed Node **24.11.0** Linux x64 archive, SHA-256 `46da9a098973ab7ba4fca76945581ecb2eaf468de347173897044382f10e0a0a`, from Node's official checksum list. This meets the selected REA release's stated version range. It is a guest-runtime proposal, not a change to this PC's installed Node. |
+| REA artifact | `rea-agents@3.2.1`, registry SRI retained from r5/r6; provenance source `morluto/rea` at `0356f7677f57898c5291658d7d4995784533ba6d`. Freeze actual transitive dependencies and install/lifecycle effects in the recipe. Do not fetch a floating package on MCP startup. Build/install actions remain future authorized work. |
+| Corpus | A unit-owned staging directory containing the pinned `package.json` and exact `scripts/jev/` files, with relative paths and hashes retained. Mount that corpus read-only. Do not mount the full repository, `.git`, agent homes or secret-bearing files. Mark references outside the staged subset unknown; do not claim whole-project coverage. |
+| Transport and consumer | Proposed primary producer/consumer: REA MCP in Docker, Claude Code/Lane A on Windows; Lane B reviews and consumes the retained map. Use Docker stdio (`-i`, no TTY) and the installed pinned `rea mcp` entrypoint. Host paths map to declared Linux paths. Bind the exact host registration and optional routing-skill effects before application. A direct server probe is not proof that the real client can call it. Additional Codex REA registration is not silently included. |
+| Runtime writes | Use a non-root container process, read-only input/root where compatible, and named writable temporary/home/state/evidence locations. Runtime analysis uses no network and no process/browser/native-analysis providers. Keep dependency acquisition separate from runtime. No Docker socket or privileged mode is part of the plan. Validate these restrictions rather than weakening them silently on failure. |
+| Limits and cost | Record image/dependency sizes, available disk, build/start time, and proposed CPU/memory/process/time budgets before execution. These are explicit experimental budgets, not supplier guarantees. Preserve full responses and stderr separately; do not trim output to obtain a pass. Unknown resource needs stop for an explained revision, not a support claim. |
+| Pass | The actual client loads the pinned server; the static map and reference import produce their expected facts with coverage/unknowns preserved; no target code executes; recorded state matches the declared effects; cleanup and retained evidence are independently checkable. |
+| Fail / stop | Unsupported operation/interface, missing capability, client/path/permission failure, integrity mismatch, unexpected write/execution or incomplete cleanup does not pass. Keep Option D selected but record its failed/unknown result; do not switch to N/W or a native provider without a new scoped decision. |
+| Cleanup | Remove only unit-created containers, temporary directories and exclusively owned derived images/volumes. Preserve pre-existing images/cache and unrelated client entries. Restore changed host configuration bytes and relevant mode state; retain input manifests, complete outputs, result classification and cleanup proof outside the repository, referenced in B-136. No broad Docker prune. |
+
+**Sources:** [REA release README](https://raw.githubusercontent.com/morluto/rea/0356f7677f57898c5291658d7d4995784533ba6d/README.md)
+documents static directory analysis, reference import and `rea mcp`; its [release setup guide](https://raw.githubusercontent.com/morluto/rea/0356f7677f57898c5291658d7d4995784533ba6d/docs/installation.md)
+distinguishes CLI installation from agent registration/skill effects. Neither is container-readiness evidence.
+[Docker run](https://docs.docker.com/engine/containers/run/) and [resource controls](https://docs.docker.com/engine/containers/resource_constraints/)
+describe the container mechanisms. Proposed image/runtime pins were read from
+[official Ubuntu tag metadata](https://hub.docker.com/v2/repositories/library/ubuntu/tags/24.04) and
+[Node's checksum list](https://nodejs.org/dist/v24.11.0/SHASUMS256.txt).
+Metadata copies and this review's validation evidence are retained under
+`C:/CoWork/outputs/lane-b-tr1-r6-option-d-review-2026-10-14/`.
+
+### What Lane A does next — parent before dependent work
+
+1. Receive the Judge's Option D selection and this review in the next substantive B-136 answer. Replace the stale
+   route question; retain the accepted r6 corrections and earlier canonical receipt. No acknowledgement-only commit.
+2. Complete R6-D1–D3 for the selected route and actual consumers. Continue the independent R6-D4 technical/control
+   drafting now; no new "go" or tool installation is needed to write that plan.
+3. Return one revised packet for Lane B review. Lane C supplies only host/workflow claims it can evidence, under
+   this B-series parent. No new Lane C result was supplied with this worklog; none is invented.
+4. Present any remaining setup-execution authority as one concrete bounded unit. The Judge has already selected D
+   and all three tools; do not reopen those choices. Planning approval is not an executed readiness check.
+5. After a properly authorized setup unit, record each trial's pass/fail/unknown and cleanup/consumer proof; obtain
+   independent acceptance. Then follow the separate SM05 entry/work-order/guarded-publication/lane conditions.
+
+### What you did instead — drift, limits and verdict
+
+Read-only graph/source review, official metadata reads and Docker daemon information, plus this Lane B append.
+No image pull/build, tool installation, trial, product build, governed edit, fetch/push or Gate 2 closure occurred.
+The graph remains analysed at `b308d1c`, `stale: false`; changes since it are handoff files only. This review
+needs no graph sync. Later governed application uses its own guarded cycle and receipt route.
+No container failure is proved. The deficient equivalence test is a proof gap: equal filenames and equal
+`package.json` can coexist with different executable bytes, so that test cannot justify its stated claim.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Judge-selected Option D; r6 receipt; corrected Windows path, release-source choice, narrow metadata scope and scenario meanings | Phase 1: carry forward; do not repeat selection or accepted research |
+| Approve-with-conditions | Selected-D preparation and C2–C5 planning packet | Phase 1: answer R6-D1–D4; Lane B reviews; applicable Lane C claims retain evidence limits |
+| Defer | Image preparation, installation/trials and readiness acceptance | Pre-SM05 setup unit: exact effects, scoped execution authority, actual task/consumer and cleanup evidence |
+| Defer | Canonical application, SM05 entry and construction | Phase 1 governed application/entry conditions, then separately authorized Phase 2 construction |
+| Reject | D treated as already supported/tested; repeated route/adoption questions; filenames treated as byte equivalence; product construction used to prove its own pre-entry prerequisite | Phase 1: correct before readiness acceptance or execution |
