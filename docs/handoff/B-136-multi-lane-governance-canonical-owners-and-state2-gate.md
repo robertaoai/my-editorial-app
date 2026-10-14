@@ -7909,3 +7909,67 @@ the run, before the one-path local commit. A consistency pass is not setup behav
 | Defer | Positive Stage A checkpoint, Stage B, final readiness and permanent retention | Pre-SM05: explicit unit acceptance, separate consumer binding, result/cleanup evidence and Judge disposition |
 | Defer | D-437, physical application, SM05 entry/construction and Gate 2 | Next governed batch and separately authorized Phase 2 boundaries |
 | Reject | Executing r8 from this return; treating a committed Git tree as checked-out plugin bytes; original-file checks as staged-input checks; unavailable JSON as a pass | Phase 1: correct the two bounded findings first |
+
+## Lane A — SM05 transition packet r9: r8 review received; authority attachment decided; R8-R1/R8-R2 answered, 2026-10-14
+
+### What happened
+
+**Receipt.** Lane A receives Lane B's `b4a2707`: r8 is returned, not accepted; R8-R1 and R8-R2 are Open; R7-R1 and
+R7-R2 stay Open behind them. **R7-R3 and R7-R4 are Verified by Lane B for their planning corrections only**, at
+`30b0e55`; R6-D4's planning verification is kept. `b4a2707` is not the setup checkpoint. Lane B's evidence
+`C:/CoWork/outputs/lane-b-tr1-r8-review-2026-10-14/` (`audit-results.json` `d9cd668b…`, `controls-replay/results.json`
+`064efd9b…`) is received. **Lane C:** no new Lane C evidence was supplied.
+
+**Judge clarification 5 (in chat, 2026-10-14).** The authority named r8 ("Stage A runs when Lane B accepts r8").
+Under `D-183` rule 7 that does not move to r9 by itself, so Lane A asked which revision the authority attaches to.
+The Judge chose **"Any accepted same-scope revision (Recommended)"**. Its text: "The authority attaches to whichever
+corrected revision Lane B accepts by hash, if its scope, effects, downloads, trials and exclusions equal r8's. Lane A
+states that comparison in the packet. Any scope change needs your approval. No question for later corrections."
+
+**Authority status:** Judge approval received in the current conversation for executing Stage A at the corrected
+packet, manifest and verifier that Lane B accepts by hash, when their scope, effects, downloads, trials and exclusions
+equal r8's, and Stage B at the Codex binding that Lane A accepts, pending durable registration (`D-183` rule 2). r9
+Part 6.1 states the r8 → r9 comparison: equal on all five.
+
+**Current packet (the bounded unit = three files, each by SHA-256):**
+
+| File | SHA-256 |
+|---|---|
+| `C:/CoWork/outputs/lane-a-sm05-selection-draft-2026-10-13/SM05-SELECTION-DRAFT-r9.md` | `95e728ae99f77c355a062a3cdff2ef180cfa7ba249f9cc4cbf4da278bfef6b91` |
+| `C:/CoWork/outputs/lane-a-r6d-2026-10-14/EXEC-MANIFEST-r9.json` | `6b91c3b8353c206d70070113a1334077c40cffb160a4737f886ddeebd8fa20cd` |
+| `C:/CoWork/outputs/lane-a-r6d-2026-10-14/verify-exec-manifest-r9.mjs` | `bd4c8ea60c8cf4390c1b362f66810e60389c77acb33aceca715a7210801bfa37` |
+
+r9 opens with a change list (r8 → r9, 7 rows). Part 5 and Parts 4.3–4.5 are byte-identical to r8. The r8 files are
+unchanged; `oracles-r8.json` is superseded and kept.
+
+| ID | Answer (r9 part) |
+|---|---|
+| R8-R1 | Parts 0b, 2.6, 6.2, 6.3. `git-tree` now checks the **pinned commit** (not `HEAD`), its tree, and `ls-tree -r -l` against a frozen 202-blob listing. The clone is `--no-checkout`; `export-tree.mjs` writes the verified blobs byte-exact into a new folder (all re-hashed before any write; nothing left on failure). New `plugin-dir` mode: exactly the listed blobs (changed, absent, extra or symlink → refuse; no allowed extras), run on the export (A-S2), on the **installed cache** (A-S4) and at the S-T hand-over (A-S5). New `staged` mode: exactly the five corpus files and the four defect/valid fixture files, at A-S2, A-S5 and B-S0. A-S0 step 0 hashes the three unit files against the acceptance commit before any checker runs. `controls-r9/results.json` (`fdca2e50…`): 46/46 in one run, each negative refusing with zero writes |
+| R8-R2 | Parts 0b, 3.3 and `oracles-r9.json` (`a8112400…`). One frozen map from REA's public Evidence (`normalized_result` → `graph.nodes`/`graph.edges`, `statistics`) to A1–A5: file observations by `path` + `file_kind` and node `identity.sha256`; the one `package` node with `parse_status: included`; `imports` edges by source file path with `kind: static-import`; `parse_status: complete` and `parse_failures: 0`; the JSON file with **`text_status` and `json_parse_status` both `included`**. Absent, ambiguous or unavailable = unknown; contradictory = fail; neither passes. `evaluate-rea-oracle.mjs` (`d6d05fe0…`) applies it; 13 inert examples score as expected (valid, missing, ambiguous, unavailable JSON, invalid JSON, wrong digest, extra/missing import, dynamic kind, extra file, error envelope, not JSON, MCP A1/A3-only). H1 stays human source reading |
+
+**Limits, stated in r9 Part 2.6:** no positive arm for the build context, the external files or the real Ponytail
+clone before download; the Ponytail listing comes from the GitHub tree API and is compared with the real clone at
+A-S2; the evaluator examples are inert data, not REA output.
+
+### What you need
+
+**Lane B:** a bounded review of r9, the manifest, the verifier and the change list. A positive acceptance is a Lane B
+commit in B-136 that says **"accepted for the named bounded setup unit"**, names the three SHA-256 values above and
+states the conditions found satisfied. Lane A then runs Stage A with no new Judge step. A finding returns as r10 under
+the same-scope rule. **Next governed batch:** `D-437` (r9 Part 7).
+
+### What you did instead
+
+Read-only reads of Lane B's retained REA sources and of the GitHub tree API for the pinned Ponytail tree. The new
+scripts ran only on existing files, scratch copies and one inert scratch Git repository. No installation, image pull or
+build, supplier code, trial, governed edit, fetch or push. `bun run check` on this record before commit: 19/19 (log
+`C:/CoWork/outputs/lane-a-r6d-2026-10-14/08-check-precommit-r9.log`). Graph: `lastAnalyzedHead` `b308d1c`,
+`stale: false`. The commits since then change only B-050 and B-136, and `docs-drift` passes, so no sync is needed. This
+record changes B-136 only.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | R7-R3/R7-R4 Verified (planning scope) and Lane B's evidence, received; clarification 5 recorded | Phase 1: carry forward |
+| Approve-with-conditions | r9 + manifest + verifier (R8-R1/R8-R2 answers) | Pre-SM05: Lane B "accepted for the named bounded setup unit", then Stage A |
+| Defer | Stage B; final readiness and the Judge's decision; `D-437`; SM05 entry and construction | Pre-SM05: Stage B binding and acceptance, then the final record. `D-437` with the next governed batch. Phase 2 separately |
+| Reject | A run from a returned record; a stored Git tree treated as checked plugin bytes; original-file checks treated as staged-copy checks; unavailable JSON scored as a pass; a scope change without the Judge | Phase 1: no action |
