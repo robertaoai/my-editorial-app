@@ -9692,3 +9692,149 @@ changes B-136 only.
 | Approve-with-conditions | — | — |
 | Defer | S-T, A-S5/A-S6, Stage A readiness | Pre-SM05: Judge selects S1/S2/S3 after Lane B review; any new comparator accepted first |
 | Reject | Re-baselining at P1d; restoring client files; starting S-T on a stopped link; calling the catalog change "timestamp only" | Pre-SM05: no action |
+
+---
+
+## Lane B — pre-S-T stop Verified; S2 requires a bounded waiver; documented S3 candidate must be assessed, 2026-10-14
+
+### Layer 0 — Request and transaction
+
+Review Lane A's `ee411c6` stop record and explain S2. Preserve the accepted Option B comparator and earlier approvals.
+Verify the evidence, find gaps in the decision packet and draft their fixes before returning it to Lane A. This is
+review/planning only: no supplier trial, live capture, setting change, real cleanup, build, governed edit, fetch,
+push or Gate 2 action.
+
+**Raised:** 2026-10-14 by Lane B. **Kind:** finding. **Phase:** 1. **Parent:** B-136 / TR-1 / Stage A.
+**Blocks:** S-T on the failed link; execution selection from the current S2/S3 packet. Lane A answers PST-R1/R2
+below; Lane B independently reviews their evidence. B-136 stays Open. S1/S2/S3 are decision-option labels here,
+not SETUP-SPIKE sprint numbers or development lanes.
+
+### What happened — parent-first completion map
+
+The stop reproduces exactly under accepted comparator r6: the same three findings and the same seven inspected
+handoff-only history commits. Seven submitted evidence/tool hashes match; all 13 accepted input files re-hash to
+their recorded values. The retained UNIT `now` receipt passes. The off-state evidence remains a dated Claude Code
+file/override observation, with no hook run; Lane B does not turn it into native-hook or uninterrupted-history proof.
+
+| Parent / child | Disposition | Next / follow-up phase |
+|---|---|---|
+| B-136 / SM05 transition | Open | Other obligations keep their own triggers |
+| Option B; comparator r6 / hand-over r7; R5-F1/F2; prior scoped approvals | Retained | The strict checker is working; no tool-selection or checker-repair question is reopened |
+| C-D2b to P1d stop record | Verified by Lane B at `ee411c6`, for the retained observation | P1d is not a cleared S-T reference |
+| Native trial / S-T / Stage A readiness | Stopped or unearned | Keep the current stop; no fresh baseline or old comparator clears it |
+| S2/S3 decision packet | Returned: PST-R1/R2 | Lane A completes the bounded alternatives before a new execution decision |
+| Stage B, final retention, D-437, parent closure, SM05, Gate 2 and push | Separate | Existing evidence and authority checkpoints |
+
+### Layer 1 — What is measured, what is inferred
+
+| Item | Measured result / corrected meaning |
+|---|---|
+| `known_marketplaces.json` | `145d5791056dd014bd0844321ccc17424d8e1b6b281cb568cfee3b79774abae8` to `abd29d0b62bb1487c321524ee2b9dee354a535f77bbc1008be485f23c02b7ada`. Serializing the retained after-object reproduces its exact hash; restoring only the official `lastUpdated` reproduces the before-hash. This specific change is characterized as timestamp-only. |
+| Global catalog | `5e864e8ab8c47ed969564e7fa6f9f32069a8430273549afce547c892cb55c547` to `dbb74df2e02bc4676234a83351c989e57394102fe3f43c3a593b4f5f4506df2d`. Top-level hashes change for `fetchedAt`, `listings`, `entryNameClaims`. The last two are content changes; these captures do not retain their payloads or attribute changed entries to a particular marketplace. |
+| Official marketplace tree | Equal in the retained observations. This stop supplies no evidence that a tree-content exemption is needed. |
+| Other compared state | No other findings in the strict projection; UNIT `now` passes. That is not a completed close or an assurance about unobserved data. |
+| Timing / writer | The reported 3–6 minute correlations are observations. They identify neither a writer nor a guarantee that every future session must fail. **This retained link does fail** under Option B. |
+| Historical acceptance | The earlier accepted residual ends at the C-D2/C-D2b hashes. It does not accept this new catalog hash or create an ongoing exception. Option A's timestamp-only rule also would not excuse this content delta. |
+
+**Source correction for S3.** A shell-help search did not establish that no documented control exists. Official
+Claude Code documentation describes a per-marketplace auto-update toggle in the session plugin manager's
+Marketplaces tab. This is a documented candidate, not proof that the installed client exposes it or that it will
+prevent these exact writes. [Official control documentation](https://code.claude.com/docs/en/discover-plugins#turn-auto-update-on-or-off-for-a-marketplace).
+
+The loading reference describes settings precedence, writes to the known-marketplace entry and, when applicable,
+its settings entry, and delayed background refresh. That behavior is consistent with the timing, not producer
+attribution. A setting intervention therefore needs a measured effect/restore plan.
+[Official loading reference](https://code.claude.com/docs/en/plugins/loading#which-marketplaces-and-plugins-auto-update).
+
+### Layer 2 — S2 explained: its assurance changes
+
+The submitted S2 would keep observing three official-marketplace items but make their changes non-blocking.
+It would replace Option B's future byte-protection obligation for those items with a recorded-change obligation.
+It is **a new, prospective waiver**, not a reclassification that proves equality, a same-scope checker fix or a
+new baseline that repairs the stopped link. File ownership alone does not establish independence from the tools.
+
+Recording hash pairs proves that bytes differ. It does not characterize the changed code/listings, prove that
+plugin resolution is unaffected or prove restoration of the shared state. Under S2, any eventual readiness
+claim must explicitly exclude waived external-state equivalence. Every currently protected surface outside
+the exact waiver remains strict, including pre-existing shared settings/environment and non-unit Docker state;
+"everything the unit owns" is too narrow a replacement for the existing protected projection.
+
+| Returned finding | Gap | Draft fix / success criteria |
+|---|---|---|
+| **PST-R1 — bound S2 and prove the boundary** | The current card exempts an unchanged tree and a global catalog without per-marketplace attribution. It claims the trials do not read official plugins and that strict checking cannot pass, without the required proof/qualification. | Return the narrow policy and capture design below. Preserve provenance/installed and loaded unit bindings; retain all remaining r6 protections. Attribute future eligible catalog deltas or stop when attribution is unknown. Keep the present uncharacterized content delta as a separate exact-hash disposition. The reasons must say "future stop risk", not inevitability, and distinguish installed from loaded state. |
+| **PST-R2 — assess the documented S3 candidate before recommending S2** | S3 was left undrafted after inspecting only CLI help. A documented per-marketplace control now supplies a candidate, but installed-client support and its complete file effects are unmeasured. | Return the S3 discovery/impact card below, with local version/surface evidence and setting precedence. Drafting/read-only source research continues under existing authority. No toggle, environment override, trial or restore runs until a bounded Judge act covers that intervention. Do not promise it clears the existing stop. |
+
+Both findings are **Open**. Lane A's answer makes them Answered; independent review makes them Verified. The
+stop record is already Verified and does not wait for these answers. S-T remains stopped without another approval.
+
+### Draft corrected S2 contract — for review, not selected or executable
+
+| Field | Proposed bounded contract |
+|---|---|
+| Authority / lifetime | A new Judge act explicitly amends Option B for one named Stage A attempt and its listed interval/close links only; it expires at that attempt's disposition. No Stage B or general-use carry-over. The present failed link and any accepted unknown stay in the record. |
+| Prerequisites | Recover retained before/after catalog payloads if available; otherwise name the exact present content delta as unknown and seek its separate disposition. For future links retain complete comparison evidence and establish marketplace attribution plus unchanged unit source/cache/component bindings. "No official plugin installed" alone is not proof of no client read or no loaded component. |
+| Eligible difference | Prefer only the observed official-entry timestamp and proven official-origin catalog changes. Keep the official tree strict because it did not change here; a later proposed tree exemption needs its own impact and authority. Keep every other known-marketplace field, key set, source/installLocation and any autoUpdate policy strict. Do not infer that the whole global catalog is official-only. If a whole-catalog waiver is still requested, explicitly disclose which unit catalog guarantees cannot be maintained; do not claim those waived facts stayed strict. |
+| Capture / refusal | Hash pairs, complete retained payload/diff evidence, changed keys/paths and observation times at every named link; no writer inference from time. Missing/unreadable or incomplete evidence stops. Unit entries, namespace claims and source/loaded-component bindings must remain pinned; an effect on them, unknown attribution, any non-whitelisted delta or any other r6 failure stops. |
+| Result / cleanup claim | Report the protected checks and enumerated external deltas separately, with the waiver's authority/reference. Do not emit an unqualified full-state-equivalence or clean-host claim. P2 still proves every applicable cleanup/retention row outside the waiver; the shared external-state limitation travels with Stage A partial readiness. |
+| Files / cost / stop | New comparator, any capture additions, handover, effects ledger and decision record; exact hashes and positive/refusal controls return to Lane B before use. No official-file restore/overwrite. Handoff drafts need no graph sync; later governed application follows D-54 and the guarded route. Stop at the review return until the concrete scope is selected. |
+
+### Draft S3 discovery and impact card — documented candidate, host support unknown
+
+1. Identify the actual client version and surface, effective marketplace policy and any higher-precedence override
+   from retained or read-only evidence. Check whether the documented per-marketplace control exists there. If not
+   established, record unknown and stop that route; do not guess a flag or edit an undocumented key.
+2. Before proposing a toggle, inventory the exact files/keys it may change, other consumers of that setting, the
+   expected values and the restore/retention condition. Capture sufficient before-bytes to verify only the owned
+   intervention; never restore an old whole file over an unrelated write. A global updater override is a wider
+   effect and needs its own impact, not silent substitution for the per-marketplace candidate.
+3. A bounded act must name the authorized setting change, observer/quiet-host conditions, runtime/version binding,
+   permitted effects, refusal checks and restore proof. After that authority, measure the effects and session
+   transitions over the supported client's delayed-update window; an immediate startup sample is insufficient.
+   Prove the strict protected chain and unchanged tool bindings; otherwise stop rather than weaken the checker.
+4. Disabling future refresh does not remove the already observed C-D2b-to-P1d delta. The plan must explicitly
+   disposition that exact new historical change and any authorized setting effect through an accepted bridge.
+   A new baseline cannot silently clear either. Return the comparator/ledger/handover consequences for review.
+5. Planned files: setting/effect evidence outside the repository, restore/retention ledger, versioned guide and any
+   narrowly needed checker/bridge change. Source tiers are drafted, never applied here; D-437 and graph costs must
+   be named in the final impact card. End at the reviewed proposal before any setting intervention.
+
+### Layer 3 — Decision order for Lane A and the Chief Editor
+
+| Option | Meaning / current readiness | Acceptance condition and next phase |
+|---|---|---|
+| **S1** | Keep Option B and the present stop. No readiness is earned. This is the current safe state; continued stopping needs no permission. | If the Judge chooses to end this attempt, record "Stage A stopped before S-T" and the remaining retention/cleanup obligations. Stop does not prove cleanup. |
+| **S2** | Waive a named external-state protection obligation for a bounded attempt; continue only under the new, reviewed assurance contract. The current broad card is returned. | PST-R1: complete proof/waiver bounds, exact historical disposition and corrected comparator/ledger/handover; then a new Judge scope act and independent hash review. |
+| **S3** | Try a documented control to retain strict future checking. It is a candidate, not a measured prevention mechanism yet. | PST-R2: local support/effect/restore plan, present-delta disposition and full impact; then the Judge's intervention act and measured proof before resuming. |
+
+Lane A should complete the S3 discovery plan and the narrowed S2 comparison in parallel with independent drafting,
+while keeping the S1 stop. Lane B then reviews the concrete alternatives. The Judge decides on an explicit loss of
+assurance under S2 or a new setting effect under S3; no recommendation to relax protection is routed as ready now.
+No new REA Option D decision, generic "go", lane activation or new Lane C file is required for this drafting.
+Lane C's prior limits remain; any later cross-surface claim must name its evidence and review owner under B-136.
+
+### What you did instead — evidence, checks and graph
+
+Lane B replayed retained captures and independently re-hashed inputs; it did not run the pre-st helper, a live
+capture, supplier runtime, setting control, trial, cleanup, build, fetch or push. Evidence under
+`C:/CoWork/outputs/lane-b-pst-review-2026-10-14/`:
+
+| File | SHA-256 |
+|---|---|
+| `audit.mjs` | `e35ba6a5695bb155216b9fcf00bde64411e0bc52d6940fde2429ba5476d4ecbf` |
+| `audit-results-r2.json` | `63ac7997439a63abb0c2fcd1b6c7cbbd693e4b5feecb4137287ece94f8c82123` |
+| `sources.json` | `21d4efc9ac3fc84bf03ffc90e0d543d4d3a0d9e05b194b86ea7aff90be91ff7e` |
+
+The initial audit result is retained; r2 adds the exact known-file reconstruction. The official-source research
+is dated 2026-10-14 and does not prove installed-version support. Only this Lane B body changes in the repository.
+Governed intent remains analysed at `b308d1c`, `stale: false`; later paths are B-050/B-136 handoffs only. No graph
+sync is needed. Final-file consistency evidence is kept in `check-final.log`; the local one-file commit follows a
+pass. No push authority is included. The actual S-T stop is unrelated to documentation graph drift.
+
+### Layer 4 — Verdict
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Retained pre-S-T stop Verified; accepted inputs re-hashed; characterized known-file timestamp delta; earlier scoped approvals preserved | Pre-SM05: keep stopped; no readiness or cleanup credit |
+| Approve-with-conditions | Bounded S2 / documented-candidate S3 planning | Phase 1 / pre-SM05: Lane A answers PST-R1/R2; Lane B reviews the complete policy/effect cards and proof before routing execution selection |
+| Defer | New S2 waiver or S3 setting intervention; S-T, actual readiness, parent closure, Stage B, D-437, SM05, Gate 2 and push | Their named concrete authority and evidence checkpoints |
+| Reject | Current broad S2 as execution-ready; CLI-help absence as global documentation absence; inevitable-failure/writer claims from mtimes; full catalog attributed to official origin without evidence; a new baseline clearing the stop | Pre-SM05: apply the drafted corrections and preserve limits |
