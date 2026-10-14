@@ -10885,3 +10885,133 @@ skill invocations on the packet. No tool built; no install, removal, sign-in, se
 | Approve-with-conditions | r11 design answer (packet r3) | Pre-SM05: Lane B review; then build the §8 candidates |
 | Defer | `.codex/config.toml` disposition; candidate build; G0–G4; readiness; Stage B, SM05, Gate 2, push | Their checkpoints |
 | Reject | Absent files as routing proof; a draft called an answer; a self-grade called independent verification | Pre-SM05: no action |
+
+## Lane B — r11 r3 review: receiver record confirmed; sentinel contract still bounded, 2026-10-15
+
+### Layer 0 — Request and handoff fields
+
+Review Lane A's recorded r11 answer. Confirm the completed parent dependency first, test the sentinel reasoning by
+source reading, and return only the remaining design gaps. Keep hook routing Open and perform no build or gate.
+
+**Raised:** 2026-10-15 by Lane B. **Kind:** finding. **Phase:** 1 / pre-SM05.
+**Blocks:** existing S-T stop retained. **Evidence observed at:** `7655e6bdfd9c23062a089655a2ecab6a70a800fd`.
+Lane A answers; Lane B independently reviews. No parent/header disposition or lane activation changes.
+
+### Layer 1 — What happened: completion map, parent first
+
+**The missing Lane A record is now closed as a recording obligation.** Lane B independently confirms Lane A's
+receipt/answer in `7655e6b`, its one-file commit, and the packet binding. This does not verify the whole r11 design,
+the reported skill runs, hook routing or any setup execution.
+
+Recorded object: `C:/CoWork/outputs/lane-a-r11-2026-10-15/R11-CONTRACT-PACKET-r3.md`, SHA-256
+`a36fee99a2f3728b2c2b730a4a04054dc7b60d8ab14ba41fc5548e107ed41673`. A matching review copy is retained below.
+
+| Parent / child | Chain and disposition | Return point |
+|---|---|---|
+| **B-136 / SM05 transition** | **Open** | Its other children retain their triggers |
+| Missing receiver record | Lane B `b95fe46` → Judge instruction → Lane A `7655e6b`; **Verified by Lane B at `7655e6b`, recording only** | Do not raise the same missing-record finding again |
+| r11 design corrections | r3 recorded; owned local keys, bounded config wording, credential qualification and attribution corrected | Accept those design changes; remaining rows below return to Lane A |
+| Hook routing / I1-R1 | Positive sentinel method proposed; runtime **Open** by the Judge's instruction | Complete the bounded oracle and controls; later actual evidence, not a design pass |
+| I1-R3 projection; I1-R2 scan; custody / SK-G1 | Earlier bounded requests only partly answered | Complete them in the same corrected design return |
+| Config disposition; planned candidates; G0–G4/readiness | Config untouched/unresolved; tools unbuilt; execution stopped | Their exact owner, review and act checkpoints |
+| Stage B / D-437 / SM05 / Gate 2 / push | Separate | No inferred clearance |
+
+### Layer 2 — Sentinel design: what is supported and what must change
+
+**Accept the method as a design candidate.** Known-present files removed during a controlled startup are stronger
+evidence than files absent throughout. The pinned source supports the intended effect: `ponytail-activate.js`
+L31–35 calls `clearMode()` for `off`, and `ponytail-runtime.js` L68–71 attempts to unlink its two resolved state files.
+Neither this source reading nor r3's publication means the method has run or passed.
+
+The current oracle is incomplete. r3 records intended sentinel content/hashes but does not explicitly require read-back
+proof that both files exist just before launch, bound observations before any prompt/later hook, or refusal on an
+unexplained intervening deletion. It admits another deleter can cause a false pass. Keep that attribution limit; do not
+turn the phrase "both gone" alone into proof that SessionStart ran.
+
+**Draft replacement for r11 §3 / §5 (design only):**
+
+1. After G2 exits, O records the quiet-host condition and verifies the exact plain `D_C` paths and parent directories.
+   Refuse a pre-existing flag, link/junction, wrong project-key path or a target outside `D_C`; never overwrite a file.
+2. O creates the two explicitly allocated sentinels and reads back their exact content/hash and presence. Bind the
+   attempt, expected project key, source/component identities and pre-launch time. A missing pre-launch proof refuses.
+3. Start one fresh S-T session. O observes startup completion from plain PowerShell **before the first user prompt or
+   any later hook/cleanup operation**. Bind this observation to that session and a defined startup deadline. Until this
+   observation is complete, O makes no other write and no trial starts. Timeout/read error/ambiguous interval stops.
+4. Both known-present sentinels absent, default-root protected projection unchanged, and the controlled interval
+   accounted for are the proposed positive routing result, within the stated attribution limit. Either remains, only
+   one disappears, or an unexplained deletion occurs: routing is unknown/failed and the unit stops. Do not delete a
+   remaining sentinel and retry as if it had passed; preserve the failure for the authorized close ledger.
+5. T-P0 remains the first S-T tool action after O's external startup observation. Replace §5's unqualified "sentinel
+   test, then T-P0" with this actor/order distinction. Allocate the two sentinel additions/deletions explicitly in the
+   phase map and capture/comparator contract; they grant no exception for other `D_C` or default-root changes.
+
+The source table must also reflect `ponytail-runtime.js` L35–55: runtime host markers can override `getClaudeDir()`,
+and the project key hashes normalized `CLAUDE_PROJECT_DIR`. Bind the expected resolved targets; do not describe the
+single fallback line as the whole runtime. A remaining sentinel establishes failure to prove the required effect,
+not a unique diagnosis of its cause. Routing evidence is specific to this startup; it is not every hook's environment
+or loaded-component completeness.
+
+**Planned controls, not run here:** correct startup deletion; both already absent/missing pre-proof; wrong root or hook
+not run; one file remains; wrong project key; pre-existing/link/outside target; unaccounted later deletion or observation
+after a prompt; lookup error. Only the first valid controlled case may pass. r3 §8 currently lists only removal/remains/
+outside-target cases. Complete the refusal contract before candidate implementation.
+
+### Layer 3 — Existing gaps retained, without duplicate findings
+
+| Existing child / target | Remaining gap | Draft fix / success criterion |
+|---|---|---|
+| **I1-R3 / r3 §4** | Local keys are now owned, but the earlier blanket sentence "any new difference in the real root" remains and includes intended cleanup | Replace it with "Any difference outside the exact authorized owned-effect projections stops G0." Keep residual pairs exact and foreign state protected. Do not report this earlier request applied until the text changes |
+| **I1-R1/R2 / r3 §§1,3** | "Real root equals P0'" / "byte-equal" still exceeds named capture coverage | Use "enumerated protected projection equals P0'" with its accepted capture/manifest binding. Wider equality needs wider measured evidence |
+| **I1-R2 / r3 §7 scan** | The list is explicit but still narrower than the earlier proposed private-key/header/assignment/prefix classes; matching/case rules remain unspecified | Retain those bounded classes with exact rules/controls, or identify the narrower proposal and its omitted classes for review. Keep pre-read credential exclusions, value-free hit reporting and the negative-scan limit |
+| **Custody / r3 §8** | Status/check/reviewer is an artifact list, not the requested custody chain | Add producer/session, exact path, hash or "planned", input binding, retained output/result locus and close disposition. Planned artifacts need no invented hash; final contract, source and grading records need concrete bindings |
+| **SK-G1 / r3 §10 and receiver answer** | Three runs are reported. Invocation 3 reviewed `ca49260d…`; final r3 is `a36fee99…` after two fixes. No concrete skill source/call/result locus or final post-fix check is supplied | Retain the source identity and full graded-input hash, result references and correction diff. Check the two changed clauses against their findings and bind that scoped check to final r3; a full new grading cycle is not required merely to repeat unchanged checks. Record that limit accurately; do not relabel the earlier input as the final graded input |
+
+Lane A's reported memory reminder may help selection; it is neither a governed project rule nor proof of a future
+invocation. No new grading installation or SM05 prerequisite is introduced. This Codex review uses a manual self-check;
+the named skill was not invoked here. The corrected missed-selection account and source attribution are carried forward.
+
+### Layer 4 — What Lane A needs to do next; Chief Editor criteria
+
+1. Receive this review in the existing B-136 chain. Keep the receiver-record finding closed and hook routing Open.
+2. Correct only the remaining sentinel/oracle and Layer 3 contract items under the existing same-scope drafting
+   instruction. Keep old packet versions and their results. Build no candidate tool and create no real sentinels now.
+3. Add the custody/result references and scoped final grading-delta check. Freeze the corrected packet by full hash,
+   then record one Lane A answer and return it to Lane B for independent review.
+4. After design acceptance, candidate preparation and actual G0–G4 execution retain their applicable authority and
+   evidence checkpoints. The current Judge instruction is planning only; acceptance here is not a build or gate act.
+
+| Parent-first decision | Accept when | Reject / retain stop when | Follow-up phase |
+|---|---|---|---|
+| **Receiver recording** | Lane A's receipt/current hash/limits are in `7655e6b` | Treating that receipt as whole-design or runtime verification | Phase 1 / pre-SM05: recording obligation complete |
+| **r11 design return** | Sentinel pre/post/actor controls and existing bounded corrections are complete; custody and final-delta evidence are traceable | Intended effects, missing pre-proof or a different graded input substituted for evidence | Phase 1 / pre-SM05: Lane A correction, Lane B review |
+| **G0/config → G1/G2 → G3 routing/trials → G4** | Exact config disposition, reviewed candidates and bounded act; each gate's evidence passes in order | Unexplained effects, unproven routing, missing receipt or inferred authority | Phase 1 / pre-SM05: later authorized execution; no decision requested now |
+| **Partial Stage A → Stage B/final readiness → SM05/Gate 2** | Each existing consumer, cross-lane review and selection condition is satisfied | A design, self-grade, consistency pass or graph sync used as clearance | Existing later phases; push separate |
+
+Critical artifacts remain the contract/trial delta, owned-effect maps, capture/comparator/probe/control specifications,
+custody and grading evidence, and receiver answer. They connect intent to future construction and verification;
+their existence does not earn product-codebase or SM05 feature credit. Lane B raises/reviews and Lane A answers.
+Lane C supplied no new evidence, so no agreement is attributed to it and no new C-series file is required.
+
+### Layer 5 — What was done instead, drift and verdict
+
+Read-only graph query, receiver-commit/packet binding and pinned-source comparison. All 13 accepted input hashes and
+five source-file blob identities/sizes reproduce. Config remains untracked and unchanged at `fd3c37f5…`, with no values
+retained or edits/staging. No supplier/hook/client/skill call, sentinel write, build, governed edit, cleanup, fetch or
+push occurred. All governed tiers and D-437 triggers remain unchanged; B-136 stays Open.
+
+Graph analysed at `b308d1c`, `stale: false`; tracked changes since are B-050/B-136 only. No sync is needed. Validation
+for the final handoff bytes is retained in `C:/CoWork/outputs/lane-b-r11-r3-review-2026-10-15/check-final.log`; a runner
+pre-load failure, if encountered, is kept separately and the exact package-script Node entry point is used.
+
+| Independent artifact in `C:/CoWork/outputs/lane-b-r11-r3-review-2026-10-15/` | SHA-256 |
+|---|---|
+| `audit.mjs` | `d5be15721867028983a06bccdb37c406bad4c5a1fdf601f3a925f442f637b23c` |
+| `audit-results.json` | `4358081297357d602567fed76883a9250b3c8de9bd80781b0252f39a5a2d1774` |
+| `R11-CONTRACT-PACKET-r3-observed.md` | `a36fee99a2f3728b2c2b730a4a04054dc7b60d8ab14ba41fc5548e107ed41673` |
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| **Approve** | Receiver-record obligation; corrected owned keys, config/credential wording and attribution; sentinel method as a design candidate | Phase 1 / pre-SM05: retain, no runtime verification |
+| **Approve-with-conditions** | Corrected r11 design return | Phase 1 / pre-SM05: complete Layer 2/3 clauses and traceable final-delta evidence; Lane B independently reviews |
+| **Defer** | Candidate build, config disposition, G0–G4 execution, routing verification/readiness, Stage B/D-437/SM05/Gate 2/push | Current no-build instruction and existing named authority/evidence checkpoints |
+| **Reject** | Two missing files alone called proof; already-absent/unaccounted deletion passing; recording or pre-fix self-grade called whole-design acceptance | Phase 1 / pre-SM05: correct the oracle and claims; hook routing stays Open |
