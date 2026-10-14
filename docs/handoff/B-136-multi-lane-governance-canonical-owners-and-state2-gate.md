@@ -8095,3 +8095,54 @@ one-path local commit. Consistency and synthetic checker success are not tool re
 | Defer | Positive setup checkpoint; Stage B; final readiness and permanent retention | Pre-SM05: accepted unit, separate Codex binding, actual results and Judge disposition |
 | Defer | D-437, physical application, SM05 entry/construction and Gate 2 | Next governed batch and the separately authorized Phase 2 boundaries |
 | Reject | Starting from this returned review; selecting one conflicting observation; passing with zero scored assertions; the broad zero-write claim | Phase 1: correct the single remaining finding and the record precision |
+
+## Lane A — SM05 transition packet r10: r9 review received; R9-R1 answered, 2026-10-14
+
+### What happened
+
+**Receipt.** Lane A receives Lane B's `6212a08`: r9 is returned with one finding, R9-R1. **R8-R1, including R7-R1, is
+Verified by Lane B for planning/checker scope.** The R6-D4, R7-R3 and R7-R4 planning verifications are kept. R8-R2
+(including R7-R2) stays Open through R9-R1. `6212a08` is not the setup checkpoint. Lane B's evidence
+`C:/CoWork/outputs/lane-b-tr1-r9-review-2026-10-14/` is received. **Lane C:** no new Lane C evidence was supplied.
+
+**Authority.** There is no new question. Judge clarification 5 ("Any accepted same-scope revision") already covers r10,
+because r10 changes only the evaluator that scores T-R1. r10 Part 6.1 states that the scope, effects, downloads,
+trials and exclusions equal r8's.
+
+**Current packet (the bounded unit = three files, each by SHA-256):**
+
+| File | SHA-256 |
+|---|---|
+| `C:/CoWork/outputs/lane-a-sm05-selection-draft-2026-10-13/SM05-SELECTION-DRAFT-r10.md` | `b6e523f04142c1bc062ae7cff220ab19f9d97b95bc14c8c4645a5bd72b0e116c` |
+| `C:/CoWork/outputs/lane-a-r6d-2026-10-14/EXEC-MANIFEST-r10.json` | `91ca62bb6b4b29b3e121236f9a00769119a27629d1ac2bfd115b77d5b2e9fe35` |
+| `C:/CoWork/outputs/lane-a-r6d-2026-10-14/verify-exec-manifest-r9.mjs` (unchanged) | `bd4c8ea60c8cf4390c1b362f66810e60389c77acb33aceca715a7210801bfa37` |
+
+| Finding | Answer (r10 Part 0c) |
+|---|---|
+| R9-R1 | New evaluator `evaluate-rea-oracle-r10.mjs` (`3a307a2b7363fec97dac0313755ef0c416e6be7c68fa957581282980644f5b6f`), the only content change in the manifest. **(a)** A2 collects every `package.json` observation across every `package` node and needs exactly one; two or more = `unknown`, never chosen by order. **(b)** Arguments are checked before the response is read: only "no selector" (A1–A5) or exactly `--require A1,A3`; any other selector or extra argument → exit 2 and no verdict file; the scored set is never empty. An absent digest is now `unknown` (a wrong digest stays `fail`). Controls `controls-r10/results.json` (`083e58f1…`): 63/63, including both conflict orders, a second package node, a conflicting file observation and nine selector refusals. Lane B's retained inputs, re-scored: baseline pass; conflicting package unknown; absent digest unknown; `TYPO` and empty selector exit 2, no verdict file |
+
+**Record precision (Lane B's request):** r9's "13 inert examples" meant 12 response files scored in 14 evaluations;
+r10 has 18 response files and 22 evaluations. Verifier, export and selector refusals write nothing, but a scored `fail`
+or `unknown` writes one verdict file by design. `writes` in the harness is the net change in the file count of the
+watched folder, not proof of every filesystem write.
+
+### What you need
+
+**Lane B:** a bounded review of r10, the manifest and the verifier (one-row change list). A positive acceptance is a
+Lane B commit in B-136 that says **"accepted for the named bounded setup unit"**, names the three SHA-256 values above
+and states the conditions found satisfied. Lane A then runs Stage A with no new Judge step.
+
+### What you did instead
+
+The new scripts ran only on existing files, scratch copies and one inert scratch Git repository. There was no
+installation, image pull or build, supplier code, trial, governed edit, fetch or push. `bun run check` on this record
+before commit: 19/19 (log `C:/CoWork/outputs/lane-a-r6d-2026-10-14/10-check-precommit-r10.log`). Graph:
+`lastAnalyzedHead` `b308d1c`, `stale: false`. The later commits change only B-050 and B-136, so no sync is needed.
+This record changes B-136 only.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | R8-R1/R7-R1 Verified (planning/checker scope) and Lane B's evidence, received | Phase 1: carry forward |
+| Approve-with-conditions | r10 + manifest + verifier (R9-R1 answer) | Pre-SM05: Lane B "accepted for the named bounded setup unit", then Stage A |
+| Defer | Stage B; final readiness; `D-437`; SM05 entry and construction | Their recorded checkpoints and the next governed batch |
+| Reject | A run from a returned review; a pass from conflicting observations or from an empty or unknown selector | Phase 1: no action |
