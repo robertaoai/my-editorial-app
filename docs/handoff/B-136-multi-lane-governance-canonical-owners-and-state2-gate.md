@@ -9622,3 +9622,73 @@ follows a pass. The Option B control tally above is separate from the repository
 | Approve-with-conditions | Lane A follows the existing accepted Stage A handover | Pre-SM05: rechecked inputs/off state, session exit, quiet host, strict P1d/P1c chain and actual trial/post-exit evidence |
 | Defer | Actual Stage A readiness, Stage B/final retention, D-437, parent closure, SM05, Gate 2 and push | Their existing evidence and authority checkpoints |
 | Reject | Option B treated as Lane B activation; obsolete guide/comparator fallback; a dated D3 observation treated as continuity; a new baseline clearing a strict stop; controls treated as actual close or construction | Pre-SM05: preserve the selected boundary and evidence limits |
+
+---
+
+## Lane A — pre-S-T run under comparator r6 / hand-over r7: strict link C-D2b → P1d STOPPED (client catalog content changed), 2026-10-14
+
+### What happened
+
+**Receipt.** Lane A receives Lane B's `d671dad`: comparator r6 (`882bb2b4…`) and hand-over r7 (`c0313fb8…`) are accepted by
+full SHA-256; the missing-file correction is verified; Option B and prior approvals are retained. **Lane C:** no new Lane C
+evidence.
+
+**Session.** This is session D4, the receiving session (client-started `rea-tr1` container `a4b48acf…` at 12:10:39Z; no REA
+tool call). D3's container `b18c84aa…` has ended. Lane A ran hand-over r7's pre-S-T steps (r5 §5 with comparator r6):
+
+| Step | Result | Evidence under `C:/CoWork/outputs/lane-a-tr1-setup-2026-10-14/state/` (SHA-256) |
+|---|---|---|
+| Re-hash the 13 accepted inputs; record the effective off state (file bytes, birth/modification time, overrides unset; no hook run) | **pass**, 13/13; off file `9f572424…`, overrides unset | `pre-S-T-inputs-off.json` `1684a44ed6c4cf7f0d086b850d3e3ce36cb29b0e404748fdcd428914989e7eb2` (tool `tools/pre-st-check.mjs` `a276e0012e70f2e6cf7d1d7d4f89dd0db277803b874e73fa048631e91e08cbbc`) |
+| Capture P1d (capture r4, cwd `<UNIT>`, 12:11:57Z) | captured | `P1d.json` `1ebdf9358d11a7c21ce99c498dbb96d38681078a9ba87804bc8e5012debe2123` |
+| `compare-state-r6.mjs interval C-D2b P1d --repo` | **stop**, 3 findings | `P1d-from-C-D2b.json` `95fe7a0e8605374258fa4f36be893905624acd6300663c15a4e74e6970e7c84c` |
+| `unit-receipt-r2.mjs check … now` | pass | `unit-receipt-pre-S-T.json` `614e6ea1bd04598285da97790b3c872eb0518fdbf1c362fd6c4a5370822b7b88` |
+
+**The stop.** After `C-D2b` (10:08Z) the client rewrote `known_marketplaces.json` (11:46:52Z; official `lastUpdated`
+08:59:37.345Z → 11:46:52.682Z) and `plugin-directory-cache-v2.json` (11:46:53Z; `fetchedAt` → 11:46:53.448Z). This time the
+catalog **content** changed: keys `listings` and `entryNameClaims` differ, as well as `fetchedAt`. The official tree is
+unchanged (`.gcs-sha` and tree digest equal). Everything else in the strict projection is equal; history is 7 handoff-only
+commits, each inspected; D2's container ended. **P1d is not an S-T reference. S-T does not start.** Nothing was restored or
+re-baselined.
+
+**Correction (Lane A).** The `3bbdf00` record said that "at D3 the two marketplace files still equal C-D2b". That was true
+only at Lane A's check early in D3; the rewrite came at 11:46:52Z, about three minutes after D3 started (11:43:36Z).
+
+**Pattern (observation, mtimes only).** Rewrites followed recent Claude Code session starts by about 3–6 minutes:
+E resume (07:16 → 07:21), D (07:52 → 07:58:54), D2 (08:54 → 08:59:37), D3 (11:43 → 11:46:52). The writer is not proven. The
+`claude plugin marketplace` CLI help shows `add`, `list`, `remove` and `update`; it shows no switch to stop automatic refresh.
+Lane A found no documented mechanism and proposes none without evidence.
+
+**Consequence.** Under Option B, any client rewrite in a link stops it. S-T itself is a Claude Code session start, so P1d →
+P1c and P1d → P2 are expected to meet the same stop. Option A's timestamp rule would not help either: this rewrite changed
+content keys. This is a scope question, not a checker defect.
+
+### Draft decision card — strict-link stop from the client's official-catalog refresh (for Lane B review, then the Judge)
+
+| Field | Content |
+|---|---|
+| Authority | Option B made all future official-marketplace bytes protected. Changing that, or stopping Stage A here, is a Judge decision. Lane B's technical acceptance of r6 gives no such authority |
+| Prerequisites | This record's five files; `C-D2b` `f3f2b0b0…`; the observed rewrite times; Option B record `60928f7`; r10 Part 4.3 (`~/.claude/plugins/` is a touched surface) |
+| Affected files | Client-owned, pre-existing: `plugin-directory-cache-v2.json`, the official entry of `known_marketplaces.json`, the official tree. Unit-owned surfaces (Ponytail entry, `installed_plugins.json`, plugin cache, A1 directories, off file) stay strict under every option. No restore or overwrite |
+| Options (mutually exclusive) | **S1 — stop.** Keep Option B; record "Stage A stopped before S-T"; no readiness. **S2 — record-only external surface.** The three official-marketplace items become a recorded external surface: each link records the old/new SHA-256, the changed catalog keys and times; the link does not stop on them; any change to a unit-owned surface or to the official entry's `source`/`installLocation` still stops; P2 proves unit cleanup only. Needs a new comparator revision and Lane B review. **S3 — prevent the refresh.** Find and prove a documented client setting first; any setting change is a new shared effect with its own restore. Not drafted: no evidence of a mechanism |
+| Lane A recommendation | **S2.** The unit never writes these items, and the trials read no official-marketplace plugin. A strict gate on client-owned churn cannot pass across the required session starts, but recording keeps every change visible. S1 is the safe alternative |
+| Pass / refusal | Under S2: unit-owned bytes strict; official items recorded with hash pairs, never called "equal". Under S1: the unit ends at this record |
+| Sync cost / stop point | Handoff-only now; D-437 later. Stop here: no S-T, no trial, no cleanup until a selection is recorded and any new comparator is accepted |
+
+### What you need
+
+**Lane B:** review this stop record and the card; route it to the Judge. **Judge:** after Lane B's review, select S1, S2 or
+S3. **Person:** end session D4. Do not start S-T.
+
+### What you did instead
+
+Read-only checks and captures only; no trial, REA tool call, cleanup, restore, setting change, fetch or push. The marketplace
+CLI help was read once. `bun run check` before commit: `C:/CoWork/outputs/lane-a-pst-2026-10-14/check-precommit.log`. Graph:
+`lastAnalyzedHead` `b308d1c`, `stale: false`; only `docs/handoff/` paths changed since, so no sync is needed. This record
+changes B-136 only.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Comparator r6 / hand-over r7 acceptance received; 13/13 inputs; off state; UNIT `now` receipt | Pre-SM05: carried forward |
+| Approve-with-conditions | — | — |
+| Defer | S-T, A-S5/A-S6, Stage A readiness | Pre-SM05: Judge selects S1/S2/S3 after Lane B review; any new comparator accepted first |
+| Reject | Re-baselining at P1d; restoring client files; starting S-T on a stopped link; calling the catalog change "timestamp only" | Pre-SM05: no action |
