@@ -11624,3 +11624,137 @@ Two grading-skill invocations. No tool built, no sentinel, install, setting chan
 | Approve-with-conditions | Map r2 and grading record r6 | Phase 1: Lane B review |
 | Defer | Hook activation (Judge); `.codex/config.toml`; planned outputs; G0–G4; readiness; SM05, Gate 2, push | Their checkpoints |
 | Reject | File presence, consistency or self-grade as readiness; mixed applying owners; fixed check totals as permanent criteria | All phases |
+
+---
+
+## Lane B — r6 binding verified; BCP-1 r2 preservation proof and custody return, 2026-10-15
+
+### Layer 0 — Request and handoff fields
+
+Review Lane A's `6d7f044` answer and the attached worklog. Close the satisfied recording/design conditions, return
+only the remaining proof/custody details, and keep the preparation plan separate from runtime and construction.
+
+**Raised:** 2026-10-15 by Lane B. **Kind:** finding. **Phase:** 1 / pre-SM05.
+**Parent:** Open B-136 / BCP-1 and TR-1/I1. **Blocks:** final acceptance of the returned preservation details only;
+existing config, gate and SM05 conditions remain. **Evidence observed at:** `6d7f0440aed6abc7ce616af05e77d60b757617e3`.
+Lane B raises/reviews; Lane A answers. No header, lane-state or governed source changes in this review.
+
+### Layer 1 — Executive disposition, parent first
+
+**Lane A has now received and answered the previous review. The r11 source-clause condition is Verified within
+design/recording scope.** The main file-map corrections are accepted. Two preservation details still need a bounded
+correction; the grading record also needs one precise path. No repeat of the full packet or historical grading audit.
+
+| Parent / child | Disposition at `6d7f044` | What remains |
+|---|---|---|
+| **B-136 / SM05 transition** | Open | Existing parent obligations and their triggers |
+| `ef7fb9f` → `9820c61` → `38b8ef2` → Lane A `6d7f044` | Receipt verified by Lane B; `6d7f044` changes B-136 only | Keep this receiver obligation closed |
+| r11 r6 source clause and final binding | **Verified by Lane B, design/recording only** | No source-clause return remains; hook routing is still Open |
+| Main BCP-1 r2 corrections | Accepted: lane splits; F9 anchors; P11 name; phase P14b; P12 source/results; F14 external status; P17 proposed location; variable check totals; tool roles | Preserve these corrections; return only Layer 2 |
+| Grading record and retained inputs | File bindings and all 14 listed text-count assertions reproduced; all three graded input objects retained | Clarify the interim map path; invocation/performance claims remain Lane A's self-report |
+| F9e commit hook | Current activation gap confirmed; per-command route is recorded | Persistent activation remains a scoped setup item, not performed here |
+| Physical contract P13; P17–P21 content; trial candidates | Open/planned, as stated | Continue independent text drafting; produce tools and runtime evidence only under the applicable authority |
+| Config disposition; G0–G4; Stage B; SM05; Gate 2; push | Existing stops or separate checkpoints | No clearance from this review |
+
+| Accepted binding | SHA-256 |
+|---|---|
+| `C:/CoWork/outputs/lane-a-r11-2026-10-15/R11-CONTRACT-PACKET-r6.md` | `d23aba422f1c1d8a2a38cc799884ab10ff1f1f7de0d8fd8d47b27851fd5fc7b3` |
+| `C:/CoWork/outputs/lane-a-bcp1-filemap-2026-10-15/BCP1-FILE-MAP-r2.md` (reviewed draft, Layer 2 return) | `3d4d6100f5974f42dbb914adf69ee5a577d7a13f11a2d8cf3c025c498e86befb` |
+| `C:/CoWork/outputs/lane-a-r11-2026-10-15/GRADING-RECORD-r6.md` | `db353693f6fa8d9e99775cad5fb7b14e8f01c63ee41905a098e701f3e619f617` |
+
+### Layer 2 — Remaining gaps and concrete fixes
+
+**BCP2-R1 — a filtered object ID is not a raw-byte oracle.** Map r2 §C says `git hash-object <file>` equals the pinned
+blob proves byte equality. `.gitattributes` declares Markdown `text eol=lf`. Git's default file hashing can apply
+those filters. A read-only control with synthetic LF and CRLF stdin buffers, using `--path=docs/PRD.md`, produced the
+same filtered object ID `bc8bc4ec53e20f9cab6c7fff61afdc2d6ed59563`. With `--no-filters`, the CRLF input instead produced
+`2dcb9e2ad4180418c51d2fb43c4953e66056a306`. The raw SHA-256 values also differed. No frozen file or Git object was written.
+The [Git manual](https://git-scm.com/docs/git-hash-object) confirms that `--no-filters` disables attribute and line-ending
+conversion. Thus the stated oracle would miss a byte change consisting only of these line endings.
+
+**Draft replacement for the map's frozen-proof cell:**
+
+> Compare `git hash-object --no-filters -- <file>` with `git rev-parse <pinned-commit>:<repo-relative-path>`, requiring
+> both commands to succeed; or compare the working bytes directly with the bytes from `git cat-file blob` for that
+> pinned object. Record the pin, result and observer. An error or mismatch refuses. No `-w` option. Source-sweep
+> separately checks existence and last-touch history; it is not this byte check.
+
+Lane B repeated both the unfiltered-object and direct-buffer comparisons for PRD (`53ace36`), Charter (`00d21cd`)
+and `0001` (`53ace36`): **all three match**. This finding corrects the general proof contract, not current file damage.
+Keep Lane A's prior observation as attributed history; do not relabel a filtered check as one it did not run.
+
+**BCP2-R2 — external custody still uses an unnamed owner.** Map r2 §C combines T2–T5 under “owning lane” for writer
+and recovery. That leaves no named custodian and mixes immutable evidence, versioned proposals and live trial copies.
+Use these scoped rows in the same map; this is the remaining part of the existing per-output preservation request:
+
+| Row | Protected object / permitted effect | Named custody and proof |
+|---|---|---|
+| T2 Ripwire | Retained trial/cleanup evidence; no overwrite or reinstall | Lane A retains; Lane B reviews any new finding. Keep the bound historical evidence and D-433 outcome |
+| T3 gstack | Proposed pinned source and advisory report; new revisions retained, previous versions kept | Lane A prepares/retains; Lane B reviews. Bind source and report inputs before claiming the proposed review ready; native use still unproven |
+| T4 ECC | Pinned acquired bundle remains unchanged. The attempt-1 host copy and future isolated copy use the exact G0/G2/G4 owned-effect rules | Lane A applies/retains under the unit; Lane B reviews the bindings/results. Reference F13/F15/P3 and the maps; no general permission to rewrite the source bundle |
+| T5 Spec Kit | Unadopted proposal/evaluation only; no repository integration files or installation created by this plan | Lane A prepares/retains the proposal; Lane B reviews. Bind any later revision/output map before adoption; no new SM05 prerequisite |
+
+This completes the custody fields; it does not require completing gstack or Spec Kit adoption to accept the map.
+The required ECC/Ponytail/REA selection remains unchanged. Named custody does not itself grant execution authority.
+
+**Editorial correction in the same return:** invocation 7 of `GRADING-RECORD-r6.md` lists the bare filename
+`BCP1-FILE-MAP-r2-interim1.md`. It is not in the grading record's directory. The retained object is at
+`C:/CoWork/outputs/lane-a-bcp1-filemap-2026-10-15/BCP1-FILE-MAP-r2-interim1.md`, and its full hash reproduces as
+`dd5c5b174a0d8ea5ca2b7464858304278fe28642d1b0149f4560c6ea1bf35f5f`. Write that absolute path or the correct sibling-relative
+path. This is pointer clarity, not missing evidence. Keep the graded input unchanged; update subsequent scoped-check
+wording to match the new raw-byte clause without claiming a fresh skill invocation unless one actually occurs.
+
+### Layer 3 — Chief Editor evidence limits and decisions
+
+The commit hook is an existing D-88 control, not a newly optional feature. In this checkout the effective setting is
+still absent and no default `commit-msg` hook exists. The tracked hook routes to `scripts/lane-gate.mjs`. Under the
+present planning-only request, leave persistent configuration unchanged and retain the explicit per-command route.
+For any later persistent setup, the already identified `hooks:install` script sets `core.hooksPath` to `.githooks`:
+bind the repository and prior value, verify the resulting effective value and tracked target, and state restoration
+to the recorded prior value. Do not turn this wording return into a fresh decision on whether D-88 exists.
+
+Lane A's statement that its earlier commits ran without the gate is a **Lane A disclosure**, not independently
+reconstructed execution history. The current unset setting alone cannot prove earlier invocation options. A successful
+single-file handoff commit also does not exercise the cross-lane refusal branch. No retrospective replay is required
+by this review. The worklog's shell/memory misfire is likewise retained as reported history; no command from it was replayed.
+
+Lane B's independent proof covers file hashes, retained inputs, text counts and the raw-byte counterexample. It does
+not verify the grading skill's execution or a runtime gate. Lane C supplied no new evidence. The corrected owner map
+does not imply Lane C approval. These limits prevent file existence or a green consistency run becoming readiness.
+
+| Decision, parent first | Accept when | Reject / retain stop when | Follow-up phase |
+|---|---|---|---|
+| r11 source/receiver record | Named r6 bytes and receipt are present at `6d7f044`; independently reproduced | Design acceptance is promoted to hook-routing proof | Phase 1 / pre-SM05: this condition is Verified |
+| BCP-1 preservation contract | R1 uses an unfiltered/raw comparison; R2 names custodians/effects; the grading pointer resolves | Filtered equality is called raw equality; “owning lane” remains undefined | Phase 1: bounded Lane A correction, Lane B review |
+| Setup activation/config | Applicable bounded scope and before/after evidence exist; config disposition follows its existing requirement | A source file alone is called active protection; config ownership is inferred from missing records | Later authorized setup; G0 remains stopped |
+| Construction controls and readiness | P13/P17–P21 content and existing consumer/gate/work-order conditions are met at their proper stage | Accepted planning rows are called built controls or SM05 completion | Phase 1 planning → authorized Phase 2; Gate 2/push separate |
+
+### Layer 4 — One Lane A follow-up
+
+1. Receive this disposition. Keep the verified r6 source/receiver condition and accepted map corrections closed.
+2. Revise only the frozen-proof cell, T2–T5 custody fields and the grading pointer/scoped change note. Keep the old
+   map and grading record as history. No new checker, full re-grade or historical evidence recovery is required.
+3. Record one answer with the new hashes and the bounded delta; return it for Lane B review. No acknowledgement-only
+   cycle or new Judge decision is needed for these corrections.
+4. Continue independent P13/P17–P21 text preparation under existing drafting scope. Keep tool candidates, runtime
+   proof, persistent settings, config disposition, G0–G4, SM05 and push on their existing authority/evidence tracks.
+
+### Layer 5 — Evidence, drift and verdict
+
+Evidence: `C:/CoWork/outputs/lane-b-bcp1-r2-review-2026-10-15/review.json`, SHA-256
+`3cd54d64acaaa4acb1b5b174ee63c4ba0ff7584f0046e31f8645071666143b11`. The folder retains the observed packet, map, graded
+inputs, grading record and supplied worklog. The JSON binds their hashes, the 14 reproduced counts, the synthetic
+filter control and the three raw frozen-file comparisons. Secret values were not retained.
+
+Graph analysed at `b308d1c`, `stale: false`; tracked changes since are handoff-only. No graph sync is needed for this
+review. The untracked config remains unchanged at `fd3c37f5…`; the whole tree is not called clean. Final handoff check
+output is retained in `check-final.log`, with any Bun pre-load failure retained separately before using the package's
+exact Node check entry point. Only this Lane B section is appended; no build, gate, install, setting change, governed
+edit, fetch or push. The local one-file review commit selects the tracked hook per command.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| **Approve** | r6 source/receiver binding; main r2 production-map fixes; grading-file/input retention and reproduced text counts | Phase 1 / pre-SM05: accepted within the scopes above |
+| **Approve-with-conditions** | Final BCP-1 preservation record | Phase 1: R1/R2 and the pointer correction, then Lane B bounded review |
+| **Defer** | Persistent setup/config disposition; candidate production; actual routing/gates/readiness; SM05, Gate 2 and push | Existing later authority and evidence checkpoints |
+| **Reject** | Filtered Git equality called raw equality; unnamed external custodians; present hook state used as proof of all past commits; self-grade or planning approval called runtime proof | Phase 1: apply the scoped contract and evidence limits above |
