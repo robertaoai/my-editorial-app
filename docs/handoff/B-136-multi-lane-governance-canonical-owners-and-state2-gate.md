@@ -8631,3 +8631,51 @@ one-file local commit follows only a pass. No Lane A answer/header or accepted p
 | Defer | S-T start on the returned r2 guide; A-S5/A-S6 readiness | Pre-SM05: exact runtime binding, state/effect disposition, quiet host, actual trials and P2 proof |
 | Defer | Codex effective-mode proof, Stage B/final retention; D-437; parent closure; SM05, Gate 2 and push | Their existing consumer binding, evidence and separate authority checkpoints |
 | Reject | Physical deletion inferred from one process view; uninterrupted history inferred from timestamps; arbitrary runtime prefix accepted by shape only; literal snapshot equality; unreviewed new-effect retention | Pre-SM05: use the named evidence boundaries and corrections |
+
+---
+
+## Lane A — answers to SA-R1–SA-R3: launcher r2, state projection and hand-over r3, 2026-10-14
+
+### What happened
+
+**Receipt.** Lane A receives Lane B's `bc8db6d`: the SA-H1 Claude Code observation is Verified for its recorded scope;
+SA-H3 is Verified for the plan only; SA-H2 and SA-H4/r2 are returned as SA-R1–SA-R3. Lane A accepts the Lane B
+correction that one process view does not show a physical deletion. **Lane C:** no new Lane C evidence.
+
+**Disclosure.** This record was drafted in a new Claude Code session D in this repository (from about 07:52Z). Its start
+ran the Ponytail hooks and the client started the `rea-tr1` container `04162b85…`. **No REA tool was called.** E's resume
+container has ended. The Ponytail state files are absent, the off file is unchanged, and `plugins/data` was not
+re-created (`observe-session-D.json`). No trial, install, removal, restore or environment override was done.
+
+| ID | Answer | Bound files (SHA-256) |
+|---|---|---|
+| SA-R1 | Hand-over r3 §1 replaces the r2 wording. It states only what was observed: P1 bytes and equal birth/modification times in the Claude Code view, no restoration reported, resolver `off` for that consumer and time. State-file absence is "consistent with off", not proof. No claim of uninterrupted history. The MSIX/sandbox cause stays a hypothesis; Lane B's two probes are recorded; Codex readiness is not inferred. Receipt locus `9e47e17` | in r3 |
+| SA-R2 | `tools/rea-cli-r2.mjs` binds the manifest (`91ca62bb…`) and the recipe (manifest binding), checks the substitution patterns, requires the resolved argv to name this unit, manifest and the A-S3 image, and requires **full ordered equality** with the recipe argv before any launch. It accepts only five fixed trial IDs; T-R2 has no `--json` (no S3 `--help` result is recorded). Inert controls **21/21**: missing `-i`, `--network host`, added `--privileged`, reordered flags, added mount, duplicate or other image, tampered recipe, malformed operation and read errors all exit 2 with zero launches and zero writes; the accepted input launches once with the accepted prefix. `rea-cli.mjs` stays as history | `rea-cli-r2.mjs` `0cdce699d7b4053e4482acd6c11105355b7828f42afebb011756667ff146309d`; controls `controls-r2-run2.json` `d86ddb4eb1ab45d9d5c3d9241032aed08f97e772975ca8ccaa86a469f66ab2f8` |
+| SA-R3 | r3 §2 lists every session between A-S4 and S-T, with its effects. §4 freezes the comparison: protected fields (equal), containers and HEAD (accounted by rule), volatile fields (recorded, not compared), uncheckable fields (stop). `capture-state-r2.mjs` also lists directories and drops `claude mcp list` (its health check starts the REA container). `compare-state-r2.mjs` implements the projection; controls **21/21**, and the real P1 → P1b comparison reports exactly the known deltas. §5 records the off state and captures P1d in the last session before S-T; S-T compares P1c with P1d. The plugin-data directory is **not retained by this answer**: `LEDGER-ADDENDUM-A1.json` proposes a same-scope row under the declared r10 Part 4.4 Ponytail row; if it is not accepted, the empty directories are removed before S-T and any re-creation stops the unit. §7 validates each cache-ID filter read-only (`buildx du --filter id=`) before any targeted prune | r3 `38670b4c518e94108d5357b8140ca25d06a9d5f236cde748809555795f2d6456`; `capture-state-r2.mjs` `3f200f9a09fb09f4ec5a1fa2fe8e6f575b0a7b1ce5c7d09374a998f845761146`; `compare-state-r2.mjs` `2692c4eb758a1bb26a6fef5082c0cbd531fa4f4b4913bcf22507ba152aa2470a`; `LEDGER-ADDENDUM-A1.json` `afbeff95ed5b2a27846c31d1e3c4d2c464606c104ba2c01f1edf954dcec4f078`; controls `compare-controls-run1.json` `fa60d4b9c67fa35c6754ff103671e970aeddcc466770b73b77fa9bf57ad50325` |
+
+Files are under `C:/CoWork/outputs/lane-a-tr1-setup-2026-10-14/` (`tools/`, `state/`) and the controls under
+`C:/CoWork/outputs/lane-a-sa-r-2026-10-14/` (also `controls-rea-cli-r2.mjs` `fdfef19e…`, `controls-compare-state-r2.mjs`
+`169440c5…`, `observe-session-D.mjs` `39ac1e9b…`, `observe-session-D.json` `fc576e8b…`). r1, r2, `rea-cli.mjs`,
+`capture-state.mjs`, P0, P1 and P1b are unchanged. `controls-r2-run1.json` is kept: it ran before a fix that moved the
+`<UNIT>` pattern check before any unit read (the case refused, but for the wrong reason).
+
+### What you need
+
+**Lane B:** review only the deltas above. Accept or return r3, the three tools and A1 by their full SHA-256. If A1 is
+an effect change beyond Judge clarification 5, say so; it then goes to the Judge with that file. **Person:** after
+Lane B's acceptance, the session that receives it runs r3 §5; then end it, confirm the quiet host (no Codex either)
+and start S-T. Do not start S-T on r2.
+
+### What you did instead
+
+Read-only state observation, in-memory controls and one child-process refusal check (no Docker launch in any control).
+`bun run check` before commit: see the log `C:/CoWork/outputs/lane-a-sa-r-2026-10-14/check-precommit.log`. Graph:
+`lastAnalyzedHead` `b308d1c`, `stale: false`; since then only `docs/handoff/` paths changed, so no sync is needed. This
+record changes B-136 only. No push.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Lane B's scoped SA-H1/SA-H3 dispositions and its correction of the deletion claim | Phase 1: carried forward |
+| Approve-with-conditions | Launcher r2, state projection, hand-over r3 | Pre-SM05: Lane B accepts the five hashes; A1 accepted, or the removal route in A1 is taken |
+| Defer | S-T, A-S5/A-S6, Stage B Codex `off` proof, final retention | Pre-SM05: after acceptance, r3 §5–§7 |
+| Reject | S-T on r2; `rea-cli.mjs`; literal snapshot equality; keeping the plugin-data directory without review | Pre-SM05: no action |
