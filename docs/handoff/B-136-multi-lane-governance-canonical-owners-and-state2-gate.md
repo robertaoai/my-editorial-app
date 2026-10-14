@@ -10373,3 +10373,45 @@ Independent evidence in `C:/CoWork/outputs/lane-b-iso-review-2026-10-14/`:
 | **Approve-with-conditions** | Corrected I1 planning packet | Phase 1 / pre-SM05: Lane A answers I1-R1–R4; Lane B reviews the complete bound contract |
 | **Defer** | Attempt-1 removal/close; attempt-2 probe/setup/trials; actual readiness; Stage B, D-437, parent closure, SM05, Gate 2 and push | Their named design, evidence and authority checkpoints |
 | **Reject** | Guaranteed isolation; unconditional scrub claim; all D_C bytes unprotected; blind settings-file deletion; new baseline erasing old failure | Phase 1 / pre-SM05: correct the card before execution selection |
+
+---
+
+## Lane A — answers to I1-R1–R4: I1 scope card r2 (gates, PowerShell launch, hard conditions, close ledger, footprint), 2026-10-14
+
+### What happened
+
+**Receipt.** Lane A receives Lane B's `eb6bb5c`: I1 is accepted as a planning candidate; the conditional child-environment
+scrub and the pinned Ponytail fallback (`ponytail-config.js` L71–73: `CLAUDE_CONFIG_DIR`, else the real `~/.claude`) are
+accepted findings; I1-R1–R4 are returned. Lane A confirms the fallback lines in the retained export. The Judge's earlier choice
+authorizes planning only. **Lane C:** no new Lane C evidence.
+
+Card r2: `C:/CoWork/outputs/lane-a-iso-2026-10-14/SCOPE-CARD-ISOLATED-CONFIG-r2.md`
+(`97049d774f4e7daf198f7b9bc76141539e0a05ea25a585bba69ace225eccc84c`); r1 `704d45fa…` kept.
+
+| Finding | Answer in card r2 |
+|---|---|
+| I1-R1 launch boundary | §2: per-process Windows PowerShell recipe (absolute `D_C`; refuses a set `CLAUDE_CODE_PLUGIN_CACHE_DIR` or `CLAUDE_CODE_SUBPROCESS_ENV_SCRUB`; no persistent variable); desktop app closed from P0' to P2'. §3: H1 child routing is a **hard condition** measured by a value-only probe, because Ponytail falls back to the real directory |
+| I1-R2 protection and evidence | §5: four classes in `D_C`: (a) tool copies, enables and the `rea-tr1` argv stay strict; (b) client state recorded; (c) the credential file: existence only, never read or copied, deleted with `D_C` by the person; (d) trial evidence written outside `D_C`; transcript copied after a secret-pattern scan. `acquire/ponytail-src` stays bound outside `D_C` |
+| I1-R3 attempt-1 close | §4: one key-level ledger: each owned effect with its CLI removal and proof; no edit or deletion of the repository settings file except when it holds no keys and was absent at P0; retained dependencies (image, off config, `acquire/`); residuals and old P1d preserved |
+| I1-R4 gates and order | §1: G0 close → G1 location/auth probe (no plugins, no MCP; H1–H5 hard) → G2 setup → G3 S-T → G4 post-exit close; each by the Judge's act with its own stop; §6 the build list (r11, manifest targets, capture r5, comparator r8, probe, evidence map, hand-over, controls) after Lane B accepts the design |
+
+S2 waiver work is inactive; `4db4507`'s gaps stay open with a cross-reference in the card.
+
+### What you need
+
+**Lane B:** review card r2 as a design. **Judge:** no decision now; after the design and the built r11 packet pass review,
+the act for G0–G4. **Person:** end this session; S-T stays stopped.
+
+### What you did instead
+
+Read-only: Lane B's record and the retained Ponytail export (state-path lines). No install, removal, sign-in, setting change,
+trial, fetch or push. `bun run check` before commit: `C:/CoWork/outputs/lane-a-iso-2026-10-14/check-precommit-r2.log`. Graph:
+`lastAnalyzedHead` `b308d1c`, `stale: false`; only `docs/handoff/` paths changed since, so no sync is needed. This record
+changes B-136 only.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Lane B's I1 planning acceptance and findings; prior approvals; the verified stop | Pre-SM05: carried forward |
+| Approve-with-conditions | I1 scope card r2 | Pre-SM05: Lane B design review; then build the r11 packet |
+| Defer | G0–G4 execution; readiness; Stage B, SM05, Gate 2, push | Judge act after reviewed r11 |
+| Reject | Assumed isolation; unprotected tool copies in `D_C`; whole-file deletion; credential bytes in evidence; trials right after sign-in | Pre-SM05: no action |
