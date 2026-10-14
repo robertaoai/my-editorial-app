@@ -8412,3 +8412,61 @@ off state, setup readiness, behavioural/xDD completion or push authority.
 | Defer | A-S5/A-S6 readiness and cleanup disposition | Pre-SM05: actual trials, P2-versus-P0 proof and explicit residue; partial Stage A record only |
 | Defer | Stage B/final retention; D-437; B-136 closure; SM05, Gate 2 and push | Their accepted bindings, evidence and existing separate authority checkpoints |
 | Reject | Starting S-T with the off file absent; silent restoration or a new baseline hiding the unexplained change; omitting `-i`; cleanup omitting cache records; installation or consistency used as readiness proof | Pre-SM05: apply the named corrections and retain their evidence |
+
+## Lane A — Stage A execution receipt (A-S0–A-S4) and answers to SA-H1–SA-H4, 2026-10-14
+
+### What happened
+
+**Receipt.** Lane A receives Lane B's `05ac2ba` (r10 accepted for the named bounded setup unit; R9-R1 with R8-R2/R7-R2
+Verified) and `d3cc712` (Stage A hand-over review: SA-H1–SA-H4 Open; S-T stopped). **Lane C:** no new Lane C evidence.
+
+**Stage A execution, A-S0 to A-S4 (executor session E, 2026-10-14 06:3x–06:42Z).** Under the Judge instruction recorded
+in this file and Lane B's checkpoint `05ac2ba`, the person confirmed in chat the quiet host and the six downloads
+(option "Start now; host is quiet"). Every frozen check passed:
+
+| Step | Result | Evidence under `C:/CoWork/outputs/lane-a-tr1-setup-2026-10-14/` |
+|---|---|---|
+| A-S0 | Three unit hashes equal; `artifacts` OK; 9/9 input blobs; HEAD `05ac2ba`; Docker linux/amd64 29.5.2; 633 GB free | `state/HANDOVER-E-to-S-T.md` |
+| A-S1 | P0 captured; every expected-absent item absent | `state/P0.json` (`87687019…`) |
+| A-S2 | `external node`, `external rea` (736 files, 6,002,094 B), `git-tree`, `export-tree` (202), `plugin-dir`, `ecc-dir`, `staged`: all OK | `evidence/A-S2-*` |
+| A-S3 | `build-context` and `artifacts` OK; build 51 s; 142 packages with verified registry signatures, 28 with verified attestations; image `sha256:21cd0944a4277211721e09e0d1ee7f8dd42d1a276df4847bbd2b05ea7094f374` (621 MB) | `evidence/A-S3-*` |
+| A-S4 | Off config first (22 B, `9f572424…`); `ecc-tr1` (`ecc-dir` OK); Ponytail preview from disk (6 skills, 3 hooks, 0 MCP/agents/LSP), then local install; installed cache `plugin-dir` OK; `argv` OK; MCP entry equals the resolved argv; P1 − P0 = ledger | `evidence/A-S4-*`, `state/P1.json` (`2a0c8cbe…`) |
+
+Disclosed in the hand-over: `claude plugin details` refuses a plugin that is not installed, so the preview used the
+same command with the CLI's `--plugin-dir` load-from-disk flag, still before install.
+
+| ID | Answer |
+|---|---|
+| SA-H1 | **The file was not removed, and nothing was restored.** On the real path it exists with the P1 bytes (22 B, `9f572424…`), and its **birth time equals its modification time (06:39:28.248Z, the A-S4 write)**. The pinned resolver from the installed cache (`ponytail-config.js` `ae81c355…`), called in the Claude Code process environment the hooks inherit, returns **`defaultMode: "off"`** from that path, with the overrides unset. All Ponytail state files are still absent. Codex desktop is the MSIX package `OpenAI.Codex_2p2nqsd0c76g0`, with its own `LocalCache\Roaming` (`Codex`, `Microsoft`; no `ponytail`). Lane A's conclusion: the Codex environment sees `AppData\Roaming` differently, and **packaged-app or sandbox virtualization is a hypothesis** until Lane B runs the bounded read-only probe in the r2 hand-over. Stage A's consumer (Claude Code) is proven `off`. **Stage B consequence:** the shared config is not proven for Codex, so the Stage B binding must prove Codex's own effective resolver result is `off` before enabling the plugin, with no environment override. Evidence: `evidence/SA-H1-diagnosis.json` (`fbcf79b6…`), `evidence/SA-H1-effective-mode-claude.json` (`21afe023…`) |
+| SA-H2 | `tools/rea-cli.mjs` (`d52d7060caa3de4e3580c3dd0d2162f9a809389d720734087fe177bfa2db05bb`) takes the server argv from `resolved-argv.json` unchanged, **`-i` included**, replaces only the final `mcp`, refuses an unexpected shape, closes stdin, and saves full stdout, stderr and metadata write-once |
+| SA-H3 | Each of the 9 IDs in `state/build-cache-new-ids.json` (`11871f85…`) is removed with `docker buildx prune --force --filter id=<ID>` and then confirmed absent; an ID that cannot be removed is recorded as residue with its size; no broad prune. P2 covers every ledger surface, including `plugins/data` |
+| SA-H4 | This resumed E session ends. The person confirms no other Claude Code session, Claude Cowork or **Codex session (including Lane B's review session)**. S-T starts with T-P0, the resolver check, the four verifier modes and P1c compared with P1b; any unexplained change stops the unit |
+
+**Disclosed events since A-S4:** (1) E was **resumed** in the same session to receive `d3cc712`. The client started the
+registered `rea-tr1` server (one `--rm` container from the unit image); **no REA tool was called**. (2) The client created
+an **empty** `~/.claude/plugins/data/ponytail-ponytail/` on resume. This is a new provisional ledger row, removed with the
+plugin (no `--keep-data`) and with the `data` root, which was absent at P0. (3) Lane B's review ran in Codex during the
+pause. P1b compared with P1 (`evidence/SA-H1-P1b-vs-P1.txt` `d876c416…`) shows no other change to a touched surface.
+
+Corrected hand-over: `state/HANDOVER-E-to-S-T-r2.md`, SHA-256 `69b2338b9bd491ce2ba844e0420d7ffe77a2511e9a9d82887a15fbac8576f271`
+(r1 `b509312b…` kept unchanged).
+
+### What you need
+
+**Lane B:** (1) run the SA-H1 read-only probe from the Codex shell and record the result; (2) review SA-H1–SA-H4 and the r2
+hand-over. **Person:** end this session; confirm the quiet host (no Codex either); start S-T. S-T follows the r2 hand-over
+and writes "Readiness — partial (Stage A only)".
+
+### What you did instead
+
+Read-only checks, and one call of the pinned resolver (no writes). No trial, REA tool call, restore, environment override,
+governed edit, fetch or push. `bun run check` on this record before commit: 19/19 (log
+`C:/CoWork/outputs/lane-a-tr1-setup-2026-10-14/evidence/check-precommit-SA-H.log`). Graph: `lastAnalyzedHead`
+`b308d1c`, `stale: false`; only handoff paths changed, so no sync is needed. This record changes B-136 only.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Stage A A-S0–A-S4 receipt; SA-H1 consumer view proven `off`, with nothing restored | Pre-SM05: carry forward |
+| Approve-with-conditions | S-T start under the r2 hand-over | Pre-SM05: Lane B's SA-H review; quiet host confirmed; P1c = P1b |
+| Defer | Codex view of the config (the SA-H1 hypothesis) and Stage B | Lane B probe; Stage B binding proves Codex's resolver result is `off` |
+| Reject | Restoring or overriding over a disputed file; starting S-T with Codex running; trials in a resumed executor session | Pre-SM05: no action |
