@@ -9277,3 +9277,132 @@ written, and the retry is the cited file. `bun run check` before commit:
 | Approve-with-conditions | `unit-receipt-r2.mjs`, `compare-state-r5.mjs`, hand-over r6 | Pre-SM05: Lane B accepts the three hashes |
 | Defer | Judge's A/B/C residual selection; S-T; A-S5/A-S6; Stage B, SM05, Gate 2, push | After technical acceptance; their own checkpoints |
 | Reject | A label as cleanup proof; a wrong-unit or contradictory receipt; a link as absence; residual acceptance as equivalence or cleanup; installed-plugin absence as proof that metadata is never read | Pre-SM05: no action |
+
+---
+
+## Lane B — R5-F1/F2 Verified within scope; hand-over r6 accepted; historical residual ready for Judge selection, 2026-10-14
+
+### Layer 0 — Request and transaction
+
+Review Lane A's `71f61e1` answer to R5-F1/F2. Preserve accepted approvals, verify the two corrections, consolidate
+the remaining decision and follow-up in one parent-first handoff. This is review/planning only: no supplier trial,
+setup, real cleanup, product build, governed edit, fetch, push or Gate 2 action.
+
+**Raised:** 2026-10-14 by Lane B. **Kind:** finding/review of existing children. **Phase:** 1.
+**Parent:** B-136 / TR-1 / Stage A. **Blocks:** S-T still waits for the historical residual disposition and its
+existing entry conditions. The B-136 header stays Open. Lane B verifies its returned findings; Lane A records the
+receipt and any subsequent Judge selection. No C-series entry or new lane activation is required.
+
+### What happened — parent-first completion map
+
+Lane B receives `71f61e1`. All 13 bound inputs match their stated SHA-256 values. The submitted controls replay
+**37/37**, including all six reviewer counterexamples and five real Windows junction cases; no test junction
+remains. The r4-to-r5 diff changes only the header/import bindings, ledger and CLI. Eight exported non-ledger
+functions are identical, including validation, per-commit history, interval and bridge; the timestamp rule and
+historical residual constants are identical. No accepted marketplace rule is reopened.
+
+| Parent / child | Disposition | Remaining condition / follow-up phase |
+|---|---|---|
+| B-136 / SM05 transition | Open | Other obligations retain their own triggers |
+| r10 checkpoint `05ac2ba`; REA Option D; launcher; A1; R4-F1/T; capture r4; UNIT map/dispositions | Retained | Existing approved scope; no new tool-selection question |
+| **R5-F1 — receipt binding** | **Verified by Lane B at `71f61e1`, within the code/fixture scope below** | Actual post-exit close is not yet proven |
+| **R5-F2 — link refusal** | **Verified by Lane B at `71f61e1`, within the reviewed path scope** | Required paths are checked again at actual use |
+| R4-F2 cleanup-gate correction | Verified for the planned gate | Actual deletion/retention and complete P2 close remain pending |
+| Receipt r2, comparator r5, hand-over r6 | Accepted by the full hashes below | Historical residual selection and existing S-T entry conditions |
+| Historical content residual | Ready for Judge decision; unaccepted | Select A, B or C below; Lane A records the bounded disposition |
+| S-T; A-S5/A-S6; Stage A readiness | Pending | Decision, session transition, actual frozen trials and post-exit proof |
+| Stage B/final retention; D-437; B-136 closure; SM05; Gate 2; push | Separate | Existing authority/evidence checkpoints |
+
+### Layer 1 — Verified corrections and exact accepted revisions
+
+| Child | Independent evidence | Scope limit |
+|---|---|---|
+| R5-F1 | Production CLI no longer reads `--unit-receipt`. It binds the accepted UNIT, map and checker before generating a fresh close receipt. Validation checks receipt identity, item coverage/dispositions, findings, states and the P2 time window. Bare labels, another UNIT/map/checker, missing/duplicate items, contradictory residue, wrong phase and invalid time order/skew refuse. | The positive library control uses a fixture closure. Lane B did not produce a real successful P2. The actual CLI control below refuses real build residue. A time window does not prove uninterrupted host state. |
+| R5-F2 | `lstat` checks the UNIT root, acquisition parent, mapped paths and walked entries. Existing/dangling build links, acquisition-parent links, a nested retained link and a UNIT-root link all refuse. Genuine absence passes the fixture close. | Only a confirmed ENOENT counts as absence; other errors stop. This review performs no deletion and follows no link for cleanup. |
+
+Accepted files under `C:/CoWork/outputs/lane-a-tr1-setup-2026-10-14/`:
+
+| File | SHA-256 |
+|---|---|
+| `tools/unit-receipt-r2.mjs` | `bda056260420e031d5bede8417ce3df79ce6323be051eede43cd32fb5b0ae2b2` |
+| `tools/compare-state-r5.mjs` | `d1beda99dde5b875b736b0ad10284a5c070b2b10556f6c0486102fffc27169f0` |
+| `state/HANDOVER-E-to-S-T-r6.md` | `9b905da4471980ee1c290ec321ce2dd7ded7c301e1ef6d689383abd6a8a55db9` |
+
+The reused map stays `1ca9937fcc3597ccba480db24b8e428009e9ef68cbed446b4c40ed01abcee823`; capture r4 stays
+`4150f5f20976aacd245bb72b5c06022d4c1f3d3a03c1f015f1fc6c8b98b67573`. Older versions remain history, not fallback
+execution routes. The accepted r6 guide explicitly carries r5 except for the changed tools and close commands.
+
+**Independent integration check:** Lane B called the unmodified comparator r5 CLI with accepted UNIT/map/checker
+bindings and an explicitly synthetic P2 made from retained captures. The CLI generated its own receipt and exited
+1 with `build` residue. Thus the production entry point observes the disposable and refuses it; it does not accept
+a supplied pass label. The synthetic P2 is not actual host closure or readiness evidence. The real UNIT `now` check
+passes; actual successful close remains pending. The failure to delete `build/` after S3 stays a timing deviation.
+
+### What you need — bounded historical residual decision
+
+There is **no further technical finding in this review**. The unknown historical content is a separate acceptance
+decision. The recovered known-file relation is timestamp-only. The earlier tree/catalog content delta is not
+characterized; the recovery search found no old copy in its searched locations. Only Ponytail being installed
+supports absence of an installed official plugin, not absence of client metadata reads. No writer or uninterrupted
+history is inferred from file times.
+
+The one-time residual is these exact pairs, observed from P1/P1b to C-D2/C-D2b:
+
+| Surface | Before SHA-256 | Observed after SHA-256 |
+|---|---|---|
+| Marketplace-tree projection (`claude.pluginsMarketplaces`; recorded changed child `claude-plugins-official`) | `fbe9fb48fca60fc9d14be0fe97bb60aed52c3329f7466ce16bbed7330e834873` | `83bb2bf8b0344753323b77dfb29b63fec3665544b9bd96db2eb393a6c5a48f41` |
+| `plugin-directory-cache-v2.json` | `4f6fd6a10fd8491a3905e9100289669fc16e53fcbadf0e8886ceb134463e921c` | `5e864e8ab8c47ed969564e7fa6f9f32069a8430273549afce547c892cb55c547` |
+
+| Decision-card field | Complete contract for the Judge |
+|---|---|
+| Authority | A one-time acceptance/rejection of the exact historical unknown above. Lane B's technical verification supplies no residual acceptance. D-183/D-186 separate review from authority; the r10 unexplained-change boundary cannot be removed by a checker result. |
+| Prerequisites / source | Three accepted hashes above; accepted map/capture and retained r10 checkpoint; P1 `2a0c8cbe7cb487c10db1a060f50e5273f5e9be8beb990fa226f6b7ca543011ca`, P1b `204dee3cdf2ded0abefb0b224c15962870cd05e500669be040369ff04c137550`, C-D2 `b205429249f2844db0ead6777c2ff33b143bd9d1d6741e86e6955f43644566a8`, C-D2b `f3f2b0b093039ae1fd55eccb66a7ff3b940ca078909d7091569ee54a519aac86`; known-file reconstruction; corrected chronology/recovery limits; owner Lane A for recording the client-owned residual. |
+| Affected files | Pre-existing official tree/catalog/known-marketplace entry as evidence only; comparator policy, handover and Stage A record. No shared-file restore, overwrite or new supplier capability is included. |
+| Outcomes / pass-refusal | **A:** accept only the exact residual as an owned Stage A limit, retaining the accepted forward timestamp-only rule; every content change remains strict. **B:** accept only that residual with strict future byte checks; a new full-hash comparator with the constant false must first pass Lane B review. **C:** reject the residual; S-T remains stopped. Any other content delta or cleanup failure stops under A/B. The bridge remains `residual` under every outcome; acceptance proves neither equivalence nor cleanup. |
+| Sync cost | This review/selection record is handoff-only: no graph sync. Later D-437 governed application follows D-54 and the guarded graph route; no raw rebuild/update is authorized. |
+| Stop point | Judge selects one outcome; Lane A records it before S-T. This turn stops at review and decision presentation. The selection does not close Stage A, authorize product construction, activate a lane, grant push authority or close Gate 2. |
+
+### Layer 2 — Lane A follow-up and Chief Editor requirements
+
+1. Receive this verification in the next relevant B-136 answer; no receipt-only commit is needed. Preserve prior
+   approvals, the accepted three hashes, the five evidence dispositions and Lane C's accepted limits.
+2. Present the exact A/B/C card to the Judge. This is the remaining material decision, not a request to authorize
+   another correction round. Lane A records the actual selection, with its source; no branch is selected by default.
+3. Under B, return only the strict comparator revision and hash for review. Under C, keep S-T stopped. Under A,
+   retain the accepted comparator. Every branch keeps the historical limit and build timing deviation visible.
+4. Before any permitted S-T, end D2; re-hash accepted inputs, check effective off state and the quiet-host condition,
+   and prove C-D2b to P1d to P1c under the accepted handover. Run only the already bounded trials after their entry
+   conditions are met. This review introduces no new trial or execution authority.
+5. O captures actual P2 after S-T exits, then invokes the accepted ledger back to back. It generates and validates
+   UNIT cleanup proof itself. Residue, unreadable paths or changed protected content stop; do not label a subset
+   check as a complete close. R records **Readiness — partial (Stage A only)** with the accepted residual limit.
+6. Stage B consumer binding, final retention, D-437, the SM05 work order and Gate 2 retain their separate triggers.
+   Setup-source/fixture controls earn no product-codebase construction credit. No new Lane C claim or C-series
+   file is requested by these corrections.
+
+### What you did instead — evidence, checks and graph
+
+Evidence: `C:/CoWork/outputs/lane-b-r5f-review-2026-10-14/`:
+
+| File | SHA-256 |
+|---|---|
+| `audit.mjs` | `514678326b021356ce9d82262e9ebf15fccb52d443f3b2ec275cdb4a5d028e6b` |
+| `audit-results.json` | `1a9f2d85960582e1ddb33706566fcaee5b42dc22374d131aaeeb2eca29ee7dfa` |
+| `controls-replay.json` | `acd042f5087d53fec481cc1c622b5fd330c2bc4810c2f3a740aeca2a6df6375f` |
+| `cli-ledger-result.json` | `b0dd9e74f8a772084bed1d4d04670812b226b289095df6ee568b0a6c78e53cd6` |
+
+Reviewer outputs label synthetic captures explicitly. No supplier runtime, live capture, real cleanup, build,
+governed edit, fetch or push ran. Only this Lane B body changes in the project repository. The graphify query was
+read-only; governed intent remains analysed at `b308d1c`, `stale: false`. Only B-050/B-136 handoffs changed since
+that revision, so no graph sync is needed. Final-byte consistency evidence is kept in `check-final.log`; the local
+one-file review commit follows a pass. B-136 stays Open.
+
+### Layer 3 — Verdict
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | R5-F1/F2 Verified in the reviewed code/fixture scope; three accepted hashes; corrected historical card; prior scoped approvals | Phase 1 / pre-SM05: review complete; actual close and residual acceptance remain pending |
+| Approve-with-conditions | Progress through the accepted Stage A handover | Pre-SM05: recorded A/B disposition, any B comparator review, existing session/input conditions and actual trial/post-exit proof |
+| Defer | Historical residual acceptance | Judge's exact A/B/C selection; no default or inferred acceptance |
+| Defer | Stage A readiness, Stage B/final retention, D-437, parent closure, SM05, Gate 2 and push | Their existing evidence and authority checkpoints |
+| Reject | Treating a synthetic P2 as actual close; a successful fixture as readiness; residual acceptance as equivalence/cleanup; a past timing deviation erased by later deletion | Pre-SM05: keep evidence and authority boundaries explicit |
