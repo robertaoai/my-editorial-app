@@ -9220,3 +9220,60 @@ in `check-final.log`; the local one-file commit follows a pass. No push is inclu
 | Defer | Judge's historical residual selection; S-T and Stage A readiness | Pre-SM05: technical acceptance, corrected bounded card, recorded disposition and actual trial/post-exit proof |
 | Defer | Stage B/final retention, D-437, B-136 closure, SM05, Gate 2 and push | Their existing evidence and authority checkpoints |
 | Reject | A receipt label as proof; wrong-unit or contradictory cleanup receipts; a dangling link as absence; installed-plugin absence as proof of no metadata read; residual acceptance as equivalence or cleanup | Pre-SM05: correct the named proof gaps and preserve the limits |
+
+---
+
+## Lane A — answers to R5-F1 and R5-F2: bound close receipt, link refusal and hand-over r6, 2026-10-14
+
+### What happened
+
+**Receipt.** Lane A receives Lane B's `8fbfd10`: R4-F1 is Verified within scope; R4-F1-T is accepted as a technical rule
+under Judge clarification 5; capture r4 and the five proposed UNIT dispositions are accepted as provisional evidence;
+R4-F2 is returned as R5-F1 and R5-F2. Accepted bytes are unchanged (capture r4, comparator r4, map, launcher, A1).
+**Lane C:** no new Lane C evidence. This record is still drafted in session D2 (no REA tool call).
+
+| ID | Answer | Bound files (SHA-256) |
+|---|---|---|
+| R5-F1 | `unit-receipt-r2.mjs` writes a self-describing receipt: schema `tr1-unit-receipt/2`, UNIT, map SHA-256, checker SHA-256, phase, time, one result per map item (state, file count, listing SHA-256, added files) and the findings. `validateReceipt` refuses: another schema, UNIT, map or checker; phase other than `close`; any finding; items that do not cover the map exactly once; a disposable not `absent`; a retained item not `present`; added files on a fixed item; a receipt before P2 or more than 15 minutes after it. `compare-state-r5.mjs` changes only the ledger: it no longer accepts a supplied receipt (`--unit-receipt` is refused). It checks the accepted UNIT, map (`1ca9937f…`) and checker (`bda05626…`) by SHA-256, runs the checker itself in the same post-exit run as P2, validates the complete receipt and writes it into the ledger result | `unit-receipt-r2.mjs` `bda056260420e031d5bede8417ce3df79ce6323be051eede43cd32fb5b0ae2b2`; `compare-state-r5.mjs` `d1beda99dde5b875b736b0ad10284a5c070b2b10556f6c0486102fffc27169f0` |
+| R5-F2 | Every observation uses `lstat`: the UNIT root, the `acquire/` parent, each mapped path and each walked entry. A symlink or junction (existing or dangling) stops and is never followed. Only ENOENT on the required path counts as absent; any other error stops. Real runs: `now` = pass; `close` today = stop (`build` residue), as before | `receipt-r2-now.json` `0cb6c87e182e9347d5b55f07df450701f254df8a2a2e6c1a39bb0f8e94e452ec`; `receipt-r2-close-today.json` `567265eb295b58b6a435835fc650e96f596c81ba37fd4d0ce863ab075f65cf78` |
+| Hand-over | r6: r5 stands except the two tools, the pre-S-T UNIT check and O's close commands (P2 capture, then `ledger … --unit <UNIT> --map <map>` back to back). The `build/` timing deviation and the residual limit stay recorded | `HANDOVER-E-to-S-T-r6.md` `9b905da4471980ee1c290ec321ce2dd7ded7c301e1ef6d689383abd6a8a55db9` |
+
+**Controls 37/37** (`controls-r5-run1.json` `70fcccd9fd6f1f6f64a0e543825107a60f532ce9303b4f6831f47c44c4f6a038`; harness
+`controls-r5.mjs` `9da701d20d018cd8eda13d6da7f76889a1d348fa6a3104c541e45f839a815941`): Lane B's L-B01–L-B04 and U-B01/U-B02 all
+refuse; a valid receipt and a valid ledger pass; added refusals cover another checker, phase `now`, missing or duplicate
+items, time order and skew, contradictory item states, the old `--unit-receipt` flag, a wrong UNIT or map on the CLI, existing
+build and nested and UNIT-root junctions; the r4 changed/missing/unallocated/append cases are kept. Five real junctions were
+created inside the evidence folder and all were removed (none remaining). Interval and bridge logic is unchanged from r4
+(the r4→r5 diff touches only the ledger, its CLI and the header). Evidence: `C:/CoWork/outputs/lane-a-r5f-2026-10-14/`.
+
+### Historical residual card (corrected per Lane B; for the Judge after technical acceptance)
+
+| Field | Content |
+|---|---|
+| Authority | The Judge's one-time acceptance or rejection of the named historical unknown. Lane B's technical acceptance of R4-F1-T gives no residual authority |
+| Prerequisites | Accepted corrected cleanup gate and hand-over; P1/P1b/C-D2/C-D2b hashes; the exact residual pairs (tree `fbe9fb48…` → `83bb2bf8…`, catalog `4f6fd6a1…` → `5e864e8a…`); the known-file rebuild proof; the corrected timeline; a scoped recovery search that found no copy in the searched locations (this does not prove that no copy exists); owner and limits |
+| Reasons, stated precisely | The later known-file changes are characterized (timestamp only). The older tree and catalog **content** change is unknown; the history is not described as timestamp churn. Only `ponytail@ponytail` is installed: this supports that no official-marketplace plugin is installed, **not** that the client never reads official metadata |
+| Affected files | The pre-existing official tree, catalog and official known-marketplace entry, as evidence only; the corrected comparator, receipt, hand-over and the Stage A record. No shared-file restore or overwrite |
+| Outcomes (mutually exclusive) | **A:** accept the exact residual as an owned Stage A limit, with the accepted timestamp-only prospective rule. **B:** accept it with strict future byte checks; a separately bound comparator with the constant `false` returns for Lane B review first. **C:** reject it; S-T stays stopped. Under A or B, any other content delta or cleanup failure stops. Acceptance proves neither content equivalence nor cleanup |
+| Sync cost / stop point | Handoff-only now. The D-437 governed application later follows D-54 and the guarded graph route. Record the selected disposition before S-T; Stage A completion still needs the real trial and post-exit evidence |
+
+### What you need
+
+**Lane B:** review only these deltas; accept or return by full SHA-256 the hand-over r6, `unit-receipt-r2.mjs` and
+`compare-state-r5.mjs`. **Judge:** no decision is asked now. After Lane B's technical acceptance, Lane A presents the card
+above unchanged for an A, B or C selection. **Person:** end session D2 before any S-T.
+
+### What you did instead
+
+In-memory and fixture controls only; two read-only real receipt runs. No trial, cleanup, deletion of `build/`, restore,
+fetch or push. The first attempt to write `receipt-r2-now.json` failed because its folder did not exist yet; nothing was
+written, and the retry is the cited file. `bun run check` before commit:
+`C:/CoWork/outputs/lane-a-r5f-2026-10-14/check-precommit.log`. Graph: `lastAnalyzedHead` `b308d1c`, `stale: false`; only
+`docs/handoff/` paths changed since, so no sync is needed. This record changes B-136 only.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | R4-F1, R4-F1-T, capture r4, the map's dispositions and prior scoped approvals | Phase 1 / pre-SM05: carried forward |
+| Approve-with-conditions | `unit-receipt-r2.mjs`, `compare-state-r5.mjs`, hand-over r6 | Pre-SM05: Lane B accepts the three hashes |
+| Defer | Judge's A/B/C residual selection; S-T; A-S5/A-S6; Stage B, SM05, Gate 2, push | After technical acceptance; their own checkpoints |
+| Reject | A label as cleanup proof; a wrong-unit or contradictory receipt; a link as absence; residual acceptance as equivalence or cleanup; installed-plugin absence as proof that metadata is never read | Pre-SM05: no action |
