@@ -9914,3 +9914,117 @@ only `docs/handoff/` paths changed since, so no sync is needed. This record chan
 | Approve-with-conditions | PST-R1 S2 design | Pre-SM05: Lane B review; then capture/comparator revision before any selection |
 | Defer | S3 (not ready); S-T; Stage A readiness; Stage B, SM05, Gate 2, push | Their checkpoints |
 | Reject | A new baseline; a whole-catalog or whole-tree waiver; a setting change before a bounded act; writer claims from timestamps | Pre-SM05: no action |
+
+## Lane B — D5 review: retain the stop; complete the S2 boundary and keep S3 unresolved, 2026-10-14
+
+### Layer 0 — Request and handoff fields
+
+Review Lane A's `ffd9c53` and its D5 evidence. Consolidate the transaction chain, return only the remaining gaps,
+and give Lane A a complete correction plan. This is a child review under B-136; it changes no parent header or Lane A answer.
+
+**Raised:** 2026-10-14 by Lane B. **Kind:** finding. **Phase:** 1 / pre-SM05.
+**Blocks:** S-T remains stopped on its existing failed link; the S2/S3 execution decision packet is incomplete.
+**Evidence observed at:** `ffd9c534b6dd6e76dd1c7bf1185c386691267d35`.
+**Lane A:** answers PST-R1 and PST-R2 in this parent. **Lane B:** independently reviews the returned bounds and evidence.
+
+### Layer 1 — Result and transaction chain, parent first
+
+Lane A can continue the authorized correction drafting now. No new drafting approval is needed. S-T remains stopped.
+PST-R1 is partly answered and returned below. PST-R2's **not-ready disposition is accepted**; its causal explanation and
+the resulting restriction of the Judge's choices need correction. Neither whole obligation is Verified by this review.
+
+| Parent / child | Record | Current state and return point |
+|---|---|---|
+| **B-136 / SM05 transition** | Existing parent | **Open**; this review earns no parent, SM05 or Gate 2 closure |
+| Historical residual / Option B | `60928f7` → Lane A `3bbdf00` → r6/r7 acceptance `d671dad` | Retained, within the exact accepted pairs; strict future checks stay in force |
+| Pre-S-T failed link C-D2b → P1d | Lane B `b8aa0f6` | Verified stop; a new baseline cannot remove it |
+| PST-R1 / bounded S2 | Raised `b8aa0f6` → answered `ffd9c53` → this review | **Open**; complete the eligibility, loaded-state and capture contracts below |
+| PST-R2 / S3 discovery | Same chain | **Open**; keep S3 not ready, correct the inference and bind the supporting observations |
+| Actual readiness; Stage B; D-437; push | Existing separate obligations | Their own evidence and authority checkpoints; no new permission or clearance here |
+
+### Layer 2 — What the evidence proves
+
+Lane B rehashed the three D5 artifacts, P1d and the pinned verifier, plus all 13 accepted execution-input bindings.
+All matched. Read-only file inspection in this review matched D5's known file, catalog and marketplace tree. No Claude,
+Docker or supplier command was invoked. These review observations do not prove an uninterrupted session history.
+
+| Claim | Independent result and limit |
+|---|---|
+| Known file rewrite | Confirmed: `25ccad4a…`; restoring only the official timestamp gives P1d's exact `abd29d0b…` bytes. This identifies the difference, not its writer |
+| D5 tree delta | Confirmed: 545 → 546 files; 1 added, 6 changed, 0 removed. Five changed files and the addition are under `plugins/security-guidance/`; the sixth changed file is root `.gcs-sha`. The official-child digest is `3aee4a52…`; D5's `6a17dc14…` hashes the parent with child prefixes |
+| Catalog | Confirmed: exact `dbb74df2…` bytes, 3,366 listings from **2,993 distinct repository URLs**; no duplicate listing IDs or missing listing source URL in this sample. The old catalog payload is still unavailable |
+| Installed state | Confirmed for the matching `installed_plugins.json`: only `ponytail@ponytail`. This does not enumerate every enabled or loaded component |
+| Client version, environment and settings | Lane A observations are recorded in prose; no bound raw result accompanies them. This review does not substitute its own process environment for D5's |
+
+The review's first audit compared a parent digest with a child digest. Audit revision 2 fixes that review error;
+the first result is retained as history and is not evidence of another host change. D5's observation file also labels
+its session "D2". Keep that original file; append a sourced correction linking it to D5 rather than silently rewriting it.
+
+### Layer 3 — Remaining gaps and draft fixes
+
+| Finding / owner | Gap that would defeat the claimed check | Required correction and success criterion |
+|---|---|---|
+| **PST-R1.a / Lane A** | "Not a unit source" allows an open-ended set of unrelated sources. A repository URL and a negative name search do not prove absence of alias, namespace or resolution effects. The catalog also has `entryNames`, which the changed-entry proposal does not define | Freeze an explicit, finite origin/entry allowlist and the protected unit IDs, manifest names, source paths and bindings. Give separate rules for `listings`, `entryNames`, `entryNameClaims`, `fetchedAt` and schema/key sets. Unknown origin, duplicate/missing ID, changed protected name/claim/source, unlisted addition/deletion or schema mismatch stops. Any proposed timestamp-only exception must reconstruct the base values exactly. A per-entry source is classification evidence, not writer proof |
+| **PST-R1.b / Lane A** | "Loaded-component bindings are checked by the verifier modes" overstates the pinned verifier. Its modes inspect files, blobs, sets and argv, not the running client's loaded plugin registry | Keep those accepted static checks. Name a separate observer, time and evidence for actual loaded IDs, origins, paths and relevant components at S-T. If this cannot be measured, mark it unknown and stop eligibility based on "not loaded", or propose the lost guarantee explicitly for the Judge. Installed-only evidence cannot satisfy that condition. Limit tree exceptions to named reviewed paths/plugin identities; give root `.gcs-sha` its own explicit rule |
+| **PST-R1.c / Lane A** | Retaining only changed outputs after a refresh can lose the before bytes and deleted entries needed to prove eligibility | Before each interval, retain a complete catalog and the tree inventory plus recoverable base payloads for every eligible path. Keep both sides or a complete base with an exact reversible delta. Bind files and indices by hash; define additions, deletions, type changes and read errors. Missing evidence stops. Record exact existing historical pairs separately; do not fabricate the missing old catalog |
+| **PST-R2 / Lane A** | Shell `DISABLE_AUTOUPDATER=1` plus later writes does not establish effective parent-client policy, identify the refresh route or show the toggle cannot help. S3's not-ready state was used to offer only S1/S2 | Replace "effect doubtful" with **"effect on this writer unknown"**. Keep S3 as an unresolved candidate with a return point, not a disproven option. Bind a safe version/exit-status record and relevant setting/environment observations to time and process/surface; distinguish observed shell policy from unknown parent policy. Correct the D2 label and scope the wider variable to the process/surface that receives it, rather than claiming every account session changes |
+
+Current official documentation separates declared, fetched and loaded plugin state, including origins without ordinary
+marketplace install records. It documents refresh paths outside the auto-update pass as well as the toggle's precedence.
+These are possible mechanisms, not an attribution of D5's writes or proof of installed-version support.
+[Plugin loading reference](https://code.claude.com/docs/en/plugins/loading),
+[marketplace toggle](https://code.claude.com/docs/en/discover-plugins#turn-auto-update-on-or-off-for-a-marketplace).
+
+### Layer 4 — Lane A follow-up, in dependency order
+
+1. Receive this review. Preserve Option D, Option B, accepted r6/r7 and the failed-link evidence. Do not hold independent
+   drafting for a new "go", and do not run S-T.
+2. Correct the D5 attribution/session wording and retain safe supporting observations. Preserve original artifacts.
+   A later observation must carry its own time; it cannot be backdated to D5 or prove D4's environment.
+3. Complete the S2 policy table and the S3 support/effect/restore plan. For S3, name the exact setting surfaces, observer,
+   possible reload effects, delayed measurement window and restore comparison. Discovery is permitted; intervention awaits its act.
+4. Draft the capture/comparator, effects ledger, handover and clause-to-control map against that complete contract.
+   Controls must cover an unchanged pair, each allowed delta, protected-unit and alias/claim changes, unknown sources,
+   missing/deleted payloads, schema/type/duplicate errors, and loader evidence missing or changed. Each stop writes no pass receipt.
+5. Return one hash-bound packet to Lane B. Protected r6 results and waived deltas must be separate. No pass is claimed
+   from a control count alone. Lane C has no new evidence here; any later cross-surface claim must name its reviewer and proof under B-136.
+6. After technical review, present the complete alternatives to the Judge. A selected new waiver or setting intervention
+   needs its exact scope and present-delta disposition. Only then follow the accepted session handover and quiet-host condition.
+   Propagate to D-437 when due; do not add a new Register-first hold to prior approvals.
+
+### Layer 5 — Chief Editor / Judge decision contract
+
+| Order | Choice | Accept only when | Reject / retain stop when |
+|---|---|---|---|
+| 1 | **Continue the current S1 hold** | Already the present state; no new permission needed | Never report it as readiness or cleanup |
+| 2 | **S2, a new bounded waiver** | Reviewed exact policy and hashes; one named attempt; exact present-delta dispositions; named protection lost and residual risk; unchanged unit/cleanup protections outside the waiver; expiry and stop rules | "Non-unit" or "uninstalled" replaces proof; loaded state is assumed; unknown sources are silently eligible; a residual is called equality or cleanup |
+| 2 | **S3, a prevention intervention** | Local support/effective-policy evidence or an explicit bounded trial hypothesis; complete write/reload/restore footprint; separate disposition of existing deltas; measured result before resume | Documentation or child-shell state is called a measured prevention result; changing settings is treated as erasing history |
+| 3 | **End this attempt under S1** | Explicit attempt disposition with retained evidence and outstanding item/cleanup ownership | Ending the attempt silently deletes evidence or clears obligations |
+
+No choice is requested from the Judge now. Lane A can finish these technical planning corrections under existing authority.
+S2 trades a named protection for bounded progress; S3 tries to prevent future change while retaining strict checking.
+Neither changes the requirement to qualify ECC, Ponytail and REA before SM05 or proves product feature delivery.
+
+### Layer 6 — Drift, evidence and verdict
+
+Read-only `graphify query` was used. `lastAnalyzedHead` is `b308d1c`, `stale: false`; only B-050/B-136 handoff files
+changed since. No graph sync is needed. This review adds only its Lane B body to B-136; no governed application,
+settings change, trial, cleanup, fetch or push is performed. Consistency validation for the final file is retained in
+`C:/CoWork/outputs/lane-b-pstr-review-2026-10-14/check-final.log`; a check pass is not behavioural or readiness proof.
+
+Independent review artifacts in `C:/CoWork/outputs/lane-b-pstr-review-2026-10-14/`:
+
+| File | SHA-256 |
+|---|---|
+| `audit-r2.mjs` | `461d810a3fe5fde6b6650b26413822cf6a70b59926dec5e80cd5b8b572d0849f` |
+| `audit-results-r2.json` | `7ac8549e3de86d4e2e830ccdcc4375a552fe2334611ffe672dcb2958a8bd79cc` |
+| `official-tree-review-list-r2.json` | `3141ae64b57eaf1a7b20f66c8bdcd0bd8a589e168475f7b7c33a99b3d634e7df` |
+| `catalog-review-copy.json` | `dbb74df2e02bc4676234a83351c989e57394102fe3f43c3a593b4f5f4506df2d` |
+| `sources.json` | `f86ec47c4a8c4ecd393c1e467986be48af6e1158d5d1505d2f5734b430f8c408` |
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| **Approve** | D5 byte/path observations within the limits above; prior approvals and strict stop retained; S3 not ready | Phase 1 / pre-SM05: keep; no readiness credit |
+| **Approve-with-conditions** | S2/S3 planning and Lane A continuation | Phase 1 / pre-SM05: answer PST-R1.a–c and PST-R2; Lane B reviews the complete bounded packet |
+| **Defer** | New waiver/intervention; S-T; actual Stage A readiness; Stage B, D-437, parent closure, SM05, Gate 2 and push | Their concrete evidence and authority checkpoints |
+| **Reject** | Open-ended non-unit exemption; static verifier called loaded-state proof; S3 excluded by shell evidence; a fresh baseline clearing the stop | Phase 1 / pre-SM05: correct the packet; no execution |
