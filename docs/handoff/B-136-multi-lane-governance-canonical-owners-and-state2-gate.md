@@ -9406,3 +9406,60 @@ one-file review commit follows a pass. B-136 stays Open.
 | Defer | Historical residual acceptance | Judge's exact A/B/C selection; no default or inferred acceptance |
 | Defer | Stage A readiness, Stage B/final retention, D-437, parent closure, SM05, Gate 2 and push | Their existing evidence and authority checkpoints |
 | Reject | Treating a synthetic P2 as actual close; a successful fixture as readiness; residual acceptance as equivalence/cleanup; a past timing deviation erased by later deletion | Pre-SM05: keep evidence and authority boundaries explicit |
+
+---
+
+## Lane B — Judge selects historical-residual option B; strict comparator return required, 2026-10-14
+
+### What happened — exact selection and parent-first state
+
+The Judge answered the bounded residual question against `4137ee6` in the current conversation:
+
+> B — Accept the exact residual; use strict future byte checks after comparator review.
+
+**Judge approval received in the current conversation** for that exact option B: the two historical tree/catalog
+hash pairs in the decision card at `4137ee6` are accepted as an owned Stage A limit, with strict future byte checks
+after independent comparator review. This handoff preserves the source selection; Lane A carries it into the next
+applicable governed record under the existing D-437 sequence. It is not a replacement Register act or a new
+Register-first hold. The acceptance proves neither content equivalence nor cleanup; the bridge stays `residual`.
+
+| Parent / child | State | Next |
+|---|---|---|
+| B-136 | Open | Other obligations keep their triggers |
+| R5-F1/F2; receipt r2; capture/map; prior scoped approvals | Verified / retained | No reopening |
+| Exact historical residual, option B | Judge selection received and preserved here | Lane A records its receipt and governed propagation when due |
+| Strict future comparator and bound handover | Required; not yet reviewed | Lane A drafts the B revision; Lane B reviews it by full hash |
+| S-T / Stage A readiness | Pending | Accepted B revision and existing session/trial/close conditions |
+| Stage B, final retention, D-437, SM05, Gate 2, push | Separate | Existing authority and evidence checkpoints |
+
+### What you need — Lane A's bounded B revision
+
+1. Receive the exact selection. Keep the accepted historical pairs, owner, recovery limits and the build timing
+   deviation. No shared-file restore/overwrite or fresh supplier acquisition follows from option B.
+2. Draft a new comparator with `TIMESTAMP_ONLY_REFRESH = false`. Ensure **future byte equality** for both
+   protected JSON files and marketplace trees in interval/close checks. Source precision: comparator r5's
+   `knownMarketplacesKeyLevel` compares parsed values even when the constant is false; add an explicit check of
+   the captured `known_marketplaces.json` file hash/presence. A formatting-only rewrite must not pass merely
+   because parsed values agree. This is a criterion for the newly selected B branch, not a reopening of R5-F1/F2.
+3. Return the complete comparator hash, updated handover binding and targeted controls. An unchanged pair must
+   pass; forward `lastUpdated` or `fetchedAt`, formatting-only rewrites and content/tree changes must stop. Keep
+   the historical bridge at `residual` for the exact accepted pairs and stop outside those bounds. Retain the
+   accepted receipt/link refusals and the r10 session/cleanup conditions.
+4. Lane B independently reviews only those changes. Comparator r5's timestamp-enabled hash is not the selected
+   B execution route. No further generic "go" is needed to draft the B revision. No actual S-T starts before its
+   reviewed hash and existing entry conditions are satisfied.
+
+### What you did instead — record and limits
+
+Lane B records the selection and specifies the B revision; it does not edit Lane A's comparator, handover or
+governed tiers. No trial, live capture, real cleanup, build, fetch or push runs. No new Lane C claim is introduced.
+This is a one-file local B-136 record. The graph remains analysed at `b308d1c`, `stale: false`; subsequent changes
+are handoff-only, so no graph sync is needed. Final-byte consistency evidence is retained in
+`C:/CoWork/outputs/lane-b-residual-b-selection-2026-10-14/check-final.log`.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Judge's exact option B selection preserved; prior scoped verification retained | Pre-SM05: recorded as received; Lane A propagation when due |
+| Approve-with-conditions | Strict B comparator / handover | Pre-SM05: full-hash Lane B review with byte-change refusal controls |
+| Defer | S-T, actual readiness, parent closure, Stage B, SM05, Gate 2 and push | Their existing evidence and authority checkpoints |
+| Reject | Timestamp-enabled comparator used for B; parsed equality treated as byte equality; residual acceptance treated as equivalence or cleanup | Pre-SM05: keep the selected strict boundary |
