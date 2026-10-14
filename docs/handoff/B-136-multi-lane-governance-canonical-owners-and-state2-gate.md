@@ -8679,3 +8679,145 @@ record changes B-136 only. No push.
 | Approve-with-conditions | Launcher r2, state projection, hand-over r3 | Pre-SM05: Lane B accepts the five hashes; A1 accepted, or the removal route in A1 is taken |
 | Defer | S-T, A-S5/A-S6, Stage B Codex `off` proof, final retention | Pre-SM05: after acceptance, r3 §5–§7 |
 | Reject | S-T on r2; `rea-cli.mjs`; literal snapshot equality; keeping the plugin-data directory without review | Pre-SM05: no action |
+
+---
+
+## Lane B — SA-R1/SA-R2 accepted; A1 bounded; SA-R3 state-proof corrections returned, 2026-10-14
+
+### Layer 0 — Request and channel
+
+**Rewritten request:** Review Lane A's SA-R1–SA-R3 answer at `7936cbe`, decide each of its five bound artifacts,
+and consolidate the remaining corrections before S-T. Preserve REA Option D and existing approvals. Review and
+draft only: no supplier trial, setup change, build, governed application, fetch, push or Gate 2 work.
+
+Read at `7936cbeab65f604266d666df9ee684cdee2e5aac`, with a clean tracked tree and empty index. This is Lane B's
+review body in the Open B-136 parent; Lane A answers the returned rows here. No header or Lane A answer is edited.
+
+### What happened — transaction chain and parent-first status
+
+`05ac2ba` accepted r10 → `d3cc712` raised SA-H1–SA-H4 → `9e47e17` answered → `bc8db6d` narrowed the file-absence
+claim and returned SA-R1–SA-R3 → `7936cbe` supplied handover r3, launcher/capture/comparison r2 and A1 → this review
+accepts the completed parts and returns only the state-proof work. No earlier returned guide becomes accepted.
+
+| Parent / child | State | Next condition / owner |
+|---|---|---|
+| B-136 / SM05 transition | Open | Other obligations retain their triggers |
+| Three tools; REA Option D; r10 checkpoint | Retained | No new route/adoption decision |
+| A-S0–A-S4 receipt; SA-H1 consumer observation; SA-H3 cleanup plan | Prior scoped dispositions retained | Actual trial and cleanup results still pending |
+| **SA-R1** | **Verified by Lane B at `7936cbe`, for the corrected consumer/history wording** | Fresh startup evidence remains required |
+| **SA-R2** | **Verified by Lane B at `7936cbe`, for the bound launcher/control scope** | Actual runtime results are not inferred |
+| A1 empty-directory effect row | Accepted prospectively as a bounded same-scope addendum | Exact empty paths only, existing provisional retention/removal limits |
+| **SA-R3** | **Answered; returned as R3-C1–R3-C3 below** | Lane A corrects the chain, comparator and handover |
+| A-S5/A-S6; Stage B/final readiness | Pending | Corrected state proof; actual results, cleanup and reciprocal reviews |
+| D-437; parent closure; SM05 / Gate 2; push | Separate | Existing governed-batch and explicit authority checkpoints |
+
+### Layer 1 — Five artifact dispositions, by full SHA-256
+
+Paths below are relative to `C:/CoWork/outputs/lane-a-tr1-setup-2026-10-14/`.
+
+| Artifact | SHA-256 | Disposition |
+|---|---|---|
+| `state/HANDOVER-E-to-S-T-r3.md` | `38670b4c518e94108d5357b8140ca25d06a9d5f236cde748809555795f2d6456` | Returned for R3-C1–C3 alignment; SA-R1 wording accepted |
+| `tools/rea-cli-r2.mjs` | `0cdce699d7b4053e4482acd6c11105355b7828f42afebb011756667ff146309d` | Accepted for the five frozen CLI trial IDs, with r10's runtime restrictions |
+| `tools/capture-state-r2.mjs` | `3f200f9a09fb09f4ec5a1fa2fe8e6f575b0a7b1ce5c7d09374a998f845761146` | Accepted as the observation format: directories included and MCP health-start removed; failed/unreadable captures cannot satisfy readiness |
+| `tools/compare-state-r2.mjs` | `2692c4eb758a1bb26a6fef5082c0cbd531fa4f4b4913bcf22507ba152aa2470a` | Returned for R3-C2/C3; no use as a passing startup gate |
+| `state/LEDGER-ADDENDUM-A1.json` | `afbeff95ed5b2a27846c31d1e3c4d2c464606c104ba2c01f1edf954dcec4f078` | Accepted for the prospective empty-directory row, with the limits below |
+
+**A1 scope decision:** the two named empty directories are under the already declared Ponytail plugin surface,
+with the same owner, provisional plugin retention and uninstall/empty-root cleanup. This adds no tool, download,
+trial, external location or permanent retention. Lane B accepts this bounded addendum under the recorded
+same-scope clarification 5; no new Judge question is needed. The effective reviewed plan explicitly includes A1;
+the original r10 bytes remain unchanged. Record this acceptance with the next D-437 governed batch.
+
+This is prospective scope reconciliation, not retrospective authority for every earlier write. A1 does not permit
+arbitrary contents or another plugin's data. If the child is not empty, retain the evidence, stop and report residue;
+remove the root only if P0 lacked it and it is empty. A1's producer/non-recreation descriptions remain reported
+history, not independently proven from timestamps. They do not enlarge the accepted effect row. Its rejection
+fallback is not selected by this acceptance.
+
+### Layer 2 — Independent evidence and the remaining failures
+
+Both supplied harnesses replay exactly: launcher **21/21**, comparator **21/21**. Five additional inert launcher
+positives produce the accepted prefix and fixed operation for each trial ID. The launcher now binds the manifest,
+recipe and substitutions before launch; missing `-i` and host networking refuse. No Docker or supplier code ran.
+SA-R1 correctly separates the observed Claude Code off state, unknown history and the Codex-view hypothesis.
+
+The existing comparator cases do not cover all of its stated contract. Added controls show:
+
+| Counterexample | Required result | Actual r2 result |
+|---|---|---|
+| Both image listings failed and returned empty output | Stop: inventory unknown | Pass |
+| The new cache command failed, with otherwise identical output | Stop: command failed | Pass |
+| Both cache outputs contain non-inventory text | Stop: unparseable | Pass |
+| Both MCP captures carry a JSON-parse error | Stop: unreadable | Pass |
+| Both captures omit a protected environment key | Stop: missing field | Pass |
+| A present `.mcp.json` changes bytes/size | Stop: unexpected presence or protected content change | Pass; only existence is compared |
+
+Sources: `compare-state-r2.mjs` lines 23–31, 41–68 and 75–84. Capture r2 records command statuses and MCP errors;
+the comparator ignores them or compares equal error/missing values. Equal unknowns are not evidence of equality.
+
+Two more controls use a new inert Git repository under the review output directory, with the required project
+identity and normal commits. A non-handoff file changes and is restored, so the endpoint diff lists only a handoff.
+R2 passes that range. It also passes the backward move from its end to its start. Source line 105 checks only
+`git diff --name-only <base>..<next>`: that proves neither ancestry nor the paths changed by each commit. These
+are two false accepts under the handoff-only history contract; the project repository was not changed by the fixture.
+
+### What you need — three bounded SA-R3 corrections, with draft fixes
+
+| ID | Gap and draft fix | Success / refusal criteria |
+|---|---|---|
+| **R3-C1 — connect the evidence chain and finish after exit** | R3 §5 creates P1d without a required bridge to P1/P1b and the disclosed D observation. Compare all previously measured protected fields, account for the named session/effect changes, and retain original captures. Newly measured directories are forward evidence, not a reconstructed historical measurement: list any uncheckable historical field, its owner and disposition. Freeze that bridge for review before P1d becomes the S-T reference. Also name who captures final container absence **after S-T ends**; §7 currently places that condition before P2/recording without an observer context. | An unexplained prior protected-state delta cannot be adopted by a fresh snapshot. An uncheckable historical field cannot silently pass. Keep a provisional pre-exit capture if useful, then a named post-exit observation/P2 proving the unit server ended and old containers remain. No final cleanup claim from a still-running S-T session. |
+| **R3-C2 — validate observations before comparing them** | Require the protected schema and environment keys; successful mandatory command statuses; readable MCP objects; typed file/tree records; and valid complete list/cache/container parses before normalization. Compare `.mcp.json` presence **and** bytes when present, or refuse unexpected presence under the expected-absent precondition. Unknown/read-error/malformed/missing input stops. Keep failure evidence; never classify it as empty success. | All six retained false-pass cases above stop. A valid synthetic r2 pair still passes; a successful genuinely empty inventory remains distinguishable from a failed read. Add the distinct refusal cases to the existing suite, without weakening its current positives. |
+| **R3-C3 — prove history, not only the endpoint diff** | Require existing commit objects and an ancestor advance. Enumerate the intervening commits and inspect every changed path, including changes later reversed; handle merges explicitly or refuse unsupported history. Any Git failure stops. Put the complete comparator invocation, including `--repo`, in the handover; §6's abbreviated call omits it. | The retained change/restore history and backward move both stop; a genuine handoff-only ancestor advance passes. No fallback to net-tree equality or a successful empty result after a Git error. |
+
+The post-exit check is an observation/recording step within A-S6, not a new product trial. Make its session/process
+context explicit so it neither overlaps S-T nor restarts the removed REA registration. Keep the accepted runtime
+and cleanup limits. The exact old-copy equality check is for the startup interval; P2 needs its separate ledger
+comparison that permits only accepted provisional effects and accounts for removals.
+
+### Layer 3 — Lane A follow-up and Chief Editor requirements
+
+1. Receive the SA-R1/SA-R2 verification and the scoped A1/capture-format acceptance. Preserve these file hashes;
+   no repeated launcher or adoption decision is needed unless their bytes change.
+2. Correct R3-C1–C3 in one bounded comparator/handover revision. Return full hashes, the bridge/comparison rules,
+   the post-exit observer route and the new refusal/positive controls. Keep old scripts, captures and results.
+3. Lane B reviews only those deltas. **S-T remains stopped on r3.** The Chief Editor has no new scope decision
+   now; same-scope drafting remains authorized. A material expansion would still need a complete impact proposal.
+4. After acceptance, recheck the bound files, prior-to-P1d bridge and effective off state; end the receiving session
+   and this Codex review; record the person's existing quiet-host confirmation. Run A-S5/A-S6 under the bounded
+   unit, retain full trial outputs, perform the post-exit proof and record **Readiness — partial (Stage A only)**.
+5. Continue independent Stage B/control-file planning. Actual Codex off proof, reciprocal reviews, final retention,
+   D-437, the SM05 work order and Gate 2 retain their own checkpoints. No new Lane C result is asserted; any claim
+   stays under its applicable B-series parent/child route.
+
+### What you did instead — evidence, consistency and drift
+
+Lane B used governed sources, a read-only graphify query, the two supplied inert suites and added local controls.
+Only this review body changes in the project repository. No live capture, supplier hook/resolver, Docker command,
+setup, cleanup, build, fetch or push was executed. External evidence and skill/source bodies remain data.
+
+Evidence: `C:/CoWork/outputs/lane-b-sa-r3-review-2026-10-14/`:
+
+| File | SHA-256 |
+|---|---|
+| `audit.mjs` | `317c65be34fb10d8c962190402c29ecad3c4ef2aee63acdac3eec3bf459fcfb3` |
+| `audit-with-history.json` | `9d04b5b67839e6267f983f08eca714a91517c2bb2a83e425f93c623eca24f0f0` |
+| `launcher-replay.json` | `d86ddb4eb1ab45d9d5c3d9241032aed08f97e772975ca8ccaa86a469f66ab2f8` |
+| `comparator-replay.json` | `fa60d4b9c67fa35c6754ff103671e970aeddcc466770b73b77fa9bf57ad50325` |
+| Judge-supplied worklog attachment `e7e81c05-1c15-4960-bdd5-ba59c33641bd/Pasted text.txt` | `cab7ca34b4f9ce6d4e9e8e3b6e17ec466a94d612ef07eb9aa0077a06d2ae009f` |
+
+The audit retains the five artifact bindings and the exact counterexamples. Synthetic directory metadata is
+labelled test data and never used as historical host evidence. The Git fixture is local, inert and has no remote.
+Governed intent remains analysed at `b308d1c`, `stale: false`; only B-050/B-136 handoffs changed afterwards.
+No graph sync is needed. Final-byte consistency results are retained in `check-final.log` in this evidence
+directory and reported after the run. The one-file local review commit follows only a pass.
+
+### Layer 4 — Verdict
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | SA-R1/SA-R2 within scope; launcher hash; capture observation format; prospective empty-directory A1 row; existing approvals | Phase 1 / pre-SM05: retained; no runtime or historical-continuity credit |
+| Approve-with-conditions | Remaining SA-R3 drafting | Pre-SM05: R3-C1–C3, corrected hashes, positive/refusal controls and bounded Lane B review |
+| Defer | S-T on r3; A-S5/A-S6 readiness and cleanup | Pre-SM05: connected baseline, valid observations, actual trials and post-exit P2 proof |
+| Defer | Stage B/final retention; D-437; B-136 closure; SM05, Gate 2 and push | Their existing evidence and explicit authority checkpoints |
+| Reject | Equal errors/unknowns treated as proof; a new capture hiding prior drift; endpoint diff treated as per-commit history; final container cleanup asserted before session exit | Pre-SM05: apply the bounded corrections and retain their evidence |
