@@ -9838,3 +9838,79 @@ pass. No push authority is included. The actual S-T stop is unrelated to documen
 | Approve-with-conditions | Bounded S2 / documented-candidate S3 planning | Phase 1 / pre-SM05: Lane A answers PST-R1/R2; Lane B reviews the complete policy/effect cards and proof before routing execution selection |
 | Defer | New S2 waiver or S3 setting intervention; S-T, actual readiness, parent closure, Stage B, D-437, SM05, Gate 2 and push | Their named concrete authority and evidence checkpoints |
 | Reject | Current broad S2 as execution-ready; CLI-help absence as global documentation absence; inevitable-failure/writer claims from mtimes; full catalog attributed to official origin without evidence; a new baseline clearing the stop | Pre-SM05: apply the drafted corrections and preserve limits |
+
+---
+
+## Lane A — answers to PST-R1 and PST-R2: new client-write evidence, bounded S2 design and S3 assessment, 2026-10-14
+
+### What happened
+
+**Receipt.** Lane A receives Lane B's `b8aa0f6`: the C-D2b → P1d stop is Verified; S2 is a new prospective waiver of part
+of Option B, not a reclassification; PST-R1 and PST-R2 are Open. Lane A accepts both corrections to its card: the 3–6 minute
+timing is an observation, not a certainty that every session fails, and CLI help did not establish that no control exists.
+**Lane C:** no new Lane C evidence.
+
+**Session D5 (this record).** Client-started `rea-tr1` container `d89327ff…` at 12:51:54Z; no REA tool call. Read-only
+observations only. Evidence: `C:/CoWork/outputs/lane-a-pstr-2026-10-14/`.
+
+| New fact (D5) | Evidence (SHA-256) |
+|---|---|
+| Installed client: `claude --version` = **2.1.284** | — |
+| This session's process environment has **`DISABLE_AUTOUPDATER=1`**; `FORCE_AUTOUPDATE_PLUGINS` is unset; no managed-settings folder; user settings have no `extraKnownMarketplaces` or `env`; repository `.claude/settings.local.json` has `extraKnownMarketplaces.ponytail` (directory source) and `enabledPlugins` (the A-S4 local install); no `autoUpdate` key in any `known_marketplaces.json` entry | — |
+| 12:53:25Z: `known_marketplaces.json` rewritten again; official `lastUpdated` 11:46:52.682Z → 12:53:25.263Z only (rebuilding with the old value gives P1d's exact bytes) | `observe-plugins-D5.json` `3d9eab7a1ee7305834af6ff65bb041a648f271064349cf920ffaca30e48c26c4` |
+| 12:53:24Z: **the official tree changed** (545 → 546 files): 1 added (`plugins/security-guidance/tests/test_diff_parsing.py`), 6 changed (`.gcs-sha` and five `plugins/security-guidance/` files); no removal. `security-guidance` is not installed | `tree-delta-D5.json` `36d0203e3b30d0af073fefe95aeb739a72a6b3d54a9641f44e51f02f00b15987` (tool `tree-delta-D5.mjs` `91d9707d1bb603e18d52a01e7418b081a7c87c323efa1944c0d52f0dee5429ce`) |
+| The catalog (`plugin-directory-cache-v2.json`, unchanged since 11:46:53Z) is a global directory: 3,366 `listings`, each with `source.repository.url`; `entryNameClaims` carry a per-entry `repositoryKey` and a `lastSeen` timestamp set at fetch time. No entry mentions `ponytail`, `ecc-tr1` or REA | read-only inspection, recorded here |
+
+**Meaning (observation, no writer inference).** The official docs say `DISABLE_AUTOUPDATER=1` turns off the whole
+marketplace auto-update pass and hides the per-marketplace toggle, unless `FORCE_AUTOUPDATE_PLUGINS=1`. With that variable set
+in this process environment, the official entry, tree and catalog were still rewritten. Either the client process
+environment differs from this shell's, or another client path writes these files. Lane A cannot tell which. The Lane B
+statement that the tree "did not change" was correct for the C-D2b → P1d link; it changed later, at 12:53Z.
+
+### PST-R1 — bounded S2 design (for review; not selected, not built)
+
+| Field | Proposal |
+|---|---|
+| Authority / lifetime | A new Judge act amending Option B for **one named Stage A attempt** (links C-D2b → P1d, P1d → P1c, P1d → P2) and nothing else; it expires at that attempt's disposition; no Stage B or general use |
+| Present delta | The stopped C-D2b → P1d catalog change (`5e864e8a…` → `dbb74df2…`; keys `listings`, `entryNameClaims`, `fetchedAt`) and the D5 tree change are **not** covered by any rule: each gets its own exact-hash disposition (payloads were not retained for the catalog; the tree change is path-characterized above) |
+| Eligible future differences | (1) official `lastUpdated`, forward, only when rebuilding with the base value gives the base bytes; (2) official-tree paths, only under `plugins/<name>/` for a plugin name that is neither installed nor enabled nor loaded, plus `.gcs-sha`; any other path, a removal of `.claude-plugin/marketplace.json`, or a path under an installed name stops; (3) catalog entries, only entries whose `source.repository.url`/`repositoryKey` is not a unit source, with a per-entry diff. Everything else in r6 stays strict: unit bytes, source/installLocation, key sets, `autoUpdate` keys, settings, environment, Docker state |
+| Capture needed | A capture revision with a per-entry catalog digest (id → hash of entry, plus `repositoryKey`) and a retained copy of changed catalog entries and changed tree files under `<UNIT>/evidence/` at each link; missing or unreadable evidence stops; no writer inference |
+| Result claim | Protected checks and enumerated external deltas reported separately, with the waiver reference; no "clean host" or "equal state" claim for waived items; P2 proves all cleanup rows outside the waiver; the external-state limit travels with "Readiness — partial (Stage A only)" |
+| Reasons, stated precisely | "No trial reads it" is replaced by: no catalog entry and no tree path names a unit tool, and `installed_plugins.json` lists only `ponytail@ponytail` (installed state); loaded-component bindings are checked by the verifier modes at S-T start. Stop risk is a future risk, not a certainty |
+| Files / cost / stop | New capture and comparator revisions, effects ledger, hand-over, controls; Lane B hash review before use; handoff-only now, D-437 later; stop at review |
+
+### PST-R2 — S3 assessment (no setting changed)
+
+| Step | Finding |
+|---|---|
+| Documented control | Per-marketplace toggle in the session `/plugin` → Marketplaces tab; it writes `autoUpdate` on the `known_marketplaces.json` entry (and on an `extraKnownMarketplaces` entry if one declares the marketplace); precedence: settings entry, then file entry, then default (on for `claude-plugins-official`) |
+| Local support | Client 2.1.284. Docs: the toggle is **hidden** when `DISABLE_AUTOUPDATER=1` is set, and that variable is set here. Whether the desktop app exposes the toggle is unknown |
+| Expected effect | Doubtful: the documented pass is already documented as off in this environment, yet the files changed. A toggle would add a new shared write (`autoUpdate` key) with no measured effect on the observed writer |
+| Wider control | `CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1` is documented to stop refresh and sync paths too, but it changes far more (feature flags, claude.ai plugin sync, other traffic) for every session on the account. A wider-effect proposal needs its own full impact card; not proposed now |
+| Existing stop | S3 would not clear the C-D2b → P1d delta or the D5 tree delta; both still need the exact disposition above |
+| Lane A conclusion | S3 is **not ready**: local support of the toggle is unestablished and its effect on the observed writes is doubtful. A measured trial needs a bounded Judge act naming the setting, the observer, a delayed-window measurement and restore proof |
+
+### Decision state
+
+S1 (keep the stop; no readiness) remains the current, safe state. S2 is now concrete enough for Lane B review but needs a
+capture/comparator revision before any selection. S3 is assessed as not ready. **Lane A recommendation:** keep S1 until Lane B
+reviews PST-R1/R2; then the Judge chooses between S1 (end this attempt) and a bounded S2 build.
+
+### What you need
+
+**Lane B:** review PST-R1/R2 and the D5 facts. **Judge:** no decision is asked yet. **Person:** end session D5; S-T stays
+stopped.
+
+### What you did instead
+
+Read-only: version, environment and settings keys; two official documentation pages (2026-10-14, data only); file times and
+digests; one path-level tree diff. No setting change, toggle, trial, cleanup, restore, fetch or push. `bun run check` before
+commit: `C:/CoWork/outputs/lane-a-pstr-2026-10-14/check-precommit.log`. Graph: `lastAnalyzedHead` `b308d1c`, `stale: false`;
+only `docs/handoff/` paths changed since, so no sync is needed. This record changes B-136 only.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Lane B's verified stop and its two corrections; Option B and comparator r6 / hand-over r7 retained | Pre-SM05: carried forward |
+| Approve-with-conditions | PST-R1 S2 design | Pre-SM05: Lane B review; then capture/comparator revision before any selection |
+| Defer | S3 (not ready); S-T; Stage A readiness; Stage B, SM05, Gate 2, push | Their checkpoints |
+| Reject | A new baseline; a whole-catalog or whole-tree waiver; a setting change before a bounded act; writer claims from timestamps | Pre-SM05: no action |
