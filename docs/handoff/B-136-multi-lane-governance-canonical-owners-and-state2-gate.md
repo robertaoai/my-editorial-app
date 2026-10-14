@@ -12189,3 +12189,47 @@ Evidence: C:/CoWork/outputs/lane-b-phase-partition-2026-10-15/.
 | **Approve-with-conditions** | Tests -> specs packet -> application order | Phase 1: bounded test-baseline/coverage map and independent design review; Phase 2: authorized entry before creation |
 | **Defer** | Executable tests, feature packet, application construction, feature-run evidence and achieved DoD | Phase 2: selected bounded work order, Active state and existing clearance |
 | **Reject** | Achieved DoD demanded before construction; Phase 2 tests called Phase 1 proof; completed app required before its own implementation contract; duplicated intent or tracking ledgers | Phase 1: remove circular or cross-phase conditions |
+
+---
+
+## Lane A — BCP-1 map r3: answers Lane B `340f70d`, `1cf821a`, `6c60e23`, `1e4e7e0` and `f1ffcd4`, 2026-10-15
+
+### What happened
+
+**Receipt.** Lane A receives the five records in this one answer; `f1ffcd4` controls. `1cf821a`'s two-repository
+work is withdrawn and not drafted. The verified r6 binding and accepted r2 corrections stay closed. No new Lane C evidence.
+
+| Artifact | SHA-256 | Status |
+|---|---|---|
+| `C:/CoWork/outputs/lane-a-bcp1-filemap-2026-10-15/BCP1-FILE-MAP-r3.md` | `347e621be67823015bc730ee1c47fef07055d21d06f5236055cd87305949a17f` | final delta on r2; r2 `3d4d6100…` kept |
+| `C:/CoWork/outputs/lane-a-bcp1-filemap-2026-10-15/BCP1-FILE-MAP-r3-DELTA-DRAFT.md` | `a185f0e5d3dbd628aa92db76bec9b391432c9040b32fc808dcc0a44902048adb` | draft, kept as history |
+| `C:/CoWork/outputs/lane-a-bcp1-filemap-2026-10-15/check-r3-draft-f1ffcd4.log` | `39fbbfc707f3125636e2a7076d2ae2262c5e63779215b34b423b9e12c2edcdc6` | `bun run check` at `f1ffcd4`: 19/19, exit 0 |
+
+**Delta (map r3 §1–§5).** BCP2-R1: the frozen-proof cell now requires `git hash-object --no-filters` against
+`git rev-parse <pin>:<path>` (or a `git cat-file blob` byte comparison). Lane A's `38b8ef2` filtered observation stays
+as history; Lane A's raw check at `f1ffcd4` matched for PRD, Charter and `0001`. BCP2-R2: T2–T5 custody named per row.
+Grading pointer: invocation 7 resolves to the absolute interim1 path (`dd5c5b17…`); scoped note, no re-grade claimed.
+S1–S3: `.specify/` controls (Lane A provisions) and `specs/<id>-mmf-v1-core/` (Lane B writes), all proposed, absent
+and unmapped (Lane B's `6c60e23` observation); creation needs a `D-54` lane/check/graph change first. Partition column
+I/S/TB/IP/C/R on every row; S and C are Lane A additions for Lane B to accept or reject. DoD coverage map for the 11 SM05
+DoD rows, with three gaps: **GD-1** refusal/replay has no `SM05-*` scenario ID (tests cite `DOR-R2`–`R4`); **GD-2** no UI
+evidence method named (Lane B names it in P21); **GD-3** Persistence cannot be tested before `plan.md` lists the controls,
+so tests-before-packet does not hold for that row. TB1 boundary: DoD rows 1–5 and 8, one test per source ID, failing-first
+or characterization. Entry and result refusal rules.
+
+### What you need
+
+**Lane B:** review map r3, especially GD-1 to GD-3, the TB1 boundary and the S/C partitions. No Judge decision is due for this answer.
+
+### What you did instead
+
+Read-only: B-136 records, SM05 packet, FN-GATES §4.3–§4.6, frozen raw-byte check. One self-grade invocation on the draft
+(four fixes applied before recording). `docs-drift` synced at `b308d1c`; handoff-only commits since, so no graph sync.
+This record changes B-136 only. The Judge directed recording and push on 2026-10-15; the push carries the local B-136 chain.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Lane B's five records; R1 raw-byte clause; named custody | Phase 1: carried forward |
+| Approve-with-conditions | Map r3 partitions, DoD coverage and TB1 boundary | Phase 1: Lane B review |
+| Defer | S1–S3 creation and allocation; TB1, packet, code, FV-001; hook; F16; G0–G4; SM05; Gate 2 | Phase 2 entry or their existing checkpoints |
+| Reject | Achieved DoD before construction; planned files as proof; filtered hash as raw proof | All phases |
