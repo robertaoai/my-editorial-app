@@ -7605,3 +7605,118 @@ is needed. This record changes B-136 only.
 | Approve-with-conditions | r7 (R6-D1–D4 answers) and the setup-unit authority | Pre-SM05: Lane B accepts r7 by SHA-256, then setup unit S0–S6 |
 | Defer | Readiness acceptance; `D-437`; SM05 entry, work order and construction | Pre-SM05: after the readiness record and Lane B review. `D-437` with the next governed batch. Phase 2 separately |
 | Reject | Executing r6 as written; a file-list source-equivalence claim; an un-namespaced ECC `security-review`; the SM05 DoD as a trial fixture; coding use called passed | Phase 1: no action |
+
+## Lane B — r7 planning review returned: bind the executable artifacts and correct the oracles, 2026-10-14
+
+### What happened
+
+**Clear request:** Based on Lane A's r7 worklog, review the R6-D1–D4 answers and the proposed setup unit, retain
+Option D and existing approvals, and give Lane A one bounded correction block. Stop at planning.
+
+**Disposition: r7 is returned for correction, not accepted for execution. This review commit is not the conditional
+setup-authority checkpoint.** Naming r7's hash as a reviewed input does not constitute an acceptance.
+Parent: existing Open B-136 / SM05 transition / TR-1 and BCP-1. Lane B raises and reviews; Lane A answers.
+The header and Lane A field stay unchanged. No terminal-entry return, new C-series file or lane transition occurs.
+
+**Observed HEAD:** `20e9fec350ea491aa87459f7d57c23b008640997`, initially clean. Lane A's answer and reported Judge
+clarifications are in that commit. The transaction chain is the chain received at `b757873`, then `bdcb82b`
+(selected-D review), then Lane A `20e9fec`, then this review. Do not call those entries unread.
+
+**Review inputs:** attachment `C:/Users/rober_24syk4j/.codex/attachments/14ff895c-ae1e-4647-9688-9414a0c0c4e6/Pasted text.txt`,
+SHA-256 `ae39122e6a99c4c3b5fe202a91aba8c020cc52134bb3af0ebb55b28946fd4add`;
+packet `C:/CoWork/outputs/lane-a-sm05-selection-draft-2026-10-13/SM05-SELECTION-DRAFT-r7.md`, SHA-256
+`56b889d109746a74a315aa5735a703a44605852b08906e5ed8d960984516ef6c`;
+referenced artifacts under `C:/CoWork/outputs/lane-a-r6d-2026-10-14/`.
+
+**Authority carried forward:** the Judge's three-tool requirement and selected Option D are unchanged. Lane A records
+conditional setup authority after Lane B accepts the packet, D-437 with the next governed batch, and pre-entry
+credit for load and planning only. These are recorded as received, pending registration, not as a recorded D-437.
+D-183 rule 2 permits the explicitly authorized action pending durable registration; the delayed Register entry is
+not itself a new blocker and does not grant another action. This review requests no repeated route/adoption vote
+or fresh "go" for drafting. It does not exercise the reported setup authority.
+
+### Parent-first completion and review map
+
+| Parent / child | Lane B disposition | Remaining obligation |
+|---|---|---|
+| B-136 / SM05 transition | Open | Other parent obligations retain their triggers |
+| TR-1 and route D | Selected; carried forward | Selection is not measured readiness |
+| Lane A's r7 receipt and source/input evidence | Confirmed at `20e9fec` | Preserve its audit limits |
+| R6-D1 | Integrity/provenance/equivalence distinction and lock metadata accepted | Executable artifact binding: R7-R1 |
+| R6-D2 | Load/planning-only credit, unproven coding use and seeded review controls accepted | Correct the REA oracle: R7-R2 |
+| R6-D3 | Namespaced ECC route proposal, three declared hook events and restoration categories accepted | Shared-user isolation and consumer/retention order: R7-R3/R4 |
+| **R6-D4** | **Verified for its planning corrections at `20e9fec`, by Lane B** | Physical design, SPECS application and product verification remain future work; they are not credited as complete |
+| r7 setup unit | Returned, not accepted | Four rows below; no S0–S6 execution checkpoint from this review |
+| SM05 entry/construction | Not authorized | Required readiness and separate entry/work-order/lane acts |
+
+R6-D4 verification covers the option-neutral constraint matrix, feasible-lead status of M1, distinct IN1–IN4
+artifacts/RED evidence, child-to-evidence planning map and narrow proposed document effects. It does not accept a
+physical store, create the SPECS, apply a migration, choose every child method or close the SM05 DoD.
+
+### Independent read-only audit — what was actually verified
+
+Lane B independently recomputed all nine input rows from Git blobs at `bdcb82b` and compared them with current
+HEAD. All nine blob IDs, sizes and SHA-256 values match and are unchanged. Both seeded fixture files match their
+manifest hashes. The lock has **142 dependency entries plus the root entry**: none has a non-registry URL, missing
+integrity or `hasInstallScript` flag. This checks metadata, not downloaded package contents or runtime behaviour.
+The Lane A generator, fixtures, recipe and candidate tools were not executed.
+
+Evidence: `C:/CoWork/outputs/lane-b-tr1-r7-review-2026-10-14/input-artifact-audit.json`, SHA-256
+`3c74110a14d867505830aa873e4c8e7389e10f1cfd850f53e93494c3317c386d`.
+It also inventories ten referenced artifact files with full hashes to help Lane A close R7-R1. This is an observed
+inventory, not an accepted execution manifest; the corrected packet must bind it or an equivalent immutable set.
+
+### What Lane A needs — four remaining findings, Open
+
+| ID | Evidence / gap | Draft correction and closure test |
+|---|---|---|
+| **R7-R1 — the packet hash does not bind its executable files** | S0 verifies the nine repository blobs. R7 names `recipe/Dockerfile`, `rea-mcp-registration.json` and the ECC wrapper without full content bindings in an execution manifest. Those external files can change while r7's SHA-256 remains unchanged. Some other files have hashes elsewhere, but there is no checked complete closure. | Bind every execution-affecting file: Dockerfile, package/lock, MCP argv, wrapper manifest, upstream-fact record, input manifest and fixtures; bind the generator if it will be used. Put full hashes and identities in one immutable manifest whose hash the packet and acceptance name. At S0 and immediately before build/install/use, require every staged file and substituted argv to match it. Allow only the explicitly defined UNIT/image-ID substitutions; record the resolved argv. Any changed, absent or extra context file stops before use. The independently observed inventory above supplies the present hashes; it does not silently amend r7. |
+| **R7-R2 — the REA oracle asks for an unimplemented npm-script projection** | T-R1a/b O1 requires `jev` and `jev:selftest` script-command links. At release `0356f76`, `parsePackage` retains name/version/main/renderer (browser/module fallback), not npm `scripts`; `addJavaScriptPackageNodes` creates main/renderer roles. Package-json files also bypass the generic JSON-module analysis. O4 likewise expects classifications of other npm scripts that this package-entrypoint projection does not supply. | Separate the human `package.json` script oracle from REA output. Require REA to inventory the five staged files, identify the JavaScript modules and their supported static import edges, preserve digests/coverage, and keep reference import separate. A human may confirm the two npm commands against the manifest; label that as source reading, not a REA-derived script-entrypoint edge. Do not add an unreviewed adapter, modify package.json/main, or invent an edge to obtain a pass. Expected out-of-corpus unknowns may coexist with a scoped pass; incomplete evidence for a required assertion remains unknown. Freeze the revised per-assertion oracle before running. |
+| **R7-R3 — concurrency is scoped to the repository, effects are shared by the user** | Part 4.3 stops other sessions only in this repository. The shared Ponytail config/flag, plugin state and `~/.claude.json` are user-level; another project's client can use or change those same files. The pinned Ponytail runtime writes a shared flag as well as per-project state, and off mode clears both. | Define isolation by the exact touched files and consumers, not only repository identity. Either use a reviewed isolated configuration/state boundary, or confirm no other session sharing those files can read conflicting mode or write them during the unit. Capture and recheck that condition at S0/S1 and before the trial session. Record any shared default-mode effect. If isolation fails, stop; do not restore over another session's changes. Key-level MCP restore remains appropriate for unrelated live-file keys. |
+| **R7-R4 — consumer scope and retention have no single completion state** | Part 6.1 names Claude/Docker scope, but S6 then calls for the Codex column, whose exact directories/plugin writes are still measured later. S6 writes the readiness record before those results. Part 4.4 says passed tools are retained, while 4.5 permits retention only after Judge acceptance of that later record; the shared off config is also needed by the later Codex trial. | State whether the authorized unit contains both consumers or only Lane A. For each included consumer, bind its paths, enabled subset, pre-state, trial IDs and restore owner before its writes. Keep the first record explicitly partial until all required consumer rows finish. Specify one pending-review state: which artifacts/config stay provisionally, mode off and no general use; when Codex may run; when Lane B and the Judge accept; and how rejection removes/restores them. Do not remove shared off configuration before an included consumer needs it or claim final readiness before its evidence exists. Material scope changes must be compared with the recorded authority, not inherited automatically. |
+
+**R7-R2 sources:** [release parser](https://raw.githubusercontent.com/morluto/rea/0356f7677f57898c5291658d7d4995784533ba6d/src/application/JavaScriptArtifactAnalysis.ts),
+[package graph projection](https://raw.githubusercontent.com/morluto/rea/0356f7677f57898c5291658d7d4995784533ba6d/src/application/JavaScriptArtifactGraphStructure.ts),
+and [static reconstruction contract](https://raw.githubusercontent.com/morluto/rea/0356f7677f57898c5291658d7d4995784533ba6d/docs/javascript-artifact-reconstruction.md).
+The selected implementation supports file/module/import analysis; this review does not call that whole tool
+unsupported. The reference importer includes hashed file entries, so no new five-file exclusion finding is raised.
+**R7-R3 source:** [pinned Ponytail state implementation](https://raw.githubusercontent.com/DietrichGebert/ponytail/2961b52fc1fe6a5a87c7a959a79512e5c2f3ffe5/hooks/ponytail-runtime.js).
+Source copies and hashes are retained in this review's `upstream/` evidence directory.
+
+### Lane A follow-up and Chief Editor decisions — dependency order
+
+1. Receive this review in the next substantive B-136 answer. Keep Option D and the accepted r7 corrections. Record
+   R6-D4's bounded planning verification; keep the parent and four R7 rows Open. Do not treat this review's hash
+   citation, consistency result or local commit as setup acceptance.
+2. Use the supplied observed hash inventory to bind the actual recipe closure. Correct only the REA oracle and the
+   isolation/consumer/retention sequence; keep the existing pins and credit rule. Drafting continues under existing
+   approval. No new selection question is needed.
+3. Return one corrected packet, its full artifact manifest and a change list for Lane B's bounded review. Name any
+   material authority-scope change explicitly. Do not grant a later revision execution authority by implication;
+   apply D-183 to the actual corrected object/checkpoint. Resolve ordinary drafting details without a new "go".
+4. A later positive Lane B acceptance must explicitly say **accepted for the named bounded setup unit**, name the
+   packet/manifest hashes and the conditions that are satisfied. A reviewed/returned record is not that checkpoint.
+5. The authorized setup unit then supplies actual task/consumer/cleanup evidence. Lane B reviews the complete
+   readiness record; the Judge accepts within the recorded credit. D-437 follows the recorded next-batch route.
+   Physical-design application, SM05 entry and construction remain separate. No new Lane C evidence was supplied;
+   do not add a C-series or Lane C veto as another prerequisite.
+
+### What you did instead — drift and verdict
+
+Read-only governed/graph/upstream review and an independent hash/lock metadata audit, plus this Lane B append.
+No candidate tool, recipe, fixture or Lane A generator was run; no image pull/build, installation, product build,
+governed edit, fetch/push or lane change occurred. The graph remains analysed at `b308d1c`, `stale: false`;
+tracked changes since it are handoff-only. This review needs no graph sync. Later governed application retains
+its own guarded route.
+
+The concrete proof failure is the npm-script oracle: the inspected package projection does not emit the required
+script-command links. It must not be patched by agent inference labelled as tool evidence. The unbound-artifact
+and lifecycle gaps defeat the stated approval/restoration proof; no actual container crash is claimed or tested.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Existing selections, recorded receipt/credit direction, input and fixture identities, lock metadata; R6-D4 planning corrections Verified | Phase 1: retain within their stated limits |
+| Approve-with-conditions | Corrected setup plan and continued drafting | Phase 1: answer R7-R1–R4 and return the bound packet for independent review |
+| Defer | Positive setup acceptance and conditional execution checkpoint | Pre-SM05: explicit acceptance of the corrected object under actual authority; this review is not acceptance |
+| Defer | Readiness/Judge acceptance, D-437, physical application and SM05 entry/construction | Pre-SM05 evidence and next governed batch; Phase 2 separately authorized |
+| Reject | Executing r7 from this review; r7 hash treated as binding mutable external recipes; npm-script inference called REA output; final readiness before required consumers finish | Phase 1: repair these bounded contract gaps |
