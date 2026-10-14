@@ -10028,3 +10028,58 @@ Independent review artifacts in `C:/CoWork/outputs/lane-b-pstr-review-2026-10-14
 | **Approve-with-conditions** | S2/S3 planning and Lane A continuation | Phase 1 / pre-SM05: answer PST-R1.a–c and PST-R2; Lane B reviews the complete bounded packet |
 | **Defer** | New waiver/intervention; S-T; actual Stage A readiness; Stage B, D-437, parent closure, SM05, Gate 2 and push | Their concrete evidence and authority checkpoints |
 | **Reject** | Open-ended non-unit exemption; static verifier called loaded-state proof; S3 excluded by shell evidence; a fresh baseline clearing the stop | Phase 1 / pre-SM05: correct the packet; no execution |
+
+---
+
+## Lane A — answers to Lane B `4cd1ec5`: S2 policy packet r1 (frozen allowlist, both-side retention, loaded-state observer) and S3 "effect unknown", 2026-10-14
+
+### What happened
+
+**Receipt.** Lane A receives Lane B's `4cd1ec5`: D5 observations accepted; S2 eligibility, loaded state and evidence
+retention returned; S3 to read "effect unknown". Lane A accepts all four corrections. **Lane C:** no new Lane C evidence.
+
+**Session D6 (this record).** Started 13:24:16Z (client-started `rea-tr1` container `238d75d3…`; no REA tool call). The client
+rewrote `known_marketplaces.json` at 13:24:25Z and the catalog at 13:24:26Z (now `cac0e19d…`), about 9 s after the start,
+with `DISABLE_AUTOUPDATER=1` in the shell environment. This is earlier than the documented post-message auto-update delay.
+Writer not identified. Read-only measurement of the current catalog: 3,366 listings, 2,993 repository URLs, 3,366 claims;
+52 entries have a `repositoryKey` under `github.com/anthropics/claude-plugins-official#`; `installed_plugins.json` lists only
+`ponytail@ponytail`. Every entry carries a fetch-time `lastSeen`, so any refresh changes all 3,366 claims.
+
+| Lane B gap | Answer (in the packet) |
+|---|---|
+| S2 eligibility open-ended | §2: frozen rules per surface. Catalog: `fetchedAt` and per-entry `lastSeen` forward for all entries; `listings` changes only for the 52 allowlisted ids (frozen list, re-derived and compared before use); any addition, deletion, id/name/`repositoryKey` change, non-allowlisted listing change, unit-named entry, new key or `schemaVersion` change stops. Known file: official `lastUpdated` only, with byte rebuild. Tree: only under `plugins/<name>/` for names not installed, enabled or loaded, plus `.gcs-sha` |
+| Loaded state | §4: S-T is the only observer; at its start (after T-P0) it records the plugins, skills and MCP servers in its own context plus `claude plugin list --json` (`T-L0-loaded-state.txt`); anything beyond `ecc-tr1`, `ponytail` and `rea-tr1` stops. Between links, loaded state is **not measured**: a disclosed waiver limit |
+| Evidence retention | §3: every capture in the attempt copies the full catalog and official tree into `<UNIT>/evidence/snapshots/<label>/`; the comparator diffs retained copies only; a missing copy stops |
+| S3 | §7: **effect unknown**; bound to the D5/D6 observations; kept open, not ruled out |
+
+Also in the packet: §1 states the waived protection first; §5 lists the present deltas outside any waiver (the
+C-D2b → P1d catalog change, with changed entries **unknown**; the path-characterized D5 tree change); §6 the capture r5 /
+comparator r7 plan and the planned positive and refusal controls; §8 the hand-over r8 effects. Code is not built: the plan is
+built only after Lane B accepts the packet.
+
+| File in `C:/CoWork/outputs/lane-a-s2p-2026-10-14/` | SHA-256 |
+|---|---|
+| `S2-POLICY-PACKET-r1.md` | `67eae1cff68c652b93d1ce6de1a893b99fa0c8abd2b24d61308b35df33035fad` |
+| `catalog-official-allowlist-candidate.json` (52 entries, from catalog `cac0e19d…`) | `3a8a8bf0d6c965b172d252afb44bd1ac2290f88bca8461c99f640fbe4468d1cf` |
+
+**Practical note for the Judge's later assessment.** The catalog was rewritten at the start of D6, so a refresh at the start
+of S-T is likely. S2 can pass a link only if, in that window, no non-allowlisted listing changes and no entry is added or
+removed. Whether that holds is unknown until measured. S1 (end the attempt) stays the safe alternative.
+
+### What you need
+
+**Lane B:** review the packet and the allowlist by hash. **Judge:** after that review, assess S2 (with §1's waived protection
+and §5's present deltas) against S1. **Person:** end session D6; S-T stays stopped.
+
+### What you did instead
+
+Read-only measurement; no setting change, trial, capture into `<UNIT>/state`, cleanup, fetch or push. `bun run check` before
+commit: `C:/CoWork/outputs/lane-a-s2p-2026-10-14/check-precommit.log`. Graph: `lastAnalyzedHead` `b308d1c`, `stale: false`;
+only `docs/handoff/` paths changed since, so no sync is needed. This record changes B-136 only.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Lane B's four corrections; D5/D6 observations; verified stop; prior approvals | Pre-SM05: carried forward |
+| Approve-with-conditions | S2 policy packet r1 and allowlist | Pre-SM05: Lane B review; then build capture r5 / comparator r7 before any selection |
+| Defer | S2 or S1 selection; S3 (effect unknown); S-T; readiness; Stage B, SM05, Gate 2, push | Their checkpoints |
+| Reject | Open-ended exemptions; file checks called loaded-state proof; a new baseline; writer claims from timestamps | Pre-SM05: no action |
