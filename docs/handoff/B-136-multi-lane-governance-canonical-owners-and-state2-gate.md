@@ -8878,3 +8878,147 @@ trial, install, removal, restore, override, fetch or push. Accepted files from `
 | Approve-with-conditions | Comparator r3, capture r3, bridge to `C-D2`, hand-over r4 | Pre-SM05: Lane B accepts the hashes and decides R3-C1-M |
 | Defer | S-T, A-S5/A-S6, post-exit P2 ledger, Stage B Codex `off` proof | Pre-SM05: after acceptance, r4 §5–§7 |
 | Reject | S-T on r3; comparator r2 as a gate; equal errors as proof; endpoint diff as history; a fresh P1d without the bridge; cleanup claimed from inside S-T | Pre-SM05: no action |
+
+---
+
+## Lane B — R3-C2/C3 Verified; refresh authority and disposable-cleanup proof remain open, 2026-10-14
+
+### Layer 0 — Request and handoff scope
+
+**Rewritten request:** Review Lane A's R3-C1–C3 answer at `7d03c95`, reproduce the retained controls, and decide
+what is ready before S-T. Keep prior approvals. Consolidate the remaining gaps, draft fixes and decision contract
+in this parent. Review/planning only: no supplier trial, setup, cleanup, build, governed edit, fetch, push or Gate 2.
+
+Read at `7d03c950eb5e9e0fb6667c23a519cbc0318b21a3`, with a clean tracked tree and empty index. Lane B raises/reviews;
+Lane A answers the returned rows. The B-136 header remains Open. No Lane A answer/header is changed.
+
+### What happened — transaction chain and parent-first completion map
+
+`05ac2ba` accepted r10 → `47cfa13` retained SA-R1/SA-R2, accepted bounded A1 and returned R3-C1–C3 → Lane A
+`7d03c95` answered with capture/comparator r3, handover r4 and the C-D2 bridge → this review verifies C2/C3's
+bounded corrections, accepts the post-exit observer design, and returns two remaining obligations. Earlier
+returned guides remain history. No trial readiness is inferred from a checker pass.
+
+| Parent / child | State | Next owner and condition |
+|---|---|---|
+| B-136 / SM05 transition | Open | Other parent obligations retain their triggers |
+| REA Option D; r10; SA-R1/SA-R2; accepted launcher/A1 | Retained | Accepted launcher/A1 bytes match; no new adoption vote |
+| **R3-C2: retained observation-error cases** | **Verified by Lane B at `7d03c95`, for the reviewed validation/control scope** | Does not certify every possible schema or complete cleanup coverage |
+| **R3-C3: ancestry/per-commit history** | **Verified by Lane B at `7d03c95`** | Runtime/history checks still run at consumption |
+| R3-C1: linked captures and post-exit observer | Design progress accepted | R4-F1/F2 below still prevent the bridge/close from clearing readiness |
+| R3-C1-M: ongoing official-refresh exception | Proposed; **not accepted** | Narrow the rule; any material relaxation needs the Judge's bounded act |
+| A-S5/A-S6; Stage B/final retention | Pending | Corrected accepted hashes, actual results and complete cleanup proof |
+| D-437; B-136 closure; SM05, Gate 2 and push | Separate | Existing authority and evidence checkpoints |
+
+### Layer 1 — Bound artifact dispositions
+
+Under `C:/CoWork/outputs/lane-a-tr1-setup-2026-10-14/`, unless another folder is named:
+
+| Artifact | SHA-256 | Disposition |
+|---|---|---|
+| `state/HANDOVER-E-to-S-T-r4.md` | `8e91a3e4cd01fe83b9a51e9c637ae7a2c6089a7a0993166f0718a6d4d9cff085` | Returned for R4-F1/F2; post-exit O/R design accepted in planning |
+| `tools/capture-state-r3.mjs` | `c51ea281a7a7defebef8c7326b03eea731e76cc06aed1d354a6de7608178fe61` | Observation format accepted; it does not observe every UNIT disposable |
+| `tools/compare-state-r3.mjs` | `ba93a8fb9b8c2db197e68f6b38778c10046258e94acd97f90dbe21eb36df8cf0` | C2/C3 correction scope Verified; whole startup/cleanup gate returned because the unaccepted refresh policy is enabled |
+| `C-D2.json` in `lane-a-r3c-2026-10-14` | `b205429249f2844db0ead6777c2ff33b143bd9d1d6741e86e6955f43644566a8` | Retained observation/candidate anchor; no unconditional baseline acceptance |
+| `bridge-C-D2-run1.json` in that folder | `d5cb15e1ceab94611e15d0a99b36af4ccf0ff08ac367caec9aef316b6b784e82` | Reproduced conditional pass; not an authority receipt or readiness clearance |
+
+### Layer 2 — What the checks prove
+
+Lane B replayed **55/55** supplied controls in a new local inert Git fixture. All eight earlier counterexamples
+now refuse. Failed/missing observations stop, genuine empty inventories remain distinguishable, and the history
+tests reject change/restore ranges, backward/divergent moves, merges, missing commits and Git failures. The
+actual repository's handoff-only history is checked read-only. No Docker or supplier code ran.
+
+The real bridge reproduces `pass` **with `ACCOUNT_OFFICIAL_REFRESH = true`**. The known-marketplace JSON can
+be reconstructed by replacing only the official `lastUpdated`; its resulting hash equals P1's recorded hash.
+This establishes that particular metadata relation. It does not characterize the old official tree/catalog bytes
+or prove the writer from timestamps. Those content deltas remain unknown, as the submitted bridge itself records.
+
+Two added policy probes change (separately) the catalog hash and the official-tree hash, **without any timestamp
+change**. Both pass and are classified as accounted refreshes. Source: comparator r3 lines 179–204. The code's
+content allowance is therefore independent of its forward-timestamp check. Tests passing the proposed policy
+do not authorize that policy.
+
+The timestamp chronology also needs precision: `observe-plugins-D2.json` at 08:58Z records the 07:58:54 known-file
+write and the 07:21 catalog. The before/after files then show writes at **08:59:37** (known file) and **08:59:43**
+(catalog), and C-D2 is captured at **09:02:29Z**, with official `lastUpdated` **08:59:37.345Z**. The identical
+before/after samples support no change across that capture window only. They do not remove the intervening
+refresh or establish its cause. The bridge uses the latest C-D2 values, not only the earlier 07:58 observation.
+
+### What you need — two bounded fixes
+
+| ID | Gap and draft fix | Acceptance / refusal criteria |
+|---|---|---|
+| **R4-F1 — separate observed drift from an ongoing exemption** | Do not accept uncharacterized future official-tree/catalog changes merely by recording their hashes. Default to strict protection. Separate the measured one-key timestamp relation, the exact historical C-D2 content delta and any proposed future exception. Try retained Git objects/backups to characterize the earlier content without restoring or fetching. If unrecoverable, keep it as an owned historical residual and draft a one-time hash-bound disposition; do not silently turn it into an allowed refresh. Update the chronology above. | Future tree/catalog changes stop unless an expressly bounded accepted rule covers them. A bridge pass cannot rely on an unapproved constant. Metadata-only reasoning cannot prove content equivalence. An unknown historical content residual is not a complete-cleanup or readiness pass. |
+| **R4-F2 — prove every disposable at close** | Capture r3/ledger r3 do not observe `<UNIT>/build/`; deleting it in the guide is an action, not its proof. Add a bounded companion cleanup receipt or capture fields, and make close require them. List the Node/context folder, REA archive and other acquisition artifacts individually as disposable, retained evidence or a live dependency; carry their existing disposition forward and flag any unallocated item. Keep the marketplace export while registered. | The disposable build folder must be proven absent; a remaining or unreadable required path stops or becomes explicit residue. Every acquisition artifact has a named disposition and proof. Retained items have hashes and a reason. A passing host-state subset cannot stand in for missing UNIT evidence. |
+
+**R4-F1 scope judgment:** the submitted R3-C1-M rule changes a protected-content comparison into an ongoing
+content-change allowance. That is not the same as A1's exact empty-directory row or a checker repair preserving
+the refusal contract. Lane B does **not** accept the broad rule under clarification 5. The strict correction and
+read-only characterization remain authorized drafting; no new generic "go" is needed. If Lane A still proposes a
+material exception, the Judge must receive the complete bounded card below before approval is requested.
+
+### Draft decision card for R4-F1 (not an execution act)
+
+| Required field | Concrete content / remaining boundary |
+|---|---|
+| Authority | Existing authority permits strict checking and same-scope corrections. A proposed acceptance of uncharacterized historical content or an ongoing relaxed content rule needs its explicit bounded authority; this review grants neither. |
+| Prerequisites | P1/P1b/C-D2 hashes; old/new tree and catalog hashes from the retained bridge; reconstructed known-file proof; actual observed chronology; attempted recovery/classification and an owner for every unknown. "No trial reads it" remains a claim requiring support if used as a reason to relax protection. |
+| Affected files | External official marketplace tree, `plugin-directory-cache-v2.json` and the official entry in `known_marketplaces.json`; comparator policy, guide and bridge receipt. No restore/overwrite of the pre-existing shared files is included. |
+| Pass / refusal | Prefer a dated, exact receipt for characterized changes and strict checks afterwards. Unknown content cannot pass by relabelling. A prospective exception must name the allowable content delta and proof; "any tree/catalog change, recorded" is rejected as unbounded. |
+| Sync cost | This review is handoff-only: none. A later D-437 Register/Build Spec/Inventory application follows D-54 and the guarded graph route as applicable. No raw update or rebuild now. |
+| Stop point | Return the complete receipt/card and corrected hashes for review before S-T. No tool trial, shared-file restore, push, SM05 or Gate 2 action follows from this draft. |
+
+The post-exit observer design can be kept: S-T removes registration, records trial outputs, then exits; O captures
+P2 in the named plain PowerShell context; R records the evidence later. Add the UNIT cleanup receipt to O's close
+gate. In a synthetic coverage probe the existing ledger still returns pass when an extra record says the build
+directory remains: that field is not read. This is evidence of coverage limits, **not** a live P2 or a claim that
+actual cleanup failed. Keep subset results distinct from completion of the whole ledger.
+
+### Layer 3 — Lane A follow-up and Chief Editor requirements
+
+1. Receive C2/C3 verification and the retained approvals. Keep the accepted launcher, A1 and source evidence.
+   Do not repeat acquisition/build or reopen those decisions for these corrections.
+2. Answer R4-F1 with strict prospective checks and a fully characterized or explicitly residual historical receipt.
+   Prepare the decision card only if an exception is still needed; do not ask the Judge to approve a label alone.
+3. Answer R4-F2 with the complete disposal/retention map, exact proof paths and post-exit gate. Return corrected
+   guide/comparator/receipt hashes and targeted positive/refusal controls. Keep earlier artifacts as history.
+4. Lane B reviews those deltas. **S-T remains stopped on r4.** There is no approval question now while this packet
+   still needs correction. Any eventual material exception comes to the Judge as the concrete card above.
+5. After the relevant acceptance, recheck the bound inputs and linked state evidence, confirm quiet-host/session
+   transitions, run the frozen trials, and record **Readiness — partial (Stage A only)** with post-exit P2 and every
+   cleanup receipt. Stage B, final retention, SM05 and Gate 2 keep their separate checkpoints. No new Lane C claim
+   is asserted or new C-series file required.
+
+### What you did instead — evidence, checks and graph
+
+Lane B used governed sources, a read-only graphify query, retained snapshots, the supplied inert suite and bounded
+policy/coverage probes. No live capture, supplier hook/resolver, Docker, setup, cleanup, build, fetch or push ran.
+Only this Lane B body changes in the project repository; the new Git fixture is under the review output folder.
+
+Evidence: `C:/CoWork/outputs/lane-b-r3c-review-2026-10-14/`:
+
+| File | SHA-256 |
+|---|---|
+| `audit.mjs` | `32887529d28caa94dfa3f8f1d4f902cc3d00ce5b6be80c15dc23af34b4050e04` |
+| `audit-results.json` | `f18b5345779c4a9f64d22da9a6833ce1ca77df745c579033d8443b0705222a45` |
+| `controls-replay.json` | `85f2b5c2b21209da27cd32d0b5d15767740c8055a3ae1226035e4dd83b5431c9` |
+| Judge-supplied attachment `a2ef36f5-ba2f-409d-8d20-eb28716d1849/Pasted text.txt` | `50749266ecc06827a2febaa6388e78207ee95ad7bee7f1412cb695cfe60cd8e4` |
+
+The audit records input hashes, the conditional bridge result, the known-file reconstruction, policy probes and
+cleanup coverage limits. Synthetic examples are labelled and never used as historical host evidence. The
+observation timestamps remain source facts, not proofs of uninterrupted history or producer identity.
+
+Governed intent remains analysed at `b308d1c`, `stale: false`; only B-050/B-136 handoffs changed afterwards.
+No graph sync is needed. Final-byte consistency results are retained in this evidence folder's `check-final.log`
+and reported after the run. The one-file local review commit follows only a pass; no push authority is inferred.
+
+### Layer 4 — Verdict
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | R3-C2/C3 reviewed corrections; capture r3 observation format; post-exit observer design; prior scoped approvals | Phase 1 / pre-SM05: retained; actual trials and complete close proof remain pending |
+| Approve-with-conditions | Remaining R3-C1/state-chain and cleanup drafting | Pre-SM05: R4-F1/F2, full hashes, targeted controls and bounded Lane B review |
+| Defer | Historical-content residual/exception disposition; S-T on r4; A-S5/A-S6 readiness | Pre-SM05: characterized receipt or explicit bounded authority, strict future gate and complete cleanup proof |
+| Defer | Stage B/final retention; D-437; parent closure; SM05, Gate 2 and push | Their existing evidence and separate authority checkpoints |
+| Reject | Broad R3-C1-M treated as a same-scope checker fix; a conditional bridge pass treated as approval; subset cleanup checks treated as every-path proof; file mtimes treated as writer attribution | Pre-SM05: keep the named boundaries and correct the packet |
