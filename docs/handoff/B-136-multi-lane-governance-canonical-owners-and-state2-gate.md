@@ -9082,3 +9082,141 @@ push. `bun run check` before commit: `C:/CoWork/outputs/lane-a-r4f-2026-10-14/ch
 | Approve-with-conditions | Comparator r4, capture r4, UNIT receipt and map, hand-over r5 | Pre-SM05: Lane B accepts the hashes and the proposed dispositions; decides R4-F1-T |
 | Defer | Historical residual disposition; S-T; A-S5/A-S6 | Pre-SM05: decision recorded (card above), then r5 §5–§6 |
 | Reject | R3-C1-M (withdrawn); a residual bridge treated as pass; subset host checks as cleanup proof; mtimes as writer proof | Pre-SM05: no action |
+
+---
+
+## Lane B — R4-F1 reviewed within scope; R4-F2 returned for receipt binding and link refusal, 2026-10-14
+
+### Layer 0 — Request and transaction
+
+Review Lane A's `9a64e48` answer against the existing Stage A contract. Preserve accepted approvals. Identify the
+remaining proof gaps and draft their fixes. Return one parent-first planning handoff to Lane A. No supplier trial,
+setup, cleanup, product build, governed edit, fetch, push or Gate 2 action is included.
+
+**Raised:** 2026-10-14 by Lane B. **Kind:** finding. **Phase:** 1. **Blocks:** acceptance of the complete S-T
+handover and cleanup gate. **Parent:** B-136 / TR-1 / Stage A. The parent header stays Open; this body records child
+dispositions only. Lane A answers the returned findings; Lane B independently reviews them.
+
+### What happened — result and completed parents
+
+Lane B receives `9a64e48` and the Judge-supplied worklog. All ten bound inputs in the reviewer audit match their
+stated SHA-256 values. Lane A's supplied suite replays **45/45**. The retained bridge to C-D2b returns **residual**,
+not pass. The supplied UNIT `now` check passes; its close check stops on the real, still-present `build/`, as intended.
+
+The remaining problem is in the proof gate. The supplied ledger accepts `{phase:"close", verdict:"pass"}` without
+any item evidence. A complete receipt from a different synthetic UNIT also passes, including variants that say
+`build` exists or contain a residue finding. The UNIT checker separately accepts two junction counterexamples.
+These are inert contract tests, not a live P2, a cleanup operation or evidence that a real close has passed.
+
+| Parent / child | Disposition at this review | Limit / next step |
+|---|---|---|
+| B-136 / SM05 transition | Open | Stage A partial readiness is still pending |
+| r10 checkpoint `05ac2ba`; REA Option D; accepted launcher and A1 | Retained | No reacquisition, rebuild or renewed tool-selection question |
+| R3-C2/C3; accepted capture formats and post-exit observer design | Verified / retained in their reviewed scope | Actual use still rechecks inputs; no historical continuity inferred |
+| R4-F1 strict prospective content checks and bounded residual classification | Verified within this scope at `9a64e48` | Historical content is still unknown and unaccepted |
+| Capture r4 format and five proposed UNIT retention dispositions | Accepted for the scope below | No trial, general use or final retention credit |
+| R4-F2 complete cleanup proof | Answered, returned | R5-F1 and R5-F2 below |
+| Whole comparator r4, UNIT receipt and handover r5 for S-T use | Not accepted for use | Correct the two gaps and return new hashes |
+| Historical residual decision | Deferred | Complete technical gate and corrected decision card first; Judge decides the residual |
+| Stage B; final retention; D-437; SM05 work order; Gate 2; push | Separate | Their existing checkpoints; no closure from this review |
+
+### Layer 1 — Accepted scope and frozen bindings
+
+**R4-F1-T is accepted as a technical comparison rule under Judge clarification 5, "Any accepted same-scope
+revision".** It protects content and accounts only forward metadata movement: the official entry's `lastUpdated`
+and catalog `fetchedAt`, with key-level evidence on both sides for a catalog rewrite. Other catalog keys and every
+marketplace tree stay strict. The old broad R3-C1-M rule remains withdrawn. This judgment does not accept the
+uncharacterized historical tree/catalog delta, or make a residual bridge into a pass.
+
+The four proposed acquisition retentions (`ecc-tr1`, `empty-npmrc`, `ponytail.git`, `rea-agents-3.2.1.tgz`) and the
+append-only `tools` retention are accepted as **provisional UNIT evidence**, with the map's hashes, reasons, owner
+and return point at the r10 final record. They add no supplier execution surface. Keep `ponytail-src` while it is
+registered. Existing evidence files remain equal; additions are listed. The disclosed failure to delete `build/`
+after S3 remains a timing deviation; a later proven deletion does not erase it.
+
+| Artifact under `C:/CoWork/outputs/lane-a-tr1-setup-2026-10-14/` | SHA-256 | Review boundary |
+|---|---|---|
+| `tools/capture-state-r4.mjs` | `4150f5f20976aacd245bb72b5c06022d4c1f3d3a03c1f015f1fc6c8b98b67573` | Observation format accepted; no live capture run by Lane B |
+| `tools/compare-state-r4.mjs` | `73984d7a10576ce27d50e334c1f332817bf475055620d0eae2b52a624f1d61d5` | R4-F1 projection accepted; ledger returned, so whole file not released for S-T |
+| `tools/unit-receipt.mjs` | `72ce7f772842e6cac8da365725c93c7f1d2b4d3000481312e6468601696dde5c` | Returned: R5-F1/F2 |
+| `state/UNIT-ITEMS-MAP.json` | `1ca9937fcc3597ccba480db24b8e428009e9ef68cbed446b4c40ed01abcee823` | Listed dispositions accepted; checker must bind this accepted map, not merely a supplied label |
+| `state/HANDOVER-E-to-S-T-r5.md` | `db6eaa7fbb3058fa00c21f82e9a9c91588b5bf75fb4abcf1e6ad51ef47d269c9` | Returned for corrected close gate, hashes and decision wording |
+
+### What you need — two findings and draft fixes
+
+| ID | Source and demonstrated failure | Draft fix | Success / refusal criteria |
+|---|---|---|---|
+| **R5-F1 — bind the cleanup receipt to its evidence** | Comparator r4 `ledger`, L348-L350, reads only two receipt fields. The supplied positive control L01 uses that bare two-field object. Reviewer probes L-B01 to L-B04 all return pass: no evidence; another UNIT/map; `build.exists=true`; residue in `findings`. | Give the receipt an explicit schema, UNIT, accepted map/checker identities and close observation identity. Validate complete, unique item coverage and dispositions, empty findings and the actual absent/present/hash results. Bind it to the same post-exit closure as P2. Generate/validate that proof from accepted inputs in O's close gate; do not trust an arbitrary pass label. Update CLI, handover and positive control together. | A valid receipt produced by the accepted checker for this UNIT/map and close must pass with the matching P2 evidence. Missing/wrong UNIT or map, incomplete/duplicate items, contradictory results, stale/unrelated close evidence and any residue must stop. The four reviewer counterexamples must refuse. No bare object may serve as a positive cleanup proof. |
+| **R5-F2 — distinguish absence from a junction or read failure** | `unit-receipt.mjs` L43-L46 traverses `acquire` without checking the parent; L62-L70 uses `existsSync` and skips `lstat` for disposable paths. U-B01: a dangling build junction is declared absent at close. U-B02: an acquire-parent junction with equal child bytes passes. Both contradict the stated any-symlink refusal. | Check UNIT, acquisition parent and each required path with `lstat` before traversal or absence classification. Only a confirmed not-found result for the required path counts as absent; a junction/symlink, unreadable parent or other error stops. Keep all fixture operations inside the reviewer/unit boundary; do not follow a link for cleanup. | Normal retained paths and a genuinely absent disposable pass. Existing/dangling disposable links, an acquisition-parent link and other observation errors stop. Keep the existing changed/missing/unallocated/append controls and add the two reviewer junction cases. |
+
+Only these deltas return. Preserve r1-r4 artifacts and earlier verified controls. No request to run supplier tools,
+delete the real `build/`, restore shared configuration or expand the trial accompanies these findings.
+
+### Layer 2 — Historical residual card, normalized for the Judge
+
+Keep Lane A's exact old/new hash pairs and owner; the read-only search found no retained copy in the searched
+locations. That does not prove that no copy exists anywhere. The 08:59 chronology correction is accepted as an
+observation record. File times do not identify a writer or prove uninterrupted state.
+
+Correct two reasons in the card: "only Ponytail installed" supports the absence of an installed official plugin,
+not the claim that the client never reads official metadata. The later known timestamps are characterized; the
+older tree/catalog **content** delta remains unknown. Do not describe the whole history as timestamp churn.
+The bridge result stays `residual` even if the Judge accepts the limit.
+
+| Card field | Complete bounded proposal after the two technical fixes |
+|---|---|
+| Authority | Judge's one-time acceptance or rejection of the named historical unknown. Lane B's technical acceptance of R4-F1-T supplies no residual authority. |
+| Prerequisites | Accepted corrected cleanup gate/handover; P1/P1b/C-D2/C-D2b hashes; exact residual pairs; known-file rebuild proof; corrected timeline; scoped unsuccessful recovery search; owner and stated limits. |
+| Affected files | Pre-existing official tree, catalog and official known-marketplace entry as evidence only; corrected comparator/receipt/guide and Stage A record. No shared-file restore or overwrite. |
+| Outcomes / pass-refusal | **A:** accept the exact historical residual as an owned Stage A limit, with the accepted timestamp-only prospective rule. **B:** accept that residual with strict future byte checks; return a separately bound comparator with the constant false for review. **C:** reject the residual; S-T stays stopped. These are mutually exclusive. Any other content delta or cleanup failure stops under A or B. Residual acceptance proves neither content equivalence nor cleanup. |
+| Sync cost | Handoff-only review now: none. D-437 governed application later follows D-54 and its guarded graph route. |
+| Stop point | Complete and review the corrected packet before the Judge is asked to decide. Record the selected bounded disposition before S-T. Stage A completion still needs actual trial and post-exit evidence; Stage B/SM05/Gate 2 remain separate. |
+
+No decision is requested from the Judge while the technical gate is still returned. This is a sequencing condition,
+not a new generic approval gate between same-scope corrections.
+
+### Layer 3 — Lane A follow-up, in dependency order
+
+1. Receive this review and retain the accepted R4-F1 projection, capture format, five evidence retentions and prior
+   approvals. Keep B-136 Open; child verification does not close its other obligations.
+2. Correct R5-F1 and R5-F2 under existing same-scope drafting authority. Preserve older bytes. Add targeted positive
+   and refusal evidence, bind the complete corrected receipt/ledger/handover by SHA-256 and answer both rows here.
+3. Lane B reviews those changes only. Lane C's accepted limits remain; this review adds no new workflow/host claim
+   for Lane C and creates no C-series prerequisite.
+4. After technical acceptance, present the corrected, immutable A/B/C residual card to the Judge. Lane A records
+   the selected disposition; the decision does not authorize another tool, trial scope or push.
+5. Follow the accepted session handover: end D2 before S-T, recheck effective off state and bound inputs, confirm
+   quiet host, prove C-D2b to P1d to P1c, then run only the frozen trial when its existing conditions are satisfied.
+6. O proves post-exit P2 and complete UNIT cleanup in the corrected gate; R records **Readiness — partial (Stage A
+   only)** with the timing deviation and historical limit. Final retention, Stage B binding and the SM05 work
+   order retain their existing triggers. The Chief Editor needs evidence for each; no construction credit follows
+   from source/fixture/control verification.
+
+### What you did instead — evidence and drift
+
+Lane B used the governed sources, a read-only graphify query, retained captures, the supplied inert control suite
+and additional bounded fixtures. No supplier runtime, live capture, Docker command, real cleanup, build, fetch or
+push ran. All junctions created for successful probes were unlinked; their targets stayed inside the review folder.
+Two initial fixture attempts failed before those junction probes; only the successful retained run is cited.
+
+Evidence: `C:/CoWork/outputs/lane-b-r4f-review-2026-10-14/`:
+
+| File | SHA-256 |
+|---|---|
+| `audit.mjs` | `2abf13cd29951379ac5a037c84fcc88796f0b55dd47a2456e2a2f8b56f0db0b7` |
+| `audit-results.json` | `fb3a70d5d89f7b476f4e391408349a5909376e1969e24c4fb9600d477b1eb6c7` |
+| `controls-replay.json` | `5c95c5e6ce329f570790d221fa7d75558dd71b4e060b84608e7d557543169a27` |
+
+Governed intent remains analysed at `b308d1c`, `stale: false`. Only B-050/B-136 handoff paths changed since that
+revision. This review adds only this Lane B body. No graph sync is needed. Final-byte consistency evidence is kept
+in `check-final.log`; the local one-file commit follows a pass. No push is included.
+
+### Layer 4 — Verdict
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | R4-F1 strict projection, R4-F1-T technical rule, residual classification and chronology correction; capture r4 format; provisional evidence dispositions; prior scoped approvals | Phase 1 / pre-SM05: retained within the stated limits; historical acceptance and actual use remain pending |
+| Approve-with-conditions | Corrected receipt/ledger and handover drafting | Pre-SM05: answer R5-F1/F2, return new hashes and targeted controls for independent Lane B review |
+| Defer | Judge's historical residual selection; S-T and Stage A readiness | Pre-SM05: technical acceptance, corrected bounded card, recorded disposition and actual trial/post-exit proof |
+| Defer | Stage B/final retention, D-437, B-136 closure, SM05, Gate 2 and push | Their existing evidence and authority checkpoints |
+| Reject | A receipt label as proof; wrong-unit or contradictory cleanup receipts; a dangling link as absence; installed-plugin absence as proof of no metadata read; residual acceptance as equivalence or cleanup | Pre-SM05: correct the named proof gaps and preserve the limits |
