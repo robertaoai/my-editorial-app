@@ -9022,3 +9022,63 @@ and reported after the run. The one-file local review commit follows only a pass
 | Defer | Historical-content residual/exception disposition; S-T on r4; A-S5/A-S6 readiness | Pre-SM05: characterized receipt or explicit bounded authority, strict future gate and complete cleanup proof |
 | Defer | Stage B/final retention; D-437; parent closure; SM05, Gate 2 and push | Their existing evidence and separate authority checkpoints |
 | Reject | Broad R3-C1-M treated as a same-scope checker fix; a conditional bridge pass treated as approval; subset cleanup checks treated as every-path proof; file mtimes treated as writer attribution | Pre-SM05: keep the named boundaries and correct the packet |
+
+---
+
+## Lane A — answers to R4-F1 and R4-F2: strict marketplace content, historical residual, UNIT cleanup receipt and hand-over r5, 2026-10-14
+
+### What happened
+
+**Receipt.** Lane A receives Lane B's `9426ad1`: R3-C2 and R3-C3 are Verified; the capture r3 format and the post-exit
+observer design are accepted; R3-C1-M is **not** accepted; R4-F1 and R4-F2 are returned. Lane A withdraws R3-C1-M.
+Accepted bytes (launcher, A1, capture r2/r3, comparator r3) are unchanged. **Lane C:** no new Lane C evidence.
+This record is still drafted in session D2 (its `rea-tr1` container `13d1c5f6…` is still running; no REA tool call).
+
+**Chronology correction (Lane B finding accepted).** The catalog and known file were also rewritten at **08:59:43Z** and
+**08:59:37Z**, after `observe-plugins-D2.json` (08:58Z) and before `C-D2` (09:02:29Z). Lane A's earlier text named only
+07:21Z and 07:58:54Z. Times are mtimes; they do not prove the writer. Full table: hand-over r5 §1.
+
+| ID | Answer | Bound files (SHA-256) |
+|---|---|---|
+| R4-F1 | **Prospective:** comparator r4 makes every marketplace tree and the catalog content strict; a tree change stops with its changed paths listed (capture r4 keeps the full file list per marketplace child). **Proposed narrow R4-F1-T:** only the official `lastUpdated` and the catalog `fetchedAt` may move, forward, proved key by key (capture r4 records SHA-256 per catalog key); every content key stays strict; the rule is a named constant reported in every result. **Historical:** no old bytes, backup or Git object exist (read-only search). The known-file change stays characterized (timestamp only, rebuild proof). The tree (`fbe9fb48…` → `83bb2bf8…`) and catalog (`4f6fd6a1…` → `5e864e8a…`) changes are bound once as `HISTORICAL_RESIDUAL`; the bridge now returns **`residual`** (exit 3), not pass; any other delta stops. Real runs: `bridge P1 P1b C-D2` = residual; `bridge P1 P1b C-D2b` = residual; `interval C-D2 → C-D2b` stops only on this live session's own container (expected) | `compare-state-r4.mjs` `73984d7a10576ce27d50e334c1f332817bf475055620d0eae2b52a624f1d61d5`; `capture-state-r4.mjs` `4150f5f20976aacd245bb72b5c06022d4c1f3d3a03c1f015f1fc6c8b98b67573`; `C-D2b.json` `f3f2b0b093039ae1fd55eccb66a7ff3b940ca078909d7091569ee54a519aac86`; `bridge-r4-C-D2.json` `e386398c9004ea4e07c4f7e55ddb6ebcd9d33a8f04a56beb1d4cb3227d44a893`; `interval-C-D2-to-C-D2b.json` `59bd38d90ce49ac72d6f80b665ee2028502bf840f9929caeeaaea87a07a438dd` |
+| R4-F2 | `unit-receipt.mjs` + `UNIT-ITEMS-MAP.json`: every top-level UNIT entry and every `acquire/` child has a disposition, source and SHA-256 binding: `build/` disposable; `acquire/ponytail-src` live dependency; `acquire/ecc-tr1`, `ponytail.git`, `rea-agents-3.2.1.tgz`, `empty-npmrc`, `corpus`, `fixtures` retained (fixed bytes); `evidence`, `state`, `tools` append-only. Four `acquire/` items and `tools` were not allocated by r10 Part 4.4: **proposed** dispositions, flagged. Unallocated entries, unreadable paths and symlinks stop. **Disclosed deviation:** r10 4.4 says delete `build/` after S3; it is still present (its hashes are in the map); r5 deletes it in A-S6 and O proves absence. Ledger r4 **requires** a passing `close` receipt. Real runs: `now` = pass; `close` today = stop (`build` residue), as expected | `unit-receipt.mjs` `72ce7f772842e6cac8da365725c93c7f1d2b4d3000481312e6468601696dde5c`; `UNIT-ITEMS-MAP.json` `1ca9937fcc3597ccba480db24b8e428009e9ef68cbed446b4c40ed01abcee823`; `unit-receipt-now.json` `bd7a6a133e8106c9ce958fbd47829e91e1a309ea6df6acc7cdafd76ff6c83bbd`; `unit-receipt-close-today.json` `ed9bfd6230a0d8260ebba37c8ea9c0e358eb7aaa73dde66e1c8197ed755062fb` |
+| Hand-over | r5: chronology, strict rule and R4-F1-T, residual, UNIT map, chain `P1, P1b → C-D2b (bridge, residual) → P1d → P1c` (r4 anchor `C-D2b`, because an r3 base cannot characterize a later catalog rewrite), full commands, close receipt before the P2 ledger | `HANDOVER-E-to-S-T-r5.md` `db6eaa7fbb3058fa00c21f82e9a9c91588b5bf75fb4abcf1e6ad51ef47d269c9` |
+
+**Controls 45/45** (`controls-r4-run1.json` `44df543f8460e0953815c7fa16678c8ce89cd63cb2518741fec2e537fc099282`; harness
+`controls-r4.mjs` `aa097e061e7c2d7b35034c3d3ba6197708cd6a4f8aea8003bf0420bccac0cbb4`): Lane B's two policy probes (catalog
+or tree change without a timestamp change) now stop; the build-directory probe stops; Lane B's earlier eight refusal cases are
+retained; added cases cover content keys, backward timestamps, r3 bases, the residual bounds, ledger receipt gating and
+eleven UNIT receipt cases (real and fixture). Evidence folder: `C:/CoWork/outputs/lane-a-r4f-2026-10-14/`.
+
+### Draft decision card — R4-F1 (not an execution act; for the Judge only if Lane B routes it)
+
+| Field | Content |
+|---|---|
+| Authority | (1) Disposition of the one-time historical residual: content of client-owned official-marketplace files changed after P1, not characterizable. (2) R4-F1-T, if Lane B judges it outside clarification 5. Existing authority covers strict checks only |
+| Prerequisites | P1/P1b/C-D2/C-D2b hashes; the residual hashes above; the known-file rebuild proof; chronology r5 §1; read-only recovery search (no copy found); `installed_plugins.json` lists only `ponytail@ponytail`, so no official-marketplace plugin is installed or enabled (support for "no trial reads it"; T-E0 checks it again) |
+| Affected files | Official tree, `plugin-directory-cache-v2.json`, official entry of `known_marketplaces.json` (none restored or overwritten); comparator constants; hand-over r5; the Stage A record |
+| Options | **A** accept the residual as an owned non-unit limit of Stage A partial readiness, with R4-F1-T or strict prospective checks; **B** accept the residual, strict prospective checks only (a timestamp rewrite at S-T start stops S-T; retry later); **C** do not accept: S-T stays stopped. Lane A recommends **A** with R4-F1-T: content stays strict, and the observed rewrites are timestamp churn |
+| Pass / refusal | Pass only with the exact residual hashes; any other content delta stops; the residual is never cited as cleanup or content equivalence |
+| Sync cost / stop point | Handoff-only now; D-437 governed batch later (D-54, guarded route). Stop after the decision is recorded; no trial, restore, push, SM05 or Gate 2 |
+
+### What you need
+
+**Lane B:** review only these deltas; accept or return by full SHA-256 the hand-over r5, `capture-state-r4.mjs`,
+`compare-state-r4.mjs`, `unit-receipt.mjs` and `UNIT-ITEMS-MAP.json` (with the proposed dispositions); decide whether
+R4-F1-T is same-scope; route the residual card to the Judge if needed. **Person:** no decision is asked now. End this
+session D2 before any S-T. Do not start S-T on r4.
+
+### What you did instead
+
+Read-only observations and one read-only control capture (`C-D2b`; mtimes unchanged across it); in-memory controls; inert
+Git and UNIT fixtures in the evidence folder (the UNIT fixture is removed after the run). One write in `<UNIT>`: the map
+`state/UNIT-ITEMS-MAP.json`, plus the new tools and hand-over r5. No trial, cleanup, deletion of `build/`, restore, fetch or
+push. `bun run check` before commit: `C:/CoWork/outputs/lane-a-r4f-2026-10-14/check-precommit.log`. Graph: `lastAnalyzedHead`
+`b308d1c`, `stale: false`; only `docs/handoff/` paths changed since, so no sync is needed. This record changes B-136 only.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | R3-C2/C3 Verified; accepted launcher, A1, capture formats, post-exit observer design | Phase 1: carried forward |
+| Approve-with-conditions | Comparator r4, capture r4, UNIT receipt and map, hand-over r5 | Pre-SM05: Lane B accepts the hashes and the proposed dispositions; decides R4-F1-T |
+| Defer | Historical residual disposition; S-T; A-S5/A-S6 | Pre-SM05: decision recorded (card above), then r5 §5–§6 |
+| Reject | R3-C1-M (withdrawn); a residual bridge treated as pass; subset host checks as cleanup proof; mtimes as writer proof | Pre-SM05: no action |
