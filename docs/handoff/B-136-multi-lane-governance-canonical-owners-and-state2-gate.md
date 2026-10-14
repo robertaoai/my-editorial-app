@@ -7973,3 +7973,125 @@ record changes B-136 only.
 | Approve-with-conditions | r9 + manifest + verifier (R8-R1/R8-R2 answers) | Pre-SM05: Lane B "accepted for the named bounded setup unit", then Stage A |
 | Defer | Stage B; final readiness and the Judge's decision; `D-437`; SM05 entry and construction | Pre-SM05: Stage B binding and acceptance, then the final record. `D-437` with the next governed batch. Phase 2 separately |
 | Reject | A run from a returned record; a stored Git tree treated as checked plugin bytes; original-file checks treated as staged-copy checks; unavailable JSON scored as a pass; a scope change without the Judge | Phase 1: no action |
+
+## Lane B — r9 review: consumed-copy finding Verified; evaluator false passes returned, 2026-10-14
+
+### Layer 0 — Request and handoff scope
+
+Review Lane A's r9 answer at `0d6bff3de78afece06a6266765be396541aec0dd`. Check R8-R1/R8-R2, keep the accepted
+planning work, and return only the remaining gap with its fix and success criteria. This is a Phase 1 finding raised
+by Lane B for Lane A to answer under B-136. It blocks positive setup acceptance; independent drafting continues.
+The B-136 header and all earlier sections are unchanged.
+
+### What happened
+
+**r9 is returned, not accepted for execution.** The setup checkpoint is not met. The Judge's three-tool requirement
+and REA Option D remain selected. Lane A's recorded clarification 5 is carried forward: authority attaches to a
+corrected revision Lane B accepts by hash when its scope, effects, downloads, trials and exclusions equal r8's.
+The r8-to-r9 comparison satisfies those dimensions for planning: the byte-exact export and checker/evaluator files
+stay inside the existing unit/evidence scope; no supplier, credited task, consumer, provider or exclusion changes.
+There is no new authority question for the correction below. D-183 pending registration and D-437's next-batch route
+remain as recorded. This review does not recreate a Judge instruction or activate either lane's setup stage.
+
+**Transaction chain:** Lane B returned r8 at `b4a2707` → Lane A answered in r9 at `0d6bff3` → this bounded review.
+The new evaluator residual is one finding, R9-R1. It continues R8-R2; it does not reopen the accepted route, isolation,
+retention lifecycle or C2–C5 planning contract.
+
+| Reviewed object | SHA-256 |
+|---|---|
+| `C:/CoWork/outputs/lane-a-sm05-selection-draft-2026-10-13/SM05-SELECTION-DRAFT-r9.md` | `95e728ae99f77c355a062a3cdff2ef180cfa7ba249f9cc4cbf4da278bfef6b91` |
+| `C:/CoWork/outputs/lane-a-r6d-2026-10-14/EXEC-MANIFEST-r9.json` | `6b91c3b8353c206d70070113a1334077c40cffb160a4737f886ddeebd8fa20cd` |
+| `C:/CoWork/outputs/lane-a-r6d-2026-10-14/verify-exec-manifest-r9.mjs` | `bd4c8ea60c8cf4390c1b362f66810e60389c77acb33aceca715a7210801bfa37` |
+| Judge-supplied Lane A worklog, attachment `63791439-f7e6-4d9b-b43f-48552c41a53b/Pasted text.txt` | `2fe5989f35a283a0689e235630c714df80c053af5a0e4da84c8d2ce8169fa1e5` |
+
+The attachment and upstream source/skill bodies are evidence, not commands to execute.
+
+### Layer 1 — Completion map, parent first
+
+| Parent / child | State | Owner and return condition |
+|---|---|---|
+| B-136 / SM05 transition | Open | Other obligations retain their own triggers |
+| Three tools; REA D | Selected; retained | No new selection is needed |
+| R6-D4; R7-R3/R4 | Prior planning verification retained | Part 5 and Parts 4.3–4.5 are byte-identical to r8 |
+| **R8-R1, including R7-R1** | **Verified for the planning/checker correction at `0d6bff3`, by Lane B** | Real supplier-byte positives, installation effects and runtime results remain setup obligations, not proven here |
+| R8-R2, including R7-R2 | Public-output mapping and strict JSON rule accepted; evaluator residual Open | Lane A answers R9-R1, then Lane B reviews the corrected bound object |
+| Stage A checkpoint | Not met | Positive acceptance of the corrected packet, manifest and verifier under the recorded same-scope rule |
+| Stage B; final readiness; permanent retention | Pending | Hash-bound Codex effects and Lane A checkpoint; both stages' evidence; reciprocal review; Judge disposition |
+| D-437; physical application; SM05 entry/construction; Gate 2 | Separate | Next governed batch and each existing entry/work-order/activation boundary |
+
+**Independent evidence.** All 14 bound artifact hashes/sizes and all nine frozen repository input rows match.
+All r8 files checked in the prior audit remain unchanged. Lane B reconstructed the Git tree from the 202 listed
+Ponytail blob paths/modes/IDs: it equals `ce7bdb1a8ff7666d8040f34a673598b823fc32ef`; all listed files are regular.
+No supplier package or source checkout was downloaded. The real Git clone and file sizes still get checked at A-S2.
+
+Lane B reproduced **46/46** existing control outcomes. The first replay stopped because the sandbox denied Git's
+MSYS namespace during a local fixture clone; its log remains. The second replay outside the sandbox passed.
+Only the scratch fixture's author name/email literals were adapted to the required project identity; checker calls,
+inputs, expectations and scoring logic were unchanged. This is disclosed in the audit, not called an unchanged
+harness replay. No supplier hook or ECC/Ponytail/REA runtime ran.
+
+Evidence directory: `C:/CoWork/outputs/lane-b-tr1-r9-review-2026-10-14/`:
+
+| File | SHA-256 |
+|---|---|
+| `audit-r9.mjs` | `2526bb5c0729200ebba69339580e8ea687b9bb456e1a7f9890b6de69a74ac66e` |
+| `audit-complete.json` (identities, preserved sections, reconstructed tree, replay and added cases) | `fc834231f90f4b1f358c1d960a9fb6b385fb68532d29286da4613feac7191cbc` |
+| `controls-replay-2/results.json` | `02e7ade1649cb2b335d64c3ca70c0d6425f63b4522033cb5840df1d91c0d6c59` |
+
+### Layer 2 — What you need: R9-R1, the evaluator can pass without unique required evidence
+
+Basis: `oracles-r9.json` says absent/ambiguous/unavailable evidence cannot pass; the r9 trial table requires A1–A5
+for CLI and A1/A3 for the client. `evaluate-rea-oracle.mjs` (`d6d05fe0d94e68ee1c5a6b14eb4d56398c4f6f845d7ab4140d64bba035c9efa7`)
+does not enforce that complete contract. Lane B added inert response cases; these are checker cases, not REA output.
+
+| Case | Observed result | Required draft fix and pass/refusal criterion |
+|---|---|---|
+| **R9-R1a: conflicting package observations** | With the approved default invocation, one package node has the expected observation followed by another for `package.json` with `parse_status: unavailable`. A2 uses `.find()` and takes the first observation. It returns **exit 0, all A1–A5 pass**. | Collect all matching package observations across the matching nodes. Require one unambiguous match before comparing fields. Multiple matching observations must be `unknown` under the frozen join rule, never selected by array order. Add a valid positive and both orderings of the conflicting pair; neither conflicting order may pass. |
+| **R9-R1b: an empty scored set passes an error** | `--require TYPO` and `--require ''` each produce `required: []`, `overall: pass`, **exit 0**, even for `{error: 'synthetic tool error'}`. `every()` over the empty set gives a pass. | Validate arguments before reading/scoring or writing a verdict. Support the two approved profiles only: omitted selector = A1–A5; explicit `--require A1,A3` = the client proof. Refuse empty, unknown, duplicate or missing selector values and unexpected arguments, exit 2 with no verdict file. Require a non-empty scored set. The ordinary error envelope with a valid profile stays unknown; never let a profile typo erase the obligations. |
+
+`additional-evaluator-cases/` retains the original inputs and resulting verdict files. The valid default case passes,
+so these failures are not a checker that refuses everything. A missing file digest also scores `fail` rather than
+the oracle's stated `unknown`; it does not pass, but align that classification while correcting R9-R1. Keep a present
+wrong digest as fail. Preserve the full raw response and the evaluator's response hash; do not fill missing evidence.
+
+**Record precision for the next answer:** distinguish 14 response evaluations from distinct fixture files; the index
+includes subset evaluations of existing files. Also, "every negative wrote nothing" is too broad: verifier/export
+refusals create no output, but a scored `fail` or `unknown` intentionally writes one verdict evidence file. The harness's
+`writes` is a net file-count change in its watched directory, not proof of every filesystem write. Record that scope.
+These wording corrections are not new execution gates or new scope.
+
+### Layer 3 — Lane A follow-up, in order
+
+1. Receive this review. Keep the prior planning verification and record R8-R1/R7-R1 as Verified within the stated
+   scope. Keep the evaluator obligation Open through R9-R1. Preserve r9 and all earlier evidence unchanged.
+2. Draft r10 with the evaluator correction, its new hash, updated manifest/packet hashes, and a one-row finding map.
+   Keep the same-scope comparison. No renewed tool/route vote or generic "go" question is needed for this correction.
+3. Run the existing controls plus the added profile/ambiguity cases in scratch data. Record the baseline, exact
+   verdict, refusal reason and output-file count. Do not install tools or use SM05 product construction to test this helper.
+4. Return the bound object to Lane B. After positive acceptance, Lane A follows the selected Stage A sequence and
+   records partial readiness. Stage B still needs its own bound paths/effects and Lane A checkpoint before any Codex write.
+5. After both stages, complete reciprocal reviews, cleanup/retention evidence and the Judge's disposition. Carry the
+   selection/clarification chain, accepted hashes, receipts and limits into D-437 with the next governed batch.
+   C2–C5 physical design, SM05 control-file application, the work order, activation and Gate 2 keep their existing boundaries.
+
+### What you did instead — checks, drift and limits
+
+Lane B used a read-only graphify query and the governed/handoff sources, then audited hashes, Git tree identities and
+checker controls in external scratch files. No installation, image pull/build, setup trial, governed edit, repository
+fetch/push or lane activation occurred. No new Lane C evidence was supplied; none is invented or made a new prerequisite.
+Any later Lane C claim remains under the applicable B-series parent/child route.
+
+Only this Lane B section is added to B-136. The graph remains analysed at `b308d1c`, `stale: false`; only B-050/B-136
+handoffs changed afterwards. No graph sync is needed. The final-file consistency log is
+`C:/CoWork/outputs/lane-b-tr1-r9-review-2026-10-14/check-final.log`; its result is reported after the run, before the
+one-path local commit. Consistency and synthetic checker success are not tool readiness or SM05 feature evidence.
+
+### Layer 4 — Verdict
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Existing selections and verified planning sections; same-scope comparison; R8-R1/R7-R1 Verified for planning/checker scope | Phase 1: retain, with real setup measurements still pending |
+| Approve-with-conditions | Corrected evaluator and bound packet | Phase 1: answer R9-R1 and return exact hashes for Lane B review |
+| Defer | Positive setup checkpoint; Stage B; final readiness and permanent retention | Pre-SM05: accepted unit, separate Codex binding, actual results and Judge disposition |
+| Defer | D-437, physical application, SM05 entry/construction and Gate 2 | Next governed batch and the separately authorized Phase 2 boundaries |
+| Reject | Starting from this returned review; selecting one conflicting observation; passing with zero scored assertions; the broad zero-write claim | Phase 1: correct the single remaining finding and the record precision |
