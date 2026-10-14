@@ -7277,3 +7277,106 @@ governed application requires its own guarded cycle; D-435/D-436 receipt excepti
 | Approve-with-conditions | R4 as input to a corrected preparation packet | Phase 1: answer TR4-R1–R6; Lane B reviews; applicable Lane C claims retain their limits |
 | Defer | Installation/trials, readiness acceptance, governed application and SM05 entry/construction | Their bounded units after complete effects, actual evidence, Judge acts and lane conditions |
 | Reject | R4 treated as execution-ready; Ubuntu support treated as WSL certification; an unspecified build required for a pre-build check; Claude proof treated as Lane B adapter proof | Phase 1: correct the plan before setup authority or readiness acceptance |
+
+## Lane B — TR-1 / BCP-1 revision 5 review: six bounded corrections, 2026-10-14
+
+### What happened
+
+**Clear request:** Based on Lane A's worklog, review r5 against TR4-R1–R6. Preserve the three-tool requirement.
+Consolidate the remaining corrections and their evidence into one Lane A handoff. Stop at planning.
+
+**Parent:** existing Open B-136 / SM05 transition / TR-1 and BCP-1. Lane B raises; Lane A answers; an independent
+actor verifies a completed obligation. This section changes no header or receiver field and reopens no terminal
+entry. The correction phase is Phase 1. Tool execution and SM05 construction retain their separate authorities.
+
+**Observed revision:** `eea043ae5d1319c586d5f5e84e470509faf8b248`, clean before this review.
+Worklog: `C:/Users/rober_24syk4j/.codex/attachments/431f5e64-1336-4aad-bcc4-387de93a064a/Pasted text.txt`, SHA-256
+`373c77582e00dbf2c3621aea3ffa95a398249ae77c941acec4a61e7478addf36`.
+Draft: `C:/CoWork/outputs/lane-a-sm05-selection-draft-2026-10-13/SM05-SELECTION-DRAFT-r5.md`, SHA-256
+`c834e482cb2c1ffa6c9f3e03f7371b328ef0b3068e2bbc8a32918d5411fd1ead`.
+R5 supplements r4/r3/r2. The inherited text remains evidence; r5's changed routes must also supersede any
+inherited route assumptions that conflict with them. An external draft is not a canonical Lane A receipt.
+
+**Transaction chain:** CONS `ddb939f` -> H `9b17bfa` -> EXT `e43a25e` -> BCP-1 `06107fc` -> TR-1 `46c7417` ->
+Lane C consolidation `5c094bc` -> r4 review `eea043a` -> external r5 -> this review.
+Carry forward the Judge's words: **"Require ECC, Ponytail and REA specifically before SM05."** No new adoption
+vote, intent-tool retirement, installation permission or feature credit is inferred.
+
+### Parent-first completion map
+
+| Parent / child | Accepted delta | Remaining condition |
+|---|---|---|
+| B-136 / SM05 transition | Preparation may continue | Parent remains Open; no SM05 entry or closure |
+| TR-1 selection | All three tools remain mandatory | No renewed selection question |
+| TR4-R1: components and effects | ECC's five directories exist at `c05b2d66`; the Git tree contains six files | Complete package/source binding, other consumer contracts and restoration (R5-Q2/Q3/Q6) |
+| TR4-R2: hooks | Three Ponytail events and the need to control default mode are correctly identified for Claude | Fix Windows mode resolution, shared state and the stale Codex hook count (R5-Q1/Q3) |
+| TR4-R3: REA host wording | WSL/container routes are correctly labelled unproven | Complete actual host effects and client route before execution approval (R5-Q3) |
+| TR4-R4: pre-build inputs | Existing inputs replace unspecified SM05 build output | Complete the task-level proof and refusal/unknown cases (R5-Q2/Q4) |
+| TR4-R5: consumer distinction | Desktop existence is distinguished from CLI availability; Claude proof is not Codex proof | Native consumer effects remain unspecified (R5-Q3) |
+| TR4-R6: controls | C2–C5 first drafts exist; the store owner and rule 7 constraint are correctly cited | Correct the schema rationale and complete the technical/child evidence contract (R5-Q5/Q6) |
+
+No whole TR4 finding is closed merely because r5 labels it answered. Accepted subparts above need not be researched
+again unless their bindings change. R5-Q1–Q6 below are the bounded remaining review findings.
+
+### What Lane A needs — corrections and draft fixes
+
+| ID | Finding | Draft fix / acceptance test |
+|---|---|---|
+| **R5-Q1 — Ponytail mode is written to the wrong Windows location** | At pinned `2961b52`, `ponytail-config.js` resolves environment first, then `XDG_CONFIG_HOME`, then Windows `APPDATA`; `~/.config` is the non-Windows fallback. In this review shell, `PONYTAIL_DEFAULT_MODE` and `XDG_CONFIG_HOME` are unset and `C:/Users/rober_24syk4j/AppData/Roaming/ponytail/config.json` does not exist. R5 writes a different file and does not specify the `defaultMode` key. | Before any plugin session, record the actual agent-process resolution and existing state. Under the currently observed Windows resolution, the proposed file is `%APPDATA%/ponytail/config.json`, with `defaultMode` set to `off`; preserve other fields and restore original bytes if the file existed. Check overrides and compaction/live-mode state. Do not claim mode is off from a file in an unread location. Test ordinary startup, the one-shot review and later ordinary prompts separately. |
+| **R5-Q2 — copied skills and adapted trials are different claims** | The pinned TDD skill calls `scripts/setup-package-manager.js`, which is not in the five copied directories; it also calls for code and checkpoint commits. Verification calls for a build/tests; ADR creates `docs/adr` files. An outline-only trial deliberately does not exercise those behaviours. No-hooks installation does not remove these skill-body effects or their generic coverage/method rules. | Keep the five components, but draft an explicit project usage contract: allowed planning output, no execution/file writes in this trial, governed source precedence, D-242 child-method choice, honest characterization where allowed, and actual permitted command/runner mapping. Identify each external helper/reference and either provision it in the later unit or replace that step with a reviewed project procedure. Keep immutable upstream files and record adaptations separately. Mark outline evidence as planning/load readiness, not a passed build/test workflow. State what additional evidence is required for later coding use. |
+| **R5-Q3 — the whole setup unit is not frozen** | ECC's Codex plugin manifest references the shared skills directory, `.mcp.json` and `hooks/codex-hooks.json`, rather than only Lane A's five copied skills. Ponytail's pinned Codex manifest references the same three-event hook file as Claude; r5 still says two. REA host/client/install commands, paths, state and route costs remain generic. Package integrity matches npm, but npm identifies REA release `gitHead` `0356f7677f57898c5291658d7d4995784533ba6d` in `morluto/rea`; the reviewed repository pin is `92617f96` in `sgunin/ReverseEngineerAnything`. | Write one effects contract per actual host/consumer, with immutable source/cache verification and declared versus enabled hooks/MCP components separated. Complete REA N/W/D options: available host, prerequisites, runtime, exact task and client transport, downloads/integrity, config/mounts, privilege/storage/restart implications, evidence access and stop. Reconcile the published REA source with the reviewed pin, by reviewing release source or proving relevant equality; matching version text alone is not that proof. Lane A provisions applicable tooling/config; Lane B supplies consumer evidence. Any other write ownership must be explicit in the setup act. Do not request blanket execution authority for unnamed effects. |
+| **R5-Q4 — trial scope and positive proof remain incomplete** | REA gets `scripts/jev/` while the `package.json` oracle naming `jev`/`jev:selftest` is outside that root. Static mapping and reference import are allowed, but only mapping has a test row. The `.mjs`/directory task capability is not measured. Ponytail's specific-findings criterion and no-control-removal refusal lack a positive detection control. Inputs are pinned by commit, but the exact corpus, invocation and evidence destinations are not complete. | State what the tool receives, what the reviewer uses as a separate oracle, and which output is a static observation rather than an inference. Test directory mapping and reference import separately, or narrow the declared trial task explicitly. Freeze input hashes, exact prompts/operations, output/evidence paths, expected facts and coverage. Include unsupported/partial/unknown and no-match/error classification. Use a bounded review fixture with a known defect and a valid control; no repository code edit is authorized here. Correct detection plus preserved controls is proof; vague findings or exit 0 alone are not. |
+| **R5-Q5 — the new SPECS rationale imports a historical scope** | FN §4.5 correctly leaves the physical store to Lane B at the D-242 work order, and rule 7 forbids using `editorial_reports` as the working package. But §9's `TR-DM-01`/`TR-DM-02` row concerns column types, the ten-state enum path and tenancy. Existing `SPECS-TRANSITION-ENFORCEMENT` and D-52 already address that historical candidate chain. This is not proof that a new file with the whole GATES feature-group name is required for the limited SM05 metadata slice. | Name the current gap as the admitted §4.5/§4.6 / TR-DM-07 physical implementation. Apply D-30 against current specs and historical dispositions; choose a narrow new section/file only for unresolved implementation. Keep ten-state transition enforcement and held later-version editing out. A new numbered migration remains a proposal, with the next free number checked at application. The repository-wide SPECS README needs no edit merely to add a conforming spec. Draft exact affected/unaffected D-54 tiers and coverage fragment/guarded-cycle effects. |
+| **R5-Q6 — first drafts are not yet the complete controls or restore contract** | C2 requests choices instead of providing the implementation options and contracts needed for review. K1–K6 are labels: OP-DRAFT behaviour, revision-return history, Markdown admission/retention and display-only reminders need explicit ownership and evidence bindings. R5's deletion of a config file or a distro is not safe restoration if pre-existing state is affected. Ponytail `off` calls `clearMode`, which can remove shared/project mode files; the runtime also documents shared state between sessions in the same repository. | Have Lane B draft the bounded store/data/first-child proposal now under planning authority; Lane A records the accepted technical content later. Bind each child to exact source/DoD cases, prerequisites, intended files, outputs and independent reviewer; reuse the inherited H3 map. Include SM05-IN1–IN4, normal/revision journeys, OP-DRAFT, Final Sign-Off reminder without execution, persistence and partial-CR-19 disclosure. Later-version triggers remain held. Capture all affected existing config/plugin/mode state, including override-resolved paths and concurrent-session assumptions; delete only unit-created artifacts and restore changed pre-existing bytes. Define intended retained installation separately from disposable trial state. |
+
+### Supporting evidence and limits
+
+The five ECC skill bodies were fetched as text at `c05b2d6614f62f6db0047669aa4eefb223d478f9`; none was invoked.
+The selected Git-tree paths and blob IDs are retained in
+`C:/CoWork/outputs/lane-b-tr1-r5-review-2026-10-14/upstream/ecc-five-skill-tree.json` (tree not truncated).
+Source fetch hashes, REA pinned documentation and registry metadata are in that same evidence directory.
+The registry's integrity equals r5's `sha512-R+EwNkWi...INPKw==`; no npm package was installed or executed.
+Primary pinned references:
+
+- [Ponytail configuration resolver](https://raw.githubusercontent.com/DietrichGebert/ponytail/2961b52fc1fe6a5a87c7a959a79512e5c2f3ffe5/hooks/ponytail-config.js), [runtime state](https://raw.githubusercontent.com/DietrichGebert/ponytail/2961b52fc1fe6a5a87c7a959a79512e5c2f3ffe5/hooks/ponytail-runtime.js), and [Codex manifest](https://raw.githubusercontent.com/DietrichGebert/ponytail/2961b52fc1fe6a5a87c7a959a79512e5c2f3ffe5/.codex-plugin/plugin.json).
+- [ECC TDD](https://raw.githubusercontent.com/affaan-m/ECC/c05b2d6614f62f6db0047669aa4eefb223d478f9/skills/tdd-workflow/SKILL.md), [verification](https://raw.githubusercontent.com/affaan-m/ECC/c05b2d6614f62f6db0047669aa4eefb223d478f9/skills/verification-loop/SKILL.md), and [Codex manifest](https://raw.githubusercontent.com/affaan-m/ECC/c05b2d6614f62f6db0047669aa4eefb223d478f9/.codex-plugin/plugin.json).
+- [REA published metadata](https://registry.npmjs.org/rea-agents/3.2.1) and [reviewed source pin](https://github.com/sgunin/ReverseEngineerAnything/tree/92617f965720aaa74ec20ad67291adc5e83677a1).
+
+**Deterministic defect, within the observed environment:** writing only r5's `~/.config` file will not set the
+Windows resolver's default to off; with the observed missing Windows config it falls back to full. An actual
+agent may supply different environment variables, so its resolution must be captured before enabling the plugin.
+This is source-and-environment reasoning, not a performed Ponytail trial. No other runtime failure is claimed as
+guaranteed. The TDD helper is outside the copied bundle; using that exact helper step without provisioning or
+adaptation cannot be certified by copying the skill alone.
+
+### Decision sequence — Lane A and the Chief Editor
+
+| Order | Owner | Required result | Accept / reject basis |
+|---|---|---|---|
+| 1 | Lane A, with Lane B technical input | Corrected packet answering R5-Q1–Q6; complete C2–C5 and host/consumer contracts | Accept sourced, bounded outputs; return unresolved effects or imported scope |
+| 2 | Lane B; Lane C for supported host/workflow claims | Independent planning review with named claim results and limits | A supplied chat review stays under this B-series parent; it is not a new C-file prerequisite |
+| 3 | Chief Editor / Judge | Choose a concrete REA route and authorize a bounded setup unit | Tool selection is already final. Unknown availability/cost/effects are resolved or explicit stop conditions before execution |
+| 4 | Authorized provisioning owner and named consumers | T1–T3 evidence plus restoration/retention proof | Actual task and consumer results, not a card, package list, outline or consistency pass alone |
+| 5 | Judge and Lane A | Reviewed T4, actual entry/work-order/guarded-publication/lane conditions | No automatic SM05 activation, product test credit or Gate 2 clearance |
+
+**Lane A steps now:** receive this delta in the next substantive B-136 answer; retain accepted subparts and older
+evidence; correct the mode resolution and exact consumer effects; draft independent technical/control content
+without waiting for installation; complete trial oracles and restoration; return one revised packet. No new
+"go" is needed for that drafting. The Chief Editor's remaining setup decision comes after the complete options,
+not as another adoption question. All six R5-Q rows start Open and require an answer and independent review.
+
+### What you did instead — drift and verdict
+
+Read-only graph navigation, governed/source review, public text/metadata fetches and this Lane B B-136 append.
+No installation, upstream skill invocation, trial, build, governed edit, fetch/push or lane transition occurred.
+Lane A's reported 19/19 and app/version observations are not new independent integration passes.
+The graph is analysed at `b308d1c`, `stale: false`; tracked changes since it are only B-050/B-136. This handoff
+creates no governed drift and needs no graph sync. Later canonical application needs its own guarded route,
+including a fresh unit-scoped receipt; no expired D-435/D-436 exception is reused.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Three-tool selection; ECC directory identities; corrected WSL/container wording; existing pre-build input direction; drafting C2–C5 | Phase 1: retain these accepted subparts |
+| Approve-with-conditions | R5 as preparation input and continued Lane A correction work | Phase 1: answer R5-Q1–Q6; Lane B reviews; Lane C supports only evidenced claims |
+| Defer | Setup execution/readiness acceptance, canonical application and SM05 construction | Bounded later units after exact effects, actual evidence, Judge acts and lane conditions |
+| Reject | All contracts called frozen; the wrong Windows mode path; outline evidence called coding readiness; historical schema candidates treated as a mandate for a broad new spec | Phase 1: correct before execution approval or entry acceptance |
