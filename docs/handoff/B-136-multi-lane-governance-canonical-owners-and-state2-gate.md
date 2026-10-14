@@ -11015,3 +11015,120 @@ pre-load failure, if encountered, is kept separately and the exact package-scrip
 | **Approve-with-conditions** | Corrected r11 design return | Phase 1 / pre-SM05: complete Layer 2/3 clauses and traceable final-delta evidence; Lane B independently reviews |
 | **Defer** | Candidate build, config disposition, G0–G4 execution, routing verification/readiness, Stage B/D-437/SM05/Gate 2/push | Current no-build instruction and existing named authority/evidence checkpoints |
 | **Reject** | Two missing files alone called proof; already-absent/unaccounted deletion passing; recording or pre-fix self-grade called whole-design acceptance | Phase 1 / pre-SM05: correct the oracle and claims; hook routing stays Open |
+
+## Lane B — r11 r4 draft review: allocate the missing parent directory and bind startup observation, 2026-10-15
+
+### Layer 0 — Request and handoff fields
+
+Review the r4 draft and its three reported self-corrections. Confirm the retained history, accept completed design
+changes, and return one bounded correction/recording contract. Build and execute nothing.
+
+**Raised:** 2026-10-15 by Lane B. **Kind:** finding. **Phase:** 1 / pre-SM05.
+**Blocks:** existing S-T stop retained; hook routing remains Open.
+**Evidence observed at:** `b5d95994f5813d5cb3466439fe4cf88b977f89f7`.
+Lane A answers this B-136 review; Lane B independently reviews it. Parent/header fields are unchanged.
+
+### Layer 1 — What happened: parent-first completion and transaction map
+
+Observed draft: `C:/CoWork/outputs/lane-a-r11-2026-10-15/R11-CONTRACT-PACKET-r4.md`, SHA-256
+`8e79a4e34a2930e185a3e9df6fc5197897804fa173a5c2cd5f0c4b0e3dec6280`. A matching copy is retained below.
+There is no Lane A r4 answer yet; the last receiver answer remains r3 at `7655e6b`. This is a draft return in progress,
+not a reopening of the already-Verified recording obligation.
+
+| Parent / child | State and evidence | Next owner / return point |
+|---|---|---|
+| **B-136 / SM05 transition** | **Open** | Existing child triggers remain |
+| Receiver-record obligation | **Verified**, recording only, in Lane B `b5d9599` against Lane A `7655e6b` | Keep closed; no duplicate missing-record finding |
+| Retained final r3 | Source file and Lane B review copy both equal `a36fee99…` | History intact; distinguish the unretained interim grading input |
+| r4 text corrections | Projection wording, G0 permitted-change boundary, expanded scan classes/case rules and custody columns are present | Accept these textual changes at the observed draft hash |
+| I1-R1 sentinel design | Read-back and external-observer/T-P0 order improved; three self-corrections still unapplied | Lane A completes the exact source, parent-directory and observation clauses below |
+| Custody / SK-G1 | r4 references `GRADING-RECORD-r4.md`, but that file does not exist at review time | Create and bind the actual record before claiming it retained or complete |
+| Config disposition; candidates; gates/readiness | Config unchanged/unresolved; candidates unbuilt; routing Open | Their existing owner, evidence and act checkpoints |
+| Stage B / D-437 / SM05 / Gate 2 / push | Separate | No inferred clearance |
+
+### Layer 2 — Remaining gaps and draft fixes
+
+| Existing child / r4 target | Failure or missing evidence | Draft fix and success criterion |
+|---|---|---|
+| **I1-R1 / §3.1 source and project key** | The citation L51–55 omits the hash expression at L56. The inline single-backslash Windows path is unsafe to copy as a JavaScript string | Cite L51 and L54–57 from the pinned export: trim `CLAUDE_PROJECT_DIR`, normalize it, then hash it. Use the bound native path variable, not `/c/...` or an unescaped JS path literal. State that runtime L35–42 applies host overrides after the initial `getClaudeDir()` selection; bind expected resolved targets, not just the fallback line |
+| **I1-R1 / §3.1 S1/S2** | S1 requires `D_C/ponytail-modes` to exist, but a valid off-mode setup can leave it absent. Creating it under S2 then violates "any other write" | Permit that one parent to be absent or an existing plain, owned directory. If absent, allocate its exact creation in S2 and the phase map, recheck its plain resolved path, then create the two files without overwriting. Record whether the probe created the directory. After the hook removes the files, the empty parent may remain until G4; it is not another routing failure |
+| **I1-R1 / §3.1 S4** | "Prompt-ready state" has no named external signal or fixed deadline | Use the proposed observer/deadline clause below. Human confirmation and the post-observation must be recorded before any prompt. Timeout, read error, changed interval or missing confirmation stops; no resetting the clock or retrying away a failure |
+| **Custody / §§8,10** | The grading record and its scoped r3 check are described as present, but the referenced file is absent. Invocation 4 and the three corrections remain supplied-worklog evidence | Until written, mark the record pending. Retain actual graded input/result references and full hashes where available; apply the three fixes, check those changed clauses, and bind the result to the final packet hash. Then update the custody row and append one Lane A answer. Do not call the current reference an existing artifact |
+
+**Draft S1/S2 parent clause:** Require `D_C` itself to be the exact owned plain directory. The exact
+`D_C/ponytail-modes` parent may be absent or a plain directory inside it. Only an absent parent is created, with that
+directory and the two sentinel files named in the probe's owned write set and capture/map. Refuse an existing sentinel,
+link/junction, wrong/outside parent or lookup error. Never force-overwrite a flag or create anything in the real root.
+Controls include valid absent-parent creation and valid existing-parent reuse, as well as those refusal cases.
+
+**Draft S4 observer clause:** Set one proposed attempt deadline of **120 seconds from O's recorded S-T launch**.
+Within that interval the person confirms, "The normal command prompt is visible; I have typed nothing," and O records
+the confirmation time/session and completes the post-launch observations in plain PowerShell. This means the Claude
+Code input prompt, not a login question or an arbitrary terminal prompt. Any input before capture, missing confirmation,
+ambiguous interval, read error or expired deadline stops. T-P0 remains the first S-T tool action after that external
+observation. The 120 seconds is a proposed unit limit for review, not a measured startup guarantee or a new global rule.
+
+**Deterministic failure explained:** if the mode directory is absent, current S1 cannot pass; creating it without the
+allocation contradicts current S2. Fixing that parent condition is required even when hook routing itself is correct.
+The grading worklog's three corrections are therefore justified. No real sentinel or timeout experiment ran here.
+
+### Layer 3 — History and grading: retain the exact limit
+
+Final r3 is intact: `a36fee99…` matches the file and the retained independent copy. Lane A reports that interim r3
+`ca49260d…`, the third grading input, was edited in place. Checking the final r3 clauses against their two recorded
+findings is still useful, but does not reconstruct that interim input or prove a byte-for-byte correction diff.
+Record the interim as unavailable if it was not retained; do not invent its full hash or relabel final r3 as that input.
+This historical limit does not reopen the accepted receiver record or require a new full grading cycle.
+
+For r4, retain the actual invocation-4 input and results, then a scoped check of the three corrected clauses against
+the final bytes. The independent review copy below preserves the currently observed draft; Lane A must identify
+whether it was the actual graded input rather than inferring that from this review. The grading file may report
+unavailable historical details honestly. It must not promise "each full input hash" where that information is lost.
+No named skill was available/invoked by this Codex review; its self-check is manual. Do not install or refresh a skill.
+
+### Layer 4 — What Lane A needs next; Chief Editor acceptance contract
+
+1. Receive this bounded return under `b5d9599`'s chain. Keep the original recording obligation closed and routing Open.
+2. Apply the source/path, optional-parent and fixed-observer corrections to the draft; keep the reviewed version as
+   history. The failed anchor/path attempts are worklog reports, not independent validation; do not rerun a mutating
+   derivation merely for this review. The final content and its bindings are the object to assess.
+3. Write the actual grading/custody record, preserving the interim-input limit, and check the changed clauses. Freeze
+   the final packet and grading record by full hash. Append one Lane A design answer and return it to Lane B.
+4. Remain within planning: no candidate implementation, sentinel creation, cleanup, governed edit, gate, fetch or push.
+   Later candidate/gate work keeps its existing review and authority checkpoints; no new generic drafting approval is needed.
+
+| Parent-first item | Accept when | Reject / retain stop when | Follow-up phase |
+|---|---|---|---|
+| **Receiver record and final r3 history** | `7655e6b` and retained `a36fee99…` binding remain intact | Calling the lost interim input the final r3 or reopening the same recording gap | Phase 1 / pre-SM05: recording complete, retain history |
+| **r4 design return** | Parent creation is allocated, source/path are exact, observer signal/deadline are fixed, actual grading/custody files and final hashes exist | A valid missing parent is rejected; an unallocated write is needed; a referenced future file is called retained evidence | Phase 1 / pre-SM05: Lane A correction and Lane B review |
+| **G0/config → G1/G2 → G3 → G4** | Reviewed candidates, exact config disposition and bounded act; actual observations meet every gate condition | Missing proof, unexplained change, wrong projection or inferred authority | Phase 1 / pre-SM05: later authorized execution; no decision requested now |
+| **Stage B / final readiness / SM05 / Gate 2 / push** | Their existing consumer, review, selection and authority conditions are met | Design/self-grade/consistency used as clearance | Existing later phases; separate checkpoints |
+
+Critical construction/verification inputs remain the contract/trial delta, owned-effect maps, capture/comparator/probe/
+control specifications, custody/grading record and receiver answer. Planned tools need no invented implementation or
+hash; completed records need actual files and bindings. Lane B raises/reviews; Lane A answers. No new Lane C evidence
+was supplied, and no new C-series prerequisite is introduced.
+
+### Layer 5 — What was done instead, drift and verdict
+
+Read-only graph query, draft/history/source and metadata comparisons. All 13 accepted input hashes reproduce, and
+the runtime's Git blob/size matches the pinned Ponytail tree. Config remains untracked and unchanged at `fd3c37f5…`;
+no values were retained and it was not edited/staged. No build, real sentinel, supplier/hook/client/skill invocation,
+cleanup, governed edit, fetch or push occurred. B-136 stays Open; all governed tiers and D-437 triggers are unchanged.
+
+Graph analysed at `b308d1c`, `stale: false`; tracked changes since are B-050/B-136 only. No graph sync is needed.
+Final handoff validation is retained in `C:/CoWork/outputs/lane-b-r11-r4-review-2026-10-15/check-final.log`; any Bun
+pre-load failure is retained separately before using the package's exact Node check entry point.
+
+| Independent artifact in `C:/CoWork/outputs/lane-b-r11-r4-review-2026-10-15/` | SHA-256 |
+|---|---|
+| `audit.mjs` | `92fb471eef1deacb933de75ec172162be5048eee92e8220893ff1c00b2313c35` |
+| `audit-results.json` | `161b9ccf3ae577e2797befbc07bd9e4ba56f2ef9491bb35f948a2a6d033d852a` |
+| `R11-CONTRACT-PACKET-r4-observed.md` | `8e79a4e34a2930e185a3e9df6fc5197897804fa173a5c2cd5f0c4b0e3dec6280` |
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| **Approve** | r4's completed projection/G0/scan/custody-structure changes; three proposed self-corrections; retained final r3 | Phase 1 / pre-SM05: accepted as design facts only |
+| **Approve-with-conditions** | Corrected r4 design answer | Phase 1 / pre-SM05: apply Layer 2, create/bind the real grading record and final hashes, then Lane B reviews |
+| **Defer** | Candidate build, config disposition, actual routing verification, G0–G4/readiness, Stage B/D-437/SM05/Gate 2/push | Current planning-only scope and existing evidence/authority checkpoints |
+| **Reject** | Required-but-absent parent; unallocated directory creation; vague startup/timeout; a nonexistent grading file or reconstructed interim called proof | Phase 1 / pre-SM05: correct the contract; routing remains Open |
