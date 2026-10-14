@@ -7380,3 +7380,49 @@ including a fresh unit-scoped receipt; no expired D-435/D-436 exception is reuse
 | Approve-with-conditions | R5 as preparation input and continued Lane A correction work | Phase 1: answer R5-Q1–Q6; Lane B reviews; Lane C supports only evidenced claims |
 | Defer | Setup execution/readiness acceptance, canonical application and SM05 construction | Bounded later units after exact effects, actual evidence, Judge acts and lane conditions |
 | Reject | All contracts called frozen; the wrong Windows mode path; outline evidence called coding readiness; historical schema candidates treated as a mandate for a broad new spec | Phase 1: correct before execution approval or entry acceptance |
+
+## Lane A — SM05 transition packet r6: R5-Q1–Q6 answered; receipt of the CONS→TR-1 chain, 2026-10-14
+
+### What happened
+
+**Judge (verbatim, in chat, 2026-10-14):** "Judge Approved: Receive this review and answer R5-Q1–Q6 in the next
+substantive B-136 response. Continue independent C2–C5 drafting now. Retain accepted pins and corrections. Return one
+corrected packet for Lane B review. Record applicable Lane C evidence under the same parent. Present the complete REA
+options and bounded setup unit to the Chief Editor. Do not repeat the adoption question. Obtain actual readiness
+evidence before the separate SM05 entry process."
+
+**Receipt.** Lane A receives, in this one record, Lane B's chain under this parent: `ddb939f` (CONS-R1–R4), `9b17bfa`
+(H1–H4), `e43a25e` (EXT-R1–R7), `06107fc` (BCP-1), `46c7417` (TR-1, the Judge's "Require ECC, Ponytail and REA
+specifically before SM05."), `5c094bc` (Lane C review consolidation, LC-R1–R6), `eea043a` (TR4-R1–R6) and `71ae2e4`
+(R5-Q1–Q6). Lane A's drafts r1–r5 answered the earlier groups outside the repository; r6 is the current packet.
+**Lane C:** no new Lane C evidence was supplied after `5c094bc`; nothing new is recorded.
+
+**Current packet:** `C:/CoWork/outputs/lane-a-sm05-selection-draft-2026-10-13/SM05-SELECTION-DRAFT-r6.md`, SHA-256
+`7dcee8d6ff76d1605e0e3a3867b0173accc1a3207e1ae297abe5cb668c2f1688`. Earlier revisions stay as history (r5 `c834e482…`,
+r4 `bfc7b725…`, r3 `2bce9382…`, r2 `1135432d…`, r1 `ea8adf5c…`).
+
+| ID | Answer (each fact read at its pinned upstream commit, read-only, 2026-10-14) |
+|---|---|
+| R5-Q1 | Confirmed. Ponytail `2961b52` `hooks/ponytail-config.js` resolves `PONYTAIL_DEFAULT_MODE`, then `$XDG_CONFIG_HOME/ponytail/config.json`, then on Windows `%APPDATA%\ponytail\config.json`. Observed: env and XDG unset; `APPDATA` = `C:\Users\rober_24syk4j\AppData\Roaming`; no config exists. Corrected path: `%APPDATA%\ponytail\config.json` = `{"defaultMode":"off"}`, written before the first session; overrides checked in the hook's environment |
+| R5-Q2 | Confirmed at ECC `c05b2d66`: `tdd-workflow` calls the uncopied helper `scripts/setup-package-manager.js` and makes checkpoint commits; `verification-loop` runs `npm` build/lint/test; `architecture-decision-records` writes `docs/adr/`. r6 Part 3 adds a usage contract (ADR files refused — the Register decides, `D-58`; no skill commits; bun commands; build is not a gate) and three evidence classes: load, planning output, working coding workflow (Lane B, later) |
+| R5-Q3 | Per-consumer contracts (Lane A Claude Code; Lane B Codex desktop, tested in a Lane B session). REA: `rea-agents@3.2.1` `gitHead` is `0356f7677f57898c5291658d7d4995784533ba6d` on **`morluto/rea`**; the `sgunin` fork is a fork of it and its `HEAD` is 42 commits ahead. The reviewed source is the release commit. At that commit, Windows x64 is admitted only for an experimental Ghidra-only native-PE mode, not for directory mapping |
+| R5-Q4 | r6 Part 4: trials T-E1–E5, T-P0, T-P1, T-R1–R3 with fixed inputs, oracles written first, positive and refusal controls, and one evidence folder. REA's input now includes `package.json`; the reference import has its own test (T-R2) |
+| R5-Q5 | Agreed. Narrowed to one file, `docs/specs/SPECS-EDITORIAL-METADATA.md`, for the §4.5/§4.6 store and retention gap only; held transition scope stays out |
+| R5-Q6 | C2 now has options M1 (lead: package + insert-only version tables in a new migration), M2, M3 (rejected unless separation is shown), all Lane B's decision (`D-56`). K1–K6 are bound child → requirement → evidence, including `SM05-IN1`–`IN4`, `SM05-RV1`/`RV2`, `OP-DRAFT` scope and the displayed-only Final Sign-Off reminder. Cleanup: restore changed pre-existing bytes; delete only unit-created items |
+
+### What you need
+
+**Lane B:** review r6. **Judge / Chief Editor:** r6 Part 6 presents the REA routes (N existing macOS/Linux machine;
+W WSL2 Ubuntu 24.04 here; D Ubuntu container here; Windows native not admitted for this task) and the bounded setup
+unit. Readiness evidence comes from that unit, before the separate SM05 entry process.
+
+### What you did instead
+
+No installation, trial, governed edit, build, fetch or push. Upstream and host facts were read only.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | R5-Q1–Q6 answered; r6 packet | Phase 1: Lane B reviews |
+| Approve-with-conditions | Bounded setup unit | Pre-SM05: REA route and setup authority from the Judge |
+| Defer | Readiness acceptance; SM05 entry and construction | After the setup unit's evidence; then the separate entry process |
+| Reject | Ponytail run before mode `off` is in place; ADR files or skill commits; REA on Windows native for this task; Lane A choosing the physical store | Phase 1: no action |
