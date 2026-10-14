@@ -11758,3 +11758,156 @@ edit, fetch or push. The local one-file review commit selects the tracked hook p
 | **Approve-with-conditions** | Final BCP-1 preservation record | Phase 1: R1/R2 and the pointer correction, then Lane B bounded review |
 | **Defer** | Persistent setup/config disposition; candidate production; actual routing/gates/readiness; SM05, Gate 2 and push | Existing later authority and evidence checkpoints |
 | **Reject** | Filtered Git equality called raw equality; unnamed external custodians; present hook state used as proof of all past commits; self-grade or planning approval called runtime proof | Phase 1: apply the scoped contract and evidence limits above |
+
+---
+
+## Lane B — Ripwire app scope and the proposed docs/app repository boundary, 2026-10-15
+
+### Layer 0 — Request and handoff fields
+
+**Raised:** 2026-10-15 by Lane B. **Kind:** finding. **Phase:** 1 / pre-SM05.
+**Parent:** Open B-136 / BCP-1, tool rows T2 and T5. **Child label:** BCP-ISO (planning proposal, not a new gate).
+**Blocks:** acceptance of this new repository/isolation design only; existing SM05 conditions remain.
+**Evidence observed at:** `340f70d1e2ce82b5c59a5d577be0961a1f2dbd49`. **Receiver:** Lane A, by the B-series route.
+
+**Request, made precise:** clarify Ripwire's proposed app-source boundary and assess two repositories: proposed
+`my-editorial-docs` for governed intent, and existing `my-editorial-app` for implementation. Specify the files,
+ownership, tool effects and forward/backward evidence links before any adoption, migration or execution.
+This models the Judge's two named examples by artifact purpose. It does not assign one repository to each lane.
+
+### Layer 1 — Transaction and status, parent first
+
+The earlier T2/T5 summary was incomplete as an architecture answer. A non-adoption decision does not specify a
+future corpus boundary, and a folder convention does not specify an authority or repository contract.
+
+| Record / obligation | Current disposition | What this request adds |
+|---|---|---|
+| B-136 / SM05 transition | Open | No parent closure or new execution authority |
+| D-433 / U03 | Existing `git grep` plus source reading selected; Ripwire not adopted; trial and cleanup evidence retained | Separate code-reading scope from installation/profile isolation; no rerun or adoption inferred |
+| `9820c61` -> `38b8ef2` -> Lane A `6d7f044` -> Lane B `340f70d` | r6 source/receipt Verified within design scope; main map corrections accepted | Keep BCP2-R1/R2 and the pointer correction as the same outstanding return; do not duplicate them |
+| BCP-ISO, this clarification | Proposed design under BCP-1 | Lane A answers once with T2/T5 additions and the file/interface map below |
+| Two-repository migration; Spec Kit adoption; any new Ripwire trial | Not selected by this planning request | Separate choices in a complete reviewed proposal; no new SM05 prerequisite is inferred |
+| ECC/Ponytail/REA requirement; config/G0; hook routing; existing gates | Their existing states remain | Neither repository separation nor a tool proposal closes them |
+
+Current observation is limited: `C:/robertaoai/my-editorial-docs`, app-root `.specify/`, and app-root `specs/` are
+absent at this check. This does not establish whether another local or remote docs repository exists. Future roots,
+remote identities and revisions must be supplied in the proposal; placeholders below are not approved destinations.
+
+### Layer 2 — Ripwire: app-source scope is not host isolation
+
+**Current authority:** Register D-433 §5.14e258 item 1 (L28045 onward) and FN §4.4 select the existing route. The
+retained U03 result is not a generic prohibition on all future evaluation. A new scoped trial still needs its own
+selection and must address the earlier failed criteria; merely moving docs does not satisfy those criteria.
+
+**Proposed T2 addition:** if reconsidered, Ripwire's input is a named immutable revision/export of the
+`my-editorial-app` implementation corpus. It is not the parent directory containing both repositories. The source
+boundary excludes the canonical docs repository, credentials and unrelated host state. Its task manifest names
+required code, SQL, test and build/workflow-dependency roots. Ownership is not a read restriction: Lane C must still
+trace a workflow into Lane A scripts/config and Lane B tests. A required empty/missing root is incomplete scope,
+never no-match; an optional exclusion needs a reason before the search (AIG-04.R4).
+
+| Boundary to specify | Required design evidence / stop |
+|---|---|
+| Source input | Exact app repository identity, full commit, resolved root and eligible-file list. Include `supabase/` SQL and relevant tests; record parser gaps and the measured fallback. Stop on the wrong root or omitted required input |
+| Tool and host state | Pinned binary/source, host, cache/temp paths, skill/MCP/hook effects and cleanup owner. A source path alone cannot constrain these writes. Prefer a bounded CLI proposal before adding host integration; no installer command is authorized here |
+| Measurement | One named consumer task, baseline, negative control, SQL fallback and host-specific result. A later authorized boundary control must demonstrate exclusion of the docs tree and detect an unexpected write; code discovery is not behavior proof |
+| Preservation | Retain the prior U03 evidence unchanged. Lane A retains any new trial objects; Lane B reviews; Lane C supplies its own affected workflow/host evidence. Record new results separately, including failures |
+
+The current upstream [installation guide](https://github.com/redhat-et/ripwire/blob/main/INSTALL.md) describes
+profile-level skill activation, install-prefix and opt-out controls. Those facts explain why app-only input is not
+host isolation. They do not establish the Windows route or effects of a future pinned package. The old measured
+0.6.3 result and current upstream documentation are different evidence; do not combine them into one passed trial.
+
+### Layer 3 — Proposed two-repository file contract
+
+**Recommendation for design review:** keep one project authority chain and separate storage by purpose. Lane A
+still owns rules, scripts and build configuration that must execute in the app repository. Lane B owns application
+code; Lane C owns app workflows. All three need the approved reading routes. Separate repositories do not by
+themselves provide a filesystem sandbox, prevent host-profile changes or authorize simultaneous Active lanes.
+
+`<DOCS>` means the proposed docs repository; `<APP>` means the existing app repository. Every path in this table is
+a design target, not a move instruction. Lane A must reconcile each existing F/P/T row to one canonical owner.
+
+| Artifact / proposed destination | Producer, consumer and rule | Acceptance evidence |
+|---|---|---|
+| `<DOCS>/docs/PRD.md`, `docs/source/project-charter-v1.md`, `docs/Modular_PRD.md`, `docs/fn-specs/`, `docs/specs/`, `docs/v1/`, handoffs and templates | Candidate canonical intent/tracking home. Lane A records governed changes; Lane B/C retain their handoff/review roles. Frozen inputs keep exact bytes. Existing app sources remain authoritative until a recorded cutover | Old-path -> new-path map, original repository/commit/blob provenance, all references and history-dependent checks accounted for; no competing editable Register |
+| `<APP>/app/`, `lib/`, `components/`, `supabase/`, `__tests__/` | Lane B, under work order. Frozen `0001_init.sql` remains here unchanged; code and schema are not moved into the docs repo | App commit, tests and requirement/AC references tied to the consumed intent revision |
+| `<APP>/scripts/`, build config, `.githooks/`, agent rule/load files and local operational control docs | Lane A. Files required to run app checks stay executable from the app checkout. For example `.github/WORKFLOWS-SPEC.md` needs an explicit retain/move disposition, not automatic movement because it is Markdown | Per-file owner and location; tested loader/check route; generated rule copies, if chosen, are bound projections, not independently edited policy |
+| `<APP>/.github/workflows/` | Lane C; Lane A supplies referenced scripts/config; Lane B supplies tests | Workflow input/source revision, entry-point and later runtime evidence under the existing phase allocation |
+| `<DOCS>/.specify/` and `<DOCS>/specs/<feature-id>/` | **Spec Kit candidate workspace only.** Lane A proposes exact integration/version and managed paths. Outputs are drafts until mapped and accepted into the existing hierarchy | Pinned source/templates, command-by-command reads/writes, conflict/upgrade/restore map. `specs/` and canonical `docs/specs/` must never be conflated |
+| `<APP>/docs/intent-lock.json` plus `<APP>/.governance/intent/<docs-commit>/` | Proposed lock and immutable consumer projection. Lane A defines the format; Lane B consumes. Use a reviewed export of necessary intent, no moving branch lookup and no second editable authority | Docs repo identity/full commit; each artifact ID/path/anchor/raw hash; decision/work-order/receipt IDs; allowed projection paths; refuse missing input or mismatch |
+| `<DOCS>/docs/verification/<unit>/<run>.json` | Proposed return receipt. Executing lane supplies the app result; Lane A records governed conclusions and handoff lifecycle rules remain | App repo/full commit; consumed docs commit; test/control IDs; result/log hashes, limits and independent review. A receipt never rewrites the original result |
+| `<DOCS>/docs/graph-fragments/` and local `<DOCS>/.graphify/` | Proposed intent graph home, only after its own migration design. Existing graph remains in place now; code navigation is separate | Guard identity, history, source paths, receipt route and coverage/drift checks adapted and reviewed before use; no old `.graphify/` state copied as proof of freshness |
+
+The lock/export route is a proposed explicit adapter. It is not a claim that unmodified Spec Kit supports this
+two-repository workflow. Upstream's [existing-project guide](https://github.github.io/spec-kit/guides/existing-projects.html)
+describes initialization in one project root and warns of managed-path replacement. Its
+[PowerShell resolver](https://github.com/github/spec-kit/blob/main/scripts/powershell/common.ps1) uses `.specify/`
+and can accept `SPECIFY_INIT_DIR`; selecting that root proves neither the agent's implementation destination nor
+write isolation. Pin and inspect the actual selected integration before relying on either behavior.
+
+**Spec Kit adapter map:** constitution -> a derived view of the frozen hierarchy, Register and shared rules;
+feature spec -> FN requirements/ACs; technical plan/data/contracts -> necessary SPECS and proposed app interfaces;
+tasks -> a proposed work-order breakdown; implementation/tests -> app files under the issued work order; findings
+and results -> the return receipt and B-series parent. None overrides D-29/D-58, turns a generated tasks file into
+execution authority, or supplies missing acceptance evidence. Keep history according to the project's existing
+D-36 distinction between version tracking and living specs, rather than importing an upstream persistence model
+unchanged. Upstream also separates tool refresh from feature-spec evolution:
+[artifact evolution guide](https://github.github.io/spec-kit/guides/evolving-specs.html).
+
+### Layer 4 — Chain, failure cases and the Chief Editor's decisions
+
+**Forward:** approved intent at docs commit D -> app lock consumes D -> issued work order -> app commit A and tests.
+**Backward:** app evidence at A identifies D and the affected requirement -> a finding/receipt in a later docs commit
+E -> Lane A classifies the finding and records any authorized intent change -> a later app unit explicitly consumes
+the new intent. E may cite A without changing D. Do not demand that D and A contain each other's final commit IDs;
+that would create a circular hash dependency. A receipt-only docs commit is not an automatic change to the accepted
+intent baseline. Branch names or an unversioned sibling-folder path are not this link.
+
+| Gap / failure condition | Draft fix and success criterion |
+|---|---|
+| Docs are moved while controls still read old paths/history | Inventory the rule imports, `docs-drift`, coverage, source-sweep, terminal-return and guarded receipt lookup. `guarded-rebuild.mjs:2182` currently searches B-050 in the same Git repository. Preserve required original objects or define a reviewed cross-repository history/receipt route. Migration passes only when both consumers resolve exact sources and required checks do not silently SKIP |
+| Two editable constitutions/Registers disagree | One canonical precedence and lane-state source. Local agent views are generated/pinned; any contradiction refuses the unit. A repository split changes storage, not the existing one-Active-lane rule |
+| Spec Kit commands run in the docs repo but implementation is expected in the app repo | Specify the working directory, integration, input projection and permitted write roots for every command. Demonstrate the adapter later; do not infer it from the presence of `.specify/` |
+| An app-only search is treated as a full project review | Name source scope and excluded corpus in every result. Review intent through the pinned docs inputs; preserve SQL and workflow dependency checks in app navigation |
+| Installation isolation is inferred from repository separation | Bind profile/config/cache effects independently. A later isolation test must observe the declared boundary; naming two repositories is not proof |
+| The two repositories advance independently without a receipt | Pin the pair D/A and retain both histories/results. Change the consumed baseline only through an explicit reviewed unit; preserve the last accepted pair for recovery |
+
+| Decision, parent first | Accept for the next phase when | Reject / defer when |
+|---|---|---|
+| BCP-ISO design | Lane A supplies the per-file allocation and the complete D -> A -> E chain | The answer only repeats tool adoption labels or assigns whole repos by lane |
+| Repo topology (Judge, later) | Reviewed two-repo migration, control/history plan, affected tiers and recovery are concrete | No source pin, duplicate authority, unresolved consumer path or changed phase/lane rule hidden in a file move |
+| Spec Kit adoption (Judge, separate) | A pinned adapter and all managed outputs map to the hierarchy without loss or extra authority | Default folders or tool convergence are treated as approved destinations or Gate 2 proof |
+| Ripwire reconsideration (Judge, separate) | A named consumer need/return reason, pinned host route and bounded trial criteria address D-433 | Corpus separation alone is presented as proof that the earlier failed criteria now pass |
+| SM05 entry | Its existing setup, selection, work-order and gate conditions are met | New tool/repository paperwork is substituted for those conditions |
+
+**Lane evidence limits:** Lane A must answer with paths and production methods, not just names. Lane B must propose
+the app input/output contract and review the design; it cannot claim runtime isolation now. Lane C must review any
+changed workflow checkout/path contract and later measure its affected host. The old C-a result remains bounded
+historical evidence; this proposal contains no new Lane C approval. The Chief Editor decides topology and adoption
+separately after the packet is concrete. No decision request is needed to finish the present drafting.
+
+### Layer 5 — One Lane A follow-up and stop point
+
+1. Receive `340f70d` and this BCP-ISO extension together. Preserve accepted r6 facts; answer the existing R1/R2/pointer
+   return once, with T2/T5 expanded by the boundaries above.
+2. Draft one repository allocation/adapter section in the existing BCP-1 packet. Join its rows to the F/P/T IDs.
+   Bind exact repository identities, tool pins and every proposed file; mark unbound values as open.
+3. Add the D -> A -> E specimen, per-command effects, migration/history/graph impacts and recovery to that same
+   packet. Retain current canonical sources and all prior evidence. Draft only: no repo creation, moves, installs,
+   settings changes, tool execution, generated control files, governed edits or graph rebuild.
+4. Record one Lane A answer with the packet hash and delta. Lane B reviews the contract; seek Lane C evidence for
+   changed workflow/host claims at the applicable review point. Then present the bounded topology/adoption choices
+   to the Judge. Continue independent drafting; no extra acknowledgement cycle or duplicate handoff is required.
+
+**Drift scope:** this is an appended handoff proposal. The governed graph remains analysed at `b308d1c`; no source
+move or source edit has occurred. A later approved migration would affect governed sources and the graph/control
+contract and needs its guarded route. It cannot reuse today's handoff-only drift conclusion. Checks and evidence
+for this review are retained in `C:/CoWork/outputs/lane-b-bcp-isolation-2026-10-15/`.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| **Approve** | The missing distinction between tool status, corpus scope, host effects and repository authority | Phase 1: clarify T2/T5 and keep prior evidence |
+| **Approve-with-conditions** | App-source boundary and two-repository architecture as design candidates | Phase 1: complete the allocation, adapter, revision chain and migration proof plan; Lane B reviews |
+| **Defer** | Topology cutover; Spec Kit adoption; Ripwire trial/provision; actual isolation and workflow evidence | Separate later bounded decisions and execution; no inferred SM05 gate |
+| **Reject** | Repo-per-lane ownership by implication; two repos called a sandbox; duplicate live authority; automatic adoption or readiness from folder names | Phase 1: use the explicit contracts above |
