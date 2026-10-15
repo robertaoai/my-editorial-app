@@ -13786,3 +13786,65 @@ drift. A later EV source change requires its own reviewed synchronization scope;
 | Approve-with-conditions | Consolidated handoff ready for Lane A; release-feedback design | Phase 1: exact wording, destination/criteria map, D-54 review and Lane B review |
 | Defer | D-438 S5-S7; assurance custody; EV source application; later push; setup, SM05 and Gate 2 | Existing stages; EV/custody after health; release evidence at its owning release |
 | Reject | Re-asking R/G as unresolved policy; claiming a supplied Business Charter; automatic baseline changes from passing tests; drafts treated as incorporated evidence | All phases |
+
+---
+
+## Lane A — JE1 received; EV packet r4 (release-feedback record, §7.1 destination); integrated controls r4; results file recovered: answers Lane B `8842c1a`, 2026-10-15
+
+### What happened
+
+**Receipt.** Lane A receives `8842c1a`. **JE1 is decided by the Judge's words recorded there; Lane A does not ask R/G again.**
+D-438 S5 (Lane B's receipt) stays a separate pending task; nothing here adds to it. No new Lane C evidence.
+
+**1. EV packet r4** (`C:/CoWork/outputs/lane-a-ev-doc-corrections-2026-10-15/EV-CORRECTION-PACKET-r4.md`, `fec30c9d2d6884d45f536cc1c344d2af56b65f97c52abe6c0649b094f0d66929`; r3, r2, r1 kept). Draft only; applied by a separate `D-439` act after `D-438`'s health.
+- **§0 authority:** the Judge's JE1 words verbatim, and Lane A's reading: V1 starts from the business intent in the frozen
+  Project Charter; a separate Business Charter may be requested and is not required, and its absence alone blocks no
+  release; accepted release conclusions are added to a cumulative record; failed and unmeasured results are kept; a test
+  pass changes no baseline by itself; the **exit strategy** stays a separate go-live condition (`DEP-09`, **Open**).
+- **E1–E3 rewritten** for that policy (no Option G text); **E4, E6 kept**; **E5, E7 stay withdrawn**.
+- **New EV-4 — destination:** `docs/governance/requirements-traceability-map.md` **§7.1 "Business Charter record —
+  cumulative, by release"**, inside §7 where `FB-07` lives; no new file. **Release-feedback record**, one row per business
+  criterion per release: row ID `BCR-<release>-<n>`; release and approved scope; business claim and source anchor;
+  criterion; evidence path and commit; result (`met`, `not met`, `not measured`); limits; Chief Editor disposition;
+  incorporation status (`input pending incorporation` until accepted); next action. **Version rules:** append-only; a later
+  row supersedes by naming the earlier one; one dated block per release. **Phase split:** §7.1 holds Phase 1 accepted
+  conclusions; Phase 2 evidence stays with each release (work packet, feature-run records, acceptance-harness runs) and
+  is linked, not copied. Edits E8–E11: Business Charter section pointer, `FB-07` pointer, §7.1, §8 maintenance trigger.
+- **D-54 reassessed, not copied:** the traceability map is now **affected**; Build Spec unaffected because the rows record
+  the existing SM05 DoD obligation "the Judge accepts the business outcome" (`D-245`, `D-259`) — no new DoD row, entry
+  gate or Charter file; Inventory unaffected (a subsection, not a file); Encyclopedia Entry 06 cites map §7 → unaffected in
+  substance, flagged for the act's review.
+- **Correction inside r4:** `D-439` is already referenced, by Lane A's own EV records (`65e0bed`, EV packet r1); r4 states
+  that and requires an exact-line ownership check at recording.
+
+**2. Controls — integrated harness r4** (`C:/CoWork/outputs/lane-a-d438-cycle-2026-10-15/n1r3/run-controls-r4.sh`, `b3af216730ce8ecd7398ec73798c3efd65be9103b85738d630760409490d486e`): C5 runs inside the
+sequence before the verdict; each run gets its own work and evidence folder; raw logs are kept before the clones are
+removed; Usage names r4. Run with helper r4: **11 cases, 0 wrong, harness exit 0** (`C:/CoWork/outputs/lane-a-d438-cycle-2026-10-15/n1r3/runs/20261015T150217Z-36d35fb9797a/results.txt`,
+`fb8bccb17f2e6988f5f7b47da936de22b2371c8c66cf47cc36f50aae8f80d3c0`; 11 logs in that folder). Recorded results, not an independent replay.
+
+**3. Results file recovered.** Following Lane B's recipe, `C:/CoWork/outputs/lane-a-d438-cycle-2026-10-15/n1r3/results-r2-recovered-af1e8072.txt` equals the `b0c8290`
+binding exactly (1,948 bytes, `af1e8072818cb347784f7bf98bf201fccc48d2259f91b3c0ea8004e3052563d7`); provenance note
+`results-r2-recovered-af1e8072.PROVENANCE.md` (`80095aacec658cd18ce4a14688c6338cd830eeafecfabb7467ded58f6fe8a440`). It is a recovery, not
+a new execution; the rerun and the overwritten file stay beside it.
+
+**4. Custody plan (after the health record, approved list only).** To `docs/handoff/artifacts/B-136/ir-application/`:
+helper r4, `ownership-128e0d4.json`, harness r4, the r4 run's `results.txt` and logs, the recovered results file and its
+provenance note. To `docs/handoff/artifacts/B-136/ev-corrections/`: the accepted EV revision. Each with source bytes,
+destination bytes and the custody commit. Not imported: F16's retained config, graph staging, superseded drafts.
+
+### What you need
+
+**Lane B:** (1) S5 — the receipt for candidate `c5b3cafa` in B-050 and its annotation; (2) review EV r4, harness r4 and
+the recovery. **Judge:** nothing new now; `D-439` comes to you after Lane B's review and `D-438`'s health record.
+
+### What you did instead
+
+Drafts outside the repository; this record is handoff-only. No fetch or push (`D-438` interval). The check fails only on
+the expected `D-438` drift.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | JE1 received; recovered results file; integrated controls (11/11 recorded) | Phase 1 |
+| Approve-with-conditions | EV packet r4 and the §7.1 destination | Lane B review; `D-439` after `D-438` health |
+| Defer | S5–S7; custody transfer; `D-439` application | Their stages |
+| Reject | Re-asking R/G; a test pass as a baseline change; a missing Business Charter as a release blocker; drafts as incorporated evidence | All phases |
