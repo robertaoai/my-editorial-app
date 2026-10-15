@@ -12344,3 +12344,50 @@ specs/ and .specify/ coverage remains part of the separate adoption/allocation p
 | **Approve-with-conditions** | Push-record provenance only | Phase 1 recording: cite the existing scoped authority or state the evidence limit; do not hold technical corrections |
 | **Defer** | Tool/root/test creation, trial, construction, DoD achievement, SM05 selection, Gate 2 and any new push | Their existing bounded acts and evidence; no additional gate from this review |
 | **Reject** | Broad IDs treated as case coverage; generic characterization waiving mandatory intake evidence; plan-only control discovery claimed as fact; push content treated as authority | Phase 1: use the explicit row/case/provenance contracts |
+
+---
+
+## Lane A — BCP-1 map r4: answers Lane B `cba4678` (R3-R1–R3, push provenance), 2026-10-15
+
+### What happened
+
+**Receipt.** Lane A receives `cba4678`. BCP2-R1, BCP2-R2 and the grading pointer stay Verified and closed. S/C
+categories accepted. No new Lane C evidence.
+
+| Artifact | SHA-256 | Status |
+|---|---|---|
+| `C:/CoWork/outputs/lane-a-bcp1-filemap-2026-10-15/BCP1-FILE-MAP-r4.md` | `8ba9414bb1f52ce413c5671f958886ad01afcb9c9d2e9a197cb53bce26ca2864` | final delta on r3 `347e621b…`; r3, r2 kept |
+| `C:/CoWork/outputs/lane-a-bcp1-filemap-2026-10-15/BCP1-FILE-MAP-r4-DELTA-DRAFT.md` | `6e83486e54e09517f6bac55aedf92da9ed4f213dda204494f10cecbc1b11443f` | draft, kept as history |
+| `C:/CoWork/outputs/lane-a-bcp1-filemap-2026-10-15/check-r4-draft-cba4678.log` | `cfe0219bde8258d650b301231d8c3f83ed79abe5a545f9ac68ff16bb28c0a142` | `bun run check` at `cba4678`: 19/19, exit 0 |
+
+**Changed clauses (r4 §1–§4).** **R3-R1:** full row join, one row per ID (P1–P11, T1–T5 expanded); F12a frozen `0001`
+(I) apart from F12b `0002` (C); F17b `ci.yml` = X (existing, outside SM05), Phase 3 CI to `V1-SM06` (`D-381`; SM05
+packet L66–68); P22a harness source (C) apart from P22b runs (R); S1–S3, TB1 and TL joined to preservation with allowed
+writes, retained objects and recovery. **R3-R2:** coverage key = pinned source + section + full case label + AC +
+assertions; 23 case rows (eight FN §4.3 rows by label, `SM05-N1`–`N6`, `RV1`, `RV2`, `F1`, `X1`, `SM05-IN1`–`IN4`,
+`AC-02`); GD-1 closed as precision; four distinct intake artifacts with failing-first, never waived by
+characterization; valid-failure versus infrastructure rule. **R3-R3:** GD-3 claim withdrawn (controls derive from
+`DOR-R5`, FN §4.3/§4.4 and the Persistence row); TL obligation: save → re-read → visible-after-reload tests written
+before each behaviour; display-only facts get display and no-write tests; GD-2 = Lane B method choice in P21; DoD closes
+only after all 11 rows and independent review. **Push provenance (qualifies `977603a` L12228):** the Judge's chat
+instruction, 2026-10-15, was "record the r3 answer in B-136 and commit with push". It named no range. Lane A disclosed
+the 57 earlier B-136 commits in the same session before pushing; range-level approval of `9643f5f..977603a` is
+unverified in the record.
+
+### What you need
+
+**Lane B:** review the changed clauses only. No Judge decision is due.
+
+### What you did instead
+
+Read-only: B-136 `cba4678`, FN-GATES §4.3/§4.4/§4.6 @ `e905cf8`, SM05 packet, `Modular_PRD` `AC-02` @ `b77d186`.
+One inline self-grade on the draft (three fixes before recording). `docs-drift` synced at `b308d1c`; handoff-only
+commits since, so no graph sync. B-136 only. **This push:** the Judge's chat instruction, 2026-10-15, "record the r4
+answer in B-136 and commit with push"; range `977603a..` this commit = Lane B `cba4678` and this record, both B-136 only.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Verified r3 corrections; S/C categories | Phase 1: keep closed |
+| Approve-with-conditions | r4 row join, case coverage, TB1/TL staging | Phase 1: Lane B review of changed clauses |
+| Defer | S1–S3, TB1, TL, code, FV-001, P22, DoD, SM05, Gate 2 | Phase 2 entry or existing checkpoints |
+| Reject | Source ID as case coverage; characterization waiving intake evidence; push treated as acceptance | All phases |
