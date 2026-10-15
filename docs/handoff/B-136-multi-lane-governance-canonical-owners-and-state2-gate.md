@@ -13414,3 +13414,77 @@ Financial or bankruptcy-level impact is unverified; no loss estimate is inferred
 | Approve-with-conditions | Completion of the application-control and evidence obligations | Phase 1: Lane A answers control coverage, N1 ownership and execution-custody findings |
 | Defer | S3 push, graph cycle and full D-438 unit completion | Exact-range checkpoint and the act's remaining obligations |
 | Reject | Successful paths as refusal-control proof; allowed reference paths as ownership proof; source bytes as graph or SM05 clearance | All phases |
+
+---
+
+## Lane B — consolidated evening audit receipt and Lane A follow-up; D-438 closed source findings preserved, 2026-10-15
+
+### What happened
+
+**Observed at:** `4b4b5c0`. **Raiser:** Lane B. **Answerer:** Lane A, in this B-136 parent. This block consolidates the
+Judge-supplied independent review with the already recorded delivery verification; it creates no new A/C series and
+does not expand D-438. **Executive summary:** D-438's five source defects are corrected and independently verified.
+The approved 19-commit range is pushed. D-438 controls, helper assurance, execution-evidence custody and the guarded
+graph cycle remain Open. Three source-document concerns need a separate correction proposal; publication concerns
+already belong to B-078 Child 4, and SM06's missing mechanisms retain their existing owner.
+
+**Input receipt.** Supplied review attachment SHA-256 `7b1afc4328537c70c3a1d84a36ab420a766f22719f5ca378c554090bce94e812`.
+External audit receipt: `C:/CoWork/outputs/docs-audit-2026-10-15-evening/review-receipt.json`, SHA-256
+`467f3476c27b2f5c734e0de2344bcb54ec8167fe791cd4de78f6b9d7ea3c9cf1`; export SHA-256
+`506e859a55fe104f97ae022aed0a878ecadad21baa0fd538803212d2ea28f1e3`. Lane B re-hashed the export and compared the receipt's
+included text hashes with the current checkout: 276 repository entries match after line-ending/outer-whitespace
+normalization. Two export-only entries are `docs/.graphify/.graphify_uncached.txt` and `docs/.graphify/GRAPH_REPORT.md`;
+the latter says 2026-08-19 and 42 files. They are not present in this checkout. This proves neither raw-byte equality
+nor export completeness. The receipt reports 120 clickable local links with no findings; that scanner result is
+attributed, not independently rerun here, and is not a consistency-gate or implementation-readiness result.
+
+| Transaction | Evidence | Current disposition |
+|---|---|---|
+| D-438 Route B registration | `e5cca78` | Recorded composition independently verified |
+| Ten replacements in five files | `54cd178` | Source bytes independently verified; no reopening of IR-1 to IR-5 |
+| Lane A application report | `4c3ba2a` | S0-S2 recorded; its S3 stop describes that earlier time |
+| Lane B delivery review | `4b4b5c0` | Open control/ownership/custody obligations recorded |
+| Judge's subsequent exact-range approval | `508ee9f..4b4b5c0`, 19 commits | Executed: fresh fetch, fast-forward proof, push, second fetch; upstream = local `4b4b5c0` |
+| This new audit receipt | This B-136 block | Lane A acknowledgement and answer pending; no new source application |
+
+### What you need
+
+**Parent first; use existing owners.**
+
+| Parent / child | Evidence | Required Lane A answer / success criterion |
+|---|---|---|
+| B-136 / SM05 transition | Root remains Open; SM05 not selected | Keep root, lane and Gate 2 conditions separate from these reviews |
+| D-438 remaining obligations | Lane B record `4b4b5c0` | Receive that review and the completed S3 push; answer C1-C4 coverage, N1 commitment ownership and execution custody; finish the authorized guarded cycle and health record without silently expanding its scope |
+| New source proposal: Business Charter disposition (parent rule) | Traceability map "On the Business Charter" / FB-07 says recommendation, non-blocking; Modular_PRD DEP-09 and section 9.4 plus source/README's "Gaps still outstanding" require it for go-live | Reconcile the production condition through an explicit governing disposition. Draft alignment with FB-07; separate the Business Charter component from the exit-strategy component of DEP-09. Do not remove the exit-strategy condition by association. No new customer deliverable or SM05 prerequisite is inferred |
+| New source proposal: navigation wording | source/README "Related" groups PRD with the non-governing plan pack; docs/README and D-29/D-58 identify frozen PRD as governing | Draft separate PRD and plan-pack references; point to docs/README for precedence. Frozen PRD and Project Charter remain unchanged |
+| New source proposal: freshness metadata | Modular_PRD Document Control says Last Updated 2026-09-27 despite D-438 changes dated 2026-10-15 | Bind the metadata correction to the actual authorized source-change date/act. Classify export-only generated history separately; do not use the old Graph Report as live graph evidence |
+| Existing owner: B-078 Child 4 | Its table already covers polling, concurrent workers, unknown provider outcomes and recovery | Cross-reference it once; no duplicate publication work item. Retain the eligibility-versus-dispatch example and observable concurrency/recovery criteria for its design phase |
+| Existing owner: V1-SM06 DoR | Snapshot/revision identity, replay key and effective-current readiness query remain unchecked | Keep the Lane B mechanism work with SM06 before its work order. Do not create an SM05 blocker or automation authority |
+
+**Smallest proposed source wording (not applied):** Business Charter: "Offered, not required under FB-07; derivation
+from the unavailable upstream remains unverified. This does not clear other production conditions." Navigation:
+"PRD.md is the frozen customer baseline under D-29; the scaffold plan-pack siblings are non-governing. See docs/README."
+Lane A must resolve the governing disposition and prepare exact old/new anchors, affected tiers, source bindings and
+acceptance criteria before requesting a separate application act. A Register search for the exact Business Charter,
+DEP-09 and FB-07 labels found no explicit resolving entry; absence from that search is not proof that none exists.
+
+**Custody / stop boundary.** Retain the supplied review and required receipt evidence through the existing B-136
+artifact route before using them as a frozen application input; external output paths and hashes alone do not transfer
+contents. Apply no source edit from this block. The Business Charter is distinct from the frozen Project Charter. Do
+not reopen Q11, the repaired SM05 links, gate-count wording or UX-directory findings from historical text. No new Lane C
+acceptance is supplied. This is ready for Lane A's review and drafting, not source execution, construction or closure.
+
+### What you did instead
+
+Read the attachment, external receipt/export and the cited current source clauses; queried Graphify; checked the
+existing publication and SM06 owners; consolidated this one block. No source, rule, code, fragment, tool or graph edit.
+The new handoff record adds no governed-source drift. Existing drift from D-438's Register and five repaired files
+remains until its guarded publication and health record. Any later new source unit needs its own D-54 assessment and
+guarded graph route; do not silently fold it into D-438. The supplied review's failed Bun launch proves no gate pass.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Bounded input receipt; D-438 source fixes and completed S3 push kept closed | Phase 1: consolidated receipt |
+| Approve-with-conditions | New source-correction proposal | Phase 1: Lane A reconciles the parent disposition, drafts exact fixes and returns them for review before a separate act |
+| Defer | D-438 remaining controls/custody/graph work; B-078 Child 4; SM06 mechanism work | Existing acts and owning phases; no new SM05 prerequisite |
+| Reject | Link success as semantic or gate proof; normalized equality as byte equality; historical generated output as the live graph; new fixes applied under D-438 | All phases |
