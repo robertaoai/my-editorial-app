@@ -13123,3 +13123,53 @@ no push.
 | Approve-with-conditions | Act r4 with body r2 and route addenda r3 | Phase 1: Lane B delta review; then Judge D1/J1/J2 |
 | Defer | Registration, application, graph cycle, publication, health, exact-range push; setup readiness; BCP-1 r4 | Selected act and existing owners |
 | Reject | Number presence as a conflict; per-write clean status that refuses authorized writes; supplied chat text as a Lane B commit | All phases |
+
+---
+
+## Lane A — IR application package manifest r5: answers Lane B's chat review of `310af2f` (two stale references), 2026-10-15
+
+### What happened
+
+**Receipt.** The Judge supplied Lane B's chat review of `310af2f` ("a chat review, not a Git commit"). It closes N1 and
+N2/G3 for design and finds two stale references. Lane A retains a copy:
+`C:/CoWork/outputs/lane-a-ir-doc-corrections-2026-10-15/LANE-B-CHAT-REVIEW-310af2f.md`, SHA-256
+`f312ccc418a99496d033ab81ca537e398e704d90dc3bf5b92b77d39d7006053a`. No new Lane C evidence.
+
+**Correction of Lane A's `310af2f` claim.** Lane A said no stale references remained. That was wrong: Lane A's search
+matched file-name patterns only, so it missed the prose "route addendum r2" (act r4 E1), and its substitution changed
+"act r3" but not the file name `IR-APPLICATION-ACT-r3.md` (Route A r3 header).
+
+**Fix (removes the class, not only the two instances).** Package files now cite each other by **role**, never by
+revision or file name (act r5 §K). This manifest is the **only version binding**; E1 binds these exact files before use,
+and a SHA-256 mismatch refuses. The `D-438` body takes the act's file name and SHA-256 from this manifest through the
+slots `{ACT_FILE}` and `{ACT_SHA}`, so the Register entry names the exact act. Accepted guard logic (N1, N2, E5),
+replacement text, routes and controls C1–C4 are unchanged. Earlier versions are kept unchanged.
+
+**Package manifest (`C:/CoWork/outputs/lane-a-ir-doc-corrections-2026-10-15/`).**
+
+| Role | File | SHA-256 |
+|---|---|---|
+| Application act | `IR-APPLICATION-ACT-r5.md` | `3bf8e0b88300a6f043ce3df86fb7ce89373f0679a56b4dff5dc7948dbd5d638b` |
+| `D-438` body | `IR-D438-REGISTER-BODY-r3.md` | `b7f68feaa84d2a9b32b52142e91b47c7cc4faa9f2c11941969f0bb452e47c5ca` |
+| Route A addendum | `IR-ROUTE-A-r4.md` | `5d45f9cfaa442a6a7133737055e98c73f86e2f051e0fe2c64ed3a1791e0e0164` |
+| Route B addendum | `IR-ROUTE-B-r4.md` | `e3601e373c9053c0144c1d463765edaae3c85df4a589afb5a4e59dcc2a2c01f6` |
+
+A scan of the four files outside their change-history lines finds no revision citation of another package file.
+Source bindings: unchanged since `5d00503` (re-checked at `1c0635b`; no governed file changed since).
+
+### What you need
+
+**Lane B:** confirm the small delta (role references, §K, two slots). **Judge (after Lane B):** D1 (explicit; Lane A
+recommends Route B), J1, J2; J3 timing; the exact push range at its own checkpoint.
+
+### What you did instead
+
+Read-only: Lane B's review; a version-reference scan of the four package files. One inline self-grade. `docs-drift`
+synced at `b308d1c`; handoff-only commits since; no graph sync now. B-136 only. Local commit; no push.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Lane B's review; N1, N2/G3 closed for design | Phase 1 |
+| Approve-with-conditions | Package manifest r5 | Phase 1: Lane B confirms the delta; then Judge D1/J1/J2 |
+| Defer | Registration, application, controls C1–C4, graph cycle, publication, health, exact-range push | Selected act and its checkpoints |
+| Reject | Cross-file version citations; Lane A's earlier "no stale references" claim; planned controls as results | All phases |
