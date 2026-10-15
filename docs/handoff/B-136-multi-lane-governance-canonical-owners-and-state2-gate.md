@@ -12233,3 +12233,114 @@ This record changes B-136 only. The Judge directed recording and push on 2026-10
 | Approve-with-conditions | Map r3 partitions, DoD coverage and TB1 boundary | Phase 1: Lane B review |
 | Defer | S1–S3 creation and allocation; TB1, packet, code, FV-001; hook; F16; G0–G4; SM05; Gate 2 | Phase 2 entry or their existing checkpoints |
 | Reject | Achieved DoD before construction; planned files as proof; filtered hash as raw proof | All phases |
+
+---
+
+## Lane B — BCP-1 r3 review and single Lane A return, 2026-10-15
+
+### Layer 0 — Handoff and executive result
+
+**Raised:** 2026-10-15 by Lane B. **Kind:** finding. **Phase:** 1 (design/transition contract).
+**Parent:** Open B-136 / Parent 3 / BCP-1. **Blocks:** full acceptance of map r3 only; no new SM05 entry gate.
+**Evidence observed at:** 977603a58857be0bdad83e5240826ec2f738cef9. Lane A answers this bounded return.
+**Reviewed:** BCP1-FILE-MAP-r3.md, SHA-256 347e621be67823015bc730ee1c47fef07055d21d06f5236055cd87305949a17f,
+at C:/CoWork/outputs/lane-a-bcp1-filemap-2026-10-15/; interpreted with the unchanged r2 base (3d4d6100…86befb).
+
+**Precise request:** accept the corrected preservation/custody evidence, then fix only the incomplete partition,
+case-coverage and staged-test clauses below. Keep the same parent, source IDs and prior acceptance. The Judge
+approved receiving f1ffcd4, revising the partitions and returning this map; that is not SM05 selection.
+
+**Result:** the three retained corrections are Verified within their scope. S (setup/control) and C (construction)
+are useful additions and accepted as categories. The r3 map and TB1 contract remain returned for the bounded
+corrections R3-R1 to R3-R3. GD-1 is tracking precision, GD-2 is a pending method choice, and GD-3 needs a clearer
+staged test contract. None proves missing business intent. Push provenance is a separate recording correction.
+
+### Layer 1 — Parent first: transaction and accepted children
+
+| Parent / child | Disposition from this review | Next trigger |
+|---|---|---|
+| B-136 / Parent 3 -> V1-SM05 | Open; selection/work order/Active state and existing clearance still apply | Existing Judge acts and evidence; no closure here |
+| 340f70d -> Lane A 977603a: BCP2-R1 | **Verified:** corrected raw-byte clause; Lane B repeated the check, 3/3 equal | Keep the exact pin/check contract at use |
+| Same chain: BCP2-R2 | **Verified:** T2–T5 now name custody and retain distinct evidence/proposal/live-copy rules | Keep; this does not authorize a tool act |
+| Same chain: grading pointer | **Verified:** retained interim1 resolves to dd5c5b174a0d8ea5ca2b7464858304278fe28642d1b0149f4560c6ea1bf35f5f | Keep the scoped note; no new grade or recovery is needed |
+| 1cf821a -> 6c60e23 -> 1e4e7e0 -> f1ffcd4 -> 977603a | One repo, phase separation, Flow-Forward and proposed B feature-packet ownership retained | Correct r3 delta only; no two-repository work |
+| S/C category additions and entry/result refusal principles | Accepted design principles; complete row allocation is not yet accepted | R3-R1/R2 below |
+| r11/runtime, tool/config disposition, P13/P17–P22, SM05 and Gate 2 | Existing states and stops retained; no new Lane C review claimed | Their existing checkpoints |
+
+### Layer 2 — What happened and what Lane A must fix
+
+**R3-R1 — complete the partition and preservation joins.** Map r3 §3 claims a column on every r2 row but does not
+allocate frozen F12 (0001) or F17b (existing ci.yml). P22's source artifact and its run are also different objects;
+only the run is named in R. New S1–S3 are not joined to the inherited §C preservation table. This is a map omission,
+not a reason to rewrite or create these files.
+
+**Draft fix:** retain F12 (0001) as a frozen source/input, distinct from the 0002 construction/replay object.
+Keep F17b as an existing Lane C workflow outside SM05 construction; any future Phase 3 work follows D-381's SM06
+allocation. Separate P22 source custody from its later acceptance-run evidence. For S1/S2, name A's allowed writes,
+retained before/after objects and recovery; for S3 name B's allowed revisions/custody and A's independent review,
+with its Flow-Forward close rule. Use references to the existing map rather than a second ledger. Every row must
+resolve to one applicable role/phase/trigger, or an explicit existing/out-of-scope disposition. Expand grouped IDs
+where their objects differ. This does not reopen the accepted T2–T5 custody correction.
+
+**R3-R2 — a source ID alone is not a complete case key.** r3 §4 L73 and L82–85 could permit one test for all
+DOR-R3 cases. FN-GATES §4.3 already has eight named rows with Product AC anchors: R2 positive/duplicate/failure;
+R3 missing intake/duplicate EW/new work; R4 executor/final sign-off (FN lines 324–331). GD-1's lack of a new SM05
+prefix is not missing governing support. The required precision is the existing section, row label and assertions.
+
+**Draft fix:** define a coverage key as pinned source path + section + full case label, plus AC and intended
+assertions. Map each admitted case to test ID(s); a shared test may cover several cases only when it records each
+case/assertion explicitly. Keep final sign-off display-only; do not introduce deferred operation execution.
+State TB1's prerequisite scenarios and what suite loading/environment proof distinguishes a valid missing-behavior
+failure from a broken runner/import/setup. Preserve the special SM05-IN1–IN4 rule: four distinct artifacts, each
+with its required failing-first evidence. The generic characterization alternative cannot waive that obligation
+(SM05 packet, DoD intake row; D-287/D-288). No new business scenario IDs are required to correct this design.
+
+**R3-R3 — stage design-dependent tests without inventing missing intent.** GD-2 correctly names an unchosen UI
+method; D-242 gives that choice to B. GD-3's statement that the control list exists only after S3 plan.md is not
+supported: the accepted journey and observable effects already exist in DOR-R5, FN-GATES §4.3/§4.4 and the SM05
+Persistence obligation. Concrete widget/control inventory can be refined by the later design. Also, “tests follow
+the packet, in C, before R” does not say whether those tests precede the corresponding application behavior.
+
+**Draft fix:** TB1 is a bounded entry baseline for S3, not all DoD coverage. Tie it to the authorized child scope
+and explicit cases. Keep a named later persistence/UI coverage obligation: the plan enumerates each writable
+control/form and its source action; each gets save/re-read and visible-result assertions before its corresponding
+behavior is implemented, or an honest characterization for already existing behavior where permitted. Distinguish
+display-only/read-only facts from writable controls. Draft UI evidence as journey assertions linked to recorded
+facts and post-save/reload results; B chooses the exact framework/method in P21. DoD closes only after all 11 rows
+have their required results and independent review. Do not make the completed app or achieved DoD a packet-entry
+condition, and do not move design-dependent tests before their inputs merely to fit a diagram.
+
+**Push record — provenance limit, separate from design acceptance.** Local history reproduces
+9643f5f..977603a as 58 commits; every commit touches B-136 only and uses the required author email. That proves
+range/content/identity, not the Judge's authority or current remote state. The supplied approval authorizes the
+map answer; it does not name this push range. B-136 L12228 says the Judge directed a push but supplies no exact
+approval source/range. Lane A must cite the existing approval with its scope/range, or qualify the authority claim
+as unverified here. Keep the reported push as history; this review neither approves it after the fact nor asks
+for reversal. Do not hold R3-R1–R3 while locating the approval; stating the evidence limit completes this recording
+correction. No fresh fetch/push was run. Earlier “not pushed” statements remain true for their observation times.
+
+### Layer 3 — Single follow-up and Chief Editor decision
+
+1. Preserve r3/r2 and their hashes. Produce one bounded revision/delta for R3-R1–R3 and the push-source wording.
+2. Show a complete row join and case/assertion coverage table, with TB-entry versus later DoD obligations explicit.
+3. Record one Lane A answer in B-136 with the new hash and changed clauses. Lane B reviews those changes only;
+   BCP2-R1/R2 and the pointer remain Verified. No acknowledgement-only commit or new handoff number is required.
+4. Continue authorized independent text drafting for P13/P17/P21. Test/tool/root creation and execution wait for
+   their existing acts. No new Judge choice is needed to fix these technical drafting gaps.
+
+Chief Editor: accept the three Verified corrections and S/C categories; return the incomplete map and TB clauses.
+Require claim-specific proof rather than repeated blanket reviews. Lane A supplies governed sources and controls;
+B supplies the implementation/test design; C reviews only affected workflow claims. No unsupported Lane C result
+or software-construction credit arises from this packet, self-grading, a file hash or the push.
+
+Only B-136 changes. Evidence and final-content checks are retained at
+C:/CoWork/outputs/lane-b-bcp1-r3-review-2026-10-15/. Current handoff-only drift requires no graph sync; future
+specs/ and .specify/ coverage remains part of the separate adoption/allocation plan.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| **Approve** | BCP2-R1/R2 and grading pointer Verified; S/C categories and retained single-repo/phase separation | Phase 1: keep accepted children closed |
+| **Approve-with-conditions** | r3 file map and test-baseline design | Phase 1: R3-R1–R3 corrections and Lane B review of the bounded delta |
+| **Approve-with-conditions** | Push-record provenance only | Phase 1 recording: cite the existing scoped authority or state the evidence limit; do not hold technical corrections |
+| **Defer** | Tool/root/test creation, trial, construction, DoD achievement, SM05 selection, Gate 2 and any new push | Their existing bounded acts and evidence; no additional gate from this review |
+| **Reject** | Broad IDs treated as case coverage; generic characterization waiving mandatory intake evidence; plan-only control discovery claimed as fact; push content treated as authority | Phase 1: use the explicit row/case/provenance contracts |
