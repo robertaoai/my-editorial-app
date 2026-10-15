@@ -13022,3 +13022,57 @@ handoff-only commits since; no graph sync now. B-136 only. Local commit; no push
 | Approve-with-conditions | Act r2 with Route A and Route B | Phase 1: Lane B delta review; then Judge D1/J1/J2 |
 | Defer | Registration, application, graph cycle, publication, health, exact-range push; setup readiness; BCP-1 r4 | Selected act and existing owners |
 | Reject | Interim audit as an answer; reuse of `D-437`; permanent rebinding ban; ls-remote alone as push proof | All phases |
+
+---
+
+## Lane A — IR application act r3, `D-438` body and route addenda r2: answers the supplied Lane B audit of `983eb30`, 2026-10-15
+
+### What happened
+
+**Receipt.** The Judge supplied a Lane B audit of `983eb30` in chat (G1–G4). It is **not a Lane B commit**; Lane A
+retains a copy (below) and answers it here, as Lane A recorded supplied chat outcomes at `22ddee2`. Lane B's own
+record, if written, stays Lane B's. IR packet r2, act r1/r2 and route addenda r1 stay unchanged. No new Lane C evidence.
+
+| Artifact (`C:/CoWork/outputs/lane-a-ir-doc-corrections-2026-10-15/`) | SHA-256 | Status |
+|---|---|---|
+| `IR-APPLICATION-ACT-r3.md` | `c49557842ff2900f24b4ae106155ac46433f1538d5b138ce42ada8e86c31ff4a` | common contract r3; r2 `a4e122c5…` kept |
+| `IR-D438-REGISTER-BODY-r1.md` | `ff3415b303837f835721d188eaacab2fd655bed46dca0d712cf1e43d9b1be3fe` | complete `D-438` Register body with named slots |
+| `IR-ROUTE-A-r2.md` | `ec88ef82ef7e9e3325b2d5ff334c98473c1e8df2c193247dce3546895e48cf77` | Route A r2; r1 `b67d13be…` kept |
+| `IR-ROUTE-B-r2.md` | `4511e8e0bee14092f879d4af3663c71fefb38ed7aa4d51e55c25feb953395f08` | Route B r2; r1 `a39409ba…` kept |
+| `LANE-B-SUPPLIED-AUDIT-983eb30.md` | `995bfd22d6d70dc263f80a045c8f592c3a4f5630f7bd3feefcca6c0fccff6b9c` | retained input: Lane B audit supplied by the Judge in chat; not a Lane B commit |
+
+**Changed clauses.** **G1:** Route B r2 drops the "Route A applies" fallback. Each route needs explicit Judge selection;
+otherwise stop, neither route is selected, and the `D-437` commitment stays as recorded. **G2:** complete `D-438` body
+with named slots (`{SEC}`, `{DATE}`, verbatim Judge quotes, `{ROUTE_B_ITEM_0}`, `{SETUP_CLAUSE}`); each addendum fixes
+its slot values and a successive-state table (Route A: `D-437` commit → `D-438` commit → applying commit, with the
+Register and Build Spec state after each; Route B: act commit → applying commit). **G3:** act r3 §E rules — E2 pre-write
+check (working bytes = expected prior state; clean status); E3 composition (`> ` prefix removed; no slot left;
+`D-NNN`/date substitutions only inside the r2 new texts); E5 committed check (`git diff-tree` paths and
+`git rev-parse <commit>:<path>` blobs = expected; inverse check). **G4:** qualification below. Source bindings at
+`983eb30`: all seven unchanged. `D-438` is referenced only by Lane A's `983eb30` answer; it is now a commitment for
+this act.
+
+**G4 — push evidence qualified (corrects the `983eb30` wording).** The fresh `git fetch` reported at `983eb30` ran in
+the Lane A session before that commit, with HEAD at `6cc8350`; it showed `'@{upstream}'` = `508ee9f`. That is a **late
+confirmation** of the remote tip only. Whether the post-push checkpoints for the `977603a` and `508ee9f` pushes were
+performed as the SOP requires is **UNVERIFIED**: those records relied on the push's own tracking update. The procedural
+gap stays recorded. No repeat push is needed.
+
+### What you need
+
+**Lane B:** review the r3 delta, the `D-438` body and both r2 addenda. **Judge (after Lane B):** D1 (explicit; Lane A
+recommends Route B), J1, J2; J3 timing; the exact push range at its own checkpoint.
+
+### What you did instead
+
+Read-only: supplied audit; Register tail (sections are appended at end of file); Build Spec L140–158; source re-hash;
+`D-438` reference search. One inline self-grade (fixed a `D-438` body clause that pointed publication at the
+Route-B-only item 0). `docs-drift` synced at `b308d1c`; handoff-only commits since; no graph sync now. B-136 only.
+Local commit; no push.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Supplied audit's G1–G4; prior verified IR design kept closed | Phase 1 |
+| Approve-with-conditions | Act r3, `D-438` body, route addenda r2 | Phase 1: Lane B delta review; then Judge D1/J1/J2 |
+| Defer | Registration, application, graph cycle, publication, health, exact-range push; setup readiness; BCP-1 r4 | Selected act and existing owners |
+| Reject | Route fallback; late fetch as historical push compliance; supplied chat text as a Lane B commit | All phases |
