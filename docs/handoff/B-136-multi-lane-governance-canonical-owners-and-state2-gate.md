@@ -14308,3 +14308,46 @@ expected `D-438` drift.
 | Approve-with-conditions | Setup trace r2 and its custody manifest | Lane B review; custody after `D-438` health |
 | Defer | REA-TRACE-2 residual; `NG-11` owner; S5–S7; `D-437`; SM05; Gate 2; push | Their owners and triggers |
 | Reject | Trace r1 as complete; Codex test credit from Claude Code evidence; unknown history read as "never happened" | All phases |
+
+---
+
+## Lane A — setup trace r3 and transfer manifest r1: answers Lane B's audit of `9a19342` (G1–G3), 2026-10-16
+
+### What happened
+
+**Receipt.** The Judge supplied Lane B's audit of `9a19342` (chat; no file changed). It confirms r2's scope corrections
+(FR-11, FR-14, TR-API, standing controls, owner split, ECC pointer) and returns G1–G3. Sequence kept:
+`5dc2148` → `9a19342` → this answer. No new Lane C evidence; no S5 prerequisite added.
+
+| Artifact (`C:/CoWork/outputs/lane-a-bcp1-filemap-2026-10-15/`) | SHA-256 |
+|---|---|
+| `BCP1-SETUP-TRACE-r3.md` (r2, r1 kept) | `36d4683b35497d2f565c7debf8b168bee5e3f714ceb42670c78f0579d4512239` |
+| `TRANSFER-MANIFEST-r1.md` | `47a10ab014308b3bc6dba3c4e42f2ab1735b3e4708218f0e0cbeca02df1449b5` |
+| `make-transfer-manifest.mjs` (read-only generator) | `586b0ddbf3d423a27b5a4a7a71128634cd50cc8315f97fb51c17728201de6fa9` |
+
+| Gap | Correction |
+|---|---|
+| G1 negative search | The F16 residual now asks Lane B to "supply any recovered record, or report the searched locations and that no record was found". The result stays **UNVERIFIED** until evidence or an explicit residual disposition resolves it. Creator, test result and recurrence mechanism stay separate unknowns |
+| G2 custody list | **Transfer manifest r1:** 89 rows, one per source file — full SHA-256, destination under `docs/handoff/artifacts/B-136/` (`bcp1/`, `ev-corrections/`, `ir-application/controls/`, `d438-cycle/`), existing-file disposition, reviewer (Lane B), trigger (after `D-438` health). **2 identical copies already in the repository** (EV packet r1, the review summary): keep, write nothing. **0 conflicts** — the r3-era and r4-era per-case logs go to `r3-logs/` and `r4-logs/`, apart from the `c2c81af` logs of the same names. Rule: a different existing file stops the row. **Destination proof and custody commit: pending; no file transferred.** Not transferred, with owner and retention: TR-1 raw evidence (cited by hash until the `D-437` registration binds it), F16 bytes (external custody), cycle tooling (`descriptions.mjs`, `names.mjs`), superseded interim drafts. The manifest and its generator are recorded here by hash |
+| G3 recurrence removal | Trace r3 §1c: before any removal — (1) size and SHA-256, no values read; (2) the Judge's disposition covers only bytes equal to `fd3c37f5…` (704 bytes); (3) copy to custody with its creation time and verify; (4) equal → remove and record; **different, or another unrelated untracked file → stop, keep the bytes, change nothing, return the observation to the Judge and Lane B**. The `62ae54e` removal met (1)–(3): the bytes were equal |
+
+Terms adopted: "none exists" → "not found in the stated search"; "manifest ready" → "custody plan drafted; exact transfer
+manifest pending"; "`0002` unapplied" → "local application/test evidence as recorded; hosted migration scheduled under
+`D-381`"; "drafts delivered" → "repository custody verified for the named files" (only after the transfer).
+
+### What you need
+
+**Lane B:** review trace r3 and the manifest; S5 receipt for candidate `c5b3cafa` in B-050 with its annotation; the F16
+residual (recovered record, or searched locations with no record found). **Judge:** `NG-11`'s policy owner (open).
+
+### What you did instead
+
+Drafts outside the repository; handoff-only record. No fetch or push (`D-438` interval). The check fails only on the
+expected `D-438` drift.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Lane B's G1–G3; r2 scope corrections retained | Phase 1 |
+| Approve-with-conditions | Trace r3; transfer manifest r1 (plan only) | Lane B review; transfer after `D-438` health |
+| Defer | Transfer and destination proofs; F16 residual; `NG-11` owner; S5–S7; `D-437`; `D-439` | Their triggers |
+| Reject | "None exists" from a bounded search; custody called complete before the transfer; removal of non-matching bytes | All phases |
