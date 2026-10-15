@@ -13885,3 +13885,95 @@ Drafts outside the repository; handoff-only record. The check fails only on the 
 | Approve-with-conditions | EV r5 and harness r5 | Lane B review; custody after health; `D-439` after health |
 | Defer | S5–S7; custody; `D-439` application | Their stages |
 | Reject | EV r4 as application-ready; recorded results called independent replay | All phases |
+
+---
+
+## Lane B — consolidated r5 review and Judge clarification of F16's REA test purpose; receive after `f8d52c7`, 2026-10-15
+
+**Kind:** finding. **Phase:** 1. **Raiser:** Lane B. **Receiver:** Lane A through its own answer here.
+**Observed at:** `f8d52c70b187d9637bdba4d2ff5bd63a74cab25d`. **Blocks:** G3/G4 closure and full EV application readiness;
+the current untracked configuration also fails the existing clean-checkout publication condition. B-136 stays Open.
+
+### What happened
+
+**Executive receipt.** The Judge has explained F16's historical purpose: `.codex/config.toml` was used to test REA
+setup. Do not ask again what the file was for. G1/G2 are accepted for design; G3/G4 need the narrow corrections below;
+G5 remains scheduled after health. This consolidates the prior chat-only review so Lane A can answer one record.
+
+**Judge's words, verbatim:**
+> rea - .codex/config.toml was used to test the setup for REA in earlier steps;
+
+| Transaction | Fact retained | Current consequence |
+|---|---|---|
+| `b0c8290` | Judge chose "Dispose of file first", then "Remove, keep bytes (Recommended)". Lane A retained F16 outside the checkout, then prepared D-438 | The historical disposition and S4 preparation remain valid records |
+| `8842c1a` -> `24c070f` -> `f8d52c7` | JE1 clarification, r4 answer, then EV/harness r5 answer | JE1, recovery and C5 integration stay closed within their stated scope; r5 objects are bound in `f8d52c7` |
+| Lane B chat review of `f8d52c7` | Nine EV targets each occur once; hashes and eleven log endings match; G3/G4 remain partly open; F16 present again at final status check | Design corrections and the current checkout condition must be distinguished |
+| Judge clarification above | Earlier REA setup-test use confirmed | Historical purpose is explained; no new adoption or retention decision is inferred |
+
+**Current F16 evidence.** `git status --short` reports `?? .codex/config.toml`. The file is 704 bytes, with SHA-256
+`fd3c37f57cee30a67957da01d571ddbaa481c907e3a164cb56d6848952b4f954`, equal to the retained copy at
+`C:/CoWork/outputs/lane-a-f16-custody-2026-10-15/config.toml`. Its current creation and modification times are
+2026-10-15 15:28:47 UTC. These facts do not identify a writer or restoration mechanism. The Judge's statement supplies
+the historical purpose. No content values were printed. `snapshotSource` and `publicationSourceFindings` in
+`scripts/graphify/guarded-rebuild.mjs` still require a clean checkout. Historical test use does not itself clear that check.
+
+| Parent / child | State | Next condition |
+|---|---|---|
+| B-136 / SM05 transition | Open | Existing parent obligations |
+| D-438 source repairs and S4 | Closed within recorded scope | Preserve the candidate; no unnecessary new prepare |
+| F16 historical purpose | Clarified by the Judge | Lane A acknowledges; no repeat purpose question |
+| F16 current checkout disposition; D-438 S5 -> S6 -> S7 | Open | Restore the approved checkout disposition; receipt, publication, separate health |
+| EV G1/G2 | Closed for design review | Keep exact text, correct Item column, existing/planned labels and scoped empty-state sentence |
+| EV G3; harness G4 | Partly open | Follow-up ownership/current disposition; missing failure-path evidence |
+| G5 repository custody | Open, after health | Approved files only, byte proofs and custody commit |
+| Setup, SM05, Gate 2, later push | Open or separate | Their existing acts and checkpoints |
+
+### What you need
+
+1. **F16 — Lane A:** acknowledge the Judge's clarification and record the recurrence separately from the completed
+   historical removal. Use the existing remove-and-retain disposition within its bounds to restore the clean checkout;
+   the matching retained bytes already exist. Recheck candidate and publication bindings after that disposition. Do not
+   require writer attribution as a new gate when the bounded disposition can be completed. If keeping or using the
+   registration now changes the approved scope, present that exact change to the Judge. Do not commit or ignore the
+   configuration merely to make the publication check pass. This handoff does not remove or alter it.
+2. **G3 — Lane A:** retain the r5 BCR/BCD design, but restore the `next action, owner and trigger` requirement from
+   `8842c1a` (also present in r4). Draft clause: "Each disposition names its next action, owner and trigger, or explicitly
+   states none. The unsuperseded disposition determines current acceptance. Earlier decisions remain history."
+   A later rejection or deferral must not inherit current acceptance from a superseded decision. Return the exact amended
+   block. This is post-acceptance tracking, not an additional SM05 entry gate.
+3. **G4 — Lane A:** r5 has explicit failure stops. Its retained self-tests prove normal execution, invalid-source refusal
+   and helper-hash refusal only. Add bounded disposable tests for a fixture-commit failure and an evidence-write failure.
+   Each must return exit 3, stop later cases, produce no success verdict and retain evidence already written. Bind exact
+   commands, raw output, expected/actual exits and hashes. Do not call these paths tested from T2's clone failure alone.
+   The eleven normal-run records and matching log endings remain valid recorded evidence; independent replay is unverified.
+4. **Lane B:** review those deltas. D-438 S5 remains its separate bytes-and-meaning receipt in B-050 plus its annotation;
+   G3/G4 add no new S5 prerequisite. The dirty-checkout condition is an existing publication guard, not a new EV gate.
+   Lane A publishes only after receipt and records separate health. No fetch or push before health.
+5. **G5 — Lane A, after health:** transfer the approved artifact list to the existing
+   `docs/handoff/artifacts/B-136/ir-application/` and `ev-corrections/` locations. Preserve source/destination hash equality,
+   raw evidence and recovery provenance; record the custody commit. F16's retained test configuration and graph staging
+   keep their separate dispositions. No bulk transfer of `C:/CoWork/outputs/`.
+6. **Later EV act:** present the complete reviewed unit to the Judge after D-438 health. Keep the reasoned D-54
+   dispositions. Do not re-ask JE1. No new Lane C finding or acceptance has been supplied.
+
+### What you did instead
+
+Lane B records the supplied clarification and prior review in this existing handoff. Lane A writes its own answer.
+No configuration, helper, governed source, frozen baseline or graph is changed by this record; no receipt is issued.
+The current untracked file remains disclosed. Graphify query is available, but the existing D-438 governed drift remains
+Open. Handoff-only recording neither creates a new synchronization cycle nor clears that drift.
+
+Check evidence: `bun run check` failed at startup with `CouldntReadCurrentDirectory`. The configured runner,
+`node scripts/check-consistency.mjs`, completed: 18/19 pass, exit 1; only the existing D-438 `docs-drift` check failed.
+`git diff --check` passed. No full-consistency claim is made.
+
+Normalized terms: "unexplained REA file" -> "REA setup-test configuration; current checkout disposition open";
+"G1-G4 fixed" -> "G1/G2 accepted for design; G3/G4 partly open"; "11/11 verified" -> "eleven results recorded; log
+endings matched"; "delivered files" -> "drafts until approved repository custody".
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Judge's REA test-purpose clarification; G1/G2 design corrections; preserved JE1, recovery and C5 findings | Phase 1: Lane A acknowledges this record |
+| Approve-with-conditions | Consolidated handoff ready for Lane A's answer; EV/harness r5 | Phase 1: bounded F16 disposition, G3 amendment and G4 failure-path evidence; Lane B review |
+| Defer | D-438 receipt/publication/health; G5; EV application; later push; setup, SM05 and Gate 2 | Existing checkpoints; custody and EV application after health |
+| Reject | Historical test use treated as clean-checkout proof or new adoption; full G1-G5 closure; publication from the current dirty checkout | All phases |
