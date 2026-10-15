@@ -12650,3 +12650,83 @@ health record. One inline self-grade. B-136 only. Local commit; no push.
 | Approve-with-conditions | Packet r2 | Phase 1: Lane B delta review; then Judge application act, D-54, guarded sync |
 | Defer | Source application; FR-10 UI Inventory row; checker; SM06 and publishing design; push | Existing owners and bounded acts |
 | Reject | IR-3b; historical text treated as current; anchor match as proof of currency | All phases |
+
+---
+
+## Lane B — IR packet r2 accepted: design child complete; source application remains separate, 2026-10-15
+
+### Layer 0 — Handoff and result
+
+**Raised:** 2026-10-15 by Lane B. **Kind:** finding / independent design review. **Phase:** 1.
+**Parent:** Open B-136 / Parent 3 / IR correction packet. **Evidence observed at:** b867ec35ca4946b7a5d9ebdae20661c664c0e457.
+**Reviewed:** C:/CoWork/outputs/lane-a-ir-doc-corrections-2026-10-15/IR-CORRECTION-PACKET-r2.md,
+SHA-256 bc29c616e5d3d2850e00e5037420e7f0bae534a243bcbecac77f8c1cd0fcb71c.
+
+**Precise request:** verify Lane A's r2 delta and durable answer; close the completed design obligation and name
+the next application-plan artifact. Keep source repair, graph health, SM05 construction and push distinct.
+
+**Result: accepted.** Lane B independently verifies the r2 design answer at b867ec3. IR-P1 is resolved: IR-3b and
+the mistaken Q3/Q5 re-verification deferral are withdrawn throughout the packet, and Lane A's answer/hash are now
+recorded. The previously accepted IR-1–IR-5 replacement text is unchanged. No new design return or re-grade is due.
+This verifies the design and recording obligation, not repaired sources, application authority or runtime behavior.
+
+### Layer 1 — Completion map, parent first
+
+| Parent / child | State and scope | Next step |
+|---|---|---|
+| B-136 / SM05 transition | Open; SM05 remains BLOCKED/not selected | Existing selection/work-order/Active/clearance acts |
+| Prior BCP2 raw-byte, custody and grading-pointer corrections | Verified; retained closed | None from this review |
+| IR packet design and Lane A answer (b867ec3) | **Verified by Lane B at b867ec3**, within the accepted source-correction design and durable-record scope | Design child complete |
+| IR-P1 correction | **Verified:** false IR-3b extension removed; current/history context preserved | Keep the original Register history unchanged |
+| IR-3b and Q3/Q5 re-verification deferral | Withdrawn by Lane A; withdrawal independently confirmed | No new question decision or re-verification task |
+| IR-1–IR-5 source repairs | Planned, not Applied/Verified | Concrete application-act draft, then the Judge's bounded act |
+| BCP-1 r4 review; other B-136 obligations | Their existing state/trigger remains | Separate Lane B review; not a new prerequisite for this IR design acceptance |
+
+### Layer 2 — Evidence, limits and remaining preparation
+
+The bound r2 hash matches the B-136 answer. r1 remains unchanged at d4b4070f…e39de4. Lane B compared the accepted
+replacement spans for IR-1, IR-2, IR-3a, IR-4 and IR-5a/b with r1: all are unchanged. All nine checked source/ledger/
+prior-routing files remain byte-identical to the prior review. The r2 target table removes the old Register-list
+edit, its tier table limits Register work to the new application act, and its Encyclopedia row now states the
+local-map limit. The final answer records both earlier Lane B reviews and the full r2 hash.
+
+**Preservation qualification (recorded here; no new design round):** r2 and Lane A's answer still say every
+replacement retains the old claim inline. IR-1b/c do not repeat their complete old sentences. The accepted meaning
+is preservation of the bound original revision plus accurate dated correction notes, not a promise of a full inline
+copy for every sentence. This review qualifies that summary claim; it does not change the accepted replacements.
+Use this wording in the later act. No source history is deleted and no extra inline duplication is required.
+
+**Tier limits:** D-54 permits Build Spec unaffected because no sprint scope, sequence or DoD changes; state that
+reason in the new Register act. Inventory changes only its existing UX-row wording. Frozen sources, FN specs and
+rule files stay outside the unit. Encyclopedia unaffected is a local-map assessment; hosted parity was not checked.
+No Inventory row, new source artifact, tool adoption or new Q8 outcome is implied by this design acceptance.
+
+### Layer 3 — Single Lane A follow-up: prepare the application act
+
+1. Use the accepted r2 as the source-text contract. Draft one concrete act with the five existing source targets:
+   Modular_PRD, V1-SM05 packet, SPECS-TRANSITION-ENFORCEMENT, SPECS-PUBLICATION and the Inventory, plus the new
+   Register act itself. Bind current source revision/hashes and the exact old/new replacements. Leave the existing
+   historical Register paragraph unchanged. Do not reopen accepted wording to add unrelated repairs.
+2. State the source-check/refusal conditions, D-54 affected/unaffected tiers and the exact curated-fragment impact
+   before application. Define a valid independent Lane B candidate-receipt route, any needed unit-specific exception,
+   the publication permission/stop, the no-fetch/no-push interval and the separate health record. Do not assume an
+   expired earlier unit's receipt exception or publication permission applies to this one.
+3. Present that complete act for its bounded review and Judge checkpoint. Only then record/apply the authorized
+   source unit, prepare the graph candidate with preserved/re-merged fragments, obtain its independent receipt,
+   publish if authorized and record health. Judge selection/SM05/Gate 2 and push keep their separate acts.
+
+**Chief Editor requirement:** no further choice is needed to accept this completed design child. The next decision
+is the concrete source-application act once Lane A has written its full scope, route and stop points. Do not request
+a duplicate approval of r2 or treat design acceptance as permission to edit governed sources.
+
+**What Lane B did instead:** reviewed the delta and recording, compared the accepted text and source bindings,
+and queried the existing graph. No governed source, tool, test or application code changed. Only this B-136 review
+is added. Current handoff-only drift needs no graph sync. Later source application requires its own guarded cycle.
+Evidence and final-content checks: C:/CoWork/outputs/lane-b-ir-packet-r2-review-2026-10-15/.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| **Approve** | r2 design/record Verified; IR-P1 resolved; IR-3b and Q3/Q5 deferral withdrawn | Phase 1: design child complete at b867ec3 |
+| **Approve-with-conditions** | Preparing the concrete source-application act | Phase 1: bind the accepted text, source set, tier/fragment impact, receipt/publication/health route and stops; review before Judge application act |
+| **Defer** | Applying sources, graph publication/health, sibling reviews, construction, gates and push | Existing bounded acts/evidence; no new condition on completed r2 design |
+| **Reject** | Reopening the historical question list; inline-copy overclaim; design acceptance or a green check treated as application/build authority | Phase 1 and consuming phases: retain the stated scope |
