@@ -13326,3 +13326,91 @@ No fetch, no push, no prepare. B-136 only in this commit.
 | Approve-with-conditions | Push of the exact range | Judge's S3 approval; SOP fetch proofs |
 | Defer | Prepare, receipt, publication, health; C2/C4 controls | After the push, in act order |
 | Reject | Applied text treated as published graph; the drift treated as defect; push without a named range | All phases |
+
+---
+
+## Lane B — D-438 independent delivery verification; control coverage and execution-evidence custody remain Open, 2026-10-15
+
+### What happened
+
+**Observed at:** `4c3ba2a`. **Authority for this review record:** the Judge's current message, "Judge Approved:
+verification lane b; followed by commit and push;". This permits this Lane B review record; it does not name the final
+accumulated push range. D-438 item 6 and the handoff SOP (`D-385`) retain that exact-range checkpoint. No application
+code, source repair, control implementation, graph preparation or publication is performed by this review.
+
+**Independent verification (not a rerun of Lane A's applying script).** Lane B extracted all ten old/new pairs from
+the repository copy of IR packet r2, reconstructed the five outputs from `128e0d4`, substituted only `D-NNN` and
+`2026-10-NN` inside the accepted new strings, and compared the resulting bytes with `54cd178`. Every old string occurred
+once in its target. All five committed outputs and the working files equal the reconstructed bytes. Reversing the ten
+substitutions reproduces the five original inputs exactly. Both SM05 links resolve to existing files.
+
+Lane B also composed the D-438 body independently from the bound body and Route B addendum, using the recorded slots.
+Appending it to the Register at `128e0d4` reproduces `e5cca78` exactly: one path, additions only. The prior Register,
+including its historical question paragraph, is unchanged. No frozen source or Build Spec change is in either commit.
+
+| Verified object | Git blob | SHA-256 |
+|---|---|---|
+| Register at `e5cca78` | `a8e63705a46665dc2c2d19ebaa593c4db6d460e9` | `86312a80331638dfe3a03e8d6de707383d316328d7ffdd9030284f87b8494e49` |
+| Modular_PRD at `54cd178` | `8dcaedc82729a6968a23f340103ce3ce9f70d108` | `2934270790db96b505a8e5f87f075326748155e6fd1891a17b6ef40347c78516` |
+| V1-SM05 at `54cd178` | `63f9ea154d21190268c60ce5064aed1bc4082077` | `fecb291cd2196026ac23fedb294ac4568b4b4a400fa36e1405d88f17a9d7211f` |
+| SPECS-TRANSITION-ENFORCEMENT at `54cd178` | `dfadd24b82b4ca2b9add098d9dc94752276f1ee7` | `256b9a323bd2301c043ffcb32623d3d342f36f90b75817f02cc8ebd672cf6c4f` |
+| SPECS-PUBLICATION at `54cd178` | `918436c355df7b1188cb4649768217a4df34d496` | `b8b3cbeb10b621734f9441944af9029c6bd5c0f2c34725f0a46fdcf14083ce77` |
+| Inventory at `54cd178` | `0bf84758ea59c2f13ebe1a77f054a24dc5bb720c` | `a9e96b5b8d3b4a0cda082ad5daa0d3737f69c23addaec3e1aac5178e8228cf0a` |
+
+### Parent-child disposition
+
+| Parent / child | Disposition | Limit / next owner |
+|---|---|---|
+| B-136 / SM05 transition | **Open** | No header or root disposition changes |
+| Eight-file custody, manifest r6 and wording corrections | Complete within the prior review scope | Unchanged |
+| D-438 registration composition (`e5cca78`) | Independently verified by Lane B at `4c3ba2a` | Recorded composition only; no new authority inferred |
+| IR-1 to IR-5 applied source bytes (`54cd178`) | Independently verified by Lane B at `4c3ba2a` | Ten replacements in five files; not graph publication or readiness |
+| C1-C4 control obligation / helper assurance | **Open** | Lane A answers the findings below; successful live paths are not the disposable controls |
+| Execution-evidence custody | **Open** | Lane A transfers the required evidence and records its committed-byte proof |
+| S3 push | **Open** | Judge names the final range, including this review commit; fresh-fetch proofs required |
+| S4-S7, SM05, construction, Gate 2 | Not completed by this review | Their own acts and conditions |
+
+### What you need
+
+**Lane A, answer under this parent:**
+
+1. **Control coverage.** C1-C4 were specified for application in a disposable copy; they were not run separately.
+   C2 and C4 refusal behaviour remains unverified. Draft the bounded control follow-up against the historical inputs,
+   then retain the actual results before claiming those obligations complete. Do not rewrite successful source repairs
+   merely to produce control evidence.
+2. **N1 implementation gap (static finding).** `apply/ir-apply.mjs` uses `git grep -l D-438` and an allowed-file list.
+   It rejects an unexpected reference path, but does not inspect the ownership of commitments inside an allowed file.
+   A conflicting D-438 commitment added inside B-136 would still satisfy that path-only predicate; B-136 is also outside
+   the seven bound source paths and the old-text search. This is not the ownership rule in act section A. Lane B read
+   the actual historical references at `128e0d4` and found them to be this IR unit's references; that does not prove the
+   helper refuses the conflicting case. Before helper reuse or control closure, require explicit commitment-ownership
+   evidence bound to the reviewed reference contents. Include a C2 case with a conflicting commitment inside B-136,
+   not only in a new file. Do not treat a path allowlist as an ownership decision.
+3. **Execution-evidence custody.** The eight design artifacts are retained, but the applying helper, composed body,
+   expected-output manifest and run/check logs remain only under `C:/CoWork/outputs/.../apply/`. Their hashes alone do
+   not transfer their contents. Lane A must retain the required execution evidence under the existing B-136 artifact
+   route and bind repository paths, source hashes, destination hashes and commits. Preserve the original helper as
+   history; any corrected helper is a new reviewed object. Assess any code-extraction effect in the next guarded cycle.
+
+**Judge, S3:** the attached proposal ended at `4c3ba2a` (18 commits from cached upstream `508ee9f`). This review adds a
+commit, so that is no longer the final range. Present the actual new tip before approval. General push approval is not
+the named accumulated range required by D-385. No fetch or push occurs from prepare through the health record.
+
+### What you did instead
+
+Read and compared committed objects, frozen repository inputs, current files and the disclosed external evidence.
+Did not execute the applying helper, implement controls, copy Lane A's execution artifacts or change governed sources.
+Bound commit path: `docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md` only; index was empty.
+Full consistency check is required before the review commit; only `docs-drift` is permitted to remain under D-438 item 3.
+
+**Graph / terms.** Graphify was queried. Governed drift is now real and expected: the Register and five repair files
+changed since `b308d1c`. Only the guarded cycle and separate health record clear it. "Verified source bytes" does not
+mean "controls verified", "graph current", "push authorized" or "SM05 ready". No new Lane C evidence was supplied.
+Financial or bankruptcy-level impact is unverified; no loss estimate is inferred.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | D-438 recorded composition and the ten applied source replacements, independently reconstructed | Phase 1: narrow delivery verification complete |
+| Approve-with-conditions | Completion of the application-control and evidence obligations | Phase 1: Lane A answers control coverage, N1 ownership and execution-custody findings |
+| Defer | S3 push, graph cycle and full D-438 unit completion | Exact-range checkpoint and the act's remaining obligations |
+| Reject | Successful paths as refusal-control proof; allowed reference paths as ownership proof; source bytes as graph or SM05 clearance | All phases |
