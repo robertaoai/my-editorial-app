@@ -13977,3 +13977,118 @@ endings matched"; "delivered files" -> "drafts until approved repository custody
 | Approve-with-conditions | Consolidated handoff ready for Lane A's answer; EV/harness r5 | Phase 1: bounded F16 disposition, G3 amendment and G4 failure-path evidence; Lane B review |
 | Defer | D-438 receipt/publication/health; G5; EV application; later push; setup, SM05 and Gate 2 | Existing checkpoints; custody and EV application after health |
 | Reject | Historical test use treated as clean-checkout proof or new adoption; full G1-G5 closure; publication from the current dirty checkout | All phases |
+
+---
+
+## Lane B — setup trace from Project intent to delivered controls; consolidated extension to `07737b4`, 2026-10-15
+
+**Kind:** finding. **Phase:** 1. **Raiser:** Lane B. **Receiver:** Lane A through its own answer here.
+**Observed at:** `07737b46d8ecc343a1617fa11f39fbee95a5de5a`. **Blocks:** a claim that the setup trace is complete;
+no new D-438 receipt prerequisite or SM05 gate. B-136 stays Open.
+
+### What happened
+
+**Clarified request.** Trace the REA test configuration from Project intent through requirements, the setup contract,
+the delivered file and verification. Check the same chain for the other declared Project-scope items. Reuse the existing
+tracking and retain each decision. Return a plan to Lane A; do not implement the controls.
+
+**Judge's words, verbatim:**
+> rea - .codex/config.toml was used to test the setup for REA in earlier steps; challenge the missing setup ('gov and docs'/Lane-A) from intent, requirements, to implementation chain same with all other project scope items;
+
+**Executive finding.** The setup plan is not absent. TR-1, the accepted r10 setup packet and BCP-1 already describe
+substantial parts of it. The missing link is a complete trace for the actual Codex REA test and its current disposition.
+Other Project-scope rows need a coverage check; this audit does not claim that all their setup is missing.
+
+| Transaction / source | Fact retained | Limit or next obligation |
+|---|---|---|
+| `46c7417`; r10 Parts 1, 3, 4 and 6 | The Judge requires ECC, Ponytail and REA before SM05, within the stated load/planning credit. REA route D is selected. Stage B requires its own binding and Lane A acceptance | r10 excludes Codex REA registration. Its Stage B uses ECC/Ponytail; Lane B consumes retained REA output. "Both consumers" does not override this exclusion |
+| `508ee9f`; BCP-1 file map r4 | Existing F/P/T rows and I/S/TB/IP/C/R partitions connect intent, setup, tests, implementation packets, construction and results | r4 content review remains pending in the read chain. F16 still asks for an owner statement; the Judge has now explained the test purpose |
+| D-438 item 0 | D-437 retains its identity and setup content | Record at the next governed batch that changes setup or SM05 entry text. Do not call the registration complete or overdue solely from this handoff |
+| `b0c8290` then `07737b4` | Historical remove-and-retain disposition; current recurrence; Judge's test-purpose clarification | Purpose is settled. Current checkout disposition remains separate. No writer is inferred |
+| This request | Apply the same chain check across declared Project scope | Extend the existing map; do not create a second scope authority or adopt every named tool |
+
+**Read and bound.** BCP-1 r4: `C:/CoWork/outputs/lane-a-bcp1-filemap-2026-10-15/BCP1-FILE-MAP-r4.md`,
+SHA-256 `8ba9414bb1f52ce413c5671f958886ad01afcb9c9d2e9a197cb53bce26ca2864`.
+r10: `C:/CoWork/outputs/lane-a-sm05-selection-draft-2026-10-13/SM05-SELECTION-DRAFT-r10.md`,
+SHA-256 `b6e523f04142c1bc062ae7cff220ab19f9d97b95bc14c8c4645a5bd72b0e116c`.
+F16 remains untracked, 704 bytes, with the same full hash as the retained copy in `07737b4`. This check read no config values.
+
+### What you need
+
+**Parent-first decision and work map.** "Closed" below applies only to the named fact, not to B-136.
+
+| Order | Item | State | Lane A answer / acceptance condition |
+|---|---|---|---|
+| 1 | B-136 / SM05 transition | Open | Acknowledge this extension with `07737b4`; retain the other child obligations |
+| 1.1 | Project-scope coverage boundary | Open | Use `Modular_PRD.md` §0.6, §7.2 and §7.2a, their governed cross-references and the Inventory. Reconcile the resulting row set with BCP-1; retain existing IDs |
+| 1.1.1 | REA historical test purpose | Closed: clarified by Judge | Replace the stale request for test purpose in the next F16 answer. Preserve earlier wording as dated history |
+| 1.1.2 | REA test-to-contract trace | Open; historical authority/result linkage UNVERIFIED | Identify the earlier test record, its consumer, bounded authority, input/config binding, result and independent review. Mark missing links explicitly. Do not invent an approval or readiness result |
+| 1.1.3 | Other Project-scope chains | Coverage UNVERIFIED | Classify each declared row as complete, open, or not applicable with a cited reason. Name owner and trigger for each gap; do not mark unexamined rows complete |
+| 1.2 | Approved artifact custody and canonical propagation | Open | Transfer approved governance/control documents to Lane A's repository destinations. External evidence or sensitive files keep only their explicitly authorized retention route. Bind bytes and the receiving commit; follow D-54 and the existing timing |
+| 1.3 | D-438 and EV siblings | Open within `07737b4` | Keep its F16 disposition, G3/G4 corrections, separate S5 receipt -> publication -> health, and G5 after health. This trace request adds no prerequisite to S5 |
+| 2 | Setup readiness and product construction | Open / separate | Existing setup checkpoints, SM05 selection, issued work order and lane state govern execution. No credit from this review alone |
+
+**Minimum trace contract — add to the existing BCP-1 map, not a second ledger.** For each row, record:
+
+1. **Intent and requirement:** existing scope ID, source section and decision; the supported business or delivery need.
+2. **Setup contract:** selected method and consumer/host; requirement or control clause; bounded authority and allowed effects.
+3. **Delivered artifact:** exact path and revision/hash, writer and state. Distinguish planned, test-only, applied and independently verified.
+4. **Verification:** success and refusal criteria, actual run evidence, review actor and acceptance scope. File presence is not host-use proof.
+5. **Custody and next action:** canonical destination, preserved source, current disposition, next action, owner and trigger. Use "none" only with a reason.
+
+**REA application of that contract.** Join F16 to TR-1 and the applicable AIG requirement/control, with a stated rationale.
+`AIG-03.R1` requires measured loading; `AIG-04.R3` requires proof through the claimed host; `AIG-04.R5` requires bounded
+effects and retained evidence. These are available anchors, not proof that the Codex test met them. The historical test
+record may explain a separate scope; it must not be inferred from r10's Stage A receipt or its ECC/Ponytail Stage B route.
+Do not ask the Judge again why F16 existed. Do not demand retrospective approval or writer attribution to complete the
+existing bounded disposition. Any proposed future Codex REA use that changes the exclusion needs its own exact scope.
+
+**Coverage and ownership.** Check the complete declared Project-scope row set, not only tool names. Keep accepted closures
+and cite their evidence; do not reopen them merely to fill this map. Reuse BCP-1 F9/F10/F11/F17
+for checks, build/config and workflow controls; F13-F16/P1-P12 for setup; T1-T5/S1-S3 for tool and delivery adapters.
+Do not force global AIG work into Product US/FR/AC IDs. Preserve the current Ripwire evidence-only disposition and the
+unadopted gstack/Spec Kit proposals. Lane A records governance, requirements and control-file allocation. Lane B supplies
+consumer bindings and application details; a bounded act must identify any exception to normal file ownership. Lane C
+supplies evidence for its workflow surface. No new Lane C review or acceptance is evidenced here.
+
+**Draft completion rule.** "A setup row is complete only for its named scope and stage. The accepted requirement,
+contract, artifact, run evidence, independent review and custody record must be linked. A missing link remains Open.
+Registration, presence, successful use and readiness are separate states. A scope item that needs no setup file names
+the existing control and explains why. A new document is required only when the existing tiers cannot carry the content."
+
+**Risk and stop criteria.** An excluded host registration can be mistaken for an accepted consumer route; compare the
+host and effects with the exact act before credit. A draft can be mistaken for a delivered control; require repository
+custody or an approved external-evidence disposition. A green consistency result can be mistaken for product acceptance;
+retain the separate setup and product verification records. These are material trace and authorization risks; no
+business-ending outcome is established by the evidence.
+
+**Lane A sequence.** (1) Receive this block and `07737b4`. (2) Reconcile the scope rows and complete the REA example.
+(3) Return only missing links and corrections, with their existing row IDs, owners, triggers and affected tiers.
+(4) Return the revised map and custody list to Lane B for review. (5) Apply approved governance changes only under their
+existing or newly required bounded act; preserve D-437 timing and the separate D-438 cycle. Product tests, `specs/`,
+`.specify/` and code retain their individual BCP-1 triggers. This handoff authorizes none of those builds.
+
+### What you did instead
+
+Lane B inspected the cited records and hashes, then appended this template-based finding. Lane A's answer stays its own.
+No config, setup tool, governed source or graph was changed. No REA call, receipt, fetch or push was made.
+
+**Graph and terminology.** Graphify query is available and was used for orientation. Its recorded analysis is still
+`b308d1c`; direct governed sources determine current status. The existing D-438 source drift remains Open. This handoff
+does not require a new rebuild or clear that drift. Complete the existing receipt/publication/health route; assess a
+later governed map correction through D-54 and its own guarded cycle. Do not treat `stale: false` as current source parity.
+
+**Checks at this record.** `bun run check` could not start (`CouldntReadCurrentDirectory`). Its configured command,
+`node scripts/check-consistency.mjs`, completed with exit 1: 18/19 pass; only the existing D-438 `docs-drift` check fails
+(six governed-intent paths since `b308d1c`). `git diff --check` passes. This is not a full-consistency claim.
+
+Normalized terms: "missing setup" -> "missing or unverified links in the setup trace"; "REA file unexplained" ->
+"REA setup-test purpose confirmed; current disposition open"; "both consumers approved" -> "consumer-specific scope
+and checkpoint"; "outputs delivered" -> "external drafts/evidence pending approved custody".
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Consolidated scope and trace request; settled REA test purpose | Phase 1: ready for Lane A's answer |
+| Approve-with-conditions | Setup-chain completeness and revised BCP-1 map | Phase 1: row reconciliation, exact missing-link evidence, custody plan and Lane B review |
+| Defer | D-437 registration, canonical edits, G5 custody, setup readiness, SM05, Gate 2 and push | Their existing triggers; G5 after D-438 health |
+| Reject | All setup claimed absent; Codex REA adoption inferred from test purpose; complete delivery inferred from drafts or green checks | All phases |
