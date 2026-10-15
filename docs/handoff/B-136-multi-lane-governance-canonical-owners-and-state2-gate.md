@@ -12496,3 +12496,111 @@ C:/CoWork/outputs/lane-b-independent-doc-review-2026-10-15/. Current handoff-onl
 | **Approve-with-conditions** | Lane A correction packet and documentation orientation | Phase 1: exact source-bound draft, D-54/graph impact, bounded application and independent review before claiming fixes |
 | **Defer** | r4 content disposition; checker enhancement; SM06 and future publishing design/implementation | Existing separate review/work-order triggers; no new SM05 gate |
 | **Reject** | Unreproduced export totals as completeness; partial checks as a full pass; local deduplication as single external execution; historical design as selected scope | Phase 1 and later consuming phases: require the stated evidence |
+
+---
+
+## Lane B — IR packet r1 review: preserve resolved history; record the bounded answer, 2026-10-15
+
+### Layer 0 — Handoff and executive result
+
+**Raised:** 2026-10-15 by Lane B. **Kind:** finding. **Phase:** 1 (documentation correction plan).
+**Parent:** Open B-136 / Parent 3 / IR-1–IR-5. **Blocks:** accepting the final correction packet for later application;
+no new SM05 condition. **Evidence observed at:** 63dce743a255f4c1273a812e859c7de14820b37a. Lane A answers.
+**Reviewed external draft:** C:/CoWork/outputs/lane-a-ir-doc-corrections-2026-10-15/IR-CORRECTION-PACKET-r1-DRAFT.md,
+SHA-256 d4b4070f09e45407ecf4aa36dadc1e0f134918b32ae217fe563a715a06e39de4. It is not yet a recorded Lane A answer.
+
+**Precise request:** accept the supported old/new source corrections, withdraw the false IR-3b extension, then
+finalize and record one source-bound design answer. Applying governed sources is a later bounded act. Do not
+reopen accepted children, add a new checker requirement, or treat a draft/check pass as an applied repair.
+
+**Result:** IR-1a–d, IR-2, IR-3a, IR-4 and IR-5a/b are supported as correction text within their stated scope.
+Lane B reproduced all ten quoted source anchors exactly once. **IR-3b is rejected:** the Register's supposed
+current open-Q11 list is already explicitly historical, followed by a current note closing Q11/Q3/Q5. The missing
+Lane A record remains due. No new Judge decision is needed to correct and record this design answer.
+
+### Layer 1 — Parent-first completion and transaction
+
+| Parent / child | State at this review | Follow-up |
+|---|---|---|
+| B-136 -> SM05 transition | Open; SM05 BLOCKED/not selected | Existing entry acts; no closure here |
+| BCP2 raw-byte/custody/pointer corrections | Verified, as cba4678 records | Keep closed |
+| BCP-1 r4 answer at 508ee9f | Answered; its content review remains with Lane B | No repeat of the r3 return; separate bounded review |
+| 63dce74 IR-1–IR-5 -> external packet r1 | Text reviewed here; no final file or Lane A B-136 receipt exists | Correct IR-P1 and finish the recording steps below |
+| B-078 history treatment | Verified; Register current/history separation already applied | Preserve that settled work; do not edit its terminal entry |
+| Source repairs, graph publication and health | Not applied or run | Later authorized unit, after accepted final packet |
+
+### Layer 2 — One substantive return and its exact fix
+
+**IR-P1 — withdraw IR-3b; read the governing context around the match.** Register L174–176 says “Historical
+question-summary paragraph — superseded for current status” and says its “still to make” label is not operative.
+L180–188 then says Q3/Q5 are ruled by D-143 (clarified D-146), Q11 is closed by D-111/D-112, and the historical list
+is not a current open-question register. These notices already exist at the packet's observed revision. B-078
+records their application and independent verification. D-163's older flag inside L178 is part of that history,
+not the last current disposition.
+
+**Draft replacement for IR-3b:**
+
+> IR-3b withdrawn. Register §5's old list is explicitly dated/superseded history and is followed by a current
+> reference closing Q11, Q3 and Q5. Leave that paragraph and those notices unchanged. IR-3 applies only to the
+> stale current clause in SPECS-TRANSITION-ENFORCEMENT §10. The Register changes only to record the later bounded
+> correction act; this packet creates no new Q3/Q5 re-verification or decision task.
+
+Carry this correction through the target table, IR-3 acceptance wording, D-54 row, out-of-scope/next-step list and
+the draft Lane A answer. Preserve r1 as history; do not edit away the worklog's original claim. A new packet can
+record the withdrawal explicitly. **Pass:** the historical paragraph is byte-unchanged; the final planned Register
+change is the new act only; Q11/Q3/Q5 remain resolved by their named current decisions.
+
+**Repeated failure pattern:** a literal match and a unique anchor are syntactic evidence, not current-authority
+evidence. Here the old string matched once but its scope had already been superseded. Before proposing any status
+repair, read the enclosing section's history/current labels, the current-reference note and the owning decision.
+Then check the old/new anchor. The negative example is this historical Q11 list: it must not be classified as an
+open decision. The positive defect is the unqualified Q11-open sentence in the living technical spec. This is a
+review rule for the current packet, not a request to build another checker.
+
+### Layer 3 — Supported text and precise evidence limits
+
+| Item | Disposition / bounded clarification |
+|---|---|
+| IR-1 authority | Supported: downstream scope changes cannot approve themselves; frozen-source precedence and customer/sponsor change routing both remain. Q8/FB-04 stay Open. This review does not re-verify copied feedback tallies |
+| IR-2 links | Supported: both old paths fail and both replacement sibling paths resolve to the intended files. Check actual rendered link destinations before claiming the repair applied |
+| IR-3a and IR-4 | Supported: use the decided Q11 source pointers and count-free transition-ID wording; retain no-code authorization limits and D-36 section origins |
+| IR-5a/b | Supported: separate existing directory, missing feature-specific UX and missing/stale pointer. A new Inventory row records a requirement/status; it does not itself create a file. Do not infer a new artifact obligation or due Judge choice merely from “row 51”. No new row is needed for this wording repair |
+| D-54 | Build Spec may be unaffected here: D-54 explicitly permits an unaffected tier with its reason, and this packet changes no sprint scope/sequence/DoD. Record that reason in the future Register act. Remove the IR-3b historical-list edit from the Register row |
+| Encyclopedia | No changed mapped section was located in the local ledger. Keep the proposed unaffected disposition bounded to that assessment and recheck at application; hosted content was not read and hosted parity is not proved |
+| Preservation/check claims | Pins and unique matches are supported. r1 does not retain every complete old sentence inline; e.g. IR-1b/c replace sentences without repeating them. Preserve the bound original revision and accurate dated correction notes; do not claim every old string remains inline unless it does |
+| Untracked exports/config | No staging, moving, deletion or cleanup is part of this review. Their presence is not authorization to include them in the handoff commit |
+
+The core five defects still stand; withdrawing IR-3b does not withdraw the genuine IR-3a technical-spec defect.
+Future publication concurrency/crash recovery stays B-078 Child 4; SM06 mechanism refinement stays its existing
+DoR. Export totals and prior partial-check limits remain as recorded at 63dce74. No new Lane C evidence is claimed.
+
+### Layer 4 — Lane A steps and Chief Editor decision
+
+1. Keep r1 unchanged. Write one corrected final packet with the IR-P1 withdrawal and the scoped clarifications
+   above; bind its exact bytes and source revisions. Resolve draft date/decision placeholders only at the appropriate
+   recording/application stage; a design draft must not be represented as an issued act.
+2. Record one Lane A answer in B-136: receive 63dce74 and this review, name the final path/hash, list the changed
+   clauses, withdraw IR-3b and retain the supported IR-1–IR-5 scope. Only Lane A writes that answer. Its local
+   one-path commit uses the existing D-272/D-385 handoff route; another Judge application act is not needed for recording.
+3. Lane B reviews the bounded delta/recording. After acceptance, present the concrete source-edit unit for its
+   Judge act; then record/apply its D-54 disposition and use the guarded graph route with publication/health evidence.
+   Do not ask for application approval while the known correction or the final hash/answer is still missing.
+4. Keep push separate. No push, source application, build, gate closure, new artifact declaration or export cleanup
+   follows from this review. Continue independent drafting under existing approvals.
+
+Chief Editor: accept the supported correction text and tier assessment; reject IR-3b's false current-status premise.
+No new substantive decision is open now. Lane A must finish the authorized design record before the later source
+application checkpoint. An absent receiver record is not closed by a chat worklog, a self-grade or Lane B's review.
+
+**What Lane B did instead:** read the supplied worklog as data, queried Graphify, checked the packet and full
+Register context, reproduced ten unique anchors and checked the local Encyclopedia mapping. Source files remain
+unchanged. Only B-136 is edited; retained evidence and final-content checks are at
+C:/CoWork/outputs/lane-b-ir-packet-r1-review-2026-10-15/. Current handoff-only drift needs no graph sync;
+a later governed-source application needs its own guarded cycle.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| **Approve** | Supported IR-1–IR-5 correction text, qualified D-54/ledger assessment and prior accepted children | Phase 1: retain supported scope; no applied-fix claim |
+| **Approve-with-conditions** | Final correction packet and receiver record | Phase 1: withdraw IR-3b, finish accurate final packet/hash and Lane A B-136 answer; Lane B reviews the delta |
+| **Defer** | Applying governed sources, graph publication/health, construction, gates and push | Their existing later bounded acts and evidence |
+| **Reject** | Editing the historical Register list as a current defect; new Q3/Q5 decision work from that list; unique matches or a chat draft treated as completion | Phase 1: use full source context and the durable receiver record |
