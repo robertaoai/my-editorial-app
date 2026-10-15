@@ -13848,3 +13848,40 @@ the expected `D-438` drift.
 | Approve-with-conditions | EV packet r4 and the §7.1 destination | Lane B review; `D-439` after `D-438` health |
 | Defer | S5–S7; custody transfer; `D-439` application | Their stages |
 | Reject | Re-asking R/G; a test pass as a baseline change; a missing Business Charter as a release blocker; drafts as incorporated evidence | All phases |
+
+---
+
+## Lane A — EV packet r5 and harness r5: answers Lane B's audit of `24c070f` (G1–G5), 2026-10-15
+
+### What happened
+
+**Receipt.** The Judge supplied Lane B's audit of `24c070f` (chat; no receipt issued, no file changed). JE1 stays closed;
+the recovery and C5 integration are accepted. S5 (Lane B's receipt for candidate `c5b3cafa`) is still pending and gains
+no prerequisite from this. No new Lane C evidence.
+
+| Gap | Lane A answer |
+|---|---|
+| G1 incomplete text | **EV packet r5** (`C:/CoWork/outputs/lane-a-ev-doc-corrections-2026-10-15/EV-CORRECTION-PACKET-r5.md`, `ae5537530beb4055d3d7381ab355d2026a8c95c5e03617c29e298b642aafc363`) is self-contained: E1–E4, E6, E8–E11 each give one exact target and one exact replacement; E4, E6 and E10 are written out in full; E9 targets the **Item** column. All nine targets occur exactly once at `24c070f`. r1–r4 kept. |
+| G2 planned evidence as current | §4 marks each evidence location: work packets **existing**; `V1-SM05-FV-001` and `scripts/acceptance/` (P22) **planned**. §7.1's empty-state sentence is now "No release-feedback rows are recorded in this section." |
+| G3 lifecycle | Two immutable row kinds: `BCR` input rows (claim bound to source path, revision and anchor; criterion; evidence with state; result) and `BCD` disposition rows (input row, disposition, date and authority, incorporation). One version format: `<release>@<YYYY-MM-DD>` (disposition date). A changed finding or decision is a new row that names the one it supersedes. "Technical test pass" is kept apart from a business-criterion result. **Rows are post-acceptance records** — written after a release's DoD is accepted — so the Build Spec stays unaffected; Inventory unaffected by reasoned disposition (a subsection, no file). |
+| G4 harness failure handling | **Harness r5** (`C:/CoWork/outputs/lane-a-d438-cycle-2026-10-15/n1r3/run-controls-r5.sh`, `0de787af5bd86e53c9bec101352e438b9b36ebc35d5abcde16707a8bff234abf`): every clone, checkout, config, fixture write, fixture commit and evidence write must succeed, or the run stops with exit 3; each case log must be non-empty. Self-test (`selftest-r5.txt`, `49cf8e05b09d8b609f8ca990552349f1d3254949eb6f791a4ad92ce8dda2d88c`): T1 normal → exit 0, 11 cases, 0 wrong (`runs/20261015T151933Z-36d35fb9797a/results.txt`, `f5409ce6fef1214bd188eee4714f04080744f0ceb94bd31d222d5c3860c4db8c`); T2 bad source → exit 3 "SETUP FAILURE: clone/checkout failed: c1"; T3 helper hash mismatch → exit 1. Eleven results recorded, log endings checked; not an independent replay. |
+| G5 custody | After the health record, approved list only, as stated at `24c070f`; now including EV r5 and harness r5 in place of EV r4 and harness r4. |
+
+Terms adopted: "technical test passed" (not business acceptance); "eleven results recorded; log endings checked";
+"proposed canonical destination until the act is recorded"; "accepted conclusion incorporated at `<release>@<date>`".
+
+### What you need
+
+**Lane B:** S5 receipt for candidate `c5b3cafa` in B-050 and its annotation; review of EV r5 and harness r5. **Judge:**
+nothing new now. No fetch or push until `D-438`'s health record.
+
+### What you did instead
+
+Drafts outside the repository; handoff-only record. The check fails only on the expected `D-438` drift.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Lane B's G1–G5; JE1, recovery and C5 integration kept closed | Phase 1 |
+| Approve-with-conditions | EV r5 and harness r5 | Lane B review; custody after health; `D-439` after health |
+| Defer | S5–S7; custody; `D-439` application | Their stages |
+| Reject | EV r4 as application-ready; recorded results called independent replay | All phases |
