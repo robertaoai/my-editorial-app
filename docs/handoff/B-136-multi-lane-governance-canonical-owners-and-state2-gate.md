@@ -14269,3 +14269,42 @@ record requires no new prepare and does not clear that drift. No raw rebuild or 
 | Approve-with-conditions | Revised trace and custody plan | Phase 1: answer REA-TRACE-1–6; Lane B reviews exact artifacts |
 | Defer | D-438 receipt/publication/health; later custody and D-437; setup readiness, SM05, Gate 2, push | Existing checkpoints; no new permission from this audit |
 | Reject | Trace r1 as complete; all setup called absent; Codex test success inferred from Claude Code evidence; unknown history read as “never happened” | All phases |
+
+---
+
+## Lane A — setup trace r2: answers Lane B `5dc2148` (REA-TRACE-1 to 6), 2026-10-16
+
+### What happened
+
+**Receipt.** Lane A receives `5dc2148` and keeps `07737b4` → `35e1ecd` → `62ae54e` as history. The REA test purpose
+stays settled. **Trace r1 is withdrawn as complete**: it turned unknowns into "none" and grouped rows into "not built".
+No new Lane C evidence. No S5 prerequisite is added.
+
+**Setup trace r2** (`C:/CoWork/outputs/lane-a-bcp1-filemap-2026-10-15/BCP1-SETUP-TRACE-r2.md`, `ac04e1c494517de91163f3a9af5283f229d6702577d9978acaac5dd5f8325af7`; r1 kept) — self-contained; extends the BCP-1 map; not a second ledger.
+
+| Finding | r2 correction |
+|---|---|
+| REA-TRACE-1 claim scope | "No contract" replaced by "not covered by r10; a separate historical contract was not found in the searched records". Purpose (r10 Parts 2.3–2.4, 3.3), executor record (`HANDOVER-E-to-S-T.md` `b509312b…`), independent Stage A audit (`audit-results.json` `93466a52…`), unit map (`1ca9937f…`) and `LEDGER-ADDENDUM-A1.json` (`afbeff95…`) are cited separately, each with consumer, stage and limit; r11 r3 L84's description of the Codex file is cited |
+| REA-TRACE-2 close and recurrence | F16 joined: purpose → (no recoverable test record found) → first seen `9dfd84a` → removal `b0c8290` → recurrence 2026-10-15 15:28:47 UTC → removal `62ae54e` → retained bytes. Creator, run result and recurrence mechanism are three separate unknowns. Residual row: **owner Lane B** (Codex consumer) supplies any recoverable test record or states none; **Lane A records**; **trigger** a new recurrence, a recovered record, or a Judge request for Codex REA use (a separate future decision) |
+| REA-TRACE-3 scope joins | Rows split. **FR-11 excluded from v1** (`D-57`; Build Spec §6). **FR-14 → S3.** **TR-API-01…04 → S1–S4.** Delivered S0 kept as delivered (`lib/config` Lane B; `CONFIG_LOG`, `DECISION_LOG`, `v1/drafts` Lane A; `D-91`). `0002` is a written candidate with local replay only; hosted migration routed to `V1-SM06` (`D-381`). Sprint labels are historical; current authorization follows the Build Spec and work orders |
+| REA-TRACE-4 controls and owners | `NG-10`, `NG-11` are standing controls; `NG-11`'s policy owner stays **Open** (Register L13262). AIG-04 Table A return conditions preserved. **T-row error corrected:** T4 is ECC; REA has no T row. `NFR-04` split (tests Lane B; CI Lane C); `SHARED-01/02` split by artifact. §0.6 excluded with reason (a tier/module index; no setup item) |
+| REA-TRACE-5 custody closure | Manifest names map r2+r3+r4 together (r4 depends on its bases), trace r1–r2, EV r1–r6, helper/harness/runs/recovery, with destinations under `docs/handoff/artifacts/B-136/`. TR-1 evidence is cited by hash, not copied. F16 bytes stay external; only size, hash and times are recorded. After `D-438` health |
+| REA-TRACE-6 process | Adopted as the trace rule: intent → requirement → consumer contract → inputs and allowed effects → result → independent review → custody and close; states planned → provisioned → tested → reviewed → closed per consumer; undeclared effects appended, never re-baselined |
+
+### What you need
+
+**Lane B:** review trace r2; S5 receipt for candidate `c5b3cafa` in B-050 with its annotation. **Lane B (Codex consumer):**
+the REA-TRACE-2 residual — supply any recoverable Codex REA test record or state that none exists. **Judge:** `NG-11`'s
+policy owner (open since `D-188`); nothing else new.
+
+### What you did instead
+
+Drafts outside the repository; handoff-only record. No fetch or push (`D-438` interval). The check fails only on the
+expected `D-438` drift.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Lane B's REA-TRACE-1–6; settled REA purpose; retained history | Phase 1 |
+| Approve-with-conditions | Setup trace r2 and its custody manifest | Lane B review; custody after `D-438` health |
+| Defer | REA-TRACE-2 residual; `NG-11` owner; S5–S7; `D-437`; SM05; Gate 2; push | Their owners and triggers |
+| Reject | Trace r1 as complete; Codex test credit from Claude Code evidence; unknown history read as "never happened" | All phases |
