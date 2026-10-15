@@ -13565,3 +13565,76 @@ No governed source edited. No prepare, publication or push. `docs-drift` fails o
 | Approve-with-conditions | Helper r2 (heading-based ownership limit stated); EV packet r1 | Phase 1: Lane B review; JE1 by the Judge; separate `D-439` act |
 | Defer | D-438 S4–S7 (prepare, receipt, publication, health); EV application; B-078 Child 4; SM06 mechanisms | Judge sequencing; existing owners |
 | Reject | Path allowlist as ownership proof; live success paths as refusal controls; EV fixes folded into `D-438` | All phases |
+
+---
+
+## Lane A — D-438 guarded cycle: candidate ready (S4); request for Lane B's receipt; F16 disposed; answers Lane B's review of `65e0bed`, 2026-10-15
+
+### What happened
+
+**Authority.** The Judge, 2026-10-15, in chat: "Judge Approved: push 4b4b5c0..65e0bed, then prepare". Lane B pushed the
+range (upstream = local = `65e0bed`; Lane A's own fetch before prepare agreed). Prepare runs under `D-438` items 5–7.
+
+**F16 — `.codex/config.toml` disposed (the Judge's choice).** Prepare attempt 1 refused: "the source tree is not clean"
+(`C:/CoWork/outputs/lane-a-d438-cycle-2026-10-15/prepare-1.log`, `aa29a92a…`); no journal, no publication. The only cause was the untracked `.codex/config.toml`
+(F16). The Judge chose, in two answers: **"Dispose of file first"**, then **"Remove, keep bytes (Recommended)"**. Content
+check, values not printed: a Codex MCP registration of the REA container (`rea-tr1`, `docker run` with a host mount and an
+image digest); no secret-like value. Committing it would have adopted a Codex registration that setup unit r10 excludes.
+Lane A moved the exact bytes to `C:/CoWork/outputs/lane-a-f16-custody-2026-10-15/config.toml`; SHA-256
+`fd3c37f57cee30a67957da01d571ddbaa481c907e3a164cb56d6848952b4f954` before and after. The tracked `.codex/hooks.json` is
+unchanged. Restoring the file needs its own decision (for example a Stage B Codex binding). F16 closes as **removed from
+the checkout; bytes retained**.
+
+**S4 — candidate ready.** Prepare attempt 2 on the clean tree returned 38 pending descriptions and 34 pending names
+(`prepare-2.log` `cbb492f0…`). Lane A answered from source; the resume returned **ready** (`resume-1.log` `aa72faac…`).
+
+| Candidate identity (`C:/CoWork/outputs/lane-a-d438-cycle-2026-10-15/work/STATE.json`, SHA-256 `8a3806fcfde6128554db2387ed77f0709e62852545a13b7aa88e0142c62f8c1f`) | Value |
+|---|---|
+| workId | `c5b3cafa-febf-4111-9ba6-51160f144da3` |
+| source head / branch / merge-base | `65e0bed5613b0ef029a752d9230246fffe8af29c` / `features/feature-V1-SM05` / `65e0bed` |
+| graph SHA-256 | `66e6d540072ee238a9c92323c9b2ffd27ca16b82917e116acee4fa9a89eb3d6e` |
+| manifest SHA-256 | `cac5b26ea206f8267ff21412c88081a29a6dc17ccd846225103e211236fddcab` |
+| answers SHA-256 | `4087ac4583fd512c9b363e3481b8a6501be338e22e131aceae6c25cbf53002bb` |
+| baseline digest / files | `f23855ef…` / 583 |
+
+**Answers basis.** All 38 descriptions are the 19 symbols of the two applying helpers (r1, r2), written from what each
+symbol's code does (`descriptions.mjs` `e895e10b…`). Revision 2's S0 is described as **a section-heading check, not a check
+of what each commitment says**. 34 names (`names.mjs` `8cf39ec3…`, basis `07-name-basis.json` `a280aae0…`): 30 by the
+commit-group rule, 2 by the successor rule (Jaccard 0.87, 0.94), 2 written from members for the two new helper groups:
+"D-438 Applying Helper, Revision 1" and "… Revision 2". The helper refuses duplicate names.
+
+**Lane B's review of `65e0bed` — answered as drafts (outside the repository until the health record).**
+- **N1 full ownership:** helper r3 (`C:/CoWork/outputs/lane-a-d438-cycle-2026-10-15/n1r3/ir-apply-r3.mjs`, `dcc328b4…`) binds ownership to the exact text: every
+  line naming `D-438` must match a reviewed manifest entry by (path, SHA-256 of the line). Manifest from `128e0d4`
+  (`ownership-128e0d4.json`, `f3f45d67…`, 45 lines in 7 files — the lines Lane B read as this unit's). r3 also moves the
+  Register-number check to the start of S0.
+- **Harness:** controls r2 (`run-controls-r2.sh`, `3dde3efe…`) binds helper and manifest by SHA-256, requires the exact exit
+  code and refusal reason per case, adds **C2d** (conflicting promise inside an IR-titled section), and exits 1 on any wrong
+  case. Result (`results-r2.txt`, `af1e8072…`): **10 of 10 as required, harness exit 0**; C2c now refuses on "S0 D-438
+  already in Register".
+- **EV packet r2** (`C:/CoWork/outputs/lane-a-ev-doc-corrections-2026-10-15/EV-CORRECTION-PACKET-r2.md`, `bbbacadc…`):
+  `D-439` waits for `D-438`'s **health record**, not only publication; the acceptance test no longer greps for a phrase the
+  dated note does not keep.
+- **Why not committed now:** helper r3 is a new `.mjs`; committing it inside the cycle would add code the candidate does
+  not contain. Custody (repository copy with byte proofs) follows the health record. N1 full assurance stays **Open**
+  until Lane B reviews r3 and the custody lands.
+
+### What you need
+
+**Lane B — receipt (S5), under `D-438` item 5 and the authorized unit-scoped route:** review the candidate's bytes and
+meaning against the identity above, then commit the acceptance record in **B-050**, followed by its covering Terminal
+annotation in a separate one-file commit. Between those two commits only `terminal-return` and `docs-drift` may fail.
+Then Lane A publishes (`--review <Lane B's commit>`) and records health in B-136. **No fetch or push until the health
+record.** Also: review helper r3, controls r2 and EV packet r2. **Judge:** JE1 still open.
+
+### What you did instead
+
+Prepare and resume only; no publication. This record is the only commit since `65e0bed` (handoff-only). The check fails
+only on the expected `D-438` drift.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | F16 disposition as chosen by the Judge; candidate ready at `65e0bed` | Phase 1 |
+| Approve-with-conditions | Candidate publication | Lane B's B-050 receipt and annotation with unchanged bindings (J1) |
+| Defer | Publication, health record; custody of helper r3, controls r2, EV r2; N1 full assurance; JE1; `D-439` | After the receipt; after health |
+| Reject | Heading checks described as ownership; fetch or push inside the interval; EV folded into `D-438` | All phases |
