@@ -13173,3 +13173,66 @@ synced at `b308d1c`; handoff-only commits since; no graph sync now. B-136 only. 
 | Approve-with-conditions | Package manifest r5 | Phase 1: Lane B confirms the delta; then Judge D1/J1/J2 |
 | Defer | Registration, application, controls C1–C4, graph cycle, publication, health, exact-range push | Selected act and its checkpoints |
 | Reject | Cross-file version citations; Lane A's earlier "no stale references" claim; planned controls as results | All phases |
+
+---
+
+## Lane A — IR package custody map r6: answers Lane B's chat review of `f9e47f5` (custody and transfer), 2026-10-15
+
+### What happened
+
+**Receipt.** The Judge supplied Lane B's chat review of `f9e47f5` (not a Lane B commit). It accepts the r5 reference fix
+for design and returns custody: B-136 held paths and hashes, not contents. No new Lane C evidence.
+
+**Transfer done (custody only).** Evidence commit **`4e47fe3`** adds the reviewed package and its inputs under
+`docs/handoff/artifacts/B-136/ir-application/` — the existing `docs/handoff/artifacts/<B-NNN>/` convention (precedent B-157 `99ad817`), in place of the
+proposed `evidence/` path. One evidence commit; this answer is a separate one-file commit (`D-385`). **Proof:** for each
+file, SHA-256 of `git show 4e47fe3:<path>` equals the SHA-256 of the `C:/CoWork/outputs/` source; the bytes are identical.
+
+**Package manifest r6 — the only version binding (act §K); bound to this B-136 commit.** It replaces the r5 manifest at
+`f9e47f5` as the binding; r5 stays as history. Hashes are unchanged; the binding moves to repository paths.
+
+| Role | Repository path | SHA-256 | Git blob |
+|---|---|---|---|
+| Application act | `docs/handoff/artifacts/B-136/ir-application/IR-APPLICATION-ACT-r5.md` | `3bf8e0b88300a6f043ce3df86fb7ce89373f0679a56b4dff5dc7948dbd5d638b` | `fdd3244f51712234ef7b2b58711b277d545e155a` |
+| `D-438` body | `docs/handoff/artifacts/B-136/ir-application/IR-D438-REGISTER-BODY-r3.md` | `b7f68feaa84d2a9b32b52142e91b47c7cc4faa9f2c11941969f0bb452e47c5ca` | `e3b2284e2d693607c96dac231a6435dee4212a27` |
+| Route A addendum (conditional until D1) | `docs/handoff/artifacts/B-136/ir-application/IR-ROUTE-A-r4.md` | `5d45f9cfaa442a6a7133737055e98c73f86e2f051e0fe2c64ed3a1791e0e0164` | `8ccbed7384d5ecf8080254842e91e470911791f4` |
+| Route B addendum (conditional until D1) | `docs/handoff/artifacts/B-136/ir-application/IR-ROUTE-B-r4.md` | `e3601e373c9053c0144c1d463765edaae3c85df4a589afb5a4e59dcc2a2c01f6` | `6d99fc026a61fc4cf383076dd4775bd16a0fa3b8` |
+| IR correction packet r2 (accepted replacement contract) | `docs/handoff/artifacts/B-136/ir-application/IR-CORRECTION-PACKET-r2.md` | `bc29c616e5d3d2850e00e5037420e7f0bae534a243bcbecac77f8c1cd0fcb71c` | `69a74c940293fb56196f3baf521f1ffc3ae37a13` |
+| Review input: supplied Lane B audit of `983eb30` | `docs/handoff/artifacts/B-136/ir-application/LANE-B-SUPPLIED-AUDIT-983eb30.md` | `995bfd22d6d70dc263f80a045c8f592c3a4f5630f7bd3feefcca6c0fccff6b9c` | `761ecdc51bf88173adde4dbeff512fcffa3a37f7` |
+| Review input: supplied Lane B audit of `1c0635b` | `docs/handoff/artifacts/B-136/ir-application/LANE-B-SUPPLIED-AUDIT-1c0635b.md` | `2fadad7ed79301b61e35e376ba22b046e7ea777c4b0808a17543886766cb445c` | `4def38f7b6d0c62ea47a7557c2616691f4a48985` |
+| Review input: Lane B chat review of `310af2f` | `docs/handoff/artifacts/B-136/ir-application/LANE-B-CHAT-REVIEW-310af2f.md` | `f312ccc418a99496d033ab81ca537e398e704d90dc3bf5b92b77d39d7006053a` | `3651987e04aba41ad212eb1a62178b807723b6f0` |
+
+**Boundary.** The copies sit under `docs/handoff/`, which act §D stage S0's old-text search excludes, which `docs-drift`
+excludes (`D-231`) and which `graph-coverage` excludes. The exact-one-match rule stays unchanged. A pre-commit check with
+the files in place passed 19/19 (text-integrity scanned 283 Markdown files). **D-54:** no governed tier changes; Register,
+Build Spec, Inventory, FN, SPECS, rule files and fragments unaffected; Encyclopedia unaffected (local map).
+
+**Not copied (Route A inputs).** `SM05-SELECTION-DRAFT-r10.md` (`b6e523f0…`), `EXEC-MANIFEST-r10.json` (`91ca62bb…`) and
+`verify-exec-manifest-r9.mjs` (`bd4c8ea6…`) stay in `C:/CoWork/outputs/`, bound since Lane B `05ac2ba`. Reason: they are
+needed only if D1 selects Route A, and a `.mjs` file in the repository adds a code node that the next guarded cycle must
+describe. **If D1 selects Route A, Lane A transfers all three before recording, with the same proof.**
+
+**Wording corrected.** Lane A's `f9e47f5` text "removes the class, not only the two instances" and act r5's §K heading
+"(closes the stale-reference class)" overstate. Read both as: role references remove the current cross-version
+references; E1 checks the selected files against the bound manifest. A manifest can still be stale or wrong; E1 is the
+guard. Act r5 bytes are not changed.
+
+**Status kept separate.** Custody: done (`4e47fe3`). Authority: none (D1, J1, J2, J3 open). Application: not started.
+Controls C1–C4: planned, no results. Independent verification: not claimed.
+
+### What you need
+
+**Lane B:** review the custody map and boundary. **Judge (after Lane B):** D1 (explicit; Lane A recommends Route B), J1,
+J2; J3 timing; the exact push range at its own checkpoint.
+
+### What you did instead
+
+Copied eight files byte-for-byte; ran the full check with them in place (19/19); committed them alone; proved each
+committed blob. `docs-drift` synced at `b308d1c`; handoff-only commits since; no graph sync now. Local commits; no push.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Lane B's r5 acceptance; repository custody at `4e47fe3` | Phase 1 |
+| Approve-with-conditions | Manifest r6 and custody map | Phase 1: Lane B review; then Judge D1/J1/J2 |
+| Defer | Route A input transfer (only if selected); recording, application, controls, graph cycle, health, exact-range push | Selected act and its checkpoints |
+| Reject | Hash-only custody as transfer; custody as authority; planned controls as results; class-level completeness claims | All phases |
