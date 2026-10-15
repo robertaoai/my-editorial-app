@@ -14401,3 +14401,39 @@ expected `D-438` drift.
 | Approve-with-conditions | Control-file custody; trace r4; manifest r2; EV r7 | Lane B review; transfer after `D-438` health; EV-5 recorded by `D-439` |
 | Defer | Transfer and destination proofs; S5–S7; `D-437`; `D-439`; SM05; Gate 2; push | Their triggers |
 | Reject | Automatic inclusion of V1 exclusions at release; reuse of a frozen `V1/NG-*` label; test success inferred from purpose; custody called complete before transfer | All phases |
+
+---
+
+## Lane A — EV r8 (F1, F2), wording (F3), manifest r3, control-file custody r2: answers Lane B's audit of `5790fe9`, 2026-10-16
+
+### What happened
+
+**Receipt.** The Judge supplied Lane B's audit of `5790fe9` (chat; no file changed). Lane B verified all 91 main rows and
+five control files (two retained matches, the rest absent, no conflicts) and accepted the custody-plan correction.
+**Wording (F3):** Lane A answered G2 at `5790fe9`; Lane B accepted the plan correction. "Custody complete" is reserved for
+matching repository bytes, a custody commit and Lane B's verification — **no file has been transferred**. No new Lane C
+evidence; no S5 prerequisite added.
+
+| Artifact | SHA-256 | Change |
+|---|---|---|
+| `C:/CoWork/outputs/lane-a-ev-doc-corrections-2026-10-15/EV-CORRECTION-PACKET-r8.md` | `ddeb0f331ba9be6fdead1a4aa437afda3fa991de7b109c36f98370d8010eaee7` | **F1:** new edit **E12** — Modular_PRD §2.5 `NG-11` row, old (exact, once) "legal/compliance policy — owner TBD" → "legal/compliance policy — standing control (`D-188`); owner question withdrawn (`D-NNN`, {DATE}); a later scope proposal names its own owner". It is the only current reader that showed the withdrawn question as pending; Register L13262/L13275 stay as history; B-071 plan L1180 consistent. **F2:** the EV-5 item now separates (1) the frozen `V1/NG-10`, `V1/NG-11` records — exclusion, rationale, disposition; not overwritten; not reused as scope or policy authority for another version; (2) continuing controls, which cite `D-188`; (3) later scope proposals, with their own requirements, acceptance criteria, owner and authorization. "V1 completion triggers review, not inclusion"; "no owner is appointed"; "freezing the V1 records does not establish that V1 delivery is complete". Tiers: Modular_PRD affected (E12); Encyclopedia unaffected (E12 is §2.5; Entry 06 maps §2.5.1). r7 kept |
+| `C:/CoWork/outputs/lane-a-bcp1-filemap-2026-10-15/TRANSFER-MANIFEST-r3.md` | `2908eb98cae41d650030e5b58ec03f12aaabeaf25b5e347a695afdc577be2ce1` | 92 rows planned — 90 new copies, 2 retained matches, 0 conflicts (adds EV r8). r2, r1 kept |
+| `C:/CoWork/outputs/lane-a-bcp1-filemap-2026-10-15/make-transfer-manifest-r3.mjs` | `6bd6a9c06b77fe58e813d66118db71da71580684dc6319136a36a90d679c8d66` | generator r3 (adds EV r8); reads, then writes the draft manifest only |
+| `C:/CoWork/outputs/lane-a-bcp1-filemap-2026-10-15/CONTROL-FILE-CUSTODY-r2.md` | `72bbd03fe6f78d35ffb69216f5d7498d3990c192f89bec2e9b7a4b9a5fbf55ff` | all three manifests, three generators and custody r1, each with destination in `docs/handoff/artifacts/B-136/bcp1/`; its own hash is bound here. r1 kept |
+
+### What you need
+
+**Lane B:** review EV r8 (E12, EV-5), manifest r3 and custody r2; S5 receipt for candidate `c5b3cafa` in B-050 with its
+annotation; the F16 residual. **Judge:** nothing new now; `D-439` comes after Lane B's review and `D-438`'s health.
+
+### What you did instead
+
+Drafts outside the repository; handoff-only record. No fetch or push (`D-438` interval). The check fails only on the
+expected `D-438` drift.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Lane B's F1–F3; accepted custody-plan correction; G1/G3 kept closed | Phase 1 |
+| Approve-with-conditions | EV r8; manifest r3; custody r2 | Lane B review; transfer after `D-438` health; `D-439` act |
+| Defer | Transfer and its verification; S5–S7; `D-437`; `D-439`; readiness; SM05; Gate 2; push | Their checkpoints |
+| Reject | "Owner TBD" left in a current reader after withdrawal; reuse of a frozen V1 record as authority; "closed" for an unverified transfer | All phases |
