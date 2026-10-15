@@ -14351,3 +14351,53 @@ expected `D-438` drift.
 | Approve-with-conditions | Trace r3; transfer manifest r1 (plan only) | Lane B review; transfer after `D-438` health |
 | Defer | Transfer and destination proofs; F16 residual; `NG-11` owner; S5–S7; `D-437`; `D-439` | Their triggers |
 | Reject | "None exists" from a bounded search; custody called complete before the transfer; removal of non-matching bytes | All phases |
+
+---
+
+## Lane A — V1 non-goal clarification recorded; control-file custody; trace r4, manifest r2, EV r7: answers Lane B's audit of `c60f41f`, 2026-10-16
+
+### What happened
+
+**Receipt.** The Judge supplied Lane B's audit of `c60f41f` (chat; no file changed). It closes G1 and G3 for design,
+confirms the 89 source hashes, and returns G2 for the manifest's own custody. No new Lane C evidence; no S5 prerequisite.
+
+**The Judge's clarification, verbatim (2026-10-16):**
+> Non-Goals started from PRD.md are specific to V1; the product/project scope under V1 once completed will be validated for completion before releasing from non-goals under V1 where are not-built due to non-goals;
+
+> these apply to ng-11 and historical dialog all labels for non-goal like ng-11 is not the project/product scope itself since these can be broken down to be a new scope; from b-071 non-goals are normalised to link with the versions e.g. `V1/NG-11`; hence `V1/NG-11` policy is frozen and not reused;
+
+**Lane A asked, because `D-188` (`B071-R96`) rules `NG-10`/`NG-11` are standing controls that do not expire with V1. The
+Judge chose:** on `D-188`: **"Keep controls, freeze labels"**; on `NG-11`'s policy owner: **"Withdrawn (Recommended)"**.
+**Reading:** `D-188` stands. The behaviours stay standing controls; the labels `V1/NG-10` and `V1/NG-11` are frozen and
+never reused; a label is not scope; a later version may break an excluded item into new scope only by a separate scope
+decision and bounded authorization. `NG-11`'s owner question is withdrawn; a later scope proposal names its own owner.
+**Recording:** these go into the next governed act as EV-5 of `D-439` (Register text only), not applied now.
+
+| Artifact | SHA-256 | Change |
+|---|---|---|
+| `C:/CoWork/outputs/lane-a-bcp1-filemap-2026-10-15/BCP1-SETUP-TRACE-r4.md` | `6897e3ef10966e20599d22f700a9049da56b118b03038ebb601f35255b7dd3e1` | `V1/NG-10`, `V1/NG-11` rows per the Judge's choices; §3 points to repository destinations; "TR-1 contracts and evidence awaiting `D-437` registration". r3–r1 kept |
+| `C:/CoWork/outputs/lane-a-bcp1-filemap-2026-10-15/TRANSFER-MANIFEST-r2.md` | `334cb0d5a64fe8a9a8d0c551deebf65cfd733ac34ed592e3853b87038361a3a0` | 91 rows planned — 89 new copies, 2 retained matches, 0 conflicts (adds trace r4, EV r7). r1 kept |
+| `C:/CoWork/outputs/lane-a-bcp1-filemap-2026-10-15/make-transfer-manifest-r2.mjs` | `5481ddf6a4e1c7740b56906befa9045a1a086d84a8e8a35d2ab717c1975637d0` | described accurately: "reads source and destination files, then writes the draft manifest; writes nothing in the repository". Generator r1's "read-only" header was inaccurate (it writes the manifest); kept as history |
+| `C:/CoWork/outputs/lane-a-bcp1-filemap-2026-10-15/CONTROL-FILE-CUSTODY-r1.md` | `622d61083390ee4e57aff9424fdc15cd975ff16c856c655a4d6f8390aacba13f` | **G2 follow-up:** both manifests and both generators get destinations in `docs/handoff/artifacts/B-136/bcp1/`, beside the traces, so the trace's reference resolves; this record's own hash is bound here |
+| `C:/CoWork/outputs/lane-a-ev-doc-corrections-2026-10-15/EV-CORRECTION-PACKET-r7.md` | `600dcb48895fdd4cf5e2ad15f3a41049fd27e31fc99130dc37e1e5f036e14c30` | EV-5 (§3b): the Judge's words and choices, and the exact `D-439` item text |
+
+**REA (unchanged, made specific):** the Claude Code consumer has an intent and contract chain; the open gap is the separate
+Codex configuration and its historical result. An accepted residual disposition does not prove a successful test.
+
+### What you need
+
+**Lane B:** review trace r4, manifest r2, the control-file custody record and EV r7; S5 receipt for candidate
+`c5b3cafa` in B-050 with its annotation; the F16 residual (recovered record, or searched locations with no record found).
+**Judge:** nothing new now; `D-439` (with EV-5) comes after Lane B's review and `D-438`'s health record.
+
+### What you did instead
+
+Drafts outside the repository; handoff-only record. No fetch or push (`D-438` interval). The check fails only on the
+expected `D-438` drift.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Judge's V1 non-goal clarification and choices; G1/G3 closed for design | Phase 1 |
+| Approve-with-conditions | Control-file custody; trace r4; manifest r2; EV r7 | Lane B review; transfer after `D-438` health; EV-5 recorded by `D-439` |
+| Defer | Transfer and destination proofs; S5–S7; `D-437`; `D-439`; SM05; Gate 2; push | Their triggers |
+| Reject | Automatic inclusion of V1 exclusions at release; reuse of a frozen `V1/NG-*` label; test success inferred from purpose; custody called complete before transfer | All phases |
