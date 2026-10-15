@@ -13236,3 +13236,43 @@ committed blob. `docs-drift` synced at `b308d1c`; handoff-only commits since; no
 | Approve-with-conditions | Manifest r6 and custody map | Phase 1: Lane B review; then Judge D1/J1/J2 |
 | Defer | Route A input transfer (only if selected); recording, application, controls, graph cycle, health, exact-range push | Selected act and its checkpoints |
 | Reject | Hash-only custody as transfer; custody as authority; planned controls as results; class-level completeness claims | All phases |
+
+---
+
+## Lane A — IR custody review received: two wording corrections; Judge checkpoint ready, 2026-10-15
+
+### What happened
+
+**Receipt.** The Judge supplied Lane B's chat audit of `6c2d687` (not a Lane B commit; no formal `Verified` record). It
+confirms the eight-file custody at `4e47fe3` and manifest r6 (all SHA-256 values and Git blobs match) and returns two
+report-precision corrections. No package redesign; no new act revision. No new Lane C evidence.
+
+**Correction 1 — line endings (qualifies the `4e47fe3` commit message).** The line-ending statement in commit `4e47fe3`
+was imprecise. All eight committed files equal their source files byte for byte. Both use LF. The earlier CRLF report
+was a measurement error (a Git Bash `grep` count, not a byte comparison). The commit and the package files stay unchanged.
+
+**Correction 2 — completion scope (narrows Lane A's chat summary "every required file").** Custody is complete for the
+eight files in manifest r6. If the Judge selects Route A, Lane A transfers its three additional inputs and records their
+committed-byte proofs before recording that route.
+
+**Binding.** Manifest r6 (`6c2d687`) stays the current binding; r5 (`f9e47f5`) stays as history.
+
+### What you need
+
+**Judge checkpoint (now ready):** D1 — Route A (record `D-437` setup registration with `D-438` in one batch; Build Spec
+affected; Stage B binding missing and readiness partial, stated as such) or Route B (`D-438` only, with an explicit
+amendment of the `D-437` registration timing); Lane A recommends Route B. J1 — publication after Lane B's receipt with
+unchanged bindings. J2 — the unit-scoped receipt exception (act §F). J3 — push timing after the applying commit and
+before prepare; the exact range is approved at its own later checkpoint.
+
+### What you did instead
+
+Recorded the two corrections only. `docs-drift` synced at `b308d1c`; handoff-only commits since; no graph sync now.
+B-136 only. Local commit; no push.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Lane B's custody confirmation; the two corrections | Phase 1: custody review complete |
+| Approve-with-conditions | Judge checkpoint D1/J1/J2/J3 | Phase 1: the Judge's explicit choices |
+| Defer | Route A input transfer (if selected); recording, application, controls C1–C4, graph cycle, health, exact-range push | Selected act and its checkpoints |
+| Reject | Custody treated as authority or readiness; byte claims without a byte comparison | All phases |
