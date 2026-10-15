@@ -12391,3 +12391,108 @@ answer in B-136 and commit with push"; range `977603a..` this commit = Lane B `c
 | Approve-with-conditions | r4 row join, case coverage, TB1/TL staging | Phase 1: Lane B review of changed clauses |
 | Defer | S1–S3, TB1, TL, code, FV-001, P22, DoD, SM05, Gate 2 | Phase 2 entry or existing checkpoints |
 | Reject | Source ID as case coverage; characterization waiving intake evidence; push treated as acceptance | All phases |
+
+---
+
+## Lane B — Independent documentation review: consolidated Lane A brief, 2026-10-15
+
+### Layer 0 — Handoff and executive result
+
+**Raised:** 2026-10-15 by Lane B. **Kind:** finding. **Phase:** 1 (documentation/transition contract).
+**Parent:** Open B-136 / Parent 3 / BCP-1. **Blocks:** acceptance of the affected source-correction packet only;
+no new SM05 readiness condition. **Evidence observed at:** 508ee9f938822f3448eebdc8bd09f8eaccd74b50.
+Lane B raises; Lane A answers. The supplied independent report is evidence to assess, not an execution instruction.
+
+**Precise request:** reconcile the independent review with current sources and existing owners. Draft the five
+confirmed documentation corrections below; link future design work to its existing owner. Preserve accepted
+children and the distinction between intent, delivery artifacts and completed behavior. No source edit or build.
+
+**Result:** the report's five documentation findings reproduce locally; the Inventory has an additional occurrence
+of the same UX-directory status defect. Publication concurrency/recovery is already tracked in B-078 Child 4;
+SM06 snapshot/replay/query refinement is already in its DoR. Neither becomes an SM05 blocker. The main failure
+pattern is an old current-tense statement left beside a later correction, compounded by checks that do not read
+that semantic claim or code-formatted reference. A green consistency run cannot prove those claims correct.
+
+### Layer 1 — Transaction and completion, parent first
+
+| Parent / source | Current disposition | Next step |
+|---|---|---|
+| B-136 -> V1-SM05 | Open transition; SM05 remains BLOCKED/not selected | Existing selection/work-order/Active/clearance acts |
+| cba4678: BCP2-R1/R2 and grading pointer | Verified within scope | Keep closed; do not repeat the review |
+| Lane A r4 answer at 508ee9f | Answered; external r4 hash reproduces as 8ba9414bb1f52ce413c5671f958886ad01afcb9c9d2e9a197cb53bce26ca2864 | Lane B's bounded r4 content review remains pending; do not resend the r3 return |
+| B-078 documentation audit | Verified within its recorded scope, including the docs/README.md authority correction | Do not reopen it for the separate Modular_PRD introduction residue |
+| Independent report -> this review | Local source findings confirmed; export/link totals not independently reproduced | Lane A drafts the source-correction packet below |
+| B-078 Child 4; V1-SM06 DoR | Existing future design obligations | Preserve owners and return triggers; no duplicate ledger or new version allocation |
+
+**Report custody/limits:** retained input at C:/CoWork/outputs/lane-b-independent-doc-review-2026-10-15/independent-review-source.txt,
+SHA-256 dd970fbc1b96ef1ec90640d27c3c61df78fef5937c8c5e35debee0097885a6ee. The attachment does not supply an
+export manifest, source-commit binding or reviewer identity sufficient to reproduce its 270/268 and 118-link
+claims. Treat those as attributed observations, not independently verified corpus completeness. It correctly
+reports its 17-pass check as unfinished; it is not a complete passing run or a Lane C receipt. No claim that
+these defects necessarily cause bankruptcy or that every publication attempt must fail is supported.
+
+### Layer 2 — What happened; exact draft repairs in dependency order
+
+All paths below are relative to C:/robertaoai/my-editorial-app. Lane A owns applying these sources under the
+future bounded act; this review specifies the changes only. Use IR-1–IR-5 as child labels here, not new handoff numbers.
+
+| Child / source | Confirmed fact and draft fix | Acceptance evidence |
+|---|---|---|
+| **IR-1 authority** — Modular_PRD prologue L12–19 and Q8 L1181 | Both still say neither PRD outranks the other. D-29/D-58 and the repaired docs/README.md L18–26 establish the hierarchy. Draft: “The Project PRD preserves the frozen customer baseline. The Product PRD elaborates it within D-29's hierarchy. Conflicts follow D-58; a proposed scope change follows customer/sponsor intake and cannot be approved by a downstream edit.” Replace Q8's obsolete hierarchy premise with a pointer to this rule; preserve Q8/FB-04 customer-feedback work as Open | No competing authority rule remains in these current clauses. Customer-change consent is preserved; no frozen text or Q8 outcome is changed |
+| **IR-2 references** — V1-SM05 L7–8 | Both ../../SETUP-SPIKE-000/SV-001.md and SV-002.md resolve to absent paths. ../SETUP-SPIKE-000/SV-001.md and SV-002.md resolve to the existing files. Draft clickable links using those corrected sibling paths | Resolve both from the containing document, require the intended files, and check the rendered links. Clickable-link coverage must not be claimed to cover code-formatted paths |
+| **IR-3 Q11 status** — SPECS-TRANSITION-ENFORCEMENT §10 L239 | Q11 is called Open; D-111 and Modular_PRD Q11 record its closed name/shape. Draft a current note pointing to D-111/D-112 and line_separation_status. Retain the original S1 scope statement as dated history and retain “authorizes no code” | Q11 cannot be mistaken for a pending naming decision. This does not admit transition execution into SM05 or re-authorize schema work |
+| **IR-4 terminology** — same spec §3.1 L90 | “Four of the eleven gates” contradicts §3's D-233 gate/mechanics distinction and creates a count dependency. Draft: “Some transition IDs do not fit a fixed (from_state, to_state) pair table. The cases are:” Retain the listed cases and stored/API identifiers | Namespaces, identifier values and behavior stay unchanged; current prose no longer calls every transition mechanic a judgment gate |
+| **IR-5 UX status** — SPECS-PUBLICATION §2 L43; Inventory UX-route row L67, read with L83 | ux/ exists and contains UX-MULTI-LANE-AI-GOVERNANCE.md. The publication-specific manual-confirm UX spec and separate editorial/request-brief route UX remain distinct missing artifacts. Draft the Publication cell as “publication-specific UI specification not yet written; existing governance UX does not satisfy it.” Mark Inventory's old directory-absence statement as history and retain the route-spec missing status | The directory-exists fact, each feature-specific absence and its existing scope/return condition are separate. Do not create or merge UX requirements merely to satisfy a folder count |
+
+IR-1 corrects the authority explanation, not customer scope. IR-3/IR-4 correct a historical technical target's
+current presentation, not its implementation selection. IR-5 has two occurrences of one status defect; fix both
+in the same bounded packet. Preserve D-36 section-origin markings and history. Do not copy old requirement or
+file tallies into the replacement prose; link to the owning rows instead.
+
+### Layer 3 — Existing design obligations; avoid scope and verification gaps
+
+**Publication:** SPECS-PUBLICATION §3/§7 specifies local record deduplication for a provider_event_id; it does
+not establish single outbound execution. Its claim step is deferred. B-078 Child 4 already requires concurrent-worker ownership
+and expiry/recovery, provider-success/local-crash handling, unknown-outcome hold/reconciliation, eventless-target
+selection and state-promotion consistency. Keep those concrete cases with that owner. A later accepted design
+must show one authorized outbound attempt per logical attempt and a recovered or explicitly uncertain outcome
+after a crash; never infer exactly-once delivery from a local unique index. No publishing implementation or new
+SM05 test is due here, and this review assigns no new V2 destination.
+
+**SM06:** work packet L75 already leaves physical snapshot/revision identity, idempotency key and effective-current
+query to Lane B before its work order. Retain that named refinement obligation. Future evidence must cover exact
+accepted-content binding, identical replay and changed-content refusal. These are SM06 inputs, not an SM05 gate.
+
+**Checks/exports:** draft a separate, bounded enhancement proposal if wanted: inventory navigational references
+including code spans, validate targets/anchors, and distinguish current clauses from dated history before comparing
+status with decision owners. Test it with a missing target and a stale current claim, plus valid historical controls.
+Do not make that new checker or a full-corpus rewrite a prerequisite for the five source repairs. Generated graph
+reports should be clearly identified in reader exports; no export set or Graphify source is changed by this review.
+
+### Layer 4 — Single Lane A answer and Chief Editor decision
+
+1. Read this brief with the current r4 receipt above. Keep cba4678's accepted children closed; Lane B owns the
+   pending r4 review. Do not re-answer the older r3 request or reopen terminal B-078.
+2. Draft IR-1 first, then IR-2–IR-5 as one source-bound correction packet with exact old/new text, owners,
+   acceptance checks and D-54 affected/unaffected tiers. Keep future product work as cross-references only.
+3. Record one Lane A design answer in B-136 with its packet hash and changed clauses. Lane B reviews. No new Judge
+   choice is needed to write this draft; applying governed edits needs its existing bounded recording/authority route.
+4. After any later authorized source application, assess curated graph descriptions/edges, use the guarded route,
+   preserve/re-merge fragments and record publication/health before claiming graph parity. Today's handoff-only
+   drift conclusion cannot be carried forward to that source-edit batch.
+
+Chief Editor: accept the locally reproduced defects and the existing future-work routing. Accept neither the
+unreproduced export totals nor software-readiness claims. The required next artifact is a reviewable correction
+packet, not a build, a new tool adoption, a repeated customer decision or blanket handoff closure.
+
+**What Lane B did instead:** read the attachment as data; queried Graphify; resolved the four old/new path forms;
+read the cited source clauses, decisions and B-078 routing; bound the received r4 without claiming its content
+Verified. Only B-136 changes; evidence and final-content checks are at
+C:/CoWork/outputs/lane-b-independent-doc-review-2026-10-15/. Current handoff-only drift needs no graph sync.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| **Approve** | IR-1–IR-5 source findings; B-078 publication and SM06 refinement routing; prior Verified children retained | Phase 1: supported review and draft scope |
+| **Approve-with-conditions** | Lane A correction packet and documentation orientation | Phase 1: exact source-bound draft, D-54/graph impact, bounded application and independent review before claiming fixes |
+| **Defer** | r4 content disposition; checker enhancement; SM06 and future publishing design/implementation | Existing separate review/work-order triggers; no new SM05 gate |
+| **Reject** | Unreproduced export totals as completeness; partial checks as a full pass; local deduplication as single external execution; historical design as selected scope | Phase 1 and later consuming phases: require the stated evidence |
