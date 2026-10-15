@@ -12730,3 +12730,62 @@ Evidence and final-content checks: C:/CoWork/outputs/lane-b-ir-packet-r2-review-
 | **Approve-with-conditions** | Preparing the concrete source-application act | Phase 1: bind the accepted text, source set, tier/fragment impact, receipt/publication/health route and stops; review before Judge application act |
 | **Defer** | Applying sources, graph publication/health, sibling reviews, construction, gates and push | Existing bounded acts/evidence; no new condition on completed r2 design |
 | **Reject** | Reopening the historical question list; inline-copy overclaim; design acceptance or a green check treated as application/build authority | Phase 1 and consuming phases: retain the stated scope |
+
+---
+
+## Lane B — Independent audit receipt and consolidated IR application brief, 2026-10-15
+
+### Layer 0 — What happened and the precise request
+
+**Raised:** 2026-10-15 by Lane B. **Receiver:** Lane A. **Kind:** finding / audit receipt. **Phase:** 1.
+**Parent:** Open B-136 / Parent 3 / IR correction packet. **Evidence observed at:** 26ac6292298141f943f759a8690bedc9f5a51ff9.
+**Request, made clearer:** assess the new independent review, retain the accepted transaction chain and give Lane A one next task using the handoff fields. Planning only.
+
+**Executive brief:** the review confirms the five source defects already covered by accepted IR packet r2. Its new contribution is an audit receipt. Lane B reproduced the 268 included export entries and the 118 scanned local link occurrences within the limits below. The design/record child stays Verified; the sources remain unapplied. Lane A's next task is the complete application-act draft already requested at 26ac629. No new design revision or repeated approval of r2 is due.
+
+### Layer 1 — Decision map, parent first
+
+| Parent / child | Current disposition | Accept condition / next trigger |
+|---|---|---|
+| B-136 / SM05 transition | Open; SM05 not selected | Its existing readiness, selection and work-order acts |
+| IR r2 design and Lane A record | Verified by Lane B at b867ec3, recorded at 26ac629 | Retain the completed child and the preservation qualification |
+| New audit evidence | Accepted within the named comparison and reference scope | Retain the receipt/input hashes; do not call normalized text raw-byte equality |
+| Five source repairs and new application act | Planned; source application unverified | Lane A drafts the bounded act; Lane B reviews; Judge authorizes the concrete unit |
+| Graph publication and health | Later application obligations | Unit-specific receipt/publication authority, accepted candidate and separate health record |
+| BCP-1 sibling review, SM06 and publication design | Existing owners and triggers | Not new conditions on the completed IR design; no new SM05 blocker raised here |
+
+### Layer 2 — Transaction chain
+
+| Record | Transaction and retained result |
+|---|---|
+| 63dce74 | Lane B consolidated the five defects; future publication and SM06 gaps stayed with their existing owners |
+| 08c648d | Lane B returned IR-3b: the Register question list is dated history; Q3/Q5 re-verification was unnecessary |
+| b867ec3 | Lane A recorded r2, withdrew IR-3b and that deferral, and kept the accepted replacement text |
+| 26ac629 | Lane B verified r2 design/recording; qualified preservation as the bound original plus accurate dated notes; requested the application act |
+| New review, SHA-256 3c2c2636…63b5; receipt 52909a13…1a58 | Corroborates the existing defects and adds reproducible audit evidence at 26ac629; does not prove source application |
+
+### Layer 3 — What Lane A needs to do
+
+1. Receive this brief in B-136 and draft the complete application act from accepted IR r2 (SHA-256 bc29c616…b71c). Bind the current revision/hashes and exact old/new text for Modular_PRD, V1-SM05, SPECS-TRANSITION-ENFORCEMENT, SPECS-PUBLICATION and V1-ARTIFACT-INVENTORY, plus the new Register act. Keep the existing historical Register paragraph unchanged; refuse an old-value or scope mismatch.
+2. State D-54 affected/unaffected reasons, the curated-fragment impact, source/refusal checks and preservation by pinned originals plus dated notes. Inventory wording does not create a missing UI file. Encyclopedia impact is a local-map assessment; hosted parity remains unmeasured.
+3. Define the independent candidate-receipt route, any unit-specific exception, publication permission/stop, no-fetch/no-push interval and separate health record. Expired D-435/D-436 exceptions do not supply this authority. Present the complete act to Lane B before the Judge's application checkpoint.
+4. Keep application, guarded graph preparation, receipt, authorized publication and health in the act's stated order. This brief performs none of them. Phase 2 delivery artifacts, tests/code, SM05 selection, Gate 2 and push retain their separate checkpoints.
+
+**Chief Editor requirement:** review a concrete scope, route and stop points after the application act is drafted. No new decision is needed to retain r2's design acceptance. A current-status claim must use its owning decision and surrounding history; a link or exact text match alone does not establish it. Publication failure contracts remain in B-078 Child 4; SM06 snapshot/replay/readiness-query details remain in its DoR. Broader notices or checker improvements are separate proposals.
+
+### Layer 4 — Evidence, limits and what Lane B did instead
+
+The frozen audit receipt is C:/CoWork/outputs/lane-b-doc-audit-receipt-2026-10-15/audit-receipt-52909a13.json (full SHA-256 52909a139bb178857591abd0581c32bfb33c785892b37825078eec85eec41a58). Its export hash is 3fcfba9c2a9cd0170895fcf95f1537e5827af08096122bdf55e6e2e8b2866d21. All 268 parsed export entries match the receipt, current checkout and pinned revision after line-ending normalization and outer-whitespace trimming. This proves the included comparison, not export completeness against the repository, raw-byte equality or requirement completeness.
+
+The reference scan reproduces 120 local-looking occurrences: two are literal import-syntax examples, leaving 118 references with existing targets and matching checked anchors, including B-156's explicit HTML ID. It is an inline-link occurrence scan, not a full Markdown parser. It excludes the two broken code-formatted SM05 paths; those remain accepted IR repairs. No zero-link-finding result proves semantic currency or runtime behavior.
+
+Lane B kept the accepted text/receiver answer and reviewed the new evidence only. Full hashes, exclusions, source bindings and checks are in C:/CoWork/outputs/lane-b-doc-audit-receipt-2026-10-15/. Only this B-136 block is appended. Current handoff-only changes need no graph sync; later governed application needs its guarded cycle. No build, governed-source edit, install, fetch or push is performed.
+
+### Layer 5 — Approve / reject summary
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Audit evidence within its stated scope; accepted r2 design/record and transaction chain | Phase 1: retain; completed design stays closed |
+| Approve-with-conditions | Application-act preparation | Phase 1: bind the exact unit, tiers/fragments, receipt/publication/health route and stops; review before Judge application act |
+| Defer | Source application, future technical design, construction, gates and push | Their existing owners and bounded acts |
+| Reject | Duplicate design return; normalized or parsed equality called byte equality; historical text called current; a green audit used as application/build authority | Phase 1 and consuming phases: preserve the evidence limits |
