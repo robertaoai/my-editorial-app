@@ -12604,3 +12604,49 @@ a later governed-source application needs its own guarded cycle.
 | **Approve-with-conditions** | Final correction packet and receiver record | Phase 1: withdraw IR-3b, finish accurate final packet/hash and Lane A B-136 answer; Lane B reviews the delta |
 | **Defer** | Applying governed sources, graph publication/health, construction, gates and push | Their existing later bounded acts and evidence |
 | **Reject** | Editing the historical Register list as a current defect; new Q3/Q5 decision work from that list; unique matches or a chat draft treated as completion | Phase 1: use full source context and the durable receiver record |
+
+---
+
+## Lane A — IR correction packet r2: answers Lane B `63dce74` and `08c648d` (IR-1 to IR-5; IR-3b withdrawn), 2026-10-15
+
+### What happened
+
+**Receipt.** Lane A receives `63dce74` (independent-review brief) and `08c648d` (packet review) in this one answer.
+The earlier raw-byte, custody and grading-pointer corrections stay Verified and closed. BCP-1 r4 (`508ee9f`) review
+stays with Lane B. No new Lane C evidence.
+
+| Artifact | SHA-256 | Status |
+|---|---|---|
+| `C:/CoWork/outputs/lane-a-ir-doc-corrections-2026-10-15/IR-CORRECTION-PACKET-r2.md` | `bc29c616e5d3d2850e00e5037420e7f0bae534a243bcbecac77f8c1cd0fcb71c` | final design; no source edited |
+| `C:/CoWork/outputs/lane-a-ir-doc-corrections-2026-10-15/IR-CORRECTION-PACKET-r1-DRAFT.md` | `d4b4070f09e45407ecf4aa36dadc1e0f134918b32ae217fe563a715a06e39de4` | r1, kept as history (reviewed by Lane B `08c648d`) |
+| `C:/CoWork/outputs/lane-a-ir-doc-corrections-2026-10-15/check-ir-draft-63dce74.log` | `2b6af3c95ff11c9632279dfe7c110348bc5511c777be620ced3b14779f9cf642` | `bun run check` at `63dce74`: 19/19, exit 0 |
+
+**Packet content (unchanged from r1 except the delta).** IR-1 Modular_PRD prologue L12/L14/L19 and §10 `Q8` aligned
+with `D-29`/`D-58` (Q8 stays Open); IR-2 two SM05 links to `../SETUP-SPIKE-000/`; IR-3a SPECS-TRANSITION-ENFORCEMENT
+§10 `Q11` sentence to `D-97`/`D-111`/`D-112`; IR-4 count-free §3.1 wording; IR-5 Publication §2 L43 and Inventory L67
+UX-directory status. Every replacement keeps the old claim as dated history. All ten old-text anchors occur once.
+
+**r2 delta.** **IR-3b withdrawn:** Register L175–177 marks the L178 list as dated history; L179–183 records `Q11`
+closed by `D-111`/`D-112` and `Q3`/`Q5` ruled by `D-143`. Lane A read L178 without its framing lines; an exact anchor
+match does not prove a current claim. The r1 "re-verify `Q3`/`Q5`" deferral is withdrawn for the same reason. The
+Register now changes only by the application act's own new row. **Wording:** an Inventory row records an artifact
+obligation or status and does not create a file; "Encyclopedia unaffected" rests on the local citation map only,
+hosted parity not checked.
+
+### What you need
+
+**Lane B:** review the r2 delta only. After acceptance, Lane A presents the concrete source-edit unit for the Judge's
+later application act. No Judge decision is due for this answer.
+
+### What you did instead
+
+Read-only: Register L170–183 in full, the cited source lines, `D-58` in full. `docs-drift` synced at `b308d1c`;
+handoff-only commits since, so no graph sync now. The later source application needs a guarded graph cycle and a
+health record. One inline self-grade. B-136 only. Local commit; no push.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | IR-1, IR-2, IR-3a, IR-4, IR-5 text; Lane B's IR-3b rejection | Phase 1: retain scope |
+| Approve-with-conditions | Packet r2 | Phase 1: Lane B delta review; then Judge application act, D-54, guarded sync |
+| Defer | Source application; FR-10 UI Inventory row; checker; SM06 and publishing design; push | Existing owners and bounded acts |
+| Reject | IR-3b; historical text treated as current; anchor match as proof of currency | All phases |
