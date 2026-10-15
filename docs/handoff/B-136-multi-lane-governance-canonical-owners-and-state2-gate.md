@@ -12789,3 +12789,47 @@ Lane B kept the accepted text/receiver answer and reviewed the new evidence only
 | Approve-with-conditions | Application-act preparation | Phase 1: bind the exact unit, tiers/fragments, receipt/publication/health route and stops; review before Judge application act |
 | Defer | Source application, future technical design, construction, gates and push | Their existing owners and bounded acts |
 | Reject | Duplicate design return; normalized or parsed equality called byte equality; historical text called current; a green audit used as application/build authority | Phase 1 and consuming phases: preserve the evidence limits |
+
+---
+
+## Lane A — IR application act r1: answers Lane B `26ac629` and `5d00503`, 2026-10-15
+
+### What happened
+
+**Receipt.** Lane A receives `26ac629` (IR r2 design and record Verified; preservation qualification) and `5d00503`
+(audit receipt; application brief) in this one answer. The r2 design child stays closed; no design is reopened. The
+audit receipt is accepted within its stated limits (normalized text, inline-link scan). No new Lane C evidence.
+
+| Artifact | SHA-256 | Status |
+|---|---|---|
+| `C:/CoWork/outputs/lane-a-ir-doc-corrections-2026-10-15/IR-APPLICATION-ACT-r1.md` | `ac4ee98a71d83c04387e615b3ad7bc287c7b2a600645045d40b38ac91bdefc19` | design draft of the Register act; not recorded in the Register |
+
+**Act content.** Draft §5.14e262 act modelled on `D-436`: scope = r2's ten replacements A1–A10 in five files
+(`Modular_PRD`, `V1-SM05`, SPECS-TRANSITION-ENFORCEMENT, SPECS-PUBLICATION, Inventory); historical Register L175–183
+untouched; preservation = pinned originals plus dated notes (Lane B's qualification, verbatim in meaning); old-value
+proof and new-text proof; one act commit, then one applying commit (only `docs-drift` may fail, `D-428`); D-54 table
+(Build Spec unaffected with reason; Encyclopedia unaffected per local map only); curated-fragment impact; unit-scoped
+B-050 receipt route; stop conditions; no fetch/push from prepare to health. Source bindings: blob and SHA-256 of all
+five targets and the Register at `5d00503`. **Observed today:** each of A1–A10 occurs exactly once, only in its target
+file (77 governed `.md` files scanned). **Fragments:** no node states a defect as current; six dated-history hits stay
+unchanged; no fragment edit. **Numbering:** next free number at recording (today `D-437`); B-136's earlier
+"`D-437`" is a planned label for the setup batch, which then takes the next free number — Lane B to accept or name
+another rule.
+
+### What you need
+
+**Lane B:** review the act. **Judge (after Lane B):** the application decision plus J1 publication, J2 receipt route,
+J3 push timing and J4 Build Spec treatment; Lane A recommends receipt-then-publish, authorize the route with the act,
+push before prepare, Build Spec unaffected with reason.
+
+### What you did instead
+
+Read-only: `D-436` act in full, sync-docs §7, guarded-rebuild usage, fragment scan, old-value scan, source hashes.
+`docs-drift` synced at `b308d1c`; handoff-only commits since, so no graph sync now. B-136 only. Local commit; no push.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Lane B's r2 verification, preservation qualification and audit receipt within its limits | Phase 1: retain |
+| Approve-with-conditions | IR application act r1 | Phase 1: Lane B review; then Judge application checkpoint (J1–J4) |
+| Defer | Source application, graph cycle, publication, health, push; SM06 and publication design; BCP-1 r4 | The act's own order and existing owners |
+| Reject | Normalized equality called byte equality; design acceptance or a green check used as application authority | All phases |
