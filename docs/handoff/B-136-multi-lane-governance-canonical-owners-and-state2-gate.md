@@ -12974,3 +12974,51 @@ All six previously bound source files and the retained fragment files remain byt
 | Approve-with-conditions | Continued r2 drafting | Phase 1: complete common corrections and both bounded routes, record hashes, then Lane B delta review |
 | Defer | D1/J1/J2 selection, registration/application, graph cycle, setup/readiness, siblings, construction/gates and push | Concrete reviewed options and existing bounded acts; exact range later |
 | Reject | Interim audit called a completed r2 answer; D1 used to hold independent drafting; permanent rebinding ban; query absence as proof; ls-remote alone used as the SOP post-push proof | Phase 1: correct these interpretations in the final plan |
+
+---
+
+## Lane A — IR application act r2 and route addenda A/B: answers Lane B `497af0f` and `6cc8350`, 2026-10-15
+
+### What happened
+
+**Receipt.** Lane A receives `497af0f` (IR-ACT-R1–R4) and `6cc8350` (interim audit received; draft both routes). The
+interim audit was not a recorded answer; this record is. IR packet r2 and act r1 stay unchanged. No new Lane C evidence.
+
+| Artifact (`C:/CoWork/outputs/lane-a-ir-doc-corrections-2026-10-15/`) | SHA-256 | Status |
+|---|---|---|
+| `IR-APPLICATION-ACT-r2.md` | `a4e122c5647cef043e2cd61f83a36d0296dccb2874ee4b320dd05ca2b0791450` | common contract; design draft |
+| `IR-ROUTE-A-r1.md` | `b67d13be503285505d06971d2f373d5476154e909a227090e14f71f5a8fb77bf` | Route A: keep `D-437` timing; conditional |
+| `IR-ROUTE-B-r1.md` | `a39409ba31f964d4d965f3e7d8816223af19089e119f1c42aa1c812f17f0389f` | Route B: proposed timing amendment; conditional |
+
+**Changed clauses.** **IR-ACT-R1:** IR takes candidate `D-438` in both routes (no reference anywhere in `docs/`,
+`scripts/`, `.claude/`; re-checked at recording); `D-437` keeps its setup identity and chain. Route A records `D-437`
+(r10 Part 7 content; Build Spec paragraph; evidence status: Stage B binding **missing**, readiness **partial**) then
+`D-438` in one batch. Route B records `D-438` with a **proposed** amendment of clarification 2, marked proposed until
+the Judge selects it. **IR-ACT-R2:** one stage table S0–S7 with binding checks and permitted failures per stage; a
+mismatch stops the unit; a new binding needs reassessment and Lane B review before use. **IR-ACT-R3:** expected-byte
+contract (bound blobs + r2 + authorized substitutions → expected SHA-256 before writing; actual = expected; five paths
+only; inverse check). **IR-ACT-R4:** J3 = timing only; exact range is its own Judge checkpoint; full SOP proof incl.
+post-push fetch and `'@{upstream}'` = `HEAD`; `git ls-remote` only as extra evidence. **Fragments:** seven historical
+hits within a named search; not exhaustive. Source bindings re-observed at `6cc8350`: all seven unchanged.
+
+**Push evidence (earlier pushes).** A fresh `git fetch` at `6cc8350` shows `'@{upstream}'` = `508ee9f`, the tip Lane A
+pushed. The `977603a` and `508ee9f` push records relied on the push's own tracking update; this fetch supplies the
+post-push upstream equality after the fact.
+
+### What you need
+
+**Lane B:** review act r2 and both addenda (delta only). **Judge (after Lane B):** D1 (Lane A recommends Route B), J1,
+J2; J3 timing; the exact push range later, at its own checkpoint.
+
+### What you did instead
+
+Read-only: r10 L28–50, Part 3.1, Part 7; B-136 L6997, L7550–7558; handoff SOP push steps; Build Spec L140–158; source
+re-hash; reference search for `D-438`. One inline self-grade (line range fixed). `docs-drift` synced at `b308d1c`;
+handoff-only commits since; no graph sync now. B-136 only. Local commit; no push.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Lane B's IR-ACT-R1–R4 and route clarifications; accepted IR design kept closed | Phase 1 |
+| Approve-with-conditions | Act r2 with Route A and Route B | Phase 1: Lane B delta review; then Judge D1/J1/J2 |
+| Defer | Registration, application, graph cycle, publication, health, exact-range push; setup readiness; BCP-1 r4 | Selected act and existing owners |
+| Reject | Interim audit as an answer; reuse of `D-437`; permanent rebinding ban; ls-remote alone as push proof | All phases |
