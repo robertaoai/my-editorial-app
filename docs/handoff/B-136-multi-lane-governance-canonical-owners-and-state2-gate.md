@@ -13076,3 +13076,50 @@ Local commit; no push.
 | Approve-with-conditions | Act r3, `D-438` body, route addenda r2 | Phase 1: Lane B delta review; then Judge D1/J1/J2 |
 | Defer | Registration, application, graph cycle, publication, health, exact-range push; setup readiness; BCP-1 r4 | Selected act and existing owners |
 | Reject | Route fallback; late fetch as historical push compliance; supplied chat text as a Lane B commit | All phases |
+
+---
+
+## Lane A — IR application act r4: answers the supplied Lane B audit of `1c0635b` (N1–N2), 2026-10-15
+
+### What happened
+
+**Receipt.** The Judge supplied a second Lane B audit (of `1c0635b`) in chat. It is **not a Lane B commit**; Lane A
+retains a copy and answers it here. The audit closes G1, G2 and G4 for design and keeps G3 open through N2. Accepted
+replacement text, route scope and the push qualification stay unchanged. No new Lane C evidence.
+
+| Artifact (`C:/CoWork/outputs/lane-a-ir-doc-corrections-2026-10-15/`) | SHA-256 | Status |
+|---|---|---|
+| `IR-APPLICATION-ACT-r4.md` | `a9d80e6a71a200e684f6e321e0da6dcc5142b4995190bb24b8c1b6e17cfb4717` | common contract r4; r3 `c4955784…` kept |
+| `IR-D438-REGISTER-BODY-r2.md` | `aee995337c183d1f85c4111c4f482444bb08ce953017995d84a79cc62740d34d` | `D-438` body; only change from r1 (`ff3415b3…`): "act r3" → "act r4" |
+| `IR-ROUTE-A-r3.md` | `40ed10561d7a06ad2dec5f74cbf37a1121136403627e4f685e560b7ec4c2b232` | Route A; references only; r2 `ec88ef82…` kept |
+| `IR-ROUTE-B-r3.md` | `70d462dfdaac712a9c3de2c9cf653198b54d94e98886b9943d466b80cea2cf15` | Route B; references only; r2 `4511e8e0…` kept |
+| `LANE-B-SUPPLIED-AUDIT-1c0635b.md` | `2fadad7ed79301b61e35e376ba22b046e7ea777c4b0808a17543886766cb445c` | retained input: Lane B audit supplied by the Judge in chat; not a Lane B commit |
+
+**Changed clauses (act r4).** **N1 (§A):** the number guard checks commitment ownership. Pass when `D-438` has no
+Register entry and every forward reference commits it to this IR act (Lane A's `983eb30`, `1c0635b` and this answer).
+Stop on a Register entry for `D-438` or a reference committing it to another act. **N2 (§E):** E2a — before a commit's
+first write, `git status --porcelain` for its path set is empty and each file has its expected prior bytes; E2b — before
+each later write, the target has its expected prior bytes, each file already written in the commit has exactly its
+expected output, and each unwritten file is unchanged; any other difference refuses and keeps the partial state; E5
+unchanged. **§J controls:** C1 valid IR promise passes; C2 conflicting promise or Register entry stops; C3 multiple
+authorized writes pass E2a/E2b/E5; C4 an extra byte between writes is refused by E2b, after the last write by E5. Run at
+application in a disposable copy; not built now. **References:** body r2 and route addenda r3 point to act r4; no
+other text changes. Source bindings at `1c0635b`: all seven unchanged.
+
+### What you need
+
+**Lane B:** review the N1/N2 delta and §J. **Judge (after Lane B):** D1 (explicit; Lane A recommends Route B), J1, J2;
+J3 timing; the exact push range at its own checkpoint.
+
+### What you did instead
+
+Read-only: supplied audit; act r3 §A and §E; reference search for `D-438` (B-136 only); source re-hash. One inline
+self-grade. `docs-drift` synced at `b308d1c`; handoff-only commits since; no graph sync now. B-136 only. Local commit;
+no push.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Supplied audit's N1–N2; G1, G2, G4 closed for design | Phase 1 |
+| Approve-with-conditions | Act r4 with body r2 and route addenda r3 | Phase 1: Lane B delta review; then Judge D1/J1/J2 |
+| Defer | Registration, application, graph cycle, publication, health, exact-range push; setup readiness; BCP-1 r4 | Selected act and existing owners |
+| Reject | Number presence as a conflict; per-write clean status that refuses authorized writes; supplied chat text as a Lane B commit | All phases |
