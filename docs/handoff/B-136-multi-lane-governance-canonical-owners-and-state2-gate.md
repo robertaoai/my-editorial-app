@@ -14437,3 +14437,42 @@ expected `D-438` drift.
 | Approve-with-conditions | EV r8; manifest r3; custody r2 | Lane B review; transfer after `D-438` health; `D-439` act |
 | Defer | Transfer and its verification; S5–S7; `D-437`; `D-439`; readiness; SM05; Gate 2; push | Their checkpoints |
 | Reject | "Owner TBD" left in a current reader after withdrawal; reuse of a frozen V1 record as authority; "closed" for an unverified transfer | All phases |
+
+---
+
+## Lane A — EV packet r9: E12 in the application contract, coverage table, E12 proof; answers Lane B's audits of `8dabace`, 2026-10-16
+
+### What happened
+
+**Authority.** The Judge, 2026-10-16, in chat: **"Judge Approved: draft EV r9 and record in B-136"**. Drafting and recording
+only; no application, transfer or publication. **Receipt.** The Judge supplied two Lane B chat audits of `8dabace`: the
+first found E12 missing from the application contract; the second accepted Lane A's remediation plan with two refinements
+(an exact coverage contract; an independent E12 control). No new Lane C evidence; no S5 prerequisite added.
+
+| Artifact | SHA-256 | Change |
+|---|---|---|
+| `C:/CoWork/outputs/lane-a-ev-doc-corrections-2026-10-15/EV-CORRECTION-PACKET-r9.md` | `dfd5c7771e9b1980c95b3ecaf26c01630e8a4d128d135b7647d8e7edb88f5c65` | §3b heading → "EV-5 — V1 non-goals: Register ruling and E12 propagation"; §7 scope adds **E12**; §7 acceptance adds: "in the `NG-11` row's Excludes cell, 'owner TBD' is absent and the exact E12 replacement occurs once; the `D-188` Register text is unchanged; `D-439` records the withdrawal". **§7a coverage table:** active edit set E1, E2, E3, E4, E6, E8–E12; EV edits E5, E7 marked withdrawn history; the application act's proof steps renamed **P-E2a, P-E2b, P-E5** (not EV edits); each active edit linked to file, target, tier, scope, acceptance and proof; no exemption. **§7b E12 proof (planned, not run):** expected bytes from the bound blobs and this packet's texts, not from the helper's output; complete case passes; omitted-E12 case (all other edits correct, "owner TBD" kept) fails and names E12; a separate `D-439` helper — the `D-438` helper r4 and its controls stay unchanged. Edit texts unchanged. r8 kept |
+| `C:/CoWork/outputs/lane-a-bcp1-filemap-2026-10-15/TRANSFER-MANIFEST-r4.md` | `fce5046da4206b21ba2f61d1da3132f5b639135a7046faee56929dcb3a55ed50` | 93 rows — 91 new copies, 2 retained matches, 0 conflicts (adds EV r9); recomputed |
+| `C:/CoWork/outputs/lane-a-bcp1-filemap-2026-10-15/make-transfer-manifest-r4.mjs` | `27f1af18d34603ee16535b35362fad933ca7352a40ed1766c600aa7f2ca1a0e3` | generator r4 |
+| `C:/CoWork/outputs/lane-a-bcp1-filemap-2026-10-15/CONTROL-FILE-CUSTODY-r3.md` | `d058eb05e3f6a27a7aa4e46c42c2508e4825ad52504a5e189a36af1d1ff1d62e` | four manifests, four generators, custody r1–r2; this record's hash bound here |
+
+**Check done (read-only):** every edit defined in r9 (E1–E4, E6, E8–E12) appears in the §7a table and in the §7 scope; no
+withdrawn edit appears in the scope. This is a text check of the table, not proof of application. **Build safety:** the
+r9, manifest r4 and custody r3 build scripts refuse to overwrite an existing file (the r8 rebuild overwrote a hand fix).
+
+### What you need
+
+**Lane B:** review the r9 delta (§3b, §7, §7a, §7b) and manifest r4 / custody r3; S5 receipt for candidate `c5b3cafa` in
+B-050 with its annotation; the F16 residual. **Judge:** `D-439` (EV r9) comes after Lane B's review and `D-438`'s health.
+
+### What you did instead
+
+Drafts outside the repository; this record is handoff-only. No fetch or push (`D-438` interval). The check fails only on
+the expected `D-438` drift.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Lane B's E12 finding and both refinements; E12 text, F2, F3 kept closed | Phase 1 |
+| Approve-with-conditions | EV r9; manifest r4; custody r3 | Lane B review; `D-439` act; transfer after `D-438` health |
+| Defer | E12 proof runs; `D-439` helper; transfer; S5–S7; `D-437`; SM05; Gate 2; push | Their checkpoints |
+| Reject | Completion without E12 verification; ID presence counted as coverage; expectations derived from the helper's own output | All phases |
