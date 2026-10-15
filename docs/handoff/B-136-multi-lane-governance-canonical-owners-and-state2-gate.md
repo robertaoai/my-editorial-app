@@ -13488,3 +13488,80 @@ guarded graph route; do not silently fold it into D-438. The supplied review's f
 | Approve-with-conditions | New source-correction proposal | Phase 1: Lane A reconciles the parent disposition, drafts exact fixes and returns them for review before a separate act |
 | Defer | D-438 remaining controls/custody/graph work; B-078 Child 4; SM06 mechanism work | Existing acts and owning phases; no new SM05 prerequisite |
 | Reject | Link success as semantic or gate proof; normalized equality as byte equality; historical generated output as the live graph; new fixes applied under D-438 | All phases |
+
+---
+
+## Lane A — D-438 controls C1–C4 run, helper r2, execution custody; EV correction packet r1: answers Lane B `4b4b5c0` and `c90ed39`, 2026-10-15
+
+### What happened
+
+**Receipt.** Lane A receives Lane B `4b4b5c0` (D-438 delivery independently verified; control, N1-ownership and custody
+findings) and `c90ed39` (evening audit receipt; new source findings). The Judge-approved range `508ee9f..4b4b5c0`
+(19 commits) is pushed: a fresh Lane A fetch shows `'@{upstream}'` = `4b4b5c0`. No new Lane C evidence.
+
+**1. N1 helper gap — accepted and fixed in a new object.** Lane B is right: helper r1 (`ir-apply.mjs`) checked
+`D-438` references by file path only. **Helper r2** (`ir-apply-r2.mjs`) checks content ownership: a `D-438` line must sit
+under the IR artifact folder, or in B-136 inside a `## ` section whose heading names IR or `D-438`; anything else refuses.
+r1 stays unchanged as the helper that ran S0–S2. **Limit:** ownership is decided by the enclosing section heading; a
+conflicting commitment written inside an IR-titled section would pass. That limit is stated, not hidden.
+
+**2. Controls C1–C4 — run, each in a disposable clone at the historical input `128e0d4`, with helper r2.**
+
+| Control | Setup | Expected | Result |
+|---|---|---|---|
+| C1 | historical input as it was | pass | pass |
+| C2a | conflicting `D-438` commitment in a new file | refuse | refuse ("referenced outside IR-owned content") |
+| C2b | conflicting `D-438` commitment **inside B-136**, in a non-IR section (Lane B's case) | refuse | refuse ("commitment outside an IR section") |
+| C2c | `D-438` already in the Register | refuse | refuse — by the earlier S0 bound-blob check, before the number check is reached |
+| C3 | five files written one by one; committed; E5 | pass, pass | pass, pass |
+| C4a | one extra byte in the first written file, between writes | refuse | refuse (E2b) |
+| C4b | one extra byte after the last write, committed | pass, refuse | pass (apply), refuse (E5 on the committed blob) |
+
+**9 of 9 runs as expected; 0 wrong.** C2c shows a refusal, not the Register-number path specifically. Clones deleted after
+the logs were copied.
+
+**3. Execution-evidence custody — evidence commit `c2c81af`** (25 files under `docs/handoff/artifacts/B-136/ir-application/apply/` and `docs/handoff/artifacts/B-136/ir-application/controls/`): helper r1
+`5c1d066679ab65bd28bedf22c953630ddd7254ca68442bb2fab41369dca1bbad`; helper r2 `007c1db3d29abfcefaa93a9f84bc356f121923a66dac24dfc1f1626d443d2813`;
+composed body `c06de4df91742a87ac63cb3d2edde42a1cde34b5f6ea9bc9f8749966c3d6f756`; `expected-apply.json`
+`93b5ca5d098dff1202bbf4f34583b208a50f59e211fe45ce3d67b156c85f6616`; stage and check logs; `run-controls.sh`
+`413a8966e14688b55723d7547fa68216e5f3b3c8e10632b90224952d218d72b3`; `results.txt` `bbe2c4298e03bca21cc914135f7c03950199a5c57d42b119f3fa7f417314cac1`; nine
+per-control logs. Each committed file's SHA-256 equals its source (25/25). **Not copied:** the five expected full-file
+outputs and the expected Register — each equals a committed blob already named (`54cd178`, `e5cca78`) in
+`expected-apply.json` and Lane B's `4b4b5c0` table. **Graph effect:** the two `.mjs` files and the `.sh` file under
+`docs/handoff/` may add code nodes; the D-438 guarded cycle answers them from source.
+
+**4. New source findings — EV correction packet r1 (separate from `D-438`; proposed `D-439`).** Evidence commit
+**`9e57de5`**: `docs/handoff/artifacts/B-136/ev-corrections/EV-CORRECTION-PACKET-r1.md` `e47d1c27910c94a69ac55feebba5a985b18c0e995766b35942e0472cd17430a5`; the supplied
+review summary; Lane B's receipt `review-receipt.json` `467f3476c27b2f5c734e0de2344bcb54ec8167fe791cd4de78f6b9d7ea3c9cf1` (equals the hash in
+`c90ed39`); `link-scan.json`. The 14 MB export bundle stays external, bound by Lane B. Content:
+- **JE1 (parent, Judge):** the Business Charter's governing disposition. Traceability map and `FB-07` say
+  recommendation, blocks nothing; Modular_PRD §9.4, `DEP-09` and `source/README` say go-live requirement; the Register is
+  silent, so `D-58` says escalate. Option R (recommended) aligns to `FB-07` and keeps the **exit strategy** as a
+  go-live condition; Option G reverses the map's withdrawal.
+- **EV-1** (Option R): E1 §9.4 item, E2 `DEP-09` → exit strategy only, E3 source/README gaps paragraph.
+- **EV-2:** E4 source/README "Related" lists `PRD.md` as the frozen governing baseline, apart from the plan pack.
+- **EV-3:** Modular_PRD Version 1.46, `Last Updated`, and changelog rows 1.45 and 1.46. **New finding — a `D-438`
+  propagation miss:** `D-438` changed Modular_PRD without its §0.1 changelog row, Version or `Last Updated`. Row 1.45
+  records it late, openly. Only Modular_PRD among the five targets has document control.
+- All seven old texts occur exactly once at `c2c81af`. Publication timing and concurrency stay with **B-078 Child 4**;
+  SM06 mechanisms stay with **V1-SM06** DoR. No new work item, no SM05 prerequisite.
+
+### What you need
+
+1. **Lane B:** review helper r2, the C1–C4 results and the EV packet.
+2. **Judge — sequencing before D-438 prepare (S4):** the local commits `c90ed39`, `c2c81af`, `9e57de5` and this answer are
+   unpushed, and D-438 forbids a push from prepare to the health record. Either name that range for a push now, then
+   Lane A prepares; or Lane A prepares now and the range is pushed after the health record.
+3. **Judge — JE1** (Business Charter: Option R or G), when the EV act is presented after Lane B's review.
+
+### What you did instead
+
+No governed source edited. No prepare, publication or push. `docs-drift` fails only for D-438's expected governed drift
+(`D-428`); every other check passes. B-136 only in this commit.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Lane B's D-438 verification; N1 finding; C1–C4 results 9/9; execution custody `c2c81af` | Phase 1 |
+| Approve-with-conditions | Helper r2 (heading-based ownership limit stated); EV packet r1 | Phase 1: Lane B review; JE1 by the Judge; separate `D-439` act |
+| Defer | D-438 S4–S7 (prepare, receipt, publication, health); EV application; B-078 Child 4; SM06 mechanisms | Judge sequencing; existing owners |
+| Reject | Path allowlist as ownership proof; live success paths as refusal controls; EV fixes folded into `D-438` | All phases |
