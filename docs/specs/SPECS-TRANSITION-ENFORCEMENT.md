@@ -87,7 +87,7 @@ labelling them together. **Only this column's display label changes; the stored/
 
 ### 3.1 Why a `(from_state, to_state)` pair table is insufficient `[V1]`
 
-**This is the finding that makes this document necessary.** Four of the eleven gates do not fit a pair table:
+**This is the finding that makes this document necessary.** Some transition IDs do not fit a fixed `(from_state, to_state)` pair table. The cases are: *(Corrected 2026-10-15, `D-438`, B-136 IR-4: earlier "Four of the eleven gates"; §3 separates judgment gates from transition mechanics, `D-233` L66.)*
 
 1. **T8 and T9 have wildcard sources.** *"Any active state"* is not a value. Enumerating it as nine rows each is possible but wrong — *active* is a **property** that changes if a state is added, and the enumeration would silently go stale. **The same drift mechanism that produced `G55` and `G56`, one tier down.**
 2. **T8a's target is read from the article's own row** — `revision_target_state`. The legal target is not knowable from the transition definition alone.
@@ -236,4 +236,4 @@ Every criterion tested **with the anon key**, because that is the threat model (
 
 ## 10. Scope limits `[V1]`
 
-Closes no Open Decision. **Authorizes no code, schema, migration, or deployment.** Names no field — `Q11` is open and irreversible after S1. Specifies enforcement mechanism only; the column set that enforcement reads is `G16`'s, resolved in the same S1 pass.
+Closes no Open Decision. **Authorizes no code, schema, migration, or deployment.** Names no field. *Corrected 2026-10-15 (`D-438`, B-136 IR-3): this sentence earlier read "`Q11` is open and irreversible after S1". `Q11` is decided: `D-97` fixed the three-value shape, `D-111` the name `line_separation_status`, `D-112` aligned `G-02` (Register `G16`, `G64`). The decided name stays irreversible after S1. This note admits no transition execution into `V1-SM05` and authorizes no schema work.* Specifies enforcement mechanism only; the column set that enforcement reads is `G16`'s, resolved in the same S1 pass.
