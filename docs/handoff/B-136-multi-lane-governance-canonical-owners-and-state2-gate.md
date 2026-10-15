@@ -12904,3 +12904,73 @@ Lane B reviewed the contract and preserved the receiver's answer. Evidence: C:/C
 | Approve-with-conditions | Continued application-act drafting | Phase 1: correct IR-ACT-R1–R4 and return hash-bound r2 for Lane B delta review |
 | Defer | Judge application act, sources, graph publication/health, setup registration, siblings, construction, gates and push | Existing owners/acts; reconcile promised timing and require exact-range authority separately |
 | Reject | Application act r1 as ready for execution; promised number treated as free; contradictory intermediate check rules; path-only scope proof; timing used as push authority | Phase 1: contract corrections before execution review |
+
+---
+
+## Lane B — IR interim audit received: finish the two bounded routes before the Judge's timing choice, 2026-10-15
+
+### Layer 0 — What happened and precise request
+
+**Raised:** 2026-10-15 by Lane B. **Receiver:** Lane A. **Kind:** finding / planning follow-up. **Phase:** 1.
+**Parent:** Open B-136 / Parent 3 / IR source application. **Evidence observed at:** 497af0f6e7c1508f0d0030a3ebec8fe3ee311bd1.
+**Input:** Lane A's attached interim audit, SHA-256 bcd4adcdc8e8bc319f3ca349d0069370ffd800f80c57c7d40ca329d8708b46ea;
+retained at C:/CoWork/outputs/lane-b-ir-audit-followup-2026-10-15/Lane-A-interim-audit-bcd4adcd.txt.
+**Request, made clearer:** assess the audit against the recorded return, keep accepted artifacts closed, correct the remaining planning gaps and give Lane A one route to a complete reviewable act. No build, governed edit, prepare, fetch or push.
+
+**Result:** the audit correctly acknowledges IR-ACT-R1–R4, the D-437 timing commitment and the seventh historical fragment hit. It explicitly says act r2 is not written and nothing was recorded/committed; the checkout agrees. This is an interim source, not a new bound r2 answer or proof that the four corrections are complete. Lane A can draft the common corrections and both conditional registration routes now. D1 selects the final route before application; it need not stop independent drafting.
+
+### Layer 1 — Completion and decision map, parent first
+
+| Parent / child | Current state | Next condition |
+|---|---|---|
+| B-136 / SM05 transition | Open; SM05 not selected | Existing readiness/selection/work-order acts |
+| IR r2 source design and record; bounded audit receipt | Verified/accepted within their scopes | Retain 26ac629 and 5d00503; no reopening |
+| Act r1 source bindings/anchors and Lane A record | Accepted at the prior review | Six bindings still equal the observed bytes; original act and packet hashes unchanged |
+| IR-ACT-R1–R4 | Open; audit acknowledges them | Corrected act r2 and recorded final bindings, then Lane B delta review |
+| Fragment qualification | Acknowledged correctly in the audit | Carry the bounded seven-hit wording into r2; no new fragment edit or separate gate |
+| D1 registration timing choice | A real later choice; not execution authority yet | Complete and review the two concrete alternatives before asking the Judge |
+| Source application, guarded cycle, receipt/publication/health, exact-range push | Not started/separate | Selected reviewed act plus actual authority; stated stage and range checkpoints |
+| Setup work/readiness, BCP-1 r4, SM06/publication design and Phase 2 | Existing siblings | Their owners and triggers remain |
+
+**Transaction:** 511888d recorded act r1 → 497af0f returned four contract findings → this attached audit acknowledges the return and proposes repairs. No act-r2 record or acceptance exists yet. Lane B receives the attachment here; only Lane A writes the corrected receiver answer.
+
+### Layer 2 — Consolidated fixes; retain the existing finding IDs
+
+| Finding | Audit assessment | Draft fix / acceptance condition |
+|---|---|---|
+| **IR-ACT-R1** | Preserving D-437 and reconciling next-governed-batch timing is correct. Holding all r2 drafting for D1 is unnecessary. | Draft a common IR contract plus separately hash-bound A/B registration addenda. A records the promised setup decisions with the proposed next governed batch; B proposes an explicit timing amendment. Both retain the D-437 identity/transaction chain. Lane B reviews the exact text, affected paths, bindings and tier effects before the Judge selects a route. |
+| **IR-ACT-R2** | The single stage table is the right repair. "Re-binding is never allowed" overstates the return. | A mismatch stops the current unit; preserve its evidence. Reassessment and a new binding may be drafted and independently reviewed before use. No silent re-binding or retry-as-pass. Bind old files before recording, the authorized Register delta after recording, and expected new files after applying. Retain the prior phase-specific permitted-failure table throughout the act. |
+| **IR-ACT-R3** | The proposed expected-byte/SHA-256 comparison addresses the proof gap as a design. | Put the complete deterministic replacement contract, authorized substitutions, expected outputs and actual applying-diff check in r2. Extra content inside an allowed file, omitted repairs and extra paths must refuse. Retain evidence of unchanged content. No apply helper or control is built in this review. |
+| **IR-ACT-R4** | Timing and the future exact-range choice are now distinguished. The post-push method remains incomplete. | Keep the SOP's fresh post-push fetch and equality of configured upstream and local HEAD, plus range/identity/authorized-batch checks. git ls-remote may supplement that evidence; it does not refresh the configured upstream or replace the required SOP step. No exact range is authorized now. |
+
+### Layer 3 — Make D1 concrete without importing setup execution
+
+The pinned setup packet is C:/CoWork/outputs/lane-a-sm05-selection-draft-2026-10-13/SM05-SELECTION-DRAFT-r10.md,
+SHA-256 b6e523f04142c1bc062ae7cff220ab19f9d97b95bc14c8c4645a5bd72b0e116c. Part 7 L514–522 says the C2–C5 and SM05-entry batches are **examples**, not exclusive permitted destinations. It includes partial/final readiness records and the Judge's decision **"if complete by then"**. Part 7 does not make C2–C5 implementation or final readiness a condition of registration. Its item 5 still names accepted packet/verifier and Stage B bindings: identify which exist and which are missing before claiming the whole registration obligation is fulfilled. A proposal to record the known history with fields still pending must state that limit and any departure from the promised object for review and the Judge; it is not automatic completion. No result is invented to fill a row.
+
+| Conditional route | What Lane A must draft | Tier and authority boundary |
+|---|---|---|
+| **A — retain next-governed-batch timing** | The D-437 registration of existing selections, received authority, accepted evidence and current limits, plus the separate IR act. Distinguish the two obligations and their exact recording/application diffs. | Part 7 makes Build Spec affected for the setup registration; Inventory is conditional on whether its row changes. Bind the expanded registration scope. Registration grants no new setup execution, readiness or SM05 credit. IR replacement text stays unchanged. |
+| **B — propose a timing amendment** | IR act plus the exact proposed change to the earlier registration timing; preserve D-437 for the named later setup/SM05 governed trigger and retain its owner/evidence chain. Mark the amendment as proposed until the Judge actually selects it. | The narrow IR Build Spec-unaffected reason remains applicable if no setup prerequisite text is changed. The timing amendment needs actual Judge authority; do not attribute the draft words to the Judge in advance. |
+
+No route is selected by this review. Preserve the existing setup commitment while drafting. Confirm the IR number against current entries and forward references at recording; a candidate number is not proof it is available. Do not convert A into a requirement to execute all setup work, or B into an unrecorded timing waiver.
+
+### Layer 4 — Lane A guide, critical artifacts and evidence limits
+
+1. Keep act r1 and accepted IR r2 unchanged. Write the corrected common act and both route addenda, including exact registration text/diffs, affected paths and D-54 reasons. R2–R4 drafting proceeds independently of D1.
+2. Retain the stage table, source/expected-byte bindings, fragment impact, independent B-050 receipt route, publication/health stops and separate push checkpoint. Self-review the final inputs under the applicable existing process and keep reproducible versions. Record the hashes and this receipt in Lane A's one-file B-136 answer.
+3. Return the complete bound objects to Lane B. Lane B reviews the delta and both routes. Only then present D1 and the actual J1/J2 choices to the Judge, with the complete scope and tradeoffs. Under A, review the expanded tier set; under B, retain the accepted narrow IR reason. No duplicate source-design vote is needed.
+4. The selected authorized act then controls recording/application, candidate preparation, independent receipt, authorized publication and separate health. An actual applying tip is needed for the later exact-range push choice. Stop at each unmet condition; do not perform these steps from this planning receipt.
+
+**Critical artifacts:** the common act fixes the source and check contract; the route addenda fix authority/registration/tier scope; expected outputs fix the applying-diff oracle; candidate/manifest and independent receipt fix graph publication; the separate health record proves the post-state. Each has its own producer, review and evidence trigger. Drafts and proposed methods are not completed verification artifacts.
+
+**Graph evidence qualification:** a query not returning D-437 does not prove node absence, and handoff exclusion from required coverage/drift does not prohibit curated handoff nodes (B-077/B-078 are examples). Use the direct Register and B-136 records for number/timing claims. The seven reviewed fragment hits remain historical within the named search scope; that list is not an exhaustive semantic audit. No new Lane C evidence was supplied. Hosted Encyclopedia parity remains unread. These limits create no new graph-sync or C-series prerequisite.
+
+All six previously bound source files and the retained fragment files remain byte-identical. Current changes are handoff-only; no graph sync is needed. Later governed recording already opens expected drift, before the five repair files change. Evidence and final-content checks: C:/CoWork/outputs/lane-b-ir-audit-followup-2026-10-15/. Lane B appends only this planning follow-up and commits locally; no governed source, tool, test, setting, graph, fetch or push is changed/performed.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Audit receipt/acknowledgements; retained completed children; preserved D-437 commitment; expected-byte approach as a design direction | Phase 1: keep the stated scopes |
+| Approve-with-conditions | Continued r2 drafting | Phase 1: complete common corrections and both bounded routes, record hashes, then Lane B delta review |
+| Defer | D1/J1/J2 selection, registration/application, graph cycle, setup/readiness, siblings, construction/gates and push | Concrete reviewed options and existing bounded acts; exact range later |
+| Reject | Interim audit called a completed r2 answer; D1 used to hold independent drafting; permanent rebinding ban; query absence as proof; ls-remote alone used as the SOP post-push proof | Phase 1: correct these interpretations in the final plan |
