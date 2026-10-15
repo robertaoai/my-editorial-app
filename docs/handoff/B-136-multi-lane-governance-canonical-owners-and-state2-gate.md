@@ -13682,3 +13682,107 @@ deleted. The check fails only on the expected `D-438` drift.
 | Approve-with-conditions | Helper r4 and controls (11/11 recorded); EV r3 | Lane B review; custody after health |
 | Defer | S5 receipt, publication, health; JE1; `D-439` | Their stages |
 | Reject | The "D-438 propagation miss" claim (withdrawn); overwritten evidence reported as intact; recorded results called independent replay | All phases |
+
+---
+
+## Lane B — consolidated JE1 clarification and release-evidence plan; receive after `257bccf`, 2026-10-15
+
+**Kind:** finding. **Phase:** 1. **Raiser:** Lane B. **Receiver:** Lane A, through its own answer in B-136.
+**Blocks:** final EV wording and its later application; does not add a condition to D-438 S5. B-136 stays Open.
+
+### What happened
+
+**Executive receipt.** The Judge has supplied the JE1 policy direction. A separate Business Charter may be requested;
+it is not required. The Project Charter already carries business-intent content. Each release contributes validated
+business conclusions to the Business Charter. The earlier request to choose R or G is answered by this clarification;
+do not ask it again. Register recording, exact source wording and the release-feedback mechanism remain to be drafted
+and reviewed. This handoff does not claim that a separate Business Charter was supplied or that its full content exists.
+
+**Judge's words, verbatim (2026-10-15):**
+> Project Charter is setup for V1 and hence implies there is a Business Charter built inside Project Charter; since Business Charter had not been provided explicitly the project can request yet not a requirement ; hence survival of the fitness of what is validated on release will be the progressive inclusion into the Busines Charter at each release cycle;
+
+**Source support and limit.** `docs/source/project-charter-v1.md` contains Problem, For, workflow, weekly success,
+users and benefits. `docs/governance/requirements-traceability-map.md` before "On the Business Charter" explicitly
+identifies a customer half and a project-side overlay in the Charter. Its Business Charter section and FB-07 already
+say offered, not required. These support "business intent is present in the Project Charter"; they do not prove receipt
+of a separate upstream Business Charter. The frozen Charter and PRD stay preserved. Current approved release scope
+comes through the Register and Build Spec; the Charter's broad success scenario is not proof that V1 delivers all of it.
+
+| Transaction | Fact carried forward | Current consequence |
+|---|---|---|
+| `65e0bed` then `b0c8290` | Approved push completed; D-438 candidate prepared from `65e0bed` | S4 complete; S5 receipt, S6 publication and S7 health Open; no fetch/push until health |
+| `257bccf` | Helper r4, harness r3 and EV r3 identified as external drafts; custody incident disclosed | Static manifest-pin correction present; independent assurance and repository custody Open |
+| Lane B's subsequent chat audit | Candidate bindings unchanged; C5 absent from the ten-case harness; original r3 summary recoverable | Consolidated below so Lane A can answer the actual remaining findings |
+| Judge clarification above | Separate Business Charter not required; release findings progressively inform it | JE1 policy direction received; revise the EV packet and its D-54 assessment |
+
+| Parent / child | State | Next trigger |
+|---|---|---|
+| B-136 / SM05 transition | Open | Existing parent obligations |
+| D-438 source repairs, pushes, F16, S4 | Closed within their recorded scope | S5 independently reviewed receipt; then S6 and S7 |
+| JE1 policy direction | Received from the Judge | Lane A records the interpretation and exact proposed propagation; not another R/G choice |
+| EV source application and release-feedback contract | Open | Revised packet, Lane B review, bounded act after D-438 health |
+| N1/control assurance and evidence custody | Open | Complete control sequence, review and post-health repository transfer |
+| Setup, SM05 entry and Gate 2 | Open | Their existing acts and criteria; this receipt closes none |
+
+### What you need
+
+**Lane A — revise the EV packet before application.** Use the Judge's exact quote as authority and the following as
+proposed wording, subject to source-context and D-54 review:
+
+> For V1, the business-intent content in the Project Charter is an available starting point. A separate Business Charter
+> has not been supplied. The project may request it. Supplying it is not required, and its absence alone does not block
+> a release. The lack of that separate source remains a limit on upstream verification. At each release, assess the approved business-purpose
+> criteria against evidence from the delivered scope. Record the results and the Chief Editor's disposition. Incorporate
+> accepted business conclusions into the cumulative Business Charter record, with links to the release evidence and prior
+> statements. Preserve failed and unmeasured results. A test pass or release does not automatically change the baseline.
+
+1. Revise E1-E3 for this clarified policy. Keep the exit-strategy condition separate and Open. Preserve E4's PRD/plan-pack
+   correction, E6's factual metadata correction, and the withdrawal of E5/E7. Do not retain the unselected R/G question.
+2. Define the release-feedback record: release ID and approved scope; business claim/source anchor; measurable criterion;
+   evidence path and commit; result (met, not met, not measured); limits; Chief Editor disposition; Business Charter
+   destination/version and incorporation status; next action. Use the existing release evidence where suitable. Name the
+   canonical destination for cumulative Business Charter content in the revised packet. Until that destination exists,
+   label conclusions as Business Charter inputs pending incorporation, not as an already-updated Charter.
+3. Reassess D-54. The new feedback requirement is additional to EV r3's existing text. Reassess the traceability map/FB-07
+   and any release-tracking, Build Spec or Inventory effect; do not copy r3's "unaffected" entries without review. Creating
+   a separate Charter file is not a new SM05 entry gate. Keep Phase 1 intent and Phase 2 delivery evidence distinct and
+   trace them by claim/criterion IDs. No edit to the frozen Charter or PRD is proposed.
+4. Return the complete revised packet, exact changed clauses, destination map and remaining conditions to Lane B. Record
+   Lane A's answer here. Source application stays after D-438's separate health record under its own bounded act and cycle.
+
+**Carry-forward control and custody findings (do not reopen accepted D-438 source repairs):**
+- `run-controls-r3.sh` (`30411e32...`) contains ten cases and no C5. `results-r4.txt` records C5 after the aggregate
+  `wrong: 0`; the eleven retained log endings agree with the summary, but this is not an integrated eleven-case run.
+  Put C5 inside the reviewed run sequence before the aggregate verdict. Require its exact exit code and refusal reason.
+- The harness protects its summary name but still removes a shared `work` directory. Allocate per-run work and evidence
+  paths and preserve the raw logs before cleanup. Correct the Usage comment, which still names harness r2. These are
+  requested corrections, not code applied by this handoff.
+- **Recovery correction to `257bccf`:** the original summary file was overwritten, but its byte sequence is recoverable
+  from the prior Lane B audit transcript. Lane B reproduced it in memory: 1,948 bytes, LF, final newline, SHA-256
+  `af1e8072818cb347784f7bf98bf201fccc48d2259f91b3c0ea8004e3052563d7`, exactly the `b0c8290` binding. A reproducible recipe is
+  to copy `n1r3/results-r3-rerun.txt` (`18446a7e...`) and, only in its verification rows, replace C3's `4045b3e` with
+  `65b73e5` (both occurrences) and C4b's `1dc75fc` with `fd7148d`. Those historical IDs come from the earlier transcript;
+  the original C3 log also confirms `65b73e5`. Preserve the rerun and the overwrite disclosure. Label the recovered object
+  with its recovery provenance; it is not a new execution. No recovered file was written by Lane B.
+- After D-438 health, copy accepted helper/manifest/harness/results/logs into the existing B-136 IR application artifact
+  locations, and the accepted EV revision into the existing EV correction location. Bind source bytes, destination bytes
+  and custody commit. Transfer only the approved artifact list. F16's retained configuration and graph staging keep their
+  separate dispositions; no bulk import from `C:/CoWork/outputs/`.
+
+**Lane B — separate pending task:** S5 still requires the exact candidate's bytes-and-meaning receipt in B-050 and its
+terminal annotation under D-438. The assurance drafts and JE1 do not add prerequisites to that receipt. No new Lane C
+finding has been supplied; do not infer Lane C acceptance or require a new C-series file.
+
+### What you did instead
+
+Lane B consolidated the Judge clarification and the previously chat-only findings in this existing handoff. No governed
+source, helper, control, graph or frozen baseline was changed. This is ready for Lane A to receive and draft; it is not
+an application act. The live graph still requires the existing D-438 cycle. Handoff-only recording does not clear that
+drift. A later EV source change requires its own reviewed synchronization scope; no raw rebuild or extra sync is requested.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Judge's JE1 direction received; source-supported distinction between embedded business intent and a separately supplied Charter | Phase 1: Lane A acknowledges and drafts propagation |
+| Approve-with-conditions | Consolidated handoff ready for Lane A; release-feedback design | Phase 1: exact wording, destination/criteria map, D-54 review and Lane B review |
+| Defer | D-438 S5-S7; assurance custody; EV source application; later push; setup, SM05 and Gate 2 | Existing stages; EV/custody after health; release evidence at its owning release |
+| Reject | Re-asking R/G as unresolved policy; claiming a supplied Business Charter; automatic baseline changes from passing tests; drafts treated as incorporated evidence | All phases |
