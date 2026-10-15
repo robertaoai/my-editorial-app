@@ -14156,3 +14156,116 @@ fails only on the expected `D-438` drift.
 | Approve-with-conditions | EV r6; setup trace r1 | Lane B review; custody after health |
 | Defer | S5–S7; custody; `D-439`; `D-437`; review links for "control present" rows; any Codex REA scope change | Their checkpoints |
 | Reject | Codex REA adoption or credit from the test file; "control present" read as complete; setup called absent | All phases |
+
+## Lane B — REA retained history and setup-trace correction; consolidated return of `62ae54e`, 2026-10-16
+
+**Raised:** Lane B (Codex). **Kind:** finding. **Phase:** 1. **Child status:** Open.
+**Read revision:** `62ae54e6acd50678590e67a15b998a8f603cdeba`. **Receiver:** Lane A.
+**Blocks:** acceptance of setup trace r1 as a complete Project-scope trace. This adds no D-438 S5 receipt prerequisite.
+The B-136 parent stays Open. Lane A writes its answer; Lane B reviews it. No new Lane C acceptance is claimed.
+
+### What happened
+
+**Clear request.** Check retained REA purpose, setup and test history under `C:/CoWork/outputs`. Separate missing
+evidence links from missing work. Consolidate the earlier audit and this check into one correction list for Lane A.
+
+**Executive finding.** REA has a stated purpose, an accepted bounded setup contract, setup evidence and an effects map.
+The claim that all this setup is absent is rejected. The specific Codex test still lacks a retrieved contract/result/review
+link. The Judge has already explained its purpose. F16's bytes are retained; they are not missing. Its recurrence mechanism
+is UNVERIFIED. Trace r1 also misclassifies several scope rows. Correct the existing map; do not create another ledger.
+
+**Transaction history (scope is preserved).**
+
+| Record | Established fact | Limit / current action |
+|---|---|---|
+| `46c7417`; r10; `05ac2ba` | Judge requires ECC, Ponytail and REA before SM05. Route D and the named setup unit have their recorded checkpoints | r10 permits REA in Claude Code and CLI; Codex consumes retained REA outputs. It excludes Codex REA registration |
+| `9e47e17`; executor handover; independent Stage A audit | A-S0–A-S4 setup evidence exists, including image and registration bindings | Provisioning is not completion of A-S5 trials, A-S6 close or readiness. The later stop remains |
+| `9dfd84a`; `b0c8290` | F16 was observed untracked; later prepare refused an unclean tree. Judge selected removal with bytes kept | Discovery is not proof of creator. Removal does not prove the historical test passed |
+| `07737b4` → `35e1ecd` | Judge explains the REA test purpose; Lane B requests the full setup chain | No need to ask the purpose again; no retrospective execution approval is inferred |
+| `62ae54e` | Lane A answers, retains the recurrence copy, removes the checkout file, drafts trace r1 and EV r6, and supplies G4 T4/T5 evidence | Current observation: checkout clean, F16 absent, both retained copies have the same hash. Trace completeness remains disputed below |
+| This record | One consolidated correction list, including the preceding chat-only audit | Lane A has a durable request to answer; this is not Lane A's answer or a build instruction |
+
+**Retained evidence checked.** Paths below start at `C:/CoWork/outputs/`. Hashes were recomputed on the retained files.
+
+| Evidence / role | Relative path | SHA-256 |
+|---|---|---|
+| Accepted setup contract | `lane-a-sm05-selection-draft-2026-10-13/SM05-SELECTION-DRAFT-r10.md` | `b6e523f04142c1bc062ae7cff220ab19f9d97b95bc14c8c4645a5bd72b0e116c` |
+| Executor's A-S0–A-S4 record; later steps explicitly pending | `lane-a-tr1-setup-2026-10-14/state/HANDOVER-E-to-S-T.md` | `b509312bc3d5e66d0773cb518b281c3da4e3260ecdba71557997e986072ac049` |
+| Independent observed setup state; 10 static checks; stated limits | `lane-b-tr1-stage-a-handover-review-2026-10-14/audit-results.json` | `93466a5259a3cbba2d94a7f25c3bfb960d29db64586839502d8cdc73efbf6f19` |
+| Existing retained/disposable/live-dependency map | `lane-a-tr1-setup-2026-10-14/state/UNIT-ITEMS-MAP.json` | `1ca9937fcc3597ccba480db24b8e428009e9ef68cbed446b4c40ed01abcee823` |
+| Draft under review | `lane-a-bcp1-filemap-2026-10-15/BCP1-SETUP-TRACE-r1.md` | `72a863666d356311bf627f8720d3f6d0a81dae1c2c586e7ceb4c60faeb02df98` |
+| F16 original and recurrence custody, 704 bytes each | `lane-a-f16-custody-2026-10-15/config.toml`; `config-recurrence-2026-10-15T152847Z.toml` in that same directory | both `fd3c37f57cee30a67957da01d571ddbaa481c907e3a164cb56d6848952b4f954` |
+
+**Why REA was proposed.** r10 Parts 2.3–2.4 and 3.3 define a bounded planning trial over five copied JEV files.
+It checks directory/file identity, static imports, reference import and a missing-provider refusal. This is the stated
+technical purpose. Product benefit and readiness are not proved by selecting the tool. The earlier r3 optional-tool
+classification is history, superseded by the Judge's requirement. Preserve that transaction rather than inventing an
+earlier adoption or a missing general intent.
+
+**What the evidence proves.** The executor record names image `sha256:21cd0944a4277211721e09e0d1ee7f8dd42d1a276df4847bbd2b05ea7094f374`
+and `claude mcp add -s local rea-tr1`. The independent audit reports matching MCP argv and installed copies, and records
+limits and a Ponytail configuration discrepancy. It does not certify all subsequent sessions. The r7–r9 review records
+explicitly distinguish synthetic/control checks from setup execution. Neither those controls nor a planned T-R1a prompt
+proves a real Codex REA test. The existing unit map already allocates retained inputs, live dependencies and disposables.
+
+**Search limit.** Lane B searched text/source records under outputs, then inspected the named TR-1, r6d, r11, isolation,
+setup-map and F16 evidence. The broad search excluded vendor/export/cache/work copies and files over 5 MB; copied graphs
+also produced many irrelevant hits. Targeted config/client searches found descriptions and plans, but no accepted Codex
+test transcript/result linked to F16. This is a bounded negative search, not proof that a historical test or contract
+never existed. The Judge's confirmation of test purpose remains accepted. No F16 config values were printed or copied here.
+
+### What you need
+
+**Parent-first return.** Keep B-136 Open. Correct these children in the next setup-trace revision, using existing IDs.
+
+| Finding | Smallest correction for Lane A | Acceptance evidence / owner and trigger |
+|---|---|---|
+| **REA-TRACE-1 — claim scope** | Replace F16's absolute “no contract” with “not covered by r10; a separate historical contract was not found in the searched records.” Cite the purpose, executor record, independent audit and unit map separately | Each claim names its consumer, stage, source and limit. Lane A returns the corrected trace; Lane B reviews it |
+| **REA-TRACE-2 — historical close and recurrence** | Replace “next: none unless future use” with a current reconciliation action. Join F16 purpose → any recoverable test record → observed file → removal → recurrence → retained bytes. Record unknown creator, run result and recurrence mechanism separately | Lane A supplies the links or an explicit residual row with owner, next action and return trigger. Future adoption is a different decision. File times and equal hashes do not identify the writer |
+| **REA-TRACE-3 — wrong scope/status joins** | Split the grouped construction rows. FR-11 is excluded from v1 by D-57, not an open S5 build. FR-14 maps to S3. TR-API-01…04 spans S1–S4. Preserve delivered S0/S1 baseline and the current held/successor work; do not label it all “not built” | Cite Build Spec §5.1/§6, Modular_PRD §7.2, D-57/D-168, B-061's bounded verification and current work-order routing. Historical sprint labels are not current authorization |
+| **REA-TRACE-4 — controls and ownership** | Keep NG-10/NG-11 as standing controls; NG-11's unassigned policy owner remains Open (D-188). Preserve AIG-04 Table A return conditions despite D-433's completed selection. Correct REA's T4 pointer: T4 is ECC. Split NFR-04/SHARED-01 by each physical artifact's A/B/C owner | No missing file is inferred merely because a control has no setup file. Each open link has owner/action/trigger. Reuse existing review receipts where valid. Complete the declared §0.6 coverage or label its exclusion |
+| **REA-TRACE-5 — custody dependency closure** | After D-438 health, bind source → destination → hash → reviewer → disposition for the approved package. Map r4 incorporates r3/r2; retain those needed bases or submit a self-contained replacement for review. Join the existing TR-1 map and evidence rather than copying all outputs | Every cited dependency is retrievable. Governed final documents belong in Lane A's repository surfaces. Sensitive F16 bytes retain their external custody disposition; record only safe metadata. Governed source changes retain D-54/act requirements |
+| **REA-TRACE-6 — recurring process gap** | Use the existing BCP-1 chain before crediting any setup/test: intent → requirement → bounded consumer contract → inputs and allowed effects → actual result → independent review → custody/close. On an undeclared effect, append the observation and route the missing link; do not erase it by a new baseline | The next review can distinguish planned, provisioned, tested, reviewed and closed for each consumer. This is a correction to tracking, not a new automatic blocker on the D-438 cycle |
+
+**Supported cause and limit.** Records show incomplete joins between scoped setup, actual consumer use, effects and
+closure. Trace r1 then converts some unknowns into “none” or broad “not built” states. This supports a documentation and
+reconciliation failure. It does not establish that missing intent caused the file to recur. The repeat pattern also
+includes observed effects absent from an earlier capture: `LEDGER-ADDENDUM-A1.json` records plugin-data directories absent
+at P0/P1. Keep its accepted disposition and later marketplace-stop history; do not attribute F16 to the same producer.
+
+**Risk → mitigation.** Cross-consumer credit can falsely certify readiness: bind the real host and result. Lost effect
+tracking can omit cleanup or remove a live dependency: reconcile against the existing unit map and bounded disposition.
+Wrong scope rows can commission excluded or already delivered work: resolve current authority before planning. Missing
+custody bases can make a package irreproducible: include dependency closure. These are material control risks; the evidence
+does not establish a guaranteed business-ending outcome.
+
+**Lane A sequence.** (1) Receive this record and retain `07737b4` → `35e1ecd` → `62ae54e` as history. (2) Correct
+REA-TRACE-1/2 with the retained evidence above. (3) Correct REA-TRACE-3/4 across the declared scope rows. (4) Return the
+revised trace, change list and custody manifest for REA-TRACE-5/6. (5) Lane B reviews the answer. Existing bounded acts
+then determine any later custody or governed-source application. Lane C reviews only its own applicable evidence; no
+new Lane C review is claimed. The Chief Editor need not repeat the settled test purpose; any new use, scope or residual
+acceptance is presented separately with its exact evidence and limit.
+
+**Parallel obligations retained.** EV r6 restores G3's next action, owner, trigger and unsuperseded-disposition rule.
+G4's retained T4/T5 records support exit 3, stopped later cases and no success verdict; this audit does not rerun them.
+They do not create a new S5 prerequisite. D-438 remains receipt → publication → separate health; no receipt is issued
+here. Setup readiness, SM05 and Gate 2 retain their own checkpoints. D-437 timing remains as amended by D-438 item 0.
+
+### What you did instead
+
+Lane B read retained evidence, recomputed the listed hashes and recorded this finding. It changed no config, setup
+tool, governed source or graph, and made no REA call. No fetch or push occurs during the D-438 freeze.
+
+**Normalization and graph.** “Missing REA setup” → “existing setup with unresolved consumer-specific evidence links.”
+“Missing residual files” → “retained residual bytes with incomplete provenance/close linkage.” “In outputs” →
+“draft or retained evidence, not canonical governance delivery.” “Complete” → “complete for the stated stage and scope.”
+Graphify query was used for orientation; its analysed commit remains `b308d1c`. Current governed sources control these
+corrections. The six D-438 governed paths still require the existing guarded synchronization cycle. A handoff-only
+record requires no new prepare and does not clear that drift. No raw rebuild or `--update` is prescribed.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Settled REA purpose; retained setup history; current F16 absence and matching custody bytes; consolidated request | Phase 1: Lane A receives this finding |
+| Approve-with-conditions | Revised trace and custody plan | Phase 1: answer REA-TRACE-1–6; Lane B reviews exact artifacts |
+| Defer | D-438 receipt/publication/health; later custody and D-437; setup readiness, SM05, Gate 2, push | Existing checkpoints; no new permission from this audit |
+| Reject | Trace r1 as complete; all setup called absent; Codex test success inferred from Claude Code evidence; unknown history read as “never happened” | All phases |
