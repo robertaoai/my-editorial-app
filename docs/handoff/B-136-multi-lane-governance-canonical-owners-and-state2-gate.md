@@ -13276,3 +13276,53 @@ B-136 only. Local commit; no push.
 | Approve-with-conditions | Judge checkpoint D1/J1/J2/J3 | Phase 1: the Judge's explicit choices |
 | Defer | Route A input transfer (if selected); recording, application, controls C1–C4, graph cycle, health, exact-range push | Selected act and its checkpoints |
 | Reject | Custody treated as authority or readiness; byte claims without a byte comparison | All phases |
+
+---
+
+## Lane A — D-438 recorded and applied (stages S0–S2); stopped at the push checkpoint S3, 2026-10-15
+
+### What happened
+
+**Authority (the Judge, directly to Lane A, 2026-10-15, in chat):** "Judge Approved: Route B; publish after receipt;
+authorize receipt route". D1 = Route B; J1 = publish after Lane B's receipt with unchanged bindings; J2 = the unit-scoped
+receipt route (act §F). **J3 (push timing) was not stated**; the unit stops at S3 in any case, where the exact range needs
+the Judge's approval. Bound to manifest r6 (`6c2d687`).
+
+| Stage | Result | Commit / evidence |
+|---|---|---|
+| S0 | seven bound blobs equal; A1–A10 each once, only in its target (77 files); N1: `D-438` unregistered, referenced only by this act's records; bound paths clean; manifest r6 inputs bound; all ten pairs literal in packet r2 | `log-s0.txt` |
+| S1 | `D-438` appended to the Register as §5.14e262 (Route B body composed from body r3 + Route B r4 slots); E5: one path, blob = expected `a8e63705…`, 0 deletions; check: only `docs-drift` fails | **`e5cca78`**; `check-S1-postcommit.log` |
+| S2 | A1–A10 applied: five files, ten lines; E2a/E2b passed; post-write and committed blobs = expected; inverse check = bound inputs; both IR-2 links resolve; acceptance greps leave only dated notes; check: only `docs-drift` fails | **`54cd178`**; `expected-apply.json`, `check-S2-postcommit.log` |
+| S3 | **stopped**: exact-range push needs the Judge | — |
+
+Evidence folder `C:/CoWork/outputs/lane-a-ir-doc-corrections-2026-10-15/apply/`: `ir-apply.mjs` `5c1d066679ab65bd28bedf22c953630ddd7254ca68442bb2fab41369dca1bbad`;
+`expected-apply.json` `93b5ca5d098dff1202bbf4f34583b208a50f59e211fe45ce3d67b156c85f6616`; `D-438-composed-body.md` `c06de4df91742a87ac63cb3d2edde42a1cde34b5f6ea9bc9f8749966c3d6f756`.
+
+**Disclosed text limit.** Item 7 of the recorded body reads "registration beyond none; D-437 is not recorded in this
+batch" — the reviewed Route B slot value composed literally. The meaning is clear; the contract forbids an unreviewed
+edit, so it stays. A later correction, if wanted, goes through its own act.
+
+**Controls C1–C4.** Not run as separate controls. S0 exercised the C1 path (own promise passes) and S2 exercised the C3
+path (several authorized writes pass E2b); C2 and C4 refusal paths are untested. They stay `planned`.
+
+**D-54.** Register: ✅ `D-438`. Build Spec: unaffected (reason in the act). Inventory, Modular_PRD, V1-SM05,
+SPECS-TRANSITION-ENFORCEMENT, SPECS-PUBLICATION: followed by `54cd178`. Encyclopedia: unaffected (local map). Graphify:
+governed drift open, expected, cleared only by the guarded cycle.
+
+### What you need
+
+**Judge (S3):** J3 and the exact push range — base `508ee9f` (current upstream) to this commit; it holds Lane A and Lane B
+handoff commits plus `e5cca78` and `54cd178`. Then: fresh fetch, push, fetch again, `'@{upstream}'` = `HEAD`. After the
+push: prepare (S4); Lane A answers from source; Lane B's receipt in B-050 and its annotation (S5); publication (S6);
+health record (S7). No fetch or push from prepare to health.
+
+### What you did instead
+
+No fetch, no push, no prepare. B-136 only in this commit.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | `D-438` recorded (`e5cca78`) and applied (`54cd178`), each with committed-byte proof | Phase 1: S0–S2 complete |
+| Approve-with-conditions | Push of the exact range | Judge's S3 approval; SOP fetch proofs |
+| Defer | Prepare, receipt, publication, health; C2/C4 controls | After the push, in act order |
+| Reject | Applied text treated as published graph; the drift treated as defect; push without a named range | All phases |
