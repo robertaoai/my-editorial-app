@@ -13638,3 +13638,47 @@ only on the expected `D-438` drift.
 | Approve-with-conditions | Candidate publication | Lane B's B-050 receipt and annotation with unchanged bindings (J1) |
 | Defer | Publication, health record; custody of helper r3, controls r2, EV r2; N1 full assurance; JE1; `D-439` | After the receipt; after health |
 | Reject | Heading checks described as ownership; fetch or push inside the interval; EV folded into `D-438` | All phases |
+
+---
+
+## Lane A — answers Lane B's audit of `b0c8290` (G1–G6): helper r4, EV packet r3, two corrections; S5 still awaits Lane B, 2026-10-15
+
+### What happened
+
+**Receipt.** The Judge supplied Lane B's audit of `b0c8290` (chat; Lane B issued **no receipt** and changed no file). Lane B
+reproduced the candidate: graph `66e6d540…`, full-state digest `cac5b26e…` (`guard-treeDigest-v1`, 583 files), answers
+`4087ac45…`, 139/139 fragments, 38/38 descriptions, 34/34 names; live graph still `11245fc8…` at `b308d1c`. No new Lane C
+evidence. Term adopted: `b0c8290`'s "manifest SHA-256" is the **full-state digest** (`guard-treeDigest-v1`).
+
+| Gap | Lane A answer |
+|---|---|
+| G1 S5–S7 open | Agreed. Each closes only on its own receipt, publication or health evidence. |
+| G2 manifest trust boundary | **Helper r4** (`C:/CoWork/outputs/lane-a-d438-cycle-2026-10-15/n1r3/ir-apply-r4.mjs`, `36d35fb9797a72c46e7915924d582d8ba07530f424099ddad2cac17263139f16`) pins the reviewed ownership manifest itself (`OWNERSHIP_SHA256` = `f3f45d67176b2ff7eb3d729701c823deac7f4e2509ef7c86753630d4e17466ac`) and refuses any other manifest. Controls with r4 (`results-r4.txt`, `3bebf08179b1a334a7ecd5d127532f4db57428a81e89eaeba2cdb3cbf4accda9`; per-case logs in `logs-r4/`): **11 of 11 as required** — the ten r2 cases plus **C5 tampered manifest → refuse** ("ownership manifest hash is not the reviewed value"). Recorded results, not an independent replay. |
+| G3 draft custody | Agreed: after the health record, with byte proofs. |
+| G4 EV helper inheritance | **EV packet r3** (`C:/CoWork/outputs/lane-a-ev-doc-corrections-2026-10-15/EV-CORRECTION-PACKET-r3.md`, `2a1d73a7590b30258c7fa7bf6de5805cd7a9e08d3c7b2ed7d2f708b7e170d934`): the EV helper must carry text-bound ownership (helper r4 or later), its own pinned ownership manifest and its own controls. |
+| G5 JE1 | Open; the Judge's decision. |
+| G6 document-control claim | Lane B is right, and the fault is wider than stated. **Correction:** since v1.44 **seven** governed commits changed Modular_PRD without a changelog row (`D-374`, `D-381`, `D-392`, `D-404`, `D-433`, `D-435`, `D-438`); no source states a version rule. Lane A's `65e0bed` claim of a "`D-438` propagation miss" is **withdrawn**. EV r3 drops E5 (Version) and E7 (rows); E6 sets `Last Updated` with a pointer to the Register entries. |
+
+**Correction — overwritten results file.** `b0c8290` bound `C:/CoWork/outputs/lane-a-d438-cycle-2026-10-15/n1r3/results-r2.txt` at `af1e8072…` (helper r3, 10/10). Lane A's
+later r4 runs used the same harness, which wrote the same file name, and **overwrote it**; the original bytes are lost.
+Kept: the r3 per-case logs (`C:/CoWork/outputs/lane-a-d438-cycle-2026-10-15/n1r3/logs/`, 10 files); the overwritten file as `results-r2-overwritten-by-r4.txt`
+(`a1745c65888e117cfbe0733f61a395e6344b7449284e45b4f582fdb303312c23`); and a fresh r3 rerun, `results-r3-rerun.txt` (`18446a7e6da71e4abc62d41794137ddc9178105bbef5b2d0d11af1d1400f598b`,
+10 of 10 as required). The rerun is new evidence, not the bound bytes. **Harness r3** (`run-controls-r3.sh`,
+`30411e327b8f59ac74d12fe848c83fb57ac2349376cf48a32eab6d35ad68d555`) names the results file by helper hash and refuses to overwrite.
+
+### What you need
+
+**Lane B:** S5 receipt for candidate `c5b3cafa` (identity at `b0c8290`), committed in B-050 with its annotation; and
+review of helper r4, harness r3 and EV r3. **Judge:** JE1. No fetch or push until the health record.
+
+### What you did instead
+
+Drafts only, outside the repository; this record is handoff-only. Disposable clones were used for the controls and
+deleted. The check fails only on the expected `D-438` drift.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Lane B's G1–G6; candidate reproduction | Phase 1 |
+| Approve-with-conditions | Helper r4 and controls (11/11 recorded); EV r3 | Lane B review; custody after health |
+| Defer | S5 receipt, publication, health; JE1; `D-439` | Their stages |
+| Reject | The "D-438 propagation miss" claim (withdrawn); overwritten evidence reported as intact; recorded results called independent replay | All phases |
