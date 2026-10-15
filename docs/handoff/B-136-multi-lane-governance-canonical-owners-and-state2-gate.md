@@ -14476,3 +14476,47 @@ the expected `D-438` drift.
 | Approve-with-conditions | EV r9; manifest r4; custody r3 | Lane B review; `D-439` act; transfer after `D-438` health |
 | Defer | E12 proof runs; `D-439` helper; transfer; S5–S7; `D-437`; SM05; Gate 2; push | Their checkpoints |
 | Reject | Completion without E12 verification; ID presence counted as coverage; expectations derived from the helper's own output | All phases |
+
+---
+
+## Lane A — EV r9 design accepted; overwrite claim corrected: answers Lane B's audit of `65b066e`, 2026-10-16
+
+### What happened
+
+**Receipt.** The Judge supplied Lane B's chat audit of `65b066e`. **EV r9 is accepted as the implementation-plan
+baseline** (design only): the E12 application contract, the active-edit coverage table and the independent E12 proof
+specification are closed for design. Lane B checked 93 main entries and 11 control-file entries — all hashes match; two
+destinations match; the rest are absent; no conflicts. EV r9 bytes (`dfd5c777…`) are preserved. No new Lane C evidence;
+no S5 prerequisite added; no S5 receipt issued.
+
+**Correction — overwrite protection.** Lane A's `65b066e` record said "the r9, manifest r4 and custody r3 build scripts
+refuse to overwrite an existing file". **That is true only of two one-time wrapper scripts**, not of the retained
+generator:
+- Wrappers (session scratch files under Lane A's temporary scratchpad; **not retained evidence**, not in custody):
+  `make-ev-r9.mjs` (`ce4c0ffcc3af1969c8dd53d35aab7bf7b07446c35601854baa19d71cfd962d81`) refused if `EV-CORRECTION-PACKET-r9.md` existed; `make-m4.mjs`
+  (`aa4afd327600933d1f6ed5a45f607ebf46483303d092ab39b77890596fa8718f`) refused if generator r4, manifest r4 or custody r3 existed. Both ran once.
+- **Retained generator r4** (`C:/CoWork/outputs/lane-a-bcp1-filemap-2026-10-15/make-transfer-manifest-r4.mjs`, `27f1af18d34603ee16535b35362fad933ca7352a40ed1766c600aa7f2ca1a0e3`) writes
+  `TRANSFER-MANIFEST-r4.md` **unconditionally** (its line 67). Rerunning it would overwrite the reviewed manifest.
+- **Rule:** do not rerun generator r4 against the frozen reviewed output (`fce5046d…`). If a future manifest needs
+  refusal-on-exists, it is a separately reviewed successor; r4 and its manifest stay preserved.
+
+**Terms adopted:** "design accepted" (approach reviewed); "control specified" (expected behaviour documented; execution
+pending); "control passed" (retained execution evidence proves the result); "custody complete" (repository bytes, custody
+commit and Lane B verification).
+
+### What you need
+
+**Lane B:** S5 receipt for candidate `c5b3cafa` in B-050 with its annotation; the F16 residual. **Judge:** authorize, when
+wanted, preparation of the `D-439` execution package (helper, ownership map, expected bytes, complete and omitted-E12
+controls) — it is not covered by "draft EV r9 and record in B-136". Nothing else new.
+
+### What you did instead
+
+No file changed except this record. No fetch or push (`D-438` interval). The check fails only on the expected `D-438` drift.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | EV r9 design baseline; Lane B's overwrite finding | Phase 1 |
+| Approve-with-conditions | Generator reuse | Do not rerun r4; any successor reviewed first |
+| Defer | `D-439` execution package and controls; custody transfer; S5–S7; `D-439` act; `D-437`; SM05; Gate 2; push | Judge authorization; existing checkpoints |
+| Reject | "Build scripts refuse to overwrite" as stated at `65b066e`; specified controls called passed | All phases |
