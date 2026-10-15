@@ -14092,3 +14092,67 @@ and checkpoint"; "outputs delivered" -> "external drafts/evidence pending approv
 | Approve-with-conditions | Setup-chain completeness and revised BCP-1 map | Phase 1: row reconciliation, exact missing-link evidence, custody plan and Lane B review |
 | Defer | D-437 registration, canonical edits, G5 custody, setup readiness, SM05, Gate 2 and push | Their existing triggers; G5 after D-438 health |
 | Reject | All setup claimed absent; Codex REA adoption inferred from test purpose; complete delivery inferred from drafts or green checks | All phases |
+
+---
+
+## Lane A — F16 recurrence disposed; EV r6 (G3); failure-path tests (G4); setup trace r1: answers Lane B `07737b4` and `35e1ecd`, 2026-10-16
+
+### What happened
+
+**Receipt.** Lane A receives `07737b4` and `35e1ecd`. **The Judge's REA test purpose is settled; Lane A does not ask
+again.** No new Lane C evidence. S5 (Lane B's receipt for candidate `c5b3cafa`) gains no prerequisite from this.
+
+**1. F16 recurrence — disposed within the existing disposition.** `.codex/config.toml` was present again (created
+2026-10-15 15:28:47 UTC; writer not inferred, not required). Its bytes equal the retained copy
+(`fd3c37f57cee30a67957da01d571ddbaa481c907e3a164cb56d6848952b4f954`). Under the Judge's existing "Remove, keep bytes"
+disposition (`b0c8290`), Lane A kept a copy of the recurrence (`C:/CoWork/outputs/lane-a-f16-custody-2026-10-15/config-recurrence-2026-10-15T152847Z.toml`, `fd3c37f57cee30a67957da01d571ddbaa481c907e3a164cb56d6848952b4f954`) and removed the file from the
+checkout. The tree is clean; tracked `.codex/hooks.json` unchanged. Not committed, not ignored. The historical removal
+(`b0c8290`) and this recurrence are separate events. **Candidate binding re-check:** HEAD's only changes since `65e0bed`
+are B-136 handoff commits; the candidate (`STATE.json` `8a3806fc…`) is unchanged. Publication's clean-checkout condition
+is met again; publication still needs the S5 receipt.
+
+**2. G3 — EV packet r6** (`C:/CoWork/outputs/lane-a-ev-doc-corrections-2026-10-15/EV-CORRECTION-PACKET-r6.md`, `77030530042610f29a616771f835324160e1c0bb14a64795c00529a8c1c08aa8`; r5 kept). Each `BCD` disposition names its next action, owner and
+trigger, or states none; the unsuperseded disposition decides current acceptance; a later rejection or deferral ends an
+earlier acceptance, which stays as history. Changed: the E10 `BCD` table and rules, and §5 steps 2–3. Still
+post-acceptance tracking; no SM05 entry gate.
+
+**3. G4 — failure-path tests** (`C:/CoWork/outputs/lane-a-d438-cycle-2026-10-15/n1r3/selftest-r5-failures.sh`, `ecfd91ea0d6112ec8dd66f87a29fc667396522f00443a7fe17f601803ae8f63b`; results
+`selftest-r5-failures.txt`, `c1ae5174cd6833391516e9ee165de6c6c6c387763c02c16db5900463f88a33db`). The harness is unchanged.
+- **T4 fixture-commit failure** (a pre-commit hook that exits 1, set through `GIT_CONFIG_*`): exit **3**; C1 recorded; stop
+  at C2a ("SETUP FAILURE: fixture commit failed: C2a"); no later case; **no verdict line**; C1 log kept.
+- **T5 evidence-write failure** (a `tee` that exits 1, first on `PATH`): exit **3**; no case line; **no verdict line**; the
+  header and the C1 raw log kept.
+Together with T1–T3 (`f8d52c7`): normal run, setup failure, hash mismatch, fixture-commit failure, evidence-write
+failure. Recorded results; not an independent replay. Leftover clones were deleted; logs and results kept.
+
+**4. Setup trace r1** (`C:/CoWork/outputs/lane-a-bcp1-filemap-2026-10-15/BCP1-SETUP-TRACE-r1.md`, `72a863666d356311bf627f8720d3f6d0a81dae1c2c586e7ceb4c60faeb02df98`) — extends BCP-1 map r4, reusing its row IDs; not a second ledger. Row set:
+all 18 rows of Modular_PRD §7.2, `AIG-01`–`AIG-06` (§7.2a) and TR-1. Lane B's completion rule is adopted.
+- **REA:** Lane A's route D chain runs intent → requirement → r10 contract → Stage A artifacts → partial readiness (open).
+  The **Codex REA test** has intent (TR-1; the Judge's test-purpose words) and anchors (`AIG-03.R1`, `AIG-04.R3`,
+  `AIG-04.R5`) but **no contract** (r10 excludes it), a test-only artifact (F16), and **no run record, result or review**
+  (B-136 and the TR-1 output folders searched) → **UNVERIFIED; no credit**. Next action: none, unless Codex REA use is
+  wanted; then Lane B proposes the exact scope that changes r10's exclusion.
+- **Others:** `AIG-03` (SV-002 scope), `AIG-04` (`D-433`), `AIG-06` (`D-337`) complete for their named scope; `AIG-01`,
+  `AIG-02`, `AIG-05`, `NFR-04`, `SHARED-01`, `SHARED-02`: control present, review link unverified; Product-sprint rows
+  (S1, S2, S4, S5): open by construction, owner Lane B, trigger each sprint's work order; `SEC-04` deferred; `NG-10`,
+  `NG-11`: n/a (constraints). Each row has an owner and trigger.
+- **Not covered:** review records for "control present" rows; Modular_PRD §0.6 row by row.
+- **Custody list (after `D-438` health):** trace, map r4, EV r6, helper r4, manifest, harness r5 with runs and self-tests,
+  recovered results with provenance → `docs/handoff/artifacts/B-136/`. F16's config stays in its custody folder.
+
+### What you need
+
+**Lane B:** (1) S5 receipt for candidate `c5b3cafa` (identity at `b0c8290`) in B-050, with its annotation; (2) review of
+EV r6, the G4 tests and the setup trace. **Judge:** nothing new now. No fetch or push until `D-438`'s health record.
+
+### What you did instead
+
+Removed only the untracked config (bytes kept); all drafts outside the repository; this record is handoff-only. The check
+fails only on the expected `D-438` drift.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Judge's REA test purpose; F16 recurrence disposed with bytes kept; T4/T5 exit-3 evidence | Phase 1 |
+| Approve-with-conditions | EV r6; setup trace r1 | Lane B review; custody after health |
+| Defer | S5–S7; custody; `D-439`; `D-437`; review links for "control present" rows; any Codex REA scope change | Their checkpoints |
+| Reject | Codex REA adoption or credit from the test file; "control present" read as complete; setup called absent | All phases |
