@@ -15358,3 +15358,80 @@ Drafts and this record only. No transfer, build, fetch or push; no Gate 2 action
 | Approve-with-conditions | Supplements 1 and 2; G4 checkpoints | Judge decisions; Lane B verification |
 | Defer | Custody verification; baseline; final bindings; `D-439` acts; application; guarded cycle; `D-437`; SM05; Gate 2; push | Their own triggers |
 | Reject | Snapshot checks read as commit custody; the `4cebb77` G5 rule; complete handoff or readiness now | All phases |
+
+---
+
+## Lane A — answers Lane B's audit of `4487ecd` (G3a, G3b, G4): supplement-2 r2, section C ledger, temporary-custody authority, 2026-10-16
+
+### What happened
+
+**Receipt.** Lane A receives Lane B's read-only audit of `4487ecd` (supplied by the Judge in session; it is Lane B's entry to
+commit, with its 457-file custody verification, D-272). Judge approval received in the current conversation for Lane A to
+answer G3a, G3b and G4 in one consolidated record, pending durable registration; no build, transfer, fetch, push or Gate 2
+closure. Lane B's audit reports a committed-blob and parent-to-commit path check of `d80d821`: 457 matching additions, no
+missing path, no extra path. Lane A notes it; the receipt is Lane B's record, not this one. Lane B approved the G1 and G5 r2
+meaning and the G6–G7 wording, and approved supplement 1 (11 files) with conditions; this record does not repeat them. Earlier answers stay as history.
+
+| ID | Lane B finding | Lane A answer (replaces the `4487ecd` wording for that ID) | State |
+|---|---|---|---|
+| **G3a** | "The log names no revision" is false | **Agreed; Lane A error.** `check-g1g7-record.log` (`4bd89c6b08b200236c6babbd91dd949c569183e3d96be1d90cec82998bd3e3d9`) line 14 reads `HEAD 89154ee advanced by excluded-only commits`. Corrected statement: the log reports 19/19 with HEAD `89154ee`, the parent of `4cebb77`; the `4cebb77` record was uncommitted in the working tree. The log binds no working-tree content and does not prove consistency at `4cebb77` after the commit. **Supplement 2 r2:** map `D439-SUPPLEMENT-2-MAP-r2.md` (`487a093e118f0fe9a0cccd405e9af85fc4e68fbd6ae2e655a8479c595e00658e`) and generator `make-supplement-2-map-d439-r2.mjs` (`b1c8958e79c4f8b4e76d950e872766663b308164c026da0a24399b49c4fde1d5`), both under `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/supplement-2-r2/`. The unit stays 4 files → `d439-package/supplement-2/`: index r2 (`af657d92…ac91bab`, unchanged), the log (unchanged), generator r2, map r2. Only S2's role text changed. Index r2's section 3 row omits the generator; map r2 is the exact file list and says so. Map r1 and generator r1 are superseded and go to section C (C2, C3) | Draft; Lane B review, then Judge decision |
+| **G3b** | The `4487ecd` answer names no file or hash for its section C log | **Agreed.** The section C ledger below gives source, full hash, recorded result, destination, owner and trigger. **Rule from this record on:** each Lane A record binds its own check log by full hash. Method: run the check, put the log's hash into the record, run the check again, and commit only if the second log is byte-identical (fixed point). If the bytes differ, the next record binds the log | Stated |
+| **G4.1** | Temporary custody starts before the act; a later act cannot authorize a rejected attempt | **Agreed.** The authority must exist and be durably recorded **before the baseline is named**. Lane A proposes the instruction text (TCA) below for the Judge. It meets `D-183` point 1. Recording routes R1/R2 below | Proposed; Judge decides |
+| **G4.2** | "One custody commit in the closing record" reads as one mixed commit | **Agreed.** For each outcome: (a) one custody commit that touches only `docs/handoff/artifacts/B-136/d439-package/section-b/` and `…/section-c/`; then (b) a separate one-file B-136 record that states the commit and requests Lane B's verification (`D-385`). Replaces "one custody commit in the record that closes the attempt" | Proposed; in TCA |
+
+**Section C ledger** (source folder `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/`; destination
+`docs/handoff/artifacts/B-136/d439-package/section-c/`; owner: Lane A transfers, Lane B verifies committed blobs and path
+scope; trigger: the outcome checkpoint in the TCA, in the same custody commit as section B):
+
+| # | Source | SHA-256 | Recorded content and limit |
+|---|---|---|---|
+| C1 | `check-g1g5r2-record.log` | `fc8008fde9f15d952a5eba43b0bc17f666e1d6f7333914bbfe36270336a771c7` | Check for the `4487ecd` record: 19/19, HEAD `4cebb77` (parent; record uncommitted). Binds no working-tree content |
+| C2 | `supplement-2/D439-SUPPLEMENT-2-MAP-r1.md` | `8f79b9e11657a4962068f5237c83e941fbcf50c17b0b728f52c5fa765f8675fe` | Superseded map r1 (false S2 role, G3a) |
+| C3 | `supplement-2/make-supplement-2-map-d439.mjs` | `7e6371fc2ced5941b8690478db18f5da88e7617f88e23b911a4783039c56ae59` | Superseded generator r1 |
+| C4 | `check-g3g4-record.log` | `1080da5b603f97aec2dda1b900faaf1c7f13374ab52a6847fd9569a1a963cdce` | Check for this record: result as logged, HEAD `4487ecd` (parent; record uncommitted). Fixed point confirmed before commit. Binds no working-tree content |
+
+**TCA — proposed Judge instruction text (not in force).** *Object:* the `D-439` attempt's section B files (final ownership
+manifest, successor helper, `check-successor-d439.mjs` log, Lane B's pre-act review receipt, act-date expected record,
+application logs) and the section C ledger items. *Action:* Lane A keeps them outside the repository in
+`C:/CoWork/outputs/lane-a-d439-final-<date>/`, states each hash in session or in a record, and modifies none after its hash
+is stated. *Scope and exclusions:* custody only; no application, no Register act, no push; the frozen PRD, Charter and
+`0001_init.sql` untouched. *Start:* the record that names the baseline. *Outcomes:* **success** → after the health record,
+custody commit (G4.2 a) then B-136 record (G4.2 b); **act rejected** → custody commit then the record that closes the
+attempt; **abort or stop** at any stage (binding or repository change, failed check, refused application) → the interval
+ends, custody commit of every file produced so far, B-136 record, Lane B verification, then baseline reassessment. No
+outcome leaves a bound file external after its closing record. *Checkpoint:* Lane B verifies each custody commit before the
+attempt closes.
+
+**Recording routes for the TCA (Judge chooses):**
+
+| Route | How | Cost | Lane A view |
+|---|---|---|---|
+| **R1** (recommended) | A Register entry before the baseline, next free number (`D-437` is promised to setup; `D-439` stays the act's number because the helper hardcodes it), with `D-54` tiers | Register change → `docs-drift` red → a guarded graph cycle and health record before the baseline. The entry must not contain the backticked token the helper's S0 refuses (`ev-apply-d439-r3.mjs` line 157); plain mentions become ownership lines bound at the baseline | Meets G4.1 literally: durable before the freeze (`D-183` points 5–6) |
+| **R2** | A B-136 record before the baseline: "Judge approval received … pending durable registration" (`D-183` point 2); Register registration at the outcome's first Register entry | No pre-baseline graph cycle | Authority exists from the instruction, but a handoff file is never sole proof (`D-183` point 6); Lane B may reject it |
+
+**Pre-baseline order (updated):** (1) Lane B's receipt for `d80d821` (Lane B's record); (2) Lane B review of supplement 2 r2
+and this record; (3) Judge decisions: supplements 1 and 2 transfer, TCA text, R1 or R2; (4) supplement transfers, each a
+folder-only commit, each verified by Lane B; (5) TCA recorded (R1 with its guarded cycle and health, or R2); (6) baseline
+named; then the G5 controls apply.
+
+**Self-grade (labelled; not independent review).** G3a is a second Lane A wording error in this chain found by Lane B after
+G5. Cause: the description was not checked against the log bytes. Lesson kept: a description of a log
+quotes the log line it relies on. G3b repeats the same pattern: "this record's log is the first item" deferred a binding
+that could be made now.
+
+### What you need
+
+**Lane B:** (a) record the `d80d821` custody receipt and the audit (D-272); (b) review supplement 2 r2, the section C ledger,
+G4.2 and the TCA text. **Judge:** (i) transfer of supplement 1 (11 files) and of supplement 2 r2 (4 files) after Lane B's
+review, each as its own folder-only unit; (ii) the TCA text; (iii) R1 or R2.
+
+### What you did instead
+
+Drafts and this record only. No transfer, build, fetch or push; no Gate 2 action. Unpushed: `a673f44`..this record.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | G3a correction; G3b ledger and fixed-point rule; G4.2 split | Lane B review |
+| Approve-with-conditions | Supplement 2 r2; TCA text; route R1 | Lane B review; Judge decisions before the baseline |
+| Defer | Custody receipts; transfers; baseline; final bindings; `D-439` act; application; guarded cycles; `D-437`; SM05; Gate 2; push | Their own triggers |
+| Reject | The `4487ecd` S2 role and section C deferral; authority for a rejected attempt supplied by a later act; complete handoff or readiness now | All phases |
