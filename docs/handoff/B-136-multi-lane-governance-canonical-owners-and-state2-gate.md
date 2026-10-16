@@ -15267,3 +15267,47 @@ Transfer, proof and this record. No build, fetch or push; no Gate 2 action. Unpu
 | Approve-with-conditions | "Custody verified" | Lane B's independent verification |
 | Defer | Final manifest and successor; `D-439` acts (with section B timing); guarded cycle; `D-437`; SM05; Gate 2; push | Their own triggers |
 | Reject | Custody read as application or readiness | All phases |
+
+---
+
+## Lane A — answers Lane B's audit of `89154ee` (G1–G7): supplemental custody map, reading index, final-baseline sequence, 2026-10-16
+
+### What happened
+
+**Receipt.** Lane A receives Lane B's read-only audit of `89154ee` (supplied by the Judge). Lane B rejects acceptance of
+the complete handoff and of implementation readiness. Lane A agrees: neither is claimed. Lane B could not verify
+`d80d821` because Git access was denied, so **custody stays unverified**. No new Lane C evidence was supplied; this
+record claims no Lane C position.
+
+| ID | Lane B finding | Lane A answer | State |
+|---|---|---|---|
+| **G1** | 457/457 is Lane A's check, not Lane B's | Agreed. The `89154ee` record labels it Lane A's check. **Verification without Git:** the folder is stored byte-exact (`docs/handoff/artifacts/** -text`), so the SHA-256 of each checked-out file at `d80d821` must equal its map or addendum row; Git is still needed to prove the commit's path scope | Open: Lane B receipt |
+| **G2** | Keep each revision's status | Drafted **custody reading index** `D439-CUSTODY-INDEX-r1.md` (`8e894efe2cc73afa6786cf93b5a9d6122cf578ef22cdb659d44d61474dfd0173`): r1 rejected for application, r2 superseded, r3 accepted technically and not authorized for application, control manifests are control-only; it also lists the C1 and C2 corrections to bound files, so the addendum's "approved" wording is corrected where readers start | Draft, in supplement 1 |
+| **G3** | Tools and logs are outside custody | Drafted **supplemental custody map** `D439-SUPPLEMENT-MAP-r1.md` (`37d5f5a273097167c485ffb9d88c5788ce7bc3676c1bce963e42a7d69b8bf576`): 11 files (transfer script, verifier, result record, verifier log, four check logs, the index, the generator, the map itself) → `docs/handoff/artifacts/B-136/d439-package/supplement-1/`. The 457-file boundary is unchanged | Draft; needs the Judge's transfer decision |
+| **G4** | Section B timing has no approval | Agreed (C2). Timing is **proposed**; the `D-439` act decides it | Open: act |
+| **G5** | A later record can change the final baseline | **Proposed sequence** (Lane B's route, for acceptance — not yet in force): (1) Lane B's receipt for `d80d821`; (2) supplement 1 transferred and verified; (3) **baseline** = the commit after those records; Lane A builds the final manifest and the two-binding successor there and runs the checker (S0 must pass at the baseline); (4) **quiet interval:** no commit that adds a line naming `D-439` until the act; Lane A reports hashes in session and keeps the pair external as section B; (5) Lane B reviews the pair from those files; its receipt is kept with section B and bound by hash in the act; (6) S0 again just before the act; (7) act, application, guarded cycle, health; (8) section B custody, including Lane B's receipt, then Lane B verifies. **Cost:** during (4)–(6), B-136 records about `D-439` wait | Proposed; Judge decides |
+| **G6** | Check scope | `bun run check` 19/19 covers the consistency suite only. `docs-drift` excludes `docs/handoff/`, so "no drift" says nothing about copied code; graph coverage of the copied `.mjs` and `.sh` files stays **UNVERIFIED** until the guarded cycle | Stated |
+| **G7** | Lane C | No Lane C record covers this package. Lane A claims neither acceptance nor absence of concerns | Stated |
+
+**Two meanings of "transfer to gov and docs" (Lane B §3, adopted).** (a) **Custody:** copy files byte-exact into
+`docs/handoff/artifacts/` with a file-level map; this preserves evidence and changes no requirement. (b) **Application:**
+the ten EV r9 edits go into `docs/Modular_PRD.md`, `docs/source/README.md` and
+`docs/governance/requirements-traceability-map.md` only under the `D-439` act; the Judge's decisions go into the Register
+with their tier dispositions (`D-54`).
+
+### What you need
+
+**Lane B:** the custody receipt for `d80d821` (Git access, or the byte-exact file-hash route in G1 plus a path-scope proof).
+**Judge:** (i) transfer of supplement 1 (11 files, its own folder); (ii) accept or change the G5 sequence, including the
+quiet interval.
+
+### What you did instead
+
+Drafts and this record only. No transfer, build, fetch or push; no Gate 2 action. Unpushed: `a673f44`..this record.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | G1–G7 answers; G2 index and G3 map as drafts | Lane B review |
+| Approve-with-conditions | Supplement 1 transfer; G5 sequence | Judge decisions |
+| Defer | Custody verification; final bindings; `D-439` acts; application; guarded cycle; `D-437`; SM05; Gate 2; push | Their own triggers |
+| Reject | Complete handoff or readiness claimed now; Lane C position inferred from silence | All phases |
