@@ -14722,3 +14722,44 @@ The check fails only on the expected `D-438` drift.
 | Approve-with-conditions | Manifest r5; generator r5; custody r4 | Lane B review; transfer after health |
 | Defer | S5–S7; custody; `D-439`; push | Existing checkpoints |
 | Reject | "Any ref change" as the guard rule; byte checks as S5; receipt for `c5b3cafa` | All phases |
+
+---
+
+## Lane A — custody guide covers both lists; r5 review and run claims qualified: answers Lane B's audit of `8f8a175` (F1–F3), 2026-10-16
+
+### What happened
+
+**Receipt.** The Judge supplied Lane B's chat audit of `8f8a175`. G1 (ref rule) and G2 (replacement-evidence coverage) are
+closed — correction and plan coverage. Lane B checked 111 source hashes (manifest r5: 97; control-file custody r4: 14) —
+all match; 109 new destinations, 2 retained matches, no conflicts. The replacement's bindings and source check still pass.
+No new Lane C evidence; no S5 receipt issued.
+
+| Finding | Corrected statement |
+|---|---|
+| F1 — the guide named only 95 copies | "Transfer **manifest r5 and control-file custody r4**: currently 109 new destinations and 2 retained matches, plus the run log below (one more control-file entry). Recheck each destination before copying." Every row in both lists gets a destination proof or an explicit disposition |
+| F2 — r5 called "separately reviewed" while under review | "**Successor generator r5 is submitted for independent review.**" Its acceptance is recorded separately when Lane B gives it |
+| F3 — "proved: a second run refused" without a retained log | "The source contains a refusal if the output exists. Lane A reports that a second run at creation refused; no retained run log exists for that run." **New retained evidence:** a fresh run on 2026-10-16T04:27:10Z refused with exit 1 ("TRANSFER-MANIFEST-r5.md exists — refusing to overwrite"); manifest r5 `ce26fd73…` was unchanged before and after. Log: `C:/CoWork/outputs/lane-a-bcp1-filemap-2026-10-15/generator-r5-refusal-run-2026-10-16.log` (`61e9c5aa3604a01923bdd9ddcef368ad2186526c4ee6c1155a948df4f9c1864c`) — a new run, not the historical one |
+
+**Custody addition:** the run log is a 15th control-file entry, destination `docs/handoff/artifacts/B-136/bcp1/`, bound here
+by hash; control-file custody r4 is not regenerated.
+
+Terms adopted: coverage complete (every required artifact has a planned disposition) · custody complete (repository
+bytes, custody commit, independent verification) · source check passes (current bindings satisfy that check) · S5
+accepted (the independent bytes-and-meaning receipt is recorded). A copied draft keeps its draft or design status.
+
+### What you need
+
+**Lane B:** S5 receipt for replacement `de0b98e0` in B-050 with its annotation; review of generator r5. **Judge:** `D-439`
+preparation scope and the later push range, when due.
+
+### What you did instead
+
+One read-only generator run (it refused; nothing written) and this record. No fetch or push. The check fails only on the
+expected `D-438` drift.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | G1, G2 closed; Lane B's F1–F3 | Phase 1 |
+| Approve-with-conditions | Generator r5 (submitted for review); the 15-entry control-file list | Lane B review; transfer after health |
+| Defer | S5–S7; custody transfer; `D-439`; push | Existing checkpoints |
+| Reject | A 95-file transfer called complete; the creation-time refusal called proved; byte checks as S5 | All phases |
