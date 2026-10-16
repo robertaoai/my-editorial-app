@@ -16200,3 +16200,395 @@ This record only. No build, transfer, application, graph rebuild, fetch, push, l
 | Defer | F1-3 filing; F1 classifications | Lane B | Phase 1, before the baseline |
 | Defer | J1–J3 decisions; transfers; baseline and every later step; `D-437`; SM05; Gate 2; push | Judge; Lane A; existing owners | Their own triggers |
 | Reject | B-136 completion now; `98eaf9f` read as formal Level 1; Lane C approval inferred | — | All phases |
+
+---
+
+## Lane B — Level 1 review of B-136 at `63d4119`, 2026-10-16
+
+### What happened
+
+**Review role:** ChatGPT Chat/Work, Lane B, Level 1, as commissioned for this review. Execution environment: Codex desktop runtime. This is a fresh, scoped review of J1–J3.
+
+**Observed commit:** `63d4119f55bffd93d63436298cd58826886a634e`. The repository was clean at entry and completion, with HEAD unchanged.
+
+**Filing destination:** the existing `C:/robertaoai/my-editorial-app/docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md`. This record uses the existing handoff template’s three body sections. It is supplied for appending; it has not been filed and replaces neither the entry header nor Lane A’s answers.
+
+**Evidence basis:** B-136 at the observed commit, including the records at `9781b2d`, `c5367aa` and `63d4119`; the handoff SOP and template; Decision Register `D-183` and `D-324` J5; `FN-MULTI-LANE-AI-GOVERNANCE.md` §4.5; the exact external objects and supporting evidence identified below.
+
+External files were read directly during this review and matched against the hashes recorded at `63d4119`. This establishes their correspondence to those pinned identities; it does not claim that the proposed supplement or section C destinations already contain committed copies.
+
+#### 1. B-136 → D-439
+
+**B-136 stays Open. D-439 stays Open.**
+
+B-136 retains its separate obligations for the D-439 package, setup completion and `D-437` registration, SM05 entry/work order/lane activation, and Gate 2. D-439 completion alone would close none of the other obligations.
+
+The F1 correction at `c5367aa`, preserved by `63d4119`, remains controlling:
+
+| F1 item | Preserved classification | Required proof / owner / phase |
+|---|---|---|
+| F1-1 and F1-2 | **Unresolved** | Lane B supplies the original or an absence record identifying live conditions. Phase 1, before baseline naming. |
+| F1-3 | **Surviving obligation** | Lane B files acceptance of the r3 helper and successor checker at their committed `d80d821` blobs, through the original review or a fresh review. Phase 1, before baseline naming. |
+| F1-4–F1-8 and F1-10 | **Unresolved; history-only candidates** | Lane B confirms whether each original has any other live condition. A candidate is not a completed classification. Phase 1, before baseline naming. |
+| F1-9 | Retained by hash as C13 | Preserve the original and its mapped custody obligation. This does not resolve the other F1 items. |
+
+The F1-3 objects are:
+
+- `C:/robertaoai/my-editorial-app/docs/handoff/artifacts/B-136/d439-package/r3/ev-apply-d439-r3.mjs`
+- `C:/robertaoai/my-editorial-app/docs/handoff/artifacts/B-136/d439-package/r3/check-successor-d439.mjs`
+
+Their required acceptance is against custody commit `d80d8211dca103f7498babc7465b4f62db3bf9ed`. **This J1–J3 review does not supply that acceptance.** Any proposed use of an F1-3 filing to resolve F1-1/F1-2 must explicitly cover the relevant r1 controls.
+
+History-only missing records do not block the baseline once that classification is proven. Surviving obligations retain their owner, acceptance proof and dependency. Every F1 item must be classified before the baseline; every required pre-baseline filing must already exist because the freeze bars all commits.
+
+#### 2. D-439 → G-REV
+
+`D-324` J5 and FN §4.5 require Level 1 followed by Level 2 for these Lane A objects. Either level may reject.
+
+Commit `98eaf9f4e3aa5598cd1fac8d834892682838e0f4` remains **Codex independent verification** within its recorded scope. Its source-hash, destination and design findings support this review. It is not relabelled as Level 1.
+
+The receipts below cover only their named source/design scopes. They establish no Lane C approval, Judge instruction, completed transfer, registration verification or execution authority. Filing this record remains separate from performing the review.
+
+#### 3. G-REV → J1 receipt
+
+**Object:** supplement 1, exactly 11 files, defined by map rows S1–S11.
+
+**Map:**  
+`C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/supplement-1/D439-SUPPLEMENT-MAP-r1.md`
+
+**SHA-256, directly confirmed:**  
+`37d5f5a273097167c485ffb9d88c5788ce7bc3676c1bce963e42a7d69b8bf576`
+
+**Review scope:** source identity, exact inventory and destination mapping, evidence roles, and suitability of the bounded custody proposal.
+
+**Evidence inspected:** all S1–S11 source bytes and hashes; the initial transfer and custody-verification scripts; the transfer-result JSON; the custody-verification log; four retained consistency logs; custody index r1; the map generator and map; and the supporting `98eaf9f` receipt.
+
+**Findings:**
+
+- All 11 source hashes match, including the separately bound map.
+- The result JSON contains 457 rows, 457 unique sources and destinations, and no recorded source/destination hash mismatch. This is retained result evidence, not a fresh verification of those 457 committed blobs.
+- The proposed 11 destinations are unique, confined to the named supplement folder, absent from the `63d4119` tree and current checkout, and not Git-ignored. No link was found in the inspected source/destination path chains.
+- The initial transfer script is retained evidence of the earlier unit. Its presence grants no authority to rerun it.
+- Index r1 is historical and superseded by index r2 and later B-136 records. Its technical-acceptance wording does not discharge F1-3, and its pending-custody wording does not overturn the later `98eaf9f` receipt.
+- Retained check results prove only their stated check scope; they establish no current readiness or Gate 2 clearance.
+
+**Decision: Approve-with-conditions.** The inspected evidence supports this exact 11-file custody proposal. No source-evidence gap requires deferring this receipt.
+
+**Remaining conditions, owners and checkpoint:** Phase 1, before Lane A’s folder-only copy commit to:
+
+`C:/robertaoai/my-editorial-app/docs/handoff/artifacts/B-136/d439-package/supplement-1/`
+
+Lane C supplies J1 Level 2 after Level 1, unless expressly waived for J1. The Judge separately authorizes the exact map/hash and bounded action. Immediately before copying, Lane A rechecks sources, hashes, destinations, links and ignore status, preserving source files. After the transfer commit and separate one-file B-136 verification request, Lane B verifies all 11 committed blobs and the complete changed-path set and files its custody receipt. That receipt is required before baseline naming.
+
+#### 4. G-REV → J2 receipt
+
+**Object:** supplement 2 r2, exactly four files, defined by map rows S1–S4.
+
+**Map:**  
+`C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/supplement-2-r2/D439-SUPPLEMENT-2-MAP-r2.md`
+
+**SHA-256, directly confirmed:**  
+`487a093e118f0fe9a0cccd405e9af85fc4e68fbd6ae2e655a8479c595e00658e`
+
+**Review scope:** source identity, exact four-file inventory, corrected log attribution, revision handling and bounded custody mapping.
+
+**Evidence inspected:** index r2, `check-g1g7-record.log`, generator r2 and map r2 at the exact S1–S4 paths; the corresponding B-136 corrections; and the superseded map/generator’s C2/C3 custody mappings and source hashes.
+
+**Findings:**
+
+- All four source hashes match, including the map.
+- The four destinations are unique, confined to the named supplement folder, absent from the `63d4119` tree and current checkout, and not Git-ignored. No link was found in the inspected path chains.
+- The log actually names HEAD `89154ee` and reports 19/19 checks. Map r2 correctly states that the `4cebb77` record was then uncommitted and that the log neither binds the whole working tree nor proves post-commit consistency at `4cebb77`.
+- Index r2’s abbreviated supplement inventory omits the generator; the pinned map explicitly supplies the exact four-file list.
+- Superseded map r1 and generator r1 remain C2/C3 evidence for later section C custody. They are not substituted into J2.
+- Index r2’s historical receipt/acceptance statements must be read with the later B-136 corrections, including the still-open F1-3 requirement.
+
+**Decision: Approve-with-conditions.** The evidence supports this exact r2 proposal and its corrected evidence description. No source-evidence gap requires deferring this receipt.
+
+**Remaining conditions, owners and checkpoint:** Phase 1, before Lane A’s separate folder-only copy commit to:
+
+`C:/robertaoai/my-editorial-app/docs/handoff/artifacts/B-136/d439-package/supplement-2/`
+
+Lane C supplies J2 Level 2 after Level 1, unless expressly waived for J2. The Judge separately authorizes this exact map/hash. Lane A performs the immediate pre-copy checks and preserves the sources and revision history. J2 remains separate from J1. Following its own transfer commit and one-file verification request, Lane B verifies the four committed blobs and complete changed-path set and files a separate custody receipt before baseline naming.
+
+#### 5. G-REV → J3 receipt
+
+**Object:** TCA r3, route **R2**.
+
+**Path:**  
+`C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/tca/TCA-D439-r3.md`
+
+**SHA-256, directly confirmed:**  
+`5274e34f50113bb50c27ebc0910f38c4931e4afe2dab354bac4e6101edc047d2`
+
+**Review scope:** the custody contract’s design, revision fidelity, evidence retention, outcome sequences, authority boundaries and registration-verification requirements. This is not a helper-control run or verification of a future Register entry.
+
+**Evidence inspected:** TCA r2/r3; `make-tca-d439-r3.mjs`; the original Lane B follow-up draft and its retained C13 copy; B-136’s C1–C21 mappings; all 21 source hashes; seven retained log pairs; `D-183`; and the supporting `98eaf9f` design assessment.
+
+C13 at:
+
+`C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/pinned-inputs/B136-LANE-B-TCA-R3-FOLLOW-UP-DRAFT.md`
+
+is byte-identical to the original and hashes to:
+
+`60cf236aa545df5da3e4d9be1c89205bd319b9394f270b2d614c16bffbc4ac81`
+
+**Findings:**
+
+| Criterion | Result and evidence limit |
+|---|---|
+| AC-1 — bounded change | Pass for design. All four replacement blocks match the pinned Lane B draft with the declared sealed-list sentence. Sections 1, 2 and 4 are preserved, allowing the stated r3 self-reference correction. |
+| AC-2 — finite custody | Pass for design. Success, rejection and abort each seal evidence before custody. Later administrative records do not recursively require new section C log pairs. |
+| AC-3 — no lost evidence | Pass for the inspected set and route. C1–C21 hashes match; destinations are unique, absent and not ignored. Both generator inputs are retained. Future evidence still requires inclusion or an accepted disposition. |
+| AC-4 — authority | Pass for design. Custody excludes Register/application acts. Section 5.1 requires a separately authorized recording unit, preserves next-available-entry timing and infers no D-428 exception. |
+| AC-5 — causal review | Pass for design. Section 7 requires verification against an existing commit containing the Register entry and the actual Judge instruction. |
+| AC-6 — independence and reuse | Pass for design. Lane B verifies registration; Lane A cannot self-verify. Reuse requires explicitly matching scope. |
+| AC-7 — stop behaviour | Pass for design. Log differences, hash/path conflicts, missing authority/evidence and registration mismatches stop the relevant step or closure. |
+| AC-8 — limits | Pass within this receipt. No execution, custody completion, readiness, Lane C verdict or parent closure is inferred. |
+
+All seven inspected retained log pairs are byte-identical. Equality establishes equality of those files; it does not bind the complete tested working tree or prove post-commit consistency.
+
+The paper outcome review confirms that success proceeds through authorized acts/application and health, sealed custody, Lane B custody verification, registration verification and closure. Rejection/abort requires sealed custody and its receipt, then a separately authorized registration/graph unit, independent registration verification and applicable health evidence before closure. Abort also requires baseline reassessment.
+
+**Decision: Approve-with-conditions.** The evidence supports TCA r3’s R2 design. No identified defect requires r4 for R2-1/R2-2, and no source-evidence gap requires deferring this receipt.
+
+**Remaining conditions, owners and checkpoint:** Phase 1, before Lane A records in B-136:
+
+> Judge approval received in the current conversation for the D-439 temporary custody in TCA-D439-r3, pending durable registration.
+
+Lane C supplies J3 Level 2 after Level 1, unless expressly waived for J3. The Judge must give the exact r3/hash and R2 text as a direct instruction. Lane A records the actual instruction and provenance before baseline naming; this review supplies no such instruction.
+
+Later, Lane A retains the exact section B/C routes in §4, seals and transfers evidence under §5, and obtains the separate registration authority. Lane B supplies both custody verification and §7 registration verification at their respective checkpoints. Neither substitutes for the other or for Level 1/Level 2.
+
+### What you need
+
+**Pre-baseline dependencies remain:** J1 and J2 transferred with separately filed Lane B custody receipts; J3’s actual instruction received and recorded; F1-3 helper/checker acceptance filed; every F1 item classified; and every other required pre-baseline review and record filed. The freeze then bars all commits and checkout changes until the authorized act starts. Final bindings, their review, application/registration acts, guarded graph work, outcome custody and closure retain their existing sequence.
+
+**Lane C — Level 2 next steps:**
+
+1. Review this Level 1 record and issue a separate scoped receipt for each exact J1/J2/J3 object and full hash.
+2. For J1, review the 11-file boundary, source/destination mapping, historical evidence roles, stop rules and independent post-transfer verification.
+3. For J2, review the four-file r2 boundary, corrected log attribution, exact-map precedence and C2/C3 retention.
+4. For J3, review AC-1–AC-8, all three outcome sequences, finite evidence closure, separate registration authority and evidence ownership, and §7’s independent verification requirement.
+5. State findings, verdict, remaining conditions, owner and follow-up phase for each object. Preserve both Open parents and the F1 dependencies. Level 2 follows Level 1 unless the Judge expressly waives that order for the named object.
+
+Lane A consumes no decision while a required review level is missing and not expressly waived. Judge authority, transfer custody verification and later registration verification remain distinct.
+
+### What you did instead
+
+Performed read-only commit inspection, source reading, SHA-256 verification, path checks, byte comparisons and a paper review of the outcome sequences. Prepared this record in chat only.
+
+No Lane A answer, code, file or issue was edited. No build, helper execution, transfer, application, Register write, graph rebuild, commit, fetch, push, lane change or Gate 2 closure occurred. The consistency suite was not rerun; retained results are described only within their evidenced scope.
+
+**Approval covers only the reviewed scope and grants no execution authority.**
+
+| Parent → object | Verdict | Owner and remaining condition / follow-up phase |
+|---|---|---|
+| **B-136** | **Defer closure; Open** | Existing owners complete all required children; their existing phases and triggers remain. |
+| **B-136 → D-439** | **Defer closure; Open** | Lane B’s F1 classifications and helper/checker acceptance, then remaining authority, custody, binding, application and closure obligations. Phase 1 and later named checkpoints. |
+| **D-439 → G-REV** | **Approve this scoped Level 1 record** | Filing remains pending; Lane C Level 2 remains required separately for each object, or expressly waived. Phase 1, before consumption. |
+| **G-REV → J1** | **Approve-with-conditions** | Lane C L2; exact Judge authorization; Lane A pre-copy checks and separate transfer; Lane B committed-blob/path receipt. Before baseline. |
+| **G-REV → J2** | **Approve-with-conditions** | Same obligations, independently scoped to the four-file r2 unit. Before baseline. |
+| **G-REV → J3** | **Approve-with-conditions** | Lane C L2; exact Judge r3/R2 instruction and pre-baseline receipt; later separate custody and registration verification. TCA §§5–7 checkpoints. |
+| **Parent closure or authority inferred from these receipts** | **Reject** | No relabelling of `98eaf9f`, inferred Lane C approval, execution authority or Gate 2 clearance. All phases. |
+
+---
+
+## Lane C — Level 2 review of B-136 at `63d4119`, 2026-10-16
+
+### What happened
+
+**Review role and surface:** Antigravity chat (Lane C), **Level 2**, as commissioned under `D-324` J5 ([`V1-DECISION-REGISTER.md`](file:///c:/robertaoai/my-editorial-app/docs/v1/V1-DECISION-REGISTER.md#L22488-L22508)) and [`FN-MULTI-LANE-AI-GOVERNANCE.md`](file:///c:/robertaoai/my-editorial-app/docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md#L177-L187) §4.5. Execution environment: Antigravity IDE workspace rooted at `C:/robertaoai/my-editorial-app` and `C:/CoWork/outputs` (model: Gemini 4 Argon High). This is an independent, scoped Level 2 review of `J1`–`J3` following the accepted ChatGPT Chat/Work (Lane B) Level 1 review worklog.
+
+**Observed commit:** `63d4119f55bffd93d63436298cd58826886a634e` (`63d4119`). The repository was verified clean (`git status --porcelain` empty) at entry and completion, with `HEAD` unchanged.
+
+**Filing destination:** the existing [`B-136-multi-lane-governance-canonical-owners-and-state2-gate.md`](file:///c:/robertaoai/my-editorial-app/docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md) (`C:/robertaoai/my-editorial-app/docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md`). This record uses the three body sections of [`TEMPLATE.md`](file:///c:/robertaoai/my-editorial-app/docs/handoff/TEMPLATE.md#L66-L83). It is supplied in chat for appending and has **not** been filed in `B-136`; it preserves the entry header, Lane A’s committed answers, and the separate attribution of Lane B’s Level 1 worklog (which likewise remains **unfiled** in `B-136`).
+
+**Evidence basis:**
+- [`B-136-multi-lane-governance-canonical-owners-and-state2-gate.md`](file:///c:/robertaoai/my-editorial-app/docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md) at `63d4119`, including the committed records at `98eaf9f` ([lines 15645–15893](file:///c:/robertaoai/my-editorial-app/docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md#L15645-L15893)), `9781b2d` ([lines 15896–16018](file:///c:/robertaoai/my-editorial-app/docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md#L15896-L16018)), `c5367aa` ([lines 16021–16127](file:///c:/robertaoai/my-editorial-app/docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md#L16021-L16127)), and `63d4119` ([lines 16130–16203](file:///c:/robertaoai/my-editorial-app/docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md#L16130-L16203));
+- The attached, accepted ChatGPT Chat/Work (Lane B, Level 1, Codex desktop runtime) review worklog at `63d4119` (unfiled in `B-136`);
+- [`README.md`](file:///c:/robertaoai/my-editorial-app/docs/handoff/README.md) (handoff SOP), [`TEMPLATE.md`](file:///c:/robertaoai/my-editorial-app/docs/handoff/TEMPLATE.md), [`V1-BUILD-SPEC.md`](file:///c:/robertaoai/my-editorial-app/docs/v1/V1-BUILD-SPEC.md#L1-L200), [`V1-DECISION-REGISTER.md`](file:///c:/robertaoai/my-editorial-app/docs/v1/V1-DECISION-REGISTER.md#L12450-L12500) (`D-183` and `D-324` J5), and [`FN-MULTI-LANE-AI-GOVERNANCE.md`](file:///c:/robertaoai/my-editorial-app/docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md#L177-L187) §4.5;
+- Direct read-only file inspection, SHA-256 recomputation, path-containment, link, and `git check-ignore` checks on the external `J1`, `J2`, `J3` and `C1`–`C21` objects.
+
+#### 1. `B-136` → `D-439`
+
+**`B-136` stays `Open`. `D-439` stays `Open`.**
+
+`B-136` retains its separate parent obligations for: (i) the `D-439` package, (ii) setup completion and `D-437` registration, (iii) `V1-SM05` selection, work order and Lane B activation, and (iv) Gate 2 (`V1-SM05-FV-001`). Completing `D-439` alone closes none of those other obligations.
+
+The `F1` classifications recorded at `c5367aa` ([`B-136-multi-lane-governance-canonical-owners-and-state2-gate.md`](file:///c:/robertaoai/my-editorial-app/docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md#L16032-L16065)), preserved at `63d4119` ([lines 16137–16141](file:///c:/robertaoai/my-editorial-app/docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md#L16137-L16141)) and in Lane B’s Level 1 worklog, remain controlling:
+
+| `F1` item | Preserved classification | Required proof / owner / phase |
+|---|---|---|
+| `F1-1` and `F1-2` | **Unresolved** | Lane B supplies the original or an absence record identifying any live conditions. Phase 1, before baseline naming. |
+| `F1-3` | **Surviving obligation** | Lane B files acceptance of [`ev-apply-d439-r3.mjs`](file:///c:/robertaoai/my-editorial-app/docs/handoff/artifacts/B-136/d439-package/r3/ev-apply-d439-r3.mjs) and [`check-successor-d439.mjs`](file:///c:/robertaoai/my-editorial-app/docs/handoff/artifacts/B-136/d439-package/r3/check-successor-d439.mjs) at their committed `d80d8211dca103f7498babc7465b4f62db3bf9ed` blobs, through the original review or a fresh review. Phase 1, before baseline naming. |
+| `F1-4`–`F1-8` and `F1-10` | **Unresolved; history-only candidates** | Lane B confirms whether each original has any other live condition. A candidate is not a completed classification. Phase 1, before baseline naming. |
+| `F1-9` | **Retained by hash as `C13`** | Preserve the original ([`B136-LANE-B-TCA-R3-FOLLOW-UP-DRAFT.md`](file:///c:/CoWork/outputs/lane-b-b136-tca-r3-follow-up-2026-10-16/B136-LANE-B-TCA-R3-FOLLOW-UP-DRAFT.md)) and its mapped `C13` custody obligation (`60cf236aa545df5da3e4d9be1c89205bd319b9394f270b2d614c16bffbc4ac81`). Does not resolve the other `F1` items. |
+
+**Neither the Level 1 worklog nor this Level 2 review of `J1`–`J3` supplies `F1-3` acceptance.** Any use of an `F1-3` filing to resolve `F1-1`/`F1-2` must explicitly cover the relevant r1 `F1`–`F3` and r2 ownership/harness controls. Because the baseline freeze (`G5`, `4487ecd`) bars all commits once the baseline is named, every `F1` item must be classified and every required pre-baseline filing (including the unfiled Level 1 and Level 2 review records) must exist before baseline naming.
+
+#### 2. `D-439` → `G-REV`
+
+Under `D-324` J5 and [`FN-MULTI-LANE-AI-GOVERNANCE.md`](file:///c:/robertaoai/my-editorial-app/docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md#L177-L187) §4.5, `J1`–`J3` are Lane A work requiring Level 1 (ChatGPT Chat/Work, Lane B) followed by Level 2 (Antigravity chat, Lane C). Either level may reject.
+
+- **Independent evaluation of Level 1:** Lane C independently inspected the Level 1 findings and conditions against the repository at `63d4119` and the external files under `C:/CoWork/outputs/`. All required source, generator, map, index, draft, and check-log artifacts for `J1`–`J3` are present and readable on disk; **no source-evidence gap requires deferring any of the three scoped Level 2 receipts below.**
+- **Distinction of records and roles:** Commit `98eaf9f4e3aa5598cd1fac8d834892682838e0f4` remains **Codex independent verification** within its recorded scope (initial 457-file custody verification, source/destination checks, and `AC-1`–`AC-8` design checks) and is not relabelled as Level 1. The attached ChatGPT Chat/Work Level 1 worklog supplies the scoped Level 1 review in session but **remains unfiled in `B-136`**. Filing the Level 1 and Level 2 records in `B-136`, issuing Judge instructions, verifying committed post-transfer blobs, and verifying committed Register entries under TCA §7 remain separate obligations.
+
+#### 3. `G-REV` → `J1` receipt
+
+- **Object:** Supplement 1, 11 files (`S1`–`S11`), defined by [`D439-SUPPLEMENT-MAP-r1.md`](file:///c:/CoWork/outputs/lane-a-d439-checks-2026-10-16/supplement-1/D439-SUPPLEMENT-MAP-r1.md) (`C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/supplement-1/D439-SUPPLEMENT-MAP-r1.md`).
+- **SHA-256 (independently confirmed):** `37d5f5a273097167c485ffb9d88c5788ce7bc3676c1bce963e42a7d69b8bf576`
+- **Review scope:** 11-file custody boundary, source-to-destination mapping, revision and historical evidence status, transfer stop rules, and independent post-transfer custody verification.
+- **Evidence inspected:** [`D439-SUPPLEMENT-MAP-r1.md`](file:///c:/CoWork/outputs/lane-a-d439-checks-2026-10-16/supplement-1/D439-SUPPLEMENT-MAP-r1.md) (`S11`), [`make-supplement-map-d439.mjs`](file:///c:/CoWork/outputs/lane-a-d439-checks-2026-10-16/supplement-1/make-supplement-map-d439.mjs) (`S10`, `639e7b77…35ca`), [`D439-CUSTODY-INDEX-r1.md`](file:///c:/CoWork/outputs/lane-a-d439-checks-2026-10-16/supplement-1/D439-CUSTODY-INDEX-r1.md) (`S9`, `8e894efe…0173`), [`transfer-d439-initial.mjs`](file:///c:/CoWork/outputs/lane-a-d439-package-2026-10-16/transfer-d439-initial.mjs) (`S1`, `e704b8a8…eb0f`), [`verify-d439-custody.mjs`](file:///c:/CoWork/outputs/lane-a-d439-package-2026-10-16/verify-d439-custody.mjs) (`S2`, `cd91b0d4…162b`), [`D439-CUSTODY-TRANSFER-RESULT-r1.json`](file:///c:/CoWork/outputs/lane-a-d439-checks-2026-10-16/D439-CUSTODY-TRANSFER-RESULT-r1.json) (`S3`, `61f4f6b4…cff0`), [`verify-custody-d80d821.log`](file:///c:/CoWork/outputs/lane-a-d439-checks-2026-10-16/verify-custody-d80d821.log) (`S4`, `40fed699…e395`), [`check-pre-commit-r3.log`](file:///c:/CoWork/outputs/lane-a-d439-checks-2026-10-16/check-pre-commit-r3.log) (`S5`, `c0bd7a9d…9414`), [`check-pre-commit-c1c2.log`](file:///c:/CoWork/outputs/lane-a-d439-checks-2026-10-16/check-pre-commit-c1c2.log) (`S6`, `c7f7b164…614a`), [`check-transfer.log`](file:///c:/CoWork/outputs/lane-a-d439-checks-2026-10-16/check-transfer.log) (`S7`, `b5766530…22fa`), [`check-custody-record.log`](file:///c:/CoWork/outputs/lane-a-d439-checks-2026-10-16/check-custody-record.log) (`S8`, `85ee8e51…a2b9`), the `98eaf9f` verification record, and the Level 1 worklog.
+
+**Findings:**
+- **Custody boundary and mapping:** All 11 source files exist at their stated paths and match their recorded SHA-256 hashes, including the separately bound map (`37d5f5a2…b576`). All 11 destinations are unique, confined to `docs/handoff/artifacts/B-136/d439-package/supplement-1/`, absent from the `63d4119` commit tree and current checkout, and not Git-ignored; no symbolic links exist in the source or destination path chains.
+- **Revision and evidence status:** [`D439-CUSTODY-TRANSFER-RESULT-r1.json`](file:///c:/CoWork/outputs/lane-a-d439-checks-2026-10-16/D439-CUSTODY-TRANSFER-RESULT-r1.json) contains 457 rows with unique sources/destinations and matching `sha`/`destSha` values; it is retained transfer-run evidence, while independent committed-blob verification of `d80d821` rests on `98eaf9f`. [`transfer-d439-initial.mjs`](file:///c:/CoWork/outputs/lane-a-d439-package-2026-10-16/transfer-d439-initial.mjs) is historical tooling evidence and grants no rerun authority. [`D439-CUSTODY-INDEX-r1.md`](file:///c:/CoWork/outputs/lane-a-d439-checks-2026-10-16/supplement-1/D439-CUSTODY-INDEX-r1.md) is historical and superseded by [`D439-CUSTODY-INDEX-r2.md`](file:///c:/CoWork/outputs/lane-a-d439-checks-2026-10-16/supplement-2/D439-CUSTODY-INDEX-r2.md) and later `B-136` records: its `"Accepted technically"` wording does not satisfy `F1-3`, and its `"Lane B verification pending"` wording does not overturn `98eaf9f`. The four check logs (`S5`–`S8`) prove only their historical pre-commit check outputs and establish neither current readiness nor Gate 2 clearance.
+- **Stop rules and independent verification:** The map’s stop rules (halt on a changed source hash, existing destination, link, or Git-ignored destination) and the requirement for independent Lane B verification of committed bytes after transfer are complete and consistent with the Level 1 findings.
+
+**Verdict:** **Approve-with-conditions.**
+
+**Remaining conditions, owners and follow-up phase:** **Phase 1, before consuming checkpoint — Lane A’s folder-only copy commit to `docs/handoff/artifacts/B-136/d439-package/supplement-1/` (and before baseline naming):**
+- Lane B files the Level 1 worklog and Lane C/Lane A files this Level 2 record in `B-136` (unless expressly waived by the Judge for `J1`);
+- The Judge issues a separate direct authorization naming [`D439-SUPPLEMENT-MAP-r1.md`](file:///c:/CoWork/outputs/lane-a-d439-checks-2026-10-16/supplement-1/D439-SUPPLEMENT-MAP-r1.md) and SHA-256 `37d5f5a273097167c485ffb9d88c5788ce7bc3676c1bce963e42a7d69b8bf576`;
+- Immediately before copying, Lane A rechecks all 11 sources, hashes, unique destinations, links and ignore status, preserves the external sources, commits only `docs/handoff/artifacts/B-136/d439-package/supplement-1/`, and appends a separate one-file `B-136` verification request (`D-385`);
+- Lane B independently verifies all 11 committed blobs and the complete changed-path set and files its custody receipt before baseline naming.
+
+#### 4. `G-REV` → `J2` receipt
+
+- **Object:** Supplement 2 r2, four files (`S1`–`S4`), defined by [`D439-SUPPLEMENT-2-MAP-r2.md`](file:///c:/CoWork/outputs/lane-a-d439-checks-2026-10-16/supplement-2-r2/D439-SUPPLEMENT-2-MAP-r2.md) (`C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/supplement-2-r2/D439-SUPPLEMENT-2-MAP-r2.md`).
+- **SHA-256 (independently confirmed):** `487a093e118f0fe9a0cccd405e9af85fc4e68fbd6ae2e655a8479c595e00658e`
+- **Review scope:** Four-file r2 custody boundary, source-to-destination mapping, corrected log attribution (`G3a`), revision status and `C2`/`C3` retention, stop rules, and independent post-transfer custody verification.
+- **Evidence inspected:** [`D439-SUPPLEMENT-2-MAP-r2.md`](file:///c:/CoWork/outputs/lane-a-d439-checks-2026-10-16/supplement-2-r2/D439-SUPPLEMENT-2-MAP-r2.md) (`S4`), [`make-supplement-2-map-d439-r2.mjs`](file:///c:/CoWork/outputs/lane-a-d439-checks-2026-10-16/supplement-2-r2/make-supplement-2-map-d439-r2.mjs) (`S3`, `b1c8958e…d1d5`), [`check-g1g7-record.log`](file:///c:/CoWork/outputs/lane-a-d439-checks-2026-10-16/check-g1g7-record.log) (`S2`, `4bd89c6b…e3d9`), [`D439-CUSTODY-INDEX-r2.md`](file:///c:/CoWork/outputs/lane-a-d439-checks-2026-10-16/supplement-2/D439-CUSTODY-INDEX-r2.md) (`S1`, `af657d92…1bab`), superseded [`D439-SUPPLEMENT-2-MAP-r1.md`](file:///c:/CoWork/outputs/lane-a-d439-checks-2026-10-16/supplement-2/D439-SUPPLEMENT-2-MAP-r1.md) (`C2`, `8f79b9e1…75fe`) and [`make-supplement-2-map-d439.mjs`](file:///c:/CoWork/outputs/lane-a-d439-checks-2026-10-16/supplement-2/make-supplement-2-map-d439.mjs) (`C3`, `7e6371fc…ae59`), the `98eaf9f` verification record, and the Level 1 worklog.
+
+**Findings:**
+- **Custody boundary and mapping:** All four source files (`S1`–`S4`) match their recorded SHA-256 hashes, including the map (`487a093e…658e`). All four destinations are unique, confined to `docs/handoff/artifacts/B-136/d439-package/supplement-2/`, absent from the `63d4119` commit tree and current checkout, and not Git-ignored; no symbolic links exist in the source or destination path chains.
+- **Revision status, log attribution and `C2`/`C3` retention:** Line 14 of [`check-g1g7-record.log`](file:///c:/CoWork/outputs/lane-a-d439-checks-2026-10-16/check-g1g7-record.log#L14) records `HEAD 89154ee advanced by excluded-only commits`. Map r2 `S2` accurately states that `HEAD` was `89154ee` while the `4cebb77` record was uncommitted in the working tree, and that the log neither binds the full working tree nor proves post-commit consistency at `4cebb77`. Map r2 `S1` explicitly overrides [`D439-CUSTODY-INDEX-r2.md`](file:///c:/CoWork/outputs/lane-a-d439-checks-2026-10-16/supplement-2/D439-CUSTODY-INDEX-r2.md#L36) §3’s abbreviated row (which omits the generator) as the exact four-file inventory. Index r2’s historical status text remains qualified by later `B-136` records, including `98eaf9f` and the still-open `F1-3` requirement. Superseded map r1 (`C2`) and generator r1 (`C3`) remain intact on disk for section C custody and are not substituted into `J2`.
+- **Stop rules and independent verification:** The map’s stop rules and post-transfer committed-blob verification requirement match `J1` while keeping `J2` an independent four-file unit.
+
+**Verdict:** **Approve-with-conditions.**
+
+**Remaining conditions, owners and follow-up phase:** **Phase 1, before consuming checkpoint — Lane A’s separate folder-only copy commit to `docs/handoff/artifacts/B-136/d439-package/supplement-2/` (and before baseline naming):**
+- Lane B files the Level 1 worklog and Lane C/Lane A files this Level 2 record in `B-136` (unless expressly waived by the Judge for `J2`);
+- The Judge issues a separate direct authorization naming [`D439-SUPPLEMENT-2-MAP-r2.md`](file:///c:/CoWork/outputs/lane-a-d439-checks-2026-10-16/supplement-2-r2/D439-SUPPLEMENT-2-MAP-r2.md) and SHA-256 `487a093e118f0fe9a0cccd405e9af85fc4e68fbd6ae2e655a8479c595e00658e`;
+- Immediately before copying, Lane A rechecks all four sources, hashes, unique destinations, links and ignore status, preserves the sources and `C2`/`C3` revision history, commits only `docs/handoff/artifacts/B-136/d439-package/supplement-2/` (separate from `J1`), and appends a separate one-file `B-136` verification request;
+- Lane B independently verifies the four committed blobs and the complete changed-path set and files a separate custody receipt before baseline naming.
+
+#### 5. `G-REV` → `J3` receipt
+
+- **Object:** [`TCA-D439-r3.md`](file:///c:/CoWork/outputs/lane-a-d439-checks-2026-10-16/tca/TCA-D439-r3.md) (`C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/tca/TCA-D439-r3.md`), route **R2**.
+- **SHA-256 (independently confirmed):** `5274e34f50113bb50c27ebc0910f38c4931e4afe2dab354bac4e6101edc047d2`
+- **Review scope:** `AC-1`–`AC-8`, the success/rejection/abort outcome sequences, finite evidence retention, authority boundaries, and §7 independent registration verification. This is a contract design review, not a helper-control run or verification of a future Register entry.
+- **Evidence inspected:** [`TCA-D439-r3.md`](file:///c:/CoWork/outputs/lane-a-d439-checks-2026-10-16/tca/TCA-D439-r3.md) (`C9`), [`TCA-D439-r2.md`](file:///c:/CoWork/outputs/lane-a-d439-checks-2026-10-16/tca/TCA-D439-r2.md) (`C6`, `e3345872…ea19`), [`make-tca-d439-r3.mjs`](file:///c:/CoWork/outputs/lane-a-d439-checks-2026-10-16/tca/make-tca-d439-r3.mjs) (`C10`, `ea1fd0d6…34a3`), [`B136-LANE-B-TCA-R3-FOLLOW-UP-DRAFT.md`](file:///c:/CoWork/outputs/lane-b-b136-tca-r3-follow-up-2026-10-16/B136-LANE-B-TCA-R3-FOLLOW-UP-DRAFT.md) and its byte-identical `C13` copy [`B136-LANE-B-TCA-R3-FOLLOW-UP-DRAFT.md`](file:///c:/CoWork/outputs/lane-a-d439-checks-2026-10-16/pinned-inputs/B136-LANE-B-TCA-R3-FOLLOW-UP-DRAFT.md) (`60cf236aa545df5da3e4d9be1c89205bd319b9394f270b2d614c16bffbc4ac81`), all 21 section C items (`C1`–`C21`) and their seven retained log pairs (`C4`/`C5`, `C7`/`C8`, `C11`/`C12`, `C14`/`C15`, `C16`/`C17`, `C18`/`C19`, `C20`/`C21`), `D-183` ([`V1-DECISION-REGISTER.md`](file:///c:/robertaoai/my-editorial-app/docs/v1/V1-DECISION-REGISTER.md#L12450-L12492)), the `98eaf9f` design verification, and the Level 1 worklog.
+
+**Findings:**
+
+| Criterion | Level 2 result and evidence limit |
+|---|---|
+| `AC-1` — bounded change | **Pass for design.** [`make-tca-d439-r3.mjs`](file:///c:/CoWork/outputs/lane-a-d439-checks-2026-10-16/tca/make-tca-d439-r3.mjs#L26-L57) copies the four replacement blocks verbatim from pinned `C13`, updates the §1 self-reference to `TCA-D439-r3`, and adds only the declared self-hash sentence in §5.2 while preserving §§1, 2 and 4 and the object/action of §3. |
+| `AC-2` — finite custody | **Pass for design.** Under §§5.2 and 6, each outcome seals the section B/C evidence list before the custody commit; subsequent custody requests, receipts, registration verifications and closing records cite that sealed set without recursively generating new section C log pairs. |
+| `AC-3` — no lost evidence | **Pass for the inspected set and route.** All `C1`–`C21` source files exist and match their recorded SHA-256 digests; all 21 destinations under `docs/handoff/artifacts/B-136/d439-package/section-c/` are unique, absent from the `63d4119` tree and current checkout, and not Git-ignored. Both generator inputs (`C6` and `C13`) are retained. Any future pre-cut-off evidence must enter the sealed list or receive an accepted disposition. |
+| `AC-4` — authority | **Pass for design.** §3 and §5.1 exclude EV r9 application and any Register write (including `D-439` and the separate TCA registration unit) from custody authority, preserve `D-183` point 5 next-available-entry timing (checking reserved `D-437` and `D-439`), and infer no `D-428` failure exception. |
+| `AC-5` — causal review | **Pass for design.** §7 requires independent verification against an existing commit containing the TCA Register entry and the actual Judge instruction; an earlier custody receipt cannot satisfy §7. |
+| `AC-6` — independence and reuse | **Pass for design.** §7 assigns registration verification to Lane B, bars Lane A self-verification, and permits reuse of an existing independent review or guarded-candidate receipt only when it explicitly covers the committed Register entry and Judge instruction. |
+| `AC-7` — stop behaviour | **Pass for design.** §6 stops record commits when two check runs differ; §4 stops transfer on hash, path, link or ignore conflicts; §§5.2 and 7 stop closure on new material findings, missing authority/evidence, or registration mismatch. |
+| `AC-8` — limits | **Pass within this receipt.** All seven inspected log pairs are byte-identical on disk (proving byte equality of those log files only, not complete working-tree content or post-commit consistency). This receipt infers no execution authority, completed transfer, registration, readiness, or parent closure. |
+
+- **Outcome sequences and evidence ownership:** Paper review confirms that **Success** (authorized act/application and guarded cycle health → sealed section B/C list → folder-only custody commit to `section-b/` and `section-c/` → separate one-file `B-136` verification request → Lane B custody receipt → Lane B §7 verification of the committed TCA Register entry → closing record), **Act rejected** (rejection → sealed section B/C list → folder-only custody commit → separate one-file `B-136` verification request → Lane B custody receipt → separately authorized registration/graph unit owning its own later evidence → Lane B §7 registration verification and applicable unit health → closing record), and **Abort or stop** (same as rejection, followed by baseline reassessment) each terminate finitely without routing post-custody registration records back into the sealed section B/C list.
+
+**Verdict:** **Approve-with-conditions.** No defect requires a `TCA-D439-r4` revision for `R2-1`/`R2-2`.
+
+**Remaining conditions, owners and follow-up phase:**
+1. **Phase 1, before consuming checkpoint — Lane A’s `B-136` record `"Judge approval received in the current conversation for the D-439 temporary custody in TCA-D439-r3, pending durable registration"` (and before baseline naming):**
+   - Lane B files the Level 1 worklog and Lane C/Lane A files this Level 2 record in `B-136` (unless expressly waived by the Judge for `J3`);
+   - The Judge gives [`TCA-D439-r3.md`](file:///c:/CoWork/outputs/lane-a-d439-checks-2026-10-16/tca/TCA-D439-r3.md) (`5274e34f50113bb50c27ebc0910f38c4931e4afe2dab354bac4e6101edc047d2`) with route **R2** as a direct instruction (`D-183` point 1);
+   - Lane A records the actual instruction and provenance in `B-136` before baseline naming.
+2. **Later TCA §§4–7 checkpoints (Phase 1 outcome and closure):**
+   - Lane A preserves section B/C sources in place (§4), seals and transfers the finite section B/C list in one folder-only commit (`section-b/` and `section-c/`), appends the separate one-file `B-136` verification request (§§5.2–5.3), and obtains separate Judge authority for the TCA registration unit (§5.1);
+   - Lane B supplies both the independent section B/C custody receipt (§5.3 step 3) and the separate §7 independent registration verification against the existing commit containing the TCA Register entry before attempt closure.
+
+### What you need
+
+- **Filing (Lane B, Lane C / Lane A; Phase 1, before consuming `J1`–`J3`):** File the unfiled ChatGPT Chat/Work Level 1 worklog and this Antigravity chat Level 2 record in [`B-136-multi-lane-governance-canonical-owners-and-state2-gate.md`](file:///c:/robertaoai/my-editorial-app/docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md). Lane A consumes no decision while a required review level is unfiled/missing and not expressly waived by the Judge for the named object.
+- **Pre-baseline obligations (Lane B, Lane A, Judge; Phase 1, before baseline naming):**
+  1. Judge issues separate direct instructions for `J1` (`37d5f5a2…b576`), `J2` (`487a093e…658e`), and `J3` (`5274e34f…47d2`, route `R2`);
+  2. Lane A executes the separate `J1` and `J2` folder-only copy commits and separate one-file `B-136` verification requests, and Lane B files its separate committed-blob/path custody receipts;
+  3. Lane A records receipt of the Judge’s `J3` instruction in `B-136` pending durable registration;
+  4. Lane B files the `F1-3` acceptance of [`ev-apply-d439-r3.mjs`](file:///c:/robertaoai/my-editorial-app/docs/handoff/artifacts/B-136/d439-package/r3/ev-apply-d439-r3.mjs) and [`check-successor-d439.mjs`](file:///c:/robertaoai/my-editorial-app/docs/handoff/artifacts/B-136/d439-package/r3/check-successor-d439.mjs) at `d80d821` and completes the `F1-1`, `F1-2`, `F1-4`–`F1-8` and `F1-10` classifications (preserving `F1-9`/`C13`).
+- **Post-baseline sequence:** Freeze the named clean baseline commit (`HEAD` equals `BASE`; no commits or checkout changes), then proceed through final bindings and successor review, separate Judge authorization of `D-439` and the TCA registration unit, EV r9 application and guarded graph cycle, TCA §§5–7 custody receipt and §7 registration verification, and separate parent closures (`D-437`, `V1-SM05`, Gate 2).
+
+### What you did instead
+
+Performed read-only commit inspection at `63d4119`, read governed sources and the attached Level 1 worklog, recomputed and verified all `J1` (`S1`–`S11`), `J2` (`S1`–`S4`, plus `C2`/`C3`), and `J3` (`TCA-D439-r2.md`, `TCA-D439-r3.md`, `make-tca-d439-r3.mjs`, `C1`–`C21`) SHA-256 digests, verified destination absence and byte equality of the seven retained log pairs, and prepared this Level 2 review record in chat only.
+
+No Lane A answer, Level 1 record, handoff file, workflow, script, code, or governed document was edited. No build, consistency check run, helper execution, transfer, application, Register write, graph rebuild, commit, fetch, push, lane change, or Gate 2 closure occurred.
+
+**Approval covers only the inspected Level 2 source/design scope and grants no execution authority.**
+
+| Parent → object | Verdict | Owner and remaining condition / follow-up phase |
+|---|---|---|
+| **`B-136`** | **Defer closure; `Open`** | Existing owners complete `D-439`, setup completion and `D-437` registration, `V1-SM05` entry/work order/lane activation, and Gate 2 at their existing phases and triggers. |
+| **`B-136` → `D-439`** | **Defer closure; `Open`** | Lane B’s `F1-3` helper/checker acceptance at `d80d821` and `F1-1`, `F1-2`, `F1-4`–`F1-8`, `F1-10` classifications (preserving `F1-9`/`C13`), followed by `J1`–`J3` consumption, baseline freeze, final bindings, acts, application, guarded graph cycle, and TCA §§5–7 closure. Phase 1 and later named checkpoints. |
+| **`D-439` → `G-REV`** | **Approve scoped Level 2 review of `J1`–`J3`** | Concurs with the accepted ChatGPT Chat/Work Level 1 worklog at `63d4119`; both the Level 1 worklog and this Level 2 record remain unfiled and must be filed in `B-136` before consumption unless expressly waived by the Judge. Phase 1, before consumption. |
+| **`G-REV` → `J1` (`37d5f5a2…b576`)** | **Approve-with-conditions** | File L1/L2 records (or express Judge waiver); exact Judge `J1` authorization; Lane A pre-copy checks, folder-only commit to `docs/handoff/artifacts/B-136/d439-package/supplement-1/`, and separate one-file `B-136` request; Lane B committed-blob/path custody receipt. Phase 1, before baseline naming. |
+| **`G-REV` → `J2` (`487a093e…658e`)** | **Approve-with-conditions** | File L1/L2 records (or express Judge waiver); exact Judge `J2` authorization (separate from `J1`, retaining `C2`/`C3` for section C); Lane A pre-copy checks, folder-only commit to `docs/handoff/artifacts/B-136/d439-package/supplement-2/`, and separate one-file `B-136` request; Lane B committed-blob/path custody receipt. Phase 1, before baseline naming. |
+| **`G-REV` → `J3` (`5274e34f…47d2`, route `R2`)** | **Approve-with-conditions** | File L1/L2 records (or express Judge waiver); exact Judge direct instruction for `TCA-D439-r3.md` (`R2`) and Lane A pre-baseline receipt in `B-136`; later sealed section B/C custody commit and Lane B custody receipt (§§5.2–5.3), separate registration authority (§5.1), and Lane B independent registration verification (§7). Phase 1 (pre-baseline) and TCA §§4–7 checkpoints. |
+| **Execution authority, parent closure, `F1-3` discharge, or relabelling `98eaf9f` inferred from these receipts** | **Reject** | No relabelling of `98eaf9f` as Level 1, no inferred filing, no `F1-3` discharge, no execution/transfer/registration authority, and no Gate 2 clearance. All phases. |
+
+---
+
+## Lane A — filing note: Level 1 and Level 2 receipts for J1–J3 filed in B-136, 2026-10-16
+
+### What happened
+
+**Filed on the Judge's instruction.** The Judge instructed Lane A in session to file the two supplied reviews in this entry
+against `63d4119`. Lane A filed them unchanged, as the two records directly above this note. Lane A wrote neither review,
+and this note adds no new review.
+
+| Record | Author and review level | Observed commit | Supplied file (SHA-256) |
+|---|---|---|---|
+| "Lane B — Level 1 review of B-136 at `63d4119`" | Lane B, ChatGPT Chat/Work, **Level 1** (execution environment stated in the record) | `63d4119` | `Lane_B_Pasted text.txt` (`979253a0ea6e3a6005e4b3334902dddc8cf6483c0c0404e957db26b777ef55c0`) |
+| "Lane C — Level 2 review of B-136 at `63d4119`" | Lane C, Antigravity chat, **Level 2**, after Level 1 | `63d4119` | `Lane_C_Pasted text.txt` (`3f0ce3f10a22df95be9544bdb3f3a7bcfdef1d21515c92ce5bcc7e954ad2e9e2`) |
+
+**Fidelity.** Each record is the full supplied file, byte for byte. The only addition is one line end after the last line,
+because neither file ended with a line end. Before the commit, Lane A compared each appended block with its source file.
+
+**"Unfiled".** Both records describe themselves, and each other, as "unfiled" or "not filed in B-136". Those statements were
+true when the records were supplied. This filing now preserves both records in B-136. Lane A did not edit the statements.
+
+**`98eaf9f`.** It stays Codex independent verification within its scope. It is not relabelled.
+
+#### G-REV → J1, J2, J3
+
+| Object | Level 1 (Lane B) | Level 2 (Lane C) | Still open |
+|---|---|---|---|
+| **J1** supplement 1 (`37d5f5a2…b576`) | Received: Approve-with-conditions, at its stated scope | Received: Approve-with-conditions, at its stated scope | The Judge's separate J1 instruction; the pre-copy checks; a folder-only copy commit and a one-file request; Lane B's committed-blob and changed-path receipt before the baseline |
+| **J2** supplement 2 r2 (`487a093e…658e`) | Received: Approve-with-conditions | Received: Approve-with-conditions | The same, separate from J1; C2 and C3 stay section C items |
+| **J3** TCA r3, route R2 (`5274e34f…47d2`) | Received: Approve-with-conditions | Received: Approve-with-conditions | The Judge's direct instruction (D-183 point 1); Lane A's provenance record before the baseline; later sealed custody, the separate registration authority (§5.1) and Lane B's §7 registration verification |
+
+This filing closes **only** the missing-record obligation for these two reviews, which the Level 2 record lists among its
+conditions. It does not decide J1–J3, does not discharge F1-3, and does not classify any F1 item. The F1 classifications at
+`c5367aa`, the F1-3 helper and checker acceptance, and every pre-baseline dependency (`c5367aa` section 4, `63d4119`) stay
+unchanged. B-136 and D-439 stay **Open**.
+
+### What you need
+
+**Judge:** J1, J2 and J3, each by its exact identity. **Lane B:** the F1-3 acceptance filing, plus the original or an absence
+record for each other F1 item.
+
+### What you did instead
+
+Filed the two records and this note only. No build, helper execution, transfer, application, Register write, graph rebuild,
+fetch, push, lane change or Gate 2 action. `bun run check` covers the consistency suite only. Two runs at HEAD `63d4119` with
+this filing uncommitted:
+`C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/check-l1l2-filing.log` (`10b4439264e803480d712f86cbab16f3290d1b728e5190294cc54341ac44fe7d`, C22) and
+`…/check-l1l2-filing-run2.log` (C23, same hash; commit only if identical). Section C destination: TCA r3 §4. Unpushed:
+`a673f44`..this record.
+
+| Verdict | Item | Owner | Condition / follow-up phase |
+|---|---|---|---|
+| Approve | Filing of the Level 1 and Level 2 receipts for J1–J3 | Lane A (done) | Phase 1 |
+| Defer | F1-3 acceptance; F1 classifications | Lane B | Phase 1, before the baseline |
+| Defer | J1, J2, J3 decisions | Judge | Phase 1, before each is consumed |
+| Defer | Transfers and receipts; baseline; final bindings; acts; application; graph cycle; outcome custody; registration verification; `D-437`; SM05; Gate 2; push | Lane A; Lane B; Judge; existing owners | Their own triggers |
+| Reject | B-136 completion now; Judge authority, F1-3 discharge or a relabelled `98eaf9f` inferred from these receipts | — | All phases |
