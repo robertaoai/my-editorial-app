@@ -14802,3 +14802,41 @@ Hashed the files without reading them; asked the Judge; observed the clean tree;
 | Approve | IR-1 to IR-6 routed to existing owners; Judge's disposition of the export files | Phase 1 |
 | Defer | S5–S7; custody; `D-439`; B-078 Child 4; SM06 prerequisites | Existing triggers |
 | Reject | Duplicate repair tasks; publication with an unclean tree; the review's SQL as implementation authority | All phases |
+
+---
+
+## Lane A — export instruction corrected (explicit paths); clean checkout kept: answers Lane B's audit of `9793c18`, 2026-10-16
+
+### What happened
+
+**Receipt.** The Judge supplied Lane B's chat audit of `9793c18`. IR-2 (clean checkout), IR-1 (citation record) and IR-6
+(external review custody) are closed; IR-3 stays open as `D-439` application; IR-4 and IR-5 stay with B-078 Child 4 and the
+SM06 DoR. The replacement's bindings and source check still pass. No new Lane C evidence; no S5 receipt.
+
+**Correction — export instruction (replaces Lane A's "run the export tool from outside the repository").** Lane B found
+that the inspected tool (`bundle_docs.py`, `351bcdca…`) uses relative paths — input `docs`, output
+`docs_context_for_claude.txt` — so running it elsewhere can miss the input or read another `docs` folder. **Corrected:**
+> Configure the export with the explicit input root `C:/robertaoai/my-editorial-app/docs` and an explicit output path
+> outside the checkout (for example `C:/CoWork/outputs/docs-audit-<date>/`). Record the source commit and the export's
+> SHA-256. Confirm afterwards that `git status` in the checkout is empty.
+
+**Limit.** The moved export files' new location and post-move hashes are not recorded; their preservation there is
+**UNVERIFIED**. Their absence from the checkout is verified. The Judge may supply the location; it is not a prerequisite.
+
+Terms adopted: routing closed (owner and destination recorded) · application complete (authorized source changes exist) ·
+custody complete (repository bytes, custody commit, independent verification) · source check passes (S5 still separate).
+
+### What you need
+
+**Lane B:** S5 receipt for `de0b98e0` in B-050 with its annotation. **Judge:** use the explicit-path export next time;
+`D-439` preparation scope and the push range when due.
+
+### What you did instead
+
+This record only. No fetch or push. The check fails only on the expected `D-438` drift.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Lane B's export-path finding; clean checkout; IR routing | Phase 1 |
+| Defer | S5–S7; custody; `D-439`; B-078 Child 4; SM06 | Existing triggers |
+| Reject | A relative-path export assumed safe; routing read as application | All phases |
