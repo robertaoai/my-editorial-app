@@ -15181,3 +15181,39 @@ Package r3, controls, self-test and this record. No governed file changed; no fe
 | Approve-with-conditions | Package r3; custody addendum r1 | Lane B review; then transfer |
 | Defer | Transfer; final manifest and successor; `D-439` acts; guarded cycle; `D-437`; SM05; Gate 2; push | Their own triggers |
 | Reject | r2 as the final package; a one-hash-only successor; raw-string path checks | All phases |
+
+---
+
+## Lane A — D-439 r3 record clarifications C1–C2 (custody count; section B authority): answers Lane B's review of `0d12012`, 2026-10-16
+
+### What happened
+
+**Receipt.** Lane A receives Lane B's review of `0d12012` (supplied by the Judge). Closed for review: R2-1 path containment,
+R2-2 successor bindings, R2-3 custody completeness (plan). Lane B verified the package pins, all initial custody source
+hashes, 56 results with 0 wrong, the nine failure runs, the before/after state files and that no junction remains. Lane B
+asks for two record clarifications and **no helper revision**. Map r1, the addendum and the r3 index keep their bound bytes.
+
+| ID | Replaces | Clarification |
+|---|---|---|
+| **C1** custody count | Lane A's "section A = map r1 itself + 238 rows created after it" (record of `0d12012`) | **Section A contains 238 rows, including map r1** (row A1). **The initial transfer contains 457 distinct files:** map r1's 218 rows + section A's 238 rows + the addendum itself |
+| **C2** section B authority | The addendum's and the r3 index's wording "approved external disposition" for section B | **No existing approval covers section B's timing.** The Judge's r3 answer ("Authorize r3 (Recommended)") authorized drafting the R2-3 custody items, not their retention outside the repository. Corrected: section B's post-health custody timing is a **proposed external disposition**. Lane A carries it into the `D-439` act text for the Judge's decision. Lane A does not rely on it before that act |
+
+**Self-grade (labelled; not independent review).** C2 is a Lane A overstatement found by Lane B: the word "approved" had no
+cited authority. Lesson kept: a disposition is "approved" only with its approving act or quote.
+
+### What you need
+
+**Lane B:** confirm C1–C2. **Judge:** the transfer decision for the exact 457-file initial unit, destination
+`docs/handoff/artifacts/B-136/d439-package/` only. Then: final manifest and successor (Lane B review), then the `D-439` acts,
+which will include section B's timing.
+
+### What you did instead
+
+This record only. No package file changed; no transfer; no fetch or push. Unpushed: `a673f44`..this record.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | r3 technical corrections (Lane B); C1 count | Phase 1 |
+| Approve-with-conditions | Initial custody contract (457 files) | Judge's transfer decision; Lane B byte verification |
+| Defer | Section B timing (into the `D-439` act); final bindings; acts; guarded cycle; `D-437`; SM05; Gate 2; push | Their own triggers |
+| Reject | "Approved" without a cited act; controls or planned custody read as readiness | All phases |
