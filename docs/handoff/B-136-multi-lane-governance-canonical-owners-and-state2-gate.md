@@ -14890,3 +14890,47 @@ Publish, health checks and this record. No fetch or push yet.
 | Approve-with-conditions | Push | The Judge confirms the exact range; SOP fetch proofs |
 | Defer | Custody transfer; `D-439`; `D-437`; SM05; Gate 2 | Their own triggers |
 | Reject | Health read as SM05 readiness or Gate 2 clearance | All phases |
+
+---
+
+## Lane A — B-136 custody transferred (110 copied, 2 kept); request for Lane B's custody verification, 2026-10-16
+
+### What happened
+
+**Authority and order.** After the `D-438` health record (`a8c6585`), Lane A asked the Judge to confirm the push range; the
+Judge chose **"Transfer custody first"** — transfer, then push one combined range. **Transfer.** Lists: transfer manifest r5
+(97 rows), control-file custody r4 (14 rows, including the record itself) and the generator r5 refusal-run log (recorded at
+`fc46f1f`) — **112 entries**. The transfer script rechecked every source hash against its list, refused duplicate or
+out-of-folder destinations, stopped on any different existing file (none found), copied absent files and verified each copy.
+
+| Result | Value |
+|---|---|
+| Custody commit | **`f65c4d8`** — 110 files under `docs/handoff/artifacts/B-136/` only |
+| Copied / kept identical / conflicts | **110 / 2 / 0** (kept: EV packet r1 and the evening review summary, already in `9e57de5`) |
+| Committed blobs equal source SHA-256 | **112 / 112** (checked with `git show HEAD:<path>` against each listed hash) |
+| Result record | `C:/CoWork/outputs/lane-a-bcp1-filemap-2026-10-15/CUSTODY-TRANSFER-RESULT-r1.json`, SHA-256 `b0f54b95633bd05e16a2f8ba9ac507cec14fbda0b5c8c19d32eb11fbd9d43904` (per row: list, source, hash, destination, before-state, action, destination hash) |
+| Full check with the files in place | **19/19, exit 0** |
+
+**Kept external by their recorded dispositions (not transferred):** F16 configuration bytes; TR-1 contracts and evidence
+awaiting `D-437`; guard work folders `work/` and `work-r2/`; cycle check logs; cycle tooling `descriptions.mjs`,
+`names.mjs`; superseded interim drafts; the 2026-10-16 independent review files.
+
+**Status kept:** copied drafts keep their draft or design status (EV r9 is a plan baseline; nothing is applied by custody).
+**Graph:** the new `.mjs` and `.sh` files under `docs/handoff/` may add code nodes; `docs-drift` excludes `docs/handoff/`; the
+next guarded cycle describes any new code nodes from what they do.
+
+### What you need
+
+**Lane B:** verify custody — destination bytes against the result record and `f65c4d8`; record "custody verified" when
+satisfied. **Judge:** the combined push range (stated in Lane A's report, ending at this record).
+
+### What you did instead
+
+Transfer, proof and this record. No fetch or push yet.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Custody transfer `f65c4d8` with 112/112 byte proofs | Phase 1 |
+| Approve-with-conditions | "Custody complete" | Lane B's independent verification |
+| Defer | Push (Judge names the range); `D-439`; `D-437`; SM05; Gate 2 | Their own triggers |
+| Reject | Custody read as application of EV changes | All phases |
