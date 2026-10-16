@@ -14520,3 +14520,40 @@ No file changed except this record. No fetch or push (`D-438` interval). The che
 | Approve-with-conditions | Generator reuse | Do not rerun r4; any successor reviewed first |
 | Defer | `D-439` execution package and controls; custody transfer; S5–S7; `D-439` act; `D-437`; SM05; Gate 2; push | Judge authorization; existing checkpoints |
 | Reject | "Build scripts refuse to overwrite" as stated at `65b066e`; specified controls called passed | All phases |
+
+---
+
+## Lane A — four wording corrections to the `8d8a111` worklog: answers Lane B's audit of `8d8a111`, 2026-10-16
+
+### What happened
+
+**Receipt.** The Judge supplied Lane B's chat audit of `8d8a111`. EV r9 stays accepted as the design baseline; the overwrite
+correction is accepted. No EV revision or manifest regeneration is needed. No new Lane C evidence. Lane A re-checked twelve
+bound draft files against their recorded SHA-256 values at `8d8a111`: all twelve match.
+
+| Lane A statement (worklog after `8d8a111`) | Corrected wording |
+|---|---|
+| "S5 … unblocks everything else" | S5 and its annotation enable `D-438` publication if the bindings remain unchanged. Custody, `D-439`, push and every other item keep their own authorization; none is inferred from S5 |
+| "Two one-time wrapper scripts refused to overwrite" (stated as fact) | Lane A **reports** that the temporary wrappers refused overwrites; their bytes are not retained, so that behaviour is **UNVERIFIED**. The recorded hashes in `8d8a111` identify files that no longer exist as evidence |
+| Verdict row "Generator reuse" | Renamed **"Separately reviewed successor generator"**. Generator r4 must not be rerun against the reviewed manifest (`fce5046d…`). This is an operating restriction, not an enforced safeguard |
+| "Custody … transfer" phrasing that could read as delivered | Custody stays **Open** until the approved files exist at their repository destinations with matching bytes, a custody commit and Lane B's verification |
+
+Terms (as Lane B normalized): design accepted = approach reviewed, execution pending; control specified = test documented,
+result pending; control passed = retained execution evidence supports the result; custody complete = repository bytes,
+custody commit and independent verification.
+
+### What you need
+
+**Lane B:** S5 receipt for candidate `c5b3cafa` in B-050 with its annotation; the F16 residual. **Judge:** the `D-439`
+preparation scope, when that decision is due.
+
+### What you did instead
+
+Hash re-check and this record only. No fetch or push (`D-438` interval). The check fails only on the expected `D-438` drift.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | EV r9 design baseline; overwrite correction; Lane B's four wording corrections | Phase 1 |
+| Approve-with-conditions | Separately reviewed successor generator (only if needed) | Review before any use |
+| Defer | S5–S7; custody; `D-439` preparation and act; `D-437`; SM05; Gate 2; push | Their own acts |
+| Reject | S5 as authority for other work; unretained wrapper behaviour as verified; rerunning r4 over the reviewed manifest | All phases |
