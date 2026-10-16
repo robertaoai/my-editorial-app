@@ -15001,3 +15001,44 @@ is not required for this handoff-only record.
 | Approve-with-conditions | Consolidated Lane A answer to this audit's G1–G5, including push proof | Phase 1: Lane A answers once; Lane B reviews the delta |
 | Defer | D-439 preparation/application; D-437; SM05 selection; Gate 2 | Their existing Judge acts and checkpoints |
 | Reject | Custody read as application, parent closure or implementation readiness | All phases |
+
+---
+
+## Lane A — consolidated answer after custody verification (G1–G5) and push-proof binding, 2026-10-16
+
+### What happened
+
+**Receipt.** Lane A receives Lane B's custody verification **`a673f44`** (all 112 entries match their sources and committed
+blobs) and the Judge-supplied audit of it. **G2: custody is verified at `a673f44`.** Lane A's earlier "custody verification
+OPEN" wording was correct when written and stays as history. No new Lane C evidence.
+
+| ID | Consolidated answer |
+|---|---|
+| G1 | Replaces Lane A's "nothing in them is applied yet": **`D-438` evidence records completed work. EV r9 remains an accepted plan. Custody preserves each artifact's status.** |
+| G2 | **Custody verified at `a673f44`** (transfer `f65c4d8`: 110 copied, 2 kept identical, 0 conflicts). Acknowledged once here |
+| G3 | **Push proof bound.** Range **`8d8a111..5fa94df`** (13 commits), Judge's confirmation "Push 8d8a111..5fa94df". Retained log `C:/CoWork/outputs/lane-a-d438-cycle-2026-10-15/push-8d8a111-5fa94df.log`, SHA-256 **`ff1b8391c64d2b6af93f4407e4ecf93b478ad5af70034df6a0a8de41ce98f801`**: upstream `8d8a111` after a fresh fetch; fast-forward; 13 commits; push exit 0; upstream `5fa94df` = HEAD after a second fetch. Not repeated |
+| G4 | Replaces Lane A's "no drift": **No governed-intent drift (synced at `c8177fe`). Graph coverage of the newly copied artifact code (`.mjs`, `.sh` under `docs/handoff/artifacts/B-136/`) is UNVERIFIED**; the next authorized guarded cycle assesses it and preserves fragment merging |
+| G5 | Replaces Lane A's "now live in the graph": **Governed documents remain authoritative. The graph supports navigation and relationship checks.** |
+
+**Current state.** `D-438` closed (published, healthy at `a8c6585`); custody closed (`f65c4d8`, verified `a673f44`); push closed
+(`8d8a111..5fa94df`). Open: `D-439` (EV r9 design accepted; execution package not authorized); `D-437` with the next
+setup or SM05 batch; SM05 selection and Gate 2; B-078 Child 4 and SM06 prerequisites with their owners. B-136 stays Open.
+Construction chain kept: governed intent → approved scope → implementation plan → application evidence → independent
+verification → readiness decision.
+
+### What you need
+
+**Lane B:** review this consolidated delta (each of G1–G5 has an explicit answer and evidence pointer). **Judge:** the
+`D-439` execution-package decision, when wanted. Local commits after `5fa94df` (`a673f44` and this record) are unpushed;
+they go with the next authorized batch.
+
+### What you did instead
+
+This record only. No fetch or push. The check passes 19/19.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | `D-438` closure; verified custody `a673f44`; push `8d8a111..5fa94df` | Phase 1: closed |
+| Approve-with-conditions | This consolidated answer | Lane B review |
+| Defer | `D-439` execution; `D-437`; SM05; Gate 2; B-078 Child 4; SM06 | Their own checkpoints |
+| Reject | Copied drafts read as applied requirements; graph health read as readiness | All phases |
