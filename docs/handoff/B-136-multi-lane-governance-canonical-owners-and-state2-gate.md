@@ -14840,3 +14840,53 @@ This record only. No fetch or push. The check fails only on the expected `D-438`
 | Approve | Lane B's export-path finding; clean checkout; IR routing | Phase 1 |
 | Defer | S5–S7; custody; `D-439`; B-078 Child 4; SM06 | Existing triggers |
 | Reject | A relative-path export assumed safe; routing read as application | All phases |
+
+---
+
+## Lane A — D-438 published and healthy (S6, S7); guarded cycle closed, 2026-10-16
+
+### What happened
+
+**S5 (Lane B).** Receipt `ca4b6f2` and its separate annotation `d30af36` in B-050 accept replacement `de0b98e0` (graph
+`fa555039…`, digest `5261008f…`); both commits touch B-050 only.
+
+**Pre-publication checks (Lane A).** Clean tree; `.codex/config.toml` and the Judge's export files absent; remote-tracking
+ref `origin/features/feature-V1-SM05` = `8d8a111` (unchanged since the snapshot); every commit since `c8177fe` is a
+non-merge commit touching `docs/handoff/` only.
+
+**S6 — publication.** `node scripts/graphify/guarded-rebuild.mjs publish --work C:/CoWork/outputs/lane-a-d438-cycle-2026-10-15/work-r2 --review ca4b6f2` →
+**"released"**, "published: live equals the reviewed manifest", run token `2fbe9111-0589-4ee5-8713-de60506c14e4`
+(`publish-r2.log` `865b4d7f9ee8aabdf64e4d650b513854fb61623e86f1982f1bbac409e41ac383`).
+
+**S7 — health (separate).**
+
+| Check | Result | Evidence |
+|---|---|---|
+| Live graph bytes = accepted | **equal** — `fa5550398869b0165bbac742180b4902f387a902762a321d1302ba25a1c420ee` | `health-live-parity-r2.json` (`a35777dc033589b2bec1b36b9ba2f5d111472f951f2f5f214319ec23203c7ea9`) |
+| Live full-state digest = accepted | **equal** — `5261008fe6d7fda71594d078eedc705fab86bbe4faa8b4a6ffdb665a9de00134` | same |
+| Fragment parity | **139 / 139 exact**, no diffs | same |
+| Name binding | **0 findings** | same |
+| Branch record | `lastAnalyzedHead` `c8177fe`, `stale: false` | same |
+| Transaction journal / lock | **none / none** | same |
+| Consistency suite | **19/19, exit 0**; `docs-drift`: "synced (governed intent) at `c8177fe`; HEAD advanced by excluded-only commits" | `health-check-r2.log` (`1c435fbe6ed4064570d99c87c1faf2c77fdcabc08852bf5c8c5ba7e3a19090b1`) |
+| `graphify check-update` | notice "built from `c8177fe` but HEAD is `d30af36`" — the gap is handoff-only commits, **not drift** (G-F3-9, `D-426`) | `health-check-update-r2.log` (`6b99f89a71dabed33ec0fdbb596079458cdb239c994d1340f0932e7a0d98977e`) |
+
+**Result.** `D-438`'s governed drift (six paths since `b308d1c`) is **cleared**. The guarded cycle is **closed** at this health
+record. `D-438`'s unit-scoped receipt exception (item 5) **expires here**. The no-fetch/no-push interval ends here.
+
+### What you need
+
+**Judge:** the push. The Judge approved "push after healthcheck"; under the handoff SOP (`D-385`) the range holds both
+lanes' commits, so Lane A states the exact range — `8d8a111..` this commit — for the Judge's confirmation before pushing.
+Then: custody transfer (112 entries); `D-439` preparation decision.
+
+### What you did instead
+
+Publish, health checks and this record. No fetch or push yet.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | `D-438` S5–S7 complete; drift cleared; cycle closed | Phase 1 |
+| Approve-with-conditions | Push | The Judge confirms the exact range; SOP fetch proofs |
+| Defer | Custody transfer; `D-439`; `D-437`; SM05; Gate 2 | Their own triggers |
+| Reject | Health read as SM05 readiness or Gate 2 clearance | All phases |
