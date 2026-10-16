@@ -15502,3 +15502,82 @@ Drafts and this record only. No transfer, build, fetch or push; no Gate 2 action
 | Approve-with-conditions | TCA r2 with route R2; supplements 1 and 2 r2 | Lane B review; exact Judge instructions before the baseline |
 | Defer | R1; custody receipts; transfers; baseline; final bindings; `D-439` act; application; guarded cycles; `D-437`; SM05; Gate 2; push | Their own triggers |
 | Reject | The `98c8a01` TCA paragraph and R1 recommendation; closing an attempt before Lane B's receipt; complete handoff or readiness now | All phases |
+
+---
+
+## Lane A — answers Lane B's TCA r3 follow-up (R2-1, R2-2): TCA r3 and AC-1 to AC-8, 2026-10-16
+
+### What happened
+
+**Receipt.** Lane A receives Lane B's consolidated follow-up draft `B136-LANE-B-TCA-R3-FOLLOW-UP-DRAFT.md`
+(`C:/CoWork/outputs/lane-b-b136-tca-r3-follow-up-2026-10-16/`,
+`60cf236aa545df5da3e4d9be1c89205bd319b9394f270b2d614c16bffbc4ac81`; supplied by the Judge in session). It is Lane B's round
+to file in B-136 (D-272); Lane A does not file it. It binds TCA r2 (C6, `e334587206dc5634d8911df377aa877075a1b578826c335ba13ecc18ce84ea19`) and finds **R2-1** (the custody
+evidence list never ends: each later record makes new section C logs) and **R2-2** (no independent check of the committed
+Register entry against the Judge's instruction). Lane A agrees with both. Lane A answers once, as Lane B §7 asks. No Judge
+decision is claimed.
+
+**TCA r3** = `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/tca/TCA-D439-r3.md`
+(`5274e34f50113bb50c27ebc0910f38c4931e4afe2dab354bac4e6101edc047d2`). Built by `make-tca-d439-r3.mjs`
+(`ea1fd0d683c49b59f7aee20b4a6d3c3c4163683d7653395fcb7c12c0d4d534a3`), which pins r2 and Lane B's draft by hash and copies Lane
+B's four fenced blocks by line range, so no clause is retyped. r2 stays unchanged. Draft; not in force.
+
+| ID | Lane B finding | Lane A answer | State |
+|---|---|---|---|
+| **R2-1** | Sections 5–6 of r2 create evidence after the custody commit; closure never ends | **Agreed; Lane A design error.** r3 §5.2 (Lane B text) seals a finite B/C list after the outcome trigger and the last pre-custody check. Later custody requests, receipts and closing records cite that set and make no new section C log pairs (§6). The registration and graph unit owns its own later evidence. **One Lane A addition** in §5.2: the sealed list names itself without a hash, because a file cannot contain its own hash; the covering request states that hash | Draft; Lane B review |
+| **R2-2** | A custody receipt written before registration cannot check the registration | **Agreed.** r3 §7 (Lane B text): Lane B checks the committed TCA entry against the Judge instruction and the authorized TCA revision before closure. An existing independent review or guarded-candidate receipt counts only if it names the committed entry and the instruction. Lane A cannot verify its own registration. §3's new exclusion and §5.1 keep the registration unit outside custody permission, at its own Judge checkpoint, with no D-428 exception inferred | Draft; Lane B review |
+
+**Changes r2 → r3 (complete):** title and status header; §1 quoted wording now names `TCA-D439-r3` (necessary cross-reference;
+r2 named itself); §3 "Excluded" bullet (Lane B 4.1); §5–§7 replaced (Lane B 4.2–4.4); one sentence added to §5.2. Sections 1, 2
+and 4 and the object and action of §3 keep their meaning.
+
+**Paper walk of the three outcomes (AC-2).** *Success:* health record (its two logs are pre-cut-off, section C) → list sealed
+→ custody commit → one-file request → Lane B receipt → registration already in the act commit; Lane B's §7 check → closing
+record. *Rejected:* rejection → seal → custody commit → request → receipt → registration unit presented to the Judge →
+Register commit under that unit's own evidence and graph contract → Lane B's §7 check → that unit's health → closing record.
+*Abort:* as rejected, then baseline reassessment. Each step uses only evidence that exists before it. Each route ends.
+
+**Acceptance criteria (Lane A self-assessment; Lane B decides):**
+
+| AC | Result | Evidence |
+|---|---|---|
+| AC-1 bounded change | Pass | Change list above; `diff` r2→r3 shows only those lines |
+| AC-2 finite custody | Pass | Paper walk above; §5.2 and §6 |
+| AC-3 no lost evidence | Pass | C1–C8 kept; C9–C12 below; first r3 build discarded before any record (below) |
+| AC-4 authority | Pass | §3 exclusion; §5.1 (number checked against commitments: `D-437` setup, `D-439` act) |
+| AC-5 causal review | Pass | §7: verification cites the commit that contains the entry; an earlier receipt does not count |
+| AC-6 independence and reuse | Pass | §7: Lane B verifies; a matching existing review is reused |
+| AC-7 stop behaviour | Pass | §6 log mismatch; §4 transfer conflicts; §5.2 and §7 closure stops |
+| AC-8 limits | Pass | This record claims source hashes and log byte equality only; no transfer, application, readiness, Lane C verdict or parent closure |
+
+**Section C additions** (source folder `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/`; destination file =
+`docs/handoff/artifacts/B-136/d439-package/section-c/` + basename; owner and trigger: TCA r3 §4–§5):
+
+| # | Source | SHA-256 | Content and limit |
+|---|---|---|---|
+| C9 | `tca/TCA-D439-r3.md` | `5274e34f50113bb50c27ebc0910f38c4931e4afe2dab354bac4e6101edc047d2` | TCA r3 draft |
+| C10 | `tca/make-tca-d439-r3.mjs` | `ea1fd0d683c49b59f7aee20b4a6d3c3c4163683d7653395fcb7c12c0d4d534a3` | r3 generator |
+| C11 | `check-tca-r3-record.log` | `5453b9a65e70a82818ccde441025a6ec48a7618437562d4b86a7593cfe351586` | Run 1 for this record: HEAD `eb6f5dd` (parent; record uncommitted); binds no working-tree content |
+| C12 | `check-tca-r3-record-run2.log` | same as C11 (commit only if identical) | Run 2 for this record |
+
+**Self-grade (labelled; not independent review).** R2-1 is a Lane A design error: r2's per-record log rule had no end point.
+While building r3, Lane A found the inherited §1 self-reference to r2. The first build (shown only in tool output, in no
+record) was deleted and rebuilt with the fix before this record. Lesson kept: check a revision's cross-references to itself.
+
+### What you need
+
+**Lane B:** (a) file its follow-up round and its earlier receipts and reviews (D-272); (b) review TCA r3 (exact file and hash)
+against AC-1 to AC-8, and C9–C12. **Judge, after Lane B's review:** (i) the TCA r3 text, named by its SHA-256, with route R2;
+(ii) the separate transfer decisions for supplement 1 (11 files) and supplement 2 r2 (4 files). These do not wait for r3.
+
+### What you did instead
+
+Drafts and this record only. No transfer, build, fetch or push; no Register write; no Gate 2 action. Unpushed:
+`a673f44`..this record.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | R2-1 and R2-2 answers; Lane B's correction text applied in full | Lane B review |
+| Approve-with-conditions | TCA r3 as the final custody contract; supplements 1 and 2 r2 | Lane B review; exact Judge instructions before the baseline |
+| Defer | Transfers; baseline; final bindings; registration units; `D-439` act; application; guarded cycles; `D-437`; SM05; Gate 2; push | Their own triggers |
+| Reject | TCA r2 as the final procedure; complete handoff or readiness now | All phases |
