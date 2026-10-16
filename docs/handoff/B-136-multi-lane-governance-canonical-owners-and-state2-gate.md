@@ -15435,3 +15435,70 @@ Drafts and this record only. No transfer, build, fetch or push; no Gate 2 action
 | Approve-with-conditions | Supplement 2 r2; TCA text; route R1 | Lane B review; Judge decisions before the baseline |
 | Defer | Custody receipts; transfers; baseline; final bindings; `D-439` act; application; guarded cycles; `D-437`; SM05; Gate 2; push | Their own triggers |
 | Reject | The `4487ecd` S2 role and section C deferral; authority for a rejected attempt supplied by a later act; complete handoff or readiness now | All phases |
+
+---
+
+## Lane A — answers Lane B's audit of `98c8a01` (TCA-1 to TCA-4, LOG-1): temporary-custody authority r2, 2026-10-16
+
+### What happened
+
+**Receipt.** Lane A receives Lane B's read-only audit of `98c8a01` (supplied by the Judge in session; it is Lane B's entry to
+commit, D-272). Lane B approves the G3a correction, the C1–C4 source bindings, the supplement-2 r2 source review and the
+G4.2 split. Lane B rejects the TCA paragraph of `98c8a01` as final text. Lane B states that the two-run log comparison is
+**unverified**: the second log was not retained where a reviewer could read it. Lane A answers by Lane B's IDs. Earlier text
+stays as history. No Judge decision is claimed.
+
+**TCA r2** = `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/tca/TCA-D439-r2.md`
+(`e334587206dc5634d8911df377aa877075a1b578826c335ba13ecc18ce84ea19`). It replaces the TCA paragraph and the R1/R2 table of
+`98c8a01`. It is a draft and is not in force.
+
+| ID | Lane B finding | Lane A answer | State |
+|---|---|---|---|
+| **TCA-1** | "Durable before the baseline" conflicts with R2 | **Agreed; Lane A error.** TCA r2 §1 separates **authority received** (D-183 point 2; the pre-baseline condition) from **durable registration completed** (D-183 point 5; at the checkpoint for each outcome). This replaces the `98c8a01` G4.1 sentence "must exist and be durably recorded before the baseline" | Draft; Judge decides |
+| **TCA-2** | R1 relies on token formatting to pass S0 | **Agreed.** TCA r2 §2 selects R2 and withdraws R1 and its recommendation. Lane A makes no claim based on formatting. If the Judge wants R1, Lane A presents the exact entry and a disposable-fixture compatibility test as a new revision. Custody permission stays separate from application permission (§3, §7) | Draft |
+| **TCA-3** | Rejection route closes the attempt before Lane B verifies | **Agreed.** TCA r2 §5 uses one sequence for every outcome: custody commit → Lane A's one-file open verification request → Lane B's receipt → durable registration → closing record. No record closes the attempt before Lane B's receipt | Draft |
+| **TCA-4** | Folders and destinations are not exact | **Agreed.** TCA r2 §4: section B source folder `C:/CoWork/outputs/lane-a-d439-final/` (one folder; no date placeholder); section C sources stay in `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/`. Transfer copies files; it does not move or delete them. Each destination = folder + source basename (C items below) | Draft |
+| **LOG-1** | The fallback "the next record binds the log" breaks the rule | **Agreed.** TCA r2 §6: if the two logs differ, stop and do not commit; there is no fallback. Both logs are section C items. Lane A no longer uses the term "fixed point" | Draft |
+
+**Two-run evidence for C4 (`98c8a01`).** The second run's log was written to Lane A's session scratch folder at 20:45 and
+compared with `cmp` before the commit. Lane A copied it today, unchanged, to
+`C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/check-g3g4-record-run2.log`. Its SHA-256 equals C4
+(`1080da5b603f97aec2dda1b900faaf1c7f13374ab52a6847fd9569a1a963cdce`). The copy has a new file time. The bytes are the
+evidence; the time is not.
+
+**Section C ledger (complete to this record).** Source folder `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/`; destination
+folder `docs/handoff/artifacts/B-136/d439-package/section-c/`; destination file = source basename; owner and trigger: TCA r2
+§4–§5.
+
+| # | Source | SHA-256 | Exact destination file | Content and limit |
+|---|---|---|---|---|
+| C1 | `check-g1g5r2-record.log` | `fc8008fde9f15d952a5eba43b0bc17f666e1d6f7333914bbfe36270336a771c7` | `section-c/check-g1g5r2-record.log` | 19/19, HEAD `4cebb77`; binds no working-tree content |
+| C2 | `supplement-2/D439-SUPPLEMENT-2-MAP-r1.md` | `8f79b9e11657a4962068f5237c83e941fbcf50c17b0b728f52c5fa765f8675fe` | `section-c/D439-SUPPLEMENT-2-MAP-r1.md` | Superseded map r1 |
+| C3 | `supplement-2/make-supplement-2-map-d439.mjs` | `7e6371fc2ced5941b8690478db18f5da88e7617f88e23b911a4783039c56ae59` | `section-c/make-supplement-2-map-d439.mjs` | Superseded generator r1 |
+| C4 | `check-g3g4-record.log` | `1080da5b603f97aec2dda1b900faaf1c7f13374ab52a6847fd9569a1a963cdce` | `section-c/check-g3g4-record.log` | Run 1 for `98c8a01`: 19/19, HEAD `4487ecd`; binds no working-tree content |
+| C5 | `check-g3g4-record-run2.log` | `1080da5b603f97aec2dda1b900faaf1c7f13374ab52a6847fd9569a1a963cdce` | `section-c/check-g3g4-record-run2.log` | Run 2 for `98c8a01`; identical to C4 |
+| C6 | `tca/TCA-D439-r2.md` | `e334587206dc5634d8911df377aa877075a1b578826c335ba13ecc18ce84ea19` | `section-c/TCA-D439-r2.md` | TCA r2 draft text |
+| C7 | `check-tca-r2-record.log` | `b59599fc6a8102395360604741a589e830870478d832b868a680049caa52201f` | `section-c/check-tca-r2-record.log` | Run 1 for this record: HEAD `98c8a01`; binds no working-tree content |
+| C8 | `check-tca-r2-record-run2.log` | same as C7 (commit only if identical) | `section-c/check-tca-r2-record-run2.log` | Run 2 for this record |
+
+**Self-grade (labelled; not independent review).** TCA-1 is a Lane A contradiction inside one record: it stated a stronger
+rule and then offered a route that did not meet it. Lesson kept: when a record offers routes, each route is tested against
+the rule that the same record states. The unretained run-2 log repeats an earlier lesson: a verifier keeps the evidence it
+claims, where a reviewer can read it.
+
+### What you need
+
+**Lane B:** (a) record its `d80d821` custody receipt, and its reviews of `4487ecd` and `98c8a01` (D-272); (b) review TCA r2,
+C5–C8 and this record. **Judge (after Lane B's review):** (i) transfer of supplement 1 (11 files) and of supplement 2 r2
+(4 files), each as its own folder-only unit; (ii) the TCA r2 text, named by its hash, with route R2.
+
+### What you did instead
+
+Drafts and this record only. No transfer, build, fetch or push; no Gate 2 action. Unpushed: `a673f44`..this record.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | TCA-1 to TCA-4 and LOG-1 answers; C5 two-run evidence | Lane B review |
+| Approve-with-conditions | TCA r2 with route R2; supplements 1 and 2 r2 | Lane B review; exact Judge instructions before the baseline |
+| Defer | R1; custody receipts; transfers; baseline; final bindings; `D-439` act; application; guarded cycles; `D-437`; SM05; Gate 2; push | Their own triggers |
+| Reject | The `98c8a01` TCA paragraph and R1 recommendation; closing an attempt before Lane B's receipt; complete handoff or readiness now | All phases |
