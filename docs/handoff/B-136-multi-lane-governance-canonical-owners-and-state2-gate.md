@@ -16592,3 +16592,77 @@ this filing uncommitted:
 | Defer | J1, J2, J3 decisions | Judge | Phase 1, before each is consumed |
 | Defer | Transfers and receipts; baseline; final bindings; acts; application; graph cycle; outcome custody; registration verification; `D-437`; SM05; Gate 2; push | Lane A; Lane B; Judge; existing owners | Their own triggers |
 | Reject | B-136 completion now; Judge authority, F1-3 discharge or a relabelled `98eaf9f` inferred from these receipts | — | All phases |
+
+---
+
+## Lane A — fidelity correction for the Level 1 and Level 2 filing at `5063c2f`, 2026-10-16
+
+### What happened
+
+**Receipt.** Lane A receives the Judge's instruction in session to correct the fidelity claim of the `5063c2f` filing note
+only.
+
+#### 1. B-136 → D-439
+
+B-136 and D-439 stay **Open**. Nothing else changes: the F1 classifications and their dependencies (`c5367aa`), the
+accepted Level 1 and Level 2 review scopes, and the separate J1, J2 and J3 decisions.
+
+#### 2. D-439 → G-REV filing
+
+**Superseded.** These two statements in the `5063c2f` filing note are superseded: "Each record is the full supplied file,
+byte for byte. The only addition is one line end after the last line" and "Before the commit, Lane A compared each appended
+block with its source file". The comparison read the working copy, not the committed blob.
+
+**Corrected statement.** The supplied files use CRLF line ends: 187 pairs in the Level 1 file and 139 in the Level 2 file,
+with no lone CR. Git normalized CRLF to LF when the file was committed (`.gitattributes` line 18: `*.md text eol=lf merge=union`). In the raw blob at
+`5063c2f`, each complete normalized receipt appears exactly once, Level 1 before Level 2, followed by one appended line end.
+Attribution and review content are intact. The only change is the line ends.
+
+#### 3. Hashes (SHA-256)
+
+| Item | Hash |
+|---|---|
+| Level 1 source (`Lane_B_Pasted text.txt`) | `979253a0ea6e3a6005e4b3334902dddc8cf6483c0c0404e957db26b777ef55c0` |
+| Level 1 committed LF block | `0cd5bc01b25a39e4f6b14fcebcb0e6f36ddf1bfe49ccfa6a3622d64cec48e27b` |
+| Level 2 source (`Lane_C_Pasted text.txt`) | `3f0ce3f10a22df95be9544bdb3f3a7bcfdef1d21515c92ce5bcc7e954ad2e9e2` |
+| Level 2 committed LF block | `f05c747ccd52ec1d29a29f4d21ef20364af0eef2ec31cbaef9e9fdb5cbdcd2b5` |
+
+A "committed LF block" is the source with every CRLF replaced by LF. It excludes the appended final line end and the
+surrounding separators. It is not the hash of the whole B-136 file.
+
+**Verification (Lane A, before this record).** Lane A read the supplied originals and the raw blob from
+`git show 5063c2f:<B-136 path>`. Results:
+- Both source hashes match the values above.
+- The CRLF counts are 187 and 139.
+- Each LF block hashes to the value above and occurs exactly once in the blob, Level 1 first.
+- Each block is followed by `\n\n---`.
+- The blob contains no CR byte.
+
+The working copy of B-136 still contains CRLF lines (578 CR bytes) that Git normalizes on commit. Lane A did not change
+any line-ending rule and did not renormalize the working copy.
+
+**Self-grade (labelled; not independent review).** Two Lane A errors. (1) Lane A's CR count on the supplied files returned 0
+because of a shell quoting fault, and Lane A accepted it without a second method. (2) Lane A verified the working copy and
+reported it as the committed content. Lesson kept: verify committed content from the raw blob (`git show <commit>:<path>`),
+and confirm a zero count with a second method.
+
+### What you need
+
+Unchanged from `5063c2f`. **Judge:** J1, J2 and J3. **Lane B:** the F1-3 acceptance and the F1 originals or absence records.
+
+### What you did instead
+
+This correction record only. No build, helper execution, transfer, application, Register write, graph rebuild, fetch,
+push, lane change or Gate 2 action. The two review blocks and all earlier records stay as committed. `bun run check` covers
+the consistency suite only. Two runs at HEAD `5063c2f` with this record uncommitted:
+`C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/check-fidelity-correction.log` (`b2be79ec67486428bf1347673e7ba818d344fd3f7b36545b717651a24152b0f1`, C24) and
+`…/check-fidelity-correction-run2.log` (C25, same hash; commit only if identical). Section C destination: TCA r3 §4.
+Unpushed: `a673f44`..this record.
+
+| Verdict | Item | Owner | Condition / follow-up phase |
+|---|---|---|---|
+| Approve | This fidelity correction | Lane A (done) | Phase 1 |
+| Defer | F1-3 acceptance; F1 classifications | Lane B | Phase 1, before the baseline |
+| Defer | J1, J2, J3 decisions | Judge | Phase 1, before each is consumed |
+| Defer | Transfers and receipts; baseline; final bindings; acts; application; graph cycle; outcome custody; registration verification; `D-437`; SM05; Gate 2; push | Lane A; Lane B; Judge; existing owners | Their own triggers |
+| Reject | B-136 completion now | — | All phases |
