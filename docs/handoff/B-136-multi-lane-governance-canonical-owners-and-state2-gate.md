@@ -16124,3 +16124,79 @@ Review and this record only. No build, transfer, application, graph rebuild, fet
 | Approve-with-conditions | J1, J2, J3 | Phase 1: L1 and L2 present or expressly waived; exact Judge instructions; a Lane B receipt for each transfer |
 | Defer | F1 classifications (Lane B filings or absence records); F1-3 acceptance; baseline and every later step; `D-437`; SM05; Gate 2; push | F1 and F1-3: Phase 1, before the baseline. Later steps: their own triggers |
 | Reject | "F1 is not a baseline condition" as a blanket rule; Codex checks read as a formal Level 1 or Level 2 review; Lane C approval inferred; B-136 completion now | All phases |
+
+---
+
+## Lane A — G-REV Level 1 wording corrected for J1–J3: answers Lane B's review of `c5367aa`, 2026-10-16
+
+### What happened
+
+**Receipt.** Lane A receives Lane B's instruction (supplied by the Judge in session) to correct the G-REV Level 1 wording
+of `c5367aa`. Lane B stays the raiser. This record changes only that wording.
+
+#### 1. B-136 → D-439
+
+B-136 and D-439 stay **Open**. The F1 correction at `c5367aa` section 2 stays as recorded: the replacement wording, the
+classification rule, the classes (F1-3 a surviving obligation; the others unresolved), and their dependencies before the
+baseline.
+
+#### 2. D-439 → G-REV
+
+**Replaced.** At `c5367aa` section 3 ("Codex checks"), this sentence is replaced: "They count as Level 1 only if Lane B
+states that `98eaf9f` was made at Level 1 and its scope matches." It is replaced by:
+
+> 98eaf9f records Codex independent verification. Formal Level 1 requires a scoped ChatGPT Chat/Work receipt, or an
+> explicit Judge waiver for the named object and level.
+
+A label added later cannot turn a verification into a review. The independent verification at `98eaf9f` stays valid
+evidence within its scope (source hashes, destinations, design criteria). Lane B's committed-blob receipt after each
+transfer is still required.
+
+#### 3. G-REV → J1, J2, J3
+
+This table replaces the `c5367aa` G-REV table. The controlling clauses are unchanged: `D-324` J5 (Register §5.14e149) and
+FN §4.5 `[V1]`.
+
+| Object and hash | Required reviewer | Existing receipt and scope | Missing review | Consuming checkpoint |
+|---|---|---|---|---|
+| **J1** supplement 1: `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/supplement-1/D439-SUPPLEMENT-MAP-r1.md`, `37d5f5a273097167c485ffb9d88c5788ce7bc3676c1bce963e42a7d69b8bf576` (11 files) | L1: ChatGPT Chat/Work (Lane B). L2: Antigravity chat (Lane C), after L1 | `98eaf9f`: Codex independent verification of the source hashes, map hash and destinations. **No L1 receipt. No L2 receipt** | L1: open until a scoped ChatGPT Chat/Work receipt for J1 or an explicit Judge waiver for J1 at L1. L2: open until a Lane C receipt for J1 or an explicit Judge waiver for J1 at L2 | Lane A's folder-only copy commit to `docs/handoff/artifacts/B-136/d439-package/supplement-1/` |
+| **J2** supplement 2 r2: `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/supplement-2-r2/D439-SUPPLEMENT-2-MAP-r2.md`, `487a093e118f0fe9a0cccd405e9af85fc4e68fbd6ae2e655a8479c595e00658e` (4 files) | Same | `98eaf9f`: Codex independent verification of the 4 source hashes and the r2 role correction. **No L1 receipt. No L2 receipt** | L1 and L2 as for J1, scoped to J2 | Lane A's folder-only copy commit to `docs/handoff/artifacts/B-136/d439-package/supplement-2/` |
+| **J3** TCA r3, route R2: `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/tca/TCA-D439-r3.md`, `5274e34f50113bb50c27ebc0910f38c4931e4afe2dab354bac4e6101edc047d2` | Same | `98eaf9f`: Codex independent verification of AC-1 to AC-8 (design). **No L1 receipt. No L2 receipt** | L1 and L2 as for J1, scoped to J3. The later TCA r3 §7 registration verification is a separate check and replaces neither level | Lane A's B-136 record "Judge approval received … pending durable registration", before the baseline |
+
+**Order.** L2 follows L1 unless the Judge expressly waives that order for the named object. Lane A consumes no decision
+while one of its required levels is missing and not expressly waived. Lane A claims no Judge authorization. No Lane C
+approval is inferred, and no Lane C review of this package exists.
+
+#### 4. Request corrected
+
+At `c5367aa` "What you need", item (c) ("a statement whether `98eaf9f` was made at Level 1 for J1–J3") is replaced by:
+**Lane B (Level 1 surface):** supply a scoped ChatGPT Chat/Work Level 1 receipt for each of J1, J2 and J3 by its exact
+object and hash. Items (a) and (b) stay unchanged.
+
+**Self-grade (labelled; not independent review).** The `c5367aa` wording let a later label stand in for a review that
+did not take place. Lesson kept: a review level is proved by a scoped receipt from the named surface, never by a statement
+about an earlier record.
+
+### What you need
+
+**Lane B:** the F1-3 filing and the F1 originals or absence records (`c5367aa` items (a) and (b)); a scoped ChatGPT
+Chat/Work L1 receipt for each of J1, J2 and J3. **Lane C:** an L2 receipt for each object, after L1. **Judge:** J1, J2 and
+J3, with any explicit waiver named by object and level.
+
+### What you did instead
+
+This record only. No build, transfer, application, graph rebuild, fetch, push, lane change or Gate 2 action.
+`bun run check` covers the consistency suite only. It does not cover review levels or readiness. Two runs at HEAD
+`c5367aa`, with this record uncommitted:
+`C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/check-grev-l1-answer.log` (`01565d848c2ec3b7e958a399137f9460fa3582a6d5b656339ef95a92a6741a5c`, C20) and
+`…/check-grev-l1-answer-run2.log` (C21, same hash; commit only if identical). Section C destination: TCA r3 §4. Unpushed:
+`a673f44`..this record.
+
+| Verdict | Item | Owner | Condition / follow-up phase |
+|---|---|---|---|
+| Approve | This G-REV Level 1 wording correction only | Lane A (done); Lane B review | Phase 1 |
+| Defer | L1 receipts for J1–J3 | Lane B (ChatGPT Chat/Work), or the Judge by explicit waiver | Phase 1, before each decision is consumed |
+| Defer | L2 receipts for J1–J3 | Lane C, after L1, or the Judge by explicit waiver | Phase 1, before each decision is consumed |
+| Defer | F1-3 filing; F1 classifications | Lane B | Phase 1, before the baseline |
+| Defer | J1–J3 decisions; transfers; baseline and every later step; `D-437`; SM05; Gate 2; push | Judge; Lane A; existing owners | Their own triggers |
+| Reject | B-136 completion now; `98eaf9f` read as formal Level 1; Lane C approval inferred | — | All phases |
