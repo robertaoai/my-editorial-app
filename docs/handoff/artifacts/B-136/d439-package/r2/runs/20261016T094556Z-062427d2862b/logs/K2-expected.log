@@ -1,0 +1,5 @@
+packet r9 bound (dfd5c7771e9b); 10 active edits literal in it; date 2026-10-16
+expected docs/Modular_PRD.md: blob 93eb1e824cf596d64f187a3c90d7930b9bc8a4c5 sha256 be1411c4dccaf491ae1eb8ff40cdbea6569c8ed60386ac6fd92dcf65c0bf0c8d
+expected docs/source/README.md: blob 0b2504577f978d2d52313a66fef90788eeb03777 sha256 dfd11caf90fc2ff7580fee0b645ae1e3aefd18c1a0bb6282667b54eb620a44bc
+expected docs/governance/requirements-traceability-map.md: blob 510fedf19abf6cce68fb41cc8802ad0e7e5e48aa sha256 79eadafaf29004eb72d67168510a1322015b55cd3136e0e73b30e39822dfb22f
+inverse check: undoing the 10 edits gives the three pins; record written before any write
