@@ -15581,3 +15581,60 @@ Drafts and this record only. No transfer, build, fetch or push; no Register writ
 | Approve-with-conditions | TCA r3 as the final custody contract; supplements 1 and 2 r2 | Lane B review; exact Judge instructions before the baseline |
 | Defer | Transfers; baseline; final bindings; registration units; `D-439` act; application; guarded cycles; `D-437`; SM05; Gate 2; push | Their own triggers |
 | Reject | TCA r2 as the final procedure; complete handoff or readiness now | All phases |
+
+---
+
+## Lane A — answers Lane B's audit of `04ad2ad` (AC-3, F2): custody row for the pinned Lane B input; TCA r3 ready for the Judge, 2026-10-16
+
+### What happened
+
+**Receipt.** Lane A receives Lane B's read-only audit of `04ad2ad` (supplied by the Judge in session; it is Lane B's round to
+file, D-272). Lane B approves the TCA r3 design and finds that R2-1 and R2-2 are closed for design. Lane B needs no TCA r4.
+Lane B verified the r3 hash, the four replacement blocks, C1–C12, the three byte-identical log pairs and that all twelve
+destinations are absent. Lane B rates **AC-3 conditional** and raises **F1** (Lane B's own rounds and receipts are not
+filed; Lane B's task) and **F2** (the Lane B draft that the r3 generator pins has no custody row). No Judge decision is
+claimed.
+
+| ID | Lane B finding | Lane A answer | State |
+|---|---|---|---|
+| **AC-3** | Lane A's "all Pass" is too broad: the generator's pinned input has no custody route | **Agreed; Lane A error.** The `04ad2ad` AC-3 row checked the files Lane A wrote and missed an input the generator needs to run. That row now reads **Conditional until C13 below is reviewed**. The other seven AC rows stand as Lane A's self-assessment, and Lane B's independent results replace them | Open: Lane B review of C13 |
+| **F1** | Lane B's rounds and the `d80d821` receipt are not filed | Lane B's task. Lane A writes none of it and keeps its own answers unchanged | Lane B |
+| **F2** | Pinned Lane B source lacks a custody row | **Done by Lane B's route.** Lane A made a byte-exact copy of the draft at `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/pinned-inputs/B136-LANE-B-TCA-R3-FOLLOW-UP-DRAFT.md`. `cmp` shows it is identical to the source, and both hash to the pinned value. The Lane B original stays in place, unchanged. Neither TCA r3 nor the generator changes. The folder is under the section C source root of TCA r3 §4, so r3 covers it as written | Draft; Lane B review |
+
+**Section C additions** (destination file = `docs/handoff/artifacts/B-136/d439-package/section-c/` + basename; owner and
+trigger: TCA r3 §4–§5; C1–C12 unchanged):
+
+| # | Source (under `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/`) | SHA-256 | Content and limit |
+|---|---|---|---|
+| C13 | `pinned-inputs/B136-LANE-B-TCA-R3-FOLLOW-UP-DRAFT.md` | `60cf236aa545df5da3e4d9be1c89205bd319b9394f270b2d614c16bffbc4ac81` | Lane B's follow-up draft, the pinned input of C10. It is Lane B's text: custody preserves it and gives it no Lane A authorship or acceptance |
+| C14 | `check-f2-record.log` | `fd962f6727adf7f1eb5988abdcc6dd275e946bdc74bc7f857beee53c2d32e169` | Run 1 for this record: HEAD `04ad2ad` (parent; record uncommitted); binds no working-tree content |
+| C15 | `check-f2-record-run2.log` | same as C14 (commit only if identical) | Run 2 for this record |
+
+**Judge decisions, presented as three separate objects (none authorizes another):**
+
+| # | Object | Exact identity | Requested decision |
+|---|---|---|---|
+| J1 | Supplement 1 transfer | 11 files, map `D439-SUPPLEMENT-MAP-r1.md` (`37d5f5a273097167c485ffb9d88c5788ce7bc3676c1bce963e42a7d69b8bf576`) → `d439-package/supplement-1/` | Approve one folder-only transfer commit; Lane B verifies |
+| J2 | Supplement 2 r2 transfer | 4 files, map `D439-SUPPLEMENT-2-MAP-r2.md` (`487a093e118f0fe9a0cccd405e9af85fc4e68fbd6ae2e655a8479c595e00658e`) → `d439-package/supplement-2/` | Approve one folder-only transfer commit; Lane B verifies |
+| J3 | Temporary-custody authority | `TCA-D439-r3.md` (`5274e34f50113bb50c27ebc0910f38c4931e4afe2dab354bac4e6101edc047d2`), route R2 | Give it as a direct instruction (D-183 point 1). Lane A then records "Judge approval received … pending durable registration" before the baseline |
+
+**Self-grade (labelled; not independent review).** The AC-3 miss repeats a lesson that Lane A already holds: a check that
+covers its outputs must also cover the inputs those outputs need. Lane A now applies this to every pinned input in a
+generator.
+
+### What you need
+
+**Lane B:** (a) F1, which means filing its rounds, the `d80d821` receipt and its reviews of `4487ecd`, `98c8a01`, `04ad2ad`
+and this record; (b) review of C13–C15. **Judge:** J1, J2 and J3, each by its own identity.
+
+### What you did instead
+
+One external copy (C13) and this record. No transfer, build, fetch or push; no Register write; no Gate 2 action. Unpushed:
+`a673f44`..this record.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | AC-3 correction; F2 custody row C13 | Lane B review |
+| Approve-with-conditions | J1, J2, J3 | Separate Judge instructions; Lane B receipts for each transfer |
+| Defer | Baseline; final bindings; registration; `D-439` act; application; guarded cycles; `D-437`; SM05; Gate 2; push | Their own triggers |
+| Reject | Lane A's `04ad2ad` "all Pass"; complete handoff or readiness now | All phases |
