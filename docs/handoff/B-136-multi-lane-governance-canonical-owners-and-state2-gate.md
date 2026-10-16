@@ -14601,3 +14601,26 @@ Read local refs and the guard source; recorded this. No fetch, push, prepare or 
 | Approve-with-conditions | Replacement candidate | Judge's decision; then Lane B receipt on the new identity |
 | Defer | S5–S7; custody; `D-439`; push; SM05; Gate 2 | After the Judge's decision and their own triggers |
 | Reject | Publishing `c5b3cafa`; an unrecorded push treated as authorized; attributing the push from Git identity | All phases |
+
+---
+
+## Lane A — Judge answers on the `8d8a111` push and the replacement candidate, 2026-10-16
+
+### What happened
+
+Lane A asked the Judge two questions about the stop recorded at `6e94706`. **The Judge chose, verbatim:**
+1. On the push `65e0bed..8d8a111` (2026-10-16 02:34:35 +0800): **"I pushed it"**. Lane A records it as a **Judge push**.
+   It ran inside `D-438`'s no-push interval (item 6); the range held B-136 handoff records only. Nothing is reverted.
+2. On the `D-438` graph cycle: **"Prepare replacement (Recommended)"** — Lane A prepares a new candidate from the current
+   HEAD under `D-438` items 5–7, answers pending items from source, and requests Lane B's receipt for the **new** identity.
+
+**Consequences.** Candidate `c5b3cafa` is **superseded**; its evidence stays in
+`C:/CoWork/outputs/lane-a-d438-cycle-2026-10-15/work/`. The replacement uses a new work folder. **No fetch and no push from
+this prepare until the health record.** Lane B: no S5 receipt for `c5b3cafa`; the receipt binds the replacement identity,
+which Lane A records next.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Judge push recorded; replacement candidate authorized | Phase 1 |
+| Defer | Replacement S5 receipt, publication, health; custody; `D-439`; push | After the replacement is prepared |
+| Reject | Receipt or publication for `c5b3cafa` | All phases |
