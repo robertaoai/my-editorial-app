@@ -15091,3 +15091,48 @@ Package, controls and this record. No governed file changed; no fetch or push. U
 | Approve-with-conditions | Package r1 | Lane B review; SG-2 decision |
 | Defer | `D-439` act and application; guarded cycle; `D-437`; SM05; Gate 2; push | Their own triggers |
 | Reject | Control results read as application, or K2 read as release readiness | All phases |
+
+---
+
+## Lane A — D-439 execution package r2 (F1–F3 fixed; controls and failure self-tests run; F4 custody map drafted): answers Lane B's review of `eb0aa44`, 2026-10-16
+
+### What happened
+
+**Receipt.** Lane A receives Lane B's review of `eb0aa44` (supplied by the Judge). Lane B closed the r1 evidence: the ten
+pairings (SG-3), the E10 anchor (SG-4), the expected-byte calculation and the K2/K3 evidence. Lane B rejected r1 for
+application on F1–F3 and opened F4. **Authority:** the Judge: "Judge Approved: Lane A prepare D-439 package r2, fix F1–F3,
+run required controls in disposable copies, and draft the F4 custody map. Return to Lane B for review."
+
+**Package r2** (draft, `C:/CoWork/outputs/lane-a-d439-package-2026-10-16/r2/`; index `D439-EXECUTION-PACKAGE-r2.md`, SHA-256 `322207a76bed4aa5a4b826bfc485825de80277e7d165760f5e84661093486241`).
+r1, EV r9, the pins and the ten edit texts are unchanged.
+
+| Finding | Answer | Evidence |
+|---|---|---|
+| **F1** ownership | **Blanket exception removed.** Helper r2 (`062427d2862b9b20206d49fba8d13a685be69970a0a2d70856dac87780cf009c`) binds the exact state at `eb0aa44`: each line naming `D-439` must equal a manifest entry (path, line SHA-256) with the same count, every entry must still exist, no path is exempt, and the tree must be clean including untracked files. Manifest `ownership-eb0aa44.json` (`2f14888ceb92f1855e946ae2c6e2da18cb41c612d9e1aa26454e4b202c398228`, 109 lines) is a **control manifest**: this record adds `D-439` lines, so S0 on the live checkout now refuses until a final manifest is reviewed (F4 order) | K5, K6, K6b, K6c, K6d, K6e, K7 refused |
+| **F2** harness | Harness r2 (`3a3fe7809cb3f6d3e93c697405990083a99fbea538bcb982da39ef7399159812`) writes every result line through `rec()`, which stops with exit 3 on a write failure; `die()` does not use `tee`. Self-test (`cf1961d57de9b240c4ad19b92cc8b82d1ceeae3058611b4786ebcdc2eae05618`; result `373b90f328c1dca9500722d3620eca8fea15de365f2838bf8a498b595d2d5a56`): clone, fixture-commit, evidence-copy and six evidence-write failures (lines 1, the four K3 branches 9/10/12/13, and the verdict) | **9 tests, 0 wrong:** each exit 3, no later result line, no verdict, logs kept |
+| **F3** switches | `fixtureGate()` runs first: a control switch needs `EV_REPO` and `EV_OUT`, a target whose top level and Git common directory differ from the governed checkout, `EV_OUT` outside it, and a marker in the target's `.git` naming that exact top level | K13a (no marker), K13c (marker names the governed path), K13b/K13d/K13e (each switch against the governed checkout) refused; protected files, HEAD and status identical before and after; no output folder created |
+| **F4** custody | **Drafted:** `CUSTODY-MAP-D439-r1.md` (`c048275ea5f3a1d08a3d3d2787d01a6b17ef6a00b2bca6d540c5369a968aa144`): 218 rows (r1 and r2 index, helpers, manifests, harnesses, expected records, results, logs, superseded items), full SHA-256, destination `docs/handoff/artifacts/B-136/d439-package/`, owner, status. Disposable clones excluded. **Order:** transfer → Lane B verifies committed bytes → final ownership manifest after that verification and the review records, with a pin-only helper successor → Lane B review → Judge acts | Not transferred |
+
+**Required controls** (run `20261016T094120Z-062427d2862b`, base `eb0aa44`, 42 results, 0 wrong, harness exit 0):
+**K2 complete case passed** (working tree and commit; blobs equal r1's and Lane B's independent values). **K3 omitted-E12
+case failed as required** (exit 2, "E12 (docs/Modular_PRD.md: new 0/1, old 1/0)", E12 only, working tree and commit).
+
+**Self-grade (labelled; not independent review).** SG2-1 fixed before the final run: the first r2 run did not reach the
+"missing or changed" branch; K6e added; that run is kept as superseded. SG2-2: the marker stops accidental use against the
+governed checkout, not a deliberate forgery. SG2-4: the pin-only successor's diff must be one constant.
+
+### What you need
+
+**Lane B:** review package r2 (F1–F3 answers, self-test, custody map draft). **Judge:** after that review, the custody
+transfer, then the final ownership manifest, then the `D-439` acts.
+
+### What you did instead
+
+Package r2, controls, self-tests and this record. No governed file changed; no fetch or push. Unpushed: `a673f44`..this record.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | r2 controls (K2 passes, K3 fails naming E12); self-test 9/9 | Phase 1 |
+| Approve-with-conditions | Package r2; custody map r1 | Lane B review; then transfer |
+| Defer | Transfer; final manifest; `D-439` acts; guarded cycle; `D-437`; SM05; Gate 2; push | Their own triggers |
+| Reject | Package r1 for application; a location-based ownership exception; hashes read as custody | All phases |
