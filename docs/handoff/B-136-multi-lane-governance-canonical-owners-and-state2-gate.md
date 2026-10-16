@@ -14557,3 +14557,47 @@ Hash re-check and this record only. No fetch or push (`D-438` interval). The che
 | Approve-with-conditions | Separately reviewed successor generator (only if needed) | Review before any use |
 | Defer | S5–S7; custody; `D-439` preparation and act; `D-437`; SM05; Gate 2; push | Their own acts |
 | Reject | S5 as authority for other work; unretained wrapper behaviour as verified; rerunning r4 over the reviewed manifest | All phases |
+
+---
+
+## Lane A — D-438 stop: remote-tracking ref changed after prepare; candidate `c5b3cafa` cannot publish; summary wording corrected (Lane B audit of `b0642cc`), 2026-10-16
+
+### What happened
+
+**Finding (Lane A, read-only, local refs; no fetch).** The reflog of `refs/remotes/origin/features/feature-V1-SM05` shows
+`65e0bed` → **`8d8a111`, "update by push", 2026-10-16 02:34:35 +0800**, from this checkout. Lane A ran no push after
+`65e0bed`. No B-136 or B-050 record names or approves the range `65e0bed..8d8a111`. The writer is **not identified**;
+equal identity and one shared worktree make it unattributable from Git alone.
+
+**Effect.** `D-438` item 6: "No fetch and no push from prepare to the health record." Prepare ran at `65e0bed` (candidate
+`c5b3cafa`, `STATE.json` `8a3806fc…`); no health record exists. The guard's publication check
+(`publicationSourceFindings`, `scripts/graphify/guarded-rebuild.mjs`) refuses when "a ref other than the source branch
+changed since prepare". The remote-tracking ref is such a ref. **Publication of `c5b3cafa` would be refused.** Per
+`D-438` item 3 and the stage table, **the current unit stops**; evidence is kept (work folder, `STATE.json`, answers,
+logs). A new binding — a fresh candidate from the current HEAD — needs reassessment and Lane B review before use.
+The candidate's source facts are unchanged: only `docs/handoff/` changed after `65e0bed`; the six `D-438` governed paths
+still differ from the live graph (`b308d1c`).
+
+**Summary wording corrected (Lane B's audit of `b0642cc`, four items):** (1) "D-438 publication waits for S5 and its
+annotation; other items keep their own triggers and authorization" replaces "nothing moves until S5". (2) Helper r4,
+harness r5 and the ownership manifest are **D-438 application evidence**; the `D-439` helper and controls are **planned**
+and separate. (3) "Copying establishes repository custody; each artifact keeps its recorded status; applying EV changes
+requires the `D-439` act" replaces "they become governance only when copied". (4) "The checked bytes match their recorded
+hashes; the cause of the editor notices was not established" replaces using hash equality as an explanation.
+
+### What you need
+
+**Judge:** (a) the disposition of the unrecorded push `65e0bed..8d8a111` inside the `D-438` interval; (b) whether Lane A
+prepares a **replacement candidate** from the current HEAD under `D-438` items 5–7 (new identity; Lane B's receipt then
+binds the replacement, not `c5b3cafa`). **Lane B:** do not issue an S5 receipt for `c5b3cafa`; it cannot publish.
+
+### What you did instead
+
+Read local refs and the guard source; recorded this. No fetch, push, prepare or publish. B-136 only.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Lane B's four summary corrections; EV r9 and custody bindings retained | Phase 1 |
+| Approve-with-conditions | Replacement candidate | Judge's decision; then Lane B receipt on the new identity |
+| Defer | S5–S7; custody; `D-439`; push; SM05; Gate 2 | After the Judge's decision and their own triggers |
+| Reject | Publishing `c5b3cafa`; an unrecorded push treated as authorized; attributing the push from Git identity | All phases |
