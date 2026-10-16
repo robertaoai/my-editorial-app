@@ -14669,3 +14669,56 @@ only on the expected `D-438` drift.
 | Approve-with-conditions | Publication | Lane B's B-050 receipt and annotation for this identity; unchanged refs |
 | Defer | Health; custody; `D-439`; push | After publication |
 | Reject | Any fetch or push before health; receipt for `c5b3cafa` | All phases |
+
+---
+
+## Lane A — ref-rule wording corrected; replacement evidence added to custody: answers Lane B's audit of `0dedd7e` (G1, G2), 2026-10-16
+
+### What happened
+
+**Receipt.** The Judge supplied Lane B's chat audit of `0dedd7e`. Lane B independently checked the replacement's bindings
+(work id, source `c8177fe`, `STATE.json` `59bca163…`, graph `fa555039…`, digest `5261008f…` over 583 files, 38 descriptions,
+36 unique names) and ran the guard's source check: the replacement **passes** at `0dedd7e`; `c5b3cafa` fails. Lane B stated
+these are byte and source checks, **not** the S5 meaning review or receipt. No new Lane C evidence.
+
+**G1 — ref rule (corrects `0dedd7e` and `6e94706`).** Lane A wrote that "any change to any ref" makes the candidate
+unpublishable. The guard (`publicationSourceFindings`) is narrower. **Corrected wording:**
+> No fetch or push is permitted before the health record. At publication, the source branch may advance only through
+> non-merge commits that touch `docs/handoff/` alone. Other captured refs — including remote-tracking refs — and the
+> remaining source bindings (branch, origin, upstream, configuration, clean tree) must stay unchanged.
+
+Also corrected: `c5b3cafa` "could never have published" → `c5b3cafa` **became invalid after the remote-tracking ref changed**.
+
+**G2 — replacement evidence in custody.** Transfer manifest r4 listed only the first candidate's evidence. **Manifest r5**
+adds `answers-r2.json`, `07-name-basis-r2.json`, `prepare-r2-1.log` and `resume-r2-1.log` (destination
+`docs/handoff/artifacts/B-136/d438-cycle/`) and names external retention, with owner, for the guard work folders
+`work/` (superseded `c5b3cafa`) and `work-r2/` (replacement `de0b98e0`) — kept until the health record plus one later
+guarded cycle, their `STATE.json` hashes bound in B-136 — and for the cycle check logs. r4 and the first candidate's
+history are kept. **Generator r5** is a separately reviewed successor that **refuses to write if its output exists**; a
+second run was tried and refused. Generator r4 stays unchanged and is never rerun.
+
+| Artifact (`C:/CoWork/outputs/lane-a-bcp1-filemap-2026-10-15/`) | SHA-256 |
+|---|---|
+| `TRANSFER-MANIFEST-r5.md` (97 rows: 95 new copies, 2 retained matches, 0 conflicts) | `ce26fd73adcba7de4d893ceca0bc6a92f3550c4d7298cfc37c92a896c41138ad` |
+| `make-transfer-manifest-r5.mjs` | `89e98127e23560e827ae081f8fc7e99f9b3904d647e4b4a5e017a6a1574587b4` |
+| `CONTROL-FILE-CUSTODY-r4.md` | `09b6067ee034a17cc040ccfd2122edfcc0a341c47e2a68456df29d737da84b0b` |
+
+Terms adopted: prepared · receipt accepted · published · healthy · in repository custody (stored and verified; original
+status kept).
+
+### What you need
+
+**Lane B:** S5 receipt for replacement `de0b98e0` in B-050 with its annotation; review of manifest r5 and custody r4.
+**Judge:** `D-439` preparation scope and the later push range, when due.
+
+### What you did instead
+
+Drafts outside the repository; this record is handoff-only (permitted by the guard's source-branch rule). No fetch or push.
+The check fails only on the expected `D-438` drift.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Lane B's G1, G2; replacement byte and source checks | Phase 1 |
+| Approve-with-conditions | Manifest r5; generator r5; custody r4 | Lane B review; transfer after health |
+| Defer | S5–S7; custody; `D-439`; push | Existing checkpoints |
+| Reject | "Any ref change" as the guard rule; byte checks as S5; receipt for `c5b3cafa` | All phases |
