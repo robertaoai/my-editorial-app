@@ -14934,3 +14934,70 @@ Transfer, proof and this record. No fetch or push yet.
 | Approve-with-conditions | "Custody complete" | Lane B's independent verification |
 | Defer | Push (Judge names the range); `D-439`; `D-437`; SM05; Gate 2 | Their own triggers |
 | Reject | Custody read as application of EV changes | All phases |
+
+---
+
+## Lane B — 112-entry custody independently verified against f65c4d8; Lane A consolidated answer requested, 2026-10-16
+
+### What happened
+
+**Authority.** The Judge, directly in chat, 2026-10-16: "Judge Approved: Lane B record the 112-entry custody verification against f65c4d8 in B-136. Lane A answer G1–G5 and bind the push proof in one consolidated record. No build, fetch, push or Gate 2 closure."
+
+**Independent verification.** Codex (Lane B), independent of Lane A's transfer, verified the reviewed union below.
+This records custody only. B-136 stays **Open**; its header and Lane A answer are unchanged.
+
+- **Verified-By:** Codex (Lane B)
+- **Verified-At-Commit:** f65c4d87aa4d70721c8a7e05583d5518b126d302
+- **Observed-At-Commit:** 5fa94df5ea02e0e9ad649703a11e466dcd8214d5
+
+| Bound input | SHA-256 | Entries |
+|---|---|---|
+| `docs/handoff/artifacts/B-136/bcp1/TRANSFER-MANIFEST-r5.md` | `ce26fd73adcba7de4d893ceca0bc6a92f3550c4d7298cfc37c92a896c41138ad` | 97 |
+| `docs/handoff/artifacts/B-136/bcp1/CONTROL-FILE-CUSTODY-r4.md` (its self-row is bound by the preceding B-136 transfer record) | `09b6067ee034a17cc040ccfd2122edfcc0a341c47e2a68456df29d737da84b0b` | 14 |
+| `docs/handoff/artifacts/B-136/bcp1/generator-r5-refusal-run-2026-10-16.log` | `61e9c5aa3604a01923bdd9ddcef368ad2186526c4ee6c1155a948df4f9c1864c` | 1 |
+
+**Method and result.** Lane B parsed the three lists independently and checked all 112 rows against
+`C:/CoWork/outputs/lane-a-bcp1-filemap-2026-10-15/CUSTODY-TRANSFER-RESULT-r1.json`
+(SHA-256 `b0f54b95633bd05e16a2f8ba9ac507cec14fbda0b5c8c19d32eb11fbd9d43904`).
+For each row, Lane B checked the source path and listed hash, current source bytes, repository destination bytes,
+and raw `git show f65c4d8:<destination>` bytes. All **112/112** match. Destinations are unique and stay under
+`docs/handoff/artifacts/B-136/`; sources stay under `C:/CoWork/outputs/`. All result rows agree with their lists.
+
+The commit adds exactly the **110** listed copied files, with no other path change. Each copied path was absent in
+the parent commit. The **two** retained paths existed there and already matched their listed hashes. There are
+**zero conflicts or byte mismatches**. **Custody is verified for this 112-entry union only.** The external exclusions
+in Lane A's transfer record remain external under their recorded dispositions.
+
+### What you need
+
+**Lane A:** answer the Judge's post-custody audit G1–G5 in **one consolidated record**, using the existing handoff
+sections. These IDs refer to the audit preceding the Judge's approval above, not earlier G1–G5 episodes.
+
+| Item | Required Lane A answer | State after this verification |
+|---|---|---|
+| G1 — artifact status wording | Separate completed D-438 application/publication evidence from pending EV r9/D-439 work. Copying preserves each artifact's status. | Answer pending |
+| G2 — recorded custody verification | Receive this independent 112-entry verification. Do not restate it as parent closure or create another transfer. | Verification complete; Lane A acknowledgement belongs in the consolidated answer |
+| G3 — push-proof pointer | Bind the completed `8d8a111..5fa94df` push proof, including its retained path and full hash. Do not repeat the push. | Answer pending |
+| G4 — graph coverage wording | Distinguish governed-intent drift from coverage of newly copied artifact code. Keep the next guarded-cycle trigger. | Answer pending |
+| G5 — source authority wording | State that governed documents remain authoritative; the graph supports navigation and relationship checks. | Answer pending |
+
+The original copied plans and history remain unchanged. Their earlier planned states are historical records, not
+claims that this later transfer is absent. No new packet revision is requested.
+
+### What you did instead
+
+Read-only byte and Git-history checks, then this authorized Lane B verification record. No generator, application
+helper or control was run. No artifact was changed or transferred again. No build, fetch, push, lane activation,
+D-439 preparation or Gate 2 closure is authorized by this record. No governed-intent file changes; graph synchronization
+is not required for this handoff-only record.
+
+**Consistency check.** `bun run check` could not start (current-directory error). Its configured runner,
+`node scripts/check-consistency.mjs`, completed **19/19, exit 0** before the local commit. Retained log:
+`C:/CoWork/outputs/lane-b-b136-custody-review-2026-10-16/check-precommit.log`, SHA-256 `98ef0b7f7862f49313741bcedd03ca31f8e3846c8fd4868fc94a82e749d994ba`.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | 112-entry custody union against f65c4d8; independent byte verification complete | Phase 1: custody closure only |
+| Approve-with-conditions | Consolidated Lane A answer to this audit's G1–G5, including push proof | Phase 1: Lane A answers once; Lane B reviews the delta |
+| Defer | D-439 preparation/application; D-437; SM05 selection; Gate 2 | Their existing Judge acts and checkpoints |
+| Reject | Custody read as application, parent closure or implementation readiness | All phases |
