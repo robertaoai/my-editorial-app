@@ -17079,3 +17079,111 @@ extracted).
 | **Defer** | Registration (success; rejection or stop before the act commit; stop after it), any waiver entry, F1-9/C13, section B/C custody | Judge separate authority; Lane A records; Lane B §7, waiver and custody verification | TCA §§5–7, before attempt closure (a pre-baseline waiver: before row 10) |
 | **Defer** | Setup / `D-437` → SM05 → Gate 2 | Existing owners | Later checkpoints |
 | **Reject** | Execution, push or closure inferred from this draft | All actors | All phases |
+
+---
+
+## Lane B — independent review of Lane A's r4 filing at `9164533`, 2026-10-17
+
+**Attribution and scope.** Codex desktop, Lane B, raiser and independent reviewer of Lane A's answer. Observed commit: `91645334e3b8a925c5c06b61be0fb0af537ef312`; its parent is `f7aedebb3718651c98d54db0cc60bf501d8dad15`. This is a scoped filing review, not a formal Level 1 or Level 2 receipt. It does not verify this Lane B record's own filing.
+
+**Filing instruction received from the Judge in session:** "File this as one attributed Lane B review in B-136 against 9164533. Preserve earlier answers, run filing checks/hooks and commit locally. commit push after filing review as last step; Keep B-136/D-439 Open; no helper execution, transfer, application". The bound path is `docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md`. Push remains subject to the SOP's fresh-upstream and outgoing-range proof. This record makes no claim that a push has occurred.
+
+### What happened
+
+#### 1. Parents and filing verdict
+
+**B-136 and D-439 remain Open. Approve Lane A's r4 content and one-file filing at `9164533` within the evidence below.** Lane B is the raiser. Lane A supplied the answer. Parent closure still depends on the required child evidence.
+
+Lane A's part of pre-baseline ledger row 8 is complete. Once committed, this record supplies the Lane B response for that row. It does not resolve the eight F1 completeness items, J1-J3, a later prerequisite, or any later transaction checkpoint. Earlier answers, accepted receipts, Judge instructions and their limits remain intact.
+
+| Review item | Evidence and result |
+|---|---|
+| Starting and resulting commits | Lane A's retained commands show clean HEAD `f7aedebb3718651c98d54db0cc60bf501d8dad15` and an empty index; the resulting commit is `91645334e3b8a925c5c06b61be0fb0af537ef312`, with that exact parent |
+| Scope and attribution | Exactly one changed path, the bound B-136 file; 194 added lines and one attributed Lane A answer |
+| Approved source | `C:/CoWork/outputs/lane-a-b136-f1-j-draft-2026-10-17/B136-LANE-A-F7AEDEB-ANSWER-DRAFT-r4.md`, SHA-256 `bf27750fdc0772988ac7c267178bd962b5b325807fc01ea498e08d53c52abd7a`; independently rechecked |
+| Preserved answers | Old blob `534c864ba19b45b8c8c4f5de3cce5427f51eb5bd` is an exact byte prefix of the new blob; all earlier answers, receipts and instructions are preserved |
+| Approved content | r4's main body, sections 1-5 and verdict table are unchanged; only filing-status metadata and the filing evidence differ |
+| Tested and committed bytes | The retained post-run result names `effa67df911c4a17d6329e879b87339b563fb083`; the committed blob and inspected working file have that same identity; zero CR bytes |
+| Clean state | Index and working tree were clean at the independent inspection, including untracked files |
+
+**Checks.** Both retained Lane A logs report 19/19 consistency checks passed. Their command record reports exit 0 for each run. They are byte-identical with SHA-256 `7341a3f6d691a99436c963532a9f6941d945b2a3cc03289ddc149a5c4e7eef2b`: `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/check-r4-filing.log` (C26) and `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/check-r4-filing-run2.log` (C27). Their exact custody destinations remain `docs/handoff/artifacts/B-136/d439-package/section-c/check-r4-filing.log` and `docs/handoff/artifacts/B-136/d439-package/section-c/check-r4-filing-run2.log`.
+
+Run 1 preceded insertion of its log hash. Run 2 checked the final file. The retained post-run blob equals the committed blob. Identical logs do not mean that both runs read identical file bytes. The whitespace check passed and was independently rechecked against the committed diff. The LF refresh preserved the prior committed bytes.
+
+**Hook limit.** The retained commit command explicitly used `core.hooksPath=.githooks`, contained no bypass and returned commit exit 0. Lane B inspected the tracked hook and its gate source. This corroborates the hook-enabled commit. No separate hook execution trace was retained for `9164533`; a hook-specific runtime receipt remains unverified. No historical hook execution is reconstructed or claimed from present configuration alone.
+
+**Execution provenance.** The retained Lane A transcript is `C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/641edc8a-aa25-44f6-9ff1-2094f01e0a5b.jsonl`. The check command is message UUID `4c6b996c-afc1-4636-8d3d-1f898b1d021f` (line 998 at inspection); its reported result is `a0bd7c40-45a3-4afc-a9ee-3a08c813c491` (line 1013). The commit command is `808343ac-fcc7-40aa-9de8-0b544e24354c` (line 1016); its result is `93537e7a-4b1e-42cc-92ba-88964105a4b4` (line 1017). These are locators into inspected session evidence, not authenticated extracts or F1 completeness dispositions. The same check result remains in the session task output `C:/Users/rober_24syk4j/AppData/Local/Temp/claude/C--robertaoai-my-editorial-app/641edc8a-aa25-44f6-9ff1-2094f01e0a5b/tasks/bk79wg8g3.output`.
+
+#### 2. F1 evidence and Judge decisions stay separate
+
+F1-1, F1-2, F1-4, F1-5, F1-6, F1-7, F1-8 and F1-10 each remain **Unresolved**. Their eight absence records remain valid within their stated search scope. No item becomes history-only through absence or through this filing review. Lane B still owes a separate completeness disposition for each row under the test in `f7aedeb` and r4 section 2. A transcript extract used in a disposition needs its message UUID, exact boundaries, attribution, full SHA-256 and custody route. The source must be reconciled condition by condition, or the completeness disposition must have an independently supportable basis.
+
+J1, J2 and J3 remain three separate Judge decisions under the exact identities in the filed r4 section 3. J1 and J2 require separate instructions and subsequent custody transactions. J3 requires the exact TCA r3/R2 instruction and provenance. They do not settle F1 evidence. F1 work does not block presentation of J1-J3. The accepted Level 1/2 receipts remain limited to their named objects and conditions. No additional Lane C review of r4 is inferred.
+
+F1-3 retains its scoped Approve-with-conditions decision. Final-pair obligations remain. F1-9/C13, C26/C27 and later section B/C custody remain open. Naming a destination is not a custody receipt.
+
+#### 3. Chief Editor clarity and failure prevention
+
+| Claim or risk | Required distinction or mitigation | Owner / checkpoint |
+|---|---|---|
+| Filed planning answer treated as application authority | The filing proves durable receipt of the approved answer only; no D-439 application or Gate 2 authority follows | Lane A and Judge / later acts |
+| Codex review treated as a formal review level | This is Codex desktop independent review; retain the named Level 1 and Level 2 surfaces | All reviewers / each scoped review |
+| Consistency PASS treated as construction or closure proof | The suite covers its defined consistency checks only; the retained Gate 2 tracker is stale and Gate 2 is not claimed | Lane A / relevant construction and closure checkpoints |
+| Transcript locator treated as a complete original | Retain and reconcile bounded evidence before a completeness disposition | Lane B / before baseline |
+| Changed artifact consumed under an old receipt | Bind the baseline and all object hashes; repeat every review affected by a changed binding | Lane A and reviewers / final pair and pre-act |
+| Post-act stop treated as pre-act stop | Establish the act commit, actual EV r9 edits and publication state first; verify existing entries rather than recording them twice | Lane A; Lane B verifies / stop route |
+| Waiver retained only in chat or B-136 | Use its next available Register entry, applicable evidence and graph route, and independent verification | Judge; Lane A; Lane B / waiver checkpoint |
+
+These failure modes can cause material control failures. A bankruptcy-level consequence is unverified; the supplied evidence does not establish financial exposure.
+
+`C:/CoWork/outputs/` is noncanonical staging. Lane A promotes accepted requirements into their owning governance/docs files through the authorized change. Raw logs and reviews retain their exact bytes and evidence status through the specified custody route. A custody copy does not adopt a requirement. Do not bulk-copy drafts into canonical sources. The approved r4 answer has now reached its owning handoff record; that does not move its other referenced artifacts.
+
+The later critical artifacts are the final ownership manifest, successor, checker output, expected bytes for the ten EV r9 edits, formal review receipts, custody receipts and registration verification. They drive construction and verification; none is supplied by a general filing PASS.
+
+#### 4. Graph and pre-baseline ledger
+
+The retained Lane A check reports governed-intent synchronization at `c8177fe` with excluded-only commits through `f7aedeb`. The reviewed filing changes B-136 only. This supports the scoped drift result, not semantic completeness or full graph coverage of the handoff evidence. No graph query or rebuild was performed in the read-only review. Later Register, Modular PRD, source README or traceability changes need their applicable guarded synchronization and health evidence.
+
+Ledger rows 1-3 retain their satisfied, bounded scope. Row 8's Lane A filing part is verified; this committed Lane B response supplies its remaining known response. Rows 4-7 stay outstanding. Row 9 remains conditional and open to additions; no waiver is inferred. Row 10 remains blocked until every applicable prerequisite is satisfied. B-136/D-439 stay Open.
+
+### What you need
+
+**Lane A follow-up, parent first; plan only:**
+1. Keep B-136/D-439 Open. Receive this Lane B review as the response to the filed answer.
+2. Coordinate the eight F1 dispositions with Lane B. Do not write Lane B's evidence conclusions or independent verification on its behalf.
+3. Present J1, J2 and J3 to the Judge separately, by their exact filed paths and hashes. Preserve each rejection/defer branch.
+4. On each separate instruction, complete only its authorized transaction and required receipt. No such transaction is authorized by this record.
+5. Complete every applicable ledger prerequisite before naming the baseline; add newly identified prerequisites before that point.
+6. At the later authorized checkpoint, bind the final manifest, successor and checker output to the full baseline hash. Obtain exact-byte acceptance, then Level 1, then Level 2. Level 2 binds the Level 1 receipt. Preserve the optional waiver route, registration duty and independent verification.
+7. Follow the correct success, pre-act stop or post-act stop route. Preserve C13 and every required section B/C item. Complete custody, registration and any waiver verification before an attempt closing record.
+8. Keep setup/D-437, SM05 and Gate 2 under their own triggers and owners.
+
+**Judge decision boundaries.** Accepting this filing does not decide J1-J3. J1 acceptance concerns the exact 11-file supplement-1 unit; J2 acceptance concerns the exact four-file supplement-2-r2 unit; J3 acceptance concerns the exact TCA r3/R2 instruction. Rejecting or deferring one keeps that item Open and does not decide another. Parent-first review does not permit parent closure before dependent proof.
+
+### What you did instead
+
+Lane B performed read-only Git and file inspection for the review, including committed-byte comparison and retained command/log inspection. Lane B did not rerun Lane A's historical suite or hook. This filing adds only one attributed Lane B record to the bound B-136 path. The original `9164533` bytes must remain an exact prefix. No answering-side field or earlier record is rewritten.
+
+**This Lane B filing's evidence.** The consistency suite is run twice before this record's commit, at parent `91645334e3b8a925c5c06b61be0fb0af537ef312`. Run 1 supplies the log hash; run 2 tests the final record. Commit is permitted only when both runs exit 0, both logs are byte-identical, the whitespace check passes, and only the bound path is staged. The tested, staged and committed blob identities are recorded in the external filing receipt. The commit uses the tracked hook without bypass and retains a Git hook trace. These are filing checks only, not an application-helper or successor-checker run.
+
+| Evidence | Source | SHA-256 | Exact later custody destination |
+|---|---|---|---|
+| C28: Lane B review filing check, run 1 | `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/check-lane-b-r4-review-9164533.log` | `34ccfecece5d0c7343424b4dd73fa333e27e8860b5b2439e11826e841a55d6c6` | `docs/handoff/artifacts/B-136/d439-package/section-c/check-lane-b-r4-review-9164533.log` |
+| C29: run 2 | `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/check-lane-b-r4-review-9164533-run2.log` | `34ccfecece5d0c7343424b4dd73fa333e27e8860b5b2439e11826e841a55d6c6` | `docs/handoff/artifacts/B-136/d439-package/section-c/check-lane-b-r4-review-9164533-run2.log` |
+
+Lane A includes C28/C29 in the later sealed list under TCA r3 sections 4-6. Sources stay in place. No transfer is made by this filing. The filing receipt and hook trace retain the final commit and execution evidence outside the checkout; they are not a new Judge decision or a formal review level. Push proof is retained separately and cannot be inferred from this record.
+
+| Verdict | Parent -> item | Acceptance proof or remaining condition | Owner | Follow-up phase |
+|---|---|---|---|---|
+| Defer closure; Open | B-136 | Required dependent work remains open | Judge; Lane A coordinates | Parent closure |
+| Defer closure; Open | B-136 -> D-439 | F1, authority and later transaction evidence remain open | Lane A; Judge; Lane B verifies | D-439 checkpoints |
+| Approve | D-439 -> Lane A r4 filing at `9164533` | Commit, preserved prefix, approved content and final tested blob verified; historical hook trace limit retained | Lane A filing complete; Lane B supplies this review | Pre-baseline row 8 |
+| Approve-with-conditions retained | D-439 -> F1-3 | Existing scoped acceptance; final-pair duties remain | Lane A; assigned reviewers | Final-pair and pre-act checkpoints |
+| Defer | D-439 -> F1-1, F1-2, F1-4, F1-5, F1-6, F1-7, F1-8, F1-10 | Separate completeness disposition for each row | Lane B | Before baseline |
+| Defer | D-439 -> J1 | Exact 11-file supplement-1 decision and subsequent receipt | Judge -> Lane A -> Lane B | Before baseline |
+| Defer | D-439 -> J2 | Separate exact four-file supplement-2-r2 decision and receipt | Judge -> Lane A -> Lane B | Before baseline |
+| Defer | D-439 -> J3 | Exact TCA r3/R2 instruction and provenance | Judge -> Lane A | Before baseline |
+| Defer | D-439 -> baseline | Every applicable ledger prerequisite satisfied | Lane A | Baseline naming |
+| Defer | D-439 -> custody and registration | C13, C26-C29 and other required evidence; independent verification | Lane A records; Lane B verifies | TCA sections 5-7 |
+| Defer | B-136 -> setup/D-437 -> SM05 -> Gate 2 | Their own triggers and acceptance evidence | Existing assigned owners | Later checkpoints |
+| Reject | Application, transfer, baseline naming or closure inferred from this filing | No such authority supplied | All actors | All phases |
