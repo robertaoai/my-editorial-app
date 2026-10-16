@@ -14763,3 +14763,42 @@ expected `D-438` drift.
 | Approve-with-conditions | Generator r5 (submitted for review); the 15-entry control-file list | Lane B review; transfer after health |
 | Defer | S5–S7; custody transfer; `D-439`; push | Existing checkpoints |
 | Reject | A 95-file transfer called complete; the creation-time refusal called proved; byte checks as S5 | All phases |
+
+---
+
+## Lane A — second independent review routed (IR-1 to IR-6); export files disposed by the Judge: answers Lane B's consolidation at `fc46f1f`, 2026-10-16
+
+### What happened
+
+**Receipt.** The Judge supplied Lane B's chat consolidation of a new independent documentation review (receipt
+`C:/CoWork/outputs/docs-audit-2026-10-16/review-receipt.json`, SHA-256 `9759fc47a9cebb1c8c8fae48528c799b833ee80aa1f9851041d0f8c03b87f797`,
+equal to Lane B's binding). Lane B verified 285 receipt-listed documents against their normalized-text hashes
+(correspondence of included entries, not export completeness or byte equality). No new Lane C evidence; no S5 receipt.
+
+| ID | Finding | Lane A routing / disposition |
+|---|---|---|
+| IR-1 | The review links a non-existent B-136 file name | The canonical record is `docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md` (exists). The review is an external input; Lane A does not edit it; this row records the correct target. The earlier 120-link scan did not cover the new review's own links |
+| IR-2 | Untracked `bundle_docs.py` (1,317 bytes, `351bcdca…`) and `docs_context_for_claude.txt` (13,972,814 bytes, `307836f5…`) in the checkout; the guard's source check refused ("the source tree is not clean") | Lane A asked the Judge. **The Judge chose, verbatim: "I will move them"** — the Judge's own export tool and its output. Lane A did not move, delete, ignore or commit them. **Observed after the Judge's action: the tree is clean.** No replacement candidate is needed for this; the guard binds tree cleanliness, not these files |
+| IR-3 | Business Charter wording, PRD classification, freshness metadata, `NG-11` wording | **Already covered by EV r9** (E1–E4, E6, E12; EV-5). `D-439` application stays Open; no duplicate repair. A separate Business Charter stays optional (JE1); the exit strategy stays a separate go-live condition |
+| IR-4 | Publication timing and failure handling | **Routed to B-078 Child 4**, its existing return trigger kept. The review's SQL is not adopted; no second implementation task |
+| IR-5 | SM06 snapshot identity, idempotency key, effective-current query | **Kept as `V1-SM06` work-order prerequisites** (its DoR). Not added to SM05 completion |
+| IR-6 | The new review has no custody disposition | **External retention**, owner the review's supplier (the Judge), bound here by hash: `review-receipt.json` `9759fc47…`, `link-scan.json` `372978c1…`, `bundle.json` (14,293,561 bytes) `2380410a…`, in `C:/CoWork/outputs/docs-audit-2026-10-16/`. Not added to the accepted transfer package; the manifests stay unchanged |
+
+**D-438 state.** Replacement `de0b98e0` stays prepared; refs unchanged (`origin/features/feature-V1-SM05` = `8d8a111`); the source
+branch advanced by handoff-only commits; the clean-tree condition holds again. Publication still needs Lane B's S5 receipt
+and annotation.
+
+### What you need
+
+**Lane B:** S5 receipt for `de0b98e0` in B-050 with its annotation. **Judge:** in future, run the export tool from outside
+the repository, so the export does not block publication; `D-439` preparation scope and the push range when due.
+
+### What you did instead
+
+Hashed the files without reading them; asked the Judge; observed the clean tree; recorded this. No fetch or push.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | IR-1 to IR-6 routed to existing owners; Judge's disposition of the export files | Phase 1 |
+| Defer | S5–S7; custody; `D-439`; B-078 Child 4; SM06 prerequisites | Existing triggers |
+| Reject | Duplicate repair tasks; publication with an unclean tree; the review's SQL as implementation authority | All phases |
