@@ -7716,3 +7716,73 @@ directly in Lane B's shell. Evidence: `C:/CoWork/outputs/lane-b-d436-r2-review-2
 - **Annotation-Act:** D-436 item 6a, this guarded replacement cycle only. This immediately following record-only commit covers Lane B's independent receipt at d4ba11046645d0b11cf60083de933b1e12e81fff, work 767c2515-692f-4123-b14d-6669d03a822f, graph 11245fc866a7bb432fed933d41ea2c63e2ae643b5805a0f4a95c8b3f42d0e8b9, manifest f23855ef437ddeb36fd361bb52012ec13f476cd28cc3f957c0c7bc960860be39, source b308d1cb954a2ce044e9623f3c51b041ae910a4e. B-050's terminal header, Resolution and Lane A answer are unchanged; no scope is reopened. This ends the authorized temporary terminal-return interval. Lane A uses the receipt commit, not this annotation commit, as --review under existing D-436 publication approval, then records separate full health in B-136. No fetch or push before the health record. A later push still needs its own fixed-range checkpoint. D-435's exception is not reused. No construction, Gate 2 closure, lane activation or root disposition. Normal hooks remain enabled.
 - **No-Scope-Reopened:** true
 - **Annotated-At-Commit:** d4ba11046645d0b11cf60083de933b1e12e81fff
+
+## Lane B — D-438 replacement accepted (bytes and meaning), 2026-10-16
+
+### What happened
+
+The Judge explicitly authorized Lane B to complete S5 for replacement de0b98e0 and, if it passes, commit the B-050 receipt and its separate annotation. Codex (Lane B), independent of Lane A's preparation, accepts the exact replacement below under D-438 item 5 and the application act stage S5. The superseded c5b3cafa candidate remains unaccepted. B-050's terminal header, Resolution and Lane A answer remain unchanged; no scope is reopened.
+
+| Binding | Independently reviewed value |
+|---|---|
+| Work / attempt | de0b98e0-fa03-4b9d-8847-bd65907002cb, attempt 2; C:/CoWork/outputs/lane-a-d438-cycle-2026-10-15/work-r2 |
+| Analyzed source | c8177fe4a2af42e39edc4bb0a050c4d0bd2c0d04 |
+| Examined publication HEAD | 4607b3f381686598f2d56ab02787dd334840a3a3; later receipt and annotation may advance only under the handoff-only source rule |
+| STATE.json SHA-256 | 59bca1639a446d0320f4237db914beeaf9ab3e17823204ef7c9ea31cbb61ec80 |
+| Graph SHA-256 | fa5550398869b0165bbac742180b4902f387a902762a321d1302ba25a1c420ee |
+| Full-state manifest | guard-treeDigest-v1; 5261008fe6d7fda71594d078eedc705fab86bbe4faa8b4a6ffdb665a9de00134; 583 files |
+| Baseline release locus / digest | d4ba11046645d0b11cf60083de933b1e12e81fff / f23855ef437ddeb36fd361bb52012ec13f476cd28cc3f957c0c7bc960860be39 |
+| Answers SHA-256 | 6bba93572e6677eb24a6c9018be1342bb9917fd4393b0d996caf0af4870758c2 |
+
+**Bytes and structure.** Recomputed graph and full-state hashes equal READY. The released live baseline matches the frozen baseline and its release chain. Source publication checks pass; only handoff-only commits follow the analyzed source. Staging, producer studio projections and state classification have no findings. Curated parity is 139/139 exact. All 165 communities have unique, correctly bound names. F16 is absent; the checkout is clean. No journal finding exists.
+
+**Meaning.** Lane B read both retained applying helpers and their source delta. All 38 supplied descriptions agree with the source. The r1 S0 ownership test is an allowed-file check; r2 is a section-heading check, not semantic inspection of commitments. The descriptions state those limits. All 36 supplied names were reviewed by member-set hash: 32 mechanical commit groups, two successors (Jaccard 0.87 and 0.94), and two unchanged 19-symbol helper groups. Commit ranges identify historical groups, not continuous decision coverage or active authority.
+
+Against the released baseline, the candidate adds 107 Git commit nodes (b308d1c..c8177fe) and 38 helper symbols. No baseline node is removed; no existing description changes. Each new Git label and description matches its actual commit subject. The same two historical Git nodes remain undescribed; no new missing description is introduced. The repaired authority, setup links, Q11 wording, transition-count wording and UX-status wording agree with the D-438 source repair and preserve its exclusions.
+
+**Executable review context.** The initial Codex PATH resolved Git through cmd/git.exe, while prepare bound mingw64/bin/git.exe. The exact bound binary still matches SHA-256 cab4c4eea1d869cf9f7be73868dc9a90ad2df1b1b673e5f8c8714a576c25ea96 and git version 2.54.0.windows.1. Rechecking with only the sanitized review-process PATH prefixed by its directory produced no binding findings. No saved setting, source ref, candidate or live-state byte changed. The initial finding and its resolution are retained.
+
+### What you need
+
+1. Lane B immediately follows this receipt with its separate one-file Terminal annotation under D-438 item 5. Between these commits only terminal-return and docs-drift may fail; retain the logs and keep normal hooks enabled.
+2. Lane A rechecks every source, candidate, baseline and publication binding. If unchanged, publish under the existing approval with this receipt commit as --review, not the annotation commit. Any unexpected failure stops the unit.
+3. Lane A records separate S7 health in B-136: full configured checks, accepted live bytes, fragments, names, branch/source classification, and no journal or lock. This receipt does not claim publication or health.
+4. No fetch or push before the health record. After health, custody and any exact-range push retain their own checkpoints. EV r9/D-439, D-437, B-078 Child 4, SM06, SM05 selection and Gate 2 remain outside this receipt.
+
+### What you did instead
+
+Independent source/meaning review, hash and baseline recomputation, staging/studio validation, configured checks and this receipt only. No prepare, candidate edit, governed source edit, publication, build, dependency, lane activation, cleanup, fetch or push. Bun could not start (CouldntReadCurrentDirectory); the configured Node runner completed 18/19 with only the authorized docs-drift failure. Evidence is retained by Lane B under C:/CoWork/outputs/lane-b-d438-s5-review-2026-10-16/ through D-438 health and one later guarded cycle.
+
+Final review: final-review.json SHA-256 a76b8cf3dd8c36c54f66a677a9dd925f5ebb1d7332d63eaa7be8b6191258da7d. It binds the retained scripts, semantic review, machine review, binding supplement, Git-description review and both configured-check attempt logs.
+
+### F3 acceptance record
+```json
+{
+  "kind": "graphify-f3-acceptance",
+  "version": 1,
+  "disposition": "Accept",
+  "scope": "F3 publication",
+  "reviewer": "Lane B",
+  "workId": "de0b98e0-fa03-4b9d-8847-bd65907002cb",
+  "graphSha256": "fa5550398869b0165bbac742180b4902f387a902762a321d1302ba25a1c420ee",
+  "manifest": {
+    "algorithm": "guard-treeDigest-v1",
+    "digest": "5261008fe6d7fda71594d078eedc705fab86bbe4faa8b4a6ffdb665a9de00134",
+    "files": 583
+  },
+  "analyzedSource": "c8177fe4a2af42e39edc4bb0a050c4d0bd2c0d04",
+  "baseline": {
+    "releaseLocus": "d4ba11046645d0b11cf60083de933b1e12e81fff",
+    "algorithm": "guard-treeDigest-v1",
+    "digest": "f23855ef437ddeb36fd361bb52012ec13f476cd28cc3f957c0c7bc960860be39"
+  },
+  "pendingSemantics": 0
+}
+```
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Replacement de0b98e0 bytes and meaning | Phase 1: S5 accepted within these exact bindings |
+| Approve-with-conditions | Publication | Phase 1: separate annotation, unchanged bindings, Lane A publication and S7 health |
+| Defer | Custody, D-439, push and excluded work | Their existing acts and checkpoints |
+| Reject | Superseded candidate receipt; acceptance treated as publication, health, construction or Gate 2 credit | All phases |
