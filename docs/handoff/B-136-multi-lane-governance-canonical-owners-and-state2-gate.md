@@ -16015,3 +16015,112 @@ Review and this record only. No build, transfer, application, graph rebuild, fet
 | Approve-with-conditions | J1, J2, J3 as separate decisions | Exact Judge instructions; Lane B receipt for each transfer; G-REV mapped at the checkpoint |
 | Defer | G-F1 historical completeness; baseline; final bindings; acts; application; graph cycle; outcome custody; registration verification; `D-437`; SM05; Gate 2; push | Lane B's G-F1 disposition; each later unit's own owner and trigger |
 | Reject | B-136 completion now; all outputs called drafts; a check PASS or custody read as readiness; Lane C approval inferred from silence | All phases |
+
+---
+
+## Lane A — F1 baseline wording and G-REV review mapping for J1–J3: answers Lane B's review of `98eaf9f` against `9781b2d`, 2026-10-16
+
+### What happened
+
+**Receipt.** Lane A receives Lane B's instruction (supplied by the Judge in session) to correct two parts of the `9781b2d`
+answer: the F1 baseline wording and the G-REV mapping. Lane B stays the raiser. Lane A writes no Lane B text.
+
+#### 1. B-136 parent
+
+This record corrects two rows of `9781b2d` only. It closes nothing in B-136 and authorizes no later work. B-136 stays
+**Open** with the obligations listed in `9781b2d` section 1.
+
+#### 2. D-439 → F1
+
+**Replacement.** In `9781b2d`, section 4 step 2 ("F1 disposition is **not** a baseline condition; see G-F1 below") and the
+G-F1 dependency cell ("None; not a baseline condition, because …") are replaced by:
+
+> History-only missing records do not block the baseline. Any surviving obligation retains its owner, acceptance proof and
+> dependency.
+
+**Classification rule.** Lane A knows each original only through its own receipt summary (the lines cited in `9781b2d`
+table F1). The originals are unavailable, so a summary that shows no open item does not prove that the original has none.
+The rule is:
+- **History-only:** every condition in the summary is closed or superseded by a filed Lane B record, **and** Lane B confirms
+  (by filing or by an absence record) that the original has no other live condition.
+- **Surviving obligation:** a known condition stays live, and a later step depends on it.
+- **Unresolved:** neither class is proven yet.
+
+**Freeze effect.** The baseline freeze bars every commit (G5, `4487ecd`). A Lane B filing that a later step needs must
+therefore exist **before** the baseline is named. Every F1 item must be classified before the baseline is named.
+
+| # | Known content (Lane A receipt) | Filed Lane B coverage | Class now | Owner and acceptance proof | Dependency |
+|---|---|---|---|---|---|
+| F1-1 | r1 evidence closed; r1 rejected on F1–F3; F4 opened (line 15101) | F4 → 457-file receipt at `98eaf9f`. F1–F3 closure is known only from F1-2, which is not filed | **Unresolved** | Lane B: filed record, or absence record that states any live condition. The F1-3 filing can close it if its scope names the r1 F1–F3 controls | Before the baseline |
+| F1-2 | Ownership exact state, fail-stop harness, retained controls and 218 hashes closed; R2-1 to R2-3 opened (line 15146) | 218 hashes → `98eaf9f` receipt. Ownership and harness acceptance not filed | **Unresolved** | As F1-1 | Before the baseline |
+| F1-3 | r3 accepted for review: path containment, successor bindings (`check-successor-d439.mjs`), custody plan; 56 results, 9 failure runs verified (line 15191) | None. `98eaf9f` does not re-review the r3 helper or the checker | **Surviving obligation** | Lane B: a filed acceptance of the r3 helper `ev-apply-d439-r3.mjs` and the checker at their committed `d80d821` blobs, as the original or as a fresh review | Before the baseline, because the final pair (`9781b2d` section 4 step 4) is built on that helper and checker |
+| F1-4 | C1–C2 accepted; no revision (line 15227) | 457 count → `98eaf9f` receipt; C2 section B timing superseded by TCA r3, design accepted at `98eaf9f` | **Unresolved** (history-only candidate) | Lane B confirms no other live condition | Before the baseline |
+| F1-5 | G1–G7 (line 15277) | G1, G5 meaning; index, supplement 1; G4 → TCA r3 (all `98eaf9f` Layer 2). G6–G7 closure known only from F1-6 | **Unresolved** (history-only candidate) | As F1-4 | Before the baseline |
+| F1-6 | G1–G5 r2; G6–G7 accepted (line 15321) | `98eaf9f` row "4487ecd G1/G5"; supplement 2 r2 | **Unresolved** (history-only candidate) | As F1-4 | Before the baseline |
+| F1-7 | G3a, G3b, G4; ten-edit and Gate 2 tracker cautions (line 15368) | `98eaf9f` row "98c8a01"; cautions carried in `98eaf9f` Layers 3 and 6 | **Unresolved** (history-only candidate) | As F1-4 | Before the baseline |
+| F1-8 | TCA-1 to TCA-4, LOG-1 (line 15445) | `98eaf9f` row "eb6f5dd" | **Unresolved** (history-only candidate) | As F1-4 | Before the baseline |
+| F1-10 | AC-3, F1, F2 (line 15591) | `98eaf9f` rows "d3f2d18 / F2" and AC table | **Unresolved** (history-only candidate) | As F1-4 | Before the baseline |
+
+"History-only candidate" means that every known condition has filed coverage. It is not a classification.
+
+#### 3. D-439 → G-REV for J1–J3
+
+**Controlling clause.** `D-324` J5 (Register §5.14e149) and `FN-MULTI-LANE-AI-GOVERNANCE.md` §4.5 `[V1]`. Level 1 is ChatGPT
+Chat/Work (Lane B), and Level 2 is Antigravity chat (Lane C), for Lane A's work. Level 1 precedes Level 2, and either level
+may reject. J1–J3 are Lane A's work: Lane A drafted the maps and generators, and Lane A owns and commits TCA r3, although
+its sections 5–7 use Lane B's text.
+
+**Codex checks.** Commit `98eaf9f` names its actor as "Codex (Lane B)". FN §4.5 names ChatGPT Chat/Work as Level 1. The FN
+platform table records a ChatGPT Work session on the Codex runtime as a dated fact only ("Not evidence for the Codex build
+surface"). Codex's checks are therefore **independent verification** (an independent actor, `D-101`/§4.5 "Verified"). They
+are not an identified formal Level 1 review. They count as Level 1 only if Lane B states that `98eaf9f` was made at Level 1
+and its scope matches.
+
+| Object | Required level and controlling clause | Reviewer | Existing receipt and scope | Missing review | Consuming checkpoint |
+|---|---|---|---|---|---|
+| **J1** supplement 1 (11 files; map `37d5f5a2…b576`) | Level 1 and Level 2; `D-324` J5, FN §4.5 | L1: ChatGPT Chat/Work (Lane B). L2: Antigravity chat (Lane C) | `98eaf9f` (Codex): source hashes, map hash, destinations absent and not ignored. Scope: source review. Its level is not identified | L1 (unless Lane B states that `98eaf9f` is L1); L2 | Lane A's folder-only copy commit to `d439-package/supplement-1/` |
+| **J2** supplement 2 r2 (4 files; map `487a093e…658e`) | Same | Same | `98eaf9f` (Codex): 4 source hashes; r2 role correction (row "98c8a01"). Scope: source review. Its level is not identified | L1 (same condition); L2 | Lane A's folder-only copy commit to `d439-package/supplement-2/` |
+| **J3** TCA r3, route R2 (`5274e34f…47d2`) | Same | Same | `98eaf9f` (Codex): AC-1 to AC-8 design acceptance. Scope: design. Its level is not identified | L1 (same condition); L2. The later §7 registration verification is a separate check and does not replace either level | Lane A's B-136 record "Judge approval received … pending durable registration", before the baseline |
+
+**After each transfer:** Lane B's committed-blob and changed-path receipt is independent verification of custody, not a
+review level. It is still required.
+
+**Handling.** Lane A presents J1–J3 with this table. Lane A does not consume a decision while one of its required levels is
+missing, unless the Judge's instruction expressly waives that level for that object. Lane A claims no Judge authorization
+and no Lane C approval. No Lane C review of this package exists.
+
+#### 4. Remaining dependencies
+
+| Point | Conditions that must be met first |
+|---|---|
+| Before J1 or J2 is consumed | The Judge's instruction names the exact map and hash; L1 and L2 present or expressly waived; Lane A rechecks sources, destinations, links and ignore status just before the copy |
+| Before J3 is consumed | The Judge's instruction names TCA r3 by its hash and route R2; L1 and L2 present or expressly waived |
+| Before the baseline is named | J1 and J2 transferred, each with a filed Lane B receipt; J3 instruction recorded; the F1-3 acceptance filed; every F1 item classified; every other pre-baseline record filed, because the freeze bars all commits |
+| After the baseline | Unchanged: `9781b2d` section 4 steps 3–9 (freeze, final pair and Lane B review, acts, application and graph health, outcome custody, §7 registration verification, closing record) |
+| Later parents | Setup and `D-437`, SM05 entry and Gate 2 keep their existing owners and triggers (`9781b2d` section 5) |
+
+**Self-grade (labelled; not independent review).** The `9781b2d` wording treated all of F1 as history because `98eaf9f`
+re-reviewed most current objects. It missed that no filed Lane B record re-reviews the r3 helper and checker, and that the
+freeze makes any later filing impossible. Lesson kept: before declaring a gap non-blocking, test each item against the
+steps that consume it.
+
+### What you need
+
+**Lane B:** (a) the F1-3 acceptance filing; (b) for each other F1 item, the original or an absence record that states any
+live condition; (c) a statement whether `98eaf9f` was made at Level 1 for J1–J3. **Lane C:** Level 2 review of J1–J3, after
+Level 1. **Judge:** J1, J2 and J3 with this mapping, including any express waiver.
+
+### What you did instead
+
+Review and this record only. No build, transfer, application, graph rebuild, fetch, push, lane change or Gate 2 action.
+`bun run check` covers the consistency suite only. Two runs at HEAD `9781b2d`, with this record uncommitted:
+`C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/check-f1-grev-answer.log` (`23d915cea8c52915044946dde6f4de52d599df914811d7772647a3411a057f23`, C18) and
+`…/check-f1-grev-answer-run2.log` (C19, same hash; commit only if identical). Section C destination: TCA r3 §4. Unpushed:
+`a673f44`..this record.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | F1 replacement wording; F1 classification rule; G-REV table | Phase 1, Lane B review |
+| Approve-with-conditions | J1, J2, J3 | Phase 1: L1 and L2 present or expressly waived; exact Judge instructions; a Lane B receipt for each transfer |
+| Defer | F1 classifications (Lane B filings or absence records); F1-3 acceptance; baseline and every later step; `D-437`; SM05; Gate 2; push | F1 and F1-3: Phase 1, before the baseline. Later steps: their own triggers |
+| Reject | "F1 is not a baseline condition" as a blanket rule; Codex checks read as a formal Level 1 or Level 2 review; Lane C approval inferred; B-136 completion now | All phases |
