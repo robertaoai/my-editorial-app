@@ -14624,3 +14624,48 @@ which Lane A records next.
 | Approve | Judge push recorded; replacement candidate authorized | Phase 1 |
 | Defer | Replacement S5 receipt, publication, health; custody; `D-439`; push | After the replacement is prepared |
 | Reject | Receipt or publication for `c5b3cafa` | All phases |
+
+---
+
+## Lane A — D-438 replacement candidate ready (S4); request for Lane B's receipt (supersedes `c5b3cafa`), 2026-10-16
+
+### What happened
+
+**Authority.** The Judge's "Prepare replacement (Recommended)" (recorded at `c8177fe`), under `D-438` items 5–7. Prepared from
+`c8177fe` on a clean tree; `.codex/config.toml` absent; remote-tracking ref `origin/features/feature-V1-SM05` = `8d8a111`
+at snapshot. Pending items: 38 descriptions (the same 38 helper-symbol ids as the superseded candidate; the helper
+sources are unchanged since `c2c81af`, so the same behaviour descriptions apply) and 36 community names (32 commit-group
+rule; 2 successor rule, Jaccard 0.87 and 0.94; 2 reused for identical member sets — "D-438 Applying Helper, Revision 1"
+and "Revision 2"); no duplicate name.
+
+| Candidate identity (`C:/CoWork/outputs/lane-a-d438-cycle-2026-10-15/work-r2/STATE.json`, SHA-256 `59bca1639a446d0320f4237db914beeaf9ab3e17823204ef7c9ea31cbb61ec80`) | Value |
+|---|---|
+| workId | `de0b98e0-fa03-4b9d-8847-bd65907002cb` |
+| source head / branch | `c8177fe4a2af42e39edc4bb0a050c4d0bd2c0d04` / `features/feature-V1-SM05` |
+| graph SHA-256 | `fa5550398869b0165bbac742180b4902f387a902762a321d1302ba25a1c420ee` |
+| full-state digest (`guard-treeDigest-v1`) | `5261008fe6d7fda71594d078eedc705fab86bbe4faa8b4a6ffdb665a9de00134` (583 files) |
+| answers SHA-256 | `6bba93572e6677eb24a6c9018be1342bb9917fd4393b0d996caf0af4870758c2` |
+
+Evidence: `prepare-r2-1.log` (`59aa4f38121865fd669447fb2c388a4019d0886eb4ef309726f30c6d71e20246`), `answers-r2.json` (`6bba93572e6677eb24a6c9018be1342bb9917fd4393b0d996caf0af4870758c2`), `07-name-basis-r2.json`
+(`41eafaa387c72e51c9931a0bf00123744d7e8eae4d6abe7d3c146b247219836c`), `resume-r2-1.log` (`c42d1c7eb88be0206d794e691e7c7d152076985e613f9da41f2a5c9b2441ae77`). The superseded candidate's folder
+`C:/CoWork/outputs/lane-a-d438-cycle-2026-10-15/work/` is kept unchanged.
+
+### What you need
+
+**Lane B — S5 receipt for this identity only:** review the candidate's bytes and meaning against the table above, commit
+the acceptance record in **B-050**, then its covering Terminal annotation in a separate one-file commit (only
+`terminal-return` and `docs-drift` may fail between them). **Nobody fetches or pushes until the health record**: any change
+to any ref (including remote-tracking refs) makes this candidate unpublishable, as happened to `c5b3cafa`. Then Lane A
+checks F16, the clean tree and the full ref map, publishes, and records health separately.
+
+### What you did instead
+
+Prepare and resume only; no publication. This record is the only commit since `c8177fe` (handoff-only). The check fails
+only on the expected `D-438` drift.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Replacement candidate ready at `c8177fe` | Phase 1 |
+| Approve-with-conditions | Publication | Lane B's B-050 receipt and annotation for this identity; unchanged refs |
+| Defer | Health; custody; `D-439`; push | After publication |
+| Reject | Any fetch or push before health; receipt for `c5b3cafa` | All phases |
