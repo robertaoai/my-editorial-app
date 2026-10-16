@@ -15217,3 +15217,53 @@ This record only. No package file changed; no transfer; no fetch or push. Unpush
 | Approve-with-conditions | Initial custody contract (457 files) | Judge's transfer decision; Lane B byte verification |
 | Defer | Section B timing (into the `D-439` act); final bindings; acts; guarded cycle; `D-437`; SM05; Gate 2; push | Their own triggers |
 | Reject | "Approved" without a cited act; controls or planned custody read as readiness | All phases |
+
+---
+
+## Lane A — D-439 initial custody transferred (457 files at `d80d821`); request for Lane B's custody verification, 2026-10-16
+
+### What happened
+
+**Receipt.** Lane A receives Lane B's review of `539a37d` (supplied by the Judge): C1–C2 accepted; no helper or package
+revision required. **Authority:** the Judge: "Judge Approved: Lane A transfer the 457-file initial custody unit to
+docs/handoff/artifacts/B-136/d439-package/ and commit that folder only. Lane B verify committed bytes. No build, fetch, push
+or Gate 2 closure."
+
+**Transfer.** The transfer script bound map r1 (`c048275e…`) and the addendum (`561934b2…`) to their recorded hashes,
+parsed 218 + 238 rows and added the addendum itself (**457**). Before any write it refused duplicate sources or
+destinations, destinations outside the folder or not equal to their source path, links, changed source hashes, existing
+destinations and git-ignored destinations: none found. It copied all 457 and checked each copy.
+
+| Result | Value |
+|---|---|
+| Custody commit | **`d80d821`** — 457 added paths, all under `docs/handoff/artifacts/B-136/d439-package/`; no other path |
+| Committed blobs = listed SHA-256 | **457 / 457** (blobs read with `git cat-file`; hashes taken from the map and addendum rows, not from the result record). Storage is byte-exact: `docs/handoff/artifacts/** -text` |
+| Full check with the files in place | **19/19, exit 0** |
+| Transfer script | `C:/CoWork/outputs/lane-a-d439-package-2026-10-16/transfer-d439-initial.mjs` `e704b8a8e0dab5d558cb5513812ecfbdbc2704f705e7ee6bcbfc8b50cde4eb0f` |
+| Verifier | `…/verify-d439-custody.mjs` `cd91b0d41017ecfe701ed9483c05e2e01c3aa30e7c50115fdc192dd5e86d162b`; log `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/verify-custody-d80d821.log` `40fed69929f9353dc77d369ea3d5040e1732733d7d3554a40e56bce9b94ae395` |
+| Result record | `…/lane-a-d439-checks-2026-10-16/D439-CUSTODY-TRANSFER-RESULT-r1.json` `61f4f6b4c112153323c4b9a66e836e9ac669bce0acddf08bb875c6e3ea10cff0` |
+
+**Status kept.** Custody does not apply `D-439` and changes no artifact's review status (r1 rejected for application; r2
+superseded; r3 accepted technically; controls are control evidence only). **Not in this unit:** the transfer script, the
+verifier, their logs and this cycle's check logs — tooling and logs kept external, hashes stated here; section B artifacts
+(not yet created; timing proposed, decided in the `D-439` act).
+
+**Graph.** No governed drift (`docs/handoff/` is excluded). The copied `.mjs` and `.sh` files add code under
+`docs/handoff/`; graph coverage of them is **UNVERIFIED** and is assessed in the next guarded cycle. The copies add lines
+naming `D-439`; the final ownership manifest is built after Lane B's verification and this record.
+
+### What you need
+
+**Lane B:** verify custody — each committed blob at `d80d821` against map r1 and the addendum; record "custody verified" when
+satisfied. **Then Lane A:** final ownership manifest and the two-binding successor for Lane B's review.
+
+### What you did instead
+
+Transfer, proof and this record. No build, fetch or push; no Gate 2 action. Unpushed: `a673f44`..this record.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Transfer `d80d821` with 457/457 byte proofs | Phase 1 |
+| Approve-with-conditions | "Custody verified" | Lane B's independent verification |
+| Defer | Final manifest and successor; `D-439` acts (with section B timing); guarded cycle; `D-437`; SM05; Gate 2; push | Their own triggers |
+| Reject | Custody read as application or readiness | All phases |
