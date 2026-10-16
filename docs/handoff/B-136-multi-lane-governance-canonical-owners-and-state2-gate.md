@@ -15311,3 +15311,50 @@ Drafts and this record only. No transfer, build, fetch or push; no Gate 2 action
 | Approve-with-conditions | Supplement 1 transfer; G5 sequence | Judge decisions |
 | Defer | Custody verification; final bindings; `D-439` acts; application; guarded cycle; `D-437`; SM05; Gate 2; push | Their own triggers |
 | Reject | Complete handoff or readiness claimed now; Lane C position inferred from silence | All phases |
+
+---
+
+## Lane A — answers Lane B's review of `4cebb77` (G1–G5 r2): snapshot wording, disposition pointers, supplement 2, custody checkpoints, corrected baseline controls, 2026-10-16
+
+### What happened
+
+**Receipt.** Lane A receives Lane B's review of `4cebb77` (a draft Lane B follow-up supplied by the Judge in session; it is
+Lane B's entry to commit, D-272). Lane B confirmed the 11 supplement-1 source hashes, including the map hash recorded in
+B-136, and that the 11 destinations are absent. Lane B did not inspect commit `4cebb77`. Accepted: G6–G7 wording; the
+exact 11-file supplement-1 transfer proposal. Open: G1–G5. Lane A answers by the same IDs; earlier answers stay as history.
+
+| ID | Lane A answer (replaces the `4cebb77` wording for that ID) | State |
+|---|---|---|
+| **G1** | Replaces "the SHA-256 of each checked-out file … must equal its row": a file-hash check is a **snapshot check**. It proves the checked-out bytes only, not their content at `d80d821` and not the commit's path scope. Lane B's receipt needs the committed blobs and the parent-to-commit path changes (`git diff-tree` of `d80d821`); Lane A's own blob check (`cat-file`, 457/457) is Lane A's check | Open: Lane B receipt with method and exceptions |
+| **G2** | **Reading index r2** `D439-CUSTODY-INDEX-r2.md` (`af657d926e592492ea1711b01327643918492d785c32f6695cc998668ac91bab`) names, for each revision, the record that holds its operative disposition: r1 rejected → `7d44bff`; r2 superseded → `0d12012`; r3 accepted technically → `539a37d`; **C1–C2 accepted → `89154ee`**; initial custody → `4cebb77` and this record. It lists every correction to bound files (C1, C2, G1, G5). Index r1 stays in supplement 1 as history | Draft (supplement 2) |
+| **G3** | **Supplement 2** map `D439-SUPPLEMENT-2-MAP-r1.md` (`8f79b9e11657a4962068f5237c83e941fbcf50c17b0b728f52c5fa765f8675fe`): index r2, `check-g1g7-record.log` (`4bd89c6b08b200236c6babbd91dd949c569183e3d96be1d90cec82998bd3e3d9`), the generator and the map = 4 files → `d439-package/supplement-2/`. **Does the log support "19/19 before `4cebb77`"?** Yes, with a limit: it shows 19/19 and was written 1 s before the commit (file time 20:10:09, commit 20:10:10, +0800), but it names no revision. **Route for later logs (section C):** each later Lane A record states its check log's hash; those logs are transferred in the section B custody commit. This record's log is the first section C item | Draft; Judge decision |
+| **G4** | **Proposed custody checkpoints** for section B (final manifest, successor, checker log, **Lane B's pre-act review receipt**, act-date expected record, application logs) and section C: **success** → one custody commit after the health record; **act rejected** → one custody commit in the record that closes the attempt; **abort or stop** at any stage (a binding or repository change, a failed check, a refused application) → the interval ends, one custody commit of every section B and C file produced so far, then Lane B verifies, then the baseline is reassessed. No outcome leaves them external after its closing record. Still proposed: the `D-439` act decides | Proposed |
+| **G5** | Replaces Lane A's step (4) "no commit that adds a line naming `D-439`" — that rule was weaker than the checker, which refuses whenever HEAD ≠ `BASE`. **Corrected baseline controls (Lane B's text, adopted):** after the required custody receipts and pre-baseline records, name the exact baseline commit. Keep HEAD at that commit until the authorized act starts: **no intervening commit of any kind and no checkout change**; tracked and untracked state clean. Keep the final manifest, successor, review receipt and check outputs outside the repository under the agreed temporary-custody procedure (G4). Immediately before the act, run the complete successor checker, including S0, with an output location outside the checkout. If any binding or repository state changes, stop, reassess the baseline, regenerate the affected bindings and obtain a new review. The interval ends when the authorized act starts or the attempt stops; custody then follows G4 | Proposed; Judge decides |
+
+**Pre-baseline order (unchanged):** (1) Lane B's receipt for `d80d821`; (2) supplements 1 and 2 transferred, each as its own
+unit, and verified by Lane B; (3) baseline named. During the interval no B-136 record is committed by any lane.
+
+**Closure layers (Lane B §4, adopted):** draft prepared → transferred → custody verified → applied (provisional) → verified →
+parent complete. B-136 stays Open while its weakest required child is open or provisional.
+
+**Self-grade (labelled; not independent review).** G5 is a Lane A error found by Lane B: the record stated a rule weaker than
+the code. Lesson kept: a procedure that depends on a checker states the checker's exact condition. While drafting this
+answer, Lane A's first supplement-2 map was generated with a partly applied text change (wrong S4 row); it was unrecorded
+and was replaced before this record.
+
+### What you need
+
+**Lane B:** (a) the custody receipt for `d80d821` (committed blobs and path scope); (b) review of G1–G5 r2, index r2 and
+the supplement-2 map. **Judge:** (i) transfer of supplement 1 (11 files) and supplement 2 (4 files), each as its own
+folder-only unit; (ii) the G4 checkpoints and the corrected G5 controls, into the `D-439` act.
+
+### What you did instead
+
+Drafts and this record only. No transfer, build, fetch or push; no Gate 2 action. Unpushed: `a673f44`..this record.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | G1 wording; G2 pointers; G5 correction (Lane B's text) | Lane B review |
+| Approve-with-conditions | Supplements 1 and 2; G4 checkpoints | Judge decisions; Lane B verification |
+| Defer | Custody verification; baseline; final bindings; `D-439` acts; application; guarded cycle; `D-437`; SM05; Gate 2; push | Their own triggers |
+| Reject | Snapshot checks read as commit custody; the `4cebb77` G5 rule; complete handoff or readiness now | All phases |
