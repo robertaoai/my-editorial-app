@@ -1,0 +1,59 @@
+{
+  "schema": "B-156 F3 old values v1",
+  "revision": "1640ff7bc1b7d1e70ab6a421ced8a054dafda993",
+  "targetsSha256": "e17ef212997192b610e8b040f7ab7c9fe0f278e8dcf8341e2f4dae2ad22df7ee",
+  "scriptSha256": "f7473c49dff433a7134001c7fd0d2fdb06cefaa289a177ec0074efb2a97a629d",
+  "targets": 5,
+  "values": [
+    {
+      "id": "R21-R22",
+      "kind": "lines",
+      "path": ".gitattributes",
+      "from": 27,
+      "to": 38,
+      "value": "#\n# It is WRONG for CURRENT-VALUE content. Tested: a status row merges to\n# both `Decided` and `Rejected`; a version header appears twice; and a\n# union-duplicated CLAUDE.md slices identically to a clean one, so\n# shared-core-hash PASSES on a file holding two full copies of the rules.\n# Later rules win, so these fall back to the default 3-way merge, which\n# writes visible conflict markers — failing closed, not open.\ndocs/v1/**/*.md      merge=text\ndocs/Modular_PRD.md  merge=text\nCLAUDE.md            merge=text\nAGENTS.md            merge=text\n.agents/**/*.md      merge=text",
+      "sha256": "409f1d49a7d0361d376fcf5d78e786ca31d2b534ba17356ded0918e2097af818",
+      "outcome": "bound"
+    },
+    {
+      "id": "R23",
+      "kind": "lines",
+      "path": "docs/v1/V1-BUILD-SPEC.md",
+      "from": 660,
+      "to": 665,
+      "value": "> ⛔ **`C-33` — this DoD phrase is NOT yet earned (`D-118`, raised by Lane B as `B-044`).** `0002` is\n> drafted at `d826b53` and its test **asserts on migration TEXT**: it never starts PostgreSQL,\n> applies `0001` then `0002`, invokes the trigger, or observes a rollback. **A text assertion stays\n> green while the SQL is syntactically invalid.** **Two unverified things are held apart**: `DEP-05`\n> permits **live anon-key** behaviour to remain unverified; a **local PostgreSQL** unit test needs no\n> credentials and is still required. `C-33` carries the eight-case contract.",
+      "sha256": "9bd510ebb5e20400a7bbcd2e157236678988c5d1eff47bbb18425514c5ca07ba",
+      "outcome": "bound"
+    },
+    {
+      "id": "R24",
+      "kind": "lines",
+      "path": "docs/v1/V1-DECISION-REGISTER.md",
+      "from": 2983,
+      "to": 2986,
+      "value": "**Closes when a disposable PostgreSQL runs `0001` then `0002` and those eight behave**, with the\nreport reading *\"local PostgreSQL unit-tested; live Supabase anon-key behaviour unverified\"*.\n**Lane B's surface, Lane B's work** — and it may need a dependency, which is Lane A's to provision\n(`D-86`).",
+      "sha256": "004bed61fabe7ba151d0076aea47f08a1a0a66344296840ede72e24e919e80ca",
+      "outcome": "bound"
+    },
+    {
+      "id": "R25",
+      "kind": "lines",
+      "path": "docs/v1/V1-BUILD-SPEC.md",
+      "from": 531,
+      "to": 531,
+      "value": "> **`C-14` travels with this item (`D-58`).** `G11`'s detection half — the shared-core hash, the `D-54` tier sweep, the §5.1 duplicate scan, and `missing.js` — is verification apparatus and waits on the same guardrail. **Precedence without detection is inert:** git here has one identity and zero merges, so a conflicting edit is a silent overwrite that nothing announces.",
+      "sha256": "de835cc5e9db23e7bbd40f4ace58a90ae6caf225f125727799888de9b2f9de27",
+      "outcome": "bound"
+    },
+    {
+      "id": "R29",
+      "kind": "lines",
+      "path": "docs/graph-fragments/README.md",
+      "from": 111,
+      "to": 111,
+      "value": "`merge7.js` is the reference merge script (repo-relative; `merge6.js` is retained for history but hard-codes an absolute path). `missing.js` reports which docs are absent from the graph.",
+      "sha256": "731fae0d776749113cc88b89682cf276778560f003ee5df2444e668f4f4db2ee",
+      "outcome": "bound"
+    }
+  ]
+}

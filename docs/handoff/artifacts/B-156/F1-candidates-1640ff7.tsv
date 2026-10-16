@@ -1,0 +1,226 @@
+order	group	path	lane	class	useCase	mention	govMentions	handoffMentions	firstGoverningDoc	phaseManifest	applicability	reason
+1	G1	.onlyaiapp	unmapped	metadata	project setup	no mention	0	0		no	included	platform initialization marker; no governing intent found yet
+1	G1	app/api/health/route.ts	B	application implementation	product codebase	no mention	0	0		no	included	
+1	G1	app/globals.css	B	application implementation	product codebase	no mention	0	0		no	included	
+1	G1	app/layout.tsx	B	application implementation	product codebase	no mention	0	0		no	included	
+1	G1	lib/supabase/client.ts	B	application implementation	product codebase	no mention	0	0		no	included	
+1	G1	supabase/.gitignore	B	configuration	product codebase	no mention	0	0		no	included	
+2	G1	scripts/checks/terminal-return.mjs	A	control (check or gate)	governance/docs	handoff-only mention	0	3		no	included	
+2	G1	supabase/tests/database/s1_transition_enforcement.test.sql	B	verification (product test)	product codebase	handoff-only mention	0	3		no	included	
+3	G2	docs/graph-fragments/merge6.js	A	tooling implementation	knowledgebase	no mention	0	0		no	included	
+3	G2	docs/graph-fragments/merge7.js	A	tooling implementation	knowledgebase	governing-doc mention	4	6	docs/governance/agent-rules-reference.md	no	included	
+3	G2	docs/graph-fragments/missing.js	A	tooling implementation	knowledgebase	governing-doc mention	3	3	docs/graph-fragments/README.md	no	included	
+3	G2	docs/graph-fragments/prune-stale-symbols.js	A	tooling implementation	knowledgebase	governing-doc mention	2	0	docs/v1/V1-ARTIFACT-INVENTORY.md	no	included	
+3	G2	docs/graph-fragments/prune-stale-symbols.test.mjs	A	verification (tooling test)	knowledgebase	governing-doc mention	2	0	docs/v1/V1-ARTIFACT-INVENTORY.md	no	included	
+3	G2	docs/graph-fragments/restore-docs-layer.js	A	tooling implementation	knowledgebase	governing-doc mention	2	1	docs/v1/V1-ARTIFACT-INVENTORY.md	no	included	
+4	G1	__tests__/build-config.test.ts	B	verification (product test)	product codebase	governing-doc mention	3	5	docs/specs/SPECS-VERIFICATION-APPARATUS.md	yes	included	
+4	G1	__tests__/s1-schema.test.ts	B	verification (product test)	product codebase	governing-doc mention	2	3	docs/LANE-B-WORK-ORDER.md	no	included	
+4	G1	__tests__/smoke.test.ts	B	verification (product test)	product codebase	governing-doc mention	5	0	docs/governance/agent-rules-reference.md	no	included	
+4	G1	.agents/workflows/graphify.md	A	agent instruction	knowledgebase	governing-doc mention	2	3	docs/v1/V1-ARTIFACT-INVENTORY.md	no	included	
+4	G1	.claude/settings.json	A	configuration	project setup	governing-doc mention	3	1	docs/Modular_PRD.md	yes	included	
+4	G1	.claude/skills/sync-docs/SKILL.md	A	agent instruction	governance/docs	governing-doc mention	7	9	docs/specs/SPECS-MULTI-LANE-AI-GOVERNANCE.md	yes	included	
+4	G1	.codex/hooks.json	A	configuration	project setup	governing-doc mention	4	1	docs/journal/2026-08-18-sprint-readiness-consolidated.md	yes	included	
+4	G1	.env.example	unmapped	configuration	project setup	governing-doc mention	4	1	docs/Modular_PRD.md	no	included	
+4	G1	.gitattributes	A	configuration	project setup	governing-doc mention	5	2	docs/governance/agent-rules-reference.md	yes	included	
+4	G1	.githooks/commit-msg	A	control (check or gate)	governance/docs	governing-doc mention	9	4	docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md	yes	included	
+4	G1	.github/ISSUE_TEMPLATE/v1-mmf.md	A	channel template or spec	governance/docs	governing-doc mention	4	0	docs/v1/V1-ARTIFACT-INVENTORY.md	no	included	
+4	G1	.github/PULL_REQUEST_TEMPLATE/v1-mmf.md	A	channel template or spec	governance/docs	governing-doc mention	4	5	docs/v1/V1-ARTIFACT-INVENTORY.md	no	included	
+4	G1	.github/WORKFLOWS-SPEC.md	A	channel template or spec	governance/docs	governing-doc mention	6	5	docs/LANE-B-WORK-ORDER.md	yes	included	
+4	G1	.github/workflows/ci.yml	C	workflow	project setup	governing-doc mention	6	4	docs/Modular_PRD.md	yes	included	
+4	G1	.gitignore	A	configuration	project setup	governing-doc mention	6	5	docs/LANE-B-WORK-ORDER.md	no	included	
+4	G1	AGENTS.md	A	agent instruction	governance/docs	governing-doc mention	15	35	docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md	yes	included	
+4	G1	app/page.tsx	B	application implementation	product codebase	governing-doc mention	1	1	docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md	no	included	
+4	G1	bun.lockb	A	configuration	project setup	governing-doc mention	6	1	docs/Modular_PRD.md	no	excluded	derived lockfile; audited through package.json and the D-86 provisioning path
+4	G1	CLAUDE.md	A	agent instruction	governance/docs	governing-doc mention	21	32	docs/Modular_PRD.md	yes	included	
+4	G1	eslint.config.mjs	A	configuration	project setup	governing-doc mention	6	0	docs/LANE-B-WORK-ORDER.md	no	included	
+4	G1	GEMINI.md	A	agent instruction	governance/docs	governing-doc mention	8	9	docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md	yes	included	
+4	G1	lib/config/build-config.ts	B	application configuration	product codebase	governing-doc mention	8	13	docs/CONFIG_LOG.md	yes	included	
+4	G1	lib/config/flags.ts	B	application configuration	product codebase	governing-doc mention	7	8	docs/CONFIG_LOG.md	no	included	
+4	G1	lib/supabase/middleware.ts	B	application implementation	product codebase	governing-doc mention	2	0	docs/specs/SPECS-VERIFICATION-APPARATUS.md	no	included	
+4	G1	lib/supabase/server.ts	B	application implementation	product codebase	governing-doc mention	5	0	docs/Modular_PRD.md	no	included	
+4	G1	middleware.ts	unmapped	application implementation	product codebase	governing-doc mention	3	0	docs/journal/2026-08-16-sprint-plan.md	no	included	
+4	G1	next.config.ts	A	configuration	project setup	governing-doc mention	8	2	docs/LANE-B-WORK-ORDER.md	no	included	
+4	G1	package.json	A	configuration	project setup	governing-doc mention	11	7	docs/LANE-B-WORK-ORDER.md	yes	included	
+4	G1	postcss.config.mjs	A	configuration	project setup	governing-doc mention	1	1	docs/v1/V1-DECISION-REGISTER.md	no	included	
+4	G1	README.md	A	metadata	project setup	governing-doc mention	22	42	docs/AGENTIC_LAYER.md	no	excluded	template boilerplate, not authoritative (AGENTS.md, D5); recorded as metadata only
+4	G1	scripts/check-consistency.mjs	A	control (check or gate)	governance/docs	governing-doc mention	6	8	docs/INTELLIGENCE_LAYER.md	yes	included	
+4	G1	scripts/checks/channel-docs.mjs	A	control (check or gate)	governance/docs	governing-doc mention	2	0	docs/v1/V1-ARTIFACT-INVENTORY.md	yes	included	
+4	G1	scripts/checks/closure-readiness.mjs	A	control (check or gate)	governance/docs	governing-doc mention	3	3	docs/v1/V1-ARTIFACT-INVENTORY.md	yes	included	
+4	G1	scripts/checks/config-coupling.mjs	A	control (check or gate)	governance/docs	governing-doc mention	2	1	docs/v1/V1-ARTIFACT-INVENTORY.md	yes	included	
+4	G1	scripts/checks/decision-status.mjs	A	control (check or gate)	governance/docs	governing-doc mention	2	0	docs/v1/V1-DECISION-REGISTER.md	yes	included	
+4	G1	scripts/checks/docs-drift.mjs	A	control (check or gate)	governance/docs	governing-doc mention	2	5	docs/v1/V1-DECISION-REGISTER.md	yes	included	
+4	G1	scripts/checks/duplicate-ids.mjs	A	control (check or gate)	governance/docs	governing-doc mention	1	0	docs/v1/V1-PHASE-CLOSURE.md	yes	included	
+4	G1	scripts/checks/governed-intent.mjs	A	control (check or gate)	governance/docs	governing-doc mention	3	1	docs/v1/V1-ARTIFACT-INVENTORY.md	no	included	
+4	G1	scripts/checks/graph-coverage.mjs	A	control (check or gate)	governance/docs	governing-doc mention	3	2	docs/v1/V1-ARTIFACT-INVENTORY.md	yes	included	
+4	G1	scripts/checks/handoff-fields.mjs	A	control (check or gate)	governance/docs	governing-doc mention	3	2	docs/v1/V1-ARTIFACT-INVENTORY.md	yes	included	
+4	G1	scripts/checks/handoff-response.mjs	A	control (check or gate)	governance/docs	governing-doc mention	4	7	docs/specs/SPECS-VERIFICATION-APPARATUS.md	yes	included	
+4	G1	scripts/checks/lane-boundary.mjs	A	control (check or gate)	governance/docs	governing-doc mention	6	2	docs/governance/agent-rules-reference.md	yes	included	
+4	G1	scripts/checks/lane-state.mjs	A	control (check or gate)	governance/docs	governing-doc mention	3	1	docs/v1/V1-ARTIFACT-INVENTORY.md	yes	included	
+4	G1	scripts/checks/phase-manifest.mjs	A	control (check or gate)	governance/docs	governing-doc mention	2	0	docs/v1/V1-ARTIFACT-INVENTORY.md	yes	included	
+4	G1	scripts/checks/retention-policy-coupling.mjs	A	control (check or gate)	governance/docs	governing-doc mention	2	1	docs/v1/V1-ARTIFACT-INVENTORY.md	no	included	
+4	G1	scripts/checks/rule-budget.mjs	A	control (check or gate)	governance/docs	governing-doc mention	3	1	docs/v1/V1-ARTIFACT-INVENTORY.md	yes	included	
+4	G1	scripts/checks/settings-parse.mjs	A	control (check or gate)	governance/docs	governing-doc mention	2	0	docs/v1/V1-DECISION-REGISTER.md	yes	included	
+4	G1	scripts/checks/source-sweep.mjs	A	control (check or gate)	governance/docs	governing-doc mention	2	1	docs/v1/V1-ARTIFACT-INVENTORY.md	yes	included	
+4	G1	scripts/checks/sync-docs-uniqueness.mjs	A	control (check or gate)	governance/docs	governing-doc mention	2	1	docs/v1/V1-ARTIFACT-INVENTORY.md	yes	included	
+4	G1	scripts/checks/text-integrity.mjs	A	control (check or gate)	governance/docs	governing-doc mention	2	0	docs/v1/V1-ARTIFACT-INVENTORY.md	no	included	
+4	G1	scripts/checks/tier-sweep.mjs	A	control (check or gate)	governance/docs	governing-doc mention	2	1	docs/v1/V1-DECISION-REGISTER.md	yes	included	
+4	G1	scripts/fixtures/graphify-guard.test.mjs	A	verification (tooling test)	governance/docs	governing-doc mention	2	2	docs/v1/V1-ARTIFACT-INVENTORY.md	no	included	
+4	G1	scripts/fixtures/harness.mjs	A	verification (tooling test)	governance/docs	governing-doc mention	4	1	docs/v1/V1-ARTIFACT-INVENTORY.md	no	included	
+4	G1	scripts/fixtures/run.mjs	A	verification (tooling test)	governance/docs	governing-doc mention	4	2	docs/v1/V1-ARTIFACT-INVENTORY.md	no	included	
+4	G1	scripts/fixtures/suites.mjs	A	verification (tooling test)	governance/docs	governing-doc mention	3	14	docs/v1/V1-ARTIFACT-INVENTORY.md	no	included	
+4	G1	scripts/graphify/guarded-rebuild.mjs	A	tooling implementation	knowledgebase	governing-doc mention	2	3	docs/v1/V1-ARTIFACT-INVENTORY.md	no	included	
+4	G1	scripts/jev/jev.mjs	A	tooling implementation	product interface	governing-doc mention	1	0	docs/v1/V1-ARTIFACT-INVENTORY.md	no	included	
+4	G1	scripts/jev/lib.mjs	A	tooling implementation	product interface	governing-doc mention	1	2	docs/v1/V1-ARTIFACT-INVENTORY.md	no	included	
+4	G1	scripts/jev/manifests/V1-SM05.json	A	control data	product interface	governing-doc mention	3	3	docs/v1/V1-ARTIFACT-INVENTORY.md	no	included	
+4	G1	scripts/jev/selftest.mjs	A	verification (tooling test)	product interface	governing-doc mention	1	0	docs/v1/V1-ARTIFACT-INVENTORY.md	no	included	
+4	G1	scripts/lane-gate.mjs	A	control (check or gate)	governance/docs	governing-doc mention	4	3	docs/specs/SPECS-VERIFICATION-APPARATUS.md	yes	included	
+4	G1	supabase/config.toml	B	configuration	product codebase	governing-doc mention	4	1	docs/LANE-B-WORK-ORDER.md	no	included	
+4	G1	supabase/migrations/0001_init.sql	B	schema	product codebase	governing-doc mention	10	2	docs/LANE-B-WORK-ORDER.md	no	included	frozen authority (AGENTS.md Never list); audit agreement only, no repair
+4	G1	supabase/migrations/0002_s1_editorial_schema.sql	B	schema	product codebase	governing-doc mention	10	8	docs/DATA_MODEL.md	no	included	
+4	G1	tsconfig.json	A	configuration	project setup	governing-doc mention	3	0	docs/LANE-B-WORK-ORDER.md	no	included	
+5	G3	docs/graph-fragments/docs-2026-08-18-fragment.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/docs-fragment.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/docs-fragment2.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/docs-fragment4.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag10.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag100.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag101.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag102.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag103.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag104.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag105.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag106.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag107.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag108.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag109.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag11.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag110.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag111.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag112.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag113.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag114.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag115.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag116.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag117.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag118.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag119.json	A	curated source data	knowledgebase	governing-doc mention	1	2	docs/v1/V1-B071-CORRECTIVE-PLAN.md	no	included	
+5	G3	docs/graph-fragments/frag12.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag120.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag121.json	A	curated source data	knowledgebase	handoff-only mention	0	1		no	included	
+5	G3	docs/graph-fragments/frag123.json	A	curated source data	knowledgebase	handoff-only mention	0	2		no	included	
+5	G3	docs/graph-fragments/frag124.json	A	curated source data	knowledgebase	handoff-only mention	0	1		no	included	
+5	G3	docs/graph-fragments/frag125.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag126.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag127.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag128.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag129.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag13.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag130.json	A	curated source data	knowledgebase	handoff-only mention	0	1		no	included	
+5	G3	docs/graph-fragments/frag131.json	A	curated source data	knowledgebase	governing-doc mention	1	1	docs/v1/V1-ARTIFACT-INVENTORY.md	no	included	
+5	G3	docs/graph-fragments/frag132.json	A	curated source data	knowledgebase	handoff-only mention	0	1		no	included	
+5	G3	docs/graph-fragments/frag133.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag134.json	A	curated source data	knowledgebase	handoff-only mention	0	1		no	included	
+5	G3	docs/graph-fragments/frag135.json	A	curated source data	knowledgebase	handoff-only mention	0	1		no	included	
+5	G3	docs/graph-fragments/frag136.json	A	curated source data	knowledgebase	governing-doc mention	1	1	docs/v1/V1-DECISION-REGISTER.md	no	included	
+5	G3	docs/graph-fragments/frag137.json	A	curated source data	knowledgebase	governing-doc mention	1	0	docs/v1/V1-ARTIFACT-INVENTORY.md	no	included	
+5	G3	docs/graph-fragments/frag138.json	A	curated source data	knowledgebase	governing-doc mention	1	0	docs/v1/V1-ARTIFACT-INVENTORY.md	no	included	
+5	G3	docs/graph-fragments/frag139.json	A	curated source data	knowledgebase	governing-doc mention	2	1	docs/v1/V1-ARTIFACT-INVENTORY.md	no	included	
+5	G3	docs/graph-fragments/frag14.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag140.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag141.json	A	curated source data	knowledgebase	governing-doc mention	1	1	docs/v1/V1-ARTIFACT-INVENTORY.md	no	included	
+5	G3	docs/graph-fragments/frag142.json	A	curated source data	knowledgebase	governing-doc mention	1	0	docs/v1/V1-ARTIFACT-INVENTORY.md	no	included	
+5	G3	docs/graph-fragments/frag143.json	A	curated source data	knowledgebase	governing-doc mention	2	1	docs/v1/V1-ARTIFACT-INVENTORY.md	no	included	
+5	G3	docs/graph-fragments/frag15.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag16.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag17.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag18.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag19.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag20.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag21.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag22.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag23.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag24.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag25.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag26.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag27.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag28.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag29.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag31.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag32.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag33.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag34.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag35.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag36.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag37.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag38.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag39.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag40.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag41.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag42.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag43.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag44.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag45.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag46.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag47.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag48.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag49.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag5.json	A	curated source data	knowledgebase	governing-doc mention	2	0	docs/v1/V1-ARTIFACT-INVENTORY.md	no	included	
+5	G3	docs/graph-fragments/frag50.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag51.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag52.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag53.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag54.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag55.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag56.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag57.json	A	curated source data	knowledgebase	governing-doc mention	1	0	docs/v1/V1-PHASE-CLOSURE.md	no	included	
+5	G3	docs/graph-fragments/frag58.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag59.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag6.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag60.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag61.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag62.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag63.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag64.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag65.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag66.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag67.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag68.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag69.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag7.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag70.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag71.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag72.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag73.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag74.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag75.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag76.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag77.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag78.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag79.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag8.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag80.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag81.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag82.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag83.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag84.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag85.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag86.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag87.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag88.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag89.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag9.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag90.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag91.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag92.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag93.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag94.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag95.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag96.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag97.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag98.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/frag99.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G3	docs/graph-fragments/v1-fragment.json	A	curated source data	knowledgebase	no mention	0	0		no	included	
+5	G4	docs/v1/work-packets/V1/receipts/V1-SM05-jev-readiness.json	A	retained evidence	product interface	governing-doc mention	3	1	docs/v1/V1-DECISION-REGISTER.md	no	included	
+5	G5	docs/handoff/artifacts/B-014/observation-2026-10-03.log	unmapped	retained evidence	governance/docs	governing-doc mention	2	0	docs/v1/V1-ARTIFACT-INVENTORY.md	no	included	
+5	G5	docs/handoff/artifacts/B-115/lane-c-b154-review-with-b115-consumer-read-07d931e.txt	unmapped	retained evidence	governance/docs	governing-doc mention	2	1	docs/v1/V1-ARTIFACT-INVENTORY.md	no	included	
+5	G5	docs/handoff/artifacts/B-131/System_Encyclopedia_V15.txt	unmapped	retained evidence	governance/docs	governing-doc mention	3	1	docs/v1/V1-ARTIFACT-INVENTORY.md	no	included	retained external evidence; Encyclopedia itself is an artifact outside the repo

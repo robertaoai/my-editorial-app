@@ -1,0 +1,8 @@
+diff: lines 24, 30 only (BASE 7d44bff -> 557ca8c; pin 607e610c -> 5974c17e)
+manifest: base 557ca8c, sha256 5974c17ef857, 115 entries; repository at BASE
+packet r9 bound (dfd5c7771e9b); 10 active edits literal in it; date 2026-10-16
+S0 D-439 not in Register; three pins equal
+S0 10 targets: each exactly once, only in its own file (77 governed files searched)
+S0 ownership: exact state — 115 line(s), each equal to a reviewed entry with the same count; no other line
+S0 working tree clean
+successor accepted: sha256 cae28ff640be6e0d16471da915c4f3e27061b8609f1301e51e7227fcfcf4c30f; read-only S0 passed

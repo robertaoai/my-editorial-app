@@ -40,7 +40,7 @@ Living document; no build-version prefix, does not freeze. **All sections `[V1]`
 | Credential storage and access design | `NFR-07`/`SEC-02` — separate `SPECS` document, not yet written |
 | `SUPABASE_SERVICE_ROLE_KEY`'s first genuine use | `TC1` amendment — a governance finding, not an implementation detail this document settles |
 | WordPress/LinkedIn API request shapes | Provider integration detail, not architecture |
-| `FR-10`'s manual-confirm UI | `docs/specs/ux/` — separate, currently empty (`V1-ARTIFACT-INVENTORY.md` row 51) |
+| `FR-10`'s manual-confirm UI | Publication-specific manual-confirm UI specification **not yet written**; `docs/specs/ux/` exists but its governance UX (`UX-MULTI-LANE-AI-GOVERNANCE.md`, `D-271`) does not cover it. *Corrected 2026-10-15 (`D-438`): earlier "currently empty (row 51)"; no Inventory row names this spec.* |
 
 > **Why this list matters.** Writing these anyway would restate decisions this document does not own — the same `D-30` restatement layer `SPECS-TRANSITION-ENFORCEMENT.md` §2 already warns against, one feature group over.
 
@@ -79,7 +79,7 @@ select cron.schedule(
 
 | Dependency | Nature | Status |
 |---|---|---|
-| `publication_targets`/`publications` (`TR-DM-03`) | **Blocking** — the function reads and writes these | Drafted, `0002_s1_editorial_schema.sql`, not yet applied (`DEP-05`) |
+| `publication_targets`/`publications` (`TR-DM-03`) | **Blocking** — the function reads and writes these | Drafted, `0002_s1_editorial_schema.sql`, not yet applied (`DEP-05`). `[V1]` **Corrected 2026-09-25 (`D-265`):** written and replayed on disposable local PostgreSQL only; **not applied to hosted Supabase** (`D-252`; live behaviour unverified under `DEP-05`) |
 | `pg_cron`, `pg_net` extensions | **Blocking** — nothing fires the function without them | Not yet enabled — Lane B migration item |
 | Credential isolation design | **Blocking** — the function needs provider credentials to call WordPress/LinkedIn | **Open**, separate `SPECS` document not yet written |
 | `SUPABASE_SERVICE_ROLE_KEY` first use | **Blocking** — the function's own database access needs it, `TC1` amendment first | **Open** — governance finding, not this document's to resolve |

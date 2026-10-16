@@ -122,11 +122,20 @@ T2 confirms the URL is live, identifies `source.platform`, sets `source.reliabil
 
 **Four-eyes: `not_applicable`.** Both are within Line 1, and the Addendum is explicit that *the same agent may execute adjacent Line 1 gates — the standard rule, not an exception.*
 
+> **SUPERSEDED FOR CURRENT USE, 2026-10-02 (`D-386`, `GR-002`).** This panel is preserved as dated provenance of
+> the historical technical journey and is not build input. Technical transitions are held target scope (`D-171`);
+> their target executors are in `FN-GATES-01-05.md` §11 (`decided_target_held`). The current `V1-SM05` slice is
+> Panel A11: it records business-stage facts and executes no `transition:T*` (`D-249`, `D-260`).
+
 ### Panel A4 — T4 Drafting *(Journalist, Line 1, Agent)*
 
 `Investigated → Drafted`
 
 Requires `editorial_adaptation` non-empty, ≥1 `publication_targets` assigned, and the `meaning_invariance_checklist` completed.
+
+> **SUPERSEDED FOR CURRENT USE, 2026-10-02 (`D-386`, `GR-002`).** Preserved as dated provenance, not build input.
+> `transition:T4` is held target scope (`D-171`; `FN-GATES-01-05.md` §11). The current `V1-SM05` slice is Panel A11,
+> which executes no `transition:T*` (`D-249`, `D-260`).
 
 ### Panel A5 — T5 Independent review *(Senior Journalist role, **Line 2**, human-primary)*
 
@@ -157,6 +166,7 @@ sequenceDiagram
 
 > **Three gaps converge on this panel.**
 > `Q11` — the field recording independence is currently named `judgment_independence_status`, asserting a cognitive fact the system can only prove structurally. Append-only makes the wrong name permanent.
+> **Corrected 2026-09-25 (`D-265`):** historical — `Q11` is decided. The stored column is `line_separation_status` (`D-97`/`D-111`), implemented in `0002`, and no `judgment_independence` field exists.
 > `OD2` — whether Line separation actually produces independent judgment is unresolved; a negative answer voids this panel's model entirely.
 > `GA6` — the Chief Editor executes T5 *and* is accountable for the outcome. That is a **management assertion**, not an independent audit opinion. No panel anywhere in this storyboard contains an independent assurance step.
 
@@ -167,6 +177,13 @@ sequenceDiagram
 Requires all prior gate criteria confirmed, `publication_targets` confirmed, `publication_time` set, `final_readthrough` complete.
 
 > **Successor-node review (`A17`).** T6's "all prior gate criteria confirmed" is what makes T6 the reviewer of T5's judgment — it must be a real validation against T5's recorded fields, not a rubber-stamped boolean. The residual risk is the authority gradient: will a Line 1 agent actually return work to the Line 2 human? A `T6→T5` return rate that never leaves zero means review is nominal.
+
+> **SUPERSEDED FOR CURRENT USE, 2026-10-02 (`D-386`, `GR-002`).** Preserved as dated provenance, not build input.
+> The Chief Journalist agent at `T6` is the historical order. `T6` is outside V1 (`D-239`). Its target node `EG5`
+> requires a human executor holding `ACCESS-ROLE-CHIEF-EDITOR` (`D-238`, `D-251`; `FN-GATES-01-05.md` §11), and it
+> is held target scope (`D-171`). The `T6`→`T5` return analytics stay held. The current `V1-SM05` slice is Panel
+> A11: it records business-stage facts and executes no `transition:T*` (`D-249`, `D-260`). *(Sentence added
+> `D-388`.)*
 
 ### Panel A7 — T7/T10/T11 Publication
 
@@ -451,10 +468,14 @@ them would be new scope:
 
 | Walk | Chief Editor result | Lane B/C review | Date |
 |---|---|---|---|
-| Normal (A11.1, A11.3, A11.4) | `Accept` — `W1` Accept, `W3` Accept | Lane B `Accept` (`docs/handoff/B-131` Parent 1); Lane C `Accept` (C-003, user-supplied) | 2026-09-24 |
-| Revision (A11.2) | `Accept` — `W2` Accept; the downstream-evidence rule is written into A11.2 | Lane B `Accept` (`docs/handoff/B-131` Parent 1); Lane C `Accept` (C-003, user-supplied) | 2026-09-24 |
+| Normal (A11.1, A11.3, A11.4) | `Accept` — `W1` Accept, `W3` Accept | Lane B `Accept` (`docs/handoff/B-131` Parent 1); Lane C `Accept` (supplied by the Judge; see the note below) | 2026-09-24 |
+| Revision (A11.2) | `Accept` — `W2` Accept; the downstream-evidence rule is written into A11.2 | Lane B `Accept` (`docs/handoff/B-131` Parent 1); Lane C `Accept` (supplied by the Judge; see the note below) | 2026-09-24 |
 
 Recorded by `D-259`, 2026-09-24. `DOR-R5` is checked on this row pair.
+
+*Corrected 2026-09-28 (`D-306`):* both rows cited Lane C's review as "C-003". **It was never a handoff entry.** The
+Judge supplied it on 2026-09-24, and `D-259` records it. The number `C-003` was later given to an unrelated entry,
+`docs/handoff/C-003` (the Route C R1 loader receipt, 2026-09-27). The acceptance itself is unchanged.
 
 ---
 
@@ -584,6 +605,8 @@ Reading both lanes end to end, the digital twin is incomplete in precisely the p
 | Client surface exists but `CR-15` reads as single-account | `G4` | B1 |
 | Deleting an article destroys its transition log | `GA9` | every panel writing `workflow_transitions` |
 | Tenant boundary is the isolation seam | `Q10` answered | B1 |
+
+> **Current-use notice — 2026-10-04 (GR-005 / B-095.D3, `D-413`).** This table is the historical storyboard roll-up, not the current construction contract. Panel A2's 2026-09-07 B-080 supersession corrects topic cardinality and audit-before-state ordering; it expressly did not close FB-05. The producer-gap row above is historical: D-194/D-197 now specify the ratified manual trigger package in FN-GATES-01-05 §3.1; current CR-14 coverage is recorded in Modular_PRD §7.1 (D-392 / GR-004). FB-05's specification-verification residual is separate from Product coverage, and this notice closes neither FB-05 nor its source handoff. For current V1-SM05 construction use Panel A11 (D-256/D-259/D-260), which records supplied business-stage evidence and claims no transition:T* execution. Other historical roll-up findings keep their own dispositions.
 
 ### How this supports T0
 

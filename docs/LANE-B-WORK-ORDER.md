@@ -36,7 +36,7 @@ heading is what a reader acts on. **The heading is gone.**
 |---|---|
 | **`Active` means you may commit.** | Exactly one lane may, and only while §5 says it is you |
 | **`Blocked` means another lane is running.** | You may still **read anything**, and you may still **write in `docs/handoff/`** — that carve-out exists so reporting is never blocked (`D-103` §5.1) |
-| **`Eligible` means nominated as next holder, not yet executing work product.** | It **may coexist with the `Active` lane** — that pairing IS the offer. No work-product commit is permitted; `D-184` separately permits committing and pushing **only your own single handoff entry** under `docs/handoff/README.md`. Promotion to `Active` follows `D-156` |
+| **`Eligible` means nominated as next holder, not yet executing work product.** | It **may coexist with the `Active` lane** — that pairing IS the offer. No work-product commit is permitted; `D-184` separately permits committing and pushing **only your own single handoff entry** under `docs/handoff/README.md`. *Amended by `D-272`, 2026-09-27: you commit your own `B-` entries whatever your lane state, and you are also the **receiver** of `C-` entries whose `Receiver:` is `Lane B` — you write and commit their `Lane B:` answer by the same one-entry procedure.* Promotion to `Active` follows `D-156` |
 | **Phase 1 is still open.** | It closes last (`D-99`). Lane A leaving `Active` is not Phase 1 closing |
 | **`main` is not your problem.** | No agent deploys. `main` lagging the working branch is expected |
 

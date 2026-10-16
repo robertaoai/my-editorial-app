@@ -1,0 +1,168 @@
+{
+  "schema": "B-156 F3 Option A target manifest v1",
+  "derivedFrom": "F3-oldvalue-targets.json (d00a8f5) minus R26-R28, P1, P2",
+  "note": "Frozen planning manifest. After D-434 publication and health, the applying unit re-derives these targets by semantic locus at the actual source, binds full values, and stops on any mismatch or relocation for bounded review.",
+  "targets": [
+    {
+      "id": "R1-R3",
+      "kind": "lines",
+      "path": "docs/specs/SPECS-VERIFICATION-APPARATUS.md",
+      "from": 96,
+      "to": 105
+    },
+    {
+      "id": "R4",
+      "kind": "field",
+      "path": "docs/graph-fragments/frag13.json",
+      "node": "ci_that_cannot_fail",
+      "field": "description"
+    },
+    {
+      "id": "R5",
+      "kind": "lines",
+      "path": "docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md",
+      "from": 177,
+      "to": 179
+    },
+    {
+      "id": "R6-R7",
+      "kind": "lines",
+      "path": "docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md",
+      "from": 213,
+      "to": 214
+    },
+    {
+      "id": "R8",
+      "kind": "lines",
+      "path": "docs/Modular_PRD.md",
+      "from": 883,
+      "to": 883
+    },
+    {
+      "id": "R9",
+      "kind": "lines",
+      "path": "docs/specs/SPECS-MULTI-LANE-AI-GOVERNANCE.md",
+      "from": 106,
+      "to": 107
+    },
+    {
+      "id": "R10",
+      "kind": "lines",
+      "path": "GEMINI.md",
+      "from": 13,
+      "to": 13
+    },
+    {
+      "id": "R11.description",
+      "kind": "field",
+      "path": "docs/graph-fragments/frag7.json",
+      "node": "shared_core_agent_rules",
+      "field": "description"
+    },
+    {
+      "id": "R11.source_file",
+      "kind": "field",
+      "path": "docs/graph-fragments/frag7.json",
+      "node": "shared_core_agent_rules",
+      "field": "source_file"
+    },
+    {
+      "id": "R11.source_location",
+      "kind": "field",
+      "path": "docs/graph-fragments/frag7.json",
+      "node": "shared_core_agent_rules",
+      "field": "source_location"
+    },
+    {
+      "id": "R12.source_file",
+      "kind": "field",
+      "path": "docs/graph-fragments/frag15.json",
+      "node": "rule_must_reach_its_subjects",
+      "field": "source_file"
+    },
+    {
+      "id": "R12.source_location",
+      "kind": "field",
+      "path": "docs/graph-fragments/frag15.json",
+      "node": "rule_must_reach_its_subjects",
+      "field": "source_location"
+    },
+    {
+      "id": "R12.description",
+      "kind": "field",
+      "path": "docs/graph-fragments/frag15.json",
+      "node": "rule_must_reach_its_subjects",
+      "field": "description"
+    },
+    {
+      "id": "R13-R15",
+      "kind": "lines",
+      "path": ".github/WORKFLOWS-SPEC.md",
+      "from": 46,
+      "to": 58
+    },
+    {
+      "id": "R16",
+      "kind": "lines",
+      "path": ".github/WORKFLOWS-SPEC.md",
+      "from": 77,
+      "to": 79
+    },
+    {
+      "id": "R17",
+      "kind": "lines",
+      "path": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+      "from": 69,
+      "to": 69
+    },
+    {
+      "id": "R18-R19",
+      "kind": "lines",
+      "path": "GEMINI.md",
+      "from": 31,
+      "to": 35
+    },
+    {
+      "id": "R20",
+      "kind": "lines",
+      "path": ".github/WORKFLOWS-SPEC.md",
+      "from": 34,
+      "to": 37
+    },
+    {
+      "id": "R21-R22",
+      "kind": "lines",
+      "path": ".gitattributes",
+      "from": 27,
+      "to": 38
+    },
+    {
+      "id": "R23",
+      "kind": "lines",
+      "path": "docs/v1/V1-BUILD-SPEC.md",
+      "from": 660,
+      "to": 665
+    },
+    {
+      "id": "R24",
+      "kind": "lines",
+      "path": "docs/v1/V1-DECISION-REGISTER.md",
+      "from": 2983,
+      "to": 2986
+    },
+    {
+      "id": "R25",
+      "kind": "lines",
+      "path": "docs/v1/V1-BUILD-SPEC.md",
+      "from": 531,
+      "to": 531
+    },
+    {
+      "id": "R29",
+      "kind": "lines",
+      "path": "docs/graph-fragments/README.md",
+      "from": 111,
+      "to": 111
+    }
+  ]
+}

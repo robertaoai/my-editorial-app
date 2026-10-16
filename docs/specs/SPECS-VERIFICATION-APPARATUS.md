@@ -93,16 +93,11 @@ Different provenance, so **no contradiction with `D-52`.** `D-52`'s four remain 
 
 ### 4.1 `TC6` — why typecheck and lint must be explicit CI steps `[V1]`
 
-`next.config.ts` currently reads:
+`next.config.ts` keeps `typescript: { ignoreBuildErrors: true }`. *(Corrected `[V1]`, `D-435`: the `eslint: { ignoreDuringBuilds: true }` line was removed for Next 16 (`B-058`, `D-154`; Verified at `cf51724`); lint runs as `eslint .` through `bun run lint` (`D-66`), never through `next build`. Until that removal, the file read both lines.)*
 
-```ts
-typescript: { ignoreBuildErrors: true },
-eslint: { ignoreDuringBuilds: true },
-```
+**A CI job that only runs `next build` would pass with broken types and lint errors**, because the build ignores type errors and never runs lint. Green CI would then mean *"the bundler completed,"* not *"the code is sound."*
 
-**A CI job that only runs `next build` would pass with broken types and lint errors**, because the build has been told to ignore both. Green CI would then mean *"the bundler completed,"* not *"the code is sound."*
-
-**Disposition — `TC6` is not resolved by this document.** The flags stay as they are; changing deployment behaviour is out of scope here. **CI compensates by running the gates itself**, so verification is restored without touching deploy.
+**Disposition — `TC6` is not resolved by this document.** The TypeScript flag stays as it is (`Q6` is Open); changing deployment behaviour is out of scope here. **CI compensates by running the gates itself**, so verification is restored without touching deploy.
 
 > **`TC6` is not a hypothetical risk — it is an active concealment, and it now has a number.** `ignoreBuildErrors: true` had been hiding **ten real type errors** since scaffolding, in `lib/supabase/middleware.ts` and `lib/supabase/server.ts`. Nothing ever reported them (`G62`). **Fixed by `D-67`** — and the diagnosis changed the finding: they were **two overload-resolution causes**, not ten defects. The concealment was real; its contents were smaller and shallower than the count implied. `ignoreBuildErrors` now **conceals nothing**, which makes `Q6` cheap on the TypeScript side and untouched on the lint side.
 
@@ -205,6 +200,9 @@ The rule was probed over **40 commits of real history before the check was writt
 **Installed 2026-08-21 (`D-87`)**, closing `G67`, `G68`, `G70` and `D-78`. **Owning lane: A** (`D-84` — `scripts/` is orchestration).
 
 ### Check 1 — `shared-core-hash`, preamble coverage `[V1]` (`G67`)
+
+*Retired `[V1]`, `D-337`:* replaced by `rule-budget` when the three rule-file copies became one imported
+core (`D-324`). The text below is history.
 
 `CLAUDE.md` lines **1–138** were byte-identical to `AGENTS.md` but sat outside the `<!-- SHARED CORE` marker, so nothing compared them. That region holds *"build straight through the sprints until the app works end-to-end"* — the instruction behind every crossing `D-75` records.
 

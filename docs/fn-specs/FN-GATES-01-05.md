@@ -3,7 +3,7 @@
 **Date:** 2026-08-19
 **Tier:** `Fn_Specs` — functional specification. Third tier of `D-29`: `PRD` → `Modular_PRD` → **`Fn_Specs`** → `SPECS`.
 **Status:** Draft. Planning only — no build authorized.
-**Source:** `docs/Modular_PRD.md` §5 (`FR-01`–`FR-05`), §6 (`AC-01`–`AC-08`), Addendum §3.1 (T1–T6). **§4.3/§4.4 also elaborate `FR-15` and `AC-23`–`AC-26`** (`V1-SM05`'s `business:T1`–`T5` evidence slice; added 2026-09-24, `D-261`).
+**Source:** `docs/Modular_PRD.md` §5 (`FR-01`–`FR-05`), ~~§6~~ §9.1 (`AC-01`–`AC-08`; anchor corrected 2026-09-26, `D-267` — §6 is Technical Requirements; each AC row keeps its own held/current status), Addendum §3.1 (T1–T6). **§4.3/§4.4 also elaborate `FR-15` and `AC-23`–`AC-26`** (`V1-SM05`'s `business:T1`–`T5` evidence slice; added 2026-09-24, `D-261`).
 **Scope:** the five gate features. Board, publication, and exception features follow in separate documents.
 
 > **`D-30` redundancy rule applies.** Behaviour is stated here to be **sufficient**. A `SPECS` document is written only where functional definition alone cannot determine implementation — §9 names exactly which parts qualify and why.
@@ -26,13 +26,19 @@ edits. A section revised by a later build keeps its origin and gains a revision 
 must mark their additions and revisions rather than editing silently, which is what makes per-section
 content hashing meaningful: an unmarked change to a `[V1]` section is a defect, not an update.
 
+**Revision note, 2026-09-27 (`D-280`, applying `D-222`'s Fn_Spec child verbatim).** Still within build `V1`, so no
+marker changes. The eight intake-source statements — §1 strategic alignment, §2.1 `FR-01`, §2.3 item 1, §3.1
+*Required on entry* and *Supply*, §3.2 *T2 requires*, the §4 flow label and §5 `AC-01` — now carry `D-222`'s
+canonical phrase: **a source reference — a URL, or a manually prepared `.md` representation when the content cannot
+be reached by URL** (`D-121`, `D-219`). Each previously read URL-only (`D-219`–`D-222` enumerate the prior text).
+
 ## 1. Overview
 
 The five gates are the product. Everything else in the system exists to record, display, or publish what they decide.
 
 **User value:** the Chief Editor gets a pipeline where an article cannot skip a step, every transition answers *who, when, and why*, and the review that matters is performed by a human rather than asserted by an agent.
 
-**Strategic alignment:** this is `CR-19`'s success scenario end to end — *paste a URL → five gates with logged transitions → approve → publish, with zero bypasses.* `FR-01`–`FR-05` cover intake through independent review; `FR-06`–`FR-13` handle the rest.
+**Strategic alignment:** this is `CR-19`'s success scenario end to end — *supply a source reference → five gates with logged transitions → approve → publish, with zero bypasses.* **The illustrative path is a pasted URL; a manually prepared `.md` representation is equally valid when the content cannot be reached by URL** (`D-121`, `D-219`). `FR-01`–`FR-05` cover intake through independent review; `FR-06`–`FR-13` handle the rest.
 
 **Boundary:** these features define **behaviour at each gate**. They do not define storage, field names, or interfaces — see §9.
 
@@ -42,7 +48,7 @@ The five gates are the product. Everything else in the system exists to record, 
 
 | ID | Requirement | Gate | Line | Executor |
 |---|---|---|---|---|
-| `FR-01` `[V1]` | Log an article from a URL with **exactly one subject topic** and a trend signal; the article enters at the pipeline entry state. *(`G39` — restated from "≥1 topic tag", which conflated two concepts; see §3.1)* | T1 | 1 | Agent |
+| `FR-01` `[V1]` | Log an article from **a source reference — a URL, or a manually prepared `.md` representation when the content cannot be reached by URL** (`D-121`, `D-219`) with **exactly one subject topic** and a trend signal; **analytical tags are separate, optional and many**; the article enters at the pipeline entry state. *(`G39` — restated from "≥1 topic tag", which conflated two concepts; see §3.1)* | T1 | 1 | Agent |
 | `FR-02` | Validate source and confirm trend evidence as **two distinct transitions** (T2, T3), never one | T2, T3 | 1 | Agent |
 | `FR-03` | Draft the editorial adaptation with a completed meaning-invariance checklist and ≥1 publication target | T4 | 1 | Agent |
 | `FR-04` ⚠ | T5 review is executed by a **Line 2 human**; agent contribution is metadata, never the executor | T5 | **2** | **Human** |
@@ -60,7 +66,7 @@ The five gates are the product. Everything else in the system exists to record, 
 
 ### 2.3 Constraints and assumptions
 
-1. **The entry boundary is a URL.** Nothing enters as a bare topic. Commissioned POC work resolves to a URL *before* intake (`B2` in the storyboard).
+1. **The entry boundary is a source reference** — a URL, or a manually prepared `.md` representation when the content cannot be reached by URL (`D-121`, `D-219`). **Nothing enters as a bare topic.** Commissioned POC work resolves to one *before* intake (`B2` in the storyboard).
 2. **Same-agent adjacency is permitted within Line 1.** T1→T2→T3→T4 may share an executor. This is the standard rule under the Three Lines Model, not an exception.
 3. **Four-eyes is satisfied at Line boundaries only** — T5 (1→2) and T6 (2→1).
 4. **No auto-advance.** `NG-10`/`TC9`: no confidence score advances a gate, ever. Not configurable.
@@ -123,7 +129,9 @@ selection is `B117-R45`, still open.
 
 `Discovered → Logged`
 
-**Required on entry:** `source_url`; **exactly one subject topic**; a trend-signal description.
+**Required on entry:** a **source reference** — `source_url`, or a supplied `.md` representation when the content cannot be reached by URL; **exactly one subject topic**; a trend-signal description. **Analytical tags remain optional and many.**
+
+*(Pointer, 2026-09-27, `D-288`: for a `.md` representation, §4.6 governs, and it is accepted (`D-286`). The Markdown is always paired with the original article's URL; "cannot be reached by URL" means the original site blocks automated retrieval; a `.md` with no original URL is refused (`D-285`). The short wording above is read through §4.6 and authorizes nothing beyond it.)*
 
 > **`G39` — two concepts, one word.** In an editorial business the **topic is the subject**: what the article *is about*. Exactly one, held as `articles.topic_id`. **Analytical tags are separate and many** — `trend_signals` with `signal_type = 'topic_tag'` — and serve trending and different-angle analysis, not subject identity. The original wording *"≥1 topic tag"* read as cardinality on one concept when there are two. **The schema is correct as applied; only the wording was imprecise** (`D-38`). Author and publication date are auto-extracted where possible and flagged for Investigator review when extraction fails.
 
@@ -142,7 +150,7 @@ selection is `B117-R45`, still open.
 
 > **`FB-05` answered — the producer is defined `[V1]`.** `D-194` ratified the intake unit as **one
 > manually assembled editorial trigger package**, and `D-197` selected the two remaining choices.
-> **Supply:** the Chief Editor supplies `source_url`, the one subject topic, source information and
+> **Supply:** the Chief Editor supplies the **source reference** (`source_url`, or a manually prepared `.md` representation when the content cannot be reached by URL), the one subject topic, source information and
 > the trend-signal description **through the UI**. **The application does not generate these values
 > and must not claim it did**; where a value came from an upstream article, unknown upstream
 > authorship **stays unknown**.
@@ -167,7 +175,7 @@ selection is `B117-R45`, still open.
 
 **Two transitions, never collapsed into one.** That separation is the requirement, not an implementation detail: T2 establishes *the source is real and characterised*; T3 establishes *the story is worth pursuing and not duplicated*. Merging them loses the distinction between a bad source and a weak angle.
 
-- **T2 requires:** URL confirmed live; platform identified; source reliability tier set; author and publication date confirmed or entered.
+- **T2 requires:** the **source reference validated** — `source_url` confirmed live, **or** the supplied representation available and readable with its source information examinable (**never labelled *URL confirmed live***); platform identified; source reliability tier set; author and publication date confirmed or entered.
 - **T3 requires:** duplicate check passed; trend-signal evidence and reviewer confidence recorded; topic confirmed against the scope boundary; editorial angle identified.
 
 **Four-eyes:** `not_applicable` for both — within Line 1.
@@ -210,7 +218,7 @@ Every transition carries an independence classification. Three outcomes, and **n
 ## 4. User flow
 
 ```
-Chief Editor pastes URL
+Chief Editor supplies source reference (URL or .md)
   → T1 Reporter        logged, tagged, trend-signalled
   → T2 Investigator    source validated
   → T3 Investigator    evidence confirmed, angle identified
@@ -252,6 +260,12 @@ be exactly the "map by matching numbers" error `B-117` warns against.
 one owner: storyboard **Panel A11** (`DOR-R5`). It is a panel in the same storyboard, not a standalone UML
 or data-flow artifact, so this subsection's rule stands. It is authored, not yet accepted. The
 A2–A8-to-slot mapping above is still not asserted here.
+
+**`[V1]` Dated successor note, 2026-09-26 (`D-267`, from `docs/handoff/B-139` G1).** The sentence *"It is authored,
+not yet accepted"* above was true on 2026-09-24 and is now history: Panel A11 was accepted the same day by `D-259`
+(Chief Editor walkthrough and Lane B/C review, recorded in A11.5), and §4.4 already treats it as accepted. That
+acceptance covers `V1-SM05`'s `business:T1`–`T5` evidence journey (Option A, `D-260`) only. It does **not** assert the
+A2–A8-to-slot mapping, which stays unasserted here, and it does not extend Panel A10 beyond its `ManualReady` sequence.
 
 **Forward direction, recorded for later, not built now.** Once `V1-SM05`/`V1-SM06` are implemented,
 the intent behind this table is that the storyboard/UML/data-flow view for the built code becomes
@@ -363,11 +377,86 @@ anchor in the Product column; this section elaborates them and does not stand in
 anchored to `AC-23` through `SM05-N1`. `AC-01` keeps one meaning per tier as written; `Modular_PRD` §9's
 *"a transition row records executor"* clause stays with the later transition increment.
 
+### 4.5 Working editorial-metadata versions — bounded `S15` contract `[V1]` (`D-281`; `docs/handoff/B-096`)
+
+**Added 2026-09-27. Status: text accepted by the Judge (`D-282`), awaiting Lane B's verification.**
+*(Read "drafted and applied; awaiting the Judge's acceptance" until 2026-09-27; `D-282`.)* This section describes observable behaviour only. As in §4.3, it names no table, key, column or JSON
+layout: the physical design belongs to Lane B (`D-56`), and the data requirement is a separate `Modular_PRD` act
+(`SV-002` §3.3 `B-096.TR-DM-01`).
+
+**Parent: Choice A** (the Chief Editor, 2026-09-14; recorded by `D-281`). There are four kinds of fact, and each has
+exactly one authoritative place:
+- **current workflow state:** one typed field;
+- **state and publication history:** append-only typed events;
+- **working editorial metadata:** a versioned, append-only package, covered by this section;
+- **frozen explainable report:** insert-only snapshots.
+
+**Bound.** This covers what `V1-SM05` consumes: the first version, written by `SM05-N1`'s intake. Rules 2–4 hold for
+any later version. When and why a later version is triggered (a pre-gate correction under `G95`/`D-133`, or a
+reassessment) is **not** defined here, and `V1-SM05` offers no such edit. That remainder stays with `B-096`'s `S15`.
+
+| # | Rule | Observable when | Refused or never observed |
+|---|---|---|---|
+| 1 | **One package per commission.** Accepting a manual intake (`SM05-N1`) creates exactly one working editorial-metadata package for that commission (commission identity, §4.3). The package's identity never changes | The intake acceptance event is appended | A second package for the same commission; a package with no accepted intake |
+| 2 | **Versions are identified and ordered.** Each version has its own identity and a version number that increases by one within its package. **Version 1 is the intake as accepted.** Order comes from the version number, never from a timestamp | A package is read | Two versions with the same number; a gap in the numbering |
+| 3 | **Append-only.** A later version is a new version. No version is updated or deleted, and earlier versions stay readable. A change never overwrites an earlier version | Any version exists | An update or delete of any version is refused, and the version is unchanged afterwards |
+| 4 | **Separate from state (Choice A, both directions).** Writing a version never changes article or workflow state. A state change never writes, edits or requires a metadata version. The package carries no authoritative state | A version is written, or a state change occurs | State held or changed through the package; a state transition that rewrites metadata |
+| 5 | **Version 1 content.** The `FR-01` entry set: the **source reference** (§3.1, the `D-222` phrase), **exactly one subject topic** and the trend-signal description, plus source information. It also records the supplier (the Chief Editor) and the entry time, **as separate facts** from the executor (§3.1 `FB-05`, `D-197`). The application generates none of these values | `SM05-N1` completes | Any value claimed as application-generated; the `B-084` A4 template fields (`S2`, `S4`, `S6`–`S8`), unless a separate decision adds them (`B-141`) |
+| 6 | **Traceable.** Every visible metadata fact (`SM05-F1`) traces to one specific version of one package | The V1 UI shows a metadata fact | A displayed fact with no version source |
+| 7 | **Not the report.** A frozen explainable-report snapshot (`0002`'s `editorial_reports`) is never used as the working package, and never edited in its place | — | A report snapshot read or written as working metadata |
+
+**Open, and not decided here:**
+- ~~how a supplied `.md` representation is referenced and retained (`SV-002` §3.3 `D-219.R1`);~~ *settled by §4.6, which is accepted (`D-286`). Dated 2026-09-27, `D-288`; no change of meaning*
+- what triggers a later version (the remainder above);
+- the physical store and its migration (Lane B, at the `D-242` work order).
+
+`S16` (the report projection) is unaffected.
+
+### 4.6 Supplied `.md` representation — admission, reference and retention `[V1]` (`D-284`; `D-219`–`D-222`)
+
+**Added 2026-09-27. Status: text accepted by the Judge (`D-286`), as revised under the rulings in `D-285`; awaiting
+Lane B's verification.** *(Read "awaiting the Judge's acceptance" until 2026-09-27; `D-286`.)* This section defines `D-219`'s routed residual (`SV-002` §3.3 `D-219.R1`). `D-221` requires it to be
+defined before any readiness claim, and routing it does not count. It is behaviour only, and it uses the existing
+record: the working editorial-metadata package (§4.5, `TR-DM-07`). **No file service, upload interface, converter,
+OCR or new table is chosen** (`D-219`).
+
+**The pair model (Judge ruling, `D-285`).** A `.md` representation and its original article's URL are **a pair**:
+the Markdown carries the URL of the original source article. **"Cannot be reached by URL"** means the original site
+prevents automated retrieval, for example by blocking scraping. It never means the article has no URL. A source with
+no URL at all (print or offline) is not a `.md` intake; it stays with the separately backlogged physical-source
+workflow (`D-219`). Rows 1, 2, 3 and 6 were revised on 2026-09-27 (`D-285`).
+
+| # | Rule | Refused or never observed |
+|---|---|---|
+| 1 | **Form.** The representation is Markdown **text**, prepared manually by the Chief Editor (a human step, `D-219`) and supplied through the UI as text. **Resources such as images are referenced by link inside the Markdown** (Judge ruling, `D-285`). They are not embedded, fetched or retained; the links stay as text | A converted, OCR'd, uploaded-binary or application-fetched representation; embedded resources retained in place of their links |
+| 2 | **Admission.** A `.md` source is admitted only if **all** of these hold: the text is non-empty; **the original article's URL is recorded**; the supplier records, as a fact, that the original site prevents automated retrieval, so the content cannot be reached by URL (`D-285`); the source information identifies the original (what it is and where it appeared, with author and date nullable under `D-197` `B1`); and the supplier is recorded. If any part is missing, §3.1's named validation failure applies and `T1` does not complete | A `.md` intake with empty text, **no original URL**, no stated retrieval reason, or no identification of the original |
+| 3 | **Reference.** The source reference of a `.md` intake is **the pair**: the original article's URL, plus the representation identified by the **SHA-256 digest of its exact text**. **The duplicate check stays anchored on the source URL, for `.md` intakes as for URL intakes** (`G95`, `D-133`; Judge ruling `D-285`). The digest identifies the stored text; it is not the duplicate anchor. **A filename is never the reference and never evidence** (`D-219`) | A filename or path recorded as the reference; a duplicate check keyed on the digest instead of the source URL; two different texts sharing one digest |
+| 4 | **Retention.** The full text is retained inside the version payload of the commission's working editorial-metadata package (§4.5 rules 2–3). It is append-only: a correction is a new version with a new digest, and the earlier text stays readable. How long it is kept follows `RET-EDITORIAL`, cited, not restated | The text edited in place; a reference whose text is no longer retrievable |
+| 5 | **No authenticity claim.** The representation does not show that the original was online, authentic or reliable. No URL, network check, metadata or authorship is invented to fill a field (`D-219`). At `T2` it is examined under §3.2 ("available and readable, source information examinable"), never labelled *URL confirmed live* | A `.md` intake shown or recorded as URL-verified |
+| 6 | **Three fixtures** (`D-222`, the second worded under the pair model by `D-285`), carried into `V1-SM05`'s acceptance at Gate 2: a valid URL **passes**; an admitted Markdown representation whose original URL is recorded but cannot be reached **passes**; no source reference of any kind **fails** with the named validation failure | — |
+
+**Intake source scenarios `[V1]`** (added 2026-10-01, `D-373`; the Judge chose this home and the `FR-15` anchors).
+These rows give rule 6's three fixtures and rule 2's refusal one ID each, so readiness tooling can pin them. They
+carry `V1-SM05`'s DoD item "Intake source fixtures" (`D-287`, `D-288`) and add no rule. Cases 1–2 anchor to
+`AC-23` (accepted manual intake), and cases 3–4 to `AC-26` (missing prerequisites refused with a named reason).
+`V1-SM05` reaches `FR-01` only through `AC-02` (`D-261`), so `AC-01` is not an anchor.
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `SM05-IN1` `[V1]` | A manual intake whose source reference is a valid URL (rule 6) | It is submitted at `T1` | It **passes** source-reference validation; the accepted manual intake may then follow `AC-23` (`D-222`) |
+| `SM05-IN2` `[V1]` | A Markdown representation that meets rule 2: non-empty text, the original article's URL recorded, the recorded fact that the original site prevents automated retrieval, the original identified and the supplier recorded | It is submitted at `T1` | It **passes**. Its reference is the pair: the URL plus the SHA-256 digest of its exact text (rule 3). It is never shown as *URL confirmed live* (rule 5), and the accepted manual intake may then follow `AC-23` (`D-222`, `D-285`) |
+| `SM05-IN3` `[V1]` | An intake with no source reference of any kind (rule 6) | It is submitted at `T1` | It **fails** with §3.1's named validation failure; `T1` does not complete and nothing is admitted (`AC-26`; `D-222`) |
+| `SM05-IN4` `[V1]` | A Markdown representation with **no original URL** recorded (rule 2) | It is submitted at `T1` | It is **refused at admission** with the named validation failure; `T1` does not complete and nothing is admitted (`AC-26`; `D-285`, `D-288`) |
+
+**Open, and not decided here:**
+- a maximum text size (a physical limit, Lane B's under `D-56`, to be stated in the `D-242` work order);
+- what triggers a later version (§4.5's remainder, `B-096`).
+
 ## 5. Acceptance criteria
 
 | ID | Given | When | Then |
 |---|---|---|---|
-| `AC-01` `[V1]` | A Reporter agent is active | It logs a valid URL with **exactly one subject topic** and a trend signal | The article is created at the entry state |
+| `AC-01` `[V1]` | A Reporter agent is active | It logs **a valid source reference — a URL, or a supplied `.md` representation when the content cannot be reached by URL** — with **exactly one subject topic** and a trend signal; **analytical tags optional and many** | The article is created at the entry state |
 | `AC-01a` `[V1]` | An article exists with a subject topic | Analytical tags are added via `trend_signals` | **Many** are permitted; the subject topic is unchanged. *(`G39` — the two are distinct)* |
 | `AC-02` | An article with URL X exists | A second log of URL X is attempted | **Corrected 2026-08-30 (`D-121`, closing `B-061`'s finding) — the original criterion is retired, not merely unmet.** The article row **is** the editorial commission (`D-111`); two commissions on one source are two rows, so **the second log is ACCEPTED**, not rejected. The duplicate guard moved to same submitter + same brief hash + same day, refused at the surface (`G95`, `D-121`, `D-133`) — a different key than this row originally named |
 | `AC-03` | An article is at `Logged` | The Investigator validates, then investigates | **Two distinct transitions** are recorded |
@@ -458,7 +547,9 @@ requires (§2: an Editorial Virtual Node Agent is a logical workcell, not a pers
 identity) and marks each node's lifecycle explicitly so a reader cannot mistake a decided target for
 current behaviour.
 
-| Node | Transition mapping | Target executor role (`ROLE-*`, see `raci-involvement-matrix.md` §8) | Lifecycle |
+> **Namespace note `[V1]`, 2026-10-04 (`D-414`, GR-010).** The `EG1`–`EG5` nodes below are held technical-catalog context. They are not V1 `EG` task/evidence records (§4.4–§4.6), and a shared label is not identity or execution evidence.
+
+| Node | Transition mapping (held technical `transition:T*`, `D-414`) | Target executor role (`ROLE-*`, see `raci-involvement-matrix.md` §8) | Lifecycle |
 |---|---|---|---|
 | `EG1` | `T1` | `ROLE-REPORTER` | `decided_target_held` |
 | `EG2` | `T2`+`T3` | `ROLE-INVESTIGATOR` | `decided_target_held` |

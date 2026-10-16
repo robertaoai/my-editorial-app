@@ -68,6 +68,24 @@
       "source_file": "docs/v1/V1-DECISION-REGISTER.md",
       "source_location": "section 5.14e56",
       "weight": 1
+    },
+    {
+      "source": "d231_governed_intent_exclusion_matcher",
+      "target": "v1_build_spec",
+      "relation": "references",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e56 (edge added under D-383, B-110)",
+      "weight": 1
+    },
+    {
+      "source": "d231_governed_intent_exclusion_matcher",
+      "target": "v1_artifact_inventory",
+      "relation": "references",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e56 (edge added under D-383, B-110)",
+      "weight": 1
     }
   ]
 }

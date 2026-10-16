@@ -1,0 +1,661 @@
+{
+  "schema": "B-156 F2a verification v2",
+  "frozenRevision": "1640ff7bc1b7d1e70ab6a421ced8a054dafda993",
+  "head": "6234da497816ab8e957aa9374f1421a87d07eff5",
+  "citationsSha256": "ed93b1938ce42858edf0d35b348aa8221a176c52bfdee6080b42e0f13ee50786",
+  "scriptSha256": "4aca7c1ea49a6939a5421d1649b5d398a38a8afdb9e8001c78b505b71f04ecb6",
+  "paths": 16,
+  "citations": 59,
+  "unchangedAtHead": 16,
+  "failures": 0,
+  "rows": [
+    {
+      "path": ".onlyaiapp",
+      "slice": "F2a",
+      "group": "G1",
+      "order": 1,
+      "result": "no support located in the searched corpus (docs/ outside handoffs); intent unknown",
+      "ownership": "unknown",
+      "frozenBlob": "b13da40eec2ea755dbe75898b64852abf252e298",
+      "headBlob": "b13da40eec2ea755dbe75898b64852abf252e298",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "absent",
+          "pattern": "OnlyAIApp|\\.onlyaiapp",
+          "pathspecs": [
+            "docs",
+            ":!docs/handoff"
+          ],
+          "outcome": "pass (no match)"
+        }
+      ]
+    },
+    {
+      "path": "app/api/health/route.ts",
+      "slice": "F2a",
+      "group": "G1",
+      "order": 1,
+      "result": "no support located in the searched corpus (docs/ outside handoffs); intent unknown; shared setup authority assessed in F2b",
+      "ownership": "Lane B (mapped)",
+      "frozenBlob": "bcac49d26b8eeb1b44b390391d82229e2ab93625",
+      "headBlob": "bcac49d26b8eeb1b44b390391d82229e2ab93625",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "absent",
+          "pattern": "api/health",
+          "pathspecs": [
+            "docs",
+            ":!docs/handoff"
+          ],
+          "outcome": "pass (no match)"
+        },
+        {
+          "kind": "absent",
+          "pattern": "api/health",
+          "pathspecs": [
+            "app",
+            "lib",
+            "components",
+            "__tests__",
+            "scripts",
+            ".github"
+          ],
+          "outcome": "pass (no match)"
+        }
+      ]
+    },
+    {
+      "path": "app/globals.css",
+      "slice": "F2a",
+      "group": "G1",
+      "order": 1,
+      "result": "no support located in the searched corpus (docs/ outside handoffs); intent unknown; Tailwind toolchain linkage assessed in F2b",
+      "ownership": "Lane B (mapped)",
+      "frozenBlob": "f1d8c73cdcf9eaacb01fec99963ad78d591305ae",
+      "headBlob": "f1d8c73cdcf9eaacb01fec99963ad78d591305ae",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "absent",
+          "pattern": "globals\\.css",
+          "pathspecs": [
+            "docs",
+            ":!docs/handoff"
+          ],
+          "outcome": "pass (no match)"
+        }
+      ]
+    },
+    {
+      "path": "app/layout.tsx",
+      "slice": "F2a",
+      "group": "G1",
+      "order": 1,
+      "result": "no support located in the searched corpus (docs/ outside handoffs); intent unknown; shared setup authority assessed in F2b",
+      "ownership": "Lane B (mapped)",
+      "frozenBlob": "2755da6abc513df542c4714dced7fb842f63990d",
+      "headBlob": "2755da6abc513df542c4714dced7fb842f63990d",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "app/layout.tsx",
+          "line": 5,
+          "needle": "vibe-stack-supabase",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 3969,
+          "needle": "vibe-stack-supabase",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/governance/agent-rules-reference.md",
+          "line": 387,
+          "needle": "template boilerplate",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "lib/supabase/client.ts",
+      "slice": "F2a",
+      "group": "G1",
+      "order": 1,
+      "result": "supported agreement with AC-NF-04 by code reading; no importer found for the checked spellings (aliases not resolved); verification unknown",
+      "ownership": "Lane B (mapped)",
+      "frozenBlob": "2ad25911da51c4cf9b1985a11520d90620a66e0a",
+      "headBlob": "2ad25911da51c4cf9b1985a11520d90620a66e0a",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/Modular_PRD.md",
+          "line": 1135,
+          "needle": "AC-NF-04",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "lib/supabase/client.ts",
+          "line": 6,
+          "needle": "NEXT_PUBLIC_SUPABASE_ANON_KEY",
+          "outcome": "pass"
+        },
+        {
+          "kind": "absent",
+          "pattern": "lib/supabase/client",
+          "pathspecs": [
+            "app",
+            "lib",
+            "components",
+            "__tests__",
+            "middleware.ts"
+          ],
+          "outcome": "pass (no match)"
+        },
+        {
+          "kind": "absent",
+          "pattern": "./client['\"]|createBrowserClient",
+          "pathspecs": [
+            "app",
+            "lib",
+            "components",
+            "__tests__",
+            "middleware.ts",
+            ":!lib/supabase/client.ts"
+          ],
+          "outcome": "pass (no match)"
+        }
+      ]
+    },
+    {
+      "path": "supabase/.gitignore",
+      "slice": "F2a",
+      "group": "G1",
+      "order": 1,
+      "result": "supported agreement, limited to the inspected ignore patterns (D-120 act output); not proof of repository-wide secret absence",
+      "ownership": "Lane B (mapped)",
+      "frozenBlob": "ad9264f0b14b294627f8e77383875c994af54865",
+      "headBlob": "ad9264f0b14b294627f8e77383875c994af54865",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/LANE-B-WORK-ORDER.md",
+          "line": 122,
+          "needle": "supabase init",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-BUILD-SPEC.md",
+          "line": 657,
+          "needle": "is Lane B's act",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "AGENTS.md",
+          "line": 21,
+          "needle": "anywhere in the repository",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "supabase/.gitignore",
+          "line": 6,
+          "needle": ".env.keys",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "scripts/checks/terminal-return.mjs",
+      "slice": "F2a",
+      "group": "G1",
+      "order": 2,
+      "result": "supported agreement; missing support at the Artifact Inventory tier",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "cd04fcd466929edbac7bab07a75195dabf8f2172",
+      "headBlob": "cd04fcd466929edbac7bab07a75195dabf8f2172",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/Modular_PRD.md",
+          "line": 879,
+          "needle": "terminal-return",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md",
+          "line": 205,
+          "needle": "AIG-02.C2",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/specs/SPECS-MULTI-LANE-AI-GOVERNANCE.md",
+          "line": 107,
+          "needle": "terminal-return.mjs",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/handoff/README.md",
+          "line": 409,
+          "needle": "history-aware half",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 24287,
+          "needle": "terminal-return",
+          "outcome": "pass"
+        },
+        {
+          "kind": "absent",
+          "pattern": "terminal-return",
+          "pathspecs": [
+            "docs/v1/V1-ARTIFACT-INVENTORY.md"
+          ],
+          "outcome": "pass (no match)"
+        }
+      ]
+    },
+    {
+      "path": "supabase/tests/database/s1_transition_enforcement.test.sql",
+      "slice": "F2a",
+      "group": "G1",
+      "order": 2,
+      "result": "supported agreement (intent, implementation, verification); difference between governing tiers",
+      "ownership": "Lane B (mapped)",
+      "frozenBlob": "043bcd451e5ae64c9eb508180322212a6388584d",
+      "headBlob": "043bcd451e5ae64c9eb508180322212a6388584d",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 2962,
+          "needle": "C-33",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 2983,
+          "needle": "Closes when a disposable PostgreSQL",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/LANE-B-WORK-ORDER.md",
+          "line": 128,
+          "needle": "eight-case contract",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-PHASE-CLOSURE.md",
+          "line": 430,
+          "needle": "is satisfied",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-BUILD-SPEC.md",
+          "line": 660,
+          "needle": "NOT yet earned",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/handoff/B-044-s1-trigger-has-static-not-postgres-test.md",
+          "line": 10,
+          "needle": "Verified",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "supabase/tests/database/s1_transition_enforcement.test.sql",
+          "line": 4,
+          "needle": "plan(30)",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/merge6.js",
+      "slice": "F2a",
+      "group": "G2",
+      "order": 3,
+      "result": "supported agreement (retained history); not on the guarded route",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "db4bd706d72cc619165e2fee57a783f4f1c4d4f2",
+      "headBlob": "db4bd706d72cc619165e2fee57a783f4f1c4d4f2",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 111,
+          "needle": "merge6.js` is retained for history",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/merge7.js",
+          "line": 6,
+          "needle": "Supersedes merge6.js",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/merge6.js",
+          "line": 4,
+          "needle": "./.graphify/graph.json",
+          "outcome": "pass"
+        },
+        {
+          "kind": "absent",
+          "pattern": "merge6",
+          "pathspecs": [
+            "scripts"
+          ],
+          "outcome": "pass (no match)"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/merge7.js",
+      "slice": "F2a",
+      "group": "G2",
+      "order": 3,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "3d0d2db54f31034548c05e1ceaaac22faafb6c44",
+      "headBlob": "3d0d2db54f31034548c05e1ceaaac22faafb6c44",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 111,
+          "needle": "reference merge script",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/governance/agent-rules-reference.md",
+          "line": 179,
+          "needle": "merge7.js",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/graphify/guarded-rebuild.mjs",
+          "line": 1350,
+          "needle": "merge7.js",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/missing.js",
+      "slice": "F2a",
+      "group": "G2",
+      "order": 3,
+      "result": "difference (Build Spec role vs README / D-246 role)",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "73eff0f17af78f7774b73fc73295d4bea68a72c0",
+      "headBlob": "73eff0f17af78f7774b73fc73295d4bea68a72c0",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 177,
+          "needle": "remains as a reference report",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-BUILD-SPEC.md",
+          "line": 531,
+          "needle": "`missing.js` — is verification apparatus",
+          "outcome": "pass"
+        },
+        {
+          "kind": "noFile",
+          "path": "scripts/checks/shared-core-hash.mjs",
+          "outcome": "pass (absent; successful tree lookup)"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/prune-stale-symbols.js",
+      "slice": "F2a",
+      "group": "G2",
+      "order": 3,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "fb92f8b1794da50bbaa2413257786f2d9466311b",
+      "headBlob": "fb92f8b1794da50bbaa2413257786f2d9466311b",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 54,
+          "needle": "D-421",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 138,
+          "needle": "after the restore and before the merges",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/graphify/guarded-rebuild.mjs",
+          "line": 1346,
+          "needle": "prune-stale-symbols.js",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/prune-stale-symbols.test.mjs",
+      "slice": "F2a",
+      "group": "G2",
+      "order": 3,
+      "result": "supported agreement: retained run 10/10 at 526972e on bytes unchanged to 1640ff7, independently reviewed by Lane B; no fresh run at 1640ff7",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "8d5b0a0abb7bd056f7733a7b8c09ccdbc6b4517e",
+      "headBlob": "8d5b0a0abb7bd056f7733a7b8c09ccdbc6b4517e",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 55,
+          "needle": "prune-stale-symbols.test.mjs",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "package.json",
+          "line": 11,
+          "needle": "\"test\": \"bun test\"",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/handoff/B-050-hook-rebuild-resets-graphify-branch-metadata.md",
+          "line": 1790,
+          "needle": "Prune tests 10/10",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/handoff/B-050-hook-rebuild-resets-graphify-branch-metadata.md",
+          "line": 1841,
+          "needle": "Lane B D-423 review",
+          "outcome": "pass"
+        },
+        {
+          "kind": "sameBlob",
+          "path": "docs/graph-fragments/prune-stale-symbols.test.mjs",
+          "from": "526972e",
+          "to": "1640ff7bc1b7d1e70ab6a421ced8a054dafda993",
+          "blob": "8d5b0a0abb7bd056f7733a7b8c09ccdbc6b4517e",
+          "outcome": "pass"
+        },
+        {
+          "kind": "sameBlob",
+          "path": "docs/graph-fragments/prune-stale-symbols.js",
+          "from": "526972e",
+          "to": "1640ff7bc1b7d1e70ab6a421ced8a054dafda993",
+          "blob": "fb92f8b1794da50bbaa2413257786f2d9466311b",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/restore-docs-layer.js",
+      "slice": "F2a",
+      "group": "G2",
+      "order": 3,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "6b74595f93062a268e2946e6c4cfb6e55c8b4afe",
+      "headBlob": "6b74595f93062a268e2946e6c4cfb6e55c8b4afe",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 94,
+          "needle": "D-246",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 18351,
+          "needle": "restore-docs-layer.js",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 123,
+          "needle": "restore-docs-layer.js",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/graphify/guarded-rebuild.mjs",
+          "line": 1343,
+          "needle": "restore-docs-layer.js",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "middleware.ts",
+      "slice": "F2a",
+      "group": "G1",
+      "order": 4,
+      "result": "no file-level support located in the searched corpus; consistent with the no-login-wall rule; intent unknown",
+      "ownership": "proposed Lane B (classifier gap)",
+      "frozenBlob": "18f94ad0e12809cbf1c259f3d6fec4c1bcbac31a",
+      "headBlob": "18f94ad0e12809cbf1c259f3d6fec4c1bcbac31a",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/Modular_PRD.md",
+          "line": 642,
+          "needle": "no login wall",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/governance/agent-rules-reference.md",
+          "line": 122,
+          "needle": "no login wall in v1",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/Modular_PRD.md",
+          "line": 1176,
+          "needle": "Decided (`D-143`",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/journal/2026-08-16-sprint-plan.md",
+          "line": 69,
+          "needle": "middleware.ts",
+          "outcome": "pass"
+        },
+        {
+          "kind": "absent",
+          "pattern": "redirect",
+          "pathspecs": [
+            "lib/supabase/middleware.ts",
+            "middleware.ts"
+          ],
+          "outcome": "pass (no match)"
+        }
+      ]
+    },
+    {
+      "path": ".env.example",
+      "slice": "F2a",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement with the TR-API-03 and X8/NG-03 statements; values limited to the inspected placeholders; not proof of repository-wide secret absence",
+      "ownership": "proposed Lane B (classifier gap)",
+      "frozenBlob": "43861d09a2a5a268c74a2e0925f576beb369a884",
+      "headBlob": "43861d09a2a5a268c74a2e0925f576beb369a884",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/Modular_PRD.md",
+          "line": 639,
+          "needle": "declared in `.env.example`",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/governance/agent-rules-reference.md",
+          "line": 426,
+          "needle": "NG-03",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "AGENTS.md",
+          "line": 21,
+          "needle": "anywhere in the repository",
+          "outcome": "pass"
+        }
+      ]
+    }
+  ]
+}

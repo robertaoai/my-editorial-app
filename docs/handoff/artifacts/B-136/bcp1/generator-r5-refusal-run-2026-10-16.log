@@ -1,0 +1,14 @@
+command: node make-transfer-manifest-r5.mjs
+generator sha256: 89e98127e23560e827ae081f8fc7e99f9b3904d647e4b4a5e017a6a1574587b4
+manifest r5 sha256 before: ce26fd73adcba7de4d893ceca0bc6a92f3550c4d7298cfc37c92a896c41138ad
+time: 2026-10-16T04:27:10Z
+--- output ---
+file:///C:/CoWork/outputs/lane-a-bcp1-filemap-2026-10-15/make-transfer-manifest-r5.mjs:70
+if (existsSync(join(OUT, "lane-a-bcp1-filemap-2026-10-15/TRANSFER-MANIFEST-r5.md"))) throw new Error("TRANSFER-MANIFEST-r5.md exists — refusing to overwrite");
+                                                                                           ^
+
+Error: TRANSFER-MANIFEST-r5.md exists — refusing to overwrite
+
+Node.js v24.18.0
+exit: 1
+manifest r5 sha256 after: ce26fd73adcba7de4d893ceca0bc6a92f3550c4d7298cfc37c92a896c41138ad
