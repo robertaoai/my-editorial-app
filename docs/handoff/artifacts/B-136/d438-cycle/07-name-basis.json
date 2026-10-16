@@ -1,0 +1,791 @@
+[
+ {
+  "community": 68,
+  "hash": "a146c5e091df5499b5ecac814866b55b4dcacd15e206873856f7bc06050c448d",
+  "rule": "written from members (best R1 overlap 0.00)",
+  "name": "D-438 Applying Helper, Revision 2",
+  "members": 19,
+  "sample": [
+   "ir-apply-r2.mjs",
+   "SLOTS",
+   "MANIFEST",
+   "BOUND"
+  ]
+ },
+ {
+  "community": 69,
+  "hash": "2137d0c2752cbf9823622605e8ba07b35f099db4f1d84b51b01140a6e304a1af",
+  "rule": "written from members (best R1 overlap 0.00)",
+  "name": "D-438 Applying Helper, Revision 1",
+  "members": 19,
+  "sample": [
+   "ir-apply.mjs",
+   "SLOTS",
+   "MANIFEST",
+   "BOUND"
+  ]
+ },
+ {
+  "community": 92,
+  "hash": "3c087e48971135d898324a17243b4b703a0465e0a34b63dae17773b5d9179223",
+  "rule": "R1 successor (Jaccard 0.87)",
+  "name": "B-157 Reconciliation Revision 2 and Controls",
+  "members": 15
+ },
+ {
+  "community": 2,
+  "hash": "9b2a3f360c0be8f28312f7f9712da1f7d300f4563104edef9b136eb05711f67f",
+  "rule": "R1 successor (Jaccard 0.94)",
+  "name": "Guard Test Harness and D-425–D-426 Build Commits",
+  "members": 54
+ },
+ {
+  "community": 11,
+  "hash": "2011088a18bb1d8c4d10359f7fda5f48183d5bd9623573f49a346af46b172ddf",
+  "rule": "commit-group rule",
+  "name": "B-156/B-157 Handoff Commits",
+  "commits": 35,
+  "members": 35,
+  "decisions": [],
+  "topEntries": [
+   [
+    "B-156",
+    20
+   ],
+   [
+    "B-157",
+    3
+   ]
+  ]
+ },
+ {
+  "community": 30,
+  "hash": "3436d0c0dc6a27adae2546c8ecbce6cdb2b3eeef852e7cf09749a78897d0158a",
+  "rule": "commit-group rule",
+  "name": "D-434–D-435 B-050/B-136 Commits",
+  "commits": 24,
+  "members": 25,
+  "decisions": [
+   434,
+   435
+  ],
+  "topEntries": [
+   [
+    "B-136",
+    12
+   ],
+   [
+    "B-050",
+    2
+   ],
+   [
+    "B-156",
+    2
+   ],
+   [
+    "B-157",
+    1
+   ]
+  ]
+ },
+ {
+  "community": 105,
+  "hash": "d9458ea372beb5ac63fcfcd46399e08624f80b826d55eb27c06403a4691a08ef",
+  "rule": "commit-group rule",
+  "name": "D-436 B-050/B-136 Commits",
+  "commits": 13,
+  "members": 13,
+  "decisions": [
+   436
+  ],
+  "topEntries": [
+   [
+    "B-136",
+    8
+   ],
+   [
+    "B-050",
+    2
+   ]
+  ]
+ },
+ {
+  "community": 116,
+  "hash": "27844124b5de4245721520f67250fe02f3cd93c55e499e461b6d6e92d7ca8c3b",
+  "rule": "commit-group rule",
+  "name": "B-136 Handoff Commits",
+  "commits": 11,
+  "members": 11,
+  "decisions": [],
+  "topEntries": [
+   [
+    "B-136",
+    5
+   ]
+  ]
+ },
+ {
+  "community": 121,
+  "hash": "2450b6a9e11e4f4a564fb47b4fbf40ec54a3a58390e7ffc0a81e989133c937d5",
+  "rule": "commit-group rule",
+  "name": "B-136 Handoff Commits (06107fc…)",
+  "commits": 10,
+  "members": 10,
+  "decisions": [],
+  "topEntries": [
+   [
+    "B-136",
+    7
+   ]
+  ]
+ },
+ {
+  "community": 80,
+  "hash": "71f4062010a0a72a22e77b61d13f86b567f54d2179fbd355ba04b531d7e437dc",
+  "rule": "commit-group rule",
+  "name": "D-433 B-050/B-136 Commits",
+  "commits": 17,
+  "members": 17,
+  "decisions": [
+   433
+  ],
+  "topEntries": [
+   [
+    "B-136",
+    9
+   ],
+   [
+    "B-050",
+    2
+   ]
+  ]
+ },
+ {
+  "community": 45,
+  "hash": "15ae93abe9281c5c1dc1036fb45f864b8935cb90ed24d31fce581fcc1bf4a1c7",
+  "rule": "commit-group rule",
+  "name": "D-433–D-434 B-136/B-156 Commits",
+  "commits": 23,
+  "members": 23,
+  "decisions": [
+   433,
+   434
+  ],
+  "topEntries": [
+   [
+    "B-156",
+    11
+   ],
+   [
+    "B-136",
+    10
+   ],
+   [
+    "B-050",
+    2
+   ]
+  ]
+ },
+ {
+  "community": 52,
+  "hash": "db0e16572fa2a7c6d9a5ff9d66658b3f5b5673c6545687d85968b24281378569",
+  "rule": "commit-group rule",
+  "name": "D-438 B-136 Commits",
+  "commits": 22,
+  "members": 22,
+  "decisions": [
+   438
+  ],
+  "topEntries": [
+   [
+    "B-136",
+    13
+   ]
+  ]
+ },
+ {
+  "community": 112,
+  "hash": "e587f8867507ca7ae1a38a7b419aa9b6b27e4075d2deb353628b896b5d7ae371",
+  "rule": "commit-group rule",
+  "name": "D-435–D-436 B-050/B-136 Commits",
+  "commits": 12,
+  "members": 12,
+  "decisions": [
+   435,
+   436
+  ],
+  "topEntries": [
+   [
+    "B-136",
+    5
+   ],
+   [
+    "B-050",
+    2
+   ]
+  ]
+ },
+ {
+  "community": 125,
+  "hash": "2f2830ae589813bf5ae666861d8886c7b4265187c77dc9c4f2a1644638eea108",
+  "rule": "commit-group rule",
+  "name": "B-136 Handoff Commits (1cf821a…)",
+  "commits": 10,
+  "members": 10,
+  "decisions": [],
+  "topEntries": [
+   [
+    "B-136",
+    3
+   ]
+  ]
+ },
+ {
+  "community": 133,
+  "hash": "3b8e502d93f5575ae5cada8f51bbeccd4dae56a3fbc233d2ecb3b249cda5cd46",
+  "rule": "commit-group rule",
+  "name": "B-136 Handoff Commits (320c9cb…)",
+  "commits": 9,
+  "members": 9,
+  "decisions": [],
+  "topEntries": [
+   [
+    "B-136",
+    8
+   ]
+  ]
+ },
+ {
+  "community": 138,
+  "hash": "17596143778b96e07f6e6c49959d9f8f03c6f7bd2049ba36c9ec6c1f80ad49a9",
+  "rule": "commit-group rule",
+  "name": "B-136 Handoff Commits (38b8ef2…)",
+  "commits": 8,
+  "members": 8,
+  "decisions": [],
+  "topEntries": [
+   [
+    "B-136",
+    7
+   ]
+  ]
+ },
+ {
+  "community": 113,
+  "hash": "27256e3bdccf4f7e6691b50aea1a6afa7f164794197d1af465162fdb5446a0c1",
+  "rule": "commit-group rule",
+  "name": "B-136 Handoff Commits (3bbdf00…)",
+  "commits": 12,
+  "members": 12,
+  "decisions": [],
+  "topEntries": [
+   [
+    "B-136",
+    9
+   ]
+  ]
+ },
+ {
+  "community": 31,
+  "hash": "eefa7e47ee65e5ea8338beac98b891980324ef4eeb2fc844ee7cd6f28f87cad8",
+  "rule": "commit-group rule",
+  "name": "D-385–D-432 B-077/B-154 Commits",
+  "commits": 25,
+  "members": 25,
+  "decisions": [
+   385,
+   430,
+   431,
+   432
+  ],
+  "topEntries": [
+   [
+    "B-077",
+    9
+   ],
+   [
+    "B-154",
+    8
+   ],
+   [
+    "B-050",
+    4
+   ],
+   [
+    "B-136",
+    2
+   ]
+  ]
+ },
+ {
+  "community": 38,
+  "hash": "6d25082e3ada8f8524ef5bcb1190c0999b1e8ee2c46d3a4fc339b3730fe745f3",
+  "rule": "commit-group rule",
+  "name": "D-416–D-429 B-050/B-154 Commits",
+  "commits": 24,
+  "members": 24,
+  "decisions": [
+   416,
+   429
+  ],
+  "topEntries": [
+   [
+    "B-050",
+    17
+   ],
+   [
+    "B-154",
+    8
+   ],
+   [
+    "B-077",
+    4
+   ]
+  ]
+ },
+ {
+  "community": 28,
+  "hash": "f501b4d991ed10666724de1363d0619667f8376afbf7a0edacf229c515c99fce",
+  "rule": "commit-group rule",
+  "name": "D-432 B-050/B-136 Commits",
+  "commits": 26,
+  "members": 26,
+  "decisions": [
+   432
+  ],
+  "topEntries": [
+   [
+    "B-136",
+    21
+   ],
+   [
+    "B-050",
+    2
+   ]
+  ]
+ },
+ {
+  "community": 149,
+  "hash": "459305ff5902d8de0e63fbd1aa8d04ffac6611a5f72b0370d675f519bcd0c829",
+  "rule": "commit-group rule",
+  "name": "D-426–D-429 B-050/B-154 Commits",
+  "commits": 6,
+  "members": 6,
+  "decisions": [
+   426,
+   427,
+   429
+  ],
+  "topEntries": [
+   [
+    "B-050",
+    3
+   ],
+   [
+    "B-154",
+    1
+   ]
+  ]
+ },
+ {
+  "community": 88,
+  "hash": "67fe149c38592fee1cf4ebc070f0e713990e5ffee2f1f073585c1f3ef3cd7df0",
+  "rule": "commit-group rule",
+  "name": "D-425 B-050/B-154 Commits",
+  "commits": 16,
+  "members": 16,
+  "decisions": [
+   425
+  ],
+  "topEntries": [
+   [
+    "B-154",
+    12
+   ],
+   [
+    "B-050",
+    11
+   ]
+  ]
+ },
+ {
+  "community": 137,
+  "hash": "7e01b5e70ea26940a8533edb348d7ce05eea571d5b1ae7f5c09ad67f4fdc86d4",
+  "rule": "commit-group rule",
+  "name": "D-426–D-427 B-050 Commits",
+  "commits": 8,
+  "members": 8,
+  "decisions": [
+   426,
+   427
+  ],
+  "topEntries": [
+   [
+    "B-050",
+    3
+   ]
+  ]
+ },
+ {
+  "community": 40,
+  "hash": "443611bfebb396845ae7c5c22dfb1923b96b6ae2ecc6039af6cdea7d87aa0923",
+  "rule": "commit-group rule",
+  "name": "D-424–D-425 B-050/B-154 Commits",
+  "commits": 24,
+  "members": 24,
+  "decisions": [
+   424,
+   425
+  ],
+  "topEntries": [
+   [
+    "B-050",
+    11
+   ],
+   [
+    "B-154",
+    10
+   ],
+   [
+    "B-136",
+    2
+   ]
+  ]
+ },
+ {
+  "community": 47,
+  "hash": "e642aa2fe53d0d543c740941ce77d8ddb205e48b01842448b805deb60084893d",
+  "rule": "commit-group rule",
+  "name": "D-420–D-424 B-050/B-154 Commits",
+  "commits": 23,
+  "members": 23,
+  "decisions": [
+   420,
+   421,
+   422,
+   423,
+   424
+  ],
+  "topEntries": [
+   [
+    "B-050",
+    7
+   ],
+   [
+    "B-154",
+    2
+   ],
+   [
+    "B-136",
+    1
+   ]
+  ]
+ },
+ {
+  "community": 27,
+  "hash": "1e8320515d9ddafabc516f8ec4170af697314ede74ca5ac5b66e5b9e50674bfa",
+  "rule": "commit-group rule",
+  "name": "D-408–D-412 B-050/B-154 Commits",
+  "commits": 26,
+  "members": 26,
+  "decisions": [
+   408,
+   409,
+   410,
+   411,
+   412
+  ],
+  "topEntries": [
+   [
+    "B-154",
+    6
+   ],
+   [
+    "B-050",
+    2
+   ],
+   [
+    "B-084",
+    2
+   ],
+   [
+    "B-095",
+    2
+   ]
+  ]
+ },
+ {
+  "community": 60,
+  "hash": "86b0a27a79ddfe7072fa0cca1a22e5734b3f9184f4eef32abeab189518000854",
+  "rule": "commit-group rule",
+  "name": "D-405–D-408 B-106/B-154 Commits",
+  "commits": 21,
+  "members": 21,
+  "decisions": [
+   405,
+   406,
+   407,
+   408
+  ],
+  "topEntries": [
+   [
+    "B-106",
+    6
+   ],
+   [
+    "B-154",
+    4
+   ],
+   [
+    "B-050",
+    2
+   ]
+  ]
+ },
+ {
+  "community": 37,
+  "hash": "b9d020b89e394d631c6be2954753bf320c12d9c24d7cb11d4d78ad9c2048e6e9",
+  "rule": "commit-group rule",
+  "name": "D-403–D-404 B-050/B-070 Commits",
+  "commits": 24,
+  "members": 24,
+  "decisions": [
+   403,
+   404
+  ],
+  "topEntries": [
+   [
+    "B-070",
+    3
+   ],
+   [
+    "B-050",
+    2
+   ],
+   [
+    "B-154",
+    2
+   ],
+   [
+    "B-061",
+    1
+   ]
+  ]
+ },
+ {
+  "community": 15,
+  "hash": "39a231955d2623d17edc593d2b9c6811bdc7f50bf58f8f3c2219ed007c84566f",
+  "rule": "commit-group rule",
+  "name": "D-231–D-402 B-154/B-155 Commits",
+  "commits": 33,
+  "members": 33,
+  "decisions": [
+   231,
+   246,
+   395,
+   398,
+   399,
+   400,
+   401,
+   402
+  ],
+  "topEntries": [
+   [
+    "B-155",
+    9
+   ],
+   [
+    "B-154",
+    6
+   ],
+   [
+    "B-014",
+    2
+   ],
+   [
+    "B-021",
+    1
+   ]
+  ]
+ },
+ {
+  "community": 22,
+  "hash": "9cff7b56d5df85def01643539e529dca2134d5f3fde5046d65e469220a66aa6e",
+  "rule": "commit-group rule",
+  "name": "D-393–D-397 B-114/B-115 Commits",
+  "commits": 28,
+  "members": 28,
+  "decisions": [
+   393,
+   394,
+   395,
+   396,
+   397
+  ],
+  "topEntries": [
+   [
+    "B-115",
+    5
+   ],
+   [
+    "B-114",
+    4
+   ],
+   [
+    "B-154",
+    4
+   ],
+   [
+    "B-021",
+    1
+   ]
+  ]
+ },
+ {
+  "community": 13,
+  "hash": "33583375f237b0ac87c5cc51e462486606e0a3f7faf6b5660fb08520df72f838",
+  "rule": "commit-group rule",
+  "name": "D-278–D-392 B-150/B-154 Commits",
+  "commits": 34,
+  "members": 34,
+  "decisions": [
+   278,
+   364,
+   383,
+   384,
+   385,
+   386,
+   387,
+   388,
+   389,
+   390,
+   391,
+   392
+  ],
+  "topEntries": [
+   [
+    "B-154",
+    9
+   ],
+   [
+    "B-150",
+    7
+   ],
+   [
+    "B-115",
+    4
+   ],
+   [
+    "B-153",
+    3
+   ]
+  ]
+ },
+ {
+  "community": 33,
+  "hash": "94fdda67af4e2b9d79cc28ddd586367cb7ed726e984bc000832b570c2c4e7265",
+  "rule": "commit-group rule",
+  "name": "D-364–D-383 B-103/B-150 Commits",
+  "commits": 25,
+  "members": 25,
+  "decisions": [
+   364,
+   375,
+   378,
+   379,
+   380,
+   381,
+   382,
+   383
+  ],
+  "topEntries": [
+   [
+    "B-150",
+    13
+   ],
+   [
+    "B-103",
+    3
+   ],
+   [
+    "B-116",
+    3
+   ],
+   [
+    "B-110",
+    2
+   ]
+  ]
+ },
+ {
+  "community": 150,
+  "hash": "3c1bafca260bda4b27471bd269e47073d4c93e5c9ef2f715117154df25a8ecde",
+  "rule": "commit-group rule",
+  "name": "D-364–D-365 B-130/B-152 Commits",
+  "commits": 5,
+  "members": 5,
+  "decisions": [
+   364,
+   365
+  ],
+  "topEntries": [
+   [
+    "B-152",
+    2
+   ],
+   [
+    "B-130",
+    1
+   ],
+   [
+    "B-150",
+    1
+   ]
+  ]
+ },
+ {
+  "community": 25,
+  "hash": "cc36882a922407ca4115f294f71fa45484bfe979087b3527f78be84ebbd3e3ba",
+  "rule": "commit-group rule",
+  "name": "D-324–D-364 B-130 Commits",
+  "commits": 27,
+  "members": 27,
+  "decisions": [
+   324,
+   337,
+   338,
+   339,
+   340,
+   341,
+   342,
+   343,
+   344,
+   345,
+   346,
+   347,
+   348,
+   349,
+   350,
+   351,
+   352,
+   353,
+   354,
+   355,
+   356,
+   357,
+   358,
+   359,
+   360,
+   361,
+   362,
+   363,
+   364
+  ],
+  "topEntries": [
+   [
+    "B-130",
+    1
+   ]
+  ]
+ }
+]

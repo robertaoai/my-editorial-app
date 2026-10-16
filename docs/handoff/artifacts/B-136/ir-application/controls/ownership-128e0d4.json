@@ -1,0 +1,231 @@
+{
+ "base": "128e0d4",
+ "rule": "every line naming D-438 must equal a reviewed IR-owned line by (path, sha256 of exact line text)",
+ "entries": [
+  {
+   "path": "docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md",
+   "line": 12993,
+   "sha256": "7f3522642f76ef0c40dfebfd3a840328ec071e4389c2e02170be68e23c66c85d"
+  },
+  {
+   "path": "docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md",
+   "line": 12996,
+   "sha256": "504f9d55371f2d7a9c73b08d9044fc0ddffdf55d544320c54d82477fb461461a"
+  },
+  {
+   "path": "docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md",
+   "line": 13016,
+   "sha256": "2429f2d1bcd1b1d20a64a46a6fad9b1187184eee98d62fa9405f2459aa1294e9"
+  },
+  {
+   "path": "docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md",
+   "line": 13028,
+   "sha256": "0dbc304b9467965eb4a7f6876df9d16b159128ca8219836f85b994a36ba54a21"
+  },
+  {
+   "path": "docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md",
+   "line": 13039,
+   "sha256": "1dcf60aebeac280441b60a68b7d05a9b4403533b6c9e836c167601d7477ea63e"
+  },
+  {
+   "path": "docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md",
+   "line": 13045,
+   "sha256": "04cdfb6f76e23463b3ab7013d3d6cc3dfd5ae148fcac3dec74e0ca3ea8c5e9f0"
+  },
+  {
+   "path": "docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md",
+   "line": 13047,
+   "sha256": "b50d29d144988f6b81be4c247f277d52464a456a5f7b295513eafed1f5e5f032"
+  },
+  {
+   "path": "docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md",
+   "line": 13052,
+   "sha256": "7f067eb418c151d8c3134b9ad8b7eecd7aacaebcc9a8f8e181acb442543b1ef7"
+  },
+  {
+   "path": "docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md",
+   "line": 13063,
+   "sha256": "900ce31a3bd40134eac1c5ee0abb46a7de36348ede2e4dd3c119fe37de5e213b"
+  },
+  {
+   "path": "docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md",
+   "line": 13069,
+   "sha256": "2d118c24e302dbe391b49e94ecbf58909844f30f331f953a0ac4548dc03920be"
+  },
+  {
+   "path": "docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md",
+   "line": 13076,
+   "sha256": "adfea232e4f0461827ff83e75d144016c43a9e83d09552ee0211baaf63958082"
+  },
+  {
+   "path": "docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md",
+   "line": 13093,
+   "sha256": "1520ee5d380663a7c445ef51fb55d8020c7a19ef7b070d56ba2006d8740647a7"
+  },
+  {
+   "path": "docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md",
+   "line": 13098,
+   "sha256": "afe77667a2755cc2a05c6a1b4f63a2976bc2522b3a25ce0c53afaf38940d3b0a"
+  },
+  {
+   "path": "docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md",
+   "line": 13100,
+   "sha256": "96a726f9ae2a82f25e279dd920af4244fbe6f3886a18de08f622659d1027ac0f"
+  },
+  {
+   "path": "docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md",
+   "line": 13116,
+   "sha256": "3856abd35f09f4be93d6a2c17c2f3ccfe0b6cb80552a202504a8106667b1fc45"
+  },
+  {
+   "path": "docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md",
+   "line": 13144,
+   "sha256": "6688cf8fd792f0c297eb64e18e558c5620054646fbe3bc14389dcd6992537f64"
+  },
+  {
+   "path": "docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md",
+   "line": 13153,
+   "sha256": "c21be4c518ae92be79d81b77065bc0552bf8161f5c42072b60c5f77cafc8c3ac"
+  },
+  {
+   "path": "docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md",
+   "line": 13197,
+   "sha256": "306f7b77cdb46d5b79ae8e66683f0362495da874e877646678df0febb5330aeb"
+  },
+  {
+   "path": "docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md",
+   "line": 13262,
+   "sha256": "112d295470c1e78d32f178a949825769cb97f0df5895f060f853ccae9602f4ee"
+  },
+  {
+   "path": "docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md",
+   "line": 13263,
+   "sha256": "e39836f90e8e501352c0290cd6bedb8b09a9777b90d023c3c3275af7fb01c55b"
+  },
+  {
+   "path": "docs/handoff/artifacts/B-136/ir-application/IR-APPLICATION-ACT-r5.md",
+   "line": 5,
+   "sha256": "822ed8689126411d6da19933d8499a1e913b8e91b42fc6d80a133d564ec12842"
+  },
+  {
+   "path": "docs/handoff/artifacts/B-136/ir-application/IR-APPLICATION-ACT-r5.md",
+   "line": 21,
+   "sha256": "c1f6091bfb2359c56e34174c93d795d348451056799d132c5b327e5b2cbe4e84"
+  },
+  {
+   "path": "docs/handoff/artifacts/B-136/ir-application/IR-APPLICATION-ACT-r5.md",
+   "line": 30,
+   "sha256": "3de495c7b92fcf15b867865228731583b19fe992b46f220f4d79c3e7ca136fbc"
+  },
+  {
+   "path": "docs/handoff/artifacts/B-136/ir-application/IR-APPLICATION-ACT-r5.md",
+   "line": 38,
+   "sha256": "d398b72609c43b4e824835c393c2203722468e7fd852e429c2a86c7fdacc897c"
+  },
+  {
+   "path": "docs/handoff/artifacts/B-136/ir-application/IR-APPLICATION-ACT-r5.md",
+   "line": 48,
+   "sha256": "c505f0a018c674bb1beee801cc5279c80d6c661e84614349d136e64e407cbbc8"
+  },
+  {
+   "path": "docs/handoff/artifacts/B-136/ir-application/IR-APPLICATION-ACT-r5.md",
+   "line": 49,
+   "sha256": "ef5b911ee5d21fb7cc041f15be46060fae267ecec4212849b0bd9b99a3c37cb8"
+  },
+  {
+   "path": "docs/handoff/artifacts/B-136/ir-application/IR-APPLICATION-ACT-r5.md",
+   "line": 51,
+   "sha256": "8d7e5598b01bf8659c49ea6d6e6a64358df91712c117d9988baa8fc6a1cbab30"
+  },
+  {
+   "path": "docs/handoff/artifacts/B-136/ir-application/IR-APPLICATION-ACT-r5.md",
+   "line": 52,
+   "sha256": "bcf280ba5e06a5689a52be906ab20792c5dd9c2d7a431f7324049e9b70f3d6f3"
+  },
+  {
+   "path": "docs/handoff/artifacts/B-136/ir-application/IR-APPLICATION-ACT-r5.md",
+   "line": 92,
+   "sha256": "332264f94965629780c79085f964ad6a07242618bc9ca070727cebd064ec345f"
+  },
+  {
+   "path": "docs/handoff/artifacts/B-136/ir-application/IR-APPLICATION-ACT-r5.md",
+   "line": 104,
+   "sha256": "88893a4dd4726020e7607d2ee03b47be2c415e74c5fc193dc5c25087b111e983"
+  },
+  {
+   "path": "docs/handoff/artifacts/B-136/ir-application/IR-APPLICATION-ACT-r5.md",
+   "line": 164,
+   "sha256": "49f98476a2c08b0207f9e9eaf52f8ad6b2a01c3ab42f78886dc229b6ccd09f95"
+  },
+  {
+   "path": "docs/handoff/artifacts/B-136/ir-application/IR-APPLICATION-ACT-r5.md",
+   "line": 165,
+   "sha256": "a5eb9a0558e7c3c55c274cb59101e2d253cfd7c5740ac770be82430de29e9888"
+  },
+  {
+   "path": "docs/handoff/artifacts/B-136/ir-application/IR-APPLICATION-ACT-r5.md",
+   "line": 171,
+   "sha256": "9b478c02460726968578ed3b37df0a18aaa5cc7c106ddf52def623964f29aebe"
+  },
+  {
+   "path": "docs/handoff/artifacts/B-136/ir-application/IR-APPLICATION-ACT-r5.md",
+   "line": 175,
+   "sha256": "755475cc6aae82ca423ed61348627dba10ec59bc6b022d3293160a88b1a38bbd"
+  },
+  {
+   "path": "docs/handoff/artifacts/B-136/ir-application/IR-D438-REGISTER-BODY-r3.md",
+   "line": 1,
+   "sha256": "48e3344fbb22bbcbdbc834f619c2292af6b5f74d2e534e1fb61c0c560367fa5d"
+  },
+  {
+   "path": "docs/handoff/artifacts/B-136/ir-application/IR-ROUTE-A-r4.md",
+   "line": 15,
+   "sha256": "5fdb1ca3bc73b33dad1e4877680355670c71774737d74e6206b2e34b15c3ab11"
+  },
+  {
+   "path": "docs/handoff/artifacts/B-136/ir-application/IR-ROUTE-A-r4.md",
+   "line": 16,
+   "sha256": "593c2fc7c2faca7e9dc54ba1e05531d7ab5fc5546a19356512db143cab23dd45"
+  },
+  {
+   "path": "docs/handoff/artifacts/B-136/ir-application/IR-ROUTE-A-r4.md",
+   "line": 73,
+   "sha256": "dcb5641a5f599cc21585bf9240cbab2ccd090dcc572ad53dd5e9f89c29870438"
+  },
+  {
+   "path": "docs/handoff/artifacts/B-136/ir-application/IR-ROUTE-A-r4.md",
+   "line": 75,
+   "sha256": "55f97cb80f868b6099e1e09e32c024a9bc74262d54f26f8bc05a2c219a4ff625"
+  },
+  {
+   "path": "docs/handoff/artifacts/B-136/ir-application/IR-ROUTE-A-r4.md",
+   "line": 86,
+   "sha256": "2bb58a8728b8281abb0dd58adb74ff315623b7c65b1d5a8a7debd1ca79b7b0e9"
+  },
+  {
+   "path": "docs/handoff/artifacts/B-136/ir-application/IR-ROUTE-B-r4.md",
+   "line": 9,
+   "sha256": "e8a648b0cb5d2935a5d606a7c8a553f313dd1da9e85712f13d776286cf813706"
+  },
+  {
+   "path": "docs/handoff/artifacts/B-136/ir-application/IR-ROUTE-B-r4.md",
+   "line": 11,
+   "sha256": "65972f30da6297dc98b04eee5ae049efcd520b016c6606869985155770929b94"
+  },
+  {
+   "path": "docs/handoff/artifacts/B-136/ir-application/IR-ROUTE-B-r4.md",
+   "line": 40,
+   "sha256": "1e0ef0533dd174c2c0ba4b8e65b59c90d7705d74afca0e54bccc108acf6c1c41"
+  },
+  {
+   "path": "docs/handoff/artifacts/B-136/ir-application/LANE-B-SUPPLIED-AUDIT-1c0635b.md",
+   "line": 7,
+   "sha256": "8b64624a87a10effd4c69ea2f5a57a6945296e7c20b4e3a0f8557b1cccb85118"
+  },
+  {
+   "path": "docs/handoff/artifacts/B-136/ir-application/LANE-B-SUPPLIED-AUDIT-983eb30.md",
+   "line": 36,
+   "sha256": "47a7439bddc6c6234b90022b5953980b4c6cb177d858537cb25c26c5694f9ad2"
+  }
+ ]
+}

@@ -1,0 +1,6 @@
+T1 normal run
+  exit=0 (want 0) --- cases: 11 wrong: 0
+T2 setup failure (bad source)
+  exit=3 (want 3) SETUP FAILURE: clone/checkout failed: c1
+T3 helper hash mismatch
+  exit=1 (want 1)
