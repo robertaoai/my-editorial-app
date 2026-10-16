@@ -15042,3 +15042,52 @@ This record only. No fetch or push. The check passes 19/19.
 | Approve-with-conditions | This consolidated answer | Lane B review |
 | Defer | `D-439` execution; `D-437`; SM05; Gate 2; B-078 Child 4; SM06 | Their own checkpoints |
 | Reject | Copied drafts read as applied requirements; graph health read as readiness | All phases |
+
+---
+
+## Lane A — D-439 execution package r1 prepared; complete and omitted-E12 controls run; Lane B review requested, 2026-10-16
+
+### What happened
+
+**Authority.** The Judge: "Judge Approved: Lane A prepare the D-439 execution package bound to EV r9. Run complete-case and
+omitted-E12 controls in disposable copies, then return to Lane B for review."
+
+**Package** (draft, `C:/CoWork/outputs/lane-a-d439-package-2026-10-16/`; index `D439-EXECUTION-PACKAGE-r1.md`, SHA-256
+`1d094c98b1921f7931a13bca841ea2f76ccdd3b9caebf1b2ead3decdb72d6f60`). Bound to EV r9 (`dfd5c777…`) and its three pins.
+
+| Item | SHA-256 | Content |
+|---|---|---|
+| Helper `ev-apply-d439-r1.mjs` | `2cd00be18957f4121dc4f5aba64fe7351cf049efd96665c56af61e9a86a3fa09` | S0, expected bytes recorded before any write, apply with E2a/E2b, per-edit and whole-file verification of all 10 active edits |
+| Ownership manifest `ownership-317404b.json` | `1ac93488579048d74408825849ab8f0cca166e54203cbb31cb0372f98fe4965f` | 103 lines naming `D-439`, 11 files, all under `docs/handoff/`; pinned in the helper |
+| Harness `run-controls-d439-r1.sh` | `c244c91fd98ad4dd0b098191cda33c4a7059ad873136957799c960955cf2dfaa` | One disposable clone per case at `317404b` |
+| Results `runs/20261016T091659Z-2cd00be18957/results.txt` | `8826f9b43cb26532e5eb950cd5ccb2d8ce0a7244832db4631e028a2607d69972` | 27 results, 0 wrong, harness exit 0; 23 raw logs kept |
+
+**Controls (EV r9 §7b).** **Complete case (K2): passed** — verification passes in the working tree and in the commit;
+each committed blob equals the expected blob. **Omitted-E12 case (K3): failed as required** — exit 2,
+"E12 (docs/Modular_PRD.md: new 0/1, old 1/0)", in the working tree and in the commit; no other edit is named; its expected
+record is identical to K2's. Support arms K1, K4–K12 (S0, Register presence, ownership, tampered manifest, overwrite
+refusal, act presence, E2b, unattributed byte) all gave the required result.
+
+**Self-grade (labelled; not independent review).** SG-1, fixed before the controls: manifest r0 hashed LF blob lines but the
+checkout has B-136 in CRLF, and a vacuous "handoff-only" test let 52 lines through; fixed, and r0 kept as superseded.
+**SG-2, for Lane B's decision:** r1 allows later `D-439` lines under `docs/handoff/` when every commit since the base is
+handoff-only — a relaxation against `D-438` r4, which refused them; the strict alternative is a manifest rebuilt at the
+pre-act commit and a helper r2. SG-3: each edit text is bound literally to the packet, but the old–new pairings need
+reading. SG-4: E10 lands after the `---` that ends §7, as specified. SG-5: expected bytes depend on the act date and are
+recomputed at application. SG-6: the harness's exit-3 paths are not self-tested in r1.
+
+### What you need
+
+**Lane B:** review the package (helper, manifest, harness, results, SG-2 decision). **Judge:** after that review, the
+`D-439` Register act and the application act (own guarded cycle and health).
+
+### What you did instead
+
+Package, controls and this record. No governed file changed; no fetch or push. Unpushed: `a673f44`, `317404b` and this record.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Controls K2 (passes) and K3 (fails, names E12) | Phase 1 |
+| Approve-with-conditions | Package r1 | Lane B review; SG-2 decision |
+| Defer | `D-439` act and application; guarded cycle; `D-437`; SM05; Gate 2; push | Their own triggers |
+| Reject | Control results read as application, or K2 read as release readiness | All phases |
