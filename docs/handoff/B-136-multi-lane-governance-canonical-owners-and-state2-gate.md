@@ -16767,3 +16767,121 @@ Consistency checks establish their declared repository invariants only. In parti
 | **Defer** | F1-9/C13 and section B/C custody; TCA registration verification | Lane A custody/registration; Lane B independent receipts; Judge separate authority | P2.9 / TCA §§5–7, before attempt closure |
 | **Defer** | Setup / D-437 → SM05 entry → Gate 2 | Existing Lane A, Judge, Lane B and applicable Lane C owners | Existing later setup, selection/readiness and workflow checkpoints |
 | **Reject** | Readiness, execution authority, formal review level or parent closure inferred from this filing | All actors | All phases |
+
+---
+
+## Lane B — consolidated Lane A review work order against `44b5db0`, 2026-10-17
+
+### What happened
+
+**Attribution.** Codex desktop, Lane B. This is one Lane B follow-up for Lane A to review. It is not Lane A's answer or a new formal Level 1/2 receipt. The user authorizes this filing, filing checks/hooks and one local commit. The request does not authorize the downstream work described below.
+
+**Observed commit:** `44b5db0ed777a3a377966e2136f07bb6a90c8c10`. **Bound path, declared before staging:** `docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md`. Append only, under the existing handoff template and SOP (`D-184`, `D-272`, `D-385`). Preserve the header, Lane A's answers and every earlier receipt. This commit is a review reference, not an execution baseline.
+
+**Clear task statement.** Lane A: review the consolidated facts below. Return a parent-first plan with one owner, acceptance proof and dependency for each open item. Separate missing F1 evidence from J1–J3 Judge instructions. Preserve all accepted evidence. Keep B-136 and D-439 Open. Do not execute the plan under this work order.
+
+#### 1. Executive summary: B-136 → D-439 → children
+
+B-136 and D-439 stay **Open**. The initial 457-file custody receipt and J1–J3 Level 1/2 receipts are filed. At `44b5db0`, Lane B accepted the exact F1-3 source pair with conditions. That review covers the known r1/r2 repairs. Eight F1 originals remain unavailable; their completeness is unresolved. J1, J2 and J3 each need a separate Judge instruction. Lane A can present those decisions while F1 evidence work continues. Baseline naming must wait for all required pre-baseline evidence, instructions and receipts. This handoff is ready for Lane A's review and planning. It is not ready for execution.
+
+#### 2. Challenge of handoff readiness
+
+| Challenge | Required treatment in this work order |
+|---|---|
+| Can Lane A understand the next step without reading the earlier analysis? | The settled facts, eight F1 gaps, exact J objects and transaction sequence are included below. The detailed source review remains in the preceding `44b5db0` record. |
+| Does an absence filing close an F1 condition? | No. The absence filings already exist. Do not request the same absence statement again as proof of completeness. Name the missing claim and evidence. |
+| Does accepted source or review evidence authorize an action? | No. Keep the Judge instructions and later application/registration authority separate. Do not relabel the Codex source review as a formal review-level receipt. |
+| Must J1–J3 wait for F1 completeness before the Judge can consider them? | No. Present each exact decision independently. Baseline naming still waits for all applicable prerequisites. |
+| Does this work order authorize Lane A to transfer or apply files? | No. It requests a review and a plan. Later transactions require their own authority and entry conditions. |
+
+**Challenge result: Approve-with-conditions for Lane A review/planning.** Baseline and execution readiness remain deferred. This is Lane B's assessment of this follow-up, not independent verification of Lane A's future answer.
+
+### What you need
+
+#### 3. D-439: preserve settled evidence and its limits
+
+| Fact | Acceptance evidence retained | Limit / next owner |
+|---|---|---|
+| Initial custody: 457 files | `98eaf9f`; raw committed hashes and complete addition set corroborated at `44b5db0` | No repeat transfer. Lane A owns later custody; Lane B owns its independent receipt. |
+| J1–J3 Level 1/2 receipts | Filed at `5063c2f`; line-ending fidelity qualified at `573a005` | Keep authors, conditions and scopes. The Judge has not supplied J1–J3 instructions in the reviewed record. |
+| F1-3 source acceptance | `44b5db0`: **Approve-with-conditions** for the exact pair from `d80d8211dca103f7498babc7465b4f62db3bf9ed` | The fresh acceptance filing is satisfied. The final manifest, successor bindings, checker evidence and downstream authority remain open. |
+| Known F1-1/F1-2 repair evidence | The fresh review explicitly covers r1 F1 ownership, F2 harness and F3 switches; r2 ownership/harness and r3 R2 controls | This satisfies the identified repair-review gap only. It does not prove that the absent originals contained no other condition. |
+| Eight individual absence filings | Each is recorded at `44b5db0` with known conditions and bounded search coverage | Filing is complete; completeness is unresolved. Lane B owns the evidentiary disposition. |
+
+The F1-3 paths are under `docs/handoff/artifacts/B-136/d439-package/r3/`:
+
+| File | Exact Git blob | SHA-256 of committed bytes |
+|---|---|---|
+| `ev-apply-d439-r3.mjs` | `2fceff422864087964154a136bf11d3388f60837` | `0373ac41b9bf4718b7051763d2007c17610b0b6e613905d495170d044dc41aa7` |
+| `check-successor-d439.mjs` | `d54e65f0ea80a2dd5184e5b77a828dfb546a8b65` | `db5cf122a2f339d309e78fcd84c3690f661711126a7d5d5e60cc36f0c1535bcf` |
+
+The prior review inspected source and retained control evidence. It did not rerun the controls. This follow-up does not repeat that review. S0 alone does not enforce repository HEAD equality; the full checker does. The full checker also runs S0 and creates external output. Do not run either under this work order. Lane A must map any required review level at its consuming checkpoint. Existing J1–J3 receipts keep their scope; no new level or waiver is inferred.
+
+#### 4. F1: evidence work before baseline naming
+
+**Common rule.** All eight originals below were absent in the bounded search recorded at `44b5db0`. Lane A's summaries are evidence of known conditions, not reconstructed originals. All eight completeness classifications remain **Unresolved**. No row is history-only.
+
+**Acceptance test for each row.** Supply the original with provenance and a condition-by-condition comparison, or supply an independently supportable completeness disposition. Lane B must substantiate any conclusion that no other live condition remains, as required at `c5367aa`. If that proof is unavailable, keep the row unresolved. State the exact missing claim, likely source, next owner and dependency. Do not turn continued absence into acceptance. Any proposed change to the governing requirement must be a separate, explicit proposal to the Judge; J1–J3 cannot silently waive it.
+
+| Item / reviewed commit | Known conditions and coverage at `44b5db0` | Proof or obligation still open | Owner / dependency |
+|---|---|---|---|
+| **F1-1 / `eb0aa44`** | r1 F1 ownership, F2 harness and F3 switches are covered by the fresh review. Initial F4 custody is covered. r1 remains rejected for application. | Completeness proof under the common test. Do not revive r1. | Lane B; Phase 1, before baseline naming. Final-pair review remains separate. |
+| **F1-2 / `7d44bff`** | r2 ownership/harness and R2-1 path, R2-2 successor and initial R2-3 custody coverage are accepted within scope. | Completeness proof; later exact final bindings and custody receipts. | Lane B for completeness/review; Lane A for final pair/custody. Pre-baseline, then final-pair checkpoint. |
+| **F1-4 / `539a37d`** | C1's 457 count is covered. C2's external-retention timing was not authority. TCA r3 replacement design is reviewed. | Completeness proof; actual J3 instruction and provenance. | Lane B; Judge → Lane A for J3. Before baseline naming. |
+| **F1-5 / `89154ee`** | G1 custody, G2 revision status, G3 tooling/logs, G4 timing, G5 freeze, G6 check/graph limits and G7 no inferred Lane C position are carried. | Completeness proof; J1/J2 custody, J3 authority and later guarded graph coverage. | Lane B for completeness/receipts; Lane A for custody/graph; Judge for instructions. Pre-baseline, then authorized guarded cycle. |
+| **F1-6 / `4cebb77`** | G1–G5 r2 and G6/G7 meaning are carried. Snapshot hashes do not replace committed-blob proof. The freeze covers all commits. | Completeness proof; actual J1/J2 receipts, J3 provenance and final baseline/binding proof. | Lane B; Lane A/Judge at their checkpoints. Pre-baseline, then final-pair/pre-act review. |
+| **F1-7 / `4487ecd`** | G3a log attribution, G3b retained log pairs and G4 authority/split commits are carried. Preserve ten-edit and stale Gate 2 tracker cautions. | Completeness proof; section C receipt, authorized ten-edit verification and later tracker re-derivation. | Lane B for completeness/receipts; Lane A for custody/application/tracker. Pre-baseline, outcome custody, then later Gate 2. |
+| **F1-8 / `98c8a01`** | TCA-1 receipt versus registration, TCA-2 route R2, TCA-3 verification before close, TCA-4 exact folders and LOG-1 stop on differing logs are carried. | Completeness proof; J3 provenance, actual custody receipt and independent registration verification. | Lane B; Judge/Lane A for authority and registration. Pre-baseline, then TCA §§5–7. |
+| **F1-10 / `04ad2ad`** | AC-3 retained-input design and C13 mapping are accepted. This resolves neither F1 historical completeness nor actual C13 custody. | Completeness proof; C13 on the sealed list and a matching committed-blob/full-path-set receipt. | Lane B for completeness/receipt; Lane A for sealed list/custody. Pre-baseline for F1; P2.9 for C13. |
+
+**F1-9 / C13 stays a surviving custody obligation.** Its original is available. Retain `C:/CoWork/outputs/lane-b-b136-tca-r3-follow-up-2026-10-16/B136-LANE-B-TCA-R3-FOLLOW-UP-DRAFT.md` and the pinned copy at `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/pinned-inputs/B136-LANE-B-TCA-R3-FOLLOW-UP-DRAFT.md`. Their recorded SHA-256 is `60cf236aa545df5da3e4d9be1c89205bd319b9394f270b2d614c16bffbc4ac81`. At P2.9 / TCA §5, Lane A must include C13 in the sealed list and authorized custody transfer. The exact destination is `docs/handoff/artifacts/B-136/d439-package/section-c/B136-LANE-B-TCA-R3-FOLLOW-UP-DRAFT.md`. Lane B must verify the raw committed blob and complete custody change set. Design acceptance does not satisfy custody.
+
+#### 5. J1–J3: independent Judge decisions before baseline naming
+
+These are decision requests, not missing F1 originals. Present each separately with its existing Level 1/2 conditions. A decision on one item does not decide another. The three source-file hashes below were rechecked for this follow-up and match the reviewed identities.
+
+| Decision | Exact source and SHA-256 | Exact scope |
+|---|---|---|
+| **J1** | `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/supplement-1/D439-SUPPLEMENT-MAP-r1.md`; `37d5f5a273097167c485ffb9d88c5788ce7bc3676c1bce963e42a7d69b8bf576` | 11 mapped files into `docs/handoff/artifacts/B-136/d439-package/supplement-1/` |
+| **J2** | `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/supplement-2-r2/D439-SUPPLEMENT-2-MAP-r2.md`; `487a093e118f0fe9a0cccd405e9af85fc4e68fbd6ae2e655a8479c595e00658e` | Four mapped files into `docs/handoff/artifacts/B-136/d439-package/supplement-2/`. Preserve superseded C2/C3 for section C custody. Do not substitute r1. |
+| **J3** | `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/tca/TCA-D439-r3.md`; `5274e34f50113bb50c27ebc0910f38c4931e4afe2dab354bac4e6101edc047d2` | Exact TCA r3, route R2. Distinguish authority received from durable registration. |
+
+| Transaction | Owner and order | Acceptance proof / stopping point |
+|---|---|---|
+| **J1, separately J2** | Judge gives the exact instruction. Lane A checks source hashes, paths, links/junctions and ignore rules before copying. Lane A makes that item's folder-only custody commit, then a separate one-file B-136 request. Lane B verifies it. | Judge provenance; pre-copy results; custody commit; request; raw committed-blob hashes and complete changed-path receipt. Finish before baseline naming. Stop on any mismatch or missing authority. |
+| **J3 receipt** | Judge gives the direct instruction under `D-183`. Lane A records its exact provenance as **received, pending durable registration**. | Exact object/hash, route, Judge instruction and provenance record before baseline naming. Later registration remains a separate authorized act. Lane B verifies its committed entry under TCA §7. |
+
+#### 6. Return contract and later checkpoints
+
+Lane A's next deliverable is one review response to this follow-up, using the handoff template. Preserve earlier answers. Cowork may draft Lane A's response; Claude Code owns its canonical filing under the SOP. This Lane B record does not write or acknowledge that answer for Lane A.
+
+Return these facts in parent-first order:
+
+1. Confirm B-136 and D-439 remain Open. Identify any disagreement with the settled evidence, with an exact source.
+2. Address each of the eight F1 rows. Name the missing claim, available source or bounded absence, owner, acceptance proof and dependency. Keep unresolved rows explicit.
+3. Present J1, J2 and J3 as three separate exact Judge decisions. State the conditions retained from their filed reviews.
+4. Give one pre-baseline ledger. Mark each prerequisite satisfied or outstanding and cite its proof. Map required review levels to the consuming checkpoint. Do not infer a review level from the Codex surface.
+5. List the later sequence below as dependencies. Do not execute it under this work order.
+
+**Later sequence retained.** Finish all required pre-baseline filings, decisions and receipts. Then Lane A names one clean baseline. Freeze HEAD and checkout changes across all lanes until the act starts or the attempt stops. Prepare the final manifest and successor externally under the agreed route. Change exactly `BASE` and `OWNERSHIP_SHA256`. Obtain the full-checker evidence and Lane B's exact-byte review. Repeat the full checker immediately before the separately authorized act. A changed binding or repository state stops consumption and requires reassessment.
+
+The Judge's application act and TCA registration act stay separate. Authorized application and guarded health precede sealed section B/C custody. Lane B then verifies custody. Independent TCA §7 registration verification precedes the attempt closing record. Retain `9781b2d` steps 3–9 as qualified by `c5367aa` and TCA r3. No required open child is removed by this plan. Setup/D-437, SM05 selection/work order/lane activation and Gate 2 keep their later triggers and owners.
+
+### What you did instead
+
+Consolidated the existing review into a self-contained work order. Challenged its readiness, evidence claims and transaction boundaries. Rechecked the three J source hashes. Used the graph query for navigation only. Appended only this Lane B follow-up. No build, application helper/checker/control execution, transfer, application, Register edit, graph rebuild, fetch, push, lane change or Gate 2 closure.
+
+**Presentation.** Use short instructions, active verbs and consistent technical terms, following [ASD-STE100 principles](https://www.asd-ste100.org/STE_faq.html). This is not a claim of full controlled-language conformance. The summary gives the decision; the tables give owners and proof; the sequence gives dependencies.
+
+**Filing proof.** Require `bun run check` and `git diff --check` on the final content. Require an empty initial index, one exact staged path and the same one-path committed change set. Run the tracked `.githooks/commit-msg` hook through the commit's `core.hooksPath` setting. Verify that the old working bytes and committed content remain exact prefixes. Report the tested blob, actual local commit and results in the filing receipt. Do not predict the commit or self-record terminal `Verified`. These checks establish repository invariants, not semantic acceptance, application readiness or Gate 2 clearance. Handoff content is excluded from governed-intent drift/coverage; no graph coverage claim is made.
+
+| Verdict | Parent → item | Remaining owner | Follow-up phase / condition |
+|---|---|---|---|
+| **Defer closure; Open** | B-136 → D-439 | Lane A coordinates; Judge decides; Lane B verifies | Phase 1 and existing outcome/registration checkpoints; required children remain open |
+| **Approve-with-conditions** | D-439 → this Lane A review work order | Lane A | Phase 1 review/planning; return the five-part response above |
+| **Approve-with-conditions** | D-439 → F1-3 source acceptance retained | Lane A final pair; Lane B review; Judge acts | Frozen-baseline final-pair/pre-act checkpoint; prior source acceptance stays scoped |
+| **Defer** | F1-1, F1-2, F1-4, F1-5, F1-6, F1-7, F1-8, F1-10 completeness | Lane B; Lane A coordinates evidence | Phase 1 before baseline naming; each row needs substantiated disposition |
+| **Defer** | J1 / J2 / J3 instructions and required receipts | Judge → Lane A → Lane B at their stated checkpoints | Separate decisions and pre-baseline transactions; no implied waiver of F1 |
+| **Defer** | F1-9/C13, section B/C custody and registration verification | Lane A custody/registration; Lane B independent receipt; Judge separate authority | P2.9 / TCA §§5–7, before attempt closure |
+| **Defer** | Setup/D-437 → SM05 entry → Gate 2 | Existing Lane A, Judge, Lane B and applicable Lane C owners | Later setup, selection/readiness and workflow checkpoints |
+| **Reject** | Execution or closure inferred from this follow-up | All actors | All phases; this record authorizes neither |
