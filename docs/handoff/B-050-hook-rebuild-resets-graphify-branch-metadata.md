@@ -7786,3 +7786,11 @@ Final review: final-review.json SHA-256 a76b8cf3dd8c36c54f66a677a9dd925f5ebb1d73
 | Approve-with-conditions | Publication | Phase 1: separate annotation, unchanged bindings, Lane A publication and S7 health |
 | Defer | Custody, D-439, push and excluded work | Their existing acts and checkpoints |
 | Reject | Superseded candidate receipt; acceptance treated as publication, health, construction or Gate 2 credit | All phases |
+
+## Terminal annotation record
+
+- **Current-Resolution:** Verified
+- **Annotation-Type:** verification-evidence
+- **Annotation-Act:** D-438 item 5, this replacement guarded cycle only, and the Judge's explicit S5 recording approval of 2026-10-16. This immediately following one-file record-only commit covers Lane B's independent receipt at ca4b6f2a01c10b754a7fa3229e3a092615777a03, work de0b98e0-fa03-4b9d-8847-bd65907002cb, graph fa5550398869b0165bbac742180b4902f387a902762a321d1302ba25a1c420ee, manifest 5261008fe6d7fda71594d078eedc705fab86bbe4faa8b4a6ffdb665a9de00134 (guard-treeDigest-v1, 583 files), analyzed source c8177fe4a2af42e39edc4bb0a050c4d0bd2c0d04. B-050's terminal header, Resolution and Lane A answer remain unchanged; no scope is reopened. This ends the authorized temporary terminal-return interval. Its full configured check is retained at C:/CoWork/outputs/lane-b-d438-s5-review-2026-10-16/check-receipt-interval.log, SHA-256 7a119c98d07c5ac730a8ec7f98798a66ebde9020e4868beb228c7a8db21c1554; only docs-drift and terminal-return failed. Receipt validation is retained at receipt-validation.json, SHA-256 a08a2068785a35cf66fb0e72f95248c2773f0abacc75112f752eff2ad5134600. Lane A uses the receipt commit, not this annotation commit, as --review under the existing D-438 publication approval, rechecks all bindings and records separate S7 health in B-136. No fetch or push before that health record; a later push needs its own exact-range authority. The superseded c5b3cafa candidate remains unaccepted. Earlier units' exceptions are not reused. Normal hooks remain enabled. No construction, lane activation, SM05 selection, Gate 2 closure or root disposition follows.
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** ca4b6f2a01c10b754a7fa3229e3a092615777a03
