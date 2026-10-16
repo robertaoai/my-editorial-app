@@ -15136,3 +15136,48 @@ Package r2, controls, self-tests and this record. No governed file changed; no f
 | Approve-with-conditions | Package r2; custody map r1 | Lane B review; then transfer |
 | Defer | Transfer; final manifest; `D-439` acts; guarded cycle; `D-437`; SM05; Gate 2; push | Their own triggers |
 | Reject | Package r1 for application; a location-based ownership exception; hashes read as custody | All phases |
+
+---
+
+## Lane A — D-439 execution package r3 (R2-1 path containment, R2-2 successor bindings, R2-3 custody addendum): answers Lane B's review of `7d44bff`, 2026-10-16
+
+### What happened
+
+**Receipt.** Lane A receives Lane B's review of `7d44bff` (supplied by the Judge). Closed by Lane B: F1 exact ownership,
+F2 fail-stop harness, the retained controls and the 218 source hashes of map r1. Open: R2-1, R2-2, R2-3. **Authority:** the
+Judge, asked in session whether to authorize r3: **"Authorize r3 (Recommended)"**.
+
+**Package r3** (draft, `C:/CoWork/outputs/lane-a-d439-package-2026-10-16/r3/`; index `D439-EXECUTION-PACKAGE-r3.md` `692f02b31c1e34c6715076d3eb02baa755de9a5df07a493e01f58f62ae13fa22`). r1, r2,
+EV r9, the pins and the ten edit texts are unchanged.
+
+| Finding | Answer | Evidence (run `20261016T101116Z-0373ac41b9bf`, results `1a31b0e386e69b12e34ca5f26b72509dccf6a957566791514da4722f220ba81a`) |
+|---|---|---|
+| **R2-1** | Helper r3 (`0373ac41b9bf4718b7051763d2007c17610b0b6e613905d495170d044dc41aa7`) compares paths **after resolution** (`..` resolved; links and junctions followed). `EV_OUT` is refused at or inside the governed checkout on every run. With a switch, the fixture must not be or resolve to the checkout, `EV_TEST_INJECT` must be one of the three target files, and every write target must resolve inside the fixture | K14a–K14g refused before any write (root, `..`, junction output; Register and `..` injection; junction write target; junction top level); governed state identical before and after; no output folder |
+| **R2-2** | A successor changes **exactly** `BASE` and `OWNERSHIP_SHA256`, both. `check-successor-d439.mjs` (`db5cf122a2f339d309e78fcd84c3690f661711126a7d5d5e60cc36f0c1535bcf`) checks the diff, the manifest's base and hash, the repository at that base, then runs the successor's read-only S0 | K15 (new state: reviewed helper refuses); **K15a accepted, S0 passes**; K15b (third line changed) refused; K15c (pin only) refused, and its S0 refuses "ownership manifest base" — Lane B's finding confirmed |
+| **R2-3** | Map r1 unchanged. Addendum `CUSTODY-MAP-D439-ADDENDUM-r1.md` (`561934b21a30021f44910c18201903c64d4621b1e848c577201b8ad73f65a5b5`): section A = map r1 itself + 238 rows created after it (r3, the r2 check log, this index); section B = final manifest, successor, checker log, act-date expected record, application logs → **approved external disposition** until the application's health record, then one custody commit and Lane B verification (they name `D-439`; a manifest cannot list its own lines). The addendum is itself a transfer item, checked against this hash | Generator refuses overwrite and any link or junction in the source tree |
+
+**Required cases on r3:** **K2 passed; K3 failed as required, naming E12 only.** 56 results, 0 wrong, harness exit 0
+(harness `7273b50378c644420785fa6ab41cbabcccd37fd084a05d254deeb6e2b65fb40b`; control manifest `ownership-7d44bff.json` `607e610c38e71f8176023802d9a78eaa4b1df64e3b8a92cd8d22af2e9f557e7d`, 114 lines).
+**Failure self-test against harness r3:** 9 tests, 0 wrong (`84233616a75bd83bc3707962b2057e181540afa2675759797adc71e42e7717ca`).
+
+**Self-grade (labelled; not independent review).** SG3-1 fixed before the final run: the first r3 run stopped with exit 3
+because shell path conversion mangled the junction command; the stop worked and the checkout was unchanged; that run is
+kept as superseded. SG3-2: every junction is removed with `rmdir` (link only) on every exit; 0 links remain. SG3-4: this
+record adds `D-439` lines, so live S0 refuses the control manifest — the F1 behaviour. This record's check log is kept
+outside the package folder, like earlier cycle check logs.
+
+### What you need
+
+**Lane B:** review package r3 (R2-1 to R2-3). **Judge:** after that review — the transfer (map r1 + addendum), then the
+final manifest and successor, then the `D-439` acts.
+
+### What you did instead
+
+Package r3, controls, self-test and this record. No governed file changed; no fetch or push. Unpushed: `a673f44`..this record.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | r3 controls (K2 passes; K3 fails naming E12; K14, K15 as required); self-test 9/9 | Phase 1 |
+| Approve-with-conditions | Package r3; custody addendum r1 | Lane B review; then transfer |
+| Defer | Transfer; final manifest and successor; `D-439` acts; guarded cycle; `D-437`; SM05; Gate 2; push | Their own triggers |
+| Reject | r2 as the final package; a one-hash-only successor; raw-string path checks | All phases |
