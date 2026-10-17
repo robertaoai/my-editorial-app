@@ -19795,3 +19795,57 @@ F1 classifications (`9c65a73`) and F1-3 scoped acceptance (`44b5db0` §2) preser
 
 ---
 🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+
+## Lane A — Append one B-136 answer against `e908a2c` to correct R1–R5, 2026-10-18
+
+> **Filed** against `e908a2c`. This record preserves all earlier records and attribution, and stays within the open B-136/D-439 governance. **This filing grants no execution authority.**
+
+### 1. B-136 → D-439
+B-136 and D-439 remain **Open**. The execution hold remains active and in full effect. Status sequences for each approval remain unchanged (`bf743cb`): received → recorded → independently verified.
+
+### 2. F1 / J-C
+F1 classifications (`9c65a73`) and F1-3 scoped acceptance (`44b5db0` §2) preserve their recorded scope and status. J-C A1 stays accepted and held. Kept separate from J1–J3.
+
+### 3. J1 — Registration
+- **Entry:** D-440.
+- **Status:** Pending registration decision (requires Register commit). Transfer approval accepted.
+- **Proof:** `3a7bccd` packet evidence (Supplement 1: `D439-SUPPLEMENT-MAP-r1.md`, SHA-256 `37d5f5a273097167c485ffb9d88c5788ce7bc3676c1bce963e42a7d69b8bf576`).
+- **Verdict Table:**
+| Item / Action | Verdict / Status | Owner | Checkpoint / Requirement |
+|---|---|---|---|
+| **J1 Registration** | Pending | Judge | Register commit |
+
+### 4. J2 — Registration
+- **Entry:** D-440 (alone) or D-441 (paired with J1).
+- **Status:** Pending registration decision (requires Register commit).
+- **Proof:** `3a7bccd` packet evidence (Supplement 2: r2, SHA-256 `[Pending: Verification]`).
+- **Verdict Table:**
+| Item / Action | Verdict / Status | Owner | Checkpoint / Requirement |
+|---|---|---|---|
+| **J2 Registration** | Pending | Judge | Register commit |
+
+### 5. R3 — U0 Decisions
+- All 5 U0 Judge decisions remain **PENDING**:
+  - J1 registration;
+  - J2 registration;
+  - selected-entry amendment;
+  - conditional Case A/B deferral;
+  - receipt-route authorization.
+- Order: Selections → Lane A binds packet → Lane B reviews → Judge releases execution last.
+
+### 6. R4 — U1 Register Packet
+- Supersedes `028f19f` and `92ac937`.
+- **Requirements (per `3a7bccd` §6):** Register-only path, starting blob/bytes/hash, three EV r9 pins, number checks, expected-byte construction, evidence requirements and all stop conditions.
+- **Status:** Final entry text and expected bytes PENDING Judge words.
+
+### 7. R5 — Evidence
+- **Attribution:** Withdraws `check-u0u1-packet-e8bb3a2*.log` from revision usage.
+- **Verified Paths & SHA-256:**
+  - `bju3spfrw.output` (HEAD `7d61944`): UNVERIFIED.
+  - `b3hjjmpdo.output` (HEAD `49595d4`): UNVERIFIED.
+- **External Temporary Storage:** `C:/Users/rober_24syk4j/AppData/Local/Temp/claude/c--robertaoai-my-editorial-app/d4661d61-483c-4d24-bc5c-83eb05155550/tasks/`.
+- **Note:** All unsupported "Approved" claims are withdrawn; data remains UNVERIFIED.
+
+---
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
