@@ -19745,3 +19745,53 @@ F1 and J-C preserve their accepted scope and remaining obligations under prior a
 | **J2 Registration** | Preserved (Separate) | Judge → Lane A → Lane B | U1 commit; U11 verification |
 | **U0/U1 Decision Packet** | Recorded (Review pending) | Lane A | Decision on registration and sequence pending Judge selection |
 
+## Lane A — Append one B-136 answer against `028f19f` to correct R1–R5, 2026-10-17
+
+> **Filed** against `028f19f`. This record preserves all earlier records and attribution, and stays within the open B-136/D-439 governance. **This filing grants no execution authority.**
+
+### 1. B-136 → D-439
+B-136 and D-439 remain **Open**. The execution hold remains active and in full effect. Status sequences for each approval remain unchanged (`bf743cb`): received → recorded → independently verified.
+
+### 2. F1 / J-C
+F1 classifications (`9c65a73`) and F1-3 scoped acceptance (`44b5db0` §2) preserve their recorded scope and status. J-C A1 stays accepted and held. Kept separate from J1–J3.
+
+### 3. J1 Registration
+- **Entry:** D-440.
+- **Status:** Pending durable registration.
+- **Proof:** `3a7bccd` packet evidence.
+
+### 4. J2 Registration
+- **Entry:** D-440 (alone) or D-441 (paired with J1).
+- **Status:** Pending durable registration.
+- **Proof:** `3a7bccd` packet evidence.
+
+### 5. U0 Decisions
+- All 5 U0 Judge decisions remain **PENDING** (J1, J2, Selected-entry amendment, Case A/B deferral, Receipt-route authorization).
+- The order remains: Selections → Lane A binds packet → Lane B reviews → Judge releases execution last.
+
+### 6. U1 Register Packet
+- **Blob:** `a8e63705a46665dc2c2d19ebaa593c4db6d460e9` (2,069,172 bytes).
+- **SHA-256:** `86312a80331638dfe3a03e8d6de707383d316328d7ffdd9030284f87b8494e49`.
+- Status: U1 updates the Register only after Lane B review and Judge release.
+
+### 7. R1–R5 Reporting Fixes
+- **Review Evidence:** Withdraws `8850ee7` as Lane B evidence; Lane B's review is currently **PENDING**.
+- **Check Logs:** Both runs (19/19 checks, exit 0) for `7d61944` and `49595d4` were verified:
+  - Run 1 (at `7d61944`, dirty tree): `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/check-u0u1-packet-e8bb3a2.log` (SHA-256 `722eac47f1a46ac474e8e75c46a57ff1a9dbea1933e009a9e6c5b8b52c1535f7`).
+  - Run 2 (at `49595d4`, clean tree): `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/check-u0u1-packet-e8bb3a2-run2.log` (SHA-256 `722eac47f1a46ac474e8e75c46a57ff1a9dbea1933e009a9e6c5b8b52c1535f7`).
+  - Logs are not identical.
+- **Untracked Paths:** The three untracked paths (`memory/`, `.agents/freellm_explorer.toml`, `.codex/config.toml`) are now absent; their disposition and authority remain **UNVERIFIED**.
+- **U3 Correction:** U3 correction (`49595d4`) remains in effect; execution hold continues.
+
+### Verdict Table
+
+| Item / Action | Verdict / Status | Owner | Checkpoint / Requirement |
+|---|---|---|---|
+| **B-136 / D-439** | Open (Hold active) | Judge | Execution hold remains active |
+| **J1/J2 Registration** | Pending | Judge / Lane A | U1 commit |
+| **Lane B Review** | Pending | Lane B | Required before release |
+| **U0/U1 Packet** | Prepared | Lane A | Needs Judge selections |
+| **U3 Correction** | Active | Lane A | No push in B-136 |
+
+---
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
