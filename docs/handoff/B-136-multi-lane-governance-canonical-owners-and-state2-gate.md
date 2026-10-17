@@ -18211,3 +18211,107 @@ the commit. Unpushed: `5f1215a`..this record.
 | **Defer** | J3 provenance review; registration at the outcome checkpoint; §7 verification | Lane B; Lane A | Row 7; outcome checkpoint |
 | **Defer** | Row 9 reassessment, baseline, final pair, act, custody, registration, closing; setup/`D-437`, SM05, Gate 2 | Existing owners | Their own authorized checkpoints |
 | **Reject** | B-136 / D-439 completion, Gate 2 closure, or any action taken under the hold | All actors | Until the Judge lifts the hold and dependencies close |
+
+---
+
+## Lane A — correction against `ae1b136`: J-C fallback condition and J3 custody timing, 2026-10-17
+
+> **Filed** on the Judge's instruction in session: "Lane A: Append one B-136 correction against `ae1b136`. Preserve prior
+> records, attribution, the four accepted decisions and the execution hold." The instruction authorizes this filing only.
+>
+> **Received:** Lane B (ChatGPT Codex) scoped review of `ae1b136`, supplied by the Judge in session, not filed in B-136:
+> approves receipt of the four decisions and the filing, with two wording corrections. Lane B reports that it matched C60 to
+> the supplied Judge message at transcript line 791 (Lane B's check; not repeated by Lane A). Lane B is the raiser; Lane A
+> answers.
+
+### What happened
+
+#### 1. B-136 → D-439
+
+B-136 and D-439 stay **Open**. The four accepted decisions (`ae1b136`) and the execution hold stay in force, unchanged.
+This correction grants no execution authority and closes no action checkpoint. Only the two passages named below change.
+Earlier text stays in place as history.
+
+#### 2. D-439 → F1 / J-C A1
+
+**Superseded wording** (`ae1b136`, J-C row, line 18155): "The fallback (entry before row 10; A2-form custody) applies only
+if J3 is withdrawn".
+
+**Replacement:** "The fallback applies **if J3 is not in force**."
+
+**Governing passages.** The accepted A1 wording, `719464e` §2 (line 17814) as quoted in `956fdf9` §2 (line 17983): "If J3
+is not in force, their repository custody needs a separate Judge instruction in A2 form, before the attempt closes." and
+"If J3 is not in force, the entry is recorded through guarded sync to health, and Lane B verifies it, before row 10." The
+Judge's acceptance (C60): "Preserve A1’s exclusions and fallback route." "Withdrawn" was narrower than "not in force".
+
+**A1 fallback, preserved:** if J3 is not in force, (i) the J-C Register entry is recorded through guarded sync to health and
+verified by Lane B before row 10; (ii) later repository custody of the eight extracts needs a separate A2-form Judge
+instruction before the attempt closes. F1's classifications and F1-3's scoped acceptance stay unchanged. J-C's Register
+entry stays separate from the TCA entry.
+
+#### 3. D-439 → J1 and J2
+
+No wording changes. Each keeps its separate acceptance, execution hold and pending proof. J2 keeps its corrected
+exclusions. Both registration routes stay **unresolved**. Lane A notes Lane B's statement: D-183 point 5 names the next
+available Register entry, so a deferral to the outcome checkpoint needs explicit Judge authority. TCA r3's route does not
+cover these approvals automatically.
+
+#### 4. D-439 → J3
+
+**Superseded wording** (`ae1b136`, J3 row, line 18158): "Every custody action under TCA r3, which in any case starts only
+after the §5.2 cut-off".
+
+**Replacement:** "Held: every custody action under TCA r3. External retention before the cut-off is governed by TCA r3 §3
+(Lane A keeps section B/C files outside the repository, states each SHA-256, and changes no file after its hash is stated).
+The later sealed repository copy is governed by TCA r3 §§5.2–5.3. The execution hold applies to both."
+
+**Governing passages.** TCA r3 §3 (object, action, exclusions) and §§5.2–5.3 (finite evidence list, sealed custody commit,
+receipt). `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/tca/TCA-D439-r3.md`,
+`5274e34f50113bb50c27ebc0910f38c4931e4afe2dab354bac4e6101edc047d2`, route R2 — unchanged. The outcome-specific registration
+routes and Lane B §7 verification stay as recorded in `ae1b136`.
+
+#### 5. Status after this correction
+
+| Decision | Received | Execution held | Completion proof pending | Registration | Owner | Checkpoint |
+|---|---|---|---|---|---|---|
+| J-C A1 | Yes (`ae1b136`) | Staging, map, filing | 8 staged files; map and hash; Lane B hash receipt | Not registered. Own entry: at the TCA outcome checkpoint if J3 is in force; before row 10 if not | Judge → Lane A → Lane B | Row 9, before row 10 |
+| J1 | Yes | Unit, commit, request | Pre-copy results; folder commit; Lane B receipt | Not registered; route unresolved | Judge (route) → Lane A → Lane B | Row 5, before row 10 |
+| J2 | Yes | Unit, commit, request | As J1, separately | Not registered; route unresolved | Judge (route) → Lane A → Lane B | Row 6, before row 10 |
+| J3 | Yes; provenance recorded | §3 retention; §§5.2–5.3 sealed copy | Lane B review of the row 7 provenance | Not registered; at the outcome checkpoint; Lane B §7 verification before closure | Judge → Lane A; Lane B verifies | Row 7; outcome checkpoint |
+
+**Self-grade (labelled; Lane A self-review, no independent acceptance).** Trigger: `/anthropic-skills:make-ai-grade-its-own-work`. Evidence: session transcript
+`C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/e1b197bb-476d-4f6c-bde9-aace6388d216.jsonl`, line 898
+(invocation, `222f9038-d7c8-4f65-b589-f8c7a60feb69`), line 906 (launch result) and line 908 (loaded instructions); locators
+only. Draft reviewed: `C:/CoWork/outputs/lane-a-b136-audit-answer-2026-10-17/B136-LANE-A-CORRECTION-ae1b136.md`, pre-fix
+SHA-256 `69f536cce5bc258b2c050565051599e310d0bc55d140861d73f8ebb1d00797b6` (copy retained as `….pre-fix.md`). Fixes:
+(1) the C60 quote now uses the Judge's exact apostrophe (’); (2) this line added.
+
+### What you need
+
+**Judge:** the J1 and J2 registration routes; release of held actions, one action at a time. **Lane B:** review of this
+correction.
+
+### What you did instead
+
+Located the two superseded passages and the governing A1 text by line in B-136 at `ae1b136`; reread TCA r3 §3 and
+§§5.2–5.3. Rehashed the owed trace C64. No extract staging, build, helper or checker run, transfer, Register write, baseline
+naming, application, push or closure. Consistency checks and the commit hook ran for this filing.
+
+**Filing evidence.** `bun run check` ran twice at HEAD `ae1b136`, with this record uncommitted. Run 1 preceded insertion of
+its log hash. Run 2 tested the final file. Identical logs do not prove identical tested bytes. Commit only if both exit 0 and
+the logs are byte-identical. This commit's own trace is retained in the folder that holds C64; its hash exists only after
+the commit. Unpushed: `5f1215a`..this record.
+
+| Item | Source | SHA-256 | Exact later custody destination |
+|---|---|---|---|
+| C64: commit trace for `ae1b136` | `C:/CoWork/outputs/lane-a-b136-audit-answer-2026-10-17/commit-trace-judge-decisions.jsonl` | `8397acb4cb710121d46da8d5c8b95404e0dd10ffd055f91d6d032708d3ccffeb` | `docs/handoff/artifacts/B-136/d439-package/section-c/commit-trace-ae1b136.jsonl` |
+| C65: filing check, run 1 | `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/check-correction-ae1b136.log` | `ba8f313aca778b5d34775d478ce81c767355ffb29bea85b0aa58d3fa2b9214bb` | `docs/handoff/artifacts/B-136/d439-package/section-c/check-correction-ae1b136.log` |
+| C66: run 2 | `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/check-correction-ae1b136-run2.log` | Same as C65 (commit only if identical) | `docs/handoff/artifacts/B-136/d439-package/section-c/check-correction-ae1b136-run2.log` |
+
+| Verdict | Parent → item | Owner | Follow-up phase |
+|---|---|---|---|
+| **Approve** | J-C fallback condition and J3 custody-timing wording corrections | Lane A | Complete in this record |
+| **Defer** | Held actions: J-C A1 staging, map and receipt; J1 and J2 units and receipts; J3 custody | Lane A; Lane B; Judge releases the hold | Rows 5, 6, 9; outcome route |
+| **Defer** | J1 and J2 registration routes (unresolved) | Judge | Row 9, before row 10 |
+| **Defer** | J-C and J3 registration; §7 verification | Lane A records; Lane B verifies | Their stated checkpoints |
+| **Reject** | B-136 / D-439 completion, Gate 2 closure, or any action under the hold | All actors | Until the hold is lifted and dependencies close |
