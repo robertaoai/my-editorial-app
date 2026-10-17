@@ -19230,3 +19230,93 @@ the commit. Unpushed: `5f1215a`..this record.
 | Receipt-route authorization | UNDECIDED | Judge | Before U1 |
 | U0 release from the hold | Not given | Judge | Before U1 |
 | B-136 / D-439 completion, or any Register write or release inferred from this record | **Reject** | All actors | Until the Judge decides and releases |
+
+---
+
+## Lane A — correction against `8aff8ad`: G1 registration-status wording for J1 and J2, 2026-10-17
+
+> **Filed** on the Judge's instruction in session: "Lane A: In one B-136 answer against `8aff8ad`, correct G1's
+> registration-status wording." The instruction authorizes this filing only. Lane B's G1 finding reached Lane A through the
+> Judge's instruction; Lane B's own text was not supplied (**UNVERIFIED** by Lane A). Lane B is the raiser; Lane A answers.
+
+### What happened
+
+#### 1. B-136 → D-439
+
+B-136 and D-439 stay **Open**. The execution hold stays in force. This answer gives no execution authority and writes
+nothing to the Register. The proposed J1 and J2 registration decisions (`8aff8ad`) are unchanged and stay **UNDECIDED**. The
+earlier transfer approvals (`ae1b136`) are not registration decisions.
+
+**Superseded in `8aff8ad`** (§1, lines 19135–19136; kept in place as history): "Each approval stays 'Judge approval received
+… pending durable registration' (`D-183` point 2) until the decisions below are made." That was wrong. A registration
+decision does not register anything. The status changes only when the Register commit exists.
+
+**Corrected status sequence (`D-183` points 2, 5 and 6):**
+
+| Stage | Status wording |
+|---|---|
+| Until the entry's Register commit exists, whether or not the registration decision is given | "Judge approval received in the current conversation for [the transfer unit], pending durable registration" |
+| After the Register commit exists | "Judge approval recorded by `D-NNN` at commit `<sha>`", with the actual number and commit |
+| Until Lane B files its independent verification | Lane B's `D-183` point 6 verification is **open** |
+| After Lane B files it | Verification complete, citing Lane B's record |
+
+#### 2. J1 registration
+
+| Field | Content |
+|---|---|
+| Object | `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/supplement-1/D439-SUPPLEMENT-MAP-r1.md`, SHA-256 `37d5f5a273097167c485ffb9d88c5788ce7bc3676c1bce963e42a7d69b8bf576` |
+| Registration decision | UNDECIDED (`8aff8ad` §2, unchanged) |
+| Current status | Pending durable registration. No Register commit exists |
+| After its Register commit | "Judge approval recorded by `D-440` at commit `<sha>`" (proposed number `D-440` in every selection case) |
+| Lane B verification | Open until Lane B files its `D-183` point 6 verification against C60 item 2 and `956fdf9` §3 |
+| Owner / checkpoint | Judge decides; Lane A records; Lane B verifies / row 9, before row 10 |
+
+#### 3. J2 registration
+
+| Field | Content |
+|---|---|
+| Object | `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/supplement-2-r2/D439-SUPPLEMENT-2-MAP-r2.md`, SHA-256 `487a093e118f0fe9a0cccd405e9af85fc4e68fbd6ae2e655a8479c595e00658e` |
+| Exclusions | Supplement 1; supplement-2 r1 (unchanged) |
+| Registration decision | UNDECIDED (`8aff8ad` §3, unchanged) |
+| Current status | Pending durable registration. No Register commit exists |
+| After its Register commit | "Judge approval recorded by `D-NNN` at commit `<sha>`": `D-440` if J2 is chosen alone, `D-441` in a joint unit with J1 |
+| Lane B verification | Open until Lane B files its `D-183` point 6 verification against C60 item 3 and `956fdf9` §4 |
+| Owner / checkpoint | Judge decides; Lane A records; Lane B verifies / row 9, before row 10 |
+
+**Self-grade (labelled; Lane A self-review, no independent acceptance).** Trigger: `/anthropic-skills:make-ai-grade-its-own-work`. Evidence: session transcript
+`C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/e1b197bb-476d-4f6c-bde9-aace6388d216.jsonl`, line 1367
+(invocation, `c9934e1e-fa41-4d45-a8fa-0e1141a857ba`), line 1376 (launch result) and line 1378 (loaded instructions);
+locators only. Draft reviewed: `C:/CoWork/outputs/lane-a-b136-audit-answer-2026-10-17/B136-LANE-A-G1-STATUS-8aff8ad.md`,
+pre-fix SHA-256 `402269bdd8fa938980fefa22e375f1a75f475d846a468b2ced70728b2fbe54da` (copy retained as `….pre-fix.md`).
+Fix: this line added. The two status phrases were checked against `D-183` points 2 and 5 and match.
+
+### What you need
+
+**Judge:** J1 and J2 registration, each separately (`8aff8ad` §§2–3), and the dependencies in `8aff8ad` §4. **Lane B:**
+review of this correction.
+
+### What you did instead
+
+Located the superseded sentence. Rehashed the owed trace C82. No build, transfer, Register write, push, baseline naming,
+hold release or closure. Consistency checks and the commit hook ran for this filing.
+
+**Working-tree note.** The untracked `memory/b-136-r1-r3-answer.md` (not created by Lane A) is still present, left in place
+and not staged.
+
+**Filing evidence.** `bun run check` ran twice at HEAD `8aff8ad`, with this record uncommitted. Run 1 preceded insertion of
+its log hash. Run 2 tested the final file. Identical logs do not prove identical tested bytes. Commit only if both exit 0 and
+the logs are byte-identical. This commit's own trace is retained in the folder that holds C82; its hash exists only after
+the commit. Unpushed: `5f1215a`..this record.
+
+| Item | Source | SHA-256 | Exact later custody destination |
+|---|---|---|---|
+| C82: commit trace for `8aff8ad` | `C:/CoWork/outputs/lane-a-b136-audit-answer-2026-10-17/commit-trace-j1j2-reg-table.jsonl` | `d59409345e8708f9e53ca62576941b9f7325682504e3c803776c5e732374224b` | `docs/handoff/artifacts/B-136/d439-package/section-c/commit-trace-8aff8ad.jsonl` |
+| C83: filing check, run 1 | `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/check-g1-status-8aff8ad.log` | `0d3324608dbb963dd346143ed669a4f1bf1640874899a0a0fafc520da9b8b2db` | `docs/handoff/artifacts/B-136/d439-package/section-c/check-g1-status-8aff8ad.log` |
+| C84: run 2 | `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/check-g1-status-8aff8ad-run2.log` | Same as C83 (commit only if identical) | `docs/handoff/artifacts/B-136/d439-package/section-c/check-g1-status-8aff8ad-run2.log` |
+
+| Verdict | Parent → item | Owner | Checkpoint |
+|---|---|---|---|
+| **Approve** | G1 status-wording correction (complete on filing of this record) | Lane A | This record |
+| **Defer** | J1 registration and its Lane B verification | Judge → Lane A → Lane B | Row 9, before row 10 |
+| **Defer** | J2 registration and its Lane B verification | Judge → Lane A → Lane B | Row 9, before row 10 |
+| **Reject** | B-136 / D-439 completion, any Register write, or release of the hold inferred from this record | All actors | Until the Judge decides and releases |
