@@ -20103,3 +20103,80 @@ F1 classifications (`9c65a73`) and F1-3 scoped acceptance (`44b5db0` §2) preser
 
 ---
 🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+
+## Lane A — Append one reporting correction to B-136 against `000a328` to fix presence observations and worklog claims, 2026-10-18
+
+> **Filed** against `000a328`. This record preserves all earlier records and attribution, and stays within the open B-136/D-439 governance. **This filing grants no execution authority.**
+
+### 1. B-136 → D-439
+B-136 and D-439 remain **Open**. The execution hold remains active and in full effect. The accepted R1 withdrawal and U3 correction are preserved.
+
+### 2. F1 / J-C
+F1 classifications (`9c65a73`) and F1-3 scoped acceptance (`44b5db0` §2) preserve their recorded scope and status. J-C A1 stays accepted and held. Kept separate from J1–J3.
+
+### 3. J1 Registration
+- **Status:** Transfer approval accepted; registration selection pending (requires Judge selection).
+- **Scope:** Registration of the J1 transfer approval only.
+- **Owner sequence:** Judge selects → Lane A records → Lane B verifies.
+- **Checkpoint:** Row 9, before baseline naming.
+- **Verdict Table:**
+| Item / Action | Verdict / Status | Owner | Checkpoint / Requirement |
+|---|---|---|---|
+| **J1 Registration Selection** | Pending | Judge | Packet review and explicit execution release |
+| **J1 Registration** | Pending | Judge / Lane A | Register commit |
+| **Lane B Verification** | Pending | Lane B | Post-Register commit verification |
+
+### 4. J2 Registration
+- **Status:** Transfer approval accepted; registration selection pending (requires Judge selection).
+- **Scope:** Registration of the J2 transfer approval only.
+- **Numbering rule:** D-440 if selected alone; D-441 with J1. Recheck at U1.
+- **Owner sequence:** Judge selects → Lane A records → Lane B verifies.
+- **Checkpoint:** Row 9, before baseline naming.
+- **Verdict Table:**
+| Item / Action | Verdict / Status | Owner | Checkpoint / Requirement |
+|---|---|---|---|
+| **J2 Registration Selection** | Pending | Judge | Packet review and explicit execution release |
+| **J2 Registration** | Pending | Judge / Lane A | Register commit |
+| **Lane B Verification** | Pending | Lane B | Post-Register commit verification |
+
+### 5. R3 / R4 — Preserved
+- **R3 — U0 Decisions:** All 5 U0 Judge decisions remain **PENDING**:
+  - J1 registration;
+  - J2 registration;
+  - selected-entry amendment;
+  - conditional Case A/B deferral with deadline (a)/(b) [applies only when exactly one registration proposal is selected];
+  - receipt-route authorization.
+  - Order: Selections → Lane A binds packet → Lane B reviews → Judge releases execution last.
+- **R4 — Preserved:** The accepted R4 from the previous filing against `e908a2c` remains in force, incorporating the complete 3a7bccd §6 requirements. Final text and expected bytes remain PENDING until the required Judge words exist.
+
+### 6. R5 — Presence Correction
+- **Observations (as of 2026-10-18):**
+  - `memory/` **absent** (not present in the working tree).
+  - `.agents/freellm_explorer.toml` **present** and untracked.
+  - `.codex/config.toml` **present** and untracked.
+- **Lane B's last observation:** `memory/` absent; `.agents/freellm_explorer.toml` and `.codex/config.toml` present and untracked.
+- **Correction:** Replaces the previous claim that all three paths were present. Disposition and authority for all three paths remain **UNVERIFIED** (no credentials read, no changes made).
+
+### 7. R5 — Worklog Correction
+- **Withdrawal:** The claim that “all four commits passed all 19 checks” is withdrawn.
+- **Supported Distinction:**
+  - The retained log `b2bb4dk0v.output` (from task ID `b2bb4dk0v`) reports HEAD `6454a9c` with working changes, 19/19 checks passed, exit 0.
+  - The post-commit check at commit `000a328` was blocked by a safety-classifier timeout (no output produced; the check did not complete).
+  - A passing run on working changes (`6454a9c`) does not prove a passing check of either committed state (`6454a9c` or `000a328`).
+  - The committed state of `000a328` remains **UNVERIFIED** for the full 19-check suite.
+- **Retained Log:** `C:/Users/rober_24syk4j/AppData/Local/Temp/claude\c--robertaoai-my-editorial-app\fe995f58-1f69-4047-b545-ea31663bc53e\tasks\b2bb4dk0v.output`
+- **Worklog’s Full Commit IDs (corrected):**
+  - `000a3283d2e8e51d643142231310c49eb3a53f64`
+  - `f46a4682a044c3aab9e7d890e2744fcd0017f87c`
+- **J2 Hash Clarification:** The stale claim that J2 still contains a pending-hash placeholder is withdrawn. The committed full hash of J2 (`487a093e118f0fe9a0cccd405e9af85fc4e68fbd6ae2e655a8479c595e00658e`) was independently verified by Lane B. This attribution is preserved; no claim is made that the current filing performed Lane B’s check.
+
+### 8. Completion Proof
+| Item / Action | Verdict / Status | Owner | Checkpoint / Requirement |
+|---|---|---|---|
+| **J1 Registration Selection** | Pending | Judge | Packet review and explicit execution release |
+| **J2 Registration Selection** | Pending | Judge | Packet review and explicit execution release |
+| **Execution Hold** | Active | Judge | Hold remains in effect |
+
+---
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
