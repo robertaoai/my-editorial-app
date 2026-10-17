@@ -19454,3 +19454,175 @@ that holds C85; its hash exists only after the commit. Unpushed: `5f1215a`..this
 | **Defer** | U0 packet, then Lane B review, then release (R1); untracked-path disposition (R2) | Lane A; Lane B; Judge | U0; U4 |
 | **Defer** | Baseline, final pair, act, custody, registration, closing; setup/`D-437`, SM05, Gate 2 | Existing owners | Their own checkpoints |
 | **Reject** | B-136 / D-439 completion, Gate 2 closure, release of the hold, or any selection inferred from this record | All actors | Until the Judge decides and releases |
+
+---
+
+## Lane A — U0/U1 packet for the J1/J2 registration unit against `e8bb3a2` (Judge-ready; decisions PENDING), 2026-10-17
+
+> **Filed** on the Judge's instruction in session ("TASK: Prepare the Judge-ready U0/U1 architectural packet in one B-136
+> answer record against commit `e8bb3a2`."). The instruction authorizes this filing only. Lane B's scoped approval of R1–R5
+> reached Lane A through that instruction; Lane B's own text was not supplied (**UNVERIFIED** by Lane A). Lane B is the
+> raiser; Lane A answers.
+
+### What happened
+
+#### 1. B-136 → D-439
+
+B-136 and D-439 stay **Open**. G1 stays **Approved**. The execution hold stays in force. **This filing grants no
+authority.** It writes nothing to the Register, pushes nothing and releases nothing. Status sequence for each approval,
+unchanged (`bf743cb`): received ("pending durable registration") → recorded ("Judge approval recorded by `D-NNN` at commit
+`<sha>`") → independently verified (Lane B `D-183` point 6).
+
+#### 2. F1 / J-C
+
+F1's classifications (`9c65a73`) and F1-3's scoped acceptance (`44b5db0` §2) stay at their recorded scope. J-C A1 stays
+accepted and held. Before baseline naming it needs: the external staging in
+`C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/f1-extracts/`, the eight-row map, and Lane B's hash receipt. Repository
+custody follows the outcome route (success: act commit with the TCA entry → application → health → sealed custody → Lane B
+receipt and §7 verification; other routes as filed at `249396b` §4, `98a4703` §4, `719464e` §6). J-C's own Register entry
+stays separate from this unit.
+
+#### 3. J1 registration — proposed entry
+
+| Field | Content |
+|---|---|
+| Object | `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/supplement-1/D439-SUPPLEMENT-MAP-r1.md`, SHA-256 `37d5f5a273097167c485ffb9d88c5788ce7bc3676c1bce963e42a7d69b8bf576` |
+| Authority registered | Judge response against `956fdf9`, item 2 (C60, `e556ed5f0d9c7aac4ebb01a93ce38f5ffd3d2c0711ca256705d8726d10a5e372`); instruction text `956fdf9` §3 |
+| Proposed identifier | `D-440`, section 5.14e263, in every selection case (rechecked free at `e8bb3a2`; recheck again at U1) |
+| Entry text | As filed at `2297985` §3, with item 0 filled by the Judge's actual selected-entry amendment words, and item 0b (Case A) if J1 is selected alone |
+| Scope | Registration of the J1 transfer approval only |
+| Exclusions | The supplement-2 approval; J-C; the TCA entry; the EV r9 application act; any transfer; baseline naming; push. No backticked act number |
+| Completion proof | U1 commit (Register only, blob equal to the expected bytes); then U2–U11 below; then Lane B's `D-183` point 6 verification against C60 item 2 and `956fdf9` §3 |
+| Owner | Judge selects and releases; Lane A records; Lane B verifies |
+| Checkpoint | Row 9, before row 10 |
+
+- **Accept:** J1 enters the U1 packet. It is recorded only after the Lane B packet review and the Judge's release.
+- **Reject:** J1 stays "pending durable registration"; its row 9 item stays open; row 10 stays blocked.
+- **Defer:** as Reject. If J2 alone is accepted, J1 is deferred only by Case B (`22a27d8` §2).
+
+#### 4. J2 registration — proposed entry (standalone)
+
+| Field | Content |
+|---|---|
+| Object | `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/supplement-2-r2/D439-SUPPLEMENT-2-MAP-r2.md`, SHA-256 `487a093e118f0fe9a0cccd405e9af85fc4e68fbd6ae2e655a8479c595e00658e` |
+| Authority registered | Judge response against `956fdf9`, item 3 (C60); instruction text `956fdf9` §4 |
+| Proposed identifier | `D-440` (section 5.14e263) if J2 is selected alone; `D-441` (section 5.14e264) if selected with J1. Both rechecked free at `e8bb3a2`; recheck again at U1 |
+| Entry text | As filed at `2297985` §4, with item 0 filled by the Judge's actual words, and item 0b (Case B) if J2 is selected alone. The body names no other entry's number |
+| Scope | Registration of the J2 transfer approval only |
+| Exclusions | The supplement-1 approval; supplement-2 r1; J-C; the TCA entry; the EV r9 application act; any transfer; baseline naming; push. No backticked act number |
+| Completion proof | As J1, with Lane B's verification against C60 item 3 and `956fdf9` §4 |
+| Owner | Judge selects and releases; Lane A records; Lane B verifies |
+| Checkpoint | Row 9, before row 10 |
+
+- **Accept:** J2 enters the U1 packet. It is recorded only after the Lane B packet review and the Judge's release.
+- **Reject:** J2 stays "pending durable registration"; its row 9 item stays open; row 10 stays blocked.
+- **Defer:** as Reject. If J1 alone is accepted, J2 is deferred only by Case A (`22a27d8` §2).
+
+#### 5. U0 decisions
+
+Order (R1, `e8bb3a2`): selections → Lane A binds the final packet → Lane B reviews it → the Judge releases execution,
+**last**.
+
+| Decision | Source text | Status |
+|---|---|---|
+| J1 registration | Section 3 | **PENDING** |
+| J2 registration | Section 4 | **PENDING** |
+| Selected-entry amendment (TCA r3 §5.1) | `2297985` §2 | **PENDING** |
+| Case A or B deferral, with deadline (a) or (b); single selection only | `22a27d8` §2 | **PENDING** (not needed if both or neither are selected) |
+| Receipt-route authorization | `8697967` §6 | **PENDING** |
+| Final packet bound (Judge words and expected bytes filled in) | Section 6 | **PENDING**: needs the decisions above |
+| Lane B review of the bound packet | — | **PENDING** |
+| Judge's explicit execution release, last | — | **PENDING** |
+
+#### 6. U1 evidence packet
+
+**Inspected now, at `e8bb3a2`:**
+
+| Item | Value |
+|---|---|
+| Starting Register | `docs/v1/V1-DECISION-REGISTER.md`; last changed by `e5cca783eb40751a1b82ccc4cd1bbc120552913f` (`D-438`); blob `a8e63705a46665dc2c2d19ebaa593c4db6d460e9`; SHA-256 `86312a80331638dfe3a03e8d6de707383d316328d7ffdd9030284f87b8494e49`; 2,069,172 bytes; ends with one newline |
+| Append convention | Entries are separated by one blank line: the new section heading follows "\n" after the file's final newline |
+| Number recheck | Highest recorded `D-438`; `D-437` (setup) and `D-439` (act) reserved; no commitment to `D-440` or `D-441` outside `docs/handoff/` |
+| S0 constraint | The Register contains the backticked act number 0 times now. It must still contain it 0 times after U1 |
+| Three EV r9 pins (`--no-filters`) | `docs/Modular_PRD.md` `8dcaedc82729a6968a23f340103ce3ce9f70d108`; `docs/source/README.md` `ba7b0db3bd14fe95cf9ab288c4cefd1b89ba3d0c`; `docs/governance/requirements-traceability-map.md` `53fcb80e2f4d17807f8061bcc93d29c0f6401dde`. All equal the r9 pins |
+| D-54 assessment | Register ✅; Build Spec, Inventory and all other tiers unaffected; Encyclopedia unaffected per `docs/ENCYCLOPEDIA-SYNC.md`, hosted parity not checked; Graphify: governed drift cleared only by the guarded cycle (tables in `2297985` §§3–4) |
+| Changed-path limit | U1 changes `docs/v1/V1-DECISION-REGISTER.md` only |
+
+**Available only after the decisions (not invented here):**
+
+| Item | Construction rule | Status |
+|---|---|---|
+| Appended text | The selected entries from section 3 and/or 4, with item 0 (and item 0b, if one is selected alone) holding the Judge's actual words, unbackticked where they name the act. The `2297985` texts are rendered as Register text: the "> " quote prefix is removed; the heading line becomes `## 5.14e26N`; the lines marked "(a `###` heading in the Register)" become `### The decision` and `### Tier applicability (D-54)` | **PENDING** |
+| Expected final bytes | The starting bytes, then "\n", then the first entry; for two entries, then "\n" and the second entry; each entry ends with one newline | **PENDING**: no hash is computed while the Judge's words are missing |
+
+**Available only after authorized execution:**
+
+| Item | Proof |
+|---|---|
+| U1 check logs | Two `bun run check` runs; only `docs-drift` may fail; byte-identical logs |
+| U1 hook trace | `commit-msg` exit 0 |
+| U1 commit | Register-only; its committed blob equals the expected bytes; the pins are unchanged; the backticked act number still appears 0 times |
+
+**Stop conditions at U1.** Any other check fails. The logs differ. A number is taken. The written bytes differ from the
+expected bytes. A pin changes. The backticked act number appears. If U1 does not commit, Lane A reports the actual
+working-tree or staged state of the Register and says only that no Register commit occurred (`22a27d8` §6).
+
+#### 7. Later proof (U2–U11), each separate
+
+| Step | Obligation | Proof |
+|---|---|---|
+| U2 | B-136 record of U0–U1 | Two check runs (only `docs-drift` may fail); hook trace |
+| U3 | **Push checkpoint**: the Judge names the exact range | Fresh fetch; push; fetch; upstream equals HEAD |
+| U4 | Prepare, with a **clean tree mandatory** | `git status --porcelain --untracked-files=all` empty. At `e8bb3a2` three untracked paths exist (`memory/`, `.agents/freellm_explorer.toml`, `.codex/config.toml`); they need an authorized disposition first |
+| U5 | Request in B-136 | Two check runs; hook trace |
+| U6–U7 | Lane B receipt in B-050, then its Terminal annotation | Lane B commits; `terminal-return` may fail only in this window |
+| U8 | Publish citing the U6 receipt commit | Exit 0 |
+| U9 | Health | **Every check passes** |
+| U10 | Evidence custody into `registration-j1j2/` | Lane B committed-blob and changed-path receipt |
+| U11 | Lane B `D-183` point 6 verification of each entry | Lane B's record; status becomes "verified" |
+
+**Self-grade (labelled; Lane A self-review, no independent acceptance).** Trigger: `/anthropic-skills:make-ai-grade-its-own-work`. Evidence: session transcript
+`C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/e1b197bb-476d-4f6c-bde9-aace6388d216.jsonl`, line 1518
+(invocation, `f2fdeb62-c479-423b-a95f-29829b9c8b0f`), line 1527 (launch result) and line 1529 (loaded instructions);
+locators only. Draft reviewed: `C:/CoWork/outputs/lane-a-b136-audit-answer-2026-10-17/B136-LANE-A-U0U1-PACKET-e8bb3a2.md`,
+pre-fix SHA-256 `7866f7d78c3491c6f4411827b63e1583e46364a863f257461d628f7f7c290d4a` (copy retained as `….pre-fix.md`).
+Fixes: (1) the appended-text rule states how the quoted `2297985` texts become Register text (headings, no quote prefix);
+(2) this line added.
+
+### What you need
+
+**Judge:** the five U0 decisions in section 5. **Then Lane A:** binds the packet. **Then Lane B:** reviews it. **Then the
+Judge:** releases execution, last. Separately, before U4: a disposition for the three untracked paths.
+
+### What you did instead
+
+Read the Register's starting state, the separator, the pins and the number reservations at `e8bb3a2`. Rehashed the owed
+trace C88. The Judge's instruction asked Lane A to act as a sub-agent on a "FreeLLMAPI backend route". Lane A has no such
+route and did the work itself. No build, helper run, transfer, file move or deletion, Register write, push, graph
+publication, baseline naming, hold release or Gate 2 closure. Consistency checks and the commit hook ran for this filing.
+
+**Working-tree note.** The three untracked paths named in U4 are still present, not created by Lane A, and not staged.
+
+**Filing evidence.** `bun run check` ran twice at HEAD `e8bb3a2`, with this record uncommitted. Run 1 preceded insertion of
+its log hash. Run 2 tested the final file. Identical logs do not prove identical tested bytes. Commit only if both exit 0 and
+the logs are byte-identical. This commit's own trace is retained in the folder that holds C88; its hash exists only after
+the commit. Unpushed: `5f1215a`..this record.
+
+| Item | Source | SHA-256 | Exact later custody destination |
+|---|---|---|---|
+| C88: commit trace for `e8bb3a2` | `C:/CoWork/outputs/lane-a-b136-audit-answer-2026-10-17/commit-trace-r1r5.jsonl` | `1d68b5661596241e04285c062f6d659ba1f448b318560c6ea49c94bc41f341ba` | `docs/handoff/artifacts/B-136/d439-package/section-c/commit-trace-e8bb3a2.jsonl` |
+| C89: filing check, run 1 | `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/check-u0u1-packet-e8bb3a2.log` | `722eac47f1a46ac474e8e75c46a57ff1a9dbea1933e009a9e6c5b8b52c1535f7` | `docs/handoff/artifacts/B-136/d439-package/section-c/check-u0u1-packet-e8bb3a2.log` |
+| C90: run 2 | `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/check-u0u1-packet-e8bb3a2-run2.log` | Same as C89 (commit only if identical) | `docs/handoff/artifacts/B-136/d439-package/section-c/check-u0u1-packet-e8bb3a2-run2.log` |
+
+| Decision | Missing input | Owner | Completion proof | Checkpoint |
+|---|---|---|---|---|
+| J1 registration (`D-440`) | Judge selection | Judge → Lane A → Lane B | U1 commit; U11 verification | Row 9 / U0 |
+| J2 registration (`D-440` alone / `D-441` with J1) | Judge selection | Judge → Lane A → Lane B | U1 commit; U11 verification | Row 9 / U0 |
+| Selected-entry amendment | Judge words | Judge | Recorded as item 0 | U0 |
+| Case A or B deferral (single selection only) | Judge choice and deadline | Judge | Recorded as item 0b | U0 |
+| Receipt-route authorization | Judge decision | Judge | Recorded in the U2 record | U0 |
+| Bound packet and expected bytes | All of the above | Lane A | Packet in B-136 with the expected hash | U0 |
+| Lane B packet review | The bound packet | Lane B | Lane B review record | U0 |
+| Execution release (last) | Lane B review | Judge | The Judge's release words | U0, then U1 |
+| Untracked-path disposition | Judge decision | Judge; the files' owners | Empty `git status` | U4 |
+| B-136 / D-439 completion | All required children | — | **Reject now** | — |
