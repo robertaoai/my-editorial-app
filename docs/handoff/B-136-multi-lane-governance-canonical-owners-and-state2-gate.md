@@ -17462,3 +17462,130 @@ Reviewed the bounded local source messages and the successor evidence already fi
 | **Defer** | D-439 → J3 | Judge | Separate instruction and provenance |
 | **Defer** | Baseline, final pair, application, custody, registration, closing and Gate 2 | Existing owners | Their authorized checkpoints |
 | **Reject** | B-136/D-439 completion, baseline naming or execution inferred from this record | All actors | Until required dependencies close |
+
+---
+
+## Lane A — answers Lane B's G1–G3 at `9c65a73`: J-C timing and authority, registration routes, 2026-10-17
+
+> **Filed** on the Judge's instruction in session: "Lane A: append one B-136 answer to Lane B's G1–G3 findings against
+> `9c65a73`. Preserve earlier records and attribution." The instruction authorizes this filing only.
+>
+> **Answered:** Lane B (ChatGPT Codex) review of Lane A's follow-up proposal at `9c65a73`, supplied by the Judge in session,
+> not filed in B-136. Lane B is the raiser; Lane A answers. Earlier records stay unchanged.
+
+### What happened
+
+#### 1. Parents
+
+B-136 and D-439 stay **Open**. This record grants no baseline, application, transfer or other execution authority.
+
+**Receipts (this is Lane A's next substantive record).** Lane A receives:
+- Lane B's approval of the `8cc6134` correction (in session; not filed).
+- Lane B's F1 record `9c65a73`, with its attribution kept. Lane B's conclusions stay Lane B's own work.
+- Lane B's two in-session reviews of Lane A's F1 follow-up (not filed).
+
+Lane A withdraws three statements from its own in-session analysis (not filed): "no custody route" (the extracts have a
+stated in-place location); a transcript deletion date (retention is UNVERIFIED); and "wait for J-C before filing" (Lane B
+G4). Lane A accepts Lane B G5: no governed-intent graph refresh is indicated by these handoff-only changes. That does not
+show semantic coverage of the handoff or current Gate 2 evidence.
+
+#### 2. D-439 → F1 and J-C
+
+**Kept unchanged.** The eight historical F1 classifications stay complete at their stated scope (`9c65a73`). F1-3 keeps
+its scoped acceptance (`44b5db0` §2). Their surviving actions stay open: final pair, J1–J3, custody, EV application,
+registration, Gate 2.
+
+**The question J-C answers.** r4 §2 (e) and Lane B's `5f1215a` require a custody route for each extract. `9c65a73` states an
+in-place location: transcript path, message UUID, bounds, SHA-256, attribution limit. Neither record says whether an
+in-place location satisfies (e). The options below are **proposals** until the Judge decides.
+
+**G1 — custody timing.** Each option has one exact pre-baseline completion condition. None depends on the outcome-triggered
+sealed transfer.
+
+| Option (proposal) | What satisfies J-C before baseline naming | What stays for later | Owner | Completion proof | Checkpoint |
+|---|---|---|---|---|---|
+| **A1. Staged extracts with an accepted custody route** (Lane A recommends) | (1) Lane A writes the eight bounded extracts byte-exact outside the checkout. (2) Lane A files an extract map: source file, line, UUID, byte bounds, full SHA-256, unique destination, attribution limit. (3) Lane B independently re-hashes each staged copy against `9c65a73` and files its receipt in B-136. (4) The Judge's instruction accepting this route is recorded (G2) | Repository custody of the eight files, in the sealed custody unit on the applicable outcome route (section 4). It is **not** a baseline condition | Lane A stages and maps; Lane B verifies; Judge instructs | Map hash; Lane B receipt commit; recorded instruction | Row 9, before row 10 |
+| **A2. Repository custody before the baseline** | A separate authorized unit, like J1/J2: an exact Judge instruction naming the map and its hash; pre-copy checks; a folder-only commit to its own destination (for example `docs/handoff/artifacts/B-136/d439-package/f1-extracts/`); a one-file request; a Lane B committed-blob and changed-path receipt | Nothing for these eight files | Judge → Lane A → Lane B | Folder commit; Lane B receipt | Row 9, before row 10 |
+| **B. In-place location accepted** | Depends on its classification (G2). It does not leave row 9 unchanged by default | Retention stays UNVERIFIED; if a transcript is lost, the hashes cannot be re-checked | Judge; Lane A records; Lane B verifies a waiver | See G2 | Row 9, before row 10 |
+
+**Identifiers.** Section C currently runs to C35. This record adds C36–C39 (section 6). The extract identifiers are
+therefore **proposed as C40–C47**. They replace the earlier informal "C36–C43" and stay proposed until the J-C decision and
+the evidence ledger are reconciled.
+
+**G2 — authority under `D-183`.**
+
+| Judge message | `D-183` class | Provenance wording | Registration | Verification | Row 9 effect |
+|---|---|---|---|---|---|
+| Says what (e) means: an in-place location is a custody route | Clarification (point 3) | "Judge clarification received …" with the exact text, recorded in B-136 | None, because no action is authorized | Proposed (not required by point 3): Lane B confirms that the recorded text matches the clarification | Row 9 records J-C as satisfied by that clarification |
+| Authorizes A1 or A2 | Action approval (points 1–2): object, action, scope and exclusions, checkpoint | "Judge approval received in the current conversation for [action], pending durable registration" | Point 5: the next available Register entry. TCA r3/R2 (J3) does not name J-C. J-C uses that route only if the J-C instruction says so; otherwise the instruction names its own registration route | Point 6: Lane B verifies the recorded entry and its application | Row 9 records the J-C transaction and its proof |
+| Exempts the extracts from (e) (option B as an exception) | Waiver | As above, naming the exact object and the waived requirement | Row 9 rule (r4 §4 and §5.1): B-136 record, Register entry through guarded sync to health, **before row 10**. No `D-428` exception is inferred | Lane B verifies the committed Register entry | Row 9 is satisfied only after all three steps |
+
+**G2 owner, proof and checkpoint.** Owner: the Judge decides the class and gives the message; Lane A records it (and, for an
+approval or waiver, the Register entry); Lane B verifies. Completion proof: the recorded text in B-136, plus the Register
+commit, health record and Lane B verification where the class requires them. Checkpoint: row 9, before row 10.
+
+**Row 9** stays open to every applicable prerequisite, not only J-C. Lane A reassesses it immediately before row 10.
+
+#### 3. D-439 → J1, J2, J3
+
+Each decision stays separate and **Open**. F1 and J-C neither decide nor block their presentation. Identities and conditions
+are unchanged from r4 §3 and `bd7d5f7` §3:
+- J1: `…/supplement-1/D439-SUPPLEMENT-MAP-r1.md`, `37d5f5a273097167c485ffb9d88c5788ce7bc3676c1bce963e42a7d69b8bf576`.
+- J2: `…/supplement-2-r2/D439-SUPPLEMENT-2-MAP-r2.md`, `487a093e118f0fe9a0cccd405e9af85fc4e68fbd6ae2e655a8479c595e00658e`.
+- J3: `…/tca/TCA-D439-r3.md`, `5274e34f50113bb50c27ebc0910f38c4931e4afe2dab354bac4e6101edc047d2`, route R2.
+
+#### 4. D-439 → later sequence (G3)
+
+Lane A's in-session guide compressed registration into one step after sealed custody. That was wrong for the success
+route. r4 §5.3 governs, unchanged:
+
+| Route | Order | Owner | Completion proof | Checkpoint |
+|---|---|---|---|---|
+| **Success** | The separately authorized TCA entry goes in the act commit → application and health → sealed custody → verification → closing | Judge authorizes; Lane A records and applies; Lane B verifies | Act commit holding both entries; health record; custody receipt; Lane B §7 verification | Act through closing |
+| **Rejection or pre-act stop** | Sealed custody → receipt → separately authorized registration unit → health and verification | Lane A; Judge authorizes the unit; Lane B verifies | Custody receipt; Register commit; health; Lane B §7 verification | After the outcome, before closing |
+| **Post-act stop** | State the committed state first (act commit, committed EV edits, any publication) → verify an existing TCA entry → register only a missing entry through the applicable route | Lane A states; Lane B verifies; Judge authorizes any missing entry | Committed-state record; Lane B verification; baseline reassessment | After the stop, before closing |
+
+On every route, sealed custody includes the extracts only under A1. Under A2 they are already in custody.
+
+**Self-grade (labelled; Lane A self-review, no independent acceptance).** Trigger:
+`/anthropic-skills:make-ai-grade-its-own-work`. Evidence: session transcript
+`C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/e1b197bb-476d-4f6c-bde9-aace6388d216.jsonl`, line 383
+(invocation, `694f0d59-fc11-4a49-a24a-b64527841957`) and lines 385–387 (launch result and loaded instructions); locators only.
+Draft reviewed: `C:/CoWork/outputs/lane-a-b136-audit-answer-2026-10-17/B136-LANE-A-JC-ANSWER-9c65a73.md`, pre-fix SHA-256
+`7a2f39546cfe9c58d2d415ccd18b72f4247670d3fd0d21ef2ff8b297bd5dac1d` (copy retained as `….pre-fix.md`). Fixes: (1) J-C uses
+the TCA r3/R2 route only if its instruction says so; (2) G2 owner, proof and checkpoint added; (3) the clarification
+verification step is labelled as proposed; (4) this line added.
+
+### What you need
+
+**Judge:** J-C (A1, A2 or B, with its class under `D-183`), and J1, J2 and J3, each separately. **Lane B:** under A1, the hash
+receipt for the staged extracts once Lane A files the map.
+
+### What you did instead
+
+Read `D-183` (Register §5.14e8), r4 §2, §4 and §5.3, and `9c65a73`. No extract was staged or copied. No helper or checker
+run, transfer, baseline naming, application, Register write, graph rebuild, push or closure. Consistency checks and the
+commit hook ran for this filing.
+
+**Filing evidence.** `bun run check` ran twice at HEAD `9c65a73`, with this record uncommitted. Run 1 preceded insertion of
+its log hash. Run 2 tested the final file. Identical logs do not prove identical tested bytes. Commit only if both exit 0 and
+the logs are byte-identical. This commit's own trace is retained in the folder that holds C36; its hash exists only after the commit.
+Unpushed: `5f1215a`..this record.
+
+| Item | Source | SHA-256 | Exact later custody destination |
+|---|---|---|---|
+| C36: commit trace for `8cc6134` | `C:/CoWork/outputs/lane-a-b136-audit-answer-2026-10-17/commit-trace-correction.jsonl` | `5ceeffa3f4235dd27eb3081bb36246e23708fef8fa2c331edc70d78dd88441f7` | `docs/handoff/artifacts/B-136/d439-package/section-c/commit-trace-8cc6134.jsonl` |
+| C37: Lane A check at `9c65a73` (corroboration; not Lane B filing evidence) | `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/check-audit-9c65a738.log` | `8b51d8516e6a4a8c7ba33b8b007450ebf530362aba3f8bd82110b75098574744` | `docs/handoff/artifacts/B-136/d439-package/section-c/check-audit-9c65a738.log` |
+| C38: filing check, run 1 | `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/check-jc-answer-9c65a73.log` | `65449617ee1cc459bff5897f46c9c655b793673e3071a805726c204de7e868fd` | `docs/handoff/artifacts/B-136/d439-package/section-c/check-jc-answer-9c65a73.log` |
+| C39: run 2 | `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/check-jc-answer-9c65a73-run2.log` | Same as C38 (commit only if identical) | `docs/handoff/artifacts/B-136/d439-package/section-c/check-jc-answer-9c65a73-run2.log` |
+
+| Verdict | Parent → item | Owner | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Receipts in section 1; G3 routes restored; G4/G5 accepted | Lane A | Complete in this record |
+| **Approve** | F1 classifications (`9c65a73`) and F1-3 scoped acceptance, unchanged | Lane B; Lane A records receipt | Complete at stated scopes |
+| **Approve-with-conditions** | J-C options A1, A2, B and their `D-183` classes (G1/G2), as proposals | Judge decides; Lane A records; Lane B verifies | Row 9, before row 10 |
+| **Defer** | D-439 → J1 | Judge → Lane A → Lane B | Separate exact-object decision |
+| **Defer** | D-439 → J2 | Judge → Lane A → Lane B | Separate exact-object decision |
+| **Defer** | D-439 → J3 | Judge → Lane A; Lane B verifies | Instruction and provenance; route-specific registration |
+| **Defer** | Row 9 reassessment, baseline, final pair, act, custody, registration, closing; setup/`D-437`, SM05, Gate 2 | Existing owners | Their own authorized checkpoints |
+| **Reject** | B-136 / D-439 completion, or baseline or execution authority from this record | All actors | Until required dependencies close |
