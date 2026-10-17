@@ -19927,3 +19927,89 @@ The accepted R4 from the previous filing against `e908a2c` remains in force, inc
 
 ---
 🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+
+## Lane A — Append one B-136 answer against `f46a468` to correct R2/R5 and preserve R3/R4, 2026-10-18
+
+> **Filed** against `f46a468`. This record preserves all earlier records and attribution, and stays within the open B-136/D-439 governance. **This filing grants no execution authority.**
+
+### 1. B-136 → D-439
+B-136 and D-439 remain **Open**. The execution hold remains active and in full effect. The accepted R1 withdrawal and U3 correction are preserved.
+
+### 2. F1 / J-C
+F1 classifications (`9c65a73`) and F1-3 scoped acceptance (`44b5db0` §2) preserve their recorded scope and status. J-C A1 stays accepted and held. Kept separate from J1–J3.
+
+### 3. J1 — Registration
+- **Object:** supplement-1/D439-SUPPLEMENT-MAP-r1.md under `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/`.
+- **Authority being registered:** C60 item 2; 956fdf9 §3.
+- **Entry text:** 2297985 §3.
+- **Proposed entry:** D-440, subject to the U1 number check.
+- **Scope:** Registration of the J1 transfer approval only.
+- **Full object path:** `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/supplement-1/D439-SUPPLEMENT-MAP-r1.md`
+- **Verified full SHA-256:** `37d5f5a273097167c485ffb9d88c5788ce7bc3676c1bce963e42a7d69b8bf576`
+- **Restored exclusions:** None specified for supplement-1 transfer (based on source)
+- **Accept/Reject/Defer consequences:** 
+    - **Accept:** Select J1 for the registration packet. Recording still requires packet review and explicit execution release.
+    - **Reject:** Keep J1 pending durable registration; row 9 stays open.
+    - **Defer:** Keep the same pending state. If J2 alone is selected, apply Case B under the governing source.
+- **Owner sequence:** Judge selects and releases → Lane A records → Lane B verifies under D-183 point 6.
+- **Checkpoint:** Row 9, before baseline naming.
+- **Verdict Table:**
+| Item / Action | Verdict / Status | Owner | Checkpoint / Requirement |
+|---|---|---|---|
+| **J1 Registration Selection** | Pending | Judge | Packet review and execution release |
+| **J1 Registration** | Pending | Judge / Lane A | Register commit |
+| **Lane B Verification** | Pending | Lane B | Post-Register commit verification |
+
+### 4. J2 — Registration
+- **Object:** supplement-2-r2/D439-SUPPLEMENT-2-MAP-r2.md under `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/`.
+- **Authority being registered:** C60 item 3; 956fdf9 §4.
+- **Entry text:** 2297985 §4.
+- **Proposed entry:** D-440 if selected alone; D-441 with J1. Recheck at U1.
+- **Scope:** Registration of the J2 transfer approval only.
+- **Full object path:** `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/supplement-2-r2/D439-SUPPLEMENT-2-MAP-r2.md`
+- **Verified full SHA-256:** `487a093e118f0fe9a0cccd405e9af85fc4e68fbd6ae2e655a8479c595e00658e`
+- **Restored exclusions:** supplement-1 and supplement-2 r1 (preserved as instructed)
+- **Accept/Reject/Defer consequences (separate for J2):**
+    - **Accept:** Select J2 for the registration packet. Recording still requires packet review and explicit execution release.
+    - **Reject:** Keep J2 pending durable registration; row 9 stays open.
+    - **Defer:** Keep the same pending state. If J1 alone is selected, apply Case A under the governing source.
+- **Owner sequence:** Judge selects and releases → Lane A records → Lane B verifies under D-183 point 6.
+- **Checkpoint:** Row 9, before baseline naming.
+- **Verdict Table:**
+| Item / Action | Verdict / Status | Owner | Checkpoint / Requirement |
+|---|---|---|---|
+| **J2 Registration Selection** | Pending | Judge | Packet review and execution release |
+| **J2 Registration** | Pending | Judge / Lane A | Register commit |
+| **Lane B Verification** | Pending | Lane B | Post-Register commit verification |
+
+### 5. R3 / R4 — PRESERVE
+- **R3 — U0 Decisions:** All 5 U0 Judge decisions remain **PENDING**:
+  - J1 registration;
+  - J2 registration;
+  - selected-entry amendment;
+  - conditional Case A/B deferral with deadline (a)/(b) [applies only when exactly one registration proposal is selected];
+  - receipt-route authorization.
+  - Order: Selections → Lane A binds packet → Lane B reviews → Judge releases execution last.
+- **R4 — Preserved:** The accepted R4 from the previous filing against `e908a2c` remains in force, incorporating the complete 3a7bccd §6 requirements. Final text and expected bytes remain PENDING until the required Judge words exist.
+
+### 6. R5 — Reporting Corrections
+- **Log Verification:** The logs `check-u0u1-packet-e8bb3a2*.log` tested commit `3a7bccd` (e8bb3a2 state) and the pair (`bju3spfrw.output` and `b3hjjmpdo.output`) are byte-identical in their tested state (both show 19/19 checks passed, exit 0). The filing reference is `3a7bccd`, not the tested revision.
+- **Verified Hashes & Tested States:**
+  - `bju3spfrw.output` (HEAD `7d61944`, working changes): `9b7006f700723818af0a27ac50bd0ecc5f799bd33d54d1e00fe73218b5d80e79` (19/19 checks passed, exit 0).
+  - `b3hjjmpdo.output` (HEAD `49595d4`, committed-state check): `EFA6C4E79CB415C80D467A894362DFC4DFAB992419846A77CF111A9F6BEB0E03` (19/19 checks passed, exit 0).
+- **External Temporary Storage:** `C:/Users/rober_24syk4j/AppData/Local/Temp/claude/c--robertaoai-my-editorial-app/d4661d61-483c-4d24-bc5c-83eb05155550/tasks/`.
+- **Untracked Paths Presence (dated):** As of 2026-10-18: `memory/`, `.agents/freellm_explorer.toml`, `.codex/config.toml` remain present; their disposition and authority remain **UNVERIFIED** (no credentials read, no changes made).
+- **Commit ID Correction:** The correct commit ID is `f46a4682a044c3aab9e7d890e2744fcd0017f87c` (replaces incorrect reference).
+- **Worklog Correction:** The worklog in `d2b9ec1` correctly marked the two historical logs (`check-u0u1-packet-e8bb3a2*.log`) as UNVERIFIED; later verification does not change that historical fact.
+- **Note:** All unsupported "Approved" claims are withdrawn; data remains UNVERIFIED unless supported.
+
+### 7. Completion Proof
+**Verdict Table for J1/J2:**
+| Item / Action | Verdict / Status | Owner | Checkpoint / Requirement |
+|---|---|---|---|
+| **J1 Registration Selection** | Pending | Judge | Packet review and explicit execution release |
+| **J2 Registration Selection** | Pending | Judge | Packet review and explicit execution release |
+
+---
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
