@@ -18521,3 +18521,254 @@ the commit. Unpushed: `5f1215a`..this record.
 | **Defer** | J2 registration (`D-441`), undecided | Judge → Lane A → Lane B | Row 9, before row 10 |
 | **Defer** | Held actions (J-C A1, J1, J2 units; J3 custody); J-C and TCA registration | Judge releases; Lane A; Lane B | Rows 5, 6, 9; outcome route |
 | **Reject** | Any Register write, release of the hold or B-136 / D-439 completion inferred from this record | All actors | Until the Judge decides and releases |
+
+---
+
+## Lane A — answers Lane B's R1–R3 against `4cfa74f`: registration sequence amendment, standalone J2, recording-unit route (all UNDECIDED), 2026-10-17
+
+> **Filed** on the Judge's instruction in session: "Lane A: Append one B-136 answer against `4cfa74f` to resolve Lane B's
+> R1–R3 findings … Mark all new proposals UNDECIDED." The instruction authorizes this filing only.
+>
+> **Received:** Lane B's review of `4cfa74f` (findings R1–R3), as the Judge's instruction states them. Lane B's own text was
+> not supplied to Lane A; its wording is **UNVERIFIED** by Lane A. Lane B is the raiser; Lane A answers.
+
+### What happened
+
+#### 1. B-136 → D-439
+
+B-136 and D-439 stay **Open**. This record prepares corrections only. It grants no execution authority. It writes nothing to
+the Register. The four accepted decisions (`ae1b136`, corrected `675e691`) and the execution hold stay unchanged. Every new
+proposal below is **UNDECIDED**. Where this record differs from `4cfa74f`, it supersedes `4cfa74f` §§4–7; `4cfa74f` stays
+in place as history.
+
+#### 2. F1 / J-C → registration sequence — R1
+
+F1 keeps its recorded scope. J-C A1 keeps its corrected fallback ("if J3 is not in force") and its own entry.
+
+**The rule.** TCA r3 §5.1: "Do not defer registration across an intervening Register entry without an explicit Judge
+amendment." Under J3 (accepted), the TCA entry is registered at the outcome checkpoint. Under J-C A1 with J3 in force, the
+J-C entry is registered at that same checkpoint, as its own entry. A J1 or J2 entry recorded earlier would intervene before
+both. `4cfa74f` missed this. An explicit amendment is therefore needed first.
+
+**Proposed Judge amendment — UNDECIDED:**
+
+> "Judge amendment (`D-183`; TCA r3 §5.1). **Object:** the Register sequence for the D-439 attempt. **Action:** permit the
+> Register entry for the B-136 J1 approval (supplement 1), the B-136 J2 approval (supplement 2 r2), or both, as I select
+> them, to be recorded before the TCA r3 entry and the J-C A1 entry. **Scope:** only the selected entries, in one recording
+> unit. **Exclusions:** no other Register entry may be recorded before the TCA and J-C entries without a further amendment;
+> this amendment does not change `D-437`'s existing terms (`D-438` item 0); it moves neither outcome checkpoint. The TCA
+> entry and the J-C entry stay separate entries at their outcome checkpoints: on success, in the act commit (the J-C entry
+> only if the separately authorized act specifies it); on rejection or a pre-act stop, in the separate registration unit
+> after the custody receipt; on a post-act stop, an existing entry is verified and a missing one is registered through a
+> separately authorized unit. No execution is released. **Checkpoint:** given before the recording unit's Register
+> commit."
+
+**Its own registration.** The amendment is itself an explicit Judge instruction (`D-183` point 5). It is recorded as
+item 0 of each selected entry, as `D-438` item 0 recorded the "Route B" amendment. Each entry therefore carries it without
+relying on the other. Helper S0 is a literal check, so item 0 never puts the act number in backticks. If the Judge's words
+use backticks there, the entry quotes them without the backticks and says so.
+
+**If the Judge selects only one proposal.** The amendment names only that entry, and only that entry is recorded. The other
+approval stays "pending durable registration", and its row 9 item stays open. If the other approval is to be registered
+before the TCA entry later, it needs its own amendment. Otherwise it is registered with the outcome registration unit, which
+also needs an explicit Judge statement.
+
+| Fix | Owner | Completion proof | Checkpoint |
+|---|---|---|---|
+| R1: amendment drafted; single-selection effect stated | Lane A drafts; Judge decides | This record; the Judge's actual words | Before the recording unit's Register commit |
+
+#### 3. D-439 → J1 — standalone proposal, **UNDECIDED**
+
+Authority: the Judge's response against `956fdf9` (C60, SHA-256 `e556ed5f0d9c7aac4ebb01a93ce38f5ffd3d2c0711ca256705d8726d10a5e372`),
+item 2; instruction text B-136 `956fdf9` §3. **Number:** `D-440` in both selection cases (J1 alone, or J1 with J2).
+Section 5.14e263. Title: "`D-440` — Approval Record: B-136 Supplement-1 Custody Transfer Unit (J1)".
+
+> **Authority: the Judge, directly to Lane A, 2026-10-17**, in chat, Judge response against B-136 `956fdf9`, item 2:
+> "D-439 → J1: ACCEPT." with the text that follows it in that response, which incorporates B-136 `956fdf9` §3 in full,
+> subject to the Judge's execution hold. The object is the supplement-1 unit defined by
+> `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/supplement-1/D439-SUPPLEMENT-MAP-r1.md`
+> (SHA-256 `37d5f5a273097167c485ffb9d88c5788ce7bc3676c1bce963e42a7d69b8bf576`; 11 files per its map). The approval was
+> received and recorded in B-136 at `ae1b136` (corrected at `675e691`). This entry registers it under `D-183` point 5. It
+> changes no V1 scope, sequence or DoD.
+>
+> **0. Registration sequence.** [The Judge's actual amendment words and date.] This entry is recorded before the TCA r3
+> entry and the J-C A1 entry under that amendment only.
+>
+> **The decision** (a `###` heading in the Register)
+>
+> 1. **Action.** Pre-copy checks: each source hash equals the map; each destination is absent; each destination path is
+>    unique; no link; no git-ignored destination. One folder-only commit to
+>    `docs/handoff/artifacts/B-136/d439-package/supplement-1/`. A separate one-file B-136 request. Lane B's committed-blob
+>    and changed-path receipt.
+> 2. **Scope and exclusions.** This unit only. Excluded: supplement 2 (r1 and r2); any file outside the unit; Register
+>    writes; baseline naming; application; push.
+> 3. **Checkpoint.** B-136 pre-baseline ledger row 5, before baseline naming.
+> 4. **Execution.** Held by the Judge until released for this unit. This entry releases nothing.
+> 5. **Independence.** This entry does not register the supplement-2 approval, J-C, the temporary-custody authority or the
+>    pending EV r9 application act.
+> 6. **Verification.** Lane B verifies this entry against the Judge's response and B-136 `956fdf9` §3 (`D-183` point 6).
+>
+> **Tier applicability (`D-54`)** (a `###` heading in the Register)
+>
+> | Tier | Disposition |
+> |---|---|
+> | **Register** | ✅ this entry |
+> | **Build Spec** | — unaffected: no V1 artifact created, sequenced or retired; handoff custody copies are not Build Spec artifacts |
+> | **Inventory** | — unaffected: no row added or retired; no Inventory row covers the B-136 custody package |
+> | `docs/PRD.md`, Charter, `0001`, `Modular_PRD.md`, FN specs, `docs/specs/`, `docs/README.md`, rule files, Phase Closure, application code | — unaffected |
+> | B-136 | Follow: its own handoff commits for supplement 1 (transfer, request, receipt) |
+> | **Encyclopedia** | unaffected per the local citation map `docs/ENCYCLOPEDIA-SYNC.md`; hosted parity not checked |
+> | **Graphify** | Governed drift, expected; cleared only by this unit's guarded cycle (`D-425`), with curated fragments re-merged (`G51`); never by a raw rebuild |
+
+**Lane B verification criteria (J1).** The entry matches C60 item 2 and `956fdf9` §3: object path, full SHA-256, action,
+every pre-copy check, scope, exclusions, checkpoint and hold. Item 0 quotes the Judge's actual amendment. The number is free.
+No backticked act number appears. The tier table is complete. The entry names no other entry's number.
+
+#### 4. D-439 → J2 — standalone proposal, **UNDECIDED** — R2
+
+Authority: C60 item 3; instruction text B-136 `956fdf9` §4. Nothing below relies on the J1 entry.
+
+**Number, by selection case** (reservations rechecked at `4cfa74f`: `D-437` setup; `D-439` act; no commitment for `D-440`
+or `D-441` in `docs/`, `scripts/` or `.claude/` outside `docs/handoff/`; no forward reference in the Register, Build Spec or
+Inventory):
+
+| Case | Number | Section | Title |
+|---|---|---|---|
+| J2 alone | `D-440` | 5.14e263 | "`D-440` — Approval Record: B-136 Supplement-2 r2 Custody Transfer Unit (J2)" |
+| J1 and J2 | `D-441` | 5.14e264 | "`D-441` — Approval Record: B-136 Supplement-2 r2 Custody Transfer Unit (J2)" |
+
+The body text below is identical in both cases. It names no other entry's number, so no cross-reference changes.
+
+> **Authority: the Judge, directly to Lane A, 2026-10-17**, in chat, Judge response against B-136 `956fdf9`, item 3:
+> "D-439 → J2: ACCEPT." with the text that follows it in that response, which incorporates B-136 `956fdf9` §4 in full,
+> subject to the Judge's execution hold. The object is the supplement-2 r2 unit defined by
+> `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/supplement-2-r2/D439-SUPPLEMENT-2-MAP-r2.md`
+> (SHA-256 `487a093e118f0fe9a0cccd405e9af85fc4e68fbd6ae2e655a8479c595e00658e`; 4 files per its map). The approval was
+> received and recorded in B-136 at `ae1b136` (corrected at `675e691`). This entry registers it under `D-183` point 5. It
+> changes no V1 scope, sequence or DoD.
+>
+> **0. Registration sequence.** [The Judge's actual amendment words and date.] This entry is recorded before the TCA r3
+> entry and the J-C A1 entry under that amendment only.
+>
+> **The decision** (a `###` heading in the Register)
+>
+> 1. **Action.** Pre-copy checks: each source hash equals the map; each destination is absent; each destination path is
+>    unique; no link; no git-ignored destination. Its own folder-only commit to
+>    `docs/handoff/artifacts/B-136/d439-package/supplement-2/`, separate from any supplement-1 commit. A separate one-file
+>    B-136 request. Lane B's committed-blob and changed-path receipt.
+> 2. **Scope and exclusions.** This unit only. Excluded: supplement 1; supplement-2 r1; any file outside the unit; Register
+>    writes; baseline naming; application; push.
+> 3. **Checkpoint.** B-136 pre-baseline ledger row 6, before baseline naming.
+> 4. **Execution.** Held by the Judge until released for this unit. This entry releases nothing.
+> 5. **Independence.** This entry does not register the supplement-1 approval, J-C, the temporary-custody authority or the
+>    pending EV r9 application act.
+> 6. **Verification.** Lane B verifies this entry against the Judge's response and B-136 `956fdf9` §4 (`D-183` point 6).
+>
+> **Tier applicability (`D-54`)** (a `###` heading in the Register)
+>
+> | Tier | Disposition |
+> |---|---|
+> | **Register** | ✅ this entry |
+> | **Build Spec** | — unaffected: no V1 artifact created, sequenced or retired; handoff custody copies are not Build Spec artifacts |
+> | **Inventory** | — unaffected: no row added or retired; no Inventory row covers the B-136 custody package |
+> | `docs/PRD.md`, Charter, `0001`, `Modular_PRD.md`, FN specs, `docs/specs/`, `docs/README.md`, rule files, Phase Closure, application code | — unaffected |
+> | B-136 | Follow: its own handoff commits for supplement 2 r2 (transfer, request, receipt) |
+> | **Encyclopedia** | unaffected per the local citation map `docs/ENCYCLOPEDIA-SYNC.md`; hosted parity not checked |
+> | **Graphify** | Governed drift, expected; cleared only by this unit's guarded cycle (`D-425`), with curated fragments re-merged (`G51`); never by a raw rebuild |
+
+**Lane B verification criteria (J2).** As J1, against C60 item 3 and `956fdf9` §4, plus: supplement 1 and supplement-2 r1
+are excluded; the number matches the selection case.
+
+| Fix | Owner | Completion proof | Checkpoint |
+|---|---|---|---|
+| R2: J2 standalone; checks and tier table written out; numbering for both cases; no cross-reference | Lane A | This record | Complete here; used when the Judge decides J2 |
+
+#### 5. D-439 → J3
+
+Route R2, the corrected custody timing (TCA r3 §3 before the cut-off; §§5.2–5.3 for the sealed copy), the outcome-specific
+registration and Lane B §7 verification stay unchanged. **Effect of the R1 amendment:** it is the explicit amendment that
+TCA r3 §5.1 requires for an intervening Register entry, and it covers only the selected J1/J2 entries. Every other entry
+stays barred from intervening without a further amendment. TCA r3's text, scope and checkpoints do not change.
+
+#### 6. Shared recording unit — R3 (plan only; **UNDECIDED**)
+
+Each step names its changed paths and required proof. No earlier unit's exception (`D-428` use in `D-432`–`D-438`) is
+inherited.
+
+| Step | Action | Changed paths | Required proof |
+|---|---|---|---|
+| U0 | Judge gives the R1 amendment, the J1/J2 dispositions, the receipt-route authorization below, and releases this unit from the hold | — | The Judge's words, recorded in step U2 |
+| U1 | Register commit: the selected entries, appended at the end | `docs/v1/V1-DECISION-REGISTER.md` only | Number recheck; the committed blob equals the expected bytes; no backticked act number (helper S0); three EV r9 pins unchanged; two check runs with only `docs-drift` failing; hook trace |
+| U2 | B-136 record of U0–U1 | B-136 only | Two check runs (only `docs-drift` may fail); hook trace |
+| U3 | Push at a checkpoint where the Judge names the exact range | — | Fresh fetch; upstream equals the approved base; push; fetch; upstream equals HEAD |
+| U4 | `guarded-rebuild.mjs prepare --work C:/CoWork/outputs/lane-a-j1j2-reg-cycle/work`; on exit 3, Lane A answers from source and resumes; exit 0 = ready | none in the checkout | STATE.json; work id; graph and manifest hashes. Expected (UNVERIFIED): pending descriptions for the B-136 `.mjs` evidence symbols added since the last cycle |
+| U5 | Lane A one-file request in B-050 naming the work id, graph, manifest and analyzed source | B-050 only | Two check runs (only `docs-drift` may fail) |
+| U6 | Lane B receipt in B-050: one "### F3 acceptance record" (bytes and meaning) | B-050 only (Lane B commit) | Lane B's own commit |
+| U7 | Lane B one-file Terminal annotation in B-050 (B-050 is terminal) | B-050 only (Lane B commit) | Annotation record; retained check log |
+| U8 | `guarded-rebuild.mjs publish --work … --review <U6 commit>` (the receipt commit, not the annotation commit) | graph state outside the tracked tree | Exit 0 |
+| U9 | B-136 health record | B-136 only | `bun run check` 19/19, with `docs-drift` passing |
+| U10 | Evidence custody: the unit's retained evidence copied to `docs/handoff/artifacts/B-136/registration-j1j2/`; then a separate one-file B-136 request; then Lane B's committed-blob and changed-path receipt | that folder; then B-136 | Hash per file; Lane B receipt |
+| U11 | Lane B `D-183` point 6 verification of each recorded entry | B-136 (Lane B) | The section 3–4 criteria, at the U1 commit |
+
+**Proposed receipt-route authorization — UNDECIDED:**
+
+> "Judge authorization for the B-136 J1/J2 registration unit only. From the U1 Register commit to the U8 publication,
+> only `docs-drift` may fail (`D-428`, inside this unit's guarded pre-sync sequence). Between Lane B's B-050 receipt (U6)
+> and its one-file Terminal annotation (U7), only `docs-drift` and `terminal-return` may fail. After U7, `terminal-return`
+> passes. This authorization expires at the U9 health record, where every check passes. It reuses no earlier unit's
+> exception. No fetch or push from U4 to U9. A later push needs its own exact-range authority. Hooks are never skipped."
+
+**Stop conditions.** Any other check fails. The two logs of a run differ. The number is taken. The committed blob differs
+from the expected bytes. Prepare exits 2, 4 or 5. Lane B withholds its receipt. Publish exits non-zero. A governed edit
+happens after prepare. On a stop, Lane A keeps the evidence, makes no fallback write, uses `recover` only as the procedure
+states, and records the stop in B-136. The approvals stay "pending durable registration".
+
+| Fix | Owner | Completion proof | Checkpoint |
+|---|---|---|---|
+| R3: U0–U11 with paths and proof; receipt-route authorization, expiry and stops drafted | Lane A drafts; Judge decides | This record | Before U1 |
+
+**Self-grade (labelled; Lane A self-review, no independent acceptance).** Trigger: `/anthropic-skills:make-ai-grade-its-own-work`. Evidence: session transcript
+`C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/e1b197bb-476d-4f6c-bde9-aace6388d216.jsonl`, line 1100
+(invocation, `4cd8a790-9c6d-45bd-bb64-9d89c4cc7c75`), line 1102 (launch result) and line 1103 (loaded instructions);
+locators only. Draft reviewed: `C:/CoWork/outputs/lane-a-b136-audit-answer-2026-10-17/B136-LANE-A-R1R3-REG-4cfa74f.md`,
+pre-fix SHA-256 `15494ee621d481818596669528b8310e8a99dbb0e3e7ba9bb096bdf91c5aed24` (copy retained as `….pre-fix.md`).
+Fixes: (1) item 0 never carries the act number in backticks (helper S0); (2) this line added.
+
+### What you need — Judge decisions (each separate; none implies another)
+
+**J1 registration disposition (`D-440`):** ______ (Accept / Reject / Defer)
+
+**J2 registration disposition (`D-440` if alone, `D-441` with J1):** ______ (Accept / Reject / Defer)
+
+**Shared R1 amendment (intervening entries before the TCA and J-C entries):** ______ (Accept with the entries selected above / Reject / Defer)
+
+**Receipt-route authorization for the recording unit:** ______ (Accept / Reject / Defer)
+
+Accepting any field does not release the hold. U0 also needs an explicit release.
+
+### What you did instead
+
+Read TCA r3 §5.1, the `D-438` entry and its B-050 Terminal annotation, and sync-docs §2 and §7. Rechecked reservations and
+forward references. Rehashed the owed trace C70. No extract staging, build, helper or checker run, transfer, Register write,
+graph publication, baseline naming, application, push or closure. Consistency checks and the commit hook ran for this filing.
+
+**Filing evidence.** `bun run check` ran twice at HEAD `4cfa74f`, with this record uncommitted. Run 1 preceded insertion of
+its log hash. Run 2 tested the final file. Identical logs do not prove identical tested bytes. Commit only if both exit 0 and
+the logs are byte-identical. This commit's own trace is retained in the folder that holds C70; its hash exists only after
+the commit. Unpushed: `5f1215a`..this record.
+
+| Item | Source | SHA-256 | Exact later custody destination |
+|---|---|---|---|
+| C70: commit trace for `4cfa74f` | `C:/CoWork/outputs/lane-a-b136-audit-answer-2026-10-17/commit-trace-j1j2-reg.jsonl` | `9ae380b1b21b3155af7af3b5c0ae44f3be17bce78f5fe9eb26867e4eb0622b51` | `docs/handoff/artifacts/B-136/d439-package/section-c/commit-trace-4cfa74f.jsonl` |
+| C71: filing check, run 1 | `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/check-r1r3-reg-4cfa74f.log` | `324feb47764d9aa38bdda8965272005316883469ba754764086be21ada80fa87` | `docs/handoff/artifacts/B-136/d439-package/section-c/check-r1r3-reg-4cfa74f.log` |
+| C72: run 2 | `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/check-r1r3-reg-4cfa74f-run2.log` | Same as C71 (commit only if identical) | `docs/handoff/artifacts/B-136/d439-package/section-c/check-r1r3-reg-4cfa74f-run2.log` |
+
+| Verdict | Parent → item | Owner | Follow-up phase |
+|---|---|---|---|
+| **Approve** | R1–R3 corrections drafted; receipts; C70 filed | Lane A | Complete in this record |
+| **Defer** | J1 registration (`D-440`), undecided | Judge → Lane A → Lane B | Row 9, before row 10 |
+| **Defer** | J2 registration (`D-440`/`D-441`), undecided | Judge → Lane A → Lane B | Row 9, before row 10 |
+| **Defer** | Shared R1 amendment, undecided | Judge | Before U1 |
+| **Defer** | Receipt-route authorization and the unit's release | Judge | Before U1 |
+| **Defer** | Held actions (J-C A1, J1, J2 units; J3 custody); J-C and TCA registration | Judge releases; Lane A; Lane B | Rows 5, 6, 9; outcome route |
+| **Reject** | Any Register write, publication, release of the hold, or B-136 / D-439 completion inferred from this record | All actors | Until the Judge decides and releases |
