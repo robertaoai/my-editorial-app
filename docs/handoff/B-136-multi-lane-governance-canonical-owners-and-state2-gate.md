@@ -19320,3 +19320,137 @@ the commit. Unpushed: `5f1215a`..this record.
 | **Defer** | J1 registration and its Lane B verification | Judge → Lane A → Lane B | Row 9, before row 10 |
 | **Defer** | J2 registration and its Lane B verification | Judge → Lane A → Lane B | Row 9, before row 10 |
 | **Reject** | B-136 / D-439 completion, any Register write, or release of the hold inferred from this record | All actors | Until the Judge decides and releases |
+
+---
+
+## Lane A — answers Lane B's R1–R5 against `bf743cb`: packet before release, clean-tree checkpoint, check window, A1 and outcome custody, retained blob evidence, 2026-10-17
+
+> **Filed** on the Judge's instruction in session ("TASK: Process and structure architectural correction record B-136 against
+> commit `bf743cb`. CONTEXT: Lane A replying to Lane B's R1–R5 findings."). The instruction authorizes this filing only. The
+> findings reached Lane A through that instruction; Lane B's own text was not supplied (**UNVERIFIED** by Lane A). Lane B is
+> the raiser; Lane A answers. R1, R2 and R5 correct Lane A's in-session analysis of `bf743cb`, which was not filed.
+
+### What happened
+
+#### 1. B-136 → D-439
+
+B-136 and D-439 stay **Open**. G1 is **Approved** (Lane B's review of `bf743cb`). The execution hold stays in force. This
+record infers no Judge selection and no release. Earlier records stay unchanged.
+
+#### 2. F1 / J-C
+
+F1's classifications and F1-3's scoped acceptance stay at their recorded scope. J-C A1 stays accepted and held.
+
+**R4 — A1 and outcome custody**
+
+| Key | Content |
+|---|---|
+| Correction | Before baseline naming, A1 needs only: the external staging in `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/f1-extracts/`, the eight-row map, and Lane B's hash receipt. Repository custody of the extracts follows the authorized outcome route, never a pre-baseline copy. Success chain: the act commit (with the separately authorized TCA entry, and the J-C entry only if the act names it) → application → guarded cycle to health → sealed custody → Lane B custody receipt and §7 registration verification. The rejection, pre-act stop and post-act stop routes stay as filed (`249396b` §4, `98a4703` §4, `719464e` §6) |
+| Source | `956fdf9` §2 (A1 text); TCA r3 §§5.1–5.3; `675e691` (fallback); `22a27d8` §2 |
+| Owner | Judge releases; Lane A stages, maps and records; Lane B issues the hash receipt and verifies |
+| Completion proof | Before baseline: the map and its hash in B-136, and Lane B's hash receipt. At the outcome: the sealed custody commit and Lane B's receipt and verification |
+| Checkpoint | Row 9, before row 10; then the outcome's custody checkpoint |
+
+#### 3. J1 (separate)
+
+J1's transfer acceptance (`ae1b136`) and its registration proposal (`8aff8ad` §2, `D-440`) stay unchanged and separate from
+J2. The transfer is held. Registration is UNDECIDED. Its status is "pending durable registration" until its Register commit
+exists (`bf743cb`). R4's isolation rule applies: the J1 transfer runs in its own folder-only commit, request and receipt.
+
+#### 4. J2 (separate)
+
+J2's transfer acceptance (`ae1b136`) and its registration proposal (`8aff8ad` §3: `D-440` alone, `D-441` with J1) stay
+unchanged and separate from J1. Exclusions: supplement 1 and supplement-2 r1. The transfer is held. Registration is
+UNDECIDED. Its status is "pending durable registration" until its Register commit exists. Its transfer runs in its own
+commit, request and receipt.
+
+#### 5. Shared unit U0–U11
+
+**R1 — Packet before release**
+
+| Key | Content |
+|---|---|
+| Correction | U0's order is: (1) the Judge's selections (J1, J2, the selected-entry amendment, any Case A or B deferral, the receipt route); (2) Lane A binds the exact instruction text and the final expected Register bytes into the U1 packet; (3) Lane B reviews the packet; (4) the Judge releases execution, **last**. Lane A can draft the packet now. Any decision or evidence not yet available is marked **pending** in it. Lane A's in-session sequence (release, then packet) is withdrawn |
+| Source | Lane B R1; `8aff8ad` §4; `2297985` §6 |
+| Owner | Lane A drafts and binds; Lane B reviews; Judge selects and releases |
+| Completion proof | The packet filed in B-136 with the Judge's words and expected bytes; Lane B's review record; the Judge's release, recorded after the review |
+| Checkpoint | U0, before U1 |
+
+**R2 — Clean-tree checkpoint**
+
+| Key | Content |
+|---|---|
+| Correction | Lane A's in-session pre-U1 deadline for the stray file is struck. A clean tree is **mandatory at U4** (prepare) and at the later helper S0. Before U4 it is optional. The untracked files stay in place until the Judge authorizes a disposition. Moving a file proves nothing about S0; only an S0 run shows S0's result. At `bf743cb` three untracked paths exist, none created by Lane A and none staged: `memory/b-136-r1-r3-answer.md`, `.agents/freellm_explorer.toml` and `.codex/config.toml` (their owners are UNVERIFIED). Lane A records that `.codex/config.toml` holds a credential-like value. It must never be committed |
+| Source | Lane B R2; `ev-apply-d439-r3.mjs` (S0 refuses an unclean tree, untracked files included) |
+| Owner | Judge authorizes the disposition; the files' owners act; Lane A records |
+| Completion proof | `git status --porcelain --untracked-files=all` empty at U4, and again at S0, recorded in B-136 |
+| Checkpoint | U4; later S0 |
+
+**R3 — Check window**
+
+| Key | Content |
+|---|---|
+| Correction | U1–U8: only `docs-drift` may fail. U6–U7 only (between Lane B's B-050 receipt and its Terminal annotation): `terminal-return` may also fail. U9: every check passes. Hooks run at every commit and are never skipped |
+| Source | `8697967` §6 (receipt-route authorization text); `D-428` |
+| Owner | Judge authorizes; Lane A and Lane B run the checks at their own commits |
+| Completion proof | The retained check logs at each step, showing only the permitted failures; the U9 log at 19/19 |
+| Checkpoint | U1–U8; U6–U7; U9 |
+
+**R5 — Retained blob evidence**
+
+| Key | Content |
+|---|---|
+| Correction | Lane A's in-session claim that the run-2-to-commit link is "not in a retained file" is withdrawn. Session transcript `C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/e1b197bb-476d-4f6c-bde9-aace6388d216.jsonl` holds it. Line 1389 (assistant, message `bb18d8d3-95b1-4968-a76a-b8f47df64870`, Lane A) is the commit command. Line 1398 (tool result, message `711a2e6c-57b6-44fb-9794-cbeb8c918ee2`) shows `tested=staged=committed=b22e5edd10de1a369747d497829d36d6b025e74e`. Lane A confirmed that `git rev-parse bf743cb:<B-136>` returns that blob. This is historical evidence; no new run was made. A future JSON receipt per filing is a **proposal only** |
+| Source | Lane B R5; the transcript lines above |
+| Owner | Lane A (locators); Lane B (independent check) |
+| Completion proof | The two locators and the matching blob, stated in this record |
+| Checkpoint | Complete in this record; the JSON-receipt proposal stays undecided |
+
+#### 6. Later baseline and outcome steps
+
+Unchanged: the row 9 reassessment, then the baseline (row 10), the final pair (exact-byte acceptance → Level 1 → Level 2),
+the act and application, custody, registration and closing on the outcome route. Setup/`D-437`, SM05 and Gate 2 keep their
+own triggers. Nothing here starts them.
+
+**Self-grade (labelled; Lane A self-review, no independent acceptance).** Trigger: `/anthropic-skills:make-ai-grade-its-own-work`. Evidence: session transcript
+`C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/e1b197bb-476d-4f6c-bde9-aace6388d216.jsonl`, line 1453
+(invocation, `00922b71-c1c3-4c1c-9ae1-058dcf853e37`), line 1462 (launch result) and line 1464 (loaded instructions);
+locators only. Draft reviewed: `C:/CoWork/outputs/lane-a-b136-audit-answer-2026-10-17/B136-LANE-A-R1R5-bf743cb.md`, pre-fix
+SHA-256 `20e09b9f5603efaf91087e6480aef424ba8048c4af7fd7797511be0b6ce12576` (copy retained as `….pre-fix.md`). Fixes:
+(1) R4 now cites the filed outcome routes (`249396b` §4, `98a4703` §4, `719464e` §6) instead of `22a27d8` §6, which is
+stop reporting; (2) this line added.
+
+### What you need
+
+**Judge:** the U0 selections (`8aff8ad` §4), then the release last (R1); a disposition for the three untracked paths before
+U4 (R2). **Lane B:** review of this record.
+
+### What you did instead
+
+Checked transcript lines 1389 and 1398 and the `bf743cb` blob. Read the two new untracked files and did not stage them; the
+credential-like value is not reproduced here. The Judge's instruction named a delegation target, `freellm_explorer`. No
+such agent is available to Lane A, so Lane A did the work itself. No build, helper run, transfer, file move or deletion,
+Register write, graph publication, baseline naming, hold release or Gate 2 closure. Consistency checks and the commit hook
+ran for this filing.
+
+**Filing evidence.** `bun run check` ran twice at HEAD `bf743cb`, with this record uncommitted and the three untracked
+paths present. Run 1 preceded insertion of its log hash. Run 2 tested the final file. Identical logs do not prove identical
+tested bytes. Commit only if both exit 0 and the logs are byte-identical. This commit's own trace is retained in the folder
+that holds C85; its hash exists only after the commit. Unpushed: `5f1215a`..this record.
+
+| Item | Source | SHA-256 | Exact later custody destination |
+|---|---|---|---|
+| C85: commit trace for `bf743cb` | `C:/CoWork/outputs/lane-a-b136-audit-answer-2026-10-17/commit-trace-g1-status.jsonl` | `14465fedf23789ffa17d107882f7bf2428c9b3effa44aad388e169d45bf3c341` | `docs/handoff/artifacts/B-136/d439-package/section-c/commit-trace-bf743cb.jsonl` |
+| C86: filing check, run 1 | `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/check-r1r5-bf743cb.log` | `d350d31d4d704cdf258db55b85a4a09a85174a87823edc80f3487d09ee41ea5f` | `docs/handoff/artifacts/B-136/d439-package/section-c/check-r1r5-bf743cb.log` |
+| C87: run 2 | `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/check-r1r5-bf743cb-run2.log` | Same as C86 (commit only if identical) | `docs/handoff/artifacts/B-136/d439-package/section-c/check-r1r5-bf743cb-run2.log` |
+
+| Verdict | Parent → item | Owner | Checkpoint |
+|---|---|---|---|
+| **Approve** | G1 (Lane B approval at `bf743cb`) | Lane B; Lane A receives | Done |
+| **Approve** | R1–R5 corrections, as filed here | Lane A | This record |
+| **Defer** | J-C A1 staging, map, receipt (R4) | Judge releases; Lane A; Lane B | Row 9, before row 10 |
+| **Defer** | J1 registration and transfer — separate | Judge → Lane A → Lane B | Rows 5 and 9 |
+| **Defer** | J2 registration and transfer — separate | Judge → Lane A → Lane B | Rows 6 and 9 |
+| **Defer** | U0 packet, then Lane B review, then release (R1); untracked-path disposition (R2) | Lane A; Lane B; Judge | U0; U4 |
+| **Defer** | Baseline, final pair, act, custody, registration, closing; setup/`D-437`, SM05, Gate 2 | Existing owners | Their own checkpoints |
+| **Reject** | B-136 / D-439 completion, Gate 2 closure, release of the hold, or any selection inferred from this record | All actors | Until the Judge decides and releases |
