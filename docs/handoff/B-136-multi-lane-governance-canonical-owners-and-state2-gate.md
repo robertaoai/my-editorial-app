@@ -17330,3 +17330,85 @@ retained outside the checkout; its hash exists only after the commit. Unpushed: 
 | **Defer** | Baseline, final pair, act, application, custody, registration, closing | Judge; Lane A; Lane B verifies | r4 §5 and TCA §§5–7 |
 | **Defer** | Setup / `D-437` → SM05 → Gate 2 | Existing owners | Later checkpoints |
 | **Reject** | B-136 / D-439 completion now, or execution, push or baseline inferred from this record | All actors | All phases |
+
+---
+
+## Lane A — correction record against `bd7d5f7`: self-grade provenance and worklog wording, 2026-10-17
+
+> **Filed** on the Judge's instruction in session: "Lane A: Append one B-136 correction record against `bd7d5f7` … Answer
+> only these corrections … Keep it unpushed." The instruction authorizes this filing only.
+>
+> **Received:** Lane B's review of `bd7d5f7` (ChatGPT Codex, Lane B; supplied by the Judge in session, not filed in B-136):
+> Approve-with-conditions for the answer; conditions on self-grade provenance and worklog wording. Lane B stays the raiser;
+> Lane A answers. Earlier records stay unchanged. This record grants no baseline or execution authority.
+
+### What happened
+
+#### 1. Parents
+
+B-136 and D-439 stay **Open**. Ledger row 8 stays **satisfied** by `9164533` and `5f1215a`. Row 9 is reassessed before row
+10; "none identified" grants no waiver.
+
+#### 2. D-439 → F1
+
+F1-3 keeps its scoped acceptance (`44b5db0` §2). F1-1, F1-2, F1-4 to F1-8 and F1-10 stay **Unresolved**. Lane B owns each
+disposition before baseline naming.
+
+#### 3. D-439 → J1, J2, J3
+
+Each stays a separate, open Judge decision, as presented at `bd7d5f7` §3. No J decision resolves F1.
+
+#### 4. Self-grade provenance (corrects the `bd7d5f7` self-grade line)
+
+- **Trigger:** `/anthropic-skills:make-ai-grade-its-own-work`, invoked by Lane A.
+- **Evidence:** session transcript
+  `C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/e1b197bb-476d-4f6c-bde9-aace6388d216.jsonl`.
+  Line 167 is the invocation (message `db81693e-154d-49bf-a5db-5e93487de56b`, 2026-10-17T03:56:47Z). Lines 168–169 are the
+  skill-loading result (`62c870a1-ce6c-4cdf-838d-6b8c36624d74`) and its loaded instructions
+  (`e29c8c79-f76f-4846-a23a-87528d027bfc`). These are locators, not extracts.
+- **Draft reviewed:** `C:/CoWork/outputs/lane-a-b136-audit-answer-2026-10-17/B136-LANE-A-AUDIT-ANSWER-5f1215a.md`. Its
+  pre-fix hash was not retained (UNVERIFIED). After the fixes its SHA-256 is
+  `b995923efd8f7de9fc4d061a1e4ae63455bb20d1cc8c6d071c0a820ff0568eef`. The filed record is that text plus the C31 hash.
+- **Fixes made:** (1) A7 now attributes the four other open handoffs to Lane B's audit; Lane A confirmed only the count of
+  five open entries. (2) The labelled self-grade line was added. (3) Lane A re-confirmed before the append that B-136 had
+  zero CR bytes and that its blob equalled HEAD's (`ec6ae499…`).
+- **Limit:** this was Lane A's self-review. It provides no independent acceptance.
+
+#### 5. Worklog wording (corrects Lane A's session report for `bd7d5f7`)
+
+- **Tested state.** Run 2 tested the final staged and committed version, blob `5cbf04c9bbda0277882bf10e1c70d6939e7ca13f`.
+  Run 1 preceded insertion of the log hash. Identical logs do not prove identical tested bytes.
+- **Scope of what ran.** Replace "Nothing was … run" with: No D-439 helper, checker or application was run. Consistency
+  checks and the commit hook did run.
+- **Commit trace for `bd7d5f7`.** `C:/CoWork/outputs/lane-a-b136-audit-answer-2026-10-17/commit-trace.jsonl`, SHA-256
+  `7324ca807fca2ce75c367caed5d1a4236e80027a55dab9d737d21c926d9f8cd6`. It shows `git -c core.hooksPath=.githooks commit`,
+  child hook `commit-msg` exit 0, git exit 0.
+
+### What you need
+
+Nothing new. Lane B: the F1 dispositions as before. Judge: J1, J2 and J3 separately as before.
+
+### What you did instead
+
+Read transcript lines 166–170, hashed the draft and appended this record only. No D-439 helper, checker or application was
+run. No transfer, baseline naming, Register write, graph rebuild, push or closure.
+
+**Filing evidence.** `bun run check` ran twice at HEAD `bd7d5f7`, with this record uncommitted. Run 1 preceded insertion of
+its log hash; run 2 tested the final file. Commit only if both exit 0 and the logs are byte-identical. Identical logs do not
+prove identical tested bytes. This commit's own trace is retained in the same folder; its hash exists only after the commit.
+Unpushed: `5f1215a`..this record.
+
+| Item | Source | SHA-256 | Exact later custody destination |
+|---|---|---|---|
+| C33: commit trace for `bd7d5f7` | `C:/CoWork/outputs/lane-a-b136-audit-answer-2026-10-17/commit-trace.jsonl` | `7324ca807fca2ce75c367caed5d1a4236e80027a55dab9d737d21c926d9f8cd6` | `docs/handoff/artifacts/B-136/d439-package/section-c/commit-trace-bd7d5f7.jsonl` |
+| C34: filing check, run 1 | `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/check-correction-bd7d5f7.log` | `923727297279663dd9ae570275c09262ab48b860474186d56036616ff700677e` | `docs/handoff/artifacts/B-136/d439-package/section-c/check-correction-bd7d5f7.log` |
+| C35: run 2 | `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/check-correction-bd7d5f7-run2.log` | Same as C34 (commit only if identical) | `docs/handoff/artifacts/B-136/d439-package/section-c/check-correction-bd7d5f7-run2.log` |
+
+| Verdict | Parent → item | Owner | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Self-grade provenance and worklog wording corrections (sections 4–5) | Lane A | Complete in this record |
+| **Defer** | D-439 → eight F1 completeness decisions | Lane B | Before baseline naming |
+| **Defer** | D-439 → J1 | Judge | Separate exact-object decision |
+| **Defer** | D-439 → J2 | Judge | Separate exact-object decision |
+| **Defer** | D-439 → J3 | Judge | Separate instruction and provenance |
+| **Reject** | B-136 / D-439 completion, or baseline or execution authority from this record | All actors | Until required dependencies close |
