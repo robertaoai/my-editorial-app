@@ -18107,3 +18107,107 @@ the commit. Unpushed: `5f1215a`..this record.
 | **Defer** | J3 — UNDECIDED | Judge → Lane A; Lane B verifies | Row 7; registration at the outcome checkpoint |
 | **Defer** | Baseline, final pair, act, custody, registration, closing; setup/`D-437`, SM05, Gate 2 | Existing owners | Their own authorized checkpoints |
 | **Reject** | B-136 / D-439 completion, or any decision inferred from this table | All actors | Until required dependencies close |
+
+---
+
+## Lane A — records the Judge's four decisions against `956fdf9` (J-C A1, J1, J2, J3 accepted; execution held), 2026-10-17
+
+> **Filed** on the Judge's instruction in session: "Lane A: Append one B-136 record against `956fdf9` for the four Judge
+> decisions supplied with this instruction. Preserve their exact wording, attribution and execution hold." The instruction
+> authorizes this filing only.
+
+### What happened
+
+#### 1. B-136 → D-439
+
+B-136 and D-439 stay **Open**. The Judge accepted four scoped decisions and **held execution**. This filing names no
+baseline and closes no action checkpoint. It records decisions; it does not prove any action complete.
+
+**The Judge's response, verbatim** (supplied by the Judge in session on 2026-10-17). C60 below is Lane A's transcription
+of that in-session text; it is not authenticated against another original. The quote is taken from C60 by script. It is
+byte-exact apart from the quote prefix on each line ("> ", or ">" on a blank line) and the dropped final newline:
+
+> Judge response against `956fdf9` — B-136 → D-439
+> Parents: Keep B-136 and D-439 Open. This response records four separate decisions. Hold execution for now: no staging, build, helper/checker execution, transfer, Register write, baseline naming, application, push or Gate 2 closure.
+>
+> 1. D-439 → F1 / J-C: ACCEPT A1.
+> Accept the full A1 proposed wording in `956fdf9` §2. The object is the eight bounded F1 extracts identified at `9c65a73`. The selected route is staging and mapping, followed by Lane B’s hash receipt before baseline naming. Repository custody follows TCA r3’s sealed outcome route when J3 is in force. Preserve A1’s exclusions and fallback route. J-C requires its own Register entry at its stated checkpoint, separate from the TCA entry. F1 classifications and F1-3’s scoped acceptance remain unchanged. This is neither a clarification nor a waiver.
+> 2. D-439 → J1: ACCEPT.
+> Accept the full supplement-1 instruction in `956fdf9` §3, including its exact object path and SHA-256, pre-copy checks, folder-only commit, separate B-136 request, Lane B receipt and exclusions. Its checkpoint is row 5, before baseline naming. This decision does not approve J2.
+> 3. D-439 → J2: ACCEPT.
+> Accept the full supplement-2 r2 instruction in `956fdf9` §4, including its exact object path and SHA-256, checks, separate commit, request and receipt. Preserve the exclusions of supplement 1 and supplement-2 r1. Its checkpoint is row 6, before baseline naming.
+> 4. D-439 → J3: ACCEPT.
+> Adopt the full proposed TCA r3 instruction in `956fdf9` §5, with its exact path and SHA-256, route R2, scope and exclusions. Record the instruction’s provenance at row 7. Preserve the separate success, pre-act stop and post-act stop custody and registration routes. Lane B must verify registration before attempt closure.
+>
+> The cited proposed wording is incorporated in full, subject to the execution hold above. Acceptance does not prove completion of any action or close its checkpoint. Lane A must record each decision separately and identify the work still pending.
+> Verdict: Accept these four scoped decisions. Defer execution. Reject B-136/D-439 completion and Gate 2 closure.
+
+**Authority source.** Each decision's authority is the Judge's response above. It incorporates the cited proposed wording in
+`956fdf9` §§2–5 in full, subject to the execution hold. The `956fdf9` drafts alone are not an issued instruction.
+
+**Execution hold.** Until the Judge lifts it, none of the following happens: staging, build, helper or checker execution,
+transfer, Register write, baseline naming, application, push or Gate 2 closure. Each pending action below waits for that.
+
+#### 2. Decision status (each separate; none implies another; none resolves F1)
+
+| Parent → decision | Decision received | Execution held | Completion proof pending | Registration status | Owner | Checkpoint |
+|---|---|---|---|---|---|---|
+| **D-439 → J-C: A1** (`956fdf9` §2) | **Accept A1.** Judge approval received in the current conversation for J-C option A1 (staging and mapping of the eight bounded F1 extracts identified at `9c65a73`, then Lane B's hash receipt), pending durable registration. Neither a clarification nor a waiver | Staging in `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/f1-extracts/`; the map `F1-EXTRACT-MAP.md`; its filing in B-136 | Eight staged files; map and its hash in B-136; Lane B hash receipt (before row 10). Later: repository custody on TCA r3's sealed outcome route (§§5.2–5.3) | Not registered. J-C gets its own Register entry, separate from the TCA entry. J3 is accepted in the same response. Lane A reads this as "J3 in force" for A1 (authority received, TCA r3 §1), so A1's J3 branch applies: the J-C entry is recorded at the TCA registration checkpoint of the outcome (on success, in the act commit only if the separately authorized act specifies it). Lane B verifies it before attempt closure. The fallback (entry before row 10; A2-form custody) applies only if J3 is withdrawn | Judge → Lane A → Lane B | Row 9, before row 10 |
+| **D-439 → J1** (`956fdf9` §3) | **Accept.** Judge approval received in the current conversation for the supplement-1 transfer unit, pending durable registration. Object: `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/supplement-1/D439-SUPPLEMENT-MAP-r1.md`, SHA-256 `37d5f5a273097167c485ffb9d88c5788ce7bc3676c1bce963e42a7d69b8bf576`. Does not approve J2 | Pre-copy checks; folder-only commit to `docs/handoff/artifacts/B-136/d439-package/supplement-1/`; separate one-file B-136 request | Pre-copy results; folder commit; Lane B committed-blob and changed-path receipt | Not registered. D-183 point 5 applies. Neither §3 nor TCA r3 names its registration route (see section 3) | Judge → Lane A → Lane B | Row 5, before row 10 |
+| **D-439 → J2** (`956fdf9` §4) | **Accept.** Judge approval received in the current conversation for the supplement-2 r2 transfer unit, pending durable registration. Object: `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/supplement-2-r2/D439-SUPPLEMENT-2-MAP-r2.md`, SHA-256 `487a093e118f0fe9a0cccd405e9af85fc4e68fbd6ae2e655a8479c595e00658e`. A separate unit; supplement 1 and supplement-2 r1 excluded | Pre-copy checks; its own folder-only commit to `docs/handoff/artifacts/B-136/d439-package/supplement-2/`; separate one-file B-136 request | Pre-copy results; folder commit; Lane B committed-blob and changed-path receipt | Not registered. As J1 (see section 3) | Judge → Lane A → Lane B | Row 6, before row 10 |
+| **D-439 → J3** (`956fdf9` §5) | **Accept.** "Judge approval received in the current conversation for the D-439 temporary custody in TCA-D439-r3, pending durable registration" (TCA r3 §1). Object: `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/tca/TCA-D439-r3.md`, SHA-256 `5274e34f50113bb50c27ebc0910f38c4931e4afe2dab354bac4e6101edc047d2`, route R2 | Every custody action under TCA r3, which in any case starts only after the §5.2 cut-off | This record supplies the row 7 provenance record. Lane A does not mark row 7 closed; Lane B's review of this record decides that. Later: sealed custody and receipt on the outcome route | Not registered. Durable registration at the outcome checkpoint: success (TCA entry in the act commit); rejection or pre-act stop (separate registration unit after the custody receipt); post-act stop (verify an existing entry or register a missing one). Lane B §7 verification before attempt closure | Judge → Lane A; Lane B verifies | Row 7, before row 10; registration at the outcome checkpoint |
+
+F1's eight classifications (`9c65a73`) and F1-3's scoped acceptance (`44b5db0` §2) stay unchanged.
+
+#### 3. Work still pending, and one identified registration item
+
+**Pending (all held):** the J-C A1 staging, map and Lane B receipt (row 9); the J1 unit and receipt (row 5); the J2 unit
+and receipt (row 6); Lane B's review of this record as the row 7 provenance record; Lane A's row 9 reassessment
+immediately before row 10; then the baseline and the later sequence on the outcome route.
+
+**Identified for row 9 (route undecided).** D-183 point 5 requires each explicit approval to be registered. J-C's route and
+J3's route are stated. J1's and J2's are not: neither `956fdf9` §§3–4 nor TCA r3 names one. The precedent 457-file transfer
+(`d80d821`) has no Register entry either; Lane A searched the Register for `d80d821`, "457-file", "TCA" and "D-439" and found
+none. Lane A will present a recording unit for J1 and J2 (TCA r3 §5.1 form) at a Judge checkpoint. The Judge states whether
+they register before row 10 or with the outcome registration unit. Lane A records this as a row 9 item, not as a new gate.
+
+### What you need
+
+**Judge:** lift the execution hold when ready, per action. State the registration route for J1 and J2. **Lane B:** review this
+record, including as the row 7 provenance record.
+
+### What you did instead
+
+Saved the Judge's response byte-exact (C60) and quoted it by script. Searched the Register for a custody-registration
+precedent. No staging, build, helper or checker run, transfer, Register write, baseline naming, application, push or
+closure. Consistency checks and the commit hook ran for this filing.
+
+**Self-grade (labelled; Lane A self-review, no independent acceptance).** Trigger: `/anthropic-skills:make-ai-grade-its-own-work`. Evidence: session transcript
+`C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/e1b197bb-476d-4f6c-bde9-aace6388d216.jsonl`, line 825
+(invocation, `eb9f69af-6033-47ee-921c-37cca4149faf`), line 826 (launch result) and line 828 (loaded instructions); locators
+only. Draft reviewed: `C:/CoWork/outputs/lane-a-b136-audit-answer-2026-10-17/B136-LANE-A-JUDGE-DECISIONS-956fdf9.md`,
+pre-fix SHA-256 `d2332c29bfc937ffa643465786c16693518d7b22d9d837dbfdee5b01b4a99711` (copy retained as `….pre-fix.md`).
+Fixes: (1) the quote's byte-exactness limits are stated; (2) C60 is labelled as Lane A's transcription; (3) "J3 in force"
+is labelled as Lane A's reading; (4) this line added.
+
+**Filing evidence.** `bun run check` ran twice at HEAD `956fdf9`, with this record uncommitted. Run 1 preceded insertion of
+its log hash. Run 2 tested the final file. Identical logs do not prove identical tested bytes. Commit only if both exit 0 and
+the logs are byte-identical. This commit's own trace is retained in the folder that holds C61; its hash exists only after
+the commit. Unpushed: `5f1215a`..this record.
+
+| Item | Source | SHA-256 | Exact later custody destination |
+|---|---|---|---|
+| C60: Judge response (Lane A's transcription of the in-session text) | `C:/CoWork/outputs/lane-a-b136-audit-answer-2026-10-17/JUDGE-RESPONSE-956fdf9.txt` | `e556ed5f0d9c7aac4ebb01a93ce38f5ffd3d2c0711ca256705d8726d10a5e372` | `docs/handoff/artifacts/B-136/d439-package/section-c/JUDGE-RESPONSE-956fdf9.txt` |
+| C61: commit trace for `956fdf9` | `C:/CoWork/outputs/lane-a-b136-audit-answer-2026-10-17/commit-trace-final-table.jsonl` | `dfda469272b208a91e8d465cc74aafd4107d02d603170174ae027bc5c56bde67` | `docs/handoff/artifacts/B-136/d439-package/section-c/commit-trace-956fdf9.jsonl` |
+| C62: filing check, run 1 | `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/check-judge-decisions-956fdf9.log` | `03b89ca3b0652a964087150de2b22455502c5b6c198daa2862c1afd56a35da92` | `docs/handoff/artifacts/B-136/d439-package/section-c/check-judge-decisions-956fdf9.log` |
+| C63: run 2 | `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/check-judge-decisions-956fdf9-run2.log` | Same as C62 (commit only if identical) | `docs/handoff/artifacts/B-136/d439-package/section-c/check-judge-decisions-956fdf9-run2.log` |
+
+| Verdict | Parent → item | Owner | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Receipt and filing of the four Judge decisions | Lane A | Complete in this record |
+| **Defer** | J-C A1 staging, map, Lane B receipt; registration at the TCA outcome checkpoint | Lane A; Lane B; held by the Judge | Row 9, before row 10 |
+| **Defer** | J1 unit and receipt; registration route | Lane A; Lane B; Judge (route) | Row 5, before row 10 |
+| **Defer** | J2 unit and receipt; registration route | Lane A; Lane B; Judge (route) | Row 6, before row 10 |
+| **Defer** | J3 provenance review; registration at the outcome checkpoint; §7 verification | Lane B; Lane A | Row 7; outcome checkpoint |
+| **Defer** | Row 9 reassessment, baseline, final pair, act, custody, registration, closing; setup/`D-437`, SM05, Gate 2 | Existing owners | Their own authorized checkpoints |
+| **Reject** | B-136 / D-439 completion, Gate 2 closure, or any action taken under the hold | All actors | Until the Judge lifts the hold and dependencies close |
