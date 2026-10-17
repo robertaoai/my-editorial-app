@@ -19671,3 +19671,77 @@ Records the exact U3 rule established in `7d61944`:
 | **J1 Registration** | Preserved (Separate) | Judge → Lane A → Lane B | U1 commit; U11 verification |
 | **J2 Registration** | Preserved (Separate) | Judge → Lane A → Lane B | U1 commit; U11 verification |
 | **U3 Correction** | Recorded (No push) | Lane A | Pre-push upstream base check required; no push in B-136 |
+
+---
+
+## Lane A — Final U0/U1 decision and evidence packet preparation, B-136; receipt of Lane B scoped approval of U3 correction, 2026-10-17
+
+> **Filed** against `49595d4` (committed B-136 blob `2fe02872c84401951887a0798f983af9b9a1b198`). Receives Lane B's scoped approval of the U3 correction without reopening its wording. Preserves all earlier records and attribution.
+
+### 1. B-136 → D-439
+Both B-136 and D-439 remain **Open**. The execution hold remains active and in full effect. This packet provides structure, evidence, and exact candidate text; it grants no authority to release the hold, write to the Register, provision, or execute.
+
+### 2. F1 / J-C
+F1 and J-C preserve their accepted scope and remaining obligations under prior approvals (`9c65a73`, `44b5db0`). They are kept strictly separate from the J1–J3 registration units.
+
+### 3. J1 Registration
+- **Exact object:** Registration of unit J1 (transfer of governance authority / registration unit).
+- **Full source hash / commit:** `e8bb3a2` (`e8bb3a29851f50a82352f75d0ff4f44fa1bf7386`).
+- **Proposed entry:** D-440 registration entry for J1.
+- **Exclusions:** Excludes SM05 code changes, Gate 2 closures, native tool setup, or execution authority.
+- **Consequences:**
+  - *Accept:* Approves registration entry assignment (D-440).
+  - *Reject:* Withholds registration of J1.
+  - *Defer:* Keeps registration selection pending without invalidating transfer approval.
+- **Owner:** Lane A (recording) / Judge (decision).
+- **Proof:** `3a7bccd` packet evidence.
+- **Checkpoint:** Clean-tree at `49595d4`.
+- **Note:** Distinguishes the accepted transfer approval from the pending registration selection.
+
+### 4. J2 Registration
+- **Exact object:** Registration of unit J2 (separate registration unit).
+- **Full source hash / commit:** `e8bb3a2` (`e8bb3a29851f50a82352f75d0ff4f44fa1bf7386`).
+- **Proposed entry:** D-440 (alone) or D-441 (if paired with J1).
+- **Exclusions:** Excludes SM05 code changes, Gate 2 closures, native tool setup, or execution authority.
+- **Consequences:**
+  - *Accept:* Approves registration entry assignment (D-440 or D-441 per number rule).
+  - *Reject:* Withholds registration of J2.
+  - *Defer:* Keeps registration selection pending.
+- **Owner:** Lane A (recording) / Judge (decision).
+- **Proof:** `3a7bccd` packet evidence.
+- **Checkpoint:** Clean-tree at `49595d4`.
+- **Note:** Preserves the number rule: D-440 alone or D-441 with J1.
+
+### 5. U0 (Decision Map)
+- **Separate Judge Selections:** All 5 U0 decisions remain **PENDING** (Judge words not invented; final expected-byte hash withheld until explicit Judge words are issued).
+- **Selected-Entry Amendment:** Proposed entries reflect pending status.
+- **Single-Selection Deferral & Deadline:** Applicable single-selection deferrals remain in effect until the Judge specifies choices during the S2 cycle.
+- **Receipt-Route Authorization:** Lane A binds the exact packet → Lane B conducts independent review → Judge releases execution last.
+- **Missing Decisions:** Marked **PENDING**.
+
+### 6. U1 (Preparation vs Execution Readiness)
+- **Starting Register Revision & Bytes:** Register at revision `a8e63705` (206,917 bytes, SHA-256 `86312a80393282eb1ca8e4bb8d56b0d917cbef763fb4e95dbda8da804867b93a`).
+- **Number Reservations:** Reserved for J1/J2 registration.
+- **EV r9 Pins:** EV r9 series pins maintained for J-series entries.
+- **Proposed Entry Text:** Exact text bound in packet, containing the U3 rule appended in `7d61944` / `49595d4`.
+- **Permitted Path:** Handoff files in `docs/handoff/` only.
+- **Required Evidence:** Retained check outputs, clean-tree verification, and commit-trace `commit-trace-u0u1-packet.jsonl`.
+- **Stop Conditions:** Packet preparation complete; execution readiness NOT established until Judge releases hold.
+- **Accepted Sequence (U2–U11):** Carried forward (U2 packet binding → U3 pre-push base check → U4–U10 execution sequence → U11 verification).
+
+### Reporting Limits & Verification Corrections
+- **Check Outputs:** Both retained check outputs reported 19/19 checks passing (exit code 0), not 18.
+- **Log Distinction:** The first check run evaluated HEAD `7d61944` with working tree changes (`lane-a-u0u1-check-7d61944.log`). The second evaluated committed HEAD `49595d4` in a clean tree (`lane-a-u0u1-check-49595d4.log`). Their logs and HEAD states differ; they are not identical nor two completed pre-commit runs.
+- **Hashes & Proof:** Retained log outputs and their SHA-256 hashes are cited. Missing hook evidence is marked **UNVERIFIED**.
+- **Untracked Paths:** Rechecked the three untracked paths (`memory/`, `.agents/freellm_explorer.toml`, `.codex/config.toml`) on 2026-10-17 without modifying them. Their later absence does not prove who modified/deleted them or under what authority. Disposition evidence remains **UNVERIFIED**.
+
+### Verdict Table
+
+| Item / Action | Verdict / Status | Owner | Checkpoint / Requirement |
+|---|---|---|---|
+| **B-136 / D-439** | Open (Hold active) | Judge | Execution hold remains in effect; no authority granted |
+| **F1 / J-C** | Preserved (Separate) | Judge / Lane A / Lane B | Kept separate from J1–J3 |
+| **J1 Registration** | Preserved (Separate) | Judge → Lane A → Lane B | U1 commit; U11 verification |
+| **J2 Registration** | Preserved (Separate) | Judge → Lane A → Lane B | U1 commit; U11 verification |
+| **U0/U1 Decision Packet** | Recorded (Review pending) | Lane A | Decision on registration and sequence pending Judge selection |
+
