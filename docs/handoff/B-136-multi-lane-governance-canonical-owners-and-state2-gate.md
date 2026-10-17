@@ -20180,3 +20180,88 @@ F1 classifications (`9c65a73`) and F1-3 scoped acceptance (`44b5db0` §2) preser
 
 ---
 🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+
+## Lane A — Judge’s J1/J2 registration decision table against `7eb240f`, 2026-10-18
+
+> **Filed** against `7eb240f`. This record preserves all earlier records and attribution, and stays within the open B-136/D-439 governance. **This table requests decisions and grants no execution authority.**
+
+### 1. B-136 → D-439
+B-136 and D-439 remain **Open**. The execution hold remains active and in full effect.
+
+### 2. F1 / J-C
+F1 classifications (`9c65a73`) and F1-3 scoped acceptance (`44b5db0` §2) preserve their recorded scope and status. J-C A1 stays accepted and held. Kept separate from J1–J3.
+
+### 3. J1 registration — separate decision
+- **Object:** supplement-1/D439-SUPPLEMENT-MAP-r1.md under `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/`.
+- **Authority being registered:** C60 item 2; 956fdf9 §3.
+- **Entry text:** 2297985 §3.
+- **Proposed entry:** D-440, subject to the U1 number check.
+- **Scope:** Registration of the J1 transfer approval only.
+- **Full object path:** `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/supplement-1/D439-SUPPLEMENT-MAP-r1.md`
+- **Verified full SHA-256:** `37d5f5a273097167c485ffb9d88c5788ce7bc3676c1bce963e42a7d69b8bf576`
+- **Exclusions (from 3a7bccd §3):** The supplement-2 approval; J-C; the TCA entry; the EV r9 application act; any transfer; baseline naming; push. No backticked act number.
+- **Accept/Reject/Defer consequences:** 
+    - **Accept:** J1 enters the U1 packet. It is recorded only after the Lane B packet review and the Judge's release.
+    - **Reject:** J1 stays "pending durable registration"; its row 9 item stays open; row 10 stays blocked.
+    - **Defer:** as Reject. If J2 alone is accepted, J1 is deferred only by Case B (`22a27d8` §2).
+- **Owner sequence:** Judge selects and releases → Lane A records → Lane B verifies under D-183 point 6.
+- **Checkpoint:** Row 9, before baseline naming.
+- **Judge selection:** UNDECIDED.
+- **Verdict Table:**
+| Item / Action | Verdict / Status | Owner | Checkpoint / Requirement |
+|---|---|---|---|
+| **J1 Registration Selection** | UNDECIDED | Judge | Packet review and explicit execution release |
+| **J1 Registration** | Pending | Judge / Lane A | Register commit |
+| **Lane B Verification** | Pending | Lane B | Post-Register commit verification |
+
+### 4. J2 registration — separate decision
+- **Object:** supplement-2-r2/D439-SUPPLEMENT-2-MAP-r2.md under `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/`.
+- **Authority being registered:** C60 item 3; 956fdf9 §4.
+- **Entry text:** 2297985 §4.
+- **Proposed entry:** D-440 if selected alone; D-441 with J1. Recheck at U1.
+- **Scope:** Registration of the J2 transfer approval only.
+- **Full object path:** `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/supplement-2-r2/D439-SUPPLEMENT-2-MAP-r2.md`
+- **Verified full SHA-256:** `487a093e118f0fe9a0cccd405e9af85fc4e68fbd6ae2e655a8479c595e00658e`
+- **Exclusions (from 3a7bccd §4):** The supplement-1 approval; supplement-2 r1; J-C; the TCA entry; the EV r9 application act; any transfer; baseline naming; push. No backticked act number.
+- **Accept/Reject/Defer consequences (separate for J2):**
+    - **Accept:** J2 enters the U1 packet. It is recorded only after the Lane B packet review and the Judge's release.
+    - **Reject:** J2 stays "pending durable registration"; its row 9 item stays open; row 10 stays blocked.
+    - **Defer:** as Reject. If J1 alone is accepted, J2 is deferred only by Case A (`22a27d8` §2).
+- **Owner sequence:** Judge selects and releases → Lane A records → Lane B verifies under D-183 point 6.
+- **Checkpoint:** Row 9, before baseline naming.
+- **Judge selection:** UNDECIDED.
+- **Verdict Table:**
+| Item / Action | Verdict / Status | Owner | Checkpoint / Requirement |
+|---|---|---|---|
+| **J2 Registration Selection** | UNDECIDED | Judge | Packet review and explicit execution release |
+| **J2 Registration** | Pending | Judge / Lane A | Register commit |
+| **Lane B Verification** | Pending | Lane B | Post-Register commit verification |
+
+### 5. Remaining U0 decisions
+- **Selected-entry amendment:** 2297985 §2.
+- **Case A/B deferral and deadline (a)/(b):** 22a27d8 §2, required only when exactly one registration proposal is selected.
+- **Receipt-route authorization:** 8697967 §6.
+
+**Explanation:**
+- If J1 alone is selected, J2 requires Case A.
+- If J2 alone is selected, J1 requires Case B.
+- If both or neither are selected, no Case A/B deferral applies.
+- Selecting neither proposal means no registration unit runs.
+
+### 6. Packet and release
+- **R3/R4 preserved:** Judge selections → Lane A binds exact text and expected bytes → Lane B reviews → Judge releases execution last.
+- Final entry text and expected bytes remain PENDING until the required Judge words exist.
+- Acceptance of a registration proposal does **not** write the Register, authorize a transfer, or release the hold.
+
+### 7. Response fields (copyable)
+- **J1 registration:** Accept / Reject / Defer
+- **J2 registration:** Accept / Reject / Defer
+- **Selected-entry amendment:** Accept / Reject / Defer
+- **Conditional deferral:** Case A or B; deadline (a) or (b); disposition — or Not applicable
+- **Receipt-route authorization:** Accept / Reject / Defer
+
+**Execution hold:** Remains active. Release is considered only after the bound packet review.
+
+---
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
