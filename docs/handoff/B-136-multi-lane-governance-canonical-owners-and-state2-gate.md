@@ -17691,3 +17691,78 @@ the commit. C40–C47 stay reserved for the proposed F1 extracts, so the items b
 | **Defer** | D-439 → J1, J2, J3, each separately | Judge → Lane A → Lane B | Their exact-object checkpoints |
 | **Defer** | Baseline, final pair, act, custody, registration, closing; setup/`D-437`, SM05, Gate 2 | Existing owners | Their own authorized checkpoints |
 | **Reject** | B-136 / D-439 completion, or baseline or execution authority from this record | All actors | Until required dependencies close |
+
+---
+
+## Lane A — Judge decision table against `98a4703`: J-C, J1, J2, J3 (decisions requested, none recorded), 2026-10-17
+
+> **Filed** on the Judge's instruction in session: "Lane A: prepare one concise, parent-first Judge decision table in B-136
+> against `98a4703` … The table must request decisions; it must not record any as accepted." The instruction authorizes
+> this filing only.
+>
+> **Received:** Lane B (ChatGPT Codex) review of `98a4703`, supplied by the Judge in session, not filed in B-136: Approve
+> for the G2/G3 correction. Lane B is the raiser; Lane A answers. Earlier records stay unchanged.
+
+### What happened
+
+#### 1. Parents
+
+B-136 and D-439 stay **Open**. Baseline naming (row 10) stays **blocked** until every applicable prerequisite closes:
+rows 5–7 (J1–J3), row 9 (J-C and any other applicable item), and Lane A's row 9 reassessment just before row 10. This
+record requests decisions. It records none as accepted, and it grants no execution authority.
+
+#### 2. D-439 → F1 (unchanged)
+
+The eight F1 classifications stay complete at their recorded scope (`9c65a73`). F1-3 keeps its scoped acceptance
+(`44b5db0` §2). Their surviving actions stay open. No decision is requested here.
+
+#### 3. Decisions requested (each independent; none implies another)
+
+The hashes below were rechecked at HEAD `98a4703`. Paths are under `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/`.
+
+| # | Decision requested | Choices and consequences | Owner | Required proof | Checkpoint |
+|---|---|---|---|---|---|
+| **J-C** | How the eight F1 extracts (`9c65a73`; proposed C40–C47) satisfy the custody-route requirement (r4 §2 (e)). **Select one option. For B, also state its class** | **Accept A1:** approve staged, mapped extracts with a Lane B hash receipt before the baseline. Repository custody follows the applicable sealed-custody route.<br>**Accept A2:** approve a separate, fully receipted repository-custody unit before the baseline.<br>**Accept B as a clarification:** the in-place transcript locations satisfy (e).<br>**Accept B as a waiver:** an exception to (e). A waiver is never treated as a clarification.<br>**Reject or Defer:** J-C stays open in row 9 and row 10 stays blocked. J1–J3 are unaffected | Judge decides; Lane A records and acts; Lane B verifies | `D-183` rules by class (`98a4703` §2). **A1:** recorded instruction; extract map; Lane B hash receipt; Register entry (guarded sync to health) and Lane B verification, unless a later route is explicitly authorized. **A2:** recorded instruction; folder commit; Lane B committed-blob and changed-path receipt; registration as for A1. **B as a clarification:** exact text in B-136; no Register entry. **B as a waiver:** B-136 record, Register entry through guarded sync to health, Lane B verification, all before row 10 | Row 9, before row 10 |
+| **J1** | Authorize transfer of the exact supplement-1 unit (11 files per its map), map `supplement-1/D439-SUPPLEMENT-MAP-r1.md`, SHA-256 `37d5f5a273097167c485ffb9d88c5788ce7bc3676c1bce963e42a7d69b8bf576`, to `docs/handoff/artifacts/B-136/d439-package/supplement-1/` | **Accept:** Lane A runs this unit only.<br>**Reject or Defer:** row 5 stays open; the sources stay in place; the baseline stays blocked | Judge → Lane A → Lane B | Exact instruction; pre-copy checks (hashes, unique destinations, links, ignore status); folder-only commit; separate one-file request; Lane B committed-blob and changed-path receipt (`5063c2f` conditions) | Row 5, before row 10 |
+| **J2** | Authorize transfer of the exact supplement-2 r2 unit (4 files per its map), map `supplement-2-r2/D439-SUPPLEMENT-2-MAP-r2.md`, SHA-256 `487a093e118f0fe9a0cccd405e9af85fc4e68fbd6ae2e655a8479c595e00658e`, to `docs/handoff/artifacts/B-136/d439-package/supplement-2/` | **Accept:** Lane A runs this unit only, separately from J1; r1 is never substituted.<br>**Reject or Defer:** row 6 stays open; no merge with J1 | Judge → Lane A → Lane B | As J1, separately; C2/C3 kept for section C (`5063c2f` conditions) | Row 6, before row 10 |
+| **J3** | Give a direct instruction (`D-183` point 1) adopting `tca/TCA-D439-r3.md`, SHA-256 `5274e34f50113bb50c27ebc0910f38c4931e4afe2dab354bac4e6101edc047d2`, route R2 | **Accept:** Lane A records the instruction and its provenance as "Judge approval received … pending durable registration". Durable registration follows the outcome route (r4 §5.3; `98a4703` §4).<br>**Reject or Defer:** row 7 stays open before the baseline. Route R1 needs its own text and review | Judge → Lane A; Lane B verifies | The exact instruction text; the B-136 provenance record; later separately authorized registration; Lane B §7 verification (`5063c2f` conditions) | Row 7, before row 10; registration on the outcome route |
+
+**Independence.** J-C does not decide or block J1–J3. No J decision resolves J-C or F1. No acceptance names the baseline.
+
+**Self-grade (labelled; Lane A self-review, no independent acceptance).** Trigger:
+`/anthropic-skills:make-ai-grade-its-own-work`. Evidence: session transcript
+`C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/e1b197bb-476d-4f6c-bde9-aace6388d216.jsonl`, line 535
+(invocation, `271d418f-43ff-4597-bfee-bcaeb8be1b23`), line 543 (launch result) and line 545 (loaded instructions); locators
+only. Draft reviewed: `C:/CoWork/outputs/lane-a-b136-audit-answer-2026-10-17/B136-LANE-A-JUDGE-TABLE-98a4703.md`, pre-fix
+SHA-256 `7fd72dfdae04fa16ef38a03e365ae931c58f7b4701cfa310f6b317c44c9bc53f` (copy retained as `….pre-fix.md`). Fixes:
+(1) the J1 and J2 file counts are attributed to their maps; (2) this line added.
+
+### What you need
+
+**Judge:** one answer per row: J-C (option, and class for B), J1, J2 and J3.
+
+### What you did instead
+
+Rechecked the three J hashes at `98a4703`. No helper or checker run, transfer, baseline naming, application, Register
+write, graph rebuild, push or closure. Consistency checks and the commit hook ran for this filing.
+
+**Filing evidence.** `bun run check` ran twice at HEAD `98a4703`, with this record uncommitted. Run 1 preceded insertion of
+its log hash. Run 2 tested the final file. Identical logs do not prove identical tested bytes. Commit only if both exit 0 and
+the logs are byte-identical. This commit's own trace is retained in the folder that holds C51; its hash exists only after
+the commit. Unpushed: `5f1215a`..this record.
+
+| Item | Source | SHA-256 | Exact later custody destination |
+|---|---|---|---|
+| C51: commit trace for `98a4703` | `C:/CoWork/outputs/lane-a-b136-audit-answer-2026-10-17/commit-trace-g2g3.jsonl` | `b24766ba95934f4a89e636f3d104e8a456759a24f12a240fd628458073b0b440` | `docs/handoff/artifacts/B-136/d439-package/section-c/commit-trace-98a4703.jsonl` |
+| C52: filing check, run 1 | `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/check-judge-table-98a4703.log` | `1a37aeaa031f2fbffa972a1babf70e6e1d036b169175df08e26a4ce6cf56d0c5` | `docs/handoff/artifacts/B-136/d439-package/section-c/check-judge-table-98a4703.log` |
+| C53: run 2 | `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/check-judge-table-98a4703-run2.log` | Same as C52 (commit only if identical) | `docs/handoff/artifacts/B-136/d439-package/section-c/check-judge-table-98a4703-run2.log` |
+
+| Status | Parent → item | Owner | Follow-up phase |
+|---|---|---|---|
+| **Open** | B-136 → D-439; row 10 blocked | Lane A coordinates; Judge decides | Until rows 5–7 and 9 close |
+| **Complete at recorded scope** | D-439 → F1 classifications; F1-3 scoped acceptance | Lane B | Surviving actions at their checkpoints |
+| **Decision requested** | D-439 → J-C | Judge | Row 9, before row 10 |
+| **Decision requested** | D-439 → J1 | Judge | Row 5, before row 10 |
+| **Decision requested** | D-439 → J2 | Judge | Row 6, before row 10 |
+| **Decision requested** | D-439 → J3 | Judge | Row 7, before row 10 |
+| **Reject** | Any decision inferred from this table, or B-136 / D-439 completion now | All actors | — |
