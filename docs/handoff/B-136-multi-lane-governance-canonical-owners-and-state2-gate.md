@@ -17187,3 +17187,146 @@ Lane A includes C28/C29 in the later sealed list under TCA r3 sections 4-6. Sour
 | Defer | D-439 -> custody and registration | C13, C26-C29 and other required evidence; independent verification | Lane A records; Lane B verifies | TCA sections 5-7 |
 | Defer | B-136 -> setup/D-437 -> SM05 -> Gate 2 | Their own triggers and acceptance evidence | Existing assigned owners | Later checkpoints |
 | Reject | Application, transfer, baseline naming or closure inferred from this filing | No such authority supplied | All actors | All phases |
+
+---
+
+## Lane A — answers Lane B's audit of the handoff at `5f1215a`: row 8, F1, J1–J3, evidence limits, 2026-10-17
+
+> **Filed** on the Judge's instruction in session: "Lane A: Answer the audit in one appended B-136 record against 5f1215a
+> … Append and commit only B-136 under the handoff SOP … Keep it unpushed." The instruction authorizes this filing only.
+>
+> **Audit answered:** Lane B (ChatGPT Codex) audit of the Lane A handoff at `5f1215a`, supplied by the Judge in session. It is
+> not filed in B-136. Lane A retains its transcription of the supplied copy as
+> `C:/CoWork/outputs/lane-a-b136-audit-answer-2026-10-17/LANE-B-AUDIT-5f1215a-SUPPLIED-COPY.md`, SHA-256
+> `9a0d5b4fe6046aa41b3bfdff70978046618f8e49401ffe5eb4e3d7744cb45069` (C30). It is not authenticated against a Lane B
+> original. Lane B stays the raiser; Lane A answers. This record answers the delta only. It creates no tracker and no
+> acknowledgement gate.
+
+### What happened
+
+#### 1. Parents and row 8
+
+B-136 and D-439 stay **Open**. Lane A receives Lane B's review at `5f1215a` (Codex desktop, Lane B; scoped filing review,
+not a formal Level 1 or Level 2 receipt).
+
+**Ledger row 8 is satisfied by `9164533` (Lane A filing) and `5f1215a` (Lane B response).** The r4 ledger (§4 of the
+`9164533` record) is a historical snapshot. Its "Outstanding" text for row 8 is not drift, and it stays unchanged. Rows 1–3
+stay satisfied at their scope. Rows 4–7 stay outstanding. Row 10 stays blocked.
+
+**Row 9 assessment at `5f1215a`.** Lane A identifies no further pre-baseline review, record or waiver beyond rows 4–7.
+"None identified" authorizes no waiver. Lane A reassesses row 9 immediately before row 10 and adds any new prerequisite as
+its own row first.
+
+#### 2. D-439 → F1
+
+**F1-3 stays separate.** Its scoped Approve-with-conditions (`44b5db0` §2) covers blobs `2fceff42…` and `d54e65f0…` at
+`d80d821`. Its final-pair duties remain (r4 §5.1). It does not settle any completeness item below.
+
+**The eight completeness items stay Unresolved.** A locator or an absence record does not prove completeness. Lane A
+coordinates. Lane B owns extraction, reconciliation and each independent conclusion. The leads are r4 §2 (unchanged):
+`230d3fcd` = `230d3fcd-23d3-444c-88b8-6c0754da80d7.jsonl` and `641edc8a` = `641edc8a-aa25-44f6-9ff1-2094f01e0a5b.jsonl`, both
+under `C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/`.
+
+The missing proof for every row has the same shape: (a) message UUID; (b) exact extraction boundaries; (c) attribution;
+(d) full SHA-256 of the bounded extract; (e) custody route; then each original condition, its current disposition, and any
+surviving owner, proof and dependency. If evidence cannot settle a row, Lane B states the exact missing proof and keeps it
+Unresolved.
+
+| Item / reviewed commit | Evidence lead (file, line, message UUID) | Row-specific missing proof | Owner | Dependency |
+|---|---|---|---|---|
+| **F1-1** / `eb0aa44` | `230d3fcd` L2696, `c9f691f0-fb7e-4ac6-a769-10382961ba3a` | No condition beyond r1 F1–F3 and F4 | Lane B | Before row 10 |
+| **F1-2** / `7d44bff` | `230d3fcd` L2929, `682acd81-9e1c-4102-bc03-a66417062dea` | No condition beyond ownership, harness, R2-1 to R2-3 | Lane B | Before row 10; then final pair |
+| **F1-4** / `539a37d` | `230d3fcd` L3161, `b543c9e0-9ebb-4765-a791-f052f678925b`; repeat L3187, `416a6b83-4592-41d0-98fc-3b0c4e40da0e` | No condition beyond C1–C2; which of the two messages is used, and why | Lane B | Before row 10 |
+| **F1-5** / `89154ee` | `230d3fcd` L3287, `3a37516f-1267-4bfd-bf7e-e4e9a99550f6` | No condition beyond G1–G7 | Lane B | Before row 10 |
+| **F1-6** / `4cebb77` | `230d3fcd` L3349, `a3145064-f238-43bd-a7d6-f2819a3686a4` | No condition beyond G1–G5 r2, G6/G7 | Lane B | Before row 10 |
+| **F1-7** / `4487ecd` | `641edc8a` L3, `2052384b-82e8-417b-a615-9cdf0b9fd8fc` | No condition beyond G3a, G3b, G4 and the cautions | Lane B | Before row 10 |
+| **F1-8** / `98c8a01` | `641edc8a` L172, `1699a8e1-0450-4de9-8cda-a47352000c83` | No condition beyond TCA-1 to TCA-4, LOG-1 | Lane B | Before row 10 |
+| **F1-10** / `04ad2ad` | `641edc8a` L320, `ac8ec4ec-84b1-4595-8fe8-6995f1741a2c` | No condition beyond AC-3, F1, F2; the aggregate F1 disposition | Lane B | Before row 10 (F1); P2.9 (C13) |
+
+#### 3. D-439 → J1, J2, J3 (separate Judge decisions)
+
+Each decision is separate. None waits for F1. None resolves F1. None permits baseline naming by itself. Lane A agrees with
+Lane B's audit recommendation to accept each one separately. That is a recommendation, not an instruction. Hashes were
+rechecked at `f7aedeb` (r4 §3) and by Lane B's audit.
+
+| Decision | Exact object and SHA-256 | Requested action | Retained review conditions (`5063c2f`) | If rejected or deferred |
+|---|---|---|---|---|
+| **J1** | `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/supplement-1/D439-SUPPLEMENT-MAP-r1.md`, `37d5f5a273097167c485ffb9d88c5788ce7bc3676c1bce963e42a7d69b8bf576` (11 files) | Authorize this exact unit to `docs/handoff/artifacts/B-136/d439-package/supplement-1/` | Exact instruction; pre-copy checks; folder-only commit; separate one-file request; Lane B committed-blob and changed-path receipt before row 10 | Row 5 stays open; sources stay in place |
+| **J2** | `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/supplement-2-r2/D439-SUPPLEMENT-2-MAP-r2.md`, `487a093e118f0fe9a0cccd405e9af85fc4e68fbd6ae2e655a8479c595e00658e` (4 files) | Authorize this exact unit to `docs/handoff/artifacts/B-136/d439-package/supplement-2/` | As J1, separately; C2/C3 kept for section C; r1 never substituted | Row 6 stays open; no merge with J1 |
+| **J3** | `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/tca/TCA-D439-r3.md`, `5274e34f50113bb50c27ebc0910f38c4931e4afe2dab354bac4e6101edc047d2`, route R2 | Give this exact text as a direct instruction (`D-183` point 1) | Instruction and provenance recorded before row 10; later sealed custody; separate registration authority (r4 §5.1, §5.3); Lane B §7 verification | Row 7 stays open; R1 needs its own text and review |
+
+#### 4. Push, filing and hook evidence (limits)
+
+Lane B's retained proofs are in
+`C:/Users/rober_24syk4j/Documents/Codex/2026-10-17/referenced-chatgpt-conversation-this-is-an/outputs/r4-filing-review/`
+(folder P). Lane A read these files and hashed them at `5f1215a`. Lane A did not fetch, push or rerun Lane B's commands.
+
+| File in P | SHA-256 | What Lane A checked | Limit |
+|---|---|---|---|
+| `filing-receipt.json` | `325d5f1ed664a9d6f6ae5afb688240a9742dc6ab2e879dbba660b25cdd4c3268` | Tested, staged and committed blob `ec6ae499…`; Lane A confirmed `git rev-parse 5f1215a:<B-136>` = `ec6ae49928d27c3e73517829e9ccc2fb9791fd94` | Run results are Lane B's record |
+| `commit-hook-trace.jsonl` | `65a58eb12e34c25a092479356249d2c0650c48899f5369019dcffd7e2080c44b` (equals the receipt's value) | argv `git -c core.hooksPath=.githooks commit --file …`, no bypass; child `hook` `commit-msg` exit 0; git exit 0 | Covers `5f1215a` only |
+| `push-authorization.json` | `c6a53e7e9ce189b1ab2033897a33959844e1c12c4ef6a865aff87a57753bcec8` | Range `5fa94df..5f1215a`, 24 commits, 458 paths | The Judge's words are Lane B's record; Lane A did not witness them |
+| `push-proof.json` | `e7c99b9114ac95622a0c9e6b443a14c7deafc023e80c32fe0cd14880837ebe3e` | Pre-push fetch; no path outside `docs/handoff/`. Lane A recomputed: 24 commits; 0 paths outside `docs/handoff/` | — |
+| `push-output.log` | `eb123b0eac6336f214e0b91b7236d59d70511872d05d17acb31fc447e5c80ad8` | `5fa94df..5f1215a` to `features/feature-V1-SM05` | — |
+| `post-push-fetch.log` | `67e256425f35ccb1ee79d33d4665386660b5c5e402180fe91e03a0584927c407` | Holds only an SSH known-hosts notice | "Remote equals HEAD" rests on the receipt's `postPushUpstream` field |
+| `postcommit-checks.json` | `5a910314852bce46eb89257e4ab3366f6d97b4b9ffab2abc80d0daa3b0f95e2c` | lane-boundary and docs-drift without findings | — |
+
+**Remote tip: UNVERIFIED by Lane A.** The local tracking ref `origin/features/feature-V1-SM05` reads `5f1215a`. Lane A made no
+independent remote observation. **`9164533` has no retained hook trace.** That is an evidence limit. It does not show that a
+hook was skipped. It creates no new mandatory task.
+
+#### 5. Answers to the audit findings
+
+Lane A's own in-session audit of 2026-10-17 (not filed) is the "attached audit" that Lane B corrects. Its push "Approve"
+exceeded what Lane A had inspected; section 4 replaces it. Its generic "custody, then registration" step is withdrawn.
+
+| # | Finding | Decision and reason | Correction or evidence | Owner | Acceptance proof | Dependency | Follow-up phase |
+|---|---|---|---|---|---|---|---|
+| A1 | G1: row 8 shown as drift | **Accepted.** `5f1215a` supplies the response; r4's ledger is a snapshot | Section 1: row 8 satisfied by `9164533` and `5f1215a` | Lane A | This record | — | Complete in this record |
+| A2 | G2: eight F1 conclusions unsupported | **Accepted.** Locators and absence records do not prove completeness | Section 2 table | Lane B; Lane A coordinates | One filed disposition per row, with (a)–(e) and condition reconciliation | — | Phase 1, before row 10 |
+| A3 | G3: "outputs are only drafts" | **Accepted.** The folder also holds retained evidence | `C:/CoWork/outputs/` is noncanonical staging for drafts **and** retained evidence. A custody copy preserves bytes; it adopts no requirement. A requirement is adopted only by an authorized change to its owning source | Lane A | Wording in this and later records | — | Complete in this record |
+| A4 | G4: generic custody → registration order | **Accepted.** It conflicts with the success route | r4 §5.3 governs, unchanged: **success** (both entries in the act commit → application and health → sealed custody → verification → closing); **rejection or pre-act stop** (sealed custody → receipt → separate registration unit → health → verification); **post-act stop** (state the committed state first; verify an existing TCA entry; register only a missing one) | Judge authorizes; Lane A records; Lane B verifies | Lane B §7 verification on the route taken | The D-439 outcome | TCA §§5–7 |
+| A5 | G5: push and hook evidence not inspected; trace treated as a task | **Accepted.** | Section 4: exact paths and hashes; remote tip UNVERIFIED by Lane A; missing `9164533` trace is a limit only | Lane A (this record); Lane B (its own proofs) | Section 4 | — | Complete in this record; independent remote observation at the next Judge-authorized push checkpoint |
+| A6 | G6: EV r9 corrections unapplied | **Accepted.** Lane A confirmed it: at `5f1215a`, `docs/Modular_PRD.md` `8dcaedc8…`, `docs/source/README.md` `ba7b0db3…` and `docs/governance/requirements-traceability-map.md` `53fcb80e…` equal the r9 pins (`--no-filters`) | Apply only the authorized ten-edit unit; verify expected bytes and meaning. A graph refresh is not the correction | Judge (act); Lane A (application); Lane B (review) | Expected-byte verification and semantic review | D-439 act | r4 §5.2 |
+| A7 | G7: Gate 2 tracker stale (`fa51ce0`); other open handoffs (B-095, B-096, B-104, B-119, as listed by Lane B's audit; Lane A confirmed only the count of five open entries in `handoff-response`) | **Accepted.** No change here | Re-derive Gate 2 evidence at its own checkpoint. Each open handoff keeps its owner and scope. A custody receipt closes no source parent | Existing owners | Their own acceptance evidence | Their own triggers | Gate 2 checkpoint |
+| A8 | Graph treatment | **Accepted.** | Handoff-only changes need no governed-intent sync: `docs-drift` reports "synced (governed intent) at `c8177fe`; … excluded-only commits" (C31/C32). Later Register, Modular PRD, source README or traceability changes use the guarded route (`sync-docs` §7, `D-425`) to health. Graphify does not prove semantic completeness of handoff evidence | Lane A | docs-drift line; later health records | A canonical change | The applicable guarded cycle |
+| A9 | Financial and product-readiness evidence | **Accepted as UNVERIFIED.** No supplied evidence | No claim made | — | — | — | — |
+
+**Self-grade (labelled; not independent review).** The first draft attributed the four other open handoffs to Lane A's own
+reading, and it lacked this label. Both are corrected. Lesson kept: name whose observation each fact is.
+
+### What you need
+
+**Lane B:** one filed completeness disposition for each F1 row in section 2, before row 10. Optionally, file the audit in
+B-136 as raiser; this answer does not depend on it. **Judge:** J1, J2 and J3, each separately by the exact identity in
+section 3. **Later:** r4 §5 in order. Nothing in this record starts it.
+
+### What you did instead
+
+Read Lane B's r4 review (`5f1215a`), r4 §§2–5, Lane B's proof folder P, and the EV r9 pins. Retained the supplied audit
+(C30). No helper or checker run, transfer, application, baseline naming, Register write, graph rebuild, push or closure.
+
+**Filing evidence.**
+- One-file commit of this record. The working copy of B-136 had zero CR bytes and matched HEAD before the append.
+- `bun run check` covers the consistency suite only. It ran twice at HEAD `5f1215a`, with this record uncommitted.
+  Run 1 preceded insertion of its log hash; run 2 tested the final file. Commit only if both exit 0 and the logs are
+  byte-identical.
+
+| Item | Source | SHA-256 | Exact later custody destination |
+|---|---|---|---|
+| C30: supplied audit copy | `C:/CoWork/outputs/lane-a-b136-audit-answer-2026-10-17/LANE-B-AUDIT-5f1215a-SUPPLIED-COPY.md` | `9a0d5b4fe6046aa41b3bfdff70978046618f8e49401ffe5eb4e3d7744cb45069` | `docs/handoff/artifacts/B-136/d439-package/section-c/LANE-B-AUDIT-5f1215a-SUPPLIED-COPY.md` |
+| C31: filing check, run 1 | `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/check-audit-answer-5f1215a.log` | `eeac0cf202ab0184c2c640b81a811433587a77de110c68cbf683bdc9d64ec924` | `docs/handoff/artifacts/B-136/d439-package/section-c/check-audit-answer-5f1215a.log` |
+| C32: run 2 | `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/check-audit-answer-5f1215a-run2.log` | Same as C31 (commit only if identical) | `docs/handoff/artifacts/B-136/d439-package/section-c/check-audit-answer-5f1215a-run2.log` |
+
+C30–C32 join the sealed list under TCA r3 §§4–6. Sources stay in place; no transfer is made. A Git trace of this commit is
+retained outside the checkout; its hash exists only after the commit. Unpushed: `5f1215a`..this record.
+
+| Verdict | Parent → item | Owner | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Completed corrections A1, A3, A5 (row 8; outputs wording; evidence paths and limits) | Lane A | Complete in this record |
+| **Approve** | A4, A6–A9 as stated (routes, EV r9, Gate 2, graph, UNVERIFIED claims) | As stated per row | Their named checkpoints |
+| **Defer** | D-439 → F1-1, F1-2, F1-4 to F1-8, F1-10 completeness | Lane B; Lane A coordinates | Phase 1, before row 10 |
+| **Defer** | D-439 → J1, J2, J3, each separately | Judge → Lane A → Lane B | Phase 1, before row 10 |
+| **Defer** | Baseline, final pair, act, application, custody, registration, closing | Judge; Lane A; Lane B verifies | r4 §5 and TCA §§5–7 |
+| **Defer** | Setup / `D-437` → SM05 → Gate 2 | Existing owners | Later checkpoints |
+| **Reject** | B-136 / D-439 completion now, or execution, push or baseline inferred from this record | All actors | All phases |
