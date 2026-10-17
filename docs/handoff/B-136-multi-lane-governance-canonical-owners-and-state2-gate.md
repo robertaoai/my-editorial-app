@@ -19572,7 +19572,7 @@ working-tree or staged state of the Register and says only that no Register comm
 | Step | Obligation | Proof |
 |---|---|---|
 | U2 | B-136 record of U0–U1 | Two check runs (only `docs-drift` may fail); hook trace |
-| U3 | **Push checkpoint**: the Judge names the exact range | Fresh fetch; push; fetch; upstream equals HEAD |
+| U3 | **Push checkpoint**: the Judge names the exact range. Immediately before any authorized push, fetch and confirm the upstream equals the approved base. Stop before pushing if it differs. After an authorized push, fetch again and confirm the upstream equals HEAD. Record the required commands, range, base, results and proof. | Fresh fetch; push; fetch; upstream equals HEAD |
 | U4 | Prepare, with a **clean tree mandatory** | `git status --porcelain --untracked-files=all` empty. At `e8bb3a2` three untracked paths exist (`memory/`, `.agents/freellm_explorer.toml`, `.codex/config.toml`); they need an authorized disposition first |
 | U5 | Request in B-136 | Two check runs; hook trace |
 | U6–U7 | Lane B receipt in B-050, then its Terminal annotation | Lane B commits; `terminal-return` may fail only in this window |
