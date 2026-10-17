@@ -19116,3 +19116,117 @@ the commit. Unpushed: `5f1215a`..this record.
 | **Defer** | Case A or B deferral; selected-entry amendment; receipt-route authorization; release of U0 | Judge | Before U1 |
 | **Defer** | Held actions (J-C A1, J1, J2 units; J3 custody); J-C and TCA registration | Judge releases; Lane A; Lane B | Rows 5, 6, 9; outcome route |
 | **Reject** | Any Register write, publication, release of the hold, or B-136 / D-439 completion inferred from this record | All actors | Until the Judge decides and releases |
+
+---
+
+## Lane A — Judge's final J1 and J2 registration decision table against `22a27d8` (UNDECIDED), 2026-10-17
+
+> **Filed** on the Judge's instruction in session: "Lane A: Prepare one B-136 record with the Judge's final J1 and J2
+> registration decision table against `22a27d8`." The instruction authorizes this filing only.
+
+### What happened
+
+#### 1. B-136 → D-439
+
+B-136 and D-439 stay **Open**. This record grants no execution authority and does not release the hold. It writes nothing
+to the Register. Both registration proposals below are **UNDECIDED**.
+
+**Not registration decisions.** The Judge's J1 and J2 acceptances (`ae1b136`) approved the transfer units. They did not
+decide registration. Each approval stays "Judge approval received … pending durable registration" (`D-183` point 2) until
+the decisions below are made.
+
+The proposals are the ones filed at `2297985` §§3–4, as corrected at `8697967` and `22a27d8`. Rechecked at `22a27d8`: both
+object hashes match; `D-437` (setup) and `D-439` (the act) stay reserved; nothing outside `docs/handoff/` commits `D-440` or
+`D-441`.
+
+#### 2. J1 registration — **UNDECIDED**
+
+| Field | Content |
+|---|---|
+| Object | `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/supplement-1/D439-SUPPLEMENT-MAP-r1.md`, SHA-256 `37d5f5a273097167c485ffb9d88c5788ce7bc3676c1bce963e42a7d69b8bf576` (11 files per its map) |
+| Authority being registered | Judge response against `956fdf9`, item 2 (C60, `e556ed5f0d9c7aac4ebb01a93ce38f5ffd3d2c0711ca256705d8726d10a5e372`); instruction text B-136 `956fdf9` §3 |
+| Proposed Register action | Record entry **`D-440`** (section 5.14e263) in the shared recording unit at U1, with item 0 (the selected-entry amendment). If J1 alone is chosen, also item 0b (Case A, deferring J2) |
+| Entry number | `D-440` whether chosen alone or with J2 |
+| Scope | The registration of this approval only |
+| Exclusions | The supplement-2 approval; J-C; the TCA entry; the EV r9 application act; any transfer; baseline naming; push. The entry never contains the act number in backticks (helper S0) |
+| Required proof | U1 commit changing only the Register; the committed blob equals the expected bytes; two check runs (only `docs-drift` failing, under the receipt-route authorization); hook trace; guarded cycle to health (U4–U9); evidence custody into `docs/handoff/artifacts/B-136/registration-j1j2/` with Lane B's committed-blob and changed-path receipt (U10); Lane B `D-183` point 6 verification against C60 item 2 and `956fdf9` §3 (U11) |
+| Owner | Judge decides and releases; Lane A records; Lane B verifies |
+| Checkpoint | Row 9, before row 10 (baseline naming) |
+| **Accept** | J1 is registered at U1 once the dependencies in section 4 are given and U0 is released |
+| **Reject** | J1 stays "pending durable registration". Its row 9 item stays open, and row 10 stays blocked until another route is decided |
+| **Defer** | As Reject. If J2 alone is accepted, J1 is deferred only by the Case B amendment (`22a27d8` §2), with its chosen deadline |
+
+#### 3. J2 registration — **UNDECIDED**
+
+| Field | Content |
+|---|---|
+| Object | `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/supplement-2-r2/D439-SUPPLEMENT-2-MAP-r2.md`, SHA-256 `487a093e118f0fe9a0cccd405e9af85fc4e68fbd6ae2e655a8479c595e00658e` (4 files per its map) |
+| Authority being registered | Judge response against `956fdf9`, item 3 (C60); instruction text B-136 `956fdf9` §4 |
+| Proposed Register action | Record its own entry in the shared recording unit at U1, with item 0. If J2 alone is chosen, also item 0b (Case B, deferring J1) |
+| Entry number | **J2 only:** `D-440`, section 5.14e263. **J1 and J2 together:** `D-441`, section 5.14e264. The body text is identical in both cases and names no other entry's number |
+| Scope | The registration of this approval only |
+| Exclusions | The supplement-1 approval; supplement-2 r1; J-C; the TCA entry; the EV r9 application act; any transfer; baseline naming; push. No backticked act number |
+| Required proof | As J1, with Lane B's verification against C60 item 3 and `956fdf9` §4 |
+| Owner | Judge decides and releases; Lane A records; Lane B verifies |
+| Checkpoint | Row 9, before row 10 |
+| **Accept** | J2 is registered at U1 once the dependencies in section 4 are given and U0 is released |
+| **Reject** | J2 stays "pending durable registration". Its row 9 item stays open, and row 10 stays blocked until another route is decided |
+| **Defer** | As Reject. If J1 alone is accepted, J2 is deferred only by the Case A amendment (`22a27d8` §2), with its chosen deadline |
+
+#### 4. Dependencies still required before U1
+
+Each is a separate Judge decision. None is given yet.
+
+| Dependency | Needed when | Source text |
+|---|---|---|
+| Selected-entry amendment (TCA r3 §5.1: the chosen entries may be recorded before the TCA and J-C entries) | J1 or J2 accepted | `2297985` §2 |
+| Deferral amendment: Case A (J1 only; J2 deferred) or Case B (J2 only; J1 deferred), with deadline (a) or (b) | Exactly one of J1, J2 accepted | `22a27d8` §2 |
+| Receipt-route authorization for the recording unit | J1 or J2 accepted | `8697967` §6 |
+| Explicit U0 release from the hold for this unit | Before any U1 action | — |
+
+If neither J1 nor J2 is accepted, no recording unit runs and none of these is needed yet.
+
+**Self-grade (labelled; Lane A self-review, no independent acceptance).** Trigger: `/anthropic-skills:make-ai-grade-its-own-work`. Evidence: session transcript
+`C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/e1b197bb-476d-4f6c-bde9-aace6388d216.jsonl`, line 1308
+(invocation, `a50287d3-06d7-4589-967d-4ea7eb5b81d5`), line 1317 (launch result) and line 1319 (loaded instructions);
+locators only. Draft reviewed: `C:/CoWork/outputs/lane-a-b136-audit-answer-2026-10-17/B136-LANE-A-J1J2-REG-TABLE-22a27d8.md`,
+pre-fix SHA-256 `88400c32d44c94979b823bacaf0226d7a156104f5a8c6b390c524f5e49800290` (copy retained as `….pre-fix.md`).
+Fixes: (1) the required proof now includes U10 evidence custody and its Lane B receipt; (2) this line added.
+
+### What you need — Judge decisions
+
+**J1 registration (`D-440`):** ______ (Accept / Reject / Defer)
+
+**J2 registration (`D-440` if alone; `D-441` with J1):** ______ (Accept / Reject / Defer)
+
+Then, as section 4 requires: the selected-entry amendment, the Case A or B deferral (single choice only), the receipt-route
+authorization and the U0 release.
+
+### What you did instead
+
+Rehashed both objects and the owed trace C79. Rechecked number reservations. No build, transfer, Register write, push,
+baseline naming, hold release or closure. Consistency checks and the commit hook ran for this filing.
+
+**Working-tree note.** The untracked `memory/b-136-r1-r3-answer.md` (not created by Lane A) is still present, left in place
+and not staged.
+
+**Filing evidence.** `bun run check` ran twice at HEAD `22a27d8`, with this record uncommitted. Run 1 preceded insertion of
+its log hash. Run 2 tested the final file. Identical logs do not prove identical tested bytes. Commit only if both exit 0 and
+the logs are byte-identical. This commit's own trace is retained in the folder that holds C79; its hash exists only after
+the commit. Unpushed: `5f1215a`..this record.
+
+| Item | Source | SHA-256 | Exact later custody destination |
+|---|---|---|---|
+| C79: commit trace for `22a27d8` | `C:/CoWork/outputs/lane-a-b136-audit-answer-2026-10-17/commit-trace-correction-8697967.jsonl` | `cde095183f76714f7799f0a9be58888840c5408769a74abcf1ec048694835178` | `docs/handoff/artifacts/B-136/d439-package/section-c/commit-trace-22a27d8.jsonl` |
+| C80: filing check, run 1 | `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/check-j1j2-reg-table-22a27d8.log` | `054afa797a9a32ca57fa28b23cde08c34fe4061578e1bea434c19a76cd9c62fb` | `docs/handoff/artifacts/B-136/d439-package/section-c/check-j1j2-reg-table-22a27d8.log` |
+| C81: run 2 | `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/check-j1j2-reg-table-22a27d8-run2.log` | Same as C80 (commit only if identical) | `docs/handoff/artifacts/B-136/d439-package/section-c/check-j1j2-reg-table-22a27d8-run2.log` |
+
+| Decision | Status | Owner | Checkpoint |
+|---|---|---|---|
+| J1 registration (`D-440`) | UNDECIDED | Judge → Lane A → Lane B | Row 9, before row 10 |
+| J2 registration (`D-440` alone / `D-441` with J1) | UNDECIDED | Judge → Lane A → Lane B | Row 9, before row 10 |
+| Selected-entry amendment | UNDECIDED | Judge | Before U1 |
+| Case A or B deferral (single choice only) | UNDECIDED | Judge | Before U1 |
+| Receipt-route authorization | UNDECIDED | Judge | Before U1 |
+| U0 release from the hold | Not given | Judge | Before U1 |
+| B-136 / D-439 completion, or any Register write or release inferred from this record | **Reject** | All actors | Until the Judge decides and releases |
