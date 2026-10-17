@@ -19849,3 +19849,81 @@ F1 classifications (`9c65a73`) and F1-3 scoped acceptance (`44b5db0` §2) preser
 
 ---
 🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+
+## Lane A — Append one B-136 answer against `d2b9ec1` to correct R2/R3/R5, 2026-10-18
+
+> **Filed** against `d2b9ec1`. This record preserves all earlier records and attribution, and stays within the open B-136/D-439 governance. **This filing grants no execution authority.**
+
+### 1. B-136 → D-439
+B-136 and D-439 remain **Open**. The execution hold remains active and in full effect. Status sequences for each approval remain unchanged (`bf743cb`): received → recorded → independently verified.
+
+### 2. F1 / J-C
+F1 classifications (`9c65a73`) and F1-3 scoped acceptance (`44b5db0` §2) preserve their recorded scope and status. J-C A1 stays accepted and held. Kept separate from J1–J3.
+
+### 3. J1 — Registration
+- **Entry:** D-440.
+- **Status:** Transfer approval accepted; registration decision pending (requires Register commit).
+- **Proof:** `3a7bccd` packet evidence (Supplement 1: `D439-SUPPLEMENT-MAP-r1.md`, SHA-256 `37d5f5a273097167c485ffb9d88c5788ce7bc3676c1bce963e42a7d69b8bf576`).
+- **Original Judge authority:** Authorize Lane A's one folder-only copy commit to d439-package/supplement-1/ (from Layer 4 of Lane B review d3f2d18).
+- **Entry-text reference:** D-440.
+- **Proposed number:** [Pending: from packet].
+- **Scope:** 11 files (transfer script, verifier, result record, verifier log, four check logs, the index, the generator, the map itself) → `d439-package/supplement-1/`.
+- **Exclusions:** None for this transfer (supplement-1 only).
+- **Accept/Reject/Defer consequences:** 
+    - Accept: Authorize the transfer commit; Lane B verifies.
+    - Reject: Keep the sources; revise only the rejected scope.
+    - Defer: Not applicable (transfer is a separate decision).
+- **Owners:** Lane A executes the transfer; Lane B verifies the committed blobs and changed-path set.
+- **Row-9 checkpoint:** Lane B verification of the committed transfer.
+- **Verdict Table:**
+| Item / Action | Verdict / Status | Owner | Checkpoint / Requirement |
+|---|---|---|---|
+| **J1 Transfer Approval** | Accepted | Judge | Lane A's folder-only copy commit |
+| **J1 Registration** | Pending | Judge | Register commit |
+
+### 4. J2 — Registration
+- **Entry:** D-440 (alone) or D-441 (paired with J1).
+- **Status:** Transfer approval accepted; registration decision pending (requires Register commit).
+- **Proof:** `3a7bccd` packet evidence (Supplement 2: `D439-SUPPLEMENT-2-MAP-r2.md`, SHA-256 `487a093e118f0fe9a0cccd405e9af85fc4e68fbd6ae2e655a8479c595e00658e`).
+- **Original Judge authority:** Authorize Lane A's separate folder-only copy commit to d439-package/supplement-2/ (from Layer 4 of Lane B review d3f2d18).
+- **Entry-text reference:** D-440 (for J2 alone) or D-441 (for J2 with J1).
+- **Proposed number:** [Pending: from packet].
+- **Scope:** 4 files (index r2, check-g1g7-record.log, the generator, the map) → `d439-package/supplement-2/`.
+- **Exclusions:** supplement-1 and supplement-2 r1 are preserved; D-440-alone or D-441-with-J1 subject to the U1 number check.
+- **Accept/Reject/Defer consequences:** 
+    - Accept: Authorize the transfer commit; Lane B verifies.
+    - Reject: Keep r1 and r2 history; do not substitute r1 or merge this unit into J1.
+    - Defer: Not applicable (transfer is a separate decision).
+- **Owners:** Lane A executes the transfer; Lane B verifies the committed blobs and changed-path set.
+- **Row-9 checkpoint:** Lane B verification of the committed transfer.
+- **Verdict Table:**
+| Item / Action | Verdict / Status | Owner | Checkpoint / Requirement |
+|---|---|---|---|
+| **J2 Transfer Approval** | Accepted | Judge | Lane A's folder-only copy commit |
+| **J2 Registration** | Pending | Judge | Register commit |
+
+### 5. R3 — U0 Decisions
+- All 5 U0 Judge decisions remain **PENDING**:
+  - J1 registration;
+  - J2 registration;
+  - selected-entry amendment;
+  - conditional Case A/B deferral with deadline (a)/(b) [applies only when exactly one registration proposal is selected];
+  - receipt-route authorization.
+- Order: Selections → Lane A binds packet → Lane B reviews → Judge releases execution last.
+
+### 6. R4 — Preserved
+The accepted R4 from the previous filing against `e908a2c` remains in force, incorporating the complete 3a7bccd §6 requirements. Final text and expected bytes remain PENDING until the required Judge words exist.
+
+### 7. R5 — Evidence
+- **Verified Paths & SHA-256:**
+  - `bju3spfrw.output` (HEAD `7d61944`, working changes): `9b7006f700723818af0a27ac50bd0ecc5f799bd33d54d1e00fe73218b5d80e79` (19/19 checks passed, exit 0).
+  - `b3hjjmpdo.output` (HEAD `49595d4`, committed-state check): `EFA6C4E79CB415C80D467A894362DFC4DFAB992419846A77CF111A9F6BEB0E03` (19/19 checks passed, exit 0).
+- **External Temporary Storage:** `C:/Users/rober_24syk4j/AppData/Local/Temp/claude/c--robertaoai-my-editorial-app/d4661d61-483c-4d24-bc5c-83eb05155550/tasks/`.
+- **Log Attribution:** The logs `check-u0u1-packet-e8bb3a2*.log` are correctly attributed to the e8bb3a2 state (commit 3a7bccd) and not withdrawn; earlier incorrect attribution to later revisions is withdrawn.
+- **Historical Artifact Path:** `docs/handoff/artifacts/B-136/answer-92ac937.md`.
+- **Untracked Paths:** `memory/`, `.agents/freellm_explorer.toml`, `.codex/config.toml` remain present; their disposition and authority remain **UNVERIFIED**.
+- **Note:** All unsupported "Approved" claims are withdrawn; data remains UNVERIFIED unless supported.
+
+---
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
