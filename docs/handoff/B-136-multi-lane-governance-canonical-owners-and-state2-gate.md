@@ -18949,3 +18949,170 @@ the commit. Unpushed: `5f1215a`..this record.
 | **Defer** | Selected-entry amendment; deferral amendment (single selection); receipt-route authorization; release of U0 | Judge | Before U1 |
 | **Defer** | Held actions (J-C A1, J1, J2 units; J3 custody); J-C and TCA registration | Judge releases; Lane A; Lane B | Rows 5, 6, 9; outcome route |
 | **Reject** | Any Register write, publication, release of the hold, or B-136 / D-439 completion inferred from this record | All actors | Until the Judge decides and releases |
+
+---
+
+## Lane A — correction against `8697967`: deferral intervening entries and deadline (b); pre-U1 stop reporting (UNDECIDED), 2026-10-17
+
+> **Filed** on the Judge's instruction in session: "Lane A: Append one B-136 correction against `8697967` for R1 deadline
+> (b) and R3 pre-commit stop reporting." The instruction authorizes this filing only. Lane B is the raiser; Lane A answers.
+
+### What happened
+
+#### 1. B-136 → D-439
+
+B-136 and D-439 stay **Open**. This correction grants no execution authority and makes no Register write. J1 and J2 stay
+separate. The execution hold stays in force. Every proposal below is **UNDECIDED**.
+
+**Superseded in `8697967`** (kept in place as history):
+- §2, the Case A amendment (from line 18815). Its phrase "deferred across one intervening Register entry" is true only
+  for deadline (a).
+- §2, the Case B sentence (line 18828).
+- §2, the recommendation paragraph (line 18832).
+- §6, the stop-reporting row "Before U1" (line 18893). It said "No Register write happened", which does not cover an
+  uncommitted Register edit.
+
+Lane A's session summary of `8697967` had the same two gaps. It said "one permitted intervening entry (D-440)" and described
+deadline (b) without its intervening entries. This record replaces both.
+
+#### 2. F1 / J-C → R1
+
+F1, J-C A1 and the selected-entry amendment (`2297985` §2) stay unchanged.
+
+**Intervening entries, reconciled.** Under deadline (a), one entry intervenes: the selected entry. Under deadline (b), more
+intervene, at the attempt's TCA registration checkpoint: the TCA r3 entry and the J-C A1 entry. On the success route the
+application act's own entry is in the act commit too, so it also intervenes unless the act names the deferred entry. The
+Judge's instruction did not list that entry. Lane A adds it because the success route puts it there (TCA r3 §5.1).
+
+**Case A — J1 only; J2 deferred. Proposed amendment, UNDECIDED:**
+
+> "Judge amendment (`D-183`; TCA r3 §5.1). **Affected approval:** my acceptance of the B-136 J2 supplement-2 r2 transfer
+> unit (Judge response against B-136 `956fdf9`, item 3). **Action:** its `D-183` point 5 registration is deferred.
+> **Permitted intervening entries:** (1) the J1 supplement-1 approval entry (proposed `D-440`), in the shared recording unit;
+> and, under deadline (b) only, (2) the entries at the D-439 attempt's TCA registration checkpoint: the TCA r3 entry, the
+> J-C A1 entry and, on success, the application act's own entry. No other entry may intervene without a further amendment.
+> **Deadline:** [choose one] (a) its own entry in a separate recording unit before baseline naming (row 10); that unit needs
+> its own intervening-entry amendment under TCA r3 §5.1; or (b) its own entry before the attempt closes: on success, in the
+> act commit only if the separately authorized act names it, otherwise in a separate registration unit after the health
+> record; on rejection or a pre-act stop, in the separate registration unit after the custody receipt; on a post-act stop,
+> an existing entry is verified, or a missing entry is registered through its separately authorized unit. This amendment
+> permits that sequence and keeps each TCA and J-C checkpoint unchanged. **Owner:** Lane A records the entry; the Judge
+> authorizes its recording unit. **Verification:** Lane B verifies the entry against my response item 3 and B-136
+> `956fdf9` §4 (`D-183` point 6) before the deadline. The entry's number is checked when its unit runs. The J2 acceptance,
+> its row 6 transfer obligation and the execution hold are unchanged."
+
+**Case B — J2 only; J1 deferred. Proposed amendment, UNDECIDED:**
+
+> "Judge amendment (`D-183`; TCA r3 §5.1). **Affected approval:** my acceptance of the B-136 J1 supplement-1 transfer unit
+> (Judge response against B-136 `956fdf9`, item 2). **Action:** its `D-183` point 5 registration is deferred.
+> **Permitted intervening entries:** (1) the J2 supplement-2 r2 approval entry (proposed `D-440`), in the shared recording
+> unit; and, under deadline (b) only, (2) the entries at the D-439 attempt's TCA registration checkpoint: the TCA r3 entry,
+> the J-C A1 entry and, on success, the application act's own entry. No other entry may intervene without a further
+> amendment. **Deadline:** [choose one] (a) its own entry in a separate recording unit before baseline naming (row 10); that
+> unit needs its own intervening-entry amendment under TCA r3 §5.1; or (b) its own entry before the attempt closes: on
+> success, in the act commit only if the separately authorized act names it, otherwise in a separate registration unit after
+> the health record; on rejection or a pre-act stop, in the separate registration unit after the custody receipt; on a
+> post-act stop, an existing entry is verified, or a missing entry is registered through its separately authorized unit.
+> This amendment permits that sequence and keeps each TCA and J-C checkpoint unchanged. **Owner:** Lane A records the
+> entry; the Judge authorizes its recording unit. **Verification:** Lane B verifies the entry against my response item 2 and
+> B-136 `956fdf9` §3 (`D-183` point 6) before the deadline. The entry's number is checked when its unit runs. The J1
+> acceptance, its row 5 transfer obligation and the execution hold are unchanged."
+
+**Recommendation (replaces `8697967` line 18832).** Lane A still recommends deadline (b). It adds no Register entry before
+the baseline beyond the selected entry. Its cost: the deferred approval stays unregistered until the outcome, and the
+entries listed above intervene. Deadline (a) avoids that cost but adds a second pre-baseline unit and amendment.
+
+| Fix | Owner | Completion proof | Checkpoint |
+|---|---|---|---|
+| R1: every permitted intervening entry named; deadline (b) placed on each route; Case A and Case B written out separately | Lane A drafts; Judge decides | This record; the Judge's actual words | Before U1 |
+
+#### 3. D-439 → J1
+
+Acceptance, object (`supplement-1/D439-SUPPLEMENT-MAP-r1.md`, `37d5f5a273097167c485ffb9d88c5788ce7bc3676c1bce963e42a7d69b8bf576`),
+number `D-440`, scope, proof and hold stay unchanged.
+
+| Selection | J1 registration timing |
+|---|---|
+| J1 and J2 | `D-440` in U1, with item 0 |
+| J1 only (Case A) | `D-440` in U1, with item 0 and item 0b (the Case A amendment) |
+| J2 only (Case B) | Not in U1. Deferred by Case B to deadline (a) or (b) |
+
+#### 4. D-439 → J2
+
+Acceptance, standalone text, exclusions (supplement 1; supplement-2 r1), proof and hold stay unchanged.
+
+| Selection | J2 registration timing |
+|---|---|
+| J1 and J2 | `D-441` in U1, with item 0 |
+| J2 only (Case B) | `D-440` in U1, with item 0 and item 0b (the Case B amendment) |
+| J1 only (Case A) | Not in U1. Deferred by Case A to deadline (a) or (b) |
+
+#### 5. D-439 → J3
+
+Unchanged: TCA r3 route R2, custody timing (§3 before the cut-off; §§5.2–5.3 for the sealed copy), and the outcome-specific
+custody, registration and Lane B §7 verification. A deferred J1 or J2 entry is always its own entry, never part of the TCA
+entry.
+
+#### 6. Shared unit → R3: stop reporting (replaces the `8697967` "Before U1" row)
+
+| Stop point | What Lane A reports in B-136 |
+|---|---|
+| Before U1 commits | **No Register commit occurred.** The actual state of `docs/v1/V1-DECISION-REGISTER.md`: unchanged, changed in the working tree only, or staged (with `git status` and `git diff` / `git diff --cached` output and the file's current blob). The stop trigger and its retained evidence (check logs, expected bytes). Lane A neither discards nor commits an uncommitted Register edit without a Judge instruction. Each selected approval stays "pending durable registration" |
+| After U1 commits | The actual Register entry number(s) and the U1 commit. Then what is still pending: the U2 record, the U3 push, graph health (U4–U9; `docs-drift` stays red until health), evidence custody (U10) and Lane B verification (U11). The stop trigger and its retained evidence. No Register rollback without Judge authority |
+
+At every stop the execution hold stays in force. Completed evidence is kept. No stop closes B-136 or D-439, and no stop
+releases another held action.
+
+| Fix | Owner | Completion proof | Checkpoint |
+|---|---|---|---|
+| R3: an uncommitted or staged Register edit distinguished from a committed entry | Lane A drafts; Judge decides | This record | Before U1 |
+
+**Self-grade (labelled; Lane A self-review, no independent acceptance).** Trigger: `/anthropic-skills:make-ai-grade-its-own-work`. Evidence: session transcript
+`C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/e1b197bb-476d-4f6c-bde9-aace6388d216.jsonl`, line 1251
+(invocation, `52882cf8-0122-402e-9dbb-762a22e18f80`), line 1260 (launch result) and line 1262 (loaded instructions);
+locators only. Draft reviewed: `C:/CoWork/outputs/lane-a-b136-audit-answer-2026-10-17/B136-LANE-A-CORRECTION-8697967.md`,
+pre-fix SHA-256 `3209d4a1de8cee2c0d3572593648574cc179d4adee77b745a95773fb834a9178` (copy retained as `….pre-fix.md`).
+Fix: this line added. The review found no other change needed: the added act entry rests on TCA r3 §5.1 (the TCA entry
+sits with the D-439 entry in the act commit on success).
+
+### What you need — Judge decisions (each separate; none implies another)
+
+**J1 registration disposition (`D-440`):** ______ (Accept / Reject / Defer)
+
+**J2 registration disposition (`D-440` if alone, `D-441` with J1):** ______ (Accept / Reject / Defer)
+
+**Deferral amendment, only if one approval is selected:** ______ (Case A or Case B; deadline (a) or (b); Accept / Reject / Defer)
+
+**Receipt-route authorization (`8697967` §6 text):** ______ (Accept / Reject / Defer)
+
+The selected-entry amendment (`2297985` §2) also needs its own answer before U1. None of these releases the hold; U0 also
+needs an explicit release.
+
+### What you did instead
+
+Located the superseded passages in B-136 at `8697967`. Rehashed the owed trace C76. No staging, build, helper or checker run,
+transfer, Register write, graph publication, baseline naming, application, push or closure. Consistency checks and the commit
+hook ran for this filing.
+
+**Working-tree note.** The untracked `memory/b-136-r1-r3-answer.md` reported at `8697967` is still present. Lane A did not
+create it, left it in place and did not stage it. Both check runs ran with it present.
+
+**Filing evidence.** `bun run check` ran twice at HEAD `8697967`, with this record uncommitted. Run 1 preceded insertion of
+its log hash. Run 2 tested the final file. Identical logs do not prove identical tested bytes. Commit only if both exit 0 and
+the logs are byte-identical. This commit's own trace is retained in the folder that holds C76; its hash exists only after
+the commit. Unpushed: `5f1215a`..this record.
+
+| Item | Source | SHA-256 | Exact later custody destination |
+|---|---|---|---|
+| C76: commit trace for `8697967` | `C:/CoWork/outputs/lane-a-b136-audit-answer-2026-10-17/commit-trace-r1r3-fix.jsonl` | `6fb4136b5798e6e345397e698154097d88838e6a2ecb064cd8d355d5bd6684ca` | `docs/handoff/artifacts/B-136/d439-package/section-c/commit-trace-8697967.jsonl` |
+| C77: filing check, run 1 | `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/check-correction-8697967.log` | `fc65d3b26a91ef90a0a9d4851fcbf4e04a66847c7e48e93d5413d448e82180c5` | `docs/handoff/artifacts/B-136/d439-package/section-c/check-correction-8697967.log` |
+| C78: run 2 | `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/check-correction-8697967-run2.log` | Same as C77 (commit only if identical) | `docs/handoff/artifacts/B-136/d439-package/section-c/check-correction-8697967-run2.log` |
+
+| Verdict | Parent → item | Owner | Checkpoint |
+|---|---|---|---|
+| **Approve** | R1 deadline (b) and intervening-entry correction; R3 pre-U1 stop correction; C76 filed | Lane A | Complete in this record |
+| **Defer** | J1 registration (`D-440`), undecided | Judge → Lane A → Lane B | Row 9, before row 10 |
+| **Defer** | J2 registration (`D-440`/`D-441`), undecided | Judge → Lane A → Lane B | Row 9, before row 10 |
+| **Defer** | Case A or B deferral; selected-entry amendment; receipt-route authorization; release of U0 | Judge | Before U1 |
+| **Defer** | Held actions (J-C A1, J1, J2 units; J3 custody); J-C and TCA registration | Judge releases; Lane A; Lane B | Rows 5, 6, 9; outcome route |
+| **Reject** | Any Register write, publication, release of the hold, or B-136 / D-439 completion inferred from this record | All actors | Until the Judge decides and releases |
