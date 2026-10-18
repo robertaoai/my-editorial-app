@@ -5,7 +5,7 @@
 - **Phase:** 1
 - **Blocks:** nothing, reporting only
 - **Status:** Open
-- **Lane A:** Acknowledged 2026-10-18. Answer: 2026-10-18. Correction: 2026-10-18. Acknowledged 2026-10-18. Answer: 2026-10-18 (for 449279f)
+- **Lane A:** Acknowledged 2026-10-18. Answer: 2026-10-18. Correction: 2026-10-18. Acknowledged 2026-10-18. Answer: 2026-10-18 (for f8b8f82)
   F01 | Accept | Sources confirm conflict with later direction; preserves B-136/EV r9 | B-136 | Lane A | Phase 1 | Retain E1–E4, E6, E8–E12 in held transaction; B-136's current auth sequence | Exact accepted replacements, expected-byte comparison, Register provenance, independent verification
   F02 | Accept | AGENTS.md requires Build Spec and Register first; Lane B Work Order line 16 and Config Log lines 14–17 conflict | AGENTS.md | Lane A | Phase 1 | After scope acceptance, define one reading rule consistent with current authority | Instructions agree and point to current authority; current governing instructions remain effective until authorized correction
   F03 | Accept | Modular_PRD.md line 1072 inconsistency (3 vs 4 checks); Graph fragments README line 60 cites retired .agents/rules/graphify.md | Modular_PRD.md; Workflow Spec; Graph fragments README | Lane A | Phase 1 | Prepare bounded wording corrections after acceptance | Both sources resolve to current owners; no workflow edit or graph rebuild implied
