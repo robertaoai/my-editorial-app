@@ -20392,3 +20392,89 @@ added; no other change was needed.
 | **Defer** | Packet binding, Lane B review, release | Lane A; Lane B; Judge | After the selections |
 | **Defer** | Durable B-158 timing correction | Lane A | B-158's next authorized substantive answer |
 | **Reject** | B-136/D-439 completion, any Register write, transfer, push, baseline naming or hold release inferred from this table | All actors | — |
+
+## Lane A — Judge's U0 decisions recorded and J1/J2 registration packet bound, against `3cc3144`, 2026-10-19
+
+> **Filed** on the Judge's response against B-136 `3cc314483ad2b4d1b2449d5820f26a52afc04fff` (2026-10-19), item 7: "Lane A
+> may prepare the exact bound packet using these separate decisions and the complete 3a7bccd §6 requirements. Lane B then
+> reviews that packet." This record binds the packet. It writes nothing to the Register and releases nothing.
+
+### 1. B-136 → D-439
+
+B-136 and D-439 stay **Open**. The execution hold stays in force. B-158's routing obligations, existing owners and accepted
+fixes stay unchanged. F1/J-C stays separate from J1–J3.
+
+**The Judge's response, retained verbatim** as
+`C:/CoWork/outputs/lane-a-j1j2-reg-packet-2026-10-19/JUDGE-RESPONSE-3cc3144.txt`, SHA-256
+`de951f79bb880632be2003c201367da5154615ad5ea6a1a9474873e9ca4222dd` (Lane A's transcription of the in-session text).
+
+### 2. U0 decisions recorded (each separate)
+
+| Decision | Judge's disposition (response item) | Status wording (`D-183` point 2) |
+|---|---|---|
+| J1 registration | **ACCEPT** (item 2). Object `…/supplement-1/D439-SUPPLEMENT-MAP-r1.md`, SHA-256 `37d5f5a273097167c485ffb9d88c5788ce7bc3676c1bce963e42a7d69b8bf576`; proposed `D-440`, subject to the U1 number check | Judge approval received in the current conversation for registration of the J1 transfer approval, pending durable registration |
+| J2 registration | **ACCEPT, separately** (item 3). Object `…/supplement-2-r2/D439-SUPPLEMENT-2-MAP-r2.md`, SHA-256 `487a093e118f0fe9a0cccd405e9af85fc4e68fbd6ae2e655a8479c595e00658e`; proposed `D-441` because J1 is also selected, subject to the U1 number check | Judge approval received in the current conversation for registration of the J2 transfer approval, pending durable registration |
+| Selected-entry amendment | **ACCEPT for J1 and J2 only** (item 4). Recorded as item 0 of each entry | Received; recorded in each entry's item 0 at U1 |
+| Case A/B deferral | **NOT APPLICABLE** (item 5). Both are selected. A later change to either selection needs a new explicit decision | — |
+| Receipt-route authorization | **ACCEPT; execution held** (item 6). `8697967` §6 text, as corrected through `3cc3144`. Acceptance selects the route; it does not run it | Received; recorded in the U2 record |
+
+Neither approval is durably registered. That happens only at its Register commit. Lane B's `D-183` point 6 verification
+stays a separate later obligation. The transfers themselves (J1, J2) stay held.
+
+### 3. Bound packet (U0 step 2)
+
+Lane A rendered the accepted texts of `2297985` §3 and §4 under the accepted rendering rules (`3a7bccd` §6): the quote
+prefix removed; the section heading added; the two marked lines rendered as `### The decision` and
+`` ### Tier applicability (`D-54`) `` (the Register's existing heading form). Item 0's placeholder holds the Judge's item 4
+words verbatim, with the date and source.
+
+**One binding choice for Lane B's review.** Item 0 also states "Registration of this approval was selected in the same
+response, item 2" (J1) or "item 3" (J2). This records the selection's source. It adds no authority. Lane B may reject it,
+and Lane A then rebinds without it.
+
+All packet files are in `C:/CoWork/outputs/lane-a-j1j2-reg-packet-2026-10-19/`:
+
+| File | SHA-256 | Content |
+|---|---|---|
+| `D-440-entry.md` | `744b3589679f7d9b47ff975b840db53472e89be472d9c4cbf21ace5f3703f4b1` | Section 5.14e263, `D-440` (J1), 3,343 bytes |
+| `D-441-entry.md` | `1222d314303d2181715441e273bc6d911fcfd9d55109f70d8d29c980e35d0a0c` | Section 5.14e264, `D-441` (J2), 3,404 bytes |
+| `V1-DECISION-REGISTER.expected.md` | `0996d9b80060bacb7091a4b0dfa5515de0dc332536ca228a1fa899ce9b0c15dc` | Expected final Register: Git blob `53d9231234bd85b8c95dd3686b217dd9a82b5163`, 2,075,921 bytes |
+| `packet-manifest.json` | `1669a5d6f4c8806d076e6ee4131a9e13cc0f9549184047ec56c0d25ac0ed3916` | All identities below |
+| `JUDGE-RESPONSE-3cc3144.txt` | `de951f79bb880632be2003c201367da5154615ad5ea6a1a9474873e9ca4222dd` | The Judge's response |
+
+**U1 packet requirements (`3a7bccd` §6), checked at `3cc3144`:**
+
+| Requirement | Result |
+|---|---|
+| Starting Register | Blob `a8e63705a46665dc2c2d19ebaa593c4db6d460e9`, SHA-256 `86312a80331638dfe3a03e8d6de707383d316328d7ffdd9030284f87b8494e49`, 2,069,172 bytes; last section 5.14e262 `D-438` |
+| Append rule | Start bytes + "\n" + `D-440` entry + "\n" + `D-441` entry; each entry ends with one newline. The expected file's first 2,069,172 bytes equal the start |
+| Number recheck | `D-440` and `D-441` absent from the Register; no commitment outside `docs/handoff/`; `D-437` and `D-439` stay reserved. Recheck again at U1 |
+| S0 constraint | Backticked act number: 0 occurrences in both entries and in the expected Register |
+| EV r9 pins | Not touched by this unit; rechecked at U1 |
+| `D-54` | Each entry carries its full tier table: Register ✅; Build Spec, Inventory and other tiers unaffected; Encyclopedia unaffected per `ENCYCLOPEDIA-SYNC.md`; Graphify drift cleared only by the guarded cycle |
+| Changed-path limit | U1 changes `docs/v1/V1-DECISION-REGISTER.md` only |
+| Check logs, hook trace, commit identity | Exist only after authorized execution (U1) |
+
+### 4. What remains, in order
+
+1. **Lane B reviews this bound packet** (the five files and their identities, including the item 0 binding choice).
+2. **Before U4:** a disposition of the three untracked paths (`.agents/freellm_explorer.toml`, `.codex/config.toml`,
+   `2b1075c_B158.md`; none created by Lane A). U4 needs a clean tree.
+3. **The Judge releases execution, last.** Only then U1 (Register commit equal to blob `53d92312…`), U2, U3 (push only on
+   exact-range authority), U4–U9 (guarded cycle), U10 (custody into `registration-j1j2/`), U11 (Lane B verification).
+
+**Self-grade (labelled; Lane A self-review, no independent acceptance).** Trigger: `/anthropic-skills:make-ai-grade-its-own-work`. Evidence: session transcript
+`C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/e1b197bb-476d-4f6c-bde9-aace6388d216.jsonl`, line 2118
+(invocation, `b1b6a262-689a-4b51-8784-10fcf1753555`), line 2127 (launch result) and line 2129 (loaded instructions); locators only. Draft
+reviewed: `C:/CoWork/outputs/lane-a-j1j2-reg-packet-2026-10-19/B136-LANE-A-BOUND-PACKET-3cc3144.md`, pre-fix SHA-256
+`3d73445f5caed880b8e25e1cedc7b3e72673e4ada31208ecd8ee7d1f3944a18c` (copy retained as `….pre-fix.md`). Fixes: (1) the
+heading-form code span no longer nests backticks; (2) this line added.
+
+| Verdict | Item | Owner | Follow-up phase |
+|---|---|---|---|
+| **Approve** | U0 decisions recorded; packet bound | Lane A | Complete in this record |
+| **Defer** | Review of the bound packet | Lane B | Next |
+| **Defer** | Disposition of the three untracked paths | Judge; the files' owners | Before U4 |
+| **Defer** | Execution release; then U1–U11 | Judge; then Lane A and Lane B | After Lane B's review |
+| **Defer** | Durable B-158 timing correction | Lane A | B-158's next authorized substantive answer |
+| **Reject** | Describing J1 or J2 as durably registered, or any Register write, transfer, push or hold release, before its own checkpoint | All actors | — |
