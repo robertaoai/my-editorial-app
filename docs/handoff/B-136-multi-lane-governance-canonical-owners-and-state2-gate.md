@@ -20563,3 +20563,77 @@ folder, pre-fix SHA-256 `de0bcd1319a2a3ad90984e3115187d062c9826a955d8ecc18b36c52
 | **Defer** | U4–U9; U10; U11 verification of `D-440` and `D-441` | Lane A; Lane B | Each on its own authorization |
 | **Defer** | Supplement-1 and supplement-2 r2 transfers | Judge | Their own release |
 | **Reject** | Any other execution inferred from this U2 record | All actors | — |
+
+## Lane A — status answer against `9cfc376`, with the U2 check-log timing correction, 2026-10-19
+
+> **Filed** on the Judge's instruction in session: "Judge Approved: authorized substantive B-136 answer" (session transcript
+> `e1b197bb-476d-4f6c-bde9-aace6388d216.jsonl` line 2266, message `ecea3b89-ef1d-4a87-a5a2-62d8074e1332`). Lane A receives
+> it. This answer records status and carries the owed U2 correction. It makes no new decision and releases nothing.
+
+### 1. B-136 → D-439
+
+B-136 and D-439 stay **Open**. Every remaining execution hold stays active. F1/J-C and J3 stay separate from J1/J2. B-158's
+obligations stay with B-158; its own timing correction (`8a79786`) stays owed to B-158's next authorized substantive answer
+and is not filed here.
+
+### 2. U2 check-log timing correction (supersedes `9cfc376` §6)
+
+**Superseded** (kept in place as history): `9cfc376` §6 (line 20548), "Their logs, this commit's ID and blob, and the byte
+comparison exist only after the commit".
+
+**Correction:** Both U2 check logs were created before commit. The commit identity and final committed-byte comparison were
+recorded afterward.
+
+**Tested state** (from retained evidence; no new check is claimed):
+- HEAD `2bf36d5` with the final B-136 append in the working tree.
+- Both runs exited 1: 18 checks passed; only `docs-drift` failed ("stale: analyzed c8177fe vs HEAD 2bf36d5"), under the
+  authorized receipt-route exception.
+- The two logs are byte-identical.
+- Tested, staged and committed B-136 blob: `e26556697ef4b360460e6e39eb4f7fdeb7522572`.
+- These were pre-commit checks, not separate post-commit checks.
+
+| Evidence | SHA-256 | Written (+0800) |
+|---|---|---|
+| `C:/CoWork/outputs/lane-a-j1j2-reg-packet-2026-10-19/u2-check-run1.log` | `ca1da745d5a6e733c191b700db71baa735211ce157991d69637ce4ed1a74fb38` | 2026-10-19 03:44:40 |
+| `C:/CoWork/outputs/lane-a-j1j2-reg-packet-2026-10-19/u2-check-run2.log` | `ca1da745d5a6e733c191b700db71baa735211ce157991d69637ce4ed1a74fb38` | 2026-10-19 03:46:42 |
+| Commit `9cfc3762937304f7f3c1a8561ee80811a81d5c85` | — | 2026-10-19 03:46:44 |
+| `C:/CoWork/outputs/lane-a-j1j2-reg-packet-2026-10-19/u2-content-comparison.json` | `c59bc6231af8f159ee103f5302b688e050e980af703d81bf0cf797f1c72442b2` | 2026-10-19 03:46:48 |
+
+### 3. Status of the registration unit
+
+| Item | Status | Owner | Next checkpoint |
+|---|---|---|---|
+| U0 decisions | Given (`3cc3144` response; recorded at `6217f08` §2 and `9cfc376` §3) | Judge | — |
+| U1 Register commit | Done: `2bf36d5`, Register blob `53d9231234bd85b8c95dd3686b217dd9a82b5163` (unchanged since) | Lane A | — |
+| U2 B-136 record | Done: `9cfc376` | Lane A | — |
+| U3 push | Held | Judge (exact range) → Lane A | Its own authorization |
+| U4 prepare | Held. Needs a clean tree; three untracked paths not created by Lane A remain (`.agents/freellm_explorer.toml`, `.codex/config.toml`, `2b1075c_B158.md`) | Judge; the files' owners; Lane A | Disposition, then its own authorization |
+| U5–U9 | Held. `docs-drift` stays red until the U9 health record (permitted by the receipt-route authorization) | Lane A; Lane B | Their own authorization |
+| U10 custody | Held | Lane A; Lane B receipt | Its own authorization |
+| U11 verification | Open for `D-440` and for `D-441`, separately | Lane B | After its own authorization |
+
+### 4. J1 and J2 (separate)
+
+- **J1:** Judge approval recorded by `D-440` at commit `2bf36d5631c18d856a88e5274c739a89c050f1a4`. Registration only. The
+  supplement-1 transfer stays held. Lane B's U11 verification of `D-440` stays pending.
+- **J2:** Judge approval recorded by `D-441` at the same commit, separately from J1. Registration only. The supplement-2 r2
+  transfer stays held. Lane B's U11 verification of `D-441` stays pending.
+
+### 5. Filing evidence for this answer
+
+This answer appends text only. `docs-drift` is expected to fail because the U1 Register commit is not yet covered by a U9 health record. This answer is not a U-step; Lane A reads the receipt-route authorization's window (U1 to U8, only `docs-drift`) as covering it. Any other failure stops the filing. Two
+checks run on the frozen text before commit; their logs, the commit and the byte comparison are reported outward.
+
+**Self-grade (labelled; Lane A self-review, no independent acceptance).** Trigger: `/anthropic-skills:make-ai-grade-its-own-work`. Evidence: session
+transcript `e1b197bb-476d-4f6c-bde9-aace6388d216.jsonl`, line 2281 (invocation, `e294b79a-9b83-48f6-9ecd-615551f5315e`), line 2290 (launch result)
+and line 2292 (loaded instructions); locators only. Draft reviewed: `B136-LANE-A-STATUS-9cfc376.md` in the evidence folder,
+pre-fix SHA-256 `0c5a44077db31430241490893b26f1a40ec80dae13a590bc5e2edf71d0c935c5`. Fixes: (1) the `docs-drift` reliance
+is labelled as Lane A's reading; (2) this line added.
+
+| Verdict | Item | Owner | Follow-up phase |
+|---|---|---|---|
+| **Approve** | U2 timing correction filed; status recorded | Lane A | Complete in this answer |
+| **Defer** | U3–U11; untracked-path disposition before U4 | Judge; Lane A; Lane B | Each on its own authorization |
+| **Defer** | Supplement-1 and supplement-2 r2 transfers | Judge | Their own release |
+| **Defer** | B-158 timing correction | Lane A | B-158's next authorized substantive answer |
+| **Reject** | Any hold release, push, transfer or Register write inferred from this answer | All actors | — |
