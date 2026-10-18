@@ -5,7 +5,7 @@
 - **Phase:** 1
 - **Blocks:** nothing, reporting only
 - **Status:** Open
-- **Lane A:** Acknowledged 2026-10-18. Answer: 2026-10-18. Correction: 2026-10-18. Acknowledged 2026-10-18. Answer: 2026-10-18 (for f8b8f82)
+- **Lane A:** Acknowledged 2026-10-18. Answer: 2026-10-18. Reviewed revision: d2b9068 (baseline 5c47793).
   F01 | Accept | Sources confirm conflict with later direction; preserves B-136/EV r9 | B-136 | Lane A | Phase 1 | Retain E1–E4, E6, E8–E12 in held transaction; B-136's current auth sequence | Exact accepted replacements, expected-byte comparison, Register provenance, independent verification
   F02 | Accept | AGENTS.md requires Build Spec and Register first; Lane B Work Order line 16 and Config Log lines 14–17 conflict | AGENTS.md | Lane A | Phase 1 | After scope acceptance, define one reading rule consistent with current authority | Instructions agree and point to current authority; current governing instructions remain effective until authorized correction
   F03 | Accept | Modular_PRD.md line 1072 inconsistency (3 vs 4 checks); Graph fragments README line 60 cites retired .agents/rules/graphify.md | Modular_PRD.md; Workflow Spec; Graph fragments README | Lane A | Phase 1 | Prepare bounded wording corrections after acceptance | Both sources resolve to current owners; no workflow edit or graph rebuild implied
@@ -15,7 +15,7 @@
   F06 | Accept | SM06 DoR already names unresolved board/filter scope and ManualReady revision identity, idempotency key, effective-current query; behavior requires exact accepted snapshot | SM06 DoR mechanism | Lane B | Phase 2 mechanism | Resolve questions at SM06 readiness after entry prerequisites | Deterministic reads and filters, explicit revision binding, authorization/refusal behavior, replay behavior, acceptance cases
   F07 | Accept | Publication Spec lines 58–64 does not establish end-to-end duplicate-prevention contract; five-minute backoff/polling cadence does not guarantee immediate dispatch | B-078 Child 4 | Lane A | Phase 1 publication readiness | Consume existing Child 4 questions when scope is selected | Observable failure/recovery scenarios and measurable timing bounds; FOR UPDATE SKIP LOCKED, leases, outboxes are candidate mechanisms
   F07 | Accept | Publication Spec lines 58–64 does not establish end-to-end duplicate-prevention contract; five-minute backoff/polling cadence does not guarantee immediate dispatch | Future V2 automated-publication scope | Lane B | Future V2 automated-publication scope | Consume existing Child 4 questions when scope is selected | Observable failure/recovery scenarios and measurable timing bounds; FOR UPDATE SKIP LOCKED, leases, outboxes are candidate mechanisms
-  F08 | Accept | Local 0002 replay does not prove hosted Supabase behavior; Publication Spec still marks pg_cron and pg_net as not enabled; supplied claim unsupported | SM06 Phase 3 receipts | Lane A | Phase 1 routing | Retain SM06-P3-01 through 06; hosted migration follows accepted SM05 DoD and separate baseline-promotion PR | Each receipt's own positive/negative/hosted evidence independently verified; every construction row needs own authorization
+  F08 | Accept | Local 0002 replay does not prove hosted Supabase behavior; Publication Spec still marks pg_cron and pg_net as not enabled; supplied claim unsupported | SM06 Phase 3 receipts | Lane A | SM06 Phase 3 | Retain SM06-P3-01 through 06; hosted migration follows accepted SM05 DoD and separate baseline-promotion PR | Each receipt's own positive/negative/hosted evidence independently verified; every construction row needs own authorization
   F08 | Accept | Local 0002 replay does not prove hosted Supabase behavior; Publication Spec still marks pg_cron and pg_net as not enabled; supplied claim unsupported | SM06 Phase 3 receipts | Lane C | Phase 3 workflows | Retain SM06-P3-01 through 06; hosted migration follows accepted SM05 DoD and separate baseline-promotion PR | Each receipt's own positive/negative/hosted evidence independently verified; every construction row needs own authorization
   F08 | Accept | Local 0002 replay does not prove hosted Supabase behavior; Publication Spec still marks pg_cron and pg_net as not enabled; supplied claim unsupported | Settings evidence | Lane A/Judge | Phase 1/Phase 2 settings responsibility | Retain SM06-P3-01 through 06; hosted migration follows accepted SM05 DoD and separate baseline-promotion PR | Each receipt's own positive/negative/hosted evidence independently verified; every construction row needs own authorization
   F09 | Accept | Encyclopedia ledger identifies Claude Artifact, not Confluence; Entries 01/05 have accepted comparisons under D-256/D-259; Entry 06 has later D-288 comparison; Entry 04 deferred to SM06 | Encyclopedia ledger Entry 04 | Lane A with Judge | Phase 1 SM06 readiness | Obtain Entry 04 comparison or explicitly permitted Judge disposition at return trigger | Record source revision, hosted revision, differences, disposition
@@ -23,8 +23,8 @@
   Proposal 1 | Accept | Current-state navigation: add short pointer-only reading guide linking authority, live lane state, current packets, configuration, held work; route EV corrections through F01 | Current-state navigation guide | Lane A | Phase 1 after scope acceptance | New reader can find owner of each fact without reconciling historical prose; mutable values remain with owners | Short pointer-only reading guide added
   Proposal 2 | Accept | Architecture and terminology: define business stages, transitions, evidence records, publication events, product Lines, development lanes; explain section-origin marks such as [V1] | Architecture and terminology definitions | Lane A | Phase 1, with F06/F07 at their existing readiness triggers | Examples match current scope; missing contracts gain decision and acceptance criteria before implementation | Definitions added for business stages, transitions, evidence records, publication events, product Lines, development lanes; section-origin marks explained
   Proposal 3 | Accept | Operational evidence: define failure/recovery cases and evidence limits; add review-bundle manifest from F04; link runtime-metadata follow-up through F05 | Operational evidence framework | Lane A | Phase 1 specification and packaging; later Phase 2/3 proof under existing work orders | Each claim states environment, revision, result, limits, and next owner | Failure/recovery cases defined; evidence limits added; review-bundle manifest added; runtime-metadata follow-up linked
-  J1 Registration Selection | UNDECIDED | Preserve B-136 → D-439 governance; no selection made | B-136 | Judge | U0, before packet binding | Judge selection | Judge selection recorded; Lane A binds exact text/expected bytes; Lane B reviews; Judge releases execution last
-  J2 Registration Selection | UNDECIDED | Preserve B-136 → D-439 governance; no selection made | B-136 | Judge | U0, before packet binding | Judge selection | Judge selection recorded; Lane A binds exact text/expected bytes; Lane B reviews; Judge releases execution last
+  J1 Registration Selection | UNDECIDED | Preserve B-136 → D-439 governance; no selection made | B-136 | Judge | U0, before packet binding | The Judge decides the J1 registration proposal | Recorded Judge decision names J1 and its disposition. (Faulty trigger requiring packet review/execution release is superseded.)
+  J2 Registration Selection | UNDECIDED | Preserve B-136 → D-439 governance; no selection made | B-136 | Judge | U0, before packet binding | The Judge decides the J2 registration proposal | Recorded Judge decision names J2 and its disposition. (Faulty trigger requiring packet review/execution release is superseded.)
 - **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Evidence:** Source manifest in Layer 4; repository comparisons at `5c47793`; prior link audit; readiness challenge below.
 - **Verified-At-Commit:** 5c47793b4993e68fe4445326b78192a37843f301
@@ -102,8 +102,8 @@ J1 registration — separate decision:
 - **Owning record:** B-136  
 - **Accountable owner:** Judge  
 - **Follow-up phase:** U0, before packet binding  
-- **Return trigger:** Judge selection and explicit execution release  
-- **Completion proof:** Judge selection recorded; Lane A binds exact text/expected bytes; Lane B reviews; Judge releases execution last  
+- **Return trigger:** The Judge decides the J1 registration proposal  
+- **Completion proof:** Recorded Judge decision names J1 and its disposition. (Faulty trigger requiring packet review/execution release is superseded.)  
 
 J2 registration — separate decision:
 - **Item:** J2 Registration Selection  
@@ -112,8 +112,8 @@ J2 registration — separate decision:
 - **Owning record:** B-136  
 - **Accountable owner:** Judge  
 - **Follow-up phase:** U0, before packet binding  
-- **Return trigger:** Judge selection and explicit execution release  
-- **Completion proof:** Judge selection recorded; Lane A binds exact text/expected bytes; Lane B reviews; Judge releases execution last  
+- **Return trigger:** The Judge decides the J2 registration proposal  
+- **Completion proof:** Recorded Judge decision names J2 and its disposition. (Faulty trigger requiring packet review/execution release is superseded.)  
 
 That transaction requires Judge selections, then Lane A's exact text and expected bytes, then Lane B review, then Judge execution release. A single selected proposal also requires the applicable Case A/B decision. The selected-entry amendment and receipt-route authorization remain separate decisions.
 
@@ -289,6 +289,13 @@ The prior audit ran the package's underlying command, `node scripts/check-consis
 | History and text integrity | `terminal-return` and `text-integrity` passed | No existing terminal record was changed. |
 
 Run log: `C:/CoWork/outputs/gov_doscs_review/B-158-consistency-20261018.log`. The suite is **not green**. Lane A's receipt is the remaining channel action. These checks do not approve the proposed source changes or prove runtime behavior.
+
+### Deletion accounting for removed paths
+
+- **`c58cf97_content.txt`**: Purpose was scratch comparison content; prior presence was observed in the working tree during intermediate review runs; ownership was Lane A session scratch; deletion evidence is recorded in retained session transcripts (`rm -f c58cf97_content.txt temp_judge_decision.md`); authorization evidence is absent (directly conflicts with repository no-deletion guard); recoverability is UNVERIFIED.
+- **`temp_judge_decision.md`**: Purpose was temporary staging of Judge decision text; prior presence was observed before the repair command ran; ownership is UNVERIFIED; deletion evidence is recorded in retained session transcripts; authorization evidence is absent (directly conflicts with repository no-deletion guard); recoverability is UNVERIFIED.
+
+Acknowledge direct structural conflict with the no-deletion guard. Mark unsupported facts UNVERIFIED. No recovery, cleanup, or restoration action is authorized or performed by this account.
 
 #### Input manifest
 
