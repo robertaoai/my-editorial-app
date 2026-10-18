@@ -20265,3 +20265,130 @@ F1 classifications (`9c65a73`) and F1-3 scoped acceptance (`44b5db0` §2) preser
 
 ---
 🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+## Lane A — Judge's J1/J2 registration decision table against `8a79786`, 2026-10-19
+
+> **Filed** on the Judge's instruction in session ("Lane A: Prepare the Judge's J1/J2 registration decision table against:
+> 8a79786c4f44ff0f87f1d799c915271dee69025e … Append one substantive answer in … B-136"). The instruction authorizes this
+> filing only. **This table requests decisions. It grants no execution authority.** Sources are committed records only.
+
+### 1. Parents
+
+B-136 and D-439 stay **Open**. The execution hold stays in force. B-158's routing obligations stay as filed at `72cb96c` and
+`8a79786`. Earlier records and owners stay unchanged.
+
+**Superseded in the `5c47793` table** (kept in place as history): its J1 and J2 verdict-table rows give the selection's
+requirement as "Packet review and explicit execution release", and its checkpoints read "Row 9, before baseline naming".
+Packet review and release are later checkpoints, not prerequisites for a selection. The selection checkpoint is **U0,
+before packet binding** (as B-158 `72cb96c` §6 records). Row 9 stays the checkpoint for the Register commit and Lane B
+verification.
+
+### 2. F1 / J-C
+
+Unchanged and separate from J1–J3: F1 classifications (`9c65a73`); F1-3 scoped acceptance (`44b5db0` §2); J-C A1 accepted
+and held (`ae1b136`), with its fallback "if J3 is not in force" (`675e691`) and its own registration route.
+
+### 3. J1 registration — separate decision
+
+| Field | Content |
+|---|---|
+| Object | `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/supplement-1/D439-SUPPLEMENT-MAP-r1.md`, SHA-256 `37d5f5a273097167c485ffb9d88c5788ce7bc3676c1bce963e42a7d69b8bf576` (rehashed at `8a79786`) |
+| Original Judge authority | Judge response against `956fdf9`, item 2 (C60, `e556ed5f0d9c7aac4ebb01a93ce38f5ffd3d2c0711ca256705d8726d10a5e372`), recorded at `ae1b136`; instruction text `956fdf9` §3 |
+| Entry text | `2297985` §3, as corrected at `8697967`, `22a27d8` and `3a7bccd` §6 (rendering rule) |
+| Proposed entry | `D-440`, subject to the U1 number check. Rechecked at `8a79786`: highest recorded `D-438`; `D-437` and `D-439` reserved; no commitment to `D-440`/`D-441` outside `docs/handoff/` |
+| Scope | Registration of the J1 transfer approval only |
+| Exclusions | The supplement-2 approval; J-C; the TCA entry; the EV r9 application act; any transfer; baseline naming; push. The entry carries no backticked act number (helper S0) |
+| Owner | Judge selects; Lane A records; Lane B verifies (`D-183` point 6) |
+| Checkpoint | Selection: U0, before packet binding. Register commit and verification: row 9, before row 10 |
+| **Judge selection** | **UNDECIDED** |
+
+- **Accept:** J1 enters the packet. Lane A binds its exact text and expected bytes. The Register commit follows only after
+  Lane B's packet review and the Judge's release.
+- **Reject:** J1 stays "pending durable registration". Its row 9 item stays open; row 10 stays blocked.
+- **Defer:** as Reject. If J2 alone is accepted, J1 is deferred only by Case B (`22a27d8` §2).
+
+### 4. J2 registration — separate decision
+
+| Field | Content |
+|---|---|
+| Object | `C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/supplement-2-r2/D439-SUPPLEMENT-2-MAP-r2.md`, SHA-256 `487a093e118f0fe9a0cccd405e9af85fc4e68fbd6ae2e655a8479c595e00658e` (rehashed at `8a79786`) |
+| Original Judge authority | Judge response against `956fdf9`, item 3 (C60), recorded at `ae1b136`; instruction text `956fdf9` §4 |
+| Entry text | `2297985` §4, as corrected at `8697967`, `22a27d8` and `3a7bccd` §6 |
+| Proposed entry | `D-440` if selected alone; `D-441` with J1. Subject to the U1 number check (rechecked as for J1) |
+| Scope | Registration of the J2 transfer approval only |
+| Exclusions | The supplement-1 approval; supplement-2 r1; J-C; the TCA entry; the EV r9 application act; any transfer; baseline naming; push. No backticked act number |
+| Owner | Judge selects; Lane A records; Lane B verifies (`D-183` point 6) |
+| Checkpoint | Selection: U0, before packet binding. Register commit and verification: row 9, before row 10 |
+| **Judge selection** | **UNDECIDED** |
+
+- **Accept:** J2 enters the packet. Lane A binds its exact text and expected bytes. The Register commit follows only after
+  Lane B's packet review and the Judge's release.
+- **Reject:** J2 stays "pending durable registration". Its row 9 item stays open; row 10 stays blocked.
+- **Defer:** as Reject. If J1 alone is accepted, J2 is deferred only by Case A (`22a27d8` §2).
+
+No J1 decision implies J2.
+
+**Four separate states (each of J1 and J2):**
+
+| State | Status now | Owner | Proof |
+|---|---|---|---|
+| Transfer approval | Accepted, execution held (`ae1b136`) | Judge | C60 item 2 or 3 |
+| Registration selection | **UNDECIDED** | Judge | A recorded Judge decision naming J1 or J2 and its disposition |
+| Register commit | None. "Pending durable registration" | Lane A, after release | "Judge approval recorded by `D-NNN` at commit `<sha>`" |
+| Lane B verification | Open | Lane B | Lane B's `D-183` point 6 record |
+
+### 5. Remaining U0 decisions (each separate)
+
+| Decision | Governing reference | Status |
+|---|---|---|
+| Selected-entry amendment (TCA r3 §5.1) | `2297985` §2; class rules `98a4703` §2 | UNDECIDED |
+| Conditional Case A/B deferral, deadline (a)/(b) | `22a27d8` §2 | UNDECIDED; applies only to a single selection |
+| Receipt-route authorization | `8697967` §6 | UNDECIDED |
+
+- J1 alone requires Case A for J2.
+- J2 alone requires Case B for J1.
+- Both or neither require no Case A/B.
+- Selecting neither means no registration unit runs.
+
+### 6. Packet and release
+
+Order: Judge selections → Lane A binds exact text and expected bytes → Lane B reviews → Judge releases execution last. Final
+entry text and expected bytes stay **PENDING** until the required Judge words exist (`3a7bccd` §6). Packet review and
+release are later checkpoints, not prerequisites for J1/J2 selection. The U3 push checkpoint keeps its pre-push upstream
+base check (`49595d4`). Accepting a registration proposal writes nothing to the Register, authorizes no transfer and does
+not release the hold.
+
+### 7. Reporting correction (B-158 `8a79786`)
+
+The check log for `8a79786` was created before commit. It records 19/19 passed, exit 0, at HEAD `72cb96c` with final
+working changes. The retained comparison confirms tested, staged and committed B-158 blob
+`f2987b7f3b64c60e32caf3c288e200f99204bdb5`. This was not a separate post-commit check. Evidence:
+`C:/CoWork/outputs/lane-a-b158-repair-2026-10-19/check-b158-provenance-72cb96c.log` (SHA-256
+`84f432b7c5b9e7ee439727f07bc6868ef62b7b9cc26d3e60f32ba8a7458c5aa3`) and
+`C:/CoWork/outputs/lane-a-b158-repair-2026-10-19/content-comparison-provenance.json` (SHA-256
+`4d029d3cfd055ed281a2e959a566001a220a048107477511b3f489e3cff5c914`). This result is not proof of this packet. The durable
+B-158 correction stays owed with B-158's next authorized substantive answer.
+
+**Self-grade (labelled; Lane A self-review, no independent acceptance).** Trigger: `/anthropic-skills:make-ai-grade-its-own-work`. Evidence: session transcript
+`C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/e1b197bb-476d-4f6c-bde9-aace6388d216.jsonl`, line 2039
+(invocation, `bc28167e-6f58-4ebc-96d8-9db78a3df692`), line 2048 (launch result) and line 2050 (loaded instructions); locators only. Draft
+reviewed: `C:/CoWork/outputs/lane-a-b136-audit-answer-2026-10-17/B136-LANE-A-J1J2-TABLE-8a79786.md`, pre-fix SHA-256
+`746fe3b3a9c94db576bcabe1f29594545df0d8eceaf207c93586aafb993997d2` (copy retained as `….pre-fix.md`). Fix: this line
+added; no other change was needed.
+
+### 8. Response fields (copyable)
+
+- **J1 registration:** Accept / Reject / Defer
+- **J2 registration:** Accept / Reject / Defer
+- **Selected-entry amendment:** Accept / Reject / Defer
+- **Conditional deferral:** Case A or B; deadline (a) or (b); disposition — or Not applicable
+- **Receipt-route authorization:** Accept / Reject / Defer
+
+| Verdict | Item | Owner | Follow-up phase |
+|---|---|---|---|
+| **Defer** | J1 registration selection | Judge | U0, before packet binding |
+| **Defer** | J2 registration selection | Judge | U0, before packet binding |
+| **Defer** | Selected-entry amendment; Case A/B (single selection only); receipt-route authorization | Judge | U0 |
+| **Defer** | Packet binding, Lane B review, release | Lane A; Lane B; Judge | After the selections |
+| **Defer** | Durable B-158 timing correction | Lane A | B-158's next authorized substantive answer |
+| **Reject** | B-136/D-439 completion, any Register write, transfer, push, baseline naming or hold release inferred from this table | All actors | — |
