@@ -28443,3 +28443,81 @@ transaction chain. The setup unit keeps running under `D-183` rule 2, "pending d
 | B-136 | Follow: its own handoff commits |
 | **Encyclopedia** | unaffected per the local citation map `docs/ENCYCLOPEDIA-SYNC.md`; hosted parity not checked |
 | **Graphify** | Governed drift, expected; cleared only by this act's guarded cycle, never by a raw rebuild |
+
+## 5.14e263 `D-440` — Approval Record: B-136 Supplement-1 Custody Transfer Unit (J1)
+
+**Authority: the Judge, directly to Lane A, 2026-10-17**, in chat, Judge response against B-136 `956fdf9`, item 2:
+"D-439 → J1: ACCEPT." with the text that follows it in that response, which incorporates B-136 `956fdf9` §3 in full,
+subject to the Judge's execution hold. The object is the supplement-1 unit defined by
+`C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/supplement-1/D439-SUPPLEMENT-MAP-r1.md`
+(SHA-256 `37d5f5a273097167c485ffb9d88c5788ce7bc3676c1bce963e42a7d69b8bf576`; 11 files per its map). The approval was
+received and recorded in B-136 at `ae1b136` (corrected at `675e691`). This entry registers it under `D-183` point 5. It
+changes no V1 scope, sequence or DoD.
+
+**0. Registration sequence.** The Judge, 2026-10-19, in the response against B-136 `3cc3144`, item 4: "I adopt the proposed amendment in 2297985 §2 for both selected entries. Permit these two entries, in one registration unit, before the separate TCA r3 and J-C A1 entries. Preserve their existing outcome checkpoints and D-437’s existing terms. No other intervening entry is permitted without a further amendment. Include my amendment as item 0 of each selected entry. Preserve the accepted rendering rules. This amendment does not release execution." Registration of this approval was selected in the same response, item 2. This entry is recorded before the TCA r3
+entry and the J-C A1 entry under that amendment only.
+
+### The decision
+
+1. **Action.** Pre-copy checks: each source hash equals the map; each destination is absent; each destination path is
+   unique; no link; no git-ignored destination. One folder-only commit to
+   `docs/handoff/artifacts/B-136/d439-package/supplement-1/`. A separate one-file B-136 request. Lane B's committed-blob
+   and changed-path receipt.
+2. **Scope and exclusions.** This unit only. Excluded: supplement 2 (r1 and r2); any file outside the unit; Register
+   writes; baseline naming; application; push.
+3. **Checkpoint.** B-136 pre-baseline ledger row 5, before baseline naming.
+4. **Execution.** Held by the Judge until released for this unit. This entry releases nothing.
+5. **Independence.** This entry does not register the supplement-2 approval, J-C, the temporary-custody authority or the
+   pending EV r9 application act.
+6. **Verification.** Lane B verifies this entry against the Judge's response and B-136 `956fdf9` §3 (`D-183` point 6).
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry |
+| **Build Spec** | — unaffected: no V1 artifact created, sequenced or retired; handoff custody copies are not Build Spec artifacts |
+| **Inventory** | — unaffected: no row added or retired; no Inventory row covers the B-136 custody package |
+| `docs/PRD.md`, Charter, `0001`, `Modular_PRD.md`, FN specs, `docs/specs/`, `docs/README.md`, rule files, Phase Closure, application code | — unaffected |
+| B-136 | Follow: its own handoff commits for supplement 1 (transfer, request, receipt) |
+| **Encyclopedia** | unaffected per the local citation map `docs/ENCYCLOPEDIA-SYNC.md`; hosted parity not checked |
+| **Graphify** | Governed drift, expected; cleared only by this unit's guarded cycle (`D-425`), with curated fragments re-merged (`G51`); never by a raw rebuild |
+
+## 5.14e264 `D-441` — Approval Record: B-136 Supplement-2 r2 Custody Transfer Unit (J2)
+
+**Authority: the Judge, directly to Lane A, 2026-10-17**, in chat, Judge response against B-136 `956fdf9`, item 3:
+"D-439 → J2: ACCEPT." with the text that follows it in that response, which incorporates B-136 `956fdf9` §4 in full,
+subject to the Judge's execution hold. The object is the supplement-2 r2 unit defined by
+`C:/CoWork/outputs/lane-a-d439-checks-2026-10-16/supplement-2-r2/D439-SUPPLEMENT-2-MAP-r2.md`
+(SHA-256 `487a093e118f0fe9a0cccd405e9af85fc4e68fbd6ae2e655a8479c595e00658e`; 4 files per its map). The approval was
+received and recorded in B-136 at `ae1b136` (corrected at `675e691`). This entry registers it under `D-183` point 5. It
+changes no V1 scope, sequence or DoD.
+
+**0. Registration sequence.** The Judge, 2026-10-19, in the response against B-136 `3cc3144`, item 4: "I adopt the proposed amendment in 2297985 §2 for both selected entries. Permit these two entries, in one registration unit, before the separate TCA r3 and J-C A1 entries. Preserve their existing outcome checkpoints and D-437’s existing terms. No other intervening entry is permitted without a further amendment. Include my amendment as item 0 of each selected entry. Preserve the accepted rendering rules. This amendment does not release execution." Registration of this approval was selected in the same response, item 3. This entry is recorded before the TCA r3
+entry and the J-C A1 entry under that amendment only.
+
+### The decision
+
+1. **Action.** Pre-copy checks: each source hash equals the map; each destination is absent; each destination path is
+   unique; no link; no git-ignored destination. Its own folder-only commit to
+   `docs/handoff/artifacts/B-136/d439-package/supplement-2/`, separate from any supplement-1 commit. A separate one-file
+   B-136 request. Lane B's committed-blob and changed-path receipt.
+2. **Scope and exclusions.** This unit only. Excluded: supplement 1; supplement-2 r1; any file outside the unit; Register
+   writes; baseline naming; application; push.
+3. **Checkpoint.** B-136 pre-baseline ledger row 6, before baseline naming.
+4. **Execution.** Held by the Judge until released for this unit. This entry releases nothing.
+5. **Independence.** This entry does not register the supplement-1 approval, J-C, the temporary-custody authority or the
+   pending EV r9 application act.
+6. **Verification.** Lane B verifies this entry against the Judge's response and B-136 `956fdf9` §4 (`D-183` point 6).
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry |
+| **Build Spec** | — unaffected: no V1 artifact created, sequenced or retired; handoff custody copies are not Build Spec artifacts |
+| **Inventory** | — unaffected: no row added or retired; no Inventory row covers the B-136 custody package |
+| `docs/PRD.md`, Charter, `0001`, `Modular_PRD.md`, FN specs, `docs/specs/`, `docs/README.md`, rule files, Phase Closure, application code | — unaffected |
+| B-136 | Follow: its own handoff commits for supplement 2 r2 (transfer, request, receipt) |
+| **Encyclopedia** | unaffected per the local citation map `docs/ENCYCLOPEDIA-SYNC.md`; hosted parity not checked |
+| **Graphify** | Governed drift, expected; cleared only by this unit's guarded cycle (`D-425`), with curated fragments re-merged (`G51`); never by a raw rebuild |
