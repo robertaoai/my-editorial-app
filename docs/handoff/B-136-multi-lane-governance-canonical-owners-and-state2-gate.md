@@ -20478,3 +20478,88 @@ heading-form code span no longer nests backticks; (2) this line added.
 | **Defer** | Execution release; then U1–U11 | Judge; then Lane A and Lane B | After Lane B's review |
 | **Defer** | Durable B-158 timing correction | Lane A | B-158's next authorized substantive answer |
 | **Reject** | Describing J1 or J2 as durably registered, or any Register write, transfer, push or hold release, before its own checkpoint | All actors | — |
+
+## Lane A — U2 record: U0 decisions and U1 Register commit `2bf36d5` (D-440, D-441), 2026-10-19
+
+> **Filed** under the Judge's U2 release against `2bf36d5631c18d856a88e5274c739a89c050f1a4`: "I release U2 only: append one
+> dated B-136 answer recording U0–U1 and the retained U1 evidence. Every other execution hold remains active." Lane A
+> receives this bounded instruction. Retained as `C:/CoWork/outputs/lane-a-j1j2-reg-packet-2026-10-19/JUDGE-U2-RELEASE-2bf36d5.txt`
+> (SHA-256 `974369b6ead2d28abe43150f9713e4f1239588a92597c5b59ba6072744c43784`; Lane A's transcription; session transcript `e1b197bb-476d-4f6c-bde9-aace6388d216.jsonl` line 2181,
+> message `cda7ceb5-7f54-4816-81a0-05d2730671e5`). This record changes this file only.
+
+### 1. B-136 → D-439
+
+B-136 and D-439 stay **Open**. B-158's obligations, existing owners, accepted fixes and historical records stay unchanged.
+F1/J-C and J3 stay separate from J1/J2. Every hold other than the released U1 and U2 stays active.
+
+### 2. Sources, kept distinct
+
+| Kind | Source |
+|---|---|
+| **Judge authority** | U0 decisions: response against `3cc3144` (retained `JUDGE-RESPONSE-3cc3144.txt`, SHA-256 `de951f79bb880632be2003c201367da5154615ad5ea6a1a9474873e9ca4222dd`; transcript line 2075, message `0d249050-105e-4ac1-8e4b-a6acf86700fc`). U1 release: response against `6217f08` (transcript line 2150, message `653d559a-d4a7-4582-80f1-e0c19addcabc`; not retained as a separate file). U2 release: above |
+| **Lane A's report** | The U1 proof report in session after `2bf36d5`, and this record |
+| **Lane B's scoped U1 review** | Referred to by the Judge's U2 release ("U1 review approval does not close U11"). Lane B's own text was not supplied to Lane A: **UNVERIFIED** by Lane A |
+
+### 3. U0 decisions (recorded at `6217f08` §2; provenance unchanged)
+
+| Decision | Judge's disposition (response against `3cc3144`) |
+|---|---|
+| J1 registration | ACCEPT (item 2); `D-440` |
+| J2 registration | ACCEPT, separately (item 3); `D-441` because J1 is also selected |
+| Selected-entry amendment | ACCEPT for J1 and J2 only (item 4); recorded as item 0 of each entry |
+| Case A/B deferral | NOT APPLICABLE (item 5) |
+| Receipt-route authorization | ACCEPT; execution held (item 6). `8697967` §6 text as corrected through `3cc3144` |
+
+### 4. U1 result
+
+| Item | Verified value |
+|---|---|
+| U1 commit | `2bf36d5631c18d856a88e5274c739a89c050f1a4` |
+| Parent | `6217f08056924aa46f706c03e02e84753b38b2b7` |
+| Changed path | `docs/v1/V1-DECISION-REGISTER.md` only |
+| Register blob | `53d9231234bd85b8c95dd3686b217dd9a82b5163` (the required blob) |
+| Register SHA-256 | `0996d9b80060bacb7091a4b0dfa5515de0dc332536ca228a1fa899ce9b0c15dc` (the required hash) |
+
+**Retained U1 evidence** (folder `C:/CoWork/outputs/lane-a-j1j2-reg-packet-2026-10-19/`; hashes verified for this record):
+
+| File | SHA-256 |
+|---|---|
+| `C:/CoWork/outputs/lane-a-j1j2-reg-packet-2026-10-19/u1-check-run1.log` | `3cb232c3e3ea8682d71da4680a1acc32944232028b3b41f2294fd1db30bd4d32` |
+| `C:/CoWork/outputs/lane-a-j1j2-reg-packet-2026-10-19/u1-check-run2.log` | `3cb232c3e3ea8682d71da4680a1acc32944232028b3b41f2294fd1db30bd4d32` |
+| `C:/CoWork/outputs/lane-a-j1j2-reg-packet-2026-10-19/u1-content-comparison.json` | `cae1415f08c211d983cca61e5fdd546a2fad45fb1821ef67f35106dcde26a6f2` |
+| `C:/CoWork/outputs/lane-a-j1j2-reg-packet-2026-10-19/u1-commit-trace.jsonl` | `d326d38170fb1c288e2a9b134879e41095e09304de8084442594068bb0e1b525` |
+
+**Evidence limits.** Both U1 checks passed 19/19, exit 0, at HEAD `6217f080` with the written Register. Their logs are
+byte-identical. Tested, staged and committed Register bytes match. These were not post-commit checks and do not establish U9
+graph health. The commit trace shows the `commit-msg` hook exited 0.
+
+### 5. J1 and J2 status (separate)
+
+- **J1:** Judge approval recorded by `D-440` at commit `2bf36d5631c18d856a88e5274c739a89c050f1a4`. The supplement-1 transfer
+  stays held. Lane B's U11 verification of `D-440` stays open.
+- **J2:** Judge approval recorded by `D-441` at commit `2bf36d5631c18d856a88e5274c739a89c050f1a4`, separately. The
+  supplement-2 r2 transfer stays held. Lane B's U11 verification of `D-441` stays open.
+
+Approval of the U1 review does not close U11.
+
+### 6. U2 filing evidence and what stays held
+
+This record appends text only. Its two U2 checks run on the frozen text before commit. Their logs, this commit's ID and
+blob, and the byte comparison exist only after the commit and are reported outward. U1 logs are not reused as U2 proof.
+
+**Held:** U3 (push, exact-range authority), U4–U9 (guarded cycle; U4 needs a clean tree, and three untracked paths not
+created by Lane A remain), U10 (custody), U11 (Lane B verification), both supplement transfers. The B-158 timing correction
+stays owed with B-158's next authorized substantive answer.
+
+**Self-grade (labelled; Lane A self-review, no independent acceptance).** Trigger: `/anthropic-skills:make-ai-grade-its-own-work`.
+Evidence: session transcript `e1b197bb-476d-4f6c-bde9-aace6388d216.jsonl`, line 2216 (invocation, `e3125da8-fc7e-4a59-bddb-55c40f723cad`), line 2218
+(launch result) and line 2220 (loaded instructions); locators only. Draft reviewed: `B136-LANE-A-U2-2bf36d5.md` in the evidence
+folder, pre-fix SHA-256 `de0bcd1319a2a3ad90984e3115187d062c9826a955d8ecc18b36c5246cdbf0dc`. Fix: this line added.
+
+| Verdict | Item | Owner | Follow-up phase |
+|---|---|---|---|
+| **Approve** | U2 record of U0–U1 | Lane A | Complete in this record |
+| **Defer** | U3 push | Judge (exact range) → Lane A | On its own authorization |
+| **Defer** | U4–U9; U10; U11 verification of `D-440` and `D-441` | Lane A; Lane B | Each on its own authorization |
+| **Defer** | Supplement-1 and supplement-2 r2 transfers | Judge | Their own release |
+| **Reject** | Any other execution inferred from this U2 record | All actors | — |
