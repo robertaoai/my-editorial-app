@@ -20637,3 +20637,63 @@ is labelled as Lane A's reading; (2) this line added.
 | **Defer** | Supplement-1 and supplement-2 r2 transfers | Judge | Their own release |
 | **Defer** | B-158 timing correction | Lane A | B-158's next authorized substantive answer |
 | **Reject** | Any hold release, push, transfer or Register write inferred from this answer | All actors | — |
+
+## Lane A — receipt of the Judge's clarification on `8dac254` (docs-drift exception), 2026-10-19
+
+> **Filed** on the Judge's instruction in session: "Judge Approved: authorized substantive B-136 answer" (session transcript
+> `e1b197bb-476d-4f6c-bde9-aace6388d216.jsonl` line 2330, message `1f9806fe-a131-4f7f-9651-84e300cfc047`). Lane A receives
+> it. This answer files the clarification the Judge asked Lane A to carry. It makes no new decision and releases nothing.
+
+### 1. B-136 → D-439
+
+B-136 and D-439 stay **Open**. All remaining execution holds stay active. F1/J-C and J3 stay separate from J1/J2. The B-158
+timing correction (`8a79786`) stays owed to B-158's next authorized substantive answer.
+
+### 2. The Judge's clarification on `8dac254`
+
+**Source.** Judge clarification for the B-136 status filing `8dac2547cb7083e1bb7b6b9b22232706a6ede6bf` (transcript line
+2313, message `0f7641de-3db4-448a-a4c7-d98af424cc45`). Retained as
+`C:/CoWork/outputs/lane-a-j1j2-reg-packet-2026-10-19/JUDGE-CLARIFICATION-8dac254.txt`, SHA-256
+`81e4e7eeb4e9d7cf0828e72e71a7756c10d562cab644ce2a66725ba92e7dcf7e` (Lane A's transcription). Lane A's in-session receipt
+cited line 2319 for it; the correct locator is line 2313.
+
+**What it settles.**
+- The Judge's authorization of the `8dac254` status answer included that recording step within the J1/J2 registration
+  sequence.
+- The existing `docs-drift` exception covers `8dac254`'s two retained pre-commit checks: HEAD `9cfc376` with the final
+  B-136 append; both runs exited 1, 18 checks passed and only `docs-drift` failed; the failure arose from the U1 Register
+  change awaiting guarded synchronization; the logs were byte-identical; tested, staged and committed bytes matched; the
+  commit hook exited 0. The Judge accepts these results for that filing.
+- The results do not establish full graph health. Every required check must pass at U9.
+- The clarification does not extend the exception to unrelated filings or other check failures.
+
+### 3. Status (unchanged)
+
+- **J1:** `D-440` stays recorded at `2bf36d5`. The supplement-1 transfer stays held. Lane B's U11 verification stays pending.
+- **J2:** `D-441` stays recorded separately at `2bf36d5`. The supplement-2 r2 transfer stays held. Lane B's U11 verification
+  stays pending.
+- **U3–U11** keep their own authorization checkpoints. U4 still needs a disposition of the three untracked paths not created
+  by Lane A.
+
+### 4. Filing evidence for this answer
+
+This answer appends text only. Its two pre-commit checks are expected to show `docs-drift` failing for the same U1 reason; the actual results are reported outward.
+**Lane A's reading:** this answer is part of the same J1/J2 recording sequence, and it only carries the clarification the
+Judge directed. Lane A therefore treats it as covered in the same way as `8dac254`. The Judge's clarification limits the
+exception to "this filing only" and excludes unrelated filings, so Lane A asks the Judge to confirm or reject this reading.
+Any other check failure stops the filing.
+
+**Self-grade (labelled; Lane A self-review, no independent acceptance).** Trigger: `/anthropic-skills:make-ai-grade-its-own-work`. Evidence: session
+transcript `e1b197bb-476d-4f6c-bde9-aace6388d216.jsonl`, line 2347 (invocation, `eb7b6ef1-80da-4620-bdd9-8127adbd0bc6`), line 2351 (launch result)
+and line 2353 (loaded instructions); locators only. Draft reviewed: `B136-LANE-A-CLARIFICATION-8dac254.md` in the evidence
+folder, pre-fix SHA-256 `b5f205ffeca49a0f9a2e7583ce8d7089fc00389079b57cfb4a5e172143b01c64`. Fixes: (1) the check outcome
+is stated as expected, not as fact; (2) this line added.
+
+| Verdict | Item | Owner | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Clarification received and filed | Lane A | Complete in this answer |
+| **Defer** | Confirmation that the `docs-drift` exception covers this answer | Judge | On review |
+| **Defer** | U3–U11; untracked-path disposition before U4 | Judge; Lane A; Lane B | Each on its own authorization |
+| **Defer** | Supplement-1 and supplement-2 r2 transfers | Judge | Their own release |
+| **Defer** | B-158 timing correction | Lane A | B-158's next authorized substantive answer |
+| **Reject** | Any hold release, push, transfer or Register write inferred from this answer | All actors | — |
