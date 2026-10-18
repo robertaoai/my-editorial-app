@@ -29,6 +29,17 @@
 - **Evidence:** Source manifest in Layer 4; repository comparisons at `5c47793`; prior link audit; readiness challenge below.
 - **Verified-At-Commit:** 5c47793b4993e68fe4445326b78192a37843f301
 
+**Repair against c58cf97081d46f818c385048d20252bf17480fa4 (2026-10-18):**
+This correction supersedes the faulty ownership statements in F05-F07 while preserving the parent-first transaction clarity and execution hold status.
+
+**F05 Correction:** The Config Log explicitly defers runtime metadata changes to Lane B's bounded unit, but Lane A retains routing responsibility. Restore: "Lane A routes; Lane B implements in Phase 2 under [B-106](B-106-a4-a6-config-ratification.md), D-404, and D-414" as the accountable owner, with "Use authorized work order and Active lane for the narrow metadata update" as the trigger.
+
+**F06 Correction:** Separate Lane A preparation from Lane B implementation. Restore: "Lane A owns Phase 1 scope preparation; Lane B owns the mechanism before its Phase 2 work order" as the accountable owner, with "Resolve questions at SM06 readiness after entry prerequisites" as the trigger.
+
+**F07 Correction:** Separate Lane A readiness from Lane B implementation. Restore: "Lane A, Phase 1 publication readiness; Lane B implementation only in separately authorized future V2 automated-publication scope. B-078's historical S4 label is not a current V1 allocation." as the accountable owner, with "Consume existing Child 4 questions when scope is selected" as the trigger.
+
+**Parent Status Preservation:** B-136 and D-439 remain Open with execution hold active. F1/J-C scope preserved and separate from J1-J3. J1 and J2 selections remain UNDECIDED, owned by Judge at U0 before packet binding.
+
 ## What happened
 
 ### Layer 1 — Executive summary
