@@ -625,3 +625,65 @@ is removed and marked; (4) proposal 3 (a) has an event trigger; (5) the history 
 | **Defer** | J1 registration; J2 registration (separate) | Judge | U0, before packet binding |
 | **Defer** | Any recovery of the two deleted files | User or Judge | On explicit instruction only |
 | **Reject** | B-158, B-136 or D-439 closure; execution, transfer, Register write, push, baseline naming, hold release or Gate 2 closure inferred from this answer | All actors | — |
+
+## Lane A provenance correction against `72cb96c` (2026-10-19)
+
+> **Filed** on the Judge's instruction in session ("Lane A: Append one narrow B-158 provenance correction against:
+> 72cb96c24ef9dd9d15a6e4b37197c11392e9c292"). The instruction authorizes this filing only. Lane A acknowledges Lane B's
+> scoped review of `72cb96c`, as the Judge's instruction reports it; Lane B's own text was not supplied (**UNVERIFIED** by
+> Lane A).
+
+### 1. Parents
+
+B-158, B-136 and D-439 stay **Open**. The execution hold stays in force. This correction grants no execution authority. The
+answer against `8803ae2` (history restoration, substantive fixes, owners, deletion accounting, check evidence) stays as
+filed, except for the one claim withdrawn below.
+
+### 2. Saved-handoff provenance
+
+**Withdrawn.** The answer against `8803ae2` says the bytes of `C:/Cowork/output/B-158-Lane-A-repair-449279f.md` (line 332–333) "Its bytes were
+written to disk by Lane A session `a90aab7a-b6db-408f-84e5-083951d63ed6` (transcript lines 738 and 745)". That claim is wrong. In
+`C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/a90aab7a-b6db-408f-84e5-083951d63ed6.jsonl`:
+
+| Line | Record | Content |
+|---|---|---|
+| 738 | Write call (message `f5895ea8-6a7a-4e08-a0c9-44d7ae066f6c`, 2026-10-18T12:29:20Z) to that path | An attempted write |
+| 739 | Its result | "auto is temporarily unavailable (timed out) …" — the write did not run |
+| 745 | Write call (message `ca6f039d-3741-4fb9-9781-54a4f55fa797`, 2026-10-18T12:31:35Z) to that path | An attempted write |
+| 750 | Its result | The same timeout — the write did not run |
+
+These calls do not establish file creation or authorship. The file's modification time, 2026-10-18 20:23:59 +0800
+(12:23:59Z), is earlier than both attempts. That is an observation only; it does not identify the creator.
+
+**Retained.** Source path `C:/Cowork/output/B-158-Lane-A-repair-449279f.md`, SHA-256
+`9b6143ce79f40041d412ee076db834779b04f2a094db1b9433e02f53fa1c49f8` (rehashed for this correction; unchanged).
+
+**Authorship.** The document labels itself "Prepared by Lane B". That label is not independently verified authorship. No
+successful creation evidence is available to Lane A. **Creator: UNVERIFIED.** Lane A assigns no replacement attribution.
+
+### 3. Transaction boundaries (unchanged)
+
+F1/J-C stays separate from J1–J3. J1 and J2 stay separate, **UNDECIDED** and Judge-owned at U0, before packet binding. All U0
+dependencies stay as recorded (selected-entry amendment; Case A/B with deadline (a)/(b), only for a single selection;
+receipt-route authorization). Order: Judge selections → Lane A binds exact text and expected bytes → Lane B reviews → Judge
+releases execution last. This correction creates no new prerequisite for either selection.
+
+### 4. Filing evidence
+
+This correction appends text only. Its commit, blob, check log and content comparison exist only after the commit and are
+reported to the Judge with this filing. No earlier log is reused as proof.
+
+**Self-grade (labelled; Lane A self-review, no independent acceptance).** Trigger: `/anthropic-skills:make-ai-grade-its-own-work`. Evidence: session transcript
+`C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/e1b197bb-476d-4f6c-bde9-aace6388d216.jsonl`, line 1949
+(invocation, `c8905b2a-9b9f-4d0b-9c05-8be366f08ab7`), line 1953 (launch result) and line 1955 (loaded instructions);
+locators only. Draft reviewed: `C:/CoWork/outputs/lane-a-b158-repair-2026-10-19/B158-PROVENANCE-72cb96c.md`, pre-fix
+SHA-256 `c0f052e3a192d64c01e51983fc03869954debc0ed44ab4545f58d06c341eced0` (copy retained as `….pre-fix.md`). Fixes:
+(1) the withdrawn sentence is quoted exactly with its line numbers; (2) this line added.
+
+| Verdict | Item | Owner | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Withdrawal of the successful-write claim; creator UNVERIFIED | Lane A | Complete in this correction |
+| **Defer** | Independent review of this correction and the `8803ae2` answer | Lane B | Phase 1 review |
+| **Defer** | J1 registration; J2 registration (separate) | Judge | U0, before packet binding |
+| **Defer** | Routed F05–F09 and proposal obligations | Owners named in the `8803ae2` answer | Their stated phases |
+| **Reject** | Closure of B-158, B-136 or D-439, or any execution, push or hold release inferred from this correction | All actors | — |
