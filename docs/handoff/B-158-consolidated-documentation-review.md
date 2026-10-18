@@ -10,7 +10,7 @@
   F02 | Accept | AGENTS.md requires Build Spec and Register first; Lane B Work Order line 16 and Config Log lines 14–17 conflict | AGENTS.md | Lane A | Phase 1 | After scope acceptance, define one reading rule consistent with current authority | Instructions agree and point to current authority; current governing instructions remain effective until authorized correction
   F03 | Accept | Modular_PRD.md line 1072 inconsistency (3 vs 4 checks); Graph fragments README line 60 cites retired .agents/rules/graphify.md | Modular_PRD.md; Workflow Spec; Graph fragments README | Lane A | Phase 1 | Prepare bounded wording corrections after acceptance | Both sources resolve to current owners; no workflow edit or graph rebuild implied
   F04 | Accept | Export contains 388 sections (386 tracked); baseline has 1,076 tracked files under docs/; thus 690 tracked files absent | XML export mechanism | Lane A | Phase 1 | Before next external review bundle, define tracked-file manifest | Each required evidence reference has content or usable retrieval record; large logs can be indexed; host-local paths require explicit custody
-  F05 | Accept | Config Log lines 62–63 ratifies values; runtime registry lines 207–216 still records UNRATIFIED; Config Log defers runtime metadata changes to Lane B | B-106; D-404; D-414 | Lane B | Phase 2 | Use authorized work order for narrow metadata update | Two statuses and decision citations agree; values, retention meaning, scoring formula, weights retain governed meaning
+  F05 | Accept | Config Log lines 62–63 ratifies values; runtime registry lines 207–216 still records UNRATIFIED; Config Log defers runtime metadata changes to Lane B | B-106; D-404; D-414 | Lane B | Phase 2 | Use authorized work order and Active lane for narrow metadata update | Two statuses and decision citations agree; values, retention meaning, scoring formula, weights retain governed meaning
   F06 | Accept | SM06 DoR already names unresolved board/filter scope and ManualReady revision identity, idempotency key, effective-current query; behavior requires exact accepted snapshot | SM06 DoR | Lane A | Phase 1 preparation | Resolve questions at SM06 readiness after entry prerequisites | Deterministic reads and filters, explicit revision binding, authorization/refusal behavior, replay behavior, acceptance cases
   F06 | Accept | SM06 DoR already names unresolved board/filter scope and ManualReady revision identity, idempotency key, effective-current query; behavior requires exact accepted snapshot | SM06 DoR mechanism | Lane B | Phase 2 mechanism | Resolve questions at SM06 readiness after entry prerequisites | Deterministic reads and filters, explicit revision binding, authorization/refusal behavior, replay behavior, acceptance cases
   F07 | Accept | Publication Spec lines 58–64 does not establish end-to-end duplicate-prevention contract; five-minute backoff/polling cadence does not guarantee immediate dispatch | B-078 Child 4 | Lane A | Phase 1 publication readiness | Consume existing Child 4 questions when scope is selected | Observable failure/recovery scenarios and measurable timing bounds; FOR UPDATE SKIP LOCKED, leases, outboxes are candidate mechanisms
@@ -103,7 +103,7 @@ J1 registration — separate decision:
 - **Accountable owner:** Judge  
 - **Follow-up phase:** U0, before packet binding  
 - **Return trigger:** Judge selection and explicit execution release  
-- **Completion proof:** Judge selection recorded; Lane A binds exact text/expected bytes; Lane B reviews; Judge releases execution  
+- **Completion proof:** Judge selection recorded; Lane A binds exact text/expected bytes; Lane B reviews; Judge releases execution last  
 
 J2 registration — separate decision:
 - **Item:** J2 Registration Selection  
@@ -113,7 +113,7 @@ J2 registration — separate decision:
 - **Accountable owner:** Judge  
 - **Follow-up phase:** U0, before packet binding  
 - **Return trigger:** Judge selection and explicit execution release  
-- **Completion proof:** Judge selection recorded; Lane A binds exact text/expected bytes; Lane B reviews; Judge releases execution  
+- **Completion proof:** Judge selection recorded; Lane A binds exact text/expected bytes; Lane B reviews; Judge releases execution last  
 
 That transaction requires Judge selections, then Lane A's exact text and expected bytes, then Lane B review, then Judge execution release. A single selected proposal also requires the applicable Case A/B decision. The selected-entry amendment and receipt-route authorization remain separate decisions.
 
