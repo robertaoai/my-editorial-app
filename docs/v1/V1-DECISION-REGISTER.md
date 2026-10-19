@@ -28521,3 +28521,54 @@ entry and the J-C A1 entry under that amendment only.
 | B-136 | Follow: its own handoff commits for supplement 2 r2 (transfer, request, receipt) |
 | **Encyclopedia** | unaffected per the local citation map `docs/ENCYCLOPEDIA-SYNC.md`; hosted parity not checked |
 | **Graphify** | Governed drift, expected; cleared only by this unit's guarded cycle (`D-425`), with curated fragments re-merged (`G51`); never by a raw rebuild |
+
+## 5.14e265 `D-442` — U3 Completion Recorded; U4–U9 Hold for the xDD Commit-and-Push Rules Unit; `D-440`/`D-441` Item 0 Amended; Bounded `docs-drift` Exception
+
+**Authority: the Judge, directly to Lane A, 2026-10-19**, in chat: "Consolidated Judge Instruction & Lane B/C Handoff to
+Lane A — 2026-10-19", read baseline `9f15617ceaeed8feee148558cf5354eb891ca0ea` (retained by Lane A as
+`C:/CoWork/outputs/lane-a-entry-a-xdd-2026-10-19/JUDGE-INSTRUCTION-9f15617.md`, SHA-256
+`9aa72dfe06c4d3c95d621b80173f0ca8bad4f024e7a53511c91a3eb6ba0c745c`). The instruction states that it consolidates Lane B
+(Level 1) and Lane C (Level 2) reviews; those review texts were not supplied to Lane A (UNVERIFIED by Lane A). This is
+Entry A of that instruction. It changes no V1
+scope, sequence or DoD.
+
+### The decision
+
+1. **U3 completed.** The Judge authorized Lane B to push the exact range
+   `7c3a3399ac033a709782281923a4b3c93940678d..9f15617ceaeed8feee148558cf5354eb891ca0ea` (17 commits) to
+   `origin/features/feature-V1-SM05` (Lane B session record
+   `C:/Users/rober_24syk4j/.codex/sessions/2026/10/16/rollout-2026-10-16T22-09-59-01a1450c-56ae-73a2-95c0-6c0d44d45f08.jsonl`
+   line 5023, 2026-10-18T20:12:41Z: "Authorize this exact U3 push"). Lane B fetched, confirmed the upstream equalled the
+   named base, pushed the exact tip without force, fetched again and confirmed the upstream equalled `9f15617`
+   (`C:/CoWork/outputs/lane-b-u3-push-2026-10-18T20-13-16-511Z/u3-push-evidence.json`, SHA-256
+   `0a9b1f7bf0e5bdffd1f146055f2059f10d61554a0ed4b56f130ba1fd457a4609`). Lane A verified that evidence and observed the
+   remote branch at `9f15617` on 2026-10-19 by a read-only `git ls-remote`. U3 is recorded as completed by this entry.
+2. **Executor ratified.** The Judge ratifies Lane B as the U3 executor, in place of the Lane A designation in B-136's status
+   table (`U3 push | Held | Judge (exact range) → Lane A`).
+3. **What U3 proves.** Remote Git ref parity only (B-136's U3 proof: fresh fetch, upstream equals the approved base, push,
+   fetch, upstream equals HEAD). It does not prove `docs-drift` health (U9) or a remote CI pass.
+4. **U4–U9 held.** U4 through U9 stay held until the main xDD commit-and-push rules unit is proposed, decided (Entry B)
+   and committed, so that one U4–U9 graph cycle covers every change.
+5. **Item 0 of `D-440` and `D-441` amended.** Two intervening Register entries are permitted before the separate TCA r3
+   (J3) and J-C A1 entries: Entry A (this entry) and Entry B (the Judge's decision on the xDD rules proposal). All other
+   terms of `D-440`, `D-441` and `D-437` stay unchanged. The text of `D-440` and `D-441` is not edited; this entry records
+   the amendment.
+6. **Bounded `docs-drift` exception (`D-428`).** Across the commits for Entry A, the B-136 proposal answer, Entry B and the
+   approved rule edits, only `docs-drift` may fail in `bun run check`. Every other check must pass. Hooks are never
+   skipped. This exception expires at U9.
+7. **Earlier confirmation kept.** The Judge's separate `docs-drift` confirmation for `9f15617` ("Confirm for 9f15617
+   only", same Lane B session record, line 5023) stays in force.
+8. **Not given:** U4–U9 execution; U10; U11; the J1 (`D-440`) and J2 (`D-441`) transfers; the pending EV r9 application
+   act; baseline naming; sprint construction; Gate 2; any push. Lane B's prepared U3 finding is cancelled and not filed.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry |
+| **Build Spec** | — unaffected: no artifact created, sequenced or retired; no V1 scope, sequence or DoD change |
+| **Inventory** | — unaffected: no row added or retired |
+| `docs/PRD.md`, Charter, `0001`, `Modular_PRD.md`, FN specs, `docs/specs/`, `docs/README.md`, rule files, Phase Closure, application code | — unaffected |
+| B-136 | Follow: the Lane A answer recording U3 completion and the xDD rules proposal |
+| **Encyclopedia** | unaffected per the local citation map `docs/ENCYCLOPEDIA-SYNC.md`; hosted parity not checked |
+| **Graphify** | Governed drift, expected; cleared only by the held U4–U9 guarded cycle (`D-425`), never by a raw rebuild |
