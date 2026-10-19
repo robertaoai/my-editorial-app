@@ -20850,3 +20850,75 @@ wording; (4) this line.
 | **Defer** | Disposition of the three untracked paths | Judge; the files' owners | Before U4 |
 | **Defer** | U4–U9; U10; U11; J1/J2 transfers; EV r9; baseline naming; Gate 2 | Existing owners | Their own checkpoints |
 | **Reject** | Any push, lane change or test construction inferred from this proposal | All actors | — |
+
+## Lane A — Step 4 completion record: Entry B (`D-443`), rule application and path dispositions; U4 held, 2026-10-19
+
+> **Filed** on the Judge's Entry B decision of 2026-10-19 (read baseline `8fa2171`), retained as
+> `C:/CoWork/outputs/lane-a-entry-b-2026-10-19/JUDGE-DECISION-ENTRY-B-8fa2171.md`, SHA-256
+> `77dd9190e3ad007e8eb14eeba574e1449572901a401d2883018866ce836bce26` (byte copy of the session message, transcript
+> `e1b197bb-476d-4f6c-bde9-aace6388d216.jsonl` line 2575). It includes the Lane B (Level 1) summary and the Lane C (Level 2)
+> receipt, as supplied. Lane A receives all three. Structure per `docs/handoff/TEMPLATE.md`.
+
+### What happened
+
+**Parents.** B-136 and D-439 stay **Open**. U3 is complete under `D-442` and is not repeated. J1 (`D-440`) and J2
+(`D-441`) stay separately registered; their transfers and U11 verification stay held. B-158 keeps its navigation work and
+its owed timing correction.
+
+**Lane C's receipt** (as supplied) verified the Step 1 filings `d8c67a0` and `8fa2171` and the byte equality of
+`2b1075c_B158.md` with blob `ffea9600`. Lane A records it as Lane C's receipt; it did not re-derive Lane C's work.
+
+| Obligation | Owner | Phase / trigger | Status | Proof |
+|---|---|---|---|---|
+| **G1** — record Entry B | Lane A | Step 2, on the Judge's decision | **Done** | Commit `0a47fc81582780d0d6254409e7c6e1398d13c240` (parent `8fa2171`): Register only, 70 lines appended; section 5.14e266 `D-443`; Register blob `0274a2ec7b0efc3a9fa90d0efceb9016c69dc1ec`; the prior blob `c6c920e3…` is an exact prefix; no backticked act number; EV r9 pins unchanged |
+| **G2** — apply the approved rules | Lane A | Step 2, after G1 | **Done** | Commit `278de235fd1dce512c7c4b1510c6fb411162a695` (parent `0a47fc8`): exactly four files, insertions only (73 lines). Blobs: `AGENTS.md` `d875aa93c8e11665192552f36d4f92cbf7ef1bc7` (3,626 characters, ceiling 5,400); `docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md` `2e059cda838c88a7ee9a31b6bb70c6958b1b33a9` (new `[V1]` §11); `docs/specs/SPECS-VERIFICATION-APPARATUS.md` `d2ffda16cb14d7e0e27b153bee55e2ef87dd7c4b` (§17.1); `docs/LANE-B-WORK-ORDER.md` `107d60e7db18b0d9e1c45bae49baab3942b07115` (§7 scoped `P2` amendment). Not touched: `docs/README.md`, `.gitignore`, `scripts/`, the rules reference, the v1 template |
+| **G3** — coverage and characterization | Lane A | In G2 | **Done** | FN §11.2 `AIG-01.R7`; SPECS §17.1 "Coverage (G3)" |
+| **G5** — no implied activation or push | Lane A | In G1 and G2 | **Done** | `D-443` item 6; FN §11.2 `AIG-01.R8`; work order §7 amendment |
+| **G4** — `.agents/freellm_explorer.toml` (option b) | Lane A | Before U4 | **Done** | Moved byte-exact to `C:/CoWork/outputs/untracked-quarantine-2026-10-19/freellm_explorer.toml`: 767 bytes; SHA-256 before and after `32720205f981efec65b88e730509b9c3dd82fa97a6ad5eae1e68171b4ba49108`; no destination conflict; source absent afterward. Quarantine authorizes no installation |
+| **G4** — `2b1075c_B158.md` (option d) | Lane A | Before U4 | **Done** | Rechecked: Git blob `ffea96009acf8e9ea3a336eb837a0f88f91fcd5c` equals the expected blob (30,345 bytes; SHA-256 `5750c709ebbeeb56584b4696c36fd8547b9fdb403a4422c2986a0ae1f76644b5`); removed; absent afterward |
+| **G4** — `.codex/config.toml` (option a) | Its human/environment owner | Before U4 | **Open — UNVERIFIED** | The file is still present (existence checked only; Lane A did not read or copy it). No relocation or removal proof and no credential-rotation proof has been supplied |
+| **G6** — U4–U9 release conditions | Judge; Lane A; Lane B | When every condition holds | **Not met: U4 held** | Committed rules: met. This completion record: met on commit. Path proofs: 2 of 3. `git status --porcelain --untracked-files=all`: not empty (`?? .codex/config.toml`) |
+
+All G4 proof is in `C:/CoWork/outputs/lane-a-entry-b-2026-10-19/G4-path-proof.json`, SHA-256
+`7d116d18f2fe1d0c52cc67c7fb50e8a8309328c389a03fce165630ed9a50c28e`.
+
+### What you need
+
+- **The `.codex/config.toml` owner:** relocation or removal proof and credential-rotation proof, without secret values.
+- **Then:** U4–U9 on the unchanged route (U4 prepare → U5 B-136 request → U6 Lane B receipt in B-050 → U7 Lane B annotation
+  → U8 publication citing U6 → U9 full health). No fetch or push during U4–U9. A governed edit after prepare stops the run.
+- **Still held:** J1 and J2 transfers, U10, U11, EV r9, baseline naming, sprint construction, Gate 2 and every current push.
+  The gstack EXT-R1 and REA/FreeLLMAPI bootstrap proposals wait until after U9.
+
+### What you did instead
+
+**Checks.** Each commit ran `bun run check` twice before commit. In every case both runs exited 1 with 18 checks passed
+and only `docs-drift` failing; the logs were byte-identical; the blobs did not change during the runs. An allowed
+`docs-drift` failure is not a full pass. It is permitted by `D-442` item 6 until U9.
+
+| Commit | Tested HEAD (working changes) | Logs (SHA-256) | Tested = staged = committed |
+|---|---|---|---|
+| `0a47fc8` (G1) | `8fa2171` + the `D-443` Register append | `entryB-check-run1.log` / `-run2.log`, `4302d7ede5c3c65de1b898fbccc247f5ae078bda3f521b1f5a5adbfeb35055c1` | Register `0274a2ec…` (`entryB-content-comparison.json`, `d2c82447f3f6ba63dc833be666e35c5a2221e76be8ea68f167a6dd536879b573`) |
+| `278de23` (G2) | `0a47fc8` + the four-file application | `apply-check-run1.log` / `-run2.log`, `9cf8388879c2fc6c2f1a08c5331222d6dc527271433b2e23cb3bb25043307325` | All four blobs above (`apply-tested-blobs.txt`, `fef35f3224f30d80e6a9756d36193dd409f1b9856366f29da2e6dbb949041dc0`) |
+
+All logs are in `C:/CoWork/outputs/lane-a-entry-b-2026-10-19/`. Both commits ran the `commit-msg` hook with exit 0: traces
+`entryB-commit-trace.jsonl` (SHA-256 `40a4733346cc82a55bd347b6000b4fd905cfbc53bd7c378f3bd11d09022d21a1`) and
+`apply-commit-trace.jsonl` (SHA-256 `43fe590430b285f21721506c9db44b404bae790ab101c4953ad215e425e6a08d`).
+
+**This filing** appends text only, at HEAD `278de23`. Its two pre-commit checks are expected to fail `docs-drift` alone.
+Lane A reads `D-442` item 6 and `D-443` item 9 (which orders this Step 4 filing) as covering it. Its results are reported
+outward.
+
+**Self-grade (labelled; Lane A self-review, no independent acceptance).** Trigger: `/anthropic-skills:make-ai-grade-its-own-work`. Evidence: session
+transcript `e1b197bb-476d-4f6c-bde9-aace6388d216.jsonl`, line 2719 (invocation, `dccaeb3d-9098-434f-9a11-2046598a231f`), line 2728 (launch result)
+and line 2730 (loaded instructions); locators only. Draft reviewed: `B136-LANE-A-STEP4-278de23.md` in the evidence folder,
+pre-fix SHA-256 `78959324ac6d4cdb02def0f573161c3c344167de83ccc5375a40cc1d87768479`. Fixes: (1) the commit-trace files and
+hashes are cited; (2) this line added. An earlier self-review of the `D-443` and rule drafts added G3 to SPECS §17.1.
+
+| Verdict | Item | Owner | Follow-up phase |
+|---|---|---|---|
+| **Approve** | G1, G2, G3, G5 done; G4 done for two paths | Lane A | Complete |
+| **Defer** | `.codex/config.toml` relocation and rotation proof | Its human/environment owner | Before U4 |
+| **Defer** | U4–U9 | Lane A; Lane B (U6, U7) | After every G6 condition holds |
+| **Defer** | J1/J2 transfers; U10; U11; EV r9; baseline naming; sprint construction; Gate 2; post-U9 proposals | Existing owners | Their own checkpoints |
+| **Reject** | Any push, test unit, lane change or U4 start inferred from this record | All actors | — |
