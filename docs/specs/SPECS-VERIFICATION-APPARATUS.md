@@ -462,6 +462,26 @@ restated.
 A green result at one layer is evidence for that layer only. **`[V1]` — new in this build; no earlier
 section changed.**
 
+### 17.1 Pre-push proof for xDD units `[V1]` — `D-443`
+
+**`[V1]` — added by `D-443` (2026-10-19); the table above is unchanged.** The behaviour lives in
+`FN-MULTI-LANE-AI-GOVERNANCE.md` §11; this subsection records only what each push must prove.
+
+| Gate | Proof |
+|---|---|
+| Unit authority | The unit's Register act, Lane B work order and `V1-PHASE-CLOSURE.md` §5 `Active` state exist |
+| Checks | `bun run check` passes, except a failure a Judge act names; hooks run |
+| Red evidence (triggers (i), (ii)) | The new test fails for its stated reason; no earlier passing test now fails |
+| Green evidence (trigger (iii)) | The target tests pass; no other test regresses; the component's integration evidence is accepted |
+| Range | Fresh fetch; the upstream equals the expected base; the range holds only the unit's eligible commits; no held commit. Procedure: `docs/handoff/README.md` pre-push proof |
+| After the push | Fetch again; the upstream equals the pushed tip |
+
+**Coverage (G3).** Each behavioural DoR → DoD obligation maps to one `TB-1` test and its stated failure reason.
+Non-behavioural DoD evidence classes are proved by their own evidence, not by a test. A missing external tool is not
+missing product behaviour. Characterization of existing behaviour records an honest observation, not a manufactured Red result (`D-242`). Attempt
+results and success-drift comparisons go in separate attempt records; `docs/templates/dor-dod-validation/v1.md` stays
+unchanged (`D-264`).
+
 ---
 
 ## 18. Truth layers, Jev System One and the customer-acceptance harness `[V1]` — `D-259`

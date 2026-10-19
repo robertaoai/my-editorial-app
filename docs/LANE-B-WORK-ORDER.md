@@ -458,3 +458,10 @@ technical child: one MMF holds several children and one business outcome. Push l
 evidence; a green child test is never release authority. Your evidence reaches Lane C only through §6.
 If the MMF you were handed has no outcome, acceptance boundary or DoR evidence, that is a
 `blocked-on-decision` entry, not a gap to fill by guessing.
+
+**Scoped amendment for xDD units (`D-443`, 2026-10-19).** Inside an authorized `TB-1` or `TB-2` unit only, where you are
+`Active`, the push language above is amended as `docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md` §11 states: in `TB-1` you
+commit and push each Red behavioural test when every gate passes; in `TB-2` you push a Red → Green component only after
+its accepted integration evidence. The gates are in `docs/specs/SPECS-VERIFICATION-APPARATUS.md` §17.1. Outside such a
+unit, the `B-114` push language above stands. This amendment starts no unit and permits no current push: each unit needs
+its own Register act, work order and `Active` lane.

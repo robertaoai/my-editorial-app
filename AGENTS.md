@@ -36,6 +36,7 @@ Where anything conflicts, `docs/v1/V1-DECISION-REGISTER.md` decides (`D-58`).
 - Work outside your lane is specified, never applied (`D-56`): raise a handoff and stop that item.
 - A commit touching two lanes needs a `Lane-Crossing: <reason>` trailer (`D-88`).
 - Only Lane A adds dependencies or edits build config (`D-86`).
+- Work-product commits and pushes follow the xDD unit rule (`docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md` §11, `D-443`); it starts no unit and permits no push by itself.
 
 ## Handoffs (`docs/handoff/`; SOP `docs/handoff/README.md`)
 - Copy `TEMPLATE.md` to `B-NNN-<slug>.md` or `C-NNN-<slug>.md`. Never reuse a number (`D-306`).

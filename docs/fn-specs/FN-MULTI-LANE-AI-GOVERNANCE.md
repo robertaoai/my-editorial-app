@@ -279,3 +279,48 @@ Named `AIG-NN.Cn` (registered in `Modular_PRD.md` §0.5). They are Project gover
 
 No rule file, skill, template, check or application file changes under this file. It authorizes no loader run, trial,
 refactor, lane transition or `V1-SM05` selection; those remain `SV-002` units and Judge acts.
+
+## 11. xDD commit-and-push units `[V1]` — `D-443`
+
+**`[V1]` — added by `D-443` (2026-10-19); no earlier section changed.** This section records the behaviour the Judge
+adopted. The Register entry `D-443` decides any conflict (`D-58`). Who may commit at any moment is still read only from
+`V1-PHASE-CLOSURE.md` §5 (`D-156`).
+
+### 11.1 Terms
+
+| Term | Meaning |
+|---|---|
+| **`TB-1`** (Test Baseline 1) | A packet's DoR → DoD checklist is locked, and a Red-state behavioural test exists for every behavioural DoD obligation, failing for its stated reason |
+| **`TB-2`** (Test Baseline 2) | Construction turns `TB-1`'s Red tests Green, component by component |
+| **Unit** | One bounded `TB-1` or `TB-2` unit named by its own Register act and Lane B work order |
+
+Locking `TB-1` is not the DoD. These terms are distinct from the "baseline" of B-136's row 10.
+
+### 11.2 Requirements (`AIG-01`)
+
+| ID | Requirement | Source |
+|---|---|---|
+| `AIG-01.R4` | A unit runs only with its own Register act naming the packet and unit, a Lane B work order, and Lane B `Active` (`C1`). `Eligible` grants no work-product execution | `D-443` item 3; `D-156`; `D-184` |
+| `AIG-01.R5` | In a `TB-1` unit, Lane B commits and pushes after trigger (i) and each trigger (ii) when every pre-push gate passes | `D-443` item 4(a) |
+| `AIG-01.R6` | In a `TB-2` unit, Lane B commits each Red → Green component under trigger (iii) and pushes only after that component's accepted integration evidence and every pre-push gate | `D-443` item 4(b) |
+| `AIG-01.R7` | Each behavioural DoR → DoD obligation maps to one `TB-1` test and its stated failure reason. Non-behavioural evidence classes and honest characterization of existing behaviour stay. No Red result is manufactured; a missing external tool is not missing product behaviour | `D-443` item 5 (G3); `D-242` |
+| `AIG-01.R8` | Adopting this rule starts no unit and authorizes no current push. No rule authorizes pushing an unrelated or held commit | `D-443` item 6 (G5) |
+
+### 11.3 Behaviour
+
+| Trigger | Eligible commit | Stop when |
+|---|---|---|
+| (i) First parent behavioural test, Red | Only that test's files under `__tests__/` | The test passes when it must be Red; any non-permitted check fails; a path is outside Lane B's surface; the range holds an unrelated or held commit |
+| (ii) Each child behavioural test, Red | Only that child test's files | As (i); at `TB-1` lock, a behavioural DoD obligation has no test |
+| (iii) Component, Red → Green | That component's files in Lane B's surface; no edit that weakens or deletes a test assertion | Any regression; a weakened or deleted assertion; integration evidence not accepted |
+
+The pre-push gates and the proof each layer owes are in `SPECS-VERIFICATION-APPARATUS.md` §17. The target branch is the
+one the unit's work order names. Outside a unit, `LANE-B-WORK-ORDER.md` §7's `B-114` push language applies unchanged.
+
+### 11.4 Acceptance checks
+
+- A unit's Register act, work order and §5 `Active` state exist before its first commit.
+- Every pushed range contains only that unit's eligible commits.
+- Each `TB-1` test's Red result records its stated failure reason; each `TB-2` component records its Red → Green result.
+- Attempt results and success-drift comparisons sit in separate attempt records; `docs/templates/dor-dod-validation/v1.md`
+  is unchanged.
