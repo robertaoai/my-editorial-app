@@ -20697,3 +20697,156 @@ is stated as expected, not as fact; (2) this line added.
 | **Defer** | Supplement-1 and supplement-2 r2 transfers | Judge | Their own release |
 | **Defer** | B-158 timing correction | Lane A | B-158's next authorized substantive answer |
 | **Reject** | Any hold release, push, transfer or Register write inferred from this answer | All actors | — |
+
+## Lane A — U3 completion recorded (Entry A, `D-442`); xDD commit-and-push rules proposal; untracked-path disposition request, 2026-10-19
+
+> **Filed** on the Judge's consolidated instruction of 2026-10-19 (read baseline `9f15617`), §4 Step 1: "commit Entry A in
+> `docs/v1/V1-DECISION-REGISTER.md`, and append the `B-136` answer containing: (a) `U3` completion record, (b) the
+> Section 3 Main Commit & Push (xDD) Rules Proposal, and (c) the disposition request for the three untracked paths".
+> Retained as `C:/CoWork/outputs/lane-a-entry-a-xdd-2026-10-19/JUDGE-INSTRUCTION-9f15617.md`, SHA-256
+> `9aa72dfe06c4d3c95d621b80173f0ca8bad4f024e7a53511c91a3eb6ba0c745c` (byte copy of the session message, transcript
+> `e1b197bb-476d-4f6c-bde9-aace6388d216.jsonl` line 2381). The instruction states it consolidates Lane B (Level 1) and
+> Lane C (Level 2) reviews; their texts were not supplied to Lane A (**UNVERIFIED** by Lane A).
+
+### 1. B-136 → D-439
+
+B-136 and D-439 stay **Open**. F1/J-C and J3 stay separate from J1/J2. Held: U4–U9 (until Entry B's rules are committed),
+U10, U11, the J1 (`D-440`) and J2 (`D-441`) transfers, EV r9, baseline naming, sprint construction and Gate 2.
+
+**Receipts.** (1) The Judge's instruction above. (2) The Judge's `docs-drift` confirmation for `9f15617` ("Confirm for
+9f15617 only", Lane B session record line 5023): this answers the question Lane A raised at `9f15617`. (3) Entry A,
+committed as `d8c67a0490c66f738e1bf61b5c92e20b11ac4b0e` (section 5.14e265, `D-442`).
+
+### 2. U3 completion record (Entry A)
+
+| Fact | Evidence (verified by Lane A) |
+|---|---|
+| Judge authority | Lane B session `C:/Users/rober_24syk4j/.codex/sessions/2026/10/16/rollout-2026-10-16T22-09-59-01a1450c-56ae-73a2-95c0-6c0d44d45f08.jsonl` line 5023, 2026-10-18T20:12:41Z: "Authorize this exact U3 push" for `7c3a339..9f15617` (17 commits) |
+| Execution | `C:/CoWork/outputs/lane-b-u3-push-2026-10-18T20-13-16-511Z/u3-push-evidence.json`, SHA-256 `0a9b1f7bf0e5bdffd1f146055f2059f10d61554a0ed4b56f130ba1fd457a4609`: clean tree; fetch; upstream `7c3a339` = named base; push of the exact tip, no force; fetch; upstream `9f15617` = HEAD |
+| Remote state | Lane A's read-only `git ls-remote origin refs/heads/features/feature-V1-SM05` on 2026-10-19 returned `9f15617ceaeed8feee148558cf5354eb891ca0ea` |
+| Ledger | U3 is **completed** by `D-442`. The Judge ratifies **Lane B** as U3 executor. **Superseded** (kept as history): the `8dac254` status row at B-136 line 20609, "U3 push \| Held \| Judge (exact range) → Lane A" |
+| Limit | U3 proves remote Git ref parity only (the U3 proof at B-136 line 18703). It does not prove `docs-drift` health (U9) or a remote CI pass |
+
+### 3. Main xDD commit-and-push rules proposal — **UNDECIDED** (for Entry B)
+
+**Existing work read first.** B-158's proposal 1 (`72cb96c` §5): a pointer-only reading guide in `docs/README.md` with F02's
+reading rule. This proposal does not duplicate it. After Entry B, proposal 1's pointer list would gain one line to the new
+owner, under B-158's own trigger. Existing commit/push text: `AGENTS.md` (hooks, identity, `Lane-Crossing`);
+`docs/handoff/README.md` "Committing and pushing your own entry" (`D-183`/`D-184`, with the pre-push proof);
+`docs/LANE-B-WORK-ORDER.md` §7 (`D-242`, push language selected by `B-114`); `SPECS-VERIFICATION-APPARATUS.md` §16–§17.
+`FN-MULTI-LANE-AI-GOVERNANCE.md` has no push rule.
+
+**Two conflicts the Judge must resolve in Entry B.**
+1. **Push language.** `docs/LANE-B-WORK-ORDER.md` §7 (`D-242`): "Push language stays as `B-114` selected — local atomic
+   commits, then the human final push after accepted integration evidence; a green child test is never release authority."
+   The requested triggers commit **and push** at each Red test and each Red→Green component. Either Entry B amends that
+   language for a bounded unit, or each push needs its own exact-range authority (as U3 did).
+2. **The word "baseline".** B-136 already uses "baseline" for the pending EV r9 act's row 10 (line 16978, "Baseline naming (row 10)"). Using
+   "First/Second Baseline" for test baselines would make "row 10 blocked until baseline naming" ambiguous.
+
+**(a) One rule owner per tier**
+
+| Fact | Owner (existing tier) | Everywhere else |
+|---|---|---|
+| Who may commit now | `V1-PHASE-CLOSURE.md` §5 (`D-156`) | Pointer only; no rule file names the lock holder |
+| Which decision governs a conflict | The Register (`D-58`); Entry B for this unit | — |
+| Standing agent rule | One line in `AGENTS.md` (shared core; `CLAUDE.md` imports it): work-product commits and pushes follow the xDD unit rule in `FN-MULTI-LANE-AI-GOVERNANCE.md` and the Register; no standing push authority beyond it. `GEMINI.md`: the same one line for Lane C only if Lane C has a trigger (it has none here) | `docs/governance/agent-rules-reference.md` stays historical (`D-324`), unchanged |
+| Trigger behaviour (eligible commits, actor, branch, gates, stops) | New `[V1]` section in `FN-MULTI-LANE-AI-GOVERNANCE.md` (requirement, behaviour, acceptance checks) | Lane B work order §7 points to it |
+| Verification mechanics (gates, proof per layer, attempt records) | `SPECS-VERIFICATION-APPARATUS.md` §17 (extended); pre-push proof by pointer to `docs/handoff/README.md` | — |
+| Own-entry handoff push | `docs/handoff/README.md` (`D-184`), unchanged | — |
+
+**(b) Two test baselines (proposed names avoid the "baseline" collision)**
+
+| Term | Meaning | Proof it is locked |
+|---|---|---|
+| **Test Baseline 1 (TB-1)** | Phase 1: the packet's DoR → DoD checklist is locked, and the complete Red-state behavioural test suite for that DoD exists and fails for the stated reasons | The locked checklist commit; one attempt record listing every test, its Red result and its reason |
+| **Test Baseline 2 (TB-2)** | Phase 2: construction turns TB-1's Red tests Green, component by component | Per component: the target tests pass and no other test regresses; the attempt record's Red→Green comparison |
+
+Locking TB-1 is not DoD. DoD needs TB-2 complete plus the packet's own acceptance. The Judge's statement that
+`SETUP-SPIKE-000` closed the pre-Git V1 DoR gap: Lane A finds `D-185` (historical zero-to-one setup root) and `D-264`
+(`SETUP-SPIKE-000` as the container for attempt `SV-002`; `SV-001` the retrospective wrapper over the completed `V1-SM05`
+pre-selection handoff validation), but no record in those words: **UNVERIFIED**. `V1-SM05` stays `BLOCKED` (`D-264`), so no
+packet can lock TB-1 until one is selected and its DoR is complete.
+
+**(c) Authority for Red-test construction**
+
+| Option | What it takes | Lane A's view |
+|---|---|---|
+| **C1 (recommended)** | A bounded test-baseline unit: a Register act naming the packet and unit; a Lane B work order; Lane B `Active` by the `D-156` handover recorded in `V1-PHASE-CLOSURE.md` §5 | Matches `D-242` §7's precondition ("a Register act, a work order and §5's `Active` state") and the one-lock model. No existing rule changes |
+| C2 | Amend `D-184` / `LANE-B-WORK-ORDER.md` line 39 so an `Eligible` Lane B may commit test files | Not recommended: `D-184` excludes "implementation authority" by name; widening `Eligible` breaks `D-156`'s single-lock model and `lane-state` |
+
+**(d) Bounded triggers**
+
+Common to all three: actor = the `Active` Lane B under the unit's work order; target branch = the branch the work order
+names (today the working branch is `features/feature-V1-SM05`; whether the Judge wants a separate branch is **UNVERIFIED**).
+
+| Trigger | Eligible commit | Pre-push gates | Stop conditions |
+|---|---|---|---|
+| (i) First parent behavioural test, Red | Only that test's files under `__tests__/` | `bun run check` passes (except a Judge-named exception); the test fails for its stated reason (evidence recorded); no previously passing test now fails; hooks run; pre-push proof (fresh fetch; upstream equals the expected base; the range holds only this unit's eligible commits; no held commit) | The test passes when it must be Red (no manufactured Red, `D-242` characterization row); any non-permitted check failure; a path outside the surface; upstream moved; a held or unrelated commit in the range; Lane B not `Active` |
+| (ii) Each child behavioural test, Red, until every DoD test exists | Only that child test's files | As (i); TB-1 locks only when every DoD item has its Red test | As (i); a DoD item without a test at lock time |
+| (iii) Phase 2 component, Red → Green | That component's implementation files in Lane B's surface; no edit that weakens or deletes a test assertion | Target tests pass; no other test regresses; `bun run check` passes; integration evidence as Entry B names; pre-push proof as (i) | A weakened or deleted assertion; any regression; conflict 1 unresolved |
+
+**Push options (conflict 1).** **P1:** commit per trigger; each push needs its own Judge exact-range authority (no rule
+change). **P2:** Entry B amends `D-242`'s push language for this unit only: the `Active` Lane B may push after (i) and (ii)
+under the gates above; (iii) pushes only after that component's accepted integration evidence. **Lane A recommends P2.**
+Under either option, no rule authorizes pushing an unrelated or held commit. If the range from the upstream contains one,
+the push stops and needs a Judge exact-range act.
+
+**(e) Validation template and attempt records.** `docs/templates/dor-dod-validation/v1.md` stays unchanged (`D-264`;
+`V1-BUILD-SPEC.md` line 108: every attempt pins the reusable, result-free template). Each TB-1 or TB-2 run gets its own
+attempt record in the packet's folder, following the `SETUP-SPIKE-000/SV-00N.md` pattern, with the template §6
+success-drift comparison. Lane B's raw results reach Lane A through its handoff evidence (Lane B's writable surface for
+records); Lane A files the attempt record.
+
+**`D-54` candidate tiers for Entry B** (to be confirmed in the rules unit): Register (Entry B); `AGENTS.md` (one line,
+within the rule-budget ceiling); `FN-MULTI-LANE-AI-GOVERNANCE.md` (new `[V1]` section); `SPECS-VERIFICATION-APPARATUS.md`
+§17; `LANE-B-WORK-ORDER.md` §7; Build Spec and Inventory if TB-1/TB-2 sequencing is a sequence fact; Encyclopedia per
+`ENCYCLOPEDIA-SYNC.md` (not yet checked: **UNVERIFIED**). All of these are governed paths: one U4–U9 cycle covers them.
+
+### 4. Disposition request for the three untracked paths (needed before U4)
+
+None was created by Lane A. Lane A has not moved, read further or changed any of them.
+
+| Path | Facts | Options | Lane A recommends |
+|---|---|---|---|
+| `.agents/freellm_explorer.toml` | 767 bytes; created 2026-10-17 20:48 +0800; configures an external sub-agent route; creator **UNVERIFIED** | (a) its owner moves it outside the repository; (b) the Judge authorizes Lane A to move it byte-exact to `C:/CoWork/outputs/untracked-quarantine-2026-10-19/` with its hash recorded; (c) an ignore rule (a `.gitignore` change; whether it is a governed path is **UNVERIFIED**) | (a) or (b) |
+| `.codex/config.toml` | 1,067 bytes; created 2026-10-17 20:45 +0800; contains a credential-like value (not reproduced); creator **UNVERIFIED** | (a) its owner moves it outside the repository and rotates the credential; (c) as above | (a). Lane A does not recommend copying a credential into `outputs` |
+| `2b1075c_B158.md` | 30,345 bytes; created 2026-10-19 01:27 +0800; byte-identical to committed blob `ffea96009acf8e9ea3a336eb837a0f88f91fcd5c` (B-158 at `2b1075c`), so Git already holds every byte; creator **UNVERIFIED** | (a) or (b) as above; (d) the Judge authorizes its removal, since Git holds the same bytes | (d) |
+
+### 5. What you need — Judge response fields
+
+- **Entry B — xDD rules proposal:** Accept / Accept with changes / Reject / Defer; for (b) the test-baseline names; for (c)
+  C1 or C2; for (d) P1 or P2.
+- **`.agents/freellm_explorer.toml`:** (a) / (b) / (c)
+- **`.codex/config.toml`:** (a) / (c)
+- **`2b1075c_B158.md`:** (a) / (b) / (d)
+
+### 6. Filing evidence
+
+**Entry A (`d8c67a0`, parent `9f15617`).** Register only, 51 lines appended; the `9f15617` Register blob `53d92312…` is an
+exact byte prefix. Two pre-commit checks at HEAD `9f15617` with the written Register: both exited 1, 18 passed, only
+`docs-drift` failed (permitted by `D-442` item 6); logs byte-identical
+(`C:/CoWork/outputs/lane-a-entry-a-xdd-2026-10-19/entryA-check-run1.log` and `…-run2.log`, SHA-256
+`fe2be6bcd8bde05d40a5b4fbc81cde225b83d3518504ce1cc193a274b12fc892`). Tested, staged and committed Register blob
+`c6c920e3af6f1de240a1a265ac7c8d7d77ca4d03` (`entryA-content-comparison.json`, SHA-256
+`2bcbc96f7d11bca854f3301356f6d2b10d190d23bf2a16cc6e828b4370a07fa0`). `commit-msg` hook exit 0. No backticked act number.
+EV r9 pins unchanged.
+
+**This answer.** Appends text only. Its two pre-commit checks run on the frozen text; only `docs-drift` may fail (`D-442`
+item 6). Their logs, commit and byte comparison are reported outward.
+
+**Self-grade (labelled; Lane A self-review, no independent acceptance).** Trigger: `/anthropic-skills:make-ai-grade-its-own-work`. Evidence: session
+transcript `e1b197bb-476d-4f6c-bde9-aace6388d216.jsonl`, line 2512 (invocation, `8b272183-b59d-4287-b411-44136b7eb943`),
+line 2521 (launch result) and line 2523 (loaded instructions); locators only. Draft reviewed: `B136-LANE-A-U3-XDD-d8c67a0.md`
+in the evidence folder, pre-fix SHA-256 `2439b157efea907ac648d68db409534d1520a96805b731a71505922c07b0d564`. Fixes: (1) exact
+B-136 line locators for the U3 proof and the superseded row; (2) the row-10 locator; (3) trigger (iii) eligible-commit
+wording; (4) this line.
+
+| Verdict | Item | Owner | Follow-up phase |
+|---|---|---|---|
+| **Approve** | U3 completion recorded (`D-442`); receipts | Lane A | Complete |
+| **Defer** | Entry B decision on the xDD rules proposal | Judge | Step 2 |
+| **Defer** | Rule edits approved by Entry B | Lane A | Step 2, after Entry B |
+| **Defer** | Disposition of the three untracked paths | Judge; the files' owners | Before U4 |
+| **Defer** | U4–U9; U10; U11; J1/J2 transfers; EV r9; baseline naming; Gate 2 | Existing owners | Their own checkpoints |
+| **Reject** | Any push, lane change or test construction inferred from this proposal | All actors | — |
