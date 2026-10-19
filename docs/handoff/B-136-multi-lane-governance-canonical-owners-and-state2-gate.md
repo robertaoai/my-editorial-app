@@ -20922,3 +20922,127 @@ hashes are cited; (2) this line added. An earlier self-review of the `D-443` and
 | **Defer** | U4–U9 | Lane A; Lane B (U6, U7) | After every G6 condition holds |
 | **Defer** | J1/J2 transfers; U10; U11; EV r9; baseline naming; sprint construction; Gate 2; post-U9 proposals | Existing owners | Their own checkpoints |
 | **Reject** | Any push, test unit, lane change or U4 start inferred from this record | All actors | — |
+
+## Lane A — U5 request: U4 candidate ready (attempt 2, `work-r2`); receipts and the R3 correction; stop for U6, 2026-10-19
+
+> **Filed** on two instructions, both read at baseline `0f7db22668695561811e5bd19d45c3f90a64dafe`. Each is retained as a byte copy
+> of its session message in transcript `e1b197bb-476d-4f6c-bde9-aace6388d216.jsonl`:
+> 1. The Judge's G4/G6 release and Step 4 confirmation, with the Lane B (Level 1) review R1–R4 and the Lane C (Level 2)
+>    review as supplied: `C:/CoWork/outputs/lane-a-u4u5-2026-10-19/JUDGE-G4G6-RELEASE-0f7db22.md`, SHA-256
+>    `1e75c6089cfff060fd3c6ab6a7ec5f17add40597a310ca10bf3c0a9aa60f0674` (line 2760, message `97f934f2-aba9-466b-ab23-eb2f9afc7eff`;
+>    the line number was first taken from an earlier session summary and has since been checked against the transcript).
+> 2. The Lane B / Lane C verification of U4 attempt 1, with the Judge's release of one replacement folder `work-r2` and one
+>    U5 commit: `C:/CoWork/outputs/lane-a-u4u5-2026-10-19/JUDGE-U4-ATTEMPT2-U5-RELEASE-0f7db22.md`, SHA-256
+>    `baeafd2a985d84ae23a1961a5ddcd93ba9364b0f899ac99d79e9819e5f13c744` (line 3066, message `f277c9b3-a804-46a2-b0ef-b2b350ada087`).
+> 3. The Lane B / Lane C verification of U4 attempt 2, with the Judge's ratification of discrepancies 1–5 and direction to
+>    complete this commit: `C:/CoWork/outputs/lane-a-u4u5-2026-10-19/JUDGE-U4A2-RATIFY-U5-0f7db22.md`, SHA-256
+>    `34f35488e7255122752b5efb42d5bcae2c4b1ffe92fbfbaa7be7f041322376ff` (line 3211, message `461e05ed-8de9-4d9f-bc37-226c434f09b6`).
+>
+> Lane A receives all three. Structure per `docs/handoff/TEMPLATE.md`. B-136 and D-439 stay **Open**.
+
+### What happened
+
+**Receipts.**
+
+| Item | Source | Lane A record |
+|---|---|---|
+| Step 4 `docs-drift` scope | Instruction 1, §1.1 | **Received.** The Step 4 filing `0f7db22` is covered by `D-442` item 6 until U9. No repair commit was made |
+| R1 — `.codex/config.toml` owner proof | Instruction 1, §2.1 | **Received and retained** (the file above). The owner declares the file removed or relocated outside the repository and the credential rotated or revoked; no secret value was supplied. Lane A never read or copied the file |
+| R2 — pre-U4 state (`D-443` item 10) | Instruction 1, §2.2 | **Observed on disk at HEAD `0f7db22`** before attempt 1 and again before attempt 2 (HEAD, the empty status and `branch.json` once more before attempt 2's resume): (i) the declaration is retained; (ii) `.codex/config.toml` is absent; (iii) `git status --porcelain --untracked-files=all` is empty; (iv) `278de23` (rules) and `0f7db22` (completion record) are in history, `freellm_explorer.toml` is in quarantine (SHA-256 `32720205…`), `2b1075c_B158.md` is absent, and `.codex/config.toml` is absent on its owner's declaration |
+| Lane B review R1–R4 | Instruction 1, Part II | **Received as supplied.** R1 and R2: met as above. R3: below. R4: attempt 1 was resumed once with source-grounded answers; the second folder was created only after the Judge released it |
+| Lane C review | Instruction 1, Part III | **Received as supplied**, including its R3 self-correction and its live disk check. Lane A did not re-derive Lane C's work |
+| Attempt 1 verification and `work-r2` release | Instruction 2 | **Received.** Executed as below; observed differences from its text are listed under "Discrepancies" |
+
+**R3 correction (finding: Lane B R3; confirmed by Lane C).** Lane A's Step 4 record at `0f7db22` (row G2) gives `AGENTS.md` as
+"3,626 characters". **Correct statement: `AGENTS.md` has 3,616 characters and 3,626 bytes** (blob `d875aa93c8e11665192552f36d4f92cbf7ef1bc7`).
+Lane A measured it again at `0f7db22`: `[...s].length` = 3,616 and `Buffer.byteLength(s)` = 3,626, matching `rule-budget`'s
+`AGENTS.md 3616 chars / 3626 B (ceiling 5400)`. Cause: Lane A counted with `wc -m` in Git Bash, which counted bytes. The Step 4
+text and Lane C's receipt stay as filed; this paragraph is the correction.
+
+**U4 attempts.** Both ran from the governed checkout at HEAD `0f7db22` with a clean tree. No fetch, push or governed edit
+occurred. The live `.graphify/branch.json` was unchanged throughout (SHA-256 `62c15ba3de037c427fd6c3aa848707f820eb868f30d9597f34a349f654761141`).
+All files below are in `C:/CoWork/outputs/lane-a-u4-cycle-2026-10-19/`.
+
+| Attempt | Folder and `workId` | Prepare | Resume | Result |
+|---|---|---|---|---|
+| 1 | `work/`, `2faf8355-a6d8-4396-9240-b9c209d11100` | Exit 3: 365 descriptions and 89 community names pending. Log `prepare-run1.log` `3972e7b49cb0e9d41eb79aaea18beedf47a7cc79f4c8716744d2a7156b62a8d0` | Answers `b5f4e5adfc9a15d02bad006bfcc75aa4083354efa541207870d0d0f7cf7f126d` (kept as `answers-run1-failed.json`). Exit 4. Log `resume-1.log` `27a6ad681aa830fca8938cebd8b0d7bce87bf246eac3344cbd95f56c30da6844` | **Failed**: `foreign path in graph.json: C:/CoWork/outputs`. Cause: Lane A's description of `add()` in the five transfer-manifest generators named that absolute folder; the guard's leak check refused to stage it. State `failed`; resume accepts only `pending`. The folder is unchanged since (digest of its 11,037 file hashes `181fffa2…`, before attempt 2 and after its resume) |
+| 2 | `work-r2/`, `cccad190-7d9c-430c-bad5-218c8751e468` | Exit 3. `PENDING.json` byte-identical to attempt 1 (`606bc3e1cb9a5a94a6eac7fee3467c0149c037e184e84e7b191517f6320cea66`): the same 365 ids and the same 89 (community, member-set hash) pairs. Log `prepare-run2.log` `c533c5cb6d05076a8454275c97dcc36dc4bb1c727d6c458f39b5a000da39d891` | Answers `answers-r2.json` `c946fc07e2a17742a229424abc93cac1e1220cab828a3d4b1af5622b72172529`. Exit 0. Log `resume-2.log` `d7cf029d620a353ced82b032fa4787bd3f5526bfc278d88727fe33f818525c69` | **Ready.** `STATE.json` `fb115686bf6fda0f7af224c652575c7a27d851228c48f2a2d333b65d53832899` |
+
+**U4 candidate identity (attempt 2).**
+
+| Field | Value |
+|---|---|
+| `workId` | `cccad190-7d9c-430c-bad5-218c8751e468` |
+| Guard state | `ready` (exit 0) |
+| `graph.json` SHA-256 | `3382d6f93e03a07f9545ddb6a5c8716ac7d712d00c6c8fb750a99509dc19dadf` |
+| Staging manifest | `bcc8ee4c8242bc4257c553db7cbddff1e590c79081dfe374823e2dcc5a1563c5` (583 files) |
+| Analyzed source | `0f7db22668695561811e5bd19d45c3f90a64dafe` (staged `branch.json` `lastAnalyzedHead`; `stale` false) |
+| Frozen at | `2026-10-19T09:15:10.210Z` |
+| Answers bound | `c946fc07…`; the guard's copy `work-r2/attempt-2/ANSWERS.json` is byte-identical |
+
+**Answer basis.** Every description was written from the code of the pending file. Files with several revisions were diffed
+line by line, so identical code carries identical text: the D-439 helpers r1, r2 and r3, the six `k15*-successor.mjs` copies, the
+five transfer-manifest generators, the three ownership builders, and `ir-apply` r3 and r4. Single-revision files were read
+directly from source: `probe.mjs`, `fill-index-r2.mjs`, `make-custody-map-d439.mjs`, `make-custody-addendum-d439.mjs` and
+`check-successor-d439.mjs`. The six successor copies are cases k15a, k15b and k15c in each of two control runs, `20261016T101116Z`
+and `20261016T101740Z`. Against helper r3: **k15a** changes both binding lines (`BASE` and `OWNERSHIP_SHA256`); **k15b** changes
+both binding lines and header line 2; **k15c** changes the pin line only. Their file descriptions say which. `answers-r2.json` differs from the
+attempt 1 answers only in those five `add()` descriptions, which now say "the external outputs folder". The 89 names are
+identical: 48 by the commit-group rule, 11 as successors of a baseline community (Jaccard ≥ 0.6), and 30 written from their
+members. The guard's own `findForeignPath` finds 5 hits in the attempt 1 answers and 0 in `answers-r2.json`. Tooling:
+`descriptions.mjs` `d6f8d29418d3741e83b3496d34e67ebdf4f1c3773a2eb4e3eed058ccb85286e5`, `names.mjs`
+`70b126ea78c79f8f02a4ca1e9a83e08f8ca679cebc214e191c18127a8eb34565`, `manual-names.json`
+`95c51990f367744e0e002a2e412f96c460391b45109aeb5db116a71b92cf6c38`, `07-name-basis-r2.json`
+`67b40ee1061ca5642ee89e2bc71ad6edfad8fa76277c825221b5bad3124a09ef`.
+
+**Discrepancies between instruction 2 and disk.** Recorded from disk; **ratified by instruction 3** (items D1–D5), so no
+separate ruling is needed before U8. Instruction 3 names the successor cases "k15d–k15f"; no such files exist, and Lane A
+reads that as the second run's k15a–k15c.
+
+1. It gives `.graphify/branch.json` `lastAnalyzedHead` as `c8177fe3e95a3cb050c00a1eb1fd0da5eb3dc287`; disk shows
+   `c8177fe4a2af42e39edc4bb0a050c4d0bd2c0d04`. Only the short id `c8177fe` agrees.
+2. It expects exit 0 with `state: "generated"` and a `DRY_RUN.json`. The guard wrote state `ready`, and `work-r2` holds no
+   `DRY_RUN.json`. The candidate summary above comes from `STATE.json` and `resume-2.log`.
+3. It asks for `bun run check --full`. `scripts/check-consistency.mjs` has no `--full` option; Lane A ran `bun run check`, the governed gate.
+4. It places the Step 4 check log `31681522…` at `0f7db22`. That log tested HEAD `278de23` plus the Step 4 append, which was then
+   committed as `0f7db22`; it shows `docs-drift` as the only failure (1 of 19).
+5. It names U6 as `D-444` and U7 as `guarded-rebuild.mjs commit`. The Register holds no `D-444`, and the guard has no `commit`
+   mode (`prepare`, `publish`, `recover`). The route Lane A follows is the governed one: U6 Lane B receipt in B-050, U7 Lane B
+   Terminal annotation, U8 `publish --work <work-r2> --review <U6 commit>`, U9 health.
+
+### What you need
+
+- **Lane B (U6):** an independent receipt of this candidate in B-050 (`### F3 acceptance record`), citing `workId`
+  `cccad190-7d9c-430c-bad5-218c8751e468`, graph `3382d6f9…` and manifest `bcc8ee4c…`.
+- **Lane B (U7):** the Terminal annotation in B-050.
+- **Then Lane A:** U8 publish citing the U6 commit, and the U9 full-health record. No fetch or push during U4–U9.
+- **Still held:** J1 and J2 transfers, U10, U11, EV r9, baseline naming, sprint construction, Gate 2, every push, and the post-U9
+  gstack EXT-R1 and REA/FreeLLMAPI proposals.
+
+### What you did instead
+
+**Hard stop after this filing.** Lane A drafts no U6, runs no U7 or U8, records no U9 and pushes nothing. `work-r2` is
+not used again until U8.
+
+**Checks.** At Step 4, `docs-drift` was the only `bun run check` failure (log `31681522…`, 1 of 19; discrepancy 4). This filing
+appends text to B-136 only, at HEAD `0f7db22`. Lane A verifies that `docs-drift` is again the only failure in both pre-commit
+`bun run check` runs, as `D-442` item 6 permits until U9; an allowed `docs-drift` failure is not a full pass. The evidence goes to
+`C:/CoWork/outputs/lane-a-u4u5-2026-10-19/`: `u5-check-run1.log`, `u5-check-run2.log`, `u5-content-comparison.json` (tested =
+staged = committed bytes) and `u5-commit-trace.jsonl` (the `commit-msg` hook run under `GIT_TRACE2_EVENT`). A commit cannot cite
+its own trace, so those four SHA-256 values and the commit id are reported outward after the commit.
+
+**Self-grade (labelled; Lane A self-review, no independent acceptance).** Trigger: `/anthropic-skills:make-ai-grade-its-own-work`.
+Evidence: transcript `e1b197bb-476d-4f6c-bde9-aace6388d216.jsonl`, line 3193 (invocation, `48b7b6f9-0de0-4f9c-b323-8bac29245d71`),
+line 3197 (loaded instructions) and line 3202 (findings, `5509a258-5e44-44e6-837d-84319a3e7df1`); locators only. Draft reviewed:
+`B136-LANE-A-U5.pre-fix.md` in the evidence folder, SHA-256 `3813ed8b75c1945d62b00bb7d1bdc59e632ac2095d9a695c30ea4a2de256bf36`.
+Fixes, as instruction 3 directed: (1) the check evidence files are named; (2) the `docs-drift`-only result is stated for Step 4
+and for U5; (3) this line; (4) the line 2760 locator is qualified; (5) diffed and single-revision files are told apart; (6) the
+k15 cases are named one by one, and discrepancies 1–5 are recorded as ratified.
+
+| Verdict | Item | Owner | Follow-up phase |
+|---|---|---|---|
+| **Approve** | U4 attempt 2 candidate `cccad190…` ready; receipts R1, R2, Lane B, Lane C and Step 4 recorded; R3 corrected | Lane A | Complete with this filing |
+| **Defer** | U6 receipt and U7 annotation in B-050 | Lane B | Next, on this candidate |
+| **Defer** | U8 publish and U9 health | Lane A | After U6 and U7 |
+| **Approve** | Discrepancies 1–5 | Ratified by instruction 3 | Complete |
+| **Reject** | Any push, any third prepare folder, any use of attempt 1, or any U6–U9 step taken from this record alone | All actors | — |
