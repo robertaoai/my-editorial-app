@@ -28572,3 +28572,73 @@ scope, sequence or DoD.
 | B-136 | Follow: the Lane A answer recording U3 completion and the xDD rules proposal |
 | **Encyclopedia** | unaffected per the local citation map `docs/ENCYCLOPEDIA-SYNC.md`; hosted parity not checked |
 | **Graphify** | Governed drift, expected; cleared only by the held U4–U9 guarded cycle (`D-425`), never by a raw rebuild |
+
+## 5.14e266 `D-443` — Entry B: Main xDD Commit-and-Push Rules Adopted (`TB-1`/`TB-2`, `C1`, `P2`); Untracked-Path Dispositions
+
+**Authority: the Judge, directly to Lane A, 2026-10-19**, in chat: "Consolidated Judge Decision (`Entry B` / `D-443`) with
+Included Lane B (Level 1) & Lane C (Level 2) Reviews — 2026-10-19", read baseline
+`8fa21715a1f6b144981a83d0926096aa9aeb2671`, in reply to B-136 §3–§5 at `8fa2171` and `D-442` (retained by Lane A as
+`C:/CoWork/outputs/lane-a-entry-b-2026-10-19/JUDGE-DECISION-ENTRY-B-8fa2171.md`, SHA-256
+`77dd9190e3ad007e8eb14eeba574e1449572901a401d2883018866ce836bce26`; the Lane B and Lane C texts are as supplied inside it).
+This is Entry B, permitted before the TCA r3 and J-C A1 entries by `D-442` item 5. It changes no V1 scope, sequence or DoD.
+
+### The decision
+
+1. **Accepted.** Lane A's xDD rules proposal (B-136 at `8fa2171` §3), subject to conditions G1–G6 below.
+2. **Names (§3b).** `TB-1` (Test Baseline 1) and `TB-2` (Test Baseline 2), so nothing collides with B-136's row 10
+   "Baseline naming". References to `SETUP-SPIKE-000` stay strictly to the recorded terms of `D-185` and `D-264`
+   (`SV-001`, `SV-002`).
+3. **Authority for Red-test construction (§3c): `C1`.** Each test-baseline unit needs its own Register act naming the
+   packet and unit, a Lane B work order, and Lane B `Active` in `V1-PHASE-CLOSURE.md` §5 under `D-156`. `C2` is rejected:
+   `Eligible` grants no work-product execution.
+4. **Push option (§3d): `P2`.** `D-242` and `LANE-B-WORK-ORDER.md` §7 are amended for bounded xDD units only:
+   (a) in an authorized `TB-1` unit with Lane B `Active`, Lane B commits and pushes on trigger (i), the first parent
+   behavioural test in Red, and trigger (ii), each child behavioural test in Red until every behavioural DoD test exists,
+   when all pre-push gates pass; (b) in an authorized `TB-2` unit with Lane B `Active`, Lane B commits each component's
+   Red → Green implementation under trigger (iii) and pushes only after that component's accepted integration evidence
+   and all pre-push gates pass; (c) the target branch is the branch the unit's work order names (currently
+   `features/feature-V1-SM05` unless a future work order names another). Outside such a unit, `B-114`'s push language
+   stands unchanged.
+5. **G3 — coverage and characterization boundary.** Each behavioural DoR → DoD obligation maps to its `TB-1` test and its
+   stated failure reason. Non-behavioural DoD evidence classes stay as they are, and so does `D-242`'s honest
+   characterization branch for existing behaviour. No Red result is manufactured. A missing external tool is not missing
+   product behaviour.
+6. **G5 — no implied activation or current push.** Adopting `P2` starts no test unit and authorizes no current push. Every
+   future `TB-1` or `TB-2` unit still needs its own Register act, work order and `Active` lane (`C1`). No rule authorizes
+   pushing an unrelated or held commit.
+7. **Owners and template (§3a, §3e).** Accepted. `docs/governance/agent-rules-reference.md` (historical, `D-324`) and
+   `docs/templates/dor-dod-validation/v1.md` (`D-264`) stay unchanged. Attempt results and template §6 success-drift
+   comparisons go in separate attempt records.
+8. **G1 and G2 — recording and application.** This entry is recorded in its own commit. A separate application commit
+   changes exactly four files: `AGENTS.md` (one line within the rule budget); `docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md`
+   (a new `[V1]` section carrying `TB-1`/`TB-2`, `C1`, `P2`, G3 and G5); `docs/specs/SPECS-VERIFICATION-APPARATUS.md` (§17
+   extension and a pre-push proof pointer); `docs/LANE-B-WORK-ORDER.md` (§7 pointer and the scoped `P2` amendment).
+   Excluded: `docs/README.md` (retained by B-158's navigation proposal), `.gitignore`, `scripts/`.
+9. **G4 — untracked-path dispositions, before U4.** `.agents/freellm_explorer.toml`: option (b), Lane A moves it byte-exact
+   to `C:/CoWork/outputs/untracked-quarantine-2026-10-19/freellm_explorer.toml`, stopping on a destination conflict, with
+   matching before/after SHA-256 and source-absence proof. Quarantine preserves bytes for a separate post-U9 proposal; it
+   authorizes no installation. `2b1075c_B158.md`: option (d), Lane A rechecks byte equality with committed blob
+   `ffea96009acf8e9ea3a336eb837a0f88f91fcd5c`, removes the file, and retains the comparison and absence proof.
+   `.codex/config.toml`: option (a), its human/environment owner handles it outside the repository and supplies
+   relocation or removal proof and credential-rotation proof, without secret values. Lane A does not read or copy it. If
+   that proof is missing when Steps 1–3 finish, Lane A marks it UNVERIFIED in the Step 4 B-136 filing and holds before U4.
+10. **G6 — U4–U9 release condition.** U4–U9 run only after the committed rules, the B-136 completion record, every path
+    proof, and an empty `git status --porcelain --untracked-files=all`. The sequence stays: U4 prepare → U5 B-136 request →
+    U6 Lane B receipt in B-050 → U7 Lane B annotation → U8 publication citing U6 → U9 full health. No fetch or push during
+    U4–U9. A governed edit after prepare is a stop trigger. Lane B writes its own U6 and U7 records.
+11. **Not given:** the J1 (`D-440`) and J2 (`D-441`) transfers; U10; U11; the pending EV r9 application act; baseline naming;
+    sprint construction; Gate 2; any current push. The gstack EXT-R1 and the REA/FreeLLMAPI bootstrap proposals are queued
+    after U9 under their own bounded checkpoints.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry |
+| `AGENTS.md`, `docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md`, `docs/specs/SPECS-VERIFICATION-APPARATUS.md`, `docs/LANE-B-WORK-ORDER.md` | Follow: the separate application commit (item 8) |
+| **Build Spec** | — unaffected: no artifact created, sequenced or retired; any future `TB-1`/`TB-2` unit needs its own act |
+| **Inventory** | — unaffected: no row added or retired |
+| `CLAUDE.md`, `GEMINI.md`, `docs/README.md`, `docs/PRD.md`, Charter, `0001`, `Modular_PRD.md`, other FN specs and `docs/specs/`, Phase Closure, application code, `.gitignore`, `scripts/` | — unaffected (`CLAUDE.md` imports `AGENTS.md`) |
+| B-136 | Follow: the Step 4 completion filing |
+| **Encyclopedia** | unaffected: `docs/ENCYCLOPEDIA-SYNC.md` identifies no affected local citation entry; hosted parity not claimed |
+| **Graphify** | Governed drift, expected; cleared only by the held U4–U9 guarded cycle (`D-425`), never by a raw rebuild |
