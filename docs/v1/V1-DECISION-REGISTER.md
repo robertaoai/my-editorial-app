@@ -28642,3 +28642,68 @@ This is Entry B, permitted before the TCA r3 and J-C A1 entries by `D-442` item 
 | B-136 | Follow: the Step 4 completion filing |
 | **Encyclopedia** | unaffected: `docs/ENCYCLOPEDIA-SYNC.md` identifies no affected local citation entry; hosted parity not claimed |
 | **Graphify** | Governed drift, expected; cleared only by the held U4–U9 guarded cycle (`D-425`), never by a raw rebuild |
+
+## 5.14e267 `D-444` — Entry C: U4 Replacement Route (`work-r3`) Accepted; Third Intervening Entry Permitted; RC-pre Recording
+
+**Authority: the Judge, directly to Lane A, 2026-10-19**, in chat: "Judge decision — replacement route against:
+da8eed30c5d0436981a0f36b987fd2c12fd973b3", accepting Lane A's replacement-route proposal (SHA-256
+`57096f97ec104ce8e3bdfd91c9bc39e588d6a749a666b1d3a03cd97e6c9a19c6`). The decision is retained by Lane A as
+`C:/CoWork/outputs/lane-a-u4u5-2026-10-19/JUDGE-REPLACEMENT-ROUTE-da8eed3.md`, SHA-256
+`ffbe02337c41f9cdd284995d31cc75101d8caa8f0e5c572811f1e994e1aea9a0` (full message text, transcript
+`417d4ead-c5b7-481e-b141-3a8989ce9446.jsonl` line 281, message `180bb389-f583-4d3b-b902-74a4ee072ee5`). The accepted
+proposal is retained as `C:/CoWork/outputs/lane-a-u4u5-2026-10-19/PROPOSAL-REPLACEMENT-ROUTE-accepted-da8eed3.md`, whose
+bytes hash to that value (the proposal text of transcript line 272, message `cec9858d-90d6-4143-8e0d-01cd8efc33bf`, with
+CRLF line endings). This is Entry C, permitted before the TCA r3 and J-C A1 entries by item 4 below. It registers the
+decision under `D-183` point 5 and changes no V1 scope, sequence or DoD. **Number check (decision item 4):** at
+`da8eed3` the last Register entry is `D-443` (§5.14e266); `D-437` and D-439 are already in use without entries of their
+own; the only other occurrence of `D-444` in the repository is B-136's U5 discrepancy 5, which records that the Register
+held no `D-444` and was ratified without reserving it. `D-444` is therefore the next free number.
+
+### The decision
+
+1. **Parents.** B-136 and D-439 remain Open. The decision released only this recording unit; every other hold remains.
+2. **F1/J-C, J1, J2, J3.** F1/J-C keeps its scope, separate from J1–J3. J1 (`D-440`) and J2 (`D-441`) remain separately
+   registered; each transfer stays held. J3 keeps its existing scope and hold. Registration, transfer, custody and
+   independent verification remain separate states.
+3. **Replacement route — accepted.** The `work-r3` route and its preservation, classification, stop and reporting rules,
+   as written in the accepted proposal §§6.1–6.8, are accepted. One replacement folder is permitted:
+   `C:/CoWork/outputs/lane-a-u4-cycle-2026-10-19/work-r3`. This is the bounded exception to the third-folder prohibition
+   in B-136's U5 filing at `da8eed3`. The folder is not created by this entry. `work-r2` (`cccad190-7d9c-430c-bad5-218c8751e468`,
+   `STATE.json` `fb115686bf6fda0f7af224c652575c7a27d851228c48f2a2d333b65d53832899`) and the failed attempt-1 folder `work/`
+   (`2faf8355-a6d8-4396-9240-b9c209d11100`) stay unchanged; neither is resumed.
+4. **Sequencing amendment — granted.** Item 0 of `D-440` and `D-441`, as amended by `D-442` item 5, is further amended to
+   permit one further intervening Register entry, Entry C (this entry), after `D-443` and before the separate TCA r3 (J3)
+   and J-C A1 entries. The text of `D-440` and `D-441` is not edited; this entry records the amendment. All other terms
+   remain unchanged (the accepted proposal's amendment text names those of `D-440`, `D-441`, `D-437` and `D-442`).
+5. **Entry C check exception — granted, bounded.** For this entry's recording commit only, `docs-drift` may fail in
+   `bun run check`. Every other check must pass. Hooks run and are not bypassed. Lane A records the actual exit codes,
+   failures, tested HEAD and working-file state, and reports tested/staged/committed byte equality only where evidence
+   proves it; a commit cannot cite its own logs, so that evidence is reported outward after the commit. An allowed
+   `docs-drift` failure is not a full pass. The exception covers no unrelated change and authorizes
+   no publication.
+6. **Registration checkpoint — RC-pre.** This entry is recorded before preparation. After committing it, Lane A reports
+   the full commit id and proposes that commit as the revised source pin, then stops. Preparation needs the Judge's
+   separate approval of that pin and an explicit preparation release. No preparation runs at `da8eed3`.
+7. **Scope choices.** Category B (genuinely new descriptions, node ids absent from the `work-r2` pending set): INCLUDE,
+   within the proposal's source-grounded scope. Category C (memberships with no matching reviewed `memberSetSha256`):
+   INCLUDE, within the proposal's naming rules. Optional `walk` clarification: EXCLUDE. U5 supplement scope: ACCEPT as
+   proposed. Failed reuse never enters category B. Out-of-scope defects and unsupported or duplicate names stop the route.
+   These choices release no preparation, resume or U5 filing. The actual-outcome and no-resume reporting rules stand. A
+   `ready` candidate is not independently accepted and is not authorized for publication.
+8. **Not given:** preparation or resume of `work-r3`; the U5 supplement filing; a separate B-136 status commit; build;
+   custody-helper execution; transfer; publish; fetch; push; baseline naming; sprint construction; Gate 2 closure; the
+   J1 (`D-440`) and J2 (`D-441`) transfers; U10 custody; U11 verification; EV r9; every other held action. Lane B keeps
+   U6 and U7. Lane B independently reviews this recording (`D-183` point 6); this entry is not the sole proof of the
+   authority it records.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry |
+| **Build Spec** | — unaffected: no artifact created, sequenced or retired; the replacement candidate is a disposable graph work folder outside the repository |
+| **Inventory** | — unaffected: no row added or retired |
+| `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `docs/README.md`, `docs/PRD.md`, Charter, `0001`, `Modular_PRD.md`, FN specs, `docs/specs/`, Phase Closure, `docs/LANE-B-WORK-ORDER.md`, application code, `scripts/` | — unaffected |
+| B-136 | Follow: the accepted U5 supplement, only after its own release; no B-136 commit under this recording unit |
+| **Encyclopedia** | unaffected: `docs/ENCYCLOPEDIA-SYNC.md` identifies no affected local citation entry; hosted parity not claimed |
+| **Graphify** | Governed drift, expected; cleared only by the held U4–U9 guarded cycle (`D-425`), never by a raw rebuild |
