@@ -21046,3 +21046,323 @@ k15 cases are named one by one, and discrepancies 1–5 are recorded as ratified
 | **Defer** | U8 publish and U9 health | Lane A | After U6 and U7 |
 | **Approve** | Discrepancies 1–5 | Ratified by instruction 3 | Complete |
 | **Reject** | Any push, any third prepare folder, any use of attempt 1, or any U6–U9 step taken from this record alone | All actors | — |
+
+## Lane A — DoR/DoD traceability proposal (revision 3) filed at planning scope; owed reporting corrections C1–C6 and the `D-444` item 5 log-timing correction, 2026-10-20
+
+> **Filed** under the Judge's bounded filing release "Judge decision — bounded DoR/DoD proposal filing", read baseline
+> `46937c41c2df35a4982752186cc34a6ca6e81a47`, retained as
+> `C:/CoWork/outputs/lane-a-b136-dordod-2026-10-20/JUDGE-DORDOD-FILING-RELEASE-46937c4.md`, SHA-256
+> `1cffd0be4c8962a4aef6fb0bbedc19f4bf6af90051efccc608f1af1bf0bd3836` (full message text, transcript
+> `417d4ead-c5b7-481e-b141-3a8989ce9446.jsonl` line 1035, message `a442fb37-8601-465e-8351-c4797a80e1c3`). Judge approval
+> received in the current conversation for this one B-136 append, pending durable registration (`D-183` point 2). It
+> approves revision 3 **at planning scope only**, accepts no feature DoD or business outcome, and releases neither the
+> work-r3 U5 supplement nor U6–U9. B-136 and D-439 stay **Open**.
+
+### What happened
+
+**1. B-136 → D-439.** Both stay Open. F1/J-C keeps its scope, separate from J1–J3. J1 (`D-440`) and J2 (`D-441`) stay
+separately registered; their transfers stay separately held. Registration, transfer, custody and independent verification
+remain separate states.
+
+**2. Sources, kept distinct.**
+
+| Source | What it is | Retained copy and hash |
+|---|---|---|
+| The Judge's filing release | Authority for this append only | As above (`1cffd0be…`) |
+| Lane B's review | The drafted traceability finding (unfiled, no handoff number) with its request, then two revision rounds each labelled R1–R5, supplied in session; authorship as supplied (the Judge's release calls it Lane B's review) | Transcript `417d4ead…` line 657 (message `b6ed4aa5-1dfd-47c8-87d1-8ca2222e9f43`), line 804 (`e8e60700-0a26-4fcc-855d-0fe2e3ff9d5d`) and line 996 (`7c3c76a7-832c-4e6b-ba6d-48f2bee3629e`); locators only. The review texts are provenance, not this filing's authority |
+| Approved proposal, revision 3 | Lane A's answer to that review, approved by the Judge at planning scope | `C:/CoWork/outputs/lane-a-b136-dordod-2026-10-20/PROPOSAL-DORDOD-r3.md`, SHA-256 `df521092ae089cdd56d5f983706976d79b8a86bde96d89b0d6c4324d9f75b571` (27,976 bytes, LF; the proposal text of transcript line 1026, message `24139803-9f44-4e4e-9f21-e5697e24da11`, from its first heading to its end) |
+| Accepted replacement-route proposal | Source of the C1–C6 wording | `C:/CoWork/outputs/lane-a-u4u5-2026-10-19/PROPOSAL-REPLACEMENT-ROUTE-accepted-da8eed3.md`, SHA-256 `57096f97ec104ce8e3bdfd91c9bc39e588d6a749a666b1d3a03cd97e6c9a19c6` (accepted by the decision recorded in `D-444`) |
+| `D-444` item 5 timing instruction | Source of the timing-correction wording; the finding is Lane B's review of the `D-444` recording | `C:/CoWork/outputs/lane-a-b136-dordod-2026-10-20/INSTRUCTION-D444-TIMING-46937c4.md`, SHA-256 `683b26d97dfe2d09034d7aa012b57de2b6899f6d618d0ed102edd885cbe59443` (transcript line 442, message `89a6395e-4ebb-4d0c-a426-77bdd760bc6e`) |
+
+No new handoff number is assigned, and no other actor's answer field is written. Lane B's finding is recorded here by
+reference; it remains Lane B's to file or not.
+
+**3. Owed reporting corrections C1–C6** (copied verbatim from the accepted replacement-route proposal, §5.1). Section
+references inside this table (`§5.2`, `§8`) are that proposal's own sections. `da8eed3`, the U5 text and the sent packet
+stay as they are; each row supersedes earlier wording without rewriting it.
+
+| # | Earlier wording, and where | Correction |
+|---|---|---|
+| C1 | My reports have treated an `Answered` entry as finished. | **Open entries do not require Resolution. Answered entries require Resolution unless Kind is turn-report. Answered status alone does not establish closure.** Source: `D-204`; handoff SOP `docs/handoff/README.md` lines 492–498. The conflicting `TEMPLATE.md` placeholder ("omit while Open or merely Answered") is a separate documentation issue (§8). No template repair is part of this unit. *(R1, approved by Lane B.)* |
+| C2 | "A correction inside `work-r2` would therefore destroy the candidate." (transcript `e1b197bb…jsonl` line 3479) | **What the guard actually does** (`guarded-rebuild.mjs:2460`): resuming a `ready` folder with a different answers hash writes `state: "failed"` with the reason "the answers changed after ready". The folder is not deleted. A failed folder cannot be resumed again (line 2461 accepts only `pending`). |
+| C3 | "No meaning review occurred." (The locator is **UNVERIFIED**: the phrase was not found verbatim in transcript `e1b197bb`.) | **The source review missed two overstatements**, in the descriptions of `r3_make_custody_addendum_d439` and `r3_make_custody_addendum_d439_all` (§5.2). Lane B found this, not Lane A. |
+| C4 | Packet §5 named only `D-428` and `D-442` item 6. | **The packet left out the explicit authority:** `JUDGE-RESPONSE-3cc3144.txt` item 6 (SHA-256 `de951f79…`; B-136 lines 20408–20419 and 20511). Its bounded check exceptions stay unchanged:<br>• U1–U8: only `docs-drift` may fail.<br>• Between U6 and U7: `terminal-return` may also fail.<br>• At U9: every check passes.<br>• Throughout: hooks are mandatory, and no fetch or push is allowed from U4 to U9.<br>Lane B found and stated this source; Lane A confirmed the hash and lines. |
+| C5 | U5: "Filed on two instructions", and a blanket byte-copy claim. | "The U5 filing receives three instructions. Instruction 1 retains the exact pasted body from transcript line 2760, message `97f934f2-aba9-466b-ab23-eb2f9afc7eff`, without the transcript wrapper (8,282 of the message's 8,339 characters; the 57 left out are the opening and closing paste-wrapper tags). Instructions 2 and 3 retain the full message text at lines 3066 and 3211 (`baeafd2a…`, `34f35488…`)." The files, hashes, attribution and authority do not change. |
+| C6 | The B-158 `8a79786` timing correction. | (a) Already *reported* in B-136 §7 (around line 20361). (b) The durable *filing in B-158* is **still owed**, with B-158's next authorized substantive answer. This supplement does not discharge (b). |
+
+C1 is the R1 wording Lane B approved. C6(b) is not discharged here: the durable B-158 filing stays owed with B-158's next
+authorized substantive answer. When the work-r3 U5 supplement is released, it may cite this filing for C1–C6; whether it
+repeats them is for that release.
+
+**4. `D-444` item 5 log-timing correction** (finding: Lane B's review of the `D-444` recording at `46937c4`). `D-444` at
+`46937c4` is not rewritten. Its item 5 sentence "a commit cannot cite its own logs, so that evidence is reported outward
+after the commit" is superseded, as a blanket claim, by:
+
+"The two check logs were produced before commit, at HEAD da8eed3 with the Register modified. Each reports 18/19 passes, docs-drift as the only failure, and exit 1. Their bytes are identical. The completed commit trace and the post-commit content comparison became available after commit completion. The comparison confirms that tested, staged and committed Register bytes match. No post-commit check-suite run is claimed."
+
+The accepted Entry C recording and its bounded `docs-drift` exception stand unchanged.
+
+**5. The approved proposal, revision 3, in full.** Each line below is the retained source line prefixed with `> ` (a blank
+source line becomes `>`). Removing that prefix reproduces `PROPOSAL-DORDOD-r3.md` byte for byte. Its own references to
+"this entry" and "Lane A: Acknowledged" belong to the drafted Lane B finding; filed here, they read as references to this
+B-136 record. Approval is at planning scope; nothing in it executes.
+
+> # Lane A — acknowledgement and answer: restore behaviour-to-evidence traceability (revision 3; draft, not filed)
+>
+> **For Lane B's finding as drafted (Kind: finding, Phase 1). Read baseline `46937c41c2df35a4982752186cc34a6ca6e81a47`.** Lane B raises and numbers the entry (`D-306`); Lane A writes only its own field. This revision applies corrections R1–R5 and keeps the content already accepted.
+>
+> **Lane A:** Acknowledged. Receipt only: this is not a disposition, and `Status` stays `Open`. The answer follows.
+>
+> ## What happened (Lane A receipt)
+>
+> **Lane B's correction of scope is accepted.** Behaviour defined in governed documents is implemented in three places, and each keeps its evidence in its own owning record:
+> - **application code:** Lane B; the feature attempt;
+> - **governance scripts:** Lane A; the owning Register and Inventory rows, and B-050 for the graph guard;
+> - **CI workflows:** existing CI unchanged; Phase 3 work belongs to `V1-SM06`.
+>
+> **Read at `46937c4`:**
+> - the Register (`D-99`, `D-106`/`G80`, `D-259`–`D-261`, `D-264`, `D-267`, `D-381`–`D-383`, `D-443`, `D-444`);
+> - `SV-002.md`, `V1-SM05.md`, template v1;
+> - FN-GATES §4.3/§4.4/§4.6, `Modular_PRD` `AC-02`/`AC-23`–`26`, FN-MULTI §11, SPECS §17/§18;
+> - `scripts/jev/*` and the `V1-SM05` manifest;
+> - `scripts/fixtures/*`, `scripts/checks/lane-*.mjs`, `scripts/lane-gate.mjs`, `scripts/check-consistency.mjs`;
+> - `package.json`, `ci.yml`.
+>
+> **Retained evidence inspected:** the B-156 run logs at `072de37`, and the committed Jev readiness receipt.
+>
+> ## 1. B-136 → D-439 and authority
+>
+> - **B-136 and D-439 stay Open.** F1/J-C keeps its scope, separate from J1–J3.
+> - **J1 (`D-440`) and J2 (`D-441`)** stay separately registered, and their transfers stay separately held.
+> - **Lane B is `Eligible`**, which grants no construction (`D-443` item 3; `AIG-01.R4`).
+> - **`V1-SM05` is `BLOCKED`** (`D-434`).
+> - No checked DoR row or answer grants authority (`SV2-DOR-06`).
+>
+> ## 2. Governing intent, test approach and phase sequence
+>
+> | Act | What it fixes |
+> |---|---|
+> | `D-99` | Phase 1 opens first and **closes last**, after the return review (`C-20` cycle) |
+> | `D-259` | `DOR-R1`–`R7`; the DoR→DoD map is recorded once in `V1-SM05.md`. **Canonical Given/When/Then rows plus `bun:test` adapters, no second corpus; Cucumber deferred** (item 11). Harness contract only. Jev System One |
+> | `D-264` | Template v1 is immutable and pinned (`ca605cd6…`, which matches at `46937c4`). FV-001 is an unrun shell created after selection and before lane transfer |
+> | `D-267` | Lineage → attempt → unit → run. Gate 1B (setup) is kept apart from Gate 2 (feature). `SV-002` is accepted (`D-434`) and is never edited. A new setup gap opens the next attempt |
+> | `D-381`–`D-383` | **The SM05 DoD is met by local validation:** typecheck, lint and tests; the full local consistency run; the disposable local PostgreSQL replay of `0002`; FV-001's failing-first and passing evidence (`D-383` G2). **Plus Lane A's return review** (`D-259` independent verification). A push-triggered CI result is not a prerequisite. **Existing CI continues unchanged.** Phase 3 → `V1-SM06` (`SM06-P3-01`–`06`), after the accepted SM05 DoD and a separately accepted baseline-promotion PR |
+> | `D-443` | `TB-1`/`TB-2`, `C1`, `P2` triggers (i)–(iii). **G3 prohibits manufactured Red results. It does not prohibit governance behavioural tests** |
+>
+> **Sequence:**
+> 1. Phase 1 intent and DoR (accepted).
+> 2. Judge lifts the block and selects; FV-001 shell; `D-242` work order.
+> 3. Phase 2 `TB-1` → `TB-2`, all with local validation; Lane B Jev completion `ready-for-independent-review`; handover.
+> 4. **Phase 1 return review** (Lane A Jev re-run, harness, Judge acceptance).
+> 5. Later and separately: baseline-promotion PR → `V1-SM06` Phase 3.
+>
+> SM05 acceptance waits on no Phase 3 work. Phase 1 closes last. The baseline-promotion PR is not B-136's held "baseline naming" item.
+>
+> ## 3. Executable trace
+>
+> **PROPOSED** marks a path that does not exist. **PENDING** marks a path that awaits the work order. Lane B chooses the method per child (`D-242`).
+>
+> Case names are the canonical IDs pinned in `scripts/jev/manifests/V1-SM05.json` (`bd5cbae1…`, matching the readiness receipt). Jev completion's `test-names-scenario` rule requires each test file to contain the IDs it claims.
+>
+> ### 3a. Feature obligations (`V1-SM05` DoD)
+>
+> **Common to every row F1–F6:**
+> - **Local database:** `bun run db:reset` (the existing script, `supabase db reset`) before each run. Whether that counts as `D-383`'s "`0002` replay" evidence is PROPOSED, pending the work order.
+> - **Red at `TB-1`:** the case fails because the operation it calls does not yet exist, so the asserted rows or refusal are absent. Each case records that stated reason.
+> - **Green at `TB-2`:** the case's Then holds against the real local database.
+> - **Evidence destinations (PENDING):**
+>   - FV-001 unit and run rows in `docs/v1/work-packets/V1/V1-SM05-FV-001.md` (PROPOSED; created after selection);
+>   - Lane B evidence-manifest items `{dod, ids, artifact, revision, result, failingFirst | characterization, negative}` at a path the work order names (PROPOSED: `docs/v1/work-packets/V1/evidence/V1-SM05-FV-001-evidence.json`).
+>
+> | # | Canonical ID | DoR | DoD (Jev flags) | Class | Test path (PROPOSED) · command | Case-specific expected result (Green; Red = row absent unless stated) |
+> |---|---|---|---|---|---|---|
+> | F1 | `AC-02` (`Modular_PRD`) | `R1` | Acceptance cases (`failingFirstRequired`) | Behavioural, database | `__tests__/v1-sm05/journey.test.ts` · `bun test __tests__/v1-sm05/journey.test.ts` | The same submitter's same brief on the same day is refused with a reason; the same brief on a different day is permitted |
+> | F1 | `SM05-N1` | `R1` | Behaviour by namespace; Acceptance cases | As above | Same file | Intake record with acceptance event and supplier, one `EW` event, one workflow identity, and a `ROUTE-PROD-1` route record (R Reporter, A Desk Editor) are appended; no gate advances |
+> | F1 | `SM05-N2` | `R2`, `R4` | As above | As above | Same file | `OP-PITCH` Route-1 judgment, `ROLE-REPORTER` selection, one scoped `OP-DRAFT` instance and its evidence are recorded, labelled by namespace; `T1` complete |
+> | F1 | `SM05-N3` | `R1` | As above | As above | Same file | Judgment, role, explicit `T2a`/`T2b` applicability and join disposition are recorded; route unchanged; no research operation |
+> | F1 | `SM05-N4` | `R2`, `R4` | As above | As above | Same file | Journalist-context `OP-PITCH` judgment, newsworthiness fields (score 1–10, periods, sources, revision reference), one `OP-DRAFT` instance; `T3` complete |
+> | F1 | `SM05-N5` | `R1` | As above | As above | Same file | Fallout-comparison judgment, role and task evidence; no legal-risk operation; `T4` complete |
+> | F1 | `SM05-N6` | `R1` | As above | As above | Same file | One ranking and routing record to the Desk Editor is appended and shown; nothing is signed, approved or published; article state unchanged |
+> | F2 | `SM05-RV1` | `R5` | Acceptance cases | Behavioural | Same file | Ranking is blocked, naming the missing fields; a `T3`-only return event is appended; a new `T3` execution opens with a new attempt identity and the next revision reference |
+> | F2 | `SM05-RV2` | `R5` | Acceptance cases | Behavioural | Same file | Prior `T3` is kept as not-current history; `T1`/`T2` untouched; `T4` stays current; the new ranking combines both; the UI shows both executions and which is current |
+> | F3 | `SM05-F1` | `R5` | Display, not enforcement; Accepted-contract traceability (journey); Persistence (read side) | Behavioural, UI over data | `__tests__/v1-sm05/visible-facts.test.ts` · `bun test __tests__/v1-sm05/visible-facts.test.ts` | Every Panel A11.4 fact is shown and traces to one recorded source; RACI/Line, `OP-COPY-EDIT` provenance and the reminders are display-only; article state read-only |
+> | F4 | `SM05-X1` | `R3`, `R4` | Exclusions verified absent (`negativeRequired`) | Behavioural, absence | `__tests__/v1-sm05/exclusions.test.ts` · `bun test __tests__/v1-sm05/exclusions.test.ts` | No `transition:T*` row, `T6` gate, article-state change, Line 3 workflow, `OP-FINAL-SIGNOFF` enforcement, `OP-COPY-EDIT` execution, WordPress path, `ManualReady` or `Published` is created, offered or shown. **May pass before construction:** recorded as `characterization`, not a Red result |
+> | F5 | `DOR-R2 positive` | `R2` | Refusal and replay (`negativeRequired`) | Behavioural | `__tests__/v1-sm05/refusal-replay.test.ts` · `bun test __tests__/v1-sm05/refusal-replay.test.ts` | Exactly one completed pitch and route classification |
+> | F5 | `DOR-R2 duplicate` | `R2` | As above | Negative | Same file | No second completion; the repeat stays visible in the audit trail |
+> | F5 | `DOR-R2 failure` | `R2` | As above | Negative | Same file | Nothing advances; failure evidence appended; a later valid attempt yields one completion |
+> | F5 | `DOR-R3 missing intake` | `R3` | As above | Negative | Same file | Refused with a named reason; no gate, state or workflow identity is created. Red: no named refusal |
+> | F5 | `DOR-R3 duplicate EW` | `R3` | As above | Negative | Same file | No second workflow; identity stable |
+> | F5 | `DOR-R3 new work` | `R3` | As above | Behavioural | Same file | A distinct workflow identity for a different commission identity |
+> | F5 | `DOR-R4 executor` | `R4` | As above | Behavioural | Same file | Reporter is the executor of record; Chief Editorial Desk is the application `A`; a repeat dispatch creates no second execution |
+> | F5 | `DOR-R4 final sign-off` | `R4` | As above | Negative (display only) | Same file | The reminder is displayed and nothing is enforced or executed. May pass before construction: `characterization` |
+> | F6 | `SM05-IN1` | `R1` | Intake source fixtures (`negativeRequired`, `failingFirstRequired`) | Behavioural | `__tests__/v1-sm05/intake-source.test.ts` · `bun test __tests__/v1-sm05/intake-source.test.ts` | A valid URL passes validation |
+> | F6 | `SM05-IN2` | `R1` | As above | Behavioural | Same file | An admitted `.md` with an unreachable URL passes; its reference is URL plus the SHA-256 of the exact text; never shown as "URL confirmed live" |
+> | F6 | `SM05-IN3` | `R1` | As above | Negative | Same file | No source reference fails with §3.1's named validation failure; nothing admitted |
+> | F6 | `SM05-IN4` | `R1` | As above | Negative | Same file | An `.md` with no original URL is refused at admission; nothing admitted |
+> | F7 | **Persistence** (see R4) | `R1`, `R5` | Persistence | Behavioural | Write side through the F1 cases; read side through `SM05-F1` | As F1 and F3. The residual assertion is UNVERIFIED (see R4) |
+> | F8 | `DOR-R6`; `ENCYCLOPEDIA-SYNC.md` | `R6` | Accepted-contract traceability (vocabulary) | Non-behavioural review | No test | Review record at the final pinned revision → FV-001 DoD |
+> | F9 | `D-247` | `R6` | Partial-`CR-19` disclosure | Non-behavioural review | No test | Disclosure present wherever the slice is described → FV-001 DoD |
+> | F10 | `D-383` G2; §18.2 | `R7` | Evidence recorded | Command and receipt | `bun run typecheck`; `bun run lint`; `bun test`; `bun run check`; `bun run db:reset`; `bun run jev completion --manifest scripts/jev/manifests/V1-SM05.json --evidence <PENDING evidence-manifest path> --out <PENDING receipt path>` | Each command exits 0. `bun run check` passes except a Judge-named failure. **Jev completion outcome `ready-for-independent-review`.** Receipt goes to `docs/v1/work-packets/V1/receipts/V1-SM05-jev-completion-<run>.json` (PROPOSED, PENDING) and is attached to Lane B's handover report |
+> | F11 | §18.3; `D-259` | `R7` | Independent verification (Jev `completionExempt`) | Three distinct things | (a) Lane A re-runs F10's Jev completion command; (b) the **executable harness** at `scripts/acceptance/` (missing script) with its **negative-control journey**; (c) the **acceptance record** | (a) `ready-for-independent-review`; (b) journeys complete **and** the negative control fails; (c) a Judge act. (a) and (b) are evidence and go to FV-001. (c) goes to the Register, then `V1-SM05.md` "Test / evidence links" |
+>
+> ### 3b. Governance obligations
+>
+> **What "audit" covers here: exactly the mappings below.** The mapping was done by name, module and ID search over the files named, at `46937c4`. Per-case assertion review was **not** performed.
+>
+> | # | Source | Test or script · exact runner | Mapping performed | Latest retained run inspected | Owning record |
+> |---|---|---|---|---|---|
+> | G1 | `C-14`; the 19 checks in `check-consistency.mjs` | `scripts/fixtures/suites.mjs` (26 suite functions) via `run.mjs` in a disposable worktree · **`bun run fixtures`** | Check → fixture, by check name and module name, over `scripts/fixtures/{run,suites,harness}.mjs` and `graphify-guard.test.mjs`. **14 of 19 checks map to named negative fixtures.** In that corpus, **no fixture references `duplicate-ids`, `settings-parse`, `decision-status`, `source-sweep` or `phase-manifest`** (the only hit is a historical comment in `harness.mjs`). This finding is bounded to the corpus searched. Inventory line 38's historical claim (`phase-manifest`, "Negative-tested four ways", 2026-08-22) is **preserved**; a dated qualification is proposed (X1) | 297/297 fixtures behaved as intended, pinned `072de37` (`docs/handoff/artifacts/B-156/F2b-run-072de37-fixtures.log`) | Register `C-14`/`G80`/`D-106`; Inventory |
+> | G2 | `D-425`; B-050 F1–F3 | `scripts/fixtures/graphify-guard.test.mjs` · **`bun test scripts/fixtures/graphify-guard.test.mjs`** (also run by `bun test`; **not** by `bun run fixtures`) | The `describe` labels map to requirement IDs: F1-R3/`D-420`, R4/PC6, R5, `D-423`, `D-424` R1/R3/R4/G-D423-1, `D-425` F3-R1a/F3-R2, and others. **The per-case mapping to B-050 §4's matrix (line 2384) was not audited** | **266 guard cases passed**, within **296 passing tests across five files, 0 failures**, at `072de37` (`F2b-run-072de37-bun-test.log`). The source has 143 `test(` call sites; parameterized cases expand them to 266 when run | B-050 |
+> | G3 | §18.2 | `scripts/jev/selftest.mjs` · `bun run jev:selftest` | Rule name → selftest occurrence: each Jev rule named in 3c R7 appears in a selftest case. Per-case correctness was not audited | "jev selftest: every case behaved as named" at `072de37`. Readiness receipt `docs/v1/work-packets/V1/receipts/V1-SM05-jev-readiness.json`: outcome **`pass`**, evaluated at `31bcf3a`, manifest `bd5cbae1…` (current) | SPECS §18.2; `V1-SM05.md` `DOR-R7` |
+> | G4 | `D-88` | `scripts/lane-gate.mjs` (commit-msg) · `laneGate` suite via `bun run fixtures` | Three fixtures: declaration in the trailer block; declaration separated by a blank line; no declaration | Within 297/297 at `072de37` | Register `D-88`/`D-105` |
+> | G5 | Template v1 | `sha256sum docs/templates/dor-dod-validation/v1.md` | Hash only; non-behavioural | `ca605cd6…` matches `SV-002`'s pin (read at `46937c4`) | `SV-002` §1 |
+>
+> **Currency.** `git log 072de37..46937c4` over `scripts/`, `__tests__/` and the prune test is empty, so the script and test bytes are unchanged. The **latest retained runs inspected** are at `072de37`. They are not runs at `46937c4`, and the governed documents those checks read have changed since.
+>
+> **CI.** `ci.yml` (typecheck, lint, `bun test`, `bun run check`) **continues unchanged**. It is not an SM05 DoD prerequisite. Phase 3 belongs to `V1-SM06`.
+>
+> **Application tests not audited for relevance:** `__tests__/{s1-schema,build-config,smoke}.test.ts` and `supabase/tests/database/s1_transition_enforcement.test.sql`. An ID search alone does not prove they are irrelevant.
+>
+> ### 3c. `AIG-01.R4`–`R8`, classified one by one (FN-MULTI §11.2)
+>
+> | Rule | Procedural proof | Script-enforced behaviour today | Existing test or case | Remaining gap |
+> |---|---|---|---|---|
+> | **R4**: a unit runs only with its own Register act, a Lane B work order and Lane B `Active`; `Eligible` grants nothing | Register act naming packet and unit; work order; §5 row reading `Active` | `lane-state` refuses an ill-formed §5 table (two `Active`, none `Active`, two `Eligible`). `lane-boundary` reports a lane crossing after the fact. `lane-gate` requires a `Lane-Crossing:` declaration for multi-lane commits | `laneState` (9 fixtures), `laneBoundaryToolCrossing` (5), `laneGate` (3), via `bun run fixtures` | **No script checks** that a Lane B commit occurs only while §5 shows Lane B `Active` and a unit act exists. A governance behavioural check would be legitimate under G3; it is proposed only (X9) |
+> | **R5**: `TB-1` commit and push after trigger (i) and each (ii), when every pre-push gate passes | Pre-push proof (`docs/handoff/README.md` item 4, line 99): fresh fetch, upstream = base, range = the unit's commits; push evidence (the U3 precedent is Lane B's retained push-evidence JSON) | `bun run check` and hooks. Jev completion `failing-first` records the Red later | C-14 fixtures; Jev selftest `failing-first` | **No script checks** the commit path set ("only that test's files") or range composition before a push (X9) |
+> | **R6**: `TB-2` commit per component; push only after accepted integration evidence and gates | Integration-acceptance record plus the pre-push proof | Jev completion `result-pass` and `artifact-current`, after the fact | Jev selftest cases for those rules | **No script detects** a weakened or deleted assertion. Today that is human review at the return (X9) |
+> | **R7**: each behavioural DoR→DoD obligation maps to one `TB-1` test with its stated reason; non-behavioural classes keep their own proof; no manufactured Red | FV-001 trace map; Lane A return review | **Jev enforces part of it:** readiness `dor-maps-once`, `dor-maps-to-dod`, `evidence-class-named`, `gwt-complete`; completion `dod-evidenced`, `failing-first` (or `characterization`), `negative-evidence`, `test-names-scenario`, `behaviour-evidenced` | Jev selftest cases for each named rule | Jev cannot tell a genuine Red from a manufactured one. That stays a human review (Lane A return; Lane B feasibility) |
+> | **R8**: adoption starts no unit and authorizes no current push; nothing unrelated or held is pushed | The absence of any unit act; the Judge's push authorizations | None | None | **No script checks** that a pushed range excludes held commits (X9) |
+>
+> ## R4 — Persistence
+>
+> - **Existing intent:** `V1-SM05.md` DoD Persistence ("every control and form writes to the database and the UI reflects it; no dead button"), and `AGENTS.md` line 54.
+> - **Existing mappings:** `DOR-R1` and `DOR-R5` both list Persistence in the DoR→DoD map.
+> - **Existing scenario coverage:**
+>   - *writes:* `AC-23`/`SM05-N1`–`N6`;
+>   - *the UI reflects them:* `AC-25`/`SM05-F1`;
+>   - *display-only controls enforce nothing:* `SM05-F1`;
+>   - *excluded actions are not offered:* `SM05-X1`.
+> - **Residual, UNVERIFIED pending Lane B feasibility:** whether those rows together already determine "no enabled control that is neither an N-series write nor display-only". This is **not** a confirmed missing definition. It adds **no** automatic new scenario and **no** new Judge gate. Lane B's `TB-1` feasibility record settles it.
+> - If Lane B finds the rows insufficient, any later proposal follows the normal governed-edit route (§6).
+>
+> ## 4. Phase and commit/push sequence
+>
+> | Trigger | Authority | Commit | Push | Proof |
+> |---|---|---|---|---|
+> | (i) First parent behavioural test, Red | `TB-1` Register act naming the packet and unit; Lane B work order; Lane B `Active` (`C1`) | That test's files under `__tests__/` | After every pre-push gate | Fails for its stated reason; nothing regresses; `bun run check` passes except a Judge-named failure; hooks; fresh fetch, upstream = base, range = the unit's commits only; fetch after push (§17.1) |
+> | (ii) Each child test, Red | As (i) | That child's files | As (i) | As (i); at `TB-1` lock, no behavioural obligation F1–F7 lacks a test |
+> | (iii) Component, Red → Green | `TB-2` act, work order, `Active` | That component's files; no weakened assertion | After accepted integration evidence and the gates | Target tests pass; no regression |
+>
+> **Not extended.** Lane A scripts (F11 harness, G1 fixtures, X9 checks) need Lane A `Active` and a Judge act. Lane C keeps CI unchanged, and Phase 3 is `V1-SM06`'s. Whether test-first discipline should apply to those surfaces is a separate Judge question.
+>
+> **Return review (Phase 1).**
+> 1. Lane A re-runs Jev completion and expects `ready-for-independent-review`.
+> 2. Lane A builds and runs the harness, including its negative control.
+> 3. The Judge records acceptance.
+> 4. Lane A adds the entry points, commands, results and revision pins to FV-001's DoD and to `V1-SM05.md` "Test / evidence links". Earlier results are preserved.
+> 5. Unresolved gaps get a destination, owner, proof and return trigger. **Phase 1 closes last.**
+>
+> **FV-001 identity (proposed, qualified).**
+> - `Previous-Attempt`: `none`.
+> - `Success-Baseline`: **none for feature outcomes**; `SV-002` for process dimensions only.
+> - Setup evidence earns no feature-completion credit.
+>
+> ## 5. Reporting classes
+>
+> | Class | Items |
+> |---|---|
+> | **Existing retained evidence** | Jev readiness receipt (`pass`, `31bcf3a`, current manifest); latest retained runs inspected at `072de37`: `bun test` 296 passing across five files with 0 failures, including 266 guard cases; `bun run fixtures` 297/297; Jev selftest "every case behaved as named"; template hash pin; B-050's guard records; the `D-444` commit's `bun run check` logs (18/19, `docs-drift` only, held outside the repository, reported in-session) |
+> | **Missing scripts** | `scripts/acceptance/`; the SM05 test files F1–F6 (PROPOSED paths); negative fixtures for the five checks in G1's searched corpus; any X9 governance checks |
+> | **Scripts not yet run** | Jev completion (no evidence manifest yet); `bun run db:reset` as SM05 evidence; none of the existing suites has a retained run at `46937c4` |
+> | **Mappings not yet audited** | G2 per-case mapping to B-050's matrix; G3 per-case correctness; relevance of the S1 application tests; per-fixture assertion review in G1 |
+> | **Acceptance still pending** | `V1-SM05` DoD definition (header "Defined 2026-09-20 — not complete, not reviewed"; a later accepting act is UNVERIFIED); the SM05 business outcome; Lane B feasibility of R4's residual; Lane B review of this answer |
+>
+> ## 6. Candidate preservation and stop
+>
+> - **Unchanged:** work-r3 (`10da9e89…`, STATE `9e933c7c…`, graph `db2733c6…`, analyzed `46937c4`), work-r2 and the failed `work/` folder. Neither older folder is resumed.
+> - **Proposed governed edits that would invalidate work-r3:**
+>   - G1 fixtures and the Inventory qualification;
+>   - X9 checks;
+>   - any FN-GATES row;
+>   - `V1-SM05.md` links;
+>   - creating FV-001 or `SV-003`;
+>   - any Register act.
+>   Each is a non-`docs/handoff/` commit: the guard refuses publication (`publicationSourceFindings`), and `D-443` item 10 makes it a stop trigger.
+> - **Required order:** U5 → U6 → U7 → U8 → U9 (each released separately) → Judge act for the edit → `D-54` propagation → guarded graph cycle → Lane B review. **Or** a Judge disposition of work-r3 first.
+> - **Handoff-only filings** satisfy the guard's rule, but sit inside U4–U9 with no named check exception, so the Judge must sequence them.
+> - **`SV-003`:** not proposed. The G1 finding is bounded to the corpus searched, and C-14 fixture coverage is outside `SV-002`'s coverage scopes. If the Judge classifies it as setup, `SV-003` (with a drift row from `SV-002`) becomes the route.
+> - **This answer releases neither U5 nor U6–U9.**
+>
+> ## Gap / fix table
+>
+> | # | Gap | Class | Fix | Owner | Phase | Return trigger | Completion proof |
+> |---|---|---|---|---|---|---|---|
+> | X1 | No fixture for 5 checks in the corpus searched; Inventory line 38's historical claim | Missing script (bounded) | Add suites, each with a positive control and a finding-specific assertion; add a **dated qualification** to line 38 without rewriting it | Lane A; Lane B review | Phase 1 | Judge act after U9 | `bun run fixtures` names each new suite and passes; qualification note; Lane B review |
+> | X2 | Guard runner and counts | Reporting | Corrected in G2 (`bun test`; 266 executed cases) | Lane A | Now (text) | — | This answer |
+> | X3 | SM05 behavioural tests | Missing script / not run (correct while `BLOCKED`) | `TB-1` → `TB-2` with the 3a cases | Lane B | Phase 2 | Selection, unit act, work order, `Active` | Red with reasons, then Green, in FV-001; Jev completion `ready-for-independent-review` |
+> | X4 | Persistence residual | UNVERIFIED | Lane B feasibility in `TB-1` | Lane B | Phase 2 | `TB-1` feasibility record | Feasibility statement citing N1–N6/F1/X1 |
+> | X5 | Harness | Missing script | Build to §18.3, with the negative control | Lane A | Phase 1 return | Handover with `ready-for-independent-review`, plus a Judge act | Harness run: journeys complete, negative control fails |
+> | X6 | S1 test relevance; G2/G3 per-case mapping; G1 per-fixture review | Not audited | Read-only audits | Lane A (G2 with the B-050 owner) | Phase 1 | Next authorized Lane A turn | Audit tables in this entry |
+> | X7 | DoD-definition acceptance | Acceptance pending (UNVERIFIED) | Cite the accepting act, or obtain one | Lane A; Judge | Phase 1 | Before `TB-1` lock | Register citation or act |
+> | X8 | FV-001 success baseline | Definition | Qualified per §4 | Lane A proposes; Judge | Phase 1 → 2 | FV-001 creation | FV-001 identity rows |
+> | X9 | `AIG-01` R4/R5/R6/R8 not script-enforced | Optional governance behavioural checks (G3 permits them) | Design proposals only; build only by Judge act | Lane A | Phase 1 | Judge decides | Accepted design, then fixtures that pass and fail as intended |
+>
+> ## Accept / Reject / Defer
+>
+> | Item | Verdict | Owner | Phase | Trigger | Proof |
+> |---|---|---|---|---|---|
+> | Scope correction; evidence kept in each owning record | **Accept** | Lane A | Phase 1 | — | This answer filed |
+> | Mapping performed (G1–G5, `AIG-01.R4`–`R8`), limited as stated | **Accept** | Lane A | Phase 1 | — | 3b and 3c |
+> | `D-381`–`D-383` sequence; local validation plus the return review; CI unchanged | **Accept** | — | — | — | §2 |
+> | Executable trace F1–F11 (PROPOSED / PENDING paths) | **Accept** as a proposal | Lane B constructs; Lane A records | Phase 2 | Selection and unit acts | FV-001 runs; `ready-for-independent-review` |
+> | X1, X5, X6, X7, X9 | **Defer** | As in the gap table | As listed | As listed | As listed |
+> | X4 Persistence residual | **Defer** to Lane B feasibility; no new gate | Lane B | Phase 2 | `TB-1` | Feasibility record |
+> | `SV-003` | **Reject for now**; Judge option | Judge | Phase 1 | Setup classification | `SV-003` with drift ledger |
+> | Rewriting historical negative-testing claims | **Reject**; qualify by dated note | All actors | — | — | — |
+> | Editing `SV-002` rows or template v1 | **Reject** | All actors | — | — | — |
+> | Manufactured Red results, a second scenario corpus, tests for non-behavioural rows | **Reject** | All actors | — | — | — |
+> | Treating the harness or its negative control as the acceptance record | **Reject** | All actors | — | — | — |
+> | SM05 acceptance waiting on Phase 3 or CI | **Reject** | All actors | — | — | — |
+> | Construction inferred from `Eligible`, a checked DoR or this answer | **Reject** | All actors | — | — | — |
+> | A governed edit before U9 that would invalidate work-r3 | **Reject** without a Judge disposition | All actors | — | — | — |
+> | Filing this entry and answer during U4–U9 | **Defer** | Judge sequences; Lane B files; Lane A answers | Phase 1 | Judge sequencing act | Handoff commits with check proof |
+> | U5, U6–U9, J1/J2 transfers, U10, U11, EV r9, baseline naming, Gate 2, pushes | **Defer** (held) | Existing owners | Their own checkpoints | Each separate release | Their own records |
+>
+> **Approving this answer grants no execution permission.**
+>
+> **What you did instead.** I read committed sources and retained evidence only. I made no repository edit, commit, build, test run, transfer, publication, fetch, push or Register write. work-r3, work-r2 and `work/` are untouched.
+
+### What you need
+
+- **Lane B:** independent review of this filing (sources, verbatim fidelity, corrections).
+- **Judge:** the separately held decisions keep their own checkpoints: the work-r3 U5 supplement, U6–U9, the deferred
+  obligations X1, X4–X7 and X9 at their named triggers, and any sequencing of further handoff filings.
+- **Still held:** J1 and J2 transfers, U10, U11, EV r9, baseline naming, sprint construction, Gate 2, every push, and the
+  post-U9 proposals.
+
+### What you did instead
+
+**Stop after this filing.** This commit appends to B-136 only, at HEAD `46937c4`. No Register write, build,
+behavioural-test execution, transfer, prepare or resume, publish, fetch or push. work-r3 (`10da9e89…`, STATE `9e933c7c…`,
+graph `db2733c6…`, manifest `c6a02d33…`, 583 files), work-r2, the failed `work/` folder and the live graph are untouched.
+
+**Checks.** For this filing commit only, `docs-drift` may fail in `bun run check` (Judge release, item 4); every other
+check must pass, hooks run, and no graph operation is authorized. An allowed `docs-drift` failure is not a full pass. The
+check logs are produced before commit; the commit trace and the content comparison become available after commit and are
+reported outward with their hashes. Evidence folder: `C:/CoWork/outputs/lane-a-b136-dordod-2026-10-20/`.
+
+**Self-grade (labelled; Lane A self-review, no independent acceptance).** Trigger: `/anthropic-skills:make-ai-grade-its-own-work`.
+Evidence: transcript `417d4ead-c5b7-481e-b141-3a8989ce9446.jsonl` line 1094 (invocation, `8bbb3576-6902-467c-b569-bf8bd52bf4bf`);
+locator only. Draft reviewed: `B136-APPEND.pre-fix.md` in the evidence folder, SHA-256
+`4c8ebea32c0f7a5148616a85f75d532ddd38b26216d2745f5861f98c968fa667`. Fixes: (1) the Lane B review row now states one drafted
+finding plus two R1–R5 rounds, with authorship as supplied; (2) it gives their transcript locators; (3) this line; (4) the
+verdict row names C1–C6, with C6(b) still owed. The verbatim proposal and the C1–C6 table were not changed.
+
+| Verdict | Item | Owner | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Revision 3 filed in full at planning scope; C1–C6 (C6(b) still owed in B-158) and the `D-444` item 5 correction filed | Lane A | Complete with this filing |
+| **Defer** | Independent review of this filing | Lane B | Next |
+| **Defer** | C6(b) durable B-158 filing | Lane A | B-158's next authorized substantive answer |
+| **Defer** | Revision 3's deferred obligations (X1, X4–X7, X9) and FV-001 creation | Their named owners | Their named triggers |
+| **Defer** | work-r3 U5 supplement, U6/U7 (Lane B), U8/U9 | Lane A; Lane B | Each after its own release |
+| **Reject** | Any feature DoD, business outcome, construction, Register write or push inferred from this filing | All actors | — |
