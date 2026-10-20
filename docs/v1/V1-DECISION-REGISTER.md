@@ -28760,3 +28760,77 @@ entry is `D-444` (§5.14e267); no other occurrence of `D-445` exists in the repo
 | B-136 | Follow: the item 3(a) answer |
 | **Encyclopedia** | unaffected: `docs/ENCYCLOPEDIA-SYNC.md` identifies no affected local citation entry; hosted parity not claimed |
 | **Graphify** | Governed drift, expected; cleared only by a future guarded cycle (`D-425`), never by a raw rebuild. A new document under `docs/` also needs a node of its own (`graph-coverage`) |
+
+## 5.14e269 `D-446` — Entry E: T2/T3 Boundary Wording Adopted; Bounded Validator (U-V) and Preparation-Contract (U-C) Units; Fifth Intervening Entry Permitted
+
+**Authority: the Judge, directly to Lane A, 2026-10-20**, in chat: "Judge decision — Entry E", read baseline
+`84a7c40b4176ee85ca00209a2e26a72940338ccb`, independent review by Lane B with Lane C Level 2 review, retained by Lane A as
+`C:/CoWork/outputs/lane-a-entry-e-2026-10-20/JUDGE-ENTRY-E-84a7c40.md`, SHA-256
+`e17bfaa3c99b27854e32d06132381f5b3235f0658405bc4d58c4367787cff38a` (full message text, transcript
+`417d4ead-c5b7-481e-b141-3a8989ce9446.jsonl` line 2975, message `e22efa18-76a3-401f-a519-34b6fe53cb90`). It registers the
+decision under `D-183` point 5 and changes no V1 scope, sequence or DoD. **Number check:** at `84a7c40` the last Register
+entry is `D-445` (§5.14e268); no other occurrence of `D-446` exists in the repository. `D-446` is the next free number.
+
+### The decision
+
+1. **Parents and holds.** B-136 and D-439 remain Open. J1 (`D-440`) and J2 (`D-441`) remain separately registered; both
+   transfers remain held. work-r3 remains unaccepted evidence and is not resumed. History, template v1, retained evidence
+   and all candidates are preserved. No transfer, graph preparation, publication, fetch or push is released. U6–U11, EV r9,
+   baseline naming, application construction and Gate 2 keep their holds.
+2. **Sequencing amendment.** Item 0 of `D-440` and `D-441`, as amended by `D-442` item 5, `D-444` item 4 and `D-445`
+   item 2, is further amended to permit one further intervening Register entry, this entry, after `D-445` and before the
+   separate TCA r3 (J3) and J-C A1 entries. All other terms and prior text are unchanged; `D-440` and `D-441` are not edited.
+3. **T2 adopted.** "Confirm that every bound ref other than the source branch remains unchanged. Confirm that
+   source-branch advancement satisfies publicationSourceFindings, including qualifying single-parent handoff-only commits.
+   Retain machine comparison evidence and operator freeze confirmation." The no-fetch/no-push hold applies across all
+   surfaces through U9.
+4. **T3 adopted.** Before writing a U6 record, the independent reviewer runs `publicationSourceFindings` read-only and
+   stops on any finding.
+5. **Boundary only.** Items 3–4 fix the proposed boundary contract. They approve no source pin, candidate folder or
+   preparation.
+6. **U-V — validator (V2, a separate validator).** Authorized paths: `scripts/dor/validate-dor.mjs` and
+   `scripts/dor/validate-dor.test.mjs`. Fixtures stay inside the test file; no dependency or build configuration is added.
+   Lane A implements the accepted predicates, runs their selftests and commits only these paths. Positive cases and every
+   named refusal are proved. Jev's existing behaviour is preserved. The validator is not run against the live preparation
+   contract until U-C reaches its validation checkpoint. Independent review of the validator commit and its exact hash
+   (Lane B, with Lane C Level 2 review) is required; a rejection or an unresolved condition stops U-C.
+7. **U-C — preparation contract (Option A).** Authorized paths: `docs/v1/work-packets/SETUP-SPIKE-000/SV-003.md`,
+   `docs/graph-fragments/sv-003.json` and `docs/v1/V1-ARTIFACT-INVENTORY.md`. `SV-003` remains the assigned identifier; the
+   document is labelled as preparation, attempt not released; no execution, run or result record is created. The fragment
+   supplies the document's node for a later guarded cycle; the live graph is not merged or published. The Inventory row
+   states preparation status accurately. Template v1 stays unchanged.
+8. **Evidence order.** (a) Record this entry. (b) Implement and independently review U-V. (c) Stabilize the preparation
+   contract's exact bytes. (d) Obtain Lane B's draft review bound to those bytes. (e) Run the consistency checks twice.
+   (f) Run the reviewed validator using those retained inputs. (g) Commit only after a pass and renewed scope and hold
+   checks. (h) Independently review the committed preparation. (i) Return for Judge acceptance. Any relevant byte change
+   invalidates dependent evidence. The receipt distinguishes source HEAD from working bytes; for an authorized new file
+   absent from HEAD, the absence is recorded, not an invented HEAD blob.
+9. **Check scope.** This recording commit and the U-V commits: only `docs-drift` may fail; for U-V the validator selftest
+   suite must pass and each expected refusal fixture must produce its named outcome. U-C commits: `docs-drift` may fail;
+   `graph-coverage` may fail only for the missing node of `docs/v1/work-packets/SETUP-SPIKE-000/SV-003.md`; every other
+   finding is resolved or stopped; fragment validation must pass. No check or hook is skipped, and an allowed failure is
+   never reported as a full pass. The `docs-drift` exception covers only this recording, U-V and U-C, and ends when this
+   bounded unit stops. The named-path coverage exception may continue on later separately authorized filings until a
+   guarded publication carries that node; it authorizes none of those filings or graph operations.
+10. **Commits only.** Separate recording, validator and documentation commits, each with only its authorized paths. The
+    script-pass commit-and-push design stays accepted, but this release permits commits only: work stops before any fetch
+    or push. A manual fallback needs separate authority.
+11. **Attempt release.** The PR-comment attempt release stays delayed until the preparation is independently reviewed and
+    accepted. No validation pass, commit or review releases the attempt or changes lane state.
+12. **Not given:** preparation acceptance and every later release (fresh source pin, candidate folder, preparation,
+    attempt), transfer, graph operations, publication, fetch, push, U6–U11, EV r9, baseline naming, application
+    construction and Gate 2.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry |
+| **Build Spec** | — unaffected: no V1 artifact created, sequenced or retired; the validator and the `SV-003` preparation contract are Phase 1 governance and setup artifacts |
+| **Inventory** | Follow: the U-C Inventory commit (item 7) records the `SV-003` preparation contract, the `sv-003.json` fragment and the U-V validator files with their status; not changed by this entry |
+| `scripts/` | Follow: the U-V commit (item 6) |
+| `docs/v1/work-packets/SETUP-SPIKE-000/`, `docs/graph-fragments/` | Follow: the U-C commits (item 7) |
+| `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `docs/README.md`, `docs/PRD.md`, Charter, `0001`, `Modular_PRD.md`, FN specs, `docs/specs/`, template v1, Phase Closure, `docs/LANE-B-WORK-ORDER.md`, application code, build configuration | — unaffected |
+| B-136 | Follow: the return report after the bounded unit stops |
+| **Encyclopedia** | unaffected: `docs/ENCYCLOPEDIA-SYNC.md` identifies no affected local citation entry; hosted parity not claimed |
+| **Graphify** | Governed drift, expected; cleared only by a future guarded cycle (`D-425`), never by a raw rebuild. `sv-003.json` supplies a curated node for that later cycle; no merge or publication under this entry |
