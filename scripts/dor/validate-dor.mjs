@@ -138,6 +138,8 @@ export function schemaFindings(c) {
   // DoD definitions and DoR coverage: the validator's required DoR set, each mapped to defined DoD obligations.
   const dod = Array.isArray(c.dod) ? c.dod : [];
   const dodIds = dod.map((d) => d?.id);
+  // Every DoD definition ID is unique. A repeat is refused whether identical or conflicting; nothing is deduplicated.
+  for (const id of new Set(dodIds.filter((x, i) => dodIds.indexOf(x) !== i))) add("duplicate-dod-id", String(id));
   if (!dod.length) add("schema-missing-field", "dod");
   for (const d of dod) if (!nonEmpty(d?.id) || !nonEmpty(d?.condition) || !nonEmpty(d?.evidenceClass)) add("evidence-class-missing", d?.id ?? "(no id)");
   const dorDod = Array.isArray(c.dorDod) ? c.dorDod : [];

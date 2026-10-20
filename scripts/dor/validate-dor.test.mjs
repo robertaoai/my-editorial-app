@@ -5,7 +5,7 @@
 // fixture is a real Judge act or a real registration, and nothing here reads or writes the live repository. A positive
 // case passes first; each named refusal must produce exactly its code.
 
-import { afterAll, beforeAll, describe, expect, test } from "bun:test";
+import { afterAll, beforeAll, describe, expect, setDefaultTimeout, test } from "bun:test";
 import { execFileSync } from "node:child_process";
 import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
@@ -14,6 +14,10 @@ import {
   entrySection, evaluate, main, normPath, parseContract, quotedPaths, REQUIRED_DOR, schemaFindings, scopeClause, sha256,
   snapshotFields, unaffectedWithoutReason,
 } from "./validate-dor.mjs";
+
+// Each case spawns several `git` processes against the fixture repository; on a loaded Windows host one case can exceed
+// bun:test's 5-second default. A timeout is not a predicate result, so the default is raised for this file only.
+setDefaultTimeout(60_000);
 
 let ROOT;
 let REPO;
@@ -238,6 +242,23 @@ describe("validate-dor: V1 structure and coverage refusals (fail closed)", () =>
     expect(schema((c) => ((c.dorDod[1].dod = ["SV3-DOD-99"]), c))).toContain("dod-undefined");
   });
   test("evidence-class-missing", () => expect(schema((c) => ((c.dod[0].evidenceClass = ""), c))).toContain("evidence-class-missing"));
+  test("duplicate-dod-id: an identical definition repeated under the same ID", () => {
+    const res = run({ c: contract((c) => (c.dod.push({ ...c.dod[0] }), c)) });
+    const dup = res.results.filter((r) => r.code === "duplicate-dod-id");
+    expect(dup.map((r) => r.subject)).toEqual(["SV3-DOD-01"]);
+    expect(res.outcome).toBe("fail");
+    expect(res.results.every((r) => r.rule === "schema")).toBe(true);
+  });
+  test("duplicate-dod-id: conflicting definitions under the same ID", () => {
+    const res = run({ c: contract((c) => (c.dod.push({ id: "SV3-DOD-02", condition: "a different condition", evidenceClass: "another class" }), c)) });
+    const dup = res.results.filter((r) => r.code === "duplicate-dod-id");
+    expect(dup.map((r) => r.subject)).toEqual(["SV3-DOD-02"]);
+    expect(res.outcome).toBe("fail");
+    expect(res.results.every((r) => r.rule === "schema")).toBe(true);
+  });
+  test("unique DoD definition IDs raise no duplicate-dod-id", () => {
+    expect(schemaFindings(JSON.parse(contract().match(/```json sv-dor-contract\n([\s\S]*?)\n```/)[1])).filter((f) => f.code === "duplicate-dod-id")).toEqual([]);
+  });
   test("duplicate-dor", () => expect(schema((c) => (c.dorDod.push({ ...c.dorDod[0] }), c))).toContain("duplicate-dor"));
   test("scope-empty", () => expect(schema((c) => ((c.tuples[0].scopeClause = "  "), c))).toContain("scope-empty"));
   test("a schema failure evaluates no predicate", () => {
