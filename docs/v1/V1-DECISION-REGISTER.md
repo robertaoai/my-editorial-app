@@ -28834,3 +28834,71 @@ entry is `D-445` (§5.14e268); no other occurrence of `D-446` exists in the repo
 | B-136 | Follow: the return report after the bounded unit stops |
 | **Encyclopedia** | unaffected: `docs/ENCYCLOPEDIA-SYNC.md` identifies no affected local citation entry; hosted parity not claimed |
 | **Graphify** | Governed drift, expected; cleared only by a future guarded cycle (`D-425`), never by a raw rebuild. `sv-003.json` supplies a curated node for that later cycle; no merge or publication under this entry |
+
+## 5.14e270 `D-447` — Tier-Applicability Clarification for `D-440` and `D-441` (B1); Bounded U-V Correction (B2); Sixth Intervening Entry Permitted
+
+**Authority: the Judge, directly to Lane A, 2026-10-21**, in chat: "Judge decision — B1 clarification and B2 U-V correction",
+read baseline `5ec65624095403094eec3af87583ef5e3a38c05d`, independent review by Lane B with Lane C Level 2 review, retained
+by Lane A as `C:/CoWork/outputs/lane-a-b1b2-2026-10-21/JUDGE-B1B2-5ec6562.md`, SHA-256
+`d117707081caab6c146c8d4de76b14b65872925bad2e53e4e7df605d8ac51f75` (full message text, transcript
+`417d4ead-c5b7-481e-b141-3a8989ce9446.jsonl` line 3615, message `0994b75f-bebc-4451-bc20-b29f52eebff8`). It registers the
+decision under `D-183` point 5. It clarifies tier applicability only and grants no execution authority. **Number check:**
+at `5ec6562` the last Register entry is `D-446` (§5.14e269); no other occurrence of `D-447` exists in the repository.
+
+### The decision
+
+1. **B1, option (i).** This entry supplies the missing reason for one reasonless tier row in each of two registration
+   entries. `D-440` and `D-441` are not rewritten; their text, identity and registration commit (`2bf36d5`) are unchanged.
+2. **The rows, identified separately** (read at `5ec6562`):
+   - `D-440`, its `D-54` tier table, Register line 28481: the row whose first cell lists `docs/PRD.md`, Charter, `0001`,
+     `Modular_PRD.md`, FN specs, `docs/specs/`, `docs/README.md`, rule files, Phase Closure and application code, with the
+     disposition "— unaffected" and no reason.
+   - `D-441`, its `D-54` tier table, Register line 28520: the row with the same first cell and the same reasonless
+     disposition.
+3. **Reasons supplied.** One row per registration entry; the first cell is quoted exactly as registered.
+
+| Registration entry | Tier row (first cell, as registered) | Reason supplied by this entry |
+|---|---|---|
+| `D-440` | `docs/PRD.md`, Charter, `0001`, `Modular_PRD.md`, FN specs, `docs/specs/`, `docs/README.md`, rule files, Phase Closure, application code | The registration records the existing custody approval and changes none of the grouped tiers' governed content, scope or lane state. |
+| `D-441` | `docs/PRD.md`, Charter, `0001`, `Modular_PRD.md`, FN specs, `docs/specs/`, `docs/README.md`, rule files, Phase Closure, application code | The registration records the existing custody approval and changes none of the grouped tiers' governed content, scope or lane state. |
+
+4. **Sequencing amendment.** Item 0 of `D-440` and `D-441`, as amended by `D-442` item 5, `D-444` item 4, `D-445` item 2 and
+   `D-446` item 2, is further amended to permit one further intervening Register entry, this entry, after `D-446` and before
+   the separate TCA r3 (J3) and J-C A1 entries. All other sequencing terms are unchanged.
+5. **Corrective units, in order.** (a) This Register-only append, committed before any U-V change. (b) One U-V correction
+   on `scripts/dor/validate-dor.mjs` and `scripts/dor/validate-dor.test.mjs` only:
+   - **B2:** extract the actual top-level `snapshotSource` success-return fields, treating commas inside nested call
+     arguments, brackets and strings as part of the value; do not execute the guard; fail closed when the supported form
+     cannot be parsed; add regression cases for the real return shape, nested delimiters and strings, malformed input,
+     missing fields and extra fields.
+   - **B1 support:** accept a separately recorded clarification only when it is bound to the correct registration entry,
+     tier row and recorded reason; retain its source revision and observed hash in the receipt; refuse an arbitrary
+     citation or a blanket exception; fail on missing, stale, mismatched or incomplete evidence; keep each historical
+     registration bound to its own revision.
+   - Preserve duplicate DoD ID refusal, the V2 identity checks, the V3 input inventory and receipt, the required DoR
+     coverage and Jev's behaviour; synthetic fixtures inside the test file; no dependency or build configuration; the guard
+     is not modified; nothing runs against the live U-C contract.
+6. **Review gates.** Fresh Lane B review, with Lane C Level 2 review, of the exact corrective U-V commit, then the Judge's
+   decision before U-C resumes.
+7. **Check scope.** For this Register commit and the corrective U-V commit only: two pre-commit `bun run check` runs each;
+   only `docs-drift` may fail; every other finding passes or stops the unit; no check or hook is skipped. For U-V, two
+   passing final selftest runs are also retained. An allowed failure is never reported as a full pass. This exception ends
+   with these two commits.
+8. **Holds.** U-C remains held: no live-contract creation or validation and no attempt. B-136 and D-439 remain Open. J1
+   (`D-440`) and J2 (`D-441`) remain separately registered; both transfers remain held. work-r3 is not resumed. No transfer,
+   graph preparation or resume, publication, fetch, push, PR-comment attempt release or lane-state change. U6–U11, EV r9,
+   baseline naming, application construction, Gate 2 and every other hold are unchanged.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry |
+| **Build Spec** | — unaffected: a tier-reason clarification creates, sequences or retires no V1 artifact |
+| **Inventory** | — unaffected: no Inventory row is added or retired by this entry. The U-V validator files have no Inventory row at `5ec6562`; the separately held U-C Inventory update (`D-446` item 7) records them |
+| `scripts/` | Follow: the corrective U-V commit (item 5(b)) |
+| `D-440`, `D-441` | — unaffected: their text is not edited; this entry supplies the reasons separately |
+| `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `docs/README.md`, `docs/PRD.md`, Charter, `0001`, `Modular_PRD.md`, FN specs, `docs/specs/`, template v1, Phase Closure, `docs/LANE-B-WORK-ORDER.md`, application code, build configuration | — unaffected: this entry changes none of their governed content, scope or lane state |
+| B-136 | Follow: the return report after the corrective U-V commit |
+| **Encyclopedia** | unaffected: `docs/ENCYCLOPEDIA-SYNC.md` identifies no affected local citation entry; hosted parity not claimed |
+| **Graphify** | Governed drift, expected; cleared only by a future guarded cycle (`D-425`), never by a raw rebuild |
