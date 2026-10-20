@@ -21749,3 +21749,334 @@ locators; (2) this line. The quoted proposal was not changed.
 | **Defer** | Independent review of this filing | Lane B | Next |
 | **Defer** | T1–T7, proposed scenarios and gates, assurance track, replacement route | Judge; named owners | Their separate checkpoints |
 | **Reject** | Any compliance, readiness, acceptance or execution claim inferred from this filing | All actors | — |
+
+## Lane A — work-r3 recovery boundary recorded (`D-445`); approved contracts filed; attempt `SV-003` assigned; checklist commit stopped on `graph-coverage`, 2026-10-20
+
+> **Filed** under the Judge's decision "Judge decision — work-r3 recovery boundary", read baseline
+> `b5cfed990a9fdc8e3d196b06cfb645d2af00c876`, independent reviewer Lane B, retained as
+> `C:/CoWork/outputs/lane-a-recovery-2026-10-20/JUDGE-RECOVERY-BOUNDARY-b5cfed9.md`, SHA-256
+> `3be72526d0ff9269edcecffa6f8ebb78dbe21e7b56eb382d26e6128d4717626a` (full message text, transcript
+> `417d4ead-c5b7-481e-b141-3a8989ce9446.jsonl` line 2135, message `9db61096-3893-4af8-b0c1-d8ec8244a310`). **Judge approval
+> recorded by `D-445` at commit `a9dea75005712d270b53900818b2c3fba9f520e7`.** B-136 and D-439 stay **Open**.
+
+### What happened
+
+**1. Parents and holds.** B-136 and D-439 stay Open. J1 (`D-440`) and J2 (`D-441`) stay separately registered; both
+transfers stay held. `D-443` is unchanged. work-r3 (`10da9e89…`) is preserved as **unaccepted evidence**; it is not resumed
+or published, and no tracking ref was reset. work-r2 and the failed `work/` folder are preserved. No fresh preparation is
+released.
+
+**2. Recording.** `D-445` (§5.14e268) is committed Register-only at `a9dea75` (parent `b5cfed9`, Register blob
+`227160b369773c34565b5495c50e1b4bc4d86327`). Number check: the last entry was `D-444`; no other occurrence of `D-445`
+existed. Its item 2 is the bounded sequencing amendment: one further intervening entry (itself) after `D-444` and before
+the TCA r3 and J-C A1 entries; all other terms unchanged. Pre-commit checks: two runs at HEAD `b5cfed9` with only the
+Register modified, each 18/19 with `docs-drift` the only failure, exit 1, logs byte-identical
+(`c1-check-run1.log`/`c1-check-run2.log`, SHA-256 `d5407ec36c6b30857253ea0fbe3b489071d668769892c40d59d3a582dd52185e`).
+
+**3. Attempt ID and checklist path, assigned.** Attempt **`SV-003`**, path
+**`docs/v1/work-packets/SETUP-SPIKE-000/SV-003.md`**. Basis: the existing attempt naming (`SV-001`, `SV-002` in that
+folder) and `SV-002.md`'s closing line, which names `SV-003` as the next setup attempt. At `b5cfed9` no file exists at that
+path and no attempt record carries that ID; `SV-003` appears only as a prospective name in `SV-002.md` and B-136 text.
+
+**4. Checklist commit — stopped before commit.** The checklist was drafted in full and placed, uncommitted, at its path.
+Two pre-commit runs at HEAD `a9dea75` (working file SHA-256 `8c264ad2f01483bbeeea4f85b15570ccb98dc1655335b523870eb509ad1d9657`)
+each failed **two** checks, exit 1, logs byte-identical (`c3-check-run1.log`/`c3-check-run2.log`, SHA-256
+`173d697e1ad50e463cdfd7b6dbb906dc22cfce6ad99e2911333d33bb7f64d752`):
+
+- `docs-drift` (permitted for this unit);
+- **`graph-coverage`: "absent from the curated graph: docs/v1/work-packets/SETUP-SPIKE-000/SV-003.md"** (not permitted).
+
+The release permits only `docs-drift`, so the checklist was **not committed**. The file was moved (not deleted) out of the
+working tree and retained as `C:/CoWork/outputs/lane-a-recovery-2026-10-20/SV-003.checked-not-committed.md` (same SHA-256);
+the tree is clean. Cause: `graph-coverage` walks every Markdown file under `docs/` and requires a node of its own in the
+live curated graph, which is at `c8177fe`. A node needs a curated fragment and a guarded graph cycle; under `D-54` the new
+attempt also needs an Inventory row, as `SV-001`/`SV-002` received under `D-264`. All three exceed this release.
+
+**5. The approved contracts, in full.** Each is quoted below. **Transformation, exactly:** each source line is prefixed
+with `> `, and an empty source line becomes `>`; the prefixed lines are joined with LF, and one LF follows each block.
+**Removing the prefixes reproduces the source text plus one final LF.**
+
+| Contract | Retained source | SHA-256 | Size | Transcript locator |
+|---|---|---|---|---|
+| Registration test contract, revision 2 (Lane B: approved at planning scope) | `C:/CoWork/outputs/lane-a-recovery-2026-10-20/CONTRACT-REGISTRATION-TESTS-r2.md` | `676cf0b89ae42aacd82def0cebfc3d849776b4763e187470b460bf923f71f0fc` | 12,015 characters; 12,133 UTF-8 bytes; LF; no final newline | line 2079, message `ce6bc5e3-1e94-4780-97a4-bed6a5b4fe7c` |
+| DoR → DoD → commit-and-push contract, revision 2, with G1–G4 (Lane B: approved at planning scope) | `C:/CoWork/outputs/lane-a-recovery-2026-10-20/CONTRACT-COMMIT-PUSH-r2.md` | `eebbf285e153c9faee0bd7638cacc1bcc4d1387be13db55420e9768b29d0924a` | 9,659 characters; 9,727 UTF-8 bytes; LF; no final newline | line 2107, message `67d9791a-435f-4223-9a9c-5ea2c65bdae0` |
+
+**5a. Registration test contract, revision 2.**
+
+> # Lane A — intent-linked DoR and U1–U9 registration test contract (revision 2; proposal, not filed)
+>
+> Read baseline: `b5cfed990a9fdc8e3d196b06cfb645d2af00c876`. This is **Lane A's receipt of Lane B's review**. Owning record: B-136. The matrix filed at `b5cfed9` stays as filed; this contract is a draft.
+>
+> ## 1. Parents and holds
+>
+> - B-136 and D-439 stay Open. F1/J-C and J3 keep their scope and holds.
+> - J1 (`D-440`) and J2 (`D-441`) stay separately registered, with both transfers held.
+> - work-r3 and every other candidate are unchanged. work-r3's ref mismatch stays a stop.
+> - U1–U9 carries only the registration and graph-assurance part of the chain. It creates no authority, implements no held change, and does not complete U11.
+> - Retained output evidence stays where it is recorded. Nothing is bulk-transferred.
+>
+> ## 2. The chain (problem → … → acceptance)
+>
+> | Link | For the J1/J2 unit | Source |
+> |---|---|---|
+> | Problem | Custody approvals must be durable, not chat-only | `D-183` points 2 and 5 |
+> | Scope | Two separate registrations and one graph cycle; no transfer | `D-440`/`D-441` items 2 and 4; `D-443` item 10 |
+> | Intent / requirement | Project `AIG-02` (`R1`, `R3`) and `AIG-05` (`R1`, `R2`). No Product story | FN-MULTI §2–§3 |
+> | **Intent-link validation (R1)** | **Through the accepted attempt mapping:** (entry ID, Register commit, object hash) → (intent, requirement). The unchanged `D-440`/`D-441` entries need **no inline AIG identifier** | The attempt mapping (T1; not yet created) |
+> | Judge decision | `D-440` (object `37d5f5a2…`); `D-441` (object `487a093e…`); item 0 amendments (`D-442` item 5; `D-444` item 4); `3cc3144` items 2–6 | Register; `JUDGE-RESPONSE-3cc3144.txt` (`de951f79…`) |
+> | Applicability (`D-54`) | Each entry's `Tier | Disposition` table | `D-440`/`D-441` |
+> | DoR | D1–D4 (§3) | This contract; filed matrix `b5cfed9` |
+> | **Specification / function (R3)** | **U3:** push procedure (§5). **U4–U8:** `D-425` plus its amendments, B-050's accepted F3 contract, the guard functions and the `sync-docs` runbook (§5) | As cited in §5 |
+> | Implementation | Register bytes; filings; candidate; receipts; publication | Commits; candidate |
+> | Evidence / acceptance | Per U-step; Lane B reviews; Judge acts | §5 |
+>
+> ## 3. DoR conditions (J1/J2 unit as the reference case)
+>
+> | Condition | State | Class |
+> |---|---|---|
+> | **D1. Identity and authority:** object, action, exclusions, checkpoint, holds | `D-440`/`D-441` items 1–6; objects `37d5f5a2…` / `487a093e…` | Present and accepted (U1 approved by Lane B, Codex session line 4819) |
+> | **D2. Intent links and scope** | Scope explicit (items 2 and 5). **The intent link is established by the attempt mapping row (entry ID + commit `2bf36d5` + object hash → `AIG-02`/`AIG-05` requirement)** | **Unmapped** until the attempt mapping is accepted. The entries are not edited |
+> | **D3. Tier applicability** | `Tier | Disposition` tables with reasons on every "— unaffected" row | Present and accepted. The meaning of an "unaffected" reason, and any omitted tier, stay **human review** |
+> | **D4. Execution and verification boundaries** | Expected bytes; paths per step; `3cc3144` item 6 exceptions; `snapshotSource` bindings; Lane B for U6/U7; U11 separate | Present and accepted, **except T2 (the cross-surface freeze proof) and T3 (the U6 pre-review source check)**, which stay open per `b5cfed9` |
+>
+> Required canonical application is its own authorized unit. It completes **before U4 preparation** when it is part of the same graph cycle. It never joins the Register-only U1 commit.
+>
+> ## 4. Parent scenario (PROPOSED)
+>
+> **`AIG-REG-P1`** (ID PROPOSED; anchored to `AIG-02` and `AIG-05`)
+>
+> - **Given:**
+>   - an authorized registration unit (synthetic authority);
+>   - an accepted attempt mapping (entry ID + commit + object → intent and requirement);
+>   - a resolved applicability table;
+>   - explicit execution holds.
+> - **When:** the permitted U1–U9 registration and assurance steps are evaluated.
+> - **Then:**
+>   - the registered decision keeps its original meaning and scope;
+>   - every applicable chain link has evidence or an accepted disposition;
+>   - no registration or validation result releases a held action.
+>
+> **Separate assertions:**
+> - **`P1-J1`:** the supplement-1 object and decision.
+> - **`P1-J2`:** the supplement-2 r2 object and decision.
+>
+> Neither satisfies the other. The real `D-440`/`D-441` are never re-registered, and no synthetic act is presented as real.
+>
+> ## 5. U-step assertions, with corrected specification links (R3)
+>
+> | Step | Specification / procedure | Assertion | DoD proof | Existing coverage | Proposed (synthetic; disposable repository) |
+> |---|---|---|---|---|---|
+> | U1 | `D-183` point 5; the U-table R3 row (expected bytes, number recheck, no backticked act number) | The entry equals the authorized text. **The intent link resolves through the attempt mapping** (entry ID + commit + object) | Exact expected Register bytes; a mapping row | `tier-sweep` ("a claimed tier edit whose decision never landed there") | `AIG-REG-U1`: expected bytes → pass; a changed byte → refuse; a mapping row whose entry ID, commit or object hash does not match the Register → refuse |
+> | U2 | Handoff SOP (`docs/handoff/README.md`); `D-272` | The filing links the authority, the U1 commit, the evidence and the remaining obligations | An accurate transaction record, independent of any candidate | Handoff checks (fields; channel docs) | `AIG-REG-U2`: required links present → pass; missing → refuse |
+> | U3 | **Push procedure:** `docs/handoff/README.md` item 4 "pre-push proof" (≈ line 99); the B-136 U3 rows (`7d61944`, `49595d4`: pre-push upstream base check); `3cc3144` item 6 ("Any push requires separate exact-range authority"); the executed instance `D-442` items 1–3 | Only the authorized range passes | Mock base, range and target verification | None | `AIG-01.S3a`/`S3b` (filed proposals) |
+> | U4 | **`D-425`** (§5.14e250) with `D-426`/`D-427`/`D-429`; **B-050's accepted F3 contract** (revision 3, F3-R1a/R3a/R4a, ≈ lines 2811–2901; F3 matrix row ≈ 2384; B-050 `Verified` by Lane B, 2026-10-09); **guard** `snapshotSource`, `prepareWork`, `resumeWork`; **runbook** `.claude/skills/sync-docs/SKILL.md` §7 (prepare and resume, lines ≈ 118–138) | The candidate captures the approved source and bindings | Snapshot, graph and manifest identity | Guard `F3-C1`; `F2` snapshot; "exactly its ref map"; resume refusals | None (reuse) |
+> | U5 | `3cc3144` item 6 (U5 in B-136); `sync-docs` §7 | The request names the exact candidate and its review scope | A candidate-bound request | Check suite | `AIG-REG-U5`: request identity equals the recomputed candidate → pass; a mismatch → refuse |
+> | U6 | B-050 F3-R1a; **guard** `parseAcceptance` (≈ 2118), `acceptanceAt` (≈ 2170), `TOP_KEYS`; runbook §7 line ≈ 121 | Independent acceptance refers to the same bytes and meaning | A valid **synthetic** receipt in tests; a real receipt stays a separate act | `F3-R1a` (3 cases) | None (reuse); T3 DoR row |
+> | U7 | `B-113`; the handoff template's Terminal annotation record; your U6/U7 clarification | The annotation covers the actual U6 commit only | Terminal lifecycle checks | Preview; uncovered work; `coveredCommits`; `isRecordOnlyDiff`; `terminalAnnotationForm` (component level) | None |
+> | U8 | `D-425` F3-R2/R3; **guard** `publicationSourceFindings` (≈ 2072), `publishWork`; runbook §7 line ≈ 122 | Publication refuses changed bindings or unreviewed bytes | An isolated fixture publication result | `F3-R2` (including other-ref); `F3-C4`; "publishes exactly the reviewed bytes"; unreviewed-staging refusal | None (reuse) |
+> | U9 | `3cc3144` item 6 (every check passes at U9); the U-table U9 row; `docs-drift` | **R2, below** | A health record matching the published state and the declared checks | `docs-drift` fixtures; C-14 suites (five checks unfixtured, X1) | `AIG-REG-U9a`–`U9e` (below) |
+>
+> **R2: U9 cases (PROPOSED):**
+>
+> | Case | Input | Expected |
+> |---|---|---|
+> | `U9a` (positive) | The health record's workId, graph SHA-256, manifest digest and U6 commit equal the published state, recomputed from the live target (graph hash; `treeDigest` equal to the reviewed manifest). Its check log shows 19/19, with `docs-drift` passing, at the stated tested HEAD and working-file hash | Pass |
+> | `U9b` | The record names a graph or manifest that differs from the published state | Refuse: "publication identity mismatch" |
+> | `U9c` | The log's tested HEAD or working-file hash differs from the record's stated tested state | Refuse: "inconsistent tested state" |
+> | `U9d` | The record claims a post-commit check, but no retained post-commit log exists | Refuse: "unsupported post-commit claim" |
+> | `U9e` | The record cites pre-commit logs, correctly labelled as pre-commit, with matching hashes | Pass. **Valid pre-commit evidence is kept, not refused** |
+>
+> U9 does not prove customer acceptance, U11 verification or transfer completion.
+>
+> ## 6. Refusal cases (consistent with R1–R3)
+>
+> | Refusal | Rule | Existing | Proposed |
+> |---|---|---|---|
+> | Absent authority, or a missing or non-matching intent-mapping row | `D-183` point 1; D2 via the attempt mapping | None | `AIG-REG-R1`: an absent field, or an entry ID, commit or object that does not match → refuse. **No inline AIG ID is required** |
+> | An affected tier with neither application proof nor an accepted disposition | `D-54` | `tier-sweep` (a ✅ claim that never landed) | `AIG-REG-R2`: "— unaffected" with no reason → refuse. Omitted tiers and the meaning of reasons stay human review |
+> | J1 authority used to imply J2 | `3cc3144` item 3; `D-441` item 5 | None | `AIG-REG-R3`: a J1 mapping or authority applied to a J2 object → refuse |
+> | Another bound ref changes | `publicationSourceFindings` | `F3-R2` other-ref | None |
+> | A push trigger fires during the freeze | `D-443` item 10; the push procedure | None | `AIG-01.S3b` |
+> | Evidence claims a different tested state, or an unsupported completion | Commit-proof rules | None | `U9b`–`U9d`; `AIG-05.S1` (presence and hash only) |
+> | **Positive:** a handoff-only advance of the source branch | `publicationSourceFindings` | `F3-R2` "a handoff-only fast-forward passes" | None |
+>
+> ## 7. Separation (unchanged)
+>
+> - Template v1 stays unchanged. Results go only in a separately authorized attempt.
+> - Canonical Given/When/Then rows (PROPOSED IDs become FN-MULTI §5 rows only by Judge act), with `bun:test` adapters. Existing fixtures are reused first.
+> - An independent disposable repository; synthetic authority only.
+> - Live refs, the graph and the retained candidates stay unchanged, with preservation proof.
+> - Human review of meaning and tier applicability stays.
+>
+> ## 8. Owners
+>
+> | Obligation | Owner | Phase | Trigger | Proof |
+> |---|---|---|---|---|
+> | This corrected contract | Lane A | Planning | — | This text |
+> | Review R1–R3 application | Lane B | Before the experiment release | This text | Findings |
+> | Attempt mapping (T1, including the D2 rows) and attempt ID | Lane A drafts; Judge decides | After review | Lane B's findings | Accepted mapping rows |
+> | Build and run the tests | Named owner | A separate released unit | Your release | Results; disposable-repository identity; preservation proof |
+>
+> ## 9. Decision
+>
+> | Subject | Verdict | Follow-up phase |
+> |---|---|---|
+> | R1: intent validated through the attempt mapping (entry ID + commit + object) | **Approve** | Contract review |
+> | R2: U9 positive and refusal cases, keeping valid pre-commit evidence | **Approve** | Contract review |
+> | R3: U3 linked to the push procedure; U4–U8 linked to `D-425`, B-050 F3, the guard functions and the runbook; §17.1 no longer cited for publication | **Approve** | Contract review |
+> | The problem framing and intent-linked approach | **Approve** (unchanged) | Planning |
+> | Attempt creation and test execution | **Defer** | Separate bounded release |
+> | Re-registering `D-440`/`D-441`; editing filed history; a bypass standard | **Reject** | — |
+> | Registration changes, graph publication or other execution from this review | **Reject** | Existing checkpoints |
+
+**5b. DoR → DoD → commit-and-push contract, revision 2 (with G1–G4).**
+
+> # Lane A — DoR → DoD → commit-and-push contract, revision 2 (proposal; not filed)
+>
+> **Read baseline:** `b5cfed990a9fdc8e3d196b06cfb645d2af00c876`. This is **Lane A's receipt of Lane B's review.** B-136 and D-439 stay **Open**.
+>
+> ### What happened
+>
+> Lane B approved the explicit chain and rejected four wording and control gaps. This revision keeps the accepted parts unchanged:
+> - separate J1 and J2 obligations (`P1-J1`, `P1-J2`);
+> - checklist construction, test construction and implementation as distinct units;
+> - the TB-1 and TB-2 cadence;
+> - the five separate states (tested, committed, pushed, reviewed, accepted);
+> - template v1 unchanged (`ca605cd6…`), with separate attempt records;
+> - characterization of existing behaviour, with no manufactured Red result.
+>
+> **Retained context.** The missing readiness mapping is an open obligation. It does not show that historical U1–U9 steps lacked controls. work-r3's frozen-ref stop is unresolved. Graph sync is pending, and this proposal claims none.
+>
+> ### G1–G4 dispositions
+>
+> | ID | Disposition | Change |
+> |---|---|---|
+> | **G1** | **Accepted** | The commit-only option is **removed**. A governed edit invalidates the frozen candidate whether or not it is pushed (`D-443` item 10: "a governed edit after prepare is a stop trigger"). Governed work goes **after U9**, or **under an explicit recovery decision that sets a new preparation boundary** (governed edits land, then a fresh prepare) |
+> | **G2** | **Accepted** | The freeze rule is narrowed (§4). Inside U4–U9: no fetch or push on any surface, and no assurance, adoption or other governed-edit commit. **The separately authorized handoff-only commits (U5, U6, U7) are kept.** They must satisfy `publicationSourceFindings` |
+> | **G3** | **Accepted** | TB-1 and TB-2 scopes are stated separately, per FN-MULTI §11.3. Lane B adoption and Lane A governance adoption are now two routes, each with its own authority and gates |
+> | **G4** | **Accepted** | Each route names a **non-builder reviewer**, using the `D-324` review levels (Level 1 is Lane B for Lane A and C work; Level 2 is Lane C for Lane A and B work). **Judge acceptance is separate from technical review** |
+>
+> ### What you need
+>
+> #### 1. Lifecycle (as Lane B gave it)
+>
+> **Accepted intent mapping → accepted DoR → packet-specific DoD checklist → unit authority → test construction → implementation → evidence → independent review → Judge acceptance.**
+>
+> #### 2. Trigger scopes (G3)
+>
+> | Trigger | Commit scope (FN §11.3) | Push |
+> |---|---|---|
+> | TB-1 (i): first parent behavioural test, Red | **Only that test's files** (`__tests__/` for Lane B work products) | After every pre-push gate |
+> | TB-1 (ii): each child test, Red | **Only that child test's files** | After every pre-push gate |
+> | TB-2 (iii): each Red → Green component | **That component's files in the unit's surface.** No weakened or deleted assertion | Only after that component's **accepted integration evidence** and every gate |
+>
+> **Pre-push gates, for every push:**
+> 1. unit authority (Register act, work order, §5 `Active` for a work-product unit);
+> 2. `bun run check` passes, except a failure the Judge names;
+> 3. hooks run without bypass;
+> 4. a **fresh fetch**, and the upstream equals the expected base — **stop on any mismatch**;
+> 5. the range contains only the unit's eligible commits;
+> 6. push;
+> 7. **fetch after the push**, and the upstream equals the pushed tip. Retain that proof.
+>
+> #### 3. Routes, with separate authority and a non-builder reviewer (G3, G4)
+>
+> | Route | Builder | Authority | Applies `D-443`? | Independent technical review (non-builder) | Acceptance |
+> |---|---|---|---|---|---|
+> | **R-Doc:** construct the DoD checklist (attempt record, `docs/`) | Lane A | Your documentation-unit release (J-A). Commit and push only under it; push at an exact-range checkpoint you name | No | Lane B (Level 1) and Lane C (Level 2) | Judge |
+> | **R-Exp:** assurance experiment (disposable repository; no live remote) | A named owner, chosen by you. **Recommended: Lane A**, the gate author | Your experiment release (J-B). Commits stay in the disposable repository; no push | Cadence mirrored only | The non-builder lanes: if Lane A builds, Lane B (L1) and Lane C (L2) | Judge |
+> | **R-B:** Lane B adoption of `__tests__/` work-product tests | Lane B | A **TB-1/TB-2 unit:** Register act naming the packet and unit, a Lane B work order, Lane B `Active` | **Yes** | Lane C (Level 2), plus a Lane A non-builder verification | Judge |
+> | **R-A:** Lane A adoption of governance gates and fixtures (`scripts/`) | Lane A | A **governance-unit act** from you, with Lane A `Active`. `D-443` does not reach Lane A. Push only by exact-range authority, after the integration evidence is accepted | No (TB-style cadence only if you choose it) | Lane B (L1) and Lane C (L2) | Judge |
+>
+> **Constraint.** No route reviews its own work. If you assign R-Exp to Lane B, the reviewers become Lane C (L2) plus a Lane A verification.
+>
+> #### 4. Freeze boundary (G1, G2)
+>
+> **Inside U4–U9:**
+>
+> | Item | Rule |
+> |---|---|
+> | Fetch, pull or push on any surface | **Prohibited** |
+> | R-Doc, R-B, R-A commits, and any governed edit | **Prohibited**. Not deferred-push either (G1) |
+> | R-Exp commits | Allowed only in the disposable repository: no live ref, no network, no live remote |
+> | U5, U6, U7 handoff-only commits under their own releases | **Permitted**. They must satisfy `publicationSourceFindings` (single-parent, `docs/handoff/` only) |
+>
+> **Current cycle.** work-r3's cycle has not reached U9, and its U6 is withheld. R-Doc, R-B and R-A therefore wait for **either**:
+> - **(a)** the completion of U9; **or**
+> - **(b)** your recovery decision. That decision ends the current cycle and sets a new preparation boundary, so governed edits land **before** the fresh prepare and one graph cycle covers them.
+>
+> #### 5. Completion and return
+>
+> - The attempt record links each endpoint result and drift finding to the **Phase 1 baseline**: the filed matrix `b5cfed9`, the contract revisions (hashes taken when retained) and template `ca605cd6…`.
+> - The original criteria stay unchanged.
+> - **Retained output files** in `C:/CoWork/outputs/` are drafts or evidence. Their location makes them no rule. Any later adoption names the owning document, the source hash, the authority and the completion proof.
+>
+> #### Obligations and triggers
+>
+> | Obligation | Owner (builder) | Non-builder reviewer | Phase | Trigger | Commit scope | Push authority | Completion proof | Stop condition |
+> |---|---|---|---|---|---|---|---|---|
+> | DoD checklist instance (R-Doc) | Lane A | Lane B (L1); Lane C (L2) | Phase 1, after U9 or a recovery boundary | J-A release | One `docs/` path | Exact-range checkpoint you name | Commit proof; post-push fetch proof; reviews; Judge act | Inside U4–U9; a check failure other than a named one; a base mismatch |
+> | `P1-J1` / `P1-J2` parent Red (R-Exp) | Named owner | The non-builder lanes | Phase 1 assurance | J-B release | Disposable repository; parent test files | None | Red log with stated reason, J1 and J2 separately | The test passes when it must be Red; J1 evidence offered for J2 |
+> | Each child Red (R-Exp) | Named owner | Same | Same | After the parent Red | Disposable repository; that child's files | None | Red log per child | Early pass; missing reason |
+> | Characterization (`U4`, `U6`, `U7`, `U8`) | Named owner | Same | Same | J-B | No commit; observation only | None | Retained run logs | An existing case fails: reported as a finding, not repaired |
+> | Each Red → Green component (R-Exp) | Named owner | Same | Same | Per component | Disposable repository; that component | None | Green log; no regression | A weakened or deleted assertion; a regression |
+> | Lane B adoption (R-B) | Lane B | Lane C (L2); Lane A verification | Phase 2 | TB-1/TB-2 unit act | TB-1: test files only. TB-2: component files | TB-1 (i)/(ii) after the gates. TB-2 after accepted integration evidence | Commit proof; integration acceptance; post-push fetch proof | Lane B only `Eligible`; base mismatch; extra commits in the range; inside U4–U9 |
+> | Lane A governance adoption (R-A) | Lane A | Lane B (L1); Lane C (L2) | Phase 1 | Governance-unit act | Gate and fixture files per component | Exact-range authority, after accepted integration evidence | Same as R-B | Same, with Lane A `Active` required |
+> | Handoff filings U5, U6, U7 (current cycle) | Lane A (U5); Lane B (U6, U7) | Per their releases | Inside U4–U9 | Their own releases | One `docs/handoff/` path each | **None** inside U4–U9 | Their commit proofs | A non-handoff path; a merge; any fetch or push |
+> | Acceptance per obligation | Judge | — | After review | A reviewed result | — | — | Judge act | Missing evidence for a claimed state |
+>
+> ### What you did instead
+>
+> **Proposal only.** No filing, edit, commit, attempt, sandbox, build, test, transfer, prepare, publish, fetch, push or Gate 2 closure.
+>
+> | Verdict | Item | Owner | Follow-up phase |
+> |---|---|---|---|
+> | **Approve** | G1–G4 dispositions; separate routes and non-builder reviewers; the narrowed freeze rule | Lane A proposes; Lane B reviews | Phase 1 planning |
+> | **Defer** | J-A (documentation unit); J-B (experiment, including the builder choice); the R-B unit act; the R-A governance act | Judge | After Lane B's review |
+> | **Defer** | Recovery decision for work-r3 (sets the new preparation boundary) | Judge | Phase 1 recovery planning |
+> | **Reject** | Commit-only deferral of a governed edit inside a frozen cycle | All actors | — |
+> | **Reject** | A builder reviewing its own work, or technical review counted as Judge acceptance | All actors | — |
+> | **Reject** | Any fetch or push inside U4–U9; filing this proposal under this request | All actors | — |
+
+### What you need
+
+**Judge — the checklist's exact additional scope** (one choice):
+
+| Option | Scope needed | Effect |
+|---|---|---|
+| **A (recommended)** | (1) A bounded check exception: `graph-coverage` may fail **only** for `docs/v1/work-packets/SETUP-SPIKE-000/SV-003.md`, on **every** commit from the checklist commit until the guarded publication that carries its node (including any later U5′–U7′ filings); (2) one curated-fragment commit (`docs/graph-fragments/`) giving `SV-003.md` its node, before fresh preparation, so the next candidate carries it; (3) one Inventory-row commit (`D-54`) | Keeps the attempt naming convention; one graph cycle covers it |
+| **B** | Place the checklist under `docs/handoff/artifacts/B-136/` instead (a coverage-excluded class; not an Inventory artifact) | Passes the checks; departs from the attempt naming convention |
+
+**Lane B:** independent review of `D-445` (`a9dea75`), the two filed contracts and the retained checklist draft. Lane A
+does not record Lane B's acceptance.
+
+**After Lane B's review, Lane A proposes** (per `D-445` item 5): one exact fresh source pin, one new candidate folder, the
+permitted reuse rules, the T2 freeze proof, the T3 pre-U6 source check and a fresh-preparation release. Then Lane A stops.
+
+**Still held:** fresh preparation; U6–U9 for any candidate; U10, U11; J1 and J2 transfers; EV r9; baseline naming; sprint
+construction; Gate 2; every fetch and push.
+
+### What you did instead
+
+**Stopped after this filing.** Committed: `D-445` (Register-only) and this B-136 append. **Not committed:** the `SV-003`
+checklist (a `graph-coverage` failure outside the permitted exception). No test, script, sandbox, implementation, Inventory
+row, graph fragment, graph operation, preparation, publication, fetch or push. Template v1 is unchanged.
+
+**Checks for this filing.** Only `docs-drift` may fail (`D-445` item 4); two pre-commit runs on the final append; the
+commit trace and content comparison complete after commit and are reported outward.
+
+**Self-grade (labelled; Lane A self-review, no independent acceptance).** Trigger: `/anthropic-skills:make-ai-grade-its-own-work`,
+twice. (1) `D-445` draft: transcript `417d4ead-c5b7-481e-b141-3a8989ce9446.jsonl` line 2200 (invocation,
+`f4a67cda-92b1-4251-9146-3c541d5bd63f`); pre-fix `ENTRY-D445.pre-fix.md` SHA-256
+`e4ecf1d92bde630d25f5262c282e581da1181fdc9278466b5f7b617c81ef3f89`; fix: the Judge's confirmation of the manual push is
+attributed to Lane B's finding (line 1768). (2) This answer: line 2332 (invocation, `a125a724-8373-4c4a-afb8-e4df4c307411`);
+pre-fix `B136-RECOVERY-APPEND.pre-fix.md` SHA-256 `9f0e41d7153f45aac12c60d1e169557be8168dfb2b7c80948c0a10b47c759aee`;
+fixes: §3 states exactly where `SV-003` already appears; option A's exception names every affected commit; this line.
+Locators only. The quoted contracts were not changed.
+
+| Verdict | Item | Owner | Follow-up phase |
+|---|---|---|---|
+| **Approve** | `D-445` recorded; both contracts filed; `SV-003` and its path assigned | Lane A | Complete with this filing |
+| **Defer** | The `SV-003` checklist commit (option A or B) | Judge, then Lane A | Next |
+| **Defer** | Independent review; fresh-preparation proposal | Lane B; then Lane A | After the checklist decision |
+| **Reject** | Committing the checklist with an unpermitted `graph-coverage` failure; any execution inferred from this record | All actors | — |
