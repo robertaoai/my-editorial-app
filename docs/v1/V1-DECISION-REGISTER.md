@@ -28902,3 +28902,88 @@ at `5ec6562` the last Register entry is `D-446` (§5.14e269); no other occurrenc
 | B-136 | Follow: the return report after the corrective U-V commit |
 | **Encyclopedia** | unaffected: `docs/ENCYCLOPEDIA-SYNC.md` identifies no affected local citation entry; hosted parity not claimed |
 | **Graphify** | Governed drift, expected; cleared only by a future guarded cycle (`D-425`), never by a raw rebuild |
+
+## 5.14e271 `D-448` — Push Authority for `3a4d73b..bcbb36c` (13 Commits); Lane B and Lane C Receipts and Command Provenance Accepted; Freeze Confirmation; Seventh Intervening Entry Permitted
+
+**Authority: the Judge, directly to Lane A, 2026-10-21**, in two chat messages retained by Lane A: "Judge decision — D-448
+recording and exact bounded push" (`C:/CoWork/outputs/lane-a-d448-2026-10-21/JUDGE-D448-PUSH-bcbb36c.md`, SHA-256
+`fbc95a3613bc41496425ddddd2ca555540d42b55fd558eac4d47f5720600bd06`; transcript
+`417d4ead-c5b7-481e-b141-3a8989ce9446.jsonl` line 4760, message `f0098511-f91b-4567-89aa-8d192ed09437`) and "Judge decision —
+resume D-448 recording and exact B..P push", which renews it (`C:/CoWork/outputs/lane-a-d448-2026-10-21/JUDGE-D448-RESUME-bcbb36c.md`,
+SHA-256 `eaf40fbad2b977449612de12fc60635a1750f00014bd75bac74de0cfcb68b54a`; same transcript, line 4868, message
+`7192e882-b985-4758-927d-d05d5cbe357c`). It registers the decision under `D-183` point 5: "Judge authorized push of commit
+`bcbb36cbb6f986913f41e5546c428a35a0a96f98`" for the exact range in item 5 only. **Number check:** at `bcbb36c` the last
+Register entry is `D-447` (§5.14e270); no other occurrence of `D-448` exists in the repository.
+
+### The decision
+
+1. **Reviews accepted (the Judge).** Lane B's scoped R2 review and Lane C's Level 2 review of
+   `bcbb36cbb6f986913f41e5546c428a35a0a96f98` are accepted; R1 and B1 remain preserved. The original receipts, verified by
+   Lane A against the extracted `output_text` (no line-ending change, no added final newline) or the whole file:
+   - Lane B, scoped R2 approval: `C:/Users/rober_24syk4j/.codex/sessions/2026/10/16/rollout-2026-10-16T22-09-59-01a1450c-56ae-73a2-95c0-6c0d44d45f08.jsonl`
+     line 9094, message `msg_0359a885ce55f8dd016ad7af73048081918e123be8caa15d3b`, 3,095 UTF-8 bytes, SHA-256
+     `02f798583febf356104a58d410460fa716c46b5181ecb54cab736ed1dc66c759`; extract retained as
+     `C:/CoWork/outputs/lane-a-d448-2026-10-21/LANE-B-R2-APPROVAL-line9094.txt`.
+   - Lane B, follow-up review: same file, line 9195, message `msg_0359a885ce55f8dd016ad7b1cd27088191b912014266c598d7`,
+     3,013 UTF-8 bytes, SHA-256 `d032740c9003df112d1cf16d901a30fa6926e3130e199c0d7502aa72d85bb53e`; extract retained as
+     `C:/CoWork/outputs/lane-a-d448-2026-10-21/LANE-B-FOLLOWUP-REVIEW-line9195.txt`.
+   - Lane C, Level 2 review: `C:/Users/rober_24syk4j/.codex/attachments/c22ceb54-8b1f-41cd-b907-fb199232ba71/Pasted text.txt`,
+     SHA-256 `4efa96708337e87ad1892ee3cb983b39b9f2f4223e6d24e3122e545e40e9a92e` (whole file).
+2. **Command provenance accepted (the Judge).** The evidence for the `bcbb36c` selftest, red-proof and consistency logs is
+   transcript `417d4ead-c5b7-481e-b141-3a8989ce9446.jsonl` lines 4643, 4644, 4652 and 4665, tool-use ID
+   `toolu_01MPNY1aGh5vd68869MG6fdY`, and `bc990cmoa.output`, SHA-256
+   `b746bf4ed8b6803721c3aabe2e26dfc10a0b97a7dc4a05fff9ac5cbceec015ce`. `UV-R2B-C1` is satisfied; no full-transcript copy is
+   required. `UV-R2B-C2` stays a claim-scope obligation: the validator checks the declared guard-return grammar; it is not a
+   universal JavaScript syntax validator.
+3. **Owed report corrections (Lane B follow-up review, Layer 3), carried, not filed here.** For the next authorized B-136
+   return: (a) the red-proof count reads "Six of seven added tests fail against the parent parser; the tagged-template test
+   passes against both"; (b) the `bcbb36c` check exception is attributed to its own corrective instruction
+   (`C:/CoWork/outputs/lane-a-r2b-2026-10-21/INSTRUCTION-R2-ad270f0.md` line 61), not to `D-447`'s two-commit exception.
+4. **Sequencing amendment.** Item 0 of `D-440` and `D-441`, as amended by `D-442` item 5, `D-444` item 4, `D-445` item 2,
+   `D-446` item 2 and `D-447` item 4, is further amended to permit one further intervening Register entry, this seventh
+   entry, after `D-447` and before the separate TCA r3 (J3) and J-C A1 entries. All other sequencing terms are unchanged;
+   no historical entry is rewritten.
+5. **Push authority, exact.** One non-force push. Remote `origin`; target `refs/heads/features/feature-V1-SM05`; base B
+   `3a4d73b518f9964b0a96570afbefed823d7351ef` (excluded); tip P `bcbb36cbb6f986913f41e5546c428a35a0a96f98` (included);
+   exactly 13 commits in one linear chain, listed with every affected path in
+   `C:/CoWork/outputs/lane-a-r2b-2026-10-21/RANGE-MANIFEST-3a4d73b..bcbb36c.json`, SHA-256
+   `d791db1ea61305d9dd5a07c40310d75a481cb6d8b52f8942d812a506e2cba95a`. Immediately before pushing, `git ls-remote` must show
+   the target equal to B; any other result, including P, stops the unit, and no other range is substituted. The only push
+   command is `git push origin bcbb36cbb6f986913f41e5546c428a35a0a96f98:refs/heads/features/feature-V1-SM05`: no force,
+   no implicit `HEAD`. Afterward the target must equal P.
+6. **H and P are distinct.** H is the commit that records this entry. Its only parent is P; it changes only this append.
+   H is expressly excluded from the push and stays local; it is never described as pushed. After the push, local `HEAD`
+   remains H and the tree and staging remain clean.
+7. **Freeze clearance.** Operator confirmation by the Judge, verbatim: "Confirm: no prepare or resume occurred." It covers
+   all surfaces since `D-445` item 1 ended the work-r3 cycle (workId `10da9e89-6903-4dcf-8993-625248af59bc`). Retained as
+   `C:/CoWork/outputs/lane-a-d448-2026-10-21/FREEZE-CONFIRMATION.md`. Clearance is not inferred from `stale:false` or a
+   preserved `STATE.ready`. If a later prepare or resume is reported or detected, the unit stops before remote contact.
+8. **Gates, in order.** (a) P checks: two `bun run check` runs at P from `C:/robertaoai/my-editorial-app`, retained in
+   `C:/CoWork/outputs/lane-a-d448-2026-10-21/` as `p2-check-run1.log` and `p2-check-run2.log` (each SHA-256
+   `6d43c59ce6a96269f053b74133bbddef7730ffdae924774c004732f89b4f697f`) with `p2-check-context.txt` (SHA-256
+   `84e4272871da0df294462abbc594a4b8a1dcdc167335a9ec9cebc7c68136cfb9`); 18 of 19 pass, only `docs-drift` fails, exit 1.
+   They were run fresh because the context hash cited in the resumed decision did not match the retained file. (b) This Register-only append, its two recording-check
+   runs, and commit H through the required hooks and identity. (c) Lane B's independent verification that H matches the
+   Judge's decision; a rejection or an unresolved condition stops the unit. (d) The push and its verification (item 5).
+9. **Check scope.** For the P checks, this recording commit and the push only: `docs-drift` may fail; every other finding
+   passes or stops the unit; no check or hook is skipped. An allowed failure is never reported as a full pass. The
+   exception ends on completion or stop and covers no later unit, U-C or another push.
+10. **Holds.** U-C remains held; its read baseline needs a separate Judge decision and is revalidated after H. B-136 and
+   D-439 remain Open. J1 (`D-440`) and J2 (`D-441`) remain separately registered; both transfers remain held. work-r3,
+   other candidates, template v1 and prior evidence are preserved. No transfer, graph preparation or resume, publication or
+   fetch; no other push; no PR-comment attempt release, lane change, U6–U11, EV r9, baseline naming, application
+   construction or Gate 2 closure. Every other hold is unchanged.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry |
+| **Build Spec** | — unaffected: a push authority and review acceptance create, sequence or retire no V1 artifact |
+| **Inventory** | — unaffected: no Inventory row is added or retired; the U-V validator files still await the held U-C Inventory update (`D-446` item 7) |
+| `scripts/` | — unaffected: the validator, its tests and the guard are unchanged from P |
+| `D-440`, `D-441` | — unaffected: their text is not edited; this entry amends their item 0 separately (item 4) |
+| `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `docs/README.md`, `docs/PRD.md`, Charter, `0001`, `Modular_PRD.md`, FN specs, `docs/specs/`, template v1, Phase Closure, `docs/LANE-B-WORK-ORDER.md`, application code, build configuration | — unaffected: this entry changes none of their governed content, scope or lane state |
+| B-136 | Follow: the next authorized B-136 return carries the corrections in item 3 and the `UV-R2B-C2` claim scope |
+| **Encyclopedia** | unaffected: `docs/ENCYCLOPEDIA-SYNC.md` identifies no affected local citation entry; hosted parity not claimed |
+| **Graphify** | Governed drift, expected; cleared only by a future guarded cycle (`D-425`), never by a raw rebuild |
