@@ -21513,3 +21513,239 @@ results are in-session output, not a retained file; (2) the staged-graph check r
 | **Defer** | U6 independent review and acceptance record; U7 Terminal annotation | Lane B | Next, on this candidate |
 | **Defer** | U8 publication citing U6; U9 full health | Lane A | Their own releases |
 | **Reject** | Treating `ready` as acceptance or publication permission; any U6–U9 step, transfer, Register write or push taken from this record alone | All actors | — |
+
+## Lane A — U1–U9 DoR→DoD→test traceability matrix and assurance-track proposal (revision 3) filed at planning scope, 2026-10-20
+
+> **Filed** under the Judge's bounded release "Judge decision — bounded filing of the approved U1–U9 DoR matrix", read
+> baseline `31043d6c55d9c6203b288a87872fab604ac8eeac`, receiver Lane A, independent reviewer Lane B, retained as
+> `C:/CoWork/outputs/lane-a-b136-u19dor-2026-10-20/JUDGE-U19DOR-FILING-RELEASE-31043d6.md`, SHA-256
+> `638ab7d68b2f74d28b81771d0880d76a2f49915a5029059bcd1d81bfe1458101` (full message text, transcript
+> `417d4ead-c5b7-481e-b141-3a8989ce9446.jsonl` line 1915, message `5e2a3471-94ab-4f4a-89a1-6f21f5736ac5`). Judge approval
+> received in the current conversation for this one B-136 append, pending durable registration (`D-183` point 2).
+> B-136 and D-439 stay **Open**.
+
+### What happened
+
+**1. Parents and holds.** B-136 and D-439 stay Open. F1/J-C and J3 keep their scope and holds. J1 (`D-440`) and J2
+(`D-441`) stay separately registered; both transfers stay held, and no J1 decision implies a J2 decision.
+
+**2. What this filing is, and is not.**
+
+- **Approval is at planning scope only.** It authorizes no attempt, test, gate, canonical edit or execution.
+- **The finding is an unmapped end-to-end DoR baseline** for U1–U9. It does not show that every readiness control is
+  absent.
+- **Accepted registrations and historical results remain valid at their recorded scope** (`D-440`, `D-441`, U1–U5 and
+  the records cited in the proposal). Nothing here revokes or rewrites them.
+- **No attempt is instantiated, and no new readiness result is claimed.** Template v1 (`ca605cd6…`) is unchanged.
+- **Scenario IDs, gates and canonical changes remain proposed.** Each needs its own Judge decision.
+- **work-r3's ref mismatch remains a stop.** U6/U7 acceptance of work-r3 stays withheld.
+
+**3. Sources, kept distinct.**
+
+| Source | Role | Retained copy and hash |
+|---|---|---|
+| The Judge's filing release | Authority for this append only | As above (`638ab7d6…`) |
+| Lane B's review rounds | The finding (U1–U9 DoR gap and separate assurance track), then R1–R4 reviews of revisions 1 and 2; supplied in session; Lane B's review and verification are Lane B's to file | Transcript `417d4ead…` line 1768 (finding, message `30559355-5be0-4129-a12e-1bb8623dba30`), line 1829 (R1–R4 on revision 1, `d206ee60-d276-4f70-a3c1-b7929c846eba`) and line 1886 (R1/R4 on revision 2, `fbb42835-e167-4313-8921-d9497a4eb682`); locators only. Provenance, not this filing's authority |
+| Approved proposal, revision 3 | Lane A's answer, approved at planning scope | `C:/CoWork/outputs/lane-a-b136-u19dor-2026-10-20/PROPOSAL-U19DOR-r3.md`, SHA-256 `2e1d1934456f9f7e2ef25677b7a8d8c52a60d9eec93bd63f3a0462ca9c79f8a2`; **15,121 characters, 15,212 UTF-8 bytes**, LF line endings, no final newline (the proposal text of transcript line 1911, message `86d28312-00ff-40d5-ac5f-8f9e2ca1356d`, from its first heading to its end) |
+
+No new handoff number is assigned, and no other actor's answer field is written.
+
+**4. The approved proposal, revision 3, in full.** **Transformation, exactly:** each source line is prefixed with `> `,
+and an empty source line becomes `>`; the prefixed lines are joined with LF, and one LF follows the block. **Removing the
+prefixes reproduces the source text plus one final LF.** Its references to "this entry" belong to Lane B's drafted
+finding; filed here, they read as references to this B-136 record.
+
+> # Lane A — U1–U9 DoR→DoD→test traceability (revision 3; proposal, not filed)
+>
+> Read baseline: `31043d6c55d9c6203b288a87872fab604ac8eeac`. This is **Lane A's receipt of Lane B's finding**. Owning record: B-136.
+>
+> ## 1. Parents and holds
+>
+> - B-136 and D-439 stay Open. F1/J-C and J3 keep their scope and holds.
+> - J1 (`D-440`) and J2 (`D-441`) stay separately registered, with both transfers held. No J1 decision implies a J2 decision.
+> - work-r3 (11,078-file digest `ff18f498…`, confirmed by Lane B), work-r2, `work/` and the live graph are unchanged.
+> - work-r3's ref mismatch stays a stop. It is not permitted.
+> - The finding supports an **unmapped end-to-end DoR baseline**. It does not show that every readiness control is absent, or that any accepted registration failed. **No complete xDD compliance is claimed.**
+>
+> ## 2. Trace: intent → requirement → decision → U-step
+>
+> | Intent | Requirement | Decisions | U-steps |
+> |---|---|---|---|
+> | `AIG-01`: ownership is never ambiguous | R1–R3; **R4–R8 (TB-1/TB-2 work-product units only)** | `D-75`, `D-156`, `D-88`, **`D-443` items 3–6** | Lane A: U1–U5, U8–U9. U3 executed by Lane B (`D-442` item 2) |
+> | `AIG-02`: nothing sent is lost; nothing closed quietly reopens | R1; **R2 (terminal entries change by a Return or a Terminal annotation only)**; **R3 (a series owner commits "whatever its lane state")** | `B-097`, `B-113`, **`D-184`**, **`D-272`** | U2 and U5 (B-136, Lane A); **U6–U7 (B-050, Lane B)** |
+> | `AIG-05`: applied is not verified | R1, R2 | `D-102`, `D-183` | U6; U11 |
+> | Unit route | U0–U11 (B-136, R3 draft; historical wording kept), as corrected | `3cc3144` items 4 and 6; `D-428`; `D-442`; `D-443` item 10; `D-444`; `D-425` | U1–U9 |
+>
+> ## 3. Ref readiness and continuing control (R1, applied throughout)
+>
+> **Initial readiness (U4).** The approved pin; a clean source; and bindings captured by `snapshotSource`:
+> - HEAD and the branch;
+> - origin and upstream;
+> - the full config;
+> - the full `refs/heads`, `refs/remotes` and `refs/tags` map.
+>
+> work-r3's retained frozen map (`STATE.json` `frozen.snapshot.refs`) is the existing proof. **Present and accepted.**
+>
+> **Continuing control (U4 → U8).** The contract is `publicationSourceFindings` (≈ line 2072), run again by `publishWork`. The guard is not changed.
+>
+> | Binding | Requirement |
+> |---|---|
+> | Branch identity, origin, upstream, config | Unchanged |
+> | Every bound ref **other than the source branch** | Unchanged |
+> | The source-branch tip | **May advance**, but only by a fast-forward through single-parent commits that touch only `docs/handoff/` |
+> | The tree outside `docs/handoff/` | Unchanged; the tree is clean |
+> | Anything else | Stops the route |
+>
+> - **The freeze:** no fetch, pull or push **on any surface** (agent tools, IDEs, interactive consoles) through U9 (`D-443` item 10; `3cc3144` item 6).
+> - **Detection** is present, accepted and tested.
+> - **Prevention, the cross-surface freeze, is unmapped:** the hold exists, but no DoR row names the surfaces or the proof form.
+>
+> ## 4. DoR/DoD matrix
+>
+> **Classes:**
+> - **Present and accepted:** a source exists, and an accepting act is recorded.
+> - **Unmapped:** a rule exists, but no DoR row, test or proof is tied to the step.
+> - **Missing rule:** no governing source.
+> - **Rule present; gate implementation missing.**
+> - **UNVERIFIED.**
+>
+> | Step | DoR (source) | Class | DoD evidence class | DoD state | Existing coverage |
+> |---|---|---|---|---|---|
+> | U1 | Authority, entries, number recheck, expected bytes, no backticked act number (R3 table; `3cc3144` items 2–4) | Present and accepted | Authority; Register bytes | `2bf36d5` | Check suite; number and bytes are procedural |
+> | U2 | U1 proof; reporting scope | Present and accepted | Filing record | `9cfc376`; `8dac254`; `9f15617` | Handoff checks |
+> | U3 | Exact-range Judge authority; pre-push base check (`7d61944`, `49595d4`; "any push requires separate exact-range authority", `3cc3144` item 6) | Present and accepted. **Rule present; gate implementation missing** | Push and upstream proof | `u3-push-evidence.json` `0a9b1f7b…`; `D-442` items 1–3 | None (procedure, handoff README item 4) |
+> | U4 | Initial readiness (§3) | Present and accepted | Candidate binding | work-r3 `ready` | `F3-C1`; `F2` snapshot (R4/PC6); "carries the caller's origin and exactly its ref map"; resume refusal on a changed source |
+> | U4→U8 | Continuing control (§3); freeze across surfaces | Detection: present and accepted. **Freeze: unmapped** | Preservation (machine comparison plus operator confirmation) | **Broken** for work-r3 (a bound remote-tracking ref changed) | `F3-R2`: "a handoff-only fast-forward passes"; "code, mixed, dirty, config, other-ref and non-fast-forward changes refuse" |
+> | U5 | Candidate proof; filing and check scope (`3d1acb4f…`) | Present and accepted | Filing record | `31043d6` | Check suite |
+> | U6 | Independent reviewer; schema; scope (U6/U7 release and clarification). **A pre-review source-rule checkpoint is missing at U6** (the guard applies it at U8) | Present and accepted, except the checkpoint: **missing at U6** | Independent acceptance | **Withheld** (`stop-proof.json` `b4422141…`) | `F3-R1a` (3 cases) |
+> | U7 | Actual U6 commit; annotation form; bounded `terminal-return` interval | Present and accepted | Covering annotation | Not reached | §6 (component level) |
+> | U8 | `publishWork` checks; its own release | Present and accepted (guard); release not given | Guarded publication | Not reached | `F3-R2`, `F3-R3`, `F3-C4`; reviewed-bytes cases |
+> | U9 | Every check passes (`3cc3144` item 6) | Present and accepted; **5 C-14 checks without negative fixtures in the corpus searched → unmapped** | Health | Not reached | C-14 fixtures |
+>
+> **Stop conditions (continuing).** Any change to branch, origin, upstream or config; to any bound ref other than the source branch; to the tree outside `docs/handoff/`; any merge commit or non-handoff commit on the source branch; any fetch, pull or push on any surface before U9.
+>
+> **A qualifying handoff-only advance of the source-branch tip is not a stop.**
+>
+> ## 5. Acceptance states (R2, kept)
+>
+> | Record | Evidence | Status |
+> |---|---|---|
+> | U1 registration review | Lane B, "APPROVE U1 at `2bf36d5`" (Codex session `rollout-2026-10-16T22-09-59-01a1450c…jsonl` line 4819, 2026-10-18T19:39:20Z). **Historical claim kept:** Lane A's U2 filing recorded "Lane B's scoped U1 review … UNVERIFIED by Lane A" (B-136 ≈ line 20501), correct for the evidence Lane A held then | Approved in Lane B's session record; not a committed receipt |
+> | U11 verification (`D-440`/`D-441` at the U1 commit) | None | **Held.** Separate from the U1 and U2 reviews |
+> | U2 filing review | Lane B, "APPROVE U2 at `9cfc376`" (line 4859, 2026-10-18T19:48:38Z); timing correction approved (line 4944) | Approved in Lane B's session record |
+> | U5 filing review | Lane B, "APPROVE the U5 filing at `31043d6`" (line 7267, 2026-10-20T04:58:17Z) | Approved at filing scope only |
+> | U6 candidate acceptance | Lane B stop-proof; guard finding "a ref other than the source branch changed since prepare" | **Withheld** |
+>
+> ## 6. Coverage
+>
+> ### 6a. The U6/U7 interval (R3, kept): existing component coverage
+>
+> These cases are run by `bun run fixtures` from `scripts/fixtures/suites.mjs`:
+> - **Preview:** "preview: an uncommitted substantive edit to a terminal entry is flagged as the WORKTREE step" (line 1978).
+> - **Uncovered work:** "episode: genuine substantive work after the terminal disposition is still flagged" (≈ 1961).
+> - **Coverage:** "coveredCommits: a Terminal annotation record's Annotated-At-Commit is covered" (2231), plus its siblings (2236, 2242, 2247).
+> - **Record-only:** "isRecordOnlyDiff: adding a complete Terminal annotation record, nothing else — record-only" (2142), plus its refusal shapes.
+> - **Form:** `terminalAnnotationForm`, 8 cases.
+>
+> **This coverage is component-level. It does not prove that the live U6/U7 sequence ran.** No duplicate interval test is proposed.
+>
+> ### 6b. Authority gates (R4)
+>
+> **Three authority classes, kept separate:**
+>
+> | Class | Governing rule | Rule state | Gate implementation |
+> |---|---|---|---|
+> | **TB-1/TB-2 work product** | `D-443` items 3–6; `AIG-01.R4`–`R8`: a unit Register act, a Lane B work order, Lane B `Active` | Present | **Missing** |
+> | **Handoff filing** | `D-184`: an `Eligible` Lane B/C actor may commit and push only its own explicit `B-`/`C-` entry. `D-272` / `AIG-02.R3`: the series owner commits "whatever its lane state". Plus the Judge's explicit release for the unit (U6/U7). **Within U4–U9, the no-push hold overrides `D-184`'s standing push permission** | Present | **Missing** (`lane-gate` enforces only the `Lane-Crossing:` declaration, `D-88`; it does not prove unit, filing or push authorization) |
+> | **Governance push** (U3-type) | Exact-range Judge authority at a named checkpoint; pre-push base check | Present | **Missing** |
+>
+> **Proposed scenarios.** Their IDs, rows and scripts are subject to Judge approval. They use **synthetic fixture authority** in a disposable repository and are **never a real release**.
+>
+> | ID (PROPOSED) | Case | Expected |
+> |---|---|---|
+> | `AIG-01.S2a` | A TB-1/TB-2 work-product commit with Lane B only `Eligible` | **Refuse**: "work-product unit requires Active" |
+> | `AIG-01.S2b` | A TB-1/TB-2 commit with a unit act, a work order and Lane B `Active`, with paths in scope | Pass |
+> | `AIG-02.S2a` | An explicitly authorized U6/U7 handoff commit to Lane B's own entry while Lane B is `Eligible` | **Not refused because of lane state.** Evaluate the handoff conditions: own entry, one path, explicit release, record-only rules (U7) |
+> | `AIG-02.S2b` | A handoff commit touching another path, or another actor's answer field | Refuse: "outside the filing scope" |
+> | `AIG-01.S3a` | A governance push with an exact-range authority; fresh upstream equals the base; the range equals the authorized commits | Pass. **No TB-1/TB-2 scope is assumed** |
+> | `AIG-01.S3b` | A push with no range authority, a moved upstream, extra or held commits, or inside a declared freeze (U4–U9) | Refuse, with the matching reason |
+> | `AIG-0x.S4` (all gates) | Missing, malformed (unknown field, wrong unit or entry) or out-of-scope authority | Refuse, with the applicable reason |
+> | `AIG-05.S1` | A filing's cited evidence (logs, comparison, trace): each path exists, and its hash equals the stated hash | Pass. Refuse if absent or mismatched. **It proves presence and identity only.** It does not prove correct content, the time of a run, or that a check passed |
+>
+> ## 7. Remaining gaps
+>
+> | # | Gap | Class | Fix | Owner | Phase | Trigger | Proof |
+> |---|---|---|---|---|---|---|---|
+> | T1 | No template-v1 attempt for U1–U9 | Unmapped | One attempt record (template v1 `ca605cd6…` unchanged; ID by Judge act) mapping §4–§5 from the existing sources. **No backdated readiness or results** | Lane A drafts; Lane B reviews; Judge assigns | Planning | Lane B contract review | Attempt rows with locators |
+> | T2 | The cross-surface freeze has no DoR proof | Unmapped | DoR rows. **Initial:** record the `snapshotSource` map at prepare. **Continuing:** "Confirm that every bound ref other than the source branch remains unchanged. Confirm that source-branch advancement satisfies publicationSourceFindings, including qualifying single-parent handoff-only commits. Retain machine comparison evidence and operator freeze confirmation." Branch identity, origin, upstream, config, clean tree and an unchanged non-handoff tree are kept. The no-fetch/no-push hold applies across all surfaces through U9 | Lane A drafts; Judge decides | Before the next prepare | The recovery decision | Accepted wording; then per-checkpoint comparison and confirmation |
+> | T3 | No pre-review source-rule checkpoint at U6 | Missing at U6 | A U6 DoR row: run `publicationSourceFindings` read-only before writing; stop on a finding | Lane B; Lane A maps | Before the next U6 | The recovery decision | The DoR row and the review evidence |
+> | T4 | U1/U2/U5 reviews exist as session records only | Unmapped (committed receipt) | Cite the locators in T1. No retroactive filing | Lane A | Planning | T1 | Attempt rows |
+> | T5 | U11 | Held | Its own release | Lane B | Held | Judge release | Lane B's `D-183` point 6 record |
+> | T6 | Authority and evidence gates | **Rules present; implementation missing** | Assurance track (§8) | Named owner | Separate unit | Judge release | Attempt evidence |
+> | T7 | Five C-14 checks lack negative fixtures (bounded search) | Unmapped | X1 | Lane A | After U9 or the work-r3 disposition | Judge act | New suites pass |
+>
+> ## 8. Assurance-track contract (bounded; no sandbox created)
+>
+> - **Purpose:** test the §6b gates and characterize the existing ones. It never replaces `D-443`/FN §11, grants push authority, bypasses a U4–U9 hold, reports fixture receipts as live acceptance, or touches a production candidate.
+> - **Isolation:**
+>   - an **independent disposable repository** (`git init` or clone) with its own object and ref store and **no remote pointing to the live origin**;
+>   - not a branch or linked worktree. The C-14 runner's `git worktree add --detach` shares the live ref store;
+>   - synthetic authority only;
+>   - live-repository preservation proof before and after: ref map, HEAD and status, and the work-r3, work-r2 and `work/` digests.
+> - **Baseline:**
+>   - template v1 is unchanged, and results go only in the separately authorized attempt (T1);
+>   - canonical Given/When/Then rows (the PROPOSED IDs become FN-MULTI §5 rows only by Judge act), with `bun:test` adapters;
+>   - existing cases are cited first;
+>   - no historical Red result, and nothing backdated.
+> - **Sequencing:** new FN rows and scripts are governed edits. Under the current route they come before the next prepare, so one graph cycle covers them. Each needs its own act. The stale graph authorizes no rebuild.
+> - **Completion proof:**
+>   - a per-case pass or refusal with its reason;
+>   - the disposable-repository identity;
+>   - live preservation proof;
+>   - Lane B's independent review.
+>
+> ## 9. Decision
+>
+> | Item | Verdict | Follow-up phase |
+> |---|---|---|
+> | R1: T2 and the matrix aligned to `publicationSourceFindings` (other bound refs unchanged; qualifying handoff-only advancement allowed; freeze across surfaces) | **Approve** | Planning: Lane B contract review |
+> | R4: three authority classes; `Active` not universal; the proposed case set; rule versus implementation kept distinct; `AIG-05.S1` scope limited | **Approve** as proposals | Judge decision after Lane B review |
+> | R2 acceptance states; R3 component coverage (no live-sequence claim) | **Approve** (kept) | Planning |
+> | T1 attempt; T2/T3 DoR rows | **Defer** | Planning, then the recovery decision |
+> | Assurance-track execution; governed edits; new scripts | **Defer** | Separate released units |
+> | Permitting work-r3's mismatch; changing the guard; a frozen-tip requirement after authorized handoff commits | **Reject** | — |
+> | A complete xDD compliance claim; invalidating accepted registrations | **Reject** | — |
+> | Any edit, filing, file, branch, commit, build, test run, transfer, prepare, publication, fetch, push, Register write or Gate 2 | **Reject** for this turn | — |
+
+### What you need
+
+- **Lane B:** independent review of this filing (source, quoted text and the statements in §2).
+- **Judge, at separate checkpoints:** T1 attempt creation and its ID; T2/T3 adoption; any new scenario ID or canonical
+  edit; assurance-test construction or execution; the work-r3 replacement route.
+- **Still held:** U6/U7 acceptance of work-r3, U8/U9, U10/U11, J1 and J2 transfers, EV r9, baseline naming, sprint
+  construction, Gate 2, every fetch and push.
+
+### What you did instead
+
+**Hard stop after this filing.** This commit appends to B-136 only, at HEAD `31043d6`. No specification, template,
+script, Register or other handoff is edited; no attempt, sandbox, branch or candidate is created; no test or fixture is
+run. work-r3, work-r2, the failed `work/` folder and the live graph are unchanged; the before/after preservation proof is
+reported outward.
+
+**Checks.** For this one filing commit, `docs-drift` may fail in `bun run check` (Judge release, item 4); every other
+check must pass and hooks run. An allowed `docs-drift` failure is not a full pass. Two pre-commit checks run on the final
+append; the commit trace and the content comparison complete after commit and are reported outward. Evidence folder:
+`C:/CoWork/outputs/lane-a-b136-u19dor-2026-10-20/`.
+
+**Self-grade (labelled; Lane A self-review, no independent acceptance).** Trigger: `/anthropic-skills:make-ai-grade-its-own-work`.
+Evidence: transcript `417d4ead-c5b7-481e-b141-3a8989ce9446.jsonl` line 1956 (invocation, `a87ef139-f074-46a9-9567-4a530b8dcfec`);
+locator only. Draft reviewed: `B136-U19DOR-APPEND.pre-fix.md` in the evidence folder, SHA-256
+`12ddcdf01c9d83ceb28895dca0642f0a09fdc306f7cb69dbbcb066e1a5fedf81`. Fixes: (1) the Lane B review row now gives its transcript
+locators; (2) this line. The quoted proposal was not changed.
+
+| Verdict | Item | Owner | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Revision 3 filed in full at planning scope, with the statements in §2 | Lane A | Complete with this filing |
+| **Defer** | Independent review of this filing | Lane B | Next |
+| **Defer** | T1–T7, proposed scenarios and gates, assurance track, replacement route | Judge; named owners | Their separate checkpoints |
+| **Reject** | Any compliance, readiness, acceptance or execution claim inferred from this filing | All actors | — |
