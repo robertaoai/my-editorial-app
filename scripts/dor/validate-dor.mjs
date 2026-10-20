@@ -205,20 +205,57 @@ const REGEX_AFTER_WORD = new Set(["return", "typeof", "instanceof", "in", "of", 
 const CONTROL_WORDS = new Set(["if", "for", "while", "switch", "catch", "with"]);
 /** JavaScript line terminators: LF, CR, LINE SEPARATOR and PARAGRAPH SEPARATOR (CRLF is a CR then an LF). */
 const LINE_TERMINATOR = /[\n\r\u2028\u2029]/;
-/** Multi-character punctuators, longest first; any other punctuation is a single character. */
-const PUNCTUATORS = ["...", "===", "!==", "**", "??", "?.", "=>", "==", "!=", "<=", ">=", "&&", "||"];
+/**
+ * Every multi-character JavaScript punctuator, longest first, so an unsupported operator (`++`, `>>>`, `+=`, …) is one
+ * token and is never read as two supported ones. Any other punctuation is a single character.
+ */
+const PUNCTUATORS = [">>>=", "...", "===", "!==", "**=", "<<=", ">>=", ">>>", "&&=", "||=", "??=",
+  "=>", "==", "!=", "<=", ">=", "&&", "||", "??", "?.", "++", "--", "+=", "-=", "*=", "%=", "&=", "|=", "^=", "<<", ">>", "**"];
+/**
+ * A numeric literal as JavaScript modules accept it: hexadecimal, octal or binary integers, decimal integers (no legacy
+ * leading zero) with an optional fraction and exponent, numeric separators between digits, and the BigInt suffix on
+ * integers. The character after it must not continue an identifier or a number (`1abc`, `0x`, `08`, `1_`).
+ */
+const NUMERIC = /^(?:0[xX][0-9a-fA-F](?:_?[0-9a-fA-F])*n?|0[oO][0-7](?:_?[0-7])*n?|0[bB][01](?:_?[01])*n?|(?:0|[1-9](?:_?[0-9])*)n|(?:0|[1-9](?:_?[0-9])*)(?:\.(?:[0-9](?:_?[0-9])*)?)?(?:[eE][+-]?[0-9](?:_?[0-9])*)?)/;
+
+/**
+ * The index after the escape sequence whose backslash is at `j`, or -1 when strict-mode code refuses it: `x` needs
+ * two hex digits; `u` needs four hex digits or braces around hex digits up to 10FFFF; `0` must not be followed by a
+ * digit; `1`-`9` (legacy octal and `8`, `9`) are refused. A backslash before a line terminator is a line continuation
+ * (CR LF counts as one). Any other character escapes itself.
+ */
+function escapeEnd(src, j) {
+  const c = src[j + 1];
+  if (c === undefined) return -1;
+  if (c === "\r" && src[j + 2] === "\n") return j + 3;
+  if (c === "x") return /^[0-9a-fA-F]{2}$/.test(src.slice(j + 2, j + 4)) ? j + 4 : -1;
+  if (c === "u") {
+    if (src[j + 2] === "{") {
+      const m = /\{([0-9a-fA-F]+)\}/y;
+      m.lastIndex = j + 2;
+      const r = m.exec(src);
+      return r && parseInt(r[1], 16) <= 0x10ffff ? m.lastIndex : -1;
+    }
+    return /^[0-9a-fA-F]{4}$/.test(src.slice(j + 2, j + 6)) ? j + 6 : -1;
+  }
+  if (c === "0") return /[0-9]/.test(src[j + 2] ?? "") ? -1 : j + 2;
+  if (/[1-9]/.test(c)) return -1;
+  return j + 2;
+}
 
 /**
  * Splits JavaScript source into tokens `{ t, v, at, nl }` (t: "word", "num", "str", "tpl", "re" or "punct"; `nl`
  * true when a line terminator, in whitespace or inside a comment, comes between the previous token and this one).
  * Comments and whitespace are dropped; string, template and regular-expression literals are single tokens, so markers
  * inside them are never code. Template substitutions are tokenized as code. Returns null (fail closed) on an
- * unterminated comment, string, template or regular expression. A `/` is read as a regular expression after
- * punctuation other than `)`, `]` or `}`, after the words in REGEX_AFTER_WORD, or at the start.
+ * unterminated comment, string, template or regular expression, a malformed numeric literal (NUMERIC), or an escape
+ * that strict-mode code refuses (escapeEnd) in a string or an untagged template; a tagged template (after an
+ * identifier, `)` or `]`) keeps its raw escapes. A `/` is read as a regular expression after punctuation other than
+ * `)`, `]` or `}`, after the words in REGEX_AFTER_WORD, or at the start.
  */
 function lex(src) {
   const toks = [];
-  const subs = []; // brace depth at which each open template substitution started
+  const subs = []; // per open template substitution: the brace depth where it started, and whether the template is tagged
   let depth = 0;
   let i = 0;
   let nl = false;
@@ -228,16 +265,18 @@ function lex(src) {
     nl = false;
     toks.push(k);
   };
-  const template = (from, at) => {
+  const template = (from, at, tagged) => {
     let j = from;
     while (j < n) {
-      if (src[j] === "\\") j += 2;
-      else if (src[j] === "`") {
+      if (src[j] === "\\") {
+        j = tagged ? j + 2 : escapeEnd(src, j);
+        if (j < 0) return -1;
+      } else if (src[j] === "`") {
         push({ t: "tpl", v: src.slice(at, j + 1), at });
         return j + 1;
       } else if (src[j] === "$" && src[j + 1] === "{") {
         push({ t: "tpl", v: src.slice(at, j + 2), at });
-        subs.push(depth);
+        subs.push({ depth, tagged });
         return j + 2;
       } else j++;
     }
@@ -259,30 +298,37 @@ function lex(src) {
       i = e + 2;
     } else if (c === "'" || c === '"') {
       let j = i + 1;
-      while (j < n && src[j] !== c && src[j] !== "\n" && src[j] !== "\r") j += src[j] === "\\" ? 2 : 1;
+      while (j < n && src[j] !== c && src[j] !== "\n" && src[j] !== "\r") {
+        j = src[j] === "\\" ? escapeEnd(src, j) : j + 1;
+        if (j < 0) return null;
+      }
       if (j >= n || src[j] !== c) return null;
       push({ t: "str", v: src.slice(i, j + 1), at: i });
       i = j + 1;
     } else if (c === "`") {
-      i = template(i + 1, i);
+      const p = toks[toks.length - 1];
+      const tagged = (p?.t === "word" && !REGEX_AFTER_WORD.has(p.v)) || isP(p, ")") || isP(p, "]");
+      i = template(i + 1, i, tagged);
       if (i < 0) return null;
-    } else if (c === "}" && subs.length && subs[subs.length - 1] === depth) {
-      subs.pop();
-      i = template(i + 1, i);
+    } else if (c === "}" && subs.length && subs[subs.length - 1].depth === depth) {
+      i = template(i + 1, i, subs.pop().tagged);
       if (i < 0) return null;
     } else if (/[A-Za-z_$]/.test(c)) {
       const m = /^[\w$]+/.exec(src.slice(i, i + 256));
       push({ t: "word", v: m[0], at: i });
       i += m[0].length;
     } else if (/[0-9]/.test(c)) {
-      const m = /^[\w.]+/.exec(src.slice(i, i + 256));
+      const m = NUMERIC.exec(src.slice(i, i + 256));
+      if (!m || /[\w$]/.test(src[i + m[0].length] ?? "")) return null;
       push({ t: "num", v: m[0], at: i });
       i += m[0].length;
     } else if (c === "/") {
       const p = toks[toks.length - 1];
       const regex = !p || (p.t === "punct" && !/^[)\]}]$/.test(p.v)) || (p.t === "word" && REGEX_AFTER_WORD.has(p.v));
       if (!regex) {
-        push({ t: "punct", v: c, at: i++ });
+        const v = src[i + 1] === "=" ? "/=" : "/";
+        push({ t: "punct", v, at: i });
+        i += v.length;
         continue;
       }
       let j = i + 1;
@@ -407,8 +453,11 @@ function validValue(ts) {
     if (at("{")) return i++, list("}", member);
     return false;
   };
+  let prefixed = false; // whether the operand unary() last read began with a prefix operator
   const unary = () => {
+    const start = i;
     while ((ts[i]?.t === "punct" || ts[i]?.t === "word") && PREFIX.has(ts[i].v)) i++;
+    const pre = i > start;
     const isNew = ts[i]?.t === "word" && ts[i].v === "new";
     if (isNew) i++;
     if (!primary()) return false;
@@ -425,15 +474,24 @@ function validValue(ts) {
         i++;
         if (!expr() || !at("]")) return false;
         i++;
-      } else return true;
+      } else {
+        prefixed = pre; // set last: a nested operand read inside this one must not leak its own prefix
+        return true;
+      }
     }
   };
+  // One operator chain, then an optional conditional. Refused combinations, as JavaScript refuses them: `??` in the
+  // same chain as `&&` or `||` (parentheses start a new chain), and `**` whose left operand has a prefix operator.
   const expr = () => {
     if (!unary()) return false;
+    const ops = new Set();
     while (ts[i]?.t === "punct" && BINARY.has(ts[i].v)) {
+      if (ts[i].v === "**" && prefixed) return false;
+      ops.add(ts[i].v);
       i++;
       if (!unary()) return false;
     }
+    if (ops.has("??") && (ops.has("&&") || ops.has("||"))) return false;
     if (!at("?")) return true;
     i++;
     if (!expr() || !at(":")) return false;
@@ -513,7 +571,7 @@ export function snapshotFields(guardSource) {
   const successes = [];
   for (let i = b + 1; i < end; i++) {
     const k = toks[i];
-    if (k.t === "re" || isP(k, "/")) return null;
+    if (k.t === "re" || isP(k, "/") || isP(k, "/=")) return null;
     if (isP(k, "{")) {
       const p = toks[i - 1];
       const fn = isP(p, "=>") || (isP(p, ")") && !(toks[pair.get(i - 1) - 1]?.t === "word" && CONTROL_WORDS.has(toks[pair.get(i - 1) - 1].v)));

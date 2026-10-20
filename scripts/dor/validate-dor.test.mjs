@@ -509,6 +509,44 @@ describe("validate-dor: R1 line terminator after return, R2 value syntax (Lane B
   });
 });
 
+describe("validate-dor: R2 literal and operator syntax (Lane B review of ad270f0)", () => {
+  const fn = (body) => `export function snapshotSource(r) {\n${body}\n}\n`;
+  const value = (v) => snapshotFields(fn(`  return { ok: true, root, head: ${v} };`));
+  // Fixture source with `~` standing for a backslash, so no escape is interpreted before the parser sees it.
+  const q = (s) => s.replaceAll("~", "\\");
+  test("the four reported values are refused", () => {
+    for (const v of ["1abc", "0x", "a ++ b", "a ?? b || c"]) expect(value(v)).toBeNull();
+  });
+  test("malformed numeric literals are refused", () => {
+    for (const v of ["1e", "1e+", "08", "0b2", "0o8", "0xg", "1__0", "1_", "1.5n", "1n2", "1abc.x", "0x_1"]) expect(value(v)).toBeNull();
+  });
+  test("invalid string and template escapes are refused", () => {
+    for (const v of ['"~x"', '"~x1"', '"~u12"', '"~u{110000}"', '"~u{}"', "'~1'", '"~08"', '"~8"', "`~x`", "`~u{zz}`"]) {
+      expect(value(q(v))).toBeNull();
+    }
+  });
+  test("incomplete and unsupported operators are refused, never split into supported ones", () => {
+    for (const v of ["a ++", "++a", "a--", "a -- b", "a +", "a **", "a ===", "a ??", "a ||", "a += b", "a >>> b", "a << b", "a >> b", "a ?.", "a ??= b", "a => b"]) {
+      expect(value(v)).toBeNull();
+    }
+  });
+  test("forbidden operator combinations are refused", () => {
+    for (const v of ["a || b ?? c", "a && b ?? c", "a ?? b && c", "a ?? b || c ?? d", "-a ** b", "!a ** b", "typeof a ** b", "a * -b ** c"]) {
+      expect(value(v)).toBeNull();
+    }
+  });
+  test("valid literals and operator forms in the supported grammar stay accepted", () => {
+    for (const v of ["0", "1", "1.5", "1.", "1e10", "1E-3", "1.e5", "1_000", "0xFF", "0o17", "0b101", "10n", "0x1Fn", "1.5.toFixed(1)", "1..toString()",
+      q('"~n~t~~~"~x41~u0041~u{1F600}~0"'), q("'~q'"), q('"a~\nb"'), q('"a~\r\nb"'), q("`t~n`"),
+      "a ?? b ?? c", "(a || b) ?? c", "a ?? (b && c)", "(-a) ** b", "a ** -b", "a ** b ** c", "a - -b", "a+ +b", "- -a", "a ?? b ? c || d : e"]) {
+      expect(value(v)).toEqual(["head", "root"]);
+    }
+  });
+  test("a tagged template keeps its raw escapes elsewhere in the source", () => {
+    expect(snapshotFields(`const re = String.raw${"`"}\\d+\\x${"`"};\n${fn("  return { ok: true, head };")}`)).toEqual(["head"]);
+  });
+});
+
 describe("validate-dor: B1 tier clarification", () => {
   const withJ4 = (edit = (x) => x) => contract((c) => {
     c.tuples[0] = tuple("J1", "D-904", P4, H4, S4, "copy-d.md");
