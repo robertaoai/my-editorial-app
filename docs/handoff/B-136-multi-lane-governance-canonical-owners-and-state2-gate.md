@@ -21366,3 +21366,150 @@ verdict row names C1–C6, with C6(b) still owed. The verbatim proposal and the 
 | **Defer** | Revision 3's deferred obligations (X1, X4–X7, X9) and FV-001 creation | Their named owners | Their named triggers |
 | **Defer** | work-r3 U5 supplement, U6/U7 (Lane B), U8/U9 | Lane A; Lane B | Each after its own release |
 | **Reject** | Any feature DoD, business outcome, construction, Register write or push inferred from this filing | All actors | — |
+
+## Lane A — U5 supplement: U4 attempt 3 candidate `work-r3` ready (`10da9e89…`); preparation record and ledger; `3a4d73b` reporting correction; stop for U6, 2026-10-20
+
+> **Filed** under the Judge's bounded release "Judge decision — bounded work-r3 U5 filing", read baseline
+> `3a4d73b518f9964b0a96570afbefed823d7351ef`, receiver Lane A, independent reviewer Lane B, retained as
+> `C:/CoWork/outputs/lane-a-u5r3-2026-10-20/JUDGE-U5-R3-RELEASE-3a4d73b.md`, SHA-256
+> `3d1acb4f434f16cac7d0a4c659d0aa7d4918d5dfbf76f5f42adcccb7bac4fda5` (full message text, transcript
+> `417d4ead-c5b7-481e-b141-3a8989ce9446.jsonl` line 1444, message `b9484c4b-e3ed-43b9-98cc-f0eb47e3192c`). Judge approval
+> received in the current conversation for this one B-136 append, pending durable registration (`D-183` point 2). It
+> grants no Register write and releases nothing after this filing. B-136 and D-439 stay **Open**.
+
+### What happened
+
+**1. Parents and holds.** B-136 and D-439 stay Open. F1/J-C and J3 keep their scope and holds. J1 (`D-440`) and J2
+(`D-441`) stay separately registered; each transfer stays held, and no J1 decision implies a J2 decision.
+
+**2. Authority chain for the candidate.**
+
+| Act | Source | Status wording (`D-183`) |
+|---|---|---|
+| Replacement route, sequencing amendment, Entry C check exception, RC-pre, scope choices (B and C INCLUDE, `walk` EXCLUDE, U5 scope ACCEPT) | `D-444` (§5.14e267), commit `46937c41c2df35a4982752186cc34a6ca6e81a47` | Judge approval recorded by `D-444` at `46937c4` |
+| Source pin `46937c4` approved; one bounded preparation of `work-r3` released | `C:/CoWork/outputs/lane-a-u4u5-2026-10-19/JUDGE-PIN-PREPARE-RELEASE-46937c4.md`, SHA-256 `c4e5a6150a892361535673fd078664d1438f3fd104455bdd7de2aa6cd452af4e` (transcript line 468, message `c86a8d46-d42c-44a2-9622-0444203b77b7`) | Judge approval received in the current conversation, pending durable registration |
+| This U5 filing | As above (`3d1acb4f…`) | Judge approval received in the current conversation, pending durable registration |
+
+**3. Candidate identity — bound, then recomputed from the retained candidate at filing time.** Each value below was
+read from `work-r3/STATE.json` and recomputed independently: the graph from the staging bytes, the manifest with the
+guard's own exported `hashTree`/`treeDigest` over `attempt-2/staging` (`verify-candidate.mjs`, output
+`candidate-before.json` in the evidence folder below). Every bound value matches.
+
+| Field | Value |
+|---|---|
+| Folder | `C:/CoWork/outputs/lane-a-u4-cycle-2026-10-19/work-r3` |
+| `workId` | `10da9e89-6903-4dcf-8993-625248af59bc` |
+| `STATE.json` SHA-256 | `9e933c7ce93a67a8d843fc43110e10e5395b7586a80156baf5d1bb496c9b6b97`; state `ready` |
+| Graph SHA-256 | `db2733c62d98f1e3bd740c837c769b9c2a3ecf64a58814c00da9614eff4a4e13` (STATE `ready.graphSha256` = recomputed from `attempt-2/staging/graph.json`) |
+| Manifest | algorithm `guard-treeDigest-v1`; digest `c6a02d33a7aa2b29b8f38c1e9ac604827142e1b87400a412d55262fc91aa1603`; 583 files (STATE = recomputed) |
+| Analyzed source | `46937c41c2df35a4982752186cc34a6ca6e81a47` (STATE `frozen.snapshot.head` and staged `branch.json` `lastAnalyzedHead`; `stale` false) |
+| Frozen baseline | `releaseLocus` `ca4b6f2a01c10b754a7fa3229e3a092615777a03`; algorithm `guard-treeDigest-v1`; digest `5261008fe6d7fda71594d078eedc705fab86bbe4faa8b4a6ffdb665a9de00134`; 583 files |
+| Frozen at | `2026-10-19T16:41:21.739Z` |
+| Pending semantics | 0 after resume |
+| Bound answers | `work-r3/attempt-2/ANSWERS.json` = `answers-r3.json` = STATE `answersHash` = `1fdc1d76fa5ab23a453dcb529761072fdfdd5554d9592ae0bdec6843104a1826` |
+
+**4. Preparation record (U4 attempt 3).** All files are in `C:/CoWork/outputs/lane-a-u4-cycle-2026-10-19/` unless named.
+
+| Step | Outcome | Evidence (SHA-256) |
+|---|---|---|
+| Preconditions | HEAD `46937c4` on `features/feature-V1-SM05`; `git status --porcelain --untracked-files=all` empty; `work-r3` absent; no transaction journal or lock; live `branch.json` `62c15ba3…`; live baseline = work-r2's frozen baseline (`ca4b6f2a…`/`5261008f…`, 583 files). Guard pins and bindings were verified by prepare itself; it refused nothing | `precheck-r3-before.json` `94fc1b6f29b2763cd1f4c61133faf28a88537c6bb1382ea03ee3f00a533bd17c` (probe `precheck-r3.mjs` `b5b23d556164c80e9b0e784a68b6aa72fa6c5e5972fd6ecae70c0451036f13cb`) |
+| Prepare | **pending**, exit 3, workId `10da9e89…` | `prepare-run3.log` `4e8e60e51b9f5dc37d6cfff0186c74bb80aeb42d503bda300dc70f48c788620d` |
+| Pending set | `work-r3/PENDING.json` `c5d14dee574ade5fa3f95725a910bbf99e07f5b77fa4df75a3ba1212dd18c8ac` against work-r2's `606bc3e1…`: the same 365 description ids; 90 communities against 89 — 79 member-set hashes match, 11 are new, 10 of work-r2's no longer occur | `reuse-r3.json` `126a04908cc030cd642034e43e0c834932ce711ba4914c3a23e03669dda2b120` |
+| Classification | Descriptions: 363 reused, 2 category A, 0 category B, 0 failed reuse. Names: 79 reused by exact `memberSetSha256`, 11 category C. Stops: 0 | `classify-r3.mjs` `b0ac12d82c3b960896ef76251a446f4cba5c96b4a349585166db38efdc83ceb5`; `answers-r3.partial.json` `af4a73c85bee2c8c4e131fef71021f988611afd273d903800d138a2cc37fca7f` |
+| Names | 90 named: 79 reused, 11 by the commit-group rule; no duplicate against the 95 names bound to non-pending communities, the reused names or each other | `names-r3.mjs` `6fa9464544deedd8275ac31794bd252dd51902d3635eb008500efad486a68863`; dry run `names-r3-dry.json` `51e3ad0cdc9dcc0fe0344c3823e3f95669e8a101bf7caa3864e4741bc7134c4b`; `names-r3.json` `03dffaa1016cf7804be50ab43c6ddc487fbe12fe8d4a6521be3d609f4462369f`; basis `07-name-basis-r3.json` `9c357fed0785636be80d45308addcc423d8376483e58d8fb089a08cfe6d2ec27` |
+| Pre-resume checks | `answers-r3.json` covers exactly the 365 ids and 90 communities; the guard's `findForeignPath` (`foreign-check.mjs`) finds 0 hits; both category A texts occur verbatim in the accepted proposal (`57096f97…`); `walk` is byte-identical to work-r2; only the two category A descriptions differ from work-r2; the 79 reused names are byte-identical | Checked against `answers-r3.json` `1fdc1d76…`; the check results are in-session command output (transcript `417d4ead…`), not retained as a separate file, and can be re-derived from the retained files |
+| Resume | Ran once; **ready**, exit 0 | `resume-3.log` `d748e6c922b1bc520254a0801197f63ae7ff7478623b2756387cec55151b8be6` |
+| Staged graph check | Both category A descriptions present; `walk` unchanged; 185 communities, each with exactly one name, and no name shared between communities | Read from `attempt-2/staging/graph.json` (`db2733c6…`); in-session output, not retained as a separate file; re-derivable from the retained graph |
+| Preservation after resume | work-r2 STATE `fb115686…` and graph `3382d6f9…`; work-r2 tree `bce4e2a6…` (11,038 files); failed `work/` tree `181fffa2…` (11,037 files, reproducing the digest recorded at U5 `da8eed3`); `answers-r2.json` `c946fc07…`; live `branch.json` and baseline unchanged; no journal or lock | `precheck-r3-after.json` `f8066522aa1254f6c671198d6987b14b896e5c07be5e2ea9c7b53689b299a56b` |
+
+**5. Category A — the two accepted corrections, as bound** (byte-identical to the accepted proposal's §4; `walk` EXCLUDE
+per `D-444` item 7):
+
+- `r3_make_custody_addendum_d439`: "Writes CUSTODY-MAP-D439-ADDENDUM-r1.md in the external package's r3 folder, refusing to overwrite and refusing if custody map r1's SHA-256 differs from the recorded value. Its active traversal adds root-level non-directory entries without a symbolic-link check; inside each root-level directory it skips disposable clone paths first and then refuses any symbolic link it reaches. Section A lists map r1 and every collected package file not in map r1, excluding clone paths, the addendum itself and map r1's own path, with SHA-256, destination and status; section B is a fixed table of artifacts created after the initial transfer."
+- `r3_make_custody_addendum_d439_all`: "Package-relative paths of every file: root-level non-directory entries are added without a symbolic-link check; each root-level directory is traversed recursively, skipping disposable clone paths before refusing any symbolic link it reaches."
+
+**6. Category B.** None: no node id in the new pending set is absent from work-r2's pending set.
+
+**7. Category C — 11 new names, for Lane B's item-by-item review.** Each community is at least 60% commit nodes, so
+each name is the commit-group rule's mechanical output from its members' commit subjects. Community numbers are
+locators only; identity is the member-set hash.
+
+| Locator | `memberSetSha256` (prefix) | Commits / members | Name |
+|---|---|---|---|
+| 133 | `f217b167b760` | 10/10 | B-136 Handoff Commits |
+| 79 | `672adf1d0f19` | 19/19 | D-439 B-136 Commits |
+| 17 | `83a0529fd986` | 36/37 | D-371–D-444 B-136/B-158 Commits |
+| 97 | `5f4474133c9d` | 16/16 | B-136 Handoff Commits (2297985…) |
+| 105 | `d12bcdab15b1` | 14/14 | D-434–D-435 B-050/B-136 Commits |
+| 12 | `3af2199f8f47` | 39/39 | D-416–D-418 B-050/B-106 Commits |
+| 37 | `a0a26931c402` | 28/28 | D-410–D-413 B-050/B-154 Commits |
+| 27 | `2f2d7f4a9cdc` | 31/31 | D-413–D-416 B-071/B-077 Commits |
+| 165 | `7e3dd867b559` | 6/6 | D-368 B-104 Commits |
+| 124 | `43b8135e247f` | 12/12 | D-324–D-364 B-130 Commits |
+| 100 | `b868107afdf8` | 15/15 | D-338–D-352 Commits |
+
+Full hashes and per-name basis: `07-name-basis-r3.json`.
+
+**8. Deviations and observations, stated plainly.**
+
+1. **Naming helper.** The attempt-2 `names.mjs` applies its rules to every pending community. `names-r3.mjs` is new: it
+   reuses a reviewed work-r2 name on an exact member-set hash first (the accepted rule, proposal §6.6), then applies the
+   unchanged attempt-2 rules to unmatched memberships only.
+2. **Reuse comparison basis.** `classify-r3.mjs` compares each node's label and location with work-r2's pre-answer
+   generated graph (`work-r2/attempt-1/gen/fresh/.graphify/graph.json`) and its source-file blob at `0f7db22` against
+   `46937c4`. The choice of that comparison graph is Lane A's.
+3. **Prepare runtime.** Prepare ran longer than the shell's 600-second foreground limit and finished in the background.
+   This changed no input or output.
+4. **Preservation digest method.** The tree digests are SHA-256 over a sorted `<sha256> *./<path>` listing, computed by
+   Lane A's read-only probes. The method reproduces the `work/` digest `181fffa2…` recorded at `da8eed3`. A work-r3
+   tree digest (`ff18f49887b0f690818a168ba5b660e033460ed924fb5e3d48297d4f7a247068`, 11,078 files) was first taken at the
+   DoR/DoD filing (2026-10-20), not immediately after resume; the resume-time proof is the STATE, graph and manifest
+   identity, which is unchanged.
+5. **C1–C6.** The accepted U5 scope included C1–C6. They were filed at `3a4d73b` under the Judge's separate DoR/DoD
+   filing release; this supplement cites that filing and does not repeat them. C6(b) stays owed in B-158.
+6. **Source history.** `46937c4..3a4d73b` touches only `docs/handoff/`. This satisfies the publication source-history
+   condition only; U8 must still pass the acceptance record, frozen identity, bindings, live baseline and staging-byte
+   checks.
+
+**9. Reporting correction for `3a4d73b`** (finding: Lane B's review of `3a4d73b`). `3a4d73b` is not rewritten. Its
+"27,976 bytes" and "byte for byte" statements are superseded by:
+
+"The retained PROPOSAL-DORDOD-r3.md contains 27,976 characters and 28,183 UTF-8 bytes, with LF line endings. Removing the quote prefixes from the filed block reproduces the source text plus one final LF. The earlier unqualified byte-for-byte claim is withdrawn. The proposal content, source hash, commit proof and acceptance at planning scope remain unchanged."
+
+### What you need
+
+- **Lane B (U6):** an independent review of this candidate (identity, the two category A corrections, the 11 category C
+  names, and the reused answers as Lane B judges necessary), then, if warranted, one single-parent commit after
+  `46937c4` that adds exactly one complete `### F3 acceptance record` block to
+  `docs/handoff/B-050-hook-rebuild-resets-graphify-branch-metadata.md`, with values for this candidate only: `workId`
+  `10da9e89-6903-4dcf-8993-625248af59bc`; `graphSha256` `db2733c6…`; `manifest` `guard-treeDigest-v1` / `c6a02d33…` /
+  583; `analyzedSource` `46937c4…`; `baseline` `ca4b6f2a…` / `guard-treeDigest-v1` / `5261008f…`; `pendingSemantics`
+  0. Lane A supplies no draft block (G-F3-8).
+- **Lane B (U7):** the separate Terminal annotation in B-050, naming the U6 commit.
+- **Then, under their own releases:** U8 `publish --work C:/CoWork/outputs/lane-a-u4-cycle-2026-10-19/work-r3 --review <U6 commit>` and U9 full health.
+- **Still held:** U10, U11, J1 and J2 transfers, EV r9, baseline naming, sprint construction, Gate 2, every fetch and push.
+
+### What you did instead
+
+**Hard stop after this filing.** This commit appends to B-136 only, at HEAD `3a4d73b`. No Register write, build,
+behavioural-test execution, custody helper, transfer, prepare or resume, publish, fetch or push. work-r3, work-r2, the
+failed `work/` folder and the live graph are unchanged; the proof is taken before and after this commit and reported
+outward.
+
+**Checks.** For this one filing commit, `docs-drift` may fail in `bun run check` (Judge release, item 4); every other
+check must pass and hooks run. An allowed `docs-drift` failure is not a full pass. Two pre-commit checks run on the final
+append; the commit trace and the content comparison complete after commit and are reported outward. Evidence folder:
+`C:/CoWork/outputs/lane-a-u5r3-2026-10-20/`.
+
+**Self-grade (labelled; Lane A self-review, no independent acceptance).** Trigger: `/anthropic-skills:make-ai-grade-its-own-work`.
+Evidence: transcript `417d4ead-c5b7-481e-b141-3a8989ce9446.jsonl` line 1497 (invocation, `c6660633-7d5d-41f2-8292-a2e28b1cb3b8`);
+locator only. Draft reviewed: `B136-U5-R3-APPEND.pre-fix.md` in the evidence folder, SHA-256
+`7b05b916191df94055f0013b52336bd71b406cb4b9434f53571da7ad50bbfb5f`. Fixes: (1) the pre-resume check row states that its
+results are in-session output, not a retained file; (2) the staged-graph check row states the same; (3) this line.
+
+| Verdict | Item | Owner | Follow-up phase |
+|---|---|---|---|
+| **Approve** | U4 attempt 3 candidate `10da9e89…` recorded, bound and recomputed; `3a4d73b` correction filed | Lane A | Complete with this filing |
+| **Defer** | U6 independent review and acceptance record; U7 Terminal annotation | Lane B | Next, on this candidate |
+| **Defer** | U8 publication citing U6; U9 full health | Lane A | Their own releases |
+| **Reject** | Treating `ready` as acceptance or publication permission; any U6–U9 step, transfer, Register write or push taken from this record alone | All actors | — |
