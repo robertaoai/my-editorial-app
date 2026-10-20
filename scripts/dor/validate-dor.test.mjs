@@ -12,7 +12,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import {
   entrySection, evaluate, main, normPath, parseContract, quotedPaths, REQUIRED_DOR, schemaFindings, scopeClause, sha256,
-  snapshotFields, unaffectedWithoutReason,
+  snapshotFields, splitTopLevel, unaffectedWithoutReason,
 } from "./validate-dor.mjs";
 
 // Each case spawns several `git` processes against the fixture repository; on a loaded Windows host one case can exceed
@@ -27,14 +27,23 @@ let C2; // a later HEAD: the Register gains an unrelated line, so historical and
 const OBJ1 = "supplement-a object bytes\n";
 const OBJ2 = "supplement-b object bytes\n";
 const OBJ3 = "supplement-c object bytes\n";
+const OBJ4 = "supplement-d object bytes\n";
 const H1 = sha256(OBJ1);
 const H2 = sha256(OBJ2);
 const H3 = sha256(OBJ3);
+const H4 = sha256(OBJ4);
 const P1 = "C:/Fixture/outputs/checks-01/supplement-a/SUP-MAP.md"; // same basename on purpose
 const P2 = "C:/Fixture/outputs/checks-01/supplement-b/SUP-MAP.md";
 const P3 = "C:/Fixture/outputs/checks-01/supplement-c/SUP-MAP.md";
+const P4 = "C:/Fixture/outputs/checks-01/supplement-d/SUP-MAP.md";
 const S1 = "This unit only. Excluded: supplement b; any file outside the unit; Register writes; push.";
 const S2 = "This unit only. Excluded: supplement a; any file outside the unit; Register writes; push.";
+const S4 = "This unit only. Excluded: supplements a, b and c; any file outside the unit; Register writes; push.";
+// The grouped reasonless row, and the reason a later clarification supplies for it (B1).
+const ROW4 = "`docs/PRD.md`, Charter, application code";
+const REASON4 = "The registration records the existing custody approval and changes none of the grouped tiers' governed content, scope or lane state.";
+// The real guard return shape: a nested call whose arguments contain commas (B2).
+const GUARD = "export function snapshotSource(repo) {\n  const x = 1;\n  return { ok: true, root: canonicalFsPath(repo), head, branch, origin, refs, upstream, config: git(repo, [\"config\", \"--list\", \"--show-origin\"]) };\n}\n";
 const EXC = "item 6 check exceptions text\n";
 const TPL = "# template v1 (synthetic)\n";
 const T2 = "Confirm that every bound ref other than the source branch remains unchanged.";
@@ -79,7 +88,7 @@ beforeAll(() => {
   git("config", "user.name", "fixture");
   put(REG, HEAD_REG);
   put("docs/fn.md", "| `AIG-02.R1` | channel |\n| `AIG-05.R2` | approve is not permission |\n");
-  put("scripts/guard.mjs", "export function snapshotSource(repo) {\n  return { ok: true, root: repo, head, branch, origin, refs, upstream, config: x };\n}\n");
+  put("scripts/guard.mjs", GUARD);
   put("docs/template.md", TPL);
   put("docs/rules.md", "the committed blob equals the expected bytes\n");
   git("add", "-A");
@@ -89,12 +98,14 @@ beforeAll(() => {
     + entry("D-900", P1, H1, S1)
     + entry("D-901", P2, H2, S2)
     + entry("D-903", P3, H3, "This unit only. Excluded: supplement a and supplement b entirely.", "")
+    + entry("D-904", P4, H4, S4).replace("| **Build Spec** |", `| ${ROW4} | — unaffected |\n| **Build Spec** |`)
     + `## 5.3 \`D-902\` — Synthetic boundary adoption\n\n3. **T2.** "${T2}"\n4. **T3.** Before writing, ${T3}\n`;
   put(REG, reg);
   git("add", "-A");
   git("commit", "-q", "-m", "c1");
   C1 = git("rev-parse", "HEAD");
-  put(REG, `${reg}\n<!-- a later unrelated line -->\n`);
+  // HEAD gains the B1 clarification for D-904: a later entry with an entry | row | reason table.
+  put(REG, `${reg}\n## 5.4 \`D-905\` — Synthetic tier clarification\n\n| Registration entry | Tier row | Reason |\n|---|---|---|\n| \`D-904\` | ${ROW4} | ${REASON4} |\n`);
   git("add", "-A");
   git("commit", "-q", "-m", "c2");
   C2 = git("rev-parse", "HEAD");
@@ -103,6 +114,7 @@ beforeAll(() => {
   writeFileSync(join(ROOT, "retained", "copy-a.md"), OBJ1);
   writeFileSync(join(ROOT, "retained", "copy-b.md"), OBJ2);
   writeFileSync(join(ROOT, "retained", "copy-c.md"), OBJ3);
+  writeFileSync(join(ROOT, "retained", "copy-d.md"), OBJ4);
   writeFileSync(join(ROOT, "exceptions.txt"), EXC);
 });
 afterAll(() => rmSync(ROOT, { recursive: true, force: true }));
@@ -375,6 +387,81 @@ describe("validate-dor: SV3-DOR-05 structure refusals", () => {
     } finally {
       rmSync(join(REPO, "docs/results"), { recursive: true, force: true });
     }
+  });
+});
+
+
+describe("validate-dor: B2 snapshotSource field extraction", () => {
+  test("the real return shape: nested call arguments are part of the value", () => {
+    expect(snapshotFields(GUARD)).toEqual(["branch", "config", "head", "origin", "refs", "root", "upstream"]);
+  });
+  test("nested delimiters and strings do not split fields", () => {
+    const src = "export function snapshotSource(r) {\n  return { ok: true, a: f(x, [1, 2], { y: \"p,q\" }), b, c: 'x:y, z', d: \`t,{\` };\n}\n";
+    expect(snapshotFields(src)).toEqual(["a", "b", "c", "d"]);
+  });
+  test("top-level splitting respects brackets and strings", () => {
+    expect(splitTopLevel("a, f(b, c), \"d,e\", [g, h]")).toEqual(["a", " f(b, c)", " \"d,e\"", " [g, h]"]);
+    expect(splitTopLevel("a, f(b")).toBeNull();
+  });
+  test("malformed input fails closed", () => {
+    expect(snapshotFields("export function snapshotSource(r) {\n  return { ok: true, a: f(x, [1, 2 };\n}\n")).toBeNull();
+    expect(snapshotFields("export function snapshotSource(r) {\n  return { ok: true, a: \"unterminated };\n}\n")).toBeNull();
+    expect(snapshotFields("export function snapshotSource(r) {\n  return { ok: true, ...spread };\n}\n")).toBeNull();
+    expect(snapshotFields("export function snapshotSource(r) {\n  return { ok: true, a };\n  return { ok: true, b };\n}\n")).toBeNull();
+    expect(snapshotFields("export function other(r) {\n  return { ok: true, a };\n}\n")).toBeNull();
+  });
+  test("binding-source-unparsed: an unparseable guard is refused, not guessed", () => {
+    expect(codes(run({ c: contract((c) => ((c.boundaries.bindings.source = "docs/rules.md"), c)) }))).toContain("binding-source-unparsed");
+  });
+  test("binding-list-drift: a field the guard does not return (missing from the guard)", () => {
+    expect(codes(run({ c: contract((c) => (c.boundaries.bindings.fields.push("extra"), c)) }))).toContain("binding-list-drift");
+  });
+  test("binding-list-drift: a guard field the contract omits (extra in the guard)", () => {
+    expect(codes(run({ c: contract((c) => ((c.boundaries.bindings.fields = c.boundaries.bindings.fields.filter((f) => f !== "config")), c)) }))).toContain("binding-list-drift");
+  });
+});
+
+describe("validate-dor: B1 tier clarification", () => {
+  const withJ4 = (edit = (x) => x) => contract((c) => {
+    c.tuples[0] = tuple("J1", "D-904", P4, H4, S4, "copy-d.md");
+    c.tierClarifications = [edit({ tuple: "J1", entry: "D-904", decision: "D-905", rowLabel: ROW4, reason: REASON4 })];
+    return c;
+  });
+  const tier = (res, id = "J1") => res.results.find((x) => x.rule === "dor-tiers" && x.subject === id);
+  test("a reasonless row with a bound clarification passes, and the clarification read is in the inventory", () => {
+    const res = run({ c: withJ4() });
+    expect(codes(res)).toEqual([]);
+    expect(res.outcome).toBe("pass");
+    const item = res.inputs.find((x) => x.role === "clarification@J1");
+    expect(item).toMatchObject({ kind: "git", path: REG, commit: C2, blob: git("rev-parse", `${C2}:${REG}`) });
+    expect(item.sha256).toBe(sha256(execFileSync("git", ["-C", REPO, "show", `${C2}:${REG}`])));
+  });
+  test("the historical registration stays bound to its own revision", () => {
+    const res = run({ c: withJ4() });
+    expect(res.inputs.find((x) => x.role === "register@J1").commit).toBe(C1);
+  });
+  test("unaffected-without-reason: no clarification supplied", () => {
+    expect(tier(run({ c: contract((c) => ((c.tuples[0] = tuple("J1", "D-904", P4, H4, S4, "copy-d.md")), c)) })).code).toBe("unaffected-without-reason");
+  });
+  test("tier-clarification-unbound: the clarification names another entry", () => {
+    expect(tier(run({ c: withJ4((x) => ({ ...x, entry: "D-900" })) })).code).toBe("tier-clarification-unbound");
+  });
+  test("tier-clarification-unbound: the recorded reason differs", () => {
+    expect(tier(run({ c: withJ4((x) => ({ ...x, reason: "Some other reason." })) })).code).toBe("tier-clarification-unbound");
+  });
+  test("tier-clarification-unbound: the cited decision is absent at HEAD", () => {
+    expect(tier(run({ c: withJ4((x) => ({ ...x, decision: "D-999" })) })).code).toBe("tier-clarification-unbound");
+  });
+  test("tier-clarification-unbound: an arbitrary citation (a decision with no binding row)", () => {
+    expect(tier(run({ c: withJ4((x) => ({ ...x, decision: "D-902" })) })).code).toBe("tier-clarification-unbound");
+  });
+  test("blanket exception: a wildcard row label resolves nothing and is itself refused", () => {
+    const res = run({ c: withJ4((x) => ({ ...x, rowLabel: "*" })) });
+    expect(tier(res).code).toBe("unaffected-without-reason");
+    expect(codes(res)).toContain("tier-clarification-unused");
+  });
+  test("schema-missing-field: an incomplete clarification", () => {
+    expect(codes(run({ c: withJ4((x) => ({ ...x, reason: "" })) }))).toContain("schema-missing-field");
   });
 });
 

@@ -151,6 +151,12 @@ export function schemaFindings(c) {
     for (const ref of d?.dod ?? []) if (!dodIds.includes(ref)) add("dod-undefined", `${d.dor} → ${ref}`);
   }
   if (!Array.isArray(c.states)) add("schema-missing-field", "states");
+  if (c.tierClarifications !== undefined) {
+    if (!Array.isArray(c.tierClarifications)) add("schema-missing-field", "tierClarifications");
+    for (const x of Array.isArray(c.tierClarifications) ? c.tierClarifications : []) {
+      if (!["tuple", "entry", "decision", "rowLabel", "reason"].every((k) => nonEmpty(x?.[k]))) add("schema-missing-field", `tierClarification ${x?.tuple ?? "(no tuple)"}`);
+    }
+  }
   return f;
 }
 
@@ -191,13 +197,99 @@ export function unaffectedWithoutReason(section) {
   }));
 }
 
-/** The keys `snapshotSource` returns on success, read from the guard source. */
+const OPEN = { "(": ")", "[": "]", "{": "}" };
+const CLOSE = new Set([")", "]", "}"]);
+
+/**
+ * Scans `text` from `from`, skipping string literals ('…', "…", `…`, with backslash escapes) and tracking nested
+ * (), [] and {}. Calls `visit(i, ch, depth)` for every character outside a string. Returns false on an unterminated
+ * string or an unbalanced or mismatched bracket; `visit` may return true to stop early.
+ */
+function scan(text, from, visit) {
+  const stack = [];
+  for (let i = from; i < text.length; i++) {
+    const ch = text[i];
+    if (ch === "'" || ch === '"' || ch === "`") {
+      let j = i + 1;
+      while (j < text.length && text[j] !== ch) j += text[j] === "\\" ? 2 : 1;
+      if (j >= text.length) return false;
+      i = j;
+      continue;
+    }
+    if (visit(i, ch, stack.length)) return true;
+    if (OPEN[ch]) stack.push(OPEN[ch]);
+    else if (CLOSE.has(ch)) {
+      if (stack.pop() !== ch) return false;
+    }
+  }
+  return stack.length === 0;
+}
+
+/** Splits `text` at commas that are outside strings and nested brackets. Returns null when the text is unbalanced. */
+export function splitTopLevel(text) {
+  const parts = [];
+  let last = 0;
+  const ok = scan(text, 0, (i, ch, depth) => {
+    if (ch === "," && depth === 0) {
+      parts.push(text.slice(last, i));
+      last = i + 1;
+    }
+    return false;
+  });
+  if (!ok) return null;
+  parts.push(text.slice(last));
+  return parts;
+}
+
+/**
+ * The keys of the single top-level `return { ok: true, … }` object in `snapshotSource`, read from the guard source
+ * without executing it. Commas and colons inside nested calls, brackets or strings belong to their value. Returns null
+ * (fail closed) when the function, the success return or the object literal cannot be parsed in this supported form:
+ * exactly one success return; every member a plain identifier, either shorthand or `key: value`; no duplicate key.
+ */
 export function snapshotFields(guardSource) {
   const f = guardSource?.match(/export function snapshotSource\([\s\S]*?\n}\n/);
   if (!f) return null;
-  const ret = [...f[0].matchAll(/return \{ ok: true, ([^}]*)\}/g)].pop();
-  if (!ret) return null;
-  return ret[1].split(",").map((p) => p.split(":")[0].trim()).filter(Boolean).sort();
+  const body = f[0];
+  const marker = /return \{\s*ok:\s*true\s*,/g;
+  const hits = [...body.matchAll(marker)];
+  if (hits.length !== 1) return null;
+  const open = body.indexOf("{", hits[0].index);
+  let close = -1;
+  const ok = scan(body, open, (i, ch, depth) => {
+    if (ch === "}" && depth === 1) {
+      close = i;
+      return true;
+    }
+    return false;
+  });
+  if (!ok || close < 0) return null;
+  const members = splitTopLevel(body.slice(open + 1, close));
+  if (!members) return null;
+  const keys = [];
+  for (const raw of members) {
+    const m = raw.trim();
+    if (!m) continue;
+    let colon = -1;
+    scan(m, 0, (i, ch, depth) => {
+      if (ch === ":" && depth === 0) {
+        colon = i;
+        return true;
+      }
+      return false;
+    });
+    const key = (colon >= 0 ? m.slice(0, colon) : m).trim();
+    if (!/^[A-Za-z_$][\w$]*$/.test(key)) return null;
+    keys.push(key);
+  }
+  if (new Set(keys).size !== keys.length || keys[0] !== "ok") return null;
+  return keys.slice(1).sort();
+}
+
+/** The table rows (as cell arrays) of a section. */
+function tableRows(section) {
+  return section.split("\n").filter((l) => l.startsWith("|") && !/^\|\s*-/.test(l))
+    .map((l) => l.split("|").slice(1, -1).map((c) => norm(c)));
 }
 
 function reviewVerdict(row) {
@@ -311,18 +403,46 @@ export function evaluate({ repo, contractPath, contractBytes, reviewPath, logPat
   // SV3-DOR-03 — tier applicability at HEAD; tier-sweep in the bound log; human review.
   const regHead = readGit(repo, inv, "register@HEAD", head, REGISTER);
   const logBound = checkLog && checkLog.includes(`HEAD ${head}`) && checkLog.includes(W);
+  const clarifications = Array.isArray(c.tierClarifications) ? c.tierClarifications : [];
+  const used = new Set();
   for (const t of c.tuples) {
     const sec = entrySection(regHead, t.entry);
     const bad = sec ? unaffectedWithoutReason(sec) : null;
     let code = null;
+    let detail = "";
+    const mine = clarifications.filter((x) => x.tuple === t.id);
     if (!sec || bad === null) code = "tier-table-missing";
-    else if (bad.length) code = "unaffected-without-reason";
-    else if (!checkLog) code = "check-log-missing";
+    else {
+      // B1: a reasonless row is resolved only by a clarification bound to this entry, this row and its recorded reason.
+      for (const r of bad) {
+        const label = norm(r.split("|").slice(1, -1)[0] ?? "");
+        const cl = mine.find((x) => norm(x.rowLabel) === label);
+        if (!cl) {
+          code = "unaffected-without-reason";
+          break;
+        }
+        used.add(cl);
+        const csec = entrySection(regHead, cl.decision);
+        if (csec) readGit(repo, inv, `clarification@${t.id}`, head, REGISTER);
+        const bound = cl.entry === t.entry && csec && tableRows(csec).some((cells) =>
+          cells.includes(`\`${t.entry}\``) && cells.includes(label) && cells.includes(norm(cl.reason)));
+        if (!bound) {
+          code = "tier-clarification-unbound";
+          detail = csec ? `no row in ${cl.decision} binds ${t.entry}, this row and this reason` : `${cl.decision} absent at HEAD`;
+          break;
+        }
+      }
+    }
+    if (code) {
+      // already refused
+    } else if (!checkLog) code = "check-log-missing";
     else if (!logBound) code = "check-log-stale";
     else if (!/^\s*PASS\s+tier-sweep\b/m.test(checkLog)) code = "tier-sweep-fail";
     else code = row("SV3-DOR-03", t.id, "tiers").code;
-    note("dor-tiers", t.id, code);
+    note("dor-tiers", t.id, code, detail);
   }
+  // A clarification that resolves no reasonless row is not a reason for anything: refused, never ignored.
+  for (const x of clarifications) if (!used.has(x)) note("dor-tiers", `${x.tuple} clarification`, "tier-clarification-unused", norm(x.rowLabel));
 
   // SV3-DOR-04 — execution and verification boundaries, each equal to its accepted source at HEAD.
   const b = c.boundaries;
@@ -332,7 +452,7 @@ export function evaluate({ repo, contractPath, contractBytes, reviewPath, logPat
   note("dor-boundaries", "check exceptions", ex && sha256(ex) === b.checkExceptions.sha256 ? null : "exception-text-mismatch");
   const fields = snapshotFields(readGit(repo, inv, "guard-source@HEAD", head, b.bindings.source));
   const want = [...b.bindings.fields].sort();
-  note("dor-boundaries", "binding fields", fields && JSON.stringify(fields) === JSON.stringify(want) ? null : "binding-list-drift",
+  note("dor-boundaries", "binding fields", fields === null ? "binding-source-unparsed" : JSON.stringify(fields) === JSON.stringify(want) ? null : "binding-list-drift",
     fields ? `guard: ${fields.join(",")}` : "snapshotSource not found");
   note("dor-boundaries", "review roles", b.roles.phrases.every((p) => norm(regHead ?? "").includes(norm(p))) ? null : "role-mismatch");
   const adopt = entrySection(regHead, b.t2t3.decision);
