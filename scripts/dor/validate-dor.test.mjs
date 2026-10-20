@@ -410,6 +410,24 @@ describe("validate-dor: B2 snapshotSource field extraction", () => {
     expect(snapshotFields("export function snapshotSource(r) {\n  return { ok: true, a };\n  return { ok: true, b };\n}\n")).toBeNull();
     expect(snapshotFields("export function other(r) {\n  return { ok: true, a };\n}\n")).toBeNull();
   });
+  test("unsupported or ambiguous forms fail closed", () => {
+    const fn = (body) => `export function snapshotSource(r) {\n${body}\n}\n`;
+    expect(snapshotFields(fn("  return { ok: true, a: 1 };\n  /* unterminated"))).toBeNull();
+    expect(snapshotFields(fn("  return { ok: true, a, \"b\": 1 };"))).toBeNull();
+    expect(snapshotFields(fn("  return { ok: true, [k]: 1 };"))).toBeNull();
+    expect(snapshotFields(fn("  return { ok: true, a, a };"))).toBeNull();
+    expect(snapshotFields(fn("  return { ok: true, a,, b };"))).toBeNull();
+    expect(snapshotFields(fn("  return { ok: !0, a };"))).toBeNull();
+    expect(snapshotFields(fn("  return { ok: true, a } || b;"))).toBeNull();
+    expect(snapshotFields(fn("  if (x) return result;\n  return { ok: true, a };"))).toBeNull();
+    expect(snapshotFields(fn("  if (x) { return { ok: true, b }; }\n  return { ok: true, a };"))).toBeNull();
+    expect(snapshotFields(fn("  if (x) { return { ok: true, b }; }\n  return { ok: false, reason: \"r\" };"))).toBeNull();
+    expect(snapshotFields(fn("  const re = /x/g;\n  return { ok: true, a };"))).toBeNull();
+    expect(snapshotFields(fn("  return { ok: true, a };") + fn("  return { ok: true, b };"))).toBeNull();
+    expect(snapshotFields(`function wrap() {\n${fn("  return { ok: true, a };")}}\n`)).toBeNull();
+    expect(snapshotFields(fn("  return { ok: true, a };").replace("export ", ""))).toBeNull();
+    expect(snapshotFields(undefined)).toBeNull();
+  });
   test("binding-source-unparsed: an unparseable guard is refused, not guessed", () => {
     expect(codes(run({ c: contract((c) => ((c.boundaries.bindings.source = "docs/rules.md"), c)) }))).toContain("binding-source-unparsed");
   });
@@ -418,6 +436,42 @@ describe("validate-dor: B2 snapshotSource field extraction", () => {
   });
   test("binding-list-drift: a guard field the contract omits (extra in the guard)", () => {
     expect(codes(run({ c: contract((c) => ((c.boundaries.bindings.fields = c.boundaries.bindings.fields.filter((f) => f !== "config")), c)) }))).toContain("binding-list-drift");
+  });
+});
+
+describe("validate-dor: B2 markers outside executable top-level code (Lane B rejection of c146244)", () => {
+  const fn = (body) => `export function snapshotSource(r) {\n${body}\n}\n`;
+  test("(a) a success-return marker only in a comment is refused", () => {
+    expect(snapshotFields(fn("  // return { ok: true, head, branch };\n  return { ok: false, reason: \"x\" };"))).toBeNull();
+    expect(snapshotFields(fn("  /* return { ok: true, head }; */\n  return { ok: false, reason: \"x\" };"))).toBeNull();
+    expect(snapshotFields(fn("  // return { ok: true, head, branch };"))).toBeNull();
+  });
+  test("(b) a success-return marker only in a string is refused", () => {
+    expect(snapshotFields(fn("  const s = \"return { ok: true, head, branch };\";\n  return { ok: false, reason: s };"))).toBeNull();
+    expect(snapshotFields(fn("  const s = 'return { ok: true, head }';\n  return { ok: false, reason: s };"))).toBeNull();
+    expect(snapshotFields(fn("  const t = `return { ok: true, head }`;\n  return { ok: false, reason: t };"))).toBeNull();
+  });
+  test("(c) a success return only inside a nested helper is refused", () => {
+    expect(snapshotFields(fn("  function inner() { return { ok: true, head }; }\n  return { ok: false, reason: \"x\", sub: inner() };"))).toBeNull();
+    expect(snapshotFields(fn("  const g = () => { return { ok: true, head }; };\n  return { ok: false, reason: \"x\", g };"))).toBeNull();
+    expect(snapshotFields(fn("  const o = { m() { return { ok: true, head }; } };\n  return { ok: false, reason: \"x\", o };"))).toBeNull();
+  });
+  test("(d) a member with no value is refused", () => {
+    expect(snapshotFields(fn("  return { ok: true, root, head: };"))).toBeNull();
+    expect(snapshotFields(fn("  return { ok: true, head:, root };"))).toBeNull();
+    expect(snapshotFields(fn("  return { ok: true, head: /* none */ };"))).toBeNull();
+    expect(snapshotFields(fn("  return { ok:, head };"))).toBeNull();
+  });
+  test("fake markers beside a valid top-level return neither supply nor hide fields", () => {
+    const fakes = "  // return { ok: true, bogus1 };\n  /* return { ok: true, bogus2 }; */\n"
+      + "  const s = \"return { ok: true, bogus3 }\";\n  const t = `return { ok: true, bogus4 }`;\n"
+      + "  function h() { return { ok: true, bogus5 }; }\n  const k = () => { return { ok: true, bogus6 }; };\n"
+      + "  const o = { m() { return { ok: true, bogus7 }; } };\n";
+    expect(snapshotFields(fn(`${fakes}  return { ok: true, a, b: f(1) };`))).toEqual(["a", "b"]);
+    expect(snapshotFields(fn("  return { ok: true, /* }, fake: 1 */ root, // head }\n  head, s: \"}{\", t: '//', };"))).toEqual(["head", "root", "s", "t"]);
+    expect(snapshotFields(GUARD.replace("  const x = 1;\n", fakes))).toEqual(["branch", "config", "head", "origin", "refs", "root", "upstream"]);
+    const decoys = "// export function snapshotSource(r) { return { ok: true, z }; }\nconst d = \"export function snapshotSource(r) { return { ok: true, z }; }\";\n";
+    expect(snapshotFields(decoys + GUARD)).toEqual(["branch", "config", "head", "origin", "refs", "root", "upstream"]);
   });
 });
 

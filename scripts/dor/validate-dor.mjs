@@ -199,91 +199,231 @@ export function unaffectedWithoutReason(section) {
 
 const OPEN = { "(": ")", "[": "]", "{": "}" };
 const CLOSE = new Set([")", "]", "}"]);
+/** Words after which a `/` starts a regular expression, not a division. */
+const REGEX_AFTER_WORD = new Set(["return", "typeof", "instanceof", "in", "of", "new", "delete", "void", "throw", "case", "do", "else", "yield", "await"]);
+/** Words before `(` that open a control-flow head: the `{` after its `)` is a block of the same function. */
+const CONTROL_WORDS = new Set(["if", "for", "while", "switch", "catch", "with"]);
 
 /**
- * Scans `text` from `from`, skipping string literals ('…', "…", `…`, with backslash escapes) and tracking nested
- * (), [] and {}. Calls `visit(i, ch, depth)` for every character outside a string. Returns false on an unterminated
- * string or an unbalanced or mismatched bracket; `visit` may return true to stop early.
+ * Splits JavaScript source into tokens `{ t, v, at }` (t: "word", "num", "str", "tpl", "re" or "punct"). Comments
+ * and whitespace are dropped; string, template and regular-expression literals are single tokens, so markers inside
+ * them are never code. Template substitutions are tokenized as code. Returns null (fail closed) on an unterminated
+ * comment, string, template or regular expression. A `/` is read as a regular expression after punctuation other than
+ * `)`, `]` or `}`, after the words in REGEX_AFTER_WORD, or at the start.
  */
-function scan(text, from, visit) {
-  const stack = [];
-  for (let i = from; i < text.length; i++) {
-    const ch = text[i];
-    if (ch === "'" || ch === '"' || ch === "`") {
-      let j = i + 1;
-      while (j < text.length && text[j] !== ch) j += text[j] === "\\" ? 2 : 1;
-      if (j >= text.length) return false;
-      i = j;
-      continue;
+function lex(src) {
+  const toks = [];
+  const subs = []; // brace depth at which each open template substitution started
+  let depth = 0;
+  let i = 0;
+  const n = src.length;
+  const template = (from, at) => {
+    let j = from;
+    while (j < n) {
+      if (src[j] === "\\") j += 2;
+      else if (src[j] === "`") {
+        toks.push({ t: "tpl", v: src.slice(at, j + 1), at });
+        return j + 1;
+      } else if (src[j] === "$" && src[j + 1] === "{") {
+        toks.push({ t: "tpl", v: src.slice(at, j + 2), at });
+        subs.push(depth);
+        return j + 2;
+      } else j++;
     }
-    if (visit(i, ch, stack.length)) return true;
-    if (OPEN[ch]) stack.push(OPEN[ch]);
-    else if (CLOSE.has(ch)) {
-      if (stack.pop() !== ch) return false;
+    return -1;
+  };
+  while (i < n) {
+    const c = src[i];
+    if (/\s/.test(c)) {
+      i++;
+    } else if (c === "/" && src[i + 1] === "/") {
+      const e = src.indexOf("\n", i);
+      i = e < 0 ? n : e + 1;
+    } else if (c === "/" && src[i + 1] === "*") {
+      const e = src.indexOf("*/", i + 2);
+      if (e < 0) return null;
+      i = e + 2;
+    } else if (c === "'" || c === '"') {
+      let j = i + 1;
+      while (j < n && src[j] !== c && src[j] !== "\n") j += src[j] === "\\" ? 2 : 1;
+      if (j >= n || src[j] !== c) return null;
+      toks.push({ t: "str", v: src.slice(i, j + 1), at: i });
+      i = j + 1;
+    } else if (c === "`") {
+      i = template(i + 1, i);
+      if (i < 0) return null;
+    } else if (c === "}" && subs.length && subs[subs.length - 1] === depth) {
+      subs.pop();
+      i = template(i + 1, i);
+      if (i < 0) return null;
+    } else if (/[A-Za-z_$]/.test(c)) {
+      const m = /^[\w$]+/.exec(src.slice(i, i + 256));
+      toks.push({ t: "word", v: m[0], at: i });
+      i += m[0].length;
+    } else if (/[0-9]/.test(c)) {
+      const m = /^[\w.]+/.exec(src.slice(i, i + 256));
+      toks.push({ t: "num", v: m[0], at: i });
+      i += m[0].length;
+    } else if (c === "/") {
+      const p = toks[toks.length - 1];
+      const regex = !p || (p.t === "punct" && !/^[)\]}]$/.test(p.v)) || (p.t === "word" && REGEX_AFTER_WORD.has(p.v));
+      if (!regex) {
+        toks.push({ t: "punct", v: c, at: i++ });
+        continue;
+      }
+      let j = i + 1;
+      let cls = false;
+      while (j < n && src[j] !== "\n" && (cls || src[j] !== "/")) {
+        if (src[j] === "\\") j++;
+        else if (src[j] === "[") cls = true;
+        else if (src[j] === "]") cls = false;
+        j++;
+      }
+      if (j >= n || src[j] !== "/") return null;
+      j++;
+      while (j < n && /[a-z]/.test(src[j])) j++;
+      toks.push({ t: "re", v: src.slice(i, j), at: i });
+      i = j;
+    } else {
+      const v = src.startsWith("=>", i) ? "=>" : src.startsWith("...", i) ? "..." : c;
+      if (v === "{") depth++;
+      else if (v === "}") depth--;
+      toks.push({ t: "punct", v, at: i });
+      i += v.length;
     }
   }
-  return stack.length === 0;
+  return subs.length ? null : toks;
 }
 
-/** Splits `text` at commas that are outside strings and nested brackets. Returns null when the text is unbalanced. */
+/** For each token index, the index of its matching bracket (both directions). Null when any bracket is unbalanced. */
+function matchBrackets(toks) {
+  const pair = new Map();
+  const stack = [];
+  for (let i = 0; i < toks.length; i++) {
+    const k = toks[i];
+    if (k.t !== "punct") continue;
+    if (OPEN[k.v]) stack.push(i);
+    else if (CLOSE.has(k.v)) {
+      const o = stack.pop();
+      if (o === undefined || OPEN[toks[o].v] !== k.v) return null;
+      pair.set(o, i).set(i, o);
+    }
+  }
+  return stack.length ? null : pair;
+}
+
+const isP = (k, v) => k?.t === "punct" && k.v === v;
+
+/** Splits `text` at commas outside strings, comments and nested brackets. Returns null when the text does not lex or is unbalanced. */
 export function splitTopLevel(text) {
+  const toks = lex(text);
+  if (!toks || !matchBrackets(toks)) return null;
   const parts = [];
   let last = 0;
-  const ok = scan(text, 0, (i, ch, depth) => {
-    if (ch === "," && depth === 0) {
-      parts.push(text.slice(last, i));
-      last = i + 1;
+  let depth = 0;
+  for (const k of toks) {
+    if (k.t !== "punct") continue;
+    if (OPEN[k.v]) depth++;
+    else if (CLOSE.has(k.v)) depth--;
+    else if (k.v === "," && depth === 0) {
+      parts.push(text.slice(last, k.at));
+      last = k.at + 1;
     }
-    return false;
-  });
-  if (!ok) return null;
+  }
   parts.push(text.slice(last));
   return parts;
 }
 
 /**
- * The keys of the single top-level `return { ok: true, … }` object in `snapshotSource`, read from the guard source
- * without executing it. Commas and colons inside nested calls, brackets or strings belong to their value. Returns null
- * (fail closed) when the function, the success return or the object literal cannot be parsed in this supported form:
- * exactly one success return; every member a plain identifier, either shorthand or `key: value`; no duplicate key.
+ * Parses the object literal opened at token `o` (closed at `e`). Returns `{ keys, ok }` where `ok` is the value of a
+ * leading `ok: true` / `ok: false` member ("true", "false" or null when the first member is not one of those), or null
+ * when any member is outside the supported form: a plain identifier, either shorthand or `key: value` with a non-empty
+ * value; at most one trailing comma.
+ */
+function objectMembers(toks, pair, o, e) {
+  const members = [[]];
+  for (let i = o + 1; i < e; i++) {
+    if (isP(toks[i], ",")) members.push([]);
+    else {
+      members[members.length - 1].push(toks[i]);
+      if (pair.has(i) && pair.get(i) > i) {
+        for (let j = i + 1; j <= pair.get(i); j++) members[members.length - 1].push(toks[j]);
+        i = pair.get(i);
+      }
+    }
+  }
+  if (members.length > 1 && members[members.length - 1].length === 0) members.pop();
+  const keys = [];
+  for (const m of members) {
+    if (m.length === 0 || m[0].t !== "word") return null;
+    if (m.length > 1) {
+      if (!isP(m[1], ":") || m.length === 2) return null;
+      if (m.slice(2).some((k) => isP(k, ";"))) return null;
+    }
+    keys.push(m[0].v);
+  }
+  const first = members[0];
+  const ok = keys[0] === "ok" && first.length === 3 && first[2].t === "word" && (first[2].v === "true" || first[2].v === "false") ? first[2].v : null;
+  return { keys, ok };
+}
+
+/**
+ * The keys of the single success return `return { ok: true, … }` of `snapshotSource`, read from the guard source
+ * without executing it. The source is tokenized first, so comments and string, template and regular-expression
+ * literals never supply a declaration, a return or a field, and never hide one. Exactly one `snapshotSource` function
+ * declaration must exist, exported, outside every bracket. Inside its body, returns of nested functions (a `{` after
+ * `=>`, or after the `)` of a parameter list that no control word heads) belong to those functions and are ignored.
+ * Every return of snapshotSource itself must be `return { ok: true|false, … };`, and exactly one must succeed, directly
+ * in the function body (not in a nested block). Commas and colons inside nested calls, brackets or strings belong to
+ * their value. Returns null (fail closed) on anything else: unlexable or unbalanced source, a regular expression or a
+ * `/` in the body, another return form, a member that is not a plain identifier (shorthand or `key: value` with a
+ * value), or a duplicate key.
  */
 export function snapshotFields(guardSource) {
-  const f = guardSource?.match(/export function snapshotSource\([\s\S]*?\n}\n/);
-  if (!f) return null;
-  const body = f[0];
-  const marker = /return \{\s*ok:\s*true\s*,/g;
-  const hits = [...body.matchAll(marker)];
-  if (hits.length !== 1) return null;
-  const open = body.indexOf("{", hits[0].index);
-  let close = -1;
-  const ok = scan(body, open, (i, ch, depth) => {
-    if (ch === "}" && depth === 1) {
-      close = i;
-      return true;
-    }
-    return false;
+  if (typeof guardSource !== "string") return null;
+  const toks = lex(guardSource);
+  const pair = toks && matchBrackets(toks);
+  if (!pair) return null;
+  const decls = [];
+  let depth = 0;
+  toks.forEach((k, i) => {
+    if (k.t === "punct" && OPEN[k.v]) depth++;
+    else if (k.t === "punct" && CLOSE.has(k.v)) depth--;
+    else if (k.t === "word" && k.v === "snapshotSource" && toks[i - 1]?.t === "word" && toks[i - 1].v === "function") decls.push({ i, depth });
   });
-  if (!ok || close < 0) return null;
-  const members = splitTopLevel(body.slice(open + 1, close));
-  if (!members) return null;
-  const keys = [];
-  for (const raw of members) {
-    const m = raw.trim();
-    if (!m) continue;
-    let colon = -1;
-    scan(m, 0, (i, ch, depth) => {
-      if (ch === ":" && depth === 0) {
-        colon = i;
-        return true;
-      }
-      return false;
-    });
-    const key = (colon >= 0 ? m.slice(0, colon) : m).trim();
-    if (!/^[A-Za-z_$][\w$]*$/.test(key)) return null;
-    keys.push(key);
+  if (decls.length !== 1 || decls[0].depth !== 0) return null;
+  const d = decls[0].i;
+  if (toks[d - 2]?.v !== "export" || !isP(toks[d + 1], "(")) return null;
+  const b = pair.get(d + 1) + 1;
+  if (!isP(toks[b], "{")) return null;
+  const end = pair.get(b);
+  const own = []; // per open brace inside the body: true when it belongs to snapshotSource itself (a block, an object)
+  const ownAt = (i) => {
+    for (let j = b + 1; j < i; j++) if (pair.has(j) && pair.get(j) > i && isP(toks[j], "{") && !own[j]) return false;
+    return true;
+  };
+  const successes = [];
+  for (let i = b + 1; i < end; i++) {
+    const k = toks[i];
+    if (k.t === "re" || isP(k, "/")) return null;
+    if (isP(k, "{")) {
+      const p = toks[i - 1];
+      const fn = isP(p, "=>") || (isP(p, ")") && !(toks[pair.get(i - 1) - 1]?.t === "word" && CONTROL_WORDS.has(toks[pair.get(i - 1) - 1].v)));
+      own[i] = !fn;
+    }
+    if (k.t !== "word" || k.v !== "return" || !ownAt(i)) continue;
+    if (!isP(toks[i + 1], "{")) return null;
+    const close = pair.get(i + 1);
+    if (!isP(toks[close + 1], ";") && !isP(toks[close + 1], "}")) return null;
+    const obj = objectMembers(toks, pair, i + 1, close);
+    if (!obj || obj.ok === null) return null;
+    if (obj.ok === "true") successes.push({ i, keys: obj.keys });
   }
-  if (new Set(keys).size !== keys.length || keys[0] !== "ok") return null;
-  return keys.slice(1).sort();
+  if (successes.length !== 1) return null;
+  const s = successes[0];
+  for (let j = b + 1; j < s.i; j++) if (pair.has(j) && pair.get(j) > s.i && isP(toks[j], "{")) return null;
+  if (new Set(s.keys).size !== s.keys.length) return null;
+  return s.keys.slice(1).sort();
 }
 
 /** The table rows (as cell arrays) of a section. */
