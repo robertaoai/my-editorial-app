@@ -28707,3 +28707,56 @@ held no `D-444` and was ratified without reserving it. `D-444` is therefore the 
 | B-136 | Follow: the accepted U5 supplement, only after its own release; no B-136 commit under this recording unit |
 | **Encyclopedia** | unaffected: `docs/ENCYCLOPEDIA-SYNC.md` identifies no affected local citation entry; hosted parity not claimed |
 | **Graphify** | Governed drift, expected; cleared only by the held U4–U9 guarded cycle (`D-425`), never by a raw rebuild |
+
+## 5.14e268 `D-445` — work-r3 Recovery Boundary: Cycle Ended for Recovery; Fourth Intervening Entry Permitted; Contract and Checklist Work Before Fresh Preparation
+
+**Authority: the Judge, directly to Lane A, 2026-10-20**, in chat: "Judge decision — work-r3 recovery boundary", read
+baseline `b5cfed990a9fdc8e3d196b06cfb645d2af00c876`, independent reviewer Lane B, retained by Lane A as
+`C:/CoWork/outputs/lane-a-recovery-2026-10-20/JUDGE-RECOVERY-BOUNDARY-b5cfed9.md`, SHA-256
+`3be72526d0ff9269edcecffa6f8ebb78dbe21e7b56eb382d26e6128d4717626a` (full message text, transcript
+`417d4ead-c5b7-481e-b141-3a8989ce9446.jsonl` line 2135, message `9db61096-3893-4af8-b0c1-d8ec8244a310`). It registers the
+decision under `D-183` point 5 and changes no V1 scope, sequence or DoD. **Number check:** at `b5cfed9` the last Register
+entry is `D-444` (§5.14e267); no other occurrence of `D-445` exists in the repository. `D-445` is the next free number.
+
+### The decision
+
+1. **Recovery boundary.** The stopped work-r3 cycle (`D-444`; workId `10da9e89-6903-4dcf-8993-625248af59bc`) is ended for
+   recovery purposes only. work-r3 is preserved as **unaccepted evidence**; it is not resumed or published. work-r2 and the
+   failed attempt-1 folder `work/` are preserved. This entry accepts no candidate, completes no U6–U9 step and releases no
+   fresh preparation. No tracking ref is reset and the guard is not bypassed. The stop cause stays as found: a bound ref
+   other than the source branch changed after prepare (`publicationSourceFindings`), from a historical manual push. The
+   Judge's confirmation of that push is recorded in Lane B's finding as supplied (transcript line 1768, message
+   `30559355-5be0-4129-a12e-1bb8623dba30`); its actor and authority otherwise stay as diagnosed.
+2. **Sequencing amendment.** Item 0 of `D-440` and `D-441`, as amended by `D-442` item 5 and `D-444` item 4, is further
+   amended to permit one further intervening Register entry, this entry, after `D-444` and before the separate TCA r3 (J3)
+   and J-C A1 entries. All other terms of `D-440`, `D-441`, `D-437`, `D-442` and `D-444` stay unchanged; the text of
+   `D-440` and `D-441` is not edited.
+3. **Before fresh preparation.** The following may land, each under this decision's bounded unit, before any fresh
+   preparation: (a) one B-136 answer filing the approved registration test contract (revision 2) and the approved
+   DoR → DoD → commit-and-push contract (revision 2, with G1–G4), and assigning one unused attempt ID and one checklist
+   path under the existing naming conventions; (b) that checklist as a separate documentation-only commit. Template v1
+   (`docs/templates/dor-dod-validation/v1.md`) stays unchanged; no readiness or result is backdated; no test, script,
+   sandbox or implementation code is created.
+4. **Check exception.** For this recording and checklist unit only, `docs-drift` may fail in `bun run check`. Every other
+   check must pass; hooks are never skipped. The exception grants no prepare, publish or push authority and ends when this
+   unit stops.
+5. **Review and next decision.** Lane B reviews the filed contracts and the checklist independently; Lane A does not record
+   Lane B's acceptance. After that review Lane A proposes one exact fresh source pin, one new candidate folder, the
+   permitted reuse rules, the T2 freeze proof, the T3 pre-U6 source check and a fresh-preparation release, then stops for
+   the Judge's separate decision.
+6. **Not given:** fresh preparation or any new candidate folder; build; behavioural-test execution; transfer; publication;
+   fetch; push; U10 custody; U11 verification; EV r9 application; baseline naming; sprint construction; Gate 2 closure.
+   B-136 and D-439 remain Open. J1 (`D-440`) and J2 (`D-441`) remain separately registered; both transfers remain held.
+   `D-443` is unchanged; successful checks authorize no push.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry |
+| **Build Spec** | — unaffected by this entry: no V1 artifact created, sequenced or retired here; the attempt record permitted by item 3(b) carries its own propagation when it is created |
+| **Inventory** | Follow: the attempt record permitted by item 3(b), when created, needs its own Inventory row (as `SV-001`/`SV-002` received under `D-264`); not created by this entry |
+| `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `docs/README.md`, `docs/PRD.md`, Charter, `0001`, `Modular_PRD.md`, FN specs, `docs/specs/`, template v1, Phase Closure, `docs/LANE-B-WORK-ORDER.md`, application code, `scripts/` | — unaffected |
+| B-136 | Follow: the item 3(a) answer |
+| **Encyclopedia** | unaffected: `docs/ENCYCLOPEDIA-SYNC.md` identifies no affected local citation entry; hosted parity not claimed |
+| **Graphify** | Governed drift, expected; cleared only by a future guarded cycle (`D-425`), never by a raw rebuild. A new document under `docs/` also needs a node of its own (`graph-coverage`) |
