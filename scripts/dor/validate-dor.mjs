@@ -203,29 +203,40 @@ const CLOSE = new Set([")", "]", "}"]);
 const REGEX_AFTER_WORD = new Set(["return", "typeof", "instanceof", "in", "of", "new", "delete", "void", "throw", "case", "do", "else", "yield", "await"]);
 /** Words before `(` that open a control-flow head: the `{` after its `)` is a block of the same function. */
 const CONTROL_WORDS = new Set(["if", "for", "while", "switch", "catch", "with"]);
+/** JavaScript line terminators: LF, CR, LINE SEPARATOR and PARAGRAPH SEPARATOR (CRLF is a CR then an LF). */
+const LINE_TERMINATOR = /[\n\r\u2028\u2029]/;
+/** Multi-character punctuators, longest first; any other punctuation is a single character. */
+const PUNCTUATORS = ["...", "===", "!==", "**", "??", "?.", "=>", "==", "!=", "<=", ">=", "&&", "||"];
 
 /**
- * Splits JavaScript source into tokens `{ t, v, at }` (t: "word", "num", "str", "tpl", "re" or "punct"). Comments
- * and whitespace are dropped; string, template and regular-expression literals are single tokens, so markers inside
- * them are never code. Template substitutions are tokenized as code. Returns null (fail closed) on an unterminated
- * comment, string, template or regular expression. A `/` is read as a regular expression after punctuation other than
- * `)`, `]` or `}`, after the words in REGEX_AFTER_WORD, or at the start.
+ * Splits JavaScript source into tokens `{ t, v, at, nl }` (t: "word", "num", "str", "tpl", "re" or "punct"; `nl`
+ * true when a line terminator, in whitespace or inside a comment, comes between the previous token and this one).
+ * Comments and whitespace are dropped; string, template and regular-expression literals are single tokens, so markers
+ * inside them are never code. Template substitutions are tokenized as code. Returns null (fail closed) on an
+ * unterminated comment, string, template or regular expression. A `/` is read as a regular expression after
+ * punctuation other than `)`, `]` or `}`, after the words in REGEX_AFTER_WORD, or at the start.
  */
 function lex(src) {
   const toks = [];
   const subs = []; // brace depth at which each open template substitution started
   let depth = 0;
   let i = 0;
+  let nl = false;
   const n = src.length;
+  const push = (k) => {
+    k.nl = nl;
+    nl = false;
+    toks.push(k);
+  };
   const template = (from, at) => {
     let j = from;
     while (j < n) {
       if (src[j] === "\\") j += 2;
       else if (src[j] === "`") {
-        toks.push({ t: "tpl", v: src.slice(at, j + 1), at });
+        push({ t: "tpl", v: src.slice(at, j + 1), at });
         return j + 1;
       } else if (src[j] === "$" && src[j + 1] === "{") {
-        toks.push({ t: "tpl", v: src.slice(at, j + 2), at });
+        push({ t: "tpl", v: src.slice(at, j + 2), at });
         subs.push(depth);
         return j + 2;
       } else j++;
@@ -235,19 +246,22 @@ function lex(src) {
   while (i < n) {
     const c = src[i];
     if (/\s/.test(c)) {
+      if (LINE_TERMINATOR.test(c)) nl = true;
       i++;
     } else if (c === "/" && src[i + 1] === "/") {
-      const e = src.indexOf("\n", i);
-      i = e < 0 ? n : e + 1;
+      const m = LINE_TERMINATOR.exec(src.slice(i));
+      if (m) nl = true;
+      i = m ? i + m.index : n;
     } else if (c === "/" && src[i + 1] === "*") {
       const e = src.indexOf("*/", i + 2);
       if (e < 0) return null;
+      if (LINE_TERMINATOR.test(src.slice(i + 2, e))) nl = true;
       i = e + 2;
     } else if (c === "'" || c === '"') {
       let j = i + 1;
-      while (j < n && src[j] !== c && src[j] !== "\n") j += src[j] === "\\" ? 2 : 1;
+      while (j < n && src[j] !== c && src[j] !== "\n" && src[j] !== "\r") j += src[j] === "\\" ? 2 : 1;
       if (j >= n || src[j] !== c) return null;
-      toks.push({ t: "str", v: src.slice(i, j + 1), at: i });
+      push({ t: "str", v: src.slice(i, j + 1), at: i });
       i = j + 1;
     } else if (c === "`") {
       i = template(i + 1, i);
@@ -258,22 +272,22 @@ function lex(src) {
       if (i < 0) return null;
     } else if (/[A-Za-z_$]/.test(c)) {
       const m = /^[\w$]+/.exec(src.slice(i, i + 256));
-      toks.push({ t: "word", v: m[0], at: i });
+      push({ t: "word", v: m[0], at: i });
       i += m[0].length;
     } else if (/[0-9]/.test(c)) {
       const m = /^[\w.]+/.exec(src.slice(i, i + 256));
-      toks.push({ t: "num", v: m[0], at: i });
+      push({ t: "num", v: m[0], at: i });
       i += m[0].length;
     } else if (c === "/") {
       const p = toks[toks.length - 1];
       const regex = !p || (p.t === "punct" && !/^[)\]}]$/.test(p.v)) || (p.t === "word" && REGEX_AFTER_WORD.has(p.v));
       if (!regex) {
-        toks.push({ t: "punct", v: c, at: i++ });
+        push({ t: "punct", v: c, at: i++ });
         continue;
       }
       let j = i + 1;
       let cls = false;
-      while (j < n && src[j] !== "\n" && (cls || src[j] !== "/")) {
+      while (j < n && !LINE_TERMINATOR.test(src[j]) && (cls || src[j] !== "/")) {
         if (src[j] === "\\") j++;
         else if (src[j] === "[") cls = true;
         else if (src[j] === "]") cls = false;
@@ -282,13 +296,13 @@ function lex(src) {
       if (j >= n || src[j] !== "/") return null;
       j++;
       while (j < n && /[a-z]/.test(src[j])) j++;
-      toks.push({ t: "re", v: src.slice(i, j), at: i });
+      push({ t: "re", v: src.slice(i, j), at: i });
       i = j;
     } else {
-      const v = src.startsWith("=>", i) ? "=>" : src.startsWith("...", i) ? "..." : c;
+      const v = PUNCTUATORS.find((p) => src.startsWith(p, i)) ?? c;
       if (v === "{") depth++;
       else if (v === "}") depth--;
-      toks.push({ t: "punct", v, at: i });
+      push({ t: "punct", v, at: i });
       i += v.length;
     }
   }
@@ -334,11 +348,106 @@ export function splitTopLevel(text) {
   return parts;
 }
 
+/** Binary operators of the supported value grammar. */
+const BINARY = new Set(["+", "-", "*", "%", "**", "==", "===", "!=", "!==", "<", ">", "<=", ">=", "&&", "||", "??", "&", "|", "^"]);
+/** Prefix operators of the supported value grammar. */
+const PREFIX = new Set(["!", "-", "+", "~", "typeof", "void"]);
+/** Reserved words that cannot stand as a value. `true`, `false`, `null` and `this` can; `new` only before a call. */
+const RESERVED = new Set(["break", "case", "catch", "class", "const", "continue", "debugger", "default", "delete", "do", "else",
+  "export", "extends", "finally", "for", "function", "if", "import", "in", "instanceof", "let", "new", "return", "super",
+  "switch", "throw", "try", "typeof", "var", "void", "while", "with", "yield", "await", "async"]);
+
+/**
+ * Checks that the tokens `ts` form exactly one value of the supported grammar, by syntax only (nothing is executed):
+ *   expr    := unary (BINARY unary)* ["?" expr ":" expr]
+ *   unary   := PREFIX* ["new"] primary postfix*     (after `new`, the first postfix must be a call)
+ *   primary := identifier | number | string | template without substitution | "(" expr ("," expr)* ")"
+ *            | "[" [expr ("," expr)* [","]] "]" | "{" [member ("," member)* [","]] "}"
+ *   postfix := "." identifier | "?." identifier | "(" [expr ("," expr)* [","]] ")" | "[" expr "]"
+ *   member  := identifier [":" expr]
+ * Anything else (assignment, functions, arrows, spread, computed keys, incomplete expressions) is refused.
+ */
+function validValue(ts) {
+  let i = 0;
+  const at = (v) => isP(ts[i], v);
+  const word = (k) => k?.t === "word" && !RESERVED.has(k.v);
+  const list = (close, item) => {
+    if (at(close)) return ++i, true;
+    for (;;) {
+      if (!item()) return false;
+      if (at(close)) return ++i, true;
+      if (!at(",")) return false;
+      i++;
+      if (at(close)) return ++i, true;
+    }
+  };
+  const member = () => {
+    if (!word(ts[i])) return false;
+    i++;
+    if (!at(":")) return true;
+    i++;
+    return expr();
+  };
+  const primary = () => {
+    const k = ts[i];
+    if (!k) return false;
+    if (k.t === "num" || k.t === "str") return ++i, true;
+    if (k.t === "tpl") return k.v.length > 1 && k.v.startsWith("`") && k.v.endsWith("`") && !k.v.endsWith("${") ? (++i, true) : false;
+    if (word(k)) return ++i, true;
+    if (at("(")) {
+      i++;
+      if (!expr()) return false;
+      while (at(",")) {
+        i++;
+        if (!expr()) return false;
+      }
+      return at(")") ? (++i, true) : false;
+    }
+    if (at("[")) return i++, list("]", expr);
+    if (at("{")) return i++, list("}", member);
+    return false;
+  };
+  const unary = () => {
+    while ((ts[i]?.t === "punct" || ts[i]?.t === "word") && PREFIX.has(ts[i].v)) i++;
+    const isNew = ts[i]?.t === "word" && ts[i].v === "new";
+    if (isNew) i++;
+    if (!primary()) return false;
+    if (isNew && !at("(")) return false;
+    for (;;) {
+      if (at(".") || at("?.")) {
+        i++;
+        if (ts[i]?.t !== "word") return false;
+        i++;
+      } else if (at("(")) {
+        i++;
+        if (!list(")", expr)) return false;
+      } else if (at("[")) {
+        i++;
+        if (!expr() || !at("]")) return false;
+        i++;
+      } else return true;
+    }
+  };
+  const expr = () => {
+    if (!unary()) return false;
+    while (ts[i]?.t === "punct" && BINARY.has(ts[i].v)) {
+      i++;
+      if (!unary()) return false;
+    }
+    if (!at("?")) return true;
+    i++;
+    if (!expr() || !at(":")) return false;
+    i++;
+    return expr();
+  };
+  return ts.length > 0 && expr() && i === ts.length;
+}
+
 /**
  * Parses the object literal opened at token `o` (closed at `e`). Returns `{ keys, ok }` where `ok` is the value of a
  * leading `ok: true` / `ok: false` member ("true", "false" or null when the first member is not one of those), or null
- * when any member is outside the supported form: a plain identifier, either shorthand or `key: value` with a non-empty
- * value; at most one trailing comma.
+ * when any member is outside the supported form: a plain identifier, either shorthand or `key: value` whose value is
+ * one expression of the supported grammar (validValue); at most one trailing comma.
  */
 function objectMembers(toks, pair, o, e) {
   const members = [[]];
@@ -357,8 +466,7 @@ function objectMembers(toks, pair, o, e) {
   for (const m of members) {
     if (m.length === 0 || m[0].t !== "word") return null;
     if (m.length > 1) {
-      if (!isP(m[1], ":") || m.length === 2) return null;
-      if (m.slice(2).some((k) => isP(k, ";"))) return null;
+      if (!isP(m[1], ":") || !validValue(m.slice(2))) return null;
     }
     keys.push(m[0].v);
   }
@@ -412,7 +520,8 @@ export function snapshotFields(guardSource) {
       own[i] = !fn;
     }
     if (k.t !== "word" || k.v !== "return" || !ownAt(i)) continue;
-    if (!isP(toks[i + 1], "{")) return null;
+    // A line terminator after `return` ends the statement (ASI): the `{` that follows is a block, not the value.
+    if (!isP(toks[i + 1], "{") || toks[i + 1].nl) return null;
     const close = pair.get(i + 1);
     if (!isP(toks[close + 1], ";") && !isP(toks[close + 1], "}")) return null;
     const obj = objectMembers(toks, pair, i + 1, close);

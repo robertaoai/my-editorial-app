@@ -475,6 +475,40 @@ describe("validate-dor: B2 markers outside executable top-level code (Lane B rej
   });
 });
 
+describe("validate-dor: R1 line terminator after return, R2 value syntax (Lane B review of bacc6d7)", () => {
+  const fn = (body) => `export function snapshotSource(r) {\n${body}\n}\n`;
+  test("R1: a line terminator between return and the object is refused (LF, CRLF, CR, U+2028, U+2029)", () => {
+    for (const lt of ["\n", "\r\n", "\r", "\u2028", "\u2029"]) {
+      expect(snapshotFields(fn(`  return${lt}  { ok: true, head, branch };`))).toBeNull();
+    }
+  });
+  test("R1: a comment holding a line terminator between return and the object is refused", () => {
+    for (const lt of ["\n", "\r\n", "\r", "\u2028", "\u2029"]) {
+      expect(snapshotFields(fn(`  return /* a${lt}b */ { ok: true, head, branch };`))).toBeNull();
+      expect(snapshotFields(fn(`  return // c${lt}  { ok: true, head, branch };`))).toBeNull();
+    }
+  });
+  test("R1: a bare return does not take fields from the following block", () => {
+    expect(snapshotFields(fn("  return\n  { ok: true, head }\n  return { ok: false, reason: \"x\" };"))).toBeNull();
+    expect(snapshotFields(fn("  if (x) return\n  { ok: true, head };"))).toBeNull();
+  });
+  test("R1: same-line whitespace and comments stay valid", () => {
+    expect(snapshotFields(fn("  return \t { ok: true, head, branch };"))).toEqual(["branch", "head"]);
+    expect(snapshotFields(fn("  return /* same line */ { ok: true, head, branch };"))).toEqual(["branch", "head"]);
+    expect(snapshotFields(fn("  return {\r\n    ok: true,\r\n    head,\r\n    branch,\r\n  };"))).toEqual(["branch", "head"]);
+  });
+  test("R2: incomplete or invalid value expressions are refused", () => {
+    for (const v of ["+", "a +", "!", "f(", "a b", "a ? b", "a ? b :", "(a", "[a,,]", "x.", "x[]", "f(a b)", "{ y: }", "{ y z }", "a = b", "function () {}", "() => a", "...a", "`t${a}`", "if", ";"]) {
+      expect(snapshotFields(fn(`  return { ok: true, root, head: ${v} };`))).toBeNull();
+    }
+  });
+  test("R2: values inside the supported grammar are accepted", () => {
+    for (const v of ["a", "1", "\"s\"", "'s'", "`t`", "null", "f(a, [1, 2], { y: \"p,q\" })", "a.b(c)[0]", "a?.b", "!a", "-1", "typeof a", "a + b * 2", "a === b && c !== d", "a ?? b", "a ? b : c", "(a, b)", "[a, b,]", "{ y, z: 1, }", "f()", "new Date()"]) {
+      expect(snapshotFields(fn(`  return { ok: true, root, head: ${v} };`))).toEqual(["head", "root"]);
+    }
+  });
+});
+
 describe("validate-dor: B1 tier clarification", () => {
   const withJ4 = (edit = (x) => x) => contract((c) => {
     c.tuples[0] = tuple("J1", "D-904", P4, H4, S4, "copy-d.md");
