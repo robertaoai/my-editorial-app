@@ -29081,3 +29081,75 @@ other occurrence of `D-449` exists in the repository.
 | B-136 | Follow: a later authorized B-136 return records the A1–A4 result; not released by this entry |
 | **Encyclopedia** | unaffected: `docs/ENCYCLOPEDIA-SYNC.md` identifies no affected local citation entry; hosted parity not claimed |
 | **Graphify** | Governed drift, expected; cleared only by a separately released guarded cycle (`D-425`), never by a raw rebuild |
+
+## 5.14e273 `D-450` — Push Authority for `R..S`: B-136 Result Filing F and Its Authority Commit S; Ninth Intervening Entry Permitted
+
+**Authority: the Judge, directly to Lane A, 2026-10-21**, in chat: "Judge decision — record and preserve F plus its
+authority commit", read baseline F `0b2cc13df373cebfcd673cf9c6749d5130a5da64`, independent reviewer Lane B, retained by
+Lane A as `C:/CoWork/outputs/lane-a-d450-2026-10-21/JUDGE-D450-F-S.md`, SHA-256
+`8ad5e59e7449fd519f02b0782ae2bb7cfa41d501390a25b84f14b8675c90150e` (full message text, transcript
+`417d4ead-c5b7-481e-b141-3a8989ce9446.jsonl` line 6276, message `9c15f26a-f620-495c-9721-53fa315eb5ac`). It registers the
+decision under `D-183` point 5. **Number check:** at F the last Register entry is `D-449` (§5.14e272); no other
+occurrence of `D-450` exists in the repository.
+
+### The decision
+
+1. **F accepted.** The Judge accepts Lane B's review of F, the B-136 result filing of `D-449` A1–A4 (parent R
+   `d9e06514cf9f6daea1a176498832790c1a11d354`; one path, `docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md`,
+   +80/−0). Lane B's receipt, in Lane B's conversation segment
+   `C:/Users/rober_24syk4j/.codex/sessions/2026/10/21/rollout-2026-10-21T03-31-43-01a1450c-56ae-73a2-95c0-6c0d44d45f08_01a15acc-56e0-7801-a238-395e69a0b901.jsonl`:
+   line 1084, message `msg_0359a885ce55f8dd016ad844203acc81918d52ebfacd28a096`, `output_text` 2,199 UTF-8 bytes, SHA-256
+   `7f5c15d89740df6ef134cd82e2b305a2ca4d8e190db9109d415ffcee4bb58311` ("APPROVE the B-136 filing at `0b2cc13`"). Its
+   supporting reviews: `rollout-2026-10-21T12-46-32-01a15cc8-47f3-7ca1-8625-48eab0239c18.jsonl` line 96, message
+   `msg_03d25c0144058269016ad843f57d188191b7adebd21220cd49`, 1,488 bytes, SHA-256
+   `ba222766d3f52ed2d63aaa5010680d6cd328435831c49f69ce122555202582a3`; and
+   `rollout-2026-10-21T12-46-38-01a15cc8-6247-7f92-932f-2450bfbc2fe9.jsonl` line 125, message
+   `msg_0cbb65b2cf64ea3e016ad8442bf4248191a6ece8484a56f752`, 822 bytes, SHA-256
+   `66918f3db996a3577ecb73188657b673963455eed30cd1c04dfe37c89cb57eca`. Each is retained as its extracted text under
+   `C:/CoWork/outputs/lane-a-d450-2026-10-21/`.
+2. **S, defined prospectively.** S is "the single Register-only authority commit whose sole parent is F", recording this
+   entry. The authorized push includes S itself. Its full ID is fixed by the commit and by Lane B's independent
+   verification; no further commit is created to insert S's hash. **Recording S permits no push.**
+3. **Sequencing amendment.** Item 0 of `D-440` and `D-441`, as amended by `D-442` item 5, `D-444` item 4, `D-445` item 2,
+   `D-446` item 2, `D-447` item 4, `D-448` item 4 and `D-449` item 5, is further amended to permit one further intervening
+   Register entry, this ninth entry, after `D-449` and before the separate TCA r3 (J3) and J-C A1 entries. All other
+   sequencing terms are unchanged; no historical entry is rewritten.
+4. **Independent verification checkpoint.** Lane A builds a manifest for R excluded through S included: exactly two
+   commits, in order, F (B-136 result filing) then S (this recording), with full IDs, parents, trees, changed paths, file
+   statistics and the manifest's SHA-256. Lane B verifies S and this manifest before any remote contact.
+5. **Bounded push, after Lane B's acceptance.** Remote `origin`; target `refs/heads/features/feature-V1-SM05`; expected
+   server base R `d9e06514cf9f6daea1a176498832790c1a11d354`; authorized tip the independently verified S; range R excluded
+   through S included. Before remote contact: clean state, this authority, the verified manifest and freeze clearance
+   (the operator's confirmation, `C:/CoWork/outputs/lane-a-d448-2026-10-21/FREEZE-CONFIRMATION.md`, SHA-256
+   `d067b2448f15ef0bf2254afb7b21ce2a1c66dfd8d14e3a9b5e0a3399679db88a`; later prepare or resume activity contradicting it
+   stops the unit; `stale:false` is not clearance). Two `bun run check` runs at committed S, kept separate from the
+   recording checks. Read the server target with `git ls-remote` and stop unless it equals R. Push only
+   `git push --force-with-lease=refs/heads/features/feature-V1-SM05:d9e06514cf9f6daea1a176498832790c1a11d354 origin <verified-full-S>:refs/heads/features/feature-V1-SM05`.
+   No bare `--force`, `--all`, `--mirror` or implicit `HEAD` target; the range is not widened and the lease is not
+   refreshed to bypass unexpected remote history.
+6. **Remote proof.** After the push: read the server target again and require exact S; prove R, F and S reachable from
+   it; retain commands, timestamps, exit codes and server output before and after; confirm both F and S are covered, so
+   the authority commit is not left outside the pushed range. Remaining local-only material is reported separately. The
+   push does not preserve external drafts, evidence folders or transcripts.
+7. **Check scope.** For this recording commit and its later pre-push checks only: `docs-drift` may fail; every other
+   check passes or stops the unit. Complete logs, exit codes, hashes and tested HEAD are retained. Hooks run normally
+   (never `--no-verify`) under the required repository identity. An allowed failure is never reported as a full pass. The
+   exception ends on completion or stop and covers no later unit.
+8. **Not released.** No fetch, additional branch, preflight push or further result-filing commit.
+9. **Holds.** U-C stays held. B-136 and D-439 stay Open. J1 (`D-440`) and J2 (`D-441`) remain separately registered; both
+   transfers stay held. Only the push in item 5 is released. No transfer, graph preparation or resume, publication,
+   construction, baseline naming or Gate 2 closure; every other hold is unchanged.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry |
+| **Build Spec** | — unaffected: a push authority changes no V1 scope, creates, sequences or retires no artifact, and changes no V1 or MMF DoD; F is a handoff filing and S a Register entry, neither a Build Spec artifact |
+| **Inventory** | — unaffected: no repository file is created or retired and no row's status changes; F appends to an existing handoff file and S to the Register, and the push adds no file |
+| `D-440`, `D-441` | — unaffected: their text is not edited; this entry amends their item 0 separately (item 3) |
+| `docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md`, `docs/specs/SPECS-VERIFICATION-APPARATUS.md`, `docs/handoff/README.md`, `AGENTS.md` | — unaffected: the reusable route's owner sections belong to the unreleased B0–B2 unit (`D-449` item 1) |
+| `CLAUDE.md`, `GEMINI.md`, `docs/README.md`, `docs/PRD.md`, Charter, `0001`, `Modular_PRD.md`, other FN specs and `docs/specs/`, template v1, Phase Closure, `docs/LANE-B-WORK-ORDER.md`, application code, build configuration | — unaffected: this entry changes none of their governed content, scope or lane state |
+| B-136 | — unaffected: F already holds the A1–A4 result; no further filing is released (item 8) |
+| **Encyclopedia** | unaffected: `docs/ENCYCLOPEDIA-SYNC.md` identifies no affected local citation entry; hosted parity not claimed |
+| **Graphify** | Governed drift, expected; cleared only by a separately released guarded cycle (`D-425`), never by a raw rebuild |
