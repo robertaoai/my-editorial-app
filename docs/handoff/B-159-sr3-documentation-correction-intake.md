@@ -5,8 +5,10 @@
 - **Phase:** 1
 - **Blocks:** D-453(c) consolidated draft review and subsequent corrections; no construction or attempt release
 - **Status:** Open
-- **Lane A:**
+- **Lane A:** Acknowledged 2026-10-21. Receiver receipt only; consolidated replacements remain pending D-453(c) review.
+- **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Source text examined at `c188a78dd8f280f492a3326c611ae44c435fe42a`; baseline snapshots, Git blob IDs, SHA-256 hashes and draft revalidation retained in `C:/CoWork/outputs/lane-b-sr3-filing-2026-10-21/` (`baseline-sources.json`, `draft-revalidation.json`, `preconditions.json`). This is an examined baseline, not a verification result.
+- **Verified-At-Commit:** 7ef7df212b804638c79b6fd0c510a0ab07f6dfed
 
 ## What happened
 
@@ -163,3 +165,18 @@ Stop for independent filing review and then Lane A's D-453(c) draft-review stage
 | Defer | Consolidated replacements, Q11 same-commit proof, F2 wording and unresolved F3 location/scope question — Lane A; Lane B reviewer | D-453(c) draft review; unresolved meaning or scope stops correction |
 | Defer | Source corrections, final independent review and Lane A answer — Lane A; Lane B Level 1; Lane C Level 2 | D-453(d)–(f), each phase's own authorized proof |
 | Defer | Push and every held unit — Judge and existing owners | Later bounded push and existing release checkpoints; no hold lifted here |
+
+## Lane A — receiver acknowledgement, 2026-10-21
+
+Filed under the Judge's decision "Judge decision — release B-159 acknowledgement and audit metadata only" (retained as
+`C:/CoWork/outputs/lane-a-b159-ack-2026-10-21/JUDGE-B159-ACK.md`, SHA-256
+`41e52028d73d49c3b1387e6116dccca8f4bb7ee85e9bb5dc277c33f675ce10dd`; transcript
+`417d4ead-c5b7-481e-b141-3a8989ce9446.jsonl` line 7158), which accepts Lane B's filing review of this entry at `7ef7df2`
+(Lane B's segment `rollout-2026-10-21T03-31-43-01a1450c-56ae-73a2-95c0-6c0d44d45f08_01a15acc-56e0-7801-a238-395e69a0b901.jsonl`
+line 2192, message `msg_0359a885ce55f8dd016ad8c20d89f081918fa6cdb5fce681d9`, SHA-256
+`62a4ef3288458aef701b55efc5738dbf15e0c38b007a47cdeb94797e7175e821`).
+
+- Lane A has received the six findings.
+- F3's source and scope question remains unresolved; it is settled at the D-453(c) draft review.
+- No source correction, final disposition or completion credit is recorded here. `Verified-At-Commit` names the examined
+  filing baseline; it is not an independent-verification result. Status stays Open.
