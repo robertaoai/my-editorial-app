@@ -180,3 +180,75 @@ line 2192, message `msg_0359a885ce55f8dd016ad8c20d89f081918fa6cdb5fce681d9`, SHA
 - F3's source and scope question remains unresolved; it is settled at the D-453(c) draft review.
 - No source correction, final disposition or completion credit is recorded here. `Verified-At-Commit` names the examined
   filing baseline; it is not an independent-verification result. Status stays Open.
+
+## Lane A — answer (D-453(f), C3), 2026-10-22
+
+Filed under the Judge's decision "Judge decision — release D-453(f), bounded C3 answer" (retained as
+`C:/CoWork/outputs/lane-a-c3-2026-10-22/JUDGE-C3-RELEASE.md`, SHA-256
+`3025d91c9f01c04f74680ee11124a4b09d7ac3927b7b4e5d76ad2411e492d76e`; transcript
+`417d4ead-c5b7-481e-b141-3a8989ce9446.jsonl` line 7799), which accepts the Level 1 and Level 2 reviews of the correction
+commits C1 `24cad53f21219cc84323c4dbeb28275334221aad` and C2 `c306abe90ecdfcdac1305420306ab54abf404d02`. Execution
+baseline: `c306abe`. This answer is append-only; the text above it, including the receiver acknowledgement, is unchanged.
+
+### What happened
+
+**Independent reviews of C1 and C2** (each retained as its exact text under `C:/CoWork/outputs/lane-a-c3-2026-10-22/`;
+each names both commits):
+
+| Review | Source locator | SHA-256 |
+|---|---|---|
+| Lane B, Level 1: "APPROVE C1 and C2 at Level 1" | `C:/Users/rober_24syk4j/.codex/sessions/2026/10/21/rollout-2026-10-21T03-31-43-01a1450c-56ae-73a2-95c0-6c0d44d45f08_01a15acc-56e0-7801-a238-395e69a0b901.jsonl` line 2651, message `msg_0359a885ce55f8dd016ad8ed2b1e948191b4ae23bd29a15c86`, 3,880 bytes | `0a11ae11c473205c5264ff934fcecae0384645163d595de63ce82404ad592764` |
+| Lane C, Level 2: "APPROVE `D-453(d)` commits C1 and C2 at Level 2" | `C:/Users/rober_24syk4j/.codex/attachments/17b5f524-a0d6-480c-bd71-489eab8173db/Pasted text.txt`, 18,598 bytes | `8a8166e5117cddf6b50aef4ada037cbf89506c6576980e2a23bbc59b440ea6f8` |
+
+Lane B's separate endorsement of the Lane C Level 2 findings: same Lane B session, line 2739, message
+`msg_0359a885ce55f8dd016ad8f2d4981c8191a08917281a540add`, 2,630 bytes, SHA-256
+`97b8487bd552366e8c826a878c6c6edadb98e85cfa0ebb3c03d606d6464772c2`.
+
+**Trace.** The Project-scope intent index is Modular_PRD §7.2a, AIG-02 and AIG-05. FN-MULTI-LANE-AI-GOVERNANCE §3
+supplies AIG-02.R1/R3 for the receiver answer and AIG-05.R1/R2 for independent review and authority.
+
+**Findings → corrections.** All edits come from the approved D-453(c) draft revision 3
+(`C:/CoWork/outputs/lane-a-sr3c-draft-2026-10-21/SR3-CONSOLIDATED-DRAFT.r3.md`, SHA-256
+`91a234c58f744e657c0ad92e5bc9c54764f6050a73d3229838cef99d00678e5b`; its internal "revision 2" title is stale, and its §3
+open question on E03 was superseded by the review). Each old block matched exactly once
+(`C:/CoWork/outputs/lane-a-sr3c-draft-2026-10-21/match-evidence.r2.json`, SHA-256
+`0dd6dfc9e8265f2c864770879d2097557cb1279d117b445f18fdf1726514d285`).
+
+| Finding | Governing decision | Route | Commit | Section changed | Edits |
+|---|---|---|---|---|---|
+| SR3-01 Project PRD classification | `D-29`, `D-58`, `D5` | B-159 | C2 | `docs/source/README.md` "Related" | E05 |
+| SR3-02 Q11 in the Audit spec | `D-97`, `D-111` | B-159 | C1 | `FN-AUDIT-VISIBILITY-07-08.md` §7, §10 | E03, E04 |
+| SR3-02 Q11 in the Transition spec | `D-97`, `D-111` | B-136 IR-3 (residual) | C1 | `SPECS-TRANSITION-ENFORCEMENT.md` §8 | E01 |
+| SR3-03 acceptance-criteria pointers | `D-29`; `Modular_PRD.md` §9.1 | B-159 | C1 (Audit), C2 (Publication) | Source lines of both FN specs | E02, E06 |
+| SR3-04 document-control metadata | `D-271`, `D-438`, `D-453` | B-159 | C2 | `Modular_PRD.md` §0, §0.1 (revision 1.45, 2026-10-22) | E08–E10 |
+| SR3-05 obsolete sprint label | `D-258`, `D-243`, `D-244` | B-159 | C2 | `SPECS-PUBLICATION.md` header | E07 |
+| SR3-06 (F2) apparatus status | `D-70`, `D-64`, `D-65` | B-159 (no earlier route) | C2 | `SPECS-VERIFICATION-APPARATUS.md` lines 5, 7, 33, 45, 92, 138, 155 | E12–E15, E17–E19 |
+| F3-a CI-skip wording (D-453 target) | D-453 item 2; `.github/WORKFLOWS-SPEC.md` §3 | B-159 | C2 | `SPECS-VERIFICATION-APPARATUS.md` §4 | E16 |
+| F3-b CI-skip wording in `XF-04` | B-158 F03 | B-158 F03 | C2 | `Modular_PRD.md` §8.2 | E11 |
+| **F3-c** graph-fragments README line 60 | B-158 F03 | B-158 F03 | **None — deferred** | — | — |
+
+**Validation evidence** (pre-commit; under `C:/CoWork/outputs/lane-a-sr3d-2026-10-22/`):
+
+| Commit | Parent | Proof | Checks (two runs each) |
+|---|---|---|---|
+| C1 `24cad53` | `eaa066b` | `c1-proof.txt` `db46453842a4756f4cb56c046caea0f64a6e3a711535673ad53a0d1f43dd75b4` | 18/19 pass, `docs-drift` alone fails, exit 1, no skip; logs `be14ddf173ab43a78b640c36028c0a539b191328546fde4102686c242e85abab` |
+| C2 `c306abe` | `24cad53` | `c2-proof.txt` `9d72d4eb39b9ed00f4971c91b29bc3106753236027af3eb0bd0618b1d044cd0e` | Same; logs `e7d13748443eb8be906d4fb8a13788deb16345164e28f49dd42a28c5de70ec77` |
+
+C1 and C2 together changed exactly D-453's seven paths. The frozen `docs/PRD.md`, Charter and `0001_init.sql` show no
+diff. The `docs-drift` failures are D-453 item 5's permitted exception, not full passes.
+
+### What you need
+
+Lane B's independent review of this answer. B-159 stays **Open**: no `Resolution`, no `Verified` verdict by Lane A, and
+the audit metadata in the header is unchanged. A separate disposition decides closure; a separate bounded decision
+decides any push.
+
+### What you did instead
+
+- **B-158 F03 is not complete.** F3-c (the graph-fragments README) stays deferred to B-158 F03.
+- The corrections are documentation corrections. **Current runner and CI operation, and hosted behaviour, are UNVERIFIED.**
+- This answer establishes no project-wide DoR/DoD attempt completion and releases no attempt.
+- C1 and C2 are local commits, and so will be the commit that files this answer. The last verified server observation is
+  `1adb938ae345a0df09577c5f6072ee3e43f32533`. Remote preservation of C1, C2 or this answer is not claimed.
+- Evidence custody and adoption of a reusable documentation workflow are separate proposals, not prerequisites of this
+  answer.
