@@ -29529,3 +29529,68 @@ registers the decision under `D-183` point 5. **Number check:** at `c306abe` the
 | `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, FN specs, `docs/specs/`, template v1, Phase Closure, `docs/LANE-B-WORK-ORDER.md`, `.claude/`, `scripts/`, application code, build configuration | — unaffected: this entry changes none of their governed content, scope or lane state |
 | **Encyclopedia** | unaffected: `docs/ENCYCLOPEDIA-SYNC.md` cites no section of `docs/source/README.md` |
 | **Graphify** | Governed drift, expected; cleared only by a separately released guarded cycle (`SR-5`, `D-425`), never by a raw rebuild |
+
+## 5.14e279 `D-456` — Push Authority for `1adb938..D-456`: SR-3 Range (Eight Commits) and Its Authority Commit; Fifteenth Intervening Entry Permitted
+
+**Authority: the Judge, directly to Lane A, 2026-10-22**, in chat: "Release the bounded push of the eight-commit range"
+(retained as `C:/CoWork/outputs/lane-a-d456-2026-10-22/JUDGE-PUSH-RELEASE.md`, SHA-256
+`b4c4904efef851c87618ad8a1d4ab95b7c34b03ee79cd177c4c8b8a69a209d45`; transcript
+`417d4ead-c5b7-481e-b141-3a8989ce9446.jsonl` line 8176), and the Judge's choice "Record authority first" for the route
+(`JUDGE-ROUTE-ANSWER.txt`, SHA-256 `05475dab51033edfa088c9ebe8078371f954514a44cdcb8ad9de4eab997cd62f`; line 8189). It
+registers the decision under `D-183` point 5. **Number check:** at `acc596c` the last Register entry is `D-455`
+(§5.14e278); no other occurrence of `D-456` exists in the repository.
+
+### The decision
+
+1. **Scope and identity.** Checkout `C:/robertaoai/my-editorial-app`; branch `features/feature-V1-SM05`; remote `origin`
+   (`git@github.com:robertaoai/my-editorial-app.git`); target `refs/heads/features/feature-V1-SM05`; expected server base
+   `1adb938ae345a0df09577c5f6072ee3e43f32533` (the last verified server observation, 2026-10-21T10:53:15Z, after the
+   `D-452` push; not a fresh reading).
+2. **Coverage.** The range `1adb938` excluded through **P** included holds exactly nine commits, in order:
+   `c188a78dd8f280f492a3326c611ae44c435fe42a` (`D-453` recording), `5edef4d4b9a45e13f20cb097a0506837a0196e00` (`D-454`
+   recording), `7ef7df212b804638c79b6fd0c510a0ab07f6dfed` (B-159 filing), `eaa066b90f0ec91212aabcbffaffeb53940e1022`
+   (B-159 acknowledgement), `24cad53f21219cc84323c4dbeb28275334221aad` (C1), `c306abe90ecdfcdac1305420306ab54abf404d02`
+   (C2), `8bd7cdfa43ebed12b5b839c67751c07b724b4e0c` (`D-455` recording), `acc596c457bc8685ef9ace6c60a9579f0bd754eb`
+   (C3) and P. **P** is the single Register-only authority commit whose sole parent is `acc596c` and which records this
+   entry. The push includes P itself; its full ID is fixed by the commit and by Lane B's verification; no further commit
+   is created to record P's hash or the push result. Current coverage record:
+   `C:/CoWork/outputs/lane-a-c3-2026-10-22/cumulative-sr3-push-coverage.current.json`, SHA-256
+   `6b280e87a168de36fb04ab297a635adf1e18efc330f421a04def83cdc56a845a` (eight commits; P is added once it exists).
+3. **Recording checks.** Two `bun run check` runs on the final Register append: all required checks pass, or `docs-drift`
+   alone may fail; every other failure, skip or startup failure stops the unit. An allowed failure is never reported as a
+   full pass. Normal hooks under the required identity; `--no-verify` is never used.
+4. **Independent-review gate.** Lane B verifies P and the push manifest before any remote contact. This entry does not
+   accept `D-455` or C3; their independent reviews remain separate and are not waived by this push.
+5. **Push gate, after Lane B's verification.** (1) Reconfirm local identity, clean state and freeze clearance (the
+   operator's confirmation, `C:/CoWork/outputs/lane-a-d448-2026-10-21/FREEZE-CONFIRMATION.md`, SHA-256
+   `d067b2448f15ef0bf2254afb7b21ce2a1c66dfd8d14e3a9b5e0a3399679db88a`; no guarded prepare or resume interval; graph
+   metadata is not clearance). (2) Prove `1adb938..P` holds exactly the nine commits above. (3) Two fresh `bun run check`
+   runs at P under the same exception. (4) `git ls-remote` of the target must equal `1adb938`; any other result stops.
+   (5) Prove `1adb938` is an ancestor of P. (6) Push P **without force**:
+   `git push origin <P>:refs/heads/features/feature-V1-SM05`. (7) Read the target again and require P. No force fallback;
+   no `--all`, `--mirror` or implicit `HEAD`; the range is not widened.
+6. **Completion proof.** The verified manifest; recording and fresh pre-push check evidence; the exact push command,
+   output and exit code; timestamped server observations before and after; reachability of all nine commits; reconciliation
+   of remaining local-only commits. External drafts and evidence are not preserved by this push.
+7. **Sequencing amendment.** Item 0 of `D-440` and `D-441`, as amended by `D-442` item 5, `D-444` item 4, `D-445` item 2,
+   `D-446` item 2, `D-447` item 4, `D-448` item 4, `D-449` item 5, `D-450` item 3, `D-451` item 7, `D-452` item 8,
+   `D-453` item 7, `D-454` item 7 and `D-455` item 5, is further amended to permit one further intervening Register
+   entry, this fifteenth entry, after `D-455` and before the separate TCA r3 (J3) and J-C A1 entries. J1 and J2 stay
+   separate. All other sequencing terms are unchanged; no historical entry is rewritten.
+8. **Holds.** U-C stays held. B-159, B-136 and D-439 stay Open. J1 (`D-440`) and J2 (`D-441`) remain separately
+   registered; both transfers stay held. No installation, activation, attempt release, construction, transfer, graph
+   preparation or resume, publication, baseline naming, Gate 2 closure or fetch. Only the push in item 5 is released;
+   every other hold is unchanged.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry |
+| **Build Spec** | — unaffected: a push authority changes no V1 scope, creates, sequences or retires no artifact, and changes no V1 or MMF DoD |
+| **Inventory** | — unaffected: no repository file is created or retired and no row's status changes; the push adds no file |
+| B-159, B-136 | — unaffected: no filing is released; B-159's C3 answer awaits its own review |
+| `D-440`, `D-441` | — unaffected: their text is not edited; this entry amends their item 0 separately (item 7) |
+| `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `docs/README.md`, `docs/PRD.md`, Charter, `0001`, `Modular_PRD.md`, FN specs, `docs/specs/`, template v1, Phase Closure, `docs/LANE-B-WORK-ORDER.md`, `.claude/`, `scripts/`, application code, build configuration | — unaffected: this entry changes none of their governed content, scope or lane state |
+| **Encyclopedia** | unaffected: `docs/ENCYCLOPEDIA-SYNC.md` identifies no affected local citation entry; hosted parity not claimed |
+| **Graphify** | Governed drift, expected; cleared only by a separately released guarded cycle (`SR-5`, `D-425`), never by a raw rebuild |
