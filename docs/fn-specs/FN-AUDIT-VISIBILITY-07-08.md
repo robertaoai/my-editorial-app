@@ -3,7 +3,7 @@
 **Date:** 2026-08-19
 **Tier:** `Fn_Specs` — third tier of `D-29`.
 **Status:** Draft. Planning only — no build authorized.
-**Source:** `Modular_PRD` §5 (`FR-07`, `FR-08`), §6 (`AC-11`–`AC-13`), `US-07`, `US-08`.
+**Source:** `Modular_PRD` §5 (`FR-07`, `FR-08`), §9.1 (`AC-11`–`AC-13`), `US-07`, `US-08`.
 **Sprints:** `FR-07` → S1 · `FR-08` → S3.
 
 ---
@@ -135,7 +135,7 @@ A recorded negative leaves the article `Reviewed` with reasons and authorizes no
 | Dependency | Nature | Status |
 |---|---|---|
 | `TR-DM-02` `workflow_transitions` extensions | **Blocking** — `actor_id`, `line_assignment`, `event_type` absent (`TC4`, `X5`) | S1 |
-| `Q11` field naming | Names the independence field this record carries | **Open**, S1 window |
+| `Q11` field naming | Names the structural Line-separation field this record carries | **Decided** — shape `D-97`, name `D-111`: `workflow_transitions.line_separation_status`, a column in the `0002` migration candidate. Schema evidence only; hosted behaviour and cognitive independence are UNVERIFIED. *Corrected 2026-10-22 (B-159 SR3-02): this row earlier read "Names the independence field this record carries · **Open**, S1 window".* |
 | Revoke UPDATE/DELETE | `AC-12` cannot pass without it | S1 |
 | `D-07` `on delete restrict` | Protects the record from cascade | S1 window |
 | `BOARD_FILTER_DIMENSIONS` | Config value | S0 |
@@ -167,4 +167,4 @@ row precedence · exactly-one-row · which fields the record carries · the four
 
 ## 10. Scope limits `[V1]`
 
-Closes no Open Decision. Authorizes no code, schema, or migration. `AC-12` is recorded as **failing today** and is not resolved here. Field names remain proposals pending `Q11`.
+Closes no Open Decision. Authorizes no code, schema, or migration. `AC-12` is recorded as **failing today** and is not resolved here. `Q11` is decided: the structural field is `workflow_transitions.line_separation_status` (`D-97`, `D-111`). This closes no Charter-level Open Decision and establishes no hosted verification. *Corrected 2026-10-22 (B-159 SR3-02): the last sentence earlier read "Field names remain proposals pending `Q11`."*

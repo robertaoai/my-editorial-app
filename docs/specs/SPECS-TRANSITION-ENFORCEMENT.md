@@ -217,7 +217,7 @@ Every criterion tested **with the anon key**, because that is the threat model (
 | Ten-state enum (`article_state_v2`) | **Blocking** — rules reference states `0001` lacks | `G16`, S1 window |
 | `actor_id`, `line_assignment`, `event_type` | **Blocking** — G-B matches on executor identity | `TC4`/`X5`, S1 window |
 | `articles.revision_target_state` | **Blocking** — T8a resolution | S1 window |
-| `Q11` field naming | Names what G-B matches on | **Open** — irreversible after S1 |
+| `Q11` field naming | Names what G-B matches on | **Decided** — shape `D-97`, name `D-111`: `workflow_transitions.line_separation_status`; the name stays irreversible after S1. *Corrected 2026-10-22 (B-136 IR-3 residual; B-159 SR3-02): this cell earlier read "**Open** — irreversible after S1".* |
 | Revoke UPDATE/DELETE | Not blocking this design; assumed | Infrastructure ⚙ |
 | `GA9` `on delete restrict` | Independent | S1 window |
 
