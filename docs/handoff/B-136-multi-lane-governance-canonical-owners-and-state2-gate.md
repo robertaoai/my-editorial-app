@@ -22160,3 +22160,53 @@ An allowed failure is not a full consistency pass.
 
 U-C stays held. J1 (`D-440`) and J2 (`D-441`) remain separately registered; both transfers stay held. All other holds are
 unchanged.
+
+## Lane A — four-tool proposal index for `SR-2a`/`SR-2b`/`SR-2c` (`D-451`); proposals only, unreleased, 2026-10-21
+
+> **Filed** under the Judge's decision "Judge decision — file the four-tool proposal index in B-136", read baseline
+> `542660a3171e9ee34810b3b59d4934270cb89e3b`, raiser and independent reviewer Lane B, retained as
+> `C:/CoWork/outputs/lane-a-b136-four-tools-2026-10-21/JUDGE-FOUR-TOOLS-FILING.md`, SHA-256
+> `e57d679b6698fde0e5679c4fc6c15e06103eb16d96c75ced4754ad45fcba65e2` (full message text, transcript
+> `417d4ead-c5b7-481e-b141-3a8989ce9446.jsonl` line 6644, message `73c3dc43-3c51-447f-9ab6-4588a9e0c135`). The Judge accepts
+> Lane B's review of SR-1 (`D-451` at `542660a`; Lane B's segment
+> `rollout-2026-10-21T03-31-43-01a1450c-56ae-73a2-95c0-6c0d44d45f08_01a15acc-56e0-7801-a238-395e69a0b901.jsonl` line 1628,
+> message `msg_0359a885ce55f8dd016ad88613f9f881918528bb51d7e344ea`, 3,287 bytes, SHA-256
+> `20d1dd8f65d2b65cf5ee222b37513476ad79181926f33d26252c5b299e76b4ca`). B-136 and D-439 stay **Open**.
+
+### What happened
+
+**1. This is the current four-tool proposal index.** It belongs to `D-451` (§5.14e274) and its units `SR-2a` (discovery),
+`SR-2b` (installation) and `SR-2c` (activation). It is a section of B-136, not a new tracker.
+
+**2. Sources.** The states below are **captured observations at `5bfe61f`**, not fresh discovery results. No discovery
+was run for this filing.
+
+| Source | Path | SHA-256 |
+|---|---|---|
+| Retained plugin inventory (states its purpose as "Read-only inventory; marketplace presence is not installation or session discovery") | `C:/CoWork/outputs/project-review-2026-10-21/plugin-inventory.json` | `3d09203ea08bd35ff531605fc4de21a0f689b586b6b4006e270f244f04c0d519` |
+| Capture HEAD record (`"head": "5bfe61f4499bbef166b311c3e14813fa04e0c850"`) | `C:/CoWork/outputs/project-review-2026-10-21/validation.json` | — (cited for the capture HEAD only) |
+| Revision-4 handoff (accepted at planning scope by `D-451`) | `C:/CoWork/outputs/lane-a-sr1-2026-10-21/HANDOFF-REVISION-4.md` | `7b2b4aa2dcad3ba7f0dfcb1228a2f97e2c8a545fed9bb60d93e0be80f5e8658a` |
+
+**3. The index.** Every row is **Proposed — unreleased**.
+
+| Tool | Captured state (at `5bfe61f`) | Disposition | Owner | Independent reviewers | Next trigger | Required return evidence | Installation gate | Activation gate | Acceptance |
+|---|---|---|---|---|---|---|---|---|---|
+| `claude-md-management` | Marketplace copy found; no registered installation in the captured inventory | Proposed — unreleased | Lane A | Lane B (Level 1); Lane C (Level 2) | A separately released `SR-2a` discovery scope | Intended session; inspected scope; observed discovery state; source and version information; receipt | Separately approved `SR-2b` authority; pinned sources; exact repository and external write targets | Separate `SR-2c` checkpoint | Judge |
+| `claude-code-setup` | Marketplace copy found; no registered installation in the captured inventory | Proposed — unreleased | Lane A | Lane B (Level 1); Lane C (Level 2) | A separately released `SR-2a` discovery scope | Same as above | Same as above | Same as above | Judge |
+| `skill-creator` | Available in Codex; Claude session discovery remains UNVERIFIED | Proposed — unreleased (discovery only). The existing Codex availability is kept. Reinstallation is **not** proposed because Claude discovery is unknown | Lane A | Lane B (Level 1); Lane C (Level 2) | A separately released `SR-2a` discovery scope | Same as above | Only if `SR-2a` evidence shows a need, then the same gate as above. A failed discovery command does not establish absence | Same as above | Judge |
+| `process-builder` | Upstream identified; no installed copy found in the inspected locations | Proposed — unreleased. The limit "in the inspected locations" stays; global absence is not claimed | Lane A | Lane B (Level 1); Lane C (Level 2) | A separately released `SR-2a` discovery scope | Same as above | Same as above (the reviewed upstream source pinned by commit) | Same as above | Judge |
+
+**4. Limits.**
+
+- Listing a proposal does not authorize its execution.
+- Filing these rows does not complete the provisioning DoR, the DoD or an attempt.
+- Discovery, installation and activation stay separate checkpoints. An unresolved write target is a stop before the
+  installer runs (`D-451` item 5).
+- Unknown discovery is never treated as confirmed absence.
+
+**5. Preservation.** `542660a` and the commit that files this section stay local and pending remote preservation.
+`D-450`'s completed push covers neither. A later bounded push must account for both and for any authority commit it
+needs.
+
+U-C stays held. J1 (`D-440`) and J2 (`D-441`) remain separately registered; both transfers stay held. All other holds are
+unchanged.
