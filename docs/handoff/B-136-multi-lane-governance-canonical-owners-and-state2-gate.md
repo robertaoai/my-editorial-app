@@ -22080,3 +22080,83 @@ Locators only. The quoted contracts were not changed.
 | **Defer** | The `SV-003` checklist commit (option A or B) | Judge, then Lane A | Next |
 | **Defer** | Independent review; fresh-preparation proposal | Lane B; then Lane A | After the checklist decision |
 | **Reject** | Committing the checklist with an unpermitted `graph-coverage` failure; any execution inferred from this record | All actors | — |
+
+## Lane A — D-449 preservation unit A1–A4 results: R recorded; feature push `H..R` and preflight preservation completed and remotely verified, 2026-10-21
+
+> **Filed** under the Judge's decision "Judge decision — bounded B-136 filing of D-449 A1–A4 results", read baseline
+> `d9e06514cf9f6daea1a176498832790c1a11d354`, raiser and independent reviewer Lane B, retained as
+> `C:/CoWork/outputs/lane-a-b136-a1a4-2026-10-21/JUDGE-B136-A1A4-FILING.md`, SHA-256
+> `a5bc3f5d5e95c445020854cb82cb96aad35c14b88041e58c2962ad222d936c39` (full message text, transcript
+> `417d4ead-c5b7-481e-b141-3a8989ce9446.jsonl` line 6164, message `cc4194f2-22c5-4483-a103-51944f962bc6`). Authority for
+> A1–A4: `D-449` (§5.14e272). The Judge accepts Lane B's review of A1–A4. B-136 and D-439 stay **Open**.
+
+### What happened
+
+**0. Lane B's approval receipts** (Codex sessions under `C:/Users/rober_24syk4j/.codex/sessions/2026/10/21/`; each
+retained as the extracted message text, no newline normalization):
+
+| Approval | Session file, line, message | Bytes | SHA-256 | Retained as |
+|---|---|---|---|---|
+| A1 consolidated ("APPROVE A1") | `rollout-2026-10-21T03-31-43-…_01a15acc-….jsonl` line 889, `msg_0359a885ce55f8dd016ad83caee99c8191ab5281c30f659918` | 2,696 | `3f2917a9358b57540151ed966729927845c6c957799ce9b701efceea4971aa9b` | `C:/CoWork/outputs/lane-a-a2a4-2026-10-21/LANE-B-A1-CONSOLIDATED-APPROVAL-line889.txt` |
+| A1 commit proof | `rollout-2026-10-21T12-14-48-01a15cab-….jsonl` line 59, `msg_06b5b96ceb0ddfed016ad83c8312b08191b225e0500403ee0e` | 1,083 | `ac8e4e8c76f06099d7da04e017bc374e27e7b0de14c81913e6f6dc4340cc8cb2` | `…/lane-a-a2a4-2026-10-21/LANE-B-A1-COMMIT-PROOF-APPROVAL-line59.txt` |
+| A1 manifests | `rollout-2026-10-21T12-14-54-01a15cab-….jsonl` line 66, `msg_0351f6c6e9952513016ad83c95b998819180cc390e6a9fc174` | 1,162 | `d4deb44fe35681c37f6457ce79cc2b8a8775f2c2ff639cf4a707373f5cb29468` | `…/lane-a-a2a4-2026-10-21/LANE-B-A1-APPROVAL-line66.txt` |
+| A2–A4 ("APPROVE D-449 A2–A4") | `rollout-2026-10-21T03-31-43-…_01a15acc-….jsonl` line 992, `msg_0359a885ce55f8dd016ad83f7eb9c08191922ee7af501d94fe` | 2,384 | `abb8ffc64b05847b2565dfd76123d947648553deb74dec911c810f09c7935053` | `C:/CoWork/outputs/lane-a-b136-a1a4-2026-10-21/LANE-B-A2A4-APPROVAL-2026-10-21T03-31-43-line992.txt` |
+
+**1. A1 — `D-449` recorded at `d9e06514cf9f6daea1a176498832790c1a11d354` (R).** Register-only: one path,
+`docs/v1/V1-DECISION-REGISTER.md`, +94/−0, appending §5.14e272. Sole parent H `7581705cf38a1cc0986c984b7a4798ab8b9768d9`.
+Prior history preserved: the Register at H (2,120,171 bytes, SHA-256 `f652551d73e55fd8aa107f8e6edb0509a55c060806a25ca82136914282395361`) is an exact prefix of the Register at
+R (2,129,598 bytes, SHA-256 `beaf00af941d8784061f31120c6a7b6507f62fa8bea47ec999ac58b8ba5205b8`), and the 9,427 appended
+bytes equal the retained draft `ENTRY-D449.md` (SHA-256 `1768f5ba5f76f001e60072691bbbd1ab0209cd126a738da354a6afc91398b153`). Tested, staged and committed Register bytes
+matched: blob `84250f6c37668d4cfad4980edfbe0a7e599b79bf`. Evidence in `C:/CoWork/outputs/lane-a-d449-2026-10-21/`:
+`a1-prefix-proof.json` (`6bcf6db24dc9ee6a1c7d2116cad8cb8c7f7dd7cd6f38b9ecfa6fb083377598d9`), `a1-r-proof.txt` (`270f6f7ed6a12feb12dbd21440502a550713c860de460f54a3efdd4630f4d891`), `a1-commit-trace2.json` (`4b8f5197cdbd7a6854e2a4af0a56e1ca5de0fd84bd121082b7e1628e90d02939`;
+`git -c core.hooksPath=.githooks commit`, hook `commit-msg` exit 0), `a1-commit.log` (`a9f54c833e0904241c0f8f2983b444348bbd65ba1f2103f81f9ee9f1cf2783d7`). Manifests:
+feature revision 2 `FEATURE-MANIFEST-7581705..d9e0651.r2.json` (`40030596c42611f21eed4ee6428ae559cca61732f07181897ffc9ec07e9c0965`;
+one commit, R) and preflight revision 2 `PREFLIGHT-MANIFEST-c06ddc3..5ddf17c.r2.json`
+(`f706deeedcb0ab93879139bb9da0f67f3c83c9d750b87a14d56ea39d9d3f2583`; four commits); superseded revision 1 files kept.
+
+**2. A2 — feature push `H..R`** (evidence in `C:/CoWork/outputs/lane-a-a2a4-2026-10-21/`, working directory
+`C:/robertaoai/my-editorial-app`):
+
+| Step | Command | Time (UTC) | Exit | Result | Evidence |
+|---|---|---|---|---|---|
+| Fresh checks at R | `bun run check`, twice | before 04:22:23Z | 1, 1 | 18/19 pass; `docs-drift` alone fails (allowed by `D-449`) | `a2-check-run1.log`, `a2-check-run2.log`, each `9b4aafd9f71410b8c96118ca27f0765cdf32e7ac9c83393cbae9cdc0de7bea26`; `a2-check-context.txt` (`62480ad14c4e39fae10d65e6b8b8e93715799d8571d857f584e15e8dcc63732a`) |
+| Server before | `git ls-remote origin refs/heads/features/feature-V1-SM05` | 04:22:23–04:22:26 | 0 | H `7581705cf38a1cc0986c984b7a4798ab8b9768d9` | `a2-ls-remote-pre.out` (`fb948d6b5cd93aede1b63e99440365e8975eb5e2b63a0b7b99ea99ae5d2a8964`) |
+| Push | `git push --force-with-lease=refs/heads/features/feature-V1-SM05:7581705cf38a1cc0986c984b7a4798ab8b9768d9 origin d9e06514cf9f6daea1a176498832790c1a11d354:refs/heads/features/feature-V1-SM05` | 04:22:33–04:22:37 | 0 | `7581705..d9e0651`, a fast-forward under the approved lease | `a2-push.txt` (`6966abbb682b44563bf74f4c568d019d3d2b172841fbbaf76fc4b9d11d537b9b`), `a2-push.err` (`0fa562d4d778622b628cb244e540c6ac417415e9e168b7bdf73f400c9b17c468`) |
+| Server after | `git ls-remote origin refs/heads/features/feature-V1-SM05` | 04:22:59–04:23:02 | 0 | R `d9e06514cf9f6daea1a176498832790c1a11d354`; H and R reachable | `a2-ls-remote-post.out` (`e6a9180bb10d252ca4f297ee8cd06a85865494566d3e66bd7c13f845b81c4897`), `a2-verify.txt` (`60e4622e4c1ee07d34822a5a357223b6cecd0223ee02f8d336739e5239241903`) |
+
+**3. A3 — preflight preservation**, started after A2's remote verification:
+
+| Step | Command | Time (UTC) | Exit | Result | Evidence |
+|---|---|---|---|---|---|
+| Gates | manifest, local tip, freeze | 04:23:13 | — | Manifest revision 2 hash and commits match Git; local tip `5ddf17c` | `a3-gates.txt` (`d5ba9e9f2d58ef8d393d6166304f56b61d37138aaa9211c81fdf3c49b154390b`) |
+| Server before | `git ls-remote origin refs/heads/preflight/sv2-u02` | 04:23:14–04:23:17 | 0 | **Absent** (empty output) | `a3-ls-remote-pre.out` (empty) |
+| Push | `git push --force-with-lease=refs/heads/preflight/sv2-u02: origin 5ddf17c190cdb3f9d38e99fb35594a9e38f0eed0:refs/heads/preflight/sv2-u02` | 04:23:24–04:23:28 | 0 | `[new branch]` under the absence lease; GitHub's pull-request suggestion was not followed (`D-326`) | `a3-push.txt` (`0af5c6a7df846c85d9e69ca453b2ef5a76c75d3149eb2d189a1fd9f8980bc6de`), `a3-push.err` (`ded3a07e60d9356f1f67d5d6b35f55b61305bf1a22fb09913c1ce3407e017b0a`) |
+| Server after | `git ls-remote origin refs/heads/preflight/sv2-u02 refs/heads/features/feature-V1-SM05` | 04:23:44–04:23:47 | 0 | Preflight `5ddf17c190cdb3f9d38e99fb35594a9e38f0eed0`; feature still R | `a3-ls-remote-post.out` (`7f73fd9caeeba015f9958a4bea79a115098cd5789295a20b570bec74871e517f`) |
+
+All four fixture commits (`bc197c5`, `e685251`, `998027a`, `5ddf17c`) are reachable from the preflight tip. The fixture
+history stays separate: `bc197c5` is not an ancestor of the feature tip.
+
+**4. A4 — coverage.** At the retained observations, both intended branches have zero local-only commits:
+`features/feature-V1-SM05` local R = server R; `preflight/sv2-u02` local `5ddf17c` = server `5ddf17c`
+(`a3-verify-reconcile.txt`, `8bad8008133889f07fafe728c38ebf8854146c8a85b5f0e134f06a8cdee6f222`). **The final retained server observation was 2026-10-21T04:23:47Z.** This
+filing makes no new server check.
+
+**5. The two check stages, kept separate.**
+
+| Stage | Tested HEAD | Tree | Result |
+|---|---|---|---|
+| A1 (pre-commit) | H `7581705`, with the Register modified | Register only | 18/19; `docs-drift` alone fails; exit 1 (`a1-check-run1.log`, `a1-check-run2.log`, each `b05f5db9d72973cc4aba439265cddc41f4b2d96e599a9366a0c84426055de02f`) |
+| A2 (pre-push) | committed R `d9e0651` | Clean | 18/19; `docs-drift` alone fails; exit 1 (each `9b4aafd9f71410b8c96118ca27f0765cdf32e7ac9c83393cbae9cdc0de7bea26`) |
+
+An allowed failure is not a full consistency pass.
+
+**6. Remaining gaps.**
+
+- External drafts, evidence folders and transcripts are not preserved by these Git pushes.
+- The server states of `main` and `docs/journal-2026-08-16` remain unverified.
+- Reusable-route adoption (B0–B2) remains unreleased.
+- Graph synchronization remains held (analysis at `c8177fe`, 104 commits behind R); only a released guarded cycle clears it.
+- This filing commit is local and pending remote preservation; the completed A2 push does not cover it.
+
+U-C stays held. J1 (`D-440`) and J2 (`D-441`) remain separately registered; both transfers stay held. All other holds are
+unchanged.
