@@ -29153,3 +29153,97 @@ occurrence of `D-450` exists in the repository.
 | B-136 | — unaffected: F already holds the A1–A4 result; no further filing is released (item 8) |
 | **Encyclopedia** | unaffected: `docs/ENCYCLOPEDIA-SYNC.md` identifies no affected local citation entry; hosted parity not claimed |
 | **Graphify** | Governed drift, expected; cleared only by a separately released guarded cycle (`D-425`), never by a raw rebuild |
+
+## 5.14e274 `D-451` — SR-1 Recording: Setup and Documentation Review Units `SR-0`–`SR-5` (Revision 4, Planning Scope); `SR-0` Checkout Verification Accepted; Tenth Intervening Entry Permitted
+
+**Authority: the Judge, directly to Lane A, 2026-10-21**, in chat: "Judge decision — release SR-1 recording only", execution
+checkout `C:/robertaoai/my-editorial-app`, read baseline `5bfe61f4499bbef166b311c3e14813fa04e0c850`, independent reviewer
+Lane B, retained by Lane A as `C:/CoWork/outputs/lane-a-sr1-2026-10-21/JUDGE-SR1-RELEASE.md`, SHA-256
+`d82f4d17f0be8383040f5534d250a681c445e6cb4e54cd8c9b6379303857cbcc` (full message text, transcript
+`417d4ead-c5b7-481e-b141-3a8989ce9446.jsonl` line 6559, message `f980bb1a-b4e3-4ce5-9bf8-83516ffcde7a`). It registers the
+decision under `D-183` point 5 and releases this recording only. **Number check:** at the baseline the last Register entry
+is `D-450` (§5.14e273); no other occurrence of `D-451` exists in the repository.
+
+### The decision
+
+1. **Units, at planning scope.** Lane A's project setup and documentation review handoff, revision 4 (retained as
+   `C:/CoWork/outputs/lane-a-sr1-2026-10-21/HANDOFF-REVISION-4.md`, SHA-256
+   `7b2b4aa2dcad3ba7f0dfcb1228a2f97e2c8a545fed9bb60d93e0be80f5e8658a`, transcript line 6524), stays accepted at planning
+   scope. It defines units `SR-0` (read-only checkout verification), `SR-1` (this recording), `SR-2` (provisioning:
+   `SR-2a` discovery, `SR-2b` installation, `SR-2c` activation), `SR-3` (documentation corrections), `SR-4` (exporter and
+   navigation) and `SR-5` (guarded graph synchronization). The labels do not overlap the registration lifecycle U1–U9,
+   whose meanings are unchanged. Its rules carried here: a **recording gate** (a retained Judge instruction naming the
+   checkout, recording scope, paths, lane and checks) is separate from an **execution gate** (the recorded act and its
+   independent verification exist before implementation or push); an authority commit is included in its push scope
+   prospectively, and no commit is created only to record a hash; a template or checklist is preparation, a validation
+   pass covers only its named scope, and no attempt exists because a template exists; the PR-comment attempt release
+   stays delayed; a missing validation never counts as a pass, and the manual fallback is a separately authorized and
+   reviewed preservation unit; every push needs complete work and authority commit coverage, exact bounds, fresh checks,
+   freeze clearance, a server-base query, the approved refspec and lease, a server-tip query, reachability proof and
+   reconciliation.
+2. **`SR-0` accepted.** The Judge accepts `SR-0`'s chat receipt and Lane B's review. `SR-0` was released by "Judge
+   decision — release SR-0 checkout verification only" (`JUDGE-SR0-RELEASE.md`, SHA-256
+   `80ec96b83027ff2318ddc854465a2fc1b5425be5da90c7b2bb416e45400277a8`, transcript line 6534). The receipt is **reported
+   local evidence**, observed 2026-10-21T17:09:24+0800 (09:09:25Z) in `C:/robertaoai/my-editorial-app`. Original tool
+   output: transcript line 6548, retained as `SR0-TOOL-OUTPUT-original.txt` (SHA-256
+   `79791fdbe5cd06504cbd7d57d123d18644054527c996cb5526be08b3db2ff59b`); Lane A's reported worklog, kept separate: line 6555,
+   `SR0-REPORT-lane-a.md` (SHA-256 `03aca971d6a1cefdfdea2b604a149625191b5c6d40500517dfe2c3bf29c38d4c`). Accepted values, each
+   from a `git --no-optional-locks` command with exit 0:
+
+| Criterion | Accepted value |
+|---|---|
+| Repository root | `C:/robertaoai/my-editorial-app` |
+| Git directory / common Git directory | `C:/robertaoai/my-editorial-app/.git` / `C:/robertaoai/my-editorial-app/.git` (equal: the main worktree, not a linked one) |
+| Origin | `git@github.com:robertaoai/my-editorial-app.git` |
+| Branch | `features/feature-V1-SM05` |
+| Full HEAD | `5bfe61f4499bbef166b311c3e14813fa04e0c850` |
+| Working tree / staging | Both empty |
+
+3. **Lane B's acceptance and its qualifications.** Lane B's receipt, in Lane B's conversation segment
+   `C:/Users/rober_24syk4j/.codex/sessions/2026/10/21/rollout-2026-10-21T03-31-43-01a1450c-56ae-73a2-95c0-6c0d44d45f08_01a15acc-56e0-7801-a238-395e69a0b901.jsonl`:
+   line 1565, message `msg_0359a885ce55f8dd016ad88250549481919635a2a759bb3601`, `output_text` 2,033 UTF-8 bytes, SHA-256
+   `c69604d7041e1ea05f79a6e4b91e05f95d36f176731299b43b6d61c2b3bb8483` ("APPROVE SR-0 against `5bfe61f`"), retained as its
+   extracted text. Lane B did not rerun commands. Qualifications recorded: (a) the relationship of `C:/git/my-editorial-app`
+   to this checkout stays **UNVERIFIED**; its absence from the worktree list shows only that the path is not listed, and
+   does not exclude a filesystem alias or establish a separate clone; (b) the preflight tip agrees with the last retained
+   server observation only; `SR-0` made no fresh remote query; (c) graph currency was not rechecked.
+4. **Linked worktrees, recorded context only.** The same common Git directory has two linked worktrees:
+   `C:/robertaoai/my-editorial-app-preflight` (`preflight/sv2-u02` at `5ddf17c190cdb3f9d38e99fb35594a9e38f0eed0`) and
+   `C:/robertaoai/my-editorial-app-proof` (detached at `1945c1911ad1f2c7f6f0e06ee52317b31b16fd34`). Nothing operates on them
+   under this entry. Later scope and freeze checks account for them; their presence did not fail `SR-0`.
+5. **Not released.** `SR-2` through `SR-5` stay unreleased, each at its own release. Installation stays held until the
+   exact repository and external write targets are identified and approved in the bounded authority; an unresolved
+   target is a stop before invoking the installer. Discovery, installation and activation stay separate checkpoints.
+   `SR-5` needs all repository- and ref-changing work finished or explicitly deferred, a fresh source pin and a
+   guarded-cycle release.
+6. **Not adopted.** The reusable fallback route (permanent owner sections, B0–B2 under `D-449` item 1) and the
+   revision-3a receipt-retention proposal are not adopted by this entry.
+7. **Sequencing amendment.** Item 0 of `D-440` and `D-441`, as amended by `D-442` item 5, `D-444` item 4, `D-445` item 2,
+   `D-446` item 2, `D-447` item 4, `D-448` item 4, `D-449` item 5 and `D-450` item 3, is further amended to permit one
+   further intervening Register entry, this tenth entry, after `D-450` and before the separate TCA r3 (J3) and J-C A1
+   entries. All other sequencing terms are unchanged; no historical entry is rewritten.
+8. **Check scope.** A new exception for this one recording commit only (`D-450`'s exception is not reused): two
+   `bun run check` runs on the final append, at the baseline with the Register modified; all required checks pass, or
+   `docs-drift` alone may fail; every other failure stops the unit. An allowed failure is never reported as a full pass.
+   Hooks run normally under the required identity.
+9. **Preservation status.** The commit that records this entry stays local and pending remote preservation. `D-450`'s
+   completed push does not cover it. A later push unit accounts for it and for any authority commit it needs. No push
+   is authorized here.
+10. **Holds.** U-C stays held. B-136 and D-439 stay Open. J1 (`D-440`) and J2 (`D-441`) remain separately registered;
+    both transfers stay held. `D-450`'s acceptance is unchanged. No B-136 or B-158 filing, tracker, installation,
+    activation, attempt, transfer, graph preparation or resume, publication, push, construction, baseline naming or Gate 2
+    closure is released; every other hold is unchanged.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry |
+| **Build Spec** | — unaffected: recording planning-scope units changes no V1 scope, creates, sequences or retires no artifact, and changes no V1 or MMF DoD |
+| **Inventory** | — unaffected: no repository file is created or retired and no row's status changes; later `SR-2` or `SR-4` units add rows only for files they add, under their own release |
+| `D-440`, `D-441` | — unaffected: their text is not edited; this entry amends their item 0 separately (item 7) |
+| `docs/specs/SPECS-TRANSITION-ENFORCEMENT.md`, `docs/specs/SPECS-VERIFICATION-APPARATUS.md`, `docs/README.md`, `scripts/`, `.claude/` | — unaffected: their changes belong to the unreleased `SR-2`–`SR-4` units (item 5) |
+| `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `docs/PRD.md`, Charter, `0001`, `Modular_PRD.md`, FN specs, other `docs/specs/`, template v1, Phase Closure, `docs/LANE-B-WORK-ORDER.md`, application code, build configuration | — unaffected: this entry changes none of their governed content, scope or lane state |
+| B-136, B-158 | — unaffected: no filing is released (item 10); their routes for F1–F5 stay as recorded in revision 4 |
+| **Encyclopedia** | unaffected: `docs/ENCYCLOPEDIA-SYNC.md` identifies no affected local citation entry; hosted parity not claimed |
+| **Graphify** | Governed drift, expected; cleared only by a separately released guarded cycle (`SR-5`, `D-425`), never by a raw rebuild |
