@@ -29315,3 +29315,81 @@ occurrence of `D-452` exists in the repository.
 | `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `docs/README.md`, `docs/PRD.md`, Charter, `0001`, `Modular_PRD.md`, FN specs, `docs/specs/`, template v1, Phase Closure, `docs/LANE-B-WORK-ORDER.md`, `.claude/`, `scripts/`, application code, build configuration | — unaffected: this entry changes none of their governed content, scope or lane state |
 | **Encyclopedia** | unaffected: `docs/ENCYCLOPEDIA-SYNC.md` identifies no affected local citation entry; hosted parity not claimed |
 | **Graphify** | Governed drift, expected; cleared only by a separately released guarded cycle (`SR-5`, `D-425`), never by a raw rebuild |
+
+## 5.14e276 `D-453` — SR-3 Bounded Documentation Corrections: Seven-File Scope, Routing, Review Gates and Cumulative Push Coverage; Twelfth Intervening Entry Permitted
+
+**Authority: the Judge, directly to Lane A (receiver and correction owner), 2026-10-21**, in chat: "Judge decision — release
+bounded SR-3 corrections", execution checkout `C:/robertaoai/my-editorial-app`, read baseline
+`1adb938ae345a0df09577c5f6072ee3e43f32533`, Lane B raiser and independent Level 1 reviewer, Lane C independent Level 2
+reviewer, retained by Lane A as `C:/CoWork/outputs/lane-a-d453-2026-10-21/JUDGE-SR3-RELEASE.md`, SHA-256
+`4981ff37624c0f553380cf0c378d72d1235cb115070c58eaff763a0fbf38b6d9` (full message text, transcript
+`417d4ead-c5b7-481e-b141-3a8989ce9446.jsonl` line 6936, message `96e7c8f8-e789-4c6f-8970-aa7705a09176`). The Judge accepts
+`D-452`'s completed push. It registers the decision under `D-183` point 5. **Number check:** at the baseline the last
+Register entry is `D-452` (§5.14e275); no other occurrence of `D-453` exists in the repository.
+
+### The decision
+
+1. **Reviewed SR-3 draft.** Lane B's five-defect draft, in Lane B's sub-session
+   `C:/Users/rober_24syk4j/.codex/sessions/2026/10/21/rollout-2026-10-21T18-57-57-01a15e1c-553b-7120-b366-39e047b4d59c.jsonl`
+   line 203, message `msg_07ec61c203e9dc4f016ad89de2cc448191ac85f660e516b3bd`, `output_text` 10,288 UTF-8 bytes, SHA-256
+   `60f022b548fb7f5331ae2f7f3bc586f0a73e1bc2dda31f0c0fa821b4701d0a75` (an earlier version at line 169 is retained, not
+   cited). As relayed to Lane A: transcript line 6895, retained as `LANE-B-SR3-DRAFT-as-pasted.md`, SHA-256
+   `8a7b0d5b0e1b1f4b4bba67ff6bf695f26f691e779950af1a8f8021efa237fb8a`. Lane A's read-only check at the baseline found each
+   quoted old fragment exactly once and confirmed the cited acceptance criteria `AC-11`–`AC-16` and `AC-19` inside
+   `Modular_PRD.md` §9.1 Functional.
+2. **Seven-file correction scope.** Only these source paths may change in the correction commit(s):
+   `docs/specs/SPECS-TRANSITION-ENFORCEMENT.md`, `docs/specs/SPECS-VERIFICATION-APPARATUS.md`, `docs/source/README.md`,
+   `docs/fn-specs/FN-AUDIT-VISIBILITY-07-08.md`, `docs/fn-specs/FN-PUBLICATION-09-10-13.md`, `docs/Modular_PRD.md`,
+   `docs/specs/SPECS-PUBLICATION.md`. The defects: the Project PRD classification; both stale Q11 statements; the
+   acceptance-criteria pointers (to §9.1 Functional); the document-control metadata and changelog; the stale publication
+   sprint label; the existing F2 tooling-status and F3 CI-skip wording. **Both Q11 corrections land in the same commit**,
+   bound to `workflow_transitions.line_separation_status` and `D-97`/`D-111`. Status wording is evidence-supported, and
+   UNVERIFIED stays where proof is absent. Metadata uses the actual application date, after the next free document
+   revision is verified. No discovery or installer runs.
+3. **Routing.** F1/Q11 stays on B-136 IR-3 (B-136 "IR-3 Q11 status — SPECS-TRANSITION-ENFORCEMENT"). F3/`terminal-return`
+   wording stays on B-158 F03 ("Two small documentation defects"). **Observation, for the draft review:** B-158 F03
+   names `Modular_PRD.md` line 1072 and the graph-fragments README line 60 as its sources, not
+   `SPECS-VERIFICATION-APPARATUS.md`; whether F03's own `Modular_PRD.md` defect joins this scope is settled at the draft
+   review, and the graph-fragments README is outside the seven paths. F2: Lane A's search of B-136 and B-158 found **no
+   existing route**, so F2 is included explicitly in the new handoff; no earlier route is invented. Lane B may file one
+   fresh, never-reused `B-NNN` entry for the five new defects and F2, after verifying the number, linking the existing
+   routes rather than duplicating them. Only Lane A writes the answer fields; only an independent reviewer records
+   verification.
+4. **Sequence and gates.** (a) This Register-only recording commit; stop for Lane B's review. (b) Lane B's raiser filing
+   of `B-NNN`, its own commit. (c) Lane A presents the consolidated old → new text, routes and exact recording paths for
+   Lane B's draft review; unresolved meaning or scope stops the unit. (d) Lane A's correction commit(s), only the approved
+   paths. (e) Lane B Level 1 and Lane C Level 2 review of the final correction commit. (f) Lane A's authorized answer in
+   `B-NNN`, its own commit. Authority recording, raiser filing and Lane A corrections are separate commits.
+5. **Checks.** A docs-drift exception for the named SR-3 commits only: two `bun run check` runs on each final commit
+   candidate; all required checks pass, or `docs-drift` alone may fail; every other failure stops the unit. Logs, exit
+   codes, hashes, tested HEAD and changed paths are retained; an allowed failure is never reported as a full pass. Hooks
+   run normally under the required identity; `--no-verify` is never used. Each commit proves tested = staged = committed.
+   The correction commit(s) prove that `docs/PRD.md`, `docs/source/project-charter-v1.md` and
+   `supabase/migrations/0001_init.sql` are unchanged against the execution baseline.
+6. **Push coverage.** One cumulative manifest runs from `1adb938` through the final SR-3 tip and covers every authority,
+   routing, correction and authorized answer commit, with remaining local-only commits reconciled. **No push is released
+   here.** A later bounded push needs fresh checks, freeze clearance, exact server-base and refspec gates and mandatory
+   post-push remote proof. No force fallback is implied.
+7. **Sequencing amendment.** Item 0 of `D-440` and `D-441`, as amended by `D-442` item 5, `D-444` item 4, `D-445` item 2,
+   `D-446` item 2, `D-447` item 4, `D-448` item 4, `D-449` item 5, `D-450` item 3, `D-451` item 7 and `D-452` item 8, is
+   further amended to permit one further intervening Register entry, this twelfth entry, after `D-452` and before the
+   separate TCA r3 (J3) and J-C A1 entries. All other sequencing terms are unchanged; no historical entry is rewritten.
+8. **Holds.** U-C stays held. B-136 and D-439 stay Open. J1 (`D-440`) and J2 (`D-441`) remain separately registered; both
+   transfers stay held. No installation, activation, attempt release, transfer, graph preparation or resume,
+   publication, construction, baseline naming or Gate 2 closure. `SR-2`, `SR-4` and `SR-5` stay unreleased. Every other
+   hold is unchanged.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry |
+| **Build Spec** | — unaffected: the corrections fix documentation status, classification, pointers and metadata; they change no V1 scope, create, sequence or retire no artifact, and change no V1 or MMF DoD |
+| **Inventory** | — unaffected: no repository file is created or retired and no row's status changes; the seven files keep their rows |
+| The seven source paths (item 2) | Follow: the SR-3 correction commit(s), after the draft review |
+| `docs/PRD.md`, Charter, `0001` | — unaffected: frozen; proven unchanged by the correction commit(s) |
+| B-136, B-158 | Follow: the existing routes (IR-3, F03) are linked; the new `B-NNN` is Lane B's filing |
+| `D-440`, `D-441` | — unaffected: their text is not edited; this entry amends their item 0 separately (item 7) |
+| `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `docs/README.md`, FN specs and `docs/specs/` outside the seven paths, template v1, Phase Closure, `docs/LANE-B-WORK-ORDER.md`, `.claude/`, `scripts/`, application code, build configuration | — unaffected: this entry changes none of their governed content, scope or lane state |
+| **Encyclopedia** | Checked at the correction commit: `docs/ENCYCLOPEDIA-SYNC.md` is consulted for entries citing the corrected sections; hosted parity not claimed |
+| **Graphify** | Governed drift, expected; cleared only by a separately released guarded cycle (`SR-5`, `D-425`), never by a raw rebuild |
