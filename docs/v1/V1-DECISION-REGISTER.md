@@ -29475,3 +29475,57 @@ untracked candidate.
 | `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `docs/README.md`, `docs/PRD.md`, Charter, `0001`, `Modular_PRD.md`, FN specs, `docs/specs/`, template v1, Phase Closure, `docs/LANE-B-WORK-ORDER.md`, `.claude/`, application code, build configuration | — unaffected: this entry changes none of their governed content, scope or lane state |
 | **Encyclopedia** | unaffected: `docs/ENCYCLOPEDIA-SYNC.md` identifies no affected local citation entry; hosted parity not claimed |
 | **Graphify** | Governed drift, expected; cleared only by a separately released guarded cycle (`SR-5`, `D-425`), never by a raw rebuild |
+
+## 5.14e278 `D-455` — SR-3 Source-Side Propagation Decision for `docs/source/README.md` (C2); C3 Re-Parented to This Entry; Fourteenth Intervening Entry Permitted
+
+**Authority: the Judge, directly to Lane A, 2026-10-22**, in chat: "Release Option A: record D-455, then commit C3"
+(retained as `C:/CoWork/outputs/lane-a-d455-2026-10-22/JUDGE-OPTION-A.md`, SHA-256
+`a0549fdaf86511062388a617e6a0c6ee76aaf59e47273cee0e21ad9812cc9abc`; transcript
+`417d4ead-c5b7-481e-b141-3a8989ce9446.jsonl` line 8009), choosing Option A of Lane A's stop report for D-453(f), and the Judge's answer "Yes, bounded exception" to Lane A's
+question on the item 4 check exception (same conversation, after line 8009). It
+registers the decision under `D-183` point 5. **Number check:** at `c306abe` the last Register entry is `D-454`
+(§5.14e277); no other occurrence of `D-455` exists in the repository.
+
+### The decision
+
+1. **Why this entry exists.** The C3 candidate checks stopped on `source-sweep`: "docs/source/README.md (c306abe) changed
+   after the register last moved — propagation unverified." The check compares commit order, so C2's own pre-commit runs
+   could not show it; the finding appeared once C2 was committed. Stop record:
+   `C:/CoWork/outputs/lane-a-c3-2026-10-22/STOP-source-sweep.txt`, SHA-256
+   `9a80698566fa2c835e1d24bfdf737cdf0bc0d35fc7d88726e36f9e9172622c4b`.
+2. **Propagation decision.** The C2 change to `docs/source/README.md` ("Related" list) separates the frozen Project PRD
+   (governing under `D-29`, protected by `D-58`) from the non-governing plan pack. It restates the classification that
+   `docs/README.md` (line 15, "The repo plan pack … Not governing") and `docs/Modular_PRD.md`'s prologue (`D-438`) already
+   carry. **No further tier is affected:** no requirement, scope, sequence, DoD, artifact or lane state changes, and
+   `docs/PRD.md` is unchanged. The other six SR-3 paths changed in C1/C2 carry no `source-sweep` finding.
+3. **C3 re-parented.** The D-453(f) C3 answer's required sole parent changes from `c306abe` to the commit that records
+   this entry. The C3 text, scope (B-159 only), checks and review gate are otherwise unchanged.
+4. **Check scope.** For this recording commit and C3: `docs-drift` may fail (D-453 item 5). For this recording commit
+   only, its pre-commit runs may also fail `source-sweep` with exactly the one finding in item 1, because the check reads
+   committed history and the Register change is not yet committed; every other finding stops the unit. After the commit,
+   `source-sweep` must pass in the C3 candidate checks; otherwise the unit stops.
+5. **Sequencing amendment.** Item 0 of `D-440` and `D-441`, as amended by `D-442` item 5, `D-444` item 4, `D-445` item 2,
+   `D-446` item 2, `D-447` item 4, `D-448` item 4, `D-449` item 5, `D-450` item 3, `D-451` item 7, `D-452` item 8,
+   `D-453` item 7 and `D-454` item 7, is further amended to permit one further intervening Register entry, this
+   fourteenth entry, after `D-454` and before the separate TCA r3 (J3) and J-C A1 entries. J1 and J2 stay separate. All
+   other sequencing terms are unchanged; no historical entry is rewritten.
+6. **Push coverage.** The cumulative range from `1adb938` (last verified server observation) gains this commit before C3.
+   No push is released.
+7. **Holds.** U-C stays held. B-159, B-136 and D-439 stay Open. J1 (`D-440`) and J2 (`D-441`) remain separately
+   registered; both transfers stay held. No installation, activation, attempt release, construction, transfer, graph
+   preparation or resume, publication, baseline naming, Gate 2 closure, fetch or push. Every other hold is unchanged.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry |
+| **Build Spec** | — unaffected: no V1 scope, sequence or DoD change; a propagation record creates or retires no artifact |
+| **Inventory** | — unaffected: no repository file is created or retired and no row's status changes |
+| `docs/source/README.md` | — unaffected by this entry: already changed in C2; this entry records that change's propagation (item 2) |
+| `docs/README.md`, `docs/Modular_PRD.md`, `docs/PRD.md` | — unaffected: they already carry the same classification; the frozen PRD is unchanged |
+| B-159 | Follow: the C3 answer, re-parented to this entry (item 3) |
+| `D-440`, `D-441`, `D-453` | — unaffected: their text is not edited; this entry amends `D-440`/`D-441` item 0 and C3's parent separately |
+| `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, FN specs, `docs/specs/`, template v1, Phase Closure, `docs/LANE-B-WORK-ORDER.md`, `.claude/`, `scripts/`, application code, build configuration | — unaffected: this entry changes none of their governed content, scope or lane state |
+| **Encyclopedia** | unaffected: `docs/ENCYCLOPEDIA-SYNC.md` cites no section of `docs/source/README.md` |
+| **Graphify** | Governed drift, expected; cleared only by a separately released guarded cycle (`SR-5`, `D-425`), never by a raw rebuild |
