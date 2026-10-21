@@ -29393,3 +29393,85 @@ Register entry is `D-452` (§5.14e275); no other occurrence of `D-453` exists in
 | `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `docs/README.md`, FN specs and `docs/specs/` outside the seven paths, template v1, Phase Closure, `docs/LANE-B-WORK-ORDER.md`, `.claude/`, `scripts/`, application code, build configuration | — unaffected: this entry changes none of their governed content, scope or lane state |
 | **Encyclopedia** | Checked at the correction commit: `docs/ENCYCLOPEDIA-SYNC.md` is consulted for entries citing the corrected sections; hosted parity not claimed |
 | **Graphify** | Governed drift, expected; cleared only by a separately released guarded cycle (`SR-5`, `D-425`), never by a raw rebuild |
+
+## 5.14e277 `D-454` — B-159 Recording and First-Filing Exception: Candidate Bound by Hash; Two Exact `handoff-response` Findings Permitted for Two Commits; Thirteenth Intervening Entry Permitted
+
+**Authority: the Judge, directly to Lane A (recording owner), 2026-10-21**, in chat: "Judge decision — B-159 recording and
+first-filing exception", Lane B as B-159 raiser and filing owner, checkout `C:/robertaoai/my-editorial-app`, branch
+`features/feature-V1-SM05`, required starting HEAD `c188a78dd8f280f492a3326c611ae44c435fe42a`, retained by Lane A as
+`C:/CoWork/outputs/lane-a-d454-2026-10-21/JUDGE-D454.md`, SHA-256
+`a68e38b58cff4a173fce1fe909bd29b0ec391a80576a8b3f2c40df22000fcec6` (full message text, transcript
+`417d4ead-c5b7-481e-b141-3a8989ce9446.jsonl` line 7033, message `cfa6469f-8c1a-4f20-81fb-8932e27e7b3c`). The Judge accepts
+the six-finding candidate review and the diagnosis, and releases the recording → review → filing sequence below. It does
+**not** accept a completed filing. It registers the decision under `D-183` point 5. **Number check:** at the starting HEAD
+the last Register entry is `D-453` (§5.14e276); no other occurrence of `D-454` exists in the repository or in the
+untracked candidate.
+
+### The decision
+
+1. **The candidate, bound by hash.** Path `docs/handoff/B-159-sr3-documentation-correction-intake.md`, untracked at the
+   starting HEAD, 19,978 bytes, SHA-256 `9698685b21163d6b3a67b3254653bb9ff66448914f531a82e84823d906029a7f`. It stays
+   unchanged through this recording and its first filing, and is never staged with the Register. A copy is retained as
+   `C:/CoWork/outputs/lane-a-d454-2026-10-21/B-159-candidate-preserved-copy.md` (same hash). B-159 is the next unused
+   handoff number (highest tracked: B-158).
+2. **Accepted review and diagnosis** (Lane B; each retained as its extracted `output_text` under
+   `C:/CoWork/outputs/lane-a-d454-2026-10-21/`; sessions under `C:/Users/rober_24syk4j/.codex/sessions/2026/10/21/`):
+   - Review: `rollout-2026-10-21T03-31-43-01a1450c-56ae-73a2-95c0-6c0d44d45f08_01a15acc-56e0-7801-a238-395e69a0b901.jsonl`
+     line 2025, message `msg_0359a885ce55f8dd016ad8adf47ce08191bd004aadfbb31eaf`, 3,102 bytes, SHA-256
+     `3a516b9107571dde9af7a96bd7f57e102a210c92d286b44dc2caf5dcc2e555e7` ("APPROVE the candidate content and the correct
+     stop. REJECT acceptance as a completed filing").
+   - Diagnosis: `rollout-2026-10-21T20-03-26-01a15e58-4684-7f72-9be8-4ee69cfede28.jsonl` line 107, message
+     `msg_045ed8eed830cb88016ad8aaf5adbc8191b9cf2a2f43d98324`, 3,486 bytes, SHA-256
+     `339176fd2109efde83e829ea7534f17735abcb2bc4ffcb3afa737bec38fe94af` ("exactly two `handoff-response` findings, both
+     for B-159"); field analysis: `rollout-2026-10-21T19-49-20-01a15e4b-5ee5-7d50-b390-ec9b74f8b8af.jsonl` line 432,
+     message `msg_0ef1e5bdff845858016ad8ac7838f081919c6fe3e25f43dc31`, 2,023 bytes, SHA-256
+     `48f4c417c972e194ab77a5a8371cf57471490b1dd86fe53d3e372e1f7d7a314e`.
+   - Runtime context, same session: line 222 (`10ba7d10b25c869d8f7bfb99f45d280a92ba2b41a6a0419f45251863b805529e`) records
+     two `bun run check` attempts that exited 1 **before the checker started** (`CouldntReadCurrentDirectory`, sandboxed);
+     line 325 (`35cb9866089ab576ce5ae76366747e8aafc8941b3c25603cc2a68256354be526`) records the same command starting
+     outside the sandbox; line 422 (`2484d2dc8b964f8540808b1c8632f944f3d00c3f3912b4443d3d5911c179ff57`) records the
+     diagnostic run: 17 of 19 checks passed, only `handoff-response` and `docs-drift` failed. The startup failures are
+     retained as failures to start, not as completed checks.
+3. **Exact temporary exception.** For this recording commit R and B-159's first filing commit F only: `docs-drift` (the
+   failure `D-453` already permits) may fail, and `handoff-response` may fail **only** with these two findings for this
+   exact candidate: (1) missing `Verified-By`; (2) present-but-blank `Lane A` while `Status` is Open. For these two commits
+   the omitted `Verified-By` and `Verified-At-Commit` audit fields are explicitly permitted; this changes no general SOP
+   requirement, and missing `Verified-At-Commit` is not claimed as a current checker failure. Every other finding or
+   failure stops the unit. The complete suite runs: no check is skipped, the checker is not edited and no diagnostic is
+   suppressed. Lane A's field stays blank; no acknowledgement, answer or independent verification is fabricated.
+4. **Parent sequence.** `c188a78` → **R** (this recording: sole parent `c188a78`; only the Register changes; B-159 stays
+   untracked and unchanged; two complete `bun run check` runs on the final append in a runtime that can launch Bun;
+   Lane B's independent approval of R before anything else) → **F** (Lane B's filing: after R is approved, Lane B
+   revalidates HEAD, staging, tracked state and B-159's unchanged hash; **F's sole parent is R**, which amends the
+   original sole-parent `c188a78` requirement; F changes only the bound B-159 path; two new complete checks on the final
+   candidate, not replaced by diagnostic runs; only B-159 staged, with its staged path and bytes proven equal to the bound
+   candidate; normal hooks and the required identity; a clean tree and staging afterward) → independent filing review
+   before `D-453`(c).
+5. **Expiry.** The exception ends when F is committed or this sequence stops. It does not carry into later correction or
+   answer commits. Lane A records its actual acknowledgement through its own authorized act; this exception grants no
+   completion or verification credit.
+6. **Push coverage.** Cumulative coverage from `1adb938`: `c188a78` → R → F, plus every later authorized SR-3 work and
+   authority commit as it exists. No push or result-only commit is released.
+7. **Sequencing amendment.** Item 0 of `D-440` and `D-441`, as amended by `D-442` item 5, `D-444` item 4, `D-445` item 2,
+   `D-446` item 2, `D-447` item 4, `D-448` item 4, `D-449` item 5, `D-450` item 3, `D-451` item 7, `D-452` item 8 and
+   `D-453` item 7, is further amended to permit one further intervening Register entry, this thirteenth entry, after
+   `D-453` and before the separate TCA r3 (J3) and J-C A1 entries. J1 and J2 stay separate. All other sequencing terms are
+   unchanged; no historical entry is rewritten.
+8. **Holds.** U-C stays held. B-136 and D-439 stay Open. J1 (`D-440`) and J2 (`D-441`) remain separately registered; both
+   transfers stay held. No installation, source correction, graph preparation or resume, publication, push, attempt
+   release, construction, baseline naming or Gate 2 closure. Every other hold is unchanged.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry |
+| **Build Spec** | — unaffected: a recording and filing exception changes no V1 scope, creates, sequences or retires no artifact, and changes no V1 or MMF DoD |
+| **Inventory** | — unaffected: handoff entries are not inventoried individually (`docs/handoff/README.md` row); no row is added, retired or changed |
+| `docs/handoff/B-159-sr3-documentation-correction-intake.md` | Follow: Lane B's first filing F (item 4); not changed by this entry |
+| `scripts/checks/handoff-response.mjs`, `docs/handoff/README.md`, `docs/handoff/TEMPLATE.md` | — unaffected: the checker and SOP are not edited; the exception is unit-scoped (item 3) |
+| `D-440`, `D-441`, `D-453` | — unaffected: their text is not edited; this entry amends `D-440`/`D-441` item 0 separately (item 7) |
+| SR-3 source paths (`D-453` item 2) | — unaffected: no source correction is released here |
+| `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `docs/README.md`, `docs/PRD.md`, Charter, `0001`, `Modular_PRD.md`, FN specs, `docs/specs/`, template v1, Phase Closure, `docs/LANE-B-WORK-ORDER.md`, `.claude/`, application code, build configuration | — unaffected: this entry changes none of their governed content, scope or lane state |
+| **Encyclopedia** | unaffected: `docs/ENCYCLOPEDIA-SYNC.md` identifies no affected local citation entry; hosted parity not claimed |
+| **Graphify** | Governed drift, expected; cleared only by a separately released guarded cycle (`SR-5`, `D-425`), never by a raw rebuild |
