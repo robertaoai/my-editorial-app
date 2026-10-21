@@ -28987,3 +28987,97 @@ Register entry is `D-447` (§5.14e270); no other occurrence of `D-448` exists in
 | B-136 | Follow: the next authorized B-136 return carries the corrections in item 3 and the `UV-R2B-C2` claim scope |
 | **Encyclopedia** | unaffected: `docs/ENCYCLOPEDIA-SYNC.md` identifies no affected local citation entry; hosted parity not claimed |
 | **Graphify** | Governed drift, expected; cleared only by a future guarded cycle (`D-425`), never by a raw rebuild |
+
+## 5.14e272 `D-449` — Preservation Unit A1–A4: Judge's Manual Push of H Recorded; Feature Push `H..R` and Preflight Preservation Authorized with Exact Leases; `D-324`/`D-326` Amended for Preservation Only; Eighth Intervening Entry Permitted
+
+**Authority: the Judge, directly to Lane A, 2026-10-21**, in chat: "Judge decision — A0–A4 preservation unit", baseline H
+`7581705cf38a1cc0986c984b7a4798ab8b9768d9`, independent reviewer Lane B, retained by Lane A as
+`C:/CoWork/outputs/lane-a-d449-2026-10-21/JUDGE-A0-A4-DECISION.md`, SHA-256
+`a0888003cdee3eb2dd791ca4c457e990f3c16f3bb274eb8ad6f478cb527a100a` (full message text, transcript
+`417d4ead-c5b7-481e-b141-3a8989ce9446.jsonl` line 5922, message `402c284d-819d-4fdf-bb12-ef792de8492f`). It consolidates the
+earlier decision "record and push H plus its authority commit; preserve the existing preflight branch separately"
+(`JUDGE-D449-H-R-PREFLIGHT.md`, SHA-256 `a5f6d632343f95ea9063878142c28c01599d1cbf9304ff8077da3a55856658bd`, line 5629),
+on which Lane A stopped before recording because `D-326` also states that the preflight branch is never pushed. This entry
+registers the decision under `D-183` point 5. **Number check:** at H the last Register entry is `D-448` (§5.14e271); no
+other occurrence of `D-449` exists in the repository.
+
+### The decision
+
+1. **Fallback proposal accepted.** Lane A's DoR/DoD manual push fallback proposal revision 4
+   (`C:/CoWork/outputs/lane-a-d449-2026-10-21/FALLBACK-PROPOSAL-r4.md`, SHA-256
+   `ff64888eee7d44559697c97271e41be6336612abc99116fc777055e6b7478f5c`, transcript line 5918), with revision 3 unchanged
+   (`FALLBACK-PROPOSAL-r3.md`, SHA-256 `08e8487bcbb66dce7ab024bc7cefca7a40404d3e9354a5f46c617e49ef311fd4`, line 5890).
+   **Only A1–A4 are released.** Its proposed requirements (`AIG-01.R9`–`R13`) stay PROPOSED; the reusable route's
+   adoption and owner sections (B0–B2) are not released.
+2. **The Judge's manual push, recorded.** Actor: **the Judge**. Reported command: `git push`. Lane B's server
+   verification, in Lane B's conversation segment
+   `C:/Users/rober_24syk4j/.codex/sessions/2026/10/21/rollout-2026-10-21T03-31-43-01a1450c-56ae-73a2-95c0-6c0d44d45f08_01a15acc-56e0-7801-a238-395e69a0b901.jsonl`:
+   query at line 355; returned server output at line 366; receipt at line 378, message
+   `msg_0359a885ce55f8dd016ad7ca3f29248191adb1fd4646d6f271`, `output_text` 1,934 UTF-8 bytes, SHA-256
+   `7553da4e041682d973b9a63696ff0ac019268883d82a2af2fc550bd2fb4d9d4e`. At that observation the feature ref equalled H and
+   the preflight ref was absent. This proves that H reached the feature branch; it does **not** prove an all-branches
+   force push. Lane A's local corroboration only: `C:/CoWork/outputs/lane-a-judge-push-2026-10-21/JUDGE-MANUAL-PUSH-RECORD.md`,
+   SHA-256 `89320920564167480cd232ec486bb46dd7842232923d9d7fc8741b9e85ccf135`. The statement in `D-448` item 6 that H
+   stays local is superseded by this fact; `D-448`'s text is not edited.
+3. **Force approval, bounded.** The Judge's retained approval "Judge Approved: force push of all commits;" (same segment,
+   line 261, message `msg_01a15ae8-b06c-7e21-96d3-dd2f714ec00a`, `input_text` 2,824 UTF-8 bytes, SHA-256
+   `7db8d820e15e12bfa3c3a89b2e2298f2472a54c886bca359d41c84cb6607a7c4`) applies only through the exact refs, tips and
+   leases in items 7–8. It permits no unbounded force push: no bare `--force`, `--all`, `--mirror` or implicit `HEAD`
+   target.
+4. **Preservation amendment.** `D-324` item 4(1) ("never pushed") and `D-326` ("The preflight branch is never pushed")
+   are amended solely to permit preservation of the existing preflight history on `refs/heads/preflight/sv2-u02`.
+   `D-326`'s prohibition on a pull request from that branch stays. The fixture history is never merged into the feature
+   branch. Neither historical entry is rewritten.
+5. **Sequencing amendment.** Item 0 of `D-440` and `D-441`, as amended by `D-442` item 5, `D-444` item 4, `D-445` item 2,
+   `D-446` item 2, `D-447` item 4 and `D-448` item 4, is further amended to permit one further intervening Register
+   entry, this eighth entry, after `D-448` and before the separate TCA r3 (J3) and J-C A1 entries. All other sequencing
+   terms are unchanged; no historical entry is rewritten.
+6. **R, defined prospectively.** R is the single Register-only commit whose sole parent is H and which records this
+   entry. This description includes R in the authorized feature push. Its actual full ID is fixed by the commit and by
+   Lane B's independent verification; no further commit is created to record R's hash. **Recording R permits no push.**
+7. **A2 — feature preservation**, only after Lane B accepts A1 (R and both push manifests). Remote `origin`; target
+   `refs/heads/features/feature-V1-SM05`; expected server base H; authorized tip the verified R; range H excluded through
+   R included. Before remote contact: the recorded authority, accepted reviews, the approved manifest, a clean tree and
+   freeze clearance, with the operator's confirmation that no prepare or resume occurred after `D-445`
+   (`C:/CoWork/outputs/lane-a-d448-2026-10-21/FREEZE-CONFIRMATION.md`, SHA-256
+   `d067b2448f15ef0bf2254afb7b21ce2a1c66dfd8d14e3a9b5e0a3399679db88a`); later contrary activity stops the unit. Two
+   `bun run check` runs at R before pushing, recorded separately from A1's checks. Read the server ref and stop unless it
+   equals H. Push only
+   `git push --force-with-lease=refs/heads/features/feature-V1-SM05:7581705cf38a1cc0986c984b7a4798ab8b9768d9 origin <R>:refs/heads/features/feature-V1-SM05`,
+   with `<R>` the verified full ID. Read the server ref again; require R; prove H and R reachable from it.
+8. **A3 — preflight preservation**, only after A2 is complete and remotely verified. Target
+   `refs/heads/preflight/sv2-u02`; expected server state absent; authorized tip
+   `5ddf17c190cdb3f9d38e99fb35594a9e38f0eed0`; the four-commit manifest revision 2
+   (`C:/CoWork/outputs/lane-a-d449-2026-10-21/PREFLIGHT-MANIFEST-c06ddc3..5ddf17c.r2.json`, SHA-256
+   `f706deeedcb0ab93879139bb9da0f67f3c83c9d750b87a14d56ea39d9d3f2583`: `bc197c5`, `e685251`, `998027a`, `5ddf17c` on
+   base `c06ddc3`). Reconfirm the manifest, the reviewed content and the freeze gates; read the server ref and stop if it
+   exists. Push only
+   `git push --force-with-lease=refs/heads/preflight/sv2-u02: origin 5ddf17c190cdb3f9d38e99fb35594a9e38f0eed0:refs/heads/preflight/sv2-u02`
+   (the empty expected value requires absence). No reset, rewrite or merge of the fixture commits. Read the server ref
+   again; require the exact tip; prove all four commits reachable.
+9. **A4 — reconcile and report.** The two pushes are reported separately: commands, exit codes, timestamps, server refs
+   before and after, manifest hashes and reachability. Remaining local-only commits, drafts and evidence are named; a Git
+   push does not preserve untracked drafts or external evidence files, and no gap is silently added to a push scope. A
+   partial result is not completion. A failed gate or unexpected remote history stops the unit; the range is not widened
+   and no lease is refreshed to bypass a mismatch.
+10. **Check scope.** A1: two `bun run check` runs before committing R; A2: two runs at R before pushing. In each, only
+    `docs-drift` may fail; every other check passes or stops the unit. Hooks are never skipped (`--no-verify` is not
+    used); the required repository identity is used. An allowed failure is never reported as a full pass. The exception
+    ends on completion or stop and covers no later unit.
+11. **Holds.** U-C stays held. B-136 and D-439 stay Open. J1 (`D-440`) and J2 (`D-441`) remain separately registered; both
+    transfers stay held. Only the two bounded pushes in items 7–8 are released. No transfer, graph preparation or resume,
+    publication, construction, baseline naming or Gate 2 closure is released; every other hold is unchanged.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry |
+| **Build Spec** | — unaffected: no V1 scope change, no artifact sequenced or retired and no V1 or MMF DoD change; preservation pushes deliver no V1 artifact |
+| **Inventory** | — unaffected: no repository file is created or retired and no row's status changes; the pushes add no file |
+| `D-324`, `D-326`, `D-440`, `D-441`, `D-448` | — unaffected: their text is not edited; this entry amends or supersedes the named items separately (items 2, 4, 5) |
+| `docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md`, `docs/specs/SPECS-VERIFICATION-APPARATUS.md`, `docs/handoff/README.md`, `AGENTS.md` | — unaffected: the reusable route's owner sections belong to the unreleased B0–B2 unit (item 1) |
+| `CLAUDE.md`, `GEMINI.md`, `docs/README.md`, `docs/PRD.md`, Charter, `0001`, `Modular_PRD.md`, other FN specs and `docs/specs/`, template v1, Phase Closure, `docs/LANE-B-WORK-ORDER.md`, application code, build configuration | — unaffected: this entry changes none of their governed content, scope or lane state |
+| B-136 | Follow: a later authorized B-136 return records the A1–A4 result; not released by this entry |
+| **Encyclopedia** | unaffected: `docs/ENCYCLOPEDIA-SYNC.md` identifies no affected local citation entry; hosted parity not claimed |
+| **Graphify** | Governed drift, expected; cleared only by a separately released guarded cycle (`D-425`), never by a raw rebuild |
