@@ -2,9 +2,9 @@
 
 **Date:** 2026-08-20
 **Tier:** `SPECS`-form document, **Project Scope ⚙** — build tooling, not a product feature.
-**Status:** Draft. **Specification only, with one exception:** `G59` was executed on 2026-08-21 (`D-64`) — bun 1.1.30 installed and `bun.lockb` committed. **The runner, `__tests__/`, and CI remain uninstalled.**
+**Status:** Draft. **Specification only, with one exception:** `G59` was executed on 2026-08-21 (`D-64`) — bun 1.1.30 installed and `bun.lockb` committed. ~~**The runner, `__tests__/`, and CI remain uninstalled.**~~ *Corrected 2026-10-22 (B-159 SR3-06): the runner, `__tests__/` and CI were installed on 2026-08-21 under `D-70` (Stages A–C; §6 records D-1 to D-6 satisfied). This specification's own authority is unchanged; the installation was `D-70`'s act. That is dated delivery evidence; current operation is not re-verified here.*
 **Authorized by:** `D-56`. **Not one of `D-52`'s four** — see §1.1.
-**Closes:** `R3` as a *specification*. Installation remains gated on the standing build guardrail.
+**Closes:** `R3` as a *specification*. ~~Installation remains gated on the standing build guardrail.~~ *Corrected 2026-10-22 (B-159 SR3-06): the guardrail was lifted for `R3`'s Stages A–C and reinstated (`D-70`); that installation is recorded, not pending. The reinstated guardrail still governs any later installation.*
 **Sprint:** `planning:T1` (Alpha-Portfolio sprint-readiness item) → precondition for S0. **Qualified
 2026-09-17 (`D-233`)** — this `T1` is unrelated to editorial `transition:T1`/Intake; see
 `requirements-traceability-map.md` §6.2's namespace map. No identifier renamed.
@@ -30,7 +30,7 @@ Living document; no build-version prefix, does not freeze. **All sections `[V1]`
 
 **Intent.** Give every sprint a verdict that is produced by machine rather than asserted by whoever closed it.
 
-**Why it exists.** `V1-BUILD-SPEC` calls `R3` *"the precondition for every sprint having a verdict."* Today there is **no test runner, no `__tests__/`, and no CI**, and `next.config.ts` disables type and lint gates at build (`TC6`). Every sprint DoD written so far — S0's *"CI green on an empty suite"*, S1's *"trigger written and unit-tested"* — names an apparatus that does not exist. **Those DoDs are currently unfalsifiable.**
+**Why it exists.** `V1-BUILD-SPEC` calls `R3` *"the precondition for every sprint having a verdict."* When this specification was written (2026-08-20) there was **no test runner, no `__tests__/`, and no CI**, and `next.config.ts` disabled type and lint gates at build (`TC6`; current state in §4.1). Every sprint DoD written by then — S0's *"CI green on an empty suite"*, S1's *"trigger written and unit-tested"* — named an apparatus that did not yet exist. **Those DoDs were then unfalsifiable.** *Corrected 2026-10-22 (B-159 SR3-06): this paragraph earlier spoke in the present tense ("Today there is" and "Those DoDs are currently unfalsifiable"); `D-70` installed the runner, `__tests__/` and CI on 2026-08-21 (§6). That is dated delivery evidence; current operation is not re-verified here.*
 
 **Success criteria.**
 
@@ -42,7 +42,7 @@ Living document; no build-version prefix, does not freeze. **All sections `[V1]`
 | SC-4 | A deliberately broken type fails CI |
 | SC-5 | A sprint DoD can be evaluated without a human assertion |
 
-**Limitations.** **bun 1.1.30 is now installed** (`D-64`, 2026-08-21), so `bun install` is verified locally. **`bun test` is still unverified** — not for want of a runtime, but because **no test exists yet.** SC-1 remains unproven until D-1 lands, and SC-2 through SC-4 need CI, so `R3` is still reported *"written, locally unverified"* — never *"done."* Same discipline as S1's `DEP-05` caveat.
+**Limitations.** *As written on 2026-08-21, before `D-70`:* **bun 1.1.30 is now installed** (`D-64`, 2026-08-21), so `bun install` is verified locally. **`bun test` is still unverified** — not for want of a runtime, but because **no test exists yet.** SC-1 remains unproven until D-1 lands, and SC-2 through SC-4 need CI, so `R3` is still reported *"written, locally unverified"* — never *"done."* Same discipline as S1's `DEP-05` caveat. *Corrected 2026-10-22 (B-159 SR3-06): `D-70` recorded SC-1 to SC-4 and D-1 to D-6 satisfied on 2026-08-21 (§6). That is dated delivery evidence. Fresh runner success, current CI status and hosted behaviour are UNVERIFIED by this correction.*
 
 ### 1.1 Why this is not a fifth `D-52` document `[V1]`
 
@@ -87,9 +87,9 @@ Different provenance, so **no contradiction with `D-52`.** `D-52`'s four remain 
 | **Typecheck** | `bun run typecheck` | `tsc --noEmit`. **Passes — exit 0 since `D-67`** |
 | **Lint** | `bun run lint` → `eslint .` | **Decided `D-66`** — ESLint CLI, flat config extending `next/core-web-vitals`. **0 findings** measured. Config file is Stage A |
 | Test | `bun test` | SC-1 |
-| **Consistency checks** | `bun run check` | **Added 2026-08-21 (`D-70`)**, extended repeatedly since — by `D-72`, `D-73`, `D-83`, `D-87`, `D-90` and `D-92` — `C-14`'s detection checks, whose follow-up phase was always *"with `R3`'s installation."* **The count is deliberately absent** (`G75`, `D-92`): this cell said *"extended to six"* and *"three run here"* long after both were wrong. **What determines CI coverage is what a check reads**, not its number — `graph-coverage` and `docs-drift` need gitignored `.graphify/`, `source-sweep` needs full history; those three SKIP, the rest run. Runs last: it governs the documents, not the code |
+| **Consistency checks** | `bun run check` | **Added 2026-08-21 (`D-70`)**, extended repeatedly since — by `D-72`, `D-73`, `D-83`, `D-87`, `D-90` and `D-92` — `C-14`'s detection checks, whose follow-up phase was always *"with `R3`'s installation."* **The count is deliberately absent** (`G75`, `D-92`): this cell said *"extended to six"* and *"three run here"* long after both were wrong. **What determines CI coverage is what a check reads**, not its number — `graph-coverage` and `docs-drift` need gitignored `.graphify/`, `source-sweep` and `terminal-return` need full history; those SKIP in a default CI checkout (the maintained list is `.github/WORKFLOWS-SPEC.md` §3), and the rest run. *Corrected 2026-10-22 (D-453 F3 target; same defect class as B-158 F03): this sentence earlier read "those three SKIP".* Runs last: it governs the documents, not the code |
 
-> **Corrected 2026-08-21 (`D-65`) — `[V1]`.** This section listed both commands as if they worked. **Neither does.** The script names were taken from `package.json` and never executed — specified against a summary rather than the thing. `G62` carried the remediation. **Typecheck now passes (`D-67`)**; **DoD D-4 is unachievable until `eslint.config.mjs` exists (`D-66`, Stage A)** — one file, with no remediation behind it.
+> **Corrected 2026-08-21 (`D-65`) — `[V1]`.** This section listed both commands as if they worked. **Neither does.** The script names were taken from `package.json` and never executed — specified against a summary rather than the thing. `G62` carried the remediation. **Typecheck now passes (`D-67`)**; **DoD D-4 is unachievable until `eslint.config.mjs` exists (`D-66`, Stage A)** — one file, with no remediation behind it. *Superseded the same day by `D-70` (recorded 2026-10-22, B-159 SR3-06): Stage A installed `eslint.config.mjs`, and D-4 was observed green on a real CI run (§6).*
 
 ### 4.1 `TC6` — why typecheck and lint must be explicit CI steps `[V1]`
 
@@ -135,7 +135,7 @@ Different provenance, so **no contradiction with `D-52`.** `D-52`'s four remain 
 
 | Dependency | Nature | Status |
 |---|---|---|
-| Standing build guardrail | **Blocking installation** | In force for the runner, `__tests__/`, and CI. **Lifted once, for `G59` only** (`D-64`) |
+| Standing build guardrail | **Blocking installation** | ~~In force for the runner, `__tests__/`, and CI.~~ Lifted for `G59` only (`D-64`), then for `R3`'s Stages A–C only (`D-70`), and reinstated each time; it still governs later installation. *Corrected 2026-10-22 (B-159 SR3-06): this cell earlier read "In force for the runner, `__tests__/`, and CI. **Lifted once, for `G59` only** (`D-64`)".* |
 | bun on a developer machine | Blocked local verification and `G59` | ✅ **1.1.30 installed** 2026-08-21. Invoke the `.exe` directly — the npm `sh` shim hangs under Git Bash |
 | GitHub Actions enabled | Blocks D-4 | Assumed available |
 | `packageManager: bun@1.1.30` | Fixes the runner | ✅ Already declared |
@@ -152,7 +152,7 @@ Different provenance, so **no contradiction with `D-52`.** `D-52`'s four remain 
 
 ## 9. Scope limits `[V1]`
 
-**Creates no file, installs no package, adds no script — except `bun.lockb`**, produced under `D-64` when the guardrail was lifted for `G59` alone. Authorizes no code, schema, or migration. Does not resolve `TC6` — it compensates for it in CI. `G59` is recorded, not resolved. Installation remains gated on the standing build guardrail being lifted for `R3`.
+**Creates no file, installs no package, adds no script — except `bun.lockb`**, produced under `D-64` when the guardrail was lifted for `G59` alone. Authorizes no code, schema, or migration. Does not resolve `TC6` — it compensates for it in CI. `G59` is closed (`D-64`, §8). *Corrected 2026-10-22 (B-159 SR3-06): this paragraph earlier ended "`G59` is recorded, not resolved. Installation remains gated on the standing build guardrail being lifted for `R3`." `R3`'s installation happened under `D-70`, not under this specification, which still authorizes no code, schema or migration.*
 
 ---
 

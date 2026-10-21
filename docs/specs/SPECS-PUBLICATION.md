@@ -5,7 +5,8 @@
 **Status:** Draft. **Planning only — no code, migration, or deployment authorized.**
 **Authorized by:** `D-143` — rules `Q3` (publish path) and `Q5` (retry scheduler)
 **Source behaviour:** `FN-PUBLICATION-09-10-13.md` §4 (`FR-09`, `NFR-05`)
-**Sprint:** S4.
+**Original allocation:** `SETUP-SPIKE-000/S4` — terminally deferred, closed without DoD credit (`D-258`).
+**Current disposition:** Automated WordPress publication and retry are a V2-target backlog item (`D-243`, `D-244`); no V2 build or implementation is authorized. This document keeps the future automated-path decisions `D-143`/`D-146`. Current V1 publication scope is the bounded LinkedIn target-level `ManualReady` event in `V1-SM06`, governed by `FN-PUBLICATION-09-10-13.md` §12. The `[V1]` section markers below record origin, not current delivery allocation.
 
 ---
 

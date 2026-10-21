@@ -3,7 +3,7 @@
 **Date:** 2026-08-19
 **Tier:** `Fn_Specs` — third tier of `D-29`: `PRD` → `Modular_PRD` → **`Fn_Specs`** → `SPECS`.
 **Status:** Draft. Planning only — no build authorized.
-**Source:** `Modular_PRD` §5 (`FR-09`, `FR-10`, `FR-13`), §6 (`AC-14`–`AC-16`, `AC-19`), `US-09`, `US-10`, `US-13`; Addendum T7, T10, T11.
+**Source:** `Modular_PRD` §5 (`FR-09`, `FR-10`, `FR-13`), §9.1 (`AC-14`–`AC-16`, `AC-19`), `US-09`, `US-10`, `US-13`; Addendum T7, T10, T11.
 **Structure:** merged per `D-33` — `spec-writing` standard plus the User Stories and Risks sections from `specs-creator`'s feature template. Technical Stack omitted (`D-30`: added only when the build starts). UI omitted (stays in `SPECS`).
 
 > **Why these three are one group.** Under `D-06` a retraction **is** a publication, and under `D-08` a retraction notice **inherits its publication targets from the original**. `FR-13` therefore cannot function without `FR-09`'s target model. `FR-10` cannot function without `FR-09` marking a target `ManualReady` in the first place. Mutual dependency — a resolved group, not a convenient bundle.
