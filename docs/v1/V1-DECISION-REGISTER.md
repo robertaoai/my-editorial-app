@@ -29870,3 +29870,71 @@ in `D-459` item 2. **Number check:** at `6b5c795` the last Register entry is `D-
 | `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `.agents/`, `docs/README.md`, `docs/PRD.md`, Charter, `0001`, `Modular_PRD.md`, FN specs, `docs/specs/`, template v1, Phase Closure, `docs/LANE-B-WORK-ORDER.md`, `.claude/`, `scripts/`, application code, build configuration | — unaffected: this entry changes none of their governed content, scope or lane state |
 | **Encyclopedia** | unaffected: `docs/ENCYCLOPEDIA-SYNC.md` identifies no affected local citation entry; hosted parity not claimed |
 | **Graphify** | Governed drift, expected under `D-428`; cleared only by the separately released SR-5 guarded cycle (`D-425`), never by a raw rebuild |
+
+## 5.14e284 `D-461` — Gr: U5 Authority Recording for Later Read-Only Observation of Three Server Refs; Twentieth Intervening Entry Permitted
+
+**Authority: the Judge, directly to Lane A, 2026-10-22**, in chat: "Judge decision — release Gr’s U5 authority recording
+against 94e3497" (retained as `C:/CoWork/outputs/lane-a-d461-gr-2026-10-22/JUDGE-GR-RELEASE.md`, SHA-256
+`4345c1aff16740a3f2519590d71dedb0f9ba55ebfbd6d0cd9e82841f44d0e54c`; transcript
+`417d4ead-c5b7-481e-b141-3a8989ce9446.jsonl` line 9649). This direct decision is the release; Lane B's draft of it
+(session line 4651, `LANE-B-DRAFT-JUDGE-GR.txt`, SHA-256
+`ddc7395f7748effebcfdb2286b241de38ec4bd2ef621e52880c8ee56d33bb652`) is not. The decision accepts G2 at
+`94e3497bb6317a8c837416d1bf9c19dce582f02b` on two independent reviews:
+
+| Review | Locator | SHA-256 |
+|---|---|---|
+| Lane B, Level 1: approve G2 | `C:/Users/rober_24syk4j/.codex/sessions/2026/10/21/rollout-2026-10-21T03-31-43-01a1450c-56ae-73a2-95c0-6c0d44d45f08_01a15acc-56e0-7801-a238-395e69a0b901.jsonl` line 4577, message `msg_0359a885ce55f8dd016ad9cb15474c819191e1efcb44650980` | `2fe4cac6a0a0e3f0cda394c7abde2af7f7064ed7a7d362d836017778e283f784` |
+| Lane C, Level 2 receipt for G2 | `C:/Users/rober_24syk4j/.codex/attachments/d1d6fa75-b02c-44b7-8977-6f56c6f07c71/Pasted text.txt`, 15,649 bytes | `cb992200a452c8c2b15ab4a9dd08074f7637d082a957ff4c370cae1f36d9de1e` |
+| Lane B endorsement of the Level 2 findings | same Lane B session, line 4635, message `msg_0359a885ce55f8dd016ad9d0988d4481919294bfd2b75b6305` | `7efc828d3ea151dc2759263adbf45cb230a7347885cddfb9b842c2fdf71fcc1f` |
+
+This is Gr of the pre-sync sequence named in `D-459` item 2. **Number check:** at `94e3497` the last Register entry is
+`D-460` (§5.14e283); no other occurrence of `D-461`, including a forward reference, exists in the repository or its
+history.
+
+### The decision
+
+1. **Gr is U5's authority-recording step** under `D-459` item 2. It records authority only.
+2. **Observation scope.** A later read-only observation of remote `origin`
+   (`git@github.com:robertaoai/my-editorial-app.git`) is limited to exactly three refs: `refs/heads/main`,
+   `refs/heads/docs/journal-2026-08-16` and `refs/heads/preflight/sv2-u02`.
+3. **What each observation records.** The checkout, the remote, the exact ref, the exact command, start and end times,
+   the actual exit code and the full returned object ID. A missing ref, an unexpected result or a command failure is
+   reported as observed; no ref is changed and no remote state is inferred.
+4. **Separate execution checkpoint.** The observations need their own release and run only outside any guarded
+   interval. They do not run during Gr. No fetch and no push follow from them.
+5. **Not released by Gr.** SR-5, the selection of a fresh graph pin, the B-158 answer (Route H) and any push.
+6. **Check scope.** Gr is part of `D-459`'s named pre-sync sequence under `D-428` item 2: two `bun run check` runs on the
+   final candidate; `docs-drift` may be the sole failure, with the full result retained; every other required check
+   passes; any skip, startup failure or additional finding stops before commit. An allowed failure is never reported as a
+   full pass.
+7. **Push coverage.** Delivered: the 13 commits in `1adb938..ea241bd` (retained server observation
+   `ea241bdc34a72c0ab403f6b5b2a8942ef1638d7e`, 2026-10-22T05:29:58–05:30:01Z; not a fresh query). Pending: G0
+   `6b5c795` → G1 `17a40e4` → G2 `94e3497` → this entry's commit. Later source, receiver and push-authority commits join
+   only when they exist. No push is released.
+8. **Sequencing amendment.** Item 0 of `D-440` and `D-441`, as amended by `D-442` item 5, `D-444` item 4, `D-445` item 2,
+   `D-446` item 2, `D-447` item 4, `D-448` item 4, `D-449` item 5, `D-450` item 3, `D-451` item 7, `D-452` item 8,
+   `D-453` item 7, `D-454` item 7, `D-455` item 5, `D-456` item 7, `D-457` item 7, `D-458` item 7, `D-459` item 7 and
+   `D-460` item 9, is further amended to permit one further intervening Register entry, this twentieth entry, after
+   `D-460` and before the separate TCA r3 (J3) and J-C A1 entries. J1 and J2 keep their separate identities, text and
+   transfer holds. All other sequencing terms are unchanged; no historical entry is rewritten. **No further intervening
+   entry is permitted by implication.**
+9. **Holds.** The U5 observations, SR-5, Route H and any push stay held. U-C stays held. J1 (`D-440`) and J2 (`D-441`)
+   remain separate; both transfers stay held. B-136 and `D-439` stay Open. B-159 (Answered / Verified), `D-458`'s
+   accepted push, GR-007 and B-118 RH4 stand unchanged. work-r3 remains unaccepted evidence and is not resumed. No
+   installation, transfer, graph preparation or resume, publication, fetch, remote query or push. Every other hold is
+   unchanged.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry |
+| **Build Spec** | — unaffected: the act records an observation authority; it changes no V1 scope, creates, sequences or retires no artifact, and changes no V1 or MMF DoD |
+| **Inventory** | — unaffected: no repository file is created or retired and no row's status changes; observation results stay external |
+| `docs/graph-fragments/README.md` (G2) | — unaffected: G2 is complete at `94e3497` and is not edited |
+| B-158, B-136, B-050 | — unaffected: their records follow only in separately released steps (Route H answer; SR-5) |
+| `D-459`, `D-460`, `D-428`, `D-425`, `D-426` | — unaffected: applied as written; this entry is Gr of `D-459`'s named sequence |
+| `D-440`, `D-441` | — unaffected: their text is not edited; this entry amends their item 0 separately (item 8) |
+| `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `docs/README.md`, `docs/PRD.md`, Charter, `0001`, `Modular_PRD.md`, FN specs, `docs/specs/`, template v1, Phase Closure, `docs/LANE-B-WORK-ORDER.md`, `.claude/`, `scripts/`, application code, build configuration | — unaffected: this entry changes none of their governed content, scope or lane state |
+| **Encyclopedia** | unaffected: `docs/ENCYCLOPEDIA-SYNC.md` identifies no affected local citation entry; hosted parity not claimed |
+| **Graphify** | Governed drift, expected under `D-428`; cleared only by the separately released SR-5 guarded cycle (`D-425`), never by a raw rebuild |
