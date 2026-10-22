@@ -29806,3 +29806,67 @@ a governed source. **Number check:** at `ea241bd` the last Register entry is `D-
 | `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `docs/README.md`, `docs/PRD.md`, Charter, `0001`, `Modular_PRD.md`, FN specs, `docs/specs/`, template v1, Phase Closure, `docs/LANE-B-WORK-ORDER.md`, `.claude/`, `scripts/`, application code, build configuration | — unaffected: this entry changes none of their governed content, scope or lane state |
 | **Encyclopedia** | unaffected: `docs/ENCYCLOPEDIA-SYNC.md` identifies no affected local citation entry; hosted parity not claimed |
 | **Graphify** | Governed drift, expected under `D-428`; cleared only by the separately released SR-5 guarded cycle (`D-425`), never by a raw rebuild |
+
+## 5.14e283 `D-460` — G1: Bounded F3-c Correction Scope (B-158 F03) and Its Remaining Gates; G2 Held; Nineteenth Intervening Entry Permitted
+
+**Authority: the Judge, directly to Lane A, 2026-10-22**, in chat: "Judge decision — release G1 F3-c authority recording"
+(retained as `C:/CoWork/outputs/lane-a-d460-g1-2026-10-22/JUDGE-G1-RELEASE.md`, SHA-256
+`1b1e690943779799f2f73d7c9cd33e0132b5e76840c9a799244474dbf29501aa`; transcript
+`417d4ead-c5b7-481e-b141-3a8989ce9446.jsonl` line 9459). It accepts Lane B's approval of G0 / `D-459` at
+`6b5c79534c22e0886bdad26f5cbc73b5e45b3cd2` (Lane B session
+`C:/Users/rober_24syk4j/.codex/sessions/2026/10/21/rollout-2026-10-21T03-31-43-01a1450c-56ae-73a2-95c0-6c0d44d45f08_01a15acc-56e0-7801-a238-395e69a0b901.jsonl`
+line 4248, message `msg_0359a885ce55f8dd016ad9bef13cd48191b7e234fe3f85c4d4`, retained as `LANE-B-G0-APPROVAL.txt`,
+SHA-256 `93d735ad1285b56a0a3c3894f4f42e00a5e8830254f8b8306f6d6d987bab2494`). This is G1 of the pre-sync sequence named
+in `D-459` item 2. **Number check:** at `6b5c795` the last Register entry is `D-459` (§5.14e282); no other occurrence of
+`D-460`, including a forward reference, exists in the repository or its history.
+
+### The decision
+
+1. **Owning route.** B-158 F03, "Two small documentation defects", second defect (F3-c). F3-a and F3-b were corrected
+   in `c306abe` under `D-453`; they are not reopened.
+2. **Target and defect.** The proposed G2 target is `docs/graph-fragments/README.md`. B-158 F03 records that its line 60
+   cites the retired `.agents/rules/graphify.md` as current guidance, a stale plain-text reference rather than a broken
+   Markdown hyperlink. At `6b5c795` that line reads: "The graphify rules in `CLAUDE.md`, `AGENTS.md`, and
+   `.agents/rules/graphify.md` name these commands."
+3. **Correction boundary.** The correction identifies the current governed guidance (B-158 F03's next action names
+   `D-337` and the Inventory as its sources). It changes no tooling behaviour, no product requirement and no historical
+   evidence. It implies no workflow edit and no graph rebuild (B-158 F03, "Required proof").
+4. **G2 stays held.** Before G2 is released: (a) Lane A presents the literal old → new text and its applicability;
+   (b) an independent draft review accepts it; (c) a separate Judge release binds the accepted text, its baseline, the
+   exact path(s) and the check scope. This entry approves no wording.
+5. **Not permitted by this entry.** No README edit, no B-158 answer, no graph operation and no other downstream
+   execution.
+6. **Sequence, unchanged.** G0 → G1 (this entry) → separately released G2 → separately released Gr → fresh pin / SR-5
+   checkpoint → Route H answer in B-158. U3-W and U4 stay deferred; P6 stays a proposal.
+7. **Check scope.** G1 is part of `D-459`'s named pre-sync sequence under `D-428` item 2: two `bun run check` runs on
+   the final candidate; `docs-drift` may be the sole failure, with the full result retained; every other required check
+   passes; any skip, startup failure or additional finding stops before commit. An allowed failure is never reported as a
+   full pass.
+8. **Push coverage.** Delivered: the 13 commits in `1adb938..ea241bd` (retained server observation
+   `ea241bdc34a72c0ab403f6b5b2a8942ef1638d7e`, 2026-10-22T05:29:58–05:30:01Z). Pending: G0 `6b5c795` and this entry's
+   commit. Later source, receiver and push-authority commits join only when they exist. No push is released.
+9. **Sequencing amendment.** Item 0 of `D-440` and `D-441`, as amended by `D-442` item 5, `D-444` item 4, `D-445` item 2,
+   `D-446` item 2, `D-447` item 4, `D-448` item 4, `D-449` item 5, `D-450` item 3, `D-451` item 7, `D-452` item 8,
+   `D-453` item 7, `D-454` item 7, `D-455` item 5, `D-456` item 7, `D-457` item 7, `D-458` item 7 and `D-459` item 7, is
+   further amended to permit one further intervening Register entry, this nineteenth entry, after `D-459` and before the
+   separate TCA r3 (J3) and J-C A1 entries. J1 and J2 keep their separate identities and text. All other sequencing terms
+   are unchanged; no historical entry is rewritten. **No permission is granted for any other intervening entry.**
+10. **Holds.** G2, Gr, SR-5 and Route H stay held. U-C stays held. J1 (`D-440`) and J2 (`D-441`) remain separately
+    registered; both transfers stay held. B-136 and `D-439` stay Open. B-159 (Answered / Verified) and `D-458`'s
+    accepted push stand; GR-007 and B-118 RH4 stay complete. work-r3 remains unaccepted evidence and is not resumed. No
+    installation, transfer, graph preparation or resume, publication, fetch or push. Every other hold is unchanged.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry |
+| **Build Spec** | — unaffected: the act records a correction scope; it changes no V1 scope, creates, sequences or retires no artifact, and changes no V1 or MMF DoD |
+| **Inventory** | — unaffected: no repository file is created or retired and no row's status changes; the Inventory is cited as a source for G2's wording only |
+| `docs/graph-fragments/README.md` | — unaffected now: its correction is G2, held (item 4) |
+| B-158 | — unaffected now: its answer follows under Route H after SR-5 |
+| `D-459`, `D-428`, `D-425`, `D-426` | — unaffected: applied as written; this entry is G1 of `D-459`'s named sequence |
+| `D-440`, `D-441` | — unaffected: their text is not edited; this entry amends their item 0 separately (item 9) |
+| `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `.agents/`, `docs/README.md`, `docs/PRD.md`, Charter, `0001`, `Modular_PRD.md`, FN specs, `docs/specs/`, template v1, Phase Closure, `docs/LANE-B-WORK-ORDER.md`, `.claude/`, `scripts/`, application code, build configuration | — unaffected: this entry changes none of their governed content, scope or lane state |
+| **Encyclopedia** | unaffected: `docs/ENCYCLOPEDIA-SYNC.md` identifies no affected local citation entry; hosted parity not claimed |
+| **Graphify** | Governed drift, expected under `D-428`; cleared only by the separately released SR-5 guarded cycle (`D-425`), never by a raw rebuild |
