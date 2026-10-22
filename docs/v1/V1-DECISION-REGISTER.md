@@ -29733,3 +29733,76 @@ It registers the decision under `D-183` point 5. **Number check:** at `9d4d2cb` 
 | `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `docs/README.md`, `docs/PRD.md`, Charter, `0001`, `Modular_PRD.md`, FN specs, `docs/specs/`, template v1, Phase Closure, `docs/LANE-B-WORK-ORDER.md`, `.claude/`, `scripts/`, application code, build configuration | — unaffected: this entry changes none of their governed content, scope or lane state |
 | **Encyclopedia** | unaffected: `docs/ENCYCLOPEDIA-SYNC.md` identifies no affected local citation entry; hosted parity not claimed |
 | **Graphify** | Governed drift, expected; cleared only by a separately released guarded cycle (`SR-5`, `D-425`), never by a raw rebuild |
+
+## 5.14e282 `D-459` — G0: SR-5 Pre-Sync Sequence Selected (G1 U1 Authority, G2 F3-c Correction, Gr U5 Authority) Under `D-428`; Eighteenth Intervening Entry Permitted
+
+**Authority: the Judge, directly to Lane A, 2026-10-22**, in chat: "Judge decision — release G0 recording against
+ea241bd" (retained as `C:/CoWork/outputs/lane-a-d459-g0-2026-10-22/JUDGE-G0-RELEASE.md`, SHA-256
+`9ea73c24f7289ca88f83ceb44b98c8ee1ec007f2440de6d5f482f99e9b5d0b4f`; transcript
+`417d4ead-c5b7-481e-b141-3a8989ce9446.jsonl` line 9391). It accepts at planning scope Lane A's revised handoff map
+(R5(c) post-sync check sequence) after Lane B's independent planning approval (Lane B session
+`C:/Users/rober_24syk4j/.codex/sessions/2026/10/21/rollout-2026-10-21T03-31-43-01a1450c-56ae-73a2-95c0-6c0d44d45f08_01a15acc-56e0-7801-a238-395e69a0b901.jsonl`
+line 4164, message `msg_0359a885ce55f8dd016ad9bb93a4948191b9ecf5d32604e60b`, retained as `LANE-B-PLANNING-APPROVAL.txt`,
+SHA-256 `ad9185011484b1cbb30b54e444e66842f0c932b46c76a68769592f6ec368ed89`). The map is external planning text; it is not
+a governed source. **Number check:** at `ea241bd` the last Register entry is `D-458` (§5.14e281); no other occurrence of
+`D-459` exists in the repository or its history.
+
+### The decision
+
+1. **Scope of this act.** It records the selected pre-sync sequence and its check scope only. It releases no
+   downstream unit: G1, G2, Gr, SR-5 and every Route H record keep their own execution checkpoint. No installation,
+   graph preparation or resume, publication, fetch or push follows from it.
+2. **Selected pre-sync sequence (Route G, `D-428`).** In order, before SR-5's fresh source pin:
+   - **G0** — this entry, which names the sequence and its check scope;
+   - **G1** — U1 authority recording for the bounded F3-c correction (B-158 F03);
+   - **G2** — U1 canonical correction of `docs/graph-fragments/README.md`. Before G2 is released, its literal
+     old → new text and its applicability are reviewed and bound to that release;
+   - **Gr** — U5 authority recording for later read-only server observations of `refs/heads/main`,
+     `refs/heads/docs/journal-2026-08-16` and `refs/heads/preflight/sv2-u02`. Those observations are not released here
+     and run only outside the guarded interval.
+
+   No propagation commit is planned: `docs/graph-fragments/README.md` is outside `source-sweep`'s governing globs. Any
+   unexpected check finding stops for review.
+3. **Check scope.** G0, and each later commit named in item 2 when released, is part of the specifically authorized
+   guarded pre-sync recording sequence under `D-428` item 2: two `bun run check` runs on the final candidate;
+   `docs-drift` may be the sole failure, with the full result retained; every other required check passes; any skip,
+   startup failure or additional finding stops before commit; hooks run normally under the required identity. An
+   allowed failure is never reported as a full pass. A commit not named in item 2 is outside this sequence.
+4. **After the sequence.** All remaining repository and ref changes are finished or explicitly deferred; SR-5 receives
+   its own release and a fresh source pin; the accepted guarded sequence follows (`prepare`, B-136 request, Lane B's
+   exact-byte B-050 receipt, Lane B's annotation, publication citing that receipt, full health with independent
+   post-state acceptance), under `D-425`/`D-426`. Then U1's B-158 answer is filed under Route H: a handoff-only record
+   whose authority is already recorded, with every required check passing. Waiting for SR-5 is not itself a check
+   exception.
+5. **Deferred and proposed.** U3-W is deferred until its exact entry set and recording authority are selected. U4 is
+   deferred until its exact canonical targets are selected. P6 (evidence custody) remains a proposal. U3-R (read-only
+   verification under `LANE-B-WORK-ORDER.md` §2.3) needs no new authority.
+6. **Push coverage.** This entry's commit is newly pending. Every later authorized source, receiver and authority
+   commit joins the coverage. Any later push needs its own bounded authority, a fresh server-base read and a post-push
+   server-tip read; prior force approvals keep their exact scope. The 13 commits in `1adb938..ea241bd` stay delivered
+   (retained server observation `ea241bdc34a72c0ab403f6b5b2a8942ef1638d7e`, 2026-10-22T05:29:58–05:30:01Z).
+7. **Sequencing amendment.** Item 0 of `D-440` and `D-441`, as amended by `D-442` item 5, `D-444` item 4, `D-445` item 2,
+   `D-446` item 2, `D-447` item 4, `D-448` item 4, `D-449` item 5, `D-450` item 3, `D-451` item 7, `D-452` item 8,
+   `D-453` item 7, `D-454` item 7, `D-455` item 5, `D-456` item 7, `D-457` item 7 and `D-458` item 7, is further amended
+   to permit one further intervening Register entry, this eighteenth entry, after `D-458` and before the separate TCA r3
+   (J3) and J-C A1 entries. J1 and J2 stay separate. All other sequencing terms are unchanged; no historical entry is
+   rewritten. Each later Register commit in item 2 (G1, Gr) needs its own such permission when released.
+8. **Holds.** B-159 remains Answered / Verified within its recorded scope. B-136 and D-439 stay Open. U-C stays held.
+   J1 (`D-440`) and J2 (`D-441`) remain separately registered; both transfers stay held. work-r3 remains unaccepted
+   evidence and is not resumed. F3-c stays with B-158 F03 until G2 and the Route H answer complete. Every other hold is
+   unchanged.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry |
+| **Build Spec** | — unaffected: the act selects a recording sequence; it changes no V1 scope, creates, sequences or retires no artifact, and changes no V1 or MMF DoD |
+| **Inventory** | — unaffected: no repository file is created or retired and no row's status changes |
+| `docs/graph-fragments/README.md` | — unaffected now: its correction is G2, released separately with bound text |
+| B-158, B-136, B-050 | — unaffected: their records follow in their own released steps (Route H answer; SR-5 request, receipt, annotation, health) |
+| `D-428`, `D-425`, `D-426` | — unaffected: applied as written; this entry names the sequence `D-428` item 2 requires and adds no general red-check permission |
+| `D-440`, `D-441` | — unaffected: their text is not edited; this entry amends their item 0 separately (item 7) |
+| `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `docs/README.md`, `docs/PRD.md`, Charter, `0001`, `Modular_PRD.md`, FN specs, `docs/specs/`, template v1, Phase Closure, `docs/LANE-B-WORK-ORDER.md`, `.claude/`, `scripts/`, application code, build configuration | — unaffected: this entry changes none of their governed content, scope or lane state |
+| **Encyclopedia** | unaffected: `docs/ENCYCLOPEDIA-SYNC.md` identifies no affected local citation entry; hosted parity not claimed |
+| **Graphify** | Governed drift, expected under `D-428`; cleared only by the separately released SR-5 guarded cycle (`D-425`), never by a raw rebuild |
