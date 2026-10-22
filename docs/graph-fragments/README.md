@@ -57,7 +57,7 @@ So the relation is **upstream → attributed downstream extension**. The upstrea
 
 ## 3. Commands that are distribution-specific `[V1]` — `G52`
 
-The graphify rules in `CLAUDE.md`, `AGENTS.md`, and `.agents/rules/graphify.md` name these commands. They read as tool-generic. **Eight of them are not** — verified absent from `graphify/__main__.py` upstream on 2026-08-20 (`D-60`):
+`D-60` verified the command list below against upstream source on 2026-08-20. This section originally referred to the Graphify rules in `CLAUDE.md`, `AGENTS.md`, and `.agents/rules/graphify.md`; references below to rule blocks in all three files describe that historical layout. `D-337` (2026-09-29) retired `.agents/rules/graphify.md`: its Lane C tail moved to `GEMINI.md`, and the former shared rule text is kept word for word, as history, in `docs/governance/agent-rules-reference.md`. The operative rule files are now `AGENTS.md`, `CLAUDE.md` (which imports it) and `GEMINI.md`. The current graph procedure is `.claude/skills/sync-docs/SKILL.md` §7 (guarded sync, `D-425`). The commands read as tool-generic. **Eight of them are not** — verified absent from `graphify/__main__.py` upstream on 2026-08-20 (`D-60`):
 
 `portable-check` · `migrate-state` · `review-delta` · `summary` · `hook-rebuild` · `build` · `studio` · `ontology`
 
