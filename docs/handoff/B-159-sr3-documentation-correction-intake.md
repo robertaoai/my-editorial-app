@@ -4,11 +4,12 @@
 - **Kind:** spec-defect
 - **Phase:** 1
 - **Blocks:** D-453(c) consolidated draft review and subsequent corrections; no construction or attempt release
-- **Status:** Open
-- **Lane A:** Acknowledged 2026-10-21. Receiver receipt only; consolidated replacements remain pending D-453(c) review.
-- **Verified-By:** — not yet dispositioned; raised by Lane B
+- **Status:** Answered
+- **Lane A:** Acknowledged 2026-10-21. Receiver receipt only; consolidated replacements remain pending D-453(c) review. Answered 2026-10-22 by C3 `acc596c`; disposition `Applied` 2026-10-22, recorded in the dated disposition section at the end.
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Evidence:** Source text examined at `c188a78dd8f280f492a3326c611ae44c435fe42a`; baseline snapshots, Git blob IDs, SHA-256 hashes and draft revalidation retained in `C:/CoWork/outputs/lane-b-sr3-filing-2026-10-21/` (`baseline-sources.json`, `draft-revalidation.json`, `preconditions.json`). This is an examined baseline, not a verification result.
-- **Verified-At-Commit:** 7ef7df212b804638c79b6fd0c510a0ab07f6dfed
+- **Verified-At-Commit:** 506d7b5c87946afaff992f1be294d98c6348b2ea
 
 ## What happened
 
@@ -252,3 +253,69 @@ decides any push.
   `1adb938ae345a0df09577c5f6072ee3e43f32533`. Remote preservation of C1, C2 or this answer is not claimed.
 - Evidence custody and adoption of a reusable documentation workflow are separate proposals, not prerequisites of this
   answer.
+
+## Lane A — disposition (Applied), 2026-10-22
+
+Recorded under the Judge's decision "Judge decision — release B-159’s bounded disposition" (retained as
+`C:/CoWork/outputs/lane-a-b159-disp-2026-10-22/JUDGE-B159-DISPOSITION.md`, SHA-256
+`112b4bea55ba5af835af51ed266d2e6a4430a927b28c03f3abd359c4998d00bc`; transcript
+`417d4ead-c5b7-481e-b141-3a8989ce9446.jsonl` line 8362). The decision accepts the independent reviews of `D-455`, C3 and
+`D-456`'s completed push and releases `Status: Answered`, `Resolution: Applied`. Examined baseline:
+`506d7b5c87946afaff992f1be294d98c6348b2ea`. Everything above this section is unchanged; only `Status`, the `Lane A` line
+(one sentence appended), `Resolution`, `Verified-By` and `Verified-At-Commit` change in the header.
+
+### What happened
+
+**Independent review receipts** (each retained as its exact text under
+`C:/CoWork/outputs/lane-a-b159-disp-2026-10-22/`; Lane B lines are in
+`C:/Users/rober_24syk4j/.codex/sessions/2026/10/21/rollout-2026-10-21T03-31-43-01a1450c-56ae-73a2-95c0-6c0d44d45f08_01a15acc-56e0-7801-a238-395e69a0b901.jsonl`):
+
+| Subject | Review | Locator | SHA-256 |
+|---|---|---|---|
+| C1 `24cad53`, C2 `c306abe` | Lane B, Level 1: approve | line 2651, message `msg_0359a885ce55f8dd016ad8ed2b1e948191b4ae23bd29a15c86` | `0a11ae11c473205c5264ff934fcecae0384645163d595de63ce82404ad592764` |
+| C1, C2 | Lane C, Level 2: approve | `C:/Users/rober_24syk4j/.codex/attachments/17b5f524-a0d6-480c-bd71-489eab8173db/Pasted text.txt` | `8a8166e5117cddf6b50aef4ada037cbf89506c6576980e2a23bbc59b440ea6f8` |
+| Lane C's Level 2 findings | Lane B endorsement | line 2739, message `msg_0359a885ce55f8dd016ad8f2d4981c8191a08917281a540add` | `97b8487bd552366e8c826a878c6c6edadb98e85cfa0ebb3c03d606d6464772c2` |
+| `D-455` `8bd7cdf`, C3 `acc596c` | Lane B, Level 1: approve | line 2985, message `msg_0359a885ce55f8dd016ad901a659888191bffc45a298bbce1a` | `0daebcd64b0b108baa32a70ea00efcf2cbff38d278facd33fcd762fa4c24f328` |
+| `D-456` P `506d7b5` and its nine-commit manifest | Lane B: approve | line 3017, message `msg_0359a885ce55f8dd016ad90237b90c8191afb59e1279cda4a6` | `c3092ca264784e357b6c3d4b905bb1a7ef2c2800ab6c84250fefc59f6b6df1d4` |
+| `D-456` completed push through `506d7b5` | Lane B, post-push: approve, complete | line 3085, message `msg_0359a885ce55f8dd016ad983a5d14081918abcc973e2a820df` | `3d537cbff4c04ff4505b52f6bc93c02a07b195b37fb61711d2ecce27a353b0f9` |
+
+No separate Level 2 receipt for `D-455` or C3 is retained here; the Judge's acceptance rests on the Lane B reviews above.
+
+**Findings → applied → reviewed → preserved.** "Applied" means corrected in the tree at the named commit. "Reviewed"
+means an independent receipt above. "Preserved" means reachable from the server tip `506d7b5` observed after the `D-456`
+push (2026-10-22T02:25:10–02:25:13+0800, `C:/CoWork/outputs/lane-a-push-d456-2026-10-22/ls-remote-post.out`, SHA-256
+`d170da99b7dd4a170b7dd5afe7484b4c9b6c5be3ad679d61dbacad1ff6a709a9`; reachability in `verify-reconcile.txt`, SHA-256
+`53229ec300d4958bd4fbd057749c2e718ffdb81c80e276c50f7dc66e33e6104a`), which Lane B's post-push review confirmed.
+
+| Finding | Applied in | Independent review | Remote preservation |
+|---|---|---|---|
+| SR3-01 Project PRD classification | C2 `c306abe` (E05) | C1/C2 Level 1 and Level 2 | Reachable from `506d7b5` |
+| SR3-02 Q11, Audit spec | C1 `24cad53` (E03, E04) | C1/C2 Level 1 and Level 2 | Reachable from `506d7b5` |
+| SR3-02 Q11, Transition spec (B-136 IR-3 residual) | C1 `24cad53` (E01), same commit as the Audit file | C1/C2 Level 1 and Level 2 | Reachable from `506d7b5` |
+| SR3-03 acceptance-criteria pointers | C1 (E02), C2 (E06) | C1/C2 Level 1 and Level 2 | Reachable from `506d7b5` |
+| SR3-04 Modular PRD metadata (1.45) | C2 (E08–E10) | C1/C2 Level 1 and Level 2 | Reachable from `506d7b5` |
+| SR3-05 obsolete sprint label | C2 (E07) | C1/C2 Level 1 and Level 2 | Reachable from `506d7b5` |
+| SR3-06 (F2) apparatus status | C2 (E12–E15, E17–E19) | C1/C2 Level 1 and Level 2 | Reachable from `506d7b5` |
+| F3-a CI-skip wording, Apparatus §4 | C2 (E16) | C1/C2 Level 1 and Level 2 | Reachable from `506d7b5` |
+| F3-b CI-skip wording, `XF-04` | C2 (E11) | C1/C2 Level 1 and Level 2 | Reachable from `506d7b5` |
+| Lane A answer (finding map) | C3 `acc596c`, under `D-455` `8bd7cdf` | `D-455`/C3 Level 1 | Reachable from `506d7b5` |
+| **F3-c** graph-fragments README line 60 | **Not applied — deferred** | — | — |
+
+### What you need
+
+An independent review of this disposition. `Verified` is not recorded: Lane A answered and applied these corrections and
+may not verify them; only an independent actor may record `Verified`, with `Verified-By` and an existing commit.
+
+### What you did instead
+
+- **F3-c stays deferred under B-158 F03**, outside B-159's completed scope. B-158 F03 is not complete.
+- **Not closed here:** B-136 (including the IR-3 residual applied in C1) and `D-439` stay Open; B-158 F03 keeps its
+  deferred F3-c obligation.
+- These are documentation corrections. **Current runner and CI operation, and hosted behaviour, remain UNVERIFIED.** This
+  disposition establishes no project-wide DoR/DoD attempt completion and releases no attempt.
+- The commit that records this disposition is local and newly pending; its remote preservation is not claimed. No push is
+  released.
+- Evidence custody and adoption of a reusable documentation workflow remain separate proposals.
+- **Graph-lag correction.** The `D-456` completion report gave the graph lag as 117 commits. From `c8177fe` (the graph's
+  `lastAnalyzedHead`) to the examined baseline `506d7b5` it is **118 commits**. That is the baseline count, not the count
+  after this disposition commit. Graph sync stays with SR-5.
