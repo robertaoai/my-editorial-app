@@ -6,10 +6,10 @@
 - **Blocks:** D-453(c) consolidated draft review and subsequent corrections; no construction or attempt release
 - **Status:** Answered
 - **Lane A:** Acknowledged 2026-10-21. Receiver receipt only; consolidated replacements remain pending D-453(c) review. Answered 2026-10-22 by C3 `acc596c`; disposition `Applied` 2026-10-22, recorded in the dated disposition section at the end.
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified; dispositioned by Lane A
-- **Evidence:** Source text examined at `c188a78dd8f280f492a3326c611ae44c435fe42a`; baseline snapshots, Git blob IDs, SHA-256 hashes and draft revalidation retained in `C:/CoWork/outputs/lane-b-sr3-filing-2026-10-21/` (`baseline-sources.json`, `draft-revalidation.json`, `preconditions.json`). This is an examined baseline, not a verification result.
-- **Verified-At-Commit:** 506d7b5c87946afaff992f1be294d98c6348b2ea
+- **Resolution:** Verified
+- **Verified-By:** Codex (Lane B)
+- **Evidence:** Source text examined at `c188a78dd8f280f492a3326c611ae44c435fe42a`; baseline snapshots, Git blob IDs, SHA-256 hashes and draft revalidation retained in `C:/CoWork/outputs/lane-b-sr3-filing-2026-10-21/` (`baseline-sources.json`, `draft-revalidation.json`, `preconditions.json`). This is an examined baseline, not a verification result. Independent verification at `4f451e3d6352a2757f699794381635faa38fff1a`: see the dated Lane B verification section below and `C:/CoWork/outputs/b159-verify-2026-10-22/receipts.json`, `finding-correction-proof.json`, and `evidence-inventory.json`.
+- **Verified-At-Commit:** 4f451e3d6352a2757f699794381635faa38fff1a
 
 ## What happened
 
@@ -319,3 +319,120 @@ may not verify them; only an independent actor may record `Verified`, with `Veri
 - **Graph-lag correction.** The `D-456` completion report gave the graph lag as 117 commits. From `c8177fe` (the graph's
   `lastAnalyzedHead`) to the examined baseline `506d7b5` it is **118 commits**. That is the baseline count, not the count
   after this disposition commit. Graph sync stays with SR-5.
+
+## Lane B — independent verification, 2026-10-22
+
+### Authority and independence
+
+The Judge's release "Lane B — record B-159’s independent verification" authorizes this one local handoff-only
+verification commit, with no push and no transfer of Lane A's Active lock. Original locator:
+`C:/Users/rober_24syk4j/.codex/sessions/2026/10/22/rollout-2026-10-22T12-37-58-01a161e6-ce3c-7af1-92d2-2861121fc85c.jsonl`, line 16, message `msg_01a161e6-f18c-77d1-a2ec-73e01fbff401`.
+Exact input text retained at `C:/CoWork/outputs/b159-verify-2026-10-22/JUDGE-VERIFICATION-RELEASE.txt`, SHA-256
+`d591e31810e291a841c01b16f2f2901b4b273a921fdb5248c4bb1c361d7f6047`.
+Codex (Lane B) is the verifying actor. Lane A answered and applied the corrections; this actor did neither.
+Own-entry eligibility follows the handoff SOP's D-184/D-272 procedure and its independent-verifier rule.
+Branch, exact HEAD, clean tree and empty index were confirmed before editing; Lane A is Active, B Eligible, C Blocked.
+Bound path: `docs/handoff/B-159-sr3-documentation-correction-intake.md`.
+Examined baseline: `4f451e3d6352a2757f699794381635faa38fff1a`; the future recording commit is not the examined baseline.
+
+### Scope and findings
+
+Independently reconstructed all 19 approved revision-3 replacements from the parent blobs, and compared the resulting
+bytes with C1/C2 and the examined baseline. Exactly the seven approved source paths changed; all remain identical at
+the examined baseline. The frozen PRD, Charter, `0001_init.sql` and F3-c's graph-fragments README are unchanged.
+The approved draft and its old/new-block evidence match their retained full hashes. The review receipts below were
+recovered from their original sources, rather than adopted from Lane A's summary.
+
+| Finding / approved correction | Independent conclusion |
+|---|---|
+| SR3-01 / E05 | C2 explicitly separates the governing frozen Project PRD from the nonauthoritative plan pack; PRD and reading-guide links resolve. |
+| SR3-02 / E01, E03, E04 | Both Q11 source corrections share C1 and cite the decided structural column under D-97/D-111; AC-12 and hosted/cognitive evidence limits remain. B-136 is not closed. |
+| SR3-03 / E02, E06 | Both FN Source pointers now identify Modular PRD §9.1; FR/AC/US identifiers and Addendum references are unchanged. |
+| SR3-04 / E08–E10 | Revision 1.45 is the next unique changelog revision; header and appended row agree on the actual 2026-10-22 application date; previous rows and D-438 notes survive. |
+| SR3-05 / E07 | Original SETUP-SPIKE-000/S4 allocation and D-258 deferral remain discoverable; current automated path is V2-target backlog; ManualReady stays with V1-SM06; origin markers and D-143/D-146 remain. |
+| SR3-06 (F2) / E12–E15, E17–E19 | All enumerated absence/gate claims, including §4's explanatory sentence, distinguish D-70's historical installation from UNVERIFIED current operation and the reinstated guardrail. |
+| F3-a / E16; F3-b / E11 | Count-free current wording points to WORKFLOWS-SPEC §3's maintained CI-skip list, preserving the former wording as dated history. |
+
+C1 `24cad53f21219cc84323c4dbeb28275334221aad` and C2
+`c306abe90ecdfcdac1305420306ab54abf404d02` have their cited Level 1 and Level 2 approvals.
+D-455 `8bd7cdfa43ebed12b5b839c67751c07b724b4e0c` records the source-side propagation decision and reparents
+C3 `acc596c457bc8685ef9ace6c60a9579f0bd754eb`; its B-159-only answer append and Level 1 approval are supported.
+No Lane C review of D-455 or C3 is claimed. The Judge's accepted review route is retained.
+B-159's Answered / Applied disposition at `1ff1e1a33eb366128f601dcf9a4a5506295905d0`, its authority,
+independent review and preservation of the previous body were checked against Git and the original receipts.
+
+### Evidence and recovered post-push receipt
+
+| Receipt | Original locator | Retained exact UTF-8 text | Full SHA-256 |
+|---|---|---|---|
+| draft-r3-review | C:/Users/rober_24syk4j/.codex/sessions/2026/10/21/rollout-2026-10-21T03-31-43-01a1450c-56ae-73a2-95c0-6c0d44d45f08_01a15acc-56e0-7801-a238-395e69a0b901.jsonl line 2515, message `msg_0359a885ce55f8dd016ad8dd9d092481918affb80b099d69d0` | C:/CoWork/outputs/b159-verify-2026-10-22/draft-r3-review.txt | `f25424b048f30a5458a1ee32decb597148da60e9dfb87857879ba9ea9d8ad7c7` |
+| draft-r3-approval | C:/Users/rober_24syk4j/.codex/sessions/2026/10/21/rollout-2026-10-21T03-31-43-01a1450c-56ae-73a2-95c0-6c0d44d45f08_01a15acc-56e0-7801-a238-395e69a0b901.jsonl line 2532, message `msg_0359a885ce55f8dd016ad8de15fea081918108ca547467776a` | C:/CoWork/outputs/b159-verify-2026-10-22/draft-r3-approval.txt | `0ae7e1d5b95d258be8d04f4deb4feb97f2b7375c6aa2d56ed59897a722016dee` |
+| C1C2-L1 | C:/Users/rober_24syk4j/.codex/sessions/2026/10/21/rollout-2026-10-21T03-31-43-01a1450c-56ae-73a2-95c0-6c0d44d45f08_01a15acc-56e0-7801-a238-395e69a0b901.jsonl line 2651, message `msg_0359a885ce55f8dd016ad8ed2b1e948191b4ae23bd29a15c86` | C:/CoWork/outputs/b159-verify-2026-10-22/C1C2-L1.txt | `0a11ae11c473205c5264ff934fcecae0384645163d595de63ce82404ad592764` |
+| L2-endorsement | C:/Users/rober_24syk4j/.codex/sessions/2026/10/21/rollout-2026-10-21T03-31-43-01a1450c-56ae-73a2-95c0-6c0d44d45f08_01a15acc-56e0-7801-a238-395e69a0b901.jsonl line 2739, message `msg_0359a885ce55f8dd016ad8f2d4981c8191a08917281a540add` | C:/CoWork/outputs/b159-verify-2026-10-22/L2-endorsement.txt | `97b8487bd552366e8c826a878c6c6edadb98e85cfa0ebb3c03d606d6464772c2` |
+| D455-C3-L1 | C:/Users/rober_24syk4j/.codex/sessions/2026/10/21/rollout-2026-10-21T03-31-43-01a1450c-56ae-73a2-95c0-6c0d44d45f08_01a15acc-56e0-7801-a238-395e69a0b901.jsonl line 2985, message `msg_0359a885ce55f8dd016ad901a659888191bffc45a298bbce1a` | C:/CoWork/outputs/b159-verify-2026-10-22/D455-C3-L1.txt | `0daebcd64b0b108baa32a70ea00efcf2cbff38d278facd33fcd762fa4c24f328` |
+| D456-approval | C:/Users/rober_24syk4j/.codex/sessions/2026/10/21/rollout-2026-10-21T03-31-43-01a1450c-56ae-73a2-95c0-6c0d44d45f08_01a15acc-56e0-7801-a238-395e69a0b901.jsonl line 3017, message `msg_0359a885ce55f8dd016ad90237b90c8191afb59e1279cda4a6` | C:/CoWork/outputs/b159-verify-2026-10-22/D456-approval.txt | `c3092ca264784e357b6c3d4b905bb1a7ef2c2800ab6c84250fefc59f6b6df1d4` |
+| D456-postpush | C:/Users/rober_24syk4j/.codex/sessions/2026/10/21/rollout-2026-10-21T03-31-43-01a1450c-56ae-73a2-95c0-6c0d44d45f08_01a15acc-56e0-7801-a238-395e69a0b901.jsonl line 3085, message `msg_0359a885ce55f8dd016ad983a5d14081918abcc973e2a820df` | C:/CoWork/outputs/b159-verify-2026-10-22/D456-postpush.txt | `3d537cbff4c04ff4505b52f6bc93c02a07b195b37fb61711d2ecce27a353b0f9` |
+| Applied-review | C:/Users/rober_24syk4j/.codex/sessions/2026/10/21/rollout-2026-10-21T03-31-43-01a1450c-56ae-73a2-95c0-6c0d44d45f08_01a15acc-56e0-7801-a238-395e69a0b901.jsonl line 3171, message `msg_0359a885ce55f8dd016ad989a96bb88191881c41e5b36e4d06` | C:/CoWork/outputs/b159-verify-2026-10-22/Applied-review.txt | `46386c39de48a2f20cf848cac618536f474333ced8cf5fec17d5475459b8ae6a` |
+| D457-postpush | C:/Users/rober_24syk4j/.codex/sessions/2026/10/21/rollout-2026-10-21T03-31-43-01a1450c-56ae-73a2-95c0-6c0d44d45f08_01a15acc-56e0-7801-a238-395e69a0b901.jsonl line 3330, message `msg_0359a885ce55f8dd016ad990eb49608191a39f865404155cd8` | C:/CoWork/outputs/b159-verify-2026-10-22/D457-postpush.txt | `5a04a29388e91b08e3b8e3872b6da2069bd143385b7d544fd13338359b3f3024` |
+| C1/C2 Level 2 | C:/Users/rober_24syk4j/.codex/attachments/17b5f524-a0d6-480c-bd71-489eab8173db/Pasted text.txt | C:/CoWork/outputs/b159-verify-2026-10-22/C1C2-L2.txt | `8a8166e5117cddf6b50aef4ada037cbf89506c6576980e2a23bbc59b440ea6f8` |
+
+The recovered D-457 post-push receipt is 3,082 bytes and its output_text SHA-256 equals the Judge-supplied
+`5a04a29388e91b08e3b8e3872b6da2069bd143385b7d544fd13338359b3f3024`.
+Its verdict is "APPROVE D-457’s completed push through `4f451e3`."
+No newline, normalization or summary was substituted in the retained extraction.
+
+| Supporting original evidence | Full SHA-256 |
+|---|---|
+| C:/CoWork/outputs/lane-a-sr3c-draft-2026-10-21/SR3-CONSOLIDATED-DRAFT.r3.md | `91a234c58f744e657c0ad92e5bc9c54764f6050a73d3229838cef99d00678e5b` |
+| C:/CoWork/outputs/lane-a-sr3c-draft-2026-10-21/match-evidence.r2.json | `0dd6dfc9e8265f2c864770879d2097557cb1279d117b445f18fdf1726514d285` |
+| C:/CoWork/outputs/lane-a-b159-disp-2026-10-22/JUDGE-B159-DISPOSITION.md | `112b4bea55ba5af835af51ed266d2e6a4430a927b28c03f3abd359c4998d00bc` |
+| C:/CoWork/outputs/lane-a-d455-2026-10-22/JUDGE-OPTION-A.md | `a0549fdaf86511062388a617e6a0c6ee76aaf59e47273cee0e21ad9812cc9abc` |
+| C:/CoWork/outputs/lane-a-d457-2026-10-22/JUDGE-D457-RELEASE.md | `79e0d4248b37c9d63ba8f4e7955502cd2e285eaff167225b750c7e574ca44b5f` |
+| C:/CoWork/outputs/lane-a-push-d456-2026-10-22/ls-remote-post.out | `d170da99b7dd4a170b7dd5afe7484b4c9b6c5be3ad679d61dbacad1ff6a709a9` |
+| C:/CoWork/outputs/lane-a-push-d456-2026-10-22/push.txt | `aa6d36cef267b211ca54ed3544e6444e45feb867aa6a8da71e41b39c66c13be1` |
+| C:/CoWork/outputs/lane-a-push-d457-2026-10-22/ls-remote-post.out | `75a58fd4abf7ed8bc6fe83d9f16e0bc2130eb81a3ec4045d1a468e8d188899fb` |
+| C:/CoWork/outputs/lane-a-push-d457-2026-10-22/push.txt | `15fdaccb5b84e629f94cd18ede80f6451cbe8917320756293c5392d3ce5bfae6` |
+| C:/CoWork/outputs/lane-a-push-d457-2026-10-22/verify-reconcile.txt | `93656b0d6d9c400407f39846416df79ce1a944af38de4fe11d57e1e2d2b36bb9` |
+
+The complete retained evidence inventory at `C:/CoWork/outputs/b159-verify-2026-10-22/evidence-inventory.json`
+(SHA-256 `ba0f6736dfdc5334f653c1540eed11ec90dd939eb4116a523e9fa9acdc52890c`)
+maps original locators to byte-preserved copies and full SHA-256 hashes, including correction/answer/disposition checks,
+commit proof, push manifests, Trace2 logs, timestamps and actual exit codes.
+`C:/CoWork/outputs/b159-verify-2026-10-22/finding-correction-proof.json`
+(SHA-256 `a9afe60b4d5c2ad2bbb263410d87db6db51ead6e8b7ad96e84d789eccce1f7a0`)
+records the independently matched 19 edits and their block hashes. `receipts.json` retains the extraction locators.
+
+D-456's observed server tip is `506d7b5c87946afaff992f1be294d98c6348b2ea` after its nine-commit push.
+D-457's retained post-push server observation, 2026-10-22 12:22:07–12:22:10 +0800, is
+`4f451e3d6352a2757f699794381635faa38fff1a`. Explicit non-force refspecs, exit 0 push/server reads, manifests and local reachability
+support preservation of all eleven commits in `1adb938..4f451e3`. These are retained observations; no fresh remote
+query, fetch or push was performed in this verification.
+
+### Conclusions, exclusions and follow-up
+
+The six B-159 findings and approved F3-a/F3-b corrections satisfy the scoped verification conditions.
+Status remains Answered; Resolution is now Verified, signed by Codex (Lane B) against the examined baseline above.
+The Lane A answer field and all historical body text are unchanged; the existing Evidence text is preserved before
+its added reference. Current recording checks, actual exits, tested HEAD, context, changed paths, hashes, hook and
+tested/staged/committed proof are retained externally in `C:/CoWork/outputs/b159-verify-2026-10-22/`; no historical check substitutes for them.
+Only docs-drift may fail; every other failure, skip or startup failure stops the recording unit.
+
+Prior coverage records are unchanged. Previously delivered coverage is the eleven commits through `4f451e3`.
+This verification candidate has no commit ID; its actual recording commit is added to a new external coverage receipt
+only after creation, as newly pending and local-only. Any later push-authority commit stays prospective.
+No remote preservation of this new record is claimed. External drafts, evidence and transcripts remain outside this
+Git preservation scope. Stop after the local recording commit for independent review of that commit.
+
+F3-c remains outside this scope, deferred under B-158 F03; B-158 F03 is not complete. U-C stays held.
+J1/D-440 and J2/D-441 remain separately registered and both transfers stay held. B-136 and D-439 remain Open.
+This record establishes no project-wide DoR/DoD attempt completion, operational runner/CI/hosted result, construction
+readiness or phase closure. No install, activation, construction, attempt release, transfer, graph prepare or resume,
+publication, baseline naming, Gate 2 closure, fetch or push is released. All other holds remain unchanged.
+
+| Item | Verdict | Follow-up phase |
+|---|---|---|
+| Six findings and F3-a/F3-b at the examined baseline | Approve | Independent substantive verification complete |
+| This local verification recording commit | Defer | Independent review after normal hooks and commit proof |
+| Newly pending record's remote preservation | Defer | Separate Judge push authority and remote-proof unit |
+| F3-c | Defer | B-158 F03's existing route |
+| U-C, separate J1/J2 transfers and remaining holds | Defer | Existing release checkpoints; unchanged |
