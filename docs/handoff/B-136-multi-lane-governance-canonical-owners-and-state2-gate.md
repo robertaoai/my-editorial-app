@@ -22210,3 +22210,73 @@ needs.
 
 U-C stays held. J1 (`D-440`) and J2 (`D-441`) remain separately registered; both transfers stay held. All other holds are
 unchanged.
+
+## Lane A — U5 three-ref server observations: results (`D-461`), 2026-10-22
+
+Filed under the Judge's decision "Judge decision — release U5 result filing against 7c8920c" (retained as
+`C:/CoWork/outputs/lane-a-u5-filing-2026-10-22/JUDGE-U5-FILING-RELEASE.md`, SHA-256
+`290a598ba406f7b66400338b861df9e85833cc192a4c6be06f151f7ae37a0a83`; Lane A transcript
+`417d4ead-c5b7-481e-b141-3a8989ce9446.jsonl` line 9774), which accepts Lane B's review of the observations (Lane B
+session
+`C:/Users/rober_24syk4j/.codex/sessions/2026/10/21/rollout-2026-10-21T03-31-43-01a1450c-56ae-73a2-95c0-6c0d44d45f08_01a15acc-56e0-7801-a238-395e69a0b901.jsonl`
+line 4769, message `msg_0359a885ce55f8dd016ad9da2fb80481918ea3bc30e80b04cb`, retained as `LANE-B-U5-ACCEPTANCE.txt`,
+SHA-256 `e4f82fec311d331fe94280aa0cacdc894c09da55dd2ee73924e6fe65971773dc`). This is a result filing only. Everything
+above it in this entry, including earlier dated observations, is unchanged history.
+
+### What happened
+
+**Authority and interval.** `D-461` (Gr, commit `7c8920c12e08ad474c3a83c638a2323700c9a6bd`) recorded the authority. The
+Judge's separate U5 execution release (`JUDGE-U5-RELEASE.md`, SHA-256
+`9646b2aa619e478f3c8a3fe51267ec2aa9e4194514a8220ae9d78d6678cc0918`; transcript line 9719) released the observations.
+Clearance used the retained operator confirmation
+(`C:/CoWork/outputs/lane-a-d448-2026-10-21/FREEZE-CONFIRMATION.md`, SHA-256
+`d067b2448f15ef0bf2254afb7b21ce2a1c66dfd8d14e3a9b5e0a3399679db88a`); no later prepare, resume or SR-5 evidence and no
+guard lock or transaction journal was found. The gates completed at 2026-10-22T09:35:17Z, before remote contact. Graph
+metadata (`lifecycleEvent: null`) was recorded as context only, not as clearance.
+
+**Observed server tips** (remote `origin`, `git@github.com:robertaoai/my-editorial-app.git`; checkout
+`C:/robertaoai/my-editorial-app` at HEAD `7c8920c`; all times UTC on 2026-10-22):
+
+| Ref | Command | Observed | Exit | Returned |
+|---|---|---|---|---|
+| `refs/heads/main` | `git ls-remote --exit-code origin refs/heads/main` | 09:35:26.433–09:35:29.206Z | 0 | one line: `53ace36c2df17eed9e475ea7dbda737367bed90e refs/heads/main` |
+| `refs/heads/docs/journal-2026-08-16` | `git ls-remote --exit-code origin refs/heads/docs/journal-2026-08-16` | 09:35:29.976–09:35:32.810Z | 0 | one line: `9b2ddf3b0aa8b813712b2b594d87916231841d6a refs/heads/docs/journal-2026-08-16` |
+| `refs/heads/preflight/sv2-u02` | `git ls-remote --exit-code origin refs/heads/preflight/sv2-u02` | 09:35:33.542–09:35:36.294Z | 0 | one line: `5ddf17c190cdb3f9d38e99fb35594a9e38f0eed0 refs/heads/preflight/sv2-u02` |
+
+Each stderr held only SSH's known-hosts notice for `github.com`.
+
+**Reconciliation.** `main` and `preflight/sv2-u02` matched their local branches. The journal tip matched the cached
+tracking ref `refs/remotes/origin/docs/journal-2026-08-16`; no local journal branch exists. All three objects were
+available locally; nothing was fetched. HEAD, the clean tree, staging, every local ref and the Git configuration were
+unchanged (before and after snapshots byte-identical).
+
+**Evidence** (external, under `C:/CoWork/outputs/lane-a-u5-observations-2026-10-22/`, unchanged; SHA-256 verified before
+citing):
+
+| File | SHA-256 |
+|---|---|
+| `JUDGE-U5-RELEASE.md` | `9646b2aa619e478f3c8a3fe51267ec2aa9e4194514a8220ae9d78d6678cc0918` |
+| `receipts.txt` | `cd44c8388ad0a9531a3bb21ac3181fe9251edd4be2b4ea92ef8836e357f93dea` |
+| `LANE-B-GR-APPROVAL.txt` | `6a692beca04467b313d981f50c0d87509289b70ca630749c15b4493ed6261022` |
+| `gates.txt` | `73fdb8343cc1507afb1800de49061a2c4bb147e063cfcd855a6534c9d57fea85` |
+| `obs1.txt` / `obs1.out` | `35c4118824824aefcebbd5b2efcfd912b3776dbf9ac7eb9be5d54ea4eb4e9798` / `e4b92bec2a85297a18894013755ad335efa4feb3cd4b6d86cf0026133b97021f` |
+| `obs2.txt` / `obs2.out` | `96974f8d12ae9e53bcacc429adc4fccd8a900a1a99e66932e867e1aa4c92ffcd` / `876ff396ed66bdaef973f79349176bc604e05d1dd7f70c257b86156037b29fc9` |
+| `obs3.txt` / `obs3.out` | `adc9592b08f59f4e7414f5765cae73adb3af98999a735d3b0838263028fbe671` / `6e68cfaac22fda286e85988e7d8c8e62af097d599dec5aa54d85f07d97713dcc` |
+| `obs1.err`, `obs2.err`, `obs3.err` (identical) | `67e256425f35ccb1ee79d33d4665386660b5c5e402180fe91e03a0584927c407` |
+| `reconcile.txt` | `0f51b0a635e34a20f5f8dade7fe0c65b158db50c9de3edd39d51b8a07bf37a21` |
+| `refs-before.txt` = `refs-after.txt` | `1cc75ff39d4708b719e66a3ecf5e7449ca0e6004a524b5ffbdba52dc48f9a26b` |
+| `config-before.txt` = `config-after.txt` | `44eee60a0b74f7b3b3ec587778fd9f4678c3ce8397b6b34456d1b2b9f9a29710` |
+
+### What you need
+
+Lane B's independent review of this filing. Push, SR-5, the fresh pin and the Route H answer in B-158 need their own
+releases.
+
+### What you did instead
+
+- These were three separate observations at their recorded times. They are not an atomic snapshot and do not prove the
+  server state after 09:35:36.294Z.
+- They did not deliver G0–Gr (`6b5c795`, `17a40e4`, `94e3497`, `7c8920c`) and do not refresh the feature branch's
+  retained remote proof (`ea241bdc34a72c0ab403f6b5b2a8942ef1638d7e`, 2026-10-22T05:29:58–05:30:01Z).
+- B-136 stays **Open**; its header is unchanged. No parent-level `Verified` is recorded, `D-439` stays Open, and the
+  B-158 Route H answer is not filed. External evidence, drafts and transcripts are not preserved by any push.
