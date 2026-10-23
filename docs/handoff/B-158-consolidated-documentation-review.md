@@ -687,3 +687,101 @@ SHA-256 `c0f052e3a192d64c01e51983fc03869954debc0ed44ab4545f58d06c341eced0` (copy
 | **Defer** | J1 registration; J2 registration (separate) | Judge | U0, before packet binding |
 | **Defer** | Routed F05–F09 and proposal obligations | Owners named in the `8803ae2` answer | Their stated phases |
 | **Reject** | Closure of B-158, B-136 or D-439, or any execution, push or hold release inferred from this correction | All actors | — |
+
+## Lane A — Route H answer after the accepted SR-5 cycle (`D-463`), 2026-10-23
+
+Filed under the Judge's decision "accept SR-5 work-r2 and release only Route H's B-158 answer" (retained as
+`C:/CoWork/outputs/lane-a-route-h-2026-10-23/JUDGE-ROUTE-H-RELEASE.md`, SHA-256
+`a70ce652df8800535f782ae719e3a51366f18906e1fc9463ac9a686a90fba042`; Lane A transcript
+`417d4ead-c5b7-481e-b141-3a8989ce9446.jsonl` line 11642), after Lane B's independent post-state review (Lane B session
+`C:/Users/rober_24syk4j/.codex/sessions/2026/10/21/rollout-2026-10-21T03-31-43-01a1450c-56ae-73a2-95c0-6c0d44d45f08_01a15acc-56e0-7801-a238-395e69a0b901.jsonl`
+line 7093, SHA-256 `c09c3c4b54eb51a0d5fb6e4f8e349579d311f7d4fb87aa2741f9fdc1e51a0946`). Read at H
+`4147f81d09d3411db5ade14f2ebe723bb5fca7fd`. Planning input: Lane A's revision-2 answer draft,
+`C:/CoWork/outputs/lane-a-b158-answer-draft-2026-10-23/B-158-LANE-A-ANSWER-DRAFT.r2.md`, SHA-256
+`e0d824fddaa8f32582d6aea23a6b44dd15c72c8be77e07a61884ec215451e25f`, adapted to the current accepted state. Its old baseline,
+pending decisions and holds are not restated as current facts. This entry is append-only; its header and every earlier
+section, Lane B's findings and the independent-review fields are unchanged. It applies no proposed correction.
+
+### What happened
+
+**1. Completed steps.**
+
+| Step | Result | Evidence |
+|---|---|---|
+| P0 | The Judge accepted Lane B's clarification addendum at planning scope, with Lane A's revision-2 answer | Revision 2 above; Lane B review in the Lane B session, line 5294 |
+| P1 | The Judge selected authority before the source pin | Same decision; Q packet revision 2 (SHA-256 `6d3b1adf63813e85b284a442a4eb66fbbf5a3599cf83048c48c113d975a149c9`) |
+| Q | Register entry `D-463` recorded at `46e6e6af7ddf0d20084bd5dcdaa03c0ee9ced98a`; Lane B reviewed it | `D-463` (§5.14e286) |
+| Pin | S = Q `46e6e6a`, tree `a3ee8aab642ac3614a69013bf1654c83c72f8cc6` | The Judge's cycle release |
+| First cycle | Work `8eb561b4-05c3-48af-9dae-d34ac3cbe066` failed at resume (guard exit 4, serialized-text refusal); kept as evidence, not resumed | `C:/CoWork/outputs/lane-a-sr5-q46e6e6a-2026-10-23/work` |
+| Second cycle | Work `44c9660f-abc1-4aa6-b0be-48fdffba5dfb` prepared ready with reviewed answers r4 | `…/work-r2/STATE.json` |
+| Request R | B-136 candidate request `6f40f4c361c0e39825ed67f2db57f31898ce8867` | B-136 |
+| Receipt K and annotation N | Lane B's B-050 acceptance `5a0e1289f22da2c9fa25131052fdd1a0919f28c0` and separate annotation `af5edd0138480685fb278fb852e8f66da28c3e84`; independently reviewed by Lane A | B-050 |
+| Publication | Guarded publish citing K: released, run `7f11b264-4506-413a-9d46-0c3dc9f6fdb3`; live graph `6ae2cb5842026f264a2ba5b872d53fbc522c4786f0df02a4decbd9e4b9ad16b4`, digest `f18f411d79f4f9878b48a79577a136f0018a412199acc33352d6877e92182947` (583 files) | Release receipt `release-7f11b264-…json` |
+| Full health and H | 19/19 checks, exit 0, twice; fragment parity 139/139; health record H `4147f81` | B-136 |
+| Acceptance | The Judge accepted this SR-5 cycle (only), after Lane B's post-state review; Route H released | This entry's authority |
+
+**Authority reading.** `D-183` items 1–2 recognize an expressly authorized direct Judge instruction pending durable
+registration, and item 5 then records it. For SR-5 the operative order came from `D-451` item 5 and the SR-5 holds in
+`D-459` item 4 and `D-462` item 8: Q recorded, Q reviewed, fresh pin S = Q, then a new cycle release.
+
+**2. F03 — three separate completions.**
+
+| Part | What completed | Evidence |
+|---|---|---|
+| F3-a, F3-b (CI-skip wording) | Source corrections | C2 `c306abe` under `D-453` (B-159) |
+| F3-c (graph-fragments README line 60) | Source correction | G2 `94e3497`: `D-459` selected it, `D-460` bounded it, `D-462` delivered it to the server |
+| Graph synchronization | The published graph is built from S, which contains G2; governed drift since `c8177fe` is cleared | Accepted SR-5 cycle (H) |
+| Receiving answer | This entry | — |
+
+F03 is not the pasted review's retention finding (its F3, the 5-year example at `Modular_PRD.md` lines 755–756). That
+finding stays separate under Proposal 2 (table below).
+
+**3. C6(b) — timing correction for `8a79786`.** The provenance correction against `72cb96c` (commit `8a79786`), section 4,
+says that its check log and content comparison "exist only after the commit". That is corrected: the check log for
+`8a79786` was created **before** the commit. It records 19/19 passed, exit 0, at HEAD `72cb96c` with the final working
+changes. The retained comparison confirms the tested, staged and committed B-158 blob
+`f2987b7f3b64c60e32caf3c288e200f99204bdb5`. It was not a separate post-commit check. Evidence:
+`C:/CoWork/outputs/lane-a-b158-repair-2026-10-19/check-b158-provenance-72cb96c.log` (SHA-256
+`84f432b7c5b9e7ee439727f07bc6868ef62b7b9cc26d3e60f32ba8a7458c5aa3`) and
+`C:/CoWork/outputs/lane-a-b158-repair-2026-10-19/content-comparison-provenance.json` (SHA-256
+`4d029d3cfd055ed281a2e959a566001a220a048107477511b3f489e3cff5c914`), both rehashed for this entry. The same facts were
+reported in B-136 section 7 (the `8a79786` reporting correction) and listed as C6 in B-136's later correction table. This
+filing discharges C6(b). The earlier text stays as written.
+
+**4. J1/J2 — dated pointer.** The answer against `8803ae2` (section 6) and the provenance correction (section 3) record J1
+and J2 registration as UNDECIDED. That was true on 2026-10-19 and stays as history. Since then, `D-440` and `D-441`
+(recorded together at `2bf36d5`) are separate approval records for J1 and J2. Both custody transfers remain held. Neither
+record implies the other.
+
+### What you need
+
+**Remaining findings — owner, dependency, trigger, evidence, acceptance gate.** Existing routes are reused; no new record
+is created.
+
+| Item | Owner | Depends on | Return trigger | Required evidence | Acceptance gate |
+|---|---|---|---|---|---|
+| F01 (EV hold) | Lane A | B-136's EV route and `D-439` | B-136's authorized sequence | Accepted replacements in B-136's route | B-136's own gates |
+| F02 and pasted F1, F2 (reading rule; §2.2d pointer; `C-31`; `config-coupling` wording) | Lane A answers; Lane B reviews | Judge selection of the documentation unit U-DC and its check route | That selection | Exact old-to-new text bound at one baseline; D-54 table; two checks under the chosen route; diff | Lane B Level 1, Lane C Level 2, then scoped acceptance |
+| Proposal 2 and pasted F3, F4 (§6.3 retention example; §6.1 stack row) | Same | Same unit U-DC | Same | Same; `AC-12a` itself is not re-edited (already corrected under `D-404`) | Same |
+| Handoff template line 13 (`Resolution` placeholder) | Lane A | U-DC selection, as a separate commit | Same | Exact one-line diff; `channel-docs` and `handoff-response` pass | Same |
+| F04 and portable evidence (custody, P6) | Judge | A consuming external review | The next external review bundle | Selected artifacts with owners, receipts and adoption status | Judge decision |
+| F05 (runtime metadata) | Lane A routes; Lane B implements | B-106 Follow-up-Tier (a) | A named Judge work order and Lane B Active | Registry `RATIFIED` with citations; independent verification | Its work order |
+| F06 and pasted F5 (ManualReady mechanism) | Lane A (scope); Lane B (mechanism) | SM06 entry prerequisites | SM06 DoR review | SM06 DoR evidence | SM06 gates |
+| F07 (publication timing and recovery) | Lane A; Lane B (V2) | Judge selection of automated-publication scope | That selection | B-078 Child 4 evidence | Its unit |
+| F08 (hosted migration and CI) | Per receipt `SM06-P3-01` to `-06` | Accepted SM05 DoD and the baseline-promotion PR | Each Phase 3 work order | Each receipt's completion proof | Phase 3 gates |
+| F09 (Entry 04; trend scoring; `CR-06`; exceptions) | As in the `8803ae2` answer, section 5 | Their stated triggers | Same | Same | Same |
+| Proposal 1 (navigation) | Lane A | U-DC | U-DC selection | Pointer-only edits resolving to current owners | U-DC gates |
+| Proposal 3 (operational evidence) | As routed in the `8803ae2` answer | Its three parts' triggers | Same | Same | Same |
+| Gate 2 tracker re-derivation (U-TR) | Lane A; Lane B reviews | Judge selection and its check route | That selection | B-158 classified in SV-002 §2.3.1; downstream owners kept | Lane B review; accounting neither fails nor clears Gate 2 by itself |
+
+Lane B's independent review of this answer. B-158 intake and routing can be dispositioned only when every item above has
+an accepted owner, phase, trigger and proof; that does not close the receiving units.
+
+### What you did instead
+
+- Applied no correction, made no Register entry, created no tracker and promoted no closure. B-158 stays **Open**; its
+  header is unchanged. B-136 and `D-439` stay Open.
+- Deferred: unselected corrections (U-DC, U-TR), U3-W, U4, P6, installation, transfer and every other held unit. U-C
+  stays held. J1/`D-440` and J2/`D-441` stay separate; both transfers stay held. work-r3 stays unaccepted.
+- Coverage: 19 historically delivered commits through `e62ee4a`; Q, R, K, N and H pending; this commit joins when
+  created. No push or remote contact. External evidence is outside Git preservation.
