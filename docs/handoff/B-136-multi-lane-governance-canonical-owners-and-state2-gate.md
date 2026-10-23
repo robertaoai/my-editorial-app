@@ -22346,3 +22346,60 @@ in B-050, then a separate terminal annotation. On a finding, publication stops.
   separate with both transfers held.
 - This commit is a handoff-only fast-forward of S. Coverage: 19 historically delivered commits through `e62ee4a`; Q
   pending; this commit joins coverage when created.
+
+## Lane A — SR-5 work-r2 published and healthy at S = `46e6e6a` (`D-463`); request for Lane B's independent post-state review, 2026-10-23
+
+Filed under the Judge's decision "Judge decision: release SR-5 work-r2 publication and its bounded full-health sequence
+under D-463" (retained as `C:/CoWork/outputs/lane-a-sr5-publish-2026-10-23/JUDGE-PUBLISH-RELEASE.md`, SHA-256
+`b5e6b5a136600d9fd864c95b1ca085e2e2df2c0409f603b98d0e4facf9aa544b`), which accepted Lane A's independent review of receipt K
+and annotation N (`LANE-A-K-N-REVIEW.md`, SHA-256 `35f9c11a07c0ae9f6540b61ff32649b62b8261bd82935500aed112596ae3a337`). This is
+the cycle's fourth and last authorized handoff commit. It records health; it does not accept the cycle.
+
+### What happened
+
+**Bindings.** Source S `46e6e6af7ddf0d20084bd5dcdaa03c0ee9ced98a`; work `44c9660f-abc1-4aa6-b0be-48fdffba5dfb`
+(`C:/CoWork/outputs/lane-a-sr5-q46e6e6a-2026-10-23/work-r2`); request R `6f40f4c361c0e39825ed67f2db57f31898ce8867`; Lane B
+receipt K `5a0e1289f22da2c9fa25131052fdd1a0919f28c0` and separate annotation N `af5edd0138480685fb278fb852e8f66da28c3e84`
+(B-050). K was received through Lane B's direct delivery, not written by Lane A.
+
+**Pre-publication gates (2026-10-23T08:34:40Z).** HEAD = N, clean, Lane A Active; R → K → N chain; STATE `ready`; K's record
+valid by the guard's rules (read-only re-check); candidate 583 files recompute to `f18f411d…`; live state equal to the
+baseline `5261008f…`; guard-bound refs changed only by the authorized handoff fast-forwards; configuration and every ref
+outside `refs/codex/turn-diffs/` unchanged; linked worktrees `5ddf17c` and `1945c19`; no lock or journal. The failed
+predecessor (`…/work`) is preserved.
+
+**Publication.** `node scripts/graphify/guarded-rebuild.mjs publish --work C:/CoWork/outputs/lane-a-sr5-q46e6e6a-2026-10-23/work-r2 --review 5a0e1289f22da2c9fa25131052fdd1a0919f28c0`
+(K, not N), 08:35:11.195Z–08:35:21.848Z: **exit 0, "released"**, "published: live equals the reviewed manifest", run token
+`7f11b264-4506-413a-9d46-0c3dc9f6fdb3`. Release receipt `release-7f11b264-4506-413a-9d46-0c3dc9f6fdb3.json`: source S,
+publication head N, reviewed manifest `f18f411d…`, acceptance locus K (B-050 lines 7824–7847, blob `c0e69cb1…`),
+predecessor `ca4b6f2a…` / `5261008f…`.
+
+**Full health (after publication).**
+
+| Check | Result | Evidence (`C:/CoWork/outputs/lane-a-sr5-publish-2026-10-23/`) |
+|---|---|---|
+| Live graph = accepted | **equal**, `6ae2cb5842026f264a2ba5b872d53fbc522c4786f0df02a4decbd9e4b9ad16b4` | `health-live-parity.json`, `7d77ee7a014062cf06289c373337d34855ec2dc3f9c48ebeaf384ca4134d5ecf` |
+| Live full-state digest = accepted | **equal**, `f18f411d79f4f9878b48a79577a136f0018a412199acc33352d6877e92182947`, 583 files, by the guard's release-chain selection (locus K) and an independent recomputation | same |
+| Fragment parity (guard) | **139 / 139 exact**, no diffs | same |
+| `merge7.js <fragment> --verify-only` | **139 PASS**; the three detect manifests (`docs-fragment`, `docs-fragment2`, `docs-fragment4`) refuse as the README documents; live graph not written | `merge7-verify.log`, `2d28be8a9db5649051c03ca79b7c6eff6632d82c95a36245024af4f01de494f5` |
+| Name binding | **0 findings**; 178 labels, no duplicate; answers r4 applied 419/419 descriptions, 88/88 names | `health-live-parity.json` |
+| Branch record | `lastAnalyzedHead` S, `stale: false`, no lifecycle event | same |
+| Journal / lock | **none / none** | same |
+| `graphify check-update` | notice "built from `46e6e6a` but HEAD is `af5edd0`"; the gap is R, K and N, each touching only `docs/handoff/`: **not drift** (G-F3-9, `D-426`) | `check-update.out`, `e58152fd42b4560dc68912f3db93a0770c31f389ccf5889f5f1f9f397cd2707b` |
+| Consistency suite, two complete runs | **19/19, exit 0, no skip**; `docs-drift`: "synced (governed intent) at `46e6e6a`; HEAD `af5edd0` advanced by excluded-only commits" | `health-check-run1.log` = `health-check-run2.log`, `d532f6f02ab5abddecb599da5ee599ca0988416dca78144546fbfb6e848e0bca` |
+
+Producer projections were checked by the guard at preparation; the published bytes equal those prepared bytes. Two commit
+nodes (`7acac90`, `b66de8f`) carry no description, inherited from the baseline.
+
+### What you need
+
+Lane B's independent review of the published state and this full-health evidence. The Judge accepts the cycle's outcome
+separately. Route H (the B-158 answer), installation, transfer and push each need their own release.
+
+### What you did instead
+
+- `D-463`'s governed drift from `c8177fe` is cleared at S. All pre-publication check exceptions ended at publication.
+- No fetch, push, transfer or installation. No Register commit. B-136 stays **Open**; its header is unchanged. `D-439` stays
+  Open. U-C stays held. J1/`D-440` and J2/`D-441` stay separate with both transfers held. work-r3 stays unaccepted.
+- Coverage: 19 historically delivered commits through `e62ee4a`; Q → R → K → N pending; this commit joins when created.
+  External evidence is outside Git preservation.
