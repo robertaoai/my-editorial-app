@@ -7852,3 +7852,12 @@ U-C stays held. J1/D-440 and J2/D-441 remain separate, with both transfers held.
 | Receipt K and separate annotation N | Approve-with-conditions | Two checks each, commit proof and independent review |
 | Publication, full health, Route H and push | Defer | Their separate releases and gates |
 | U-C, separate J1/J2 transfers and all other holds | Defer, unchanged | Existing checkpoints |
+
+
+## Terminal annotation record
+
+- **Current-Resolution:** Verified
+- **Annotation-Type:** verification-evidence
+- **Annotation-Act:** D-463 item 5 and the Judge's direct bounded B-050 recording release, executed independently by Codex (Lane B). This separate record-only commit covers receipt 5a0e1289f22da2c9fa25131052fdd1a0919f28c0, work 44c9660f-abc1-4aa6-b0be-48fdffba5dfb, graph 6ae2cb5842026f264a2ba5b872d53fbc522c4786f0df02a4decbd9e4b9ad16b4, manifest f18f411d79f4f9878b48a79577a136f0018a412199acc33352d6877e92182947 (guard-treeDigest-v1, 583 files), analyzed source 46e6e6af7ddf0d20084bd5dcdaa03c0ee9ced98a, request 6f40f4c361c0e39825ed67f2db57f31898ce8867. B-050's terminal header, Resolution and Lane A answer remain unchanged; no scope is reopened. This ends only the authorized temporary terminal-return interval. Lane A must receive K directly from Lane B and use that receipt commit, never this annotation, in any later separately released publication. Publication, full health, Route H, transfer and push remain held. U-C remains held; J1/D-440 and J2/D-441 remain separate with both transfers held; B-158, B-136 and D-439 remain Open; all other holds and accepted decisions are unchanged. The failed predecessor and work-r3 remain untouched. Check and commit evidence is retained at C:/CoWork/outputs/lane-b-sr5-b050-work-r2-2026-10-23. Normal hooks remain enabled.
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** 5a0e1289f22da2c9fa25131052fdd1a0919f28c0
