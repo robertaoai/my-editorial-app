@@ -7794,3 +7794,61 @@ Final review: final-review.json SHA-256 a76b8cf3dd8c36c54f66a677a9dd925f5ebb1d73
 - **Annotation-Act:** D-438 item 5, this replacement guarded cycle only, and the Judge's explicit S5 recording approval of 2026-10-16. This immediately following one-file record-only commit covers Lane B's independent receipt at ca4b6f2a01c10b754a7fa3229e3a092615777a03, work de0b98e0-fa03-4b9d-8847-bd65907002cb, graph fa5550398869b0165bbac742180b4902f387a902762a321d1302ba25a1c420ee, manifest 5261008fe6d7fda71594d078eedc705fab86bbe4faa8b4a6ffdb665a9de00134 (guard-treeDigest-v1, 583 files), analyzed source c8177fe4a2af42e39edc4bb0a050c4d0bd2c0d04. B-050's terminal header, Resolution and Lane A answer remain unchanged; no scope is reopened. This ends the authorized temporary terminal-return interval. Its full configured check is retained at C:/CoWork/outputs/lane-b-d438-s5-review-2026-10-16/check-receipt-interval.log, SHA-256 7a119c98d07c5ac730a8ec7f98798a66ebde9020e4868beb228c7a8db21c1554; only docs-drift and terminal-return failed. Receipt validation is retained at receipt-validation.json, SHA-256 a08a2068785a35cf66fb0e72f95248c2773f0abacc75112f752eff2ad5134600. Lane A uses the receipt commit, not this annotation commit, as --review under the existing D-438 publication approval, rechecks all bindings and records separate S7 health in B-136. No fetch or push before that health record; a later push needs its own exact-range authority. The superseded c5b3cafa candidate remains unaccepted. Earlier units' exceptions are not reused. Normal hooks remain enabled. No construction, lane activation, SM05 selection, Gate 2 closure or root disposition follows.
 - **No-Scope-Reopened:** true
 - **Annotated-At-Commit:** ca4b6f2a01c10b754a7fa3229e3a092615777a03
+
+
+## Lane B — D-463 SR-5 work-r2 candidate accepted, 2026-10-23
+
+### What happened
+
+The Judge directly released Codex (Lane B) to record this independent receipt and its separate annotation. Lane B accepts the exact candidate bytes and meaning reviewed at request R 6f40f4c361c0e39825ed67f2db57f31898ce8867, analyzed source S 46e6e6af7ddf0d20084bd5dcdaa03c0ee9ced98a, under D-463. Lane A prepared the candidate and is the prospective publisher; this acceptance is written and delivered independently by Lane B. The shared Git identity is not its independence proof.
+
+Cycle: 44c9660f-abc1-4aa6-b0be-48fdffba5dfb; folder C:/CoWork/outputs/lane-a-sr5-q46e6e6a-2026-10-23/work-r2; STATE ready, attempt 1, STATE SHA-256 bd9d8682c68092ffdb1c09fdb861e3887cbd9053a3296bf53f1c02de1d024dfc. The graph and all 583 manifest files were rehashed before this recording and match the acceptance record below. Baseline release locus ca4b6f2a01c10b754a7fa3229e3a092615777a03 and digest 5261008fe6d7fda71594d078eedc705fab86bbe4faa8b4a6ffdb665a9de00134 remain unchanged.
+
+Lane B's retained exact-byte review found all 419 supplied descriptions and 88 supplied names applied correctly; complete-member-set labels, all 142 curated fragments, producer projections, selection and provenance passed. Two undescribed historical commit nodes were inherited from baseline. Historical per-call input validation rests on retained guard execution and reviewed code; separate before/after snapshots for every child call are not retained. Current frozen clones reproduce the selections. The work-r2 bindings supersede the old guide's failed-cycle entry/resume instructions; no preparation or resume is performed here.
+
+B-050's terminal header, Resolution and Lane A answer are unchanged. No scope is reopened. This receipt accepts the candidate, not publication, live synchronization, full health or cycle completion. Source S remains Q; receipt and annotation are excluded handoff-only fast-forwards. The failed predecessor and its evidence remain unchanged.
+
+### What you need
+
+1. Lane B adds a separate record-only terminal annotation naming this receipt's actual full commit ID. D-463 item 5 and the Judge's bounded release permit only docs-drift and the receipt-specific temporary terminal-return finding for two complete receipt checks. The annotation must clear terminal-return; only docs-drift may remain in its two checks. Retain actual results and never report the exception as a full pass.
+2. Lane B delivers this receipt commit K directly to Lane A, together with annotation N and both check/commit proofs. Lane A independently re-verifies the bindings, sole parents R -> K -> N, one-file scope and coverage. Any mismatch stops.
+3. Publication remains held for a separate Judge release. Any later publish --review must cite K, never N. Full health and independent post-state acceptance remain separate gates; Route H remains held.
+4. Coverage retains 19 historically delivered commits through e62ee4ac31d49dcefe8a767fb4321b28614eec85 and adds Q, R, K and N as pending only when each exists. The retained server observation is historical, not a fresh read. Later health, receiving and authority commits are prospective. External evidence is outside Git preservation. Any later push or manual fallback needs its own bounded authority and independent review; earlier force approval keeps its original scope.
+
+### What you did instead
+
+Independent exact-byte candidate review, current binding revalidation and this one-file receipt only. Evidence, direct authority/review locators, full configured check results and tested = staged = committed proofs are retained at C:/CoWork/outputs/lane-b-sr5-b050-work-r2-2026-10-23. No install, transfer, prepare, resume, publication, fetch, remote query or push. No lane activation, construction, baseline naming or Gate 2 closure.
+
+U-C stays held. J1/D-440 and J2/D-441 remain separate, with both transfers held. B-158, B-136 and D-439 remain Open. B-159, D-458 and D-462 acceptance stands. work-r3 remains unaccepted and is not resumed. Every other hold remains unchanged.
+
+### F3 acceptance record
+```json
+{
+  "kind": "graphify-f3-acceptance",
+  "version": 1,
+  "disposition": "Accept",
+  "scope": "F3 publication",
+  "reviewer": "Lane B",
+  "workId": "44c9660f-abc1-4aa6-b0be-48fdffba5dfb",
+  "graphSha256": "6ae2cb5842026f264a2ba5b872d53fbc522c4786f0df02a4decbd9e4b9ad16b4",
+  "manifest": {
+    "algorithm": "guard-treeDigest-v1",
+    "digest": "f18f411d79f4f9878b48a79577a136f0018a412199acc33352d6877e92182947",
+    "files": 583
+  },
+  "analyzedSource": "46e6e6af7ddf0d20084bd5dcdaa03c0ee9ced98a",
+  "baseline": {
+    "releaseLocus": "ca4b6f2a01c10b754a7fa3229e3a092615777a03",
+    "algorithm": "guard-treeDigest-v1",
+    "digest": "5261008fe6d7fda71594d078eedc705fab86bbe4faa8b4a6ffdb665a9de00134"
+  },
+  "pendingSemantics": 0
+}
+```
+
+| Item | Verdict | Follow-up phase |
+|---|---|---|
+| Exact work-r2 candidate | Approve | Independent candidate acceptance recorded within these bindings |
+| Receipt K and separate annotation N | Approve-with-conditions | Two checks each, commit proof and independent review |
+| Publication, full health, Route H and push | Defer | Their separate releases and gates |
+| U-C, separate J1/J2 transfers and all other holds | Defer, unchanged | Existing checkpoints |
