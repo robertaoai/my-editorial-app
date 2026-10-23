@@ -30023,3 +30023,67 @@ registers the decision under `D-183` point 5. **Number check:** at `2c250da` the
 | `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `docs/README.md`, `docs/PRD.md`, Charter, `0001`, `Modular_PRD.md`, FN specs, `docs/specs/`, template v1, Phase Closure, `docs/LANE-B-WORK-ORDER.md`, `.claude/`, `scripts/`, application code, build configuration | — unaffected: this entry changes none of their governed content, scope or lane state |
 | **Encyclopedia** | unaffected: `docs/ENCYCLOPEDIA-SYNC.md` identifies no affected local citation entry; hosted parity not claimed |
 | **Graphify** | Governed drift, expected; cleared only by the separately released SR-5 guarded cycle (`D-425`), never by a raw rebuild |
+
+## 5.14e286 `D-463` — SR-5 Cycle Authority: Guarded Graph Synchronization with the Source Pinned to This Entry's Commit; Twenty-Second Intervening Entry Permitted
+
+**Authority:** the Judge's release of Q recording, directly to Lane A, 2026-10-23, in chat (retained as
+`C:/CoWork/outputs/lane-a-q-recording-2026-10-23/JUDGE-Q-RECORDING-RELEASE.md`, SHA-256
+`2b1b76bcf9928b53629a7fd8782f104327201ed82b898fad0fe9c5af19474ea2`; transcript
+`417d4ead-c5b7-481e-b141-3a8989ce9446.jsonl` line 10398), which accepts this
+packet (`C:/CoWork/outputs/lane-a-q-packet-2026-10-23/Q-AUTHORITY-AND-SR5-CONTRACT-PACKET.r2.md`, 16,151 bytes, SHA-256
+`6d3b1adf63813e85b284a442a4eb66fbbf5a3599cf83048c48c113d975a149c9`) after Lane B's review (Lane B session
+`C:/Users/rober_24syk4j/.codex/sessions/2026/10/21/rollout-2026-10-21T03-31-43-01a1450c-56ae-73a2-95c0-6c0d44d45f08_01a15acc-56e0-7801-a238-395e69a0b901.jsonl`
+line 5487, message `msg_0359a885ce55f8dd016adae3b3d178819190ce52e88e28d714`, SHA-256
+`02b7a43f9fe5a45b3abcde831b076ffb2a33a3c56921a592e44ae1116b948c7f`). It
+registers the decision under `D-183` point 5. **Number check:** at `e62ee4a` the last Register entry is `D-462` (§5.14e285); no other occurrence of `D-463`,
+including a forward reference, exists in the repository or its history.
+
+1. **What this entry authorizes.** One SR-5 guarded graph cycle under `D-451` item 5, `D-459` item 4 and the
+   `D-425`–`D-429` procedure, on the conditional contract in the accepted packet (Part B). This entry's own commit is
+   the analyzed source S. **Execution starts only on the Judge's separate cycle release** after this entry is recorded
+   and independently reviewed. That release binds S's full commit and tree IDs.
+2. **Bounded paths.** Repository: `docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md`
+   (Lane A request and health records) and
+   `docs/handoff/B-050-hook-rebuild-resets-graphify-branch-metadata.md` (Lane B receipt and annotation only).
+   Runtime: the live graph `C:/CoWork/myeditorialapp/.graphify` through the guard only. External: one new work folder
+   under `C:/CoWork/outputs/`, named in the cycle release.
+3. **Exclusions.** No other repository path. No Register, canonical-source, tooling, dependency or configuration
+   edit. No install, transfer, fetch, push, raw rebuild, manual copy or guard bypass. No ref change, except that the
+   source branch advances by the four named handoff-only fast-forward commits (Part B, B4). Lane B's post-state
+   acceptance is external; any additional canonical commit needs explicit scope. No construction,
+   baseline naming, lane activation or Gate 2 closure. work-r3 is not resumed. Route H is not filed.
+4. **This entry's own checks.** Two `bun run check` runs on the final candidate. `docs-drift` may be the sole failure.
+   Every other check passes. Any skip, startup failure or other finding stops before commit. Stage only the Register,
+   prove the existing Register is an exact byte prefix, and prove tested = staged = committed. Normal hooks; required
+   identity; never `--no-verify`. Lane B reviews this commit before the cycle release.
+5. **Cycle check scope** (each commit, two runs, full results retained):
+   - B-136 candidate request: `docs-drift` may be the sole failure.
+   - B-050 acceptance record: `docs-drift` and only the `terminal-return` finding caused by that new receipt awaiting
+     its annotation.
+   - B-050 annotation: `docs-drift` may be the sole failure; the annotation clears the temporary finding.
+   - After publication: every required check passes. The pre-publication exceptions end at publication.
+   - Any other failure, skip or startup failure stops the sequence. No earlier unit's exception is reused.
+6. **Independent review gates.** Lane B reviews this entry; the exact candidate bytes; and the published state with its
+   full-health evidence. Lane A uses only the acceptance-record commit that Lane B delivers. A draft, shared identity or
+   message label is not proof of independence.
+7. **Coverage.** `D-462`'s delivery proof through `e62ee4a` stays historical: a retained observation, not a fresh
+   server read. Q and every later source, request, receipt, annotation, health, receiving and authority commit—including
+   any later push-authority commit—join coverage when created. Until then they are prospective: not existing and not
+   delivered. No push is authorized now or
+   inside the guarded interval. A later push needs its own bounded authority, complete bounds and manifest, fresh
+   checks, interval clearance, a server-base read, the approved exact refspec, a server-tip read, reachability and
+   reconciliation. Prior force approval keeps its original scope. A manual preservation fallback needs separate
+   bounded authority and independent review.
+8. **Sequencing amendment.** Item 0 of `D-440` and `D-441`, as amended through `D-462` item 7, is further amended to
+   permit one further intervening Register entry, this twenty-second entry, after `D-462` and before the separate TCA
+   r3 (J3) and J-C A1 entries. J1 and J2 keep their separate identities, text and transfer holds. No further entry is
+   permitted by implication.
+9. **Holds.** U-C held. J1/`D-440` and J2/`D-441` separate; both transfers held. B-158, B-136 and `D-439` Open.
+   B-159, `D-458` and `D-462` acceptance stand. work-r3 unaccepted. Every other hold unchanged.
+
+**Tier applicability (`D-54`):** Register ✅ this entry. Build Spec, Inventory — unaffected: no V1 scope, artifact or
+DoD change. B-136, B-050 — unaffected by this entry; they receive records only in the released cycle. `D-425`–`D-429`,
+`D-451`, `D-459`, `D-428` — applied as written. `D-440`/`D-441` — text unchanged; item 0 amended by item 8. Rule files,
+PRD, Charter, `0001`, `Modular_PRD.md`, FN specs, specs, Phase Closure, work order, `.claude/`, `scripts/`, application
+code, build configuration — unaffected. Encyclopedia — unaffected; hosted parity not claimed. Graphify — governed drift
+expected until this cycle's accepted publication.
