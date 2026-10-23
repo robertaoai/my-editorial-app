@@ -22280,3 +22280,69 @@ releases.
   retained remote proof (`ea241bdc34a72c0ab403f6b5b2a8942ef1638d7e`, 2026-10-22T05:29:58–05:30:01Z).
 - B-136 stays **Open**; its header is unchanged. No parent-level `Verified` is recorded, `D-439` stays Open, and the
   B-158 Route H answer is not filed. External evidence, drafts and transcripts are not preserved by any push.
+
+## Lane A — SR-5 candidate ready at S = `46e6e6a` (`D-463`); request for Lane B's exact-byte candidate review, 2026-10-23
+
+Filed under the Judge's decision "Judge decision — release fresh SR-5 preparation with approved answers r4" (retained as
+`C:/CoWork/outputs/lane-a-sr5-q46e6e6a-2026-10-23-evidence/prepare-r2/JUDGE-FRESH-PREPARE-RELEASE.md`, SHA-256
+`90a028670ed43dc9e9ee9af9116013d0f827b5829231a7875f3daba95d6d8c69`; transcript `417d4ead-c5b7-481e-b141-3a8989ce9446.jsonl`
+line 11138), under `D-463`, after Lane B's approval of answers r4 (Lane B session
+`C:/Users/rober_24syk4j/.codex/sessions/2026/10/21/rollout-2026-10-21T03-31-43-01a1450c-56ae-73a2-95c0-6c0d44d45f08_01a15acc-56e0-7801-a238-395e69a0b901.jsonl`
+line 6244, SHA-256 `0955a2f263d8cc138afc59595f0d4f48e419ca72b07a8c103a1aed0e1a575b78`). This is the cycle's first
+authorized handoff commit (1 of 4). It requests review only. It claims no candidate acceptance, publication or full health.
+
+### What happened
+
+**Source and cycle.**
+
+| Binding | Value |
+|---|---|
+| Analyzed source S (Q, `D-463`) | `46e6e6af7ddf0d20084bd5dcdaa03c0ee9ced98a`, tree `a3ee8aab642ac3614a69013bf1654c83c72f8cc6`; merge base with upstream `e62ee4ac31d49dcefe8a767fb4321b28614eec85` |
+| Work folder | `C:/CoWork/outputs/lane-a-sr5-q46e6e6a-2026-10-23/work-r2` |
+| Work ID (from the guard) | `44c9660f-abc1-4aa6-b0be-48fdffba5dfb` |
+| Command | `node scripts/graphify/guarded-rebuild.mjs prepare --work C:/CoWork/outputs/lane-a-sr5-q46e6e6a-2026-10-23/work-r2 --answers C:/CoWork/outputs/lane-a-sr5-q46e6e6a-2026-10-23-evidence/answers-proposed.r4.json` |
+| Run | 2026-10-23T07:07:02.041Z–07:28:04.653Z; **exit 0, outcome `ready`**; one attempt |
+| STATE | `work-r2/STATE.json`, state `ready`, SHA-256 `bd9d8682c68092ffdb1c09fdb861e3887cbd9053a3296bf53f1c02de1d024dfc`. There is no separate READY file; `STATE.json` carries the ready record |
+| Candidate (staging) | `work-r2/attempt-1/staging` |
+| Graph | `staging/graph.json`, SHA-256 `6ae2cb5842026f264a2ba5b872d53fbc522c4786f0df02a4decbd9e4b9ad16b4` (3,571 nodes, 7,463 links, 178 communities) |
+| Manifest | digest `f18f411d79f4f9878b48a79577a136f0018a412199acc33352d6877e92182947`, 583 files; frozen at 2026-10-23T07:27:52.717Z |
+| Baseline (guard-selected) | release locus `ca4b6f2a01c10b754a7fa3229e3a092615777a03`, `guard-treeDigest-v1` digest `5261008fe6d7fda71594d078eedc705fab86bbe4faa8b4a6ffdb665a9de00134`, 583 files |
+| Tool pins | `cli.js` `9b119afe…`, `index.js` `e232377a…`, `skill-runtime.js` `50e2946e…` (as the guard bound them) |
+| Selection | oracle `ef37db28f82b01ed2b5e13feb45da0094f44415f9141d75b59000a6cc12f4c3b`; branches `features/feature-V1-SM05`, `main`, `preflight/sv2-u02`; final observation 2026-10-23T07:14:04.292Z |
+| Answers consumed | r4, SHA-256 `7ac54654ebc83d8e210f653156ef33938851fbce9f266d22ea5518393542aaa4` (STATE `answersHash`); the guard's stored copy `attempt-1/ANSWERS.json`, SHA-256 `65bbd41207cae3a4ea063af6640fffb54d2dab9cd9cbdf498809de7dd83ec993`, is equal to r4 in content (419 descriptions, 88 names) |
+| Guard output | `prepare-r2/prepare.out`, SHA-256 `146658b48d2c926564f16edce12d4fcc5a44edd7c2912f928f5289cefa09c89e`; stderr empty |
+
+**Semantic evidence (Lane A's read-only comparison of the staged candidate; not candidate acceptance).**
+
+- All 419 answered descriptions appear verbatim on their nodes. All 88 answered names appear in
+  `staging/.graphify_labels.json` (SHA-256 `81fbe91527d2194cdf37a3902c176dd031b3c58b3533b4116c9faccafb9633c2`). The labels
+  file has 178 entries with no duplicate, and every node's `community_name` equals its label (0 mismatches).
+- `staging/missing-desc.json` is empty. Two commit nodes have no description: `7acac90` (`D-287`) and `b66de8f` (`D-307`).
+  Both are present without a description in the guard-selected baseline as well; they are carried state, not new gaps.
+- Applied names are reported here for Lane B's independent verification of complete member sets.
+- Fragment merges, producer projections and composition are the guard's own preparation steps (`sync-docs` SKILL §7).
+  The ready outcome reports them complete. Lane A did not re-run them; Lane B verifies them in its review.
+
+**Provenance.** Answers r4 and its provenance (`answers-provenance.r4.json`, SHA-256
+`4b37df2d647283f28e10b81203d8ef4145bed048aa292d77193627831da58f6b`) record every item's basis. The earlier failed cycle
+(work `8eb561b4-05c3-48af-9dae-d34ac3cbe066`, folder `…/work`, exit 4 on resume) is kept unchanged as evidence.
+
+**Freeze.** Entry gates passed at 2026-10-23T07:06:49Z. After preparation (07:28:57Z): guard-bound heads, remotes and tags
+and the effective configuration are unchanged from the cycle's entry snapshot; refs outside `refs/codex/turn-diffs/`,
+including `refs/codex/snapshots/`, are unchanged; no lock or journal exists; the live graph is unchanged
+(`fa555039…`). Freeze option A applies to `refs/codex/turn-diffs/` for this run only.
+
+### What you need
+
+Lane B's independent exact-byte review of this candidate: bindings; the complete candidate bytes and manifest; fragment
+parity; descriptions; complete community member sets and applied names; producer projections; Git extraction and
+selection; final state; zero unresolved semantics. On acceptance, Lane B records one canonical "### F3 acceptance record"
+in B-050, then a separate terminal annotation. On a finding, publication stops.
+
+### What you did instead
+
+- No B-050 receipt, annotation, publication or push. The live graph is not touched.
+- B-136 stays **Open**; its header is unchanged. `D-439` stays Open. U-C stays held; J1/`D-440` and J2/`D-441` stay
+  separate with both transfers held.
+- This commit is a handoff-only fast-forward of S. Coverage: 19 historically delivered commits through `e62ee4a`; Q
+  pending; this commit joins coverage when created.
