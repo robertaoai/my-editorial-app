@@ -30087,3 +30087,83 @@ DoD change. B-136, B-050 — unaffected by this entry; they receive records only
 PRD, Charter, `0001`, `Modular_PRD.md`, FN specs, specs, Phase Closure, work order, `.claude/`, `scripts/`, application
 code, build configuration — unaffected. Encyclopedia — unaffected; hosted parity not claimed. Graphify — governed drift
 expected until this cycle's accepted publication.
+
+## 5.14e287 `D-464` — Push Authority for `e62ee4a..D-464`: Q, the Accepted SR-5 Cycle Records, Route H and Their Authority Commit; Twenty-Third Intervening Entry Permitted
+
+**Authority: the Judge, directly to Lane A, 2026-10-23**, in chat: "Judge decision: record and push the complete six-commit
+range through RH, plus its authority commit A" (retained as `C:/CoWork/outputs/lane-a-d464-2026-10-23/JUDGE-D464-RELEASE.md`,
+SHA-256 `aa79178c0b92b79e2818d617683496094e9b402b1b4ee9c325e6ad0d07e19af7`; transcript
+`417d4ead-c5b7-481e-b141-3a8989ce9446.jsonl` line 11737). This direct decision is the release; Lane B's draft of it
+(`DRAFT-LANE-B-JUDGE-D464.txt`, SHA-256 `61fbc3b955e18e8a44c1bf08df829ef13f20e6af7f6ea4a80a52da911dd59d2d`) is not. It
+registers the decision under `D-183` point 5. **Number check:** at `4b1ce64` the last Register entry is `D-463`
+(§5.14e286); no other occurrence of `D-464`, including a forward reference, exists in the repository or its history.
+
+**Accepted reviews** (each retained under `C:/CoWork/outputs/lane-a-d464-2026-10-23/`; Lane B lines are in
+`C:/Users/rober_24syk4j/.codex/sessions/2026/10/21/rollout-2026-10-21T03-31-43-01a1450c-56ae-73a2-95c0-6c0d44d45f08_01a15acc-56e0-7801-a238-395e69a0b901.jsonl`):
+
+| Subject | Review | Locator | SHA-256 |
+|---|---|---|---|
+| Lane A's review of receipt K and annotation N | Lane B: approve | line 6935 | `9d99c15019c2ba80364ad7e14bc93493b659c3b7d7b482c371c314f40ef6dd9b` |
+| Publication, full health and health record H | Lane B: approve; the Judge accepted the SR-5 cycle | line 7093 | `c09c3c4b54eb51a0d5fb6e4f8e349579d311f7d4fb87aa2741f9fdc1e51a0946` |
+| Route H answer RH | Lane B: approve | line 7200 | `972fae0c6ab09f5234e8489d91c78748bcaa7f9ee5a217fa95cb6ebda17b1c0d` |
+
+### The decision
+
+1. **Scope and identity.** Checkout `C:/robertaoai/my-editorial-app`; branch `features/feature-V1-SM05`; remote `origin`
+   (`git@github.com:robertaoai/my-editorial-app.git`); target `refs/heads/features/feature-V1-SM05`; expected server base
+   **B** `e62ee4ac31d49dcefe8a767fb4321b28614eec85` (the last verified server observation, 2026-10-22T10:58:38–10:58:40Z,
+   after the `D-462` push; a retained historical observation, not a fresh reading).
+2. **Coverage.** The range B excluded through **A** included holds exactly seven commits, oldest first: Q
+   `46e6e6af7ddf0d20084bd5dcdaa03c0ee9ced98a` (`D-463`), R `6f40f4c361c0e39825ed67f2db57f31898ce8867` (B-136 request), K
+   `5a0e1289f22da2c9fa25131052fdd1a0919f28c0` (Lane B's B-050 receipt), N `af5edd0138480685fb278fb852e8f66da28c3e84` (Lane
+   B's separate annotation), H `4147f81d09d3411db5ade14f2ebe723bb5fca7fd` (B-136 health), RH
+   `4b1ce6465a2cbd3f032ba8302cc7bab4e2c3f119` (B-158 Route H answer) and **A**, the single Register-only authority commit
+   whose sole parent is RH and which records this entry. A is included in its own push; its actual ID is reported in
+   external proof after creation; no further commit records A's hash or the push result.
+3. **Sequence.** Recording (A) → Lane B's independent approval of A, its proof and the seven-commit manifest, before any
+   remote contact → two fresh checks at A → ref and configuration snapshot → server-base read → exact push → server-tip
+   read. Lane B's approval releases the next stage under this entry.
+4. **Check exception.** For this recording commit and its fresh pre-push checks only: two complete `bun run check` runs
+   each time; `docs-drift` may be the sole failure; every other check passes; any skip, startup failure or additional
+   finding stops before commit or push. **This Register append changes governed intent after the accepted SR-5
+   synchronization**, so `docs-drift` is expected to report new governed drift. This exception claims no
+   synchronization and releases no graph cycle. An allowed failure is never reported as a full pass. Normal hooks under
+   the required identity; `--no-verify` is never used.
+5. **Push gate, after Lane B's approval.** (1) Reconfirm HEAD A, clean state and the unchanged reviewed manifest.
+   (2) Establish guarded-interval clearance from the completed SR-5 health record H, the Judge's acceptance of the cycle
+   and evidence of no later prepare, resume or publication; graph metadata alone is insufficient; stop if uncertain.
+   (3) Two fresh checks at A under item 4. (4) Snapshot refs and configuration. (5)
+   `git ls-remote --exit-code origin refs/heads/features/feature-V1-SM05` must exit 0 with exactly one line naming the
+   target and the full ID B; any other result stops for reconciliation. (6) Push A **without force**:
+   `git push origin <A>:refs/heads/features/feature-V1-SM05`, with A's full reviewed ID; no `--all`, `--mirror`, `--tags`
+   or implicit `HEAD`. A rejection stops the transaction: no reset, rebase or substitute target. (7) Repeat the same read;
+   require exit 0, exactly one matching line and the full ID A. Push exit 0 alone is not completion proof.
+6. **Completion proof.** Commands, stdout, stderr, times, actual exits and hashes; all seven manifest commits reachable
+   from the observed server tip; the 19 historically delivered commits still accounted for; local feature HEAD equal to the
+   observed tip, with any remaining local-only commits reconciled; clean worktree and staging; configuration and unrelated
+   refs unchanged, with the expected remote-tracking feature-ref update recorded. Results are kept externally; no
+   push-result commit. External drafts, evidence and transcripts are not preserved by this push.
+7. **Fallback boundary.** Any manual or force fallback needs its own bounded authority and independent review. Prior force
+   approval keeps its original scope.
+8. **Sequencing amendment.** Item 0 of `D-440` and `D-441`, as amended through `D-463` item 8, is further amended to permit
+   one further intervening Register entry, this twenty-third entry, after `D-463` and before the separate TCA r3 (J3) and
+   J-C A1 entries. J1 and J2 keep their separate identities, text and transfer holds. All other sequencing terms are
+   unchanged; no historical entry is rewritten. **No further intervening entry is permitted by implication.**
+9. **Holds.** B-158, B-136 and `D-439` stay Open. U-C stays held. J1 (`D-440`) and J2 (`D-441`) remain separate; both
+   transfers stay held. The accepted SR-5 cycle, B-159, `D-458` and `D-462` acceptance stand. work-r3 remains unaccepted.
+   Other refs and later commits are outside this scope. No installation, transfer, preparation, resume or publication.
+   Only the push in item 5 is released; every other hold is unchanged.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry |
+| **Build Spec** | — unaffected: a push authority changes no V1 scope, creates, sequences or retires no artifact, and changes no V1 or MMF DoD |
+| **Inventory** | — unaffected: no repository file is created or retired and no row's status changes; the push adds no file |
+| B-136, B-050, B-158 | — unaffected: their records (R, K, N, H, RH) are already committed and are not edited |
+| `D-463`, `D-459`–`D-462`, `D-428` | — unaffected: applied as written; this entry's check exception is its own (item 4) |
+| `D-440`, `D-441` | — unaffected: their text is not edited; this entry amends their item 0 separately (item 8) |
+| `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `docs/README.md`, `docs/PRD.md`, Charter, `0001`, `Modular_PRD.md`, FN specs, `docs/specs/`, template v1, Phase Closure, `docs/LANE-B-WORK-ORDER.md`, `.claude/`, `scripts/`, application code, build configuration | — unaffected: this entry changes none of their governed content, scope or lane state |
+| **Encyclopedia** | unaffected: `docs/ENCYCLOPEDIA-SYNC.md` identifies no affected local citation entry; hosted parity not claimed |
+| **Graphify** | Affected: this Register append is new governed intent after the accepted SR-5 synchronization at S `46e6e6a`, so `docs-drift` reports drift again. Clearing it needs a separately released guarded cycle (`D-425`), never a raw rebuild |
