@@ -22403,3 +22403,57 @@ separately. Route H (the B-158 answer), installation, transfer and push each nee
   Open. U-C stays held. J1/`D-440` and J2/`D-441` stay separate with both transfers held. work-r3 stays unaccepted.
 - Coverage: 19 historically delivered commits through `e62ee4a`; Q → R → K → N pending; this commit joins when created.
   External evidence is outside Git preservation.
+
+## Lane A — graph-sync candidate ready at S = Q2 `67177ed` (`D-465`); request for Lane B's exact-byte candidate review, 2026-10-24
+
+Filed under the Judge's decision "establish prospective freeze coverage, accept the retained pending attempt for
+continuation, and release one reviewed resume" (retained as
+`C:/CoWork/outputs/lane-a-graph-sync-after-d464-2026-10-24/evidence/JUDGE-RESUME-RELEASE-20261024T045654Z.md`, SHA-256
+`f906dd6df99d642241984c711a1ee448a7a2c4325b7784965355e4c3131b6910`), under `D-465`. This is the cycle's first authorized
+handoff commit (R, 1 of 4). It requests review only and claims no candidate acceptance, publication or full health.
+
+### What happened
+
+| Binding | Value |
+|---|---|
+| Source S (Q2, `D-465`) | `67177ed85c7be4fc27f8c20b0eef7fa48a76f41c`, tree `4887fd4bc123052ca70a8da2b8f9de4437740f60`; merge base with upstream `3a199ead5a528561ea792524d10096fae7aef61f` |
+| Work folder / work ID | `C:/CoWork/outputs/lane-a-graph-sync-after-d464-2026-10-24/work`; `1aaa0362-c3bb-42d1-8709-9797329c1a22` (from the guard) |
+| Prepare | 2026-10-24T04:39:04.926Z–04:46:22.898Z, exit 3, pending: 0 descriptions, 1 community name (member set `e0ee66b247ef6735ca6d3a4373731d8ccfea5ccb697984df6cbb10a4e8257f94`) |
+| Resume | `prepare --resume … --answers …/evidence/answers-proposed.r1.json`, 04:57:14.924Z–05:28:32.866Z, **exit 0, `ready`**, attempt 2 |
+| Answers consumed | r1, SHA-256 `4219a4a39ec86581526ed5820d26225f051b9bdea405242abfffffc810cc6ca2` (STATE `answersHash`); one name: "D-456–D-465 Push Authorities, SR-5 Cycle Records, Route H and Q2 Authority Commits"; reviewed by Lane B (Codex line 7684) |
+| STATE | `work/STATE.json`, state `ready`, 2 attempts, SHA-256 `da0d3832c7d52a24f5b9a29b3343f34f42da0704e4c482095b739d414a39bedb`. `STATE.json` carries the ready record; there is no separate READY file |
+| Candidate (staging) | `work/attempt-2/staging` |
+| Graph | `graph.json` SHA-256 `7776876e3094a4eb6f5919ac9ab68d324c5d8d2384c5c7ef2e255d270f6ed52e` (3,578 nodes, 7,477 links, 178 communities) |
+| Manifest | `guard-treeDigest-v1` digest `e4905edeb0ecd1f88494ab198a93e043b77098c2169180bc6ea7db389422af52`, 583 files; frozen at 2026-10-24T05:28:11.841Z |
+| Baseline (guard-selected) | release locus `5a0e1289f22da2c9fa25131052fdd1a0919f28c0` (receipt K of `D-463`), digest `f18f411d79f4f9878b48a79577a136f0018a412199acc33352d6877e92182947`, 583 files |
+| Selection | oracle `4d81a674a49ec3d40b510e3a9170ca15072fe0391894ea3c5b586d1d80bc4182`; final observation 2026-10-24T05:05:18.592Z |
+
+**Lane A's read-only verification of the staged candidate** (`evidence/candidate-verification.json`, SHA-256
+`276defb69bcc94652cce6f7e2de53dd397713894bb325a3d37c592b88075f7c2`; not candidate acceptance):
+
+- Graph bytes equal STATE; an independent recomputation of the 583-file tree gives the same manifest digest.
+- Fragment parity (guard read-only function): **139 / 139 exact**, no diffs. Name binding: **0 findings**. 178 labels, no
+  duplicate; the answered name is applied; every node's `community_name` equals its label.
+- Unresolved semantic items: **0**. `missing-desc.json` is empty. Two commit nodes carry no description; both are
+  undescribed in the baseline too (inherited, not new).
+- Branch record in the candidate: `lastAnalyzedHead` S, `stale: false`.
+
+**Freeze.** Operator coverage was not evidenced before the prepare at 04:39Z; that is recorded in
+`evidence/GATE-CORRECTION-20261024T045654Z.md` (SHA-256 `8573e8e3b1c9847e0e0310894a8bbcea62fdb8d7f467ce8f5a7d71dab371564b`),
+and the Judge accepted the attempt for continuation with prospective coverage only. From the entry snapshot to after the
+resume: every ref outside `refs/codex/turn-diffs/` (the cycle's only excluded namespace) is unchanged, configuration is
+unchanged, no lock or journal exists, and the live graph is unchanged.
+
+### What you need
+
+Lane B's independent exact-byte review of this candidate: bindings; complete bytes and manifest; fragment parity;
+descriptions; complete member sets and applied names; producer projections; Git extraction and selection; final state;
+zero unresolved semantics. On acceptance, Lane B records one canonical "### F3 acceptance record" in B-050, then a
+separate terminal annotation. On a finding, publication stops.
+
+### What you did instead
+
+- No B-050 receipt, annotation, publication or push. The live graph is not touched.
+- B-136 stays **Open**; its header is unchanged. B-158 and `D-439` stay Open. U-C stays held; J1/`D-440` and J2/`D-441`
+  stay separate with both transfers held.
+- Coverage: 26 historically delivered commits through `3a199ea`; Q2 pending; this commit joins when created.
