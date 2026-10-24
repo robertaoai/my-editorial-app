@@ -30244,3 +30244,97 @@ line 7394, SHA-256 `bfb62688f8f7e9e046ae79a369b152aa316a1f0a0211c42d1c5afea46839
 | `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `docs/README.md`, `docs/PRD.md`, Charter, `0001`, `Modular_PRD.md`, FN specs, `docs/specs/`, template v1, Phase Closure, `docs/LANE-B-WORK-ORDER.md`, `.claude/`, `scripts/`, application code, build configuration | — unaffected: this entry changes none of their governed content, scope or lane state |
 | **Encyclopedia** | unaffected: `docs/ENCYCLOPEDIA-SYNC.md` identifies no affected local citation entry; hosted parity not claimed |
 | **Graphify** | Affected: governed drift remains (`D-464` and this entry) until the separately released cycle pinned to this commit is published and healthy (`D-425`) |
+
+## 5.14e289 `D-466` — Q2 Acceptance and Push Authority for `3a199ea..D-466`: Q2, the Q2 Cycle Records and Their Authority Commit; Twenty-Fifth Intervening Entry Permitted
+
+**Authority: the Judge, directly to Lane A, 2026-10-24**, in chat: "Judge decision — accept Q2 at H and release its bounded
+acceptance/push authority recording, followed by the reviewed six-commit push" (retained as
+`C:/CoWork/outputs/lane-a-d466-2026-10-24/JUDGE-D466-RELEASE.md`, SHA-256
+`f4f325f8ede2721de7fbbf39526e4919031fd991db6fe4e0a03fadd3a476ce2c`; transcript
+`417d4ead-c5b7-481e-b141-3a8989ce9446.jsonl` line 13127, uuid `7e3ea08e-2a6f-494a-a311-bd4e728955f5`). This direct decision is
+the release; Lane B's draft of it (`DRAFT-LANE-B-JUDGE-D466.txt`, SHA-256
+`5e5ac1035d3e30e7680f6a9ff4c142fe159fad885c85d4d640da7c3bb4710af3`) is not. It registers the decision under `D-183` point 5.
+**Number check:** at `4f4310f` the last Register entry is `D-465` (§5.14e288); no other occurrence of `D-466`, including a
+forward reference, exists in the repository or its history.
+
+**Accepted review** (retained under `C:/CoWork/outputs/lane-a-d466-2026-10-24/`): Lane B's independent review of the
+published state, full health, H's commit proof and coverage — approve, Lane B session
+`C:/Users/rober_24syk4j/.codex/sessions/2026/10/21/rollout-2026-10-21T03-31-43-01a1450c-56ae-73a2-95c0-6c0d44d45f08_01a15acc-56e0-7801-a238-395e69a0b901.jsonl`
+line 8303, SHA-256 `2fed2321574e52e95dc4c86c46ac522b0eba6c2eb85a615a70fb5f62d682ee1d`, with its two retained sub-audits
+(`LANE-B-SUBAUDIT-AUTHORITY-CHECKS.txt`, `3bfc7c24045fb3bc0c29a30c171e90f6b0c20fb8d4a3fdd7a01cc4178e1a812d`;
+`LANE-B-SUBAUDIT-LIVE-STATE.txt`, `fbe89f7e604429821801cbc399f534b996d63274a5fc5a304716c8dc2fb8245e`).
+
+### The decision
+
+1. **Q2 acceptance (bounded).** The Judge accepts the `D-465` cycle's published state and full-health outcome recorded at
+   H `4f4310f0ff2a5de5fa9a25ac2762de68df2d61aa`: guarded publication citing receipt K
+   `402a8322a322aba5efd23d6f4655f946a66c521a`, never annotation N (run `ca942f61-fd23-428d-b7cc-1b7799958694`; live graph
+   `7776876e3094a4eb6f5919ac9ab68d324c5d8d2384c5c7ef2e255d270f6ed52e`; manifest `guard-treeDigest-v1`
+   `e4905edeb0ecd1f88494ab198a93e043b77098c2169180bc6ea7db389422af52`, 583 files), with Lane B's independent review above.
+   The historical linked-worktree continuity qualification, the prospective inventory acceptance and all retained evidence
+   stand. No parent closure is granted.
+2. **Scope and identity.** Checkout `C:/robertaoai/my-editorial-app`; branch `features/feature-V1-SM05`; remote `origin`
+   (`git@github.com:robertaoai/my-editorial-app.git`); target `refs/heads/features/feature-V1-SM05`; expected server base
+   **B** `3a199ead5a528561ea792524d10096fae7aef61f` (the last verified server observation, after the `D-464` push; a retained
+   historical observation, not a fresh reading).
+3. **Coverage.** The range B excluded through **A** included holds exactly six commits, oldest first: Q2
+   `67177ed85c7be4fc27f8c20b0eef7fa48a76f41c` (`D-465`), R `81495b3850c24eef2fe47009f656175ee08658f1` (B-136 request), K
+   `402a8322a322aba5efd23d6f4655f946a66c521a` (Lane B's B-050 receipt), N `e91ab648aca84d549aac7e12c2d8502f4ca2334a` (Lane
+   B's separate annotation), H `4f4310f0ff2a5de5fa9a25ac2762de68df2d61aa` (B-136 health) and **A**, the single Register-only
+   authority commit whose sole parent is H and which records this entry. A is included in its own push; its actual ID is
+   reported in external proof after creation; no further commit records A's hash or the push result. The chain B → Q2 → R →
+   K → N → H → A must be linear with no merge, and B an ancestor of A.
+4. **Sequence.** Recording (A) → Lane B's independent approval of A, its proof and the six-commit manifest, before any
+   remote contact → fresh pre-push gates and two fresh checks at A → ref and configuration snapshot → server-base read →
+   exact push → server-tip read → completion proof → Lane B's independent post-push review. Lane B's approval releases the
+   push stage under this entry.
+5. **Check exception.** For this recording commit and its fresh pre-push checks only: two complete `bun run check` runs
+   each time; `docs-drift` may be the sole failure; every other check passes; any skip, startup failure or additional
+   finding stops before commit or push. **This Register append changes governed intent after the accepted Q2
+   synchronization**, so `docs-drift` is expected to report new governed drift. This exception claims no synchronization
+   and releases no graph cycle. An allowed failure is never reported as a full pass. Normal hooks under the required
+   identity; `--no-verify` is never used.
+6. **Push gate, after Lane B's approval.** (1) Reconfirm HEAD A, clean state and the unchanged reviewed bytes and
+   manifest. (2) Establish guarded-interval clearance from Q2's completed health record H, this acceptance and evidence of
+   no later prepare, resume or publication; graph metadata alone is insufficient; stop if uncertain. (3) For this push unit
+   only, `refs/codex/turn-diffs/` checkpoint metadata is excluded from ref equality and its changes are inventoried; every
+   other ref stays unchanged apart from the expected remote-tracking target update after a successful push; configuration
+   and the linked-worktree inventory stay bound. (4) Two fresh checks at A under item 5. (5) Snapshot refs and
+   configuration immediately before remote contact. (6)
+   `git ls-remote --exit-code origin refs/heads/features/feature-V1-SM05` must exit 0 with exactly one line naming the
+   target and the full ID B; any other result stops for reconciliation. (7) Push A **without force**:
+   `git push origin <A>:refs/heads/features/feature-V1-SM05`, with A's full reviewed ID; no `--all`, `--mirror`, `--tags`,
+   implicit `HEAD` or substitute target. A rejection stops the transaction: no reset, rebase, fetch or automatic retry.
+   (8) Repeat the same read; require exit 0, exactly one matching line and the full ID A. Push exit 0 alone is not
+   completion proof.
+7. **Completion proof.** Commands, stdout, stderr, times, actual exits and hashes; all six manifest commits reachable from
+   the observed server tip; the 26 historically delivered commits still accounted for and kept distinct from these six;
+   local feature HEAD equal to the observed tip, with any remaining local-only commits reconciled; clean worktree and
+   staging; configuration and unrelated refs unchanged, with the expected remote-tracking feature-ref update recorded
+   separately. Other server refs are not refreshed. Results are kept externally; no push-result commit. External drafts,
+   runtime graph state, evidence and transcripts are not preserved by this push.
+8. **Fallback boundary.** Any manual or force fallback needs its own bounded authority and independent review. Prior force
+   approval keeps its original scope.
+9. **Sequencing amendment.** Item 0 of `D-440` and `D-441`, as amended through `D-465` item 9, is further amended to permit
+   one further intervening Register entry, this twenty-fifth entry, after `D-465` and before the separate TCA r3 (J3) and
+   J-C A1 entries. J1 and J2 keep their separate identities, text and transfer holds. All other sequencing terms are
+   unchanged; no historical entry is rewritten. **No further intervening entry is permitted by implication.**
+10. **Holds.** B-158, B-136 and D-439 stay Open. U-C stays held. J1 (`D-440`) and J2 (`D-441`) remain separate; both
+    transfers stay held. The accepted SR-5 and Q2 cycles, B-159, the prior pushes and the Route H disposition stand. work-r3
+    stays held. Other refs and later commits are outside this scope. No installation, transfer, graph preparation, resume or
+    publication. Only the push in item 6 is released; every other hold is unchanged.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry |
+| **Build Spec** | — unaffected: an acceptance of a graph cycle and a push authority change no V1 scope, create, sequence or retire no artifact, and change no V1 or MMF DoD |
+| **Inventory** | — unaffected: no repository file is created or retired and no row's status changes; the push adds no file |
+| B-136, B-050 | — unaffected: their records (R, K, N, H) are already committed and are not edited |
+| B-158 | — unaffected: Route H is filed (`4b1ce64`) and not edited |
+| `D-465`, `D-464`, `D-425`–`D-429`, `D-428` | — unaffected: applied as written; this entry's check exception is its own (item 5) |
+| `D-440`, `D-441` | — unaffected: their text is not edited; this entry amends their item 0 separately (item 9) |
+| `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `docs/README.md`, `docs/PRD.md`, Charter, `0001`, `Modular_PRD.md`, FN specs, `docs/specs/`, template v1, Phase Closure, `docs/LANE-B-WORK-ORDER.md`, `.claude/`, `scripts/`, application code, build configuration | — unaffected: this entry changes none of their governed content, scope or lane state |
+| **Encyclopedia** | unaffected: `docs/ENCYCLOPEDIA-SYNC.md` identifies no affected local citation entry; hosted parity not claimed |
+| **Graphify** | Affected: this Register append is new governed intent after the accepted Q2 synchronization at S `67177ed`, so `docs-drift` reports drift again. Clearing it needs a separately released guarded cycle (`D-425`), never a raw rebuild |
