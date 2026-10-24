@@ -8,8 +8,6 @@
       "source_file": "docs/handoff/B-061-lane-b-code-build-readiness-inputs-have-drifted.md",
       "source_location": "whole document",
       "description": "Lane B reviewed whether the documents and dependencies a future Lane B code-creation run would read were current, after D-161 confirmed no execution run was ready. They were not: the shared core, AGENTS.md's own S0 kickoff section, V1-BUILD-SPEC.md, V1-ARTIFACT-INVENTORY.md, Modular_PRD.md's status tables, FN-GATES-01-05.md, CONFIG_LOG.md, and DECISION_LOG.md all still described Q11 as open, 0002 as blocked or unwritten, or artifacts as absent that had existed since S0/S1 completed. A green consistency suite proved the documents were connected, not that their sentences were true. D-162 fact-checked and corrected all eight against the filesystem and register.",
-      "community": 8,
-      "community_name": "Decision Register",
       "source_url": null,
       "captured_at": null,
       "author": null,

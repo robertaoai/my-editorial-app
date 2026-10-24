@@ -1,0 +1,32 @@
+{
+  "nodes": [
+    {
+      "id": "gov_res_001_packet",
+      "label": "GOV-RES-001 governance residual packet (custody, not clearance)",
+      "file_type": "document",
+      "source_file": "docs/v1/work-packets/SETUP-SPIKE-000/GOV-RES-001.md",
+      "source_location": "whole document",
+      "description": "The one bounded Lane A packet that receives non-SM05 governance and documentation residuals from handoffs screened under B-150 (D-364 item 8, created at its first receipt by D-374). Each row records custody (source child, scope, hold, return, completion criterion); a receipt never closes the source's SV-002 section 2.3.1 tracker row, which needs an independent Verified-By or a Judge acceptance with its reason (D-364 item 4). First receipts: B-104.O2 to O4."
+    }
+  ],
+  "edges": [
+    {
+      "source": "gov_res_001_packet",
+      "target": "attempt_sv002_setup_validation",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/v1/work-packets/SETUP-SPIKE-000/GOV-RES-001.md",
+      "source_location": "Receipts",
+      "weight": 1
+    },
+    {
+      "source": "gov_res_001_packet",
+      "target": "v1_decision_register",
+      "relation": "part_of",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "D-374",
+      "weight": 1
+    }
+  ]
+}

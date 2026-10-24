@@ -5,7 +5,7 @@
 - **Phase:** 1
 - **Blocks:** treating B-071 Rounds 54–56 as an active implementation-readiness packet; changing B-071's terminal header; any consuming authorization that relies on those rounds
 - **Status:** Answered
-- **Resolution:** Applied
+- **Resolution:** Verified
 - **Lane A:** **Acknowledged 2026-09-15 at read commit `e0e1c857d4750f2b3fb0ba7b6f4e17526fee37f6`.**
   Choice B is accepted for the recorded return only: the Chief Editor/Judge's 2026-09-14
   `Judge Approved: decision-tree decision` act separately authorized B-071 planning and handoff
@@ -15,9 +15,13 @@
   B-071 (lacking trigger and act) stays withdrawn, superseded by this application. The whole entry
   stays `Open`: its return-protocol prevention controls (the SOP/template/check additions this
   entry itself drafted) are not yet applied. See *Child dispositions* below.
-- **Verified-By:** — not independently verified; dispositioned by Lane A
-- **Verified-At-Commit:** 389d22a373c2004cb1ec1fe6693eff6c550900c0
+- **Verified-By:** Lane B (Codex), independent Phase 1 O0 review, 2026-10-01
+- **Verified-At-Commit:** d7c62442f5f5035acd5b523c8d3bc34f57c120d8
 - **Evidence:** B-071 header and Rounds 54–56; Chief Editor/Judge's 2026-09-14 `Judge Approved: decision-tree decision` instruction and present direction to name the return condition and act; `docs/handoff/README.md` sections *Response is not closure* and *Worked scenarios*; `docs/handoff/TEMPLATE.md`; `handoff-response`, `closure-readiness` and `channel-docs`; storyboard Paths A/B; Route-1 crosswalk and B-071 `B071-R197`, `R204`–`R208`; Graphify query read with the stale-revision qualification below.
+  *Header evidence aligned on 2026-10-01 (`B-116` item 4, `D-375`).* `Verified-At-Commit` read `389d22a`, which
+  predates the Option A application. It now reads `284b4ae`, the commit that records the complete packet: the
+  implementation at `27efc2d`/`0d2cc2b`, and the "Chief Editor Option A applied in full" section below. The header
+  and body now name one review point. `Applied` is unchanged; Lane B verifies after `B-113` and `B-112`.
 
 ## What happened
 
@@ -453,3 +457,22 @@ taught this file once.
 | Approve-with-conditions | `B-097`/`B-112`/`B-113` reaching `Verified` | Independent Lane B review still required — not self-recorded here |
 | Defer | Multi-cycle detection for episodes beyond the current one | Stated limitation, not built — no live case needs it yet |
 | Defer | `B-103` P3 and whole-entry closure | Resumes once this child reaches independent `Verified` |
+
+## Independent Lane B verification — Option A return protocol — 2026-10-01
+
+Judge-authorized Phase 1 / O0 review. Read `d7c62442f5f5035acd5b523c8d3bc34f57c120d8` after B-116 → B-113 → B-112 independently
+verified. The applied Chief Editor Option A is implemented and blocking: governed return,
+re-close and terminal-annotation records are validated, substantive uncovered steps are refused,
+and all terminal episodes are walked. The old current-episode/report-only limitations do not
+describe the current implementation. The six historical classifications remain explicit and
+no return is invented for a metadata correction or cross-reference. Lane A's answer is preserved.
+
+Evidence: 70/70 independent focused cases on `fc998420c5a423caf5953e527277a5ffb183c247`, including
+the real-history walk, multiple episodes, working-copy preview and negative refusal cases;
+19/19 main-tree consistency checks passed before this recording chain.
+
+| Decision | Verdict | Follow-up phase |
+|---|---|---|
+| B-097's bounded return-protocol controls | Approve | Phase 1 / O0 — independently Verified |
+| B-103 P3 control evidence | Defer | Phase 1 / O0 — record child verification next |
+| B-071 residual children, B-103 whole entry and Gate 2 | Defer | Phase 1 / respective later scope — not completed by protocol verification |

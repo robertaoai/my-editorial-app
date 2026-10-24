@@ -19,7 +19,7 @@
   were checked by `D-259` on the review evidence `B-131` supplied. `Applied` is non-terminal until independently
   verified.
 - **Resolution:** Applied
-- **Verified-By:** — not yet dispositioned; raised by Lane B
+- **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Evidence:** `D-252`, `D-254`; `docs/handoff/B-119`, `B-124`, `B-127`; `docs/v1/V1-BUILD-SPEC.md` §1; `docs/v1/work-packets/V1/V1-SM05.md`; storyboard Panels A9/A10; `docs/fn-specs/FN-GATES-01-05.md` §4.1; `docs/ENCYCLOPEDIA-SYNC.md`
 - **Verified-At-Commit:** f545e0633133fa1213b3c65f4cfb3f26fcfc4402
 

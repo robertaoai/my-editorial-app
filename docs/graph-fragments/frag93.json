@@ -8,8 +8,6 @@
       "source_file": "docs/handoff/B-057-b040-application-left-closure-metadata-blank.md",
       "source_location": "Required repair",
       "description": "A nine-step application was asserted in full inside the answering field of the handoff that owned it, while that handoff's resolution, verifier and commit fields stayed blank, so the tracker reported an answered entry with no disposition and the raising lane declined to verify the work until its own record classified it.",
-      "community": 58,
-      "community_name": "Community 58",
       "source_url": null,
       "captured_at": null,
       "author": null,

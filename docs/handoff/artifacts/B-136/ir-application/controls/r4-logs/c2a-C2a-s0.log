@@ -1,0 +1,5 @@
+E1 manifest r6 inputs bound (4 files)
+A1–A10 old/new pairs occur literally in packet r2
+S0 seven bound blobs equal
+S0 A1–A10 exactly once, only in target (77 files)
+REFUSE: S0 N1 D-438 line not in the reviewed ownership manifest: docs/handoff/X-conflict.md:2

@@ -1,0 +1,21 @@
+  PASS  rule-budget        AGENTS.md 3445 chars / 3454 B (ceiling 5400); CLAUDE.md 47 lines, imports @AGENTS.md; GEMINI.md 3669 B; one core copy
+  PASS  tier-sweep         840 tier claims verified
+  PASS  duplicate-ids      122 rows, 122 distinct IDs
+  PASS  graph-coverage     62 markdown files under docs/ require a node of their own, 0 absent (docs/handoff/ and graphify scratch and the coverage-only manifest (D-246) excluded); 0 fragment derived-field finding(s)
+  PASS  settings-parse     1 file(s) parse clean: .claude/settings.json
+  PASS  decision-status    13 §10 rows vs 11 listed, 6 decided; 107 gap rows vs 18 closure claims
+  PASS  lane-boundary      HEAD commit: lane surfaces touched — none; unmapped: docs/handoff/B-156-setup-traceability-audit-and-progressive-baseline-plan.md
+  PASS  source-sweep       15 governing doc(s), 3 frozen pinned; register at fdf7871
+  PASS  handoff-response   163 entries: 6 open, 157 answered, 0 withdrawn; 6 still carry NO resolution; 4 turn report(s) excluded from that count (G84); 5 return record(s) (B-097); 5 re-close record(s) (D-364); 47 terminal annotation record(s) (B-113)
+  PASS  phase-manifest     38 manifest path(s) verified, 9 exclusion(s) declared
+  PASS  config-coupling    50 authoritative row(s), 2 derived, 54 declaration(s) in lib/config/
+  PASS  closure-readiness  no phase claims closure — reporting only; applied 25, deferred 7, open 6, superseded 10, turn-report 4, verified 111; 111 verification commit(s) proven to exist; Gate 2 not claimed — reporting only: tracker at 9df66a5 (stale), 106 row(s), 1 non-SM05 unclosed, 0 SM05 not received, 1 live entry unlisted, 0 §3.3 child(ren) unreferenced, 0 row(s) invalid
+  PASS  docs-drift         synced (governed intent) at 93aa02f; HEAD 072de37 advanced by excluded-only commits
+  PASS  sync-docs-unique   canonical .claude/skills/sync-docs/SKILL.md; no duplicates across .claude, .agents, .codex, .github
+  PASS  lane-state         3 lane row(s); Active: A; Eligible (nominated): B
+  PASS  channel-docs       4 channel doc(s) [.github/WORKFLOWS-SPEC.md, docs/LANE-B-WORK-ORDER.md, docs/handoff/README.md, docs/handoff/TEMPLATE.md]; 5 resolution(s), 31 template field(s), 28 read by checks, 3 human-only
+  PASS  retention-policy-coupling 4/4 required tiers present; RET-EDITORIAL coupling checked across 4 tiers
+  PASS  terminal-return    128 file(s) with at least one terminal episode walked in full; 128 clean, 0 with an uncovered step; 10 return/re-close record(s) proven against history (D-364)
+  PASS  text-integrity     271 markdown file(s): no control character; no drive path missing its separator; no spliced "undefined" (docs/handoff/ exempt from the path and splice rules only)
+
+19/19 consistency checks passed.

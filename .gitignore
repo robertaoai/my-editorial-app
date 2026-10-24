@@ -19,12 +19,19 @@ Claude outputs/
 #   CURATED layer   — hand-authored concept nodes. Extraction does NOT regenerate these.
 #                     They rebuild ONLY from docs/graph-fragments/ (tracked). See G51.
 .graphify/
+# `D-297`: `.graphify` may be a SYMLINK to a shared graph folder. Git stores a
+# symlink as a file, so the directory-only pattern above does not match it and
+# `git add -A` would commit the link. This line covers that form.
+.graphify
 ast.js
 b3.js
 cache.js
 detect.js
 partc.js
 step*.js
+
+# `D-324`: local scratch drafts never belong in the repository; preflight fixtures live in a separate worktree.
+scratch/
 
 # Supabase CLI local development stack (`D-120`).
 # `supabase init` and `supabase start` write these; they are machine-local

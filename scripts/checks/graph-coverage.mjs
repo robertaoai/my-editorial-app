@@ -30,6 +30,33 @@ import {
 } from "./governed-intent.mjs";
 
 const GRAPH = ".graphify/graph.json";
+const FRAGMENTS = "docs/graph-fragments";
+
+// `D-408` (packet of `D-407`, ruling of `D-213`): `community` and `community_name` are graphify's
+// clustering output, re-assigned on every re-cluster. Stored in a curated fragment they are a
+// derived duplicate, and a merge re-imposes stale ids and names (the `D-406` Route 1 stop). Pure:
+// takes [name, parsed fragment] pairs. Detect manifests (no `nodes` array) are not fragments.
+export function derivedFieldFindings(fragments) {
+  const findings = [];
+  for (const [name, frag] of fragments) {
+    if (!Array.isArray(frag?.nodes)) continue;
+    for (const n of frag.nodes) {
+      for (const f of ["community", "community_name"]) {
+        if (n && typeof n === "object" && f in n) {
+          findings.push(`${name}: node "${n.id}" declares graphify-derived field "${f}" (D-213, D-408)`);
+        }
+      }
+    }
+  }
+  return findings;
+}
+
+function loadFragments() {
+  if (!existsSync(FRAGMENTS)) return [];
+  return readdirSync(FRAGMENTS)
+    .filter((f) => f.endsWith(".json"))
+    .map((f) => [f, JSON.parse(readFileSync(join(FRAGMENTS, f), "utf8"))]);
+}
 
 function listMarkdown(dir, acc = []) {
   for (const e of readdirSync(dir, { withFileTypes: true })) {
@@ -47,7 +74,17 @@ export function run() {
   // only from `docs/graph-fragments/` (`G51`). So this check is LOCAL-ONLY, and
   // it says so rather than failing CI forever or reporting a pass it never
   // performed.
+  // Fragments are tracked, so this rule runs even where the graph is absent (CI).
+  const fragmentFindings = derivedFieldFindings(loadFragments());
+
   if (!existsSync(GRAPH)) {
+    if (fragmentFindings.length) {
+      return {
+        name: "graph-coverage",
+        findings: fragmentFindings,
+        detail: `${GRAPH} absent; the fragment derived-field rule (D-408) still ran`,
+      };
+    }
     return {
       name: "graph-coverage",
       findings: [],
@@ -76,6 +113,7 @@ export function run() {
   });
 
   const findings = [
+    ...fragmentFindings,
     ...violations.map(
       (v) => `coverage exclusion no longer qualifies: ${v.path} is now cited by ${v.citedBy}`,
     ),
@@ -85,6 +123,6 @@ export function run() {
   return {
     name: "graph-coverage",
     findings,
-    detail: `${candidates.length} markdown files under docs/ require a node of their own, ${missing.length} absent (${COVERAGE_EXCLUDED_CLASS_LABEL} excluded)`,
+    detail: `${candidates.length} markdown files under docs/ require a node of their own, ${missing.length} absent (${COVERAGE_EXCLUDED_CLASS_LABEL} excluded); ${fragmentFindings.length} fragment derived-field finding(s)`,
   };
 }

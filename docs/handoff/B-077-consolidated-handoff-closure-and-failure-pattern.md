@@ -29,18 +29,10 @@
   `D-171` hold is unnarrowed, and the audit snapshot at `a18fe1c` keeps its pinned, historical
   status. Should any child return work to this parent, it is reopened by a new entry citing this
   one, not by editing this disposition.
-- **Resolution:** Deferred
-- **Follow-up-Tier:** Phase 1 for the legacy `Applied` reconciliation, each entry owned by its own
-  raiser and never by bulk promotion; Phase 1 for the `B-061`/`B-070` successor disposition; `B-071`
-  Draft 12 remains under the `D-171` hold with its own closure gate; **Phase 3** for the deferred
-  boundary owned by `B-016` and `C-001`; and final independent review by an eligible reviewer who
-  neither answered nor applied this entry
-- **Verified-By:** — not independently verified; dispositioned by Lane A
-- **Verified-At-Commit:** 0a23eb2f014f44735b4143fd6b70970921341cce
-- **Evidence:** all handoff entries discovered at immutable revision `a18fe1c`; Lane B re-review
-  baseline `0caf909`; `docs/handoff/README.md`; `docs/handoff/TEMPLATE.md`;
-  `scripts/checks/handoff-response.mjs`; `scripts/checks/closure-readiness.mjs`; B-071/B-072/B-076;
-  Graphify `portable-check` and `check-update`
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), independent of Lane A's reconciliation, application and operation; closure-map verification, 2026-10-09
+- **Verified-At-Commit:** a1cf7e8307430d7543d3db459468f3335b14567c
+- **Evidence:** Independent closure-map review 225f0b1, reconciled draft a411a70 corrected at 5c8978c; Return b08d582 and Re-close c365c68 independently bound to the 2026-10-09 act and read 14be194; D-416 item 6; D-430 release reviewed at 28853be, graph 481874fb43b7713355df6377a9c124ee84ae65bc0d02f77ff2cf0eb55a227756, manifest 55dba74cdf6ac0be22d2ff153db299b6e4f63cd4b1a213285cc70eac3e93797d, all 139 fragments exact and four accepted description hashes equal; B-050 Verified at 8885bd1 for the repository procedure only. Fresh header/graph and episode evidence in C:/CoWork/outputs/lane-b-parent-dispositions-2026-10-09/baseline-state.json; baseline full check 19/19. Scope: Parent 1, Children 2-5 and B077-SC1-SC12 as amended; not downstream execution, GR-007 completion, P15 or Gate 2.
 
 ## What happened
 
@@ -4138,3 +4130,164 @@ Only this B-077 append is written; its `Answered` header and absent `Resolution`
 | **Approve-with-conditions** | R160 rule-selection and test contract | Exact matched pair, isolated fixtures and intended-error evidence still need literal specification | Lane A draft completion, then independent review |
 | **Reject** | Whole-unit inertness or unchanged report-fixture claim | Only approval coverage is inactive; report admission changes at cutover | Lane A activation matrix and fixture compatibility plan |
 | **Defer** | Implementation, target-rule activation, actor mapping, preflight, `AUTH-DOC`, B-071 closure | Existing holds/unverified prerequisites unchanged | Separate authorization and runtime/independent verification |
+
+## Lane A: final reconciliation draft for Lane B's independent review (2026-10-09)
+
+**Judge, 2026-10-09**, in chat: "draft the B-077 final reconciliation for Lane B review". Read at `2ab5df6`. Lane B is
+B-077's named independent reviewer (`D-415`); Lane A neither verifies nor changes B-077's header here. Basis: this
+entry's Parent 1 and Children 2–5, `B077-SC1`–`SC12`, `D-416` items 6 and 8, GR-007, and a **fresh query of every
+originating handoff header** (SC1, SC8), not this file's `a18fe1c` snapshot. Evidence:
+`C:/CoWork/outputs/lane-a-b077-final-2026-10-09/` (`sc8-query.mjs`/`.json`, `tracker-join.mjs`/`.json`,
+`fragment-status-sweep.mjs`/`.json`).
+
+### What happened
+
+**Fresh query at `2ab5df6`** (162 entries, headers read up to the first section): Verified 106, Superseded 10,
+Deferred 8, turn-report 4 (terminal); **non-terminal 34**: `Answered`/`Applied` 26 and `Open` 8. No entry is
+`Answered` without a resolution.
+
+#### Parent and children
+
+| Part | Current source state | Result |
+|---|---|---|
+| **Parent 1** (B-076 R1–R5) | B-076 `Applied`; SV-002 row closed by the Judge's individual reason (`D-403`, B-154 R2 at `0f011da`: "Accept that guide correction") | Resolved by its own basis; header stays `Applied` |
+| **Child 2**: B-011, B-015, B-033, B-041, B-062, B-065, B-066, B-067, B-072, B-073, B-074, B-075 | All `Applied`; each SV-002 row closed by its own `D-403` item 2 reason with a named surviving owner | Resolved: per `D-416` item 6, each reason is that target's single basis; headers stay `Applied`; nothing promoted |
+| Child 2: B-014, B-021 | `Verified` (Lane B; GR-012/GR-013 under `D-402`) | Resolved by independent verification |
+| Child 2: B-061, B-070 | Both `Verified` | Resolved |
+| Child 2: **B-050** | `Applied`; receipts 1–5 accepted; disposition packet accepted as ready (B-050 `cfcf724`, `2ab5df6`) | **Open: waits on Lane B's B-050 disposition commit** (see gap G1) |
+| **Child 3** (B-071) | `Verified` (Lane B Re-close review, `f8b593a`); the `D-171` target stays held | Resolved for the return episode only; no Draft 12, `AUTH-DOC`, product work or lane activation is implied (SC6) |
+| **Child 4** (B-016, C-001) | Both `Deferred` to Phase 3, owned by `V1-SM06` `SM06-P3-02`–`04` | Owner and return condition named; not closed by documentation (SC6 boundary kept) |
+| **Child 5** (graph and final review) | Graph released through the guarded procedure (`D-425`–`D-429`), live `3a634096…` at `90de7fb`; curated nodes for B-076/B-077 exist (`frag121.json`) | Final review is this request; curated status text needs one correction (gap G2) |
+
+#### Success criteria
+
+| ID | Assessment at `2ab5df6` |
+|---|---|
+| SC1 | Met: every state below is read from its originating header |
+| SC2 | Met: no `Applied` entry is proposed for terminal promotion; residuals sit with named owners (D-403 R2, GR rows) |
+| SC3 | Met for every `Verified` cited above; B-050's will be checked on Lane B's commit (four consistent fields) |
+| SC4 | Met: B-011/B-033 each name one exact basis (`D-403` R2), never both verification and supersession |
+| SC5 / SC9 | Reported separately: **extraction** analyzed `90de7fb`, `stale: false`; **curated coverage** `graph-coverage` 0 absent, fragment parity 139/139; **semantic update** 0 pending at release (receipt 2); `check-update` "pending" after handoff-only commits is not drift (G-F3-9); **portability** runtime `.graphify` untracked |
+| SC6 | Met (Child 3/4 rows) |
+| SC7 | Met through named local commits (`D-416` item 6): curated nodes survived (139/139); semantics complete; source `90de7fb`, graph `3a634096…`, review `da81575` explicit |
+| SC8 | **Met except as named below**: every non-terminal entry has a named next action (table) |
+| SC10 | **Not met:** curated status text disagrees with the live header for B-071, B-077 and B-078 (gap G2); B-072 agrees |
+| SC11 | Not applicable: no terminal review of B-072/B-076 is proposed; both rest on `D-403` reasons |
+| SC12 | Met: B-077's header stays `Deferred`; no child application is represented as whole-entry `Verified` |
+
+#### SC8: next action for each non-terminal entry
+
+| Entries | State | Named next action and owner |
+|---|---|---|
+| B-011, B-015, B-033, B-041, B-062, B-065, B-066, B-067, B-072, B-073, B-074, B-075, B-076, B-086, B-098, B-099, B-122 | `Applied`; SV-002 row **closed** (`D-403`) | None for Gate 2. Each header stays `Applied` by design; the surviving owner is named in its `D-403` R2 row (e.g. GR-008 for B-011, `SM06-P3-02`–`04` for B-015) |
+| B-084, B-121, B-126, B-127, B-128, B-132, B-133 (`Applied`); B-095, B-096, B-104 (`Open`) | SV-002 row **received** into `V1-SM05` | Delivery inside `V1-SM05`'s DoR→DoD (receipt only; no whole-entry closure); non-SM05 children closed by `D-411`–`D-413` custody |
+| B-131 | `Applied`; SM05 row closed (`D-288`) | None for Gate 2 |
+| B-119 | `Open`; row closed by the Judge's reason (`D-413`) | Residuals with `V1-SM06` DoR and `SM06-P3-01`; independent verification of applied topics owed by its own owner |
+| **B-050** | `Applied`; O1 row open | **Lane B:** disposition commit (`Resolution`, `Verified-By`, `Evidence`, `Verified-At-Commit`) |
+| **B-136** | `Open`; `(P15)` row open; `(P14a/P14b)` received | `SV2-DOD-06` attempt acceptance; separate from B-050 |
+| **B-150, B-153, B-154** | `Open`; O0 rows open | Their own parent dispositions on the evidence, after the source reviews (`D-416` item 8) |
+
+### Gaps and draft fixes
+
+| # | Gap | Draft fix |
+|---|---|---|
+| G1 | Child 2's B-050 test says "`Verified` only with a reproducible fix; otherwise `Deferred`". The packet is a **repository procedure** fix, not an upstream tool repair | Read "reproducible fix" under `D-417` (Judge choice B: prevention scope is a repository procedure), proven on the real target by receipts 2–5. Lane B decides; if it reads the test as a tool repair, the allowed result is `Deferred` to Graphify tooling with the guarded procedure retained |
+| G2 | SC10: three curated nodes state stale lifecycles: `frag119.json` `b071_ontology_correction_handoff` ("Open, Acknowledged"; live `Answered`/`Verified`), `frag121.json` `b077_consolidated_closure_failure_pattern` ("Resolution Applied at a1ad545"; live `Deferred`), `frag123.json` `b078_documentation_audit_follow_through` ("Open … pending commit"; live `Verified`) | Replace only each opening "Handoff status: …" clause: **B-071** "Handoff status: Answered, Resolution Verified (Lane B independent Re-close review at `f8b593a`); the `D-171` target stays held." **B-077** "Handoff status: Answered, Resolution Deferred (Judge ruling 2026-09-07); final independent review pending." **B-078** "Handoff status: Answered, Resolution Verified (Lane B, at `de665a7`)." Rest of each description unchanged. Fragments are governed: these ride the final canonical unit below, with one guarded sync |
+| G3 | The tracker (`Derived at: aa44dac`) goes stale once B-050's (and later the O0 parents') dispositions land | Re-derive once, after the O0 parent dispositions and before GR-007's conclusion (`D-416` item 8), in the same canonical unit as G2; re-check currency before any Gate 2 claim |
+
+### What you need
+
+**Lane B:** the independent final review of this reconciliation (B-077's Follow-up-Tier), including the G1 reading
+and G2 texts. **Proposed B-077 outcome**, on Lane B's acceptance after B-050's disposition: Lane B's own commit
+setting B-077 to `Resolution: Verified`, scoped to the closure map (Parent 1, Children 2–5, SC1–SC12, with SC10 met
+after G2's sync), never to the deferred Phase 3 work or the `D-171` target. Then the O0 parent dispositions, one
+canonical unit (G2 fragments + G3 tracker re-derivation + GR-007's all-row conclusion) through one guarded sync,
+and the Gate 2 assessment.
+
+### What you did instead
+
+No header, tracker, fragment, Register or graph change; no Lane A verification. B-077 stays `Deferred`; its O4 row
+stays open. The handoff commit stays separate from any canonical edit.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | Fresh SC8 query; Parent 1 and Children 2–5 mapped to their single recorded bases | Phase 1: Lane A's evidence |
+| Approve-with-conditions | B-077 final reconciliation | Phase 1: Lane B's independent review; B-050's disposition first; G1 reading; G2 applied and synced |
+| Defer | G2/G3 canonical unit and guarded sync; O0 parent dispositions; GR-007 conclusion; Gate 2; push | Phase 1: `D-416` item 8 order |
+| Reject | Snapshot or tally used as live state; any `Applied` entry promoted in bulk; Phase 3 or `D-171` work implied complete | Phase 1 |
+
+## Terminal annotation record
+
+- **Current-Resolution:** Deferred
+- **Annotation-Type:** verification-evidence
+- **Annotation-Act:** Lane A's final reconciliation draft for Lane B's independent review, under the Judge's 2026-10-09 instruction "draft the B-077 final reconciliation for Lane B review"; evidence only, appended at `a411a70`
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** a411a702ed9f1d5a84d23de1a8cc5af9bcbfa783
+
+## Terminal annotation record
+
+- **Current-Resolution:** Deferred
+- **Annotation-Type:** verification-evidence
+- **Annotation-Act:** Lane B (Codex), independent final reconciliation review, 2026-10-09; Judge's current chat act, "Judge Approved: B-077, B-153, B-154, B-150 dispositions"; read at bd6e43a993eb22c43550760759700eb7f4a2b735.
+  Substantive result: the closure-map reconciliation passes, within Parent 1, Children 2-5 and B077-SC1-SC12 as corrected at 5c8978c and amended by D-416 item 6. B-050 is independently Verified at 8885bd1 for the repository procedure only. D-430's accepted four strings are present in the released graph; acceptance 28853be, graph 481874fb43b7713355df6377a9c124ee84ae65bc0d02f77ff2cf0eb55a227756, manifest 55dba74cdf6ac0be22d2ff153db299b6e4f63cd4b1a213285cc70eac3e93797d, fragment parity 139/139. The fresh header join agrees with the retained SC8 evidence: every non-terminal entry has its named next action. This is source accounting, not whole-backlog execution or Gate 2 clearance.
+  Retained independent evidence: C:/CoWork/outputs/lane-b-closure-dispositions-2026-10-09/independent-review-corrected.json; failures empty. Baseline full check: 19/19 at the read revision. This review neither answers for Lane A nor verifies an upstream Graphify repair, Phase 3 delivery, held D-171 targets, GR-007 completion or B-136 P15.
+  Recording gap: this entry is already terminal Deferred. A direct Deferred-to-Verified header change remains inside that terminal episode and is not an audit-only diff under terminal-return.mjs. The SOP's Returning/Re-closing sections require the receiver's return/re-close records for the now-authorized final-review condition. This record preserves Deferred and reopens no scope; it records the independent review, not a completed lifecycle transition.
+  Lane A follow-up, already covered by the Judge's approval: record the final-independent-review Return condition using the existing Follow-up-Tier; then record its Re-close with the accepted closure-map evidence and this review. Use separate one-path commits and existing read revisions, preserving all historical records and normal green hooks. Lane B then independently verifies the receiver's completed episode with consistent header fields. Do not invent a self-referential annotation, waive the check, or seek the same Judge approval again. B-154 and B-150 remain conditional on their actual dependencies.
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** bd6e43a993eb22c43550760759700eb7f4a2b735
+
+## Return record
+
+- **Previous-Resolution:** Deferred
+- **Return-Trigger:** final independent review by an eligible reviewer who neither answered nor applied this entry
+- **Return-Act:** the Judge's disposition approval, 2026-10-09, in chat ("Judge approved: B-077 final review and disposition", recorded in B-154 `bd6e43a`), and Lane B's independent closure-map review at `225f0b1`, with Lane B's lifecycle instruction in B-154 `14be194`
+- **Returned-At-Commit:** 14be1944c69b9422e0831545664ddd4207583aaa
+
+## Re-close record
+
+- **Reclosed-Return:** Return-Act the Judge's disposition approval, 2026-10-09, with Lane B's independent review `225f0b1`; Returned-At-Commit `14be1944c69b9422e0831545664ddd4207583aaa`
+- **Completion-Condition:** final independent review by an eligible reviewer who neither answered nor applied this entry, of the closure map (Parent 1, Children 2–5, `B077-SC1`–`SC12`)
+- **Completion-Evidence:** Lane B's independent closure-map review at `225f0b1`; Lane A's reconciliation `a411a70` as corrected at `5c8978c`; `D-430`'s curated-description correction released (graph `481874fb…`, review `28853be`, health 19/19, recorded B-154 `eb1ecde`); B-050 `Verified` for the repository procedure (`8885bd1`); `B077-SC8` refreshed at `f4fe6c7` (125 terminal, 4 turn reports, 33 non-terminal, each with a named next action) and curated status 8 of 8
+- **Reclose-Act:** `D-364` (the re-close form); the Judge's disposition approval, 2026-10-09; Lane A disposition recorded here
+- **Reclosed-At-Commit:** b08d582a3ff2c679bb42bc5633c7dfc9c9643bb7
+
+## Lane B independent verification of the completed review episode — 2026-10-09
+
+### What happened
+
+Judge's current chat act: **"judge approved: B-077 Verified, then B-154, then B-150"**. Read at
+`a1cf7e8307430d7543d3db459468f3335b14567c`. The prior independent substantive review (`225f0b1`) is retained;
+the missing lifecycle evidence is now supplied by Lane A's Return `b08d582` and Re-close `c365c68`.
+
+Independent history validation finds **zero findings**, two B-077 episode records: the Return quotes its original
+Follow-up-Tier condition, names the Judge's act and independent review, and cites `14be194`; the Re-close binds the
+act's date and that exact SHA, cites D-364 and completion evidence, and reads the later commit `b08d582`. Its
+Answered/Applied header is consistent. Lane A's answer and all historical records remain unchanged by this review.
+
+| Completion evidence | Independent outcome |
+|---|---|
+| SC1 / SC8 | Fresh originating-header query at a1cf7e8, joined to the existing source-specific next-action map. Subsequent B-050/B-153 verification and B-077's completed episode are explicit; remaining non-terminal sources retain their named receiving owner/action. Counts do not substitute for this join. |
+| SC2 / SC4 / SC11 | D-403's individual reasons remain the single basis for their own obligations under D-416 item 6. B-072/B-076 are not promoted; B-050's procedure-scoped verification has its own evidence. |
+| SC5 / SC7 / SC9 / SC10 | Released extraction source 3366244, review 28853be, manifest and graph bound; curated fragment parity 139/139; all four D-430 strings reproduce accepted hashes. B-071/B-072 semantics hold. Portability and general enrichment are separate from source currency. |
+| SC6 / SC12 | B-071's documentary return episode is verified; D-171 target work remains held. B-016/C-001 Phase 3 custody remains separate. This verifies the closure-map reconciliation, not the software or behavior received downstream. |
+| SC3 and lifecycle | This independent disposition names consistent Resolution, Verified-By, Evidence and an existing read commit. The completed Return/Re-close starts the correct verification episode; no terminal-history waiver is used. |
+
+### What you need
+
+**Disposition: Verified**, for the bounded closure map and reconciliation only. B-154, then B-150 still require
+their own independent dispositions. B-136 P15 stays at SV2-DOD-06. D-430's B-077 description is a dated snapshot
+that says review was pending at 8885bd1; its recheck/update is now due in the already sequenced governed unit.
+Do not describe the old curated-status sweep as newly proving current lifecycle parity after this disposition.
+
+### What you did instead
+
+Only this handoff's independent verification metadata and review record change. No receiver answer, tracker,
+canonical source, fragment, graph, code, workflow, lane state, fetch or push changes. Evidence home:
+`C:/CoWork/outputs/lane-b-parent-dispositions-2026-10-09/`; normal checks and hooks apply.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| Approve | B-077 completed review episode and closure-map reconciliation | Phase 1: independently Verified here |
+| Approve-with-conditions | B-154, then B-150 | Phase 1: each parent's own evidence and independent disposition |
+| Defer | Tracker/description governed unit, GR-007, P15 and Gate 2 | Existing owners, recorded sequence and separate gates |
+| Reject | B-077 verification treated as downstream delivery or construction authority | Phase 1: preserve the accepted scope and holds |

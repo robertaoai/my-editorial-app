@@ -1,0 +1,3 @@
+E1 manifest r6 inputs bound (4 files)
+A1–A10 old/new pairs occur literally in packet r2
+E5 applying commit cb13ed7: five paths, every blob = expected
