@@ -30167,3 +30167,80 @@ registers the decision under `D-183` point 5. **Number check:** at `4b1ce64` the
 | `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `docs/README.md`, `docs/PRD.md`, Charter, `0001`, `Modular_PRD.md`, FN specs, `docs/specs/`, template v1, Phase Closure, `docs/LANE-B-WORK-ORDER.md`, `.claude/`, `scripts/`, application code, build configuration | — unaffected: this entry changes none of their governed content, scope or lane state |
 | **Encyclopedia** | unaffected: `docs/ENCYCLOPEDIA-SYNC.md` identifies no affected local citation entry; hosted parity not claimed |
 | **Graphify** | Affected: this Register append is new governed intent after the accepted SR-5 synchronization at S `46e6e6a`, so `docs-drift` reports drift again. Clearing it needs a separately released guarded cycle (`D-425`), never a raw rebuild |
+
+## 5.14e288 `D-465` — Graph-Sync Cycle Authority After `D-464` (Q2): Guarded Synchronization with the Source Pinned to This Entry's Commit; Twenty-Fourth Intervening Entry Permitted
+
+**Authority: the Judge, directly to Lane A, 2026-10-24**, in chat: "Judge decision — release fresh guarded-sync authority
+recording against 3a199ea" (retained as `C:/CoWork/outputs/lane-a-d465-q2-2026-10-24/JUDGE-Q2-RELEASE.md`, SHA-256
+`9c22923f9dc60a900ffc26853200ba99f7c1aa0b67df2e821599e3518b4d97d7`; transcript
+`417d4ead-c5b7-481e-b141-3a8989ce9446.jsonl`, uuid `c4d2bb03-7882-4a91-963a-b3f75144270b`). This direct decision is the
+release; Lane B's draft of it (`DRAFT-LANE-B-JUDGE-Q2.txt`, SHA-256
+`c9dc804aa0354cb15c5e0d43abc9b5b5f038def3a75f8796100aefa9442ff8f4`) is not. It accepts Lane B's `D-464` post-push review
+(Lane B session
+`C:/Users/rober_24syk4j/.codex/sessions/2026/10/21/rollout-2026-10-21T03-31-43-01a1450c-56ae-73a2-95c0-6c0d44d45f08_01a15acc-56e0-7801-a238-395e69a0b901.jsonl`
+line 7394, SHA-256 `bfb62688f8f7e9e046ae79a369b152aa316a1f0a0211c42d1c5afea46839ebb2`). It registers the decision under
+`D-183` point 5. **Number check:** at `3a199ea` the last Register entry is `D-464` (§5.14e287); no other occurrence of
+`D-465`, including a forward reference, exists in the repository or its history.
+
+### The decision
+
+1. **What this entry authorizes.** One new guarded graph-synchronization cycle, under `D-451` item 5 and the operative
+   `D-425`–`D-429` procedure, to clear the governed drift that `D-464`'s Register append created after the accepted
+   `D-463` cycle. This entry's own commit (Q2) is the analyzed source S, so the synchronized graph includes this text.
+   **Execution starts only on the Judge's separate cycle release** after Q2 is recorded and independently reviewed. That
+   release binds S = Q2's full commit and tree IDs. `D-463`'s completed cycle and its source pin are not reused, and S is
+   not pinned at `3a199ea` before this authority exists.
+2. **Recording baseline.** Checkout `C:/robertaoai/my-editorial-app`; branch `features/feature-V1-SM05`; origin
+   `git@github.com:robertaoai/my-editorial-app.git`; HEAD `3a199ead5a528561ea792524d10096fae7aef61f`, tree
+   `3a0d6b13dda382546bdd9187b3a0a465edcf18d8`; Lane A Active.
+3. **Proposed bindings for the cycle release.** Work folder `C:/CoWork/outputs/lane-a-graph-sync-after-d464-2026-10-24/work`,
+   with a new sibling evidence folder. Both were absent at recording. A conflict with existing work stops for a revised
+   binding. Earlier work folders and failed evidence are preserved.
+4. **Entry gates (before prepare).** Reconfirm S, its tree, clean state, origin, upstream and Lane A Active; snapshot all
+   refs, configuration, linked worktrees and tool bindings; establish explicit operator freeze coverage across every
+   writer surface (the release restates any ref-namespace exception; none carries over); verify the accepted live release
+   chain and the absence of a conflicting lock, journal or cycle. Graph metadata alone is not clearance.
+5. **Sequence.** (a) Fresh guarded `prepare` in the newly bound folder. (b) If ready, one B-136 candidate-request commit R,
+   sole parent S. (c) Lane B's exact-byte candidate review. (d) Lane B records B-050 receipt K, then a separate annotation
+   N. (e) Lane A independently verifies K and N and their bindings. (f) Guarded publication citing K, never N. (g) Full
+   health, then one B-136 health-record commit H. (h) Lane B independently reviews the published state and full-health
+   evidence. Each checkpoint keeps its own release; publication is not released by this entry. A pending prepare needs
+   source-derived answers and independent review before any resume. Old work IDs, candidate hashes, receipts or answers
+   are not transplanted without fresh validation.
+6. **Check scope.** This recording: two complete `bun run check` runs; `docs-drift` may be the sole failure; every other
+   check passes; any skip, startup failure or additional finding stops before commit. In the cycle, two complete runs for
+   each named commit: R, only `docs-drift` may fail; K, only `docs-drift` and the receipt's specifically identified
+   temporary `terminal-return` finding; N, `terminal-return` must clear and only `docs-drift` may fail; after publication
+   and for H, every required check passes. An allowed failure is never reported as a full pass. Normal hooks under the
+   required identity; `--no-verify` is never used.
+7. **Interval boundaries.** Only the four named handoff-only fast-forward commits (R, K, N, H) may advance S during the
+   guarded interval; no Register or other source edit is permitted then. Every commit has exact path scope and tested =
+   staged = committed proof. A changed candidate needs fresh exact-byte acceptance; a source or frozen-binding change stops
+   the cycle. Failures are preserved. No raw rebuild, manual copy or guard bypass; any recovery follows the guard's
+   owned-transaction procedure.
+8. **Coverage.** `D-464`'s server observation stays historical proof: 26 delivered commits through `3a199ea`; no fresh
+   remote-state claim. Q2 and each later actual commit join pending coverage with full IDs, parents, trees and paths;
+   future commits stay prospective. External evidence and transcripts are outside Git preservation. No fetch or push; no
+   manual or force fallback. A later preservation push needs its own bounded authority and review.
+9. **Sequencing amendment.** Item 0 of `D-440` and `D-441`, as amended through `D-464` item 8, is further amended to permit
+   one further intervening Register entry, this twenty-fourth entry, after `D-464` and before the separate TCA r3 (J3) and
+   J-C A1 entries. J1 and J2 keep their separate identities, text and transfer holds. All other sequencing terms are
+   unchanged; no historical entry is rewritten. **No further intervening entry is permitted by implication.**
+10. **Holds.** U-C held. J1 (`D-440`) and J2 (`D-441`) separate; both transfers held. B-158, B-136 and `D-439` Open.
+    B-159, the prior pushes, the accepted `D-463` cycle and the Route H disposition stand. work-r3 is not resumed. No
+    installation, transfer, fetch or push. Every other hold is unchanged.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry |
+| **Build Spec** | — unaffected: the act authorizes a graph cycle; it changes no V1 scope, creates, sequences or retires no artifact, and changes no V1 or MMF DoD |
+| **Inventory** | — unaffected: no repository file is created or retired and no row's status changes |
+| B-136, B-050 | — unaffected by this entry; they receive records only in the separately released cycle |
+| B-158 | — unaffected: Route H is filed (`4b1ce64`) and not edited |
+| `D-463`, `D-464`, `D-425`–`D-429`, `D-451` | — unaffected: applied as written; `D-463`'s cycle stays complete and is not reused |
+| `D-440`, `D-441` | — unaffected: their text is not edited; this entry amends their item 0 separately (item 9) |
+| `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `docs/README.md`, `docs/PRD.md`, Charter, `0001`, `Modular_PRD.md`, FN specs, `docs/specs/`, template v1, Phase Closure, `docs/LANE-B-WORK-ORDER.md`, `.claude/`, `scripts/`, application code, build configuration | — unaffected: this entry changes none of their governed content, scope or lane state |
+| **Encyclopedia** | unaffected: `docs/ENCYCLOPEDIA-SYNC.md` identifies no affected local citation entry; hosted parity not claimed |
+| **Graphify** | Affected: governed drift remains (`D-464` and this entry) until the separately released cycle pinned to this commit is published and healthy (`D-425`) |
