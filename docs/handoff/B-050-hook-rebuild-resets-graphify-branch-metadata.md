@@ -7979,3 +7979,12 @@ Recorded only this authorized acceptance unit. Preserve 32 historical deliveries
 | K and separate N | Approve-with-conditions | Two checks each and commit proof, then Lane A verification |
 | Publication, full health, H and push | Defer | Existing Judge/review gates |
 | U-C, separate J1/J2 transfers and all other holds | Defer, unchanged | Existing checkpoints |
+
+
+## Terminal annotation record
+
+- **Current-Resolution:** Verified
+- **Annotation-Type:** verification-evidence
+- **Annotation-Act:** D-467 step 6 and the Judge's direct 2026-10-26 approval, retained at C:/CoWork/outputs/lane-b-d467-kn-2026-10-26/JUDGE-STEP6-RELEASE.txt with authority-provenance.json, executed independently by Codex (Lane B). This separate record-only annotation covers receipt K edfd2afcca4a0b9f501d31a549f60171c3b84a85, sole-parent request R 29225dd5cc6d0c63dcdd9a4fa23df6d63641ea43, analyzed source S/Q3 1e7efc3fd24de3d11c55248e602927a5f94079a9, work e4a03e4a-ff2f-4868-bfa9-684c9857fe92, attempt-2/staging under C:/CoWork/outputs/lane-a-graph-sync-q3-2026-10-25/work, graph f5d72ce84fd1c24ead3da6baa4a9237b625a407e117da99fc4a19a2131babbce, manifest 4f029c0630ccb593926e232eb2015cd8eb6fee23a804bd876437240906dde70f (guard-treeDigest-v1, 583 files), baseline receipt 402a8322a322aba5efd23d6f4655f946a66c521a / e4905edeb0ecd1f88494ab198a93e043b77098c2169180bc6ea7db389422af52. B-050's terminal header, Resolution and Lane A answer remain unchanged; no scope reopens. This ends only the permitted terminal-return interval. K's two complete checks and full commit proof are retained; N requires two complete checks clearing terminal-return, with only docs-drift permitted. Earlier linked-file continuity remains unproved; prospective inventories are unchanged. Lane A remains Active; no lock transfer occurs. Lane B delivers K and N for Lane A's independent verification. Any later separately released publication cites K, never N. Preserve 32 historical deliveries, pending Q3 -> R -> K -> N only as created, H prospective; no fresh remote-state claim. No install, transfer, fetch, prepare, resume, publication, push or manual/force fallback. U-C held; J1/D-440 and J2/D-441 separate, both transfers held; B-136, B-158 and D-439 Open; work-r3 and all other holds unchanged. Normal hooks and the required identity apply.
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** edfd2afcca4a0b9f501d31a549f60171c3b84a85
