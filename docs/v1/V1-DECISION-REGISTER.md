@@ -30338,3 +30338,148 @@ line 8303, SHA-256 `2fed2321574e52e95dc4c86c46ac522b0eba6c2eb85a615a70fb5f62d682
 | `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `docs/README.md`, `docs/PRD.md`, Charter, `0001`, `Modular_PRD.md`, FN specs, `docs/specs/`, template v1, Phase Closure, `docs/LANE-B-WORK-ORDER.md`, `.claude/`, `scripts/`, application code, build configuration | — unaffected: this entry changes none of their governed content, scope or lane state |
 | **Encyclopedia** | unaffected: `docs/ENCYCLOPEDIA-SYNC.md` identifies no affected local citation entry; hosted parity not claimed |
 | **Graphify** | Affected: this Register append is new governed intent after the accepted Q2 synchronization at S `67177ed`, so `docs-drift` reports drift again. Clearing it needs a separately released guarded cycle (`D-425`), never a raw rebuild |
+
+## 5.14e290 `D-467` — Integrated Graph-Sync and Push Authority After `D-466` (Q3): Guarded Synchronization with the Source Pinned to This Entry's Commit and a Pre-Authorized Five-Commit Push; Registration of the `D-465` Cycle's Judge Acts; Twenty-Sixth Intervening Entry Permitted
+
+**Authority: the Judge, directly to Lane A, 2026-10-25**, in three chat acts, each retained under
+`C:/CoWork/outputs/lane-a-d467-q3-2026-10-25/` (transcript `417d4ead-c5b7-481e-b141-3a8989ce9446.jsonl`): the route
+selection "Take the recommended route: pre-authorize the push in the next cycle-authority entry" (line 13413, uuid
+`2784103a-bc19-4f01-a85d-1193551b9099`, SHA-256 `4bcb82a2dc4c8aa7279dd97f9b9f5d3567c2ad30e69a90b912eebb83e2ba9cdc`); the
+recording release "release the Q3 recording under contract r2" (`JUDGE-Q3-RECORDING-RELEASE.md`, line 13609, uuid
+`184a092f-0fc5-4a79-a70a-9fbc4386d8f9`, SHA-256 `5d5b921b29be0d7fe469a964bb804901a2a102103485c4301b3273578107f4fe`); and,
+after Lane B found a defect in r2's byte-identity wording, the selection "r3 after Lane B review"
+(`JUDGE-Q3-CONTRACT-R3-SELECTION.txt`, line 13684, uuid `0b11cf69-851f-4d20-bf97-3f44e9e44589`, SHA-256
+`a673a60a958a63a2380e7d0505a4f49565d809ad76205367b646627afb84c2ea`), with the instruction to also register the `D-465`
+cycle's acts (item 11). The planning contract is `C:/CoWork/outputs/lane-a-map-r2-2026-10-25/SYNC-PUSH-CONTRACT.draft.r3.md`
+(SHA-256 `38fc27af6f51179468edd65ffd42c8902c1599d46485535c638859b5cdffc83c`), approved by Lane B (Lane B session
+`C:/Users/rober_24syk4j/.codex/sessions/2026/10/21/rollout-2026-10-21T03-31-43-01a1450c-56ae-73a2-95c0-6c0d44d45f08_01a15acc-56e0-7801-a238-395e69a0b901.jsonl`
+line 8797, SHA-256 `673cfbe319d2c49bfa588eff1bcaaba4ecf55785e4fb88b56ce4e36fdeb101b8`). This entry carries the contract's
+terms; the external file is planning evidence, not the authority. It registers the decisions under `D-183` point 5.
+**Number check:** at `093f136` the last Register entry is `D-466` (§5.14e289); no other occurrence of `D-467`, including a
+forward reference, exists in the repository or its history.
+
+### The decision
+
+1. **What this entry authorizes, before the pin.** One guarded graph-synchronization cycle under `D-451` item 5 and the
+   operative `D-425`–`D-429` procedure, to clear the governed drift that `D-466`'s Register append created after the
+   accepted Q2 cycle, **and** the push of that cycle's commits. This entry's own commit (Q3) is the analyzed source S, so
+   the synchronized graph includes this text. After S only named handoff-only commits follow; handoff-only commits are not
+   governed intent (`D-426`, G-F3-9). The push therefore needs **no later Register entry**. Execution starts only on the
+   Judge's separate cycle release, after Q3 is recorded and independently reviewed.
+2. **Recording baseline.** Checkout `C:/robertaoai/my-editorial-app`; branch `features/feature-V1-SM05`; origin
+   `git@github.com:robertaoai/my-editorial-app.git`; HEAD `093f136fd645e76450a8a84550841d13fc80bc25` (`D-466`'s A), tree
+   `6112da8ae147f57d67b1b8f8b100fa95bcec0dee`; Lane A Active; last verified server tip `093f136` (the retained `D-466`
+   read, not a fresh reading). Q3 is Register-only with sole parent `093f136`.
+3. **Exact commit coverage.** Push range: base B = `093f136` excluded, through H included. Exactly five commits, oldest
+   first, each sole-parent and linear: **Q3** (this authority, Register only) → **R** (B-136 candidate request) → **K**
+   (Lane B's B-050 receipt) → **N** (Lane B's separate annotation) → **H** (B-136 health record). The push target is H; no
+   sixth commit. **No unscoped post-pin commit:** after Q3 only R, K, N and H may advance the branch, each handoff-only with
+   exact path scope. Any other commit (Register, source, a second handoff edit) stops the cycle. A changed source needs a
+   new authority entry and a new cycle.
+4. **Sequence and where each act is retained.** (1) Lane A records Q3. (2) Lane B reviews Q3. (3) **Judge:** cycle
+   release binding S = Q3's full commit and tree IDs, with prospective operator freeze coverage. (4) Lane A: entry gates
+   (item 7), fresh `prepare` (and, if pending, source-derived answers, independent review and one Judge-released resume).
+   (5) Lane A: R. (6) Lane B: exact-byte candidate review, then K, then N. (7) Lane A: independent read-only K/N
+   verification with re-inventory. (8) **Judge:** publication release. (9) Lane A: guarded publication citing K, never N;
+   full health. (10) Lane A: H. (11) Lane B: review of the published state, health, H's proof and the **complete
+   five-commit manifest**. (12) **Judge:** cycle acceptance and push go-ahead; the push stage itself is pre-authorized by
+   this entry, its timing is not: no remote contact before step 12. (13) Lane A: fresh pre-push gates and push (item 8).
+   (14) Lane B: post-push review. Lane B's reviews are retained externally by session locator and SHA-256.
+5. **Registration of the Judge's acts at steps 3, 8 and 12 (`D-183` items 2 and 5).** Lane A retains each direct
+   instruction with its source locator and SHA-256, separate from any draft. Until registered it is described as
+   "approval received, pending durable registration". Lane A **must** register each one in the next available, separately
+   authorized Register entry; after that commit it is described as "Judge approval recorded by `D-NNN` at commit `<sha>`".
+   That later entry is outside this five-commit push and is not created to record this push's result. This entry records
+   prospective authority only, not a future completion result.
+6. **Check policy and commit proof.** Every commit (Q3, R, K, N, H) needs two complete `bun run check` runs on its final
+   candidate, and retains: the permitted findings, actual exit codes, full logs, the exact changed path, the sole parent,
+   tested = staged = committed proof (candidate-file bytes, staged-file bytes and committed-file bytes must match,
+   demonstrated by equal SHA-256 digests of their content; the staged and committed Git blob IDs are recorded separately and
+   must match), the exact-prefix (append-only) proof, normal-hook execution (Git trace), the required identity and a clean
+   after-state. Permitted results: **Q3 and R**, `docs-drift` may be the sole failure; **K**, only `docs-drift` and K's
+   specifically identified temporary B-050 `terminal-return` finding; **N**, `terminal-return` clears and only `docs-drift`
+   may fail; **after publication (full health), H and the fresh pre-push checks**, every required check passes with no
+   exception, `docs-drift` reporting synced at S with HEAD advanced by excluded-only commits. Any skip, startup failure or
+   other finding stops before the commit or push. An allowed failure is never reported as a full pass. Never `--no-verify`.
+7. **Bound guarded procedure and interval freeze.** The `D-425`–`D-429` procedure applies in full. Before prepare, the
+   step-3 release binds and the entry gates verify: S = Q3's full commit and tree IDs; new, absent work and sibling evidence
+   folders (earlier folders preserved); checkout, branch, origin and upstream; tools (Node, Git, Bun, the guard script hash,
+   the graphify CLI); all refs and configuration; linked-worktree HEADs and their untracked-path inventories; and the
+   accepted live release chain selected by the guard, never by receipt dates. The entry gates establish prospective operator
+   freeze coverage stated by the Judge and confirm no conflicting lock, journal, work claim or cycle. At every later gate:
+   only `refs/codex/turn-diffs/` checkpoint metadata is excluded from frozen-ref equality, with its changes inventoried;
+   every other ref and the configuration stay unchanged except the authorized source-branch handoff fast-forwards; the
+   linked-worktree untracked skill paths are re-inventoried against the accepted inventory (SHA-256
+   `3e32d008558c76fca15ac98e7e17a7b2a20e40e0d3fd2485dc85b837c55674e4`) in paths, types, sizes and hashes, with no link
+   substitution; any difference stops. Earlier byte continuity stays unproved. Full health retains: the release receipt and
+   its predecessor chain to the bootstrap; live graph and complete manifest equal to K's accepted bytes; guard fragment
+   parity and `merge7.js <fragment> --verify-only` for every mergeable fragment; name binding and answer application; the
+   branch record; journal and lock absence; the actual `graphify check-update` output and its classification; and the two
+   complete checks.
+8. **Push gate, after step 12.** (1) HEAD H, clean, unchanged reviewed manifest. (2) Guarded-interval clearance from H, the
+   step-12 act and evidence of no later prepare, resume or publication; graph metadata alone is insufficient. (3) For this
+   push only, `refs/codex/turn-diffs/` is excluded from ref equality with its changes inventoried; other refs and
+   configuration unchanged; linked-worktree inventory bound. (4) Two fresh checks under item 6. (5) Snapshot refs and
+   configuration immediately before remote contact. (6) `git ls-remote --exit-code origin refs/heads/features/feature-V1-SM05`
+   must exit 0 with exactly one line naming the target and the full ID B; any other result stops for reconciliation.
+   (7) Push H **without force**, once: `git push origin <full H>:refs/heads/features/feature-V1-SM05`; no `--all`,
+   `--mirror`, `--tags`, implicit `HEAD` or substitute target; a rejection stops with no reset, rebase, fetch or retry.
+   (8) Repeat the read; require exit 0, exactly one matching line and the full ID H. Push exit 0 alone is not completion
+   proof. **Completion proof:** commands, outputs, times, exits and hashes; all five commits reachable from the observed
+   tip; the 32 earlier deliveries kept separate; local HEAD equal to the tip with 0 local-only commits; clean worktree and
+   staging; configuration and unrelated refs unchanged, with the remote-tracking update recorded separately; no push-result
+   commit. External drafts, runtime graph state, evidence and transcripts are not preserved by the push.
+9. **Failure routes.** Prepare pending: source-derived answers, independent review, one Judge-released resume. Prepare or
+   resume failed, or the candidate rejected or changed, **before R exists**: preserve; a fresh prepare needs a separate
+   Judge release and a new sibling work folder, with S and every frozen binding revalidated. Any repair **after R exists**
+   that needs a replacement request, receipt or annotation: **stop** for revised scope, pin and coverage review; existing
+   evidence and commits are preserved; no amendment, reset or additional commit is implied; a changed candidate never
+   reuses K. Publish refused or failed: stop; only the guard's owned-transaction recovery. Any check outside item 6: stop.
+   Push rejected or base different: stop for reconciliation. Source change needed: the cycle stops and a new authority entry
+   starts a new cycle. Any manual or force fallback needs its own bounded authority and independent review; prior force
+   approval keeps its original scope.
+10. **Sequencing amendment.** Item 0 of `D-440` and `D-441`, as amended through `D-466` item 9, is further amended to permit
+    one further intervening Register entry, this twenty-sixth entry, after `D-466` and before the separate TCA r3 (J3) and
+    J-C A1 entries. J1 and J2 keep their separate identities, text and transfer holds. All other sequencing terms are
+    unchanged; no historical entry is rewritten. **No further intervening entry is permitted by implication, and none is
+    needed for this push.**
+11. **Registration of the `D-465` cycle's direct Judge acts (`D-183` item 5).** The following explicit approvals were
+    retained externally and are registered here, as registration only; they grant no new authority and are not
+    re-executed. `D-466` registered the Q2 acceptance itself. Lane A transcript lines refer to
+    `417d4ead-c5b7-481e-b141-3a8989ce9446.jsonl`; Codex lines to Lane B session
+    `C:/Users/rober_24syk4j/.codex/sessions/2026/10/24/rollout-2026-10-24T15-23-08-01a16cca-bbec-7aa3-b250-3850cee7541c.jsonl`.
+
+    | Act (2026-10-24) | Retained as | Locator | SHA-256 |
+    |---|---|---|---|
+    | Fresh guarded-preparation release against Q2 (not executed: Lane A stopped on the freeze gap) | `lane-a-graph-sync-after-d464-2026-10-24/evidence/JUDGE-CYCLE-RELEASE.md` | Lane A line 11969, uuid `728a774c-5779-4b65-bbfc-f41eaffba185` | `7e03d8d5c8d5f751da6a4dcb6650787a14f8d1e7cd23591c50c5ec33111b6f96` |
+    | Checkpoint-ref exception and fresh prepare | `…/evidence/JUDGE-EXCEPTION-RELEASE-20261024T043842Z.md` | Lane A line 12014, uuid `365e659e-b250-4a5f-9067-6ed40f7fd35f` | `f4135c6f387bc19bf44a285c1ecc8b3bd9f03f038f136987e317fadb156b24b9` |
+    | Prospective freeze coverage and one reviewed resume | `…/evidence/JUDGE-RESUME-RELEASE-20261024T045654Z.md` | Lane A line 12096, uuid `1c087974-80df-4e19-8fce-c09c5b81a078` | `f906dd6df99d642241984c711a1ee448a7a2c4325b7784965355e4c3131b6910` |
+    | Linked-worktree inventory accepted prospectively; Lane B released for K/N | `…/evidence/JUDGE-INVENTORY-KN-93595a18.txt` | Lane A line 12336, uuid `93595a18-e871-45b5-a542-116d3cec998b` | `87fb9257ab314978cbfb9da8b314327d487c94271d67ad0dfd4d53560688cdef` |
+    | First K/N startup failure accepted; continuation | `…/evidence/JUDGE-KN-CONTINUATION.txt` | Codex line 177 | `483a0b2e8a39a0d6320c4af570c707dfffb77720a709b487f0a1dab8fc34e13c` |
+    | Second startup failure accepted; elevated continuation | `…/evidence/JUDGE-KN-ELEVATED-CONTINUATION.txt` | Codex line 253 | `c08c4d6efd61fb2af7bf5ce75081314023f2f768273ed4b14e50646959315e06` |
+    | Lane A's K/N verification and three supplements accepted | `lane-a-review-kn-d465-2026-10-24/JUDGE-KN-ACCEPTANCE.txt` | Lane A line 12783, uuid `0714d0fe-f28e-4a6e-98a6-9cb273aeb06c` | `09cfb6f77dfcf2ed380c77e8921790eb53738ea616127dd55f17c273fd29fc04` |
+    | Q2 guarded publication and full-health recording | `lane-a-publish-q2-2026-10-24/JUDGE-PUBLISH-RELEASE.md` | Lane A line 12817, uuid `bb9f918e-43c7-47cb-a712-08629acf77d7` | `33cde432fc3f411a04e09bddbd4c7083004b3807bfddd728fee95201033d3662` |
+
+    Each is now "Judge approval recorded by `D-467`". Independent review checks these rows against their sources; it does
+    not recreate or grant the approvals.
+12. **Coverage.** 32 delivered commits through `093f136` (26 through `3a199ea`, then six by the `D-466` push), historical
+    proof only. Q3 and each later actual commit join pending coverage with full IDs, parents, trees and paths; future
+    commits stay prospective. No fetch or push before step 12.
+13. **Holds.** U-C held. J1 (`D-440`) and J2 (`D-441`) separate; both transfers held. B-158, B-136 and D-439 Open. B-159,
+    the prior pushes and the accepted SR-5 and Q2 cycles stand. work-r3 is not resumed. No installation or transfer. Every
+    other hold is unchanged.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry |
+| **Build Spec** | — unaffected: the act authorizes a graph cycle and its push and registers earlier approvals; it changes no V1 scope, creates, sequences or retires no artifact, and changes no V1 or MMF DoD |
+| **Inventory** | — unaffected: no repository file is created or retired and no row's status changes |
+| B-136, B-050 | — unaffected by this entry; they receive records only in the separately released cycle |
+| B-158 | — unaffected: Route H is filed (`4b1ce64`) and not edited |
+| `D-465`, `D-466`, `D-425`–`D-429`, `D-451`, `D-183` | — unaffected: applied as written; item 11 registers `D-465`-cycle approvals under `D-183` item 5 without changing those entries |
+| `D-440`, `D-441` | — unaffected: their text is not edited; this entry amends their item 0 separately (item 10) |
+| `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `docs/README.md`, `docs/PRD.md`, Charter, `0001`, `Modular_PRD.md`, FN specs, `docs/specs/`, template v1, Phase Closure, `docs/LANE-B-WORK-ORDER.md`, `.claude/`, `scripts/`, application code, build configuration | — unaffected: this entry changes none of their governed content, scope or lane state |
+| **Encyclopedia** | unaffected: `docs/ENCYCLOPEDIA-SYNC.md` identifies no affected local citation entry; hosted parity not claimed |
+| **Graphify** | Affected: governed drift remains (`D-466` and this entry) until the cycle pinned to this commit is published and healthy (`D-425`) |
