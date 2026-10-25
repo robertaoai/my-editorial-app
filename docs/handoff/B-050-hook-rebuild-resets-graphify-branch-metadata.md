@@ -7926,3 +7926,56 @@ U-C stays held. J1/D-440 and J2/D-441 remain separate, both transfers held. B-15
 - **Annotation-Act:** D-465 items 5-7 and the Judge's direct bounded K/N release (UUID 93595a18-e871-45b5-a542-116d3cec998b), with the retained 2026-10-24 startup-failure continuation decisions, executed independently by Codex (Lane B). This separate record-only commit covers receipt 402a8322a322aba5efd23d6f4655f946a66c521a, sole parent request R 81495b3850c24eef2fe47009f656175ee08658f1, analyzed source S/Q2 67177ed85c7be4fc27f8c20b0eef7fa48a76f41c, work 1aaa0362-c3bb-42d1-8709-9797329c1a22, attempt-2/staging under C:/CoWork/outputs/lane-a-graph-sync-after-d464-2026-10-24/work, graph 7776876e3094a4eb6f5919ac9ab68d324c5d8d2384c5c7ef2e255d270f6ed52e, manifest e4905edeb0ecd1f88494ab198a93e043b77098c2169180bc6ea7db389422af52 (guard-treeDigest-v1, 583 files). B-050's terminal header, Resolution and Lane A answer remain unchanged; no scope is reopened. This ends only the authorized temporary terminal-return interval. K's two complete checks each reported only docs-drift and the B-050 working-copy terminal-return preview, with no skip. This annotation requires two complete checks clearing terminal-return; only docs-drift may remain. All check, commit, repeated inventory and authority evidence is retained at C:/CoWork/outputs/lane-a-graph-sync-after-d464-2026-10-24/evidence; earlier failures and the historical byte-continuity qualification remain preserved. Lane B delivers K and this separate N directly to Lane A for independent read-only verification; any later separately released publication cites K, never N. Lane A remains Active with no lock transfer. Preserve 26 historically delivered commits through 3a199ea, pending Q2 -> R -> K -> N only as created, H and later authority commits prospective; no fresh remote-state claim. External evidence is outside Git preservation. No install, transfer, fetch, prepare, resume, publish, push or manual/force fallback. U-C stays held; J1/D-440 and J2/D-441 remain separate and both transfers held; B-158, B-136 and D-439 remain Open. Accepted dispositions, work-r3's hold and all other holds remain unchanged. Normal hooks and the required identity apply.
 - **No-Scope-Reopened:** true
 - **Annotated-At-Commit:** 402a8322a322aba5efd23d6f4655f946a66c521a
+
+
+## Lane B — D-467 Q3 exact-byte candidate acceptance, 2026-10-26
+
+### What happened
+
+Codex (Lane B) independently records the Judge-approved D-467 step 6 receipt K. Sole parent request R is 29225dd5cc6d0c63dcdd9a4fa23df6d63641ea43; analyzed source S/Q3 is 1e7efc3fd24de3d11c55248e602927a5f94079a9, tree 80f5648a99bfab730ce57675322876620e5da6fc. Work is C:/CoWork/outputs/lane-a-graph-sync-q3-2026-10-25/work, work ID e4a03e4a-ff2f-4868-bfa9-684c9857fe92, ready attempt 2, candidate attempt-2/staging. The exact graph and complete 583-file manifest were independently reviewed and rehashed before this append. Lane A remains Active; this own-entry unit transfers no lock.
+
+The direct Judge instruction is retained at C:/CoWork/outputs/lane-b-d467-kn-2026-10-26/JUDGE-STEP6-RELEASE.txt with source locator and SHA-256 in authority-provenance.json; approval received, pending durable registration under D-467 item 5 and D-183. Independent candidate approval is retained as LANE-B-Q3-CANDIDATE-REVIEW.txt, SHA-256 98578bdc61fb5fb2126d45318b4b526a3dee650894bff32f211c3ed2b78a1125. All 139 fragments and 15 approved names match. The two inherited undescribed commit nodes remain qualified; pending semantics are zero. Producer validation was retained and independent byte/data comparisons were performed; the producer pipeline was not rerun by this receipt unit.
+
+Entry gates revalidated the frozen source, answers, candidate manifest, live Q2 baseline, refs, configuration and linked-worktree inventory. Only refs/codex/turn-diffs/ checkpoint metadata is excluded, with inventories retained. Earlier linked-file byte continuity remains unproved; the prospective inventory is unchanged. Evidence is retained at C:/CoWork/outputs/lane-b-d467-kn-2026-10-26.
+
+### What you need
+
+K is one B-050-only append, with two complete checks and full tested/staged/committed proof. Only docs-drift and this receipt's temporary B-050 terminal-return working-copy preview may fail. Separate annotation N follows with sole parent K and K's full ID; its two complete checks must clear terminal-return and may retain only docs-drift. Every other finding, skip, startup failure or binding mismatch stops. Normal hooks and the required identity apply.
+
+Lane B delivers both full IDs for Lane A's independent read-only verification. Later publication needs the Judge's step-8 release and cites K, never N. This receipt does not establish publication, full health, parent closure or delivery. B-050's terminal header, Resolution and Lane A answer remain unchanged.
+
+### What you did instead
+
+Recorded only this authorized acceptance unit. Preserve 32 historical deliveries through 093f136fd645e76450a8a84550841d13fc80bc25; pending coverage grows Q3 -> R -> K -> N only as commits exist. H remains prospective. No fresh server-state claim; external evidence remains outside Git preservation. No install, transfer, fetch, prepare, resume, publication, push or manual/force fallback. U-C held; J1/D-440 and J2/D-441 separate, both transfers held; B-136, B-158 and D-439 Open; work-r3 and all other holds unchanged.
+
+### F3 acceptance record
+```json
+{
+  "kind": "graphify-f3-acceptance",
+  "version": 1,
+  "disposition": "Accept",
+  "scope": "F3 publication",
+  "reviewer": "Lane B",
+  "workId": "e4a03e4a-ff2f-4868-bfa9-684c9857fe92",
+  "graphSha256": "f5d72ce84fd1c24ead3da6baa4a9237b625a407e117da99fc4a19a2131babbce",
+  "manifest": {
+    "algorithm": "guard-treeDigest-v1",
+    "digest": "4f029c0630ccb593926e232eb2015cd8eb6fee23a804bd876437240906dde70f",
+    "files": 583
+  },
+  "analyzedSource": "1e7efc3fd24de3d11c55248e602927a5f94079a9",
+  "baseline": {
+    "releaseLocus": "402a8322a322aba5efd23d6f4655f946a66c521a",
+    "algorithm": "guard-treeDigest-v1",
+    "digest": "e4905edeb0ecd1f88494ab198a93e043b77098c2169180bc6ea7db389422af52"
+  },
+  "pendingSemantics": 0
+}
+```
+
+| Item | Verdict | Follow-up phase |
+|---|---|---|
+| Exact Q3 attempt-2 candidate | Approve | Independent receipt K |
+| K and separate N | Approve-with-conditions | Two checks each and commit proof, then Lane A verification |
+| Publication, full health, H and push | Defer | Existing Judge/review gates |
+| U-C, separate J1/J2 transfers and all other holds | Defer, unchanged | Existing checkpoints |
