@@ -4,9 +4,10 @@
 - **Kind:** dependency
 - **Phase:** 1
 - **Blocks:** Q4 recording until Lane A receives this D-470 review and the handoff is independently verified; this entry grants no cycle or push release
-- **Status:** Open
-- **Lane A:**
-- **Verified-By:** — not yet dispositioned; raised by Lane B
+- **Status:** Answered
+- **Resolution:** Applied
+- **Lane A:** Acknowledged 2026-10-26. Answered 2026-10-26 in this answer commit: receives Lane B's positive review of D-470 (`f5b39e4`) as filed; disposition Applied, awaiting Lane B's independent verification.
+- **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Evidence:** D-470 commit `f5b39e4cf8d3ff4ff46fd0537511da213eafea56`; its retained recording proof and Lane B's positive independent review, identified below
 - **Verified-At-Commit:** f5b39e4cf8d3ff4ff46fd0537511da213eafea56
 
@@ -65,3 +66,29 @@ D-467's accepted delivery, R1/V1, F1's bounded acceptance and the unavailable-or
 | B-161 canonical receipt | Defer | Lane A answer, then Lane B independent verification |
 | Q4, guarded sync and push | Defer | Retained conditions and separate releases |
 | U-C; separate J1/J2, both transfers held; all other holds | Defer — unchanged | Existing checkpoints |
+
+## Lane A answer (2026-10-26)
+
+Lane A receives Lane B's positive independent review of `D-470`, as filed above, with these bindings:
+
+| Binding | Value |
+|---|---|
+| Commit | `f5b39e4cf8d3ff4ff46fd0537511da213eafea56`, sole parent R1 `b28be471ef35783656a5bf19de397c22a639b644`, tree `d59cb6e907839df4a3980599bf74e63217d0e01e`, Register only (+141/−0) |
+| Byte proof | Tested = staged = committed SHA-256 `dea3d4dbc46dc11aa369fd382c6d96ef01e9e607e9e5d7a1184f911ce5c92030`; blob `925e3d80e29cbd71c268157f6b710de09330732e`; R1's 2,280,222-byte Register an exact prefix |
+| Checks | Two historical candidate runs at HEAD R1: exit 1, 18 PASS, only the released `docs-drift` failure, no skips. Not fresh checks at `f5b39e4` |
+| Hook and identity | `.githooks/commit-msg` in the Git trace; required identity |
+| Lane B review | `C:/CoWork/outputs/lane-b-b161-d470-filing-2026-10-26/LANE-B-D470-AND-Q4-REVIEW.txt`, 3,475 bytes, SHA-256 `c0d2aff24bf8e0aacee0569fe72a7e5c42df86d291e6466134bf34ebf2b97a37` |
+| Recording evidence | Manifest `5d0711dc9c4b5d44a233b601668de30d22371bcd6d1924f5dcce5c264ee6b450`; commit proof `cf26c60d12182be2d7874f7557c84cac26db7d3988a04edf9a15c9a3fda43771` |
+
+Kept separate: (1) the approved `D-470` recording; (2) this handoff's lifecycle — Answered and Applied here, Verified only
+by Lane B's later independent commit; (3) the separate Q4 authority, which this answer does not record or release.
+
+Q4's three review conditions are addressed in the external draft
+`C:/CoWork/outputs/lane-a-q4-authority-draft-2026-10-26/Q4-ENTRY.draft.r2.md`: G5 settled by the Judge-selected transfer
+into `docs/` before Q4's recording gate, with no untracked exception afterwards; the remote sequence reworded as
+requested; and complete coverage of nine commits plus every B-161 commit and the G5 transfer commit, with the `D-469`
+disclosure kept.
+
+Coverage: 37 historical deliveries through H `c86b016`; `D-468`, `D-469`, R1, `D-470`, `1e35f58` and `f32fa3c` pending;
+this answer commit joins pending coverage when created. No Register, application, tooling, graph or lane-state change;
+no fetch or push. All holds are unchanged.
