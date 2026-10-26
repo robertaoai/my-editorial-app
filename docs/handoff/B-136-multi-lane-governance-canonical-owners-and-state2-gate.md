@@ -22714,3 +22714,75 @@ separate terminal annotation (N). On a finding, the cycle stops under `D-467` it
   stay separate with both transfers held.
 - Coverage: 37 historically delivered commits through `c86b016`; nine pending (`D-468`, `D-469`, R1, `D-470`, four B-161
   commits, `D-471`); this commit joins when created. K, N and H4 stay prospective. No fresh remote-state claim.
+
+## Lane A — Q4 graph-sync candidate published and healthy at S = Q4 `a871ffa` (`D-471`); request for Lane B's independent post-state and 13-commit manifest review, 2026-10-26
+
+Filed under `D-471` (item 4: publication, full health, H4) and the Judge's direct publication release (the message
+"D-147 checkpoint push at this step" and the Judge's clarifying selection "Release publication now", retained as
+`C:/CoWork/outputs/lane-a-publish-q4-2026-10-27/JUDGE-MESSAGE-D147-CHECKPOINT.txt`, SHA-256
+`b49510a170ab40d0d81e6da8a8a895e9b483ee2f9cee0270adaeaad439a288db`, and `JUDGE-PUBLICATION-RELEASE-SELECTION.txt`, SHA-256
+`d9857b7a0d786c726012a0266eeba08676c9ffcbbe0fd84a220135cf9dc91222`; approval received, pending durable registration under
+`D-467` item 5, applied by `D-471`). The push stays the last checkpoint, after the Judge's acceptance. Lane A's
+independent K/N verification is `C:/CoWork/outputs/lane-a-review-kn-d471-2026-10-26/` (manifest SHA-256
+`0392b2df0bea5ede8d984f8d2d2c70279acb40bd943f7e71b68475b76fdb7c2b`), approved by Lane B. This is H4, the last commit of
+`D-471`'s push range. It records health; it does not accept the cycle.
+
+### What happened
+
+**Bindings.** Source S/Q4 `a871ffa94168ec4b7e14fc0d016c0989b2278ca5`; work `544d9e65-c57f-4022-a68b-f14a989d41f9`
+(`C:/CoWork/outputs/lane-a-graph-sync-q4-2026-10-26/work`, ready, attempt 2); request R
+`42a4e9d55b0788af6e0a6fdc14c4e16cc369a3b9`; Lane B receipt K `84c0bf918aaa10e74da92a44606d6933f87209db` and separate
+annotation N `835ef1f654a755f8d4b85926769d826310876645` (B-050). K was delivered by Lane B, not written by Lane A.
+
+**Pre-publication gates (2026-10-26T16:02:52Z, `gates-20261026T160252Z.json`, SHA-256
+`b24cbd787944a83479660ae72efdd05ed853f4267d95f5d05061a734c5c38b02`; 0 findings).** HEAD N, clean, Lane A Active; R → K → N
+sole-parent chain, each handoff-only, and S..N touches only `docs/handoff/`; K valid under the guard's read-only
+`acceptanceAt` with the exact candidate bindings; STATE ready, attempt 2, no claim; candidate 583 files recompute to
+`168adf55…`, graph `8692dad1…`; live baseline selected by the guard's release chain (locus `edfd2af`, `4f029c06…`); no
+lock, journal or transaction finding; tools unchanged; configuration equal to the cycle's entry snapshot; every ref
+outside `refs/codex/turn-diffs/` unchanged except the feature head's authorized fast-forward S → N. Linked worktrees at
+`5ddf17c` and `1945c19`, untracked skill paths equal to the accepted inventory (`3e32d008…`), no link or reparse point.
+Earlier byte continuity stays unproved.
+
+**Publication.** `node scripts/graphify/guarded-rebuild.mjs publish --work C:/CoWork/outputs/lane-a-graph-sync-q4-2026-10-26/work --review 84c0bf918aaa10e74da92a44606d6933f87209db`
+(K, not N), 16:03:04.630Z–16:03:14.685Z: **exit 0, "released"**, "published: live equals the reviewed manifest", run token
+`a4a60cf1-039e-4097-b730-90af67de6c17`, stderr empty (`publish.out`, SHA-256
+`94e3b5ed6f873b4ffc9357b66e884e7436fd3f226eec9f5c7e4d47649f00d04f`). Release receipt
+`release-a4a60cf1-039e-4097-b730-90af67de6c17.json` (SHA-256 `e78ee5f497a05b176eb05bc916d8a51601665af2b23c6e939ba80937f5b5b3f4`):
+source S, publication head N, reviewed manifest `168adf55…`, acceptance locus K (B-050 lines 8013–8036, blob
+`eadcceb8…`), predecessor `edfd2af` / `4f029c06…`.
+
+**Full health (after publication).**
+
+| Check | Result | Evidence (`C:/CoWork/outputs/lane-a-publish-q4-2026-10-27/`) |
+|---|---|---|
+| Live graph = accepted | **equal**, `8692dad1a09a1870d54b172c754c85c00014ce395a6373fc2c84bad1e2f07487` | `health-live-parity.json`, `db3af59cee56d5f277caf7a1a648039c992b06dcf5590357733c262c47ebf200` |
+| Live full-state digest = accepted | **equal**, `168adf5583f96b3d198ea131d1291b70fd1f8172991c29f980f761d2b72fa375`, 583 files, by the guard's release-chain selection (locus K) and an independent recomputation | same |
+| Release chain | the new receipt is bound to S, N, K and the predecessor; 14 receipts form one chain to the bootstrap, each hop unambiguous | same |
+| Fragment parity (guard) | **140 / 140 exact**, no diffs (including `frag144.json`) | same |
+| `merge7.js <fragment> --verify-only` | **140 PASS**; the three detect manifests (`docs-fragment`, `docs-fragment2`, `docs-fragment4`) refuse as the README documents; live graph not written | `merge7-verify.log`, `c31d1c02623f17ca61a4d237d5c0e1a901c945ae3644b4e61b609cf6d2699bb3` |
+| Name binding | **0 findings**; 178 labels, no duplicate; answers r1 applied (0 descriptions asked, 14/14 names) | `health-live-parity.json` |
+| Branch record | `lastAnalyzedHead` S, `stale: false`, no lifecycle event | same |
+| Journal / lock | **none / none** | same |
+| Studio and producer projections | validated by the guard inside the candidate before `ready` and by Lane B's candidate review; the published bytes equal those bytes. Not re-run against the live state | `C:/CoWork/outputs/lane-b-d471-kn-2026-10-26/` (manifest `64204744…`) |
+| `graphify check-update` | notice "built from `a871ffa` but HEAD is `835ef1f`"; the gap is R, K and N, each touching only `docs/handoff/`: **not drift** (G-F3-9, `D-426`) | `check-update.out`, `d33970ce0fd4fe5d252b30a99abcecd15ef3c19371d52d5f18204bc3368de3a9` |
+| Consistency suite, two complete runs | **19/19, exit 0, no skip**; `docs-drift`: "synced (governed intent) at `a871ffa`; HEAD `835ef1f` advanced by excluded-only commits"; `graph-coverage`: 0 absent, so `D-471`'s evidence-path exception has ended | `health-check-run1.log` = `health-check-run2.log`, `708b1a4001229db178b06044a64569f3885f1d1c2108fad8d739aa9390d8a110` |
+
+Two nodes carry no description, inherited from the baseline (Lane B's candidate review).
+
+### What you need
+
+Lane B's independent review (`D-471` item 4) of the published state, this full-health evidence, H4's commit proof and the
+**complete 13-commit manifest** from base `c86b016` (excluded): `D-468` → `D-469` → R1 → `D-470` → four B-161 commits →
+Q4 → R → K → N → H4, with positive approval. Then the Judge's cycle acceptance and push go-ahead; the push stage itself
+is pre-authorized by `D-471` and needs no Register entry. `D-469`'s truncated Register remains an intermediate state in
+that history, disclosed and not accepted.
+
+### What you did instead
+
+- The governed drift from `D-468`, `D-469`, R1, `D-470` and `D-471` is cleared at S. All pre-publication check exceptions
+  ended at publication.
+- No fetch, push, transfer or installation. No Register commit. B-136 stays **Open**; its header is unchanged. B-158 and
+  D-439 stay Open. U-C stays held. J1/`D-440` and J2/`D-441` stay separate with both transfers held. work-r3 stays held.
+- Coverage: 37 historically delivered commits through `c86b016`; 12 pending through N; this commit joins when created (13).
+  External evidence is outside Git preservation; no fresh remote-state claim.
