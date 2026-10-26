@@ -109,6 +109,7 @@
 | `docs/graph-fragments/frag142.json` | `D-374` — curated node for `GOV-RES-001` | ✅ **Created 2026-10-01** |
 | `docs/v1/work-packets/SETUP-SPIKE-000/SV2-U03-code-navigation-evaluation.md` | `D-264` — read-only `SV2-U03` evaluation (`ripwire` as candidate) | ✅ **Drafted 2026-09-25**; ~~awaits Lane B evidence and the Judge's outcome~~ — outcome recorded (`D-433`, existing path); kept as history |
 | `scripts/acceptance/` | `D-259` — cross-MMF customer-acceptance harness (§18.3) | ⏳ **Contract only — not created.** Built and run in a later Lane A `Active` turn after Lane B's handover |
+| `docs/v1/evidence/d468-rejected-draft-2026-10-26.md` | `D-471` item 8, `D-470`, `D-468` | ✅ **Created 2026-10-26 (`D-471`).** **Rejected historical draft evidence:** the exact pre-commit text of `D-468` (11,239 bytes, SHA-256 `c963c591b369ea8e9d6feee1d8ed47501750ccf07ed4662e7707afaea5d7d4a1`), transferred from the untracked `tmp/d468-entry.md`. It carries no authority; `D-470` supersedes its defective claims. Never cite it as authority. |
 
 **No broken internal document links** — the docs are self-consistent. The gaps are artifacts that were planned but never created, not references that dangle.
 

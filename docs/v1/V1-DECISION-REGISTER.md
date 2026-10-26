@@ -30691,3 +30691,124 @@ reused. Any conflict stops.
 | `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `docs/README.md`, `docs/PRD.md`, Charter, `0001`, `Modular_PRD.md`, FN specs, `docs/specs/`, template v1, Phase Closure, `docs/LANE-B-WORK-ORDER.md`, `.claude/`, `scripts/`, application code, build configuration | — unaffected: no governed content, scope or lane state changes |
 | **Encyclopedia** | unaffected: `docs/ENCYCLOPEDIA-SYNC.md` identifies no affected local citation entry; hosted parity not claimed |
 | **Graphify** | Affected: governed drift from `D-468`, `D-469`, R1 and this entry stays until a separately released guarded cycle (`D-425`); none is part of this entry |
+
+## 5.14e294 `D-471` — Integrated Graph-Sync and Push Authority After `D-470` (Q4): Guarded Synchronization with the Source Pinned to This Entry's Commit and a Pre-Authorized Push; Transfer of the Rejected `D-468` Draft as Historical Evidence; Thirtieth Intervening Entry Permitted
+
+**Authority: the Judge, directly to Lane A, 2026-10-26**, retained under
+`C:/CoWork/outputs/lane-a-q4-authority-draft-2026-10-26/` (session `42f609c0-3f3b-49b0-abf7-f3d587359462`): the release
+"release guarded sync then push" (line 1518, uuid `c234c790-cd6d-4511-8a8c-d83009a8aff8`, 2026-10-26T11:21:04.100Z,
+46 bytes, SHA-256 `46c515b0fa1262a3de6b78a45ec474a3a8a115ffe29525dd5c83491a2d401fcd`) and the selections "Wait for B-161"
+and "Cycle-authority entry" (line 1537, uuid `c1350e6f-39a6-4439-a6da-ed7897d6378b`, 2026-10-26T11:21:43.632Z, 602 bytes,
+SHA-256 `3448b1fa03565222cad2887b4e89e5c20ab1fb0be9ba6b4ff45abe347b5daa18`); and the recording release "release Q4 recording as drafted" (line 2173, uuid `8dd75f10-c6b1-4eb6-913b-aa96105229f1`,
+2026-10-26T13:11:43.284Z, 47 bytes, SHA-256 `efd09946894b9bcf80a793feed8bc89b05a0f9868e1f312772df73ef7223c2b5`), adopting the
+drafted terms in line 2169, retained under `C:/CoWork/outputs/lane-a-q4-record-2026-10-26/`. This entry carries the terms; the external files are evidence, not the authority. **Number, section and
+ordinal check:** at recording, against complete history, removed text and forward references; any conflict stops.
+
+### The decision
+
+1. **What this entry authorizes, before the pin.** One guarded graph-synchronization cycle under `D-451` item 5 and the
+   operative `D-425`–`D-429` procedure, to clear the governed drift from `D-468`, `D-469`, R1 and `D-470`, **and** the push
+   of the commits in item 3, **and** the transfer of item 8 inside this entry's own commit. This entry's own commit (Q4) is
+   the analyzed source S, so the synchronized graph includes this text and the transferred file. After S only the named handoff-only
+   commits follow (`D-426`, G-F3-9), so the push needs no later Register entry. Execution starts only on the Judge's
+   separate cycle release, after Q4 is recorded and independently reviewed. `D-470` item 13 is met before this entry:
+   Lane B's review of `D-470` in B-161 is positive (item 2).
+2. **Recording baseline.** Checkout `C:/robertaoai/my-editorial-app`; branch `features/feature-V1-SM05`; origin
+   `git@github.com:robertaoai/my-editorial-app.git`; HEAD `03473a8c4cf5e8fad9ed5181c2653090d8f2363c` (Lane B's B-161 verification
+   commit, the final authorized pre-pin commit), tree `d96b751414e427e9261665a7258657c61f78d051`; Lane A
+   Active; last verified server tip H `c86b01606522e0e32bb67c81b519d96d083bdc16` (the retained `D-467` read, not a fresh
+   reading). B-161 (`docs/handoff/B-161-d470-canonical-filing-review.md`) files Lane B's positive review of `D-470`
+   (`f5b39e4cf8d3ff4ff46fd0537511da213eafea56`): raised at `1e35f586ff5e997c1ad66f7e0cbb261e9eebc482`, corrected at
+   `f32fa3c0ced313c7ec25857b4790d22ecebd23a7`, answered by Lane A at `212199733612f74e8a929d2061f8f04d2e020639` and independently
+   verified by Lane B at `03473a8c4cf5e8fad9ed5181c2653090d8f2363c`. Q4 has sole parent the baseline and changes exactly the four paths of
+   item 8.
+3. **Exact commit coverage.** Push range: base B = `c86b016` excluded, through H4 included, oldest first, each sole-parent
+   and linear: `D-468` `3ea609129669f6fa3d6b74ed425b9b5801dcd75d` → `D-469` `12a1a5ac283973a2688fbfd4b762754dc7a6d426` →
+   R1 `b28be471ef35783656a5bf19de397c22a639b644` → `D-470` `f5b39e4cf8d3ff4ff46fd0537511da213eafea56` → B-161
+   `1e35f586ff5e997c1ad66f7e0cbb261e9eebc482` → B-161 `f32fa3c0ced313c7ec25857b4790d22ecebd23a7` → B-161
+   `212199733612f74e8a929d2061f8f04d2e020639` → `03473a8c4cf5e8fad9ed5181c2653090d8f2363c` → **Q4** (this authority and the item-8
+   transfer) → **R** (B-136 candidate request) → **K** (Lane B's B-050 receipt) → **N** (Lane B's separate annotation) →
+   **H4** (B-136 health record). That is **nine commits plus every B-161 commit** (four with the verification commit),
+   subject to the final Git manifest; no separate transfer commit exists; a shorter count (for example "the four commits")
+   is incomplete. Target H4; no other commit. After Q4 only R, K, N
+   and H4 may advance the branch, each handoff-only with exact path scope; any other commit stops the cycle. **Disclosure:**
+   the push carries `D-469`'s truncated Register as an intermediate state in remote history. It is not accepted; R1 restores
+   the Register and `D-470` records both. No history rewrite is authorized.
+4. **Sequence.** As `D-467` item 4, with Q4 for Q3 and H4 for H: Lane A records Q4 → Lane B reviews Q4 → **Judge** cycle
+   release binding S = Q4's full commit and tree IDs and prospective operator freeze coverage → entry gates and fresh
+   `prepare` (if pending: source-derived answers, independent review, one Judge-released resume) → R → Lane B exact-byte
+   candidate review, K, N → Lane A read-only K/N verification with re-inventory → **Judge** publication release → guarded
+   publication citing K, never N; full health → H4 → Lane B review of the published state, health, H4's proof and the
+   complete manifest → **Judge** cycle acceptance and push go-ahead (no remote contact before it) → fresh pre-push gates and
+   push (item 6) → Lane B post-push review.
+5. **Checks, freeze and commit proof.** `D-467` items 6 and 7 apply as written, with Q4 for Q3 and H4 for H. The
+   linked-worktree untracked inventory is the one the cycle release accepts, bound by SHA-256 at that release; earlier
+   byte continuity stays unproved. Every commit retains two complete checks with candidate hashes before and after each
+   run, tested = staged = committed content digests, matching staged and committed blob IDs, exact-prefix proof where it
+   appends, the actual hook trace through per-command `core.hooksPath=.githooks`, the required identity and a truthful
+   after-state. **Permitted failures before publication:** at Q4, R, K and N, `docs-drift`, and `graph-coverage` for exactly
+   one path, `docs/v1/evidence/d468-rejected-draft-2026-10-26.md` (its curated node reaches the live graph only at
+   publication); K keeps `D-467` item 6's B-050 `terminal-return` finding. Any other `graph-coverage` path or any other
+   finding stops. After publication (full health), H4 and the fresh pre-push checks pass every required check with no
+   exception. For Q4 recording only, `tmp/d468-entry.md` may remain unchanged and unstaged through candidate checks and
+   committed-destination verification. After successful verification, remove that untracked source explicitly under item
+   8. Then require a clean end-state; every subsequent gate has no untracked exception.
+6. **Push gate.** `D-467` item 8 applies as written, with B = `c86b016`, target H4 and the commit count of item 3.
+   Snapshot refs and configuration before the first remote command. Then run the pre-push `ls-remote` and require the
+   exact target ref (`refs/heads/features/feature-V1-SM05`) and the full expected base ID
+   `c86b01606522e0e32bb67c81b519d96d083bdc16`; any other result stops for reconciliation. Earlier
+   deliveries (37 through H) stay separate in the completion proof.
+7. **Failure routes.** `D-467` item 9 applies as written.
+8. **Untracked draft (G5).** `tmp/d468-entry.md` (11,239 bytes, SHA-256
+   `c963c591b369ea8e9d6feee1d8ed47501750ccf07ed4662e7707afaea5d7d4a1`): by the Judge's selections (destination
+   `docs/v1/evidence/`; folded into Q4), Q4's commit transfers it. Q4 changes exactly four paths:
+   `docs/v1/V1-DECISION-REGISTER.md` (this append); `docs/v1/evidence/d468-rejected-draft-2026-10-26.md` (new, the draft's
+   exact 11,239 bytes); `docs/v1/V1-ARTIFACT-INVENTORY.md` (one new row); and `docs/graph-fragments/frag144.json` (one
+   curated node whose `source_file` is the evidence path). **Transfer order:** before staging, verify the SHA-256 of the
+   source and of the destination copy; after committing, verify the destination's committed blob. On any mismatch, preserve
+   both files and the commit, with no amend or reset, and stop. Only after that verification succeeds, remove the unchanged
+   untracked source `tmp/d468-entry.md`; then require a clean end-state with no untracked file. **Classification:** the file is **rejected historical draft evidence** — the pre-commit text of
+   `D-468`, whose defective claims `D-470` supersedes. It carries no authority, and nothing may cite it as authority; the
+   Inventory row and the curated node say so. A mismatch found before staging stops before staging. C1's exception does not carry forward.
+9. **Registration of Judge acts.** Registered here, as registration only: the message selecting B-161 and the
+   C1 → sync → push outline (session `42f609c0-…` line 1328, uuid `bd1746e2-08ea-43f9-b163-54bc99b42f5c`,
+   2026-10-26T09:32:04.170Z, SHA-256 `3f8d027abb745811decb606d567e3a0e8a9fc0208afb767cd472bc3a93a30ad0`, retained at
+   `C:/CoWork/outputs/lane-a-c1-draft-2026-10-26/JUDGE-MESSAGE-B161-SEQUENCE.txt`), the two acts in the authority line, and
+   the message ordering this draft's three corrections and the G5 transfer (line 1587, uuid
+   `c21d005f-2b94-4a00-8508-e4ab3f259c80`, 2026-10-26T11:52:54.593Z, SHA-256
+   `809004fc7dd712df42ee2a08d0e723bf14610da0b8a920461393dddcb8a5c8b7`, retained at
+   `C:/CoWork/outputs/lane-a-q4-authority-draft-2026-10-26/JUDGE-Q4-CORRECTIONS-AND-G5-TRANSFER.txt`), the selections of
+   the `docs/v1/evidence/` destination and the B-161 answer's `docs-drift` exception (uuid
+   `3017c95a-8a6a-486a-82b1-9e3cdd7561f4`, 2026-10-26T11:55:19.055Z, SHA-256
+   `25a0a4571141b6b801991a56bf87edf2cb65ad4429bfbcd142c44ba59463b0f2`), and the selection "Fold into Q4" (uuid
+   `2178059d-e039-4031-ada9-c5497cfe0ef8`, 2026-10-26T12:21:47.349Z, SHA-256
+   `35a4f5800a0d9fc751b2a798284647472146c97a921839202282da0b7d1c3f19`).
+   The cycle, publication and acceptance releases of item 4 are registered in the next separately authorized entry, as in
+   `D-467` item 5.
+10. **Coverage.** 37 delivered through H `c86b016`; `D-468`, `D-469`, R1, `D-470` and the four B-161 commits (`1e35f58`, `f32fa3c`,
+    `2121997`, `03473a8`) pending (eight); Q4, R, K, N and H4 prospective (five), pending once each exists: 13 in the
+    planned outgoing range, subject to Git verification. No fetch or push before the step-12-equivalent go-ahead.
+11. **Sequencing amendment.** Item 0 of `D-440` and `D-441`, as amended through `D-470` item 10, is further amended to permit
+    one further intervening Register entry, this thirtieth entry, after `D-470` and before the separate TCA r3 (J3) and J-C
+    A1 entries. J1 and J2 keep their identities, text and transfer holds. No further intervening entry is permitted by
+    implication, and none is needed for this push.
+12. **Holds.** U-C held. J1 (`D-440`) and J2 (`D-441`) separate; both transfers held. B-136, B-158 and D-439 Open. B-159,
+    the prior pushes, the accepted SR-5, Q2 and Q3 cycles and F1's bounded acceptance stand. work-r3 is not resumed. No
+    installation. No transfer other than the exact item-8 evidence transfer. Every other hold is unchanged.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry |
+| **Build Spec** | — unaffected: the evidence file is historical, not a V1 deliverable; the act changes no V1 scope, sequences or retires no artifact, and changes no V1 or MMF DoD |
+| **Inventory** | ✅ one new row: `docs/v1/evidence/d468-rejected-draft-2026-10-26.md`, created by this entry as rejected historical draft evidence (item 8) |
+| `docs/graph-fragments/` | ✅ one new curated fragment with the evidence file's node; it reaches the live graph only through this cycle's publication |
+| B-136, B-050 | — unaffected by this entry; they receive records only in the separately released cycle |
+| B-158 | — unaffected: Route H stands and is not edited |
+| B-161 | — unaffected: its review is a prerequisite (item 2), not edited here |
+| `D-467`, `D-468`, `D-470`, `D-425`–`D-429`, `D-451`, `D-183` | — unaffected: applied as written; `D-467` items 6–9 are applied by reference with the stated substitutions |
+| `D-440`, `D-441` | — unaffected: their text is not edited; item 0 is amended separately (item 11) |
+| `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `docs/README.md`, `docs/PRD.md`, Charter, `0001`, `Modular_PRD.md`, FN specs, `docs/specs/`, template v1, Phase Closure, `docs/LANE-B-WORK-ORDER.md`, `.claude/`, `scripts/`, application code, build configuration | — unaffected: no governed content, scope or lane state changes |
+| **Encyclopedia** | unaffected: `docs/ENCYCLOPEDIA-SYNC.md` identifies no affected local citation entry; hosted parity not claimed |
+| **Graphify** | Affected: governed drift (`D-468`, `D-469`, R1, `D-470` and this entry) remains until the cycle pinned to this commit is published and healthy (`D-425`) |
