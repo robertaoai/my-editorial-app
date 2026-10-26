@@ -6,6 +6,7 @@
 - **Blocks:** Q4 recording until Lane A receives this D-470 review and the handoff is independently verified; this entry grants no cycle or push release
 - **Status:** Open
 - **Lane A:**
+- **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** D-470 commit `f5b39e4cf8d3ff4ff46fd0537511da213eafea56`; its retained recording proof and Lane B's positive independent review, identified below
 - **Verified-At-Commit:** f5b39e4cf8d3ff4ff46fd0537511da213eafea56
 
