@@ -5,11 +5,11 @@
 - **Phase:** 1
 - **Blocks:** Q4 recording until Lane A receives this D-470 review and the handoff is independently verified; this entry grants no cycle or push release
 - **Status:** Answered
-- **Resolution:** Applied
+- **Resolution:** Verified
 - **Lane A:** Acknowledged 2026-10-26. Answered 2026-10-26 in this answer commit: receives Lane B's positive review of D-470 (`f5b39e4`) as filed; disposition Applied, awaiting Lane B's independent verification.
-- **Verified-By:** — not independently verified; dispositioned by Lane A
-- **Evidence:** D-470 commit `f5b39e4cf8d3ff4ff46fd0537511da213eafea56`; its retained recording proof and Lane B's positive independent review, identified below
-- **Verified-At-Commit:** f5b39e4cf8d3ff4ff46fd0537511da213eafea56
+- **Verified-By:** Lane B (Codex), independent of Lane A's answer
+- **Evidence:** D-470 commit `f5b39e4cf8d3ff4ff46fd0537511da213eafea56`; its retained recording proof and Lane B's positive independent review, identified below. Lane B independently verified Lane A's canonical receipt at `212199733612f74e8a929d2061f8f04d2e020639`; scope and proof are in the dated verification section and `C:/CoWork/outputs/lane-b-b161-verification-2026-10-26/answer-review.json`.
+- **Verified-At-Commit:** 212199733612f74e8a929d2061f8f04d2e020639
 
 ## What happened
 
@@ -92,3 +92,31 @@ disclosure kept.
 Coverage: 37 historical deliveries through H `c86b016`; `D-468`, `D-469`, R1, `D-470`, `1e35f58` and `f32fa3c` pending;
 this answer commit joins pending coverage when created. No Register, application, tooling, graph or lane-state change;
 no fetch or push. All holds are unchanged.
+
+## Lane B independent verification (2026-10-26)
+
+**Verified: canonical receipt of the approved D-470 review only.** Lane B reviewed Lane A's answer at
+`212199733612f74e8a929d2061f8f04d2e020639`, sole parent `f32fa3c0ced313c7ec25857b4790d22ecebd23a7`, tree
+`56864d56f858d9e2649f42098928ea3c36e4f125`. That commit changes only B-161 (+30/-3). Its metadata uses the required
+Answered/Applied and D-215 dispositioned forms; Lane A did not verify its own answer. The answer accurately receives
+the D-470 commit, review and evidence bindings. This completes B-161's bounded canonical-filing obligation.
+
+All 17 files listed in Lane A's answer manifest verify (manifest SHA-256
+`3d2c8c0dfe6bb2339ecf66e956d54d9958bc2305b4aaabc7ad875251ca214713`). Fresh answer-candidate runs 3 and 4 each returned
+exit 1, 18 PASS, only the released `docs-drift` failure and no skips. Before/after pins for both runs, staged bytes and
+the committed 9,512-byte answer agree: SHA-256 `8ec5838bd719d3f3feb00508abab78dba140344f4dd84a822bb3eddedae1670d`;
+staged and committed blob `d765868519dd08b12b3bef3a4e8e8a951cc6cee7`. The actual trace shows `.githooks/commit-msg`;
+the required identity is present. The first failed candidate and runs 1 and 2 remain preserved and are not relabelled.
+The original two-answer Judge receipt is readable and matches its retained bytes. The manifest seals its listed files,
+not the entire folder; a separate unlisted, byte-exact historical-draft copy is identified in the verification evidence.
+
+The dated Lane A paragraph about Q4 r2 remains proposal history. This verification does not accept r2 or r3, settle
+Q4's recording text, or release the evidence move, a graph cycle, publication or push. Q4's separate review and Judge
+gates remain. Its evidence-only dry run does not validate future Inventory or fragment bytes.
+
+Bind the resulting B-161 verification commit and tree as Q4's actual parent before recording; its full ID is derived
+from this entry's history. Coverage at the examined answer was 37 cumulative historical deliveries through H and seven
+pending commits. This verification joins pending coverage when committed, making the fourth B-161 commit; no fresh
+server proof is claimed. No Register or other handoff is closed by this verification. D-467 acceptance, R1/V1, bounded
+F1 acceptance, the provenance gaps, U-C, separate J1/J2 with both transfers held, B-136/B-158/D-439 Open, work-r3 and all
+other holds remain unchanged.
