@@ -8041,3 +8041,12 @@ Recorded only this authorized acceptance unit. Preserve 37 historical deliveries
 | K and separate N | Approve-with-conditions | Two checks each and commit proof, then Lane A verification |
 | Publication, full health, H4 and push | Defer | Existing Judge/review gates |
 | U-C, separate J1/J2 transfers and all other holds | Defer, unchanged | Existing checkpoints |
+
+
+## Terminal annotation record
+
+- **Current-Resolution:** Verified
+- **Annotation-Type:** verification-evidence
+- **Annotation-Act:** D-471 item 4, applying D-467 step 6 and the Judge's direct 2026-10-26 approval, retained at C:/CoWork/outputs/lane-b-d471-kn-2026-10-26/JUDGE-KN-RELEASE.txt with authority-provenance.json, executed independently by Codex (Lane B). This separate record-only annotation covers receipt K 84c0bf918aaa10e74da92a44606d6933f87209db, sole-parent request R 42a4e9d55b0788af6e0a6fdc14c4e16cc369a3b9, analyzed source S/Q4 a871ffa94168ec4b7e14fc0d016c0989b2278ca5, work 544d9e65-c57f-4022-a68b-f14a989d41f9, attempt-2/staging under C:/CoWork/outputs/lane-a-graph-sync-q4-2026-10-26/work, graph 8692dad1a09a1870d54b172c754c85c00014ce395a6373fc2c84bad1e2f07487, manifest 168adf5583f96b3d198ea131d1291b70fd1f8172991c29f980f761d2b72fa375 (guard-treeDigest-v1, 583 files), baseline receipt edfd2afcca4a0b9f501d31a549f60171c3b84a85 / 4f029c0630ccb593926e232eb2015cd8eb6fee23a804bd876437240906dde70f. B-050's terminal header, Resolution and Lane A answer remain unchanged; no scope reopens. This ends only the permitted terminal-return interval. K's two complete checks and full commit proof are retained; N requires two complete checks clearing terminal-return, with only docs-drift and graph-coverage for exactly docs/v1/evidence/d468-rejected-draft-2026-10-26.md permitted. Earlier linked-file continuity remains unproved; prospective inventories are unchanged. Lane A remains Active; no lock transfer occurs. Lane B delivers K and N for Lane A's independent verification. Any later separately released publication cites K, never N. Preserve 37 historical deliveries, the existing eight pre-Q4 commits remain pending alongside Q4 -> R -> K -> N only as created, H4 prospective; no fresh remote-state claim. No install, transfer, fetch, prepare, resume, publication, push or manual/force fallback. U-C held; J1/D-440 and J2/D-441 separate, both transfers held; B-136, B-158 and D-439 Open; work-r3 and all other holds unchanged. Normal hooks and the required identity apply.
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** 84c0bf918aaa10e74da92a44606d6933f87209db
