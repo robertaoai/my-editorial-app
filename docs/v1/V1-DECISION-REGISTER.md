@@ -30812,3 +30812,140 @@ ordinal check:** at recording, against complete history, removed text and forwar
 | `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `docs/README.md`, `docs/PRD.md`, Charter, `0001`, `Modular_PRD.md`, FN specs, `docs/specs/`, template v1, Phase Closure, `docs/LANE-B-WORK-ORDER.md`, `.claude/`, `scripts/`, application code, build configuration | — unaffected: no governed content, scope or lane state changes |
 | **Encyclopedia** | unaffected: `docs/ENCYCLOPEDIA-SYNC.md` identifies no affected local citation entry; hosted parity not claimed |
 | **Graphify** | Affected: governed drift (`D-468`, `D-469`, R1, `D-470` and this entry) remains until the cycle pinned to this commit is published and healthy (`D-425`) |
+
+## 5.14e295 `D-472` — Integrated Graph-Sync and Push Authority After `D-471` (Q5), with Durable Registration of the `D-471` Cycle Judge Acts: Guarded Synchronization with the Source Pinned to This Entry's Commit and a Pre-Authorized Five-Commit Push; Thirty-First Intervening Entry Permitted
+
+**Authority: the Judge, directly to Lane A, 2026-10-27**: the selection "fold registration into next cycle-authority
+entry" (session `C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/42f609c0-3f3b-49b0-abf7-f3d587359462.jsonl`
+line 3273, uuid `e51dd82f-d5eb-40a7-99a8-9d01e47a7f20`, 2026-10-27T06:21:03.265Z, 5,543 bytes, SHA-256
+`3a8b002106fc46ac5730b65526fe87a8cbdd6b401da51c864591bddff50eed27`, retained at
+`C:/CoWork/outputs/lane-a-q4-registration-plan-2026-10-27/JUDGE-FOLD-REGISTRATION-INTO-CYCLE-AUTHORITY.txt`); and
+the recording release "accept D-471 delivery and release Q5 recording only" (same session, line 3388, uuid
+`0afac767-54f0-4413-90d0-067e9343722d`, 2026-10-27T06:38:29.308Z, 6,784 bytes, SHA-256
+`14745c8fea16fc2364fbcbae8539be365b0af86dc864eb5e17348fcec548ba3a`, retained at
+`C:/CoWork/outputs/lane-a-q5-record-2026-10-27/JUDGE-Q5-RECORDING-RELEASE.txt`). `D-471` item 9 requires the
+`D-471` cycle, publication and acceptance releases to be registered in the next separately authorized entry; item 9
+below does so. This entry carries the terms; the external files are evidence, not the authority. **Number, section and
+ordinal check:** at recording, against complete history, removed text and forward references; any conflict stops.
+
+### The decision
+
+1. **What this entry authorizes, before the pin.** (a) Registration of the ten `D-471`-cycle Judge acts in item 9, as
+   historical acts; and (b) one guarded graph-synchronization cycle under `D-451` item 5 and the operative
+   `D-425`–`D-429` procedure, to clear the governed drift that this entry's own append creates, **and** the push of the
+   five commits in item 3. This entry's commit (Q5) is the analyzed source S. After S only the named handoff-only commits
+   follow (`D-426`, G-F3-9), so the push needs no later Register entry. Execution starts only on the Judge's separate
+   cycle release, after Q5 is recorded and independently reviewed. Registration grants no new authority and re-executes
+   nothing.
+2. **Recording baseline.** Checkout `C:/robertaoai/my-editorial-app`; branch `features/feature-V1-SM05`; origin
+   `git@github.com:robertaoai/my-editorial-app.git`; HEAD H4 `10a1bae538adb68777bfaec6ae2216b3a57814e8`, tree
+   `d1155faa5e58181d4aab13209659a930af1d4b22`; Register 2,311,882 bytes, SHA-256
+   `452e5c251a55450395e9142ae8740320588d53c9085aacab21a13f902632308d`; Lane A Active; last verified server tip H4
+   `10a1bae` (the retained `D-471` push read, not a fresh reading). Q5 is Register-only with sole parent H4. Any other
+   HEAD stops recording.
+3. **Exact commit coverage.** Push range: base H4 `10a1bae538adb68777bfaec6ae2216b3a57814e8` excluded, through H5 included,
+   oldest first, each sole-parent and linear: **Q5** (this entry, Register only) → **R** (B-136 candidate request) →
+   **K** (Lane B's B-050 receipt) → **N** (Lane B's separate annotation) → **H5** (B-136 health record). Exactly **five
+   commits**, subject to the final Git manifest; the 50 commits delivered through H4 are outside this range. After Q5 only
+   R, K, N and H5 may advance the branch, each handoff-only with exact path scope; any other commit stops the cycle.
+4. **Sequence.** As `D-467` item 4, with Q5 for Q3 and H5 for H: Lane A records Q5 → Lane B reviews Q5 → **Judge** cycle
+   release binding S = Q5's full commit and tree IDs and prospective operator freeze coverage → entry gates and fresh
+   `prepare` (if pending: source-derived answers, independent review, one Judge-released resume) → R → Lane B exact-byte
+   candidate review, K, N → Lane A read-only K/N verification with re-inventory → **Judge** publication release → guarded
+   publication citing K, never N; full health → H5 → Lane B review of the published state, health, H5's proof and the
+   complete five-commit manifest → **Judge** cycle acceptance and push go-ahead (no remote contact before it) → fresh
+   pre-push gates and push (item 6) → Lane B post-push review. **Later Judge acts.** Retain each subsequent direct Judge
+   act with its original locator and SHA-256, separate from drafts. Describe unregistered approval as pending durable
+   registration. Register these acts in the next available, separately authorized Register entry, outside this
+   five-commit range, under `D-183` and `D-467` item 5. No additional Register or result commit belongs between Q5 and H5.
+   This applies to the cycle release, the binding and freeze confirmation, any resume release, the publication release,
+   and the cycle acceptance and push go-ahead. Assistant drafts and relayed reviews are not Judge acts. This entry claims
+   no such act as received or registered.
+5. **Checks and commit proof.** `D-467` items 6 and 7 apply as written, with Q5 for Q3 and H5 for H. Permitted results:
+   **Q5 and R**, `docs-drift` may be the sole failure; **K**, only `docs-drift` and K's specifically identified temporary
+   B-050 `terminal-return` finding; **N**, `terminal-return` clears and only `docs-drift` may fail; **after publication
+   (full health), H5 and the fresh pre-push checks**, every required check passes with no exception. Any skip, startup
+   failure or other finding stops before the commit or push. Every commit retains candidate hashes before and after each
+   run, tested = staged = committed content digests, matching staged and committed blob IDs, exact-prefix proof, the
+   actual hook trace through per-command `core.hooksPath=.githooks`, the required identity and a clean after-state with no
+   untracked exception. The linked-worktree untracked inventory is the one the cycle release accepts, bound by SHA-256 at
+   that release; earlier byte continuity stays unproved.
+6. **Push gate.** `D-467` item 8 applies as written, with B = H4 `10a1bae538adb68777bfaec6ae2216b3a57814e8`, target H5 and
+   five commits. Snapshot refs and configuration before the first remote command. Then run the pre-push `ls-remote` on
+   `refs/heads/features/feature-V1-SM05` and require exactly one line with the full base ID `10a1bae…`. Push H5 once,
+   without force, by full ID; a rejection or a different base stops, with no fetch, rebase, reset or retry. Read the tip
+   again and require H5; prove all five commits reachable and the earlier 50 still reachable.
+7. **Failure routes.** `D-467` item 9 applies as written.
+8. **Worktree state.** No untracked files are permitted in the main checkout. Require a clean worktree and staging area
+   before each edit and after each commit. During candidate checks, permit only the exact authorized changed path, with
+   nothing staged. During staging, require exactly that bound path. The accepted linked-worktree inventory remains
+   governed by item 5.
+9. **Registration of the `D-471` cycle's direct Judge acts (`D-471` item 9, `D-183` item 5).** Status: **V** = retained
+   bytes verified (SHA-256 recomputed 2026-10-27); **L** = locator retained; **R** = original source readable and its
+   decoded content re-hashed equal on 2026-10-27. A matching hash proves that retained bytes are unchanged; it does not
+   authenticate the speaker. Lane A lines refer to
+   `C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/42f609c0-3f3b-49b0-abf7-f3d587359462.jsonl`;
+   Lane B lines to
+   `C:/Users/rober_24syk4j/.codex/sessions/2026/10/21/rollout-2026-10-21T03-31-43-01a1450c-56ae-73a2-95c0-6c0d44d45f08_01a15acc-56e0-7801-a238-395e69a0b901.jsonl`.
+
+   | Row | Act (kind) | Retained file | Bytes | SHA-256 | Locator | Time (UTC) | Status |
+   |---|---|---|---|---|---|---|---|
+   | Q4-1 | Cycle release: entry gates, fresh `prepare` and R under `D-471` (human) | `C:/CoWork/outputs/lane-a-graph-sync-q4-2026-10-26/evidence/JUDGE-Q4-CYCLE-RELEASE.txt` | 3,109 | `cd39ec8583ce348ab4a67a20b0d40891d7640b945d044884ff1b616f57e742a6` | Lane A line 2302, uuid `c684c3bd-d041-4027-a368-ed3f842da63a` | 2026-10-26T13:30:26.706Z | V, L, R |
+   | Q4-2 | Binding and prospective operator-freeze confirmation (structured selection) | `C:/CoWork/outputs/lane-a-graph-sync-q4-2026-10-26/evidence/JUDGE-Q4-CYCLE-BINDINGS-CONFIRMATION.txt` | 955 | `79a19baa9703ab181ab50a97b12960cb7e7dac94bd22f69e5e756758a900304b` | Lane A line 2337, uuid `0e5f4182-f5e9-4194-bcb1-e36d0149fd5c` | 2026-10-26T13:31:30.769Z | V, L, R |
+   | Q4-3 | One resume with answers r1 (human) | `C:/CoWork/outputs/lane-a-graph-sync-q4-2026-10-26/evidence/JUDGE-Q4-RESUME-RELEASE.txt` | 3,185 | `a2590771a01f6520d7deefd8a4648bbb199d33eb40e7421e2a182daeeeaa02e8` | Lane A line 2597, uuid `1e83cb15-ad7a-4e94-af86-16091b01013f` | 2026-10-26T14:07:02.584Z | V, L, R |
+   | Q4-4 | Lane A independent K/N verification; push kept last (human) | `C:/CoWork/outputs/lane-a-q4-registration-plan-2026-10-27/JUDGE-KN-VERIFICATION-AND-PUSH-ORDER.txt` (retained 2026-10-27, after the act) | 3,322 | `23a4bd938121672080f1b2cadd96e3fbf7bbfe8f1b4dae707e5f2f3469ac838e` | Lane A line 2804, uuid `e32de130-599b-4af3-8d40-c507abf6e96b` | 2026-10-26T15:50:40.394Z | V, L, R |
+   | Q4-5 | Message "D-147 checkpoint push at this step" (human; read only with Q4-6) | `C:/CoWork/outputs/lane-a-publish-q4-2026-10-27/JUDGE-MESSAGE-D147-CHECKPOINT.txt` | 5,013 | `b49510a170ab40d0d81e6da8a8a895e9b483ee2f9cee0270adaeaad439a288db` | Lane A line 2892, uuid `99333a38-c557-409b-b396-89c7f0845270` | 2026-10-26T15:58:34.932Z | V, L, R |
+   | Q4-6 | Clarifying selection: release publication now under `D-471`; push stays last (structured selection) | `C:/CoWork/outputs/lane-a-publish-q4-2026-10-27/JUDGE-PUBLICATION-RELEASE-SELECTION.txt` | 476 | `d9857b7a0d786c726012a0266eeba08676c9ffcbbe0fd84a220135cf9dc91222` | Lane A line 2909, uuid `bec2092c-891b-424e-bf4b-142df8f3c3e2` | 2026-10-26T16:02:11.039Z | V, L, R |
+   | Q4-7 | Cycle acceptance and push release (human) | `C:/CoWork/outputs/lane-a-push-d471-2026-10-27/JUDGE-Q4-ACCEPTANCE-PUSH.txt` | 4,430 | `5935bd6f6f13084c0679f0222cca3caf8116a76ed699f2f5a216f219d576d043` | Lane A line 3064, uuid `caa9106f-e3e4-4b8e-865e-06dc122ddfbd` | 2026-10-26T16:20:54.498Z | V, L, R |
+   | LB-1 | To Lane B: raise B-161 for `D-470` canonical filing (human) | `C:/CoWork/outputs/lane-b-b161-d470-filing-2026-10-26/JUDGE-B161-FILING-INSTRUCTION.txt` | 518 | `4eb325bfff2b4b991907f3b4e2db9a69b682bd86b8df9a3df94a6f5e91a03d96` | Lane B line 11059, message `msg_01a17801-6f0d-70d0-9470-92fdd1a3b61f` | 2026-10-26T11:38:42.317Z | V, L, R |
+   | LB-2 | To Lane B: approve one local B-161 verification commit (structured selection) | `C:/CoWork/outputs/lane-b-b161-verification-2026-10-26/JUDGE-LOCAL-VERIFICATION-APPROVAL.txt` | 404 | `5cdae28edc84af8bc90030cd934cc27c2d2aca9f392529249773bf2c5baf994a` | Lane B line 11528, message `msg_01a17840-6d9c-7473-b053-c7713e50c9ff` | 2026-10-26T12:47:30.716Z | V, L, R |
+   | LB-3 | To Lane B: K, then separate N, under `D-471` (human) | `C:/CoWork/outputs/lane-b-d471-kn-2026-10-26/JUDGE-KN-RELEASE.txt` | 532 | `7bf346455ef22c60d4f15decdf66088fc6279a67403609f20901a060f3d2e787` | Lane B line 12036, message `msg_01a178cf-d3ac-7212-b9d1-a4ec4797677c` | 2026-10-26T15:24:08.493Z | V, L, R |
+
+   Each row is now "Judge approval recorded by `D-472`". Not registered here, because already registered: the acts in
+   `D-471`'s authority line and item 9, `D-470`'s rows (including R1-1), and the `D-469` and `D-468` releases. Not acts: the
+   relayed copy of LB-1 in `C:/CoWork/outputs/lane-b-b161-verification-2026-10-26/`, Lane B's reviews, and Lane A's drafts
+   and reports. Q4-1, Q4-3, Q4-5 and Q4-7 each also carry a relayed Lane B review; the relayed text is evidence of that
+   review, not a Judge act. **Provenance limits:** registration records retained evidence and the Judge's disposition at
+   the dates above; it does not backdate authority, authenticate a speaker or repair historical continuity. Q4-4 was
+   retained only on 2026-10-27, after the act; its source is readable and equal. Q4-5 names "D-147"; Q4-6, a separate
+   selection 3 minutes 36 seconds later, resolves it to `D-471` publication.
+10. **`D-471` delivery (facts).** Published and healthy at S `a871ffa`; 13 commits pushed once, without force: server tip
+    `c86b016` before and H4 `10a1bae` after (`C:/CoWork/outputs/lane-a-push-d471-2026-10-27/completion-proof.txt`, manifest
+    SHA-256 `55220cd261f90ba73d6af189613f28638d802b21153548ea9aa7bc325b838b31`). Lane B's post-push review is **complete**
+    (`C:/CoWork/outputs/lane-a-q4-registration-plan-2026-10-27/LANE-B-D471-POST-PUSH-REVIEW.txt`, Lane B line 12553, message
+    `msg_07b61c42a2419fe2016ae03eca9ff48191a6ce2f2a49b60347`, 2026-10-27T06:04:12.457Z, SHA-256
+    `be0204d94c5d09e2a4874348c4631cbba5757a399b35fd7968fdefae91477fa0`). The Judge's acceptance of that delivery is a
+    separate act: the recording release **accepts the `D-471` delivery** through H4 `10a1bae538adb68777bfaec6ae2216b3a57814e8`: 50 delivered
+    (37 earlier, 13 by `D-471`), 0 pending. This accepts the bounded delivery; it closes no parent handoff and cures no
+    provenance or historical continuity gap.
+    `D-469`'s truncated Register remains a rejected intermediate state in the delivered history.
+11. **SSH wording correction (external evidence).** The `D-471` completion proof's line "known_hosts: push.err reports
+    github.com ED25519 added (SSH metadata only)" is corrected by
+    `C:/CoWork/outputs/lane-a-q4-registration-plan-2026-10-27/SSH-WORDING-CORRECTION.md` (SHA-256
+    `8dc845b763b80917fc2dd7b9e189fd6287ed7f5e871576f78323aacfd476ffd0`): each SSH call printed a "Permanently added"
+    warning; the retained evidence does not establish a persistent change to `known_hosts`. The proof file is unchanged.
+12. **Coverage.** 50 delivered through H4 (37 through `c86b016`, 13 by `D-471`), historical proof only. Q5 and each later
+    actual commit join pending coverage with full IDs, parents, trees and paths; future commits stay prospective. No fetch
+    or push before the cycle-acceptance go-ahead.
+13. **Sequencing amendment.** Item 0 of `D-440` and `D-441`, as amended through `D-471` item 11, is further amended to
+    permit one further intervening Register entry, this thirty-first entry, after `D-471` and before the separate TCA r3 (J3)
+    and J-C A1 entries. J1 and J2 keep their identities, text and transfer holds. No further intervening entry is
+    permitted by implication, and none is needed for this push.
+14. **Holds.** U-C held. J1 (`D-440`) and J2 (`D-441`) separate; both transfers held. B-136, B-158 and D-439 Open.
+    `D-467`'s accepted delivery, F1's bounded acceptance, B-159, `D-468`/`D-469` history, R1/V1, `D-470`, B-161 and
+    `D-471` stand. work-r3 is not resumed. No installation or transfer. Every other hold is unchanged.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry |
+| **Build Spec** | — unaffected: the act authorizes a graph cycle and its push and registers earlier approvals; it changes no V1 scope, creates, sequences or retires no artifact, and changes no V1 or MMF DoD |
+| **Inventory** | — unaffected: no repository file is created or retired and no row's status changes |
+| B-136, B-050 | — unaffected by this entry; they receive records only in the separately released cycle |
+| B-158, B-161 | — unaffected: their records are committed and not edited |
+| `D-467`–`D-471`, `D-425`–`D-429`, `D-451`, `D-183` | — unaffected: applied as written; `D-467` items 4 and 6–9 apply by reference with the stated substitutions; item 9 registers acts under `D-471` item 9 |
+| `D-440`, `D-441` | — unaffected: their text is not edited; item 0 is amended separately (item 13) |
+| `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `docs/README.md`, `docs/PRD.md`, Charter, `0001`, `Modular_PRD.md`, FN specs, `docs/specs/`, template v1, Phase Closure, `docs/LANE-B-WORK-ORDER.md`, `.claude/`, `scripts/`, application code, build configuration | — unaffected: no governed content, scope or lane state changes |
+| **Encyclopedia** | unaffected: `docs/ENCYCLOPEDIA-SYNC.md` identifies no affected local citation entry; hosted parity not claimed |
+| **Graphify** | Affected: governed drift (this entry) remains until the cycle pinned to this commit is published and healthy (`D-425`) |
