@@ -30949,3 +30949,51 @@ ordinal check:** at recording, against complete history, removed text and forwar
 | `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `docs/README.md`, `docs/PRD.md`, Charter, `0001`, `Modular_PRD.md`, FN specs, `docs/specs/`, template v1, Phase Closure, `docs/LANE-B-WORK-ORDER.md`, `.claude/`, `scripts/`, application code, build configuration | — unaffected: no governed content, scope or lane state changes |
 | **Encyclopedia** | unaffected: `docs/ENCYCLOPEDIA-SYNC.md` identifies no affected local citation entry; hosted parity not claimed |
 | **Graphify** | Affected: governed drift (this entry) remains until the cycle pinned to this commit is published and healthy (`D-425`) |
+
+## 5.14e296 `D-473` — Durable Registration of the `D-472` Cycle's Subsequent Direct Judge Acts (Q5 Cycle Release, Resume Release, K/N Verification and Publication Release, Cycle Acceptance and Push Go-Ahead); Thirty-Second Intervening Entry Permitted
+
+**Authority: the Judge, directly to Lane A, 2026-10-27**, in four distinct acts in session `C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/42f609c0-3f3b-49b0-abf7-f3d587359462.jsonl`:
+
+- **Q5 cycle release** (line 3458, uuid `eb7cb78d-5feb-4bf2-92c1-1ecb63c2ba6b`, 2026-10-27T06:54:50.842Z, 10,048 bytes JSONL, SHA-256 `48b68f1deb463371111802aa40f5a49afb897129be9aaa6b08f171814f7f335b`), retained verbatim at `C:/CoWork/outputs/lane-a-graph-sync-q5-2026-10-27/evidence/JUDGE-Q5-CYCLE-RELEASE.txt` (9,257 bytes, SHA-256 `41ef81f922f827515e7ed2d32b8da693a51e2131c8a3b81c216e72e586d79180`).
+
+- **Q5 resume release** (line 3547, uuid `5a40f8b7-1dde-4eb4-a59a-dc91b95eb82b`, 2026-10-27T07:11:40.381Z, 5,264 bytes JSONL, SHA-256 `6278ad70390747936285d9f54237151c79f39eabbf1c76fc5bbb5b95cdf93429`), retained verbatim at `C:/CoWork/outputs/lane-a-graph-sync-q5-2026-10-27/evidence/JUDGE-Q5-RESUME-RELEASE.txt` (4,562 bytes, SHA-256 `c1459e7c253d26c2eda071d3f53ddd211e6dbf7d9673d7677044915959184a3b`).
+
+- **K/N check, publication release and H5 authorization** (line 3844, uuid `9f23938e-36df-4f0c-90ce-9f7b07d0a3b2`, 2026-10-27T11:19:23.256Z, 4,750 bytes JSONL, SHA-256 `c1a5711ce20e0fa92a24f940b8629afcc64144534fb4e1e5327b4d1e46242ede`), retained verbatim at `C:/CoWork/outputs/lane-a-publish-q5-2026-10-27/JUDGE-KN-CHECK-PUBLICATION-H5-PUSH.txt` (5,476 bytes, SHA-256 `74b38c58a7618ee425fecd45519814e672e8e2b74b15e8dc1b1562b9aa2c9240`).
+
+- **Cycle acceptance and push go-ahead** (line 4024, uuid `df051182-0eb6-4cc8-841a-1ac3919bc191`, 2026-10-27T11:33:13.038Z, 7,024 bytes JSONL, SHA-256 `efb4b6e8b1fa42df21dcb3a29c9696d5e7c7315bb03162f051a30519c32c4f7d`), retained verbatim at `C:/CoWork/outputs/lane-a-push-q5-2026-10-27/JUDGE-ACCEPT-Q5-RELEASE-PUSH.txt` (1,514 bytes, SHA-256 `e589f7382a206d90c63170fd4fcd6d47c892b1a7caef4ca8c98ef5a79bf8d6d0`).
+
+These are the "later Judge acts" required by `D-472` item 4 to be registered in the next available, separately authorized entry, outside the five-commit range Q5 → R → K → N → H5, under `D-183` and `D-467` item 5. The `D-472` recording release (line 3388, uuid `0afac767-54f0-4413-90d0-067e9343722d`, 2026-10-27T06:38:29.308Z, retained at `C:/CoWork/outputs/lane-a-q5-record-2026-10-27/JUDGE-Q5-RECORDING-RELEASE.txt`) accepted the `D-471` delivery through H4 and released Q5 recording only. The authority supplement for the Q5 push (S-A1, `C:/CoWork/outputs/lane-a-push-q5-2026-10-27/AUTHORITY-SUPPLEMENT-S-A1.md`) catalogs these four acts with their locators and SHA-256 values. **Number, section and ordinal check:** at recording, against complete history, removed text and forward references; any conflict stops. Expected identifiers: D-473, §5.14e296, thirty-second.
+
+### The decision
+
+1. **What this entry authorizes.** Registration of the four direct Judge acts listed above as historical acts, completing the durable registration of the `D-472` cycle's subsequent direct Judge acts. This entry makes no new authorization, executes no graph cycle, creates no push authority and changes no governed scope. It is a Register-only append against HEAD `c236f0b102180e1e3700dd0fad4e7c7a108fe7d6` (H5), tree `dd0d236d8b0faadc4a35f87d6f4e55eb248eafd9`, with sole parent H5 `c236f0b102180e1e3700dd0fad4e7c7a108fe7d6`. The five-commit range Q5 → R → K → N → H5 is now complete and delivered locally; coverage remains 50 historically delivered through H4, five pending locally (Q5, R, K, N, H5). No remote contact or push occurs.
+
+2. **Registration of the `D-472` cycle's subsequent direct Judge acts (`D-472` item 4, `D-183` item 5).** Status: **V** = retained bytes verified (SHA-256 recomputed 2026-10-28); **L** = locator retained; **R** = original source readable and its decoded content re-hashed equal on 2026-10-28. A matching hash proves that retained bytes are unchanged; it does not authenticate the speaker. Lane A lines refer to `C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/42f609c0-3f3b-49b0-abf7-f3d587359462.jsonl`.
+
+| Row | Act (kind) | Retained file | Bytes | SHA-256 | Locator | Time (UTC) | Status |
+|---|---|---|---|---|---|---|---|
+| Q5-1 | Cycle release: entry gates, fresh `prepare`, R under `D-472` (human) | `C:/CoWork/outputs/lane-a-graph-sync-q5-2026-10-27/evidence/JUDGE-Q5-CYCLE-RELEASE.txt` | 9,257 | `41ef81f922f827515e7ed2d32b8da693a51e2131c8a3b81c216e72e586d79180` | Lane A line 3458, uuid `eb7cb78d-5feb-4bf2-92c1-1ecb63c2ba6b` | 2026-10-27T06:54:50.842Z | V, L, R |
+| Q5-2 | One resume with answers r1 (human) | `C:/CoWork/outputs/lane-a-graph-sync-q5-2026-10-27/evidence/JUDGE-Q5-RESUME-RELEASE.txt` | 4,562 | `c1459e7c253d26c2eda071d3f53ddd211e6dbf7d9673d7677044915959184a3b` | Lane A line 3547, uuid `5a40f8b7-1dde-4eb4-a59a-dc91b95eb82b` | 2026-10-27T07:11:40.381Z | V, L, R |
+| Q5-3 | K/N independent verification passed; publication release; H5 authorized (structured selection) | `C:/CoWork/outputs/lane-a-publish-q5-2026-10-27/JUDGE-KN-CHECK-PUBLICATION-H5-PUSH.txt` | 5,476 | `74b38c58a7618ee425fecd45519814e672e8e2b74b15e8dc1b1562b9aa2c9240` | Lane A line 3844, uuid `9f23938e-36df-4f0c-90ce-9f7b07d0a3b2` | 2026-10-27T11:19:23.256Z | V, L, R |
+| Q5-4 | Cycle acceptance and push go-ahead (human; effective on Lane B's positive H5/manifest review) | `C:/CoWork/outputs/lane-a-push-q5-2026-10-27/JUDGE-ACCEPT-Q5-RELEASE-PUSH.txt` | 1,514 | `e589f7382a206d90c63170fd4fcd6d47c892b1a7caef4ca8c98ef5a79bf8d6d0` | Lane A line 4024, uuid `df051182-0eb6-4cc8-841a-1ac3919bc191` | 2026-10-27T11:33:13.038Z | V, L, R |
+
+Each row is now "Judge approval recorded by `D-473`". Not registered here: the `D-471` cycle's ten acts (registered by `D-472` item 9), the `D-472` recording release (item 4 of `D-472` accepted `D-471` delivery and released Q5 recording), and the authority supplement S-A1 (catalog, not a Judge act). Assistant drafts, Lane B reviews (including B-136 post-state review), and relayed copies are not Judge acts. **Provenance limits:** registration records retained evidence and the Judge's disposition at the dates above; it does not backdate authority, authenticate a speaker or repair historical continuity.
+
+3. **Sequencing amendment.** Item 0 of `D-440` and `D-441`, as amended through `D-472` item 13, is further amended to permit one further intervening Register entry, this thirty-second entry, after `D-472` and before the separate TCA r3 (J3) and J-C A1 entries. J1 and J2 keep their identities, text and transfer holds. No further intervening entry is permitted by implication, and none is needed for this registration.
+
+4. **Holds.** U-C held. J1 (`D-440`) and J2 (`D-441`) separate; both transfers held. B-136, B-158 and D-439 Open. `D-467`'s accepted delivery, F1's bounded acceptance, B-159, `D-468`/`D-469` history, R1/V1, `D-470`, B-161, `D-471`, `D-472` stand. work-r3 is not resumed. No installation or transfer. Every other hold is unchanged.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry |
+| **Build Spec** | — unaffected: this entry registers historical Judge acts only; it creates, sequences or retires no artifact and changes no V1 or MMF DoD |
+| **Inventory** | — unaffected: no repository file is created or retired and no row's status changes |
+| B-136, B-050 | — unaffected: their records were committed in the Q5 cycle (R, K, N, H5) and are not edited |
+| B-158, B-161 | — unaffected: their records are committed and not edited |
+| `D-467`–`D-472`, `D-425`–`D-429`, `D-451`, `D-183` | — unaffected: applied as written; `D-472` item 4 required this registration in the next available entry |
+| `D-440`, `D-441` | — unaffected: their text is not edited; item 0 is amended separately (item 3) |
+| `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `docs/README.md`, `docs/PRD.md`, Charter, `0001`, `Modular_PRD.md`, FN specs, `docs/specs/`, template v1, Phase Closure, `docs/LANE-B-WORK-ORDER.md`, `.claude/`, `scripts/`, application code, build configuration | — unaffected: no governed content, scope or lane state changes |
+| **Encyclopedia** | unaffected: `docs/ENCYCLOPEDIA-SYNC.md` identifies no affected local citation entry; hosted parity not claimed |
+| **Graphify** | Affected: governed drift (this entry) remains until the cycle pinned to this commit is published and healthy (`D-425`) |
