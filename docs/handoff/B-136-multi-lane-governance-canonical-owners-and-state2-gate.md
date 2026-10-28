@@ -22913,3 +22913,65 @@ entry.
   D-439 stay Open. U-C stays held. J1/`D-440` and J2/`D-441` stay separate with both transfers held. work-r3 stays held.
 - Coverage: 50 historically delivered commits through H4 `10a1bae`; Q5 → R → K → N pending; this commit joins when created
   (5). External evidence is outside Git preservation; no fresh remote-state claim.
+
+## Lane A — graph-sync candidate ready at S = Q6 `ddf0b92` (`D-474`); request for Lane B's exact-byte candidate review, 2026-10-28
+
+Filed under `D-474` (item 4, step R) and the Judge's direct acts, each retained verbatim under
+`C:/CoWork/outputs/lane-a-graph-sync-q6-2026-10-28/`: the cycle release (`evidence/JUDGE-Q6-CYCLE-RELEASE.jsonl`, SHA-256
+`d933132396945b12dd545ffed032aee55e6a37a4761568dabeb482e8a35a86cb`) with the selections that hold the start for Lane B's
+Q6 review and confirm S, the folders and the prospective operator freeze through H6
+(`evidence/JUDGE-Q6-REVIEW-AND-BINDINGS-SELECTION.jsonl`); the start after that review (`evidence/JUDGE-Q6-START-CYCLE.jsonl`);
+and the one-resume release (`reviews-1/JUDGE-Q6-RESUME-RELEASE.jsonl`, SHA-256
+`9d80d865707c7e3bbd146e4a5616aa913d80ff7f9640b8a818ee351dfddcb36b`), held for Lane B's verification of supplement S2
+and run after it (`reviews-2/`). Each is approval received, pending durable registration (`D-474` item 4). This is the
+cycle's first handoff commit (R). It requests review only and claims no candidate acceptance, publication or full health.
+
+### What happened
+
+| Binding | Value |
+|---|---|
+| Source S (Q6, `D-474`) | `ddf0b922f72f8dc54f41ac19698df80691fcd6a1`, tree `20f414950b810a2614db8c49c2cb4c44976799a0`; parent `D-473` `dd848858e0b852b89abc716e291e7a732e9d2dfd`; upstream H5 `c236f0b102180e1e3700dd0fad4e7c7a108fe7d6` |
+| Work folder / work ID | `C:/CoWork/outputs/lane-a-graph-sync-q6-2026-10-28/work`; `8ecb2368-cfc0-4137-a890-b231b5cdc9e9` (from the guard) |
+| Entry gates | 2026-10-28T15:39:57Z, 0 findings (`evidence/entry-gates-20261028T153957Z.json`), including the frozen stray work `cac590ad` (4,306 files unchanged) |
+| Prepare | 15:40:35.717Z–15:45:41.830Z, exit 3, pending: 0 descriptions, 21 community names |
+| Answers | r1, SHA-256 `379e37dd8c0cbc7269ee65a6ddd186fe1e233c2ff2287d6c822f436b19455a50` (STATE `answersHash`), approved by Lane B (`reviews-1/LANE-B-Q6-PREPARE-ANSWERS-REVIEW.md`, SHA-256 `67f336d81f6991619da357a1d4b1d7e04c0ec2dccdde475e26362ffdf4c8c80f`). Names are bound to complete member-set hashes |
+| Evidence continuity | Supplement S2 (`supplement-S2/`, manifest `a1567fad…`) reconstructs the overwritten five-entry seal `3a5dfc34…` byte for byte; verified by Lane B (`reviews-2/LANE-B-S2-VERIFICATION.md`, SHA-256 `1e9da62bbc2d956a06de36635cee749da0749465cb2c6bfc3706f983a1f40c3f`). Uninterrupted retention stays unproved |
+| Resume | Pre-resume gates 2026-10-28T16:13:35Z, 0 findings (`evidence-2/preresume-gates-20261028T161335Z.json`); `prepare --resume … --answers …/evidence/answers-proposed.r1.json`, 16:13:53.183Z–16:35:02.818Z, **exit 0, `ready`**, attempt 2 |
+| STATE | `work/STATE.json`, state `ready`, 2 attempts, SHA-256 `fbdb0e40d2ca96f3b0be6d69f03be9fc5cab1f15eb6c2d4f50ce4f34a5688e55` |
+| Candidate (staging) | `work/attempt-2/staging` |
+| Graph | `graph.json` SHA-256 `4c3829a57f1dcc0e45d55fd045ccd56b9cfcb80c1cc3f6032cba4a1bf39a2ac7` (3,609 nodes, 7,538 links, 178 communities) |
+| Manifest | `guard-treeDigest-v1` digest `a51dc92d0ee08082c87b871dfe3117d08fd68089851f9372cbd3538bea8eaf4d`, 583 files; frozen at 2026-10-28T16:34:50.108Z |
+| Baseline (guard-selected) | release locus `fa0c9efcdd2e7b1dd7a7c64ca59fbbc0cfdada4f` (receipt K of `D-472`), digest `130c05770a7963e192ebf400a5126d8619d2908b0c2181ddf02941f5c2ee3824`, 583 files |
+| Selection | oracle `bce6c24d48558809033f4c0ae0e369460d8db97370caae66e426f8249eec5a0a` |
+
+**Lane A's read-only verification of the staged candidate** (`evidence-2/candidate-verification.json`, SHA-256
+`e874fe61323d1c2a6a3942ce91bb3ae35b0356a0087e3c42358a72da1c6390ad`; not candidate acceptance):
+
+- Graph bytes equal STATE; an independent recomputation of the 583-file tree gives the same manifest digest.
+- Fragment parity (guard read-only function): **140 / 140 exact**, no diffs. Name binding: **0 findings**. 178 labels, no
+  duplicate; all 21 answered names are applied; every node's `community_name` equals its label.
+- Unresolved semantic items: **0**. `missing-desc.json` is empty. Two nodes carry no description; both are undescribed in
+  the baseline too (inherited, not new).
+- Branch record in the candidate: `lastAnalyzedHead` S, `stale: false`.
+
+**Freeze.** Operator coverage was confirmed by the Judge with the cycle release on 2026-10-28, before the entry gates.
+From the entry snapshot to after the resume (`evidence-2/post-resume-freeze.json`, 0 findings): every ref outside
+`refs/codex/turn-diffs/` is unchanged, configuration is unchanged, no lock or journal exists, the live graph is unchanged
+(still the `D-472` release, `74ac8848…`, 15 receipts), the linked-worktree untracked skill paths equal the accepted
+inventory (`3e32d008…`), with HEADs `5ddf17c` and `1945c19`, and the stray work `cac590ad` is unchanged. Earlier byte
+continuity stays unproved.
+
+### What you need
+
+Lane B's independent exact-byte review of this candidate: bindings; complete bytes and manifest; fragment parity;
+descriptions; complete member sets and applied names; producer projections; Git extraction and selection; final state;
+zero unresolved semantics. On approval, Lane B records one canonical "### F3 acceptance record" in B-050 (K), then a
+separate terminal annotation (N). On a finding, the cycle stops under `D-467` item 9, applied by `D-474` item 7.
+
+### What you did instead
+
+- No B-050 receipt, annotation, publication or push. The live graph is not touched. Stray work `cac590ad` stays frozen.
+- B-136 stays **Open**; its header is unchanged. B-158 and D-439 stay Open. U-C stays held. J1/`D-440` and J2/`D-441`
+  stay separate with both transfers held.
+- Coverage: 55 historically delivered commits through H5 `c236f0b`; `D-473` and Q6 pending; this commit joins when
+  created. K, N and H6 stay prospective. No fresh remote-state claim.
