@@ -8113,3 +8113,63 @@ Recorded only this authorized acceptance unit. Preserve 50 historical deliveries
 - **Annotation-Act:** D-472 items 4-5, applying D-467 step 6, and the Judge's direct bounded 2026-10-27 K/N instruction retained at C:/CoWork/outputs/lane-b-d472-kn-2026-10-27/JUDGE-KN-INSTRUCTION.txt with its original locator and SHA-256 in provenance.json; approval received, pending durable registration. Executed independently by Codex (Lane B). This separate record-only annotation covers receipt K fa0c9efcdd2e7b1dd7a7c64ca59fbbc0cfdada4f, sole parent request R 447322f26415dbac2db0d731e50040801df9772a, analyzed source S/Q5 f4aa97674896e45ad18059d2a4f3e3d527aedd2b, source tree 400e378124efa5bfb0dec315e1ec403f22d809fc, work 6590a1ef-4dc4-453f-a61f-cb58b3ae9521, ready attempt 2 at C:/CoWork/outputs/lane-a-graph-sync-q5-2026-10-27/work/attempt-2/staging, graph 74ac8848ed86b0e1de710ab00f52d93fc126c2a415b69164c1a74ce7520af6c2, manifest 130c05770a7963e192ebf400a5126d8619d2908b0c2181ddf02941f5c2ee3824 (guard-treeDigest-v1, 583 files), baseline receipt 84c0bf918aaa10e74da92a44606d6933f87209db / 168adf5583f96b3d198ea131d1291b70fd1f8172991c29f980f761d2b72fa375. B-050's terminal header, Resolution and Lane A answer remain unchanged; no scope is reopened. This ends only K's specifically permitted temporary terminal-return interval. K's two complete checks each reported 17 PASS, only docs-drift and the B-050 working-copy terminal-return preview failing, zero skips and unchanged before/after hashes. Full tested/staged/committed content and blob proof, exact prefix, parent, tree, scope, actual hook trace and clean after-state are retained. N requires two fresh complete checks clearing terminal-return, with only docs-drift permitted, and the same full proof. The independent S1 approval remains retained separately from Judge acts and assistant drafts; the receipt-index packaging condition is closed, while reconstructed bytes repair no historical provenance or continuity gap. The sealed Q5 packet stays unchanged. Prospective inventories match; earlier linked-file continuity remains unproved. Lane A remains Active; no lock transfer occurs. Lane B returns K and N for Lane A's independent verification and fresh inventory. Any later separately released publication cites K, never N. Preserve 50 historical deliveries through H4; pending Q5 -> R -> K -> N only as created; H5 remains prospective. The planned outgoing range remains five commits, subject to final Git verification. No fresh remote-state or delivery claim. External evidence is outside Git preservation. No install, transfer, prepare, resume, publication, fetch, push or manual/force fallback; no extra Register or result commit. Preserve accepted deliveries, SSH/act evidence, F1 and all provenance and continuity gaps. U-C held; J1/D-440 and J2/D-441 separate, both transfers held; B-136, B-158 and D-439 Open; work-r3 and all other holds unchanged. Normal hooks and the required identity apply.
 - **No-Scope-Reopened:** true
 - **Annotated-At-Commit:** fa0c9efcdd2e7b1dd7a7c64ca59fbbc0cfdada4f
+
+
+## Lane B — D-474 Q6 exact-byte candidate acceptance, 2026-10-29
+
+### What happened
+
+Codex (Lane B) records receipt K under D-474 items 4-5 and the direct Judge act at Lane A session C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/42f609c0-3f3b-49b0-abf7-f3d587359462.jsonl line 5050, uuid e5e3c218-40b4-47e1-b823-1020c1c8e178, 2026-10-28T16:52:22.143Z. Its verbatim 5,341 bytes are retained at C:/CoWork/outputs/lane-b-d474-kn-2026-10-29/JUDGE-KN-RELEASE.jsonl (SHA-256 9e79842b24d437606d7d88860376be16a59367588b4bb7e15979c2a747273439), with source equality in authority-provenance.json. Approval received, pending durable registration outside the six-commit range. No Register edit belongs in this unit.
+
+Sole parent R is 971b789e3131fdd93a4f68e20a0a8934fdb9b07f; source S/Q6 is ddf0b922f72f8dc54f41ac19698df80691fcd6a1, tree 20f414950b810a2614db8c49c2cb4c44976799a0. Work C:/CoWork/outputs/lane-a-graph-sync-q6-2026-10-28/work is ready at attempt 2; its work ID is 8ecb2368-cfc0-4137-a890-b231b5cdc9e9, STATE SHA-256 fbdb0e40d2ca96f3b0be6d69f03be9fc5cab1f15eb6c2d4f50ce4f34a5688e55, staging attempt-2/staging. Approved answers r1 remain SHA-256 379e37dd8c0cbc7269ee65a6ddd186fe1e233c2ff2287d6c822f436b19455a50; the guard copy has equal parsed content.
+
+The independent exact-byte candidate and R review is retained at C:/CoWork/outputs/lane-b-d474-kn-2026-10-29/LANE-B-CANDIDATE-R-REVIEW.txt (SHA-256 e3f3377acb2dd17ed41980498b37acab173f88fbf5b5dc8050f5a1beef43b3e6). It verified the graph and complete 583-file manifest below; producer projections; fresh Git extraction, merge and selection; lifecycle and source protection; 140/140 fragments; and all 21 approved names against complete member-set hashes. There are zero name-binding findings and zero unresolved semantics. The two inherited undescribed commit nodes remain qualified; none is new. The recording rechecks immutable bytes and bindings and runs no producer pipeline.
+
+S2 verification is retained at C:/CoWork/outputs/lane-b-d474-kn-2026-10-29/LANE-B-S2-VERIFICATION.txt (SHA-256 1e9da62bbc2d956a06de36635cee749da0749465cb2c6bfc3706f983a1f40c3f). Its manifest a1567fad36a2c2eb84e47ae6727041bc6b7cc8a5973f68c2189d16d6a7574e57 binds the 455-byte reconstruction of the original five-entry seal 3a5dfc346169727bb891645a492e35e03c41b73f0e0709bf39f41102f7c3fd76, the current manifest and five unchanged original files. The packaging condition is closed; uninterrupted retention remains unproved. Earlier seals remain unchanged.
+
+Fresh gates rechecked source/tree, R, ready STATE, answers, all 583 candidate files, tool pins, refs, configuration and the accepted Q5 live release. Only refs/codex/turn-diffs/ metadata is excluded from equality and inventoried; feature-head fast-forwards stay bounded. Linked HEADs 5ddf17c and 1945c19, paths, types, sizes and hashes match the accepted inventory, with no link substitution. Earlier byte continuity remains unproved. Stray work cac590ad stays frozen and excluded, all 4,306 files unchanged. Lane A remains Active; no lock transfers. Evidence is retained at C:/CoWork/outputs/lane-b-d474-kn-2026-10-29.
+
+### What you need
+
+K is a B-050-only append with sole parent R. Two complete bun run check runs must pin unchanged bytes before and after each. Require exact staged scope; equal tested/staged/committed SHA-256; matching staged and committed Git blob IDs recorded separately; exact-prefix proof; required identity; actual commit-msg trace with core.hooksPath=.githooks; clean after-state. Only docs-drift and this K append's known temporary B-050 terminal-return preview may fail. Every other failure, skip, startup failure or mismatch stops before staging.
+
+Separate N has sole parent K, names K's full ID, and adds no second acceptance record. Its two checks must clear terminal-return; only docs-drift may fail. The terminal header, Resolution and Lane A answer stay unchanged. Return both IDs and full proof to Lane A for independent K/N verification and fresh inventory. Later gated publication cites K, never N. No publication, full health, parent closure or delivery is claimed.
+
+### What you did instead
+
+Record only this K/N unit. Preserve 55 historical deliveries through H5 c236f0b102180e1e3700dd0fad4e7c7a108fe7d6. D-473 -> Q6 -> R are pending; K and N join only as created; H6 stays prospective. The outgoing range remains six commits, subject to Git verification, with no fresh server claim. External evidence remains outside Git preservation. Preserve accepted deliveries, F1, SSH/act evidence, R1/V1, D-470, B-161, D-473's corrected facts and incomplete historical commit proof, and all provenance/continuity gaps.
+
+No install, transfer, prepare, resume, publication, fetch, push or manual/force fallback. U-C held. J1/D-440 and J2/D-441 separate, both transfers held. B-136, B-158 and D-439 Open; work-r3 and every other hold unchanged.
+
+### F3 acceptance record
+```json
+{
+  "kind": "graphify-f3-acceptance",
+  "version": 1,
+  "disposition": "Accept",
+  "scope": "F3 publication",
+  "reviewer": "Lane B",
+  "workId": "8ecb2368-cfc0-4137-a890-b231b5cdc9e9",
+  "graphSha256": "4c3829a57f1dcc0e45d55fd045ccd56b9cfcb80c1cc3f6032cba4a1bf39a2ac7",
+  "manifest": {
+    "algorithm": "guard-treeDigest-v1",
+    "digest": "a51dc92d0ee08082c87b871dfe3117d08fd68089851f9372cbd3538bea8eaf4d",
+    "files": 583
+  },
+  "analyzedSource": "ddf0b922f72f8dc54f41ac19698df80691fcd6a1",
+  "baseline": {
+    "releaseLocus": "fa0c9efcdd2e7b1dd7a7c64ca59fbbc0cfdada4f",
+    "algorithm": "guard-treeDigest-v1",
+    "digest": "130c05770a7963e192ebf400a5126d8619d2908b0c2181ddf02941f5c2ee3824"
+  },
+  "pendingSemantics": 0
+}
+```
+
+| Item | Verdict | Owner / follow-up phase |
+|---|---|---|
+| Exact Q6 candidate, R and S2 | Approve | Lane B receipt K |
+| K and separate N | Approve-with-conditions | Two checks and full proof each; Lane A independent verification next |
+| Publication, H6 and push | Defer | Existing review and Judge gates; push last |
+| Accepted deliveries and provenance gaps | Approve — preserved | Existing records |
+| U-C, separate J1/J2 and all other holds | Defer — unchanged | Existing checkpoints |
