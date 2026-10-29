@@ -31145,3 +31145,128 @@ Expected identifiers: `D-474`, §5.14e297, thirty-third.
 | `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `docs/README.md`, `docs/PRD.md`, Charter, `0001`, `Modular_PRD.md`, FN specs, `docs/specs/`, template v1, Phase Closure, `docs/LANE-B-WORK-ORDER.md`, `.claude/`, `scripts/`, application code, build configuration | — unaffected: no governed content, scope or lane state changes |
 | **Encyclopedia** | unaffected: `docs/ENCYCLOPEDIA-SYNC.md` identifies no affected local citation entry; hosted parity not claimed |
 | **Graphify** | Affected: governed drift (`D-473` and this entry) remains until the cycle pinned to this commit is published and healthy (`D-425`) |
+
+## 5.14e298 `D-475` — Durable Registration of the `D-474` (Q6) Cycle's Judge Acts and Acceptance of the `D-474` Delivery; Thirty-Fourth Intervening Entry Permitted
+
+**Authority: the Judge, directly to Lane A, 2026-10-29**: the decision "accept D-474 delivery and release Q6 registration"
+(session `C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/42f609c0-3f3b-49b0-abf7-f3d587359462.jsonl`
+line 5487, uuid `c6959364-e082-4924-b098-e3e07d574525`, 2026-10-29T10:48:56.974Z, retained verbatim at
+`C:/CoWork/outputs/lane-a-q6-registration-2026-10-29/src-Q6-17.jsonl`, 5,180 bytes, SHA-256
+`18557e6d7753e7e671a91a9520907da3c16ac3cc3af6c90457bd366fcc6f2a53`). It accepts the `D-474` delivery, releases this one
+Register-only entry, and permits recording once Lane B approves this exact text and its SHA-256, without another Judge
+message. This entry carries the terms; the external files are evidence, not the authority. **Number, section and ordinal
+check:** at recording, against complete history, removed text and forward references; any conflict stops. Expected
+identifiers: `D-475`, §5.14e298, thirty-fourth.
+
+### The decision
+
+1. **What this entry records.** (a) The Judge's acceptance of the `D-474` delivery (item 2). (b) Registration of the
+   `D-474` cycle's direct Judge acts and the Judge's instructions to Lane B in that cycle, as historical acts (item 3).
+   (c) The provenance classes and limits of those records (item 4). It grants no new authority, executes no graph cycle,
+   creates no push authority and changes no governed scope. It is a Register-only append against HEAD H6
+   `b4604bc8a8ee69081b46d235166442a0ae7acb7b`, tree `cfe36c764f8fcd88dda13b03aaa963d0478db9e4`, with sole parent H6;
+   Register at that HEAD 2,354,612 bytes, SHA-256 `9a7d1bbf33e37ce52273656549adeb90683bb6b8edc1d9dc98a23d0760323ca9`. Any
+   other HEAD stops recording.
+2. **`D-474` delivery (accepted).** Q6 published and healthy at S `ddf0b922f72f8dc54f41ac19698df80691fcd6a1` (run
+   `107fb1e4-9df6-4928-881b-b3227265d8b1`, citing K `77af44a2fcf84a7e7c05013308cc474e6bfaef41`; graph `4c3829a5…`, manifest
+   `a51dc92d…`, 583 files; two full-health runs 19/19; governed drift cleared at `ddf0b92`). Six commits pushed once, without
+   force: server tip H5 `c236f0b` before and H6 `b4604bc` after (`C:/CoWork/outputs/lane-a-push-q6-2026-10-29/completion-proof.txt`;
+   folder manifest SHA-256 `5793ae33dd2326c79310e248128c3fe66ad2210ad6dd4d2a6078768ca183bc37`); the earlier 55 reachable;
+   configuration unchanged. The SSH "Permanently added" line in `push.err` is SSH output only. Lane B's independent
+   post-push review approved the push (row PR-1: source B line 14768, message
+   `msg_0cb6cde176463b9f016ae323ec9724819197fbb64c15686a68`, 2026-10-29T10:46:22.265Z, assistant role, retained as
+   `src-PR-1.jsonl`, 4,941 bytes, SHA-256 `3cc247d2f548c3ee66aeac8ea2a525741021019ebca6ae8c1ac69931739fcd23`), answering the
+   review request LB-RQ-7. PR-1 is independent evidence, not a Judge act; its copy was retained on 2026-10-29 from the
+   readable source and is not evidence of uninterrupted historical retention. The Judge **accepted** this delivery in the
+   authority act above, following that review: **61 delivered, 0 pending in the `D-474` range**. The acceptance rests on
+   retained proof, not a new server reading; it closes no parent handoff and repairs no historical provenance gap. Delivery
+   acceptance is not acceptance of this registration, which follows Lane B's review of the recording.
+3. **Registration of the `D-474` cycle's Judge acts (`D-474` item 4, `D-183` item 5).** Status: **V** = retained bytes
+   verified (SHA-256 recomputed 2026-10-29); **L** = locator retained; **R** = original source readable and equal on
+   2026-10-29. A matching hash proves that retained bytes are unchanged; it does not authenticate the speaker. Each retained
+   file is the verbatim JSONL record plus one LF, in `C:/CoWork/outputs/lane-a-q6-registration-2026-10-29/`
+   (`ACT-INVENTORY.r2.md`). The reconciled interval is every user-role record of source A from line 4300 to 5595 and of
+   source B from line 13634 to 14865. Sources: **A** = the Lane A session above; **B** =
+   `C:/Users/rober_24syk4j/.codex/sessions/2026/10/21/rollout-2026-10-21T03-31-43-01a1450c-56ae-73a2-95c0-6c0d44d45f08_01a15acc-56e0-7801-a238-395e69a0b901.jsonl`.
+
+   | Row | Act (kind) | Retained file | Bytes | SHA-256 | Locator | Time (UTC) | Status |
+   |---|---|---|---|---|---|---|---|
+   | Q6-3 | Q6 cycle under `D-474`, after the cycle release; sync; push (human; prospective) | `src-Q6-3.jsonl` | 2,593 | `c0131a9ba864edc12cd8ab8aba2a92c14aa94ece5c26859395ffe28bb678854b` | A line 4310, uuid `e34b5f35-b193-49bd-b4cc-a7db327d6d7e` | 2026-10-28T14:47:33.316Z | V, L, R |
+   | Q6-4 | Release the Q6 cycle; push as last step (human) | `src-Q6-4.jsonl` | 1,634 | `d933132396945b12dd545ffed032aee55e6a37a4761568dabeb482e8a35a86cb` | A line 4552, uuid `021aca6f-59ae-4071-b185-28aaaeb42d38` | 2026-10-28T15:21:09.625Z | V, L, R |
+   | Q6-5 | Wait for Lane B's Q6 review; confirm S, tree, freeze coverage and work folder (structured selection) | `src-Q6-5.jsonl` | 3,933 | `87add969b6ebe7eb1b30397e41cd96e39052edf64fb2c16d1c7c9fae97ce9294` | A line 4564, uuid `23b5eeea-b3f8-42a2-83e2-b263699bc998` | 2026-10-28T15:24:49.703Z | V, L, R |
+   | Q6-6 | Start the Q6 cycle after Lane B's Q6 review (human) | `src-Q6-6.jsonl` | 7,067 | `a1fd8e4b4778e90a7de15cb2965bf19494899b371b58530f2fa997a72abd1d7d` | A line 4607, uuid `b1a7bddc-6193-4286-9032-d97a4e2178cb` | 2026-10-28T15:38:46.796Z | V, L, R |
+   | Q6-7 | Release one Q6 resume with answers r1; push last (human) | `src-Q6-7.jsonl` | 5,526 | `9d80d865707c7e3bbd146e4a5616aa913d80ff7f9640b8a818ee351dfddcb36b` | A line 4794, uuid `d910ecdd-c39d-4958-818d-276ccdd393a7` | 2026-10-28T16:06:13.128Z | V, L, R |
+   | Q6-8 | Wait for Lane B's S2 check, then resume without another act (structured selection) | `src-Q6-8.jsonl` | 2,847 | `b2add99c9d9b5e6d256eae7bf5428246c55a7e85e5aba8dc3deee212c39775bd` | A line 4870, uuid `03f2c0db-67a0-476d-9386-934bdb3fe14f` | 2026-10-28T16:07:46.096Z | V, L, R |
+   | Q6-9 | Lane B S2 verified; run the Q6 resume (human) | `src-Q6-9.jsonl` | 4,854 | `411c4c6be221a204b6736123c192c05f69421066f32878a67bc9e71362a6b51f` | A line 4889, uuid `3f745707-e6d0-41be-bcd4-06047b2cb933` | 2026-10-28T16:12:43.872Z | V, L, R |
+   | Q6-10 | Lane B K, then separate N; push last (human) | `src-Q6-10.jsonl` | 5,341 | `9e79842b24d437606d7d88860376be16a59367588b4bb7e15979c2a747273439` | A line 5050, uuid `e5e3c218-40b4-47e1-b823-1020c1c8e178` | 2026-10-28T16:52:22.143Z | V, L, R |
+   | Q6-11 | K/N check, publication, H6, push (last) (human; prospective) | `src-Q6-11.jsonl` | 4,292 | `4e9a2c90ff2d1bec50b2e3235107a8ca932bf3b7b94b223dcfdeb367ff7f0855` | A line 5082, uuid `a7b86abb-aea8-4948-8464-29bc080524cb` | 2026-10-28T16:58:41.214Z | V, L, R |
+   | Q6-12 | "Lane B K/N verified; run K/N check, publication, H6" (human; premise unmet) | `src-Q6-12.jsonl` | 743 | `321871685d9053a4e50862c686460de917724104b1422c99d5d6cb54301f5610` | A line 5116, uuid `963e7ee3-54e7-481d-a506-a45b521354eb` | 2026-10-28T17:00:11.295Z | V, L, R |
+   | Q6-13 | Read-only independent K/N verification; no publication or push (human; text drafted by Lane B, LB-Q6-1) | `src-Q6-13.jsonl` | 4,414 | `25b4e9f575fdd73aeadb015e0da300678e01aac5d84d1e61e73cef62cdf582c6` | A line 5163, uuid `e68578ca-087e-4279-8158-6100874e7e46` | 2026-10-28T17:30:24.698Z | V, L, R |
+   | Q6-14 | Release publication citing K, full health and H6; push last (human; decision text drafted by Lane B, LB-Q6-3) | `src-Q6-14.jsonl` | 4,707 | `fae2529e242d8250b6d4581fac003d31f222cb08b26ba2a53cd97f08954c2f4d` | A line 5241, uuid `f54e4a01-730f-42a5-9405-e18d48dc4864` | 2026-10-28T18:24:29.888Z | V, L, R |
+   | Q6-15 | Accept the Q6 cycle and release the push (human) | `src-Q6-15.jsonl` | 710 | `f45b25f11272509994075f93c8877b8813bd3d3a145bc9993113e6c8ecf6661b` | A line 5383, uuid `66744549-6a64-4730-8c53-51c149bf074a` | 2026-10-28T18:50:03.588Z | V, L, R |
+   | Q6-16 | Lane B's review exists and will be supplied before the push (structured selection) | `src-Q6-16.jsonl` | 2,866 | `1f20e9fefc740777fffc339177ba046b7bf15f9d3b178ff82d6614960dfd2d05` | A line 5396, uuid `cf1516d1-786a-4a50-846b-0ed08469e932` | 2026-10-28T18:51:21.310Z | V, L, R |
+   | Q6-17 | Accept the `D-474` delivery; release this registration (human; decision text drafted by Lane B, LB-Q6-5) | `src-Q6-17.jsonl` | 5,180 | `18557e6d7753e7e671a91a9520907da3c16ac3cc3af6c90457bd366fcc6f2a53` | A line 5487, uuid `c6959364-e082-4924-b098-e3e07d574525` | 2026-10-29T10:48:56.974Z | V, L, R |
+   | Q6-18 | Fix R1–R3 in this registration packet; plan only, no recording (human; text drafted by Lane B, LB-Q6-6) | `src-Q6-18.jsonl` | 5,109 | `52d11e959809b8f166541f8d56c5b5e3a7ebe3c5aba126f10500699f2acd0daf` | A line 5595, uuid `13755e5c-fb66-4520-96e9-8811a5f8a586` | 2026-10-29T10:59:13.247Z | V, L, R |
+   | LB-RQ-1 | To Lane B: review Lane A's report holding the Q6 cycle for Lane B's Q6 review (review request) | `src-LB-RQ-1.jsonl` | 8,133 | `4e3bf02eaf21e0cec8c63549c6c79f4e6accea5067e2e7eeb22c1dfdb92597f4` | B line 13732, message `msg_01a1831e-52ef-7862-ab93-838c670768c7` | 2026-10-28T15:26:05.039Z | V, L, R |
+   | LB-RQ-2 | To Lane B: review Lane A's report on the pending prepare and answers r1 (review request, attached file) | `src-LB-RQ-2.jsonl` | 2,052 | `6f08cbe5ac037cfbace31a9c48f2ea3aef3609a75944a32c9857c4c3d1b931fe` | B line 13862, message `msg_01a18339-15d5-7530-9edc-18cf067f55a2` | 2026-10-28T15:55:18.869Z | V, L, R |
+   | LB-RQ-3 | To Lane B: review Lane A's report on supplement S2 and the resume gate (review request) | `src-LB-RQ-3.jsonl` | 6,447 | `b180c243153e8eddd0698a90ece8b7a36a1636be62d79ad895b01f53f854bc38` | B line 14000, message `msg_01a18345-7b1a-72e1-8ae9-0e81af799a6e` | 2026-10-28T16:08:51.226Z | V, L, R |
+   | LB-RQ-4 | To Lane B: review Lane A's report on the ready resume and R (review request, attached file) | `src-LB-RQ-4.jsonl` | 2,045 | `1b836d0635854c26bfcad22c1c8df0f48426330e5f9e668ed1c6ab2b91316a0f` | B line 14039, message `msg_01a18364-27bd-7822-a09f-8c23612e0cb1` | 2026-10-28T16:42:21.501Z | V, L, R |
+   | LB-RQ-5 | To Lane B: review Lane A's reviews-3 filing (review request) | `src-LB-RQ-5.jsonl` | 4,630 | `979ec43241e9f086f84a5642fc9109f2be4fe92efd80efe4cad6f51c9d4a3c87` | B line 14182, message `msg_01a1836f-f0c2-7da3-b5ea-16934ad5b175` | 2026-10-28T16:55:13.859Z | V, L, R |
+   | LB-RQ-6 | To Lane B: review Lane A's report that K and N were absent (review request) | `src-LB-RQ-6.jsonl` | 4,889 | `52d12641c703a863ddb2559dedc3e7da97e78a47806045c3556d6d456c4e5ab3` | B line 14205, message `msg_01a18375-b0ff-7a01-b500-d612247d84a2` | 2026-10-28T17:01:30.751Z | V, L, R |
+   | LB-RQ-7 | To Lane B: review Lane A's Q6 push report (post-push review request, answered by PR-1) | `src-LB-RQ-7.jsonl` | 8,560 | `20ea4cc044ccbfe59a0b43498705066f93d12b74f98f755638681f2ccf1135c2` | B line 14676, message `msg_01a18741-b514-7240-b7e4-0a48728332b2` | 2026-10-29T10:43:12.789Z | V, L, R |
+   | LB-RQ-8 | To Lane B: review Lane A's registration DoR and draft r1 (review request, attached file) | `src-LB-RQ-8.jsonl` | 2,254 | `a90822186947cd264a5e9700ef5dc8c40fc2e0918bab0e24e891e33003edc21c` | B line 14792, message `msg_01a1874b-ab4b-73d0-8322-9b3dac132c8b` | 2026-10-29T10:54:05.644Z | V, L, R |
+   | LB-Q6-6 | To Lane B: draft a prompt for Lane A to fix R1–R3 in this registration draft (drafting request) | `src-LB-Q6-6.jsonl` | 1,471 | `10dbdee6e96769e6660aca6e8b3e7d7c7faf1f3b6662279e1542b541356d2bb4` | B line 14865, message `msg_01a1874f-a1fb-7632-88ec-209401567f4c` | 2026-10-29T10:58:25.404Z | V, L, R |
+   | LB-Q6-1 | To Lane B: draft a prompt for Lane A's Q6 K/N verification (drafting request) | `src-LB-Q6-1.jsonl` | 1,528 | `6463c2b7238872bc32767cd81509d430215fed950590a32ee230ff705f206bba` | B line 14514, message `msg_01a1838f-3c5f-70a3-a329-dbaf393716ed` | 2026-10-28T17:29:24.831Z | V, L, R |
+   | LB-Q6-2 | To Lane B: review Lane A's Q6 K/N verification (review request) | `src-LB-Q6-2.jsonl` | 1,515 | `2f929bb01d6b9984ae930bdf4beb6e082607de584ee65e0ace5bceab477d98dd` | B line 14528, message `msg_01a18397-5463-7191-a2f5-ce34a9ab74f5` | 2026-10-28T17:38:15.268Z | V, L, R |
+   | LB-Q6-3 | To Lane B: draft the Judge response releasing Q6 publication citing K (drafting request) | `src-LB-Q6-3.jsonl` | 1,526 | `88746ac6c20cc487dc63630df81b315ecd5972534394d8978cfc5b4ec64cc60e` | B line 14569, message `msg_01a183be-fbb5-7e10-b082-e697b9fde9af` | 2026-10-28T18:21:34.005Z | V, L, R |
+   | LB-Q6-4 | To Lane B: review Lane A's Q6 publication, health, H6 and six-commit coverage (review request) | `src-LB-Q6-4.jsonl` | 1,524 | `b42484f0f8aa8db370d6a587259e90ee45181e0713454ae6969fd4d6a5cf804b` | B line 14585, message `msg_01a183d5-50b4-7860-8c86-dc8fb34c6b59` | 2026-10-28T18:45:57.557Z | V, L, R |
+   | LB-Q6-5 | To Lane B: draft the Judge response accepting the `D-474` delivery and releasing this registration (drafting request) | `src-LB-Q6-5.jsonl` | 1,526 | `e2cfebd44cc0f8c879d7d1891d2d457ea7736ccc0fb70683343301b2eb552043` | B line 14778, message `msg_01a18745-adae-74c3-baba-3a2b8e586cb7` | 2026-10-29T10:47:33.038Z | V, L, R |
+   | LB-D472-1 | To Lane B: record Q5 K, then separate N, under `D-472` (human; carried from `D-474` item 10) | `C:/CoWork/outputs/lane-b-d472-kn-2026-10-27/JUDGE-KN-INSTRUCTION.txt` | 3,448 | `15213fe376a28b36414e4cb72dd79ed4a2b0d9779541a8bafef3017f66735385` | message `msg_01a17c6e-9b56-7403-9ca4-ce64081bf64b`; original session path unavailable (Lane B) | unavailable | V |
+
+   Each row is now "Judge approval recorded by `D-475`". The LB-Q6 rows are drafting requests and the LB-RQ rows review
+   requests to Lane B; they confer no execution authority. Not registered here, because already registered: the `D-474`
+   recording release (line 4464) and lines 4140 and 4222 (`D-474`'s authority line). Not acts: the Lane A questions at A
+   lines 4557, 4869 and 5395 (retained as `src-C-7.jsonl`, `src-C-8.jsonl`, `src-C-9.jsonl`); the relayed Lane B post-state
+   review at A line 5415 (`src-RV-1.jsonl`), which satisfied Q6-16; Lane B's independent post-push review PR-1 (item 2);
+   the Lane B reviews relayed inside Q6-6, Q6-7, Q6-9, Q6-10 and Q6-11; Lane A's drafts and reports; and the copies of
+   Lane B records in the fork sessions `rollout-2026-10-29T02-46-28…` and `…02-46-37…`. **Excluded, with reasons:** B lines
+   13634 and 13720 (`src-X-1.jsonl`, `src-X-2.jsonl`) carry text identical to each other and to the pre-interval lines
+   13581 and 13607, a standing request for parent-first analysis and gap drafting that names no cycle step, commit,
+   release or gate, so they confer no cycle authority and are not registered; B lines 13915 and 14674 are environment and
+   page metadata, not messages from the Judge.
+4. **Provenance classes and limits.** Q6-13, Q6-14, Q6-17 and Q6-18 carry text that Lane B drafted at the Judge's
+   request (LB-Q6-1, LB-Q6-3, LB-Q6-5, LB-Q6-6); each became a Judge act when the Judge delivered it to Lane A. Q6-3 and Q6-11 were
+   prospective; they took effect only through the gates `D-474` item 4 names, and Q6-3 did not replace the cycle release
+   (Q6-4). Q6-12 stated a premise that was false at the time (no K or N existed); nothing was executed under it. Q6-16
+   took effect only when RV-1 arrived and Lane A checked it. LB-D472-1 has verified bytes only; its original session path
+   is unavailable to both lanes. PR-1 and the r2 rows were retained on 2026-10-29 from readable sources; those copies do
+   not prove uninterrupted earlier retention. Registration records retained evidence and the Judge's disposition at the dates above;
+   it does not backdate authority, authenticate a speaker or repair historical continuity, including the uninterrupted
+   retention of the overwritten Q6 evidence manifest, earlier linked-file continuity and `D-473`'s incomplete proof.
+5. **Coverage.** 61 delivered through H6 `b4604bc` (55 through H5, 6 by `D-474`), historical proof only. This entry's
+   commit joins as one local registration commit, pending. No fetch or push. The governed drift this append creates
+   remains open for a separately released guarded cycle; a check pass before the commit does not prove the append is
+   synchronized.
+6. **Sequencing amendment.** Item 0 of `D-440` and `D-441`, as amended through `D-474` item 15, is further amended to
+   permit one further intervening Register entry, this thirty-fourth entry, after `D-474` and before the separate TCA r3
+   (J3) and J-C A1 entries. J1 and J2 keep their identities, text and transfer holds. No further intervening entry is
+   permitted by implication.
+7. **Holds.** U-C held. J1 (`D-440`) and J2 (`D-441`) separate; both transfers held. B-136, B-158 and D-439 Open.
+   `D-467`'s, `D-471`'s, `D-472`'s and `D-474`'s accepted deliveries, F1's bounded acceptance, B-159, `D-468`/`D-469`
+   history, R1/V1, `D-470`, B-161, `D-471`–`D-474` stand. work-r3 is not resumed; stray work `cac590ad` stays frozen and
+   excluded. No installation or transfer. Every other hold is unchanged.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry |
+| **Build Spec** | — unaffected: this entry registers historical Judge acts and a delivery acceptance; it creates, sequences or retires no artifact and changes no V1 or MMF DoD |
+| **Inventory** | — unaffected: no repository file is created or retired and no row's status changes |
+| B-136, B-050 | — unaffected: their Q6 records (R, K, N, H6) are committed and not edited |
+| B-158, B-161 | — unaffected: their records are committed and not edited |
+| `D-467`–`D-474`, `D-425`–`D-429`, `D-451`, `D-183` | — unaffected: applied as written; `D-474` item 4 required this registration in the next separately authorized entry |
+| `D-440`, `D-441` | — unaffected: their text is not edited; item 0 is amended separately (item 6) |
+| `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `docs/README.md`, `docs/PRD.md`, Charter, `0001`, `Modular_PRD.md`, FN specs, `docs/specs/`, template v1, Phase Closure, `docs/LANE-B-WORK-ORDER.md`, `.claude/`, `scripts/`, application code, build configuration | — unaffected: no governed content, scope or lane state changes |
+| **Encyclopedia** | unaffected: `docs/ENCYCLOPEDIA-SYNC.md` identifies no affected local citation entry; hosted parity not claimed |
+| **Graphify** | Affected: governed drift (this entry) remains until a separately released guarded cycle publishes and is healthy (`D-425`) |
