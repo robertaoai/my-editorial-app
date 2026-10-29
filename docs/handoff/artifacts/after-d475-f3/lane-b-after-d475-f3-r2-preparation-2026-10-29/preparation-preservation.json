@@ -1,0 +1,65 @@
+{
+  "scope": "drafting preservation only; runtime F3 validation remains planned",
+  "checks": {
+    "headEqual": true,
+    "clean": true,
+    "configEqual": true,
+    "refsOutsideCheckpointEqual": true,
+    "trackedBytesEqual": true,
+    "treesEqual": true
+  },
+  "pass": true,
+  "checkpointRefsBefore": [
+    "344d222544d6cc27318d4482df72d3a174cbdf98 refs/codex/turn-diffs/captures/1793279830390/af8a7d44-5975-4c35-8314-b4ef2524ce02/base",
+    "344d222544d6cc27318d4482df72d3a174cbdf98 refs/codex/turn-diffs/checkpoints/016f625affc6b45742ed93ce9b9987f9/b0a395a9e2cc62b5e5d41251a2da01f0/1793279798012/4055e0e1-e633-4ef2-96d2-874b95b84c1d",
+    "9aae5f256abeaa72f9da664d703f37a41b23d8cc refs/codex/turn-diffs/checkpoints/3c02c9e3182ab70a2c173faa8b52619b/213baebacb4fc1cc64afa6fa0e65d464/1792833517892/4b64b1dd-87cf-4773-81cf-cb0a85aa2cc1",
+    "01cf04b26ed0f596129ceec909f160c993e5a6ec refs/codex/turn-diffs/checkpoints/a276a467e683159206bb351d6039ef47/e4dc6a5673f7b200f6bc41cada976c10/1792728108725/5ce2fc1e-b832-45ad-918d-cf6acbee0cc9",
+    "344d222544d6cc27318d4482df72d3a174cbdf98 refs/codex/turn-diffs/checkpoints/b2ba3f4625e49c7a4817b3dd68843968/cf2071cd1fb3965e43c67d4b9ffa2b01/1793277048896/7f5239f0-8062-4e51-9ed0-e90d9084f7a2",
+    "4112216cd16dc969cebd53bd105dadf50c46b824 refs/codex/turn-diffs/checkpoints/c8520b10d9e833164896472efe30da06/68ea785326d3123d8eca9d5a67dfb90c/1793090712179/47358d01-6c7b-406d-8ace-394d871630b3",
+    "71d2483c0e7a4067991c42a7043d74db3df685fe refs/codex/turn-diffs/checkpoints/e09f702c2e3ccf373aa9ee52b96954a9/f9c3596a3e7c54d7ca8920013da6857e/1792823094659/d2eb4082-8509-4b6b-b9f5-3e8152a75a5e",
+    "01cf04b26ed0f596129ceec909f160c993e5a6ec refs/codex/turn-diffs/checkpoints/f381e6135622ce945f8067f995cc10e2/5321c4f0c19985de84e33e0cb8ef0aea/1792726669774/e2e35687-aa44-42df-ac80-570867952aa2"
+  ],
+  "checkpointRefsAfter": [
+    "344d222544d6cc27318d4482df72d3a174cbdf98 refs/codex/turn-diffs/captures/1793279830390/af8a7d44-5975-4c35-8314-b4ef2524ce02/base",
+    "344d222544d6cc27318d4482df72d3a174cbdf98 refs/codex/turn-diffs/checkpoints/016f625affc6b45742ed93ce9b9987f9/b0a395a9e2cc62b5e5d41251a2da01f0/1793279798012/4055e0e1-e633-4ef2-96d2-874b95b84c1d",
+    "9aae5f256abeaa72f9da664d703f37a41b23d8cc refs/codex/turn-diffs/checkpoints/3c02c9e3182ab70a2c173faa8b52619b/213baebacb4fc1cc64afa6fa0e65d464/1792833517892/4b64b1dd-87cf-4773-81cf-cb0a85aa2cc1",
+    "01cf04b26ed0f596129ceec909f160c993e5a6ec refs/codex/turn-diffs/checkpoints/a276a467e683159206bb351d6039ef47/e4dc6a5673f7b200f6bc41cada976c10/1792728108725/5ce2fc1e-b832-45ad-918d-cf6acbee0cc9",
+    "344d222544d6cc27318d4482df72d3a174cbdf98 refs/codex/turn-diffs/checkpoints/b2ba3f4625e49c7a4817b3dd68843968/cf2071cd1fb3965e43c67d4b9ffa2b01/1793277048896/7f5239f0-8062-4e51-9ed0-e90d9084f7a2",
+    "4112216cd16dc969cebd53bd105dadf50c46b824 refs/codex/turn-diffs/checkpoints/c8520b10d9e833164896472efe30da06/68ea785326d3123d8eca9d5a67dfb90c/1793090712179/47358d01-6c7b-406d-8ace-394d871630b3",
+    "71d2483c0e7a4067991c42a7043d74db3df685fe refs/codex/turn-diffs/checkpoints/e09f702c2e3ccf373aa9ee52b96954a9/f9c3596a3e7c54d7ca8920013da6857e/1792823094659/d2eb4082-8509-4b6b-b9f5-3e8152a75a5e",
+    "01cf04b26ed0f596129ceec909f160c993e5a6ec refs/codex/turn-diffs/checkpoints/f381e6135622ce945f8067f995cc10e2/5321c4f0c19985de84e33e0cb8ef0aea/1792726669774/e2e35687-aa44-42df-ac80-570867952aa2"
+  ],
+  "trees": [
+    {
+      "path": "C:/CoWork/outputs/lane-a-git-binding-plan-2026-10-29",
+      "files": 34,
+      "digest": "b8bb3b9e2860b35f74f63fdaf3b2cb9aa28df142d7dd6d30452f52cd31ee9b53"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-a-graph-sync-after-d475-2026-10-29",
+      "files": 9282,
+      "digest": "05b8db6e2a706a8b005a17aa9af393db112b765c5dca28185382eb82ead4f29c"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-b-after-d475-f3-2026-10-29",
+      "files": 37,
+      "digest": "95f6d850eed9f8b29d1a78f8c7200fec14f9c5ba27532ce9aad8c1d718b4099d"
+    },
+    {
+      "path": "C:/CoWork/outputs/sync-20261028",
+      "files": 4306,
+      "digest": "9b868bdb732de103e6a57ea8bdcfcc1e7af4958fe028d168702d1dd38fda311c"
+    },
+    {
+      "path": "C:/CoWork/myeditorialapp/.graphify",
+      "files": 583,
+      "digest": "a51dc92d0ee08082c87b871dfe3117d08fd68089851f9372cbd3538bea8eaf4d"
+    },
+    {
+      "path": "C:/CoWork/myeditorialapp/.graphify-receipts",
+      "files": 16,
+      "digest": "fde2d52d0728563eea083130cad2acd9b2e9aa878a4159d18f5fc4ef7816977f"
+    }
+  ],
+  "limits": "content hashes do not prove uninterrupted historical custody; this preparation proof does not claim F3/full health or fresh server state"
+}

@@ -1,0 +1,78 @@
+Lane B — complete the formal F3 candidate review after D-475. If it passes, record K, then separate N. No publication or push.
+
+## 1. Fixed bindings
+
+- HEAD R: `71dfbbe7a09f194a9986c1f29d42ad507aec1af7`
+- Source S: `22b0a8ce2fb06c16152fa9490d21aae829a45974`
+- Source tree: `7e28fd350438bb6e4b1cb871d75ad9185d44703b`
+- Work ID: `7bd2af2f-82a0-40fc-872c-31009278ff1c`
+- Work folder: `C:/CoWork/outputs/lane-a-graph-sync-after-d475-2026-10-29/work`
+- Candidate: `work/attempt-2/staging`
+- Ready STATE SHA-256:
+  `1fd1a8885ac5903e4707057cce53e28b9dd8a044131e55dc6bfa8f12341db53e`
+- Approved answers SHA-256:
+  `89965adfdaaaddb8d463c2b2644f137f547c85f3cfe2610e068c07c355f97e70`
+- Graph SHA-256:
+  `df076c7c23af91db3b67b9eaea576c0976bec7bd0f2b844254b687be9a01f557`
+- Manifest: 583 files, `guard-treeDigest-v1`:
+  `34a4edeb9516f11cb36d6d2dcfe1ddac99913dbe0427647f919354c4a9990b13`
+- Baseline K:
+  `77af44a2fcf84a7e7c05013308cc474e6bfaef41`
+- Baseline digest:
+  `a51dc92d0ee08082c87b871dfe3117d08fd68089851f9372cbd3538bea8eaf4d`
+
+## 2. Entry and remaining F3 review
+
+Retain the Judge instruction, prior review and all new evidence in a separate packet. Preserve existing seals.
+
+Require HEAD R, clean worktree and empty staging. Recheck candidate bindings, approved answers, tools, refs/configuration, live Q6 state, linked-worktree inventory and frozen stray work. Any mismatch stops the unit.
+
+Complete the full producer-projection validation required by the operative D-425–D-429 procedure. The prior resume/R review did not complete that obligation.
+
+Use the pinned producer and frozen inputs. Verify all required derived-artifact classes, Git extraction and selection, lifecycle bindings and source protection. Reconfirm graph/manifest equality, fragment parity, member-set/name bindings and unresolved semantics.
+
+Preserve the two inherited undescribed nodes as qualified baseline facts. Do not silently repair them.
+
+Retain actual results and failures. An interrupted or incomplete validation is not a pass. Do not change candidate bytes to obtain approval. On any finding, stop before K and report the exact obligation, evidence and failure route.
+
+## 3. K, only after positive F3 review
+
+Use the existing bounded cycle authority and the canonical B-050 procedure.
+
+- Bind the exact B-050 path before staging.
+- Append one canonical F3 acceptance record with the exact bindings above.
+- K must have sole parent R and change only B-050.
+- Preserve its earlier bytes and header.
+- Run two complete candidate checks with hash pins before and after each.
+- Only `docs-drift` and K’s specifically identified temporary `terminal-return` finding may fail. Any other failure, skip or startup failure stops before staging.
+
+Commit with normal hooks, a retained hook trace and the required identity. Prove tested/staged/committed content hashes match; record matching Git blob IDs separately.
+
+## 4. Separate N
+
+- Sole parent K; B-050 only.
+- Add the required terminal annotation naming K’s full ID.
+- Add no second F3 acceptance record.
+- Preserve the prefix and header.
+- Run two fresh complete checks. `terminal-return` must clear; only `docs-drift` may fail.
+- Retain the same full commit proof and require a clean after-state.
+
+Never bypass a hook, amend, reset, rebase or rewrite history.
+
+## 5. Delivery and stop
+
+Return both full commit IDs, trees, parent/path proofs, check results, hook traces, candidate bindings and a sealed evidence manifest.
+
+Coverage remains **61 historically delivered**. D-475 and R are pending; add K and N only when created. The health record remains prospective. Make no fresh server claim.
+
+Stop for Lane A’s independent K/N verification and fresh inventory. No prepare, resume, candidate regeneration, publication, fetch or push.
+
+Preserve all provenance gaps, accepted deliveries and F1. U-C stays held. J1/D-440 and J2/D-441 stay separate; both transfers stay held. B-136, B-158 and D-439 stay Open. work-r3 stays held. `cac590ad` stays frozen and excluded. All other holds remain unchanged.
+
+| Item | Verdict / next phase |
+|---|---|
+| Full F3 review | Lane B completes and records evidence |
+| K then separate N | Execute only after positive F3 review |
+| K/N verification | Lane A next |
+| Publication and push | Defer — not released |
+| Provenance gaps and all holds | Preserve unchanged |

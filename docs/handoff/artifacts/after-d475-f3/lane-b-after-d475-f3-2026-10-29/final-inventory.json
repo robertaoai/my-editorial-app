@@ -1,0 +1,18 @@
+{
+  "worktrees": "worktree C:/robertaoai/my-editorial-app\nHEAD 71dfbbe7a09f194a9986c1f29d42ad507aec1af7\nbranch refs/heads/features/feature-V1-SM05\n\nworktree C:/robertaoai/my-editorial-app-preflight\nHEAD 5ddf17c190cdb3f9d38e99fb35594a9e38f0eed0\nbranch refs/heads/preflight/sv2-u02\n\nworktree C:/robertaoai/my-editorial-app-proof\nHEAD 1945c1911ad1f2c7f6f0e06ee52317b31b16fd34\ndetached",
+  "items": [
+    {
+      "root": "C:/robertaoai/my-editorial-app-preflight",
+      "path": ".agents/skills/sync-docs/SKILL.md",
+      "bytes": 7441,
+      "sha256": "a72a1aca8122f28bcf19f5f8f370f61bc2cab09e4d20a9140932e29d4edcb0f9"
+    },
+    {
+      "root": "C:/robertaoai/my-editorial-app-proof",
+      "path": ".agents/skills/sync-docs/SKILL.md",
+      "bytes": 7841,
+      "sha256": "0d18d886aa050ad276b61f1c6f97268995e52d137bdf517e4f17bd592eec187c"
+    }
+  ],
+  "earlierContinuity": "unproved"
+}
