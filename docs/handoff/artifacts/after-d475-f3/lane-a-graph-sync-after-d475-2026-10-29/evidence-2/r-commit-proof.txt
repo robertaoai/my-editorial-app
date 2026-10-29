@@ -1,0 +1,15 @@
+commit 71dfbbe7a09f194a9986c1f29d42ad507aec1af7
+parents 22b0a8ce2fb06c16152fa9490d21aae829a45974
+tree 344d222544d6cc27318d4482df72d3a174cbdf98
+author robertaoai <241258103+robertaoai@users.noreply.github.com>
+committer robertaoai <241258103+robertaoai@users.noreply.github.com>
+M	docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md
+60	0	docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md
+tested 3468eb237eccdf324007255c7ff1490b6e7397ffecc0cbb172048cdec31be3d2
+staged 3468eb237eccdf324007255c7ff1490b6e7397ffecc0cbb172048cdec31be3d2
+committed 3468eb237eccdf324007255c7ff1490b6e7397ffecc0cbb172048cdec31be3d2 bytes 2162282
+staged-blob e0371f66ed9582f23b6ca7749d5b71507180bff6
+committed-blob e0371f66ed9582f23b6ca7749d5b71507180bff6
+exact prefix of S's B-136: yes
+hook trace commit-msg lines: 2
+after-state: [] staged 0

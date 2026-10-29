@@ -1,0 +1,143 @@
+[
+ {
+  "community": 43,
+  "hash": "dfe9af7d47e338fe4b7e305e3f3eea0445cbdd1bb4951b408b334347cef1a29c",
+  "size": 28,
+  "closest": {
+   "baselineCommunity": "62",
+   "name": "D-468–D-474 Register Entries, Q3–Q5 Cycle Records, R1 Restoration and B-161 Commits",
+   "jaccard": 0.821,
+   "shared": 23,
+   "baselineSize": 23
+  },
+  "added": [
+   "22b0a8c docs(register): D-475 - durable registration of the D-474 (Q6) cycle's Judge acts and acceptance of the D-474 delivery; thirty-fourth intervening entry permitted [git]",
+   "77af44a docs(handoff): B-050 accept D-474 Q6 exact-byte candidate [git]",
+   "971b789 handoff(B-136): graph-sync candidate ready at S Q6 ddf0b92 (D-474) - request for Lane B's exact-byte candidate review [git]",
+   "9a211f3 docs(handoff): B-050 annotate D-474 Q6 receipt K [git]",
+   "b4604bc handoff(B-136): Q6 graph-sync published and healthy at S ddf0b92 (D-474) - request for Lane B's independent post-state and six-commit manifest review [git]"
+  ],
+  "removed": [],
+  "members": [
+   "03473a8 handoff(B-161): verify Lane A canonical receipt of D-470 review [git]",
+   "10a1bae handoff(B-136): Q4 graph-sync published and healthy at S a871ffa (D-471) - request for Lane B's independent post-state and 13-commit manifest review [git]",
+   "12a1a5a docs(register): D-469 - corrective append for D-468 defects; twenty-eighth intervening entry permitted [git]",
+   "1909081 docs(handoff): B-050 annotate D-472 Q5 receipt K [git]",
+   "1e35f58 handoff(B-161): file D-470 independent review for Lane A [git]",
+   "2121997 handoff(B-161): Lane A answer - receive Lane B's positive D-470 review; Applied, awaiting independent verification [git]",
+   "22b0a8c docs(register): D-475 - durable registration of the D-474 (Q6) cycle's Judge acts and acceptance of the D-474 delivery; thirty-fourth intervening entry permitted [git]",
+   "3ea6091 docs(register): D-468 - durable registration of D-467 and D-465 cycle Judge acts and cycle delivery acceptance; twenty-seventh intervening entry permitted [git]",
+   "42a4e9d handoff(B-136): graph-sync candidate ready at S Q4 a871ffa (D-471) - request for Lane B's exact-byte candidate review [git]",
+   "447322f handoff(B-136): graph-sync candidate ready at S Q5 f4aa976 (D-472) - request for Lane B's exact-byte candidate review [git]",
+   "47a0760 docs(handoff): D-467 Q3 separate receipt terminal annotation [git]",
+   "77af44a docs(handoff): B-050 accept D-474 Q6 exact-byte candidate [git]",
+   "835ef1f docs(handoff): D-471 Q4 separate receipt terminal annotation [git]",
+   "84c0bf9 docs(handoff): D-471 Q4 independent candidate acceptance receipt [git]",
+   "971b789 handoff(B-136): graph-sync candidate ready at S Q6 ddf0b92 (D-474) - request for Lane B's exact-byte candidate review [git]",
+   "9a211f3 docs(handoff): B-050 annotate D-474 Q6 receipt K [git]",
+   "a871ffa docs(register): D-471 - integrated graph-sync and push authority after D-470 (Q4); transfer of the rejected D-468 draft as historical evidence; thirtieth intervening entry permitted [git]",
+   "b28be47 docs(register): R1 - restore V1-DECISION-REGISTER.md to its exact bytes at 3ea6091 after the D-469 overwrite (Judge recovery release) [git]",
+   "b4604bc handoff(B-136): Q6 graph-sync published and healthy at S ddf0b92 (D-474) - request for Lane B's independent post-state and six-commit manifest review [git]",
+   "c236f0b handoff(B-136): Q5 graph-sync published and healthy at S f4aa976 (D-472) - request for Lane B's independent post-state and five-commit manifest review [git]",
+   "c86b016 handoff(B-136): Q3 graph-sync published and healthy at S 1e7efc3 (D-467) - request for Lane B's independent post-state and five-commit manifest review [git]",
+   "dd84885 Register: Record D-473 — durable registration of D-472's four subsequent Judge acts (Q5 cycle release, resume release, K/N verification, publication release and cycle acceptance). Completes the Q5 cycle's durable authority line under D-472 item 4 / D-183 item 5. Append-only, sole parent H5 c236f0b, five-commit range Q5→R→K→N→H5 locally complete. 19/19 checks pass. [git]",
+   "ddf0b92 docs(register): D-474 - correction of D-473, registration of the remaining D-472-cycle and D-473 Judge acts, and integrated graph-sync and push authority after D-473 (Q6); thirty-third intervening entry permitted [git]",
+   "edfd2af docs(handoff): D-467 Q3 independent candidate acceptance receipt [git]",
+   "f32fa3c handoff(B-161): add required open-state audit placeholder [git]",
+   "f4aa976 docs(register): D-472 - integrated graph-sync and push authority after D-471 (Q5), with durable registration of the D-471 cycle Judge acts; D-471 delivery accepted; thirty-first intervening entry permitted [git]",
+   "f5b39e4 docs(register): D-470 - correction of D-468 and record of the D-469 overwrite and the R1 restoration; twenty-ninth intervening entry permitted [git]",
+   "fa0c9ef docs(handoff): B-050 accept D-472 Q5 exact-byte candidate [git]"
+  ]
+ },
+ {
+  "community": 96,
+  "hash": "49996ecd98ce93e90b5111600c11786f216940abec1d9d336dd55e73ebe6e055",
+  "size": 16,
+  "closest": {
+   "baselineCommunity": "134",
+   "name": "D-435 B-156 Option A Repairs and Review Commits",
+   "jaccard": 0.625,
+   "shared": 10,
+   "baselineSize": 10
+  },
+  "added": [
+   "422cd81 handoff(B-136): answer D435-M1 - fail-closed manifest helper r2 with seven controls [git]",
+   "5423e11 handoff(B-050): cover D-435 receipt with terminal annotation [git]",
+   "8f3fdd0 handoff(B-050): D-435 independent candidate receipt and semantic review [git]",
+   "ddc4959 docs(handoff): review D435-M1 and retain two contract failures [git]",
+   "e0732b7 handoff(B-136): D-435 published with review 8f3fdd0 (A-cond); health 19/19; D435-C1 answered [git]",
+   "f05104d handoff(B-136): Lane B accept D-435 health and verify D435-C1 [git]"
+  ],
+  "removed": [],
+  "members": [
+   "04aa386 docs(handoff): Lane B review D-435 r2 evidence and checkpoint contract [git]",
+   "12cd8c4 handoff(B-136): answer D435-R1 to R4; complete proposed act revision 3 [git]",
+   "422cd81 handoff(B-136): answer D435-M1 - fail-closed manifest helper r2 with seven controls [git]",
+   "4799c31 handoff(B-136): D-435 applied (b77d186); new-text proof; candidate ed7463f3 ready; receipt request [git]",
+   "5423e11 handoff(B-050): cover D-435 receipt with terminal annotation [git]",
+   "5e5b587 docs(handoff): Lane B accept D-435 recording and source relocations [git]",
+   "67b6f19 docs(handoff): Lane B accept D-435 r3 and verify confirmed checkpoints [git]",
+   "7e0ba30 docs(handoff): review D-435 bindings and checkpoint contract [git]",
+   "8f3fdd0 handoff(B-050): D-435 independent candidate receipt and semantic review [git]",
+   "a02b59b handoff(B-136): D-435 recorded (b1eb43b); old-value proof 23/23; R23/R25 relocations for review [git]",
+   "b1eb43b docs: D-435 - B-156 Option A repairs R1-R25, R29; one guarded cycle (A-cond) [git]",
+   "b77d186 docs: D-435 apply B-156 Option A repairs R1-R25, R29 [git]",
+   "ddc4959 docs(handoff): review D435-M1 and retain two contract failures [git]",
+   "e0732b7 handoff(B-136): D-435 published with review 8f3fdd0 (A-cond); health 19/19; D435-C1 answered [git]",
+   "f05104d handoff(B-136): Lane B accept D-435 health and verify D435-C1 [git]",
+   "fb49c43 handoff(B-136): record Judge confirmation for D-435 r3 (A-cond; item 5 exception) [git]"
+  ]
+ },
+ {
+  "community": 35,
+  "hash": "a6f825e4c757661f8ba89ea3b144b70369e3192601c3b807970f730794dd1c78",
+  "size": 29,
+  "closest": {
+   "baselineCommunity": "63",
+   "name": "D-436 Receipt Route, Publication and SM05 Transition Packet Commits",
+   "jaccard": 0.793,
+   "shared": 23,
+   "baselineSize": 23
+  },
+  "added": [
+   "0f83b4d docs(handoff): independently verify D435-M1 revision 3 [git]",
+   "2d7c9bc docs: D-436 - FN lane-map sentence repair (stale CLAUDE.md shared-core pointer) [git]",
+   "3c98857 docs(handoff): accept M1 duplicate-node control supplement [git]",
+   "42af457 docs: D-436 apply FN lane-map sentence repair [git]",
+   "47b8d3b handoff(B-136): receive D435-M1 Verified (0f83b4d); add duplicate-node control [git]",
+   "7d9591c handoff(B-136): answer D435-M1-R1/R2; add and fix M1-A3; helper r3 with 17/17 controls [git]"
+  ],
+  "removed": [],
+  "members": [
+   "058518a docs: D-436 item 6a - receipt route authorized (Judge) [git]",
+   "06107fc docs(handoff): B-136 consolidate SM05 build-control preparation task [git]",
+   "07cd6b0 docs(handoff): accept D-436 source repair and surface receipt-route decision [git]",
+   "0f83b4d docs(handoff): independently verify D435-M1 revision 3 [git]",
+   "20e9fec handoff(B-136): SM05 transition packet r7 - receive r6 review and route D; record setup authority; answer R6-D1..D4 [git]",
+   "2d7c9bc docs: D-436 - FN lane-map sentence repair (stale CLAUDE.md shared-core pointer) [git]",
+   "3c98857 docs(handoff): accept M1 duplicate-node control supplement [git]",
+   "42af457 docs: D-436 apply FN lane-map sentence repair [git]",
+   "46c7417 docs(handoff): B-136 record required ECC Ponytail REA readiness plan [git]",
+   "47b8d3b handoff(B-136): receive D435-M1 Verified (0f83b4d); add duplicate-node control [git]",
+   "53c98d6 handoff(B-136): D-436 recorded (2d7c9bc) and applied (42af457); graph cycle waits for a receipt route [git]",
+   "5c094bc docs(handoff): B-136 consolidate Lane C review with transaction history [git]",
+   "71ae2e4 docs(handoff): review pinned TR-1 contracts and SM05 controls [git]",
+   "7d9591c handoff(B-136): answer D435-M1-R1/R2; add and fix M1-A3; helper r3 with 17/17 controls [git]",
+   "8c526e1 handoff(B-136): D-436 route recorded (058518a); candidate 5681fde1 ready; receipt request [git]",
+   "9643f5f handoff(B-136): independently verify D-436 publication and health [git]",
+   "9b17bfa docs(handoff): B-136 compare AGENTS history with SM05 transition [git]",
+   "b308d1c handoff(B-136): answer D436-N1 - reviewed names by member-set hash, checked first [git]",
+   "b757873 handoff(B-136): SM05 transition packet r6 - answer R5-Q1..Q6; receive CONS..TR-1 chain [git]",
+   "b99ffb8 handoff(B-136): D-436 published with review d4ba110; health 19/19 [git]",
+   "bdcb82b docs(handoff): record selected REA Docker route and r6 review [git]",
+   "c088aef handoff(B-050): cover D-436 receipt under item 6a [git]",
+   "c6ffb4e docs(handoff): return D-436 candidate community name for correction [git]",
+   "d02699f handoff(B-136): verify D436-N1 and record replacement receipt [git]",
+   "d4ba110 handoff(B-050): Lane B accept D-436 replacement candidate [git]",
+   "ddb939f handoff(B-136): review consolidation and correct next-packet decision map [git]",
+   "e43a25e docs(handoff): B-136 separate external workflow review from SM05 authority [git]",
+   "eadb184 handoff(B-136): D-436 replacement 11245fc8 ready (N1 corrected); receipt request [git]",
+   "eea043a docs(handoff): review TR-1 setup contracts and build controls [git]"
+  ]
+ }
+]
