@@ -23161,3 +23161,159 @@ Coverage before this filing: 65 historically delivered; this filing is prospecti
 | Graph sync, product activation and parent closure | Defer | Their own gates |
 | 65 delivered, accepted deliveries, B-159, F03 and provenance gaps | Preserve | Existing records |
 | U-C; separate J1/D-440 and J2/D-441, both transfers held; B-136/B-158/D-439 Open; work-r3; cac590ad frozen; all other holds | Preserve unchanged | Existing checkpoints |
+
+## Lane A — answer to Lane B's T2 gate r3 review and remaining tracking, read at 0261536, 2026-10-31
+
+### What happened
+
+Instruction to prepare: the Judge, directly to Lane A, 2026-10-31 (Lane A session `2da21700-d2ed-4dd8-9f5b-fad0ba8935b8`).
+Filing authority: a separate Judge release that names this text's SHA-256. Lane B's review of this exact text comes first.
+Read at `02615361b674fcdbaeadfd8380b551092df98cbf`, tree `7a1a0a3d44a6ce2c8a56f43af2b69f43c3eb1068`. This section answers
+the "Lane B — T2 gate r3" section above (lines 23113–23163). The header, every earlier record and Lane B's review are unchanged.
+The graph was not consulted for these facts, because it stands at `ddf0b92`. Lane A read the sources directly.
+
+**1. Lane A's review of delivery `0261536`: Approve.** This covers the one delivery only. It is not parent closure, graph
+synchronization or a `Verified` record.
+
+| Item | Result | Basis |
+|---|---|---|
+| Manifest | SHA-256 `a40ad722…1517`; 31 of 31 entries match in hash and length; none missing or unlisted | Recomputed |
+| Exact prefix | 2,162,282 base bytes (`3468eb23…`) equal `B136-before.bin` and the prefix of the 2,168,866-byte result (`94db26d1…`). Appended: 6,584 bytes, 52 lines, LF only | Recomputed from Git blobs |
+| Lane A fields and header | Unchanged, by the prefix result | Recomputed |
+| Complete checks | `check-3` and `check-4`: 18 of 19 pass; sole failure `docs-drift` on the D-475 Register path; exit 1. `check-1` and `check-2` are failed launches (`CouldntReadCurrentDirectory`), not results. The filing does not mention them; the manifest retains them | Retained |
+| Tested, staged, committed bytes | Blob `0ac31c72…` equals the candidate hash. The working file equals it now | Recomputed. The link from the checks to the candidate is by sequence: the hash was compared after the checks |
+| Hook | `commit-msg` ran through `-c core.hooksPath=.githooks`, exit 0. It is the only hook in `.githooks/` | Retained trace, read event by event |
+| Scope, parent, identity | One path; sole parent `424116d`; required identity; unsigned | Recomputed |
+| Fetch, server base, push | Fetch before; server at `424116d`; one outgoing commit; exact-object push `424116d..0261536` with no force marker; fetch after | Retained only |
+| Server tip | `0261536` at the retained read, and again at Lane A's fresh `ls-remote` this turn | Retained and fresh, separately |
+| Reachability | `b4604bc` (H6, 61 by `D-475`) is an ancestor; `b4604bc..0261536` is 5 commits; 0 local-only commits | Recomputed. `earlier65Reachable` in `completion-proof.json` is a literal, so it is not used as proof |
+| Configuration, refs | Configuration equals `config-pre.txt`. Refs equal `refs-post.txt` except inside `refs/codex/turn-diffs/` | Fresh |
+| Coverage | **66 delivered through `0261536`, including the earlier 65.** Earlier records stay as written | Arithmetic on the rows above |
+
+Fresh `bun run check` on the clean tree at `0261536`: 18 of 19 pass, exit 1, sole failure `docs-drift` (analyzed `ddf0b92`;
+governed path `docs/v1/V1-DECISION-REGISTER.md`). The D-475 governed drift remains open.
+
+**2. Limits Lane A adds. None changes the verdict.**
+
+- The Judge's filing instruction is quoted in Lane B's section. No retained bytes or locator for it are among the 31 files.
+  This is a provenance gap, pending registration.
+- `git config core.hooksPath` is empty and `.git/hooks/` holds samples only. A plain `git commit` skips the `D-88` gate. Lane
+  B's `-c` form avoids this. Keep that form: `hooks:install` would change the configuration that the gates snapshot.
+- The Judge-authorized filing and push changed `HEAD`, the branch and the tracking ref, which the old package binds. The
+  coverage record from 05:47:31Z (`FREEZE-COVERAGE.md`) does not establish coverage for a replacement cycle. A replacement
+  cycle needs its own prospective coverage. Earlier acts and observations stay as recorded.
+
+**3. Completed work.** Lane B's r3 source review, its filing, and delivery as commit 66. `SV-002` and `D-434`. B-159 and F03.
+`docs/templates/dor-dod-validation/v1.md` exists (`ca605cd6…`, recomputed). Child dispositions under `D-411`, `D-412` and
+`D-413`, listed below.
+
+**4. Findings and answers.** Disposition applies to the named finding only.
+
+| # | Finding (source: lines above) | Answer | Correction or reason | Owner | Phase | Output | Acceptance evidence | Return condition |
+|---|---|---|---|---|---|---|---|---|
+| 1 | r3 approved by source; 16 fault cases unrun (23122–23124) | Accept | Recorded. 17 of 17 entries re-match `34b4aa5c…`. The approval covers those bytes only and does not carry to a rebound package | Lane B (done); Lane A (rebind) | 1 | New package revision | New manifest and Lane B review | New Judge release |
+| 2 | Reconcile bindings; do not run the old entry package (23137) | Accept, widened | The 05:47 release names S, tree and root. `entry-gates.r2.mjs` checks S, tree, upstream and parent `edc6618`, so it cannot pass now. See the binding table | Lane A; Judge for the release | 1 | Binding reconciliation, then new package | Lane B exact-manifest review; 0 entry findings at run | Judge names the new S, tree and root |
+| 3 | Remove blanket P1/P1.1/P1.2 (23146) | Accept; one narrow disagreement | P1: the Judge already selected M0. P1.2: the act already released one prepare. P1.1: the act released no fault run, so fault rows stay source-read, with the limit visible. **Disagreement:** rebinding still needs one specific act, because the release is bound to `424116d`. That is the act's own term, not a blanket gate | Lane A | 1 | Corrected plan | This table | None |
+| 4 | Restore the cycle chain (23146) | Accept | Lane A's steps 7–10 omitted R, F3, K, N and their review. The chain is: prepare → reviewed answers and a released resume if pending → candidate and R → F3 → K → separate N → independent K/N and fresh inventory → publication release citing K → health and H → review → acceptance, bounded push, post-push review | Lane A runs; Lane B records K and N | 1 | Cycle evidence | Each stage's own receipt | Each stage's own release; a finding stops under `D-467` item 9 |
+| 5 | This filing releases no cycle operation (23146) | Accept | Lane A's "file after cycle stop" (P2) is overtaken: the filing came first. Its other rows stay as written, read with this table | Lane A | 1 | This section | Diff shows append only | None |
+| 6 | Separate U-C automation from manual preservation (23146) | Accept | Draft section 9 tasks 1–8 become a held U-C proposal. Nothing depends on them. Manual units stay under `D-451` | Lane A | Later, if U-C is released | Held proposal | `D-446` terms | Judge releases U-C |
+| 7 | Apply `D-443` gates only to product units (23146) | Accept | Draft section 9 task 5's stop condition is withdrawn for Lane A graph and handoff pushes. `D-443` push authority covers Lane B TB-1 and TB-2 | Lane A | 1 | Corrected plan | This table | None |
+| 8 | Template exists and stays immutable (23146) | Accept | No new template. FV-001 pins v1 by digest | Lane A | Parent 4 | FV-001 shell | Digest equals `ca605cd6…` | Parent 4 |
+| 9 | Register acts after D-475 need separate sequencing permission (23146) | Accept | `D-475` item 6 permits no further entry by implication. Unregistered acts include the 05:47 release, the filing instruction and this instruction | Judge; Lane A drafts | 1 | One Register entry | Lane B exact-text review; number and ordinal check | Judge permits the entry |
+| 10 | Custody plan (23148) | Accept; two items | **Transfer:** classify files and consumers, decide script treatment (Lane B's 428-task graph effect), copy unchanged with a destination manifest, prove committed bytes and remote durability, migrate consumers. **Disposal, later and separate:** check holds and retention, then propose named files with a retained record. Judge acts, original seals and failed-run evidence are not disposable drafts | Lane A; Judge selects | 1, after the cycle | Inventory; packet; later a named list | Byte equality, blob proof, independent review | Judge selects scope. M0 stands for the cycle |
+| 11 | U-TR; B-158 is the unlisted live entry (23139) | Accept | Lane A's scan and `closure-readiness` agree: B-158 is the one live unlisted entry. The derivation `fa51ce0` is also older than later handoff changes | Lane A; Lane B reviews | 1 | §2.3.1 re-derivation with B-158's obligations classified | `closure-readiness` reports 0 unlisted and a current derivation; Lane B review | Judge selects U-TR and its check route |
+| 12 | U-DC; preserve B-159 and F03 (23138) | Accept | Route H's list stands. The C-row items exist only in an external packet, so U-DC must carry their provenance into B-158 | Lane A; Lane B Level 1; Lane C Level 2 | 1 | Exact old-to-new text; `D-54` table | Two checks under the chosen route; diff; both reviews | Judge selects U-DC |
+| 13 | B-095 (23140) | Accept, narrowed | Most children are settled (see below). The surviving write set belongs to B-084's A4 unit, not to a new B-095 action | B-084 A4 owner: Lane A | 1, when selected | None now | Existing A4 receipts; proposed criteria labelled below | Judge selects the A4 contract |
+| 14 | B-096 (23141) | Accept, narrowed | See below. S15's first-version contract is accepted and its SM05 proof stays with `SM05-N1`; its later-version trigger stays with B-096, outside the slice. `TR-DM-01`'s Gate 2 part belongs to the work order | Lane A; Lane B for Gate 2 data | 1; 2 | None now | Existing receipts; proposed criteria labelled below | SM05 work order; B-096's own return for the later-version trigger; report contract selection |
+| 15 | B-104 (23142) | Accept, narrowed | See below. `GR-001` (`ROUTE-PROD-1` propagation) and `GR-003` (fallout/GRC variant, outside `ROUTE-PROD-1`) are separate. Normal A4 selection alone does not route both | Lane A | 1, when returned or selected | None now | Each row's own criterion in `GOV-RES-001` | `GR-001`: B-104's return, or a packet owning the target A4 journey. `GR-003`: B-104's return, or a packet owning the fallout/GRC variant |
+| 16 | B-119 (23143) | Accept, narrowed | `D-413` and the `262633e` topic record already give each topic an owner. No new disposition is needed | Existing SM06 owners | SM06 readiness; Phase 3 | None now | `V1-SM06` DoR; `SM06-P3-01`; `SM06-P3-06` | SM06 readiness; each receipt's own unit |
+| 17 | Parents 4–5: no blanket dependency (23144) | Accept, with one mechanism stated | Lane A's "P6 depends on P1–P5" is withdrawn for custody, disposal and automation. **Real dependency:** a change to `V1-SM05` `**Status:**` from `BLOCKED` counts as a Gate 2 claim in `closure-readiness`. The check then needs a current derivation, B-158's obligations listed and classified, and each row's applicable evidence: for a non-SM05 row, an independent `Verified-By` or the Judge's recorded acceptance with its reason (`D-364` item 4); for an SM05 row, an accepted receipt. B-158's whole header need not close, and downstream units need not finish. So U-TR and that row evidence come before the block lift | Judge; Lane A | Later authorized entry | Parent 4 acts in order | Recorded acts; check passes with the claim | Judge lifts the block |
+| 18 | Permitted handoff `docs-drift` finding (23153) | Accept for this filing | `docs/handoff/README.md` step 6 covers it. **Condition for Lane A's commits:** `CLAUDE.md` names `D-428` as the sole exception, so a Lane A release must name the guarded pre-sync route and retain full results | Judge; Lane A | 1 | Release wording | Retained full check results | Each release |
+
+**Labels in the table above.** In rows 1–12, 17 and 18, acceptance evidence is Lane A's proposed criterion unless it names a source or an existing check. Rows 13–16 point to the existing receipts, labelled below. No proposed criterion adds a requirement or replaces a return condition.
+
+**Binding table, read at `0261536`. Nothing pinned was run.**
+
+| Binding | Package r3 / 05:47 release | Fresh | Disposition |
+|---|---|---|---|
+| S, tree | `424116d`, `6e8d9b86…` | `0261536`, `7a1a0a3d…` | **Changed.** Pin only after the last queued commit |
+| S parent | `edc6618` | `424116d` | **Changed** |
+| Upstream, branch ref | `424116d` | `0261536` | **Changed.** New snapshot and new exception statement |
+| Root | r2 root, then absent | Exists; `work/` and `run-r2/` absent | Retain unchanged as evidence. New root, named by the release |
+| Freeze coverage | Record from 05:47:31Z, for the released prepare | Old bindings changed by the authorized filing and push | The record does not establish coverage for a replacement cycle. New prospective coverage. Do not backdate |
+| Guard | `4b0d7fb2…` | Equal | Unchanged at this read |
+| Live graph | `4c3829a5…` | Equal | Unchanged at this read |
+| Answers r4 | `6b382bbf…` | Equal | Compare with actual pending IDs before reuse |
+| Retained STATE; stray freeze record | `13152a13…`; `e065435e…` | Equal | Unchanged at this read |
+| Linked worktree heads | `5ddf17c`, `1945c19` | Equal | Unchanged at this read |
+| Configuration | Snapshot | Equal to `config-pre.txt` | Reread at entry |
+| Locus, file and receipt counts, inventory, stray tree, tool pins | Pinned | **Not reread** | The new gates must read them |
+
+**Accepted child dispositions. Open headers stay Open; no entry is bulk-returned or verified.**
+
+| Child | Accepted disposition | Evidence |
+|---|---|---|
+| `B-095.D1` | Applied, verified and closed | `D-392`, `D-393`, `D-411` |
+| `B-095.D3` | Notice applied; Lane B accepted the diff | `D-413`; `1966145` |
+| `B-095.D2a`, `B-095.D4` | Received into SM05 | `AC-02`, `SM05-N1`; `DOR-R6` |
+| `B-096.S15`, first version | Contract accepted and verified; received into SM05 | `FN-GATES-01-05.md` §4.5; `D-281`, `D-282`; `B-142` item 2; `SM05-N1` |
+| `B-096.TR-DM-01`, Gate 1B part | Decided and applied | `D-283` |
+| `B-104.O1` | Received into SM05 | `SM05-N6` |
+| `B-104.O3` / `GR-002` | Applied, verified and closed | `D-393`, `D-411` |
+| `B-119` | Tracker row closed; every topic has an owner | `D-413`; `262633e` |
+| `B-119` optional context and controls | Unselected; no obligation admitted | `262633e` |
+| `B-131` | Closed | `D-288` |
+
+**Surviving obligations, by existing owner. No new owner or handoff.**
+
+`Existing` marks an accepted requirement or receipt, cited in the last column. `Proposed` marks Lane A's inferred acceptance criterion: it adds no requirement and replaces no return condition, and it binds nobody unless the owner's own act adopts it. Return conditions are unchanged. Line numbers are read at `0261536`.
+
+| Existing owner | Surviving scope | Next output | Acceptance evidence | Return condition | Controlling source |
+|---|---|---|---|---|---|
+| `V1-SM05`: Lane B builds, Lane A tracks | SM05 proof for `B-095.D2a`, `B-095.D4`, `B-096.S15` first version and `B-104.O1` | Evidence in `V1-SM05-FV-001` | Existing: `AC-02`, `SM05-N1` and `SM05-N6` pass against the real database; `DOR-R6` covers `D4`. Proposed: one `V1-SM05` DoD evidence line for all four children | `D-242` work order | `V1-SM05.md:13`, `:188`, `:233`–`:234`; `SV-002` §3.3 rows for these children; §2.2 `P14a` |
+| B-084 A4: Lane A | `B-095.D2b` field matrix, with S2, S4, S6–S8; S9, S10 and S11 in the same packet | Literal matrix in the A4 packet | Existing: Chief Editor accepts the matrix; independent review | Judge selects the bounded A4 contract | `B-084` line 1171; `D-412` |
+| B-084 A4: Lane A | `B-095.S5` one-article acceptance example | Example in the A4 packet | Existing: one article shows the receipt's full journey. Proposed: independent review | Judge selects the bounded A4 journey, after D2b and the prerequisites named in its receipt | `B-084` line 1172; `D-412` |
+| B-084 | FB-05 stays open | None now | Existing: complete contract and dependent-view reconciliation, then independent verification. Proposed: read through B-084's own receipts | Proposed reading: B-084's own return. No source sets a separate FB-05 return | `B-084` lines 6, 38, 129; `GOV-RES-001` `GR-005` |
+| B-096: Lane A | `S15` later-version trigger: when and why a later version is created. Outside the slice | Logical contract, when returned | Proposed: accepted text; independent verification, in the form used for §4.5. No source sets a criterion | B-096's own return. `V1-SM05` does not decide it | `FN-GATES-01-05.md:394-396`; `SV-002.md:932`; `B-096` line 24 |
+| `D-242` work order: Lane B | `TR-DM-01` Gate 2 part. Physical-store implementation and real-database proof under the D-242 work order; local validation only. Hosted migration remains with SM06-P3-01. | Physical store and real-database proof, under the work order | Existing: the work order names the physical store for §4.5 and §4.6 (full text plus the digest and URL pair) and its real-database proof. Proposed: read through the work order's own evidence | `D-242` work order | `SV-002.md:934`, §2.2 `P13`, `P14a`; `V1-SM05.md:234`; `V1-BUILD-SPEC.md:42-51` (`D-252`), `:59-61` (`D-381`) |
+| B-096: Lane A | `GA1` client-artifact gap | Artifact-kind and delivery contract | Existing: authorized contract; independent review; delivery verified later | Judge selects the specification, or an authorized `S17` correction claims the gap is obsolete | `B-096` line 174; `D-412` |
+| B-096: Lane A | `S16` report projection | Logical projection | Existing: accepted projection; independent documentary review | Judge selects the report contract, after the relevant `S15` contract | `B-096` line 175; `D-412` |
+| B-096: Lane A | `S17` storyboard correction; no §3.3 row of its own | Exact wording | Existing: exact authorized write set. Proposed: independent review | Chief Editor accepts the A4 write set | `B-096` lines 15, 137, 161 |
+| B-104 / `GR-001`: Lane A | `B-104.O2`: `ROUTE-PROD-1` as the primary target A4 journey, propagated into B-084's A4 records. Held under `D-171` | Propagation text, when returned | Existing: applied, then independently verified | B-104's own return, or the Judge selects a packet owning the target A4 journey | `GOV-RES-001.md:23`; `SV-002.md:936` |
+| B-104 / `GR-003`: Lane A | `B-104.O4`: fallout/GRC as a separate target variant, outside `ROUTE-PROD-1`. Held under `D-171` | Propagation text, when returned | Existing: applied, then independently verified. A new capability takes dated Product intake | B-104's own return, or the Judge selects a packet owning the fallout/GRC variant | `GOV-RES-001.md:25`; `SV-002.md:938` |
+| `V1-SM06` DoR: Lane A; Lane B for mechanism | B-119 revision identity and Entry 04 | SM06 DoR evidence | Existing: checked DoR boxes | SM06 readiness | `V1-SM06.md:75`–`:76`; `GOV-RES-001` "Not received here" |
+| `SM06-P3-01` | B-119 hosted `0002` migration, then A02 | Migration and A02 receipt | Existing: receipt recorded; independently verified | Accepted SM05 DoD and the baseline-promotion PR | `V1-SM06.md:51`; `D-252` |
+| `SM06-P3-06`: Lane B and Lane C | B-119 later workflow proof (B→C signal consumed by a Lane C workflow) | Workflow proof | Existing: positive path passes; a missing or malformed signal turns it red, at an exact commit | A separately authorized construction unit | `V1-SM06.md:56` |
+
+The `TR-DM-01` row uses the Build Spec's meaning: "migration" is application to the persistent hosted environment only (`D-252`), and `V1-SM05` is local validation with no hosted migration (`D-381`). `SV-002.md:870`, `:888` and `V1-SM05.md:234` keep their older wording and are not edited here. The row grants no schema, hosted migration or construction authority.
+
+### What you need
+
+Lane B: review this exact text as a planning answer and reject any row that the sources do not support. Lane A records no
+verification of it. **Planned, not done:**
+
+1. Judge release of this filing. Lane A files one bounded commit.
+2. One Register entry, with explicit sequencing permission, for the unregistered acts and the U-TR and U-DC selection.
+3. U-TR, then U-DC, in separate commits. Each changes governed paths, so each adds drift.
+4. Pin S after the last queued commit. New package, Lane B review, Judge release, then the row 4 chain. This avoids a second
+   full cycle. The Judge may choose the opposite order and accept a second cycle.
+5. B-158's classified rows with their applicable clearance or accepted receipts, then Parents 4–5 in their existing order,
+   lane transfer last.
+
+### What you did instead
+
+- Answered only. No prepare, resume, fault case, graph operation, publication, installation, transfer, deletion or Register
+  entry. Pinned tooling did not run. Fresh reads: `git ls-remote`, `bun run check` and file hashes.
+- B-136, B-158 and `D-439` stay **Open**. U-C stays held. J1/`D-440` and J2/`D-441` stay separate, with both transfers held.
+  work-r3 stays held. `cac590ad` stays frozen. All other holds and provenance gaps are unchanged.
+- Coverage: 66 delivered through `0261536`, including the earlier 65. This commit is prospective. No graph-sync claim.
+
+| Item | Verdict | Owner / follow-up phase |
+|---|---|---|
+| Delivery `0261536` | Approve | Lane A review done; Judge acceptance separate; Phase 1 |
+| Lane B review, as filed | Approve-with-conditions | Rows 3, 13–17 and 18 narrow it; Lane B reviews; Phase 1 |
+| Old r3 package at the new HEAD | Reject | Lane A rebinds; Phase 1 |
+| Graph sync, U-TR, U-DC, Register entry | Defer | Judge selects; Lane A executes; Phase 1 |
+| B-095, B-096, B-104, B-119 survivors | Defer | Named owners and returns above; Phase 1, Phase 2, SM06 readiness, Phase 3 |
+| Custody transfer; disposal | Defer | Lane A plans separately; Judge selects; Phase 1, after the cycle |
+| Parents 4–5 | Defer | Judge acts; later authorized entry; Phase 2 for construction |
