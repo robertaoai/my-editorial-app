@@ -8,8 +8,6 @@
       "source_file": "docs/v1/V1-DECISION-REGISTER.md",
       "source_location": "§5.14e2",
       "description": "Chief Editor ruling on B-068 S14.4/S17.4's completion packet. Approves S14.4's 8x7 route-applicability matrix (ROUTE-* x OP-*, required/conditional/not_applicable, triggers C1-C6) exactly as drafted, written into factory-route-operation-crosswalk.md (v0.3) S3.1 as 43 decided join rows -- every unlisted pair is not_applicable. Confirms S4/S5.B's four conservative authority defaults as standing dispositions, not proposals: blank Sheet 2 GRC cells are unknown; no A inherits silently including OP-DRAFT's; no R=A exception without explicit approval; OP-COMPLEX-SERIES/OP-LEGAL-RISK stay milestone_pending_decomposition. The Chief Editor confirmed the placeholder approach itself rather than deciding each of S4's four operation-shape items individually -- that remains open by choice, not oversight. Authorizes Lane A-drafted per-operation sequencing fields (stage_order, repeatable, entry_trigger, completion_evidence, reroute_target, S3.2), derived from the already-established workflow order and trigger definitions, applied per operation rather than duplicated across all 43 joins. Closes B068-R22 (ROUTE-PROD-1's route A stays ROLE-DESK-EDITOR, unaffected by Chief Editorial Desk's gate-review function) and formally closes B068-R33 (ENV-EXT). F4 is complete for Lane A propagation purposes; B068-R23, R26, R27, R35, R36 remain F6 scope and B068-R37 remains F7 scope, not attempted in this decision.",
-      "community": 3,
-      "community_name": "Requirements Traceability",
       "source_url": null,
       "captured_at": null,
       "author": null,

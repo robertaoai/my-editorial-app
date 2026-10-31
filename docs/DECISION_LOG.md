@@ -20,7 +20,8 @@ Two things live here that the register deliberately does not carry:
    build decision. The register cannot close them — *"the evidence that answers them is what
    the build produces"* (sprint plan §11).
 2. **Unratified `A`-item values in operation** — a value the app runs on today that no one has
-   yet approved. `A4` and `A6` are in this position.
+   yet approved. `A4`'s scoring formula is in this position; its review threshold (50) was approved 2026-09-15 and received under `D-414`. *(`A6` was too, until its ratification on 2026-10-03,
+   `D-404`; see §3.)*
 
 ## Who writes it — `D-91`
 
@@ -71,8 +72,8 @@ a visible choice rather than an oversight.
 
 | Variable | Value | Source | Why unratified |
 |---|---|---|---|
-| `DATA_RETENTION_ARCHIVE_DAYS` | 90 | `A6` | Assumption, never put to the Chief Editor |
-| `SCORING_REVIEW_THRESHOLD_ARTICLES` | 50 | `A4` | Assumption, never put to the Chief Editor |
+| ~~`DATA_RETENTION_ARCHIVE_DAYS`~~ | ~~90~~ | ~~`A6`~~ | ~~Assumption, never put to the Chief Editor~~ **Corrected 2026-10-03 (`D-404`):** the Chief Editor approved 90 days on 2026-09-15 (`B-106`); the meaning was arbitrated by `D-381` and ratified by `D-404` (§3) |
+| ~~`SCORING_REVIEW_THRESHOLD_ARTICLES`~~ | ~~50~~ | ~~`A4`~~ | ~~Assumption, never put to the Chief Editor~~ **Corrected 2026-10-04 (`D-414`):** the Chief Editor approved the presented threshold row on 2026-09-15 (`B-106`); received by `D-414` (§3). The A4 formula itself stays unratified |
 
 ## 3. Ratification events
 
@@ -83,9 +84,15 @@ product's decisions.
 | Date | Decision | Answer | Evidence | Config effect |
 |---|---|---|---|---|
 | — | — | *No ratification has occurred.* | — | — |
+| 2026-10-03 | `A6` — `DATA_RETENTION_ARCHIVE_DAYS` | **Ratified at 90 days**, meaning `D-381`: the first UI-visible operational/PDPA boundary; archival is external, on a supplied fact, never inferred from elapsed time; TAX/ACRA five-year retention stays in the external financial workflow | Chief Editor act 2026-09-15 (`B-106`); `D-381` arbitration; Judge act `D-404` | `CONFIG_LOG.md` `A6` row reads Yes; value unchanged at 90 |
+| 2026-10-04 | `A4` review threshold — `SCORING_REVIEW_THRESHOLD_ARTICLES` | **Approved at 50** (Chief Editor presented-row act, 2026-09-15) as the review/reassessment threshold only. The A4 weighted-sum formula and weights stay unratified; no scoring execution or gate advancement | `B-106`; Judge act `D-414` | `CONFIG_LOG.md` threshold row reads Yes; value unchanged at 50 |
 
-**The empty table is the finding.** `OD1`–`OD3` have gated this build since the Charter, and
-none has been answered. Do not read the emptiness as a formatting placeholder.
+That placeholder records the pre-2026-10-03 state. `D-404`'s `A6` event below it is the first ratification;
+the `A4` formula and `OD1`–`OD3` remain unratified (`D-405`; the A4 review threshold was received under `D-414`).
+
+*History, until 2026-10-03:* "**The empty table is the finding.** `OD1`–`OD3` have gated this build since the
+Charter, and none has been answered. Do not read the emptiness as a formatting placeholder." The table is no
+longer empty. The finding still stands for `OD1`–`OD3` and the `A4` formula, none of which has been answered (`D-414` received only the A4 review threshold).
 
 ## 4. Related but not ratification — pointers only
 
@@ -96,7 +103,7 @@ one moves a `CONFIG_LOG.md` row, and someone reading this file will look for the
 |---|---|---|
 | `Q1` — Line 1 roster shape | **Phase 0 decided** (`D-163`): one agent instance may hold multiple Line 1 roles if each gate records role and executor. **Production half needs `OD3`** | `LINE1_AGENT_ROSTER` stays `UNSET` |
 | `Q2` — Line 3 executor | **Answered `D-57`** — v1 has no independent assurance; `FR-11` not built | `LINE3_EXECUTOR_IDENTITY` stays `UNSET` and stays declared |
-| `Q5` — scheduler | Register, open (`TC7`) | `PUBLISH_RETRY_BACKOFF_MINUTES` has nothing to fire it |
+| `Q5` — scheduler | ~~Register, open (`TC7`)~~ **Corrected 2026-09-25 (`D-265`):** **decided** — `pg_cron` invoking the Edge Function (`D-143`/`D-146`) | `PUBLISH_RETRY_BACKOFF_MINUTES` has nothing to fire it until the scheduler is built |
 | `Q6` — re-enable build gates | Register, open (`TC6`) | Not a config value; `bun run build` is not a verification gate |
 | `Q10` — tenancy column | **Closed `D-73`, narrowed `D-79`** | Contributes a tenancy column to `0002` and nothing more |
 | `Q11` — judgment-independence field shape | **Decided** (`D-97`'s shape, `D-111`'s name — `line_separation_status`) *(corrected 2026-08-30, `D-161`/`B-061`)* | No longer blocks `0002` — written and applied in `0002_s1_editorial_schema.sql` |

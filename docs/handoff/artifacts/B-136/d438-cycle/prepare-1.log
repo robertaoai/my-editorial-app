@@ -1,0 +1,7 @@
+{
+ "outcome": "refused",
+ "exit": 2,
+ "reason": "the source tree is not clean",
+ "message": "this run did not publish or create a transaction journal"
+}
+prepare exit=2

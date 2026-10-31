@@ -1,0 +1,31 @@
+{
+  "at": "2026-10-29T12:27:09.158Z",
+  "head": "71dfbbe7a09f194a9986c1f29d42ad507aec1af7",
+  "parent": "71dfbbe7a09f194a9986c1f29d42ad507aec1af7",
+  "status": "",
+  "staged": "",
+  "hashes": {
+    "b050": "5d3a95038c49a3f1987ee0cee743e63f50f91b7ceb15b9f5b936360a3890894b",
+    "state": "1fd1a8885ac5903e4707057cce53e28b9dd8a044131e55dc6bfa8f12341db53e",
+    "answers": "89965adfdaaaddb8d463c2b2644f137f547c85f3cfe2610e068c07c355f97e70",
+    "graph": "df076c7c23af91db3b67b9eaea576c0976bec7bd0f2b844254b687be9a01f557",
+    "manifest": "34a4edeb9516f11cb36d6d2dcfe1ddac99913dbe0427647f919354c4a9990b13",
+    "files": 583
+  },
+  "source": "22b0a8ce2fb06c16152fa9490d21aae829a45974",
+  "baseline": {
+    "releaseLocus": "77af44a2fcf84a7e7c05013308cc474e6bfaef41",
+    "algorithm": "guard-treeDigest-v1",
+    "digest": "a51dc92d0ee08082c87b871dfe3117d08fd68089851f9372cbd3538bea8eaf4d",
+    "files": 583
+  },
+  "workId": "7bd2af2f-82a0-40fc-872c-31009278ff1c",
+  "configEqual": true,
+  "refsOutsideTurnDiffsEqualExceptNamedFeature": true,
+  "linkedInventoryEqual": true,
+  "strayFiles": 4306,
+  "strayEqual": true,
+  "toolPinsEqual": true,
+  "findings": [],
+  "pass": true
+}

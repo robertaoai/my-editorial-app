@@ -1,0 +1,110 @@
+{
+  "schema": "B-156 F2a controls v2",
+  "arms": 9,
+  "passed": 9,
+  "results": [
+    {
+      "arm": "valid",
+      "expectedExit": 0,
+      "exit": 0,
+      "filesWritten": 1,
+      "ok": true,
+      "messages": [
+        "F2a verification ok: 16 paths, 59 citations, 16 unchanged at HEAD 6234da4; wrote C:\\Users\\rober_24syk4j\\AppData\\Local\\Temp\\claude\\C--robertaoai-my-editorial-app\\69c0e934-e50b-4f60-a0e0-b232c7336f24\\scratchpad\\f2a-r2-final\\arm-0\\F2a-result-1640ff7-r2.json"
+      ]
+    },
+    {
+      "arm": "false-citation",
+      "expectedExit": 2,
+      "exit": 2,
+      "filesWritten": 0,
+      "ok": true,
+      "messages": [
+        "F2a verification STOPPED: 1 failure(s); nothing written.",
+        "  - .onlyaiapp: AGENTS.md:21 lacks \"NEGATIVE-CONTROL-NEEDLE\""
+      ]
+    },
+    {
+      "arm": "object-read-error (noFile tree lookup; R1 counterexample)",
+      "expectedExit": 2,
+      "exit": 2,
+      "filesWritten": 0,
+      "ok": true,
+      "messages": [
+        "F2a verification STOPPED: 1 failure(s); nothing written.",
+        "  - docs/graph-fragments/missing.js: ls-tree 1640ff7bc1b7d1e70ab6a421ced8a054dafda993 -- scripts/checks/shared-core-hash.mjs: exit 128 fatal: unable to read tree (injected)"
+      ]
+    },
+    {
+      "arm": "head-read-error",
+      "expectedExit": 2,
+      "exit": 2,
+      "filesWritten": 0,
+      "ok": true,
+      "messages": [
+        "F2a verification STOPPED: 1 failure(s); nothing written.",
+        "  - HEAD unreadable: exit 128 fatal: bad object HEAD (injected)"
+      ]
+    },
+    {
+      "arm": "head-blob-read-error",
+      "expectedExit": 2,
+      "exit": 2,
+      "filesWritten": 0,
+      "ok": true,
+      "messages": [
+        "F2a verification STOPPED: 1 failure(s); nothing written.",
+        "  - middleware.ts: ls-tree HEAD -- middleware.ts: exit 128 fatal: unable to read tree (injected)"
+      ]
+    },
+    {
+      "arm": "frozen-blob-read-error",
+      "expectedExit": 2,
+      "exit": 2,
+      "filesWritten": 0,
+      "ok": true,
+      "messages": [
+        "F2a verification STOPPED: 1 failure(s); nothing written.",
+        "  - .env.example: ls-tree 1640ff7bc1b7d1e70ab6a421ced8a054dafda993 -- .env.example: exit 128 fatal: unable to read tree (injected)"
+      ]
+    },
+    {
+      "arm": "file-read-error",
+      "expectedExit": 2,
+      "exit": 2,
+      "filesWritten": 0,
+      "ok": true,
+      "messages": [
+        "F2a verification STOPPED: 5 failure(s); nothing written.",
+        "  - lib/supabase/client.ts: cannot read docs/Modular_PRD.md: exit 128 fatal: unable to read blob (injected)",
+        "  - scripts/checks/terminal-return.mjs: cannot read docs/Modular_PRD.md: exit 128 fatal: unable to read blob (injected)",
+        "  - middleware.ts: cannot read docs/Modular_PRD.md: exit 128 fatal: unable to read blob (injected)",
+        "  - middleware.ts: cannot read docs/Modular_PRD.md: exit 128 fatal: unable to read blob (injected)",
+        "  - .env.example: cannot read docs/Modular_PRD.md: exit 128 fatal: unable to read blob (injected)"
+      ]
+    },
+    {
+      "arm": "grep-error",
+      "expectedExit": 2,
+      "exit": 2,
+      "filesWritten": 0,
+      "ok": true,
+      "messages": [
+        "F2a verification STOPPED: 1 failure(s); nothing written.",
+        "  - .onlyaiapp: git grep error (exit 2): fatal: grep failed (injected)"
+      ]
+    },
+    {
+      "arm": "spawn-error",
+      "expectedExit": 2,
+      "exit": 2,
+      "filesWritten": 0,
+      "ok": true,
+      "messages": [
+        "F2a verification STOPPED: 2 failure(s); nothing written.",
+        "  - app/api/health/route.ts: git grep error (exit null): ",
+        "  - app/api/health/route.ts: git grep error (exit null): "
+      ]
+    }
+  ]
+}

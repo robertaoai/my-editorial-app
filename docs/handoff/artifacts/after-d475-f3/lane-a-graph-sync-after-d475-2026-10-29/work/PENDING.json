@@ -1,0 +1,17 @@
+{
+ "descriptions": [],
+ "communities": [
+  {
+   "community": 43,
+   "memberSetSha256": "dfe9af7d47e338fe4b7e305e3f3eea0445cbdd1bb4951b408b334347cef1a29c"
+  },
+  {
+   "community": 96,
+   "memberSetSha256": "49996ecd98ce93e90b5111600c11786f216940abec1d9d336dd55e73ebe6e055"
+  },
+  {
+   "community": 35,
+   "memberSetSha256": "a6f825e4c757661f8ba89ea3b144b70369e3192601c3b807970f730794dd1c78"
+  }
+ ]
+}

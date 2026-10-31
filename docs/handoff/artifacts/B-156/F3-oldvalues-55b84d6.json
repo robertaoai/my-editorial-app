@@ -1,0 +1,269 @@
+{
+  "schema": "B-156 F3 old values v1",
+  "revision": "55b84d6cbc76a50e5ff31d43bf5916b57430e7b4",
+  "targetsSha256": "203d9816d536e98355c91644307dc0e837814d03916c62155e41696081df4378",
+  "scriptSha256": "f7473c49dff433a7134001c7fd0d2fdb06cefaa289a177ec0074efb2a97a629d",
+  "targets": 26,
+  "values": [
+    {
+      "id": "R1-R3",
+      "kind": "lines",
+      "path": "docs/specs/SPECS-VERIFICATION-APPARATUS.md",
+      "from": 96,
+      "to": 105,
+      "value": "`next.config.ts` currently reads:\n\n```ts\ntypescript: { ignoreBuildErrors: true },\neslint: { ignoreDuringBuilds: true },\n```\n\n**A CI job that only runs `next build` would pass with broken types and lint errors**, because the build has been told to ignore both. Green CI would then mean *\"the bundler completed,\"* not *\"the code is sound.\"*\n\n**Disposition — `TC6` is not resolved by this document.** The flags stay as they are; changing deployment behaviour is out of scope here. **CI compensates by running the gates itself**, so verification is restored without touching deploy.",
+      "sha256": "4005ef1634df2722ca968eb344ed18dd93b7afe5b27b21e180f12e17f8da7bd3",
+      "outcome": "bound"
+    },
+    {
+      "id": "R4",
+      "kind": "field",
+      "path": "docs/graph-fragments/frag13.json",
+      "node": "ci_that_cannot_fail",
+      "field": "description",
+      "value": "next.config.ts sets ignoreBuildErrors and ignoreDuringBuilds, so a CI job running only next build passes with broken types and lint errors. Green would mean the bundler completed, not that the code is sound. CI must run typecheck and lint as separate explicit steps. TC6 is not resolved by this — it is compensated for in CI, leaving deployment behaviour untouched.",
+      "sha256": "3af797843fd4189472cc6253ea5b14b7835431fe19ae611a78caaa6f7dce24eb",
+      "outcome": "bound"
+    },
+    {
+      "id": "R5",
+      "kind": "lines",
+      "path": "docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md",
+      "from": 177,
+      "to": 179,
+      "value": "After the `SV2-U02` report is accepted, the three rule files are refactored **atomically**, with the shared-core parity\ncheck and its fixtures, toward the `AIG-06.R1` targets. Every rule leaving a root file is classified under `AIG-03`\nfirst and lands in a named owner: a lane's file, a skill, or its governed source.",
+      "sha256": "8e4f08f699c0f0c559bcd360573231b16d73b2fa91a19ba105fbedf81b141f41",
+      "outcome": "bound"
+    },
+    {
+      "id": "R6-R7",
+      "kind": "lines",
+      "path": "docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md",
+      "from": 213,
+      "to": 214,
+      "value": "| `AIG-06.C1` | The three rule files keep a byte-identical shared core | `shared-core-hash` check | exists |\n| `AIG-06.C2` | After the refactor, each file meets its `AIG-06.R1` target | size check at the refactor commit | planned |",
+      "sha256": "29d58d6100370a57f8d115c57378f7852ff1ad84aa7dcf81437bfa3f7b8cb2db",
+      "outcome": "bound"
+    },
+    {
+      "id": "R8",
+      "kind": "lines",
+      "path": "docs/Modular_PRD.md",
+      "from": 883,
+      "to": 883,
+      "value": "| `AIG-06` | Rule-file size targets and the measured refactor | `D-266` items 2–4 | After the `SV2-U02` report; `shared-core-hash` |",
+      "sha256": "ad60e07f38f90d3f51469093d62b4e08a69eafe8895d3920ddf72d105596700a",
+      "outcome": "bound"
+    },
+    {
+      "id": "R9",
+      "kind": "lines",
+      "path": "docs/specs/SPECS-MULTI-LANE-AI-GOVERNANCE.md",
+      "from": 106,
+      "to": 107,
+      "value": "Already built; listed so this file does not restate them: `scripts/checks/shared-core-hash.mjs`, `lane-state.mjs`,\n`lane-boundary.mjs`, `handoff-response.mjs`, `terminal-return.mjs`, `closure-readiness.mjs`; `.githooks/commit-msg`.",
+      "sha256": "af4c9c9cb05644ab23634936aea1ad360a784b141c51a094614e202dc4acd443",
+      "outcome": "bound"
+    },
+    {
+      "id": "R10",
+      "kind": "lines",
+      "path": "GEMINI.md",
+      "from": 13,
+      "to": 13,
+      "value": "Everything above this line is the shared core, identical in all three agents' rule files.",
+      "sha256": "aa92f48b4db5131da0b3fe1fc409814370cffd6ff5a14ce1fbf1e047889ecaf0",
+      "outcome": "bound"
+    },
+    {
+      "id": "R11.description",
+      "kind": "field",
+      "path": "docs/graph-fragments/frag7.json",
+      "node": "shared_core_agent_rules",
+      "field": "description",
+      "value": "One byte-identical rule core carried by CLAUDE.md, AGENTS.md, and .agents/rules/graphify.md, plus a declared platform tail that legitimately differs. Change all three together or none. The first concrete instance of the G11 arbitration rule.",
+      "sha256": "100890699f3943e1bd41c1bff3ded47e8f58b533b1e9ab3f9be934ba21107828",
+      "outcome": "bound"
+    },
+    {
+      "id": "R11.source_file",
+      "kind": "field",
+      "path": "docs/graph-fragments/frag7.json",
+      "node": "shared_core_agent_rules",
+      "field": "source_file",
+      "value": "CLAUDE.md",
+      "sha256": "6ebdb617a8104a7756d0cf36578ab01103dc9f07e4dc6feb751296b9c402faf7",
+      "outcome": "bound"
+    },
+    {
+      "id": "R11.source_location",
+      "kind": "field",
+      "path": "docs/graph-fragments/frag7.json",
+      "node": "shared_core_agent_rules",
+      "field": "source_location",
+      "value": "## graphify shared core",
+      "sha256": "034cd5b221828277db8d3c2f3f2575ac882dcc7090086ef28360e938c8f3faa1",
+      "outcome": "bound"
+    },
+    {
+      "id": "R12.source_file",
+      "kind": "field",
+      "path": "docs/graph-fragments/frag15.json",
+      "node": "rule_must_reach_its_subjects",
+      "field": "source_file",
+      "value": "CLAUDE.md",
+      "sha256": "6ebdb617a8104a7756d0cf36578ab01103dc9f07e4dc6feb751296b9c402faf7",
+      "outcome": "bound"
+    },
+    {
+      "id": "R12.source_location",
+      "kind": "field",
+      "path": "docs/graph-fragments/frag15.json",
+      "node": "rule_must_reach_its_subjects",
+      "field": "source_location",
+      "value": "shared core, arbitration",
+      "sha256": "8c8b7ce1dc94378142a04003d3607ac9fa7c287b1da08ac7cc0929cabf625c7e",
+      "outcome": "bound"
+    },
+    {
+      "id": "R12.description",
+      "kind": "field",
+      "path": "docs/graph-fragments/frag15.json",
+      "node": "rule_must_reach_its_subjects",
+      "field": "description",
+      "value": "D-58 lands in the byte-identical shared core of CLAUDE.md, AGENTS.md and .agents/rules/graphify.md, not only in the register. The agent files are a required propagation tier for this decision specifically, because a rule about how agents behave is inert if the agents cannot read it.",
+      "sha256": "f54499528cad7fed7a5b0c114b513496f3f7e18b1045a32882bbb4c846c59d16",
+      "outcome": "bound"
+    },
+    {
+      "id": "R13-R15",
+      "kind": "lines",
+      "path": ".github/WORKFLOWS-SPEC.md",
+      "from": 46,
+      "to": 58,
+      "value": "**`graph-coverage`, `docs-drift` and `source-sweep` cannot run in a default CI checkout, and the reason is what they read, not their\nnumber.**\n\n| Check | Why it skips in CI |\n|---|---|\n| `graph-coverage` | reads `.graphify/`, which is **gitignored** — a fresh checkout has no input |\n| `docs-drift` | same |\n| `source-sweep` | needs **per-file history**; `actions/checkout@v4` clones at depth 1 |\n\n**A CI total below the local total is correct, not a regression.** They differ by exactly these\nthree. **Do not \"fix\" a SKIP by making the check pass vacuously** — a check that cannot fail is\nworse than no check, and this repository has a named failure mode for it\n(`probe_that_cannot_fail`).",
+      "sha256": "6eaa548e41d8a4f4c6b7b5d2eb4ae50299e33f1d8252bef9d11b1e90694ec92c",
+      "outcome": "bound"
+    },
+    {
+      "id": "R16",
+      "kind": "lines",
+      "path": ".github/WORKFLOWS-SPEC.md",
+      "from": 77,
+      "to": 79,
+      "value": "**Why:** `source-sweep` (`G70`) compares each governing document's last-commit date against its\nderived tiers. At depth 1 that history does not exist, so the check reports SKIP and the\nsource-side of `D-54` propagation is unverified on every merge.",
+      "sha256": "78b3b4bfe53d03ca609f1490b23c7f704e397f5c3e5e89beedebc5975f7dacb1",
+      "outcome": "bound"
+    },
+    {
+      "id": "R17",
+      "kind": "lines",
+      "path": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+      "from": 69,
+      "to": 69,
+      "value": "| Concurrent-edit detection check | `C-14`/`G11` — `D-58`, ships with `R3` | ✅ **installed 2026-08-21** (`D-70`), extended repeatedly since — by `D-72`, `D-73`, `D-83`, `D-87`, `D-90`, `D-92` and `D-94` — `scripts/check-consistency.mjs`. **No count is recorded here (`G75`, `C-21`, `D-94`)**; this cell said \"six checks, five in CI\" long after both were wrong, and `bun run check` prints the total. **What determines CI coverage is what a check reads**: `graph-coverage` and `docs-drift` need gitignored `.graphify/`, `source-sweep` needs full history — those three SKIP and the rest run. Caught a real `G58`-class defect on its first strict run |",
+      "sha256": "5e0da635d801e516311cbeb147f5ec84ae0d34177e7ea128f8ef05b57d6a3998",
+      "outcome": "bound"
+    },
+    {
+      "id": "R18-R19",
+      "kind": "lines",
+      "path": "GEMINI.md",
+      "from": 31,
+      "to": 35,
+      "value": "- **Never fix a SKIP by making a check pass vacuously.** `graph-coverage`, `docs-drift` and\n  `source-sweep` skip in CI because of what they read, not because they are broken. **A CI\n  total below the local total is correct.** A check that cannot fail is worse than no check.\n- **`bun run build` is not a verification gate.** `TC6` disables the type and lint gates at\n  build, so typecheck and lint stay **separate steps**.",
+      "sha256": "e06f2f201f082cdbffbad6ed260717878eaface7ba7483b1ab38d5a327c25a26",
+      "outcome": "bound"
+    },
+    {
+      "id": "R20",
+      "kind": "lines",
+      "path": ".github/WORKFLOWS-SPEC.md",
+      "from": 34,
+      "to": 37,
+      "value": "**`bun run build` is not a verification gate.** `TC6` sets `ignoreBuildErrors` and\n`ignoreDuringBuilds`, so a build stays green on broken types. **A CI job that runs only\n`next build` would pass with broken types and unlinted code** — it did exactly that while ten\nreal type errors sat in `lib/supabase/`. Typecheck and lint stay **separate steps**.",
+      "sha256": "30d557ce04ccdce6103771f46160534971148b3c4819cee9393251d66c1c4b0a",
+      "outcome": "bound"
+    },
+    {
+      "id": "R21-R22",
+      "kind": "lines",
+      "path": ".gitattributes",
+      "from": 27,
+      "to": 38,
+      "value": "#\n# It is WRONG for CURRENT-VALUE content. Tested: a status row merges to\n# both `Decided` and `Rejected`; a version header appears twice; and a\n# union-duplicated CLAUDE.md slices identically to a clean one, so\n# shared-core-hash PASSES on a file holding two full copies of the rules.\n# Later rules win, so these fall back to the default 3-way merge, which\n# writes visible conflict markers — failing closed, not open.\ndocs/v1/**/*.md      merge=text\ndocs/Modular_PRD.md  merge=text\nCLAUDE.md            merge=text\nAGENTS.md            merge=text\n.agents/**/*.md      merge=text",
+      "sha256": "409f1d49a7d0361d376fcf5d78e786ca31d2b534ba17356ded0918e2097af818",
+      "outcome": "bound"
+    },
+    {
+      "id": "R23",
+      "kind": "lines",
+      "path": "docs/v1/V1-BUILD-SPEC.md",
+      "from": 660,
+      "to": 665,
+      "value": "> ⛔ **`C-33` — this DoD phrase is NOT yet earned (`D-118`, raised by Lane B as `B-044`).** `0002` is\n> drafted at `d826b53` and its test **asserts on migration TEXT**: it never starts PostgreSQL,\n> applies `0001` then `0002`, invokes the trigger, or observes a rollback. **A text assertion stays\n> green while the SQL is syntactically invalid.** **Two unverified things are held apart**: `DEP-05`\n> permits **live anon-key** behaviour to remain unverified; a **local PostgreSQL** unit test needs no\n> credentials and is still required. `C-33` carries the eight-case contract.",
+      "sha256": "9bd510ebb5e20400a7bbcd2e157236678988c5d1eff47bbb18425514c5ca07ba",
+      "outcome": "bound"
+    },
+    {
+      "id": "R24",
+      "kind": "lines",
+      "path": "docs/v1/V1-DECISION-REGISTER.md",
+      "from": 2983,
+      "to": 2986,
+      "value": "**Closes when a disposable PostgreSQL runs `0001` then `0002` and those eight behave**, with the\nreport reading *\"local PostgreSQL unit-tested; live Supabase anon-key behaviour unverified\"*.\n**Lane B's surface, Lane B's work** — and it may need a dependency, which is Lane A's to provision\n(`D-86`).",
+      "sha256": "004bed61fabe7ba151d0076aea47f08a1a0a66344296840ede72e24e919e80ca",
+      "outcome": "bound"
+    },
+    {
+      "id": "R25",
+      "kind": "lines",
+      "path": "docs/v1/V1-BUILD-SPEC.md",
+      "from": 531,
+      "to": 531,
+      "value": "> **`C-14` travels with this item (`D-58`).** `G11`'s detection half — the shared-core hash, the `D-54` tier sweep, the §5.1 duplicate scan, and `missing.js` — is verification apparatus and waits on the same guardrail. **Precedence without detection is inert:** git here has one identity and zero merges, so a conflicting edit is a silent overwrite that nothing announces.",
+      "sha256": "de835cc5e9db23e7bbd40f4ace58a90ae6caf225f125727799888de9b2f9de27",
+      "outcome": "bound"
+    },
+    {
+      "id": "R26-R28",
+      "kind": "lines",
+      "path": "scripts/checks/lane-boundary.mjs",
+      "from": 53,
+      "to": 61,
+      "value": "  },\n  {\n    lane: \"B\",\n    label: \"Codex — application\",\n    test: (p) =>\n      /^(app|lib|components)\\//.test(p) ||\n      p.startsWith(\"supabase/\") ||\n      p.startsWith(\"__tests__/\"),\n  },",
+      "sha256": "0eec33294ce1f9cf739369d4c6b7739639b6470f6b3aad28597d4dae9242ea38",
+      "outcome": "bound"
+    },
+    {
+      "id": "R29",
+      "kind": "lines",
+      "path": "docs/graph-fragments/README.md",
+      "from": 111,
+      "to": 111,
+      "value": "`merge7.js` is the reference merge script (repo-relative; `merge6.js` is retained for history but hard-codes an absolute path). `missing.js` reports which docs are absent from the graph.",
+      "sha256": "731fae0d776749113cc88b89682cf276778560f003ee5df2444e668f4f4db2ee",
+      "outcome": "bound"
+    },
+    {
+      "id": "P1",
+      "kind": "lines",
+      "path": ".github/workflows/ci.yml",
+      "from": 3,
+      "to": 7,
+      "value": "# Typecheck and lint are SEPARATE steps, not folded into `next build`. `TC6`\n# sets `ignoreBuildErrors` and `ignoreDuringBuilds` in `next.config.ts`, so a\n# build-only job stays green on broken types and unlinted code — it did exactly\n# that while ten real type errors sat in `lib/supabase/` from scaffolding until\n# `D-67`.",
+      "sha256": "345e6ef700136761a4d43af7ab3fb4307566208108d1cfff42fcb07aa77d6362",
+      "outcome": "bound"
+    },
+    {
+      "id": "P2",
+      "kind": "lines",
+      "path": ".env.example",
+      "from": 8,
+      "to": 8,
+      "value": "# ── App URL (used for redirect URLs) ────────────────────────────────────────",
+      "sha256": "97ed6a32e75d789a6aa8c1adf8ce7c1d9b91dcaf5820a1bf3a84fc51995ede8f",
+      "outcome": "bound"
+    }
+  ]
+}

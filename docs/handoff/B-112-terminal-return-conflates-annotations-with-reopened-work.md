@@ -9,7 +9,8 @@
   accepting: `B-008`'s only post-terminal diff at the time was a bare `Verified-By:` line; `B-017`'s
   addition literally opens *"This does not reopen the parser repair."* Both match this entry's
   claim exactly, so the finding is accepted rather than merely trusted. Two corrections applied at
-  `<pending commit>`:
+  `d80167b`, with its fixture-mock follow-up at `9afbb9b` *(written as a pending-commit placeholder and
+  filled on 2026-10-01 from this entry's own "Correction" note, `B-116` item 3, `D-375`)*:
   1. **The audit-only exemption is real, and its absence was a bug, not a policy gap.** `terminal-
      return`'s walk-back skip used a field-line regex missing the markdown bullet prefix every
      header field actually has (`- **Name:**`, not `**Name:**`), so it never matched anything and
@@ -32,10 +33,10 @@
   **Row 3 (a governed "terminal annotation" convention) is drafted, not applied.** New SOP vocabulary
   is the Chief Editor's call, not Lane A's to adopt unilaterally mid-fix; offered to the Chief Editor
   separately from this application.
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified; dispositioned by Lane A
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), independent Phase 1 O0 review, 2026-10-01
 - **Evidence:** independent review of `4f3bb95e2e78a9efdfb0ff09f994cf17bc2a748f`; per-file history and diffs for all 12 originally reported entries, confirming `B-008`/`B-017`'s cited shapes exactly; `scripts/checks/terminal-return.mjs`'s corrected `isAuditOnlyDiff`/`walkToLastSubstantive`; `bun run check` 18/18 and `bun run fixtures` 118/118 at `9afbb9b`; `B-113`'s independent catch of this entry's own stale audit anchor
-- **Verified-At-Commit:** 33687530f36a0bd3fdd1b06f625404cb9efdf827
+- **Verified-At-Commit:** fff73439c8557d4d6ca04c47c5c2271bac048f84
 
 ## What happened
 
@@ -132,5 +133,26 @@ and its `Verified-At-Commit` at `980d8d1` — the commit *before* the correction
 after. The correction itself landed at `d80167b` (the behavioral fix: `isAuditOnlyDiff`,
 `walkToLastSubstantive`, report-only `run()`); a separate fixture-mock defect in that same change
 (wrong `exec` call signature, caught by `bun run fixtures` itself) was fixed at `9afbb9b`.
-`Verified-At-Commit` above now reads the commit this correction note was written against. No
+`Verified-At-Commit` above read `3368753`, the commit this correction note was written against, which is an
+unrelated `B-115` commit. *On 2026-10-01 (`B-116` items 3–4, `D-375`) it was aligned to `284b4ae`, the commit that
+records the complete Option A packet, which also contains this note.* No
 finding, disposition or evidence changes — only the citation was stale.
+
+## Independent Lane B verification — annotation versus reopened work — 2026-10-01
+
+Judge-authorized Phase 1 / O0 review. Read `fff73439c8557d4d6ca04c47c5c2271bac048f84` after independently verified B-116 and B-113.
+The current implementation accepts governed terminal annotations with no scope reopened and
+rejects substantive terminal work without the required covering act. Return and re-close shapes,
+history provenance, multiple terminal episodes and working-copy transitions are enforced.
+Earlier report-only/partial-repair descriptions are historical, superseded by the applied chain.
+Lane A's answer is preserved.
+
+Evidence: exact repaired source `fc998420c5a423caf5953e527277a5ffb183c247` independently passed
+70/70 focused cases, including valid annotations, invalid annotation/return fields, episode
+separation and real history. Main-tree consistency passed 19/19 before the recording chain.
+
+| Decision | Verdict | Follow-up phase |
+|---|---|---|
+| B-112 bounded distinction and blocking-control repair | Approve | Phase 1 / O0 — independently Verified |
+| B-097 → B-103 P3 | Defer | Phase 1 / O0 — independent verification next |
+| Whole-parent backlog, Stage 2 runtime and Gate 2 | Defer | Respective Phase 1 / authorized later phase — no inherited completion |

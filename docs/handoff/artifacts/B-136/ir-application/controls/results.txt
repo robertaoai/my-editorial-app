@@ -1,0 +1,12 @@
+C1 | mode s0 | expected pass | got pass (exit 0) | OK | composed body sha256 c06de4df91742a87ac63cb3d2edde42a1cde34b5f6ea9bc9f8749966c3d6f756
+C2a | mode s0 | expected refuse | got refuse (exit 2) | OK | REFUSE: S0 N1 D-438 referenced outside IR-owned content: docs/handoff/X-conflict.md
+C2b | mode s0 | expected refuse | got refuse (exit 2) | OK | REFUSE: S0 N1 D-438 commitment outside an IR section: docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md:13282 under "## Lane B — setup registration note, 2026-10-15"
+C2c | mode s0 | expected refuse | got refuse (exit 2) | OK | REFUSE: S0 bound blob docs/v1/V1-DECISION-REGISTER.md
+C3 | mode apply | expected pass | got pass (exit 0) | OK | five files written; post-write blobs = expected; inverse check = bound inputs
+C3 | mode verify-apply cb13ed7 | expected pass | got pass (exit 0) | OK | E5 applying commit cb13ed7: five paths, every blob = expected
+C4a | mode apply | expected refuse | got refuse (exit 2) | OK | REFUSE: E2b written docs/Modular_PRD.md
+C4b | mode apply | expected pass | got pass (exit 0) | OK | five files written; post-write blobs = expected; inverse check = bound inputs
+C4b | mode verify-apply e4fc739 | expected refuse | got refuse (exit 2) | OK | REFUSE: E5 blob docs/specs/SPECS-PUBLICATION.md
+---
+OK count: 9
+WRONG count: 0

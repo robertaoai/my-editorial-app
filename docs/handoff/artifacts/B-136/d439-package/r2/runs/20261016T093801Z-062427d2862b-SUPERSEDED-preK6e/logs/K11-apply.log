@@ -1,0 +1,5 @@
+CONTROL FIXTURE validated: c:/cowork/outputs/lane-a-d439-package-2026-10-16/r2/runs/20261016t093801z-062427d2862b/work/k11 (switches EV_CONTROL,EV_TEST_INJECT)
+packet r9 bound (dfd5c7771e9b); 10 active edits literal in it; date 2026-10-16
+CONTROL RUN: act presence in the Register not checked
+E2a three paths clean and at the pins
+REFUSE: E2b written docs/Modular_PRD.md

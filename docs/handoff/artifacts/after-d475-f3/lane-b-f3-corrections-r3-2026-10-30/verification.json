@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-30",
+  "mode": "static and parsing only",
+  "originalManifestEntries": 44,
+  "mismatches": [],
+  "substantiveChildPrefix": "exact equality after documented identity/path/revision and semantic-summary substitutions",
+  "childSyntax": "node --check exit 0",
+  "captureSyntax": "node --check exit 0",
+  "wrapperParseErrors": 0,
+  "runtime": "not executed; all runtime validation planned",
+  "outputsAbsent": [
+    {
+      "name": "capture-run-2",
+      "absent": true
+    },
+    {
+      "name": "launcher-run-2",
+      "absent": true
+    },
+    {
+      "name": "f3-run-2",
+      "absent": true
+    }
+  ]
+}

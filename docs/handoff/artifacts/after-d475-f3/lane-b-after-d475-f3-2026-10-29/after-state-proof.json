@@ -1,0 +1,47 @@
+{
+  "at": "2026-10-29T12:30:14.405Z",
+  "head": "71dfbbe7a09f194a9986c1f29d42ad507aec1af7",
+  "tree": "344d222544d6cc27318d4482df72d3a174cbdf98",
+  "parents": "71dfbbe7a09f194a9986c1f29d42ad507aec1af7 22b0a8ce2fb06c16152fa9490d21aae829a45974",
+  "status": "",
+  "staged": "",
+  "hashesUnchanged": true,
+  "hashes": {
+    "b050": "5d3a95038c49a3f1987ee0cee743e63f50f91b7ceb15b9f5b936360a3890894b",
+    "state": "1fd1a8885ac5903e4707057cce53e28b9dd8a044131e55dc6bfa8f12341db53e",
+    "answers": "89965adfdaaaddb8d463c2b2644f137f547c85f3cfe2610e068c07c355f97e70",
+    "graph": "df076c7c23af91db3b67b9eaea576c0976bec7bd0f2b844254b687be9a01f557",
+    "manifest": "34a4edeb9516f11cb36d6d2dcfe1ddac99913dbe0427647f919354c4a9990b13",
+    "files": 583
+  },
+  "createdCommits": [],
+  "K": null,
+  "N": null,
+  "candidateChecks": {
+    "K": "not run; prerequisite failed",
+    "N": "not run; K absent"
+  },
+  "hookTraces": "not applicable; no commit attempted",
+  "fullProducerProjection": "not run; entry mismatch requires stop",
+  "publication": false,
+  "prepare": false,
+  "resume": false,
+  "regeneration": false,
+  "fetch": false,
+  "push": false,
+  "coverage": {
+    "historicallyDelivered": 61,
+    "locallyPending": [
+      {
+        "kind": "D-475",
+        "commit": "22b0a8ce2fb06c16152fa9490d21aae829a45974"
+      },
+      {
+        "kind": "R",
+        "commit": "71dfbbe7a09f194a9986c1f29d42ad507aec1af7"
+      }
+    ],
+    "healthRecord": "prospective",
+    "freshServerClaim": false
+  }
+}

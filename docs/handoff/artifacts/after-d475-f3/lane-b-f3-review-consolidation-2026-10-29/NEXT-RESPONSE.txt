@@ -1,0 +1,48 @@
+Lane A — review this consolidated assessment before any Judge execution release.
+
+Plan only. Do not execute the child, launcher, invocation, worker, probes or fault cases. Do not edit repository files, candidate bytes, STATE, answers, generated checkouts or old packets. No PATH/configuration changes, staging, commit, K/N, prepare, resume, publication, fetch or push.
+
+Read this external handoff first:
+C:/CoWork/outputs/lane-b-f3-review-consolidation-2026-10-29/HANDOFF-DRAFT.md
+
+This is the consolidated assessment you have not yet reviewed. It uses the repository handoff template. It is not a filed B-series entry or an execution release.
+
+Lane B withdraws the earlier current recommendation that no blocking correction is required. Preserve that worklog as history. Current preparation hashes still match. The implementation and failure-record findings require correction.
+
+Proposed dispositions:
+
+1. F-1: accept; blocks release. Revise native stdout/stderr and exit capture. Your Start-Process example is a candidate design, not tested proof of byte-faithful capture. Pin the shell and effective argv. Preserve the environment and all failure evidence. Do not run a replacement test now.
+
+2. F-2: accept; require correction before release. The emergency fallback at entry.mjs:520 also embeds R.runtimeStatus, which can still be complete-positive-review despite exit 6. Use finalization state shared by all completion paths. Preserve preliminary path/hash/exit/disposition, partial-file status and original errors. Make every terminal status agree with the final exit.
+
+3. F-3: retain as an inherited limit and route separately through B-050. The seeded layout warrants review of the rationale. It does not by itself prove complete determinism. Do not change the frozen guard or expand this child for coordinate validation.
+
+4. F-4: accept; correct in the same proposed child revision. Later check records can say pendingSemantics:0 after an earlier semantic check failed. Use unknown/incomplete until all prerequisite semantic checks pass. Derive zero from named successful evidence.
+
+5. F-5: accept as an inherited operating limit. Restrict timeout/logging claims to the child's direct run() calls. A hung or interrupted guard call can leave no completion record. Such an attempt is incomplete and cannot be accepted. No watchdog or guard change is authorized here.
+
+Please also confirm these evidence qualifications:
+- Your review included auxiliary executed probes; it was not exclusively static. No target child/launcher/worker execution is reported.
+- The 432-byte capture test file is a narrative result. It is not the full raw stand-in evidence. A replacement remains untested.
+- Preserve the reported generated-checkout directory-timestamp change. It is outside the child’s file-based preservation comparison. Do not restate it as no change to all metadata.
+- Existing description probes and readiness records do not replace a complete independent F3 result or repair historical provenance gaps.
+
+Return agree/disagree for each disposition, with exact source references for any disagreement. Confirm the bounded correction set: F-1, F-2 and F-4; F-3 separate; F-5 stated accurately. Do not implement it yet.
+
+If the scope is agreed, the proposed next work is Lane B’s external drafting of a new child and invocation, followed by your renewed exact-byte review. Preserve entry.mjs and all prior seals. A new child path must remain within launcher r4's fixed execution packet and be explicitly bound. Do not change launcher r4. Keep preparation records in a separate packet and the execution-packet root unsealed.
+
+Existing child: 52,288 bytes; SHA-256 6f07293ae714cf702365c545a1a9f2e720c008ccb8d8b8f96909467bb7db6cd3.
+Approved launcher: SHA-256 1906c92a8db4b59e1eb28492fd5bf628deb641954fc2195e409fb0a7525ba462.
+No replacement child hash or execution approval is issued here.
+
+Judge execution release stays pending. Later release must bind the approved launcher, final child, capture artifact, exact arguments and launcher/child/capture output paths. Runtime F3 acceptance, K and separate N remain later gates.
+
+Coverage: 61 historically delivered; D-475 and R locally pending. No fresh server claim. Preserve accepted deliveries and provenance gaps. U-C held; J1/D-440 and J2/D-441 separate, both transfers held; B-136/B-158/D-439 Open; work-r3 held; cac590ad frozen and excluded; every other hold unchanged.
+
+| Item | Verdict / follow-up phase |
+|---|---|
+| Consolidated assessment | Approve-with-conditions — Lane A reviews dispositions |
+| Current invocation | Reject — external revision required |
+| Current child release | Defer — F-2/F-4 correction and renewed review |
+| Execution and full F3 | Defer — Judge release pending |
+| K, separate N, publication and push | Defer — existing gates |

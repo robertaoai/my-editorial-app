@@ -1,0 +1,89 @@
+{
+  "revision": "1640ff7bc1b7d1e70ab6a421ced8a054dafda993",
+  "script": {
+    "path": "docs/handoff/artifacts/B-156/F1-inventory-r2.mjs",
+    "sha256": "d7873e0920d5e5f3b9cae7a1d21798b57d343ca6dff2977ee13aa22c57ee4397"
+  },
+  "classifier": {
+    "path": "scripts/checks/lane-boundary.mjs",
+    "frozenBlob": "276f83406519a2692a7d3bbb51e666127f157d84",
+    "sha256": "3b0d5a8c34097fa0f6138914ad1f78079a2447fb11cc21dda2cbfe422af6238e",
+    "workingTreeBlob": "276f83406519a2692a7d3bbb51e666127f157d84",
+    "usedFrom": "frozen blob"
+  },
+  "phaseDocument": {
+    "path": "docs/v1/V1-PHASE-CLOSURE.md",
+    "frozenBlob": "a96e5c1c4c6497ac2034ed47a490d19b7f9110b5",
+    "rule": "first cell of §5A.1-§5A.6 rows"
+  },
+  "labels": "proposedRole and proposedUseCase are proposed; governingSourceStatus is assessed in F2; literal hits are path hits only",
+  "gitErrors": 0,
+  "totalTracked": 486,
+  "groups": {
+    "G1 outside docs/": 73,
+    "G2 executables in docs/graph-fragments/": 6,
+    "G3 curated JSON in docs/graph-fragments/": 142,
+    "G4 other JSON under docs/": 1,
+    "G5 log and text under docs/": 3,
+    "G6 other non-Markdown under docs/": 0
+  },
+  "candidates": 225,
+  "included": 224,
+  "excluded": 1,
+  "byOrder": {
+    "1": 6,
+    "2": 2,
+    "3": 6,
+    "4": 65,
+    "5": 146
+  },
+  "byLane": {
+    "unmapped": 6,
+    "B": 17,
+    "A": 201,
+    "C": 1
+  },
+  "byProposedRole": {
+    "metadata": 2,
+    "application implementation": 8,
+    "configuration": 12,
+    "control (check or gate)": 24,
+    "product-facing test": 4,
+    "tooling implementation": 8,
+    "tooling test": 6,
+    "agent instruction": 5,
+    "channel template or spec": 3,
+    "workflow": 1,
+    "reproducibility control": 1,
+    "application configuration": 2,
+    "control data": 1,
+    "schema": 2,
+    "curated source data": 142,
+    "retained evidence": 4
+  },
+  "byProposedUseCase": {
+    "project setup": 14,
+    "product-facing setup source (no SM05 delivery credit)": 18,
+    "governance/docs": 38,
+    "governance/docs searchable projection (operative under D-425/D-426; no retrieval scope implied)": 150,
+    "product verification interface (Jev)": 5
+  },
+  "byLiteralHitState": {
+    "no literal hit": 131,
+    "literal hit in handoff only": 9,
+    "literal hit outside handoff": 85
+  },
+  "byPhaseManifestRow": {
+    "none": 197,
+    "§5A.4 row": 7,
+    "§5A.5 row": 20,
+    "§5A.6 exclusion row": 1
+  },
+  "byGoverningSourceStatus": {
+    "unassessed (F2)": 222,
+    "D-64 / G59: committed lockfile, historical evidence (bun 1.1.30, --frozen-lockfile exit 0); present resolution not claimed": 1,
+    "not authoritative (AGENTS.md, D5)": 1,
+    "frozen authority (AGENTS.md Never list); read-only": 1
+  },
+  "reconciled": true
+}

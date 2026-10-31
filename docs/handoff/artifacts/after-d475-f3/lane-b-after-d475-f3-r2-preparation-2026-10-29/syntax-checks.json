@@ -1,0 +1,38 @@
+{
+  "scope": "syntax only",
+  "checks": [
+    {
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "--check",
+        "C:/CoWork/outputs/lane-b-after-d475-f3-r2-2026-10-29/entry.mjs"
+      ],
+      "file": "C:/CoWork/outputs/lane-b-after-d475-f3-r2-2026-10-29/entry.mjs",
+      "bytes": 52288,
+      "sha256": "6f07293ae714cf702365c545a1a9f2e720c008ccb8d8b8f96909467bb7db6cd3",
+      "status": 0,
+      "signal": null,
+      "error": null,
+      "stdout": "",
+      "stderr": "",
+      "meaning": "parsing only; no module executed"
+    },
+    {
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "--check",
+        "C:/CoWork/outputs/lane-b-after-d475-f3-r2-preparation-2026-10-29/producer-worker.draft.mjs"
+      ],
+      "file": "C:/CoWork/outputs/lane-b-after-d475-f3-r2-preparation-2026-10-29/producer-worker.draft.mjs",
+      "bytes": 9161,
+      "sha256": "9c6771f6cd059530d153db719a3771da061ef1a3f23df3d964cda6528557964a",
+      "status": 0,
+      "signal": null,
+      "error": null,
+      "stdout": "",
+      "stderr": "",
+      "meaning": "parsing only; no module executed"
+    }
+  ],
+  "pass": true
+}

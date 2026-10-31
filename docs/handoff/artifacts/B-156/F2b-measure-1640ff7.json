@@ -1,0 +1,1189 @@
+{
+  "schema": "B-156 F2b measurement v1",
+  "frozenRevision": "1640ff7bc1b7d1e70ab6a421ced8a054dafda993",
+  "head": "072de37ff26d0e06a4276a6697141923e12198f3",
+  "inventorySha256": "dcb86641ef20f5a569a664dbb6493dd9c2db2dbb7a42a17689e2513b4e017769",
+  "scriptSha256": "6a2b197e3b8f565cedffcc81700af156224bbd2c7b85f4f597e9ff9fd1cdefec",
+  "paths": 62,
+  "unchangedAtHead": 62,
+  "withInventoryRow": 31,
+  "invokedByRunner": 36,
+  "rows": [
+    {
+      "path": "__tests__/build-config.test.ts",
+      "lane": "B",
+      "proposedRole": "product-facing test",
+      "phaseManifestRow": "none",
+      "frozenBlob": "a233e5f21a0a79f95c7ea1a5e757c4d4115fc27f",
+      "headBlob": "a233e5f21a0a79f95c7ea1a5e757c4d4115fc27f",
+      "unchangedAtHead": true,
+      "inventoryRow": [],
+      "inventoryDs": [],
+      "registerHits": 2,
+      "registerFirst": 6661,
+      "buildSpecHits": 0,
+      "invokedBy": []
+    },
+    {
+      "path": "__tests__/s1-schema.test.ts",
+      "lane": "B",
+      "proposedRole": "product-facing test",
+      "phaseManifestRow": "none",
+      "frozenBlob": "0bd0375973522d90d8a6a8f90c07abadc251c0b1",
+      "headBlob": "0bd0375973522d90d8a6a8f90c07abadc251c0b1",
+      "unchangedAtHead": true,
+      "inventoryRow": [],
+      "inventoryDs": [],
+      "registerHits": 2,
+      "registerFirst": 2965,
+      "buildSpecHits": 0,
+      "invokedBy": []
+    },
+    {
+      "path": "__tests__/smoke.test.ts",
+      "lane": "B",
+      "proposedRole": "product-facing test",
+      "phaseManifestRow": "none",
+      "frozenBlob": "0c53dd5f686e2ac45249dccec6de255384b755a7",
+      "headBlob": "0c53dd5f686e2ac45249dccec6de255384b755a7",
+      "unchangedAtHead": true,
+      "inventoryRow": [],
+      "inventoryDs": [],
+      "registerHits": 2,
+      "registerFirst": 3346,
+      "buildSpecHits": 1,
+      "invokedBy": []
+    },
+    {
+      "path": ".agents/workflows/graphify.md",
+      "lane": "A",
+      "proposedRole": "agent instruction",
+      "phaseManifestRow": "none",
+      "frozenBlob": "b0b831bef16fe944677898138b234f9b5405cb7e",
+      "headBlob": "b0b831bef16fe944677898138b234f9b5405cb7e",
+      "unchangedAtHead": true,
+      "inventoryRow": [],
+      "inventoryDs": [],
+      "registerHits": 2,
+      "registerFirst": 3911,
+      "buildSpecHits": 0,
+      "invokedBy": [
+        "scripts/fixtures/suites.mjs"
+      ]
+    },
+    {
+      "path": ".claude/settings.json",
+      "lane": "A",
+      "proposedRole": "configuration",
+      "phaseManifestRow": "§5A.4 row",
+      "frozenBlob": "9f304f33136f95bfd5d93250458eb5c2110b7519",
+      "headBlob": "9f304f33136f95bfd5d93250458eb5c2110b7519",
+      "unchangedAtHead": true,
+      "inventoryRow": [],
+      "inventoryDs": [],
+      "registerHits": 8,
+      "registerFirst": 263,
+      "buildSpecHits": 0,
+      "invokedBy": []
+    },
+    {
+      "path": ".claude/skills/sync-docs/SKILL.md",
+      "lane": "A",
+      "proposedRole": "agent instruction",
+      "phaseManifestRow": "§5A.4 row",
+      "frozenBlob": "521a98dd6d0029c4e8a49dc6903fa3d6dc1f0c31",
+      "headBlob": "521a98dd6d0029c4e8a49dc6903fa3d6dc1f0c31",
+      "unchangedAtHead": true,
+      "inventoryRow": [
+        56
+      ],
+      "inventoryDs": [
+        "D-80",
+        "D-94",
+        "D-54",
+        "D-75",
+        "D-84"
+      ],
+      "registerHits": 16,
+      "registerFirst": 4040,
+      "buildSpecHits": 0,
+      "invokedBy": [
+        "scripts/fixtures/suites.mjs"
+      ]
+    },
+    {
+      "path": ".codex/hooks.json",
+      "lane": "A",
+      "proposedRole": "configuration",
+      "phaseManifestRow": "§5A.4 row",
+      "frozenBlob": "f905deab9ccf7f89a89cdb0468d084aecff70cee",
+      "headBlob": "f905deab9ccf7f89a89cdb0468d084aecff70cee",
+      "unchangedAtHead": true,
+      "inventoryRow": [],
+      "inventoryDs": [],
+      "registerHits": 1,
+      "registerFirst": 20987,
+      "buildSpecHits": 0,
+      "invokedBy": []
+    },
+    {
+      "path": ".gitattributes",
+      "lane": "A",
+      "proposedRole": "configuration",
+      "phaseManifestRow": "none",
+      "frozenBlob": "76592f4f4059b7636f725a07698e9acf17a81733",
+      "headBlob": "76592f4f4059b7636f725a07698e9acf17a81733",
+      "unchangedAtHead": true,
+      "inventoryRow": [],
+      "inventoryDs": [],
+      "registerHits": 14,
+      "registerFirst": 260,
+      "buildSpecHits": 1,
+      "invokedBy": []
+    },
+    {
+      "path": ".githooks/commit-msg",
+      "lane": "A",
+      "proposedRole": "control (check or gate)",
+      "phaseManifestRow": "§5A.5 row",
+      "frozenBlob": "5a09cb6a5a1a0c120403d94de9fb5871283a3ffd",
+      "headBlob": "5a09cb6a5a1a0c120403d94de9fb5871283a3ffd",
+      "unchangedAtHead": true,
+      "inventoryRow": [
+        47,
+        239
+      ],
+      "inventoryDs": [
+        "D-88",
+        "D-82"
+      ],
+      "registerHits": 20,
+      "registerFirst": 2944,
+      "buildSpecHits": 1,
+      "invokedBy": []
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/v1-mmf.md",
+      "lane": "A",
+      "proposedRole": "channel template or spec",
+      "phaseManifestRow": "none",
+      "frozenBlob": "3f78c40a2adf8f04ce95d09f1c69b8896266460c",
+      "headBlob": "3f78c40a2adf8f04ce95d09f1c69b8896266460c",
+      "unchangedAtHead": true,
+      "inventoryRow": [
+        98
+      ],
+      "inventoryDs": [
+        "D-259",
+        "D-254"
+      ],
+      "registerHits": 2,
+      "registerFirst": 19144,
+      "buildSpecHits": 1,
+      "invokedBy": []
+    },
+    {
+      "path": ".github/PULL_REQUEST_TEMPLATE/v1-mmf.md",
+      "lane": "A",
+      "proposedRole": "channel template or spec",
+      "phaseManifestRow": "none",
+      "frozenBlob": "7720f46665bcdd16138e8965639358c70df4be45",
+      "headBlob": "7720f46665bcdd16138e8965639358c70df4be45",
+      "unchangedAtHead": true,
+      "inventoryRow": [
+        97
+      ],
+      "inventoryDs": [
+        "D-245"
+      ],
+      "registerHits": 9,
+      "registerFirst": 18258,
+      "buildSpecHits": 1,
+      "invokedBy": []
+    },
+    {
+      "path": ".github/WORKFLOWS-SPEC.md",
+      "lane": "A",
+      "proposedRole": "channel template or spec",
+      "phaseManifestRow": "§5A.4 row",
+      "frozenBlob": "1d050d755ff6c6744ddc05fb5b1dc88d885e0f85",
+      "headBlob": "1d050d755ff6c6744ddc05fb5b1dc88d885e0f85",
+      "unchangedAtHead": true,
+      "inventoryRow": [
+        40
+      ],
+      "inventoryDs": [
+        "D-92",
+        "D-84"
+      ],
+      "registerHits": 23,
+      "registerFirst": 4802,
+      "buildSpecHits": 1,
+      "invokedBy": []
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "lane": "C",
+      "proposedRole": "workflow",
+      "phaseManifestRow": "§5A.6 exclusion row",
+      "frozenBlob": "90dff7d1d58fb0a73897ffe88422d8ef425f5be8",
+      "headBlob": "90dff7d1d58fb0a73897ffe88422d8ef425f5be8",
+      "unchangedAtHead": true,
+      "inventoryRow": [],
+      "inventoryDs": [],
+      "registerHits": 7,
+      "registerFirst": 3162,
+      "buildSpecHits": 1,
+      "invokedBy": [
+        "scripts/fixtures/suites.mjs"
+      ]
+    },
+    {
+      "path": ".gitignore",
+      "lane": "A",
+      "proposedRole": "configuration",
+      "phaseManifestRow": "none",
+      "frozenBlob": "2e23c6242f16f6d0feea5f4462004e462c1e94fe",
+      "headBlob": "2e23c6242f16f6d0feea5f4462004e462c1e94fe",
+      "unchangedAtHead": true,
+      "inventoryRow": [],
+      "inventoryDs": [],
+      "registerHits": 12,
+      "registerFirst": 304,
+      "buildSpecHits": 0,
+      "invokedBy": []
+    },
+    {
+      "path": "AGENTS.md",
+      "lane": "A",
+      "proposedRole": "agent instruction",
+      "phaseManifestRow": "§5A.4 row",
+      "frozenBlob": "262ca3722150dc130f81028770b7b2a1c70cc2c1",
+      "headBlob": "262ca3722150dc130f81028770b7b2a1c70cc2c1",
+      "unchangedAtHead": true,
+      "inventoryRow": [],
+      "inventoryDs": [],
+      "registerHits": 200,
+      "registerFirst": 46,
+      "buildSpecHits": 6,
+      "invokedBy": [
+        "scripts/fixtures/suites.mjs"
+      ]
+    },
+    {
+      "path": "app/page.tsx",
+      "lane": "B",
+      "proposedRole": "application implementation",
+      "phaseManifestRow": "none",
+      "frozenBlob": "59503ef1573ea14354fb233011a30c4c494688da",
+      "headBlob": "59503ef1573ea14354fb233011a30c4c494688da",
+      "unchangedAtHead": true,
+      "inventoryRow": [],
+      "inventoryDs": [],
+      "registerHits": 0,
+      "registerFirst": null,
+      "buildSpecHits": 0,
+      "invokedBy": [
+        "scripts/fixtures/suites.mjs"
+      ]
+    },
+    {
+      "path": "bun.lockb",
+      "lane": "A",
+      "proposedRole": "reproducibility control",
+      "phaseManifestRow": "none",
+      "frozenBlob": "fe54bc5a7104c6d7e4e70500381b5fc7920513e4",
+      "headBlob": "fe54bc5a7104c6d7e4e70500381b5fc7920513e4",
+      "unchangedAtHead": true,
+      "inventoryRow": [
+        65
+      ],
+      "inventoryDs": [
+        "D-64",
+        "D-94",
+        "D-71"
+      ],
+      "registerHits": 15,
+      "registerFirst": 304,
+      "buildSpecHits": 1,
+      "invokedBy": []
+    },
+    {
+      "path": "CLAUDE.md",
+      "lane": "A",
+      "proposedRole": "agent instruction",
+      "phaseManifestRow": "§5A.4 row",
+      "frozenBlob": "e5e7b631d0f7a7e11591769bfff882ad23826315",
+      "headBlob": "e5e7b631d0f7a7e11591769bfff882ad23826315",
+      "unchangedAtHead": true,
+      "inventoryRow": [],
+      "inventoryDs": [],
+      "registerHits": 144,
+      "registerFirst": 46,
+      "buildSpecHits": 4,
+      "invokedBy": [
+        "scripts/fixtures/suites.mjs"
+      ]
+    },
+    {
+      "path": "eslint.config.mjs",
+      "lane": "A",
+      "proposedRole": "configuration",
+      "phaseManifestRow": "none",
+      "frozenBlob": "6bc0f3dc4c7a16bb9cc969d915fa5518871f0477",
+      "headBlob": "6bc0f3dc4c7a16bb9cc969d915fa5518871f0477",
+      "unchangedAtHead": true,
+      "inventoryRow": [
+        68
+      ],
+      "inventoryDs": [
+        "D-66",
+        "D-70"
+      ],
+      "registerHits": 12,
+      "registerFirst": 259,
+      "buildSpecHits": 1,
+      "invokedBy": []
+    },
+    {
+      "path": "GEMINI.md",
+      "lane": "A",
+      "proposedRole": "agent instruction",
+      "phaseManifestRow": "§5A.4 row",
+      "frozenBlob": "ad4c15657667ab20d52cc5d7f9d6abd64f500757",
+      "headBlob": "ad4c15657667ab20d52cc5d7f9d6abd64f500757",
+      "unchangedAtHead": true,
+      "inventoryRow": [
+        21
+      ],
+      "inventoryDs": [
+        "D-324",
+        "D-337",
+        "D-325",
+        "D-328",
+        "D-331"
+      ],
+      "registerHits": 52,
+      "registerFirst": 19458,
+      "buildSpecHits": 1,
+      "invokedBy": [
+        "scripts/fixtures/suites.mjs"
+      ]
+    },
+    {
+      "path": "lib/config/build-config.ts",
+      "lane": "B",
+      "proposedRole": "application configuration",
+      "phaseManifestRow": "none",
+      "frozenBlob": "e0268deb561be4088be14240a438da1ca2a76ca1",
+      "headBlob": "e0268deb561be4088be14240a438da1ca2a76ca1",
+      "unchangedAtHead": true,
+      "inventoryRow": [
+        57
+      ],
+      "inventoryDs": [
+        "D-94",
+        "D-161"
+      ],
+      "registerHits": 13,
+      "registerFirst": 3286,
+      "buildSpecHits": 1,
+      "invokedBy": [
+        "scripts/fixtures/suites.mjs"
+      ]
+    },
+    {
+      "path": "lib/config/flags.ts",
+      "lane": "B",
+      "proposedRole": "application configuration",
+      "phaseManifestRow": "none",
+      "frozenBlob": "dc431e17138b32afb5bbb0efb5cc765ecb61c790",
+      "headBlob": "dc431e17138b32afb5bbb0efb5cc765ecb61c790",
+      "unchangedAtHead": true,
+      "inventoryRow": [
+        58
+      ],
+      "inventoryDs": [
+        "D-161"
+      ],
+      "registerHits": 3,
+      "registerFirst": 4636,
+      "buildSpecHits": 1,
+      "invokedBy": []
+    },
+    {
+      "path": "lib/supabase/middleware.ts",
+      "lane": "B",
+      "proposedRole": "application implementation",
+      "phaseManifestRow": "none",
+      "frozenBlob": "974c0120d7402e5f188b6f6749914e628b534b8d",
+      "headBlob": "974c0120d7402e5f188b6f6749914e628b534b8d",
+      "unchangedAtHead": true,
+      "inventoryRow": [],
+      "inventoryDs": [],
+      "registerHits": 2,
+      "registerFirst": 2140,
+      "buildSpecHits": 0,
+      "invokedBy": []
+    },
+    {
+      "path": "lib/supabase/server.ts",
+      "lane": "B",
+      "proposedRole": "application implementation",
+      "phaseManifestRow": "none",
+      "frozenBlob": "6d8d40474639edde312e270e4d7da59fef846e24",
+      "headBlob": "6d8d40474639edde312e270e4d7da59fef846e24",
+      "unchangedAtHead": true,
+      "inventoryRow": [],
+      "inventoryDs": [],
+      "registerHits": 2,
+      "registerFirst": 2140,
+      "buildSpecHits": 0,
+      "invokedBy": []
+    },
+    {
+      "path": "next.config.ts",
+      "lane": "A",
+      "proposedRole": "configuration",
+      "phaseManifestRow": "none",
+      "frozenBlob": "f43b45a418c356af3547e9f8a847ef2c7531e9df",
+      "headBlob": "f43b45a418c356af3547e9f8a847ef2c7531e9df",
+      "unchangedAtHead": true,
+      "inventoryRow": [],
+      "inventoryDs": [],
+      "registerHits": 6,
+      "registerFirst": 1604,
+      "buildSpecHits": 1,
+      "invokedBy": [
+        ".github/workflows/ci.yml"
+      ]
+    },
+    {
+      "path": "package.json",
+      "lane": "A",
+      "proposedRole": "configuration",
+      "phaseManifestRow": "none",
+      "frozenBlob": "2a0a4fbc401590572a37bb96996718d382f11b67",
+      "headBlob": "2a0a4fbc401590572a37bb96996718d382f11b67",
+      "unchangedAtHead": true,
+      "inventoryRow": [],
+      "inventoryDs": [],
+      "registerHits": 15,
+      "registerFirst": 257,
+      "buildSpecHits": 1,
+      "invokedBy": [
+        ".github/workflows/ci.yml"
+      ]
+    },
+    {
+      "path": "postcss.config.mjs",
+      "lane": "A",
+      "proposedRole": "configuration",
+      "phaseManifestRow": "none",
+      "frozenBlob": "61e36849cf7cfa9f1f71b4a3964a4953e3e243d3",
+      "headBlob": "61e36849cf7cfa9f1f71b4a3964a4953e3e243d3",
+      "unchangedAtHead": true,
+      "inventoryRow": [],
+      "inventoryDs": [],
+      "registerHits": 1,
+      "registerFirst": 14734,
+      "buildSpecHits": 0,
+      "invokedBy": []
+    },
+    {
+      "path": "scripts/check-consistency.mjs",
+      "lane": "A",
+      "proposedRole": "control (check or gate)",
+      "phaseManifestRow": "§5A.5 row",
+      "frozenBlob": "0ca4ab6a3de739e834d0c7c6e1f460dee2ff0146",
+      "headBlob": "0ca4ab6a3de739e834d0c7c6e1f460dee2ff0146",
+      "unchangedAtHead": true,
+      "inventoryRow": [],
+      "inventoryDs": [],
+      "registerHits": 2,
+      "registerFirst": 3347,
+      "buildSpecHits": 1,
+      "invokedBy": [
+        "package.json",
+        "scripts/fixtures/suites.mjs"
+      ]
+    },
+    {
+      "path": "scripts/checks/channel-docs.mjs",
+      "lane": "A",
+      "proposedRole": "control (check or gate)",
+      "phaseManifestRow": "§5A.5 row",
+      "frozenBlob": "ba13bfd04aec7eb1b5a0ad29e1cb52bbf595c90b",
+      "headBlob": "ba13bfd04aec7eb1b5a0ad29e1cb52bbf595c90b",
+      "unchangedAtHead": true,
+      "inventoryRow": [
+        27
+      ],
+      "inventoryDs": [
+        "D-104",
+        "D-105"
+      ],
+      "registerHits": 0,
+      "registerFirst": null,
+      "buildSpecHits": 0,
+      "invokedBy": [
+        "scripts/check-consistency.mjs",
+        "scripts/fixtures/suites.mjs"
+      ]
+    },
+    {
+      "path": "scripts/checks/closure-readiness.mjs",
+      "lane": "A",
+      "proposedRole": "control (check or gate)",
+      "phaseManifestRow": "§5A.5 row",
+      "frozenBlob": "fa135445d366a67be08b6b7a46307b67baa76c65",
+      "headBlob": "fa135445d366a67be08b6b7a46307b67baa76c65",
+      "unchangedAtHead": true,
+      "inventoryRow": [
+        32
+      ],
+      "inventoryDs": [
+        "D-101"
+      ],
+      "registerHits": 2,
+      "registerFirst": 13623,
+      "buildSpecHits": 0,
+      "invokedBy": [
+        "scripts/check-consistency.mjs",
+        "scripts/fixtures/suites.mjs"
+      ]
+    },
+    {
+      "path": "scripts/checks/config-coupling.mjs",
+      "lane": "A",
+      "proposedRole": "control (check or gate)",
+      "phaseManifestRow": "§5A.5 row",
+      "frozenBlob": "c8644dbe5d3176d51f6a13ebb095a20cfa95c935",
+      "headBlob": "c8644dbe5d3176d51f6a13ebb095a20cfa95c935",
+      "unchangedAtHead": true,
+      "inventoryRow": [
+        37
+      ],
+      "inventoryDs": [
+        "D-95"
+      ],
+      "registerHits": 0,
+      "registerFirst": null,
+      "buildSpecHits": 0,
+      "invokedBy": [
+        "scripts/check-consistency.mjs",
+        "scripts/fixtures/suites.mjs"
+      ]
+    },
+    {
+      "path": "scripts/checks/decision-status.mjs",
+      "lane": "A",
+      "proposedRole": "control (check or gate)",
+      "phaseManifestRow": "§5A.5 row",
+      "frozenBlob": "8f175b2f6b83cac522c992fbefb1fd95c67792fb",
+      "headBlob": "8f175b2f6b83cac522c992fbefb1fd95c67792fb",
+      "unchangedAtHead": true,
+      "inventoryRow": [],
+      "inventoryDs": [],
+      "registerHits": 1,
+      "registerFirst": 262,
+      "buildSpecHits": 0,
+      "invokedBy": [
+        "scripts/check-consistency.mjs"
+      ]
+    },
+    {
+      "path": "scripts/checks/docs-drift.mjs",
+      "lane": "A",
+      "proposedRole": "control (check or gate)",
+      "phaseManifestRow": "§5A.5 row",
+      "frozenBlob": "571247b33729dad44a8c5c6e9bf586aca4658114",
+      "headBlob": "571247b33729dad44a8c5c6e9bf586aca4658114",
+      "unchangedAtHead": true,
+      "inventoryRow": [],
+      "inventoryDs": [],
+      "registerHits": 9,
+      "registerFirst": 3939,
+      "buildSpecHits": 0,
+      "invokedBy": [
+        "scripts/check-consistency.mjs",
+        "scripts/graphify/guarded-rebuild.mjs",
+        "scripts/fixtures/suites.mjs"
+      ]
+    },
+    {
+      "path": "scripts/checks/duplicate-ids.mjs",
+      "lane": "A",
+      "proposedRole": "control (check or gate)",
+      "phaseManifestRow": "§5A.5 row",
+      "frozenBlob": "0ce81bf1ecefea52a1f810b1a03529d24be6a41d",
+      "headBlob": "0ce81bf1ecefea52a1f810b1a03529d24be6a41d",
+      "unchangedAtHead": true,
+      "inventoryRow": [],
+      "inventoryDs": [],
+      "registerHits": 0,
+      "registerFirst": null,
+      "buildSpecHits": 0,
+      "invokedBy": [
+        "scripts/check-consistency.mjs"
+      ]
+    },
+    {
+      "path": "scripts/checks/governed-intent.mjs",
+      "lane": "A",
+      "proposedRole": "control (check or gate)",
+      "phaseManifestRow": "none",
+      "frozenBlob": "4cd717ebf31af8afcdba1871900a4e49d58bbd74",
+      "headBlob": "4cd717ebf31af8afcdba1871900a4e49d58bbd74",
+      "unchangedAtHead": true,
+      "inventoryRow": [
+        51
+      ],
+      "inventoryDs": [
+        "D-231",
+        "D-246"
+      ],
+      "registerHits": 7,
+      "registerFirst": 17109,
+      "buildSpecHits": 1,
+      "invokedBy": [
+        "scripts/fixtures/suites.mjs"
+      ]
+    },
+    {
+      "path": "scripts/checks/graph-coverage.mjs",
+      "lane": "A",
+      "proposedRole": "control (check or gate)",
+      "phaseManifestRow": "§5A.5 row",
+      "frozenBlob": "1f20e5600066cdf50b00a626905d2e5ae6f38141",
+      "headBlob": "1f20e5600066cdf50b00a626905d2e5ae6f38141",
+      "unchangedAtHead": true,
+      "inventoryRow": [],
+      "inventoryDs": [],
+      "registerHits": 3,
+      "registerFirst": 17156,
+      "buildSpecHits": 0,
+      "invokedBy": [
+        "scripts/check-consistency.mjs",
+        "scripts/fixtures/suites.mjs"
+      ]
+    },
+    {
+      "path": "scripts/checks/handoff-fields.mjs",
+      "lane": "A",
+      "proposedRole": "control (check or gate)",
+      "phaseManifestRow": "§5A.5 row",
+      "frozenBlob": "55a5e3130d6dc6c884fb8a32c4e5695db871db78",
+      "headBlob": "55a5e3130d6dc6c884fb8a32c4e5695db871db78",
+      "unchangedAtHead": true,
+      "inventoryRow": [
+        30
+      ],
+      "inventoryDs": [
+        "D-102"
+      ],
+      "registerHits": 3,
+      "registerFirst": 273,
+      "buildSpecHits": 0,
+      "invokedBy": [
+        "scripts/fixtures/suites.mjs"
+      ]
+    },
+    {
+      "path": "scripts/checks/handoff-response.mjs",
+      "lane": "A",
+      "proposedRole": "control (check or gate)",
+      "phaseManifestRow": "§5A.5 row",
+      "frozenBlob": "11868167dadd10260603998e942fe9314eeb4cfc",
+      "headBlob": "11868167dadd10260603998e942fe9314eeb4cfc",
+      "unchangedAtHead": true,
+      "inventoryRow": [
+        46
+      ],
+      "inventoryDs": [
+        "D-90"
+      ],
+      "registerHits": 3,
+      "registerFirst": 4601,
+      "buildSpecHits": 0,
+      "invokedBy": [
+        "scripts/check-consistency.mjs",
+        "scripts/fixtures/suites.mjs"
+      ]
+    },
+    {
+      "path": "scripts/checks/lane-boundary.mjs",
+      "lane": "A",
+      "proposedRole": "control (check or gate)",
+      "phaseManifestRow": "§5A.5 row",
+      "frozenBlob": "276f83406519a2692a7d3bbb51e666127f157d84",
+      "headBlob": "276f83406519a2692a7d3bbb51e666127f157d84",
+      "unchangedAtHead": true,
+      "inventoryRow": [
+        50
+      ],
+      "inventoryDs": [
+        "D-83",
+        "D-75"
+      ],
+      "registerHits": 9,
+      "registerFirst": 266,
+      "buildSpecHits": 1,
+      "invokedBy": [
+        "scripts/check-consistency.mjs",
+        "scripts/fixtures/suites.mjs"
+      ]
+    },
+    {
+      "path": "scripts/checks/lane-state.mjs",
+      "lane": "A",
+      "proposedRole": "control (check or gate)",
+      "phaseManifestRow": "§5A.5 row",
+      "frozenBlob": "0bc7caa1d4104b6da38bd4f45b06303c9fd25afb",
+      "headBlob": "0bc7caa1d4104b6da38bd4f45b06303c9fd25afb",
+      "unchangedAtHead": true,
+      "inventoryRow": [
+        28
+      ],
+      "inventoryDs": [
+        "D-103",
+        "D-156",
+        "D-108"
+      ],
+      "registerHits": 2,
+      "registerFirst": 10428,
+      "buildSpecHits": 0,
+      "invokedBy": [
+        "scripts/check-consistency.mjs",
+        "scripts/fixtures/suites.mjs"
+      ]
+    },
+    {
+      "path": "scripts/checks/phase-manifest.mjs",
+      "lane": "A",
+      "proposedRole": "control (check or gate)",
+      "phaseManifestRow": "§5A.5 row",
+      "frozenBlob": "d1aa71a96b9c462629b1d8ec17ea8db0de0654bf",
+      "headBlob": "d1aa71a96b9c462629b1d8ec17ea8db0de0654bf",
+      "unchangedAtHead": true,
+      "inventoryRow": [
+        38
+      ],
+      "inventoryDs": [
+        "D-94",
+        "D-95"
+      ],
+      "registerHits": 0,
+      "registerFirst": null,
+      "buildSpecHits": 0,
+      "invokedBy": [
+        "scripts/check-consistency.mjs"
+      ]
+    },
+    {
+      "path": "scripts/checks/retention-policy-coupling.mjs",
+      "lane": "A",
+      "proposedRole": "control (check or gate)",
+      "phaseManifestRow": "none",
+      "frozenBlob": "bf5935b26d751b825deecdfa7b5d93aa2063282f",
+      "headBlob": "bf5935b26d751b825deecdfa7b5d93aa2063282f",
+      "unchangedAtHead": true,
+      "inventoryRow": [
+        17
+      ],
+      "inventoryDs": [
+        "D-134",
+        "D-135"
+      ],
+      "registerHits": 2,
+      "registerFirst": 8771,
+      "buildSpecHits": 0,
+      "invokedBy": [
+        "scripts/check-consistency.mjs",
+        "scripts/fixtures/suites.mjs"
+      ]
+    },
+    {
+      "path": "scripts/checks/rule-budget.mjs",
+      "lane": "A",
+      "proposedRole": "control (check or gate)",
+      "phaseManifestRow": "§5A.5 row",
+      "frozenBlob": "205620ef80344123c3084329086052f1751d1d6d",
+      "headBlob": "205620ef80344123c3084329086052f1751d1d6d",
+      "unchangedAtHead": true,
+      "inventoryRow": [
+        19
+      ],
+      "inventoryDs": [
+        "D-324",
+        "D-337",
+        "D-327"
+      ],
+      "registerHits": 1,
+      "registerFirst": 23141,
+      "buildSpecHits": 0,
+      "invokedBy": [
+        "scripts/check-consistency.mjs",
+        "scripts/fixtures/suites.mjs"
+      ]
+    },
+    {
+      "path": "scripts/checks/settings-parse.mjs",
+      "lane": "A",
+      "proposedRole": "control (check or gate)",
+      "phaseManifestRow": "§5A.5 row",
+      "frozenBlob": "e3393e24caf24f9365034fe6d38052022141211e",
+      "headBlob": "e3393e24caf24f9365034fe6d38052022141211e",
+      "unchangedAtHead": true,
+      "inventoryRow": [],
+      "inventoryDs": [],
+      "registerHits": 2,
+      "registerFirst": 263,
+      "buildSpecHits": 0,
+      "invokedBy": [
+        "scripts/check-consistency.mjs"
+      ]
+    },
+    {
+      "path": "scripts/checks/source-sweep.mjs",
+      "lane": "A",
+      "proposedRole": "control (check or gate)",
+      "phaseManifestRow": "§5A.5 row",
+      "frozenBlob": "c05c08dd83cd560faee7fa7a55599d8ba4e75b8e",
+      "headBlob": "c05c08dd83cd560faee7fa7a55599d8ba4e75b8e",
+      "unchangedAtHead": true,
+      "inventoryRow": [
+        49
+      ],
+      "inventoryDs": [
+        "D-87"
+      ],
+      "registerHits": 0,
+      "registerFirst": null,
+      "buildSpecHits": 0,
+      "invokedBy": [
+        "scripts/check-consistency.mjs"
+      ]
+    },
+    {
+      "path": "scripts/checks/sync-docs-uniqueness.mjs",
+      "lane": "A",
+      "proposedRole": "control (check or gate)",
+      "phaseManifestRow": "§5A.5 row",
+      "frozenBlob": "cbfa5b227b2c1b61ec30fb3eb27382e2d2750fff",
+      "headBlob": "cbfa5b227b2c1b61ec30fb3eb27382e2d2750fff",
+      "unchangedAtHead": true,
+      "inventoryRow": [
+        31
+      ],
+      "inventoryDs": [
+        "D-102"
+      ],
+      "registerHits": 0,
+      "registerFirst": null,
+      "buildSpecHits": 0,
+      "invokedBy": [
+        "scripts/check-consistency.mjs",
+        "scripts/fixtures/suites.mjs"
+      ]
+    },
+    {
+      "path": "scripts/checks/text-integrity.mjs",
+      "lane": "A",
+      "proposedRole": "control (check or gate)",
+      "phaseManifestRow": "none",
+      "frozenBlob": "636b83890722a0e6c1cc4fb1dbef9dc28f4b89ab",
+      "headBlob": "636b83890722a0e6c1cc4fb1dbef9dc28f4b89ab",
+      "unchangedAtHead": true,
+      "inventoryRow": [
+        18
+      ],
+      "inventoryDs": [
+        "D-297",
+        "D-290",
+        "D-292",
+        "D-295"
+      ],
+      "registerHits": 3,
+      "registerFirst": 21191,
+      "buildSpecHits": 0,
+      "invokedBy": [
+        "scripts/check-consistency.mjs",
+        "scripts/fixtures/suites.mjs"
+      ]
+    },
+    {
+      "path": "scripts/checks/tier-sweep.mjs",
+      "lane": "A",
+      "proposedRole": "control (check or gate)",
+      "phaseManifestRow": "§5A.5 row",
+      "frozenBlob": "6c6ee24e9cc2c288698a0cfce08370fe533be78b",
+      "headBlob": "6c6ee24e9cc2c288698a0cfce08370fe533be78b",
+      "unchangedAtHead": true,
+      "inventoryRow": [],
+      "inventoryDs": [],
+      "registerHits": 4,
+      "registerFirst": 265,
+      "buildSpecHits": 0,
+      "invokedBy": [
+        "scripts/check-consistency.mjs",
+        "scripts/fixtures/suites.mjs"
+      ]
+    },
+    {
+      "path": "scripts/fixtures/graphify-guard.test.mjs",
+      "lane": "A",
+      "proposedRole": "tooling test",
+      "phaseManifestRow": "none",
+      "frozenBlob": "ede52a6022ba92ed6718c7394bb17f6086b9dd47",
+      "headBlob": "ede52a6022ba92ed6718c7394bb17f6086b9dd47",
+      "unchangedAtHead": true,
+      "inventoryRow": [
+        53
+      ],
+      "inventoryDs": [
+        "D-418"
+      ],
+      "registerHits": 9,
+      "registerFirst": 27193,
+      "buildSpecHits": 0,
+      "invokedBy": []
+    },
+    {
+      "path": "scripts/fixtures/harness.mjs",
+      "lane": "A",
+      "proposedRole": "tooling test",
+      "phaseManifestRow": "none",
+      "frozenBlob": "43a4dd39004a6eef899fb7c44f29a8abe284c513",
+      "headBlob": "43a4dd39004a6eef899fb7c44f29a8abe284c513",
+      "unchangedAtHead": true,
+      "inventoryRow": [],
+      "inventoryDs": [],
+      "registerHits": 5,
+      "registerFirst": 9530,
+      "buildSpecHits": 0,
+      "invokedBy": [
+        "scripts/fixtures/suites.mjs"
+      ]
+    },
+    {
+      "path": "scripts/fixtures/run.mjs",
+      "lane": "A",
+      "proposedRole": "tooling test",
+      "phaseManifestRow": "none",
+      "frozenBlob": "62e35dde4a6301f68606b60e437d2e5a0ed6ec21",
+      "headBlob": "62e35dde4a6301f68606b60e437d2e5a0ed6ec21",
+      "unchangedAtHead": true,
+      "inventoryRow": [],
+      "inventoryDs": [],
+      "registerHits": 4,
+      "registerFirst": 2902,
+      "buildSpecHits": 0,
+      "invokedBy": [
+        "package.json"
+      ]
+    },
+    {
+      "path": "scripts/fixtures/suites.mjs",
+      "lane": "A",
+      "proposedRole": "tooling test",
+      "phaseManifestRow": "none",
+      "frozenBlob": "8326802a886a4dd90b867a2a4adb4e186d49ac97",
+      "headBlob": "8326802a886a4dd90b867a2a4adb4e186d49ac97",
+      "unchangedAtHead": true,
+      "inventoryRow": [],
+      "inventoryDs": [],
+      "registerHits": 20,
+      "registerFirst": 319,
+      "buildSpecHits": 0,
+      "invokedBy": []
+    },
+    {
+      "path": "scripts/graphify/guarded-rebuild.mjs",
+      "lane": "A",
+      "proposedRole": "tooling implementation",
+      "phaseManifestRow": "none",
+      "frozenBlob": "f06a531d1cc4aa9d28a38f27a8ae8268a265c005",
+      "headBlob": "f06a531d1cc4aa9d28a38f27a8ae8268a265c005",
+      "unchangedAtHead": true,
+      "inventoryRow": [
+        52
+      ],
+      "inventoryDs": [
+        "D-418"
+      ],
+      "registerHits": 9,
+      "registerFirst": 27192,
+      "buildSpecHits": 0,
+      "invokedBy": []
+    },
+    {
+      "path": "scripts/jev/jev.mjs",
+      "lane": "A",
+      "proposedRole": "tooling implementation",
+      "phaseManifestRow": "none",
+      "frozenBlob": "6c6d994cbaf927a11bfdc46888ffe388d14cd19f",
+      "headBlob": "6c6d994cbaf927a11bfdc46888ffe388d14cd19f",
+      "unchangedAtHead": true,
+      "inventoryRow": [],
+      "inventoryDs": [],
+      "registerHits": 0,
+      "registerFirst": null,
+      "buildSpecHits": 0,
+      "invokedBy": [
+        "package.json"
+      ]
+    },
+    {
+      "path": "scripts/jev/lib.mjs",
+      "lane": "A",
+      "proposedRole": "tooling implementation",
+      "phaseManifestRow": "none",
+      "frozenBlob": "0517fda1c5a34e115991444e34241774247d5343",
+      "headBlob": "0517fda1c5a34e115991444e34241774247d5343",
+      "unchangedAtHead": true,
+      "inventoryRow": [
+        99
+      ],
+      "inventoryDs": [
+        "D-259"
+      ],
+      "registerHits": 0,
+      "registerFirst": null,
+      "buildSpecHits": 0,
+      "invokedBy": []
+    },
+    {
+      "path": "scripts/jev/manifests/V1-SM05.json",
+      "lane": "A",
+      "proposedRole": "control data",
+      "phaseManifestRow": "none",
+      "frozenBlob": "b39719e90a460f150c1ab4d930ad51cd3aca4cd8",
+      "headBlob": "b39719e90a460f150c1ab4d930ad51cd3aca4cd8",
+      "unchangedAtHead": true,
+      "inventoryRow": [
+        100
+      ],
+      "inventoryDs": [
+        "D-259",
+        "D-260"
+      ],
+      "registerHits": 2,
+      "registerFirst": 20739,
+      "buildSpecHits": 0,
+      "invokedBy": []
+    },
+    {
+      "path": "scripts/jev/selftest.mjs",
+      "lane": "A",
+      "proposedRole": "tooling test",
+      "phaseManifestRow": "none",
+      "frozenBlob": "41e4aa20ed56cc4628b34b4fe7267865b413bc92",
+      "headBlob": "41e4aa20ed56cc4628b34b4fe7267865b413bc92",
+      "unchangedAtHead": true,
+      "inventoryRow": [],
+      "inventoryDs": [],
+      "registerHits": 0,
+      "registerFirst": null,
+      "buildSpecHits": 0,
+      "invokedBy": [
+        "package.json"
+      ]
+    },
+    {
+      "path": "scripts/lane-gate.mjs",
+      "lane": "A",
+      "proposedRole": "control (check or gate)",
+      "phaseManifestRow": "§5A.5 row",
+      "frozenBlob": "a4d81d446e7faeb351c93b6f6891835d89eb098c",
+      "headBlob": "a4d81d446e7faeb351c93b6f6891835d89eb098c",
+      "unchangedAtHead": true,
+      "inventoryRow": [
+        26,
+        48,
+        238
+      ],
+      "inventoryDs": [
+        "D-88",
+        "D-105"
+      ],
+      "registerHits": 10,
+      "registerFirst": 2875,
+      "buildSpecHits": 0,
+      "invokedBy": [
+        ".githooks/commit-msg",
+        "scripts/fixtures/suites.mjs"
+      ]
+    },
+    {
+      "path": "supabase/config.toml",
+      "lane": "B",
+      "proposedRole": "configuration",
+      "phaseManifestRow": "none",
+      "frozenBlob": "6d8b806125fb708f8d63eeb2bb86c2357fbc73da",
+      "headBlob": "6d8b806125fb708f8d63eeb2bb86c2357fbc73da",
+      "unchangedAtHead": true,
+      "inventoryRow": [],
+      "inventoryDs": [],
+      "registerHits": 2,
+      "registerFirst": 8011,
+      "buildSpecHits": 0,
+      "invokedBy": []
+    },
+    {
+      "path": "supabase/migrations/0001_init.sql",
+      "lane": "B",
+      "proposedRole": "schema",
+      "phaseManifestRow": "none",
+      "frozenBlob": "091837367c9ffb02613069bb252f7c7697a5cd84",
+      "headBlob": "091837367c9ffb02613069bb252f7c7697a5cd84",
+      "unchangedAtHead": true,
+      "inventoryRow": [
+        74
+      ],
+      "inventoryDs": [],
+      "registerHits": 2,
+      "registerFirst": 2492,
+      "buildSpecHits": 0,
+      "invokedBy": []
+    },
+    {
+      "path": "supabase/migrations/0002_s1_editorial_schema.sql",
+      "lane": "B",
+      "proposedRole": "schema",
+      "phaseManifestRow": "none",
+      "frozenBlob": "4ee6fa1c9a4bb3ee0c9e6acd081d0a18b1c1ddc3",
+      "headBlob": "4ee6fa1c9a4bb3ee0c9e6acd081d0a18b1c1ddc3",
+      "unchangedAtHead": true,
+      "inventoryRow": [
+        61
+      ],
+      "inventoryDs": [
+        "D-93",
+        "D-161",
+        "D-112",
+        "D-111",
+        "D-114"
+      ],
+      "registerHits": 2,
+      "registerFirst": 8640,
+      "buildSpecHits": 0,
+      "invokedBy": []
+    },
+    {
+      "path": "tsconfig.json",
+      "lane": "A",
+      "proposedRole": "configuration",
+      "phaseManifestRow": "none",
+      "frozenBlob": "0c6690833bba671e3cf83a9d5be688bd8ace7811",
+      "headBlob": "0c6690833bba671e3cf83a9d5be688bd8ace7811",
+      "unchangedAtHead": true,
+      "inventoryRow": [],
+      "inventoryDs": [],
+      "registerHits": 3,
+      "registerFirst": 4228,
+      "buildSpecHits": 0,
+      "invokedBy": []
+    }
+  ]
+}

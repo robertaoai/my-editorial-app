@@ -36,7 +36,7 @@ heading is what a reader acts on. **The heading is gone.**
 |---|---|
 | **`Active` means you may commit.** | Exactly one lane may, and only while §5 says it is you |
 | **`Blocked` means another lane is running.** | You may still **read anything**, and you may still **write in `docs/handoff/`** — that carve-out exists so reporting is never blocked (`D-103` §5.1) |
-| **`Eligible` means nominated as next holder, not yet executing work product.** | It **may coexist with the `Active` lane** — that pairing IS the offer. No work-product commit is permitted; `D-184` separately permits committing and pushing **only your own single handoff entry** under `docs/handoff/README.md`. Promotion to `Active` follows `D-156` |
+| **`Eligible` means nominated as next holder, not yet executing work product.** | It **may coexist with the `Active` lane** — that pairing IS the offer. No work-product commit is permitted; `D-184` separately permits committing and pushing **only your own single handoff entry** under `docs/handoff/README.md`. *Amended by `D-272`, 2026-09-27: you commit your own `B-` entries whatever your lane state, and you are also the **receiver** of `C-` entries whose `Receiver:` is `Lane B` — you write and commit their `Lane B:` answer by the same one-entry procedure.* Promotion to `Active` follows `D-156` |
 | **Phase 1 is still open.** | It closes last (`D-99`). Lane A leaving `Active` is not Phase 1 closing |
 | **`main` is not your problem.** | No agent deploys. `main` lagging the working branch is expected |
 
@@ -458,3 +458,10 @@ technical child: one MMF holds several children and one business outcome. Push l
 evidence; a green child test is never release authority. Your evidence reaches Lane C only through §6.
 If the MMF you were handed has no outcome, acceptance boundary or DoR evidence, that is a
 `blocked-on-decision` entry, not a gap to fill by guessing.
+
+**Scoped amendment for xDD units (`D-443`, 2026-10-19).** Inside an authorized `TB-1` or `TB-2` unit only, where you are
+`Active`, the push language above is amended as `docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md` §11 states: in `TB-1` you
+commit and push each Red behavioural test when every gate passes; in `TB-2` you push a Red → Green component only after
+its accepted integration evidence. The gates are in `docs/specs/SPECS-VERIFICATION-APPARATUS.md` §17.1. Outside such a
+unit, the `B-114` push language above stands. This amendment starts no unit and permits no current push: each unit needs
+its own Register act, work order and `Active` lane.

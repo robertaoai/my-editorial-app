@@ -10,7 +10,7 @@ version is active.
 
 | Location | Content |
 |---|---|
-| `docs/specs/SPEC-*.md` | Implementation **big picture** per component — schema, contracts, trigger logic, tech-stack |
+| `docs/specs/SPECS-*.md` *(corrected 2026-09-27, `D-271`, applying `B071-R63`: this row read `SPEC-*.md`, while every file here has always been `SPECS-*.md`; the files are the convention)* | Implementation **big picture** per component — schema, contracts, trigger logic, tech-stack |
 | `docs/specs/ux/UX-*.md` | UI/UX **per tech-stack** — e.g. Vue versus Angular for identical behaviour |
 
 ## The `D-30` redundancy rule
