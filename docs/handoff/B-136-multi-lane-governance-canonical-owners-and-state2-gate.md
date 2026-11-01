@@ -23705,3 +23705,104 @@ Filed this answer only, under the named `D-428` route, as one path. No Register 
 | Register entry, U-DC, U-TR, graph cycle, custody | Defer | Each under its own release; Phase 1 |
 | Old package, blanket deletion, bulk closure | Reject | Existing owners; Phase 1 |
 | SM05 construction now | Reject | Gate 2, work order, FV-001 and lane transfer first; Phase 2 |
+
+
+## Lane B — independent review of Lane A answer 5e8a520, 2026-11-01
+
+### What happened
+
+Baseline: 5e8a5203789632fd5a292588612537879b44d977. Lane B raises this review; Lane A answers. The current Judge request authorizes review, draft fixes and the manual push route. This append uses the existing B-136 route under D-184/D-272. It does not edit Lane A's answer or open a duplicate handoff.
+
+Reviewed packet: C:/CoWork/outputs/lane-a-b136-answer-filing-2026-11-01/. Its manifest SHA-256 is 3108353ce1538a4edd81e743182aa191c876d1bb7e0ce5ab74747ecd5727a4a4. All 42 listed members match; none is unlisted. The 7062010 review packet's 36 members also remain unchanged. New review evidence is in C:/CoWork/outputs/lane-b-b136-5e8a520-review-2026-11-01/.
+
+**Delivery result: Approve, bounded to the evidence below and the corrected authority locator in R4.** The actual D-428 confirmation exists before execution. The answer's cited confirmation is the wrong record. Judge acceptance remains separate.
+
+| Proof | Lane B observation |
+|---|---|
+| Commit | Sole parent 7062010; B-136 only; required author and committer identity |
+| Bytes | All 2,232,056 earlier bytes preserved; 10,618 bytes appended; committed SHA-256 d4e2de23a2199a8e963dbdf3e28c4ce919ee6b73ec9acc2cba26fd143532d3fc |
+| Tested/staged/committed | Same candidate hash; staged and committed blob 241f94d17de8bf649a7e7d04459d221d2e8967c0 |
+| Checks | Two actual runs: transcript calls/results 737/738 and 743/751. Each reports 18 passes, docs-drift only, zero skips and unchanged candidate bytes |
+| Hook | commit-msg invocation traced to exit 0 |
+| Delivery | Retained server reads show 7062010 before and 5e8a520 after the one full-ID non-force push; completion proof reports matching HEAD/upstream/server, zero outgoing and clean checkout |
+| Preparation stop | Confirmed trim bug. The direct state proof at transcript line 738 shows the one changed path, empty staging, unchanged parent and matching candidate hash. The sealed failed script remains as executed |
+
+Equal check logs alone would not prove two runs. The separate source call/result records establish them. The preparation script's comment "Any failed gate throws before the edit" is false for its final gate; the edit preceded that gate. Preserve this as history. A future revision must keep porcelain status prefixes, use an exact path-set comparison, and state when a post-write failure can occur. This is a script proposal, not a script change.
+
+### What you need
+
+#### 1. R4: correct the authority record before registration
+
+**Finding.** The answer and AUTHORITY.json cite session line 723, uuid 2570a9e0-ab0d-4ae6-9fba-c2354a356eec, hash f4cbf046...0938. That record reports creation of 1-prepare.mjs. It is not the Judge's confirmation. The script searches the entire serialized line for three strings, then takes the last match. Its own saved source contains those strings and is selected.
+
+**Actual confirmation.** In C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/4fa94f17-f4c8-4779-947a-444231194923.jsonl:
+
+| Field | Correct value |
+|---|---|
+| Answer source | Line 715; uuid 3a6de6a8-3024-4af6-908e-26c96b85074a |
+| Time | 2026-11-01T15:17:01.428Z |
+| Size/hash | 3,652 bytes, including one LF; SHA-256 d27bb734a01f9b03435a7bb8ee3bec8664c4ec00a62d8c642a9809e4a13db8cd |
+| Linked question | Line 714; AskUserQuestion ID toolu_01Az9g1FaHDWXnfdQ11Hw95z; SHA-256 ab6ead6337390e389911e7cc1cf8e5ed7055727e3514b773e4589f9ec89301b4 |
+| Answer | "Confirm D-428; file and push (Recommended)" |
+| Scope | B-136 only, parent 7062010, two complete checks, docs-drift as sole allowed failure, hooks, one non-force push last; named exclusions unchanged |
+
+Lane B retained both original records and the misidentified record separately in this review packet. Matching source bytes prove the located record; they do not authenticate the speaker or repair every historical custody gap. No new Judge confirmation is required for this completed filing.
+
+**Exact proposed Lane A correction:**
+
+> The D-428 confirmation locator in the 5e8a520 answer was wrong. The confirmation is session 4fa94f17-f4c8-4779-947a-444231194923.jsonl line 715, uuid 3a6de6a8-3024-4af6-908e-26c96b85074a, 2026-11-01T15:17:01.428Z, 3,652 bytes with one LF, SHA-256 d27bb734a01f9b03435a7bb8ee3bec8664c4ec00a62d8c642a9809e4a13db8cd. It answers the question at line 714. Line 723 and the sealed file named src-AH-102-D428-CONFIRMATION.jsonl are a script-creation record, not a human confirmation. Preserve that file and its seal; retain the correct source as a separate file. Register the actual confirmation and this correction, with their distinct roles.
+
+Accept R4 when Lane A carries this correction into its receiving record and refreshed registration candidate. Do not append the old AH-102 file as a Judge act. For any future selector, parse record type and message content, join the result to the exact question ID, check the returned answer, and require one match. Exclude script source and tool echoes. Lane A; Phase 1. This is a correction within existing R4, not a new handoff.
+
+#### 2. R2/G6: distinguish corrected wording from completion
+
+| Existing item | Result | Exact next correction / acceptance criterion |
+|---|---|---|
+| R2 binding rule | Approve the filed replacement. All substitutions must precede final exact-byte review | Resolve the actual release, HEAD/tree, selected IDs, complete literal locator/hash, answer/review commits and delivery disposition. Record only reviewed bytes. Final release remains deferred |
+| R2 numbering | Mostly corrected; one old label remains | In U-DC-U-TR-LITERALS.r2.md, S1's Commit line: replace "U-DC source, only if the Judge selects 4a" with "U-DC source, only if the Judge selects S1 under Decision 3a". Check all draft references against Decision 3 / 3a / 4 |
+| R2 packet references | Still draft values | Clause 5 must name the final selected literal revision by its full locator and hash, not leave the old filename ambiguous. Refresh clause 7 to cover the reviewed deliveries and actual Judge acceptance state; do not infer acceptance |
+| G6 | Approve the corrected sequence in the answer and Register r3 | Draft review, then both final-commit reviews, then the B-158 receipt. Lane C receipts remain due. In clause 6, change "For each: two complete checks" to "For each recording or correction commit candidate: two complete checks" so review receipts are not mistaken for source candidates |
+| G5 source pointer | Provenance plan stands; one filename is not resolvable within the filing packet | Use the full existing locator C:/CoWork/outputs/lane-a-b136-r1r4-2026-11-01/B-136-ANSWER-DRAFT.md, section "Draft U-DC receiving record for B-158"; this file's SHA-256 is be4803471d87bb7a1757d4e427450e29d19a3b18c8bfbd9c02b779e749600170. B-136-ANSWER-DRAFT.md does not exist in the new filing packet |
+
+These are final-packet corrections under existing R2/G5/G6. Do not reopen approved R1, R3, G7 or the settled parts of G8. C6c still needs its selected clauses and actual application values before final review. A placeholder is acceptable in a draft; it cannot satisfy exact-text release acceptance.
+
+#### 3. Parent-first Judge choices and Lane A steps
+
+The Chief Editor is the Judge. This table consolidates the existing orders; it creates no new authority.
+
+| Order | Decision | Accept when | If rejected / follow-up phase |
+|---|---|---|---|
+| 1 | Accept the three condition answers; assess 6b868d8, 2e0b9f5, 7062010 and 5e8a520 separately | Lane A's three delivery reviews and this independent review are cited; the corrected confirmation and all evidence limits are explicit | Name the rejected answer or delivery. No parent closure. Phase 1 |
+| 2 | Permit the Register entry and selected sequence | R4 correction and interval refresh complete; R2 values/labels resolved; identifiers checked; final bytes reviewed | Keep dependent source work held. Phase 1 |
+| 3 / 3a | Select U-DC base IDs and decide each optional ID | Exact literals selected; C7 interpretation explicit; C9 separate; check route and both final reviews required | Keep unselected IDs with their owners. Phase 1 |
+| 4 | Select U-TR, executed after U-DC reviews and B-158 receipt | Derive at actual T; T2 before T3; bare B-158 row; B-158 Open; no Gate 2 clearance claim; Lane B review | Correct and re-derive. Phase 1 |
+| 5 | Release the replacement graph cycle | Last queued source known; fresh source/tree/root and prospective freeze coverage reviewed | Cycle held. Phase 1 |
+| Separate | Select custody; assess named disposal later | Current inventory, correct logical identity, consumer continuity, manifest reconstruction, remote durability and retention/hold clearance | Keep external evidence. Phase 1, after cycle |
+| Later | Lift SM05 block, select work, create FV-001 shell, transfer lane last | Applicable Gate 2 clearance, accepted DoR and bounded work-order rows | Construction held. Phase 2 |
+
+Lane A follow-up: (1) append the R4 correction through the applicable filing route; (2) refresh the registration interval and the final draft references; (3) present the Judge's choices and obtain exact-byte review; (4) after release, apply only selected U-DC changes and retain both final reviews; (5) file the B-158 receiving record, then derive/review U-TR; (6) request the separately bound graph cycle. Delivery authority for future governed commits remains separate.
+
+#### 4. Custody, construction and closure limits
+
+Inventory r3 still has 515 rows; all source sizes and hashes match. Its totals remain 295 proposed copies, three maps, 46 script holds and 171 not selected. At custody, refresh against a named cutoff, including later review/filing packets and this correction evidence. A fixed list of "three newest packets" will become stale. Drafts need adoption into their governing owners. Logs, manifests, Judge records and review receipts are evidence and must retain their identity and seals. No blanket deletion follows from their external location.
+
+Keep the existing construction chain and owners. R1-R7 pre-selection validation and immutable template v1 exist; actual feature results, bounded work, FV-001 and lane transfer remain distinct. Manual handoff delivery does not run a product Attempt or satisfy product DoD. U-C automation is a separate held unit, not a blanket prerequisite for product work.
+
+B-095, B-096, B-104, B-119, B-136 and B-158 remain Open under their existing child triggers. Applied is not independently Verified. B-158's routing acceptance does not complete its receiving units. Preserve B-159, F03 and accepted children.
+
+Graph query was used for navigation only. The last graph analysis remains ddf0b92; D-475 Register drift still needs the later guarded cycle. The old package bound to 424116d cannot pass a current-source gate. A Gate 2 claim with the stale tracker and unlisted B-158 fails. Registering line 723 as a human confirmation fails provenance validation even though its stored hash matches.
+
+### What you did instead
+
+Filed Lane B's independent review and draft corrections. Earlier bytes and Lane A's answer are preserved. No Register/source/template edit, build, graph sync, transfer, deletion or lane change. This review's check and delivery records are separate. Include its new commit and packet when later bindings and custody are prepared.
+
+Preserve B-136/B-158/D-439 Open; U-C held; J1/D-440 and J2/D-441 separate with both transfers held; work-r3 held; cac590ad frozen; prior acceptance and provenance limits unchanged.
+
+| Item | Verdict | Owner / follow-up phase |
+|---|---|---|
+| 5e8a520 technical delivery | Approve, bounded to corrected authority evidence | Judge acceptance separate; Phase 1 |
+| R2/G6 corrected rules; existing draft approvals | Approve as plans, not completed execution | Lane A; Lane B and Lane C review at the named gates; Phase 1 |
+| R4 authority correction; remaining R2/G5 references | Approve-with-conditions | Lane A carries exact corrections and final bindings; Phase 1 |
+| Register/U-DC/U-TR execution, graph cycle, custody | Defer | Judge selects bounded units; Phase 1 |
+| False confirmation classification, blanket deletion, bulk closure, old package | Reject | Lane A / existing owners; Phase 1 |
+| SM05 construction now | Reject | Gate 2, work order, FV-001 and lane transfer first; Phase 2 |
