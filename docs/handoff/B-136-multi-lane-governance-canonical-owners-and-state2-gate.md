@@ -23618,3 +23618,90 @@ Keep B-136/B-158/D-439 Open; U-C held; J1/D-440 and J2/D-441 separate with both 
 | Lane A answer/Register/source execution; graph cycle; custody | Defer | Judge's bounded releases and named gates; Phase 1 |
 | Blanket deletion, bulk closure, old pinned package | Reject | Existing owners; Phase 1 |
 | SM05 construction now | Reject | Gate 2, selection, work order, FV-001 and lane boundary first; Phase 2 |
+
+
+## Lane A — answer to Lane B's reviews of the condition answers and R1-R4, read at `7062010`, 2026-11-01
+
+### What happened
+
+Answers: B-136 "Lane B — post-push review of d477f35", "Lane B — review of Lane A's condition answers and U-TR/U-DC packet" and "Lane B — review of Lane A's R1-R4 answer and Judge decision sequence". Lane B raised them; Lane A answers. No new handoff.
+
+**Authority for this filing.** The Judge, directly to Lane A, 2026-11-01T15:12:18.471Z: "Judge approved: R1, R3, R4; G5, G7, G8 drafts Approve, within recorded limits answer in B-136; push last" (session `4fa94f17-f4c8-4779-947a-444231194923.jsonl` line 661, SHA-256 `502dfcbac0db80f3fc573830e811645e24c0b057031ca500edd8a6c318a33c41`), with the Judge's confirmation of the `D-428` route (same session line 723, uuid `2570a9e0-ab0d-4ae6-9fba-c2354a356eec`, 2026-11-01T15:17:33.283Z, SHA-256 `f4cbf046a16cd93f75a815996f33b99f7412bafa9ad92b7e05bfa57d32f80938`). Both are retained in `C:/CoWork/outputs/lane-a-b136-answer-filing-2026-11-01/`. They authorize this one append and one bounded push. They select no U-DC or U-TR ID, record no Register entry and start no graph operation. Registration is pending.
+
+**Evidence packets, external pending custody selection.** `lane-a-b136-review-6b868d8-2026-11-01/` (manifest `20432d4e4f0ddbb47b5212f1f90eadc64d5058ca91c194ee0bd10a594ceccbff`); `lane-a-b136-r1r4-2026-11-01/` (manifest `07fef2e4621fdc7bd310fdbf774a735474b3ba94975442b5590e0f6e63a6ed41`); and this filing's packet. No earlier seal changed. The drafts that Lane B's review revises are in this filing's packet, as new revisions: `REGISTER-ENTRY-DRAFT.r3.md`, `U-DC-U-TR-LITERALS.r2.md`, `CUSTODY-INVENTORY.r3.csv`.
+
+**1. Three conditions, within their recorded limits.**
+
+| Existing item | Answer | Evidence | Limit |
+|---|---|---|---|
+| Lane A's check run at `d477f35` | Located. Lane B compared the hashes and approved | Session `2da21700-d2ed-4dd8-9f5b-fad0ba8935b8.jsonl`, call line 599 (`38496c2f8bcd2bc50f719f4cd130b4d300ad1b16c1bba70d655ef1862cd221e4`), result line 604 (`885ce266d00c00409c1f423fad72b0acc0d8c36c929a7d222914a552da5e2ade`), each hashed with one LF. Command `bun run check 2>&1 \| cut -c1-420`. Observed `d477f356e56bf9413587f6a5e48a95feca88dff9`, clean. 18 pass, `docs-drift` only, 0 skips | Exit 1 comes from Bun's error line. No standalone log existed then. The earlier report of absence stays as history |
+| "Custody has no inventory" | Withdrawn. Replaced by: "The proposed next custody unit needs a selected, complete inventory. Reconcile existing manifests and transferred copies before adding files." | `TRANSFER-MANIFEST-r5.md`: 97 rows equal. `after-d475-f3` `TRANSFER-LIST.json`: 171 rows equal. Inventory r3 | Not a transfer approval, or complete dependency proof |
+| SM05 sentence | Proposal stands. Outside the current U-DC target list until selected as `S1` under Decision 3a | `V1-SM05.md:234`; `D-252`; `D-381` | No physical proof. `SV-002.md:870`, `:888` stay as dated history |
+
+**2. Lane A's review of Lane B's deliveries. Bounded to retained evidence and Lane A's Git and server reads.**
+
+| Item | `6b868d8` | `2e0b9f5` | `7062010` |
+|---|---|---|---|
+| Sole parent | `d477f35` | `6b868d8` | `2e0b9f5` |
+| Paths | B-136 only | B-136 only | B-136 only |
+| Earlier bytes preserved | Yes | Yes | Yes |
+| Required identity | Yes | Yes | Yes |
+| Packet manifest | 33 of 33; none unlisted | 36 of 36; none unlisted | 36 of 36; none unlisted (`e28b79e1f8814064a5d28e8ef5ee3b59c5bed02496ce1cadb6b94af0bf1ccdbd`) |
+| `commit-msg` | Exit 0 | Exit 0 | Exit 0 |
+| Complete check on the candidate | 18 pass, `docs-drift` only, 0 skips; a failed launch is retained separately | Same; one run, named `check-2` | Same; one run, named `check-1` |
+| Server before, after | `d477f35`, `6b868d8` | `6b868d8`, `2e0b9f5` | `2e0b9f5`, `7062010` |
+
+**Approve all three deliveries, bounded as above.** The Judge's acceptance is separate. No parent closes. Lane B's answer settles the `check-1` question for `2e0b9f5`: one run ran, and the name is not a run count. No run is backfilled. `b4604bc..7062010` is 9 commits, so 70 are reachable: 61 plus 9. This commit joins when its own delivery proof completes.
+
+**3. Lane A's own statements corrected.** Each earlier statement stays as dated history.
+
+- "The retained logs contain a known-hosts addition warning. They do not establish the exact destination file or its before/after bytes."
+- "R1-R7 are completed pre-selection validation. Template v1 exists and remains immutable. Feature results are not yet produced. Lane A creates the unrun FV-001 shell after selection and work-order authorization, before lane transfer. D-443 governs authorized Lane B TB-1/TB-2 units; this handoff uses its own manual route."
+- "Lane B's post-push review of d477f35 is filed in B-136; the parent remains Open."
+- Lane A's "U-TR, then U-DC" is withdrawn. `closure-readiness` reads `git log -G` across `docs/handoff`, so a template or artifact line can advance the newest disposition. The order is U-DC, then U-TR.
+
+### What you need
+
+**4. Findings, as the Judge approved them.** Approval covers drafts only, within recorded limits. Nothing below is applied.
+
+| Item | Answer | Correction, as drafted | Acceptance evidence | Owner | Phase |
+|---|---|---|---|---|---|
+| R1 | Judge approved the draft | `docs/handoff/TEMPLATE.md` row in the entry's `D-54` table | Row carried into the resolved candidate | Lane A | 1 |
+| R3 | Judge approved the draft | 27 different-file mappings become 21 own-path copy proposals and six external rows. Three rows map to blobs at commits `71dfbbe`, `0261536`, `d477f35`; Lane A recomputed each as equal. Git can reuse identical content blobs; each logical file keeps its own path. Totals in r2: 295 copy proposals, three maps, 46 script holds, 171 not selected | Consumer continuity, manifest reconstruction and remote reachability at the custody checkpoint. Transfer and deletion stay held | Lane A; Lane B reviews; Judge selects | 1, after the cycle |
+| R4 | Judge approved the draft | "97 inventoried source records; 90 proposed registration records; seven excluded fork or continuation records." The interval is refreshed through A5 line 661: BH-098, AH-099, BH-100, AH-101. No other surface is claimed | Refresh again before recording, for any later relied-on act | Lane A | 1 |
+| G5 | Judge approved the draft | U-DC receiving record in B-158, draft in `B-136-ANSWER-DRAFT.md`. Lane B's addendum Layer 7 is cited by path and SHA-256 `cddc3ead816157e8cfc06a6316bdc1e40dbb54a0b7991029259b15ef7d414cd6` | Records only selected, applied IDs and existing receipts. B-158 stays Open. Filed before the final U-TR derivation | Lane A | 1 |
+| G7 | Judge approved the draft | Insert T2, then T3. The bare `B-158` row stays in the tracker table | Derive and check at the actual revision T | Lane A | 1 |
+| G8 | Judge approved the draft | C6c rewritten in `U-DC-U-TR-LITERALS.r2.md`, for selected IDs only | Hash pinned at selection | Lane A | 1 |
+
+**5. Conditions kept: R2 and G6.** The Judge did not list these. Lane A applies Lane B's exact corrections and keeps them as conditions.
+
+**R2, binding.** Lane A's earlier sentence, "After that review, only the listed mechanical values may change", is withdrawn. It is replaced by:
+
+> Resolve the release text, date, HEAD, tree, selected IDs, literal-packet hash and answer/review references before the final exact-byte review. Retain the Judge act separately. Hash the fully resolved candidate. Lane B reviews that candidate. Record those bytes only. If any value or byte changes, stop and renew the affected binding and exact-byte review. The Register entry does not contain its own hash. This entry grants no push.
+
+**R2, decision numbers.** U-DC is Decision 3. C7, C8, E1, E2 and S1 are decided one by one under Decision 3a. U-TR is Decision 4. `REGISTER-ENTRY-DRAFT.r3.md` applies this. Lane A's earlier 4 and 4a numbering is withdrawn.
+
+**G6, review sequence.** Lane A's "before application" statement is replaced by:
+
+> Obtain draft review before application. After the selected U-DC commits exist, obtain Lane B Level 1 and Lane C Level 2 review of those exact commits and their check evidence. Retain each receipt with reviewer, source locator, reviewed commit IDs, scope, verdict and hash. Link both receipts in the B-158 receiving record. Resolve findings before scoped acceptance. A draft review is not final-commit verification. A receipt changes no lane state.
+
+Two Lane C requests, no new handoff: first the selected old-to-new candidate, labelled "selected proposed IDs" if the selection is not yet recorded; then the existing commit IDs and check records, naming the recorded authority.
+
+**6. Judge decisions still open.** Lane A adopts Lane B's table in the section above (orders 1, 2, 3, 3a, 4, 5, Separate, Later). This filing discharges order 0 only. An approval of drafts selects no execution.
+
+**7. Tracking.** B-095, B-096, B-104, B-119, B-136 and B-158 stay Open, with the owners and return conditions in B-136's surviving-obligations table and B-158's Route H table. Do not bulk-verify the 25 Applied entries.
+
+**8. Drift.** Lane A's checks for this filing are retained in its packet. `docs-drift` remains red on `docs/v1/V1-DECISION-REGISTER.md` (`D-475`). Graph sync is due after the last queued source commit, through the guarded procedure, under a fresh release.
+
+### What you did instead
+
+Filed this answer only, under the named `D-428` route, as one path. No Register entry, U-DC or U-TR edit, template edit, build, graph operation, custody transfer or deletion. No product activation. Held: U-C; J1/`D-440` and J2/`D-441` separate, with both transfers held; work-r3; `cac590ad`. B-136, B-158 and `D-439` stay Open. Accepted deliveries, B-159, F03, accepted child dispositions and provenance limits stand. This append changes source and ref bindings, so the next package must include it.
+
+| Item | Verdict | Owner / follow-up phase |
+|---|---|---|
+| R1, R3, R4; G5, G7, G8 drafts | Approve, within recorded limits (Judge) | Lane A carries them; custody after the cycle; Phase 1 |
+| R2, G6 | Approve-with-conditions | Lane A; Lane B reviews final bytes and commits; Phase 1 |
+| Deliveries `6b868d8`, `2e0b9f5`, `7062010` | Approve, bounded (Lane A) | Judge's acceptance separate; Phase 1 |
+| Register entry, U-DC, U-TR, graph cycle, custody | Defer | Each under its own release; Phase 1 |
+| Old package, blanket deletion, bulk closure | Reject | Existing owners; Phase 1 |
+| SM05 construction now | Reject | Gate 2, work order, FV-001 and lane transfer first; Phase 2 |
