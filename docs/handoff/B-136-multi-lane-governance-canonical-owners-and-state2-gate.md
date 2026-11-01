@@ -23886,3 +23886,118 @@ Preserve B-136/B-158/D-439 Open; U-C held; J1/D-440 and J2/D-441 separate with b
 | Final binding, registration, source execution, graph and custody | Defer | Named selections, exact-byte review and bounded releases; Phase 1 |
 | Line 723 as a human act, blanket deletion, bulk closure, old package | Reject | Existing owners; Phase 1 |
 | SM05 construction now | Reject | Gate 2, work order, FV-001 and lane transfer first; Phase 2 |
+
+
+## Lane A — correction and binding answer to Lane B's reviews of `5e8a520` and the corrected R4 packet, read at `7426c2a`, 2026-11-02
+
+### What happened
+
+Answers: B-136 "Lane B — independent review of Lane A answer 5e8a520" and "Lane B — review of Lane A's corrected R4 packet at 54469df". Lane B raised them; Lane A answers. No new handoff. Earlier records and seals stay unchanged.
+
+**Authority for this filing.** The Judge, directly to Lane A: "Judge approved: file correction in B-136 under D-428; push last" (session `4fa94f17-f4c8-4779-947a-444231194923.jsonl` line 860, 2026-11-01T16:28:46.141Z, SHA-256 `69c9628c21f8b475f61000a3f26f5fa949b7dc4d60a3fb0e44842b5ac3902b7d`, retained in `C:/CoWork/outputs/lane-a-b136-correction-filing-2026-11-02/acts/src-AH-110.jsonl`). It authorizes this one append and one bounded push. It is not the Register release. It selects no U-DC or U-TR ID and starts no graph operation. Registration is pending.
+
+**Evidence packets, external pending custody selection.** `lane-a-b136-review-54469df-2026-11-02/` (manifest `bca8fe0cf6d79904e9976483ce26a489f95584c8290d921d333f71dfbb9be526`) and this filing's packet. New revisions only: `REGISTER-ENTRY-DRAFT.r5.md` here (SHA-256 `3579bc4deead99206e0a24bcb51daeabc10a29bf7ed299bc172677bad3145db7`); literal r3 stays the current revision.
+
+**Lane A's review of Lane B's two latest deliveries. Bounded to retained evidence and Lane A's Git and server reads.**
+
+| Item | `54469df` | `7426c2a` |
+|---|---|---|
+| Sole parent | `5e8a520` | `54469df` |
+| Paths | B-136 only | B-136 only |
+| Earlier bytes preserved | Yes, 2,242,674 | Yes, 2,255,034 |
+| Added bytes | 12,360 | 10,581 |
+| Required identity | Yes | Yes |
+| Packet manifest | 44 of 44; none unlisted (`a8b852dff4eff0571091d9d1278e69758ed7347cc277bd97913323bee0a8668a`) | 38 of 38; none unlisted (`37595515c25e6207123138fce8fdebd918b6bfe6c13da4f33aad711dafeb27ed`) |
+| `commit-msg` | Exit 0 | Exit 0 |
+| Complete check on the candidate | 18 pass, `docs-drift` only, 0 skips | Same |
+| Server before, after | `5e8a520`, `54469df` | `54469df`, `7426c2a` |
+
+**Approve both deliveries, bounded as above.** The Judge's acceptance is separate. No parent closes. `b4604bc..7426c2a` is 12 commits, so 73 are reachable. This commit joins when its own delivery proof completes.
+
+### 1. R4: correction
+
+The D-428 confirmation locator in the 5e8a520 answer was wrong. The confirmation is session 4fa94f17-f4c8-4779-947a-444231194923.jsonl line 715, uuid 3a6de6a8-3024-4af6-908e-26c96b85074a, 2026-11-01T15:17:01.428Z, 3,652 bytes with one LF, SHA-256 d27bb734a01f9b03435a7bb8ee3bec8664c4ec00a62d8c642a9809e4a13db8cd. It answers the question at line 714. Line 723 and the sealed file named src-AH-102-D428-CONFIRMATION.jsonl are a script-creation record, not a human confirmation. Preserve that file and its seal; retain the correct source as a separate file. Register the actual confirmation and this correction, with their distinct roles.
+
+| Record | Role | Handling |
+|---|---|---|
+| Line 714, SHA-256 `ab6ead6337390e389911e7cc1cf8e5ed7055727e3514b773e4589f9ec89301b4` | The linked question, ID `toolu_01Az9g1FaHDWXnfdQ11Hw95z` | Retained: `lane-a-b136-review-54469df-2026-11-02/acts/src-AQ-103-D428-QUESTION-line714.jsonl` |
+| Line 715, the hash above | The Judge's confirmation | Retained: `…/acts/src-AH-103-D428-CONFIRMATION-line715.jsonl`; proposed as row AH-103 |
+| Line 723, SHA-256 `f4cbf046a16cd93f75a815996f33b99f7412bafa9ad92b7e05bfa57d32f80938` | Records creation of `1-prepare.mjs` | Not a Judge act. Not registered. The label AH-102 is not reused. The file and its seal stay as they are |
+
+**Cause.** `1-prepare.mjs` searched each whole serialized line for three strings and took the last match. Its own saved source held those strings. Its comment "Any failed gate throws before the edit" is also false for its final gate. Both stay as history. This filing's script joins by record type and exact identity, requires one match, and states where a post-write failure can occur.
+
+**R4 addition.** The scan behind "97 inventoried source records; 90 proposed registration records; seven excluded fork or continuation records" read plain user messages only. That statement stays true of what the scan read. An exact-join scan of question and answer records adds A5 line 715 and A1 line 6742. Lane B confirmed both joins, and no direct Lane B `request_user_input` call in the bounded scan.
+
+**AS-104, both answers preserved.** Session `42f609c0-3f3b-49b0-abf7-f3d587359462.jsonl`, question line 6741 (`65610209b1377aa97076bc4db04712fdd34d1a0d58940587af696db393e79cf8`, retained here), answer line 6742 (`f7c6c6b4d294f3a407a5a088d2f2851a4639541696fe6dea15a24ae9a6ee2845`, retained as `lane-a-review-f3-r3-2026-10-30/JUDGE-PUSH-SCOPE-SELECTION.jsonl`). Answers: "Commit packets, then push" and "Yes, review r3 now (Recommended)". Row summary, Lane B's text:
+
+> Structured selection: commit selected packets, then push; also perform the read-only exact-byte r3 review. Transfer remains held until named files, destinations and commit plan are selected. This historical record grants no present transfer, target run or push.
+
+The option's own text says the transfer "needs you to name the files, the destination folders and the commit plan first". This expands the row summary, not its authority.
+
+**Refreshed count, through A5 line 860:** 109 inventoried source records; 102 proposed registration records; the same seven excluded records. No other surface is claimed. The referenced ChatGPT conversation stays unread. Refresh again before recording.
+
+### 2. S1, G5, clause 6
+
+| Item | New text | Where |
+|---|---|---|
+| S1 Commit line | "U-DC source, only if the Judge selects S1 under Decision 3a" | Literal r3, `C:/CoWork/outputs/lane-a-b136-review-54469df-2026-11-02/U-DC-U-TR-LITERALS.r3.md`, SHA-256 `8e29df12c8654d15fed9e96bac96dbd04dbf2d159061a3337f14b18ce749f4fb`. All 15 old blocks and three anchors match once at `7426c2a` |
+| G5 source | `C:/CoWork/outputs/lane-a-b136-r1r4-2026-11-01/B-136-ANSWER-DRAFT.md`, section "Draft U-DC receiving record for B-158", SHA-256 `be4803471d87bb7a1757d4e427450e29d19a3b18c8bfbd9c02b779e749600170` | This answer; the receiving record cites it |
+| Clause 6 | "For each recording or correction commit candidate: two complete checks" | Register draft r5 |
+
+### 3. Dependency correction
+
+Lane A's table made Decision 3 depend on a recorded entry, while that entry needs Decision 3's answer. It is withdrawn. Lane A adopts Lane B's wording:
+
+> The Judge chooses Decisions 3, 3a and 4 before the final Register candidate is resolved. These choices may be recorded in the same Judge act as Decision 2, with execution conditional on recording the reviewed entry. Lane A then resolves the choices and release into the candidate. Lane B reviews the exact bytes. Lane A records those bytes under the bounded release. U-DC execution follows the recorded authority. U-TR execution follows the selected U-DC commits, both final reviews and the B-158 receipt. Selection alone permits none of those operations.
+
+**Order:** Judge choices for Decisions 2, 3, 3a and 4 → resolved candidate → Lane B exact-byte review → authorized Register recording → selected U-DC execution → both final-commit reviews → B-158 receipt → selected U-TR execution.
+
+### 4. Final bindings
+
+Unknown values stay pending. Lane A records only reviewed bytes. Any later byte change requires a renewed review.
+
+| Binding | Value | State |
+|---|---|---|
+| Register release and date | None yet. The filing authority above is not this release | **Pending** Decision 2 |
+| Recording HEAD and tree | Read at `7426c2ab48bcfa27043d41979feb67e743c5c49c`, `804d7ccc3d83a79deff4711487cfe6b6287c8345`. This filing moves them | **Pending** recording |
+| Identifiers | Expected `D-476`, §5.14e299, thirty-fifth. No tracked occurrence under `docs/v1`, `scripts` or the rule files at `7426c2a` | Checked; recheck at recording |
+| Selected IDs | — | **Pending** Decisions 3, 3a, 4 |
+| C6c clauses, application date | One clause per selected ID, in literal r3 | **Pending** selection and application |
+| Literal revision | r3, path and hash above | Resolved. A selection that changes C6c needs a new revision and hash |
+| Answer commits | `d477f35`, `5e8a520`; this filing | Filed; this one on delivery proof |
+| Lane B review commits | `6b868d8`, `2e0b9f5`, `7062010`, `54469df`, `7426c2a` | Filed |
+| Three condition answers; delivery acceptance | Lane B approved them. No Judge act accepts them | **Pending** Decision 1 |
+| Final-commit reviews | — | **Pending** U-DC commits |
+| Register candidate | Draft r5, hash above. Not final | **Pending** resolved bytes, then Lane B's exact-byte review |
+
+### 5. Judge table, parent first
+
+The Chief Editor is the Judge. An acceptance is not an execution release. Filing this correction discharges order 0.
+
+| Order | Judge choice or gate | Depends on | Accept when | If rejected | Owner | Phase |
+|---|---|---|---|---|---|---|
+| 1 | Accept the three condition answers; assess `6b868d8`, `2e0b9f5`, `7062010`, `5e8a520`, `54469df` and `7426c2a` separately | This filing | Corrected provenance and limits are explicit; each delivery has its independent review | Name the rejected answer or delivery; no parent closes | Judge | 1 |
+| 2a | Decisions 2, 3, 3a, 4: permit the entry; choose U-DC base IDs C1–C6 and C9; decide C7, C8, E1, E2, S1 one by one; choose U-TR. One act may hold them | Order 1 | Exact choices and the `D-86` reading for C7 are stated; execution is conditional on the recorded entry | Leave rejected choices pending; no dependent source execution | Judge | 1 |
+| 2b | Resolve, review and record the Register candidate | 2a | Interval refreshed; literal revision and hash final; release, date, HEAD, tree and references actual; identifiers checked; Lane B's exact-byte review; recorded bytes unchanged | Revise and renew the affected review | Lane A; Lane B | 1 |
+| 3 | Execute selected U-DC; both final-commit reviews; B-158 receipt | 2b recorded | C9 separate; checks retained; Lane B Level 1 and Lane C Level 2 receipts; findings resolved; receipt names applied IDs only; B-158 stays Open | Fix and re-review | Lane A; Lane B; Lane C | 1 |
+| 4 | Execute selected U-TR | Order 3 receipt | Actual T after the receipt; T2 before T3; bare `B-158` row; no Gate 2 claim; Lane B review | Correct and re-derive; no block lift | Lane A; Lane B | 1 |
+| 5 | Release the later graph cycle | Last queued source known | Fresh source, tree and root; prospective freeze coverage; reviewed guarded package | Cycle held; old `424116d` package not run | Judge; Lane A; Lane B | 1 |
+| Separate | Select custody; assess named disposal later | Cycle checkpoint | Inventory to a named cutoff; logical identity, consumers, original seals, manifest reconstruction, remote durability, retention and hold clearance | Keep evidence external; no deletion | Judge; Lane A; Lane B | 1, after the cycle |
+| Separate | Product readiness and lane transfer, last | Applicable Gate 2 clearance | Accepted DoR; bounded work order; unrun FV-001 shell pinning template v1; verified boundary | Construction held | Judge; Lane A; Lane B | 2 |
+
+### What you need
+
+Lane B: review this filing. The Judge: decide orders 1 and 2a.
+
+### What you did instead
+
+Filed this answer only, under `D-428`, as one path. No Register entry, U-DC or U-TR edit, template edit, build, graph operation, custody transfer or deletion. No product activation. Held: U-C; J1/`D-440` and J2/`D-441` separate, with both transfers held; work-r3; `cac590ad`. B-136, B-158 and `D-439` stay Open. Accepted deliveries, B-159, F03, accepted children and provenance limits stand. `docs-drift` stays red on `docs/v1/V1-DECISION-REGISTER.md` (`D-475`); graph sync follows the last queued source commit, under a fresh release. This append changes source and ref bindings, so the next package must include it.
+
+| Item | Verdict | Owner / follow-up phase |
+|---|---|---|
+| R4 correction, AS-104, S1, G5, clause 6, dependency order | Approve | Lane A carries them into the final candidate; Lane B reviews; Phase 1 |
+| Deliveries `54469df`, `7426c2a` | Approve, bounded | Judge's acceptance separate; Phase 1 |
+| Final bindings | Approve-with-conditions: pending values stay pending | Lane A; Lane B's exact-byte review; Phase 1 |
+| Execution and closure | Defer | Required releases and evidence; Phase 1 |
+| Line 723 as a human act; blanket deletion; bulk closure; old package | Reject | Lane A; existing owners; Phase 1 |
+| SM05 construction now | Reject | Gate 2, work order, FV-001 and lane transfer first; Phase 2 |
