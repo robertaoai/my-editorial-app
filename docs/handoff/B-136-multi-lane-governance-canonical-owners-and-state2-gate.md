@@ -23317,3 +23317,101 @@ verification of it. **Planned, not done:**
 | B-095, B-096, B-104, B-119 survivors | Defer | Named owners and returns above; Phase 1, Phase 2, SM06 readiness, Phase 3 |
 | Custody transfer; disposal | Defer | Lane A plans separately; Judge selects; Phase 1, after the cycle |
 | Parents 4–5 | Defer | Judge acts; later authorized entry; Phase 2 for construction |
+
+
+## Lane B — post-push review of d477f35 and consolidated Lane A follow-up, 2026-11-01
+
+### What happened
+
+Reviewed baseline: `d477f356e56bf9413587f6a5e48a95feca88dff9`. This is Lane B's own review and planning handoff, not Lane A's answer. The Judge's current request supplies the Lane A worklog headed "Handoff tracking, gaps and draft fixes at d477f35", approves the manual route to push a commit, and limits the work to review and draft fixes. This filing uses the own-series handoff route in the SOP (`D-184`, `D-272`). It authorizes no application of the proposed source corrections.
+
+Evidence packet: `C:/CoWork/outputs/lane-b-b136-postpush-review-2026-11-01/`. The input copy and review proof identify the supplied attachment and its hash. The authority note is an excerpt of the current request, not an independently authenticated transcript. This new packet also needs custody treatment; its external path does not make it disposable.
+
+**Delivery d477f35: Approve, bounded to retained delivery evidence and the local Git objects.** The preceding review in this Lane B chat recomputed all 29 manifest entries, the manifest seal `0acf5ef43f9463f0d74165c1867f795595d1ab30ba910036af2ebbb3bac07309`, the exact preserved base prefix, the 21,770-byte append and the 2,190,636-byte candidate. Candidate SHA-256: `8c7615104553b56903464087d19e6602eb5811df6e252dc2e9e50935a5627d77`. Committed blob: `0311e94fda47922805ac67e0c75511e81c363ee0`. One path, sole parent `0261536`, required author/committer identity and the matching-session commit-msg exit 0 were checked. H6 `b4604bc` is an ancestor; six commits follow it through d477f35. Thus 61 previously recorded deliveries plus six supports 67 through d477f35. This does not accept any new product result or close a parent. Remote conclusions for that delivery use its retained reads; later delivery proof for this filing is separate.
+
+**Check evidence is actor- and run-specific.** Lane A's attached worklog reports a normal Bun launch at d477f35, 18 passes, docs-drift only, exit 1, no skips. The attachment supplies no path/hash for that new run's complete log. Retain it as Lane A's report until the log is linked; do not substitute the older checks at 0261536. Lane B's preceding review had a Bun startup failure, followed by a completed direct run of the configured checker with 18 passes, docs-drift only and no skips. These observations can both be true. This filing's checks belong to its own evidence packet; no future result is claimed here.
+
+**Drift:** D-475 changed the governed Register after graph source ddf0b92. Handoff-only advances do not themselves add governed drift (`D-231`, G-F3-9). Neither `stale: false` nor unequal HEAD values alone decides currency: the checker also examines changed paths. Graphify was queried for navigation; current source records govern this review. No graph operation was run.
+
+### What you need
+
+#### 1. Keep the existing owners; correct the worklog's remaining limits
+
+Most of Lane A's eight gaps repeat existing obligations. They are accepted as clarification of those obligations, not eight new findings or units.
+
+| Existing item | Lane B disposition and exact proposed correction | Acceptance criterion | Owner / follow-up phase |
+|---|---|---|---|
+| B-136 review filing; attached Gap 1 | Accept. On durable filing, replace "Lane B's post-push review is not filed yet" in the next current-state report with "Lane B's post-push review of d477f35 is filed in B-136; the parent remains Open." Preserve the older statement as dated history. | Cite this filing's actual commit. Lane A answers conditions in its own field/append; Lane B writes its own review. No parent Verified claim. | Lane B files; Lane A answers; Phase 1 |
+| B-136 row 9; attached Gap 2 | Accept. Use `Act | Original locator | Retained path | SHA-256 | Scope | Provenance limit`. The four named acts are a minimum list, not proof of completeness. Include or explicitly disposition any later acts used by the selected units, including the authority for this filing. | Exact-text review; source comparison where available; missing provenance visible; explicit permission for the next Register entry and its sequence after D-475. Registration does not backdate authority. | Lane A drafts; Lane B reviews; Judge permits; Phase 1 |
+| B-158 U-TR; attached Gap 3 | Accept. Re-derive SV-002 section 2.3.1 from current dispositions, include and classify B-158, then record the actual derivation commit. Keep `Gate 2 clearance claimed: no`. | No live entry unlisted; applicable children referenced; accepted receipts preserved; independent review. Recheck currency after later handoff dispositions and before Gate 2. Accounting alone does not clear Gate 2. | Lane A; Lane B review; Phase 1 |
+| B-158 U-DC template item; attached Gap 4 | Accept the exact replacement below. It is already tracked; create no new handoff. | Separate template commit under selected U-DC; channel-docs and handoff-response pass; complete checks under the chosen route; Lane B Level 1 and Lane C Level 2 review. | Lane A; Phase 1 |
+| B-136 TR-DM-01 surviving obligation; attached Gap 5 | Approve the full-sentence proposal below, subject to bounded scope selection. The substring proposal would splice a new sentence into a comma-delimited clause. It is outside the current U-DC target list. | Judge selects this extension or a separate existing-owner unit; exact old-text match; local/hosted split remains D-252/D-381; D-54 applicability and independent review. Preserve the dated SV-002 notes at the cited lines. | Lane A; Phase 1 specification; Lane B physical proof later in Phase 2 |
+| Attached Gap 6 | Accept: "The retained logs contain a known-hosts addition warning. They do not establish the exact destination file or its before/after bytes." | Append the correction in the next Lane A answer. Keep the original logs and the historical statement. A config comparison is not SSH file proof. | Lane A; Phase 1 |
+| B-136 rows 7-8, 17; attached Gap 7 | Accept: "R1-R7 are completed pre-selection validation. Template v1 exists and remains immutable. Feature results are not yet produced. Lane A creates the unrun FV-001 shell after selection and work-order authorization, before lane transfer. D-443 governs authorized Lane B TB-1/TB-2 units; this handoff uses its own manual route." | No fabricated missing-template cause, no feature DoD credit, no implied Active state. The shell pins the template digest and stays unrun until its actual trigger. | Lane A tracks; Judge selects; Phase 1 boundary, then Phase 2 |
+| B-136 row 10 / B-158 F04-P6; attached Gap 8 | Narrow: replace "Custody has no inventory" with "The proposed next custody unit needs a selected, complete inventory. Reconcile existing manifests and transferred copies before adding files." Existing examples include artifacts/B-136/bcp1/TRANSFER-MANIFEST-r5.md and artifacts/after-d475-f3 manifests. The reported 422 entries and 479 MB are Lane A's unverified survey, not a selected file set. | Per-file path, hash, size, role, consumers, hold, destination, action and adoption status. Identify prior copies and prove exact equality. No blanket copy or deletion. | Lane A prepares; Lane B reviews; Judge selects; Phase 1 after the current cycle |
+
+**Exact U-DC template correction** — `docs/handoff/TEMPLATE.md`, the Resolution placeholder only:
+
+Old:
+`- **Resolution:** <Applied | Verified | Deferred | Withdrawn | Superseded — omit while Open or merely Answered>`
+
+New:
+`- **Resolution:** <Applied | Verified | Deferred | Withdrawn | Superseded — omit while Open; required when Answered unless Kind is turn-report; omit for turn-report>`
+
+**Exact proposed SM05 correction** — `docs/v1/work-packets/V1/V1-SM05.md`, Received from handoffs, B-096 row, this full sentence only:
+
+Old:
+`TR-DM-01`'s Gate 2 part, the physical migration and its proof, belongs to the `D-242` work order.
+
+New:
+`TR-DM-01`'s Gate 2 part, the physical store and its real-database proof, belongs to the `D-242` work order. Validation is local only; hosted migration remains with `SM06-P3-01` (`D-252`, `D-381`).
+
+Do not replace the historical SV-002 notes at lines 870 and 888 read at d477f35. Do not silently add this correction to an already selected write set.
+
+#### 2. Parent-first follow-up and Judge decisions
+
+The Chief Editor and Judge are the same person in this governance process. Accepting a planning answer does not select its execution. The order below reuses the existing sequence; it is not a new blanket gate on all preparation.
+
+1. File this Lane B review; Lane A answers the conditions. Judge acceptance of delivery remains separate from parent closure.
+2. Lane A prepares the retained-act inventory and exact Register text. The Judge permits the next entry and sequence, and explicitly selects U-TR/U-DC with their check routes. Decide whether to include the SM05 sentence correction. Preparation may proceed before filing; dependent execution waits for its own authority.
+3. Lane A applies selected U-TR and U-DC in their bounded commits. Preserve B-159, F03 and accepted child dispositions. Obtain the specified reviews. Re-derive the tracker again if a later disposition makes it stale; do not stamp a new commit without deriving content.
+4. After the last queued source commit, bind fresh S/tree/root and prospective freeze coverage. Lane B reviews the new package; the Judge releases the cycle. Do not run the old 424116d package or resume held work-r3.
+5. Preserve the complete cycle: prepare -> reviewed answers and released resume when needed -> candidate/R -> F3 -> K -> separate N -> independent K/N review and fresh inventory -> publication release citing K -> health/H -> review -> acceptance and bounded push -> post-push review. A finding follows the existing stop route. Re-merge curated fragments under the guarded procedure; never raw-rebuild the live graph.
+6. Separate branch: select custody, copy required evidence unchanged, prove manifest/blob/remote durability and independent review, migrate consumers, then assess retention and holds. Only then propose named disposal under its separate decision. Preserve original seals and historical paths; use a relocation map for current consumers. Transfer does not adopt a draft or authenticate an act.
+7. Product branch: applicable Gate 2 clearances/receipts and a current tracker precede B-136 Parents 4-5. Judge lifts the block, selects SM05 and authorizes the work order; Lane A creates the unrun shell and records the boundary package; lane transfer is last. Custody/disposal and U-C automation are not blanket dependencies of this branch.
+
+#### 3. Construction and acceptance links; no new template or workflow
+
+Use existing owners for: problem -> scope -> story/intent -> requirement -> Judge decision -> applicability -> DoR -> defined DoD criteria -> authorized tests/implementation -> validation evidence -> independent review -> acceptance. Defining the DoD precedes implementation; satisfying the DoD follows evidence.
+
+For SM05, preserve CR-09/partial CR-19 -> US-15/FR-15 -> AC-23-AC-26 -> D-249/D-260/D-261 -> DOR-R1-R7 -> the existing DoR-to-DoD map -> FV-001. The work order binds each selected child to its method, acceptance case, expected failure reason, evidence and reviewer. Non-behavioural proof remains its own evidence class. A missing tool is not product Red evidence.
+
+Product commits/pushes follow D-443 TB-1/TB-2 and SPECS-VERIFICATION-APPARATUS section 17.1. Manual handoff delivery follows the SOP: exact path, checks, hook, committed-object proof, fresh upstream and outgoing-range proof, bounded non-force push and post-push proof. Automation under U-C stays held. SM05 DoD remains local under D-383; new Phase 3 CI/hosted work stays with SM06. Lane C proves applicable positive and negative workflow paths; it does not accept the business outcome.
+
+#### 4. Remaining handoffs and closure limits
+
+The six Open headers at d477f35 are B-095, B-096, B-104, B-119, B-136 and B-158. The checker also reports 25 Applied entries across the channel. These are dated observations, not a new ledger or a finding that every child needs another fix.
+
+- B-095: B-084's selected A4 field matrix precedes its dependent example. Preserve settled D1/D3 and SM05 receipts.
+- B-096: later-version trigger, GA1, S16 and S17 keep their individual return conditions; TR-DM-01 physical proof belongs to the later work order.
+- B-104: GR-001 and GR-003 remain separate target scopes. Preserve completed GR-002 and the O1 receipt.
+- B-119: preserve its closed tracker row. Remaining work is with SM06 readiness, SM06-P3-01 and SM06-P3-06 under their own triggers.
+- B-158: accepted routing requires every intake item's owner, phase, trigger and proof; it does not require completion of every receiving unit.
+- B-136: keep Open. Review filing, a push and a healthy graph do not close all children.
+
+Guaranteed refusal with unchanged inputs: the old pinned entry package cannot pass at the new source; claiming Gate 2 while the tracker is stale and B-158 is unlisted fails the gate. Startup failure is not a completed check. Eligible is not construction authority. No unrun fault case is labelled passed.
+
+### What you did instead
+
+Filed Lane B's review and proposed corrections only. No Lane A answer field or earlier byte is changed. No Register entry, canonical correction, template edit, build, installation, graph mutation, custody transfer or deletion. This handoff filing changes source/ref bindings and must be included when the next package is bound. Delivery of this filing is prospective until its own proof completes; 67 through d477f35 is the prior coverage, not acceptance of this filing.
+
+B-136, B-158 and D-439 stay Open. U-C remains held. J1/D-440 and J2/D-441 remain separate with both transfers held. work-r3 stays held; cac590ad stays frozen. Accepted deliveries, B-159, F03 and provenance gaps stand.
+
+| Item | Verdict | Owner / follow-up phase |
+|---|---|---|
+| d477f35 delivery evidence | Approve, bounded to this review | Judge acceptance separate; Phase 1 |
+| Lane A attached worklog | Approve-with-conditions | Link its reported check log; narrow inventory claim; use the full-sentence correction; Lane A, Phase 1 |
+| U-TR, U-DC and retained-act registration | Defer execution | Judge selects exact scope; Lane A applies; independent reviews; Phase 1 |
+| Replacement graph cycle and custody | Defer execution | Fresh bindings and releases; named custody evidence; Phase 1 |
+| Old entry package, blanket deletion, bulk parent closure | Reject | Existing owners and individual conditions; Phase 1 |
+| SM05 construction now | Reject | Gate 2, work order, shell and verified lane boundary first; Phase 2 |
