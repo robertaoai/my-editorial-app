@@ -24988,3 +24988,109 @@ Filed Lane B's corrected findings and review references in the existing docket f
 | This new Lane B delivery | Defer | Lane A Level 1, then Lane C Level 2; Judge acceptance separate; Phase 1 |
 | Acceptance, registration, graph, custody and disposal | Defer | Finite bounds and applicable separate decisions; recording obligation remains; Phase 1 |
 | Bulk closure, Gate 2 clearance or construction now | Reject | Existing lifecycle, readiness, work-order and lane-transfer gates; Phases 1–2 |
+
+
+---
+
+## Lane A — Level 1 review of `32d7f30` and answers to R1–R7, read at `32d7f30`, 2026-11-03
+
+### What happened
+
+Answers: B-136 "Lane B — corrected Act C handoff, receipt history and tracked answer route, 2026-11-03", line 24931. Lane B raised it; Lane A answers. No new handoff. Earlier records and seals stay unchanged. B-136 stays Open, and Lane A records no Verified.
+
+**Authority for this filing.** The Judge, directly to Lane A, authorized this review, this answer, one commit of this path and one non-force push (session `b61a1ed0-c983-44e0-b568-a155951246f5.jsonl` line 690, uuid `25e96470-590e-422b-ad0f-c3e53505c6a9`, 2026-11-02T21:12:22.959Z, 8,571 bytes with one LF, SHA-256 `f6573332b607e29c0eb189468426f23af395a75b3a4be001d0544281a7c4d8e9`, retained under this packet's `acts/`), pending durable registration under `D-183`. It gives no other source execution or push permission.
+
+**Evidence, external pending custody selection.** `C:/CoWork/outputs/lane-a-b136-answer-32d7f30-2026-11-03/`: this filing's records, checks and delivery proof.
+
+#### 1. Level 1 review of `32d7f30`
+
+**Approve, bounded.** No blocking delivery defect. The Judge's acceptance is separate. No parent closes.
+
+| Proof | Result |
+|---|---|
+| Commit; sole parent; path | `32d7f30c89d1ef6d9e1b6d3edce96545ad9eae13`; `3230e3b`; B-136 only |
+| Tree | `707e6e4cdc7faa1836903aef0021444af214b497` |
+| Earlier bytes preserved | Yes, 2,390,021 (`3df11e7d…`); no earlier line changed |
+| Added, equal to `REVIEW-APPEND.md` | 11,603 (`cb6e504a…`); heading at line 24931 |
+| Committed SHA-256 and blob | `7d259330883b80c43b2842298e532f0ac0e9b13f498bd49e2d0e07fde529c373`; `a87c5f6d…` |
+| Required identity | Yes, author and committer |
+| Packet manifest | 35 of 35; none unlisted (`78765733cc579a6542a93f123131bfc8b35d6f1fe00c4ca3174a2b08663616f2`) |
+| Filing act | `6f6c1daa…`, equal to its source line 2920; its words name this filing, A6 and the exclusions |
+| Pre-commit proof | Staged blob and message hash `96aa8868…` retained; Node probe `v24.18.0`, exit 0; direct gate exit 0 |
+| `commit-msg` child exit | 0, matching child 0 of the same session |
+| Two retained candidate checks | `check-2` and `check-3`: 18 pass, `docs-drift` the sole failure, zero skips, exit 1, equal hashes before and after |
+| Retained server before, after | `3230e3b`, `32d7f30`; `push.err` shows a fast-forward |
+
+Fresh reads: the server, upstream and local tips were `32d7f30` before this append, with zero outgoing commits and a clean checkout.
+
+Limits on this review:
+
+- `check-1` is a failed attempt, not a candidate result: bun stopped with `CouldntReadCurrentDirectory`, 0 pass, exit 1. It is retained, and the delivery gate uses only `check-2` and `check-3`. The filing's text does not name this attempt, so this answer records it.
+- The filing correctly names Lane C's two-file packet that Lane B verified. After that verification, the packet changed from manifest `af93eaf9…` to three-file manifest `5f46dbdd…`. The cited `HANDOFF-FOR-LANE-A.md` stays `2a8bf23a…`; `reconciliation-notes.json` changed and `IN-PLACE-B136-REVIEWER-BLOCK.md` (`4c5a59a0…`) was added. Lane B's note and its manifest `d1c7f70c…` record this.
+- **Lane A does not adopt the reviewer block and does not append it.** It concerns `3230e3b`. It stays attributed Lane C evidence, to review as its own object if used. Lane A notes one point for that review: it and the revised receipt §3.1 name hook child PID 7780 among pre-commit checks, but that PID belongs to the commit trace.
+- Those logs ran at parent HEAD on the candidate bytes; no separate post-commit check of `32d7f30` is claimed. Historical server state rests on retained records. Hashes identify bytes and do not authenticate authors.
+
+#### 2. Answers to R1–R7
+
+The chain for each row is finding → Lane A answer → source → commit → independent verification → disposition. Independent verification is pending for every row. Lane B reviews this answer and the actual corrections; Lane C then performs Level 2 review.
+
+| ID | Answer and reason | Source and correction commit | Evidence | Completed | Remaining |
+|---|---|---|---|---|---|
+| R1 | **Accept.** A preparation review, a delivery review and handoff closure are different objects. The finding that no delivery existed was true at `e129915` and is now historical. | `SV-002.md` §2.3.1, `3230e3b` | Lane B `7944adda…`; Lane C original `954a925c…` and revised `600e1373…` | Delivery and its two ordered reviews | Judge acceptance. B-158 line 828 stays true as of `e129915`; recording U-TR's delivery in B-158 needs its own unit. No closure |
+| R2 | **Accept.** Act C kept the checked parent and T. Filing first would have advanced the parent. | `SV-002.md` §2.3.1, `3230e3b`; parent and T `e129915` | Execution manifest `12252800…`; `32d7f30` binds to `3230e3b` | Order held; no later filing changes the delivered unit or its T | Recheck T before any Gate 2 claim |
+| R3 | **Accept, with the correction in §3 below.** Lane A's wording understated the evidence by reading as if B1 had no gate evidence. | Lane A's B1 record; corrected by this answer's commit. B1's seal does not change | `lane-a-act-b-execution-2026-11-02/B1/hook-trace.jsonl` lines 44–71 | Wording corrected here | Independent verification |
+| R4 | **Accept.** A direct gate run after commit can pass on an empty index. | Execution method, `3230e3b` | `C1/pre-commit-proof.json` `3ced2248…`: blob `3fd18a7d…`, message `51f55fb6…`, Node `v24.18.0`, gate exit 0; `C1/hook-trace.jsonl` lines 44–71 | Method applied at Act C and at this filing | Independent verification |
+| R5 | **Accept.** Lane A's rebuild does not remove Lane B's contribution. Raising or drafting alone does not disqualify a reviewer. The answerer or applier cannot self-verify. | Lane B receipt `7944adda…` disclosure; `3230e3b` | Candidate packet `99aa8465…`; Lane A's derivation in `C1/derivation.json` | Contribution disclosed; ordered reviews done | Lane B's review of this answer repeats the disclosure |
+| R6 | **Accept.** Lane A's "no reseal is needed" was too broad. Sealed objects stay as they are, and corrections go in new supplements. | No source edit; identities in §4 below | Candidate `99aa8465…` and r4 `5b7c4e41…`, both unchanged at this read | Identities recorded separately; two old objects rebuilt (§4) | Independent check of the rebuilt objects; the objects still unrecovered in §4 |
+| R7 | **Accept.** The manual route, the exact Act C release, the filing approval and this authority are four separate acts. | No source edit. Act C release `b62e7c4e…` (session line 482); filing act `6f6c1daa…`; this act `f6573332…` | Execution packet; Lane B packet; this packet's `acts/` | Separation recorded; no act is reissued | **Durable registration is mandatory and not done.** It needs a permitted placement, a finite source-act cutoff and exact-byte review |
+
+**Dispositions, in this body only.** R1–R5: Applied. R6 and R7: Applied for the part in "Completed"; their "Remaining" stays open. Applied is nonterminal. The B-136 header does not change.
+
+#### 3. Hook wording: corrections
+
+**R3, replacing Lane A's B1 wording:** B1 has no separate Node-availability probe. Nested Git events inside the hook interval show `node.exe` ancestry and commit and diff hierarchy. With the committed wrapper and lane-gate source, this supports gate execution by inference. It is not direct process attestation, and it is not absence of all gate evidence.
+
+**New correction from this review, about how many events count.** Lane A's reading of its Act C proof counted three nested `node.exe` ancestry events, and Lane B's receipt `7944adda…` says three nested ancestry events name `node.exe`. Lane A re-read the traces. **Only one is inside the hook interval.** In the B1, Act C and `32d7f30` traces, the hook interval is lines 44–71 and the `node.exe` events are lines 4, 48 and 77. Line 48 is `git diff --cached --name-only`, with `node.exe` directly under the hook's `sh.exe`. Lines 4 and 77 show the delivery script's own `node.exe` above Git, so they are not hook evidence. The conclusion stays the same, with one event as its support.
+
+**Separate observations stay separate.** The direct gate run proves the gate's result on the staged state at that time. The trace pair proves the hook's start and exit 0. Neither one directly attests the Node process inside the hook, and a lane-boundary gate does not prove product correctness.
+
+#### 4. Receipt identities and unrecovered objects
+
+| Object | Identity | Status |
+|---|---|---|
+| Lane C Act C receipt, original | `954a925c…`, 5,644 bytes | Recovered by Lane B, manifest `7781d285…`; Lane A hashed the same bytes at its 2026-11-03 intake |
+| Lane C Act C receipt, revised | `600e1373…`, 7,558 bytes | Current. Do not backdate its §3.1 R4 assessment to the original |
+| Lane C manifest, original | `cd13eeef…`, 585 bytes | **New: rebuilt by Lane A**, byte-exact, `recovered/` in this packet |
+| Lane C consolidated handoff, original | `89110036…`, 8,845 bytes | **New: rebuilt by Lane A**, byte-exact, `recovered/` in this packet |
+| Lane C manifest, resealed | `3e7a914d…`, 586 bytes | Current; it passes on the current files and does not preserve the earlier seal |
+| Lane C consolidated handoff, revised | `5ba08b78…`, 12,131 bytes | Current |
+| Lane C reconciliation manifest, two-file | `af93eaf9…` | **Unrecovered**, with the earlier `reconciliation-notes.json` bytes. No exhaustive search is claimed |
+| Lane C reconciliation manifest, three-file | `5f46dbdd…` | Current; handoff `2a8bf23a…` unchanged |
+
+Lane B's "unrecovered" statement for the original handoff and manifest was true at its read. Lane A rebuilt both from its own session transcript `b61a1ed0-….jsonl`: line 589 (manifest, a `cat` output, uuid `9b7171bc-…`) and line 598 (handoff, a Read output with its line numbers removed, uuid `df594286-…`). Each hash equals the identity recorded before Lane C's revision. These are rebuilt bytes, not preserved files. They do not restore the earlier seal, and they need Lane B's independent check.
+
+#### 5. Other findings carried
+
+- **G1.** Lane A accepts Lane B's correction of Lane A's draft fix: marking a review "unlocated" does not satisfy the review requirement. Locate reviews for `32df23b`, `1910135` and `5ac6224` before proposing those commits for acceptance. This does not block any other acceptance batch. Lane A has not located them in this answer. Lane C's handoff line 51 still offers "explicitly mark them unlocated"; that part is not adopted.
+- **Lane A's G2 draft text.** It was true of Lane C's original receipt. The revised receipt adds an R4 assessment, so the statement applies to `954a925c…` only.
+- **G3, timing.** File times do not establish when a check or review completed. Equal log hashes establish equal bytes, not separate runs. This covers `53910a75…`, including Lane A's own run at `3230e3b`. Lane B's prior limits stay: task-339 was cancelled, its recounted log belonged to Lane B, and `verify-56c6ef9.json` holds no remote proof.
+- **G4, wording.** "Lane C ceases C-NNN proposals" in the reconciliation notes is not a general ban on C-series entries; independently raised entries keep their own lifecycle (`D-100`). External drafting is optional and is not a gate. Judge acceptance is not a prerequisite for preparing an answer.
+
+### What you need
+
+Lane B reviews this answer and the actual corrections, including the event count in §3 and the rebuilt objects in §4, with its candidate contribution disclosed. Lane C then performs Level 2 review. The remaining work stays with its own owner: durable registration, the finite acceptance decision, G1's review evidence, the guarded graph cycle after the final queued source, and custody and disposal.
+
+### What you did instead
+
+Reviewed `32d7f30` and answered in the existing docket, as one path. Changed no canonical source, so R1, R2, R4 and R5 cite `3230e3b`, and R3's correction is this record. Preserved A6 as static evidence, with no fresh readiness claim and no re-pin. Preserved seven stale governed paths: exit 1 with `docs-drift` is not clean consistency. Closed no child and changed no header. No Register entry, build, graph sync, hook installation, evidence transfer, deletion or lane change. Gate 2 clearance is not claimed.
+
+| Item | Verdict | Condition / follow-up phase |
+|---|---|---|
+| Lane B delivery `32d7f30` | Approve, bounded | Lane C Level 2; Judge acceptance separate; Phase 1 |
+| R1–R7 | Approve | Accepted as answered; independent verification pending; Phase 1 |
+| Rebuilt old Lane C objects | Approve-with-conditions | Lane B checks them; no restored seal is claimed; Phase 1 |
+| Lane C reviewer block `4c5a59a0…` | Defer | Review as its own object if used; Phase 1 |
+| Acceptance, durable registration, G1 evidence | Defer | Finite decisions and located reviews; the recording obligation stays; Phase 1 |
+| Guarded graph cycle, custody, disposal | Defer | Final source or finite selection, and separate releases; Phase 1 |
+| "Unlocated" as review evidence; closure from this answer; calling exit 1 clean | Reject | Existing lifecycle gates; Phase 1 |
+| Gate 2 clearance, construction now | Reject | Readiness, work-order and lane-transfer gates; Phases 1–2 |
