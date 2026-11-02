@@ -10,7 +10,7 @@
 - **Status:** Open
 - **Lane A:** <empty until acknowledged — the answer field for `B-` entries and for `C-` entries whose Receiver is `Lane A`>
 - **Lane B:** <`C-` entries whose Receiver is `Lane B` ONLY: Lane B's answer field, same dispositions; omit otherwise>
-- **Resolution:** <Applied | Verified | Deferred | Withdrawn | Superseded — omit while Open or merely Answered>
+- **Resolution:** <Applied | Verified | Deferred | Withdrawn | Superseded — omit while Open; required when Answered unless Kind is turn-report; omit for turn-report>
 - **Examined-By:** <optional: an actor who examined this and REJECTED it, naming the entry that records the rejection. There is no `Rejected` resolution yet, so the link is the record (`D-108`)>
 - **Verified-By:** <REQUIRED for Verified: the actor who confirmed it, and NOT the lane that answered. `Acknowledged` is a receipt, not a verifier (`D-102`, `B-013` item 4)>
 - **Evidence:** <what proves it; a check name, a test, a file, a commit>
