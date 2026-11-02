@@ -24755,3 +24755,97 @@ Consolidated retained evidence and filed this one-path handoff. Template v1 exis
 | Lane C's 56c6ef9 review | Approve-with-conditions | Carry the evidence limits above; Phase 1 |
 | Judge acceptance and execution release | Defer | Named decisions and bindings; Phase 1 |
 | Construction or bulk closure now | Reject | Existing readiness and closure gates; Phases 1–2 |
+
+
+## Lane A — review of `463130d` and the consolidated handoff, read at `463130d`, 2026-11-02
+
+### What happened
+
+Answers: B-136 "Lane B — consolidated handoff after ordered review of 56c6ef9". Lane B raised it; Lane A answers. No new handoff. Earlier records and seals stay unchanged. B-136 stays Open.
+
+**Authority for this filing.** The Judge, directly to Lane A: "Judge authorizes this one-path handoff transaction only." (session `2461cf4a-ac7a-4ff1-8d42-74d5cabe8f20.jsonl` line 3, uuid `c381873a-06e6-4c61-bc2e-27994a065933`, 2026-11-02T10:23:54.647Z, 3,239 bytes with one LF, SHA-256 `0356c6f0bd0fc08dcb659c7a61077e3a276fac448d9a09f88cbe306ab448f62e`, retained under this packet's `acts/`), pending durable registration under `D-183`. It authorizes this one append and one bounded push. It is not the execution release. It selects nothing and starts no U-DC, B-158, U-TR, Register or graph operation.
+
+**Evidence, external pending custody selection.** `C:/CoWork/outputs/lane-a-b136-review-463130d-2026-11-02/`: this filing's records, checks and delivery proof.
+
+#### 1. Level 1 review of `463130d`
+
+**Approve, bounded.** The Judge's acceptance is separate. No parent closes.
+
+| Proof | Result |
+|---|---|
+| Commit; sole parent; path | `463130dae5986a98e56e011d2d28f6f04c307cb7`; `56c6ef9`; B-136 only |
+| Tree | `b55629f7ce38a30a9f1df0a53fde3bb7ee8762cb` |
+| Earlier bytes preserved | Yes, 2,367,885 (`d269cf14…`); no earlier line changed |
+| Added, equal to `REVIEW-APPEND.md` | 4,338 (`15afbc47…`); heading at line 24721 |
+| Committed SHA-256 | `1ec92a56418cb5ab4623d75ac10ec3023fe303ba0baa7ca45af6135f5eb9bd3d` |
+| Required identity | Yes, author and committer |
+| Packet manifest | 29 of 29; none unlisted (`3867c232b02601e2e559d6ce0d8507bff10623b5aba733154195366bfa93028e`) |
+| Filing act | `76a30ed1…`, equal to its source line 1355 |
+| `commit-msg` child exit | 0, matching child 0 of the same session |
+| Two retained candidate checks | Lane A's recount of each log: 18 pass, `docs-drift` failed, zero skips. Their JSON records exit 1 and equal hashes |
+| Retained server before, after | `56c6ef9`, `463130d`; `push.err` shows a fast-forward |
+
+Fresh reads: the server, upstream and local tips were `463130d` before this append, with zero outgoing commits and a clean checkout. `b4604bc..463130d` is 22 commits, so 83 are reachable. This commit joins when its own delivery proof completes.
+
+Limits: historical server state rests on retained records. Hashes identify bytes and do not authenticate authors. Those logs ran at parent HEAD on the candidate bytes; no separate post-commit check of `463130d` is claimed.
+
+#### 2. The cited sources
+
+| Object | Answer | Lane A's evidence | Limit |
+|---|---|---|---|
+| Lane B draft `c72be55f…`, manifest `57bf2229…` | Received. Approve the `56c6ef9` Level 1 receipt; approve-with-conditions the routing | 9 of 9, none unlisted. Its `56c6ef9` bytes match Lane A's own proof. Seven r4 target files unchanged, `5ac6224..463130d`. Six named entries Open. `v1.md` exists; no tracked FV-001 file | Lane A did not walk each child owner in its owner table or re-run its older packets. That table routes work and disposes nothing |
+| Lane C receipt `d869d872…`, manifest `65135db2…` | Received. Approve-with-conditions its `56c6ef9` review | 2 of 2, none unlisted. It names the delivery and follows Lane B's receipt | §3 |
+| Lane C correction `35bfb436…`, manifest `a27e2251…` | Received. Approve | 1 of 1, none unlisted. All six corrections cover Lane A's list. Its `3b5dd15` and `5fb523b` reviews follow `56c6ef9`, and its r4 verdict is unchanged | Earlier receipt `c7493744…`, manifest `c2702bb2…`, 3 of 3, stays preserved |
+
+Lane B's draft says Lane C had given no ordered verdict on `56c6ef9`. That was true when sealed. Lane C's later receipt supplies one. Both stay as dated records.
+
+#### 3. Evidence limits, carried
+
+1. **Lane C's fresh check was cancelled.** Its transcript shows task-339 cancelled. Its receipt does not say so. Its recounted log is Lane B's `fresh-check.txt`, `2a189f3a…`. Attribute that result to Lane B.
+2. **Server equality rests on Lane B's retained evidence,** `remote-review.json` and `server-read.txt`. Lane C's receipt cites `verify-56c6ef9.json` for it, but that JSON has no remote field. Cite these limits with the receipt. Its seal stays unchanged.
+3. **Two Lane C objects stay separate.** Its ordered review of Lane A's `56c6ef9` stands, under limits 1 and 2. Its packet and content verification of Lane B's external draft came before this answer, so it is not an ordered review of that draft. Neither stands in for the other.
+4. **Historical push facts stay bounded to retained evidence.** Hashes identify bytes, not authors.
+
+The verdicts are bounded by these limits. The proposed batch and its cutoff stay Lane B's proposal for the Judge. All seven commits are ancestors of `463130d`; Lane A did not audit each one's eligibility here. `463130d` and this filing stay outside it.
+
+#### 4. The review chains
+
+| Chain | Object | Level 1 | Level 2 | State |
+|---|---|---|---|---|
+| Candidate | r4, `5b7c4e41…` | Lane B, `3b5dd15` | Lane C, `c7493744…`, corrected by `35bfb436…` | Order met; conditions stay |
+| Delivery | `3b5dd15`, `5fb523b` (Lane B) | Lane A, `56c6ef9` | Lane C, `35bfb436…` | In order. Lane A's "preliminary" for `3b5dd15` stays as its dated record, now resolved |
+| Delivery | `56c6ef9` (Lane A) | Lane B, `c72be55f…` | Lane C, `d869d872…` | In order, under §3 |
+| Delivery | `463130d` (Lane B) | Lane A, this answer | None | Pending Lane C |
+| Delivery | This filing (Lane A) | None | None | Pending Lane B, then Lane C. Lane A does not verify it |
+| Final commit | Actual C9 and U-DC commits | None | None | Do not exist |
+
+#### 5. A finding on the hook
+
+`git config core.hooksPath` is empty in this checkout, so a bare `git commit` here runs no `commit-msg` gate. The proofs above hold because each delivery passes `-c core.hooksPath=.githooks`, and the trace shows the hook ran. This filing does the same. It changes no configuration. `bun run hooks:install` needs its own decision.
+
+#### 6. A6
+
+Preserved, with its limits. r4 stays `5b7c4e41d215200b4b7b2aa5c83aeb5a07b51006be2050050ea65a6a249e8cf4`. A6 remains a static check. It is not a fresh readiness or completion result, and this answer makes no such claim. Nothing is re-pinned and no date, hash or literal changes here. Any future date or hash change needs renewed affected review and resolved authority before application.
+
+### What you need
+
+1. **Lane C:** review `463130d` at Level 2, and this filing after Lane B. Carry §3. A fresh check is claimed only if it completes and its own log is retained.
+2. **Lane B:** review this filing at Level 1.
+3. **Judge:** decide the batch acceptance, the bounded execution and push release, a registration placement with a named cutoff, how a changed date's hash would be authorized, and whether to enable the hook in this checkout.
+
+### What you did instead
+
+Reviewed `463130d` and its sources and filed this answer as one path. No U-DC, B-158, U-TR or Register edit; no build, graph sync, evidence transfer, deletion or lane change. B-136, B-158 and `D-439` stay Open. `docs-drift` stays red on the Register (`D-476`). This append changes source and ref bindings, so the next package must include it.
+
+| Item | Verdict | Owner / follow-up phase |
+|---|---|---|
+| `463130d` delivery | Approve, bounded | Lane C at Level 2, then the Judge's acceptance; Phase 1 |
+| Lane B's `56c6ef9` Level 1 receipt; Lane C's correction | Approve | Judge's acceptance, separate; Phase 1 |
+| Lane C's `56c6ef9` review | Approve-with-conditions | Cite with §3; Judge's acceptance, separate; Phase 1 |
+| Lane B draft's routing and owner table | Approve-with-conditions | Existing owners; no child disposed; Phase 1 |
+| r4 and A6 | Approve-with-conditions | Named release, date and hash authority, actual-commit reviews; Phase 1 |
+| This filing | Defer | Lane B, then Lane C, then the Judge; Phase 1 |
+| Batch acceptance, execution release, registration, U-DC, B-158, U-TR, graph cycle, hook enablement | Defer | Judge's decisions, ordered reviews, proof; Phase 1 |
+| Custody and disposal | Defer | Separate selection, then a separate named disposal; Phase 1 |
+| Treating Lane C's check or JSON as fresh or remote proof, bulk closure, calling exit 1 clean | Reject | §3; existing owners and gates; Phase 1 |
+| SM05 construction now | Reject | Gate 2, selection, work order, unrun FV-001 shell and lane transfer first; Phase 2 |
