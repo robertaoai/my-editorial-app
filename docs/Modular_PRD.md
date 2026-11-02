@@ -31,9 +31,9 @@
 | **PRD Owner** | Chief Editor (robertaoai) — Line 2, Risk & Compliance |
 | **Reviewers / Approvers** | Chief Editor is the sole human approver. **No Eng Lead, Design Lead, Data Lead, or Legal function exists on this project.** Not an omission — see §0.3 |
 | **Status** | `Draft` — planning only. ~~No application code, no migration applied, no env pulled, no push~~ **Current, 2026-09-26 (`D-268`):** application scaffolding exists; `supabase/migrations/0002_s1_editorial_schema.sql` is applied and tested on local PostgreSQL (`D-114`, `D-121`); hosted Supabase behaviour is unverified (`DEP-05`); `V1-SM05` construction is `BLOCKED` (`D-264`); the working branch is pushed. No claim is made here about environment files |
-| **Version** | 1.45 *(was stated as 1.8 until 2026-09-26, `D-267`)* — this document's own lineage; it does not continue `docs/PRD.md`'s version history, and it is **not** a build version — see §8.0 |
-| **Last Updated** | 2026-10-22 (`D-453`, B-159 SR3-04) |
-| **Jira Project Key** | **Not provisioned.** **Current execution tracking is `docs/v1/V1-BUILD-SPEC.md` §4 for sprint scope and holds, `docs/LANE-B-WORK-ORDER.md` §2.2d for the executable unit, and `docs/v1/V1-PHASE-CLOSURE.md` §5 for lane state.** `docs/journal/2026-08-16-sprint-plan.md` §6 is **historical lineage**, not current tracking *(corrected 2026-09-08, `B-084`; it had been named as the execution tracker)* |
+| **Version** | 1.46 *(was stated as 1.8 until 2026-09-26, `D-267`)* — this document's own lineage; it does not continue `docs/PRD.md`'s version history, and it is **not** a build version — see §8.0 |
+| **Last Updated** | 2026-11-02 (`D-476`, B-158 U-DC) |
+| **Jira Project Key** | **Not provisioned.** **Current execution tracking is `docs/v1/V1-BUILD-SPEC.md` §4 for sprint scope and holds, `docs/LANE-B-WORK-ORDER.md` for any separately authorized bounded unit, and `docs/v1/V1-PHASE-CLOSURE.md` §5 for lane state.** Work-order §2.2d is historical and held. Read §2.3 for the read-only review route. The existence of a work-order section does not authorize construction. `docs/journal/2026-08-16-sprint-plan.md` §6 is **historical lineage**, not current tracking *(corrected 2026-09-08, `B-084`; it had been named as the execution tracker)* |
 | **Confluence / Wiki Link** | **Not provisioned.** This repo's `docs/` is the wiki |
 | **Design Figma Link** | **Not provisioned.** No design function on this project |
 | **Analytics Dashboard** | **Not provisioned.** Blocks K-02 through K-05 measurement — see §3.5 |
@@ -90,6 +90,7 @@
 | **1.43** | **2026-09-27** | Claude, `D-271`, Judge confirmation in chat of the clarifications Lane B recorded in `docs/handoff/B-139` | **Project-scope addition, no Product scope change.** §0.5 registers the `AIG-` prefix (global Project-scope AI governance; `AIG-NN.Rn`/`.Cn`). §0.6 records this document as the live overall Project/Product tracker, refining `D-203`; tracking is not owning. New §7.2a: a non-feature global Project-scope index, `AIG-01`–`AIG-06`, with no Sprint column. No `US`/`FR`/`AC`/`NFR` text changed; §0.6.1 and `docs/modules/` unchanged; §8 unaffected. |
 | **1.44** | **2026-09-27** | Claude, `D-283`, Judge approval "apply TR-DM data requirement" | **Product data-requirement addition.** It adds `TR-DM-07`, the working editorial-metadata package, to §6.3, the immutability table, §7.1 and §7.3's `FR-01` row. It is logical only; the physical store is Lane B's, at the `D-242` work order. The contract is `FN-GATES` §4.5 (`D-281`/`D-282`). It closes the Gate 1B limb of `SV-002` §3.3 `B-096.TR-DM-01`, pending Lane B verification |
 | **1.45** | **2026-10-22** | Claude, `D-453`, B-159 (SR3-04; F3-b per the D-453(c) draft review) | **Document-control correction, no scope change.** The header kept 2026-09-27 although the prologue and the Q8 disposition carry `D-438` corrections dated 2026-10-15. Header set to 1.45, 2026-10-22. §8.2 `XF-04`'s CI-skip parenthesis now points to the maintained list in `.github/WORKFLOWS-SPEC.md` §3 and keeps its former count as dated history (B-158 F03). No FR/AC/NFR text changed; readiness and lane status unchanged; §8 scope unaffected. |
+| **1.46** | **2026-11-02** | Claude, `D-476`, B-158 U-DC | **Document-control and wording correction, no scope change, `[V1]`.** Document Control's tracking row no longer names work-order §2.2d as the executable unit. §6.1's Stack row leaves versions to `package.json` and the lockfile; it read "Next.js 15 / React 19 / TypeScript / Tailwind v4". §6.3's ABSENCE paragraph now agrees with `AC-12a` (`D-381`, `D-404`); it cited the 5-year archival of rejected work (`D-134`) as the concrete v1 case; `AC-12a` is unchanged. The same §2.2d pointer is corrected in the hierarchy diagram. §8's dated note carrying that pointer is labelled superseded. |
 
 ### 0.2 Decision Log
 
@@ -465,7 +466,7 @@ Project Charter v1  (OD1–OD3 Open — constrains, does not close)
             └── User Story (US-xx)
                  └── Functional Requirement (FR-xx)   [⚠ if OD-dependent]
                       └── Technical Requirement (NFR-xx / TR-DM-xx / SEC-xx)
-                           └── Sprint (S0–S6; scope and holds in `V1-BUILD-SPEC.md` §4, executable unit in `LANE-B-WORK-ORDER.md` §2.2d — the sprint plan §6 is historical rationale, `B-085`)
+                           └── Sprint (S0–S6; scope and holds in `V1-BUILD-SPEC.md` §4, any separately authorized bounded unit in `LANE-B-WORK-ORDER.md` — the sprint plan §6 is historical rationale, `B-085`)
                                 └── Acceptance Criterion (AC-xx ← AT-xxx)
 ```
 
@@ -626,7 +627,7 @@ The most consequential requirement, and the one most at risk of being quietly ov
 | Aspect | Description | Linked FRs |
 |---|---|---|
 | **Pattern** | Next.js App Router monolith on Vercel; Supabase PostgreSQL. **Invariants enforced in the database, not the application layer** — see NFR-01 | All |
-| **Stack** | Next.js 15 / React 19 / TypeScript / Tailwind v4 / Supabase (`@supabase/ssr`) / Bun / Vercel | All |
+| **Stack** | Next.js / React / TypeScript / Tailwind / Supabase (`@supabase/ssr`) / Bun / Vercel. `package.json` and the lockfile own the declared dependencies and resolved versions. This row does not assert the deployed versions. | All |
 | **Ratification status** | A2 was re-scoped to this stack by the Chief Editor. **Recorded in the Addendum's `Resolved?` column, not `Ratified?`** — see Q0. Blueprint and Business Case still specify FastAPI | — |
 | **Publish path** | Supabase Edge Function, with `pg_cron` as the retry scheduler — **decided `D-143`, confirmed `D-146`** (`Q3`/`Q5`); `docs/specs/SPECS-PUBLICATION.md` specifies it. `TC8`'s route-handler recommendation was knowingly not followed and stays as history, not current direction. *(Corrected 2026-09-20, `D-244`: this row still carried the pre-decision recommendation beside `Q3`'s decided row.)* V1's LinkedIn `ManualReady` (`D-243`) needs no external-channel credential; automated publication is a V2 target | FR-09 |
 | **Deployment** | Git push to `main` → Vercel. Never `vercel deploy` | — |
@@ -751,9 +752,7 @@ period and does not perform archival** — the values are ruled at the Alpha Por
 detail in the business case and blueprint (`C-32` answered in full, `D-134`); this document cites
 them, it does not restate them.
 
-**What the product owns is the ABSENCE** — that when data is missing from a view, the view says so
-rather than rendering it as nothing having happened. That is `AC-12a`, and the **5-year archival of
-rejected work (`D-134`) is its concrete v1 case.**
+**What the product owns is the ABSENCE** — when a record is absent from a view, the view explains the supplied external handoff or archive fact. If no valid external fact is supplied, keep the record in its last proved state and show that the external evidence is not established. `AC-12a` defines this behaviour at the `A6` UI boundary under `D-381`/`D-404`. The application does not infer archival or disposal from elapsed time. External financial retention is not an editorial UI value.
 **Report Immutability (PSK-10):** An issued report is never edited and never deleted; a superseded report is answered by issuing a new report citing the original. The correction ladder — Clarify → Correction → Retraction — is the editorial restatement mechanism. *This states the rule the design must satisfy; the report record itself is designed in S1 (`GA1`).* **Scope boundary:** this is the **report** rule and does not restate `NFR-02`'s `workflow_transitions` wording, which awaits counsel (T2/TX).
 **PII:** articles sourced from individuals on social platforms may carry personal data. GDPR handling is deferred to Phase 2 (Addendum G2) — recorded as an accepted gap, not a solved problem.
 
@@ -967,7 +966,7 @@ real, scheduled work: its sequence and gates live in `docs/v1/V1-BUILD-SPEC.md` 
 
 ## 8. Execution Mapping
 
-> **No Jira exists.** Rather than invent keys, execution maps to the sprint plan. *(Corrected 2026-09-08, `B-085`: this read "which is the real tracker". **Current execution tracking is `V1-BUILD-SPEC.md` §4, `LANE-B-WORK-ORDER.md` §2.2d and `V1-PHASE-CLOSURE.md` §5**; the sprint plan is **historical rationale**, not a second tracker.)* The template's Epic → Feature → Story → Sub-task hierarchy maps as: **Sprint → FR → US → TR/NFR.**
+> **No Jira exists.** Rather than invent keys, execution maps to the sprint plan. *(Corrected 2026-09-08, `B-085`: this read "which is the real tracker". **Current execution tracking is `V1-BUILD-SPEC.md` §4, `LANE-B-WORK-ORDER.md` §2.2d and `V1-PHASE-CLOSURE.md` §5**; the sprint plan is **historical rationale**, not a second tracker. **Superseded pointer (`D-476`):** work-order §2.2d is historical and held; Document Control states the current route.)* The template's Epic → Feature → Story → Sub-task hierarchy maps as: **Sprint → FR → US → TR/NFR.**
 
 ### 8.0 Build-version tracking — `D-35`
 

@@ -13,8 +13,7 @@ a decision is a config edit plus a `DECISION_LOG.md` line — never a code chang
 ## Who writes it — `D-91`
 
 **Lane A owns this file, content included.** A row's substance is a citation into the governing
-set and an `OD` dependency — that is governance, and under `D-86` Lane B is explicitly *not*
-expected to read the register. Lane B implements these rows in `lib/config/build-config.ts`;
+set and an `OD` dependency — that is governance, and Lane A owns it (`D-86`). Lane B reads the Register for authority under `AGENTS.md`. Lane B implements these rows in `lib/config/build-config.ts`;
 it does not author them and does not edit this file.
 
 **If Lane B needs a value that has no row, it raises a `docs/handoff/` entry** of kind
