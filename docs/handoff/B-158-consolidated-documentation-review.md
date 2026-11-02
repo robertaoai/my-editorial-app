@@ -785,3 +785,81 @@ an accepted owner, phase, trigger and proof; that does not close the receiving u
   stays held. J1/`D-440` and J2/`D-441` stay separate; both transfers stay held. work-r3 stays unaccepted.
 - Coverage: 19 historically delivered commits through `e62ee4a`; Q, R, K, N and H pending; this commit joins when
   created. No push or remote contact. External evidence is outside Git preservation.
+
+
+## Lane A — U-DC receiving and routing record, read at `528d38f`, prepared 2026-11-02
+
+### What happened
+
+Filed under the Judge's release of Act B, pending durable registration under `D-183`; the instruction is retained in `C:/CoWork/outputs/lane-a-act-b-execution-2026-11-02/acts/`. This is the receiving record that `D-476` items 5 and 6 require. This entry is append-only. Its header and every earlier section are unchanged. B-158 stays **Open**.
+
+**Delivered units.** Lane A made both commits under the Judge's release of Act A (`2461cf4a-ac7a-4ff1-8d42-74d5cabe8f20.jsonl` line 469, SHA-256 `529dd27890390e4ca7cbb4316a4f58e08c78230034dc292006d52c4fa43a989b`).
+
+| Unit | Commit | Sole parent | Paths |
+|---|---|---|---|
+| A1, U-DC template | `0ac053ed771ed180dc75d688c8a97dbfd7fca5e6` | `6a90e5d` | `docs/handoff/TEMPLATE.md` |
+| A2, U-DC source | `528d38f476b91987ed8830e0d3a09f0718c8769a` | `0ac053e` | `docs/Modular_PRD.md`, `docs/LANE-B-WORK-ORDER.md`, `docs/CONFIG_LOG.md`, `docs/README.md`, `docs/v1/work-packets/V1/V1-SM05.md` |
+
+**Final-commit receipts, both Approve, bounded, on both commits.**
+
+| Level | Reviewer | Receipt | SHA-256 | Manifest |
+|---|---|---|---|---|
+| 1 | Lane B | `C:/CoWork/outputs/lane-b-level1-act-a-528d38f-2026-11-02/LANE-B-LEVEL1-REVIEW-ACT-A.md` | `2ad6afda549daf179c07e4ebb979af2821cbb842e18aee65129685b8899aceb0` | `9ffa829211ca75f13b09982b2529f913332a81025694bd105901374defe2b4fa` |
+| 2 | Lane C | `C:/CoWork/outputs/lane-c-level2-act-a-528d38f-2026-11-02/LANE-C-LEVEL2-REVIEW-ACT-A.md` | `7f6a5483c939591a592c472975f0f1136345458f2a494d59539d6598d69a93ed` | `639871019f9ffcad8820fbcc4c0d3cb24d95c826eeaadcd2d334c5872c5ad11c` |
+
+Execution evidence: `C:/CoWork/outputs/lane-a-act-a-execution-2026-11-02/`, manifest `d6c72c650d3e65c4b33cb89df8f5f5a3e66edd5cb5ca111bdf7a0334f868b6d0`. A receipt changes no lane state.
+
+**Layer 7 source.** `C:/CoWork/outputs/lane-b-b158-clarification-2026-10-23/B-158-LANE-B-ADDENDUM-DRAFT.md`, SHA-256 `cddc3ead816157e8cfc06a6316bdc1e40dbb54a0b7991029259b15ef7d414cd6`, Layer 7 heading at line 136.
+
+**Applied IDs and the B-158 items they serve.** Literals: `U-DC-U-TR-LITERALS.r4.md`, SHA-256 `5b7c4e41d215200b4b7b2aa5c83aeb5a07b51006be2050050ea65a6a249e8cf4`.
+
+| IDs | B-158 item | Source of the text |
+|---|---|---|
+| C1 | Pasted F1; Proposal 1 | Layer 7 F1, bound by Lane A |
+| C2, C3 | Pasted F2; F02 | Layer 7 F2a, F2b, bound by Lane A |
+| C4, C5 | Pasted F3, F4; Proposal 2 | Layer 7 F3, F4, bound by Lane A |
+| C6a, C6b, C6c | Document metadata for C1, C4, C5 | Lane A |
+| C7a, C7b | F02 reading rule | Lane A |
+| C8 | Proposal 1 navigation | Lane A |
+| C9 | Handoff template line 13 | Lane B's B-136 review |
+| E1, E2 | Same stale pointer as C1 | Lane A |
+| S1 | Not a B-158 item: B-136 `TR-DM-01` obligation, delivered in the same commit | Lane B's B-136 review |
+
+T1, T2 and T3 are not applied. They belong to U-TR.
+
+### What you need
+
+**Routing. Owners, triggers and proof stay as in the Route H table above.** This record moves no owner.
+
+| Item | State after this record | Owner | Next trigger |
+|---|---|---|---|
+| F02, pasted F1 and F2; Proposal 2, pasted F3 and F4; template line 13; Proposal 1 | Applied at the named commits. Independently reviewed there. This does not close B-158 | Lane A | Judge's delivery acceptance |
+| U-TR | Not applied | Lane A; Lane B reviews | Its own Judge release |
+| F01 | Unchanged | Lane A | B-136's authorized sequence |
+| F04 and portable evidence | Unchanged | Judge | The next external review bundle |
+| F05 | Unchanged | Lane A routes; Lane B implements | B-106 Follow-up-Tier (a) |
+| F06, pasted F5 | Unchanged | Lane A; Lane B | SM06 DoR review |
+| F07 | Unchanged | Lane A; Lane B (V2) | Judge's selection of automated-publication scope |
+| F08 | Unchanged | Per `SM06-P3-01` to `-06` | Each Phase 3 work order |
+| F09; Proposal 3 | Unchanged | As in the `8803ae2` answer | Their stated triggers |
+
+**Decisions D5 and D6 (`D-476` items 5 and 10).**
+
+| Decision | Route | Limit |
+|---|---|---|
+| D5: I-1, I-5, X-1 (`FN-EXCEPTIONS-06-11-12.md` lines 50, 65, 118–119, 130) and the crosswalk additions | Later selected documentation work, Lane A | Needs its own Register act, permitted placement and graph cycle. Not applied here |
+| D6: per-act proof | Stays with Lane A's governance tooling | Any general method rule (I-4) is a separate decision before the next tooling act |
+
+Next: U-TR under its own release, observing T after this record. Lane B reviews it. Gate 2 stays unclaimed.
+
+### What you did instead
+
+Recorded receipt and routing only, as one path. Closed no finding and changed no header. No U-TR or Register edit; no build, graph sync, evidence transfer, deletion, hook setting or lane change. The Judge has not accepted A1, A2 or this record. A6 stays a static check; this record makes no readiness claim and no re-pin. Hashes identify bytes, not authors. Historical push facts rest on retained records. B-136, B-158 and `D-439` stay Open. `docs-drift` stays red, with no clean consistency claim.
+
+| Item | Verdict | Owner / follow-up phase |
+|---|---|---|
+| A1 and A2 final-commit reviews | Received, bounded | Judge's acceptance, separate; Phase 1 |
+| Applied B-158 items | Approve-with-conditions | Judge's acceptance; B-158 stays Open; Phase 1 |
+| U-TR, Register entry, graph cycle | Defer | Separate Judge releases; Phase 1 |
+| F01, F04–F09, Proposal 3, D5, D6 | Defer | Existing owners and triggers; Phases 1–3, V2 |
+| Bulk closure, calling exit 1 clean | Reject | Existing gates; Phase 1 |
