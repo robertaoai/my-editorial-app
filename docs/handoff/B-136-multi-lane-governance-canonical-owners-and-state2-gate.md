@@ -24462,3 +24462,86 @@ Recorded the Judge's choices, answered A1–A7, reviewed `1910135` and filed thi
 | Custody and disposal | Defer | Separate selection, then a separate named disposal; Phase 1 |
 | Blanket deletion, bulk closure, old package | Reject | Existing owners; Phase 1 |
 | SM05 construction now | Reject | Gate 2, selection, work order, FV-001 and lane transfer first; Phase 2 |
+
+
+---
+
+## Lane B — D-476 delivery review and filing of the pending exact-byte review, 2026-11-02
+
+Raiser: Lane B. Receiver: Lane A. Kind: finding. Phase: 1. Read at `935d80e40d50c1bd1939ff442a7590dba17ae689`, tree `5ae34ff5b4fcac0d391df057b915fadea7b1b24d`. This append preserves the header, every earlier byte and Lane A's answer fields. B-136 stays Open.
+
+**Authority:** Judge approval received in the current conversation to review D-476 and, if it passes, file the pending Lane B review in this one B-136 path, commit and push through the manual route. Pending durable registration under D-183. The direct act is retained in `C:/CoWork/outputs/lane-b-b136-review-d476-935d80e-2026-11-02/JUDGE-FILING-ACT.jsonl`, SHA-256 `8666c089732c53137b3e5afb05fa997af910edf28a782e0efbda6706c65bb032` (10,073 bytes); source B8 line 696, 2026-11-02T03:42:42.746Z. This is the named handoff-only transaction under the SOP and D-428's bounded pre-sync route. It grants no later source execution or push.
+
+### What happened — D-476 delivery passes
+
+**Approve `935d80e40d50c1bd1939ff442a7590dba17ae689`, bounded to the evidence below.** The Judge's acceptance is separate. D-476 is recorded; its former sole-parent hold is satisfied. This handoff filing occurs after recording and changes no Register byte.
+
+| Proof | Independent result |
+|---|---|
+| Parent and scope | Sole parent `5ac62243d4619280fee2d0e1a45d2032cf138f0f`; only `docs/v1/V1-DECISION-REGISTER.md` changed. Required author and committer identity. |
+| Exact append | All 2,373,303 parent bytes remain, followed by exactly 53,908 reviewed r6 bytes. r6 SHA-256 `ca7aff2bbf9426202309a37fddea1a3e01abcafe9ce4c98414e2ee956f060d4b`. |
+| Recorded Register | SHA-256 `99c8262c33e729f0eed993b84637f2d121fa1ab0886b9cd8a86d9c9f9f54753d`; retained tested/staged/committed hashes agree with the Git blob. |
+| Checks and hook | Both retained full logs independently recounted: 18 pass, only `docs-drift` failed, zero skips, exit 1. Before/after hashes equal the committed blob. `commit-msg` trace records exit 0. |
+| Packet | All 23 files match their sizes and hashes; none unlisted. Manifest `c03504aa77cf7e8aa06b476a678fcc77c5fe4a3acbb37b027d33a614f18f977d`, in `C:/CoWork/outputs/lane-a-d476-recording-2026-11-02/`. |
+| Identifiers | After a fresh fetch, the named identifiers appear in governed-path history only at `935d80e`. The prior identifier checks and recording gates are retained. |
+| Delivery | Retained evidence shows one non-force push. Lane B's fresh fetch and server query independently confirm server, upstream and local tips at `935d80e`, zero outgoing commits and a clean checkout before this append. |
+
+The heading directly follows D-475's final table row. This is the exact approved byte boundary. No whitespace correction is included. The delivery checks ran on candidate bytes equal to committed bytes; no separate Lane A post-commit check is claimed.
+
+### Pending review now filed; Level 1 bound to recorded authority
+
+The external review was deliberately held to preserve D-476's parent. This append now records its verdict, scope, conditions and source identities:
+
+| Retained source | SHA-256 / disposition |
+|---|---|
+| `lane-b-d476-exact-review-5ac6224-2026-11-02/LANE-B-EXACT-REVIEW-AND-HANDOFF.md` | `ab082f79c01579b003ac4bb328d28825f84fc4bbe0caacb63986a168f76d4655`; Level 1 approval of exact r6 under D7, and conditional approval of selected proposed r4. |
+| Same packet, `B-136-CONCISE-HANDOFF.md` | `dba82a6ed66193d31d5541655d54234c3eb2b5d08a743ac3b067e8110cc40454`; parent-first D1–D8 choices and follow-up. |
+| Same packet, manifest | `e281b83c0039f0e0256b4437e10a3b9d07d0f21d104043f4bdb0fb237be1991a`; 15 files reverified, all equal. |
+| `lane-b-b136-tracking-review-5ac6224-2026-11-02/B-136-TRACKING-REVIEW-HANDOFF.md` | `19a1d4a68ca3259091d62bfe4286a3e349a5f22730a8ef8e744c6b48eb746890`; tracking corrections retained. Its five-file manifest `1a45871afa282fb373bc935829a7669dffbcbaae2666a50e2d9bf464e05cc199` is reverified. |
+
+All paths in this table are under `C:/CoWork/outputs/`. The historical “not recorded” and “file after recording” statements describe their original observation. D-476 recording is now proven above. Files and original seals stay unchanged; this is a handoff filing, not evidence-custody transfer.
+
+**Current selected-candidate Level 1 receipt:** Lane B confirms the selected U-DC proposed text in `lane-a-d476-candidate-2026-11-02/U-DC-U-TR-LITERALS.r4.md`, SHA-256 `5b7c4e41d215200b4b7b2aa5c83aeb5a07b51006be2050050ea65a6a249e8cf4`, under **D-476 recorded at `935d80e`**, item 5. Scope: C1–C5, C6a–c, C7a/b, C8, C9, E1, E2 and S1. Verdict: **Approve-with-conditions**; no application. Only the Register changed from the selected baseline, so the 18 previously verified literal sites and static A6 result retain their source binding. T1–T3 remain selected for later derivation, not a final U-TR review; actual T is not available yet.
+
+**A6 is preserved:** the exact r4 check left the manifest, 23 behaviour rows, four Product rows, DoR boxes, DoR-to-DoD map and DoD section unchanged. The readiness receipt is at `31bcf3a`, not the earlier `719e72b`. This is static pin-impact evidence, not fresh readiness or completion. Recheck changed selected bytes; escalate scope changes through their owner and authority, never silently re-pin. If U-DC application is after 2026-11-02, correct the date, renew affected review and resolve the changed literal hash against the recorded authority before application.
+
+**Lane C must now confirm or revise after this Level 1 receipt.** Its earlier sealed receipt is preliminary because it preceded Level 1. FN-MULTI-LANE §4.5 and D-476 item 5 require the order. A post-recording label refresh is not optional evidence of that confirmation. Candidate reviews do not replace Level 1 then Level 2 reviews of the actual U-DC commits and check logs. This receipt changes no lane state and records no Verified header.
+
+### What you need — settled decisions and remaining gates
+
+D1–D8 are recorded by D-476; no repeat vote is needed. D1a–c are accepted. D2 accepts its nine named deliveries through cutoff `9cea285`, on their individual reviews. D3 selects the base corrections and separate C9 commit. D4a–e select C7, C8, E1, E2 and S1 subject to A6. D5 routes I-1, I-5, extended X-1 and the crosswalk to later authorized documentation work. D6 keeps per-act tooling proof. D8 selects T1–T3. D7's one recording-and-push transaction is delivered.
+
+`32df23b`, `1910135`, `5ac6224`, `935d80e` and this filing remain for a later delivery-acceptance batch. An independent review does not add a delivery to the accepted cutoff or close a parent.
+
+| Order / owner | Next action | Accept when | Reject or stop when |
+|---|---|---|---|
+| 1 — Lane C | Confirm or revise selected-candidate Level 2 after this Level 1 receipt. | Exact r4 hash and recorded D-476 identified; conditions addressed. | Preliminary receipt is treated as the completed chain. |
+| 2 — Judge; Lane A | Name U-DC, B-158 and U-TR execution/push bounds; provide permitted placement for later act registration. | Exact scope, reviews, checks, commit units and push bounds stated; any new Register entry has permitted placement. | Generic manual-push wording is treated as a source release or item 8 as permission for another entry. |
+| 3 — Lane A | Under that release, apply C9 separately, then selected U-DC source edits. | Candidate chain, A6/date/hash bindings and both complete checks per candidate hold. | Unreviewed bytes or scope are introduced. |
+| 4 — Lane B, then Lane C; Lane A | Review final commits; resolve findings; file separate B-158 receiving/routing record. | Both receipts name actual commits and proof; Layer 7 path/hash and D5/D6 routing retained. | Candidate review is used as final-commit proof. |
+| 5 — Lane A; Lane B | Derive and review U-TR after the receipt. | Actual T; T2 before T3; bare B-158 row; Gate 2 unclaimed. | Receipt or accounting is described as construction or clearance. |
+| 6 — Judge; Lane A; Lane B | Release a fresh guarded graph cycle after the last queued source. | Fresh source/tree/root/freeze bindings, independent acceptance and health proof. | Old `424116d` package or a local stale flag substitutes for proof. |
+
+Later direct acts, including this filing release, are pending durable registration under D-183. D-476's interval ends at A6 line 345. Item 8 permits no further intervening entry by implication. Lane A must obtain the permitted placement; this does not undo a valid, bounded direct act or block this specifically authorized handoff filing.
+
+### Closure, construction and custody limits
+
+The current Open headers remain B-095, B-096, B-104, B-119, B-136 and B-158. Header state, Gate 2 accounting and delivery acceptance are distinct. B-095's A4 matrix/journey, B-096's separate metadata/report obligations, B-104's GR-001/GR-003 propagation and B-119's SM06 owners retain their triggers. GR-005's independent delivery acceptance is already recorded; do not repeat it from older residual prose. B-158 still needs its receiving/routing record and selected tracker entry. No bulk closure follows.
+
+All seven SM05 DoR rows and template v1 already exist. The uncreated FV-001 shell is a later gated artifact, not proof of a missing template. Keep Problem → scope → intent/story → requirement → Judge decision → applicability → DoR → DoD validation → implementation → evidence → independent review → acceptance. The later D5 crosswalk supplies pointers; C8 is only an owner index. A handoff push grants no feature DoD, TB-1/TB-2 unit or Lane B activation.
+
+Custody and disposal remain separate branches. External files include sealed evidence and drafts. At the authorized checkpoint, inventory through a named cutoff; select files, destinations and commit plan; preserve provenance/seals; verify committed and remote bytes and consumer links. Only then assess named disposal under its own act and cleared holds. This filing authorizes neither operation.
+
+### What you did instead
+
+Reviewed the delivered Register, its exact candidate, retained checks/hook and live remote state. Filed the previously external verdict and its conditions, with this post-recording Level 1 binding. Kept earlier records and A6. The filing's full checks and manual delivery proof are retained in `C:/CoWork/outputs/lane-b-b136-review-d476-935d80e-2026-11-02/`; report their actual outcomes on delivery. No clean-health claim is made while docs-drift remains. Graphify query was navigation only.
+
+No U-DC, B-158 or U-TR edit, build, graph sync, transfer, deletion or lane change. B-136, B-158 and D-439 stay Open. U-C, J1/J2 transfers, work-r3 and `cac590ad` retain their holds.
+
+| Item | Verdict | Follow-up phase / owner |
+|---|---|---|
+| D-476 `935d80e` delivery | Approve, bounded | Judge acceptance remains separate; Phase 1. |
+| Filed pending review; recorded-authority Level 1; A6 | Approve-with-conditions | Lane C confirms in order; A6/date/hash limits remain; Phase 1. |
+| U-DC, B-158, U-TR, graph and custody | Defer | Named releases, ordered reviews and proof; Phase 1. |
+| Blanket disposal, bulk closure, clean-health or completed Level 2 claims | Reject | Each owner supplies its required proof; Phase 1. |
+| SM05 construction now | Reject | Gate 2, selection, work order, unrun FV-001 shell and lane transfer first; Phase 2. |
