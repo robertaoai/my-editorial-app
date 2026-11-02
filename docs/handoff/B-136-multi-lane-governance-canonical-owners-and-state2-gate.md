@@ -24714,3 +24714,44 @@ Reviewed both deliveries, answered the corrections and filed this answer as one 
 | Custody and disposal | Defer | Separate selection, then a separate named disposal; Phase 1 |
 | Blanket deletion, bulk closure, calling exit 1 clean | Reject | Existing owners and gates; Phase 1 |
 | SM05 construction now | Reject | Gate 2, selection, work order, unrun FV-001 shell and lane transfer first; Phase 2 |
+
+
+---
+
+## Lane B — consolidated handoff after ordered review of 56c6ef9, 2026-11-02
+
+Raiser: Lane B. Receiver: Lane A. Phase: 1. Kind: finding. B-136 stays Open. Judge directly approved this consolidated handoff filing, commit and manual push in the current conversation, pending durable registration. No source-execution release is inferred.
+
+### What happened
+
+Lane A's `56c6ef9` delivery now has Lane B Level 1 followed by Lane C Level 2, both bounded approvals. Judge acceptance remains pending. The listed reviews of `935d80e`, `3b5dd15` and `5fb523b` are complete. The r4 candidate review and separate correction are complete subject to execution conditions.
+
+Sources: `C:/CoWork/outputs/lane-b-review-56c6ef9-and-correction-2026-11-02/B-136-HANDOFF-DRAFT.md`, SHA-256 `c72be55f37993c6697050a5618ea8567b9b06890a84a849b153072cdf6a76b61`; `C:/CoWork/outputs/lane-c-level2-review-56c6ef9-2026-11-02/LANE-C-LEVEL2-REVIEW-56c6ef9.md`, SHA-256 `d869d872c799eec23e9163b80987225136d1c5f7fe33f17868a9ad1ef383354b`, manifest `65135db29b95589dc41ad8fd8798ed8a7cfbfa8370731ddc4a918f08b9be0b50`. The new Lane C packet verifies 2/2 files; earlier seals stand.
+
+**Evidence limits:** Lane C's fresh check was cancelled. Its final receipt recounts Lane B's completed check: 18 pass, only docs-drift failed, zero skips, exit 1. Attribute that result to Lane B. Server equality rests on Lane B's retained `remote-review.json` and `server-read.txt`; Lane C's verification JSON contains no remote proof. Historical push facts remain retained evidence. Hashes identify bytes, not authors.
+
+Lane C's approval of Lane B's external draft is packet/content verification, not a completed ordered review chain for that draft. Lane A must review that object first. This distinction does not invalidate Lane C's ordered review of Lane A's `56c6ef9` delivery.
+
+### What you need — parent first
+
+1. Lane A reviews this handoff and its sources, then receives the completed reviews through its own dated answer under a separately authorized filing transaction. Preserve earlier records; do not rewrite old pending statements.
+2. Judge decides exact execution units and pushes, permitted registration placement and finite cutoff, and authority for any changed application-date hash. D1–D8 remain recorded; no repeated vote is needed on settled choices.
+3. After a separate release: C9 alone, then U-DC source commit; Lane B then Lane C review actual commits; Lane A files B-158 receiving/routing record; derive U-TR at actual T after that receipt; Lane B reviews; later separately released graph cycle follows the final queued source and any required registration.
+4. Keep custody and disposal separate. Keep B-095, B-096, B-104, B-119, B-136 and B-158 Open with their existing child owners. The detailed owner table remains in the cited Lane B draft. No bulk closure.
+
+### A6 preserved
+
+r4 stays `5b7c4e41d215200b4b7b2aa5c83aeb5a07b51006be2050050ea65a6a249e8cf4`. A6 remains a static check, not fresh readiness; no re-pin. Only C6b and C6c carry replacement dates; the candidate header is separate and must remain consistent. A date change requires renewed affected review and resolved authority before application. A later Register entry cannot repair an earlier hash binding by implication.
+
+Proposed acceptance batch, each assessed separately: `32df23b`, `1910135`, `5ac6224`, `935d80e`, `3b5dd15`, `5fb523b`, `56c6ef9`. Cutoff: `56c6ef9`. Later filings, including this one, remain pending outside it. No acceptance is issued here.
+
+### What you did instead
+
+Consolidated retained evidence and filed this one-path handoff. Template v1 exists; feature validation remains unrun. No U-DC, B-158, U-TR or Register edit; no build, graph sync, transfer, deletion or lane change. This filing grants none of those operations. B-136, B-158 and D-439 remain Open. Evidence for this transaction is retained in `C:/CoWork/outputs/lane-b-consolidated-56c6ef9-2026-11-02/`.
+
+| Item | Verdict | Follow-up |
+|---|---|---|
+| Consolidated handoff | Approve for review | Lane A; Phase 1 |
+| Lane C's 56c6ef9 review | Approve-with-conditions | Carry the evidence limits above; Phase 1 |
+| Judge acceptance and execution release | Defer | Named decisions and bindings; Phase 1 |
+| Construction or bulk closure now | Reject | Existing readiness and closure gates; Phases 1–2 |
