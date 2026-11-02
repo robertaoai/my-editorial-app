@@ -24849,3 +24849,78 @@ Reviewed `463130d` and its sources and filed this answer as one path. No U-DC, B
 | Custody and disposal | Defer | Separate selection, then a separate named disposal; Phase 1 |
 | Treating Lane C's check or JSON as fresh or remote proof, bulk closure, calling exit 1 clean | Reject | §3; existing owners and gates; Phase 1 |
 | SM05 construction now | Reject | Gate 2, selection, work order, unrun FV-001 shell and lane transfer first; Phase 2 |
+
+
+---
+
+## Lane B — Level 1 delivery review of 3ea112c and Lane C receipt, 2026-11-02
+
+Raiser and reviewer: Lane B (Codex). Receiver: Lane A. Kind: finding. Phase: 1. Read at `3ea112c39b7abd0d488bd20f3734b06029927ed5`. B-136 stays Open. Preserve the header, Lane A's answer fields and all earlier bytes.
+
+**Filing authority:** the Judge directly requested review of Lane A's delivery answering `463130d` and, if it passes, this one-path review filing, commit and manual push. Source B8 line 1497; retained verbatim as `C:/CoWork/outputs/lane-b-b136-review-3ea112c-2026-11-02/JUDGE-FILING-ACT.jsonl`, SHA-256 `de4d4e9c1339520b77ba0a141e9cbd2cc482f04c9c42647f80c2524853a045d9`; exact source path in `authority-locator.json`. This is direct authority for this transaction under the handoff SOP and D-428 pre-sync route, pending durable registration under D-183. It grants no source execution or configuration change.
+
+### What happened
+
+**Lane B Level 1 delivery verdict on `3ea112c`: Approve, bounded.** The answer preserves the evidence limits, separates the reviewed objects, and supplies Lane A's own review of `463130d`. No blocking delivery defect was found.
+
+| Proof | Independently checked result |
+|---|---|
+| Commit and scope | Sole parent `463130dae5986a98e56e011d2d28f6f04c307cb7`; tree `6cd45c8100714247c2085fa25687576e74a9b606`; only B-136 changed; required author and committer email |
+| Exact bytes | 2,372,223 parent bytes preserved, followed by 8,565 bytes equal to `B-136-ANSWER-RESOLVED.md`; committed SHA-256 `6cb7a49d262979203f8077f045f5f9a2e91903937c973e01774194cd32fd1d2c` |
+| Lane A packet | `lane-a-b136-review-463130d-2026-11-02`, manifest `70716c9480544fcd35a29578277bb31609c182b8f4fbfa45729987fbbef664f4`; 28/28 files match, none unlisted |
+| Filing act | `0356c6f0bd0fc08dcb659c7a61077e3a276fac448d9a09f88cbe306ab448f62e`, 3,239 bytes, equals Lane A session `2461cf4a-ac7a-4ff1-8d42-74d5cabe8f20.jsonl` line 3 |
+| Retained checks | Both logs recounted: 18 pass, only docs-drift failed, zero skips; JSON records exit 1 and equal before/after hashes matching the committed bytes. They ran on the candidate at parent HEAD, not after the commit |
+| Hook | Matching `commit-msg` child-start and child-exit in the same trace session; exit 0. Git's final exit alone is not this proof |
+| Delivery | Retained before/after server records and fast-forward push evidence match. Lane B's fresh server read at this review equals upstream and local `3ea112c`, zero outgoing, clean checkout. Historical push facts remain bounded to retained records |
+
+### Lane C receipt and evidence limits
+
+Reverified `C:/CoWork/outputs/lane-c-level2-review-463130d-2026-11-02/`: 4/4 files, none unlisted; manifest `9eb0e5db50f5f86801db3dde7a54dbd1607ab90db298af2ed3d39c3860324eac`. Receipt `LANE-C-LEVEL2-REVIEW-463130d.md` is `62a94b61d64168dcb2ae06d98675f147ba7b360449a8bcc7e077ca2533f39224`.
+
+Its retained completed check at `3ea112c` (`a7629f11…`) records 18 pass, only docs-drift failed, zero skips, exit 1 and unchanged B-136 hash. Its own server output (`99a9bb99…`) and verification JSON now carry remote proof. These are Lane C's new observations, not a replacement for the earlier record. Lane B checked the retained log, JSON and seals; Lane B does not claim to have run Lane C's check.
+
+The prior `56c6ef9` limits remain: task-339 was cancelled; the recounted `2a189f3a…` log belongs to Lane B; `verify-56c6ef9.json` has no remote field and relies on Lane B's retained remote proof. Original seals are unchanged. Hashes identify bytes, not authors. No full historical-route audit or new child-owner completion audit is claimed.
+
+| Object | Current review state | Still pending |
+|---|---|---|
+| `463130d` delivery | Lane A Level 1 at `3ea112c`, then Lane C `62a94b61…`; in order | Judge acceptance |
+| Lane B external draft `c72be55f…` | Lane A §2 at `3ea112c`, then Lane C's explicit confirmation in `62a94b61…` | Routing conditions stand; no child disposed |
+| `3ea112c` delivery | This Lane B Level 1 receipt | Lane C Level 2 after this receipt, then Judge acceptance |
+| r4 selected candidate | Existing Level 1 then Level 2 plus correction | Named execution/push release, date/hash gates and actual-commit reviews |
+| This new Lane B filing | Not self-reviewed | Lane A, then Lane C; Judge acceptance separate |
+
+### Hook finding
+
+Confirmed at this checkout: `core.hooksPath` has no configured value and `.git/hooks/commit-msg` does not exist. Thus an unqualified bare commit here would not invoke this gate. The reviewed delivery's hook trace remains valid: its command explicitly used `-c core.hooksPath=.githooks`. This filing uses the same explicit override and verifies the hook's own exit. No permanent setting is changed. Permanent hook installation remains a separate Lane A/Judge configuration decision; it is not a blocker to this explicitly hooked transaction.
+
+### A6 preserved
+
+r4 remains `5b7c4e41d215200b4b7b2aa5c83aeb5a07b51006be2050050ea65a6a249e8cf4`. All seven target blobs are unchanged from `5ac6224` through `3ea112c`. A6 is the retained static check, not fresh readiness or feature completion. No re-pin. Only C6b and C6c carry selected replacement dates; the candidate header is separate. A changed application date requires consistent candidate bindings, renewed affected review and resolved authority before application. A late Register entry cannot cure that earlier hash binding by implication.
+
+### What you need — parent-first follow-up
+
+| Order / owner | Action | Accept when / stop condition |
+|---|---|---|
+| 1 — Lane C; Lane A | Lane C reviews `3ea112c` after this receipt. Lane A reviews this new filing | Exact objects, hashes, scope and limits named; do not substitute inspection of a packet for its ordered delivery verdict |
+| 2 — Judge; Lane A | Decide execution units, pushes, registration placement and finite cutoff; resolve any changed date/hash before application | Explicit bounded act; a draft or generic manual route is not source execution permission. Permanent hook setup is a separate choice |
+| 3 — Lane A after release | C9 in its own commit, then selected U-DC source commit | Reviewed bytes, A6, two complete checks per candidate, explicit hook proof and delivery bounds; stop on changed scope or unresolved hash |
+| 4 — Lane B then Lane C; Lane A | Review actual commits; resolve findings; file B-158 receiving/routing record; derive U-TR; Lane B reviews U-TR | Both final receipts; correct Layer 7 path/hash; actual T after B-158, T2 before T3, bare B-158 row, Gate 2 unclaimed |
+| 5 — Judge; Lane A; Lane B | Complete any separately permitted registration and release a fresh later graph cycle | Named interval cutoff and exact-byte review; final queued source/tree/root and prospective freeze. No reuse of an old package |
+
+The earlier proposed acceptance batch still ends at `56c6ef9`. `463130d`, `3ea112c` and this filing remain outside it unless the Judge names another finite batch. No list accepts itself; no acceptance is issued here. D1–D8 remain recorded choices, not repeat votes.
+
+Template v1 exists and stays immutable. Pre-selection DoR checks are not feature DoR/DoD execution. Preserve Problem → scope → intent/story → requirement → Judge decision → applicability → DoR → defined DoD validation → implementation → evidence → independent review → acceptance. Feature tests and FV-001 remain gated; Lane B is not activated here. Manual handoff delivery is the bounded D-183/D-184/D-428 route, not evidence of a missing template or permission to start TB-1/TB-2.
+
+Use the existing owner table for B-095, B-096, B-104, B-119, B-136 and B-158; all remain Open. D5's I-1, I-5, extended X-1 and crosswalk stay in later selected documentation work. D6 keeps per-act proof. Custody selection needs a finite inventory, named files/destinations, consumers and committed/remote byte proof; named disposal follows only after holds clear. External files include sealed evidence as well as drafts. Neither branch is authorized here.
+
+### What you did instead
+
+Reviewed the delivery and sources, checked eight packet manifests, and retained proof in `C:/CoWork/outputs/lane-b-b136-review-3ea112c-2026-11-02/`. Graphify query was navigation only. Docs-drift on the Register remains for the later guarded cycle; report actual filing checks, never call exit 1 clean consistency. No U-DC, B-158, U-TR or Register edit; no build, graph sync, transfer, deletion, hook installation or lane change. B-136, B-158 and D-439 stay Open.
+
+| Item | Verdict | Follow-up phase / owner |
+|---|---|---|
+| `3ea112c` delivery | Approve, bounded | Lane C after this Level 1; Judge acceptance; Phase 1 |
+| Lane C receipt `62a94b61…` and ordered confirmations | Approve, bounded | Carry old and new evidence attribution separately; Phase 1 |
+| r4 and A6 | Approve-with-conditions | Named release, date/hash authority and actual-commit reviews; Phase 1 |
+| Source execution, registration, graph, permanent hooks, custody/disposal | Defer | Separate bounded decisions and evidence; Phase 1 |
+| Bulk closure, old evidence recast as fresh, construction now | Reject | Existing owners and readiness/work-order gates; Phase 1 / Phase 2 |
