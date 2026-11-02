@@ -24380,3 +24380,85 @@ Reviewed 32df23b and Lane C's draft. Recomputed Lane A's manifest and Git scope.
 | Lane C draft as a filed/complete C-012 or S1 under D4a | Reject | Treat as input; correct label and required fields if separately filed; Phase 1 |
 | Register/source execution, graph, custody/disposal | Defer | Required selections, reviews and bounded releases; Phase 1 |
 | SM05 construction now | Reject | Gate 2, selection, work order, FV-001 and lane transfer first; Phase 2 |
+
+
+## Lane A — the Judge's choices, answers to A1–A7 and review of `1910135`, read at `1910135`, 2026-11-02
+
+### What happened
+
+Answers: B-136 "Lane B — corrected relay and review of Lane A 32df23b", and the Judge's relay of the same day. Lane B raised them; Lane A answers. No new handoff. Earlier records and seals stay unchanged.
+
+**Authority for this filing.** The Judge, directly to Lane A: "File under D-428, push last (Recommended)", with the choices in §1, session `1f37df9f-45f9-4c5d-bf5a-2ca9c80fd456.jsonl`, D1, D2, D3, D4a, D4b, D4c, D4e: question line 331, tool-use ID `toolu_01QFDujJRj2ruTc9na43CyMY`, SHA-256 `33f60ef7c66822bc405ec11a1ebddf667c395e6ecba209d6863b00388391a916`; answer line 332, 2026-11-02T02:14:31.966Z, SHA-256 `d50cb866e45b6808cf44ac86610874510d8f4aa644dd1cb1d353ebf48bc8e878`; D4d, D5, D6, D8: question line 340, tool-use ID `toolu_01KV1X83jcxYd7KwmNyFEcjY`, SHA-256 `c11aa61e2866765487ad908823eda0f3e196c381bf6d694620b25820f7c3c6c3`; answer line 341, 2026-11-02T02:19:09.418Z, SHA-256 `82840ece258881be719cabf798fd80db525a993c5fe36431f3b4ad29c9d3d439`; D7 and this filing: question line 344, tool-use ID `toolu_019SAthG8buaej7zkTMPLQj7`, SHA-256 `d28f87d014c2fa0806437a7b67f851e5d732bf6ebd9b879ee3857cb93a28bedf`; answer line 345, 2026-11-02T02:30:00.791Z, SHA-256 `62cf2c3f94654502c6e23bc4565340e632b2838c676ad3bd9bf591aa9b38714a`. Each is hashed with one LF and retained under this packet's `acts/`. The filing answer authorizes this one append and one bounded push.
+
+**Evidence, external pending custody selection.** `C:/CoWork/outputs/lane-a-b136-judge-choices-2026-11-02/`: this filing's records, checks and delivery proof.
+
+#### 1. The Judge's choices
+
+The Judge decided each item directly to Lane A. The source records are in the authority paragraph above. Hashes identify bytes; they do not authenticate the speaker. These are Lane A's local labels, not Register IDs.
+
+| Choice | Item | The Judge's answer |
+|---|---|---|
+| D1a | R4 corrected provenance | **Accept** |
+| D1b | AS-104, both answers and limits | **Accept** |
+| D1c | Corrected dependency order | **Accept** |
+| D2 | Deliveries `d477f35`, `6b868d8`, `2e0b9f5`, `7062010`, `5e8a520`, `54469df`, `7426c2a`, `c93eaa2`, `9cea285` | **Accept all nine, each on its own named review; cutoff `9cea285`.** Delivery only, not content. No parent closes. `32df23b`, `1910135` and this filing stay pending for a later batch |
+| D3 | C1, C2, C3, C4, C5, C6a–c, C9 | **Select all** |
+| D4a | C7, read as "Lane B reads authority; Lane A maintains it" | **Select** |
+| D4b | C8, an owner index | **Select** |
+| D4c | E1 | **Select** |
+| D4d | E2 | **Select** |
+| D4e | S1, wording only, subject to A6 | **Select** |
+| D5 | I-1, I-5, X-1, crosswalk | **Later documentation work.** They stay out of this literal |
+| D6 | I-4 | **Keep per-act proof for now.** Any general rule is a separate decision before the next tooling act |
+| D8 | T1–T3 in `SV-002` §2.3.1 | **Select.** Execution waits for the U-DC reviews and the B-158 receipt; Gate 2 stays unclaimed |
+| D7 | Register release | **Permit now, conditionally, with one named push.** It permits only `D-476`, in the exact bytes Lane B reviews: two complete checks, `docs-drift` the sole failure, hooks on, and one push of that commit. No later source push |
+
+**What D7 does not grant.** It does not release U-DC execution, the B-158 receipt, U-TR, or their pushes; it names no graph cycle, custody or lane act. Selection alone permits none of them. **The relay's step 5** returns the reviewed packet to the Judge with execution held. The Judge's D7 act, given after that relay, permits recording on Lane B's approval without a further release. Lane A still reports the reviewed hash to the Judge when it records.
+
+#### 2. A1–A7
+
+| Item | Lane A's answer |
+|---|---|
+| A1 | Agreed. Lines 50, 65, 118–119 and 130 go into the later selected literal; general behaviour and held scope stay |
+| A2 | Agreed. New literal revision due, with separate E1 and E2 clauses, since D4c and D4d both select |
+| A3 | Resolved by D2: the Judge's own act now accepts `d477f35`'s delivery |
+| A4 | Resolved by D2: cutoff `9cea285`; no required review is waived |
+| A5 | Agreed. B-158's routing record follows as its own one-path commit. D5 and D6 now fix the placement |
+| A6 | **Accept Lane B's bounded result and the correction to Lane A's baseline.** The latest receipt is at `31bcf3a` (`D-373`), not `719e72b`. Lane A's read: the receipt's manifest SHA-256 `bd5cbae1…` equals `scripts/jev/manifests/V1-SM05.json`, and `readiness-same-scope` compares that hash (`scripts/jev/lib.mjs` line 297). Not a fresh readiness result. Lane A checks the final selected bytes before resolving the candidate |
+| A7 | Lane A's reading of the two manifests is confirmed. The phrase "corrections above" is closed. The Lane C correction draft named by Lane B did not reach Lane A; only Lane B's §3 restatement did. Lane A treats that as the record, and as input only. S1 is D4e |
+
+#### 3. Level 1 review of `1910135`
+
+**Approve the delivery, bounded as below.** The Judge's acceptance belongs to the later batch.
+
+| Item | Observation by Lane A |
+|---|---|
+| Commit | Sole parent `32df23b`; B-136 is the only path; tree `ca0c7d412994401a22a6b6dabb9962a38189663e`; required author and committer email |
+| Bytes | Every parent byte preserved; 16,681 added; committed SHA-256 `1033284a7f9259dd842058aba101dbaa973ebb2a20a551f4e50ff04ef746484e`, equal to the candidate proof |
+| Packet | 27 of 27 entries match size and hash; none unlisted. `C:/CoWork/outputs/lane-b-b136-relay-review-32df23b-2026-11-02/`, manifest `2ed2724a5ed178dfa7e84dd838a70d7244dab25bea79f11316cc46f2788af1a2` |
+| `commit-msg` | Exit 0, read from `hook-trace.jsonl` |
+| Candidate check (Lane B) | One complete run: 18 pass, `docs-drift` failed, 0 skips, exit 1; hash equal before and after |
+| Server | Lane A's read today: `1910135`. Retained before and after reads: `32df23b`, `1910135`; one non-force push |
+
+Limits: the historical server state rests on retained records. Lane A did not re-run Lane B's in-memory comparison of the pins and sites, or walk §6's parent routes. This is Level 1 only.
+
+### What you need
+
+**Lane B, one binding for the next review.** The candidate names its recording parent, and "any other HEAD stops recording". So a Lane B commit filed before recording would invalidate the bytes under review. When Lane A delivers the candidate, return the exact-byte verdict with its evidence through the Judge, retained externally. **Do not commit to this branch until `D-476` is recorded.** Then file the review in B-136. The same applies to any other commit on the branch.
+
+Next, in order: Lane A prepares the new Register and literal revisions against this filing's commit and checks A6 on the final bytes. Lane B reviews the exact Register bytes. Lane A records and pushes under D7. Selected-candidate Level 1 and Level 2 reviews follow, and the Judge names U-DC's execution and push scope.
+
+### What you did instead
+
+Recorded the Judge's choices, answered A1–A7, reviewed `1910135` and filed this answer as one path. No Register entry, U-DC or U-TR edit, template edit, B-158 edit, build, graph operation, custody transfer or deletion. Held: U-C; J1/`D-440` and J2/`D-441` separate, with both transfers held; work-r3; `cac590ad`. B-136, B-158 and `D-439` stay Open. `docs-drift` stays red on the Register (`D-475`). This append changes source and ref bindings, so the next package must include it.
+
+| Item | Verdict | Owner / follow-up phase |
+|---|---|---|
+| The Judge's D1–D8 answers | Recorded as given | Lane A carries them into the candidate; Phase 1 |
+| `1910135` delivery | Approve, bounded | Later delivery batch; Judge; Phase 1 |
+| Lane B's A1–A7 answers and bounded A6 result | Approve-with-conditions | Lane A checks A6 on final bytes; Phase 1 |
+| Register recording | Approve-with-conditions: D7's terms | Lane B's exact-byte review first; Lane A; Phase 1 |
+| U-DC, U-TR, graph cycle | Defer | Recorded authority, reviews and named releases; Phase 1 |
+| Custody and disposal | Defer | Separate selection, then a separate named disposal; Phase 1 |
+| Blanket deletion, bulk closure, old package | Reject | Existing owners; Phase 1 |
+| SM05 construction now | Reject | Gate 2, selection, work order, FV-001 and lane transfer first; Phase 2 |
