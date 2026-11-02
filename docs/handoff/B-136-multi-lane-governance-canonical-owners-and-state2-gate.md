@@ -24134,3 +24134,130 @@ Reviewed the latest correction, verified both supplied packet manifests, ran the
 | Custody and disposal | Defer | Selected inventory, durable transfer proof, then separate disposal decision; Phase 1 |
 | Missing-template explanation, bulk closure, blanket deletion, stale-package execution | Reject | Use existing owners and evidence gates; Phase 1 |
 | SM05 construction now | Reject | Gate 2, selection, work order, FV-001 and lane boundary first; Phase 2 |
+
+
+## Lane A — review of Lane B's `9cea285` delivery and Lane C's relay, with the Judge's choices, read at `9cea285`, 2026-11-02
+
+### What happened
+
+Answers: B-136 "Lane B — review of Lane A correction c93eaa2 and Lane C relay", and the Judge's relay of 2026-11-02, which attached Lane C's decision summary. Lane B raised them; Lane A answers. No new handoff. Earlier records and seals stay unchanged.
+
+**Authority for this filing.** The Judge, directly to Lane A: "File under D-428, push last (Recommended)", answering Lane A's filing question (session `1f37df9f-45f9-4c5d-bf5a-2ca9c80fd456.jsonl`, question line 263, tool-use ID `toolu_012nGG3sBaPtLHT8BFh4MA8i`, SHA-256 `439bef9742d018c2400e315975661690bfa7829213a2375a7970b9e54fef5451`; answer line 264, 2026-11-02T01:44:00.893Z, SHA-256 `189f4dcf430bfb7da26818861a95fec182b61dd2b6a6c65383954e42478102de`; each hashed with one LF and retained under this packet's `acts/`). It authorizes this one append and one bounded push. It is not the Register release. It selects no U-DC or U-TR ID and starts no graph operation.
+
+**Evidence, external pending custody selection.** `C:/CoWork/outputs/lane-a-b136-review-9cea285-2026-11-02/`: the recomputation script, its output and the complete check log.
+
+#### 1. Level 1 review of `9cea285`
+
+**Approve the delivery, bounded as below.** The Judge's acceptance is separate. No parent closes.
+
+| Item | Observation by Lane A |
+|---|---|
+| Commit | Sole parent `c93eaa2`; B-136 is the only path; tree `3996cbfa10d1a723021c93bec371ed20ccb49e95`; required author and committer email |
+| Bytes | Parent's 2,278,266 bytes preserved; 18,695 added and equal to `REVIEW-APPEND.md` (`7a42cac9…`); committed SHA-256 `3d0c86e056816722361b9bbfa7a2eef2105fce26fddc5a21818593cd7a495867`, equal to the working file |
+| Packet | 31 of 31 entries match size and hash; none unlisted. Manifest `ed5a25d12d5dbd35e46fc9f87f95b52f3d398b0c602a9196970263ad3c593ebf`. Lane B's filing states no manifest hash, so this is its first recorded value |
+| `commit-msg` | Exit 0, read from `hook-trace.jsonl` |
+| Candidate check (Lane B) | One complete run: 18 pass, `docs-drift` only, 0 skips, exit 1; hash equal before and after |
+| Fresh check (Lane A, at `9cea285`) | Same result. `docs-drift` names only `docs/v1/V1-DECISION-REGISTER.md`, analyzed `ddf0b92` |
+| Server | Lane A's read today: `9cea285`, equal to upstream and local; working tree clean. Retained before and after reads: `c93eaa2`, `9cea285`; one non-force push |
+| Lane C packet | 7 of 7 entries match; none unlisted. Manifest `6c9e66fdbfb5ef6b5300d77495dc241e8b0408650c060b50f557f851c91bed0d` |
+| Coverage | `b4604bc..9cea285` is 14 commits, so 75 are reachable. This filing joins when its own delivery proof completes |
+
+Limits: the historical server state rests on retained records. The check ran on the candidate's bytes, not again after commit; the bytes are equal and Lane A's fresh run covers the commit. Hashes identify bytes and do not authenticate authors. This is Level 1 only; no Level 2 receipt exists for `9cea285`. Lane A checked Lane B's §6 parent table against the six Open headers and 25 Applied count only, not each parent's route. Lane A did not re-derive the review's custody list.
+
+**Evidence rechecked at `9cea285`, all confirmed:** UX §3 line 46; FN-MULTI-LANE lines 38, 39, 252; Build Spec lines 381–382; `FN-EXCEPTIONS` lines 50, 118–119 against `CONFIG_LOG.md` lines 59, 64 and `build-config.ts` lines 47, 52; template v1 hash `ca605cd6…`; literal r3 hash `8e29df12…`; `D-383` for SM05's local DoD. Only B-136 changed since `7426c2a`, so r3's blocks and anchors stay valid at this baseline. `D-475` is the last Register entry and `D-476` has no occurrence under `docs/v1`, `scripts` or the rule files.
+
+#### 2. Accepted and disputed points
+
+**Accepted from Lane B's review:** the r5 gap; the Lane C receipt requirement; I-1, I-2/I-3/I-7, I-4, I-5, I-6 and X-1 as findings; the construction chain; two delivery routes; the custody and refusal criteria. Lane A also corrects its own §3 order at `c93eaa2`, which omitted the selected-candidate reviews. They gate U-DC execution and are separate objects from Lane B's exact-byte Register review: one reviews the entry, the other the selected old-to-new source edits.
+
+| # | Point | Lane A's position | Evidence | Owner / phase |
+|---|---|---|---|---|
+| A1 | X-1's extent | Understated. Lines 65 (§4.1) and 130 (§8) also state `UNSET` for these values. Lines 112 and 138 state the general behaviour and stay | `FN-EXCEPTIONS-06-11-12.md` at `9cea285` | Lane A, in the later literal; 1 |
+| A2 | Literal r3 "Resolved" (Lane A's `c93eaa2` binding) | Lane A's overstatement. C6c carries clause labels and "[E1 or E2:]", so every selection changes it. A new literal revision is certain. If both E1 and E2 are selected, its joint clause breaks "one clause per selected ID" and must be rewritten | r3 C6c; `c93eaa2` §4 | Lane A; 1 |
+| A3 | Delivery list | `d477f35` is missing. Lane B approved it at `6b868d8` ("Judge acceptance separate"), and Lane A found no acceptance in B-136 or r5. This is not a whole-record search | B-136 line 23412; r5 item 7 | Judge; 1 |
+| A4 | The list cannot close itself | Each review is a new delivery that needs a review. See choice D2 | This filing | Judge; 1 |
+| A5 | Lane C's B-158 routing step | Agreed, but later. A B-158 record is its own one-path commit (`D-385`) and placement is the Judge's. §4 gives the proposed routes; they are recorded in B-158 after the choice | `RELAY-NOTE.md` step 3 | Lane A; 1 |
+| A6 | Selected edits and `DOR-R7` | Open. C1, C4–C6, E1, E2 and S1 change `Modular_PRD` or `V1-SM05` after the readiness receipt at `719e72b`; the packet asks for the "same pinned scope". Lane A has not established whether the pin covers these lines. Check before the candidate is resolved | `V1-SM05.md` lines 102, 173 | Lane A; Lane B reviews; 1 |
+| A7 | "The two packet hashes" and "the corrections above" | Neither is identified. Lane A reads the first as the two manifests Lane B verified, Lane A's `13d13448…` and Lane C's `6c9e66fd…`, and acknowledges both. The relay as received contains no corrections above its text, so §3 is Lane A's own comparison. Lane B: name any correction it misses | Relay; B-136 line 24036 | Lane B; 1 |
+
+#### 3. Lane C's decision summary against the records
+
+**Received as a recommendation.** It selects no work and is neither Lane C receipt. Its worklog shows Git and B-136 reads, with no packet recomputation, so its delivery column repeats other lanes' results.
+
+| Summary says | Record says | Source |
+|---|---|---|
+| C8 adds a "layer/reviewer crosswalk" | C8 adds an owner table to `docs/README.md`. The crosswalk is not in r3 | r3 C8; Lane C addendum §3; Lane B line 24040 |
+| S1 is in `docs/handoff/SV-002` | S1 is `docs/v1/work-packets/V1/V1-SM05.md` line 234. `SV-002` is under `work-packets/SETUP-SPIKE-000/` and is T1–T3's target | r3 S1, T1 |
+| Checks "clean (docs-drift only)" | Exit 1 with one failure, permitted only as the `D-428` outcome | Check logs |
+| `9cea285` verified by "7/7 Lane C relay match" | That count is Lane C's own packet, not this delivery. Its independent review is §1 above | Lane B line 24025 |
+| `6b868d8` verified by "excerpts confirmed in BH-095" | BH-095 concerns filing authority. The delivery review is Lane A's | B-136 lines 23436, 23643 |
+| Line 715 is the "genuine human confirmation" | Its role is the confirmation; retained records do not authenticate authorship by hash | Lane B line 24027; r5 item 3 |
+| Sequence goes from recording straight to U-DC | Selected-candidate Level 1 then Level 2 reviews come first | Lane B line 24058 |
+| Custody sits between graph and Phase 2 | Separate branches; custody is not a blanket product prerequisite | Lane B line 24077 |
+| Inclusion needs "full redrafting and re-review" | Overstated. A new revision and the candidate reviews are due anyway (A2). The real costs are new IDs, wider source scope and renewed Register bytes | §5 D5 |
+| C7, C8, S1 approved together; E1 and E2 absent from the verdict | Each is decided separately | Lane B line 24056 |
+| Custody destination stated; product list omits selection; "r6" | Destination is only proposed; selection is required; `r6` is an expected label, as `D-476` is an expected number | Lane B lines 24063, 24110 |
+
+#### 4. Lane C relay: receipt and proposed routing
+
+Received: `C:/CoWork/outputs/lane-c-level2-aig-intent-build-review-2026-11-01/`, manifest above; base review `2eefc30d…`; addendum `07d81653…`. Original manifests preserved. Routes are proposed, not selected. Nothing enters r3 without selection.
+
+| ID | Disposition | Reason | Owner | Phase | Trigger | Proof |
+|---|---|---|---|---|---|---|
+| I-1 | Valid; later unit recommended | UX §3 omits the Lane A review slots. FN §4.5 still governs reviewer assignment meanwhile | Lane A | 1 | D5 | New ID; both reviews; reviewer routing test in Lane B's row |
+| I-2/I-3/I-7 | Valid proposal; later unit recommended | Navigation gap, not a defect. C8 may later hold one pointer | Lane A | 1 | D5, under B-158 Proposals 1/2 | Pointer-only; one owner per fact |
+| I-4 | Judge question | Method rule, not ownership | Judge | 1 | D6 | Judge's answer; act-specific fixtures stay mandatory |
+| I-5 | Valid; later unit recommended | Stale pointers | Lane A | 1 | D5 | New IDs; pointers resolve; history kept |
+| I-6 | Valid; after the cycle | Size hinders focus | Lane A proposes | 1 | Cycle complete | Pointer index; no evidence removed |
+| X-1 | Valid, extended by A1; later unit recommended | Stale status; held behaviour stays separate | Lane A | 1 | D5 | New ID; both reviews; no activation |
+| R-1 | No repository action | The Judge's own reference file | Judge | — | — | — |
+
+### What you need
+
+#### 5. The Judge's choices
+
+Each row stands alone. A rejection returns only that item. Lane A's recommendations select nothing.
+
+| ID | Decision | Lane A recommends | Accept means | If rejected |
+|---|---|---|---|---|
+| D1a | R4 corrected provenance | Accept | Line 715 is the confirmation, line 714 its question; line 723 is no Judge act; the file and its seal stay | Lane A corrects R4 |
+| D1b | AS-104 | Accept | Both answers stand; custody transfer stays held; no present push or transfer | Lane A corrects AS-104 |
+| D1c | Dependency order | Accept | Choices, then resolved candidate, as adopted at `c93eaa2` §3, with the selected-candidate reviews added | Lane A corrects the order |
+| D2 | Deliveries, each separately: `d477f35`, `6b868d8`, `2e0b9f5`, `7062010`, `5e8a520`, `54469df`, `7426c2a`, `c93eaa2`, `9cea285` | Accept each, bounded by its review (lines 23412, 23643, 23710, 23903, 24016, §1 here). **Name `9cea285` as this act's cutoff.** Later deliveries, including this answer, join the coverage as pending, in r5 item 7's existing form | Delivery only, not content; no parent closes | Evidence retained; the named delivery stays pending |
+| D3 | Base U-DC: C1, C2, C3, C4, C5, C6a–c, C9 | Select | C6 follows C1, C4, C5; C9 is its own commit | Unselected IDs stay out; C6c changes |
+| D4a | C7a, C7b, with the reading "Lane B reads authority; Lane A maintains it" | Select | Ends the `D-86`/`AGENTS.md` conflict | The two current texts stay in conflict |
+| D4b | C8 as an owner index | Select | Pointer table only | Stays out |
+| D4c | E1 | Select | Same stale §2.2d pointer as C1 | Stays out; pointer stays stale |
+| D4d | E2 | Select | Dated note labelled, not rewritten | Stays out |
+| D4e | S1, wording only | Select, subject to A6 | No physical proof, schema or construction authority | Stays out |
+| D5 | Lane C additions: I-1, I-5, X-1, crosswalk | Later selected documentation unit | Its cost: its own Register act, a further intervening permission or placement after J3/J-C (r5 item 8), and its own graph cycle. None blocks the current sequence | Inclusion now: new IDs and renewed reviews before candidate resolution |
+| D6 | I-4 | Keep per-act proof for now; decide a general rule before the next tooling act | No tool, workflow or U-C release follows | Lane A drafts a separate method proposal |
+| D7 | Bounded Register release | Name: `D-476` only; the exact Lane B-reviewed bytes; two complete checks; `docs-drift` the sole failure; hooks on; and whether one named push follows | Permits recording only | No recording; dependent work held |
+| D8 | U-TR scope | Select T1, T2, T3 in `SV-002.md` §2.3.1 only | Derive at actual T after the B-158 receipt; T2 before T3; Gate 2 unclaimed; Lane B reviews | Tracker stays stale; Gate 2 cannot be claimed |
+
+One act may hold all of these. Execution stays conditional on recording the reviewed entry.
+
+#### 6. Next steps, after the Judge's act
+
+1. Lane A records the choices, checks A6, and refreshes the authority interval, identifiers, HEAD, tree and hashes. It prepares new Register and literal revisions with actual values.
+2. Lane B reviews the exact Register bytes. Lane A records only those bytes under D7.
+3. Lane B then Lane C review the selected candidate. Lane A applies selected IDs, C9 separately, with checks retained. Lane B and Lane C review the final commits. Lane A then files the B-158 receipt and the routing records.
+4. Lane A derives U-TR after that receipt; Lane B reviews. Lane A requests a fresh guarded graph cycle after the last queued source change.
+5. Custody, disposal and product construction stay separate branches, each under its own existing conditions.
+
+Lane B: review this filing, and answer A7.
+
+### What you did instead
+
+Reviewed `9cea285`, verified both packets, ran one complete check, compared Lane C's summary with the records, and filed this answer as one path. No Register entry, U-DC or U-TR edit, template edit, B-158 edit, build, graph operation, custody transfer or deletion. No candidate resolved. Held: U-C; J1/`D-440` and J2/`D-441` separate, with both transfers held; work-r3; `cac590ad`. B-136, B-158 and `D-439` stay Open. Accepted deliveries, B-159, F03, accepted children and provenance limits stand. `docs-drift` stays red on the Register (`D-475`). This append changes source and ref bindings, so the next package must include it.
+
+| Item | Verdict | Owner / follow-up phase |
+|---|---|---|
+| Lane B delivery `9cea285` | Approve, bounded | Judge's acceptance separate; Phase 1 |
+| Lane B's review content | Approve-with-conditions: A1–A7 | Lane A carries A1, A2, A6; Lane B answers A7; Judge decides A3, A4; Phase 1 |
+| Lane C relay findings | Approve-with-conditions: routing as §4 | Judge places them; B-158 record after that; Phase 1 |
+| Lane C decision summary as written | Reject where §3 corrects it | Use the filed records; Phase 1 |
+| Register candidate, U-DC, U-TR, graph cycle | Defer | Judge's act, reviews and bounded releases; Phase 1 |
+| Custody and disposal | Defer | Separate selection, then separate named disposal; Phase 1 |
+| Blanket deletion, bulk closure, old package | Reject | Existing owners; Phase 1 |
+| SM05 construction now | Reject | Gate 2, selection, work order, FV-001 and lane transfer first; Phase 2 |
