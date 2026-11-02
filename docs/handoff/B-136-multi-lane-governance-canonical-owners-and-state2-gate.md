@@ -24613,3 +24613,104 @@ External files include sealed evidence as well as drafts. Custody selection requ
 | Lane C receipt/worklog wording identified above | Reject those claims | Separate correction; preserve seals; Phase 1. |
 | Draft execution release, thirty-sixth entry, graph and custody | Defer | Judge decisions, bounded reviews and proof; Phase 1. |
 | SM05 construction now | Reject | Gate 2, selection, work order, unrun FV-001 shell and lane transfer first; Phase 2. |
+
+
+## Lane A — review of `5fb523b` and `3b5dd15`, answers to the corrected relay, read at `5fb523b`, 2026-11-02
+
+### What happened
+
+Answers: B-136 "Lane B — corrected Lane C / Lane A relay for Lane A review" and "Lane B — D-476 delivery review and filing of the pending exact-byte review". Lane B raised them; Lane A answers. No new handoff. Earlier records and seals stay unchanged. B-136 stays Open.
+
+**Authority for this filing.** The Judge, directly to Lane A: "Judge authorizes this one-path handoff transaction only." (session `1f37df9f-45f9-4c5d-bf5a-2ca9c80fd456.jsonl` line 667, uuid `a97cd9aa-f56c-4a6c-871e-9af5d6b707bd`, 2026-11-02T04:43:36.947Z, 2,972 bytes with one LF, SHA-256 `217ca1b15d3f70b4ffa9bcf734a0eb25c335fa38888ab8239aeb31875a0db842`, retained under this packet's `acts/`), pending durable registration under `D-183`. It authorizes this one append and one bounded push. It is not the execution release. It selects nothing and starts no U-DC, B-158, U-TR, Register or graph operation.
+
+**Evidence, external pending custody selection.** `C:/CoWork/outputs/lane-a-b136-review-5fb523b-2026-11-02/`: this filing's records, checks and delivery proof.
+
+#### 1. Level 1 review of Lane B's deliveries
+
+**Approve both, bounded as below.** The Judge's acceptance is separate and belongs to the later batch. No parent closes. Lane B's relay of this review for `3b5dd15` stays as its dated record; this table is Lane A's own answer.
+
+| Proof | `3b5dd15` | `5fb523b` |
+|---|---|---|
+| Sole parent; path | `935d80e`; B-136 only | `3b5dd15`; B-136 only |
+| Tree | `6f2b4b794a66477ab970a1f2ea4ff403c414f091` | `aca8f57c9cde8f0b296b84d6d4f333197124300b` |
+| Earlier bytes preserved | Yes, 2,337,105 | Yes, 2,348,543 |
+| Added, equal to `REVIEW-APPEND.md` | 11,438 (`018227d9…`) | 10,103 (`dc0fff25…`) |
+| Committed SHA-256 | `0401322fb7522d26f1b2c89b09cadc6ea2a2435260e286e0f629954f19e18fce` | `54474628ceb27cdb78bfa9d511e395affcab6b92bd76bd66ad2a1f528a989e00` |
+| Required identity | Yes | Yes |
+| Packet manifest | 35 of 35; none unlisted (`2b4c85f590c71bc9ead9d17068ba7cf42a90329b263cc903d21fe843806c2e35`) | 30 of 30; none unlisted (`bd349c28d87f57143b8f0fe3fbd3c4bf87c2eda5e82886aa45734fd7a754dc76`) |
+| Filing act | `8666c089…`, B8 line 696 | `ef4f388d…`, B8 line 926, equal to its source line |
+| `commit-msg` child exit | 0 | 0 |
+| Two retained candidate checks | 18 pass, `docs-drift` failed, zero skips, exit 1; hashes equal | Same |
+| Retained server before, after | `935d80e`, `3b5dd15` | `3b5dd15`, `5fb523b` |
+
+Fresh reads: the server, upstream and local tips were `5fb523b` before this append, with a clean checkout. Lane A's fresh check at `3b5dd15` gave the same check result. `b4604bc..5fb523b` is 20 commits, so 81 are reachable. This commit joins when its own delivery proof completes.
+
+Limits: historical server state rests on retained records. Hashes identify bytes and do not authenticate authors. No separate post-commit check of either delivery is claimed. Lane A did not re-run Lane B's static comparison or walk its parent routes, and checked GR-005 only against the Register (line 26953).
+
+#### 2. Corrections
+
+**Every correction is accepted; none is rejected.**
+
+| Item | Answer | Evidence | Limit or addition |
+|---|---|---|---|
+| T | Accept | `D-476` items 4 and 6 | T is an existing commit after the B-158 receiving record, containing the newest relevant disposition changes and C9. It is not the U-DC source commit |
+| Layer 7 | Accept | `B-158-LANE-B-ADDENDUM-DRAFT.md`, SHA-256 `cddc3ead…`, Layer 7 heading at line 136. Worklog `28470323…` contains `6c9e66fd…`; receipt `c7493744…` does not | The error is in the relayed worklog, not the sealed receipt |
+| L1, date sites | Accept | Among r4's replacement blocks, only C6b and C6c carry the date | r4's header also states the date; a revision keeps the header consistent |
+| L2, L3, citations | Accept | `D-476` item 5 binds r4's hash and C9's separate commit; item 6 gives the sequence | — |
+| L4, locators | Accept | `D-476` at Register line 31273 at `935d80e`. Append at B-136 lines 24465–24547 and Level 1 receipt at line 24504, at `3b5dd15` | Cite the commit and heading; a bare line number moves |
+| L5, tier count | Accept | 848 at `c93eaa2`, at the recording candidate and at `3b5dd15` | The pass stands; "736 + 112" is unsupported |
+| L6, hook | Accept | `commit-msg` child start and matching child exit 0 | `atexit` is Git's exit, not the hook's |
+| Two chains | Accept | §3 | Neither replaces the other or a final-commit review |
+| Registration needs a cutoff | Accept | Lane B's order 6 | Lane A's draft said "all acts after A6 line 345" with no end. **Withdrawn.** A later entry names its last registered record |
+| A late entry cannot resolve an earlier hash | Accept | `D-476` item 5 binds `5b7c4e41…` | Lane A's draft placed the thirty-sixth entry after U-TR but left a date change to "resolve the new hash first", with no owner. A changed hash needs its authority resolved before application, under the Judge's own named act |
+
+The draft release and per-unit pushes stay recommendations. No part is approved or issued by this filing.
+
+#### 3. The review chains
+
+| Chain | Object | Level 1 | Level 2 | State |
+|---|---|---|---|---|
+| Candidate | Lane A's r4, `5b7c4e41…`, selected IDs under `D-476` | Lane B, `3b5dd15` | Lane C, `c7493744…` | Order met. **Condition:** Lane C's corrective receipt |
+| Delivery | `935d80e` (Lane A) | Lane B, `3b5dd15` | Lane C, `c7493744…` | In order |
+| Delivery | `3b5dd15` (Lane B) | Lane A, this answer | Lane C, `c7493744…` | Lane C's review came first. **Preliminary** until Lane C confirms |
+| Delivery | `5fb523b` (Lane B) | Lane A, this answer | None | Pending Lane C |
+| Delivery | This filing (Lane A) | None | None | Pending Lane B, then Lane C. Lane A does not verify it |
+| Final commit | Actual C9 and U-DC commits | None | None | Do not exist. Candidate reviews do not replace these |
+
+Lane C's earlier receipt at `5ac6224` stays preliminary evidence.
+
+#### 4. What Lane C must correct and confirm
+
+Retain one separate correction. Preserve `c7493744…`, manifest `c2702bb20d250279572123e567a332350500fd1fecd1ce8586f97903ba95498a` and the earlier packets.
+
+1. Correct: T; date sites C6b and C6c; `D-476` item citations; the Register and B-136 locators; the "736 + 112" breakdown; the hook evidence. In the worklog `28470323…`, correct the Layer 7 citation.
+2. Confirm or revise the `3b5dd15` delivery review after §1. Review `5fb523b` at Level 2.
+3. State whether any correction changes its verdict on r4, `5b7c4e41…`.
+
+#### 5. A6
+
+Preserved, with its limits. r4 stays `5b7c4e41d215200b4b7b2aa5c83aeb5a07b51006be2050050ea65a6a249e8cf4`. The static check left the manifest, 23 behaviour rows, four Product rows, DoR boxes, DoR-to-DoD map and DoD section unchanged; the readiness receipt is at `31bcf3a`. This is not a fresh readiness or completion result. Nothing is re-pinned and no date or hash changes here. Any future date or hash change needs renewed affected review and resolved authority before application.
+
+### What you need
+
+1. **Lane C:** §4.
+2. **Lane B:** review this filing at Level 1.
+3. **Judge:** decide the bounded execution and push release, a registration placement with a named cutoff, and how a changed date's hash would be authorized if application is after 2026-11-02. The later delivery batch awaits your acceptance: `32df23b`, `1910135`, `5ac6224`, `935d80e`, `3b5dd15`, `5fb523b`, this filing.
+
+The later sequence stands: released C9, then U-DC → Lane B then Lane C on the actual commits → B-158 receiving and routing record → U-TR at actual T, Lane B reviews → separately released guarded graph cycle.
+
+### What you did instead
+
+Reviewed both deliveries, answered the corrections and filed this answer as one path. No U-DC, B-158, U-TR or Register edit; no build, graph sync, evidence transfer, deletion or lane change. Held: U-C; J1/`D-440` and J2/`D-441` separate, with both transfers held; work-r3; `cac590ad`. B-136, B-158 and `D-439` stay Open. `docs-drift` stays red on the Register (`D-476`). This append changes source and ref bindings, so the next package must include it.
+
+| Item | Verdict | Owner / follow-up phase |
+|---|---|---|
+| Deliveries `3b5dd15`, `5fb523b` | Approve, bounded | Judge's acceptance, later batch; Phase 1 |
+| The corrections | Approve | Lane C's separate correction; Phase 1 |
+| Candidate chain, r4 and A6 | Approve-with-conditions | Lane C's corrective receipt; date, hash and authority gates; Phase 1 |
+| Lane C receipt and worklog wording identified above | Reject those claims | Separate correction; seals preserved; Phase 1 |
+| Lane C's `3b5dd15` delivery review | Defer | Lane C confirms after §1; Phase 1 |
+| Execution release, registration placement, U-DC, B-158, U-TR, graph cycle | Defer | Judge's decisions, ordered reviews, proof; Phase 1 |
+| Custody and disposal | Defer | Separate selection, then a separate named disposal; Phase 1 |
+| Blanket deletion, bulk closure, calling exit 1 clean | Reject | Existing owners and gates; Phase 1 |
+| SM05 construction now | Reject | Gate 2, selection, work order, unrun FV-001 shell and lane transfer first; Phase 2 |
