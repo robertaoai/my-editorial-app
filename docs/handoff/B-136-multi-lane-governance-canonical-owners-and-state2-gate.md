@@ -24924,3 +24924,67 @@ Reviewed the delivery and sources, checked eight packet manifests, and retained 
 | r4 and A6 | Approve-with-conditions | Named release, date/hash authority and actual-commit reviews; Phase 1 |
 | Source execution, registration, graph, permanent hooks, custody/disposal | Defer | Separate bounded decisions and evidence; Phase 1 |
 | Bulk closure, old evidence recast as fresh, construction now | Reject | Existing owners and readiness/work-order gates; Phase 1 / Phase 2 |
+
+
+---
+
+## Lane B — corrected Act C handoff, receipt history and tracked answer route, 2026-11-03
+
+Raiser: Lane B (Codex). Receiver: Lane A. Kind: finding. Phase: 1. Read at `3230e3b5731187e80c74205d2cb690811abf3196`. This is a finding in the existing B-136 docket, not a new numbered entry. B-136 stays Open. The header, Lane A's existing answers and all earlier bytes are preserved. Lane A has not answered this new finding; Lane B does not write that answer or record Verified.
+
+**Filing authority:** the Judge directly approved filing Lane B's corrected handoff in B-136 for Lane A to answer, then committing and pushing manually, preserving earlier records, A6 and evidence limits, with no build, graph sync, transfer or deletion. Source: Codex session `rollout-2026-11-02T09-11-40-01a199cf-e06c-7400-85e8-2ed439036784.jsonl`, line 2920; retained raw line in `C:/CoWork/outputs/lane-b-b136-corrected-handoff-2026-11-03/JUDGE-FILING-ACT.jsonl`, SHA-256 `6f6c1daacd77523fba5c38e14e97c31277d9d7fa52986258d20071b62a719ec8`. Exact source locator is retained with the delivery evidence. This is the one B-136 path transaction under the handoff SOP and D-428 pre-sync route; durable registration under D-183 remains pending. It gives no other source execution or push permission.
+
+### What happened — Layer 1: result and evidence
+
+**The corrected handoff is ready for Lane A to answer in B-136. External drafting is optional working material, not a lifecycle gate or a parallel tracker.** Lane C's earlier statement that this filing is unreleased is superseded for this Lane B transaction by the Judge's approval above. It does not require another vote on the manual route.
+
+Act C / U-TR was delivered as `3230e3b`, parent and observation T `e129915`. Its retained Lane B Level 1 approval is `LANE-B-LEVEL1-REVIEW-ACT-C.md`, SHA-256 `7944adda39aa324e573eac3d99860d56910095b821afbe419ecf3dc694fc0532`, in `C:/CoWork/outputs/lane-b-level1-act-c-3230e3b-2026-11-03/`. Lane B contributed the candidate and discloses that contribution. Lane C's ordered Level 2 approval remains bounded to its named receipt and qualifications. Delivery approval is not lifecycle Verified or Judge acceptance. This filing does not repeat the whole historical review chain or authenticate authors from hashes.
+
+Lane C's latest reconciliation is `C:/CoWork/outputs/lane-c-act-c-handoff-reconciliation-2026-11-03/HANDOFF-FOR-LANE-A.md`, SHA-256 `2a8bf23a08be7a8c8e5048107d1e9b68a7d42385a93ab3138d842ff54b695bc6`. Its two-file manifest `af93eaf9c77fb5c3a6daba0bc4aa0127ce0a78799055ba341b771e9d4c391696` verifies, with no unlisted file. This is intake and content review of that supplement, not a new execution or a blanket historical closure audit. Lane B also rechecked its three-file recovery supplement, the revised six-file Lane C packet and its own eight-file Level 1 packet; all match their cited manifests.
+
+**Receipt history must stay explicit.** Lane C changed its Act C receipt at the same path from `954a925c85f07bd21fb11b9d28a498b6cbdb36c25d6d83194981fa3b479f4263` (5,644 bytes) to `600e13732e321ff83c7143dca461f16215ffe4fe23811458e4963096f60e0eea` (7,558 bytes), and its manifest from `cd13eeef5527569a6f2191186935ba0f5265e4fda9aabe2b8d16c4edff0e85ef` to `3e7a914d53b005e6ce16ee127f9c07b28005c701b6bacaded1d7d4653e9b67a1`. The current seal passes; that does not preserve the old packet. The exact original receipt was recovered by removing the added sections and matching its prior size/hash, at `C:/CoWork/outputs/lane-b-act-c-receipt-reconciliation-2026-11-03/RECOVERED-ORIGINAL-LEVEL2-RECEIPT.md`. Recovery manifest: `7781d28532dacf39f7cebfa466a28c9aeacee291bd90ccaf4a2548298bce9ccd`. The old consolidated handoff and old manifest remain unrecovered; no exhaustive backup search is claimed. Lane C now acknowledges the revision and uses a separate reconciliation supplement. Do not backdate its added R4 assessment; preserve current seals and make future corrections separately.
+
+### What you need — Layer 2: Lane A answers R1–R7
+
+The original raised questions remain in `C:/CoWork/outputs/lane-b-review-lane-a-act-c-2026-11-03/HANDOFF-FOR-LANE-A.md`, Layer 1. The table below carries them into the repository with their present scope. It does not rewrite the historical preparation findings as current failures. Lane A must give its own accept/reject answer and reason for each row, link any correction to its source and commit, and identify remaining work.
+
+| ID | Finding and current answer required | Success evidence / limit |
+|---|---|---|
+| R1 | Separate preparation review, actual delivery review and handoff closure. Act C now exists; the old absent-delivery statement was historical. | Cite `3230e3b`, Lane B's actual-delivery receipt and Lane C's original/revised receipts. Do not infer closure from packet inspection. |
+| R2 | Preserve source order and parent/T bindings. Act C was delivered before this filing. | Cite parent/T `e129915` for Act C. Bind this later filing to `3230e3b`; do not retroactively change the delivered unit or its T. |
+| R3 | Correct B1 hook wording. It lacks a separate Node probe, but its nested Git trace contains Node ancestry and gate-related activity. | Preserve the inference limit: not absence of all gate evidence, and not direct process attestation. Keep B1's seal. |
+| R4 | Bind Act C's direct gate proof to the staged candidate and message before commit. | Cite retained staged path/blob, message hash, actual shell/PATH Node probe and direct gate exit, then the matching commit-msg trace pair. Separate observations support execution; they do not directly attest the Node process inside the hook. |
+| R5 | Disclose Lane B's candidate contribution and distinguish review roles. | Lane B reviews Lane A's actual delivery; Lane C performs Level 2. The answerer/applier cannot self-verify; raising or drafting alone is not automatic disqualification. |
+| R6 | Preserve sealed objects and qualify the later Lane C revision. | Original Act C preparation and r4 remain sealed. Cite original/revised/recovered receipt identities separately; locate the old handoff/manifest or retain their unavailable status. No claim that all earlier seals stayed untouched. |
+| R7 | Separate the manual route, the exact Act C release and this filing approval. | Act C's 3 November resolution/release is retained in its execution packet; this filing does not reissue it. Durable registration remains mandatory under a permitted placement and finite source-act cutoff. |
+
+### Layer 3: one tracked lifecycle, separate transaction proofs
+
+Lane B raises this finding in B-136. Lane A acknowledges and answers here. Authorized gov/docs corrections land on their owning paths with evidence linked back here. Lane A records Applied where justified. Lane B, as raiser and independent reviewer of Lane A's correction, verifies the answer and actual result; Lane C provides the required Level 2 review for the named object. Each unresolved child stays visible. The parent follows the weakest-child rule; a reply or receipt does not close it.
+
+Use the chain **finding → Lane A answer → affected source → correction commit → independent evidence → disposition**. Keep original findings and append dated corrections. Do not merge away a separately raised Lane C entry. An external draft is not a recorded answer and is not an additional required stage. Acceptance is a separate Judge decision, not a prerequisite for preparing an answer. D-385 still requires Lane A's handoff answer/application record to be its own one-path commit, separate from canonical-source commits; this separation is transaction evidence, not a second tracking system. If corrections already exist, one answer can cite them and record their application without duplicate status-only transactions.
+
+For G1, the bounded chain `935d80e` through `3230e3b` does not establish review eligibility for `32df23b`, `1910135` or `5ac6224`. Locate their review evidence before proposing their inclusion in an acceptance batch. Merely marking a review unlocated does not satisfy a review gate. Keep the acceptance commit list separate from the mandatory registration source-act cutoff and permitted placement; a new Register entry needs its own exact-byte review. Neither operation is performed here.
+
+### Layer 4: evidence limits and holds
+
+- Act C changed only SV-002 §2.3.1: one line replaced, twenty inserted; all other parent lines preserved. Its candidate checks observed the tracker at T `e129915`: 107 rows, zero live entries unlisted, B-158 unclosed and Gate 2 clearance claimed: no. These are bounded tracker observations, not parent closure.
+- File modification times do not establish when review/check execution completed. Equal log hashes establish identical bytes, not separate runs. Lane C's cited `53910a75…` check remains its retained observation, not a new check for its later reconciliation. The current filing's two candidate checks and current remote proof belong to this filing's evidence packet; report their actual results.
+- Preserve prior limits: Lane C's task-339 was cancelled; its recounted fresh-check log belonged to Lane B; verify-56c6ef9.json contained no remote proof. Historical push facts remain retained evidence. Hashes identify bytes, not authors.
+- A6 remains static evidence, not a fresh readiness result. No re-pin, r4 edit, date change, Gate 2 clearance or lane activation occurs here. The DoR/DoD template exists; a future feature attempt is not a missing-template defect.
+- Retained consistency is 18 pass, docs-drift alone failed, zero skips, exit 1, with seven stale governed paths after Act C. This is not clean consistency. The guarded graph cycle follows the final queued source and its own release; no sync runs now.
+- B-136, B-158 and other Open handoffs keep their states and child owners. No new D-439 status audit is claimed. Applied is nonterminal. External folders contain retained evidence as well as drafts. The finite custody plan is a proposal; transfer and deletion are separate operations and excluded here.
+
+### What you did instead
+
+Filed Lane B's corrected findings and review references in the existing docket for Lane A's answer, under the Judge's manual route. The source packets remain external and unchanged in this transaction. The delivery packet is `C:/CoWork/outputs/lane-b-b136-corrected-handoff-2026-11-03/`. No Lane A answer is supplied by Lane B. No canonical-source edit, build, graph sync, evidence transfer, deletion, hook installation or lane change is authorized by this finding.
+
+| Item | Verdict | Condition / follow-up phase |
+|---|---|---|
+| Act C delivery | Approve, bounded | Retained review objects and evidence limits; Judge acceptance separate; Phase 1 |
+| Lane C reconciliation | Approve-with-conditions | Revision history, unrecovered objects, timing limits and current filing authority qualification above; Phase 1 |
+| Tracked R1–R7 handoff | Approve | Lane A answers in B-136; Lane B verifies actual corrections, then required Level 2 review; Phase 1 |
+| Mandatory external drafting gate or external-only substitute for tracking | Reject | Use the existing handoff lifecycle and D-385 transactions; Phase 1 |
+| This new Lane B delivery | Defer | Lane A Level 1, then Lane C Level 2; Judge acceptance separate; Phase 1 |
+| Acceptance, registration, graph, custody and disposal | Defer | Finite bounds and applicable separate decisions; recording obligation remains; Phase 1 |
+| Bulk closure, Gate 2 clearance or construction now | Reject | Existing lifecycle, readiness, work-order and lane-transfer gates; Phases 1–2 |
