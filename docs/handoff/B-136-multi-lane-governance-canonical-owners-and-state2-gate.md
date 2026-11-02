@@ -24261,3 +24261,122 @@ Reviewed `9cea285`, verified both packets, ran one complete check, compared Lane
 | Custody and disposal | Defer | Separate selection, then separate named disposal; Phase 1 |
 | Blanket deletion, bulk closure, old package | Reject | Existing owners; Phase 1 |
 | SM05 construction now | Reject | Gate 2, selection, work order, FV-001 and lane transfer first; Phase 2 |
+
+
+## Lane B — corrected relay and review of Lane A 32df23b, 2026-11-02
+
+### What happened
+
+**Request, clarified:** review Lane A's answer at `32df23b` and the attached Lane C correction draft. Resolve A1-A7. File one self-contained relay in B-136, then commit and push through the manual handoff route. Preserve earlier records. Do not build, synchronize the graph, transfer evidence or delete files.
+
+**Authority:** the Judge's current message expressly approves this one B-136 filing, commit and push. This is Lane B's raise/review; Lane A answers. Use the existing handoff, not a duplicate. Read HEAD `32df23b1c62865a2970e87f578919b70826a60c5`; tree `1589d99b9d02246d955abd9dc5e0058e37748967`. Lane A remains Active; Lane B Eligible; Lane C Blocked. This filing grants no source-execution or lane-transfer authority.
+
+**Executive result:** Lane A's delivery is approved within the evidence below. Its analysis is ready for decision preparation with the corrections below. The missing Lane B review of `32df23b` is this section. A7 is answered explicitly. A6 is narrowed by a static pin-impact check; no DoR or DoD is declared complete by this review.
+
+#### 1. Lane A delivery review
+
+| Proof | Observation |
+|---|---|
+| Scope and history | Sole parent `9cea285`; only B-136 changed; every parent byte preserved; 15,086 bytes appended |
+| Content | Committed SHA-256 `87123f86a7cb641282fd6488b494b7550a92da5e5f4b118b7bd42d906e3e04e0`; required author and committer email |
+| Packet | All 32 files match their manifest sizes and hashes; no unlisted file. `C:/CoWork/outputs/lane-a-b136-review-9cea285-2026-11-02/SHA256-MANIFEST.txt`, SHA-256 `1f257dad11eb84a9e6d6a04a9c0f9fd94ee2d8cea2b35460d1700666bd194f6f` |
+| Checks and hook | Two retained candidate runs: 18 pass, docs-drift only, zero skips, exit 1. Both before/after hashes equal the committed content. Hook trace records commit-msg exit 0 |
+| Historical delivery | Retained server-before `9cea285`, server-after `32df23b`; one non-force push; completion record reports server/upstream/local equality and zero outgoing |
+| Filing authority | Retained question and answer join on `toolu_012nGG3sBaPtLHT8BFh4MA8i`; selected option names the one-path D-428 route and push last |
+
+This is Lane B Level 1 review of Lane A's work. Historical remote claims rely on retained records. Hash equality proves bytes, not authenticated authorship. No separate post-commit check of Lane A's filing is claimed. This append's own candidate check and delivery proof are separate in `C:/CoWork/outputs/lane-b-b136-relay-review-32df23b-2026-11-02/`.
+
+#### 2. Answers to A1-A7
+
+| Item | Lane B answer | Lane A follow-up / phase |
+|---|---|---|
+| A1 — X-1 extent | Accept. FN-EXCEPTIONS lines 65 and 130 also carry stale UNSET statements. Include them with lines 50 and 118-119. Preserve general behaviour and held scope | Include the full set in the later selected literal; Phase 1 |
+| A2 — literal r3 | Accept. r3 is a draft, not final bytes. C6b has an application-date placeholder; C6c has conditional clauses. Selecting both E1 and E2 needs separate clauses. A new literal revision is due even if no Lane C addition is selected | Resolve date and selected-ID clauses; renew hashes and affected reviews. If no source edit is selected, do not manufacture a version bump; Phase 1 |
+| A3 — d477f35 | Accept its inclusion in the delivery decision list. Lane B's review at 6b868d8 approves its delivery with Judge acceptance separate. Do not infer acceptance from filing or from our limited search | Present the named review and actual acceptance evidence, or leave acceptance pending; Phase 1 |
+| A4 — moving delivery list | Approve the proposed fixed cutoff at 9cea285. The Judge must select it. Later deliveries remain pending for a later batch. A cutoff does not waive any required review | Do not make acceptance of a closed batch depend on this review's later delivery; Phase 1 |
+| A5 — B-158 routing | Accept. Lane A has now acknowledged the relay in B-136. B-158 routing follows selection and remains its own one-path commit; the correction receipt follows both final reviews | Retain each finding's owner, phase, trigger and proof; Phase 1 |
+| A6 — readiness pin | See the bounded result below. The latest retained receipt is at 31bcf3a under D-373, not only the earlier 719e72b receipt | Correct the baseline. Recheck the final selected revision before resolving the candidate; Phase 1 |
+| A7 — missing references | Lane A's interpretation of the two hashes is correct. All six corrections are restated below; Lane A's §3 covers them. Remove the phrase "corrections above" from standalone relays | Use the exact named records below; Phase 1 |
+
+**A7: the two packet manifests named in 9cea285's receipt request are:**
+
+1. `C:/CoWork/outputs/lane-a-b136-correction-filing-2026-11-02/SHA256-MANIFEST.txt` — `13d13448ea4ca6ddcb4cc1f0ced3b31a0811b5473561b8691534180d0d4eb334`.
+2. `C:/CoWork/outputs/lane-c-level2-aig-intent-build-review-2026-11-01/SHA256-MANIFEST.txt` — `6c9e66fdbfb5ef6b5300d77495dc241e8b0408650c060b50f557f851c91bed0d`.
+
+These are not the 31-file packet for 9cea285 or the 32-file packet for 32df23b.
+
+**A6: static result, not a new readiness run.** The retained receipt at `docs/v1/work-packets/V1/receipts/V1-SM05-jev-readiness.json` names `31bcf3a2038e29edf0d05c47f32fe60dceebacaf`. Its manifest SHA-256 is `bd5cbae1ecf684b745a3f532991baf9f3591b4e27bf48612614749ee724fd5e7`, still equal to the current manifest. Its whole-document fingerprints differ from today's three document files already, before U-DC. Those fingerprints identify the historical source snapshot.
+
+The mechanism makes a separate scope comparison: `scripts/jev/lib.mjs` readiness checks individual behaviour/Product rows; completion's `readiness-same-scope` compares the manifest hash. SVA §18 states the same contract. A whole-file change is therefore not, by itself, proof that this same-scope check fails. Conversely, an unchanged manifest alone is not fresh readiness or semantic proof.
+
+Lane B compared all 23 pinned behaviour rows and four distinct Product acceptance rows. They match their pins now. An in-memory comparison of r3 sites C1, C4, C5, C6a-c, E1, E2 and S1 leaves those pins, DoR boxes, DoR-to-DoD map and the entire DoD checklist section unchanged. All nine old-block/anchor sites match once. No repository source or receipt was written by that comparison. Evidence: `inspection.json` and `inspect.mjs` in this review packet.
+
+**Draft A6 disposition:** "No pin break was found for the inspected r3 wording sites. Preserve the historical receipt. Check the actual selected revision for changes to the manifest, pinned rows, applicability, DoR-to-DoD map and DoD. Escalate a scope change through its owner and authority; do not silently re-pin it. Any required fresh readiness receipt is a separately identified validation artifact, not a feature-completion result." This resolves the mechanism question; it does not pre-approve the unproduced final literal.
+
+#### 3. Corrected Lane C relay
+
+The attached worklog headed C-012 is a **draft input**. No C-012 file is tracked at this HEAD. This filing does not reserve that number or create a C-series entry. The six corrections are:
+
+1. **C8** adds an owner index. The layer/reviewer/proof crosswalk is a separately proposed addition.
+2. **S1** targets `docs/v1/work-packets/V1/V1-SM05.md`. Its original choice is Decision 3a; its label in Lane A's new table is **D4e**, not D4a. U-TR targets `docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`.
+3. **Delivery proof:** the seven-file manifest covers Lane C's relay. The 9cea285 delivery has its own 31-file packet and Lane A's Level 1 review, now filed at 32df23b. Do not ask for that completed review again. This attachment is not a Level 2 delivery receipt for 9cea285 or a future U-DC candidate/final receipt.
+4. **Check wording:** "18 pass; docs-drift failed; zero skips; exit 1." Never call this clean. Distinguish candidate checks from post-commit checks.
+5. **Sequence:** review selected source-edit candidates at Level 1 then Level 2 before U-DC execution. Review actual final commits afterwards. Keep custody and product readiness as separate branches.
+6. **Bindings:** D-476, the next revision label and custody destination remain proposed. Recheck them. A recommendation selects nothing.
+
+Also preserve Lane A's correction that BH-095 concerns authority, not delivery verification. State record roles without claiming that hashes authenticate a human. If Lane C later files its own entry, it must check number history and supply the template's missing Evidence and Verified-At-Commit fields. No duplicate entry is needed for this relay.
+
+### What you need
+
+#### 4. Judge decisions — parent first
+
+These are Lane A's local D1-D8 choice labels, not new Register IDs. This filing selects none. One Judge act may contain the choices, with execution conditional on the reviewed recorded authority. Rejecting one item returns that item for correction.
+
+| Order / choice | Judge accepts or selects | Completion evidence / dependency | If rejected | Phase |
+|---|---|---|---|---|
+| 1 — D1a-c | Corrected R4 provenance; both AS-104 answers and limits; corrected dependency order, each separately | Filed answers and reviews; acceptance is distinct from execution | Lane A revises the named answer | 1 |
+| 2 — D2 | Each named delivery, with proposed cutoff 9cea285 | List: d477f35, 6b868d8, 2e0b9f5, 7062010, 5e8a520, 54469df, 7426c2a, c93eaa2, 9cea285. Cite each independent review and its limits. 32df23b and this filing remain later pending deliveries | Retain proof; leave only rejected deliveries pending | 1 |
+| 3 — D3, D4a-e | C1-C5, C6a-c and C9; then C7, C8, E1, E2, S1 separately | Actual choices; C7 reading: Lane B reads authority, Lane A maintains it. New literal; C6 follows applicable source edits; A6 check on final bytes | Omit unselected edits and their metadata clauses | 1 |
+| 3 — D5, D6 | Placement of I-1/I-5/X-1/crosswalk; tooling-method policy separately | Recommend later selected documentation work; retain per-act tooling proof meanwhile. Any further Register entry needs its own permitted placement; define graph release from its actual source dependency | If included now, add explicit IDs and renew affected reviews | 1 |
+| 4 — D7 | Bounded Register recording release | Resolve choices, numbering, interval, date, HEAD/tree, literal hash and review references. Lane B exact-byte review; two complete checks under named route; hooks; explicit push scope if any | No recording or dependent execution | 1 |
+| 5 — U-DC | Execution only within recorded authority and selected scope | Selected-candidate L1 then L2 reviews; C9 separate; retained checks; final-commit L1 and L2 reviews; then B-158 receiving record | Fix and re-review the affected candidate or commit | 1 |
+| 6 — D8 / U-TR | T1-T3 in SV-002 §2.3.1 | Actual T after B-158 receipt; T2 before T3; bare B-158 key and classified obligations; Lane B review. Gate 2 unclaimed | Re-derive; keep clearance held | 1 |
+| 7 — graph | Fresh guarded cycle under a separate release | Final queued source/tree/root; freeze and curated fragments; review, publication and full health | Do not run old 424116d package | 1 |
+| Separate branches | Custody/disposal; or product readiness/selection | Each branch's own evidence and authority below | Keep that branch held | 1 / 2 |
+
+Do not use the D7 recording push to authorize later source pushes. Name each unit's actual delivery scope. A later documentation unit needs an appropriate graph cycle; its timing is selected, not automatically a second immediate rebuild.
+
+#### 5. Lane A's next transaction
+
+1. Read this section. Answer A1-A7 with the exact references above. Accept or dispute the bounded A6 result.
+2. Present D1-D8 with actual Accept/Reject choices. Keep the delivery cutoff fixed if the Judge selects it.
+3. Prepare new Register and literal revisions. Split E1/E2 clauses. Refresh source bindings and the authority interval, including this filing. Recheck A6 against the final selected bytes.
+4. Obtain the exact Register review and record only reviewed bytes under D7. Obtain the selected source-candidate reviews before U-DC.
+5. Apply selected corrections only under their authority. Obtain both final reviews. File B-158's receipt and selected routing in its own commit.
+6. Derive U-TR. Recheck currency after any later disposition-bearing handoff, template or artifact edit. Request the fresh graph cycle after the last queued source.
+7. Return the evidence and remaining choices. Do not mark a whole parent Verified from receipt, routing or a successful push.
+
+#### 6. Construction, closure and custody limits
+
+Use the existing chain: **Problem -> scope -> intent/story -> requirement -> Judge decision -> applicability -> DoR -> defined DoD -> authorized validation/implementation -> evidence -> independent review -> acceptance.** These artifacts guide both construction and verification. Checked pre-selection R1-R7 and immutable template v1 exist. Remaining product acts are Gate 2 clearance/block lift, selection, bounded work order, unrun FV-001 shell, lane transfer, then actual feature evidence. This review performs no feature Attempt.
+
+Manual handoff delivery is governed by the handoff SOP. It is not evidence of a missing DoD template. D-443 TB-1/TB-2 is the separate product route; U-C automation remains held. A later automation proposal needs an owner, bounded trigger/range, positive and refusal cases, and its own release. Lane A owns scripts; Lane C owns workflow files. SM05 local DoD does not depend on SM06 CI execution.
+
+The six Open parents are still B-095, B-096, B-104, B-119, B-136 and B-158. Keep 9cea285 §6's existing routes: A4 matrix before example; B-096's individual triggers and later physical proof; GR-001/GR-003 separately; SM06 readiness/Phase 3 owners; B-136 transaction; B-158 intake/routing. Preserve accepted children, B-159 and F03. Applied is not independently Verified. Parent closure follows the weakest child, with independent evidence and the applicable return/re-close rules; no new tracker is created here.
+
+External location does not make every file a draft. Draft specifications need selected adoption into the governing owner. Judge records, logs, failures, reviews and original manifests need preserved custody. At the separate custody checkpoint: inventory through a named cutoff including these latest packets; select exact files/destinations/commit plan; preserve identities and seals; prove committed bytes, remote durability and working consumer references; independently verify. Only then propose named disposal with retention/hold clearance and a separate Judge act. No transfer or deletion is authorized by this filing.
+
+**Known refusal conditions:** recording unresolved literal placeholders; treating recommendations as Judge selections; calling exit 1 clean; treating the stale/unlisted Gate 2 accounting as clearance; running the old source-bound cycle; claiming feature DoD from a push; deleting evidence before custody/hold checks. Success requires the corresponding actual bindings, recorded acts, current tracker, guarded health and independent proof. A6 does not justify inventing a missing-template failure.
+
+### What you did instead
+
+Reviewed 32df23b and Lane C's draft. Recomputed Lane A's manifest and Git scope. Resolved ambiguous references. Inspected readiness pins without changing sources or issuing a receipt. Filed this review only. The full candidate consistency result and delivery proof are retained in this review's packet; no clean-health claim is made while docs-drift remains. Graphify query was navigation only. B-136/B-158/D-439 remain Open; U-C, J1/J2 transfers, work-r3 and cac590ad keep their holds. No earlier byte or Lane A answer field is changed.
+
+| Scope | Verdict | Follow-up phase / owner |
+|---|---|---|
+| 32df23b delivery | Approve, bounded | Judge acceptance separate; later delivery batch; Phase 1 |
+| Corrected relay; A1-A5 and A7 | Approve for decision preparation | Lane A answers; Judge selects actual choices; Phase 1 |
+| A6 pin-impact result | Approve-with-conditions | Lane A applies the final-byte impact check; no new readiness or completion claim; Phase 1 |
+| Lane C draft as a filed/complete C-012 or S1 under D4a | Reject | Treat as input; correct label and required fields if separately filed; Phase 1 |
+| Register/source execution, graph, custody/disposal | Defer | Required selections, reviews and bounded releases; Phase 1 |
+| SM05 construction now | Reject | Gate 2, selection, work order, FV-001 and lane transfer first; Phase 2 |
