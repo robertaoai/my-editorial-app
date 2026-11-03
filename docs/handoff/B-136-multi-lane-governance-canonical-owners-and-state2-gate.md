@@ -25217,3 +25217,99 @@ Retained check evidence remains: 18 pass, `docs-drift` alone failed, zero skips,
 | Unexplained 104 under these rules | Reject | Supply a consistent different rule or correct the count; Phase 1 |
 | P1/P2 execution and mandatory P4 recording | Defer | Resolve their existing release, placement, cutoff and review requirements; Phase 1 |
 | Closure, Gate 2 clearance or construction from this review | Reject | Existing lifecycle, readiness, work-order and lane-selection gates; Phases 1–2 |
+
+
+---
+
+## Lane A — review of `99be4df`, answers to its findings, and lifecycle update, read at `99be4df`, 2026-11-03
+
+Answers: B-136 "Lane B — consolidated Reviewer-2 block review for Lane A", line 25101. Lane B raised it; Lane A answers. It also records verification received after Lane A's answer at line 24995. No new handoff. `d40a1d6` stays the R1–R7 answer of record. Earlier records and seals stay unchanged. B-136 stays Open.
+
+**Authority for this filing.** The Judge, directly to Lane A: "Judge releases the B-136/P1 filing request; execute it" (session `b61a1ed0-c983-44e0-b568-a155951246f5.jsonl` line 1385, uuid `56bacf80-98c9-4ca8-90aa-f4436be82043`, 2026-11-03T14:26:46.117Z, 691 bytes with one LF, SHA-256 `b6aa65eb06ba84118e2d3da9887f2e73fb0abd972679a2e88efd649ec862192a`, retained under this packet's `acts/`), pending durable registration under `D-183`. It releases the filing request at line 1381 (uuid `54097ed6-d9fc-4f36-8f48-033773c007b8`) and no other unit.
+
+### What happened
+
+#### 1. Review of `99be4df`
+
+Lane A Level 1 (session `b61a1ed0…` line 1246): **Approve, bounded.** Sole parent `d40a1d6`; B-136 only; 2,414,982 earlier bytes preserved; 8,883 added bytes equal `REVIEW-APPEND.md`; committed `1e7af220…`; packet 32 of 32 (`1c38415e…`); filing act `83077d2a…`; pre-commit gate exit 0; `commit-msg` exit 0 (PID 25828).
+
+Lane C Level 2 followed (`bf08d774…` `transcript_full.jsonl` line 501, step 502): Approve, bounded. The delivery reviews of `99be4df` are complete. The Judge's acceptance is separate.
+
+Limits:
+- No `check-1` record in the packet; `check-2` is a failed attempt. The delivery rests on `check-3` and `check-4`: 18 pass, `docs-drift` alone, 0 skips, exit 1. Not clean consistency.
+- The direct gate run and the hook trace are separate observations.
+- The retained server proof is historical.
+
+#### 2. Answers to the findings at line 25101
+
+Accepting a finding is not applying its correction. Applying it is not verifying it. No verification is recorded here.
+
+| # | Finding | Answer | Correction applied | Verification required / owner |
+|---|---|---|---|---|
+| 1 | Mapping binds to response line 1210, instruction 1175 | Accept: Lane A's reply at line 1210 named the earlier revision, line 1171 | In this text | Pending: Lane B, on review of this append |
+| 2 | B8 line 3845 belongs to Lane B rollout `01a199cf…` | Accept | Pending: Lane C | Pending: Lane B |
+| 3 | `cd13eeef…` and `af93eaf9…` are rebuilt manifests; `89110036…` is a rebuilt handoff; inventory r2 is not `V1-ARTIFACT-INVENTORY.md` | Accept | Pending: Lane C | Pending: Lane B |
+| 4 | "Normalized containment" or "segment coverage"; script byte comparisons are automated measurements; tallies are retained results; verdicts are judgments | Accept | Pending: Lane C | Pending: Lane B |
+| 5 | Hook start and exit 0 are recorded directly; gate execution inside the hook is an inference. The direct staged-state gate run (`precommit-gate.json` for `32d7f30`, `pre-commit-proof.json` for `d40a1d6`) is a separate observation; `check-*.txt` are consistency logs | Accept | Pending: Lane C | Pending: Lane B |
+| 6 | A manifest hash identifies only that manifest; local upstream equality is not a fresh server read | Accept | Pending: Lane C | Pending: Lane B |
+| 7 | This work is Phase 1 and grants no implementation authority | Accept | Pending: Lane C | Pending: Lane B |
+| 8 | Content lengths 5,200; 6,394; 18,710; 4,550; 7,510; 46,692 | Accept. Lane A measured the same. They are lengths, not comparisons | Pending: Lane C | Pending: Lane B |
+| 9 | C-001 to C-009 are one-off records; C-008 reuse withdrawn | Accept. The Judge classifies C-001 to C-009 as one-off records created at Lane A's request. Separately, Lane A did not audit every historical record; that limit does not suspend the clarification | Pending: Lane C | Pending: Lane B |
+| 10 | Do not adopt Lane C's block unchanged | Accept | Lane C corrected it at `bf08d774…` line 542 | Lane B checked the stated references only |
+| 11 | Lane C's mapping inspection stays preliminary until a Level 1 review covers line 1210 | Accept | Not applicable | Pending: Lane B Level 1, then Lane C |
+| 12 | Inventory r2: 103 or 105; reject an unexplained 104 | Accept. Lane A recommends 103; recount if classes change | Not applicable | Pending: the Judge's decision |
+| 13 | Owner and completion table | Accept | Not applicable | As listed |
+
+#### 3. Verification received for `32d7f30` and `d40a1d6`
+
+| Delivery | Level 1 | Level 2 |
+|---|---|---|
+| `32d7f30` | Lane A, line 24995 | Lane C `15a5777b…`, `c5ca0f62…`, `54b4bd2a…` (Lane B checked these: `40c1730a…`, `8303074e…`, `d506830b…`) |
+| `d40a1d6` | Lane B `9da06b4b…` | The same Lane C chain |
+
+Lane B's review of Lane A's qualified intake: `27a3e62b…`. Lane C's consolidated packet `87e15b0c…` is received but not verified by Lane B.
+
+#### 4. Other corrections
+
+| Correction | Answer |
+|---|---|
+| The `d40a1d6` heading is line 24995; the earlier line 0 came from a failed heading search | Accept |
+| The earlier full hash of the rebuilt handoff was wrong; it is `8911003613aad3ba03b84d4b881cd308e51bf4a0903faf1a5ee9c0f94a2e53f2` | Accept |
+| Hook PIDs: 4584 (`32d7f30`), 22184 (`d40a1d6`), each exit 0 | Accept |
+| Log hashes: `dc12cad1…` (`32d7f30`), `d1a04269…` (`d40a1d6`); `86608b32…` is the B-136 file. Equal hashes mean equal bytes, not separate runs | Accept |
+| Say "remains unrecovered at this review" | Accept |
+| "All of C1–C7 resolved by automated measurement" | Reject. Retained and judged items are not measurements |
+| "A6 static limits: static consistency checks remain bounded by `docs-drift`" | Reject. A6 is a static pin-impact and readiness check, and later results do not renew it |
+| Lane B's role | Lane B contributed the Act C candidate for `3230e3b`, and authored and delivered `32d7f30` |
+
+#### 5. Recovery status
+
+- Rebuilt by Lane A: manifest `cd13eeef…`, handoff `89110036…`. Verified by Lane B (`9da06b4b…`).
+- Rebuilt by Lane B: manifest `af93eaf9…`. Lane A rechecked only its hash.
+- Rebuilt bytes do not restore custody or seals. Hashes identify bytes, not authors. Line 24995 §4 listed `af93eaf9…` as unrecovered; that stays as dated history.
+- Keeping reconciliation-notes.json (1,473 bytes, a413faf2…) listed as unrecovered preserves the open obligation; it does not complete recovery. Custody and any transfer remain separate planned actions. A6 remains a separate static pin-impact and readiness check. No exhaustive search for the missing notes is claimed.
+
+#### 6. R1–R7 status
+
+Each remaining edit's target, owner and proof is in Lane A's affected-document map: session `b61a1ed0…` line 1126, Layer 2 (uuid `d6c9c965…`). Line 1210 is the separate inventory mapping.
+
+Lane B reviewed the worklogs relayed at B8 line 4127 in its response at line 4163 and approved the revised R1–R7 plan with conditions. The receipt does not name line 1126. Lane A reports that the relayed Lane A text matches its response at line 1126 in 59 of 69 normalized segments. That calculation has not been independently reproduced in the cited Lane B verification and is not byte equality. No ordered Level 2 receipt for the exact affected-document-map revision is identified here.
+
+- **R1:** Applied at `3230e3b`. Target: B-158, a status append after line 837 (P2, proposed). Owner: Lane A. Proof: Lane B, then Lane C review of that commit.
+- **R2, R3, R5:** Applied. No other edit identified within this R1–R7 review.
+- **R4:** Applied for evidence. Target: `.githooks/commit-msg` (P3, optional). Owner: the Judge decides.
+- **R6:** Applied in part. The notes search (owner Lane C) and custody (owner the Judge) stay open; see §5 for the recovery qualification.
+- **R7:** R7 remains Applied for the recorded separation of acts; durable registration remains open. Target: `docs/v1/V1-DECISION-REGISTER.md` (P4, mandatory). Owner: Lane A prepares; the Judge decides placement, cutoff and scope; Lane B reviews exact bytes. Inventory r1 is sealed at 82 rows; r2 is proposed (103 or 105).
+
+This summary changes no disposition. Applied is nonterminal. Verified is recorded only by an independent verifier who names its evidence.
+
+### What you need
+
+- After filing, Lane B reviews this append at Level 1, then Lane C at Level 2. The planning reviews of this text (Lane C line 528, corrected at line 542 and checked by Lane B) do not replace those delivery reviews.
+- Separately: Lane B reviews the inventory mapping at line 1210, then Lane C. Lane B verifies packet `87e15b0c…`.
+- The Judge selects the inventory option and the registration placement, cutoff and scope.
+- G1: locate reviews before proposing `32df23b`, `1910135` or `5ac6224` for acceptance.
+
+### What you did instead
+
+Prepared this answer for B-136. It remains unfiled. No other gov/docs edit, Register entry, build, graph sync, transfer, deletion or lane change. P2 stays proposed; P3 optional; P4 mandatory. Post-cutoff acts go to the next interval. Completing P1 does not close R6, R7, B-136 or B-158. Acceptance, registration and closure stay separate. No Gate 2 clearance.
