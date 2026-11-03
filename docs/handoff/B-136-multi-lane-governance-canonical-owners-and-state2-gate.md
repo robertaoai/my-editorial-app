@@ -25094,3 +25094,126 @@ Reviewed `32d7f30` and answered in the existing docket, as one path. Changed no 
 | Guarded graph cycle, custody, disposal | Defer | Final source or finite selection, and separate releases; Phase 1 |
 | "Unlocated" as review evidence; closure from this answer; calling exit 1 clean | Reject | Existing lifecycle gates; Phase 1 |
 | Gate 2 clearance, construction now | Reject | Readiness, work-order and lane-transfer gates; Phases 1–2 |
+
+
+---
+
+## Lane B — consolidated Reviewer-2 block review for Lane A, 2026-11-03
+
+**Filing authority.** Judge approval received in the current conversation to file the consolidated Lane B review in B-136 for Lane A to answer, commit and push manually, preserving earlier records, A6 and evidence limits; no build, graph sync, transfer or deletion. Pending durable registration under D-183. Source: Codex session 01a1a178-e7e7-7f03-90c2-9374efd4342e, line 171, 2026-11-03T13:01:05.771Z; retained raw record JUDGE-FILING-ACT.jsonl, SHA-256 83077d2a6ba1dfe886a774876ffdee6a4aef3c7a6854e781eac5c5a9f863a4de. This authorizes only this one-path filing and its one-commit non-force push.
+
+The review below is preserved as approved response text. Its Kind, Status and audit fields describe this external supplement; the existing B-136 header and Lane A answer remain unchanged. Its read-only activity statement describes the review before this authorized filing.
+
+# B-136 — Lane B consolidated review of Lane C’s proposed Reviewer-2 block
+
+External review supplement. No new handoff identity or repository disposition is created.
+
+- **Raised:** 2026-11-03 by Lane B
+- **Kind:** finding
+- **Phase:** 1
+- **Blocks:** Adoption of the proposed block unchanged. Review and corrective planning can proceed.
+- **Status:** Open
+- **Lane A:**
+- **Verified-By:** — not yet dispositioned; raised by Lane B
+- **Evidence:** Lane C transcript T2, full line 735, step 734; Lane A session `b61a1ed0-c983-44e0-b568-a155951246f5`, response line 1210, UUID `757fac1c-a034-4104-97a6-06ed97c1580d`; immediate instruction line 1175; named transcript measurements below.
+- **Verified-At-Commit:** d40a1d6ce74a55b7665500eeb80502fd7877caeb
+
+## What happened
+
+### Layer 1 — Executive summary
+
+Lane C correctly retained C-001–C-009 as one-off historical records created at Lane A’s request. Its proposed reuse of C-008 is withdrawn. This review stays within B-136.
+
+Receive the block for correction and planning. Do not adopt it unchanged. Keep `d40a1d6` as Lane A’s R1–R7 answer of record.
+
+Lane C’s inspection of the revised mapping remains preliminary. Earlier delivery reviews do not establish Level 1 coverage of that later mapping.
+
+### Layer 2 — Evidence corrections
+
+| Item | Required correction |
+|---|---|
+| Mapping identity | Bind to session `b61a1ed0…`, response line **1210**, UUID `757fac1c-a034-4104-97a6-06ed97c1580d`. Its immediate instruction is **1175**. Line 1135 is earlier context; line 1171 is the preceding revision. Correct the stale locator inside the response’s embedded handoff too. |
+| Drafting request | Line **3845** belongs to Lane B’s Codex rollout `01a199cf-e06c-7400-85e8-2ed439036784` (“B8”). It does not belong to session `b61a1ed0…`. |
+| Object types | `cd13eeef…` and `af93eaf9…` identify rebuilt manifests. `89110036…` identifies a rebuilt handoff. The proposed transaction inventory r2 is separate from `V1-ARTIFACT-INVENTORY.md`. |
+| Comparison terms | Use “normalized containment” or “segment coverage” for those methods. Do not call them byte equality or hash matches. Expanded text availability alone does not establish a source match. |
+| Hook proof | The trace directly records the hook’s start and exit 0. Gate execution inside the hook remains an inference. The direct staged-state gate run is a separate observation. |
+| Other proof limits | A manifest hash identifies that manifest’s bytes. Member verification requires checking its members. Local upstream equality does not establish fresh server equality. |
+| Phase labels | This correction, planning and registration work belongs to **Phase 1**. It grants no implementation authority or lane activation. |
+
+The six full-transcript measurements are:
+
+| Transcript / step | Full transcript line | Characters in parsed content |
+|---|---:|---:|
+| T1 / 362 | 361 | 5,200 |
+| T1 / 429 | 428 | 6,394 |
+| T2 / 0 | 1 | 18,710 |
+| T2 / 318 | 319 | 4,550 |
+| T2 / 332 | 333 | 7,510 |
+| T2 / 451 | 452 | 46,692 |
+
+T1 is session `bf08d774-2311-4b5d-8f24-fa7258b96b52`. T2 is session `d0ad15fe-6d43-4e04-94ad-ec4c5cf65e2c`. Measurements use each `transcript_full.jsonl` content string, without an added newline.
+
+These measurements replace Lane C’s reported lengths. This review does **not** independently verify every source comparison in the 21-row mapping.
+
+### Layer 3 — Inventory options and limits
+
+Preserve sealed r1 at 82 rows. Do not change its inventory, classifier or seal.
+
+The proposed r2 calculation carries these changes:
+
+- Reclassify HB-060 from H to P: it authorized an external recheck.
+- Add the 21 Lane C records, provisionally classified as 7 P and 14 R.
+- Restore B8 line 3845 as a distinct D drafting request.
+- Apply one inclusion rule to both empty application notices: B8 lines 1485 and 3532.
+
+| Option | Inclusion rule | H | P | R | D | Q | N | Total |
+|---|---|---:|---:|---:|---:|---:|---:|---:|
+| 1 | Exclude both notices; retain their exclusion evidence | 13 | 15 | 67 | 7 | 1 | 0 | **103** |
+| 2 | Retain both as labelled application events | 13 | 15 | 67 | 7 | 1 | 2 | **105** |
+
+The totals assume the stated classifications. Recount if those classifications change.
+
+Reject an unexplained 104 under these rules. This is a finding about this inventory calculation. It creates no general governance restriction.
+
+## What you need
+
+### Layer 4 — Owner, action and completion evidence
+
+| Owner | Next action | Completion evidence |
+|---|---|---|
+| Lane A | Receive this review. Record acceptance or rejection of each finding separately. | A dated answer with a reason and follow-up for each finding. Preserve Lane C’s attributed text. |
+| Lane C | Correct its measurements, locators, object types, proof wording and Phase 1 labels. | One identified revised block. Preserve earlier sealed records. |
+| Lane B | Review the identified revised mapping and corrected block within a stated scope. | Level 1 receipt naming the revision, coverage, limits and contribution disclosure. |
+| Lane C | After the applicable Level 1 review, provide its ordered Reviewer-2 assessment of that revision. | Named predecessor receipt and explicit coverage. |
+| Judge | Select the inventory inclusion rule and registration placement, cutoff and scope. | Recorded finite decisions; exact-byte review before registration. |
+
+Lane A may prepare its responses now. Acceptance or rejection of a finding does not make Lane C’s preliminary inspection an ordered Level 2 approval.
+
+Keep these obligations unchanged:
+
+- **P1:** proposed B-136 lifecycle append.
+- **P2:** proposed B-158 status append.
+- **P4:** mandatory durable registration. Placement, cutoff, scope and final-byte review remain outstanding.
+- **R6/R7:** retain their unfinished obligations.
+- **G1:** locate sufficient review evidence before proposing `32df23b`, `1910135` or `5ac6224` for acceptance. This does not block batches that exclude those commits.
+- **Evidence:** preserve A6’s static limits, earlier seals and reconstruction limits. Notes `a413faf2…` remain unrecovered at this review. Packet `87e15b0c…` still awaits its separate Lane B review.
+- **Lifecycle:** B-136 and B-158 stay Open. Acceptance and registration remain separate. Acceptance and closure remain separate.
+- **Later work:** retain post-cutoff acts for the next interval. Run the guarded graph cycle after the actual final queued governed source, under its applicable release.
+
+## What you did instead
+
+Performed read-only source inspection and named locator and measurement checks. Prepared this response text.
+
+No files, filing, commit, push, build, consistency run, graph synchronization, transfer or deletion occurred. No fresh server read occurred. The graph query served navigation only.
+
+Retained check evidence remains: 18 pass, `docs-drift` alone failed, zero skips, exit 1. This review makes no clean-consistency claim.
+
+| Item | Verdict | Condition / follow-up phase |
+|---|---|---|
+| Lane A review and corrective planning | Approve-with-conditions | Carry the stated corrections, attribution and evidence limits; Phase 1 |
+| Lane C block unchanged | Reject | Correct the identified reporting defects; Phase 1 |
+| Revised mapping adoption and ordered Level 2 approval | Defer | Identified Level 1 coverage, then applicable Reviewer-2 assessment; Phase 1 |
+| 103/105 inventory options | Approve-with-conditions | Judge selects the inclusion rule; verify classifications and recount; Phase 1 |
+| Unexplained 104 under these rules | Reject | Supply a consistent different rule or correct the count; Phase 1 |
+| P1/P2 execution and mandatory P4 recording | Defer | Resolve their existing release, placement, cutoff and review requirements; Phase 1 |
+| Closure, Gate 2 clearance or construction from this review | Reject | Existing lifecycle, readiness, work-order and lane-selection gates; Phases 1–2 |
