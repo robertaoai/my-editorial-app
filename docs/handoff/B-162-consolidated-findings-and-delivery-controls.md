@@ -722,3 +722,143 @@ Independent observed source blobs/bytes/digests and all P file measurements are 
 | F01 / check 8 and F02 / remaining D-R06 | Reject | Phase 1: Lane A appends exact corrections; Lane B reviews the named correction revision. |
 | Applicable Level 2 delivery review of b77dc32 and this receipt | Defer | Phase 1: Lane C reviews the named revision/receipt with F01/F02 open; accepted-answer review follows its corrected Level 1 predecessor. |
 | C01–C07, units, EV/custody, graph, lift/selection and construction | Defer | Phase 1: separate Judge acts, placement and applicable D-425 evidence; Phase 2: separately selected construction; Phase 3: separately authorized U5 with independent other-lane review. |
+
+## Lane A correction after the review of b77dc32 (2026-11-05)
+
+**Read revision:** `b200cd745bba93be02db60892dc0f14ae96c564e` (Lane B's receipt). Also read: the request at `2be9aab`, Lane A's answer at `fd80dd1` and its correction at `b77dc32`. Line numbers below are measured at `b200cd7`. **Authority:** the Judge's instruction of 2026-11-05 to correct F01 and F02 by append only, and the guarded `D-428` commit authorization of 2026-11-05 for this B-162 correction only. This section adds proposal text. It applies no control, unit or policy, and changes no Register entry, configuration, graph, custody, selection or lane state. B-136 and B-162 stay Open. All repair units stay held.
+
+### Dispositions
+
+| Finding | Disposition | Source revision | What changed |
+|---|---|---|---|
+| F01 | **Corrected (proposal text).** Every choice and unit has a result for every tier. Each unaffected tier has a source-based reason. Outputs or scope not yet chosen are marked **Held**, not assessed complete. | Receipt `b200cd7`, check 8 (line 655). Requirement: request `2be9aab` line 268, return `b47eb80` line 492. Rule: `D-54`, Register 1466, 1494–1499. | Replaces the table at lines 583–597 and the D-54 cells at lines 422–428. |
+| F02 | **Corrected (proposal text).** Defines the observation unit, the reporting boundary, and how each listed case is counted. C05 stays optional. Owner, period and governed-branch set stay unresolved. No benefit is claimed. | Receipt `b200cd7`, lines 658–660. Prior text: `b77dc32` lines 578–580. | Replaces the "Proposed C05 population" and "Reporting" bullets at lines 579–580. The class table at 565–576 and the delivery classes at 578 stay. |
+
+**Withdrawn overclaims.** Line 585 ("Each cell states the tier result and its reason") and the Approve row for these corrections at line 631 claimed a completeness the table did not have. Both are withdrawn. The superseded text stays as history.
+
+**Applied controls versus proposal text.** The applied controls are unchanged, as observed at `b200cd7`: `.githooks/commit-msg` exits 0 when Node is absent (line 8); `scripts/lane-gate.mjs` is unchanged; no `.githooks/pre-push` exists; `core.hooksPath` is unset in this clone (N1); the delivery proof is the manual README step 4; `bun run check` is unchanged. Everything in the two sections below is proposal text for the Judge.
+
+### F01 — D-54 assessment per choice and unit
+
+**Result values.** **Affected:** the unit's own act must propagate to that tier. **Unaffected:** with its reason. **Check:** affected only if the act changes the cited text; the act confirms which. **Held:** the output or scope is not chosen, so the assessment stays incomplete until the Judge chooses it. The frozen `PRD.md`, Charter and `0001_init.sql` are unaffected by every row (AGENTS.md "Never").
+
+**Reason keys** (sources at `b200cd7`):
+
+| Key | Reason |
+|---|---|
+| K1 | Modular_PRD §8 changes only when a sprint closes or a tier opens (`D-54` rule table, Register 1499). AIG work has no sprint slot (Modular_PRD 871–873). No unit below closes a sprint or opens a tier. |
+| K2 | Build Spec DoD: AIG work takes no Product sprint slot (Modular_PRD 871–873; Build Spec 367–369). The per-sprint artifact DoD (Build Spec §5.1, 767–771) and the V1/MMF DoDs do not change. |
+| K3 | Build Spec sequence: AIG work is "sequenced here and in `SV-002`" (Build Spec 368–369). Whether a unit's act enters that sequence is the C02 placement choice. **Held** until C02. |
+| K4 | The Inventory changes only when a file is created or retired (`D-54` rule table, Register 1498). A row or section inside an existing file is not a new file. |
+| K5 | Phase Closure §5 (378–384) changes only on a lane transition (`D-156`). Lane A units run under the existing A `Active` row. |
+| K6 | Phase Closure §5A is a snapshot, and the Inventory is the living record (667–669). `phase-manifest` checks only that listed paths exist, so an unchanged listed path needs no edit. |
+| K7 | The Phase 1 critic pass (Phase Closure §6, 784) runs once per phase against the final artifact set (line 71), not per act. It must later read each applied artifact. |
+| K8 | Encyclopedia: ledger rule 1 (`ENCYCLOPEDIA-SYNC.md` 15–19) compares changes with the "Depends on" columns (32–37). A text search at `b200cd7` finds no citation of FN-AIG, `SPECS-VERIFICATION-APPARATUS`, `SPECS-MULTI-LANE`, `.githooks/`, `scripts/`, `docs/templates/`, `.github/`, the handoff README, Modular_PRD §7.1 or §7.2a, map §5, or `D-264`, `D-267`, `D-269`, `D-383`, `D-440`, `D-441`, `D-475`, `D-476`. |
+| K9 | Graph: a new markdown file under `docs/`, outside `docs/handoff/`, needs its own node (`graph-coverage`; template v1's node is in `docs/graph-fragments/frag139.json`), and its curated fragment must be re-merged (`G51`). Any governed-source change keeps `docs-drift` real until the guarded `D-425` cycle. Files outside `docs/` need no coverage node. |
+
+**Group 1 — trace and placement**
+
+| Tier | C01 trace and scope | C02 placement | T-1 map §5 row | T-2 Modular_PRD §7.1 row |
+|---|---|---|---|---|
+| Register | Affected: its act | Affected: a placement act amending `D-476` item 8's bar on further intervening entries (Register 31403), then one act per unit | Affected: its act | Affected: its act |
+| Build Spec | Unaffected: a problem statement and a record row change no scope, sequence or DoD (K2) | **Held** (K3) | Unaffected: Build Spec cites map §6.1 (404), not §5 (K2) | Unaffected: Build Spec cites §7.2a (368), never §7.1; the `FR-15` slice text at 459 is unchanged (K2) |
+| Inventory | Unaffected: EV-4 is a section of the map (destination at B-136 13805), not a file (K4) | Unaffected: placement creates no file (K4); unit rows below | Unaffected: a row in an existing file (K4) | Unaffected: no file (K4); Inventory 465 cites §7.1 only as `GR-004` history |
+| Modular_PRD | Unaffected: §7.2a (869–876) is the existing Project-scope route; no `US`/`FR`/`AC` is added (873); K1 | Unaffected: no Product scope change; K1 | Unaffected: `US-15` (568) and `FR-15` (594) are unchanged; map §8's "gains an FR" rule (map 430) is met in the map; K1 | **Affected:** §7.1 row with `[V1]` marker (`D-34`) and a §0.1 changelog row (convention at line 90). Row shape (FR-15 only, or FR-15 and US-15) **Held**: Judge choice (T2) |
+| FN / SPECS | **Held:** whether the accepted problem statement also enters FN-AIG §1 (32–53) or stays only in EV-4 is not chosen | Unaffected: placement states no behaviour; unit rows below | Unaffected: a backward-trace row states no behaviour or proof; no FN or SPECS file cites map §5 (text search) | Unaffected: no FN or SPECS file cites Modular_PRD §7.1 (text search); `FR-15` behaviour text is unchanged |
+| Phase Closure | Unaffected: K5, K7 | Unaffected: K5 | Unaffected: K5, K7 | Unaffected: K5, K7 |
+| Dependent references | **Affected:** map §7.1 EV-4 row, entered only through B-136/EV r9 (B-136 13805), never by direct edit; `FB-07` (map §7) unchanged | Unaffected: the sequencing it amends (`D-440`/`D-441` item 0 through `D-476` item 8) lives in the Register | **Affected:** map §5 row (163–185) and a map §9 changelog row (437). "Backward coverage" (187) is re-read; no count is propagated (`G55`) | Check: map forward rows 136 and 146 already cite `FR-15` and stay unchanged |
+| Encyclopedia | **Check:** Entry 06 cites map §7 (ledger 37), and EV-4 lands in §7.1 | Unaffected: K8 | Unaffected: Entry 06 cites map §4/§7 (ledger 37) and Entry 05 cites §6.3/§6.4 (ledger 36), not §5; K8 | Unaffected: no entry cites §7.1 (K8). Entry 03's flag (ledger 34) concerns `FR-15`'s newsworthiness text in §5, which T-2 does not change |
+| Graph | Affected: map change, then `D-425` (K9) | Affected: Register change, then `D-425` (K9) | Affected: K9 | Affected: K9 |
+
+**Group 2 — delivery controls**
+
+| Tier | C03 applicability and failure policy | U1 delivery template | U2 commit receipt | U3 `.githooks/pre-push` | U4 `scripts/deliver.mjs` |
+|---|---|---|---|---|---|
+| Register | Affected: its act | Affected: its act | Affected: its act | Affected: its act | Affected: its act |
+| Build Spec | **Held:** line 867 says the hook "does not forbid crossings". Unaffected if fail-open stays (`D-88`); affected if the act changes the policy. The policy is not chosen | Unaffected for DoD: line 109 pins `dor-dod-validation/v1`, which stays unchanged (K2). Sequence **Held** (K3) | **Affected:** line 867 describes the commit-time gate | Unaffected for DoD: Build Spec has no pre-push text (search; 867 is commit-time) (K2). Sequence **Held** (K3) | Unaffected for DoD (K2). Sequence **Held** (K3) |
+| Inventory | Unaffected: a policy creates no file (K4) | **Affected:** new row for `docs/templates/commit-push-delivery/v1.md`, modelled on row 104 | **Affected:** rows 26 (`lane-gate.mjs`) and 47 (`commit-msg`). Receipt destination **Held**: a tracked receipt adds a row; an untracked one changes `.gitignore` (build config, `D-86`) | **Affected:** new row for `.githooks/pre-push` | **Affected:** new row for `scripts/deliver.mjs`. The `package.json` `deliver` entry changes a file in place; `package.json` has no Inventory row (search), so no row is added. This corrects line 594 |
+| Modular_PRD | Unaffected: the AIG-01 row (878) names the concern, not hook outcomes; K1 | Unaffected: K1 | Unaffected: the AIG-01 evidence path (878) changes only if C05 makes receipts evidence (C05 row); K1 | Unaffected: K1 | Unaffected: K1 |
+| FN / SPECS | **Affected:** FN §5 `AIG-01.C2` (216) and new §6 edge-case rows (§6, 230–249, has no hook-outcome row), with `[V1]` markers; `SPECS-VERIFICATION` §17.1 "Checks" row (473, "hooks run") gains the meaning of "run" | Unaffected: FN §11.4 (325) and `SPECS-VERIFICATION` 482–483 cite v1, which is unchanged; nothing cites the new template until a C03 or U4 act names it | **Affected:** FN §5 `AIG-01.C2` (216) mechanism and status. Unaffected: `SPECS-MULTI-LANE` §5 (106–107) already lists `.githooks/commit-msg`, whose path is unchanged | **Affected:** `SPECS-VERIFICATION` §17.1 "Range" row (476), which names the README procedure; FN §11.3 pointer (309–318); `SPECS-MULTI-LANE` §5 pointers (106–107) | **Affected:** FN §5 mechanism column for any delivery criterion C03 adds; `SPECS-MULTI-LANE` §5 pointers (106–107) |
+| Phase Closure | Unaffected: K5, K7 | Unaffected: K5, K6, K7 | Unaffected: §5A.5 lists both paths (733–734), which are unchanged (K6); K5, K7 | Unaffected: K5, K6, K7 | Unaffected: K5, K6, K7 |
+| Dependent references | **Held:** handoff README 12 and `LANE-B-WORK-ORDER.md` §4 (343–344) describe the current gate. Unaffected if fail-open stays; affected if it changes. README step 4 (99–124) is affected if the act makes delivery records mandatory for handoff filings | **Held:** README step 4 and `docs/handoff/TEMPLATE.md` cite the record only if C03 makes it mandatory. `TEMPLATE.md` is coupled to the checks (`channel-docs`, Inventory 27) and is unchanged unless a field is added | **Check:** README 12 and `LANE-B-WORK-ORDER.md` 343–344, as C03. Activation is unchanged (`package.json` 13–14), so `not configured` stays possible (N1) | **Affected:** README step 4 (99–124) gains the tool route; `LANE-B-WORK-ORDER.md` §7 push language (454–464), because a tracked hook also runs on Lane B pushes. Unaffected: `.github/WORKFLOWS-SPEC.md`, because a pre-push hook is local, not a workflow | **Affected:** README step 4 names the wrapper. Unaffected: `docs/CONFIG_LOG.md` records configurable values (Phase Closure 5A.2) and has no `package.json` script or hook entry (search) |
+| Encyclopedia | Unaffected: K8 | Unaffected: K8 | Unaffected: K8 | Unaffected: K8 | Unaffected: K8 |
+| Graph | Affected: FN and SPECS changes, then `D-425` (K9) | Affected: a new `docs/` file needs a node and a curated fragment (K9) | Affected: Build Spec, Inventory and FN changes, then `D-425`; the hook and script need no coverage node (K9) | Affected: governed-tier changes, then `D-425` (K9) | Affected: governed-tier changes, then `D-425` (K9) |
+
+**Group 3 — independent and optional choices**
+
+| Tier | U5 Lane C post-push check (Phase 3) | T-3 two disclosure decisions | U6 historical H1 limit | C05 measure (optional) |
+|---|---|---|---|---|
+| Register | Affected: a Lane C handoff, then its own act | Affected: two acts (`D-247` boundary; `OD2` independence) | Affected: one act | Affected, if selected |
+| Build Spec | Unaffected: `D-383` (Register 25317–25322) keeps CI as evidence, not an SM05 DoD gate (K2) | Unaffected: lines 34–35 state the `D-247` boundary; a disclosure decision changes no scope, sequence or DoD. A change to the boundary itself would be a different act | Unaffected: it concerns the past handoff commit `fbcddae` (P1, line 360), not scope, sequence or DoD | Unaffected: a reported measure is not a DoD (K2). **Held** if the Judge makes it a gate |
+| Inventory | **Affected:** a new workflow row (as rows 63–64). Path **Held** | **Held:** sponsor-receipt form not chosen; a tracked receipt file adds a row, a Register record does not | Unaffected: K4 | **Held:** the measure row sits in FN §5 (no file); the report artifact for each period is not chosen, and a file would add a row |
+| Modular_PRD | Unaffected: K1 | Unaffected: `FR-15`'s partial `CR-19` text (594) is unchanged; K1 | Unaffected: K1 | **Check:** the AIG-01 evidence path (878) is affected if the measure becomes evidence. Unaffected: §0.5 (168) registers the `AIG-NN.Cn` pattern, not each check |
+| FN / SPECS | **Check:** `SPECS-VERIFICATION` §17 DevOps row (460) and §17.1 "After the push" (477) are what U5 serves. Their text is unchanged unless the act adds a proof row (**Held**) | Unaffected: the decisions change no behaviour or proof text | Unaffected: §17.1 (465–477) covers xDD units only, and `fbcddae` is a handoff commit (P1, line 360) | **Affected:** a new FN §5 row beside `AIG-01.C2` (216) |
+| Phase Closure | **Affected:** Lane C is `Blocked` (384). Writing a workflow needs a lane transition (`D-156`). **Held** to Phase 3 | Unaffected: K5 | Unaffected: K5 | Unaffected: not a closure condition (§1, 61–). **Held** if the Judge names it one |
+| Dependent references | **Affected:** `.github/WORKFLOWS-SPEC.md` §4 queued items (65). Review route per FN-AIG 141 and 145: Level 1 ChatGPT (Lane B), Level 2 Lane A (N2) | **Affected on a sponsor receipt:** map 146 ("The customer has not been told…"), map §7 `FB-02` (413) with its answer and date (map §8, 432). `V1-SM05` packet 211's disclosure duty stays until it is discharged | Unaffected: B-136 is not edited; the H1 limit stays at B-162 line 25 and in the Register act | Unaffected: the measure reads U2 receipts and push records; no README step changes |
+| Encyclopedia | Unaffected: K8 | **Check:** Entry 06 cites map §7 (ledger 37), so an `FB-02` answer changes a cited section. Entry 05's partial-`CR-19` trigger (ledger 48) is affected only if the boundary text changes | Unaffected: K8 | Unaffected: K8 |
+| Graph | Affected: the `WORKFLOWS-SPEC` change, then `D-425`; the workflow file needs no coverage node (K9) | Affected when the map changes (K9) | Affected: Register change, then `D-425` (K9) | Affected: FN change (K9) |
+
+**Group 4 — custody, readiness and the optional U0 branch**
+
+| Tier | C06 evidence custody | C07 lift, selection, work order, lane transition | U0a sequencing amendment (optional) | U0b `V1-SM05-FV-001` at `DoR open` (optional) | U0c DoR check and lift (optional) |
+|---|---|---|---|---|---|
+| Register | Affected: an act through the B-136 custody transaction | Affected: separate acts for each event | Affected: amends `D-264` item 4, `D-267` item 2, `D-269` item 5 | Affected: its act | Affected: its act |
+| Build Spec | Unaffected: custody is not scope, sequence or DoD (precedent `D-412`, Build Spec 249–251) | **Affected:** line 31 (SM05 cell) and line 106 (block until the Judge lifts it) | **Affected:** lines 31 and 106 state the current lift condition | Unaffected: creates a record under U0a; no DoD change (K2) | **Affected:** line 31 status |
+| Inventory | **Held:** destinations not chosen; a file copied into the repository adds a row, an external file does not | **Affected** at selection: `V1-SM05-FV-001` is created after selection (Inventory 381–382) | **Affected:** lines 381–382 say the record is made only after selection | **Affected:** new file row. Path **Held** | Unaffected: K4 |
+| Modular_PRD | Unaffected: K1 | Unaffected: §8 (969) points execution tracking to Build Spec §4, `LANE-B-WORK-ORDER.md` §2.2d and Phase Closure §5; a lift or selection closes no sprint (K1) | Unaffected: K1 | Unaffected: K1 | Unaffected: K1 |
+| FN / SPECS | Unaffected: no behaviour | Unaffected: FN §11 applies to units after activation and adopting it starts none (`AIG-01.R8`, 307) | Unaffected: FN §11 and `SPECS-VERIFICATION` §17.1 apply after activation; template v1 is unchanged | Unaffected: the record pins template v1, which is unchanged (FN §11.4, 325) | Unaffected: as U0a |
+| Phase Closure | Unaffected: K5 | **Affected:** §5 lane transition (378–384) | Unaffected: K5 | Unaffected: K5 | Unaffected: a lift is not a lane transition (`SV-002` 17 keeps them separate); K5 |
+| Dependent references | **Affected:** the B-136 custody and registration record. Sealed packets stay unchanged | **Affected:** `V1-SM05` packet status (4) and `LANE-B-WORK-ORDER.md` work order. Unaffected: `SV-002` (17) stays accepted | **Affected:** packet 8–9 | **Affected:** the packet's trace field cites the record | **Affected:** packet status (4) |
+| Encyclopedia | Unaffected: K8 | Unaffected: no cited section changes (K8). Entry 06's `DOR-R6` review (ledger 49) is already discharged | Unaffected: K8 | Unaffected: K8 | Unaffected: K8 |
+| Graph | **Held:** a markdown file copied under `docs/` needs a coverage node (K9) | Affected: K9 | Affected: K9 | Affected: a new `docs/` file needs a node and a curated fragment (K9) | Affected: K9 |
+
+**Held items, collected:** T-2 row shape; where the C01 problem statement is recorded; the C03 failure policy; the C02 sequence placement (K3); the U2 receipt destination; the U5 workflow path and lane transition; the T-3 receipt form; the C05 owner, period, governed-branch set, report artifact and gate status; the C06 destinations; the U0b path. Each stays held until its Judge act. Four stages stay separate: answer completeness (Lane B Level 1), unit verification (Lane B after each applied unit; U5 per N2), Lane C independent review, and Judge acceptance.
+
+### F02 — observation unit and reporting boundary for C03/C05
+
+Lane A proposes definition (a) from the receipt (`b200cd7` line 660). Definition (b), an attempt population, is not proposed as the C05 measure. Attempts go in a separate ledger and are never merged into the counts. The Judge may still choose (b). C05 stays optional. The owner, the reporting period and the governed-branch set are unresolved Judge choices; Lane A proposes no value. No current behaviour changes.
+
+| Term | Proposed definition |
+|---|---|
+| Observation unit | One commit object, identified by its full hash. |
+| Governed-branch set | The server refs the Judge names in the C05 act. **Unresolved.** |
+| Arrival | A commit arrives when a push moves a governed server ref from `old` to `new` and the commit is in `git rev-list old..new`. Proof is a server-before and server-after record from fresh fetches (README step 4). A cached remote-tracking ref is not proof. |
+| Reporting boundary | Start: the first arrival after the U2 application commit is on the server. End: the Judge's period (**unresolved**). A commit belongs to the period of its first arrival. Commits that arrived earlier, including `fbcddae`, `b718010`, `fd80dd1`, `b77dc32` and this correction, are outside the population. U6 owns their historical limit. |
+| Range membership | Each commit in an arriving range is one observation, merge commits included. The range's C03 delivery class (line 578) is attached to each member. A range is never one observation. |
+| Duplicates | A commit counts once per period, by hash, even if it arrives on two governed refs or in two pushes. A commit that later leaves the ref stays counted in its arrival period. |
+| Relevant receipt | The U2 receipt that records this commit's resulting hash. U2 binds the staged tree (request line 85). A receipt for an attempt that made no commit, or a different commit (amend, retry, rebase), is not this commit's receipt. |
+| Duplicate receipts | Several receipts naming one commit with the same class: one observation, class kept, duplicates listed. With different classes: `unknown: conflicting receipts`. |
+| Retries | Each hook invocation is a new attempt in ledger A. Only the attempt whose receipt names the arriving commit classifies it. |
+| Refused and unpushed attempts | `evaluated-refused` exits 1 (`scripts/lane-gate.mjs` 154) and creates no commit, so it never classifies a counted commit. Refused attempts, U3 refusals and commits that do not arrive within the period go in ledger A only. An unpushed commit joins the population in the period it arrives. |
+| Judge exceptions | Only a Judge act names an exception, by commit hash or exact range, before the period's report. Excepted commits are listed in count E with the act. They leave counts 1–3 and are never deleted. An exception made after a report is appended as a correction; the report stays. |
+| Unknowns | A counted commit without a relevant receipt is `unknown`. It stays in the population and is never imputed as evaluated, not run or unavailable. Other evidence, such as a Git trace, is noted beside it but does not reclassify it. |
+| `not configured` | Git does not call the hook, so no receipt exists (N1). The class applies only when a U4 delivery record for that commit shows `core.hooksPath` unset at commit time. Otherwise the commit is `unknown`. |
+
+**Report per period: counts, never a single percentage.**
+1. Count 1: counted commits with an `evaluated-*` receipt, by subclass.
+2. Count 2: `not run` (by its four reasons), `unavailable: no Node`, `not configured`.
+3. Count 3: `unknown`, including conflicting receipts.
+4. Count E: Judge exceptions, each with its act.
+
+The population is counts 1 + 2 + 3. Count E is outside it. Each counted commit appears in exactly one of counts 1–3.
+
+**Ledger A (separate):** hook invocations with their receipts, including refused and retried attempts; U3 refusals; commits not arrived by period end. Ledger A is never added to counts 1–3 or E, and no ratio between them is reported as coverage.
+
+**Limits.** This measures receipt coverage of arriving commits. It does not show that a crossing was classified correctly or that a review took place. It claims no business benefit, and none is measured.
+
+### Routing
+
+1. Lane B reviews this exact revision at Level 1.
+2. After Lane B accepts the answer, Lane C reviews at Level 2 against this revision and Lane B's receipt. Lane B's bounded Level 2 delivery route for `b77dc32` (line 714) is unchanged.
+3. The Judge decides B162-C01, then C02 and C03. C04–C06 follow their own dependencies. C07 comes later. Every Held cell above waits for its act.
+
+No message is sent to another actor by this filing.
+
+| Scope | D-20 verdict | Follow-up phase |
+|---|---|---|
+| F01 corrected D-54 assessment (proposal text) | Approve-with-conditions | Phase 1: Lane B reviews this revision; Held cells resolve only through the Judge's C01–C07 acts |
+| F02 observation unit and reporting boundary (proposal text) | Approve-with-conditions | Phase 1: Lane B review; Judge decides C03 and optional C05 |
+| C05 owner, period, governed-branch set, report artifact | Defer | Phase 1: Judge choice; Lane A proposes no value |
+| Overclaims at lines 585 and 631 | Reject | Phase 1: withdrawn here; superseded text kept as history |
+| Units T-1 to U6, U0a–U0c, placement, EV/custody, graph cycle | Defer | Phase 1: own acts, placement and `D-425`; Phase 2: selected construction; Phase 3: separately authorized U5 with other-lane review |
+| Whole-entry Verified, closing B-136 or B-162, lifting V1-SM05, lane change | Reject | Phases 1–2: not established |
