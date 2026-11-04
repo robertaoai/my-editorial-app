@@ -921,3 +921,75 @@ Reviewed exact source and retained evidence, drafted bounded fixes and filed thi
 | Graph synchronization | Defer | Phase 1: separate guarded release before consuming approval |
 | No template, Lane B Active, or all external files disposable | Reject | Phase 1: use the corrected facts above |
 | Build, deletion and whole-entry closure | Defer | Phase 1 gates first; Phase 2 construction and Phase 3 U5 separately authorized |
+
+## Lane A answer to the review of 96b2e44 (2026-11-05)
+
+**Read revision:** `245062888ed08f76333350df6788a5290ae7bd65` (Lane B's receipt at lines 866–923). **Authority:** the Judge's guarded `D-428` commit authorization of 2026-11-05 for this B-162 answer only. This section is answer and proposal text. It applies no control, unit, policy, tracker row or cross-reference, and changes no Register entry, configuration, graph, custody, selection or lane state. B-136 and B-162 stay Open. All repair units stay held.
+
+### 1. F01 — C04 mapping (corrected)
+
+B162-C04 (line 425; dependencies at 613) is assessed in Group 3 of the correction at line 726, through two columns: "T-3 two disclosure decisions" and "U6 historical H1 limit". Each column covers all nine tiers. C04 has no output of its own beyond those two columns. T-3's sponsor-receipt form stays Held. T-3's two decisions and U6 each need their own Judge act, and neither is a prerequisite of U1. With this mapping, every choice C01–C07 has an explicit assessment.
+
+### 2. Unresolved decisions, parent first
+
+| Order | Choice | Predecessor | Open question for the Judge | If rejected |
+|---|---|---|---|---|
+| 1 | C01 problem and scope | — | Accept the proposed development-control problem (line 374) and its EV-4 route through B-136/EV r9; where the statement is recorded (Held, line 726 Group 1) | The link stays proposed |
+| 2 | C02 placement and bounded units | C01 | Permit a Register placement beyond `D-476` item 8 (Register 31403); decide each unit's act; whether units enter the Build Spec §1 sequence (K3) | Units stay held |
+| 3 | C03 applicability and failure policy | C01; before U2–U4 | Delivery classes (line 578), outcome classes (565–576), exceptions, and whether fail-open (`D-88`) stays | U2–U4 stay held |
+| own path | C04 T-3 and U6 | Their own acts | T-3: the `D-247` boundary disclosure and the `OD2` disclosure; receipt form. U6: the historical H1 limit | Each question stays open |
+| own path | C06 custody | The existing B-136 custody transaction | Exact file list and destinations | Current locations and holds stay |
+| after U2 | C05 measure (optional) | U2 applied | Owner, period, governed-branch set and report artifact (F02, line 726) | The measure is deferred; other duties stay |
+| later | C07 readiness | Separate acts | Residuals (`B-102`/P13, `B-137`, P14a/P14b), then lift, selection, work order and lane transition, each separately | The block and lane state stay |
+
+An accepted proposal is not an execution release.
+
+### 3. Tracking reconciliation (proposal; nothing applied)
+
+**Completed work, not repeated.** U-TR (Act C) was delivered at `3230e3b`, parent and T `e129915`, changing only `SV-002`. Its recorded reviews are Lane B's Level 1 approval `LANE-B-LEVEL1-REVIEW-ACT-C.md` (SHA-256 `7944adda39aa324e573eac3d99860d56910095b821afbe419ecf3dc694fc0532`) and Lane C's bounded Level 2 approval, both cited at B-136 24941. Lane A's review and answers follow at B-136 24995. Its tracker derivation is the current §2.3.1 header ("Derived at: `e129915`").
+
+**Proposed B-158 cross-reference** (a later Lane A one-path commit in B-158, appended, keeping line 828 as dated history):
+
+> *Dated cross-reference, 2026-11-05.* Line 828 ("T1, T2 and T3 are not applied") was true at this record's read revision `528d38f`, prepared 2026-11-02. U-TR was later delivered at `3230e3b` (parent and T `e129915`). Its reviews are recorded in B-136 at line 24941 (Lane B Level 1, Lane C Level 2) and line 24995 (Lane A). This note moves no owner and closes no row.
+
+**Proposed Gate 2 tracker update** (a later Lane A one-path commit in `SV-002` §2.3.1, line 178; a re-derivation, not an edit of rows by hand):
+- Re-derive at a named revision that contains the newest handoff disposition change, and record it in "Derived at", keeping `e129915` as "Earlier".
+- Add one row: `| B-162 | O5 | non-SM05 | open | Review and planning entry for the delivery-control proposals; header blocks nothing until a unit is selected; closes by an independent Verified-By or the Judge's recorded acceptance with its reason (D-364 item 4) |`. Order `O5` is proposed by analogy with `B-158`; the re-derivation sets it.
+- Re-check every other live entry for a missing row. Keep "**Gate 2 clearance claimed:** no".
+- D-54: Register act (the unit's authority); Build Spec, Inventory and Modular_PRD unaffected (no scope, sequence, DoD or file change; K1, K2, K4); graph affected (`SV-002` is governed, `D-425`).
+
+### 4. Remaining fixes — prepared for review
+
+| Gap | Owner | Predecessor | Exact output | Acceptance proof | Stop condition | Judge act |
+|---|---|---|---|---|---|---|
+| T-1 | Lane A | C01, C02 | One `FR-15` row in map §5 (direct CR-09, partial CR-19, context-only CR-01/10/11) + map §9 changelog | Row at a named commit; `bun run check`; Lane B review | Any new product scope inferred | C02 unit act |
+| T-2 | Lane A + Judge | C01, C02 | One §7.1 row with `[V1]` + §0.1 changelog; shape per T2 | Judge's shape choice; row and marker; D-54 tiers | Shape not chosen | C02 unit act + shape choice |
+| T-3 | Judge → sponsor | Own act | Two decisions; sponsor receipt or an explicit disposition | Register act; receipt, never fabricated | No receipt and no disposition | Two T-3 acts |
+| U1 | Lane A | C02 | `docs/templates/commit-push-delivery/v1.md` + Inventory row + graph node | Template v1 still 6,240 B / `ca605cd6…` | Any edit to v1 | C02 unit act |
+| U2 | Lane A | C03 | `.githooks/commit-msg` and `scripts/lane-gate.mjs` receipt | Isolated Node-missing test shows `unavailable`; receipt binds staged tree and resulting commit | Policy not chosen | C02 + C03 |
+| U3 | Lane A | C03 | `.githooks/pre-push` | Refuses a failed fetch, stale upstream and wrong range for the intended reason | No fallback after a failed fetch | C02 + C03 |
+| U4 | Lane A | U1, U2, U3 | `scripts/deliver.mjs` + `package.json` `deliver` | One separately authorized handoff-only attempt record | Any proof field missing | C02 + its attempt act |
+| U5 | Lane C (Phase 3) | U4; Lane C handoff | Workflow (path Held) | Controlled failure; Level 1 Lane B, Level 2 Lane A (N2) | Used as pre-push proof or acceptance | Its own act + lane transition |
+| U6 | Judge | Own act | Register act on the H1 limit | Uncertainty and seals preserved | Retrospective reenactment offered as proof | U6 act |
+| C05 measure | Judge; owner Held | U2 applied | FN §5 row; report artifact Held | Counts 1–3, E and ledger A per F02 | A single percentage or a benefit claim | C05 act |
+| C06 custody | Lane A via B-136 | B-136 custody transaction | Inventory of files: path, role, bytes, SHA-256, seal, destination | Byte-equal copies; destination commit; independent review | Any deletion before a separate exact-path act | Custody act |
+| Tracker (§3) | Lane A | This answer accepted | B-158 cross-reference; `SV-002` §2.3.1 re-derivation | Two one-path commits; Lane B review | Clearance claimed | Its own act |
+| Graph | Lane A | Last queued governed source | Guarded `D-425` cycle with fragments re-merged (`G51`) | Healthy publication and review | A raw rebuild against live state | Its own release |
+
+**Completed evidence, not proposed work:** `96b2e44`'s delivery (bound in Lane B's receipt, lines 872–876); U-TR at `3230e3b`; `DOR-R1`–`DOR-R7` (`D-263`); template v1. Nothing in this section changes them.
+
+### Routing
+
+1. Lane B reviews this exact revision at Level 1.
+2. After Lane B accepts the answer, Lane C reviews at Level 2 against `96b2e44`, this revision and Lane B's receipts.
+3. The Judge decides in the order of §2. The tracker unit waits for its own act.
+
+No message is sent to another actor by this filing.
+
+| Scope | D-20 verdict | Follow-up phase |
+|---|---|---|
+| C04 mapping and parent-first decisions | Approve-with-conditions | Phase 1: Lane B reviews this revision |
+| Tracking reconciliation proposal | Approve-with-conditions | Phase 1: its own act; two one-path commits; Lane B review |
+| Per-gap fixes | Defer | Phase 1: each unit's Judge act; Phase 2: construction; Phase 3: U5 |
+| Graph cycle, custody transfer, deletion | Defer | Phase 1: separate releases |
+| Whole-entry Verified, closing B-136 or B-162, Gate 2 clearance, lane change | Reject | Phases 1–2: not established |
