@@ -25362,3 +25362,52 @@ Lane B reviews this record at Level 1, then Lane C at Level 2. The Judge decides
 ### What you did instead
 
 Recorded receipts, a clarification and a status only. No source change, Register entry, build, graph sync, transfer, deletion or lane change. A6 keeps its original static limits. Notes `a413faf2…` remain unrecovered at this review. No Gate 2 clearance.
+
+
+---
+
+## Lane A — answer on the r2 evidence mapping, read at `1820e3d`, 2026-11-04
+
+- **Raised:** existing B-136; finding raised by Lane B at line 25101 (findings 11, 12)
+- **Kind:** finding
+- **Phase:** 1
+- **Blocks:** your inventory choice, the r2 exclusion candidate and P4 registration
+- **Status:** Open
+- **Lane A:** this answer — response line 1210 answering instruction 1175, successor at session `409cf4aa…` line 191
+- **Verified-By:** — not yet dispositioned; raised by Lane B
+- **Evidence:** Lane B line 265 `55e477cc…`; Lane C line 60, step 59 `adc3570d…`; Lane B line 340 `f0dd1518…`; successor line 191 `73efb160…`
+- **Verified-At-Commit:** 1820e3d27c51cc5304fe9d23d94b89b140a40941
+
+**Authority for this filing.** The Judge, directly to Lane A: "Judge releases the B-136 r2-mapping answer filing request; execute it" (session `409cf4aa-ce22-4477-9f47-31ec3f8211fb.jsonl` line 228, uuid `2bec1622-0c42-47da-b609-c2a0a9dbaf12`, 2026-11-04T10:45:47.448Z, 875 bytes with one LF, SHA-256 `007eb70226bfd5b8657856eca16b37c02a4cbd97c786b06b8cabbd5bf1b33795`, retained under this packet's `acts/`), pending durable registration under `D-183`. It releases the filing request at line 219 (uuid `868991a0-721c-49dd-b113-6d6c289a6656`) and no other unit.
+
+### What happened
+
+1. Lane A mapped 21 Lane C rows: 7 P and 14 R. The class follows the quoted content. Matches are normalized containment or segment coverage. They are not byte equality.
+2. B8 notice line 1485 follows the open-page context record at line 1483 by 52 ms and the developer context-instruction record at line 1484 by 25 ms. Notice line 3532 follows the corresponding records at lines 3530 and 3531 by 22 ms and 10 ms. Each pair contains one open-page context record and one developer instruction record.
+3. r1 lists 36 fork exclusions:
+   - Lane B's first review confirmed 30 as same-ID records in another session.
+   - It found 2 distinct records, B8 lines 3532 and 3845.
+   - It could not repeat 4, because three rollout paths were unavailable. That report stays as dated history.
+   - Lane B line 340 is the bounded check of those 4 against `.codex/archived_sessions/`. It confirms message identity, parsed payload and fork-parent references. It does not establish historical whole-file equality, move dates, continuous custody or restored seals.
+   - Lane A's 34-match result (session line 1199) stays retained evidence.
+4. Proposed cutoff: 2026-11-03T11:15:08.417Z, bound to session `b61a1ed0…` line 895. Totals: 103 (exclude both empty notices) or 105 (keep both). An unexplained 104 is rejected. They apply only to the assessed scope and interval. A changed scope or cutoff requires a recount and a review.
+5. Evidence locations:
+   - The mapping and cited review records are in session files.
+   - The r1-era `EXCLUDED.csv` is an external file in the registration-prep packet. It keeps its obsolete fork labels at lines 38–39 as history. It is not r2.
+   - Actual r2 exclusion-candidate bytes have not been supplied.
+   - Repository custody and durable registration remain open.
+6. The filing release at session line 1385 released the P1 filing only. Your J1 acceptance of `445276d` is a separate decision.
+
+### What you need
+
+1. The Judge chooses the notice policy (103 or 105), the class scope, the cutoff and the placement.
+2. Lane A then prepares the r2 exclusion-candidate bytes. Lane B reviews the exact bytes.
+3. Lane B reviews this filing at Level 1, then Lane C at Level 2.
+
+### What you did instead
+
+- Recorded an answer only.
+- No source change, Register entry, build, graph sync, transfer, deletion or lane change.
+- Kept intact: A6's original static limits, sealed r1 at 82 rows, earlier seals, contribution disclosures and reconstruction limits.
+- Not established: the location of the whole-block differences, coverage of uninspected stores, and recovery of notes `a413faf2…`.
+- B-136 stays Open. No Gate 2 clearance.
