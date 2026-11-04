@@ -553,3 +553,84 @@ This receipt does not route an accepted answer to Level 2: the acceptance condit
 | D-R06, D-R08, D-UBC, D-choices, D-limits and N2 | Reject | Phase 1: Lane A appends the specified corrections; Lane B reviews the exact correction commit. |
 | Accepted-answer Level 2 route and C01–C07 | Defer | Phase 1: after Level 1 acceptance, Lane C reviews named answer/receipt commits; Judge makes the reserved choices. |
 | Graph synchronization, EV/custody, units and construction | Defer | Phase 1: existing routes, separate bounded acts and D-425 evidence; Phase 2: selected construction; Phase 3: separately authorized U5 with independent review. |
+
+## Lane A correction after the review of fd80dd1 (2026-11-05)
+
+**Read revision:** `b47eb80fb97ce19c50cd922f2bb6924604c6d1a3`. **Authority:** the Judge's guarded `D-428` authorization of 2026-11-05 for this B-162 answer only. This section corrects only the rows Lane B returned at `b47eb80` (D-R06, D-R08, D-UBC, D-choices, D-limits) and answers N2. It supersedes only those rows of `## Lane A answer to the consolidated request (2026-11-04)`. All earlier sections stay as written. No unit is applied. No policy, configuration or Register entry is changed. B-162 and B-136 stay Open.
+
+### D-R06 — outcome classes, delivery classes and measure population
+
+All classes are **proposed** for B162-C03. Current gate behaviour is unchanged until a separate change act.
+
+| Class | Gate state | Source |
+|---|---|---|
+| `evaluated-pass-unmapped` | Staged paths are not empty, and every path is unmapped | `scripts/lane-gate.mjs` 65–66 |
+| `evaluated-pass-single-lane` | The staged paths touch one lane | 66 |
+| `evaluated-pass-declared` | A crossing is declared in the trailer block | 127–128 |
+| `evaluated-refused` | A crossing is not declared; exit 1 | 154 |
+| `not run: no message` | A warning, then exit 0 | 45–47 |
+| `not run: diff read error` | Silent exit 0 | 59–60 |
+| `not run: empty staged list` | Silent exit 0 | 63 |
+| `not run: message read error` | Silent exit 0 | 69–73 |
+| `unavailable: no Node` | The hook exits 0 before the gate | `.githooks/commit-msg` line 8 |
+| `not configured` | No hook path, so Git does not call the hook | N1 |
+
+- **Delivery classes:** a handoff delivery (one path); a Lane A governed-source delivery; a Lane B xDD unit range; a Lane C workflow change. Only a Judge act names an exception.
+- **Proposed C05 population:** applicable deliveries are the commits pushed to a governed branch after the U2 application commit, minus the exceptions a Judge act names.
+- **Reporting:** three counts, never one percentage: (1) `evaluated-*`; (2) `not run` + `unavailable` + `not configured`; (3) `unknown` (no receipt). An unknown stays in the population. It is never counted as `evaluated`.
+- Receipt coverage proves no business benefit.
+
+### D-R08 — D-54 assessment per unit
+
+Each cell states the tier result and its reason. "Affected" means the unit's own act must propagate to that tier.
+
+| Unit | Register | Build Spec | Inventory | Modular_PRD | FN-AIG / SPECS | Traceability map | Handoff README | Encyclopedia |
+|---|---|---|---|---|---|---|---|---|
+| T-1 | Affected: its act | Unaffected: line 404 cites map §6.1, not §5 | Unaffected: no file added or retired | Unaffected: forward rows (map 136/146) already cite `FR-15`; no Modular_PRD text changes | Unaffected: not an AIG artifact | **Affected:** §5 row | Unaffected: no SOP text changes | Unaffected: Entry 06 cites map §4/§7 (ledger line 37), not §5 |
+| T-2 | Affected: its act | Unaffected: Build Spec cites `§7.2a` only (line 368), never §7.1 | Unaffected, stated: no file added or retired; line 465 is `D-392` history, not a live reference | **Affected:** §7.1 row, `[V1]` marker | Unaffected | Unaffected | Unaffected | Unaffected: no entry cites Modular_PRD §7.1 |
+| U1 | Affected: its act | Unaffected: line 109 governs validation attempts that pin v1; v1 is unchanged | **Affected:** new row for `docs/templates/commit-push-delivery/v1.md` | Unaffected | Unaffected: SPECS §17.1 (line 482) and FN §11.4 (line 325) cite v1, which is unchanged | Unaffected | Unaffected | Unaffected: no entry cites templates |
+| U2 | Affected: its act | **Affected:** line 867 describes the commit-time gate | **Affected:** rows 26 and 47 | Unaffected | **Affected:** FN §5 `AIG-01.C2` (line 216) | Unaffected | Unaffected while the gate still blocks crossings (line 12); **affected** if C03 changes the failure policy | Unaffected: no entry cites hooks |
+| U3 | Affected: its act | Unaffected: no pre-push text | **Affected:** new row for `.githooks/pre-push` | Unaffected | **Affected:** SPECS §17.1 (line 476); FN §11 (line 304) | Unaffected | **Affected:** step 4 (line 99) gains a tool route | Unaffected |
+| U4 | Affected: its act | Unaffected | **Affected:** new rows for `scripts/deliver.mjs` and the `package.json` script | Unaffected | **Affected:** FN §5 mechanism column | Unaffected | **Affected:** step 4 names the wrapper | Unaffected |
+| U5 | Lane C handoff, then an act | Unaffected | **Affected:** workflow row | Unaffected | **Affected:** SPECS §17 Lane C proof row | Unaffected | Unaffected | Unaffected |
+
+Four stages stay separate: answer completeness (Lane B Level 1), unit verification (Lane B after each applied unit), Lane C independent review, and Judge acceptance.
+
+### D-UBC — corrected fit rows
+
+| Row | Correction |
+|---|---|
+| SaaS coverage target and SAST | **Missing / proposed**, not "Conflict". No governing test-coverage target exists. Test-suite execution exists (`ci.yml`: `bun test`). Code coverage is not measured. C05 measures **receipt** coverage, which is a different measure. SAST stays missing; it is a Phase 3 candidate. |
+| Newsroom deploy steps | **Not applicable to V1**, bounded to these sources: PRD core objects (no media or embargo field); the SM05 DoD "Exclusions verified absent" (no WordPress path, no `Published` state); and `D-259` (deployed-instance receipt deferred to V2). No wider exclusion is claimed. |
+| Manual-input row | Authority: the adopted `D-194` statement (Register 14004–14043) and FN-GATES 151–161. `D-121` alone is not that authority. |
+
+No Business Charter record is filled. Placement through EV-4/EV r9 is unchanged.
+
+### D-choices — per-choice contract completed
+
+- **U4 artifact (proposed):** `scripts/deliver.mjs`, plus a `deliver` script in `package.json`. Both are Lane A surfaces (`D-86`).
+- **C05:** the owner and the reporting period are **unresolved Judge choices**. Lane A proposes no value. The measure artifact is a row in FN §5 beside `AIG-01.C2`.
+- **Dependencies:** C04 (T-3, U6) is independent of the main sequence, after its own act. C05 depends on U2 applied. C06 depends on the B-136 custody route. U0a–U0c stay an optional branch. U5 is Phase 3 and separately authorized.
+
+### N2 — independent review of U5
+
+Lane C cannot verify its own change. For U5, Lane B reviews at Level 1. Lane A reviews at Level 2 ("Lane A covers the rest", AGENTS.md). U5 implementation stays held.
+
+### D-limits — bounded acceptance statement
+
+Replace "No Judge acceptance of deliveries or units" (trace matrix, Acceptance row) with: "No Judge acceptance exists for the B-162 deliveries `fbcddae`, `b718010` and `fd80dd1`, or for units T-1 to U6. Deliveries accepted earlier under `D-476` item 7 (through `9cea285`) stand."
+
+### Routing
+
+1. Lane B reviews this commit at Level 1.
+2. After Lane B accepts the answer, Lane C reviews at Level 2 against this commit and Lane B's receipt commit.
+3. The Judge decides B162-C01, then C02 and C03. C04–C06 follow their own dependencies. C07 comes later.
+
+| Scope | D-20 verdict | Follow-up phase |
+|---|---|---|
+| D-R06, D-R08, D-UBC, D-choices, D-limits, N2 corrections | Approve | Phase 1: Lane B reviews this commit |
+| Proposed outcome classes and C05 population | Approve-with-conditions | Phase 1: Judge decides C03 and C05 |
+| C05 owner and reporting period | Defer | Phase 1: Judge choice |
+| Lane C Level 2 review | Defer | Phase 1: after Lane B accepts the answer |
+| Units T-1 to U6 | Defer | Phase 1: own acts and Register placement; Phase 3: U5 |
+| Whole-entry Verified, closing B-136 or B-162, lifting V1-SM05 | Reject | Phases 1–2: not established |
