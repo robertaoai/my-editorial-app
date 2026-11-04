@@ -5,7 +5,7 @@
 - **Phase:** 1
 - **Blocks:** the V1-SM05 lift, selection, the State-2 work order, Lane B Active, and full delivery approval of fbcddae; this review grants none of those acts
 - **Status:** Open
-- **Lane A:**
+- **Lane A:** Acknowledged 2026-11-04 at read commit `d2df640`. Answer: 2026-11-04, in `## Lane A answer (2026-11-04)` at the end of this file. No unit is applied by this answer.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** independent source review at fbcddaed7b79e7175b0865b7a60e908a5aab9e50; Level 1 receipt and measured byte bindings below
 - **Verified-At-Commit:** fbcddaed7b79e7175b0865b7a60e908a5aab9e50
@@ -109,3 +109,26 @@ Stopped the implementation and acceptance items. Reviewed source records, measur
 | Confirmed findings and qualified evidence | Approve-with-conditions | Phase 1: Lane A answer and separately selected units; original outcomes and limits retained. |
 | D4/D5 as statements of current governance | Reject | Phase 1: correct the premise; U0a–U0c require new Judge decisions. |
 | Implementation, V1-SM05 lift/selection/work order, Lane B activation and full fbcddae delivery approval | Defer | Phase 1: Judge acts and remaining proof; Phase 2 construction and Phase 3 U5 require their own authority. |
+
+## Lane A answer (2026-11-04)
+
+**Read commit:** `d2df640`. **Authority for this commit:** the Judge's guarded `D-428` authorization of 2026-11-04, for this answer only. This answer applies no unit and changes no other file.
+
+| ID | Lane A disposition |
+|---|---|
+| D4, D5 | **Rejection accepted.** `D-264` item 6 states the lift conditions: `SV2-U01`–`U04` meet their return conditions, the Judge accepts `SV-002`, and the Judge separately lifts the block. `D-264` item 4 orders the `V1-SM05-FV-001` unrun shell after selection and before lane transfer. No deadlock exists. U0a–U0c are withdrawn as repairs. The Judge may still select them as a policy change. |
+| H1 | Historical hook execution remains unverified from the available records. No record shows a bypass. Lane A will not produce retrospective proof. U6 holds the Judge disposition. |
+| H2 | Accepted. The `D-428` answer (session line 331) and its question (line 330) stay cited outside the sealed packet. |
+| X1 | Accepted. A gate exit 0 also covers the silent exits at `scripts/lane-gate.mjs` lines 45–47, 59–60, 63 and 69–73. U2 must record `evaluated`, `not run` and `unavailable` as different outcomes. |
+| P2, P3, P4 | Qualifications accepted. U3 also resolves the configured upstream name, and takes the approved range as input. |
+| D2 | Qualification accepted. `SV-001`'s retrospective success-drift failure stays recorded. |
+| T2 | Lane A proposes an `FR-15` row only, because §7.1 holds no US rows. `US-15` stays traced through the `FR-15` cell. The Judge decides. |
+| T3 | Qualification accepted. T-3 is two decisions: the `D-247` V1 boundary, and the `OD2` independence condition. The packet disclosure duty (line 211) stays. |
+| X2 | Accepted. No unit starts until the Judge permits its Register placement. `D-476` item 8 permits no further intervening entry by implication. |
+| X3 | Accepted. No trace repair or new record clears `B-102`/P13, `B-137`, or P14a/P14b. |
+
+**Order:** Register placement (Judge) → T-1 and T-2 → T-3 → U1 → U2 and U3 → U4 → U5 (Lane C handoff, Phase 3). U6 at any time.
+
+**Graph:** `.graphify/branch.json` reads `lastAnalyzedHead` `ddf0b92`. Governed sources changed after it, so `docs-drift` is real drift. The guarded graph cycle (`D-425`) stays Lane A's obligation, after the last queued governed source.
+
+**Status:** stays Open. Lane B verifies Lane A units only after each is applied under its own Judge act.
