@@ -862,3 +862,62 @@ No message is sent to another actor by this filing.
 | Overclaims at lines 585 and 631 | Reject | Phase 1: withdrawn here; superseded text kept as history |
 | Units T-1 to U6, U0a–U0c, placement, EV/custody, graph cycle | Defer | Phase 1: own acts, placement and `D-425`; Phase 2: selected construction; Phase 3: separately authorized U5 with other-lane review |
 | Whole-entry Verified, closing B-136 or B-162, lifting V1-SM05, lane change | Reject | Phases 1–2: not established |
+
+## Lane B Level 1 review of 96b2e44 (2026-11-05)
+
+**Reviewer:** Lane B, the raiser, independent of Lane A's answer. **Read revision:** 96b2e448ccdb3d33014fff11a410be39d7bf865f. **Authority:** the Judge approved appending this review to B-162, committing only this path under D-428, and pushing through the manual route. This is a review receipt and follow-up plan, not a Judge acceptance of the proposal. B-136 and B-162 stay Open. No build, graph sync, evidence transfer, deletion, policy application or lane change.
+
+### What happened
+
+The earlier Lane B reviews exist in this entry. This section supplies the review of the latest correction. The parent is b200cd745bba93be02db60892dc0f14ae96c564e. Author and committer use 241258103+robertaoai@users.noreply.github.com. The sole changed path is this entry: 140 lines added, zero removed. All 119,394 parent bytes are unchanged, SHA-256 490b2a39fe5a47a612b9e783b9d19beeab906a2aea26e4e4cb5a5004cfd41515. The committed blob is 9138d1d4eb445a209073c14c4d24ff7753d9ed87, 143,647 bytes, SHA-256 1e9242cbb8bd1f9aaee5b5fadcb2c048e47d5ebf5aed7d980327d3c67c858021.
+
+The separate commit and push approvals were read in C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/977c3a29-84c5-4979-8081-065ea3f1b07a.jsonl. Line 342: UUID c088ff48-1fbe-44a6-ab7c-13daa879fd9b, 3,341 bytes, SHA-256 bdbbb941b095cddef521be487ef87f718975c08add8709575bdc0656c68122e9. Line 443: UUID 906d917a-e6f8-4240-a452-55960254108b, 3,251 bytes, SHA-256 0903381a82af03a18a73d4d17b71871ce826c825e13efbc07d48b33207e71493. Each binding includes the record's final LF. These acts authorize their own filing only.
+
+Evidence packet: C:/CoWork/outputs/lane-a-b162-answer4-2026-11-05/. The 767-byte manifest has SHA-256 40dc3ad17c1e36653052407c64bc86d12235d209e679d7dfb812c90486b6a980. All nine members match. Both retained checks bind the committed blob and report 18 PASS, zero SKIP, only docs-drift failing. The hook trace and Node probe support this delivery only. The push files are outside the manifest; retained session lines 445-446 and those files show the configured upstream, successful pre-push proof, named non-force push and post-fetch equality: b200cd7 before, 96b2e44 after. These are historical delivery records, not a fresh server observation.
+
+| Check | Result and limit |
+|---|---|
+| Delivery and authority | Pass within the exact revision and evidence above. Delivery review is separate from Judge acceptance. |
+| F01 / check 8 / D-R08 | Approve-with-conditions. The four groups supply source-based tier reasons and keep unresolved outputs Held. T-3 and U6 each have nine-tier assessments, but C04 has no explicit mapping to those columns. Add the mapping before claiming every choice is explicitly covered. |
+| F02 / remaining D-R06 | Approve as proposal text. One arriving commit is the observation; its first-arrival period owns it. Ranges, duplicate receipts, retries, refused/unpushed attempts, exceptions and unknowns have separate rules. Attempts stay in ledger A. C05 remains optional; owner, period and branch set are unresolved. No benefit is measured. |
+| Boundaries | Pass. Earlier overclaims at lines 585 and 631 are withdrawn. Current controls remain distinct from proposals. Neither parent closes. |
+
+### What you need — parent first
+
+1. Lane A appends this explicit clarification for review: "C04 is assessed through the T-3 and U6 columns in Group 3. Each column covers all nine tiers. C04 adds no separate output beyond those columns. T-3's receipt form remains Held. Each decision still requires its own Judge act." This is proposed wording, not Lane A's answer. After answer acceptance, Lane C reviews the exact correction and its Level 1 receipt at Level 2. The earlier bounded delivery-review route remains unchanged.
+2. The Judge decides C01 (problem/scope), then C02 (placement and bounded units) and C03 (applicability/failure policy). C04's T-3 and U6 need their own acts; they are not prerequisites of U1. C06 uses the existing B-136 custody transaction. Optional C05 follows applied U2 and needs an owner, period, branch set and report artifact. C07 later assesses residuals before separate lift, selection, work-order and lane-transfer acts. Rejecting a choice holds its work; accepting a proposal alone starts no unit.
+3. After their own releases, use placement -> T-1/T-2 -> U1 -> U2/U3 -> U4 -> separately authorized Phase 3 U5. U0 stays optional. T-1/T-2 preserve direct CR-09 and partial CR-19 anchors. U1 defines a delivery attempt, DoR, DoD proof and stop conditions. U2 distinguishes evaluated, not run and unavailable, binding staged tree to resulting commit. U3 refuses failed fetch, stale upstream and wrong range. U4 retains authority, byte equality, hook evidence, range proof and post-push equality. U5 supplies post-push evidence with other-lane review; it replaces neither pre-push proof nor acceptance. A failed push preserves the local result and gets its own delivery-attempt record.
+4. Prepare custody through B-136 before any deletion decision. Select exact files and destinations, record role, bytes, SHA-256, seal and owner, copy unchanged, compare committed-blob hashes, record destination commit, update references and obtain independent review and acceptance. Keep concise governing text separate from raw evidence. Preserve the original nine-member manifest; index later push files and selected authority records separately. Deletion needs a later exact-path act and proof that required references no longer depend on the external copies. External location alone does not make evidence disposable.
+5. Reconcile the existing tracker, not a duplicate. Use child ID, owner, state, evidence revision, next trigger, acceptance proof and reviewer. Add a dated B-158 cross-reference to U-TR delivery at 3230e3b and its recorded reviews in B-136. Keep the earlier "not applied" record as history. Re-derive SV-002 section 2.3.1 at a named revision, include B-162, and retain "Gate 2 clearance claimed: no". Handoff lifecycle, child completion and Gate 2 clearance are different facts.
+
+### Readiness and closure limits
+
+The general dor-dod-validation/v1 template exists and remains immutable. DOR-R1 through DOR-R7 are completed pre-selection readiness. The separate V1-SM05-FV-001 record follows selection under current rules; its absence now proves no deadlock. The proposed gap is a dedicated delivery contract, not an absent general template. The manual handoff procedure is an existing route. Lane A is Active, Lane B Eligible and Lane C Blocked; V1-SM05 stays BLOCKED.
+
+Trace chain: problem -> scope -> intent -> requirement -> Judge decision -> applicability -> DoR -> defined DoD proof -> implementation -> observed evidence -> independent review -> acceptance. Define DoD evidence during readiness; claim completion only after execution. AIG Project work has no Product user story under Modular_PRD section 7.2a.
+
+| Open handoff | Remaining action and boundary |
+|---|---|
+| B-095 | D2b before S5 in B-084 A4; prove first intake and the same-article journey. Custody is not completion. |
+| B-096 | Keep bounded SM05 metadata separate from held report/client-artifact work. Selected S15/S16/S17 obligations keep their owners. |
+| B-104 | Apply the selected historical/target T5 wording and independently review normal and revision journeys. |
+| B-119 | Preserve current-topic dispositions and SM06 owners. Accepted Gate 2 custody is not whole-entry verification. |
+| B-136 | Complete remaining provenance, registration, custody and readiness decisions; preserve historical evidence limits. |
+| B-158 | Add current delivery references. F01/F04-F09 retain their owners and triggers. Do not repeat delivered U-TR work. |
+| B-162 | Complete the review chain, then track selected units individually. No bulk Verified disposition. |
+
+The read-only consistency run at 96b2e44 completed with 18 PASS, zero SKIP and one failure: docs-drift. Seven governed paths changed since graph analysis ddf0b92: CONFIG_LOG, LANE-B-WORK-ORDER, Modular_PRD, docs/README, the Register, SV-002 and V1-SM05. The Gate 2 tracker is stale, with B-162 unlisted and one non-SM05 row unclosed; it reports rather than fails because clearance is not claimed. A current clearance claim would fail. Graph currency requires Lane A's separate guarded D-425 release and review, with curated fragments preserved. No graph operation is performed here.
+
+### What you did instead
+
+Reviewed exact source and retained evidence, drafted bounded fixes and filed this receipt. No receiver answer is impersonated. The approved filing binds only docs/handoff/B-162-consolidated-findings-and-delivery-controls.md, preserves the previous bytes and both Open headers, runs two complete checks under the filing-specific D-428 authority, enables the commit hook, and uses README steps 1-6 for delivery. This filing claims no policy application, historical hook reconstruction, clean graph or whole-entry verification.
+
+| Scope | D-20 verdict | Follow-up phase |
+|---|---|---|
+| 96b2e44 delivery evidence | Approve, bounded | Phase 1: Judge acceptance remains separate |
+| F01 proposal completeness | Approve-with-conditions | Phase 1: Lane A adds explicit C04 mapping; Lane B exact-revision review |
+| F02 counting proposal | Approve, proposal only | Phase 1: Judge decides C03 and optional C05 |
+| Tracking repair and custody plan | Approve-with-conditions | Phase 1: exact scope, existing owners and independent proof |
+| Graph synchronization | Defer | Phase 1: separate guarded release before consuming approval |
+| No template, Lane B Active, or all external files disposable | Reject | Phase 1: use the corrected facts above |
+| Build, deletion and whole-entry closure | Defer | Phase 1 gates first; Phase 2 construction and Phase 3 U5 separately authorized |
