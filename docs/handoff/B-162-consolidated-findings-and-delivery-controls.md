@@ -132,3 +132,110 @@ Stopped the implementation and acceptance items. Reviewed source records, measur
 **Graph:** `.graphify/branch.json` reads `lastAnalyzedHead` `ddf0b92`. Governed sources changed after it, so `docs-drift` is real drift. The guarded graph cycle (`D-425`) stays Lane A's obligation, after the last queued governed source.
 
 **Status:** stays Open. Lane B verifies Lane A units only after each is applied under its own Judge act.
+
+## Lane B verification of b718010 (2026-11-04)
+
+**Reviewer:** Lane B, the raiser, independent of Lane A's answer. **Observed commit:** `b7180105d385c3b48f08a43301ea0d8e028a9ebd` on `features/feature-V1-SM05`. **Disposition: Answer returned.** Delivery and retained execution evidence pass the bounded checks below; answer coverage, ordering and one source description require correction. This is an answer review, not a whole-entry Verified disposition or acceptance of a Judge act. B-162 remains Open; no unit is applied, selected or released.
+
+All line numbers in this section refer to the tree at the observed commit unless a session or evidence file is named. All byte counts and hashes were remeasured from the files or Git blobs. No hook, gate or commit was reenacted to establish a historical execution. The consistency run and commit for this appended review concern this filing only.
+
+### Delivery, authority and evidence checks
+
+| Check | Result | Measured evidence and limit |
+|---|---|---|
+| A1 — parent | Pass | `git log` and the commit object identify sole parent `d2df6402f080979984921661448aa2629b7aac21`. |
+| A2 — changed paths | Pass | Exactly `docs/handoff/B-162-consolidated-findings-and-delivery-controls.md`. Git numstat is **24 additions, 1 deletion**: one replaced acknowledgement line plus 23 appended lines, not 24 appended lines in addition to the replacement. No other path changed. |
+| A3 — parent preservation | Pass | Parent blob: 22,279 bytes, SHA-256 `d64173ed825d92f9e08f5898f0cba605c01d0a1e06b2972632ac7e94b90f485b`. Replacing only its line 8 with the answer's line 8 produces a byte-identical prefix of the new blob. The suffix is 2,441 bytes, SHA-256 `51c0c2fd159c77a6f40ec2280cb2baed2c619a98422669fb91419e8489eac81e`; the answer heading is at line 113. Every other parent byte survives. |
+| A4 — committed blob | Pass | Git blob `6073a1c9351b986d3259b9359970bbeecd644706`; 24,885 bytes; SHA-256 `c24bb9ebf0bcb3cd073a58ad8e7585cefcaf367a1c1f13a4f992230175cb3c1c`. Both retained check metadata files and S2:388 name that digest. |
+| A5 — identity | Pass | Both author and committer email in the actual commit are `241258103+robertaoai@users.noreply.github.com`. This checks the required Git identity, not independent authentication of a speaker. |
+| A6 — fresh server state | Pass | Before this review edit, resolved `origin/features/feature-V1-SM05`, fetched successfully, then read the named server ref with `git ls-remote`. Server, configured upstream and local HEAD all equalled `b7180105d385c3b48f08a43301ea0d8e028a9ebd`; the working tree was clean. This observation is bounded to that fetch, not a promise that the remote will stay fixed. |
+| B1 — commit authority | Pass | S2:315 is the direct user record: “Authorize guarded D-428 commit for the B-162 answer only”, before either check and before the commit. UUID, time, exact bytes and digest are bound below. It authorizes this answer only; it is not the older B-136 D-428 release and starts no repair unit. |
+| B2 — push authority | Pass | Separate direct user record S2:402: “Authorize push of b718010 with pre-push proof”, after the commit. S2:412–413 records the configured upstream, successful fresh fetch, upstream = parent, outgoing count 1, named non-force push, post-fetch equality and outgoing count 0. |
+| B3 — scope | Pass | Commit path set is the one handoff, and the byte comparison confines the change to acknowledgement plus appended answer. S2:388 records clean status after commit. No canonical governed source, hook, template, workflow or repair unit changes in this commit. |
+| C1 — manifest | Pass | P2's `SHA256-MANIFEST.txt`: 767 bytes, SHA-256 `499205e548f0a8d7f2c5165f1be59844a3b002877f544ca388d28fb7424d47e5`. Parsed nine members; independently rehashed every member and compared every length: nine matches, zero mismatches. Member bindings are below. |
+| C2 — historical checks | Pass | Both 3,352-byte logs independently count 18 PASS, 0 SKIP and one FAIL, `docs-drift`; their metadata records exit 1 and the A4 digest. Run 1: 2026-11-04T13:42:10.147Z–13:47:28.004Z; run 2: 13:47:36.920Z–13:53:22.537Z. Logs are byte-equal. These retained runs concern Lane A's candidate, not today's appended review. |
+| C3 — Node probe | Pass | `node-probe.txt` is 39 bytes and records `/c/Program Files/nodejs/node`, `v24.18.0`. S2:382 invokes `git -c alias.nodeprobe='!command -v node && node --version' nodeprobe`; S2:388 reports probe exit 0. This measures Git's shell at the probe, not a standalone hook receipt of its Node executable/version. |
+| C4 — hook trace | Pass | Trace lines 4–5 launch `.githooks/commit-msg .git/COMMIT_EDITMSG`; line 7 records `git diff --cached --name-only`; line 8 ends the hook task group. S2:382 binds the trace destination to this commit command; S2:388 binds success to b718010 and A4. The inspected hook:8–9 calls the Node gate, whose lines 51–58 perform that staged-diff read. Together this is contemporaneous evidence that the hook ran and the gate reached the staged-diff operation **for b718010 only**. It is not a separate staged-tree receipt or explicit gate-outcome record, does not prove all failure paths, and establishes nothing about hook execution at fbcddae. U2 remains unapplied. |
+| C5 — hook output | Pass | `commit.out`: 0 bytes, empty-content SHA-256 `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`. Quiet output is consistent with the observed trace; empty output alone would not prove execution. |
+| C6 — push evidence | Pass | Six `push/` files were read and independently hashed outside the manifest. Server-before = d2df640; push stderr records `d2df640..b718010`; server-after = b718010. S2:412–413 corroborates the before/after fetches and equality checks. They have separate bindings below and are not represented as sealed manifest members. |
+
+### Answer coverage — every receipt item
+
+| Check | Result | Evidence and disposition |
+|---|---|---|
+| D-H1 | Pass | Answer:120 retains historical uncertainty, no shown bypass, no retrospective proof and the U6 Judge decision. C4 does not repair the fbcddae evidence gap. |
+| D-H2 | Pass | Answer:121 retains the original session's question at 330 and answer at 331 as separate citations. Rehashed those records including their existing LF: question 3,536 bytes / `9999b7b59891cc843f78f4f8acbc5371203984c82684207ddd128da216c8f428`; answer 3,096 bytes / `3428891741e04942ecbf296f893edc3dd476111be33c7aaaa786ac2f85300852`. Neither is a member of the older sealed B-136 manifest. Its digest remains `3a3ea410b848d343225eae2d2eb90ccf24395ecf531b91bb160dd61d3a859f6d`, 1,675 bytes. |
+| D-P1 | Fail | No answer row or other express disposition addresses the receipt's classification of fbcddae as a handoff-only commit outside xDD §17.1. Preservation of the raiser's text is not Lane A's disposition. Lane A must accept or explain a disagreement with this classification and its approval limit. |
+| D-P2 | Pass | Answer:123 accepts the qualification, including the distinction between missing built-in receipts and impossibility of proof. C4 provides contemporaneous evidence for the new commit without backdating it. |
+| D-P3 | Pass | Answer:123 accepts the qualification and expressly requires U3 to resolve the upstream name and take the approved range as input. No claim that U3 is installed. |
+| D-P4 | Pass | Answer:123 accepts the qualification, rather than asserting the generic template cannot represent delivery. Validation template v1 still measures 6,240 bytes / `ca605cd6d477ad9d3e9919569fe655d1ba98df3ee8c86dfe57945aec0587be90`. |
+| D-D1 | Fail | The answer does not disposition completed pre-selection DOR-R1–R7, Issue #1 and draft PR #2, or their lack of construction authority. Lane A must state its disposition; no new live GitHub status is inferred from the old receipt. |
+| D-D2 | Pass | Answer:124 expressly retains SV-001's retrospective success-drift failure. The prior completed/accepted outcomes and limitations are not rewritten. |
+| D-D3 | Fail | The answer does not explicitly disposition the absent separate FV-001 record or distinguish that absence from the existing pre-selection checklist. Its statement of the future sequence at 119 is not a statement of the current artifact's presence/absence. Lane A must address D3. |
+| D-D4 | Pass | Answer:119 accepts rejection and correctly cites D-264 item 6; independently reread Register:19429–19432. It withdraws U0a–U0c as repairs and leaves any policy change to the Judge. |
+| D-D5 | Pass | Answer:119 accepts rejection and states D-264 item 4's after-selection/before-transfer shell sequence; reread Register:19419–19424. The optional policy branch is retained. The broad “No deadlock exists” wording needs the narrowing in D-limits below. |
+| D-T1 | Fail | T-1 appears only in the order line, with no disposition of the missing FR-15 reverse-map row or its direct CR-09 / partial CR-19 and context-only boundary. Lane A must address the finding and intended repair scope. |
+| D-T2 | Pass | Answer:125 explicitly proposes FR-15 only with US-15 traced in its cell, and leaves that departure from the two-row request to the Judge. The proposal is not treated as an accepted scope change. D-54 and [V1] obligations in the original unit remain. |
+| D-T3 | Pass | Answer:126 distinguishes the D-247 V1 boundary and OD2 independence decisions and preserves packet:211's partial-CR-19 disclosure obligation. It claims no sponsor notification receipt. |
+| D-T4 | Fail | No express disposition of the established CR/FR/US/AC links or their direct-versus-context limits. Lane A must state whether it accepts the existing trace and its limits. |
+| D-X1 | Fail | Answer:122 accepts the three required outcome classes, but calls all four exits silent, including `scripts/lane-gate.mjs:45–47`. Line 46 actually emits `console.error("lane-gate: no commit message path given")`. Correct that path to **warning plus exit 0**; the other listed exits are silent. Keep the evaluated/not-run/unavailable distinction. |
+| D-X2 | Pass | Answer:127 requires the Judge to permit Register placement before a unit starts. Register:31403, D-476 item 8, confirms that no further intervening entry is implied. |
+| D-X3 | Pass | Answer:128 explicitly preserves B-102/P13, B-137 and P14a/P14b; no trace repair or new record clears them. |
+| D-order | Fail | Original request:91 allowed T-3 and U6 at any time and explicitly allowed T-1/T-2 and U2/U3 in parallel. Answer:130 inserts T-3 as a mandatory predecessor of U1 and uses “and” without explicitly retaining parallelism. Removing U0a–U0c from the repair chain is consistent with answer:119, but their optional policy branch needs an explicit sequence if selected. Restore T-3/U6 timing and parallel wording, or label any revised dependency as a proposal awaiting the Judge, not a settled order. |
+| D-graph | Pass | `.graphify/branch.json` actually contains full `lastAnalyzedHead` `ddf0b922f72f8dc54f41ac19698df80691fcd6a1`. Git comparison to b718010 finds the seven governed source paths listed below. Its cached `stale: false` is not currency proof. The answer:132's real-drift finding and Lane A's D-425 obligation are supported; no graph repair was performed. |
+| D-limits | Fail | Answer:119's unqualified “No deadlock exists” exceeds the specific finding that the alleged feature-DoR cycle is not established by the governing clauses. Narrow it to that alleged cycle, without certifying every possible dependency chain. Answer:122's silent-exit assertion is false as recorded in D-X1. All other examined answer statements are bounded to proposals, pending units and preserved obligations; status:134 correctly stays Open. |
+
+The seven changed governed paths in D-graph are `docs/CONFIG_LOG.md`, `docs/LANE-B-WORK-ORDER.md`, `docs/Modular_PRD.md`, `docs/README.md`, `docs/v1/V1-DECISION-REGISTER.md`, `docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`, and `docs/v1/work-packets/V1/V1-SM05.md`. Their existence in the Git delta was measured independently of the retained check logs. No source change is part of b718010 itself.
+
+### Exact source bindings
+
+S2 is `C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/863157fc-8a57-4a24-ba01-c15d4d78d25b.jsonl`. Hashes cover the original record bytes including one LF, not JSON reserialization. Direct user acts are distinguished from tool results and transport copies. These locators preserve evidence of authority; this review neither registers nor independently authenticates those acts.
+
+| Record | UUID / time (UTC) | Bytes | SHA-256 |
+|---|---|---:|---|
+| S2:315 — commit authorization, direct user | `edaf1cbc-8be4-4852-a8ce-84e4e52c8980`; 2026-11-04T13:41:18.680Z | 751 | `c197443e3598a9c3da89f5bbbd308644bc16077468a1b422cbc6b58c5f39bedd` |
+| S2:382 — probe/stage/trace/commit tool call | `370be8b6-ddd7-41c2-b5f5-62dd846d8a89` | 3,835 | `cdc9e5b6593751a7e09d54627c93ad716270ab2127a4906f296ae2b8020318a7` |
+| S2:388 — corresponding tool result | `68007483-0b63-4452-894e-8bcc1eef0554`; 2026-11-04T13:53:41.820Z | 3,392 | `f2a4e567f2e4c9ae54a7d65744ebae011c5c25666a09386d954b2597de025644` |
+| S2:402 — push authorization, direct user | `38eccb60-64de-4286-9da3-33d2598fdb46`; 2026-11-04T13:57:08.004Z | 758 | `b3e189b066c6bdc860254aeb51c7f2d969fdd6879fb93ca897b04169d090764e` |
+| S2:412 — proof and push tool call | `9168250d-f3d6-4aa7-9a0d-29c7a83fd367` | 4,835 | `8ef01a4a81bcc5126fff79e99dccc1558828b5c4c3cf7f7f2c6e83c22ca4fa89` |
+| S2:413 — corresponding tool result | `da0f3acd-fd88-476f-87fd-083fa559d9d3`; 2026-11-04T13:57:36.005Z | 3,003 | `35dd6a535dafba94a580b07af8303694843a06a865451f00903197805c3207fc` |
+
+P2 is `C:/CoWork/outputs/lane-a-b162-answer-2026-11-04/`. Every manifest member below matched its recorded length and hash; the push files below it were measured separately. No evidence file was changed or resealed.
+
+| Manifest member | Bytes | Measured SHA-256 |
+|---|---:|---|
+| `check-1.json` | 155 | `f190d37101c5a05be10db8aecbc10c2d3b25d3dff67aec01de55f741ef5309b5` |
+| `check-1.txt` | 3,352 | `704b7b51b836a40c7cb42ad6eb07633af4fc2af78754d073af6b31c20caabdd3` |
+| `check-2.json` | 155 | `4089b16106034d702b0663bcc77d06dbddb813b7d96449b45625839c1bd48537` |
+| `check-2.txt` | 3,352 | `704b7b51b836a40c7cb42ad6eb07633af4fc2af78754d073af6b31c20caabdd3` |
+| `commit-message.txt` | 111 | `488d6a73926e01b8f87da7744b764a808742ff1a133f32026f7f5451d2c2fa57` |
+| `commit.out` | 0 | `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855` |
+| `git-trace.txt` | 1,374 | `a31af648baa75b499d2a565c8d88aab150bf8a0581e02aab00f304748b7cbebc` |
+| `node-probe.txt` | 39 | `e53fd95fc36946926ed66435ec5766161bae41fa705abe5cc6568e20221f0502` |
+| `parent-binding.txt` | 129 | `1b6e2fc0144ea81f4c789975532af441f87780ac538866a53829273365ad35ec` |
+
+| Outside-manifest push file | Bytes | Measured SHA-256 |
+|---|---:|---|
+| `push/fetch-before.err` | 79 | `67e256425f35ccb1ee79d33d4665386660b5c5e402180fe91e03a0584927c407` |
+| `push/server-before.out` | 77 | `cc4707d2f23472760bcf6ad6fe379c69be799a620051ef693549d92f05173f07` |
+| `push/push.out` | 0 | `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855` |
+| `push/push.err` | 215 | `9c29e2f6aa4d2c031e5812090620dbe4caed6660cf128f68fd2fac4404423691` |
+| `push/fetch-after.err` | 79 | `67e256425f35ccb1ee79d33d4665386660b5c5e402180fe91e03a0584927c407` |
+| `push/server-after.out` | 77 | `093f69c7f206260d25dc91da9b30725a4abce901010c0372a9b2f0195e54d83f` |
+
+### Return to Lane A
+
+**Answer returned**, for these failed rows only; passing delivery/evidence findings are retained:
+
+1. **D-P1, D-D1, D-D3, D-T1, D-T4:** add explicit dispositions for all five omitted receipt items. An order label or preserved raiser text is not an answer.
+2. **D-X1:** distinguish the no-message-argument warning from the three silent success-exit cases; retain U2's three outcomes.
+3. **D-order:** keep T-3 and U6 independent of the main sequence, state the two parallel pairs, and describe the U0a–U0c optional policy branch separately. Any proposed new dependency needs the Judge's decision.
+4. **D-limits:** replace the blanket no-deadlock conclusion with the bounded conclusion that the alleged D5 cycle is not established; correct the silent-exit assertion through item 2.
+
+Only Lane A writes the correction to its answer. Lane B has appended this review without changing line 8, Lane A's answer or the earlier receipt. The exact path bound for this filing is `docs/handoff/B-162-consolidated-findings-and-delivery-controls.md`; no other path may be staged or committed. The Judge's current instruction authorizes this one review filing and its push, with only docs-drift permitted to fail. A fresh one-commit pre-push proof and post-push fetch equality are required for this review's delivery. B-136, B-162, V1-SM05, residuals, seals and lane states retain their prior status. Stop after delivery for Lane A's correction or the Judge's placement act; neither event by itself starts a unit.
+
+| Scope | D-20 verdict | Follow-up phase |
+|---|---|---|
+| A1–C6 bounded delivery, authority records and retained evidence | Approve | Phase 1: retain this receipt; no Judge acceptance or unit completion inferred. |
+| Answer completeness, order and wording (failed D rows) | Reject | Phase 1: Lane A corrects the four groups above; Lane B reviews the named correction commit. |
+| Repairs, policy changes, graph cycle and any lift/selection/work order | Defer | Phase 1: Judge placement and separate bounded acts; Lane A's D-425 graph obligation and all residuals remain. |
