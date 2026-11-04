@@ -340,3 +340,114 @@ Stopped repair and construction work. Filed this bounded review request only. No
 | Draft answer, sequence and proposed evidence model | Approve-with-conditions | Phase 1: resolve R01 and R06–R08; retain all held units and independent review. |
 | EV repairs, evidence custody, graph cycle and closure | Defer | Phase 1: existing B-136/B-158 routes, exact authority, D-54 and D-425 evidence. No deletion or closure here. |
 | Construction, unit execution and workflow implementation | Defer | Phase 1: separate Judge acts and readiness; Phase 2: selected construction; Phase 3: separately selected U5. |
+
+## Lane A answer to the consolidated request (2026-11-04)
+
+**Read revision:** `2be9aabf1e57b518dd725a0fd40b56dce05d6d2b`. **Authority:** the Judge's guarded `D-428` authorization of 2026-11-04 for this B-162 answer only. This section answers Lane B's verification of `b718010` and its consolidated request. Earlier answers and Lane B receipts stay as written. No unit is applied. B-162 stays Open.
+
+### Executive summary
+
+1. Lane A accepts every returned row and R01–R10. The corrections are below.
+2. A separate Business Charter is optional (JE1). Traceability is not waived. The development-control problem link is **proposed** and needs B162-C01.
+3. The path set of `fbcddae` shows no lane crossing. That does not show that the hook ran, and it does not approve the delivery.
+4. New finding N1: `core.hooksPath` is unset in Lane A's clone. A plain `git commit` there runs no lane gate.
+5. The reference input `C:/CoWork/reference/Universal Business Charter.md` (6,079 bytes, SHA-256 `7bc1a93846d454a41b990cc8f17d1c4701f45ac61bfc01a0608c906b57cf2fe5`) is a starting template only. It is not authority.
+
+### Corrections to the returned rows
+
+| Row | Lane A disposition |
+|---|---|
+| P1 | Accepted. `fbcddae` is a handoff-only commit under README steps 1–6 and the filing-specific `D-428` authorization (session `409cf4aa…` lines 330–331). It is not an xDD unit. §17.1 does not apply. Full delivery approval stays with the Judge. |
+| D1 | Accepted. `DOR-R1`–`DOR-R7` are complete (`D-263`). Issue #1 and draft PR #2 exist (`D-262`). They grant no selection, work order or construction authority. No live GitHub status is claimed. |
+| D3 | Accepted. No `V1-SM05-FV-001` record exists. That absence concerns the separate feature attempt. The pre-selection checklist exists and is complete. Creation follows `D-264` item 4. |
+| T1 | Accepted. Map §5 has no `FR-15` row. T-1 adds one row: direct `CR-09`, partial `CR-19` (`D-247`); `CR-01`, `CR-10`, `CR-11` context only (`D-261`). T-1 waits for its own act and placement. |
+| T4 | Accepted. The established links stand with their direct and context-only limits. They do not complete the reverse map or §7.1. |
+| X1 | Corrected. `scripts/lane-gate.mjs` lines 45–47 print a warning (line 46), then exit 0. Lines 59–60, 63 and 69–73 exit 0 silently. |
+| Limits | Corrected. "No deadlock exists" is replaced by: the alleged D5 cycle is not established by `D-264` items 4 and 6, `D-267` item 2, `D-269` item 5 and packet lines 8–9. No other dependency chain is certified. |
+| Order | Corrected. See "Held sequence" below. The earlier answer's T-3 → U1 dependency was an error and is withdrawn. |
+
+### R01–R10 and N1
+
+| ID | Lane A disposition |
+|---|---|
+| R01 | Accepted. This section is the filed correction. Lane B checks this exact commit. |
+| R02 | Accepted. JE1 does not excuse a missing link. A Product story is **not applicable** (Modular_PRD §7.2a). The development-control problem is **proposed**: "Changes by three AI lanes must stay inside owned surfaces, be reviewed by another lane, and carry evidence that the required local checks ran." No direct Charter-to-hook claim is made. |
+| R03 | Accepted. "Control objective met" is withdrawn. Bounded claim: at `fbcddae` the committed path set is one unmapped `docs/handoff/` path, so it touches no lane surface and holds no crossing that `lane-gate` would refuse. It does not show that the hook ran, does not by itself satisfy `AIG-01.C2`, and grants no delivery approval. U6 decides the historical limit. |
+| R04 | Accepted. No missing feature DoR caused the manual push. U0a–U0c stay an optional policy branch. `SV-001`'s success-drift failure stays recorded. |
+| R05 | Accepted. Validation template v1 exists (6,240 bytes, `ca605cd6…`) and stays unchanged. U1 defines a separate delivery attempt. The README handoff route is an existing route, not a fallback. |
+| R06 | Accepted. Outcome classes are in B162-C03. The measure needs a population of applicable deliveries, exceptions and unknowns. Receipt coverage proves no business benefit. |
+| R07 | Accepted. The full answer is in this section. Only B162-local choice IDs are used. Lane A's earlier unfiled J1–J7 labels are withdrawn. No second EV or custody transaction is created. |
+| R08 | Accepted. D-54 is assessed per choice below. Answer completeness, unit verification, Lane C independent review and Judge acceptance are separate events. |
+| R09 | Accepted. E1–E4, E6, E8–E12 stay in B-136/EV r9; E5/E7 stay withdrawn. A6, seals, reconstruction limits and residual owners stay. |
+| R10 | Accepted. Drift is real: `lastAnalyzedHead` `ddf0b92`, seven governed paths changed. Lane A owes the guarded `D-425` cycle. |
+| N1 | New. `git config --get core.hooksPath` returns nothing in `C:/robertaoai/my-editorial-app` (exit 1). `package.json` `prepare` sets it, but it is not in effect. A commit without `-c core.hooksPath=.githooks` runs no gate. Added as the `not configured` class in C03. No config was changed. |
+
+### Universal Business Charter — fit review
+
+| Part | Project value and source | Status |
+|---|---|---|
+| Purpose | The R02 development-control problem; lanes A/B/C under one Judge (FN-AIG §1) | Proposed (C01) |
+| Local commit mandate | `.githooks/commit-msg` → `lane-gate` (`D-88`). `bun run check` is not a hook | Partly filled; gap N1 |
+| Local secret protection | AGENTS: no secrets in the repository. No secret-scanning check exists | Missing; not in B-162 scope |
+| Commit message standard | Prefix convention; `Lane-Crossing:` trailer (`D-88`) | Partly filled |
+| Cloud CI "un-bypassable gatekeeper" | `ci.yml` runs typecheck, lint, test and check on push and PR. `D-383`: not an SM05 DoD gate. Lane C owns workflows | Conflict: CI is evidence here, not a pre-push gate |
+| Newsroom deploy steps (media, embargo, CMS, CDN) | No V1 media upload, embargo or WordPress path in SM05; deployed-instance receipt deferred to V2 (`D-259`) | Not applicable to V1 |
+| SaaS "100% coverage", SAST | No coverage target; a target is a choice (C05). No SAST | Conflict (target); SAST missing, Phase 3 candidate |
+| AI-native prompt and eval checks | V1 trend signals are manual (`D-121`, `D-194`) | Not applicable to the V1 product |
+| Lanes, handoffs, review levels, Judge acceptance | `AIG-02`, `AIG-05`, `D-93` | Absent from the reference; project governance supplies it |
+
+**Placement.** A filled version is not a new file. After C01 it enters the held EV-4 record ("Business Charter record — cumulative, by release", map §7.1) through B-136/EV r9, one row per criterion with a source anchor and a result (`met`, `not met`, `not measured`). The frozen Charter, PRD and `FB-07` stay unchanged.
+
+### Trace matrix — AIG-01 delivery-control chain
+
+| Link | Source and revision | Owner | Status | Next action |
+|---|---|---|---|---|
+| PRD / problem | `docs/PRD.md`; Charter `00d21cd` (editorial intent). Development problem: R02 statement | Judge | Product established; development proposed | C01 |
+| Scope | Modular_PRD `528d38f` §7.2a (`D-271`) | Lane A | Established | — |
+| Intent / story | FN-AIG `278de23` §2 `AIG-01`. Product `US` not applicable (§7.2a) | Lane A | Established | — |
+| Requirement | `AIG-01.R1`, `AIG-01.R3`; criterion `AIG-01.C2` (FN §5, "exists") | Lane A | Established | — |
+| Judge decision | Governing `D-75`, `D-88`, `D-156`, `D-271`. Proposed change: none | Judge | Governing established; change missing | C02 |
+| Applicability | Handoff delivery, xDD work product, local control, workflow evidence, deployment; exemptions by Judge act | Judge | Proposed | C03 |
+| DoR | Pre-selection `D-263`; feature `FV-001` after selection; delivery none | Lane A | Established / not applicable before selection / missing | U1 |
+| DoD / validation | `dor-dod-validation/v1` `ca605cd6…`; no delivery attempt ID | Lane A | Missing (delivery) | U1, U4 |
+| Implementation | No T or U unit applied; hook blob `5a09cb6a` | Lane A | Missing (held) | C02 |
+| Evidence | `fbcddae`: path set only. `b718010`: trace and probe, manifest `499205e5…`. Future: none | Lane A | Established for `b718010`; missing for `fbcddae` execution; proposed for future | U2, U6 |
+| Independent review | Lane B Level 1 of `b718010` at `c96f0b0` (returned). Lane C Level 2 not started | Lane B, Lane C | Level 1 established; Level 2 missing | Next steps |
+| Acceptance | No Judge acceptance of deliveries or units | Judge | Pending | — |
+
+### Choices for the Judge, parent first
+
+| Choice | Accept | Reject | Depends on | Owner; acceptance evidence | D-54 |
+|---|---|---|---|---|---|
+| B162-C01 trace and scope | Project-scope route and the R02 problem statement; recorded as an EV-4 row via B-136/EV r9 | Link stays proposed; no row written | — | Judge; row with source anchor, Lane B review | Map §7 affected (via EV r9). Register one act. Build Spec, Inventory unaffected (no gate, no file). Encyclopedia Entry 06 cites map §7: check |
+| B162-C02 placement and units | Register placement (`D-476` item 8) per unit: T-1 map §5; T-2 Modular_PRD §7.1; U1 `docs/templates/commit-push-delivery/v1.md`; U2 `.githooks/commit-msg`, `scripts/lane-gate.mjs`; U3 `.githooks/pre-push`; U4 `scripts/` wrapper | Unit held; Lane A revises refused scope only | C01 | Judge; per-unit act, exact paths, negative test, Lane B receipt | T-1 map. T-2 Modular_PRD `[V1]`, Register, Build Spec, Inventory checked. U1–U4 Register, Inventory (new files), FN §5 mechanism column. Encyclopedia unaffected |
+| B162-C03 applicability and failure policy | Classes: `evaluated-pass`, `evaluated-refused`; `not run` (no message with warning, diff read error, empty staged list, message read error); `unavailable` (no Node); `not configured` (N1). Range: one commit for a handoff, the approved range for xDD. Fail-open stays (`D-88`) until a change act | U2–U4 held | C01; before U2–U4 | Judge; policy table in the U2 act | FN §4.1, §5 `[V1]` marks; Register one act |
+| B162-C04 T-3 and U6 | T-3 two decisions (`D-247` boundary; `OD2`). U6 historical H1 limit, no retrospective proof | Question stays open; no link to U1 | Own act | Judge; Register act; sponsor receipt for T-3 | T-3 Encyclopedia Entry 05 check; U6 Register only |
+| B162-C05 measure (optional) | Population: commits on governed branches after U2; metric: share with an `evaluated-*` receipt; unknowns counted; owner and period chosen | Deferred; trace and review duties stay | U2 applied | Judge; one reported period, failures kept | FN §5; Modular_PRD §7.2a evidence column; Register one act |
+| B162-C06 evidence custody | Through B-136's custody route: inventory path, role, bytes, SHA-256, seal, destination; copy unchanged; compare hashes; record destination commit; review; register | Locations and holds stay | B-136 custody transaction | Judge; hash equality, Lane B review | Inventory if files added; Register one act |
+| B162-C07 later readiness | Assess `D-264` item 6 lift conditions and residuals (`B-102`/P13, `B-137`, P14a/P14b); then decide lift, selection, work order and lane transition separately | Block and lane state stay | Separate acts | Judge; Register acts | Packet, Phase Closure §5, Register, Build Spec |
+
+**Held sequence:** placement → T-1 and T-2 in parallel → U1 → U2 and U3 in parallel → U4 → U5 (Lane C, Phase 3, separately authorized). T-3 and U6 run at any time after their own act. U0a → U0b → U0c is an optional branch only.
+
+### Graph cycle and open handoffs
+
+- **`D-425`.** Proposed sync point: after the last governed source this work changes (T-1/T-2 or the C01 EV row) and before the next consuming approval or closure claim. Re-merge `docs/graph-fragments/` (`G51`). No graph rebuild was done.
+- **Open headers:** B-095, B-096, B-104, B-119, B-136, B-158, B-162. Reconciling each body, trigger, owner, next action and evidence is a separate read-only pass, not done here.
+
+### Next steps
+
+1. Lane B reviews this commit at Level 1.
+2. Lane C reviews at Level 2 against this commit and Lane B's receipt.
+3. The Judge decides C01, then C02 and C03. C04–C06 are independent. C07 comes later.
+4. Lane A runs the `D-425` cycle at the proposed point.
+5. B-136 and B-162 stay Open. No unit or construction starts.
+
+| Scope | D-20 verdict | Follow-up phase |
+|---|---|---|
+| Returned rows and R01–R10 | Approve | Phase 1: Lane B reviews this commit |
+| Universal Business Charter as starting template | Approve-with-conditions | Phase 1: reference only; filled via EV r9 after C01 |
+| Charter "100%" and "un-bypassable" claims; V1 deploy steps | Reject | Phase 1 (claims); Phase 3 (deploy steps re-assessed at V2) |
+| N1 hook not configured | Approve-with-conditions | Phase 1: C03 class; U2/U4 |
+| B162-C01 to C07 | Defer | Phase 1: Judge acts, parent first; U5 in Phase 3 |
+| `D-425` graph cycle | Defer | Phase 1: at the proposed sync point |
+| Closing B-136/B-162, lifting V1-SM05, lane change, construction | Reject | Phases 1–2: not established |
