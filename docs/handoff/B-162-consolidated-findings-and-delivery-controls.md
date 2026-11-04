@@ -1030,3 +1030,71 @@ No message is sent to another actor by this filing.
 | §4 additions | Approve-with-conditions | Phase 1: Lane B review; each act separate |
 | Applying the tracker row and B-158 note | Defer | Phase 1: separate act; two one-path commits |
 | Whole-entry Verified, closing B-136 or B-162, Gate 2 clearance, lane change | Reject | Phases 1–2: not established |
+
+## Lane B — Level 1 review of 6902bcb and 12a3527, 2026-11-05
+
+**Read revision:** `12a3527ebaa4d5579416bda34fc4f6d7f681f58d`, on `features/feature-V1-SM05`. Reviewed together: `6902bcb85a980aed3bcf2d0ef1801cdc61057c93` (parent `245062888ed08f76333350df6788a5290ae7bd65`) and its correction `12a3527` (parent `6902bcb`). The Judge's current request authorizes this Level 1 review and its one-path receipt under `D-272`, `D-385` and handoff README steps 1–6. The bound path is only `docs/handoff/B-162-consolidated-findings-and-delivery-controls.md`.
+
+**Approve, bounded: the answer's §1–§4 as corrected.** No remaining blocking defect was found in the requested correction scope. This accepts the proposal text for the next review, not execution, Judge acceptance, Gate 2 clearance or whole-entry verification. The correction at line 997 governs §3's two proposals and adds two §4 rows; the earlier wording remains history. E3 also supplies the correct attribution when reading §3's preceding completed-work paragraph. B-136 and B-162 stay Open, with their headers unchanged.
+
+### Delivery and source authority
+
+Measured directly from Git objects, not from working-tree text conversions:
+
+| Revision | Parent preservation and sole-path diff | Committed B-162 binding |
+|---|---|---|
+| `6902bcb` | All 153,466 bytes from `2450628` preserved as an identical prefix; +72/-0; B-162 only | Blob `0438b44177905fda356a50b580672c37cd2492e9`; 161,746 bytes; SHA-256 `00678154f805a39b8f9ec2589b5aa2c898ad4e55d5a02bb98641f43ce9bb6198` |
+| `12a3527` | All 161,746 bytes from `6902bcb` preserved as an identical prefix; +37/-0; B-162 only | Blob `63686e432cd86038bb1f5e05481a034f723d053e`; 166,888 bytes; SHA-256 `91e46d4e72c42624628c4b35c836e8a118f0e574305d28beac30b9e45e5e988b` |
+
+Both commits' author and committer email fields are `241258103+robertaoai@users.noreply.github.com`. These are measured attribution fields; hashes identify bytes, not authors.
+
+The source is `C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/977c3a29-84c5-4979-8081-065ea3f1b07a.jsonl`. Each record below was measured including its final LF, and its actual selected answer was read:
+
+| Revision / act | Source record | Bytes / SHA-256 | Observed selection |
+|---|---|---|---|
+| `6902bcb` commit | Line 633; UUID `aee5b263-9682-456e-b056-cb09693d1b16`; `2026-11-04T17:24:20.049Z` | 3,476 / `b3436230f07021ca25bb1016923cfbfd83e032438c604461eb20ff10a4b3a07e` | Commit only, for the expanded B-162 answer under guarded `D-428` |
+| `6902bcb` push | Line 705; UUID `874f1fb8-da46-4c0e-8711-f6b25716ca0a`; `2026-11-04T17:32:10.250Z` | 2,518 / `38d85b1d4b7445c75a3b4e885aae1fd8675a426a09048204f1cfc614e2239db8` | Authorize push, naming `6902bcb`, without force and with fresh pre/post proof |
+| `12a3527` commit | Line 764; UUID `b8127f53-faf2-47ae-8825-27904fc424d8`; `2026-11-04T17:35:57.814Z` | 3,477 / `ed26603f3a3abf45f859ecfec78f5b9d598d8e12baf6265f9453f4702f9a13b1` | Commit only, for this correction under guarded `D-428` |
+| `12a3527` push | Line 833; UUID `d0e2743c-8edb-4329-ab4f-ccb3cbae049e`; `2026-11-04T17:42:50.975Z` | 2,940 / `cbcc9e132855f89cf7911508bd8749a09ef8af384fa8e881040a2d5f6f781950` | Authorize push, naming `12a3527`, without force and with fresh pre/post proof |
+
+All nine members of each manifest match both listed byte counts and SHA-256 hashes:
+
+- `C:/CoWork/outputs/lane-a-b162-answer5-2026-11-05/SHA256-MANIFEST.txt`: 767 bytes, `ec3d42145536367281ba422da62b8ff0dec32b28749783f75ff2137241252bb0`.
+- `C:/CoWork/outputs/lane-a-b162-answer6-2026-11-05/SHA256-MANIFEST.txt`: 767 bytes, `82d389f0a33de4818855d591ee9140b4ab0747ad748b13a59394e9ba407fa0fc`.
+
+Answer5's checks ran at `2026-11-04T17:25:26.292Z–17:27:53.036Z` and `17:27:53.610Z–17:30:39.952Z`; each records `00678154…6198`. Answer6's checks ran at `2026-11-04T17:36:47.524Z–17:39:07.390Z` and `17:39:07.784Z–17:41:34.926Z`; each records `91e46d4e…988b`. Every retained run has 18 PASS, 0 SKIP and only `docs-drift` failing, exit 1. These are candidate checks at their respective parent HEADs, not post-commit full-health results. Equal log hashes establish equal bytes; the separate run brackets are retained metadata, not inferred from those hashes.
+
+Each packet's `git-trace.txt` shows its own `.githooks/commit-msg` invocation and nested `git diff --cached --name-only`; each separate shell Node probe reports v24.18.0. Answer6 evidence is scoped to `12a3527`, answer5 evidence to `6902bcb`. The observations support execution of the committed wrapper/gate; they are not direct attestation of the Node process inside the hook and do not reconstruct `fbcddae`'s historical hook result.
+
+The later `push/` files are outside both nine-member manifests and were checked separately, without resealing either packet. For answer6: `server-before.out`, 77 bytes, SHA-256 `53e84fda6e0681055bdcd076cf31bbebb825d2a0592dce4ead741f665417d1b8`, records `6902bcb`; `push.err`, 215 bytes, `0539e6ae95623b89550c8116a2bd4d5406aaca6eeebcc3076cd3da2d1891dccf`, records `6902bcb..12a3527`; `server-after.out`, 77 bytes, `a1d3f91cced2c4b7e9576737c2daae1c180651a35f6c98a0605b173a4a44d137`, records `12a3527`. Source transcript lines 835–836 additionally retain configured-upstream resolution, successful fresh fetch, upstream/parent equality, outgoing count 1, named non-force push exit 0, post-fetch equality and outgoing count 0. Answer5's separately read push files record `2450628..6902bcb`. These are retained historical observations, not a claim that a new server read recreates the past.
+
+### Content review
+
+| Check | Result and source | Remaining boundary / follow-up phase |
+|---|---|---|
+| E1 — header blocks | Corrected. The proposed row now repeats B-162 line 6: lift, selection, State-2 work order, Lane B Active and full delivery approval of `fbcddae` are blocked. | Phase 1: those blocks remain; this receipt removes none. |
+| E2 — Order | Corrected to proposed `O0`, grounded in `D-364` item 6 at Register 24189; `O5` at 24194 means history with no SM05 intersection. B-162's control/authority subject and blocking header support the proposed classification. It is not a §2.2 P13/P14 input. | Phase 1: the actual re-derivation assigns the row and Lane B reviews it. No tracker row is changed here. |
+| E3 — attribution | B-136 24995 is headed Lane A's Level 1 review of `32d7f30`; R1–R2 address U-TR delivery at `3230e3b`. The limits explicitly decline to adopt Lane C's separate reviewer block about `3230e3b`. The corrected B-158 proposal preserves that distinction. | Phase 1: the cross-reference remains proposed; neither a new Act C review nor a parent disposition is implied. |
+| E4 — measured state and derivation | Answer5's two `closure-readiness` logs at HEAD `2450628` report tracker `e129915` stale, 107 rows, 1 non-SM05 unclosed, 0 SM05 not received, 1 live entry unlisted, 0 unreferenced children and 0 invalid. The tracker has no B-162 row. The proposed derivation now pins the future tracker commit's own parent, which must include both reviewed commits. | Phase 1: measure that actual parent at execution, including intervening handoff changes. `2450628` is the historical measurement, not the future derivation value. |
+| B-158 proposal | Line 828 retains “T1, T2 and T3 are not applied” as dated history. The appended cross-reference cites U-TR `3230e3b`, parent/T `e129915`, and the recorded review chain at B-136 24941 and 24995 with corrected roles. | Phase 1: own Judge act and B-158-only commit; no owner movement or closure. |
+| SV-002 proposal | Adds proposed B-162 `O0 / non-SM05 / open`; preserves “Gate 2 clearance claimed: no”, rechecks the existing unclosed row, and does not re-apply U-TR. Existing `e129915` becomes Earlier. | Phase 1: own act, separate SV-002-only commit, independent review and guarded `D-425` treatment. |
+| C04 mapping carried from §1 | Group 3 has nine tier rows: Register, Build Spec, Inventory, Modular_PRD, FN/SPECS, Phase Closure, dependent references, Encyclopedia and Graph. T-3 and U6 each have a cell in every row. No separate C04 output is asserted; T-3's sponsor-receipt form remains Held. | Phase 1: T-3's two decisions and U6 retain their own acts and are not U1 prerequisites. |
+| Parent-first §2 | C01 precedes C02; C03 settles applicability/failure policy before U2–U4. C04 and C06 keep their own paths; optional C05 follows applied U2; C07 stays later. Rejecting a choice holds its work. | Phase 1: proposals are ready for decisions, not execution releases. |
+| Original §4 | All 13 rows are preserved: T-1, T-2, T-3, U1–U6, C05 measure, C06 custody, Tracker and Graph. Each still has owner, predecessor, output, proof, stop condition and Judge act. | Phase 1: each selected unit must define and meet its own readiness/proof; Phase 3: U5 separately. |
+| Added §4 rows | U0a–U0c is expressly optional policy change, with three separate acts and no invented run result. C07 identifies residual assessment, owners, proof, stop condition and four separate lift/selection/work-order/lane-transition acts. Both rows carry all six requested planning fields. | Phase 1: current law is unchanged; residual clearance cannot be inferred from these proposals or from another act. |
+
+### Filing and stopping boundary
+
+The receipt preserves all 166,888 parent bytes and both Open headers. No receiver answer, B-158/SV-002 edit, unit, custody transfer, deletion, graph synchronization, lane change or whole-entry Verified is applied. The read-only graph query was used for navigation only: `.graphify/branch.json` remains analyzed at `ddf0b92`, older than this read revision. No graph result was treated as current authority.
+
+This filing's measurements and check/delivery records are retained separately at `C:/CoWork/outputs/lane-b-b162-review-6902bcb-12a3527-2026-11-05/`. Initial restricted-process check attempts stopped before running any check with `CouldntReadCurrentDirectory`; they are not passing or complete results. The completed baseline retry at HEAD 12a3527 (2026-11-04T17:49:31.8894089Z to 2026-11-04T17:52:30.8441117Z) reports 18 PASS, 0 SKIP and docs-drift alone failing, exit 1; source SHA-256 remains 91e46d4e72c42624628c4b35c836e8a118f0e574305d28beac30b9e45e5e988b. No clean-consistency claim follows. A candidate check after this append must retain the full result and verify unchanged candidate bytes before the one-path commit; the hook is invoked for that commit, followed by README step 4's fresh range proof and post-push equality. This is the requested handoff filing under the existing procedure, not general red-check permission or a clean-graph claim.
+
+Lane C's next Level 2 object is `96b2e44`, `6902bcb`, `12a3527`, receipt `2450628` and this receipt. No message is sent to Lane C by this filing. Stop after the one-path delivery; execution and acceptance remain separate.
+
+| Scope | D-20 verdict | Follow-up phase |
+|---|---|---|
+| `6902bcb` §1–§4 as corrected by `12a3527` | Approve, bounded to proposal text | Phase 1: Lane C Level 2 on the named revisions and receipts; Judge decisions remain separate. |
+| Both commits' retained delivery evidence | Approve, bounded to the measurements and limits above | Phase 1: Judge acceptance and required durable registration remain separate. |
+| B-158 and tracker edits, controls and other units | Defer | Phase 1: own Judge acts, exact outputs and independent review; Phase 2: construction; Phase 3: U5. |
+| Graph synchronization, custody transfer and deletion | Defer | Phase 1: separate guarded `D-425` release, custody transaction and exact-path deletion act respectively. |
+| Whole-entry Verified, closing B-136/B-162, Gate 2 clearance or lane change from this receipt | Reject | Phases 1–2: existing lifecycle, clearance and separate Judge acts still govern. |
