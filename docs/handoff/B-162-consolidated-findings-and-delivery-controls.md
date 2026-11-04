@@ -239,3 +239,104 @@ Only Lane A writes the correction to its answer. Lane B has appended this review
 | A1–C6 bounded delivery, authority records and retained evidence | Approve | Phase 1: retain this receipt; no Judge acceptance or unit completion inferred. |
 | Answer completeness, order and wording (failed D rows) | Reject | Phase 1: Lane A corrects the four groups above; Lane B reviews the named correction commit. |
 | Repairs, policy changes, graph cycle and any lift/selection/work order | Defer | Phase 1: Judge placement and separate bounded acts; Lane A's D-425 graph obligation and all residuals remain. |
+
+## Lane B — consolidated Lane A review request (2026-11-04)
+
+**Read revision:** `c96f0b06a9c8bcfad0248519071570b8c55b8c60`. **Raiser:** Lane B. **Receiver:** Lane A. **Phase:** 1. This is an append to the existing spec-defect transaction. B-162 stays Open. No repair unit starts. The Judge's current instruction permits this one-path review commit and manual push under README steps 1–6; it permits no other change.
+
+### Executive summary
+
+1. The Lane B review is present above, under **Lane B verification of b718010**, committed at `c96f0b0`. The pasted Lane A correction is an unfiled draft. This receipt reviews its proposed claims; it does not verify an applied correction.
+2. JE1 makes a separate Business Charter optional. It does not waive traceability, evidence, independent review or acceptance. Keep the Project-scope AIG route. Do not invent a customer story or treat an unexplained link as complete.
+3. Keep three claims separate: no undeclared crossing in a path set; proof that a hook ran; completion of the delivery and acceptance chain. The first cannot establish the other two.
+4. The validation template exists. The pre-selection DoR is complete. The feature attempt is separate and follows selection. Neither fact lifts the block or makes Lane B Active.
+5. Lane A answers this receipt first. Lane B reviews its exact revision. Lane C performs the applicable independent Level 2 review. The Judge makes the reserved decisions. Reviews transfer no lane lock.
+
+### What happened — source anchors and gaps
+
+All repository anchors below refer to the read revision. Line numbers are navigation aids; the named sections own the facts.
+
+| ID | Source and finding | Required correction / result |
+|---|---|---|
+| R01 | B-162's **Return to Lane A** lists P1, D1, D3, T1, T4, X1, order and limits. The pasted correction addresses them, but has no applied revision. | Accept the direction only. Lane A must file its own correction. Lane B must check the exact committed text. Keep the earlier evidence and failures. |
+| R02 | [B-136 JE1 receipt](B-136-multi-lane-governance-canonical-owners-and-state2-gate.md), lines 13796–13815, preserves frozen Project Charter intent, optional separate Charter, failed/unmeasured feedback and separate DEP-09. [Modular_PRD §7.2a](../Modular_PRD.md), lines 869–883, defines Project-scope AIG work with no customer story, but with decisions, sequence, gates and evidence. | Reject the inference that JE1 permits a missing H1 chain. Mark a customer-story slot not applicable with its source. Explain the Project-control rationale and its decision route. A direct Charter-to-hook claim remains unestablished. |
+| R03 | The existing H1 receipt distinguishes the path set of `fbcddae` from unknown hook execution. Evidence for `b718010` is specific to that later commit. | Replace “control objective met” with the exact bounded claim supported by the path set. Do not infer full AIG-01.C2 satisfaction, delivery approval or historical execution. U6 retains the Judge's decision. |
+| R04 | [V1-SM05](../v1/work-packets/V1/V1-SM05.md), lines 4–17, separates completed pre-selection validation from the feature attempt. [Build Spec §1](../v1/V1-BUILD-SPEC.md), line 31, requires a separate block-lift decision. D-263, D-264, D-267, D-269 and D-434 control the sequence. | Reject “missing feature DoR caused this manual push” and automatic selection/activation. The alleged D5 cycle is not established by those clauses. U0a–U0c remain an optional policy branch, not a necessary repair. Retain SV-001's recorded success-drift failure. |
+| R05 | [Validation template v1](../templates/dor-dod-validation/v1.md) exists: 6,240 bytes; SHA-256 `ca605cd6d477ad9d3e9919569fe655d1ba98df3ee8c86dfe57945aec0587be90`. B-162 P4 identifies the separate delivery coverage gap. | Do not describe the general DoD template as absent. Define U1's delivery attempt separately. A template defines fields; an executed attempt supplies results. Preserve v1 unchanged. README's manual handoff route is an existing route, not an inferred emergency fallback. |
+| R06 | The draft corrects the warning/silent-exit distinction but reduces failure policy to Node present/absent. Its proposed measure counts branch commits without an applicability denominator. | Keep `evaluated`, `not run`, `unavailable` distinct. Specify missing arguments, read errors, missing runtime, empty/unmapped paths and actual gate refusal. Define applicable deliveries, exceptions and unknowns. A receipt coverage measure does not prove business benefit. |
+| R07 | The draft's filing step preserves only Layer 2. Its trace, decisions and completion rules in Layers 3–4 would remain external. It uses J1–J7 labels that can be confused with B-136's existing J1–J3. | File the complete bounded answer or link a retained, exact revision of its supporting artifact. Use B-162-local choice IDs. Do not create a second EV or custody transaction. |
+| R08 | The draft assesses D-54 only for the optional measure; it declares some tiers unaffected and leaves the Encyclopedia unassessed. Its completion rule omits independent review of Lane C implementation and Judge acceptance. | Assess each selected artifact/unit. State affected changes and reasons for every unaffected tier. Check Register, Build Spec, Inventory, Modular_PRD, FN/SPECS and dependent references. Separate answer completeness, unit verification and Judge acceptance. |
+| R09 | [B-158 F01](B-158-consolidated-documentation-review.md), lines 97–133, retains stale Charter wording in the existing B-136 EV r9 transaction. Its registration choices do not authorize transfer or application. | Preserve E1–E4, E6, E8–E12; E5/E7 stay withdrawn. Do not duplicate the repair. Preserve A6, earlier seals, reconstruction limits, missing-evidence limits and existing residual owners. |
+| R10 | Graphify's `lastAnalyzedHead` is `ddf0b922f72f8dc54f41ac19698df80691fcd6a1`. Seven governed source paths changed by the read revision: CONFIG_LOG, LANE-B-WORK-ORDER, Modular_PRD, docs/README, the Register, SV-002 and V1-SM05. A read-only Graphify query does not refresh these sources. | Documentation drift is real. Lane A owes the guarded D-425 cycle, with fragment preservation and required re-merge. This receipt does not rebuild the graph or claim synchronization. |
+
+### What you need — one trace, with explicit limits
+
+Lane A: return one matrix for the following links. For each row, name the source/revision, owner, status and next action. Use **established**, **proposed**, **missing** or **not applicable with reason**. A blank cell is not a disposition. These are review criteria, not new gates authorized by this receipt.
+
+| Link | Required evidence or limit |
+|---|---|
+| PRD / problem | Cite the frozen Project Requirements Document and Charter for product intent. Identify the separately accepted development-control problem; do not substitute editorial bypass risk for proof of that link. |
+| Scope | Separate Product scope from global Project scope under D-271 and Modular_PRD §7.2a. |
+| Intent / story | Cite accepted intent. Explain why no Product US/FR/AC is assigned to AIG. Record any proposed indirect link as proposed. |
+| Requirement | Name the exact AIG-01 requirement and control criterion, with scope and revision. |
+| Judge decision | Bind the governing act and the act for the bounded proposed change. Approval of analysis is not execution authority. |
+| Applicability | Distinguish handoff delivery, xDD work product, local control, workflow evidence and deployment. State exemptions and who can decide them. |
+| DoR | Separate pre-selection readiness, feature readiness and delivery readiness. Name conditions, evidence, owner and the act required to advance. |
+| DoD / validation | Name the template version/hash and attempt ID. State expected success and failure evidence before execution. Do not populate a proposed attempt with an invented result. |
+| Implementation | Bind the authorized paths and exact change commit. No T/U repair is applied by this filing. |
+| Evidence | Bind logs to the commit/tree, command, runtime, exit and applicable range. Retain failed, unavailable and unmeasured outcomes. |
+| Independent review | Name the reviewer, exact reviewed revision and unresolved findings. Lane C cannot independently verify its own implementation. |
+| Acceptance | Name the Judge's acceptance or mark it pending. Answered, Applied, Verified, acceptance and closure are different events. |
+
+### Parent-first choices for the Chief Editor (Judge)
+
+The IDs below are local review choices, not Register acts. Lane A must present exact bounded proposals before requesting execution. **All repair units remain held**, including after an analysis verdict of Approve.
+
+| Choice / parent | Accept means | Reject means / next step |
+|---|---|---|
+| B162-C01 — parent: trace and scope | Use the Project-scope decision route, preserve JE1 and require explicit link dispositions. | Return the disputed scope or link with its source. Do not invent a new Charter or Product story. |
+| B162-C02 — after C01: placement and units | Permit the specified Register placement under D-476 item 8 and decide each bounded unit separately. Require its artifacts, acceptance evidence and D-54 impact. | Keep that unit held. Lane A revises only the refused scope. This choice does not itself select SM05. |
+| B162-C03 — after C01, before relevant control units: applicability and failure policy | Decide delivery classes, approved-range handling, exceptions, runtime failures and failure behavior. Preserve existing behavior until an explicit change act. | Keep U2/U3/U4 held; request a revised policy table. A post-push job cannot enforce proof required before a push. |
+| B162-C04 — independent after its own act: T-3 and U6 | Decide each disclosure question and the historical H1 limit separately. Preserve the packet's disclosure obligation. | Keep the undecided question open; do not add a dependency on U1. No retrospective hook proof is inferred. |
+| B162-C05 — optional: measurement | Decide the metric, applicable population, target, owner, reporting period and interpretation limits. | Defer the measure without dropping existing trace, evidence or review duties. |
+| B162-C06 — separate existing B-136 route: evidence custody | Decide an exact inventory, approved repository destinations, provenance and retention criteria through the existing custody/registration transaction. | Preserve current evidence locations and holds. No transfer or deletion follows this filing. |
+| B162-C07 — later readiness decision | Assess the actual lift criteria and residuals, then separately decide lift, selection, work order and lane transition when eligible. | Keep the current block and lane state. Do not make the optional U0 branch a mandatory lift criterion. |
+
+### Lane A follow-up — smallest bounded steps
+
+1. Answer R01–R10 in B-162. Preserve Lane B's receipt and your earlier answer. File an append-only correction with its exact revision and retained delivery evidence. Keep the header Open.
+2. Return the trace matrix and choices C01–C07. Mark established obligations versus proposed changes. Use existing sources and explain any not-applicable row. Do not assert that the optional measure is the only missing work before this review is complete.
+3. Keep Charter wording fixes in B-136/EV r9 through B-158 F01. Keep `B-102`/P13, `B-137`, P14a/P14b and DEP-09 with their current owners. Do not reset, close or duplicate them.
+4. Present the held sequence: authorized placement, then T-1/T-2 in parallel; U1; U2/U3 in parallel; U4; separately authorized U5 in Phase 3. T-3 and U6 can proceed at any time after their own acts. U0a–U0c are a separate optional branch. T-2's FR-only proposal and T-3's two decisions still need the Judge's disposition.
+5. For each selected unit, list its exact output paths, author, reviewer, expected failure case, acceptance evidence and D-54 propagation. U1 is a delivery template; U2 a local receipt; U3 pre-push enforcement; U4 the delivery attempt wrapper; U5 evidence after push. Do not merge their authority or completion claims.
+6. Return the correction to Lane B for Level 1 review. Route applicable Level 2 work to Lane C against that named revision and receipt. For future Lane C implementation, obtain an independent review from the applicable other lane. The Judge retains acceptance.
+7. Propose the graph synchronization point under D-425 before the next consuming approval or closure claim. Retain graph fragments. A handoff push is not graph synchronization.
+
+### Evidence custody plan — no transfer or deletion now
+
+Treat external files according to their recorded role, not their location alone. Some are drafts; others are sealed evidence or retained execution records. Inventory source path, role, byte count, SHA-256, existing seal, authority and exact destination. Reuse the existing B-136 custody plan and repository artifacts before proposing another copy.
+
+For a separately authorized transfer: copy without alteration; compare source and destination bytes/hashes; retain original path, producer, date, command and scope bindings; record the destination commit; obtain independent review; then obtain the required registration/acceptance. Keep original manifests and separately identify outside-manifest files. Do not describe a copy as a new execution or cure missing historical evidence. Do not delete originals until an exact deletion set has separate authority, accepted custody and a checked retention/dependency assessment. The sealed `C:/CoWork/outputs/lane-a-b136-r2-mapping-answer-2026-11-04/` packet and its manifest remain untouched.
+
+### Handoff tracking and completion evidence
+
+The read revision has seven B-series **Open headers**: B-095, B-096, B-104, B-119, B-136, B-158 and B-162. This is a header inventory, not a new closure verdict or a complete list of unresolved children. Lane A should reconcile each with its body, current trigger, owner, next action and evidence. Include Applied children awaiting independent review and terminal entries with surviving obligations. Link existing records; do not copy their mutable status into a second owner.
+
+| Stage | Completion evidence |
+|---|---|
+| Answer correction | Every returned B-162 row and R01–R10 has an explicit disposition at a named commit. The trace, choices and limits are retained. Lane B checks that revision. |
+| Selected artifact/unit | Its own authority, exact path change, expected positive/negative evidence, D-54 propagation and independent receipt exist. Unselected units stay held. |
+| Acceptance and closure | The responsible actor records the required acceptance. Each child has its permitted disposition and evidence. Lane A's answer alone does not close the raiser's unresolved findings. No whole-entry Verified is recorded while obligations remain. |
+
+### What you did instead
+
+Stopped repair and construction work. Filed this bounded review request only. No frozen source, template, graph, external evidence, lane state or work order was changed. No historical hook execution was inferred from a new run. Lane A must answer; Lane B then reviews its exact changes. This request grants no Judge or Lane C verification.
+
+| Scope | D-20 verdict | Follow-up phase |
+|---|---|---|
+| Existing Lane B review and routing through B-162 | Approve | Phase 1: Lane A answers this append; Lane B reviews the named correction. |
+| Optional Business Charter used to excuse missing trace links; broad H1 completion claim | Reject | Phase 1: correct R02–R03 and supply the bounded matrix. |
+| DoR/template absence used to infer failed xDD or automatic activation | Reject | Phase 1: apply R04–R05 and preserve the separate readiness decisions. |
+| Draft answer, sequence and proposed evidence model | Approve-with-conditions | Phase 1: resolve R01 and R06–R08; retain all held units and independent review. |
+| EV repairs, evidence custody, graph cycle and closure | Defer | Phase 1: existing B-136/B-158 routes, exact authority, D-54 and D-425 evidence. No deletion or closure here. |
+| Construction, unit execution and workflow implementation | Defer | Phase 1: separate Judge acts and readiness; Phase 2: selected construction; Phase 3: separately selected U5. |
