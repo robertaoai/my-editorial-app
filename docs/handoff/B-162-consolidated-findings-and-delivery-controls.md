@@ -993,3 +993,40 @@ No message is sent to another actor by this filing.
 | Per-gap fixes | Defer | Phase 1: each unit's Judge act; Phase 2: construction; Phase 3: U5 |
 | Graph cycle, custody transfer, deletion | Defer | Phase 1: separate releases |
 | Whole-entry Verified, closing B-136 or B-162, Gate 2 clearance, lane change | Reject | Phases 1–2: not established |
+
+## Lane A correction to 6902bcb (2026-11-05)
+
+**Read revision:** `6902bcb85a980aed3bcf2d0ef1801cdc61057c93`. **Authority:** the Judge's guarded `D-428` commit authorization of 2026-11-05 for this B-162 correction only. This section supersedes only §3's two proposals and adds two §4 rows of the answer at `6902bcb`. That text stays as history. Nothing is applied: no tracker row, no B-158 edit, no unit. B-136 and B-162 stay Open.
+
+### Corrections to §3 (tracking proposal)
+
+| ID | Error at `6902bcb` | Correction and source |
+|---|---|---|
+| E1 | The proposed row said B-162's "header blocks nothing until a unit is selected". | False. B-162 line 6 blocks the V1-SM05 lift, selection, the State-2 work order, Lane B Active and full delivery approval of `fbcddae`. |
+| E2 | Order `O5` was proposed "by analogy with B-158". | `O5` is "history with no SM05 intersection" (`D-364` item 6, Register 24194), and B-162 blocks the SM05 lift. Proposed instead: `O0`, "authority and controls" (Register 24189), because B-162 concerns delivery controls and review authority. `O3` is not proposed: B-162 is not an `SV-002` §2.2 `P13`/`P14` input. The re-derivation assigns the row and Lane B reviews it (item 6). |
+| E3 | "Lane A's review and answers follow at B-136 24995", repeated in the B-158 note. | B-136 24995 is Lane A's Level 1 review of `32d7f30`, Lane B's Act C filing. Its R1–R2 record the `3230e3b` delivery and its two ordered reviews. It is not a Lane A review of `3230e3b`, and it declines to adopt Lane C's reviewer block about `3230e3b`. |
+| E4 | "A named revision" was not named, and the measured state was not cited. | Measured at `2450628` (`closure-readiness`, both checks): tracker at `e129915` (stale), 107 rows, 1 non-SM05 unclosed, 0 SM05 not received, **1 live entry unlisted** (B-162: no row at `e129915`), 0 §3.3 children unreferenced, 0 invalid. |
+
+**Corrected B-158 cross-reference** (proposal; a later Lane A one-path commit in B-158, appended after its existing text, keeping line 828 as dated history):
+
+> *Dated cross-reference, 2026-11-05.* Line 828 ("T1, T2 and T3 are not applied") was true at this record's read revision `528d38f`, prepared 2026-11-02. U-TR was later delivered at `3230e3b`, changing only `SV-002` (parent and T `e129915`). Its recorded reviews are Lane B's Level 1 approval `7944adda39aa324e573eac3d99860d56910095b821afbe419ecf3dc694fc0532` and Lane C's ordered Level 2 approval, cited at B-136 24941. Lane A's answers about that delivery are in its Level 1 review of `32d7f30`, at B-136 24995 (R1–R2). This note moves no owner and closes no row.
+
+**Corrected Gate 2 tracker update** (proposal; a later Lane A one-path commit in `SV-002` §2.3.1, line 178):
+- **Derived at:** the tracker commit's own parent. That revision must contain `6902bcb` and this correction, so the derivation is not older than the newest handoff disposition change. Keep `e129915` as "Earlier".
+- **New row:** `| B-162 | O0 | non-SM05 | open | Spec-defect review of delivery controls; its header blocks the V1-SM05 lift, selection, the State-2 work order, Lane B Active and full delivery approval of fbcddae (line 6); held proposals only; closes by an independent Verified-By or the Judge's recorded acceptance with its reason (D-364 item 4) |`. The Order is proposed; the re-derivation sets it.
+- **Re-checks:** the 1 non-SM05 unclosed row is re-derived, not edited by hand. U-TR rows delivered at `3230e3b` are not re-applied. "**Gate 2 clearance claimed:** no" stays.
+- **D-54:** a Register act for the unit's authority. Build Spec, Inventory and Modular_PRD are unaffected (no scope, sequence, DoD or file change; K1, K2, K4). The graph is affected (`SV-002` is a governed source; `D-425`).
+
+### Additions to §4 (prepared fixes)
+
+| Gap | Owner | Predecessor | Exact output | Acceptance proof | Stop condition | Judge act |
+|---|---|---|---|---|---|---|
+| U0a–U0c (optional) | Judge; Lane A for U0b | Selected as a policy change, never as a repair (D4/D5) | U0a: amend `D-264` item 4, `D-267` item 2, `D-269` item 5 and packet 8–9. U0b: `V1-SM05-FV-001` at `DoR open` (path Held). U0c: DoR check, then lift | Register acts; the record pins template v1; no run result | Presented as existing law, or as a required lift criterion | Three separate acts |
+| C07 readiness | Judge | Separate acts; residual owners kept | An assessment of `D-264` item 6 conditions and the residuals `B-102`/P13, `B-137`, P14a/P14b; then lift, selection, work order, lane transition | One Register act each; Build Spec 31, packet 4, Phase Closure §5 propagated | Any act inferred from another | Four separate acts |
+
+| Scope | D-20 verdict | Follow-up phase |
+|---|---|---|
+| E1–E4 tracking corrections | Approve-with-conditions | Phase 1: Lane B reviews this revision; tracker and B-158 edits need their own act |
+| §4 additions | Approve-with-conditions | Phase 1: Lane B review; each act separate |
+| Applying the tracker row and B-158 note | Defer | Phase 1: separate act; two one-path commits |
+| Whole-entry Verified, closing B-136 or B-162, Gate 2 clearance, lane change | Reject | Phases 1–2: not established |
