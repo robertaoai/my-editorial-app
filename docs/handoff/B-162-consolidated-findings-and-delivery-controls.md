@@ -1361,3 +1361,59 @@ The frozen PRD, Charter and `0001_init.sql` are unchanged. Prompt pack DRAFT r2 
 | B-158 note and SV-002 re-derivation | Defer | Phase 1: separate authorizations; one path each |
 | Units, graph sync, custody, deletion, lift, lane change | Defer | Phase 1: own acts; Phase 2: construction; Phase 3: U5 |
 | Whole-entry Verified, closing B-136 or B-162, Gate 2 clearance | Reject | Phases 1–2: not established |
+
+## Lane B — Level 1 review of 429a621, 2026-11-05
+
+**Read revision:** `429a6211fa240baaea77e4222f12278ceae9da19`, parent `ef30902b0098a2d4d00d3bf5233a41f36777ebb8`, on `features/feature-V1-SM05`. Reviewed section: "Lane A package after the Lane C review (2026-11-05)", lines 1193–1364 at that revision. This is the requested Level 1 review under `D-324`. The Judge's current instruction explicitly authorizes this receipt, two complete candidate checks with `docs-drift` as the only permitted failure, one commit, hooks on, and one named non-force push with README steps 1–6.
+
+**Bound path:** `docs/handoff/B-162-consolidated-findings-and-delivery-controls.md` only. No source correction is applied by this receipt. The initial checkout and index were clean at the read revision. The live lane state remains A Active, B Eligible, C Blocked; this own-series filing uses `D-272` and `D-385` without a lane transition.
+
+**Result:** all eight requested checks pass within their stated scope. Two additional planning findings remain: F1, grouped prerequisites; F2, the G28 classification. They do not invalidate the measured delivery or the J0 record. The full matrix needs those corrections before it is used as an execution plan. G1 remains a draft for the Judge, not a recorded act or release.
+
+### Eight requested checks
+
+| # | Result | Evidence and limit |
+|---|---|---|
+| 1 | Pass | Git reports exactly one path, B-162, +172/-0. All 191,017 parent bytes remain an identical prefix. Parent SHA-256: `b5d117ab1986218f0a7c8dc91963e7ae419160c41c7b0c4d940ffa55b70763cd`. The reviewed blob is `fa1d52dfab75499901437a29e115f415466ce329`, 205,915 bytes, SHA-256 `2001076a7ee36c3524fbd19d5d41c4e56ee8547a4a0a89350c72d8d2d3e89f32`. Both email fields are `241258103+robertaoai@users.noreply.github.com`. |
+| 2 | Pass, structural | Matrix A contains 43 rows. G5a–d, G22a–b, G26a–f and G32a–c replace the four unsplit rows. Each row has one owning file and one class from Affected, Unaffected, Check or Held. File aliases resolve to the preceding full paths. Escaped pipes inside the G6 draft are cell content. This structural result does not establish that every class or grouped prerequisite is semantically correct; F1–F2 below address those limits. |
+| 3 | Pass | G1 item 1 expressly permits its own placement after D-476 and before TCA r3/J-C A1. It permits no further entry by implication. At `ef30902`, the Register contains no `D-477`, `5.14e300` or case-insensitive `thirty-sixth`. Its last entry is D-476 / 5.14e299 / thirty-fifth. Searches of parent `docs/v1`, `scripts` and root rule files find no conflicting identifier. The Register's reachable history search for those identifiers also returns no occurrence. These are parent-revision checks, not reservations; repeat them at any future recording. |
+| 4 | Pass | G19 at line 1245 is Held. It gives C03 responsibility for the meaning of "hooks run" without drafting that policy. G3, G13 and G14 leave policy selection to the Judge. The open choices retain C03. Existing proposal descriptions do not become selected failure policy. |
+| 5 | Pass | J0 matches the source instructions: B-162 record first; EV-4 only; T-2 Option A; L1 directs Lane C to file a byte-faithful copy in its own C-entry; L2 directs future Lane C receipts to its C-series and retains `ef30902` as history. The three placeholders in source line 1094 were resolved by the actual selected answers in line 1104, not inferred from the draft choices. Source bindings are below. No broader Lane C filing exception is created. |
+| 6 | Pass, status scope | All three answer rows in Part D are Proposed and have no application commit. G1 is expressly "draft; not recorded". The section releases no other file, unit or Register entry. Its D-20 table leaves this package to Lane B/C and defers the acts. The heading "Corrections applied from Lane A's own grade" describes edits to proposal text; it is not an Applied disposition of governance changes or units. Lane A does not independently approve its own package. |
+| 7 | Pass | G30 expressly has no order with B-158; Part D's B-158 row repeats that separation. The B-158 note preserves the dated historical wording. SV-002 re-derivation uses its execution commit's actual parent, retains "clearance claimed: no", and does not repeat U-TR at `3230e3b`. Neither owning file changes in `429a621`. |
+| 8 | Pass | Answer7's 767-byte manifest has SHA-256 `355e18713adf4b0c672e93b0c5f2fd961aa401d15cdb72097697d4437c0827a9`. All nine members match their listed sizes and hashes. Both full check logs contain 18 PASS, 0 SKIP and only `docs-drift` failing, exit 1. Both metadata records bind SHA-256 `2001076a…e89f32`, equal to the reviewed committed bytes. The checks ran on those candidate bytes at parent HEAD `ef30902`; they are not clean-health or post-commit results. |
+
+### J0 and retained evidence
+
+Source transcript: `C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/977c3a29-84c5-4979-8081-065ea3f1b07a.jsonl`. Hashes below include each record's final LF.
+
+| Record | Identity | Bytes / SHA-256 | Meaning |
+|---|---|---|---|
+| Line 1094 | UUID `27a383bd-ccaa-4909-8833-f3d91bc32dbf`; `2026-11-05T07:02:15.384Z` | 1,386 / `31abc1d4e9cb6095a52d60fab8fbbc5681d14e11acd2728c3e291c90ca0bf0d4` | L1/L2 rulings and the bounded D-428 commit authorization. The first three choices are still placeholders here. |
+| Line 1104 | UUID `45d73098-e013-4f0c-9df3-55e00282a034`; `2026-11-05T07:03:08.371Z` | 3,484 / `8d6ff1185c678a1d3ef199c40695651ad2f5b47ead655338d6993bbbc804cf74` | Actual selections: B-162 record first, EV-4 only, Option A. |
+| Line 1173 | UUID `132a07b9-359e-4360-873b-ef2954c99398`; `2026-11-05T07:12:06.875Z` | 800 / `2e22a17914977059a12d902266b35c61e51ca6d643f96c1d4a023528f67ffea8` | Separate authorization to push `429a621` with pre-push proof. |
+
+Answer7 is retained at `C:/CoWork/outputs/lane-a-b162-answer7-2026-11-05/`. Check 1 ran from `2026-11-05T07:05:51.052Z` to `07:08:11.162Z`; check 2 ran from `07:08:11.578Z` to `07:10:32.660Z`. The separate metadata records provide these brackets; equal log bytes alone would not prove two runs. The trace shows the commit-msg hook and its nested cached-diff command. The Node probe is separate evidence. The later `push/` files are outside the nine-member manifest; they record server-before `ef30902`, the `ef30902..429a621` push, and server-after `429a621`. No manifest was changed. Hashes identify bytes, not human authors, and these retained records do not recreate historical events.
+
+### Additional planning findings
+
+| Finding | Source at 429a621 | Defect and required correction | Owner / follow-up phase |
+|---|---|---|---|
+| F1 — grouped prerequisites join different units | G26f line 1258; Part B lines 1279 and 1281; retained unit dependencies at lines 968–972 | G26f includes both the U2 receipt and the U5 workflow. Part B makes all of G26f depend on U4 and a Phase 3 Lane C handoff. That condition fits U5, not the U2 receipt: U4 already depends on U2. Separate the receipt and workflow prerequisites, proof and phase. Part B also groups G26c, the U1 Inventory row, under C03; preserve U1's own C02 predecessor unless a separate act adds that dependency. These are planning corrections only, not permission to release a unit. | Lane A; Phase 1: correct the grouped rows and submit the exact correction for review before using the matrix as an execution plan. U5 remains Phase 3. |
+| F2 — G28's class does not match its condition | G28 line 1260; prior Group 2 dependent-reference assessment at line 783 | G28 says the template changes "Only if C03 adds a field", but marks the row Unaffected. C03 is unresolved and no ruling excludes a new field. Use Check with that condition, or Held pending the field decision, rather than an unconditional Unaffected disposition. Keep any coupled check changes bounded to the later selected field. No template edit is requested here. | Lane A; Phase 1: correct the classification and carry the decision condition into the release plan. |
+
+### Filing boundary
+
+This receipt preserves the complete 205,915-byte reviewed file as its prefix. It changes no header, receiver answer, application code, migration, test, canonical source, template or graph artifact. B-136 and B-162 remain Open. The prompt pack outside the repository is not reviewed or approved by this receipt. The G1 authority placeholders require the Judge's actual act; identifier availability and J0 order do not supply that act.
+
+The review used a read-only graph query for navigation. The graph remains analyzed at `ddf0b92`; no stale semantic result is used as authority. Full-health consistency is not claimed. The current filing's independent measurements, two candidate-check results, hook trace and delivery proof are retained separately at `C:/CoWork/outputs/lane-b-b162-review-429a621-2026-11-05/`. The candidate must remain byte-identical across both checks, staging and commit. Only docs-drift may fail under the Judge's filing-specific instruction. The push must satisfy the current README pre/post proof; no accumulated ancestor range is authorized.
+
+Lane A owns the F1–F2 response. Any Level 2 review of this revision must retain those findings and the bounded eight-check result. No whole-entry verification, Judge acceptance or execution release follows. Stop after delivering this one receipt.
+
+| Scope | verdict | follow-up phase |
+|---|---|---|
+| Eight requested checks on 429a621 | Approve, bounded to the Pass results and stated limits | Phase 1: independent Level 2 review and Judge acceptance remain separate. |
+| Full affected-file package | Approve-with-conditions | Phase 1: Lane A corrects F1–F2; exact-revision review before execution-plan use. |
+| G1 draft and J0 record | Approve, for Judge consideration only | Phase 1: actual authority, free identifiers at recording, and permitted one-path delivery remain required. |
+| B-158, SV-002, units, graph, custody and deletion | Defer | Phase 1: separate acts and guarded D-425 where applicable; Phase 2: construction; Phase 3: U5. |
+| Whole-entry Verified, closing B-136/B-162, clearance or lane change | Reject | Phases 1–2: not established by this review. |
