@@ -2121,3 +2121,83 @@ No original package or original build input was edited. Only the copied builder'
 | Canonical units and graph synchronization | Defer | Phase 1: own releases; graph retains D-425. |
 | Lane C Level 2 review | Defer | Phase 1: bounded item 13 trigger after recording and propagation. |
 | Whole-entry Verified, closing B-136 or B-162, Gate 2 clearance or lane change | Reject | Phases 1–2: not established by this review. |
+
+## Lane B Level 1 closure review — routing decision package r2 (2026-11-05)
+
+**Actor and authority.** Lane B, D-324. The Judge's direct instruction authorizes this one B-162 receipt commit and its named non-force push. The receipt-specific guarded D-428 exception permits only docs-drift to fail. This is review of an external package. It grants no routing adoption, canonical execution or Judge choice C1–C5.
+
+**Reviewed artifact.** C:/CoWork/outputs/lane-a-routing-decision-package-r2-2026-11-05/FINAL-ROUTING-PACKAGE.r2.md: 45,473 bytes, SHA-256 406ad4e1d0aa43e7db1bab3f3ed0788b7f01290969a872fc2ece5ee71b4c3c4c. The hash identifies file bytes, not a Git commit. The source manifest is 2,177 bytes, SHA-256 462d17f9284b596fb0ea2cbecae7e2d503990a63a8195cbe26a17031c5e3e6b8, with 20 members. Package line numbers below refer to this exact r2 artifact.
+
+**Preflight.** A successful fetch confirmed HEAD and origin/features/feature-V1-SM05 at f39e86fa7b0856fb1d9fcd8090430e205233d93b. The checkout and index were clean. There were no newer commits. The B-162 parent has 308,429 bytes, SHA-256 511b048f247e126ed3a73b49e0fa15a2670824a1f9f4d5897c59186be76d1b96. This receipt preserves that entire prefix.
+
+### 1. Requested checks
+
+| # | Result | Lines read and evidence |
+|---|---|---|
+| 1 | Pass | Package lines 1–9; manifest lines 1–20. Independently measured 45,473 bytes and the stated SHA-256, with 362 LF and 0 CR bytes. The manifest size and digest match. All 20 members match their sizes and hashes, including the named sibling reproduction folder. |
+| 2 | Pass | Builder lines 7 and 69. Copied the whole r2 folder to the evidence folder's rebuild-copy directory. Changed only copied builder line 7. The copied build exited 0 and reproduced the package byte-for-byte. The original r2 package, manifest and inputs stayed unchanged. |
+| 3 | Pass | input-bindings.txt lines 1–6. All six first-package files match. Its package remains 41,041 bytes with SHA-256 ab4e6b1af048fa1e02545e0becec8a2cc4fea8fdaa637bbdd8b285df1644c935. Both B-162 snapshots equal their Git blobs at e010aa3 and 5afd922, in both source folders. |
+| 4 | Pass | Builder lines 6–8, 49–52 and 69–70; change-map.md; package lines 317–321. The three supplied unified diffs reconstruct the actual r2 builder, head and tail exactly. The builder adds only two asserted content replacements, F1 and F4, plus destination/output changes and their comments. Every changed passage maps to X12–X16 or its disclosed status/reference changes. |
+| 5 | Pass | Package line 210 replaces the stale prompt locator. Internal section references resolve. Lines 24 and 316 describe removed filing-stage sections; line 317 quotes the replaced text. FN-AIG §1 at line 163 is an external section. F1 is closed. |
+| 6 | Pass | Package lines 213, 227 and 257–258. T4a and T4b cover M12 and M13 with exact files, owner, conditional selection, separate release, predecessor, proof and stop condition. Their proof cells name the intended outputs. §11, C5 and §16 agree. F2 is closed. |
+| 7 | Pass | Package line 259. T5 requires T2, T3, T4 and chosen T4a/T4b on the server, plus a Judge review instruction. It stops for missing predecessors, instruction, exact revisions/evidence, or a C-entry route. Decision item 13 at line 77 is unchanged. F3 is closed. |
+| 8 | Pass | Package lines 32–36, 59 and 239–247. The section placeholder is SEC, distinct from the decision number. Option A maps D-478/301/thirty-seventh/after D-477; Option B maps D-479/302/thirty-eighth/after D-478. §15 fills the recommended Option A act and names the alternate values. F4 is closed. |
+| 9 | Pass | Package lines 23, 42–96, 159–188 and 224–231. Complete §§2–11 equal the first package after exactly the F1 locator and F4 heading replacements. The routing model, items 1–14, 30 matrix rows and measurements are preserved. Prior closures stand. G1 stays first; identifiers are not reserved; C1–C5 remain Judge choices. |
+| 10 | Pass | Package lines 5, 223–227, 238–247 and 253–263. The package says “F1–F4 answered; Lane B closure review pending”. It claims no prior Lane B approval of r2 bytes. Acceptance, recording, canonical propagation, delivery, D-428 and deferred Level 2 remain separate. This receipt now supplies the bounded closure result. |
+| 11 | Pass | Package lines 327–352. Every self-assessed Pass is supported by the content and measurements reviewed here. The independent grade below is 20 Pass, 0 Finding, bounded to proposal quality and measured evidence. |
+| 12 | Pass | F1–F4 are each closed for the reasons in §2 below. No earlier finding is reopened. No remaining closure-review finding was identified on these exact r2 bytes. |
+
+### 2. F1–F4 closure
+
+| Finding from f39e86f | Result | Closure reason |
+|---|---|---|
+| F1 — removed-section reference | Closed | Line 210 names the Judge-issued Level 1 instruction. Historical and external section references are distinguished. |
+| F2 — transaction coverage | Closed | Lines 257–258 give M12 and M13 their conditional, separately released transactions. The choice and sequence tables agree. |
+| F3 — Level 2 stop condition | Closed | Line 259 states both start prerequisites and observable stop conditions. It preserves the bounded item 13 trigger. |
+| F4 — ambiguous section placeholder | Closed | Lines 32–36 distinguish every field; line 59 uses SEC; lines 239–247 bind the selected values independently. |
+
+Closure concerns planning findings only. It does not select C1–C5, adopt a route, record the Register entry or release a unit.
+
+### 3. Independent grade of the 20 package attributes
+
+| # | Attribute | Result | Evidence |
+|---|---|---|---|
+| 1 | Exact revision chain | Pass | Lines 14–21; all eight full SHAs are ancestors of f39e86f. |
+| 2 | Receipts incorporated | Pass | Lines 20–21, 299–300 and 317–321. |
+| 3 | Closed findings preserved | Pass | Line 23; prior closures remain unchanged. |
+| 4 | No silent consolidation change | Pass | Exact reconstruction from all three diffs; X12–X16; body comparison. |
+| 5 | Governance ownership and B route | Pass | Lines 42 and 66. |
+| 6 | Code ownership and C route | Pass | Lines 43 and 66–67. |
+| 7 | D-324 order change stated accurately | Pass | Line 69; preserved §6. |
+| 8 | D-272 changes are prospective | Pass | Lines 67–68 and historical protection at 71. |
+| 9 | J0 L1 and L2 addressed | Pass | Line 70; preserved §7. |
+| 10 | Historical C-entry preservation | Pass | Line 71; §4 and unchanged M19a–M19i. |
+| 11 | Attributed authorship and delivery rules | Pass | Lines 52–54 and 68; preserved §5. |
+| 12 | One file and disposition per matrix row | Pass | Lines 159–188; 30 unchanged rows. |
+| 13 | Complete M5 coverage | Pass | Line 163; accepted complete row remains unchanged. |
+| 14 | Explicit M17 condition | Pass | Lines 78, 175, 225 and 256; C3 remains a choice. |
+| 15 | Correct historical measurements | Pass | M6 and M20b; line 323; Git object at e010aa3 measures 3,616 code points and 3,626 UTF-8 bytes. |
+| 16 | Placement and identifiers | Pass | Lines 32–36, 59, 224, 229–231 and 239–247; F4 closed. |
+| 17 | Acceptance separate from execution | Pass | Lines 238–244 and 253–258. |
+| 18 | Bounded Level 2 deferral and trigger | Pass | Lines 77 and 259; F3 closed. |
+| 19 | D-54 and transaction sequence | Pass | Lines 210, 213, 257–259 and 269–277; F1–F3 closed. |
+| 20 | Byte binding and source traceability | Pass | Measured package and manifest; exact isolated rebuild; source snapshots and §18. |
+
+**Independent grade: 20 Pass, 0 Finding.** This approves the reviewed proposal and its measured evidence. The Judge's unresolved choices are not completed acts.
+
+### 4. Delivery evidence and limits
+
+Evidence: C:/CoWork/outputs/lane-b-b162-routing-r2-closure-2026-11-05/. The folder retains artifact measurements, reproduction, semantic measurements, candidate binding, both complete check logs/results, hook trace, commit binding and pre/post-push proof. Its final SHA256-MANIFEST.txt seals the evidence after delivery; the manifest hash is reported externally.
+
+This receipt uses README steps 1–6. Delivery requires identical candidate bytes across both checks, staging and commit; 18 PASS, 0 SKIP and only docs-drift failing; hooks enabled; exactly one outgoing commit after a fresh fetch; a named non-force push; and a post-push fetch confirming upstream equality. The completed results are retained externally to bind the final receipt bytes without a self-reference.
+
+Neither source package, manifest nor original build input was edited. Only the isolated copy's builder destination changed. No other repository file changes. No code, migration or test is added. B-136 and B-162 stay Open. No Verified disposition, routing adoption, graph operation or choice C1–C5 is recorded. Lane C's Level 2 review stays deferred to item 13 and T5.
+
+| Scope | verdict | follow-up phase |
+|---|---|---|
+| Exact r2 package, measured evidence and F1–F4 closure | Approve | Phase 1: bounded proposal approval; all four planning findings closed. |
+| Judge choices and routing adoption | Defer | Phase 1: the Judge decides C1–C5 using the exact reviewed package and this receipt. |
+| Register recording and delivery | Defer | Phase 1: separate bounded Judge act and placement prerequisites. |
+| Canonical units and graph synchronization | Defer | Phase 1: each unit's release; graph retains its guarded D-425 release. |
+| Lane C Level 2 review | Defer | Phase 1: unchanged item 13 trigger and T5 start conditions. |
+| Whole-entry Verified, B-136/B-162 closure, Gate 2 clearance or lane change | Reject | Phases 1–2: not established by this receipt. |
