@@ -1098,3 +1098,94 @@ Lane C's next Level 2 object is `96b2e44`, `6902bcb`, `12a3527`, receipt `245062
 | B-158 and tracker edits, controls and other units | Defer | Phase 1: own Judge acts, exact outputs and independent review; Phase 2: construction; Phase 3: U5. |
 | Graph synchronization, custody transfer and deletion | Defer | Phase 1: separate guarded `D-425` release, custody transaction and exact-path deletion act respectively. |
 | Whole-entry Verified, closing B-136/B-162, Gate 2 clearance or lane change from this receipt | Reject | Phases 1–2: existing lifecycle, clearance and separate Judge acts still govern. |
+
+
+## Lane C ? Level 2 review of 96b2e44, 2450628, 6902bcb, 12a3527 and b865f4b, 2026-11-05
+
+**Read revision:** `b865f4b4fb7bd7794c471a4c1c93d9f1f79247d8`, on branch `features/feature-V1-SM05`.
+**Reviewed together:** `96b2e448ccdb3d33014fff11a410be39d7bf865f` (Lane A earlier correction), `245062888ed08f76333350df6788a5290ae7bd65` (Lane B review of 96b2e44), `6902bcb85a980aed3bcf2d0ef1801cdc61057c93` (Lane A answer ?1??4), `12a3527ebaa4d5579416bda34fc4f6d7f681f58d` (Lane A correction to 6902bcb) and `b865f4b4fb7bd7794c471a4c1c93d9f1f79247d8` (Lane B combined Level 1 receipt).
+
+**Filing authority:** The Judge's direct instruction of 2026-11-05 to Lane C to perform the Level 2 review of B-162 and deliver this receipt via the existing C-series procedure under `D-272`, `D-385` and handoff README steps 1?6. The bound path is only `docs/handoff/B-162-consolidated-findings-and-delivery-controls.md`.
+
+**Approve, bounded: proposal text and delivery evidence.** Lane C independently confirms that no remaining blocking defect was found in the corrected proposal text (`6902bcb` ?1??4 as amended by `12a3527` and reviewed by Lane B at `b865f4b`). This confirms the proposal text for subsequent Judge decisions and planning, not execution releases, Judge acceptance, Gate 2 clearance or whole-entry verification. B-136 and B-162 remain Open, with their headers unchanged. `Verified-By` remains undispositioned.
+
+### 1. Revisions and parent relationships
+
+Measured directly from git commit objects:
+
+| Revision | Parent commit | Tree SHA | Sole-path diff | Committed B-162 blob | Bytes / SHA-256 |
+|---|---|---|---|---|---|
+| `96b2e44` | `b200cd7` | `2c03151` | +140/-0; B-162 only | `9138d1d4eb445a209073c14c4d24ff7753d9ed87` | 143,647 / `1e9242cbb8bd1f9aaee5b5fadcb2c048e47d5ebf5aed7d980327d3c67c858021` |
+| `2450628` | `96b2e44` | `f01e550` | +59/-0; B-162 only | `2a686ffdbae8f52188a777fb0a1f3576a1bea192` | 153,466 / `dfdc57d2d19b6ec84180b824db55e4b63917719e2eb157ac7ddb5c4ba9f33eab` |
+| `6902bcb` | `2450628` | `e7b6588` | +72/-0; B-162 only | `0438b44177905fda356a50b580672c37cd2492e9` | 161,746 / `00678154f805a39b8f9ec2589b5aa2c898ad4e55d5a02bb98641f43ce9bb6198` |
+| `12a3527` | `6902bcb` | `2a1d527` | +37/-0; B-162 only | `63686e432cd86038bb1f5e05481a034f723d053e` | 166,888 / `91e46d4e72c42624628c4b35c836e8a118f0e574305d28beac30b9e45e5e988b` |
+| `b865f4b` | `12a3527` | `1e6cf53` | +68/-0; B-162 only | `78342989fcfffe411b080b8224a43e69181a336b` | 178,721 / `0bef62335023e68133b8c4cd1118ea4b92c8ceb5d3fac7384810c55954b755e3` |
+
+All 5 commits form a strict, unbroken linear chain. Each commit preserves 100% of the byte prefix of its parent as an identical prefix, adding only append lines to `docs/handoff/B-162-consolidated-findings-and-delivery-controls.md`. All commit author and committer emails match `241258103+robertaoai@users.noreply.github.com`.
+
+### 2. Delivery evidence and authority records
+
+Lane C verified the authority and evidence records cited by Lane A and Lane B:
+
+- **Lane A Session Authority (`977c3a29-84c5-4979-8081-065ea3f1b07a.jsonl`):**
+  - Line 633: UUID `aee5b263-9682-456e-b056-cb09693d1b16`, 3,476 B, SHA-256 `b3436230f07021ca25bb1016923cfbfd83e032438c604461eb20ff10a4b3a07e`, `2026-11-04T17:24:20.049Z` (commit `6902bcb` under guarded `D-428`).
+  - Line 705: UUID `874f1fb8-da46-4c0e-8711-f6b25716ca0a`, 2,518 B, SHA-256 `38d85b1d4b7445c75a3b4e885aae1fd8675a426a09048204f1cfc614e2239db8`, `2026-11-04T17:32:10.250Z` (push `6902bcb`).
+  - Line 764: UUID `b8127f53-faf2-47ae-8825-27904fc424d8`, 3,477 B, SHA-256 `ed26603f3a3abf45f859ecfec78f5b9d598d8e12baf6265f9453f4702f9a13b1`, `2026-11-04T17:35:57.814Z` (commit `12a3527` under guarded `D-428`).
+  - Line 833: UUID `d0e2743c-8edb-4329-ab4f-ccb3cbae049e`, 2,940 B, SHA-256 `cbcc9e132855f89cf7911508bd8749a09ef8af384fa8e881040a2d5f6f781950`, `2026-11-04T17:42:50.975Z` (push `12a3527`).
+- **Lane A Answer Manifests:**
+  - `C:/CoWork/outputs/lane-a-b162-answer5-2026-11-05/SHA256-MANIFEST.txt`: 767 B, SHA-256 `ec3d42145536367281ba422da62b8ff0dec32b28749783f75ff2137241252bb0` (9 members verified).
+  - `C:/CoWork/outputs/lane-a-b162-answer6-2026-11-05/SHA256-MANIFEST.txt`: 767 B, SHA-256 `82d389f0a33de4818855d591ee9140b4ab0747ad748b13a59394e9ba407fa0fc` (9 members verified).
+- **Lane B Review Manifest:**
+  - `C:/CoWork/outputs/lane-b-b162-review-6902bcb-12a3527-2026-11-05/SHA256-MANIFEST.txt`: 3,030 B, SHA-256 `8b47b04996994aab8eb1ba607fc12a162db31f8ee17123b2580665cc7aed7a94` (34 members verified).
+  - Both completed Lane B checks report 18 PASS, 0 SKIP, and docs-drift failing, exit 1.
+
+### 3. Assessment of E1?E4 against cited sources
+
+| Item | Finding at `6902bcb` | Correction at `12a3527` and Source Truth | Level 2 Assessment |
+|---|---|---|---|
+| **E1** | Proposed tracker row claimed B-162's "header blocks nothing until a unit is selected". | Corrected to repeat B-162 line 6: lift, selection, State-2 work order, Lane B Active and full delivery approval of `fbcddae` are blocked. | **Verified.** Source B-162 line 6 explicitly binds those blocks; this review removes none of them. |
+| **E2** | Proposed Order `O5` "by analogy with B-158". | Corrected to proposed Order `O0`, grounded in `D-364` item 6 (`V1-DECISION-REGISTER.md` line 24189: "authority and controls"). `O5` designates "historical without SM05 intersection", which contradicts B-162's block of the SM05 lift. `O3` is excluded because B-162 is not an `SV-002` ?2.2 P13/P14 input. | **Verified.** Grounded in the Decision Register. Order `O0` is correct proposal text; the re-derivation assigns the final order. |
+| **E3** | Stated "Lane A's review and answers follow at B-136 24995", repeated in the B-158 note. | Corrected: B-136 24995 is Lane A's Level 1 review of `32d7f30` (Lane B's Act C filing), where R1?R2 address the `3230e3b` delivery. The limits explicitly declined to adopt Lane C's reviewer block about `3230e3b`. | **Verified.** Attribution and roles are accurate. The cross-reference remains a proposed text. |
+| **E4** | Re-derivation was proposed at "a named revision" without naming it or citing measured state. | Corrected: Cites the measured state at `2450628` (tracker `e129915` stale, 107 rows, 1 non-SM05 unclosed, 0 SM05 not received, 1 live entry unlisted, 0 unreferenced children, 0 invalid) and pins the derivation target to the future tracker commit's own parent. | **Verified.** `2450628` is historical measurement; actual parent must be measured dynamically when executing the re-derivation. |
+
+### 4. Assessment of C04 mapping and parent-first decision order
+
+- **C04 Mapping (F01 correction):** B162-C04 is explicitly mapped through Group 3 (line 726) across two columns: "T-3 two disclosure decisions" and "U6 historical H1 limit". Each column provides explicit coverage across all nine tiers (Register, Build Spec, Inventory, Modular_PRD, FN/SPECS, Phase Closure, dependent references, Encyclopedia, Graph). C04 adds no separate output beyond T-3 and U6; T-3's sponsor receipt form remains Held; neither T-3 nor U6 is a prerequisite for U1.
+- **Parent-First Decision Order (?2):** C01 (problem/scope) precedes C02 (placement/units) and C03 (applicability/policy). C04 and C06 retain their own independent paths. Optional C05 follows applied U2. C07 stays later to assess residuals before lift, selection, work order, and lane transition. Rejecting an earlier choice holds dependent work; accepting a proposal starts no unit.
+
+### 5. Assessment of the original 13 rows and two added rows (?4)
+
+- **Original 13 Rows:** T-1, T-2, T-3, U1, U2, U3, U4, U5, U6, C05 measure, C06 custody, Tracker, and Graph are fully preserved with all seven planning fields intact (Gap, Owner, Predecessor, Exact output, Acceptance proof, Stop condition, Judge act).
+- **Added Rows:**
+  - `U0a?U0c (optional)`: Owner: Judge (Lane A for U0b); Predecessor: Selected as a policy change, never as a repair (D4/D5); Exact output: U0a amends D-264/D-267/D-269 and packet; U0b creates `V1-SM05-FV-001` at `DoR open`; U0c DoR check then lift; Acceptance proof: Register acts, pins template v1, no run result; Stop condition: Presented as existing law or required lift criterion; Judge act: Three separate acts.
+  - `C07 readiness`: Owner: Judge; Predecessor: Separate acts, residual owners kept; Exact output: Assessment of D-264 item 6 conditions and residuals `B-102`/P13, `B-137`, P14a/P14b, then lift, selection, work order, lane transition; Acceptance proof: One Register act each, Build Spec 31, packet 4, Phase Closure ?5 propagated; Stop condition: Any act inferred from another; Judge act: Four separate acts.
+- **Conclusion:** Both rows carry all six requested planning fields. Current law is unchanged; residual clearance cannot be inferred from proposals.
+
+### 6. Confirmation that B-158 and SV-002 changes remain proposals
+
+- **B-158 Cross-Reference:** The text in `12a3527` lines 1011?1013 is explicitly identified as proposal text (`"Corrected B-158 cross-reference (proposal; a later Lane A one-path commit in B-158...)"`). B-158 in the repository remains untouched at this commit.
+- **SV-002 Tracker Update:** The text in `12a3527` lines 1014?1020 is explicitly identified as proposal text (`"Corrected Gate 2 tracker update (proposal; a later Lane A one-path commit in SV-002 ? 2.3.1, line 178)"`). SV-002 in the repository remains untouched at this commit.
+- **Conclusion:** Both items remain proposals for future separate single-path commits following Judge authorization; neither has been applied.
+
+### 7. Independent assessment of Lane B?s conclusions and evidence limits
+
+Lane C independently confirms Lane B's Level 1 conclusions and evidence limits:
+
+- **Hash and Attribute Limits:** Hashes identify byte content, not human authors. File timestamps do not establish when check execution finished.
+- **Hook Trace Limits:** The historical `fbcddae` commit hook execution has no positive process trace in the repository; prospective hooks (U2/U3) must provide unambiguous proof.
+- **Template and Gate Immutability:** `dor-dod-validation/v1.md` remains immutable (6,240 B, SHA-256 `ca605cd6?`). DOR-R1?R7 remain complete pre-selection readiness. The missing feature attempt record (`V1-SM05-FV-001`) belongs after selection.
+- **Block and Lane State:** Lane A remains Active, Lane B Eligible, Lane C Blocked. V1-SM05 remains BLOCKED. No review receipt lifts the block or transfers a lane lock.
+- **Clean Consistency:** Retained consistency check status is 18 PASS, 0 SKIP, and docs-drift failing, exit 1. No clean consistency or clean graph is claimed. Graph synchronization is deferred to Lane A's guarded `D-425` cycle after the final queued governed source.
+
+### Filing and stopping boundary
+
+This Level 2 receipt is filed under README steps 1?6 as a single-path append to `docs/handoff/B-162-consolidated-findings-and-delivery-controls.md`. All earlier parent bytes are preserved. B-136 and B-162 remain Open with headers unchanged. `Verified-By` remains undispositioned. No unit is started, no tracker row is edited, no evidence is transferred or deleted, no graph cycle is executed, and no lane change or Gate 2 clearance is conferred. Lane C stops after delivering this receipt.
+
+| Scope | D-20 verdict | Follow-up phase |
+|---|---|---|
+| `6902bcb` ?1??4 as corrected by `12a3527` and reviewed by Lane B | **Approve, bounded to proposal text** | Phase 1: Lane C Level 2 complete on the named revisions; Judge decisions remain separate. |
+| Retained delivery evidence of `6902bcb`, `12a3527` and `b865f4b` | **Approve, bounded to measured bindings** | Phase 1: Judge acceptance and durable P4 registration remain separate. |
+| B-158 cross-reference and SV-002 tracker update proposals | **Defer** | Phase 1: separate Judge acts, separate one-path commits, and independent review. |
+| Repair units U1?U4, T-1, T-2, T-3, U6, C05, C06, C07 | **Defer** | Phase 1: separate Judge acts and unit readiness gates; Phase 2: construction; Phase 3: U5. |
+| Graph synchronization, custody transfer, and file deletion | **Defer** | Phase 1: separate guarded `D-425` release, custody transaction, and exact-path deletion act. |
+| Whole-entry Verified, closing B-136 or B-162, Gate 2 clearance or lane change | **Reject** | Phases 1?2: existing lifecycle, clearance and separate Judge acts still govern. |
