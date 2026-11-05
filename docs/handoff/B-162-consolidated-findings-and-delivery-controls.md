@@ -1565,3 +1565,226 @@ This receipt preserves all 224,622 reviewed bytes. Its final candidate must pass
 | Routing item 2 as the final governance-review route | Defer | Phase 1: the pending D-272/D-324/J0 routing package resolves the route; no new C-entry is authorized here. |
 | Units, tracker edits, graph synchronization, custody and deletion | Defer | Phase 1: separate releases and applicable D-425 controls; Phase 2: construction; Phase 3: U5. |
 | Whole-entry Verified, closing B-136/B-162, Gate 2 clearance or lane change | Reject | Phases 1–2: not established by this receipt. |
+
+## Lane A answer — Routing package DRAFT r2 — proposed, not adopted (2026-11-05)
+
+**Filing note.** Filed under the Judge's act of 2026-11-05 ("File routing package DRAFT r2"). That act publishes this proposal; it does not adopt its routing rules. Input: `C:/CoWork/outputs/lane-a-b162-routing-package-2026-11-05/ROUTING-PACKAGE.draft.r2.md`, SHA-256 `80186d9222538ddde74a3858600ca29a756051cf56d90942fa2281b4be45b625`, preserved unchanged. Read at `a92531439a2b93028c7d7a93fea7afb7767699bd`. Lane B's receipt at `a925314` stands: F1 and F2 are closed as planning findings, and the final routing stays deferred to this proposal. Only reference corrections and filing metadata differ from the input: R1, this heading and note replace the draft title; R2, subsection headings move one level down (the fenced Register draft is unchanged); R3, the read state adds the filing tip; R4, the stale "Pending" line now records `a925314`; R5, §11 step i is marked done; R6, §9 row M14 marks its predecessor met. No decision text, matrix disposition or sequence step changes.
+
+**r2 changes from r1** (`ROUTING-PACKAGE.draft.md`, 22,780 B, SHA-256 `0c56fa13f9e317ad4ba25acdda0f7d8732f58d71d3b73f634d115e209563866e`): Lane B reviews at Level 1 first. Lane C's Level 2 review of this entry is deferred until after recording (new decision item 13). Changed: §3 (item 13 and a tier row), §10 (one row), §11 (new eight-step sequence), §12 (two rows), and a new §13 (the Lane B prompt). Everything else is unchanged.
+
+Prepared by Lane A. Not in the repository. A preparation only: it records no decision, edits no file and releases no unit. It becomes repository text only through the delivery sequence in §11, each step under its own Judge authority.
+
+### 1. Read state and sources
+
+- **Read revision:** `1f0bd3560f7ef569b48ac61364e895a82f97cbe8` on `features/feature-V1-SM05` (HEAD = server, clean tree). **Filed at** `a92531439a2b93028c7d7a93fea7afb7767699bd`; between `1f0bd35` and `a925314` only B-162 changed, so every other cited source and line is unchanged.
+- **Lane B's Level 1 review of `1f0bd35`:** landed at `a925314` (B-162 lines 1525–1567). It closes F1–F2 as planning findings and defers the final governance-review route to this package (§11 step i, done).
+- **Judge direction:** "To Lane A — Prepare the ownership and routing correction", Layers 1–8, 2026-11-05.
+- **Sources read at `1f0bd35`:** Register `D-272` (line 20010, items 1–8), `D-324` J5 (line 22506), `D-385` (line 25429); `docs/handoff/README.md` 44–55, 131–135, 418–422; `docs/handoff/TEMPLATE.md` 9–12; `AGENTS.md` 43–45; `GEMINI.md` 26–29; `docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md` 107, 141, 145–146, 183–186; `docs/specs/ux/UX-MULTI-LANE-AI-GOVERNANCE.md` 42, 46; `.github/WORKFLOWS-SPEC.md` 130–134; `docs/v1/V1-BUILD-SPEC.md` 377–380; `scripts/checks/handoff-response.mjs` 505–642; `scripts/fixtures/suites.mjs` 214–230.
+
+### 2. The model
+
+| Reviewed work | Source owner | Level 1 | Level 2 | Record |
+|---|---|---|---|---|
+| Governance and documentation | Lane A | Lane B | Lane C | The relevant B-entry |
+| Application code | Lane B | Lane C | Lane A | The relevant C-entry |
+| Lane C implementation (workflows) | Lane C | Lane B | Lane A | The relevant C-entry |
+
+Five facts stay separate. One never implies another.
+
+| Fact | Rule |
+|---|---|
+| Source ownership | Lane A: `docs/`, `scripts/`, `.claude/`, `.agents/`, `.codex/`, `.github/` except `workflows/`, rule files, build config. Lane B: `app/`, `lib/`, `components/`, `supabase/`, `__tests__/`. Lane C: `.github/workflows/` (AGENTS.md lane table). Unchanged |
+| Review role | By the table above. A review is a verdict, never an applied fix |
+| Entry (series) ownership | Lane B owns the B-series. Lane C owns the C-series. A series owner creates the entry and commits its header |
+| Answer authorship | Lane A answers governance corrections in the relevant B-entry. Lane B answers code corrections in the relevant C-entry |
+| Delivery authority | Each commit and push needs the authority that its procedure names. Review participation grants none |
+
+### 3. Draft Register entry (not recorded)
+
+```markdown
+## 5.14e<NNN> `D-<NNN>` — Handoff Routing by Work Type; `D-272` Receiver Exception and `D-324` Lane B Review Order Superseded Prospectively; J0 L1–L2 Superseded; `C-001`–`C-009` Historical
+
+**Authority: the Judge, directly to Lane A, <date>**: "<the Judge's exact words>".
+
+### The decision
+
+1. **Placement.** I permit this entry as the <ORDINAL> intervening Register entry, after `D-<last recorded>` and before the separate TCA r3 (J3) and J-C A1 entries. No further intervening entry is permitted by implication.
+2. **Routing by work type.** Governance and documentation work is owned by Lane A, reviewed at Level 1 by Lane B and at Level 2 by Lane C, and recorded in the relevant B-entry. Application code is owned by Lane B, reviewed at Level 1 by Lane C and at Level 2 by Lane A, and recorded in the relevant C-entry. No routing exception exists.
+3. **`D-272` amended, prospectively.** Items 1, 2 and 5 no longer route a new `C-` entry to Lane A. A new `C-` entry names `Receiver: Lane B`. A Lane A governance dependency or request never opens a `C-` entry. When a code review finds a governance dependency: the code finding stays in its `C-` entry; Lane B raises, or references, the corresponding `B-` entry for Lane A; the two records link to each other; Lane A answers the governance correction in the `B-` entry; Lane B records the effect on its code response in the `C-` entry. A `C-` entry's receiver never changes to Lane A.
+4. **`D-272` item 3 extended: attributed contributions.** The series owner creates an entry and commits its header and its own sections. Any other lane appends only its own attributed section (an answer, a review or a contribution) and commits it as its own one-path commit (`D-385`), whatever its lane state. No lane edits another lane's section. The one-path procedure (README steps 1–6) and independent verification (`D-102`, `D-205`) are unchanged.
+5. **`D-324` J5 amended.** The recorded order for Lane B's work was Level 1 Lane A, then Level 2 Lane C. **It changes** to Level 1 Lane C, then Level 2 Lane A. Lane A's work stays Level 1 Lane B, then Level 2 Lane C. Lane C's implementation work stays Level 1 Lane B, then Level 2 Lane A. No lane reviews or verifies its own work. This assignment creates no exception to item 2.
+6. **J0 L1 and L2 (2026-11-05, B-162) superseded.** L1 — the instruction to file a C-series copy of the `ef30902` receipt — is superseded. No copy existed at `1f0bd35`; none is created. L2 — future Lane C receipts in the C-series — is superseded for governance reviews: Lane C's future governance reviews go in the relevant B-entry. `ef30902` and every later receipt stay as history. B-162's routing item 2 at `1f0bd35` reads through this item.
+7. **`C-001`–`C-009` are historical worklogs.** They were filed under the `D-272` Lane A receiver route. Their bytes, attribution, evidence, identifiers and dispositions are preserved. They are not moved, deleted, rewritten or closed by this entry, and no file among them is edited to repeat this classification. Their route creates no exception for new work.
+8. **Numbering.** No number is reused (`D-306`). Before a new entry is created, the filer checks the complete numbering history: tracked files, Git history, and every citation in `docs/`. At `1f0bd35`, `C-010`, `C-011`, `C-012` and `C-018` are cited and are not free.
+9. **Lane state.** Appending and committing an attributed section in `docs/handoff/` is allowed in any lane state (`D-272` item 3). It grants no implementation, activation, selection or lane transition. A review result grants no whole-entry Verified (`D-102`).
+10. **Phase and knowledge limits.** Governance review is separate from DevOps implementation. Lane B supplies the code and the evidence that a dependent workflow needs (`LANE-B-WORK-ORDER.md` §6). Lane C implements only an authorized workflow against those inputs, after its own release and lane transition. Code-derived knowledge is separate from governance knowledge; each code-derived output names its source revision, generation process and acceptance proof before a workflow depends on it. Historical setup work is not proof that a later workflow dependency is met.
+11. **Enforcement.** `handoff-response` fails a new `C-` entry (number above `C-009`) whose `Receiver:` is not `Lane B`, and still accepts `Receiver: Lane A` on `C-001`–`C-009`. New fixtures prove both: a new entry with `Receiver: Lane A` fails; a historical entry passes. The existing `D-272` receiver fixtures stay.
+12. **Holds.** No unit, graph operation, custody transfer, deletion, lift, selection or lane transition is released. B-136 and B-162 stay Open.
+13. **Level 2 deferred.** Lane C's Level 2 review of this entry and its propagation is deferred until after recording, because this entry changes Lane C's review route. Lane C reviews in the relevant B-entry under item 2, with special attention to items 3 and 5. A Lane C finding is answered by a new amendment. The deferral is for this entry only and creates no precedent.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry |
+| **Build Spec** | Check: line 377 summarizes `D-272`; a dated pointer to this entry. No scope, sequence or DoD change |
+| **Inventory** | — unaffected: no file created or retired |
+| `Modular_PRD.md` | — unaffected: no Product or Project-scope change |
+| `docs/handoff/README.md`, `TEMPLATE.md` | ✅ routing and receiver text (§9 rows M2–M4) |
+| `scripts/checks/handoff-response.mjs`, `scripts/fixtures/suites.mjs` | ✅ item 11 (rows M10–M11) |
+| `AGENTS.md`, `GEMINI.md` | ✅ review-order and raise-route lines (rows M6–M7); `CLAUDE.md` unaffected |
+| FN-AIG, UX spec, `.github/WORKFLOWS-SPEC.md` | ✅ rows M5, M8, M9 |
+| `C-001`–`C-009` | — unaffected: classified by item 7, not edited |
+| **Encyclopedia** | — unaffected: `ENCYCLOPEDIA-SYNC.md` cites no handoff, FN-AIG or rule-file section |
+| **Graphify** | Affected: `D-425` after the last governed change |
+| Lane C Level 2 review | Deferred to step vii (item 13), after recording and propagation |
+```
+
+### 4. Historical boundary — C-001 to C-009
+
+| Entry | Receiver (as filed) | Status at `1f0bd35` | Classification |
+|---|---|---|---|
+| `C-001-rename-required-check.md` | Lane A (Lane A surface) | Answered | Historical worklog |
+| `C-002-route-c-pre-run-access-proof.md` | Lane A | Answered | Historical worklog |
+| `C-003-sv2-route-c-r1-loader-measurement.md` | Lane A | Answered | Historical worklog |
+| `C-004-route-b-level2-review.md` | Lane A | Answered | Historical worklog |
+| `C-005-sv2-route-c-r2-loader-measurement.md` | Lane A | Answered | Historical worklog |
+| `C-006-route-c-loader-diagnostic-reconciliation.md` | Lane A | Answered | Historical worklog |
+| `C-007-route-a-r1-level2-review.md` | Lane A | Answered | Historical worklog |
+| `C-008-sv2-u02-combined-report-independent-review.md` | Lane A | Answered | Historical worklog |
+| `C-009-sv2-u02-remediation-triage-review.md` | Lane A | Answered | Historical worklog |
+
+The classification is recorded only in the decision (item 7). No historical file changes. Git history holds no other C-series file. Cited but unfiled numbers: `C-010`, `C-011`, `C-012`, `C-018`.
+
+### 5. Append and commit rules
+
+| Record | Who creates it | Who appends | Who commits each section | Lane-state condition |
+|---|---|---|---|---|
+| New B-entry (governance) | Lane B | Lane A answer; Lane C review or contribution; Lane B receipts | Each lane commits its own section, one path (`D-385`) | Any state; grants no implementation |
+| New C-entry (code) | Lane C | Lane B answer; Lane A Level 2 review; Lane C receipts | Each lane commits its own section, one path | Any state; grants no implementation |
+| Governance dependency found in code review | Lane B raises or references the B-entry | Lane A answers there; Lane B records the code effect in the C-entry | Each lane, own section | Any state |
+| Historical C-001–C-009 | — | No new section is required by this decision | — | — |
+
+`Verified` is written only by an independent actor who did not answer or apply the correction (README "Who may record Verified").
+
+### 6. Review order — the change
+
+| Work | Recorded order (`D-324` J5) | New order | Status |
+|---|---|---|---|
+| Lane A governance and docs | Level 1 Lane B → Level 2 Lane C | Level 1 Lane B → Level 2 Lane C | Unchanged |
+| Lane B application code | Level 1 Lane A → Level 2 Lane C | **Level 1 Lane C → Level 2 Lane A** | **Changed** by this decision |
+| Lane C implementation | Level 1 Lane B → Level 2 Lane A | Level 1 Lane B → Level 2 Lane A | Unchanged |
+
+The new Lane B order is a change from `D-324` J5. It is not described as the historical rule. No lane reviews or verifies its own work.
+
+### 7. J0 L1 and L2
+
+- **L1 (copy of `ef30902` in a C-entry): superseded.** No copy exists at `1f0bd35` (no C-series file after C-009). None is created. `ef30902` (B-162 lines 1103–1191) stays as history, with its recorded L1 issue (non-ASCII characters replaced by `?`).
+- **L2 (future Lane C receipts in the C-series): superseded for governance reviews.** Lane C's future governance reviews go in the relevant B-entry, as its own attributed section.
+- **B-162 routing item 2 at `1f0bd35`** (two Lane C records in the C-series) reads through decision item 6. The earlier J0 record at `429a621` is not rewritten.
+
+### 8. Phase and knowledge limits
+
+| Output | Kind | Source revision | Generation process | Acceptance proof | State |
+|---|---|---|---|---|---|
+| Code evidence for a dependent workflow (tests, results, integration evidence) | Code-derived | The Lane B commit or range the evidence binds | Lane B unit under its work order (`LANE-B-WORK-ORDER.md` §6) | Lane C's Level 1 review; the evidence contract (`.github/WORKFLOWS-SPEC.md` §7) | Held: no unit selected |
+| Code navigation results (`AIG-04`) | Code-derived | The commit each call reads | The selected method per surface (FN-AIG §4.4) | Recorded call, scope check, `AIG-04.R4` class | Existing rule; unchanged |
+| Code symbols in the graph | Code-derived | Graph analysis revision (now `ddf0b92`) | Graphify, under the guarded `D-425` cycle | Healthy publication and review | Held: graph stale |
+| Governance graph fragments | Governance | The commit of each fragment | Curated `docs/graph-fragments/` merge (`G51`) | `graph-coverage`; `D-425` review | Existing rule; unchanged |
+
+A workflow that depends on a code-derived output runs only after that output exists at a named revision with its acceptance proof. Historical setup work (for example `SV-002` runs) is not that proof.
+
+### 9. Affected-file matrix
+
+Each row: one file, one disposition. Line numbers at `1f0bd35`.
+
+| # | File and section | Disposition | Current statement | Replacement or reason | Owner | Predecessor | Output and proof | Stop condition | Phase |
+|---|---|---|---|---|---|---|---|---|---|
+| M1 | `docs/v1/V1-DECISION-REGISTER.md`, new entry | Affected | — | §3 draft entry | Lane A | Judge act with its own placement; number checked at HEAD | The entry; number, section and ordinal free; `tier-sweep` passes | Any identifier taken | 1 |
+| M2 | `docs/handoff/README.md` 44–55 (series table) | Affected | "`C-NNN` … Lane B by default …; Lane A when the dependency sits on a Lane A surface … or answers a Lane A request" | "`C-NNN` \| Lane C \| Lane B. New `C-` entries name `Receiver: Lane B`. `C-001`–`C-009` keep their historical Lane A receiver (`D-<NNN>` item 7)." Add the §2 model table and the §5 rules | Lane A | M1 | Text matches M1; `channel-docs` passes | Any new Lane A receiver route | 1 |
+| M3 | `docs/handoff/README.md` 131–135 and 418–422 | Affected | "Lane C its own `C-` entries … The receiving lane commits its answer"; "for a `C-` entry whose `Receiver:` is `Lane A`, Lane A fills the `Lane A` line" | Add: "Amended by `D-<NNN>`: a new `C-` entry is received by Lane B; Lane A's Level 2 review of code is its own attributed section. The Lane A answer line applies to `B-` entries and to `C-001`–`C-009` only." | Lane A | M1 | `handoff-response` and `channel-docs` pass | Old text rewritten instead of amended | 1 |
+| M4 | `docs/handoff/TEMPLATE.md` 9, 11, 12 | Affected | "`Receiver:` … `Lane A` or `Lane B` … `Lane A` when the dependency sits on a Lane A surface"; "`Lane A:` … the answer field for `B-` entries and for `C-` entries whose Receiver is `Lane A`" | "`Receiver:` <`C-` entries ONLY: `Lane B` (`D-<NNN>`)>"; "`Lane A:` <`B-` entries: Lane A's answer field>"; "`Lane B:` <`C-` entries: Lane B's answer field>" | Lane A | M1 | Same commit as M10–M11 (`channel-docs` couples the template to the check) | Template and check disagree | 1 |
+| M5 | `docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md` §4.5 (183–186), §1 table (141, 146), §4.2 (107) | Affected | 183–186: "Lane A fills … Level 1 for Lane B's work, and Level 2 for Lane C's work"; 141: "Level 1 review of Lane B work and Level 2 review of Lane C work"; 146: "Level 2 review of Lane A and Lane B work" | 183–186: "*Amended `[V1]`, `D-<NNN>`:* Lane B's code work: Level 1 Lane C, Level 2 Lane A. Lane C's work: Level 1 Lane B, Level 2 Lane A. Lane A's work: Level 1 Lane B, Level 2 Lane C." 141: "Level 2 review of Lane B and Lane C work". 146: "Level 2 review of Lane A work; Level 1 review of Lane B work". 107 reads "answered by its receiver (Lane A for `B-`, Lane B for `C-`)" | Lane A | M1 | `[V1]` markers; `tier-sweep` passes | An unmarked change to a `[V1]` section | 1 |
+| M6 | `AGENTS.md` 43–45 | Affected | "Level 1 review is ChatGPT (Lane B) for Lane A and C work; Level 2 is Antigravity chat (Lane C) for Lane A and B work; Lane A covers the rest (`D-324`)." | "Governance: Level 1 Lane B, Level 2 Lane C, in B-entries. Code: Level 1 Lane C, Level 2 Lane A, in C-entries. Lane C work: Level 1 Lane B, Level 2 Lane A (`D-<NNN>`)." | Lane A | M1 | `rule-budget` passes (now 3,626 of 5,400 characters) | Over the ceiling | 1 |
+| M7 | `GEMINI.md` 26–29 | Affected | "Scripts, config files, tools and lockfile flags are Lane A's (`D-84`). Need one? Raise a `docs/handoff/C-NNN-<slug>.md` entry of kind `dependency` and stop." | "… Need one? Ask Lane B to raise or reference a B-entry for Lane A, and add your attributed contribution there. Do not open a C-entry for a Lane A dependency (`D-<NNN>`). Then stop." | Lane A | M1 | `rule-budget` passes | A C-entry route to Lane A remains | 1 |
+| M8 | `docs/specs/ux/UX-MULTI-LANE-AI-GOVERNANCE.md` 42 (receipt row), 46 (§3) | Affected | 42: "Lane C's own committed `C-` entry, `Receiver: Lane A`"; 46: "Level 1 (ChatGPT Chat/Work) reviews first, then Level 2 (Antigravity chat)" | 42: a dated note "historical route (`SV2-U02`); new governance receipts go in the B-entry (`D-<NNN>`)". 46: add the code order, Level 1 Lane C then Level 2 Lane A | Lane A | M1 | `[V1]` markers | Unmarked change | 1 |
+| M9 | `.github/WORKFLOWS-SPEC.md` 130–134 | Affected | "Name the answering lane in **`Receiver:`** — **`Lane B`** by default …, **`Lane A`** when the dependency sits on a Lane A surface …" | "Name **`Receiver: Lane B`**. For a Lane A dependency, ask Lane B to raise or reference a B-entry and add your contribution there (`D-<NNN>`)." | Lane A (`.github/` except `workflows/`) | M1 | `channel-docs` passes (this file is a channel doc) | A Lane A receiver route remains | 1 |
+| M10 | `scripts/checks/handoff-response.mjs` 505–642 | Affected | Accepts `Receiver: Lane A` or `Lane B` on any `C-` entry | Fail a `C-` entry numbered above `C-009` whose `Receiver:` is not `Lane B`; keep accepting `Lane A` on `C-001`–`C-009`; update the comment at 505–512 | Lane A | M1; same commit as M4 and M11 | Check passes on the tree | A historical entry fails | 1 |
+| M11 | `scripts/fixtures/suites.mjs` 214–230 | Affected | Four `D-272` receiver fixtures | Add two: a new `C-` entry with `Receiver: Lane A` must fail; a historical `C-` entry with `Receiver: Lane A` must pass | Lane A | M10 | `bun run fixtures` passes; each negative fails for its reason | A fixture that cannot fail | 1 |
+| M12 | `docs/v1/V1-BUILD-SPEC.md` 377–380 | Check | Summary of `D-272` | Add a dated pointer to `D-<NNN>` if the Judge wants the summary current. `D-54`: no scope, sequence or DoD change | Lane A | M1 | `tier-sweep` passes | — | 1 |
+| M13 | `docs/LANE-B-WORK-ORDER.md` | Check | No receiver text; §6 evidence contract | Add only if the Judge wants Lane B's duties listed: answer C-entries; raise B-entries for governance dependencies found in code review | Lane A | M1 | `channel-docs` passes | A work-order change taken as a work order | 1 |
+| M14 | `docs/handoff/B-162-consolidated-findings-and-delivery-controls.md` | Affected | Routing item 2 at `1f0bd35`; J0 L1–L2 at `429a621` | One appended Lane A answer that records the supersession and cites this package (§11 step ii). Earlier text unchanged | Lane A | Lane B's `1f0bd35` receipt on the server (met at `a925314`) | One-path commit; two checks | Any earlier byte changed | 1 |
+| M15 | `CLAUDE.md` | Unaffected | — | It imports `@AGENTS.md` and holds no review-order or receiver text | — | — | — | — | — |
+| M16 | `docs/v1/V1-ARTIFACT-INVENTORY.md` | Unaffected | — | No file created or retired (`D-54`) | — | — | — | — | — |
+| M17 | `docs/v1/V1-PHASE-CLOSURE.md` | Unaffected | — | No lane state changes (item 9) | — | — | — | — | — |
+| M18 | `docs/specs/SPECS-MULTI-LANE-AI-GOVERNANCE.md` 28–30 | Unaffected | "Raises handoffs; Level 1 review"; "Level 2 review" | Platform roles stay true for governance work; the code order lives in FN-AIG (M5) | — | — | — | — | — |
+| M19 | `C-001`–`C-009` | Unaffected | — | Classified by decision item 7; not edited | — | — | — | — | — |
+| M20 | `scripts/checks/channel-docs.mjs`, `scripts/checks/rule-budget.mjs` | Check | — | No code change expected; they must pass after M4, M6, M7 and M9 | Lane A | M4–M9 | Both pass | A check edited to pass | 1 |
+| M21 | `docs/ENCYCLOPEDIA-SYNC.md` | Unaffected | — | No entry cites a handoff, FN-AIG or rule-file section | — | — | — | — | — |
+
+### 10. Closure conditions
+
+| # | Condition | Where met |
+|---|---|---|
+| 1 | Governance routes through B-series, with no Lane A receiver exception in C-series | Decision items 2–3; M2–M4, M7, M9 |
+| 2 | Code routes through C-series | Decision items 2–3; M2, M4 |
+| 3 | C-001–C-009 preserved as historical worklogs | Decision item 7; §4; M19 |
+| 4 | Explicit amendment or supersession text for `D-272`, `D-324` and J0 | Decision items 3–6 |
+| 5 | Clear authorship and commit rules for contributions | Decision item 4; §5 |
+| 6 | Rule summaries and coupled checks have matching dispositions | M5–M11, M20 |
+| 7 | No historical route becomes an implied permission | Decision items 7 and 11; M10–M11 |
+| 8 | No review result grants implementation, activation or whole-entry Verified | Decision items 9 and 12 |
+| 9 | Level 2 is deferred, not dropped, and the deferral is bounded to this entry | Decision item 13; §11 step vii |
+
+### 11. Delivery sequence and authority
+
+| Step | Action | Authority needed | Predecessor |
+|---|---|---|---|
+| i | Lane B's Level 1 receipt of `1f0bd35` lands (Lane B's own commit) | Lane B's existing instruction | — (done at `a925314`) |
+| ii | Lane A appends this package to B-162 (one path) | Judge: commit release, push release, and a `D-428` exception if `docs-drift` still fails | Step i on the server |
+| iii | **Lane B Level 1** review of step ii, in B-162, as its own attributed section (prompt §13) | Lane B's review instruction | Step ii |
+| iv | Lane A answers any Lane B findings in B-162 (one path) | Judge releases | Step iii |
+| v | **Judge act:** accept or reject. If accepted, record the Register entry `D-<NNN>` (M1) with item 13 | Judge act with placement; commit and push releases | Step iii or iv accepted; G1 (`D-477`) and reslot (`D-478`) order chosen |
+| vi | Canonical units, each its own commit: (a) README, TEMPLATE, `handoff-response`, fixtures (M2–M4, M10, M11) together, because they are coupled; (b) rule files and specs (M5–M9); M12–M13 if chosen | Judge release for each unit | Step v |
+| vii | **Lane C Level 2** review of the recorded decision and the step vi units, in the relevant B-entry, under the new rule (item 13) | Lane C's review instruction | Step vi |
+| viii | Lane A answers Lane C's findings. A correction is a new amendment, never a rewrite | Judge releases | Step vii |
+
+The graph cycle follows the last governed change, under its own guarded `D-425` release. Canonical-source commits never share a commit with a B-162 answer (`D-385`).
+
+### 12. Verdict
+
+| Scope | Verdict | Follow-up phase |
+|---|---|---|
+| This package (DRAFT r2) | Lane B to decide at Level 1 | Phase 1: step iii |
+| Lane C Level 2 review of this entry | Defer | Phase 1: step vii, after recording and propagation (item 13) |
+| Leaving out Level 2 entirely | Reject | Phase 1: Level 2 is still required (`D-324`, `AIG-05.R1`) |
+| Register entry, canonical edits, check and fixtures | Defer | Phase 1: steps iv–vi, each with its own authority |
+| C-001–C-009 historical classification | Defer | Phase 1: recorded only by the decision (item 7) |
+| Units, graph sync, custody, deletion, lift, lane change | Defer | Phase 1: own acts; Phase 2: construction; Phase 3: U5 |
+| Whole-entry Verified, closing B-136 or B-162, Gate 2 clearance | Reject | Phases 1–2: not established |
+
+### 13. Lane B prompt (step iii)
+
+Fill each `<…>` value after step ii.
+
+```
+You are Lane B. Do this Level 1 review now (D-324). This prompt is your instruction to act.
+
+Review Lane A commit <sha> in docs/handoff/B-162-consolidated-findings-and-delivery-controls.md, section "<package section title>". It holds the ownership and routing correction package (DRAFT r2, SHA-256 <sha>).
+
+Lane C's Level 2 review of this package is deferred by the Judge until after recording (draft item 13). Do not wait for it.
+
+Check each item. Report Pass or Finding:
+1. One path only. The commit only adds lines. All parent bytes are unchanged.
+2. The model: governance is Lane A, Level 1 Lane B, Level 2 Lane C, in B-entries; code is Lane B, Level 1 Lane C, Level 2 Lane A, in C-entries; Lane C work is Level 1 Lane B, Level 2 Lane A.
+3. Draft item 3: new C-entries name Receiver: Lane B. No C-entry route to Lane A remains.
+4. Draft item 4: each lane commits only its own attributed section, one path, in any lane state.
+5. Draft item 5: the Lane B code order change (A then C, to C then A) is stated as a change, not as the historical rule. Report any concern about Lane B reviewing its own review order.
+6. Draft items 6-7: J0 L1 and L2 are superseded; no copy is created; C-001 to C-009 stay unchanged and historical.
+7. Draft item 13: the Level 2 deferral is bounded to this entry and names its trigger.
+8. Matrix: each row has one file and one disposition; each Unaffected row has a reason; the check and fixture rows prevent a new Lane A receiver.
+9. Delivery: the Register and canonical edits are separate from the B-162 answer (D-385). Nothing is recorded or applied by this commit.
+
+Append your receipt to B-162 under README steps 1-6. Change no other file. Do not record Verified.
+End with a table: Scope | verdict | follow-up phase.
+```
