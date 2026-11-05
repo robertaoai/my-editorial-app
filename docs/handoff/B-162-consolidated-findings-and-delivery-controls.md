@@ -2201,3 +2201,59 @@ Neither source package, manifest nor original build input was edited. Only the i
 | Canonical units and graph synchronization | Defer | Phase 1: each unit's release; graph retains its guarded D-425 release. |
 | Lane C Level 2 review | Defer | Phase 1: unchanged item 13 trigger and T5 start conditions. |
 | Whole-entry Verified, B-136/B-162 closure, Gate 2 clearance or lane change | Reject | Phases 1–2: not established by this receipt. |
+
+## Lane B — Level 1 review of 87f1b4f, 2026-11-05
+
+**Actor and authority.** Lane B, D-324 Level 1 review of Lane A work. The Judge's direct instruction authorizes this one own-series B-162 receipt, one commit and one named non-force push under D-272, D-385 and README steps 1–6. The receipt-specific D-428 exception permits only docs-drift to fail. Lane state remains A Active, B Eligible, C Blocked (V1-PHASE-CLOSURE.md 382–384); no transition is made.
+
+**Read revision.** 87f1b4f6ae770fa4d0e8dde2d651856585de07df, parent 27869473dc93f1828591c6ee135cfc8319c70d7b. A fresh fetch confirmed local HEAD and origin/features/feature-V1-SM05 at the reviewed revision. The checkout and index were clean. There were no later commits. R8a ran completely at that revision before any B-162 edit.
+
+**Source evidence.** C:/CoWork/outputs/lane-a-d477-g1-recording-2026-11-05/. The source manifest measures 2,452 bytes, SHA-256 1a008798d2ee4d4d89652e4b82a141afd5c8f00f8f5baddf28c29931f27bc399. All 27 members match. Lane A's evidence and the Register were read only.
+
+### 1. R1–R12 results
+
+| Check | Result | Evidence and scope |
+|---|---|---|
+| R1 — Commit shape | Pass | Git commit 87f1b4f has one parent, 27869473dc93f1828591c6ee135cfc8319c70d7b. Its sole changed path is docs/v1/V1-DECISION-REGISTER.md, +24/-0. Both emails are 241258103+robertaoai@users.noreply.github.com. The subject exactly matches “docs(register): D-477 - B-162 development-control problem adopted as Project scope; thirty-sixth intervening entry permitted”. |
+| R2 — Parent prefix and append | Pass | Parent blob 4c9b96c18c0f8c8779147bff3dbfba7d70693cea: 2,427,211 bytes, SHA-256 99c8262c33e729f0eed993b84637f2d121fa1ab0886b9cd8a86d9c9f9f54753d. Committed blob 70bbdeb216c1e109ec79f70aab44326cbc07d229: 2,429,472 bytes, SHA-256 0abf118ad4ff2d058ade719ef3cff729e8547b5d6ae5e4ec9d83ca3201597bfe. Every parent byte is an identical prefix. The 2,261-byte remainder hashes to cb991dcf4371dd430da7857a5c18872c3ec26c2bec1e8612db73abfb68e556f5: one LF, then 23 LF-terminated lines, with 0 CR bytes. |
+| R3 — Source equality | Pass | B-162 lines 1306–1328 at 429a6211fa240baaea77e4222f12278ceae9da19 measure 1,547 bytes, SHA-256 c0344ebc55564574fd0562c3195bbd65d2223c3696f7622dd0606fcccc552755. Comparing each line with Register 31424–31446 finds exactly one changed line: block line 3, Register 31426. |
+| R4 — Authority line | Pass | Register 31426 has the exact dated prefix, required quotation and ordered citation. No period precedes the closing quotation mark. The citation names the transcript, line 3525, UUID 5232a3b4-a121-4b61-9d2b-98ab6ec5da26, timestamp 2026-11-05T14:37:02.352Z, 10,715 bytes including LF, and SHA-256 1612cd256de0d23a04ff62860918493d5ee707e154e0a33b3b7d6d5cff620385. It ends with a closing parenthesis, period and LF. It is one line with no unresolved placeholder. |
+| R5 — Issued-act binding | Pass | issued-act-record.jsonl independently measures 10,715 bytes and the stated 1612cd25…0385 hash. The actual transcript line 3525 was readable and is byte-identical, including LF. Its user record has the specified UUID and timestamp. The operative content starts with “Judge act, 2026-11-05. Record G1 as D-477.” It has no DRAFT/NOT ISSUED header and expressly selects P4b(i). |
+| R6 — Identifiers | Pass | At the parent, case-insensitive Register occurrences are zero. A root-inclusive, full-history search of reachable Register changes, including merge-parent diffs, finds no earlier occurrence. At the target, D-477 occurs at 31424/31426; section 5.14e300 at 31424; thirty-sixth at 31424/31426/31430. The final second-level heading is D-477, directly after D-476. Retained proof: identifier-history.json. |
+| R7 — Placement amendment | Pass | Register 31426 follows D-476 item 8 at 31403: it advances the predecessor to D-476 and the ordinal to thirty-sixth, preserves J1/J2 identities, text and transfer holds, and permits no further intervening entry by implication. Entry item 1 at 31430 supplies its own placement. |
+| R8 — Checks and bindings | Pass | R8a: Lane B's complete baseline run at 87f1b4f, before editing, returned exit 1, 18 PASS, 0 SKIP, only docs-drift failing. Lane A's check-run-1.log and check-run-2.log each show the same result (failure at line 14; final summary at 23–24). Each binding file's lines 1 and 3 equal the committed Register SHA-256 0abf118a…7bfe. Run 1: 14:39:15–14:41:57 UTC; run 2: 14:42:05–14:44:36 UTC. The runs were sequential. |
+| R9 — Hooks | Pass, bounded | git-trace.txt 4–5 starts .githooks/commit-msg; line 7 records the gate's nested git diff --cached --name-only. node-probe.txt 1–2 identifies Node v24.18.0. commit.out line 1 reports commit-exit=0. The combined evidence supports actual gate execution and successful commit. Commit success alone would not suffice because the hook can exit successfully without Node. This is not proof of general fail-closed enforcement. push/hook-note.txt line 1 states that no pre-push hook exists; none is claimed. |
+| R10 — Delivery | Pass | push/c5-pre-push.txt 2–11 shows successful fetch, the named upstream, upstream equal to parent 2786947, one outgoing commit 87f1b4f, one path and clean state. push/push.out 3–4 shows 2786947..87f1b4f and push-exit=0. push/c6-post-push.txt 2–6 shows upstream and ls-remote equal to the full target SHA, zero outgoing commits and clean state. This review's fresh fetch independently confirms the target on the server. |
+| R11 — Manifest | Pass | Recomputed the source manifest's size and full SHA-256 above. Every one of its 27 members matches both byte count and SHA-256, including push records. The separate transcript delivery report described below is outside that manifest. |
+| R12 — Scope and holds | Pass, bounded | Git shows only the D-477 Register append. Register 31432–31446 retains the EV-4 follow-up and limits; no EV-4 propagation is in this commit. D-478, reslot and T3/T4/T4a/T4b are not recorded or applied by it. B-136 and B-162 remain Open at their line 7. The issued act and Lane A's final delivery report state limit L2 and the holds. No broader tier completeness or Verified disposition is established. |
+
+### 2. Findings and evidence limits
+
+**No defect identified in R1–R12 or the additional inspected evidence.** All twelve checks pass within their stated scope.
+
+The hook assessment uses the combined process trace, Node probe and commit result. It does not adopt “commit success alone” as sufficient evidence for another delivery. The nested Git operation matches scripts/lane-gate.mjs, reached through .githooks/commit-msg. The model-specific co-author trailer is supported by adjacent session assistant records identifying claude-opus-5-5; shared Git identity alone would not establish that attribution.
+
+The full issued record is retained and readable at C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/977c3a29-84c5-4979-8081-065ea3f1b07a.jsonl, line 3525. It binds P4b(i) and the bounded Level 2 deferral as well as the recording controls. Hashes identify retained bytes; they are not independent proof of a speaker's identity.
+
+**Supplemental delivery report.** The same transcript's line 3692 is Lane A's final report: UUID fe0f6122-08c8-48a1-bf80-8177a2d1fec6, timestamp 2026-11-05T14:46:56.391Z, 7,209 bytes including LF, SHA-256 3453e13a43746ee3f3ea5dbd4a6df1d39e0f65f5d563cc62e7187738d8b39d60. It explicitly states EV-4 was not run, the remaining units are held, both B-entries stay Open, and no Verified disposition was recorded. It states limit L2: G1's tier table has no separate D-440/D-441 row and claims no broader tier completeness. This supplemental report is outside Lane A's 27-member manifest; its separate binding is retained in this review's evidence.
+
+R12 is bounded to tracked scope, the issued act and the inspected report. It is not an exhaustive audit of every possible runtime action. The missing separate D-440/D-441 tier row remains a disclosed limit, not a claim of full propagation or permission to change another file.
+
+### 3. Receipt delivery controls
+
+Evidence folder: C:/CoWork/outputs/lane-b-level1-d477-87f1b4f-2026-11-05/. It did not exist at start. It retains the baseline result, independent Git measurements, identifier-history proof, supplemental record binding, candidate binding, two complete candidate checks, hook evidence, commit binding and pre/post-push proof. A SHA256-MANIFEST.txt is sealed after delivery; its hash is reported externally.
+
+The B-162 parent has 2,203 LF-terminated lines and 318,165 bytes, SHA-256 5e8b6e79899be6365fed8c62691780ec6e827e4ecd6828665e087adb7ed66215. Every existing byte remains a prefix. Only this attributed receipt is appended. The Register and Lane A evidence remain unchanged.
+
+Receipt delivery requires two complete sequential checks on the final candidate, 18 PASS, 0 SKIP and only docs-drift failing. Both checks, staging and the committed blob must bind identical bytes. The baseline run is separate and does not count as either candidate run. The commit must carry actual hook trace and gate evidence. Before its named non-force push, a fresh fetch must prove upstream equals the receipt parent and exactly one commit is outgoing. A post-push fetch must confirm upstream equals the receipt commit. Full completed results are retained externally without changing the checked receipt bytes.
+
+This receipt is Level 1 review only. It does not accept delivery for the Judge, start Lane C review, release D-478 or release any other unit. B-136 and B-162 stay Open. No Verified disposition or lane transition is recorded.
+
+| Scope | verdict | follow-up phase |
+|---|---|---|
+| D-477 recording commit 87f1b4f and its measured evidence | Approve | Phase 1: bounded Level 1 approval of this exact commit; R1–R12 pass. |
+| Judge acceptance of delivery | Defer | Phase 1: separate Judge acceptance; not supplied by this receipt. |
+| Lane C Level 2 review | Defer | Phase 1: separate review instruction, under the routing rule then in force. |
+| D-478, reslot, EV-4, canonical units and graph synchronization | Defer | Phase 1: separate acts and releases; D-425 still governs graph work. |
+| Limit L2 | Approve-with-conditions | Phase 1: retain the disclosed missing tier row and make no broader completeness claim. |
+| Whole-entry Verified, closing B-136/B-162, Gate 2 clearance or lane transition | Reject | Phases 1–2: not established by this review. |
