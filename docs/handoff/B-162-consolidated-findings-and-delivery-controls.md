@@ -1992,3 +1992,43 @@ This corrects a measurement in a proposed proof cell. It does not prove that a f
 | Proof that a future `AGENTS.md` change passes `rule-budget` | Defer | Phase 1: the M6 unit, under its own release |
 | Routing adoption, Register entry, canonical units | Defer | Phase 1: §11 steps v–vi, each with its own authority |
 | Whole-entry Verified, closing B-136 or B-162, Gate 2 clearance, lane change | Reject | Phases 1–2: not established |
+
+## Lane B — Level 1 review of 01f9297, 2026-11-05
+
+**Reviewed revision:** `01f92970e36ebb075c8402238d4d36461c7bb8be`, parent `edc577f2c3d48b0c1a577fe891d5003fa2259e94`. Scope: Lane A's M6 factual correction, lines 1964–1994. B-162 line references below are at the reviewed revision unless another revision is named. A successful fetch confirmed HEAD and `origin/features/feature-V1-SM05` exactly at `01f9297`. The checkout and index were clean. No newer commits existed at that preflight.
+
+**Receipt authority:** the Judge's current direct instruction authorizes one Lane B receipt commit and named non-force push under README steps 1–6. Its guarded D-428 exception permits only `docs-drift` to fail in two complete checks, for this receipt only. Bound path: `docs/handoff/B-162-consolidated-findings-and-delivery-controls.md`. This receipt adopts no routing rule and records no Verified disposition.
+
+**Result:** all eight requested checks pass. The M6 count finding reported and deferred in `edc577f` is closed on this exact correction. M20b and the three original planning findings remain closed. This is bounded finding closure, not adoption or canonical execution.
+
+### Requested checks
+
+| # | Result | Line read, independent evidence and limit |
+|---|---|---|
+| 1 | Pass | Section 1964–1994; Git metadata reports exactly one path, B-162, +32/-0. Parent file: 287,460 bytes, SHA-256 `01cca95fceb469108072bf5f3f9e53c69475f734d083917cdc6e184344632811`. All parent bytes remain an identical prefix. Reviewed blob `1aa8dc4706407eae587d424dab757141310f4fd6`, 290,067 bytes, SHA-256 `243f89e45939a19b834b9a0d973fd0d8817fe7489d473cc3a00cac4e18238e4f`. It equals parent plus the 2,607-byte append, SHA-256 `f6e804bfdc2bfd491c2181e0cc6e52f866654a40f49b38060af240db7531a09d`. Author and committer emails both equal `241258103+robertaoai@users.noreply.github.com`. Shared identity is metadata, not independent proof of human authorship. |
+| 2 | Pass | Both check JSON records, line 1, bind the full reviewed file digest. Full logs each show 18 PASS, 0 SKIP and only `docs-drift` failing, exit 1. Check 1: 2026-11-05T12:06:58.588Z–12:09:25.358Z; check 2: 12:09:25.750Z–12:11:55.400Z. The trace shows `.githooks/commit-msg` and `git diff --cached --name-only`. Server-before line 1 names `edc577f`; push stderr records `edc577f..01f9297`; server-after line 1 names the full reviewed commit. All 18 manifest members, including push records, match listed sizes and hashes. Manifest SHA-256 `991db540fa9dfdc8c9a58caec0b8600f8cdb8e410c45aff696e7da8380d8e3c2`. These retained records do not establish full-health consistency. |
+| 3 | Pass | Transcript line 2580 is the Judge's user record: UUID `80222d5a-123a-44a1-a90f-74596debec33`, timestamp `2026-11-05T12:05:33.226Z`, 6,308 bytes including final LF, SHA-256 `8a368ce36198ad698a99e82b04e276cf1a758eb170cd98576f2a29d1a4160bc2`. It authorizes one appended M6 correction, two complete checks, one commit and one named non-force push. The D-428 exception is limited to that commit. It adopts no routing rule and authorizes no canonical change. |
+| 4 | Pass | Lines 1972–1977. Independently read `AGENTS.md` from the Git object at `e010aa30b1e5f316676f094c4ab67ac935251763`: blob `d875aa93c8e11665192552f36d4f92cbf7ef1bc7`, 3,616 Unicode code points and 3,626 UTF-8 bytes. The blob is identical at `edc577f` and `01f9297`. Register line 22497, D-324 J1, establishes the 5,400-character working ceiling, distinct from the 6,000 hard cap. `scripts/checks/rule-budget.mjs` line 24 sets `CEILING = 5400`; line 29 counts code points with `[...s].length`. AGENTS.md is unchanged. |
+| 5 | Pass | Line 1983 supersedes only the M6 proof-cell phrase at line 1708 of `e010aa3`: "`rule-budget` passes (now 3,626 of 5,400 characters)". Its replacement is exactly "`rule-budget` passes (at `e010aa3`: 3,616 of 5,400 characters)". The named source revision removes the unsupported current-time wording. |
+| 6 | Pass | Line 1985 explicitly limits the correction to a measurement in a proposed proof cell. It does not prove that a future AGENTS.md change passes rule-budget. That proof remains an obligation of the later authorized M6 unit. |
+| 7 | Pass | Historical line 1708 matches `e010aa3` and the parent exactly. Line 1985 preserves every other M6 field: current and replacement text, owner, predecessor and stop condition. The full parent-prefix check confirms no historical overwrite. Supersession is through appended proposal text only. |
+| 8 | Pass | Line 1987 preserves M20b closure, all three original planning closures, every other row and routing hold. Both B-136 and B-162 headers remain Open. No Verified disposition is added. Lines 1992–1994 retain future-proof, routing, execution and lifecycle limits. Only B-162 changed. |
+
+### Closure and evidence limits
+
+The M6 factual finding is closed. The original three planning findings and M20b remain closed. These results resolve the named proposal defects; they do not adopt the routing package, record its Register decision, release canonical units or certify whole-entry completion.
+
+The historical 3,616-character measurement does not replace a check on future changed bytes. The M6 unit must produce its own rule-budget proof under its own release. Lane C's bounded deferred review remains separate; this receipt asserts no Lane C result.
+
+Lane A evidence: `C:/CoWork/outputs/lane-a-b162-m6-correction-2026-11-05/`. Authority source: `C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/977c3a29-84c5-4979-8081-065ea3f1b07a.jsonl`, line 2580. Current receipt measurements, two full checks, hook evidence and pre/post-push proof are retained separately at `C:/CoWork/outputs/lane-b-b162-review-01f9297-2026-11-05/`.
+
+This receipt preserves all 290,067 reviewed bytes. Its checked, staged and committed bytes must match. Only B-162 changes. No application code, migration, test, AGENTS.md, canonical routing source, workflow, graph artifact or status field changes. Stop after this receipt's authorized delivery.
+
+| Scope | verdict | follow-up phase |
+|---|---|---|
+| Delivery, authority and measured evidence of 01f9297 | Approve | Phase 1: retain measured bindings and evidence limits. |
+| M6 factual correction and finding closure | Approve | Phase 1: closed on this exact revision. |
+| M20b and three original planning findings | Approve | Phase 1: prior closures remain unchanged. |
+| Proof for a future AGENTS.md change | Defer | Phase 1: the authorized M6 unit must check its own changed bytes. |
+| Routing adoption, Register act, canonical units and deferred Level 2 review | Defer | Phase 1: separate Judge decisions, releases and the bounded review trigger remain required. |
+| Whole-entry Verified, B-136/B-162 closure, Gate 2 clearance or lane change | Reject | Phases 1–2: not established by this receipt. |
