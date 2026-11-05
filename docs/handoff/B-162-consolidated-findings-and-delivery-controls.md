@@ -1189,3 +1189,175 @@ This Level 2 receipt is filed under README steps 1?6 as a single-path append to 
 | Repair units U1?U4, T-1, T-2, T-3, U6, C05, C06, C07 | **Defer** | Phase 1: separate Judge acts and unit readiness gates; Phase 2: construction; Phase 3: U5. |
 | Graph synchronization, custody transfer, and file deletion | **Defer** | Phase 1: separate guarded `D-425` release, custody transaction, and exact-path deletion act. |
 | Whole-entry Verified, closing B-136 or B-162, Gate 2 clearance or lane change | **Reject** | Phases 1?2: existing lifecycle, clearance and separate Judge acts still govern. |
+
+## Lane A package after the Lane C review (2026-11-05)
+
+**Read revision:** `ef30902b0098a2d4d00d3bf5233a41f36777ebb8`. No later commit exists on the server at this read. **Sources:** `96b2e44` (D-54 Groups 1–4), `6902bcb` (answer §1–§4), `12a3527` (E1–E4 and added rows), `b865f4b` (Lane B Level 1), `ef30902` (Lane C Level 2). **Authority:** the Judge's rulings of 2026-11-05 (J0) and one guarded `D-428` commit of this path only. The push needs a separate release. This section is proposal text. It releases no Register entry, unit or other file. B-136 and B-162 stay Open.
+
+### Judge rulings recorded (J0)
+
+| Ruling | Choice | Effect on this package |
+|---|---|---|
+| Order | The first B-162 record before `D-477` of the prompt pack | G1 is drafted as `D-477`, section `5.14e300`, thirty-sixth intervening entry. At this read all three are free. The prompt pack's entries move to `D-478` and later. |
+| G1 item 3 | EV-4 only | The C01 statement goes only through B-136/EV r9 (map §7.1). FN-AIG §1 is unaffected (G18). |
+| T-2 shape | Option A | One `FR-15` row; `US-15` is traced in its cell. |
+| L1 | Lane C files a byte-faithful copy of its `ef30902` receipt in its own C-entry | Lane C's receipt at line 1103 replaces `—`, `–`, `§` with `?`. Lane A does not edit it. |
+| L2 | Lane C files future receipts in its own C-series | `ef30902` stays as history. |
+
+### Corrections applied from Lane A's own grade
+
+1. Each matrix row has one file and one class (G5, G22, G26 and G32 are split; G13, G27 and G29 have one class).
+2. G19 is Held. C03 gives the meaning of "hooks run"; this package proposes no wording.
+3. G1 has exact entry text below.
+4. T-2 Option A has exact row text below.
+5. G11 uses "the next Modular_PRD version number, confirmed at filing" (now 1.46, line 93).
+6. Prompt-pack finding P2 is Check: the `D-477` r3 draft was not read.
+7. Number, section and ordinal checks are stated for each Register draft.
+8. Lane A gives no verdict that approves its own work.
+
+### A. Affected-file matrix — what changes
+
+All lines are measured at `ef30902`. Classes: Affected, Unaffected, Check, Held.
+
+| # | ID | File | Lane | Section | Defect or decision | Proposed change | Class |
+|---|---|---|---|---|---|---|---|
+| G1 | C02 placement + C01 | `docs/v1/V1-DECISION-REGISTER.md` | A | New `5.14e300` | `D-476` item 8 permitted `D-476` only | The G1 entry text below | Held |
+| G2 | C02 units | Register | A | One new entry each | T-1, T-2 and U1–U4 each need an act and a placement | One act each, with paths, a negative test and Build Spec §1 sequencing | Held |
+| G3 | C03 | Register | A | New entry | Policy not chosen | Delivery classes (line 578), outcome classes (565–576), exceptions, fail-open (`D-88`) | Held |
+| G4 | C04 | Register | A | Three new entries | T-3 boundary, T-3 `OD2`, U6 | One act each | Held |
+| G5a | C05 | Register | A | New entry | Optional | Owner, period, branch set, report artifact | Held |
+| G5b | C06 | Register | A | New entry | Custody | Act through the B-136 transaction | Held |
+| G5c | C07 | Register | A | Four new entries | Readiness | Lift, selection, work order, lane transition | Held |
+| G5d | U0a–U0c | Register | A | Three new entries | Optional policy | Amend `D-264`/`D-267`/`D-269`; FV-001; DoR check | Held |
+| G6 | T-1 | `docs/governance/requirements-traceability-map.md` | A | §5 (163–185) | No `FR-15` row | `\| FR-15 \| CR-09 (direct); CR-19 (partial, D-247); CR-01, CR-10, CR-11 context only (D-261) \| — \|` | Affected |
+| G7 | T-1 | map | A | §9 changelog (437) | — | One dated row citing the T-1 act | Affected |
+| G8 | C01 | map | A via B-136 | §7.1 EV-4 (B-136 13805) | Route is EV r9 | Change through EV r9 only | Held |
+| G9 | T-3 | map | A | 146; §7 `FB-02` (413) | Not disclosed | Answer and date after a sponsor receipt (map §8, 432) | Check |
+| G10 | T-2 | `docs/Modular_PRD.md` | A | §7.1 (808–835) | No `FR-15` row | The Option A row below | Affected |
+| G11 | T-2 | Modular_PRD | A | §0.1 changelog | — | Row with the next version number | Affected |
+| G12 | C05 | Modular_PRD | A | §7.2a AIG-01 (878) | Evidence path | Only if the measure becomes evidence | Check |
+| G13 | C03, U2 | `docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md` | A | §5 `AIG-01.C2` (216) | Mechanism has no outcome classes | Per C03 | Held |
+| G14 | C03 | FN | A | §6 (230–249) | No hook-outcome row | One `[V1]` row per selected class | Held |
+| G15 | U4 | FN | A | §5 mechanism column | — | Name the wrapper if C03 adds a delivery criterion | Check |
+| G16 | U3 | FN | A | §11.3 (309–318) | Manual route only | Add the pre-push tool route | Check |
+| G17 | C05 | FN | A | §5 new row | Optional | Measure row with the F02 counts | Held |
+| G18 | C01 | FN | A | §1 (32–53) | J0 chose EV-4 only | No change | Unaffected |
+| G19 | C03 | `docs/specs/SPECS-VERIFICATION-APPARATUS.md` | A | §17.1 Checks (473) | "hooks run" undefined | Meaning set by the C03 act | Held |
+| G20 | U3 | SPECS-VERIFICATION | A | §17.1 Range (476) | README procedure only | Add `.githooks/pre-push` with the same proof | Affected |
+| G21 | U5 | SPECS-VERIFICATION | A | §17 (460); §17.1 (477) | Phase 3 | A proof row only if the U5 act needs it | Held |
+| G22a | U3 | `docs/specs/SPECS-MULTI-LANE-AI-GOVERNANCE.md` | A | §5 (106–107) | Path not listed | Add `.githooks/pre-push` | Affected |
+| G22b | U4 | SPECS-MULTI-LANE | A | §5 (106–107) | Path not listed | Add `scripts/deliver.mjs` | Affected |
+| G23 | U2 | `docs/v1/V1-BUILD-SPEC.md` | A | 867 | Gate description | Add the receipt; failure wording per C03 | Affected |
+| G24 | C02 | Build Spec | A | §1 AIG sequence (367–369) | Sequencing not chosen | Only if C02 sequences the units | Held |
+| G25 | C07, U0 | Build Spec | A | 31, 106 | Block and lift condition | Only under C07 or U0a | Held |
+| G26a | U2 | `docs/v1/V1-ARTIFACT-INVENTORY.md` | A | Row 26 | Status text | Add the receipt | Affected |
+| G26b | U2 | Inventory | A | Row 47 | Status text | Add the receipt | Affected |
+| G26c | U1 | Inventory | A | New row | New file | `docs/templates/commit-push-delivery/v1.md` | Affected |
+| G26d | U3 | Inventory | A | New row | New file | `.githooks/pre-push` | Affected |
+| G26e | U4 | Inventory | A | New row | New file | `scripts/deliver.mjs` | Affected |
+| G26f | U2, U5 | Inventory | A | New rows | Paths not chosen | Receipt and workflow rows | Held |
+| G27 | C03, U3, U4 | `docs/handoff/README.md` | A | 12; step 4 (99–124) | Manual proof only | Add the tool route; series ownership and one-path rule unchanged | Check |
+| G28 | C03 | `docs/handoff/TEMPLATE.md` | A | Fields | — | Only if C03 adds a field (`channel-docs` coupled) | Unaffected |
+| G29 | C03, U3 | `docs/LANE-B-WORK-ORDER.md` | A | §4 (343–344); §7 (454–464) | The tracked hook also runs on Lane B pushes | Add a pre-push note | Check |
+| G30 | Tracker | `docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md` | A | §2.3.1 (178) | Stale at `e129915`; B-162 unlisted | Re-derive at the execution commit's parent; B-162 row, proposed `O0`; "clearance claimed: no"; no U-TR repeat | Held |
+| G31 | C07, U0, T-3 | `docs/v1/work-packets/V1/V1-SM05.md` | A | 4, 8–9, 211 | BLOCKED; FV-001 after selection; disclosure duty | Only under C07 or U0. The path may move under the prompt pack's reslot | Held |
+| G32a | C07 | `docs/v1/V1-PHASE-CLOSURE.md` | A | §5 (378–384) | Lane state | Only under a lane-transition act | Held |
+| G32b | C01 | `docs/ENCYCLOPEDIA-SYNC.md` | A | Entry 06 (37) | EV-4 lands in map §7.1 | Record the comparison or disposition. A flag is not a hosted review | Check |
+| G32c | T-3 | ENCYCLOPEDIA-SYNC | A | Entry 05 trigger (48) | Boundary text | Only if the boundary text changes | Check |
+
+### B. Affected-file matrix — authority, proof and return
+
+| # | Predecessor and Judge authority | Acceptance evidence | Return entry | Stop condition |
+|---|---|---|---|---|
+| G1 | Judge act with its own placement clause | Number, section and ordinal free at HEAD; D-54 table; Lane B reviews Lane A's record | B-162 | Any of the three is taken |
+| G2–G5d | G1, then each act | One Register act each, with its own placement | B-162 | One act inferred from another |
+| G6–G7 | T-1 act | Row at a named commit; checks except `docs-drift`; Lane B | B-162 | New Product scope inferred |
+| G8 | G1, then EV r9 | EV r9 record | B-136 | Direct edit |
+| G9 | T-3 act + sponsor receipt | The receipt | B-162 | No receipt |
+| G10–G11 | T-2 act (Option A chosen) | Row with `[V1]` | B-162 | Any other shape |
+| G12, G17, G5a | U2 applied | F02 counts | B-162 | Single percentage or benefit claim |
+| G13–G16, G19–G20, G22a–G23, G26a–G26e, G27, G29 | C03 + the unit act | `[V1]` markers; coupled checks | B-162 | Behaviour changed without C03 |
+| G18, G28 | — | — | B-162 | — |
+| G21, G26f | U4 + Lane C handoff (Phase 3) | Controlled failure; other-lane review | B-162 | Used as pre-push proof |
+| G24, G25, G31, G32a | Own acts | Register act each | B-162 | Inferred selection, lift or lane change |
+| G30 | Own authorization; no order with B-158 | `closure-readiness` 0 unlisted; Lane B reviews the order | B-162 | Clearance claimed |
+| G32b, G32c | The triggering act | A recorded comparison or disposition | B-162 | A flag reported as a review |
+
+### C. Tooling and new artifacts
+
+| # | Path | Unit | Notes |
+|---|---|---|---|
+| T1 | `docs/templates/commit-push-delivery/v1.md` | U1 | New. Needs a graph node and fragment (`graph-coverage`; template v1 node in `frag139.json`). |
+| T2 | `.githooks/commit-msg` | U2 | Line 8 exits 0 when Node is absent. |
+| T3 | `scripts/lane-gate.mjs` | U2 | Exits at 45–47, 59–60, 63, 65–66, 69–73, 154. |
+| T4 | `.githooks/pre-push` | U3 | New. Takes the approved range. |
+| T5 | `scripts/deliver.mjs` | U4 | New. Writes the U1 record. |
+| T6 | `package.json` | U4 | `deliver` script; build config (`D-86`). Lines 13–14 unchanged. |
+| T7 | Tests (paths Held) | U2–U4 | Harness `scripts/fixtures/`. Node-missing, stale-upstream and wrong-range tests. Coupled: `tier-sweep`, `channel-docs`, `graph-coverage`, `phase-manifest`. |
+| T8 | `.gitignore` | U2 | Only for an untracked receipt. |
+| T9 | `.github/WORKFLOWS-SPEC.md` §4 (65) | U5 | Lane C's path, release and lane transition stay Held. |
+| T10 | `docs/graph-fragments/<new>.json` (Held) | U1, U0b | Re-merge (`G51`); publication is a guarded `D-425` act. |
+
+`docs/templates/dor-dod-validation/v1.md` stays unchanged. The U0b path, sponsor receipt, C05 report and custody destinations stay Held.
+
+### G1 — Register entry text (draft; not recorded)
+
+```markdown
+## 5.14e300 `D-477` — B-162 Development-Control Problem Adopted as Project Scope; Thirty-Sixth Intervening Entry Permitted
+
+**Authority: the Judge, directly to Lane A, <date>**: "<the Judge's exact words>".
+
+### The decision
+
+1. **Placement.** I permit this entry as the thirty-sixth intervening Register entry, after `D-476` and before the separate TCA r3 (J3) and J-C A1 entries. No further intervening entry is permitted by implication. Each later act needs its own placement.
+2. **Problem (C01).** I adopt as global Project scope (`Modular_PRD.md` §7.2a, `D-271`): "Changes by three AI lanes must stay inside owned surfaces, be reviewed by another lane, and carry evidence that the required local checks ran." It creates no Product `US-*`, `FR-*` or `AC-*`.
+3. **Record.** The statement goes to EV-4 only, through B-136/EV r9 (map §7.1).
+4. **Limits.** This entry releases no unit, policy, hook, graph operation, custody transfer, lift, selection or lane transition. B-136 and B-162 stay Open.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry |
+| **Build Spec** | — unaffected: no scope, sequence or DoD change |
+| **Inventory** | — unaffected: no file created or retired |
+| `Modular_PRD.md` | — unaffected: §7.2a is the existing route |
+| Map §7.1 EV-4 | Follow: through B-136/EV r9 only |
+| FN-AIG §1 | — unaffected: item 3 selects EV-4 only |
+| **Encyclopedia** | Entry 06 check: EV-4 lands in map §7.1 |
+| **Graphify** | Affected: `D-425` after the last governed change |
+```
+
+### T-2 — Modular_PRD §7.1 row (Option A; draft)
+
+`| FR-15 [V1] | Functional | Record T1–T5 stage judgments and evidence for one accepted commission on ROUTE-PROD-1 (US-15) | CR-09, CR-19 | **Partial** — CR-09 direct; CR-19 partial (D-247); CR-01/10/11 context only (D-261) | V1-SM05 |`
+
+The Sprint cell follows the packet identity if the prompt pack's reslot changes it.
+
+### D. B-series answers (all Proposed)
+
+| Entry | Finding | Response and reason | Status | Owning source | Source commit | Evidence and limits | Remaining work and owner | Independent review |
+|---|---|---|---|---|---|---|---|---|
+| B-162 | Delivery-control findings F01, F02, C04 and tracking, reviewed at `b865f4b` and `ef30902` | G1–G32 and T1–T10 map each finding to its owning file. G1 carries its own placement, because `D-476` item 8 leaves no permission | Proposed | Matrix A | None yet; recorded per unit | Measured at `ef30902`; nothing applied; no historical hook run proven | Judge: G1–G5d; Lane A: each unit; Lane C: U5 in Phase 3 | Lane B Level 1, Lane C Level 2; for U5, Lane B Level 1 and Lane A Level 2 |
+| B-136 | C01 EV-4 record; C06 custody | Use the existing EV r9 transaction (13805) and the existing custody and registration transaction. Create no second transaction | Proposed | B-136 EV r9; custody transaction | None yet | Existing seals kept | Lane A after G1 and C06 | Lane B |
+| B-158 | Line 828 says T1–T3 are not applied | Append the dated note at `12a3527` (line 1011). It moves no owner and closes no row. No order with the SV-002 update | Proposed | B-158, after line 828 | None yet | B-136 24941 and 24995 only | Lane A after authorization | Lane B |
+
+### Open Judge choices
+
+1. G1 as an act, and its date and words.
+2. C03 failure policy.
+3. C05 owner, period and report.
+4. C06 destinations.
+5. U0, if wanted.
+6. Authorization of the B-158 note and the SV-002 re-derivation.
+7. The push of this commit.
+
+The frozen PRD, Charter and `0001_init.sql` are unchanged. Prompt pack DRAFT r2 is outside the repository; its path and SHA-256 are reported with this commit. Lane B reviews this section at Level 1, then Lane C at Level 2 in its own C-entry.
+
+| Scope | D-20 verdict | Follow-up phase |
+|---|---|---|
+| This package | Lane B and Lane C to decide | Phase 1: Level 1, then Level 2 |
+| G1 and later acts | Defer | Phase 1: each act with its own placement |
+| B-158 note and SV-002 re-derivation | Defer | Phase 1: separate authorizations; one path each |
+| Units, graph sync, custody, deletion, lift, lane change | Defer | Phase 1: own acts; Phase 2: construction; Phase 3: U5 |
+| Whole-entry Verified, closing B-136 or B-162, Gate 2 clearance | Reject | Phases 1–2: not established |
