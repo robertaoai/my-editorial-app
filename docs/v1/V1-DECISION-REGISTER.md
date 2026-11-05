@@ -31420,3 +31420,27 @@ identifiers: `D-475`, §5.14e298, thirty-fourth.
 | `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `docs/PRD.md`, Charter, `0001`, FN specs, `docs/specs/`, template v1, Phase Closure, `.claude/`, `scripts/`, application code, build configuration | — unaffected |
 | **Encyclopedia** | unaffected: `docs/ENCYCLOPEDIA-SYNC.md` cites none of the changed sections of `Modular_PRD.md` by a text search; hosted parity not claimed |
 | **Graphify** | Affected: governed drift remains until a separately released guarded cycle publishes and is healthy (`D-425`) |
+
+## 5.14e300 `D-477` — B-162 Development-Control Problem Adopted as Project Scope; Thirty-Sixth Intervening Entry Permitted
+
+**Authority: the Judge, directly to Lane A, 2026-11-05**: "I adopt the reviewed G1 text as D-477. Item 0 of D-440 and D-441, as amended through D-476 item 8, is further amended to permit one further intervening Register entry, this thirty-sixth entry, after D-476 and before the separate TCA r3 (J3) and J-C A1 entries. J1 and J2 keep their identities, text and transfer holds. No further intervening entry is permitted by implication" (retained: session transcript `C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/977c3a29-84c5-4979-8081-065ea3f1b07a.jsonl`, line 3525, record UUID `5232a3b4-a121-4b61-9d2b-98ab6ec5da26`, timestamp 2026-11-05T14:37:02.352Z, 10,715 bytes including the final LF, SHA-256 `1612cd256de0d23a04ff62860918493d5ee707e154e0a33b3b7d6d5cff620385`).
+
+### The decision
+
+1. **Placement.** I permit this entry as the thirty-sixth intervening Register entry, after `D-476` and before the separate TCA r3 (J3) and J-C A1 entries. No further intervening entry is permitted by implication. Each later act needs its own placement.
+2. **Problem (C01).** I adopt as global Project scope (`Modular_PRD.md` §7.2a, `D-271`): "Changes by three AI lanes must stay inside owned surfaces, be reviewed by another lane, and carry evidence that the required local checks ran." It creates no Product `US-*`, `FR-*` or `AC-*`.
+3. **Record.** The statement goes to EV-4 only, through B-136/EV r9 (map §7.1).
+4. **Limits.** This entry releases no unit, policy, hook, graph operation, custody transfer, lift, selection or lane transition. B-136 and B-162 stay Open.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry |
+| **Build Spec** | — unaffected: no scope, sequence or DoD change |
+| **Inventory** | — unaffected: no file created or retired |
+| `Modular_PRD.md` | — unaffected: §7.2a is the existing route |
+| Map §7.1 EV-4 | Follow: through B-136/EV r9 only |
+| FN-AIG §1 | — unaffected: item 3 selects EV-4 only |
+| **Encyclopedia** | Entry 06 check: EV-4 lands in map §7.1 |
+| **Graphify** | Affected: `D-425` after the last governed change |
