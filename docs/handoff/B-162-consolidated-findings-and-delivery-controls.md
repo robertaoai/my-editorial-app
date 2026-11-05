@@ -1918,3 +1918,45 @@ This is the only statement superseded. Every other part of M20b stays: Check, it
 | The same statement in M6 (line 1708) | Defer | Phase 1: a separate Judge release |
 | Routing adoption, Register entry, canonical units | Defer | Phase 1: §11 steps v–vi, each with its own authority |
 | Whole-entry Verified, closing B-136 or B-162, Gate 2 clearance, lane change | Reject | Phases 1–2: not established |
+
+## Lane B — Level 1 review of 3d72ee9, 2026-11-05
+
+**Reviewed revision:** `3d72ee9a8f4e4d98820b35a10002bae33bd8044f`, parent `0bcb5e4100e09969d7e71e0b2dae8268c93688d1`. Scope: Lane A's M20b factual correction, lines 1889–1920. B-162 line references below are at the reviewed revision unless another revision is named. A successful fetch confirmed HEAD and `origin/features/feature-V1-SM05` both exactly at `3d72ee9`. The checkout and index were clean. There were no newer commits to report.
+
+**Receipt authority:** the Judge's current direct instruction authorizes one receipt commit and named non-force push under README steps 1–6. Its guarded D-428 exception permits only `docs-drift` to fail in two complete checks, for this receipt only. Bound path: `docs/handoff/B-162-consolidated-findings-and-delivery-controls.md`. This receipt adopts no routing rule and records no Verified disposition.
+
+**Result:** all eight requested checks pass. The M20b residual factual finding from `0bcb5e4` is closed on this exact correction. M6's separate count error remains reported and deferred; it is not a failure to perform the authorized M20b-only correction.
+
+### Requested checks
+
+| # | Result | Line read, independent evidence and limit |
+|---|---|---|
+| 1 | Pass | Section 1889–1920; Git metadata reports exactly one path, B-162, +33/-0. Parent file: 278,178 bytes, SHA-256 `16e5993b023071eb0863ff6a90376322dfe06d3a31236a17e01274541ce3a4e3`. All parent bytes remain an identical prefix. Reviewed blob `4898c6b4d874d6e82c4b6f47d399267af63a8f8b`, 280,658 bytes, SHA-256 `514ca6f84d3d0c3d3be79a2ea6fed33b9f4a1c36845a214fec6aaa2a11bd2109`. It equals parent plus the 2,480-byte append, SHA-256 `5ddf8d96b97537ddabca90a92288e684f0ddd53adb994e773cc6e9fd9aa0e422`. Author and committer emails both equal `241258103+robertaoai@users.noreply.github.com`. Shared identity is metadata, not independent proof of human authorship. |
+| 2 | Pass | Both check JSON records, line 1, bind the full reviewed file hash. Full logs each show 18 PASS, 0 SKIP and only `docs-drift` failing, exit 1. Check 1: 2026-11-05T11:43:03.125Z–11:45:43.749Z; check 2: 11:45:44.172Z–11:48:06.787Z. The retained trace shows `.githooks/commit-msg` and `git diff --cached --name-only`. Server-before line 1 names `0bcb5e4`; push stderr records `0bcb5e4..3d72ee9`; server-after line 1 names the full reviewed commit. All 18 manifest members, including push records, match their listed sizes and hashes. Manifest SHA-256 `5c69744d5dbe714a47ec34e242d7f533c5312343ea19c8466a1802b61592fb33`. No full-health consistency claim follows. |
+| 3 | Pass | Transcript line 2454 is the Judge's user record: UUID `4785a994-d0e1-486f-8a53-a3f05128e4f7`, timestamp `2026-11-05T11:40:34.122Z`, 5,144 bytes including final LF, SHA-256 `7696de8f3f550a28df47e101501fd524af92ec2ed531c65ace4e3df99585bf78`. Its text authorizes one appended M20b correction, two complete checks, one commit and one named non-force push. The D-428 exception is limited to that commit. It expressly adopts no routing rule and authorizes no canonical change. |
+| 4 | Pass | Lines 1897–1901. Independently read `AGENTS.md` at `e010aa30b1e5f316676f094c4ab67ac935251763`: blob `d875aa93c8e11665192552f36d4f92cbf7ef1bc7`, 3,616 Unicode code points and 3,626 UTF-8 bytes. Blob identity matches at `0bcb5e4` and `3d72ee9`. AGENTS.md did not change. |
+| 5 | Pass | Lines 1907–1909 supersede only the statement at line 1829 of `5afd922`: "AGENTS.md is 3,626 characters now." The replacement states: "At e010aa3, AGENTS.md contains 3,616 characters and 3,626 UTF-8 bytes." The source text retains its Markdown code formatting. Historical line 1829 remains byte-identical. M20b's Check disposition, M6/M7 predecessor, rule-budget proof and stop condition are unchanged. The replacement satisfies the exact factual correction requested in receipt line 1870. |
+| 6 | Pass | Line 1913 reports the same confusion in M6 at line 1708 of `e010aa3`; line 1918 defers correction to a separate release. The old M6 row remains unchanged. This filing does not extend its one-statement authority or implicitly correct M6. |
+| 7 | Pass | Line 1911 preserves closure of the original M19/M20 split, M5 coverage and M17 reassessment. The complete parent prefix, including the `0bcb5e4` review, is unchanged. Those planning findings are not reopened. |
+| 8 | Pass | Lines 1909, 1911 and 1919–1920 preserve every other row, disposition and routing hold. Both B-136 and B-162 headers remain Open. No Verified disposition is added. Routing adoption, Register recording and canonical units remain deferred. Only this B-entry changed. |
+
+### Closure and remaining scope
+
+M20b's residual factual finding is closed. This closes the numeric-unit condition in `0bcb5e4` for M20b only. It does not certify the entire routing package, resolve M6, adopt a routing rule or authorize a canonical edit.
+
+M6 still says "now 3,626 of 5,400 characters" at historical line 1708. Lane A correctly reported it without changing it. Phase 1: a separately authorized correction and exact-revision review must resolve that statement. Its existence does not reopen the three closed planning findings or the now-correct M20b statement.
+
+### Evidence and filing boundary
+
+Lane A evidence: `C:/CoWork/outputs/lane-a-b162-m20b-correction-2026-11-05/`. Authority source: `C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/977c3a29-84c5-4979-8081-065ea3f1b07a.jsonl`, line 2454. Current receipt measurements, two full checks, hook evidence and pre/post-push proof are retained separately at `C:/CoWork/outputs/lane-b-b162-review-3d72ee9-2026-11-05/`.
+
+The receipt preserves all 280,658 reviewed bytes. Its checked, staged and committed bytes must match. Only B-162 changes. No application code, migration, test, AGENTS.md, workflow, graph artifact, status field or routing rule is changed. The current receipt authority does not grant another Lane A delivery. Stop after this receipt's authorized delivery.
+
+| Scope | verdict | follow-up phase |
+|---|---|---|
+| Delivery, authority and measured evidence of 3d72ee9 | Approve | Phase 1: retain the measured bindings and stated evidence limits. |
+| M20b factual correction and residual finding closure | Approve | Phase 1: closed on this exact revision; no broader acceptance follows. |
+| Original three planning findings | Approve | Phase 1: their prior closure remains unchanged. |
+| M6 character-count statement | Defer | Phase 1: separate authorized correction and exact-revision review. |
+| Routing adoption, Register act and canonical units | Defer | Phase 1: Judge decisions and authorized sequence remain required. |
+| Whole-entry Verified, B-136/B-162 closure, Gate 2 clearance or lane change | Reject | Phases 1–2: not established by this receipt. |
