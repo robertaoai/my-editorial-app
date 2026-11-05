@@ -1839,3 +1839,49 @@ All rows are proposals. Nothing is applied. B-136 and B-162 stay Open. No Verifi
 | Routing adoption, Register entry, canonical units | Defer | Phase 1: §11 steps v–vi, each with its own authority |
 | Lane C Level 2 review | Defer | Phase 1: step vii, after recording (item 13) |
 | Whole-entry Verified, closing B-136 or B-162, Gate 2 clearance, lane change | Reject | Phases 1–2: not established |
+
+## Lane B — Level 1 review of 5afd922, 2026-11-05
+
+**Reviewed revision:** `5afd922eb8301659014d19e0a4129b8ab90d08f6`, parent `e010aa30b1e5f316676f094c4ab67ac935251763`. Scope: Lane A's routing correction, lines 1792–1841. B-162 line references below are at the reviewed revision unless a parent reference is named. A successful fetch confirmed HEAD and `origin/features/feature-V1-SM05` exactly at `5afd922`. The checkout and index were clean. No newer commits existed at that preflight.
+
+**Filing authority:** the Judge's current direct instruction authorizes this one Lane B receipt commit and named non-force push under README steps 1–6. Its guarded D-428 exception permits only `docs-drift` to fail in two complete checks, for this receipt only. Bound path: `docs/handoff/B-162-consolidated-findings-and-delivery-controls.md`. This review adopts no routing rule and records no Verified disposition. It does not wait for Lane C's deferred Level 2 review.
+
+**Result:** nine requested items pass; item 8 has one residual factual finding. The original three planning corrections are closed within their proposal scope. M20b's bytes/characters statement remains incorrect in the delivered commit and is returned to Lane A separately.
+
+### Requested checks
+
+| # | Result | Line read, evidence and limit |
+|---|---|---|
+| 1 | Pass | Section 1792–1841; Git object metadata reports only B-162, +51/-0. Parent `e010aa3` is 260,382 bytes, SHA-256 `1c20b54f88ab2f97b02c21cc3b09adf587c8598b489d69fefc05802b0d75d2bd`. All parent bytes remain an identical prefix. Reviewed blob `d92ed5a184fda377922d54f1b8184bd923d4a511`, 269,506 bytes, SHA-256 `1bbc0e0b80e429c43a4313317ae72571b758c16b812515430883d893c46e10d2`. It equals parent plus the measured 9,124-byte append, SHA-256 `1d7b0c0a73925dd97652267fbed21d9042109cb2f358d640826c623efa1daf53`. Author and committer emails both equal `241258103+robertaoai@users.noreply.github.com`. Shared email identifies commit metadata, not a human author. |
+| 2 | Pass | Both check JSON records, line 1, bind the full reviewed file digest. Full logs each show 18 PASS, 0 SKIP, only `docs-drift` failing and exit 1. Check 1: 2026-11-05T10:16:53.312Z–10:20:05.757Z; check 2: 10:20:06.232Z–10:23:20.097Z. `git-trace.txt` shows `.githooks/commit-msg` and its cached-path query. `push/server-before.out` line 1 names `e010aa3`; `push/push.err` records `e010aa3..5afd922`; `push/server-after.out` line 1 names the full reviewed commit. All 17 manifest members, including push files, match their listed byte counts and hashes. Manifest SHA-256 `640ab022ad37dd54dc86ae06827d69990a5925d6261b5549a0604b8f98d50503`. These are candidate check results and retained delivery records, not full-health proof. |
+| 3 | Pass | Transcript line 2321: UUID `2641ba9a-8b54-4c1b-8ff7-a576d2e193d5`, timestamp `2026-11-05T09:34:11.035Z`, 5,991 bytes including final LF, SHA-256 `cf830bed6e36e05677ae941f94964bac5a32ec1d48b4ab62403f111e663850ff`. The user record expressly covers the three corrections, two complete checks, one B-162 commit, one named non-force push and the commit-only D-428 exception. It expressly does not adopt routing rules. No new permission is inferred from the earlier provisional review. |
+| 4 | Pass | Lines 1800–1807 map K1–K8 to parent M19 1721, M20 1722, M5 1707, M17 1719, tier table 1626–1640, closure rows 1731/1734 and step vi 1748. The parent anchors match. Line 1809 limits supersession. The complete parent prefix confirms that supersession is appended proposal text, not a historical overwrite. |
+| 5 | Pass | M5 at 1817 has one FN owning file. Read the source at `e010aa3`: lines 76, 99–100, 107–108, 141, 146, 183–186 and 234. The cited fragments match; references 100 and 107 address sentences that span adjacent lines. The proposed replacements remove new Lane A C-receiver routes, place governance feedback and measurement receipts in the relevant B-entry as attributed sections, and distinguish C-001–C-009 as historical. Review-role replacements keep the stated work-type distinctions. No FN source change occurs now. |
+| 6 | Pass | M17 at 1818 is Check. Its quoted source matches Phase Closure line 384 at `e010aa3`. The note is proposed below the §5 table, not inside a state cell. The D-<NNN> act must explicitly name the note before execution. Before/after lane-state byte equality and a passing lane-state check are required for that later unit. Phase Closure is unchanged in this commit; this review does not claim that the proposed note has executed. |
+| 7 | Pass | Lines 1819–1827 name nine exact files, M19a–M19i. Each is Unaffected with the preservation reason stated directly or incorporated from M19a. Each source file has Receiver Lane A and Status Answered. All nine files remain byte-identical to the parent. Historical classification requires no edit to them. |
+| 8 | Finding | Lines 1828–1829 correctly separate `channel-docs.mjs` and `rule-budget.mjs`. Both are Check, with their own predecessors, proof and stop conditions. Neither source file changed. However, M20b says `AGENTS.md` is 3,626 characters. The Git object contains 3,616 characters and 3,626 UTF-8 bytes. The structural split passes; the factual statement requires the correction below. |
+| 9 | Pass | Lines 1817–1829 contain 13 replacement rows: M5, M17, nine M19 rows and two M20 rows. Each has one owning file and one disposition. M19a–i and M20a–b are subordinate matrix labels, not governance identifiers. |
+| 10 | Pass | Lines 1809 and 1833 preserve the routing model, decision items 1–13, bounded Level 2 deferral and `a925314` conclusions. All parent text is unchanged. B-136 and B-162 remain Open; their headers are untouched. Routing adoption and canonical execution remain deferred. |
+
+### Residual factual finding — M20b
+
+**Source:** B-162 line 1829 at `5afd922`. The statement confuses UTF-8 byte length with character count. Independent measurement of the committed `AGENTS.md` object gives 3,616 characters and 3,626 bytes; the object is unchanged from `e010aa3`.
+
+**Required correction:** replace the proposal statement with: "At `e010aa3`, `AGENTS.md` contains 3,616 characters and 3,626 UTF-8 bytes." Lane A owns that correction. Phase 1: return it through an authorized append-only correction with exact-revision evidence. Do not rewrite `5afd922`, alter AGENTS.md, or reuse an exhausted one-commit release. This receipt does not grant another Lane A commit or push.
+
+This count error does not invalidate the M19/M20 row split, M5 propagation coverage or M17 reassessment. Those original three planning findings are closed. The full correction text remains approved with this factual condition. Closure of planning findings is not adoption, execution permission or whole-entry closure.
+
+### Evidence and boundary
+
+Source evidence: `C:/CoWork/outputs/lane-a-b162-routing-correction-2026-11-05/`. Source authority: `C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/977c3a29-84c5-4979-8081-065ea3f1b07a.jsonl`, line 2321. This receipt's measurements, two complete checks, hook trace and pre/post-push proof are retained separately at `C:/CoWork/outputs/lane-b-b162-review-5afd922-2026-11-05/`.
+
+The receipt preserves all 269,506 reviewed bytes. Its checked, staged and committed bytes must match. Only B-162 changes. No source correction, application code, migration, test, graph operation or lane-state change is performed. The draft Level 2 deferral remains bounded; no Lane C conclusion is asserted. The proposal changes Lane B's oversight order, so this Level 1 result remains independent review of Lane A's proposal, not self-approval or a substitute for the Judge and deferred Lane C review.
+
+| Scope | verdict | follow-up phase |
+|---|---|---|
+| Delivery, authority and measured evidence of 5afd922 | Approve | Phase 1: retain the exact bindings and stated evidence limits. |
+| Original M19/M20, M5 and M17 planning findings | Approve | Phase 1: closed as proposal corrections; no execution release follows. |
+| Full correction text, including M20b | Approve-with-conditions | Phase 1: Lane A corrects the bytes/characters statement through authorized append-only delivery; exact-revision review follows. |
+| M17 note, routing adoption, Register act and canonical units | Defer | Phase 1: named resolution condition, Judge decisions and separate authorized steps remain required. |
+| Lane C Level 2 review | Defer | Phase 1: the stated bounded trigger follows recording and propagation; no review result is presumed. |
+| Whole-entry Verified, B-136/B-162 closure, Gate 2 clearance or lane change | Reject | Phases 1–2: not established by this receipt. |
