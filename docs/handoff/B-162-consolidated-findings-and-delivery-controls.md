@@ -2032,3 +2032,92 @@ This receipt preserves all 290,067 reviewed bytes. Its checked, staged and commi
 | Proof for a future AGENTS.md change | Defer | Phase 1: the authorized M6 unit must check its own changed bytes. |
 | Routing adoption, Register act, canonical units and deferred Level 2 review | Defer | Phase 1: separate Judge decisions, releases and the bounded review trigger remain required. |
 | Whole-entry Verified, B-136/B-162 closure, Gate 2 clearance or lane change | Reject | Phases 1–2: not established by this receipt. |
+
+## Lane B Level 1 review — final routing decision package (2026-11-05)
+
+**Actor and scope.** Lane B, under D-324. This reviews an external proposal, not a new Lane A commit. The Judge's direct instruction releases this one B-162 receipt commit and its named non-force push. Its guarded D-428 exception permits only docs-drift to fail. It releases no routing adoption, canonical unit or Judge choice C1–C5.
+
+**Binding.** Reviewed file: C:/CoWork/outputs/lane-a-routing-decision-package-2026-11-05/FINAL-ROUTING-PACKAGE.md. Size: 41,041 bytes. SHA-256: ab4e6b1af048fa1e02545e0becec8a2cc4fea8fdaa637bbdd8b285df1644c935. This is a file hash, not a commit ID. Package line numbers below refer only to these bytes.
+
+**Preflight.** A fresh fetch confirmed HEAD and origin/features/feature-V1-SM05 at 6573ec1fccd0ab14aa120dd495c49bd049a562cf. The index and checkout were clean. There were no newer commits. The parent B-162 contains 296,912 bytes, SHA-256 18311e76e6820bc00dc7605ecac8728cc1dca61b2295f12a86d83a48ce706625. This receipt preserves that entire prefix.
+
+### 1. Requested checks
+
+| # | Result | Lines read and measured result |
+|---|---|---|
+| 1 | Pass | Package lines 1–22; original file measured 41,041 bytes and the bound SHA-256. It uses LF and contains 0 CR bytes. Both saved B-162 inputs equal their Git blobs at e010aa3 and 5afd922. |
+| 2 | Pass | Builder lines 6 and 63. Copied the whole source folder to the evidence folder's rebuild-copy directory. Changed only copied builder line 6. The copied build exited 0 and reproduced the original bytes exactly. All six original files retained their measured hashes. |
+| 3 | Pass | Package lines 12–18. All seven full SHAs exist on the branch in the stated order. Only B-162 changed from e010aa3 through 6573ec1. Each listed commit is an append to that path. |
+| 4 | Pass | Builder lines 11–62; package lines 288–298. Every replacement maps to X1–X11. The body derives from e010aa3 lines 1584–1753, with disclosed replacements, heading promotion and boundary trimming. New decision support is identified at package line 21. F1 below concerns a retained reference, not a hidden edit. |
+| 5 | Pass | Package lines 149–174 and 288–296; 5afd922 lines 1804–1807 and 1817–1829. X1–X4 copy the accepted rows. M20b then receives X5 from 3d72ee9 line 1907; M6 receives X6 from 01f9297 line 1983. X7 adds the disclosed item-14 condition to K5. X8 and X9 match K6–K8. |
+| 6 | Pass | Package line 64, choice C3 at line 211, and 5afd922 line 1818. Item 14 quotes the M17 note exactly. C3(a) includes it; C3(b) holds it. Read the shorthand “selects choice C3” through those alternatives, not as permission under C3(b). |
+| 7 | Finding | Package line 45 includes the unlisted section placeholder 5.14e<NNN>. The decision and section numbers differ: C2 at line 210 maps D-478 to 5.14e301, or D-479 to 5.14e302. F4 requires distinct placeholders; the existing C2 mapping remains correct. |
+| 8 | Pass | Package lines 145–174. All 30 matrix rows name one file and one disposition. Each Unaffected row states a source-based reason, including historical C-001–C-009. |
+| 9 | Pass | Package line 149; FN-MULTI-LANE-AI-GOVERNANCE.md lines 76, 100, 107, 141, 146, 183–186 and 234 at the reviewed baseline. M5 covers each requested location and the prospective B-entry governance route. |
+| 10 | Pass | Package lines 80, 161, 211 and 242. M17 stays Check with a named resolution condition. The note requires item 14 and C3(a). It goes below the table; lane-state values stay unchanged. |
+| 11 | Pass | Package lines 150, 173 and 300. Git blob d875aa93c8e11665192552f36d4f92cbf7ef1bc7 at e010aa3 measures 3,616 Unicode code points and 3,626 UTF-8 bytes. The accepted rows retain “characters”; the measurement supplies its meaning. Line 300 excludes future-change proof. |
+| 12 | Pass | Package line 20; receipts 0bcb5e4 lines 1843–1887, edc577f lines 1922–1962, and 6573ec1 lines 1996–2034. The three planning findings, M20b and M6 remain closed. |
+| 13 | Pass | Package lines 210–217; Register at 6573ec1 lines 31273 and 31403. Options A and B use the correct next numbers, sections and ordinals. Both require G1 first. The dated observation reserves nothing. Option A states the r6 reslot act and prompt-pack renumbering cost. |
+| 14 | Pass | Package lines 224–230 and 239–247. Acceptance, recording, canonical propagation, delivery, D-428 and Level 2 remain separate. The recommended act runs only after D-477 is on the server and changes only the Register. It is a proposed Judge act. |
+| 15 | Finding | Package lines 196, 199, 213 and 239–261. D-385 separation and nine D-54 dispositions are present. F1–F3 below identify a broken reference, omitted conditional files and a missing stop condition. |
+| 16 | Pass | Package lines 267–282. Checked model boundaries 1584/1600, decision items 1611/1623, K5 at 1804, matrix boundaries 1703/1723, knowledge limits 1686/1695, sequence 1739/1752, M20b at 1907 and M6 at 1983 against the named revisions. The source map matches. |
+| 17 | Finding | Package lines 306–327. Attributes 16 and 19 need conditions: correct C2 values do not cure F4 in the recording template, and F1–F3 leave transaction gaps. The supported grade is 18 Pass, 2 Findings. The original “20 Pass, 0 Finding” total is unsupported. |
+
+### 2. Findings returned to Lane A
+
+These findings concern the consolidated package. They do not reopen the accepted historical corrections.
+
+| Finding | Evidence | Required correction and closure proof |
+|---|---|---|
+| F1 — removed-section reference | Package line 196, §11 step iii, cites “prompt §13”. Builder lines 53–58 remove §13. X11 at package line 298 discloses that removal. | Remove the stale locator or name the actual Level 1 instruction. Verify that every internal section reference resolves in the revised package. |
+| F2 — transaction coverage | Package line 199 and C5 at line 213 include M12–M13 if chosen. T4 at line 242 omits both files. | Include the Build Spec and Lane B work order conditionally in T4, or give them explicit transactions. Preserve each file's Check condition and separate release. Match §11, C5 and §16. |
+| F3 — Level 2 stop condition | Package line 243 gives T5 a stop condition of “—”. | Add an observable stop condition for missing prerequisites, authority or evidence. Preserve item 13's bounded trigger and the B-162 attributed-section route. |
+| F4 — ambiguous section placeholder | Package line 45 uses <NNN> for both the decision and section. Line 22 omits the section placeholder. C2 at line 210 supplies the correct, unequal values. | Give the section placeholder a distinct name. List it explicitly and bind it to C2. Preserve the existing choice mappings and leave the choice to the Judge. |
+
+Update §20 attributes 16 and 19 and its total after these corrections. Update C1's “no open finding remains” statement at line 209. Do not present the current copy-ready act as reviewed without these conditions. The later review must bind the revised artifact and identify this receipt. No choice C1–C5 is made here.
+
+### 3. Independent assessment of the package's 20 attributes
+
+Pass means supported proposal text or measured evidence. It does not mean the routing rule is adopted.
+
+| # | Attribute | Result | Supporting package lines or evidence |
+|---|---|---|---|
+| 1 | Exact revision chain | Pass | Lines 12–18; Git ancestry and one-path measurements |
+| 2 | Receipt 6573ec1 incorporated | Pass | Lines 18, 20 and 282 |
+| 3 | Closed findings preserved | Pass | Line 20; the three closure receipts |
+| 4 | No silent consolidation edit | Pass | X1–X11 at 288–298; builder read and exact rebuild |
+| 5 | Governance ownership and B route | Pass | Lines 28 and 52 |
+| 6 | Code ownership and C route | Pass | Lines 29 and 52–53 |
+| 7 | D-324 change stated as a change | Pass | Lines 55 and 116–120 |
+| 8 | D-272 changes are prospective | Pass | Lines 53–54; historical retention at 57 |
+| 9 | J0 L1 and L2 addressed | Pass | Lines 56 and 124–126 |
+| 10 | Historical C-entry preservation | Pass | Lines 57, 89–99 and 163–171 |
+| 11 | Attributed authorship and delivery | Pass | Lines 54 and 105–110 |
+| 12 | One file and disposition per row | Pass | Lines 145–174; 30 rows |
+| 13 | M5 coverage | Pass | Line 149; requested FN source locations |
+| 14 | Explicit M17 condition | Pass | Lines 64, 80, 161, 211 and 242 |
+| 15 | Correct historical measurements | Pass | Lines 150, 173 and 300; Git-object measurement |
+| 16 | Placement and identifiers | Finding | C2 values and dated availability pass, but line 45 needs distinct decision and section placeholders (F4). |
+| 17 | Acceptance separate from execution | Pass | Lines 224–230 and 239–242 |
+| 18 | Bounded Level 2 deferral | Pass | Lines 63 and 243; no Level 2 result claimed |
+| 19 | D-54 and transaction sequence | Finding | Lines 196, 199, 213, 242–243; F1–F3 |
+| 20 | Byte binding and source traceability | Pass | Exact external-file hash, copied rebuild, §18 source checks |
+
+**Grade: 18 Pass, 2 Findings.** This grade assesses the 20 stated attributes. Four findings affect two attributes.
+
+### 4. Evidence, delivery and limits
+
+Evidence folder: C:/CoWork/outputs/lane-b-b162-final-routing-review-2026-11-05/. It retains preflight, original-file measurements, copied rebuild, source checks, candidate binding, both complete check logs and results, hook trace, commit binding and pre/post-push proof. The final SHA256-MANIFEST.txt seals the retained files after delivery. Its hash is reported externally to avoid a self-reference.
+
+Receipt delivery must preserve the measured parent prefix and bind the same candidate bytes across both checks, staging and commit. The direct Judge release permits this one receipt only. Both complete checks must have 18 PASS, 0 SKIP and only docs-drift failing. Hooks stay enabled. The pre-push proof must show one outgoing commit and upstream equal to its parent. The named non-force push must be followed by a successful fetch and upstream equality. Completed measurements belong in the external delivery records. Earlier checks of the superseded receipt candidate are retained separately and do not count as the final candidate checks.
+
+No original package or original build input was edited. Only the copied builder's destination was changed. No other repository file changes. B-136 and B-162 stay Open. No Verified disposition, routing adoption, canonical execution, graph synchronization or Judge choice is recorded. Lane C remains deferred to the bounded item 13 trigger; this receipt does not start that review.
+
+| Scope | verdict | follow-up phase |
+|---|---|---|
+| External package binding, rebuild and accepted historical corrections | Approve | Phase 1: measured evidence only; prior closures stand. |
+| Final routing decision package | Approve-with-conditions | Phase 1: Lane A corrects F1–F4 and updates the grade and review binding before decision use. |
+| Judge choices, routing adoption and Register recording | Defer | Phase 1: separate Judge act, exact revised artifact and placement prerequisites. |
+| Canonical units and graph synchronization | Defer | Phase 1: own releases; graph retains D-425. |
+| Lane C Level 2 review | Defer | Phase 1: bounded item 13 trigger after recording and propagation. |
+| Whole-entry Verified, closing B-136 or B-162, Gate 2 clearance or lane change | Reject | Phases 1–2: not established by this review. |
