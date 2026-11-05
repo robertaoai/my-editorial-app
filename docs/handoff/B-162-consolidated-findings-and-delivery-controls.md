@@ -2257,3 +2257,77 @@ This receipt is Level 1 review only. It does not accept delivery for the Judge, 
 | D-478, reslot, EV-4, canonical units and graph synchronization | Defer | Phase 1: separate acts and releases; D-425 still governs graph work. |
 | Limit L2 | Approve-with-conditions | Phase 1: retain the disclosed missing tier row and make no broader completeness claim. |
 | Whole-entry Verified, closing B-136/B-162, Gate 2 clearance or lane transition | Reject | Phases 1–2: not established by this review. |
+
+## Lane B — Level 1 review of TC-1 and TC-2, 2026-11-06
+
+**Actor and authority.** Lane B (Codex), Level 1 review of Lane A's proposed corrections under D-324, by the Judge's direct instruction dated 2026-11-06. That instruction authorizes this attributed B-162 receipt, one commit and one named non-force push, with a new receipt-only guarded D-428 exception. It adopts no routing rule. This is not D-477 delivery acceptance, a C1–C5 selection, a D-478 recording, or a release of canonical work.
+
+**Read revision and preflight.** `bb2c19e5ca9352c8729eb3962b1b7598a62fd9f1`, on `features/feature-V1-SM05`. A successful `git fetch origin` preceded all edits; HEAD equalled origin/features/feature-V1-SM05, with an empty index and clean checkout. This is the expected tip: no later commits exist to assess for effects on sources, findings or delivery controls. The initial restricted fetch could not write FETCH_HEAD; the authorized elevated fetch succeeded. No stale remote observation was substituted. `preflight.json` retains the result. Phase Closure lines 382–384 remains A Active, B Eligible, C Blocked; D-272 and the direct instruction permit this own-series receipt without changing that state.
+
+**Exact bound source.** `C:/CoWork/outputs/lane-a-routing-decision-package-r2-2026-11-05/FINAL-ROUTING-PACKAGE.r2.md`: 45,473 bytes, SHA-256 `406ad4e1d0aa43e7db1bab3f3ed0788b7f01290969a872fc2ece5ee71b4c3c4c`, 362 LF, zero CR bytes. Its §3 lines 59–96 inclusive: 38 LF-terminated lines, 6,732 bytes, SHA-256 `d9e4cdfe0983698a57a417fd14733b167f9670ae5f864fe48771f0422108f779`, zero CR bytes. Line 97's closing fence is excluded. These are file hashes, not Git commit IDs. Package line citations below always mean these exact bytes.
+
+**Retained authority and evidence.** Root: `C:/CoWork/outputs/lane-b-tc1-tc2-review-2026-11-06/` (absent before creation). `issued-instruction-record.jsonl` is the complete user message record copied from `C:/Users/rober_24syk4j/.codex/sessions/2026/11/06/rollout-2026-11-06T00-23-16-01a1ac85-8e09-75f1-8e55-69946d5fce5d.jsonl`, line 15, timestamp 2026-11-05T16:23:51.812Z (2026-11-06 in Singapore), 8,991 bytes including LF, SHA-256 `d28765c3907af3b7facee55ac086c16bce47bc7f807cac38908e2cf37a0d1acb`. `authority-locator.json` and `issued-instruction.txt` retain the locator and readable content. `package.r2.md`, `section3-lines59-96.md` and `source-bindings.json` retain the bound sources. Original package and earlier evidence are unchanged.
+
+### Proposed changes reviewed
+
+TC-1 replaces only package lines 88–91 with the following rows; the exact old/new pairs and occurrence measurements are retained in `simulation-bindings.json` and executable instructions in `transform-candidates.cjs`:
+
+```text
+| `docs/handoff/README.md`, `TEMPLATE.md` | Follow: routing and receiver text (§9 rows M2–M4), applied by unit T3 |
+| `scripts/checks/handoff-response.mjs`, `scripts/fixtures/suites.mjs` | Follow: item 11 (rows M10–M11), applied by unit T3 |
+| `AGENTS.md`, `GEMINI.md` | Follow: review-order and raise-route lines (rows M6–M7), applied by unit T4; `CLAUDE.md` unaffected |
+| FN-AIG, UX spec, `.github/WORKFLOWS-SPEC.md` | Follow: rows M5, M8, M9, applied by unit T4 |
+```
+
+“Follow” denotes future propagation by the named unit. It does not claim T3 or T4 ran. TC-2, only if the Judge selects C3(a), removes exactly `[Only if the Judge selects choice C3] `, including its trailing space (38 UTF-8 bytes), from decision item 14 at package line 78. Every other item-14 byte is preserved by that transformation. Reviewing or simulating TC-2 does not select C3(a).
+
+### R1–R12 results
+
+| Check | Result | Evidence and finding assessment |
+|---|---|---|
+| R1 | Pass | Both exact source bindings above independently match; source-bindings.json records 362 LF/0 CR for the package and 38 LF/0 CR for the extracted section, each ending in LF. |
+| R2 | Pass | Each complete TC-1 old row occurs exactly once within the bound §3, at package 88–91; the TC-2 qualifier occurs exactly once at 78. simulation-bindings.json retains the strings and counts. |
+| R3 | Pass | TC-1 preserves each row's named files, M references and subject text, including CLAUDE.md unaffected. T3/T4 assignments match package 227, 243 and 255–256: README/TEMPLATE/check/fixtures in T3; rule files/FN-AIG/UX/workflow spec in T4. Only the completion marker and prospective-unit wording change. |
+| R4 | Pass | The four premature completion claims at 88–91 become future Follow dispositions. Package item 12 at 76 releases no unit; 227/243/255–258 keep canonical propagation held for separate releases. TC-1 does not alter those controls or assert execution. |
+| R5 | Pass | Byte comparison proves TC-2 removes only the 38-byte qualifier at 78. The note, its placement below the §5 table, exclusion from lane-state cells, and both no-lane-state-change statements are preserved. Item 9 at 73 is untouched. Placeholder filling in the simulations is separately recorded and identical in both candidates. |
+| R6 | Pass | build-inputs.cjs reconstructs 1,335 tracked files per candidate from the same read revision via ls-tree and cat-file, with blob/size/SHA-256 records in revision-inputs.json. transform-candidates.cjs applies identical placeholder substitutions, identical marked simulation authority and TC-2 to both; only positive receives TC-1. All other files match their original blob bindings. The complete trees differ only in the Register, whose only four differing lines are 31477–31480 (source 88–91). simulation-bindings.json proves these comparisons. |
+| R7 | Pass | Same byte-identical tier-sweep revision, sequential processes: positive exit 0, 848 claims, zero findings; negative exit 1, 855 claims, seven findings. tier-positive/negative.stdout.txt, .stderr.txt and .result.json retain commands, full output, start/end times, exits and candidate hashes before/after. Counts match the earlier observations independently; negative adds seven mapped file claims. No counts were forced. |
+| R8 | Pass | Checker source at the read revision, scripts/checks/tier-sweep.mjs:1–24 and its resolveByPath/checkClaim/run functions, checks the presence of an attributable decision ID for mapped files under a completion claim. It does not prove correctness, full propagation, full tier coverage or general consistency. Removing a completion marker stops checking that row; the positive result is bounded accordingly. See simulation limits below. |
+| R9 | Pass | revision-inputs.json pins source revision/tree and all input blobs, sizes and hashes; both candidate trees remain retained. simulation-bindings.json pins candidate and checker hashes. build-inputs.cjs, transform-candidates.cjs, run-tier.mjs and run-simulations.cjs retain construction and execution instructions. No review evidence is deleted. |
+| R10 | Pass | The direct Judge instruction (issued-instruction.txt) requires a qualifying TC receipt before D-478 recording and expressly permits a conditional recording act before the receipt. This review adds no review-before-conditional-issuance requirement. Proposal sequencing in package 253–254 cannot override that direct instruction. |
+| R11 | Pass | The direct instruction withholds D-477 acceptance and C1–C5 selection from Lane B. Package 223–227, 238–244 and 253–261 separates decisions, recording, propagation and review. D-477 acceptance, routing adoption, C3(a) selection and later releases remain Judge decisions; none is made here. |
+| R12 | Pass | TC-1: Approve as the exact prospective-wording correction. TC-2: Approve-with-conditions, applicable only upon Judge selection of C3(a). No additional defect identified in these exact two transformations. Checker coverage limitations below remain limits, not completion evidence or applied fixes. |
+
+### Simulation evidence and limits
+
+The immutable checker input is `scripts/checks/tier-sweep.mjs` at the read revision, Git blob `6c6ee24e9cc2c288698a0cfce08370fe533be78b`, 14,533 bytes, SHA-256 `642acca2aec98ba45ee2e1e3039ae185dadd07cfb61c77ed91749d3c2bfbb731`. Node is v24.18.0. The common wrapper only sets the candidate working directory, imports that candidate's checker, prints its result and maps findings to exit 1.
+
+Both candidates append the same §3 to the revision-bound Register, filling D-<NNN> with D-478, SEC with 301, ORDINAL with thirty-seventh, D-<last recorded> with D-477 and date with 2026-11-06. Both authority lines say: “SIMULATION ONLY — NOT AN ISSUED ACT; NOT A FINAL RECORDING CANDIDATE. Placeholder values and conditional TC-2 are test inputs only; no Judge choice or release is made.” These values are simulation inputs, not reservations or selections.
+
+| Candidate Register | Bytes | SHA-256 | Result |
+|---|---:|---|---|
+| positive/docs/v1/V1-DECISION-REGISTER.md | 2,436,396 | f71c2fdf6600727cc83bd43725d6e86450c0b63bd84b600c2e49e17487ab5035 | 848 claims, zero findings, exit 0 |
+| negative/docs/v1/V1-DECISION-REGISTER.md | 2,436,300 | 90f86ceb8c4c00123156a05c336168079c2d56b3f582090bab997b10f77904b5 | 855 claims, seven findings, exit 1 |
+
+The seven negative findings name README.md, TEMPLATE.md, handoff-response.mjs, suites.mjs, AGENTS.md, GEMINI.md and .github/WORKFLOWS-SPEC.md. The final row's bare “FN-AIG, UX spec” labels are not independently resolved when its backticked WORKFLOWS-SPEC path is present. Therefore seven findings are not proof that all semantic obligations were checked. Even the checker output's word “verified” counts file checks, including negative findings; it is not a governance Verified disposition.
+
+The first archive probe, revision-inputs.tar, was not used to construct candidates because .gitattributes excludes docs from release archives. It remains retained and disclosed in revision-inputs.json. All simulation inputs instead came from exact tracked blobs. No live repository file was used as a substitute for either simulation candidate, and no simulation is a final recording candidate. The two simulation runs exercise only tier-sweep, not the full consistency suite or future propagation fixtures.
+
+### Receipt preservation and delivery controls
+
+The sole bound repository path is `docs/handoff/B-162-consolidated-findings-and-delivery-controls.md`. README steps 1–6 apply: empty index before staging; exact one-path stage and commit; fresh fetch/upstream-parent equality/exactly one outgoing receipt/clean checkout before one named non-force push; post-fetch receipt equality and zero outgoing commits. No other repository path is changed.
+
+`receipt-parent.bin`, `receipt-append.md`, `receipt-candidate.bin` and `receipt-binding.json` retain the parent Git blob ID, each byte count and SHA-256, and proof that candidate = parent + append with every parent byte an identical prefix. Those external bindings avoid a self-referential receipt hash. `check-1` and `check-2` stdout/stderr/result files retain both complete sequential final-candidate checks, with candidate hashes immediately before and after each run. Delivery requires zero SKIP and no failure except docs-drift, solely under this instruction's new guarded D-428 exception. Any candidate change requires repeating both runs.
+
+`stage-binding.json` and `commit-binding.json` bind checked, staged and committed bytes and the one changed path. `git-trace.txt`, `commit.stdout.txt`, `commit.stderr.txt`, `commit-result.json` and `node-version.txt` retain actual commit-msg hook execution, commit exit and Node proof. Both author and committer use 241258103+robertaoai@users.noreply.github.com. No hook is skipped. Completed delivery facts are retained externally so the checked receipt bytes remain fixed. The final SHA256-MANIFEST.txt is sealed only after delivery and includes every retained evidence file, including push records, excluding itself; its own binding is reported separately.
+
+B-136 and B-162 remain Open. No Verified disposition is recorded. No D-478 entry, routing source, application code, migration or repository test is written. T3, T4, T4a, T4b, graph operations and Lane C reviews remain under their existing releases and triggers. This receipt does not accept D-477 delivery for the Judge.
+
+| Scope | verdict | follow-up phase |
+|---|---|---|
+| TC-1 exact four-row correction | Approve | Phase 1: eligible for inclusion in separately authorized recording; canonical T3/T4 propagation remains separately released. |
+| TC-2 exact qualifier removal | Approve-with-conditions | Phase 1: apply only if the Judge selects C3(a); preserve every other item-14 byte. |
+| D-478 recording | Defer | Phase 1: qualifying TC receipt before recording; conditional Judge issuance may precede the receipt. |
+| D-477 delivery acceptance, routing adoption and C1–C5 | Defer | Phase 1: Judge decisions only. |
+| T3/T4/T4a/T4b, graph work and Lane C review | Defer | Phase 1: existing separate releases and triggers remain. |
+| Whole-entry Verified, B-136/B-162 closure or lane transition | Reject | Phases 1–2: not established or authorized by this receipt. |
