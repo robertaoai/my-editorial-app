@@ -1788,3 +1788,54 @@ Check each item. Report Pass or Finding:
 Append your receipt to B-162 under README steps 1-6. Change no other file. Do not record Verified.
 End with a table: Scope | verdict | follow-up phase.
 ```
+
+## Lane A correction to the routing package — M19/M20, M5, M17 (2026-11-05)
+
+**Read revision:** `e010aa30b1e5f316676f094c4ab67ac935251763` (the delivered routing package, section at line 1569). **Authority:** the Judge's bounded correction release of 2026-11-05 (transcript `977c3a29-84c5-4979-8081-065ea3f1b07a.jsonl` line 2321, UUID `2641ba9a-8b54-4c1b-8ff7-a576d2e193d5`). It covers this correction, two checks, one commit and one push, with the guarded `D-428` exception for this commit only. **Findings source:** that release states three Lane B findings; no Lane B receipt for `e010aa3` is on the server at this read. This section corrects proposal text only. It does not adopt the routing rules. The package at line 1569 stays as history; the rows named below are superseded by this section.
+
+### Correction map
+
+| # | Old statement (line at `e010aa3`) | Replaced by | Reason |
+|---|---|---|---|
+| K1 | M19 (1721): one row for `C-001`–`C-009` | Rows M19a–M19i below | One row for each exact file |
+| K2 | M20 (1722): one row for two check files | Rows M20a and M20b below | One row for each exact file |
+| K3 | M5 (1707): FN-AIG lines 107, 141, 146, 183–186 only | Row M5 below, which adds lines 76, 100 and 234 | The `AIG-02.R3` requirement, the §4.1 receipt step and the §6 measurement case still route to Lane A |
+| K4 | M17 (1719): Phase Closure Unaffected, "No lane state changes (item 9)" | Row M17 below, Check | Line 384 holds an operative-sounding routing statement |
+| K5 | Draft tier table (1626–1640): no Phase Closure row | Add the row "`docs/v1/V1-PHASE-CLOSURE.md` \| Check: dated routing note below the §5 table (M17)" | The tier table must match M17 |
+| K6 | §10 row 3 (1731): "…; M19" | "…; M19a–M19i" | Row split |
+| K7 | §10 row 6 (1734): "M5–M11, M20" | "M5–M11, M20a–M20b" | Row split |
+| K8 | §11 step vi (1748): "(b) rule files and specs (M5–M9); M12–M13 if chosen" | "(b) rule files and specs (M5–M9); M12–M13 if chosen; M17 only after its resolution condition is met" | M17 must resolve before canonical execution |
+
+No other statement changes. The routing model (§2), decision items 1–13, the bounded Level 2 deferral (item 13), and Lane B's `a925314` conclusions (F1 and F2 closed as planning findings; final routing deferred) stay as written. The r2 input and the earlier evidence packets are unchanged.
+
+### Replacement rows
+
+Each row: one file, one disposition. Line numbers at `e010aa3`.
+
+| # | File and section | Disposition | Current statement | Replacement or reason | Owner | Predecessor | Output and proof | Stop condition | Phase |
+|---|---|---|---|---|---|---|---|---|---|
+| M5 | `docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md`: §3 `AIG-02.R3` (76); §4.1 item 3 (100); §4.2 (107); §1 table (141, 146); §4.5 (183–186); §6 (234) | Affected | 76: "`C-` → Lane B, or Lane A when the dependency sits on a Lane A surface or answers a Lane A request". 100: "The responder's result returns as a handoff entry in its own series … naming the requesting lane as receiver (`AIG-02.R3`)". 107: "acknowledged and answered by its receiver". 141: "Level 1 review of Lane B work and Level 2 review of Lane C work". 146: "Level 2 review of Lane A and Lane B work". 183–186: "Lane A fills … Level 1 for Lane B's work, and Level 2 for Lane C's work". 234: "It commits its receipt in its own series, naming the requesting lane as receiver" | 76: "Each series is raised and committed by its owner whatever its lane state. Governance feedback and receipts go in the relevant `B-` entry, and Lane A answers. Code feedback goes in the relevant `C-` entry, and Lane B answers. Each lane commits only its own attributed section. `C-001`–`C-009` keep their historical Lane A receiver *(amended `[V1]`, `D-<NNN>`)*". 100: "**Receipt.** The responder's result returns as its own attributed section in the relevant `B-` entry (a governance request) or `C-` entry (a code request), committed whatever its lane state (`AIG-02.R3`). *(Amended `[V1]`, `D-<NNN>`: it read 'in its own series, naming the requesting lane as receiver'.)*" 107: "answered by its receiver (Lane A for `B-`; Lane B for `C-`; `C-001`–`C-009` historical) *(amended `[V1]`, `D-<NNN>`)*". 141: "Level 2 review of Lane B and Lane C work". 146: "Level 2 review of Lane A work; Level 1 review of Lane B work". 183–186: "*Amended `[V1]`, `D-<NNN>`:* Lane A's work: Level 1 Lane B, Level 2 Lane C. Lane B's code work: Level 1 Lane C, Level 2 Lane A. Lane C's work: Level 1 Lane B, Level 2 Lane A." 234: "It responds; no lock is needed. It commits its receipt as its own attributed section in the relevant `B-` entry (governance) or `C-` entry (code) *(amended `[V1]`, `D-<NNN>`)*" | Lane A | M1 | `[V1]` markers on each changed line; `tier-sweep` passes | An unmarked change to a `[V1]` section; any new Lane A receiver route | 1 |
+| M17 | `docs/v1/V1-PHASE-CLOSURE.md` §5, the Lane C row (384) | Check | "Lane C keeps its own-series commit right (`D-272`), so its Route A Level 2 review (`D-310`) is still filed as its own `C-` entry after Lane B's" | Historical routing, not an operative rule after `D-<NNN>`. Proposed note, placed **below the §5 table**, not in the lane-state cell: "> **Routing note, `D-<NNN>`.** The Lane C row's statement that its Route A Level 2 review is filed 'as its own `C-` entry' records the historical `D-272` route (`C-004`, `C-007`). New Lane C governance reviews go in the relevant `B-` entry (`D-<NNN>` item 2). No lane-state value changes." **Resolution condition:** the `D-<NNN>` act names this note explicitly. Until then, this row is not executed | Lane A | M1 with the named note | The note sits below the table; every §5 lane-state value is byte-identical before and after; `lane-state` passes | Any lane-state value changes; the note is applied before the resolution condition is met | 1 |
+| M19a | `docs/handoff/C-001-rename-required-check.md` | Unaffected | — | Historical worklog (`Receiver: Lane A`, Answered). Decision item 7 classifies it; the classification needs no edit to this file. Its bytes, attribution, evidence, identifier and status are preserved | — | — | — | — | — |
+| M19b | `docs/handoff/C-002-route-c-pre-run-access-proof.md` | Unaffected | — | As M19a (`Receiver: Lane A`, Answered) | — | — | — | — | — |
+| M19c | `docs/handoff/C-003-sv2-route-c-r1-loader-measurement.md` | Unaffected | — | As M19a (`Receiver: Lane A`, Answered) | — | — | — | — | — |
+| M19d | `docs/handoff/C-004-route-b-level2-review.md` | Unaffected | — | As M19a (`Receiver: Lane A`, Answered) | — | — | — | — | — |
+| M19e | `docs/handoff/C-005-sv2-route-c-r2-loader-measurement.md` | Unaffected | — | As M19a (`Receiver: Lane A`, Answered) | — | — | — | — | — |
+| M19f | `docs/handoff/C-006-route-c-loader-diagnostic-reconciliation.md` | Unaffected | — | As M19a (`Receiver: Lane A`, Answered) | — | — | — | — | — |
+| M19g | `docs/handoff/C-007-route-a-r1-level2-review.md` | Unaffected | — | As M19a (`Receiver: Lane A`, Answered) | — | — | — | — | — |
+| M19h | `docs/handoff/C-008-sv2-u02-combined-report-independent-review.md` | Unaffected | — | As M19a (`Receiver: Lane A`, Answered) | — | — | — | — | — |
+| M19i | `docs/handoff/C-009-sv2-u02-remediation-triage-review.md` | Unaffected | — | As M19a (`Receiver: Lane A`, Answered) | — | — | — | — | — |
+| M20a | `scripts/checks/channel-docs.mjs` | Check | Couples `docs/handoff/README.md`, `TEMPLATE.md` and the other channel docs to the fields that the checks read | No code change expected: M4 changes the template field descriptions, not the field names. Not modified by this correction | Lane A | M2–M4 and M9 applied (step vi) | `channel-docs` passes on the changed tree | The check is edited to pass, or a field name changes without a coupled check change | 1 |
+| M20b | `scripts/checks/rule-budget.mjs` | Check | Enforces the 5,400-character ceiling, the `@AGENTS.md` import and one core copy | No code change expected: M6 and M7 change a few lines; `AGENTS.md` is 3,626 characters now. Not modified by this correction | Lane A | M6 and M7 applied (step vi) | `rule-budget` passes on the changed tree | `AGENTS.md` over the ceiling, or the check is edited to pass | 1 |
+
+### Status
+
+All rows are proposals. Nothing is applied. B-136 and B-162 stay Open. No Verified disposition is recorded. Lane B reviews this correction at Level 1. Lane C's Level 2 review stays deferred under draft item 13.
+
+| Scope | D-20 verdict | Follow-up phase |
+|---|---|---|
+| K1–K8 corrections (proposal text) | Lane B to decide | Phase 1: Level 1 review of this exact commit |
+| M17 resolution condition | Defer | Phase 1: the `D-<NNN>` act names the Phase Closure note |
+| Routing adoption, Register entry, canonical units | Defer | Phase 1: §11 steps v–vi, each with its own authority |
+| Lane C Level 2 review | Defer | Phase 1: step vii, after recording (item 13) |
+| Whole-entry Verified, closing B-136 or B-162, Gate 2 clearance, lane change | Reject | Phases 1–2: not established |
