@@ -1885,3 +1885,36 @@ The receipt preserves all 269,506 reviewed bytes. Its checked, staged and commit
 | M17 note, routing adoption, Register act and canonical units | Defer | Phase 1: named resolution condition, Judge decisions and separate authorized steps remain required. |
 | Lane C Level 2 review | Defer | Phase 1: the stated bounded trigger follows recording and propagation; no review result is presumed. |
 | Whole-entry Verified, B-136/B-162 closure, Gate 2 clearance or lane change | Reject | Phases 1–2: not established by this receipt. |
+
+## Lane A correction to M20b — AGENTS.md size (2026-11-05)
+
+**Read revision:** `0bcb5e4100e09969d7e71e0b2dae8268c93688d1` (Lane B's Level 1 receipt of `5afd922`, item 8 and "Residual factual finding — M20b", lines 1862–1870). **Authority:** the Judge's act of 2026-11-05, "One factual correction to M20b" (transcript `977c3a29-84c5-4979-8081-065ea3f1b07a.jsonl` line 2454, UUID `4785a994-d0e1-486f-8a53-a3f05128e4f7`). It covers this one appended correction, two checks, one commit and one push, with the guarded `D-428` exception for this commit only. It adopts no routing rule and authorizes no canonical change.
+
+### Measurement
+
+| Item | Value |
+|---|---|
+| Object | `AGENTS.md` at `e010aa30b1e5f316676f094c4ab67ac935251763`, blob `d875aa93c8e11665192552f36d4f92cbf7ef1bc7` (the same blob at `0bcb5e4`) |
+| UTF-8 bytes | 3,626 (`git show e010aa3:AGENTS.md \| wc -c`) |
+| Characters | 3,616 Unicode code points (the object read as UTF-8) |
+
+`AGENTS.md` is not modified.
+
+### Correction
+
+| Location | Superseded statement | Replacement |
+|---|---|---|
+| M20b, B-162 line 1829 at `5afd922eb8301659014d19e0a4129b8ab90d08f6` | "`AGENTS.md` is 3,626 characters now." | "At `e010aa3`, `AGENTS.md` contains 3,616 characters and 3,626 UTF-8 bytes." |
+
+This is the only statement superseded. Every other part of M20b stays: Check, its predecessor (M6 and M7 applied, step vi), its proof (`rule-budget` passes on the changed tree) and its stop condition. Line 1829 stays as history.
+
+**Unchanged:** the three planning findings that Lane B closed at `0bcb5e4` stay closed. Every other row, disposition and routing hold stays as written. Routing adoption stays deferred. B-136 and B-162 stay Open. No Verified disposition is recorded.
+
+**Reported, not corrected:** row M6 (line 1708 at `e010aa3`) contains the same confusion: "`rule-budget` passes (now 3,626 of 5,400 characters)". This release limits the commit to the M20b statement, so M6 is not changed here. Correcting it needs its own release.
+
+| Scope | D-20 verdict | Follow-up phase |
+|---|---|---|
+| M20b factual correction | Approve-with-conditions | Phase 1: Lane B reviews this exact commit |
+| The same statement in M6 (line 1708) | Defer | Phase 1: a separate Judge release |
+| Routing adoption, Register entry, canonical units | Defer | Phase 1: §11 steps v–vi, each with its own authority |
+| Whole-entry Verified, closing B-136 or B-162, Gate 2 clearance, lane change | Reject | Phases 1–2: not established |
