@@ -1521,3 +1521,47 @@ G26f keeps its identifier. It has two named components.
 | Commit, `docs-drift` exception and push of this candidate | Defer | Phase 1: the Judge's separate authorities |
 | Units, Register acts, graph sync, custody, deletion | Defer | Phase 1: own acts; Phase 2: construction; Phase 3: U5 |
 | Whole-entry Verified, closing B-136 or B-162, Gate 2 clearance, lane change | Reject | Phases 1–2: not established |
+
+## Lane B — Level 1 review of 1f0bd35, 2026-11-05
+
+**Reviewed revision:** `1f0bd3560f7ef569b48ac61364e895a82f97cbe8`, parent `5318fd893e27eef0b14984ed740a8b0cb9977c69`. Scope: Lane A's answer at lines 1421–1523. All B-162 line references below are at the reviewed revision unless stated otherwise. Before editing, a successful fetch confirmed local HEAD and `origin/features/feature-V1-SM05` both at the reviewed revision. The checkout and index were clean. There were no newer remote commits to report.
+
+**Authority for this receipt:** the Judge's current direct instruction authorizes one B-162 receipt commit and named non-force push under README steps 1–6. It authorizes two complete checks with only `docs-drift` permitted to fail, for this receipt only. Bound path: `docs/handoff/B-162-consolidated-findings-and-delivery-controls.md`. This is a Level 1 review under D-324, not an implementation release.
+
+### Requested checks
+
+| # | Result | Line read and independent evidence |
+|---|---|---|
+| 1 | Pass | Section starts at 1421. Git object inspection reports exactly this path, +104/-0. All 216,144 parent bytes are unchanged. Parent SHA-256 `fd05b8ce7e94e9bebabcfc20ca6366f629f21b7a101d84241590f2afd0865eb4`. Reviewed blob `e192f33addbfe132743cbeb14e1a836c8b256784`, 224,622 bytes, SHA-256 `c94be95a77ede0e4573d6b3dc0d74f53c4a9d38daf3c2e4ae17f0c83d0717924`. These are object measurements, not claims inferred from prose. |
+| 2 | Pass | Commit metadata, not a document line: author and committer emails both equal `241258103+robertaoai@users.noreply.github.com`. Shared identity does not prove a human author. |
+| 3 | Pass | Source transcript line 1835 is a user record: UUID `8647224c-bb6e-459d-a310-0444d5062f06`, `2026-11-05T08:31:51.046Z`, 809 bytes including final LF, SHA-256 `48e8947b5765210949b21715e70da39b9ff5eb553d990901e17aa41eaf80d70c`. Its text grants D-428, commit and push for candidate `c94be95a`. This matches the measured candidate. No earlier grant is reused. Lines 1499–1506 are explicitly the preparation-time state; the later source grant resolves those missing permissions. |
+| 4 | Pass | Each check JSON is line 1. Both bind the full `c94be95a…0717924` digest and exit 1. Full logs each contain 18 PASS, 0 SKIP and one FAIL, `docs-drift` at log line 14. Check 1: 08:30:26.430Z–08:33:03.744Z; check 2: 08:33:04.233Z–08:35:35.732Z, 2026-11-05. The first check began before the grant; checking itself did not require the failure exception. No clean-health claim follows. |
+| 5 | Pass | Manifest lines 1–9: all nine member sizes and hashes match. Manifest SHA-256 `67ab8284fcee22d9fb1839c83c00047d9a503bb0a044c2cadb9a176f99c0de2a`. The manifest excludes `push/` and `discarded/`. Interrupted discarded runs are not used as evidence. |
+| 6 | Pass | `git-trace.txt` lines 4–5 show `.githooks/commit-msg`; line 7 shows `git diff --cached --name-only`. `push/server-before.out` line 1 names `5318fd8`; `push/push.err` records `5318fd8..1f0bd35`; `push/server-after.out` line 1 names the full reviewed commit. Those files are separately inspected, outside the manifest. The Node probe is separate evidence; no historical trace is recreated. |
+| 7 | Pass | Lines 1431–1435 identify exactly 1258, 1260, 1279, 1280 and 1281 as the replaced proposal statements. Their historical line bytes match `429a621` exactly. Line 1437 limits supersession to those statements. Replacement is by appended proposal text; historical lines are not overwritten. The routing elaboration is separately assessed in item 13. |
+| 8 | Pass | Lines 1441–1455 retain G26f and name two components. U2 uses its C02 unit act plus C03, without U4, in Phase 1. U5 requires U4 applied, a Lane C handoff and lane transition, in Phase 3. Sources 1225, 969 and 972 agree. Phase Closure §5 lines 378–384 identifies the phase/lane states; it does not itself grant transition. Matrix A and Part B agree. F1-a is closed as a planning finding. |
+| 9 | Pass | Lines 1459–1468 remove G26c from the C03 group and preserve the U1 act under C02. Read lines 968, 1225, 1255, 1290, 1294 and 1299: none adds C03 to U1. The Register at `5318fd8` provides no matching act adding that dependency. T5's U4 implementation still writes the U1 record; that is not a U1 prerequisite. F1-b is closed as a planning finding. |
+| 10 | Pass | Lines 1472–1487 mark G28 Check, state the unresolved C03 decision, define a field decision and require the C03 act as resolving proof. The coupled `channel-docs` change is conditional. Replacement line 1487 gives G28 a C03 predecessor; line 1486 retains only G18 with dashes. Historical line 1280 remains untouched. No field policy is selected. F2 is closed as a planning finding. |
+| 11 | Pass | Lines 1493–1495 distinguish the only changed path from planned owning files. Git confirms `V1-ARTIFACT-INVENTORY.md` and `docs/handoff/TEMPLATE.md` are unchanged. |
+| 12 | Pass | Lines 1423 and 1437 preserve the boundaries. J0 at 1204–1205, G19 Held at 1245, and the parent proposal text remain byte-identical. B-158/SV-002 remain separate proposals with no mutual order. U-TR is not repeated and Gate 2 clearance remains unclaimed. Both B-136 and B-162 headers, line 7, remain Open. No owning-file application or lifecycle transition occurs. |
+| 13 | Pass, reporting only | Lines 1511–1515 direct two separately identifiable C-series records: a historical copy and a new Level 2 review. They permit two entries or two sections and require free-number checks. This receipt does not approve that as the final route. The Judge's pending routing package proposes governance review in the B-entry and supersession of the earlier routing. Routing is deferred, not a new C-entry instruction from Lane B. |
+| 14 | Pass | F1 is closed: both the G26f dependency separation and G26c C02 correction pass. F2 is closed: G28 has a conditional class and explicit resolving proof. Closure applies only to these planning findings on `1f0bd35`. It is not whole-entry closure, Judge acceptance, or unit permission. |
+
+### Evidence and limits
+
+Lane A's source packet is `C:/CoWork/outputs/lane-a-b162-answer8-2026-11-05/`. Authority is in `C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/977c3a29-84c5-4979-8081-065ea3f1b07a.jsonl`, line 1835. The current review's measurements and delivery evidence are retained at `C:/CoWork/outputs/lane-b-b162-review-1f0bd35-2026-11-05/`.
+
+The original F1–F2 receipt remains history. Lane A's headings saying Accepted mean acceptance of the requested corrections, not independent approval of its own work. The source delivery's preparation table is not a current denial of the later measured authority. Hashes bind bytes, not authors or event completion by themselves. The retained trace and push records support only their recorded scope.
+
+This receipt preserves all 224,622 reviewed bytes. Its final candidate must pass two complete checks under the current bounded exception, remain identical through staging and commit, and satisfy the fresh pre-push and post-push proof. Full logs and hook evidence are retained separately. Only this B-entry is changed. No code, migration, test, graph, owning source or status field is changed. No Verified disposition is recorded.
+
+### Verdict
+
+| Scope | verdict | follow-up phase |
+|---|---|---|
+| Measured delivery, authority and evidence of 1f0bd35 | Approve | Phase 1: retain the measured bindings and stated evidence limits. |
+| F1-a and F1-b planning correction; F1 closed | Approve | Phase 1: independent Level 2 and Judge acceptance remain separate. |
+| F2 planning correction; F2 closed | Approve | Phase 1: C03 still decides the field policy before any owning-file change. |
+| Routing item 2 as the final governance-review route | Defer | Phase 1: the pending D-272/D-324/J0 routing package resolves the route; no new C-entry is authorized here. |
+| Units, tracker edits, graph synchronization, custody and deletion | Defer | Phase 1: separate releases and applicable D-425 controls; Phase 2: construction; Phase 3: U5. |
+| Whole-entry Verified, closing B-136/B-162, Gate 2 clearance or lane change | Reject | Phases 1–2: not established by this receipt. |
