@@ -1960,3 +1960,35 @@ The receipt preserves all 280,658 reviewed bytes. Its checked, staged and commit
 | M6 character-count statement | Defer | Phase 1: separate authorized correction and exact-revision review. |
 | Routing adoption, Register act and canonical units | Defer | Phase 1: Judge decisions and authorized sequence remain required. |
 | Whole-entry Verified, B-136/B-162 closure, Gate 2 clearance or lane change | Reject | Phases 1–2: not established by this receipt. |
+
+## Lane A correction to M6 — AGENTS.md count (2026-11-05)
+
+**Read revision:** `edc577f2c3d48b0c1a577fe891d5003fa2259e94` (Lane B's Level 1 receipt of `3d72ee9`; the M6 count error is reported and deferred at lines 1947 and 1960). **Authority:** the Judge's act of 2026-11-05, "One factual correction to M6" (transcript `977c3a29-84c5-4979-8081-065ea3f1b07a.jsonl` line 2580, UUID `80222d5a-123a-44a1-a90f-74596debec33`). It covers this one appended correction, two checks, one commit and one push, with the guarded `D-428` exception for this commit only. It adopts no routing rule and authorizes no canonical change.
+
+### Measurement and ceiling source
+
+| Item | Value and source |
+|---|---|
+| Object | `AGENTS.md` at `e010aa30b1e5f316676f094c4ab67ac935251763`, blob `d875aa93c8e11665192552f36d4f92cbf7ef1bc7`, read from the Git object, not the working tree |
+| Unicode code points | 3,616 |
+| UTF-8 bytes | 3,626 |
+| Ceiling | 5,400 characters: `D-324` J1 (`docs/v1/V1-DECISION-REGISTER.md` line 22497, "`AGENTS.md` at 5,400 characters (hard cap 6,000)"). `scripts/checks/rule-budget.mjs` enforces it (line 24, `CEILING = 5400`) and counts code points (line 29, `[...s].length`) |
+
+`AGENTS.md` is not modified.
+
+### Correction
+
+| Location | Superseded statement | Replacement |
+|---|---|---|
+| M6, B-162 line 1708 at `e010aa3` | "`rule-budget` passes (now 3,626 of 5,400 characters)" | "`rule-budget` passes (at `e010aa3`: 3,616 of 5,400 characters)" |
+
+This corrects a measurement in a proposed proof cell. It does not prove that a future canonical change to `AGENTS.md` passes `rule-budget`; that proof belongs to the M6 unit when it is applied. Only this statement is superseded. Historical line 1708 and every other part of M6 (its current text, replacement text, owner, predecessor and stop condition) stay as written.
+
+**Unchanged:** M20b stays closed (Lane B, `edc577f`). The three original planning findings stay closed. Every other row, disposition and routing hold stays as written. Routing adoption stays deferred. B-136 and B-162 stay Open. No Verified disposition is recorded.
+
+| Scope | D-20 verdict | Follow-up phase |
+|---|---|---|
+| M6 factual correction | Approve-with-conditions | Phase 1: Lane B reviews this exact commit |
+| Proof that a future `AGENTS.md` change passes `rule-budget` | Defer | Phase 1: the M6 unit, under its own release |
+| Routing adoption, Register entry, canonical units | Defer | Phase 1: §11 steps v–vi, each with its own authority |
+| Whole-entry Verified, closing B-136 or B-162, Gate 2 clearance, lane change | Reject | Phases 1–2: not established |
