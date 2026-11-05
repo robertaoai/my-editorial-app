@@ -1417,3 +1417,107 @@ Lane A owns the F1–F2 response. Any Level 2 review of this revision must retai
 | G1 draft and J0 record | Approve, for Judge consideration only | Phase 1: actual authority, free identifiers at recording, and permitted one-path delivery remain required. |
 | B-158, SV-002, units, graph, custody and deletion | Defer | Phase 1: separate acts and guarded D-425 where applicable; Phase 2: construction; Phase 3: U5. |
 | Whole-entry Verified, closing B-136/B-162, clearance or lane change | Reject | Phases 1–2: not established by this review. |
+
+## Lane A answer to the review of 429a621 (2026-11-05)
+
+**Read revision:** `5318fd893e27eef0b14984ed740a8b0cb9977c69` (Lane B's Level 1 receipt, lines 1365–1420). **Changed file:** this entry only. **Authority:** the Judge's instruction of 2026-11-05 to prepare the F1–F2 correction. The commit, any `docs-drift` exception and the push each need their own Judge authority (table below). The authority for receipt `5318fd8` does not cover them. This section is answer and proposal text. The package at `429a621` and the receipt at `5318fd8` stay as history. B-136 and B-162 stay Open. All units stay held.
+
+**Reading of the receipt.** Lane B's eight checks pass. Its package verdict is Approve-with-conditions, with two planning findings. Lane C's Level 2 review is still owed (`D-324`) and follows this answer.
+
+### Statements this correction replaces (all at `429a621`, same line numbers at `5318fd8`)
+
+| Line | Old statement | Replaced by |
+|---|---|---|
+| 1258 | `\| G26f \| U2, U5 \| Inventory \| … \| Receipt and workflow rows \| Held \|` | F1-a, Matrix A rows below |
+| 1260 | `\| G28 \| C03 \| docs/handoff/TEMPLATE.md \| … \| Unaffected \|` | F2, Matrix A row below |
+| 1279 | Part B group "G13–G16, G19–G20, G22a–G23, G26a–G26e, G27, G29 \| C03 + the unit act …" | The same row without G26c (F1-b) |
+| 1280 | `\| G18, G28 \| — \| — \| B-162 \| — \|` | `\| G18 \| — \| — \| B-162 \| — \|` and a G28 row (F2) |
+| 1281 | `\| G21, G26f \| U4 + Lane C handoff (Phase 3) \| …` | `\| G21 \| …` (unchanged text) and the G26f component rows (F1-a) |
+
+No other statement changes. J0, G19 Held, the separate B-158 and SV-002 proposals (no order between them), the rule not to repeat U-TR at `3230e3b`, and "Gate 2 clearance claimed: no" stay as written. This correction creates no new governance identifier.
+
+### F1-a — G26f: U2 receipt and U5 workflow (Accepted)
+
+G26f keeps its identifier. It has two named components.
+
+| Component | Planned owning file | Class | Predecessor (source) | Output | Proof | Phase |
+|---|---|---|---|---|---|---|
+| G26f, U2 receipt component | `docs/v1/V1-ARTIFACT-INVENTORY.md` | Held (receipt destination not chosen) | The U2 unit act under C02 (line 1225) and the C03 policy (line 969). No U4 prerequisite | One row for the receipt artifact, only if U2 tracks the receipt in the repository | The row names the destination that the U2 act chooses; `tier-sweep` passes | 1 |
+| G26f, U5 workflow component | `docs/v1/V1-ARTIFACT-INVENTORY.md` | Held (workflow path not chosen) | U4 applied, a Lane C handoff, and a lane transition (line 972; `V1-PHASE-CLOSURE.md` §5, lines 378–384) | One row for the Lane C workflow file | The row names the path that the U5 act chooses. The unit's own proof (controlled failure, other-lane review) stays with U5 (line 972) | 3 |
+
+**Matrix A, replacing line 1258:**
+`| G26f (U2 receipt component) | U2 | Inventory | A | New row | Receipt destination not chosen | Receipt row, only if tracked | Held |`
+`| G26f (U5 workflow component) | U5 | Inventory | A | New row | Workflow path not chosen | Workflow row | Held |`
+
+**Part B, replacing the G26f part of line 1281:**
+`| G21 | U4 + Lane C handoff (Phase 3) | Controlled failure; other-lane review | B-162 | Used as pre-push proof |`
+`| G26f (U2 receipt component) | U2 unit act (C02) + C03 | Row matches the chosen destination | B-162 | Row added before the U2 act |`
+`| G26f (U5 workflow component) | U4 + Lane C handoff + lane transition (Phase 3) | Row matches the chosen path; other-lane review | B-162 | Row added before the U5 act |`
+
+### F1-b — G26c: U1 predecessor (Accepted)
+
+- U1's predecessor is C02 (line 968 and G2, line 1225). At `5318fd8`, no Judge act adds C03 to U1. So the C03 grouping is removed.
+- The repeated U1 statements agree after this change. They are at lines 968 (C02), 1225 (C02 unit act), 1255 (G26c, Affected), 1290 (T1, U1), 1294 (T5 writes the U1 record) and 1299 (T10, U1 graph fragment). None of them names C03.
+
+| Planned owning file | Class | Predecessor | Output | Proof | Phase |
+|---|---|---|---|---|---|
+| `docs/v1/V1-ARTIFACT-INVENTORY.md` | Affected (under its unit act) | The U1 unit act under C02 | Row for `docs/templates/commit-push-delivery/v1.md` | The row exists; `graph-coverage` passes for the new template node | 1 |
+
+**Part B, replacing line 1279:**
+`| G13–G16, G19–G20, G22a–G23, G26a, G26b, G26d, G26e, G27, G29 | C03 + the unit act | [V1] markers; coupled checks | B-162 | Behaviour changed without C03 |`
+`| G26c | U1 unit act (C02) | Row exists; graph-coverage passes | B-162 | An invented path |`
+
+### F2 — G28: template field (Accepted)
+
+- **State of the decision.** C03 has not decided whether a handoff entry must carry a new field.
+- **Decision that would require a template change.** A C03 act that requires each handoff entry, or each handoff delivery, to carry a field that `TEMPLATE.md` does not have now (for example, a delivery-record reference).
+- **Proof that resolves the row.** The C03 act text either names the field, or states that no field is added. Only then does G28 become Affected or Unaffected.
+- **Coupled check.** If a field is selected, the `channel-docs` coupled check changes in the same unit. If no field is selected, nothing changes.
+- **Not chosen here.** This answer does not choose the field policy.
+
+| Planned owning file | Class | Predecessor | Output | Proof | Phase |
+|---|---|---|---|---|---|
+| `docs/handoff/TEMPLATE.md` | Check (condition: C03 selects a field) | C03 | One field, only if C03 selects it | The C03 act text; `channel-docs` passes when a field is added | 1 |
+
+**Matrix A, replacing line 1260:**
+`| G28 | C03 | docs/handoff/TEMPLATE.md | A | Fields | C03 has not decided a field | A field only if C03 selects one; channel-docs coupled change in the same unit | Check |`
+
+**Part B, replacing line 1280:**
+`| G18 | — | — | B-162 | — |`
+`| G28 | C03 | The C03 act text; channel-docs passes if a field is added | B-162 | A field added without C03 |`
+
+### Planned owning files and the file this correction changes
+
+| File | Role |
+|---|---|
+| `docs/handoff/B-162-consolidated-findings-and-delivery-controls.md` | The only file this correction changes (one appended section) |
+| `docs/v1/V1-ARTIFACT-INVENTORY.md` | Planned owning file for G26c and both G26f components. Not changed now |
+| `docs/handoff/TEMPLATE.md` | Planned owning file for G28. Not changed now |
+
+### Delivery authority
+
+| Step | Authority needed | State at this preparation |
+|---|---|---|
+| Prepare this candidate | The Judge's instruction to prepare the correction | Given |
+| Two complete checks | None. Any failure is reported in full | To run on the candidate bytes |
+| Accept `docs-drift` as the only failure | A Judge grant of the guarded `D-428` exception for this commit | Missing. The grants for earlier filings do not carry over |
+| Commit (one path, hooks on) | The Judge's commit release | Missing |
+| Push (pre-push proof, named, non-force) | A separate Judge release | Missing |
+| Handoff to Lane B | After the push | Not started |
+
+### Routing
+
+1. After an authorized push, Lane B reviews this exact revision at Level 1.
+2. After Lane B's receipt, Lane C files two separately identifiable records in its own C-series (J0 L1, L2). Each record has its own heading:
+   - (a) **Historical copy.** A byte-faithful copy of its `ef30902` receipt (B-162 lines 1103–1191), with the real characters (—, –, §), labelled as history. It changes no finding of that receipt and confers no new review.
+   - (b) **New Level 2 review.** Its review of `429a621`, `5318fd8`, this answer's commit and Lane B's receipt of that commit.
+
+   Lane C chooses two C-entries or two marked sections of one C-entry, and confirms the next free numbers first. C-010, C-011, C-012 and C-018 are already cited, so they are not free. The `ef30902` text in B-162 stays as history.
+3. G1 (`D-477`) stays a draft until the Judge's act.
+
+| Scope | D-20 verdict | Follow-up phase |
+|---|---|---|
+| F1-a, F1-b and F2 corrections | Lane B and Lane C to decide | Phase 1: Level 1, then Level 2 |
+| Commit, `docs-drift` exception and push of this candidate | Defer | Phase 1: the Judge's separate authorities |
+| Units, Register acts, graph sync, custody, deletion | Defer | Phase 1: own acts; Phase 2: construction; Phase 3: U5 |
+| Whole-entry Verified, closing B-136 or B-162, Gate 2 clearance, lane change | Reject | Phases 1–2: not established |
