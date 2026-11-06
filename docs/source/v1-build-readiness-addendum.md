@@ -103,9 +103,9 @@ Article is logged by Reporter agent (Line 1)
 | A1 | Architecture for v1 | Five-gate linear pipeline (T1–T8a, §3.1), not Proposer/Critics/Judge | Ships the already-specified model rather than an unproven redesign. |
 | A2 | Provisioned stack | React/Next.js frontend on Vercel (handling SSR and UI logic), Supabase PostgreSQL backend, Supabase Edge Functions for middleware. | Matches the actually provisioned scaffolding. |
 | A3 | Publication target for Week 1 | WordPress auto-publish + LinkedIn manual fallback | WordPress REST API is straightforward; LinkedIn depends on OAuth review. |
-| A4 | Trend scoring formula | Simple weighted sum (§5) | Starting assumption, not validated. Review after 50+ scored articles. |
+| A4 | Trend scoring formula | Simple weighted sum (§5) | Starting assumption, not validated. Review after 50+ scored articles. *(2026-10-04, `D-414`: the review threshold (50) was approved 2026-09-15; the formula itself stays unratified.)* |
 | A5 | Notification mechanism | In-app only for Week 1 | Email and Slack in Week 4–6. |
-| A6 | Data retention | Auto-archive rejected/archived after 90 days; published articles kept indefinitely | Conservative default. |
+| A6 | Data retention | *(History, superseded 2026-10-03 by `D-404`: "Auto-archive rejected/archived after 90 days; published articles kept indefinitely".)* Current: 90 days is the first UI-visible boundary; archival is external, acted on only when a valid fact is supplied; no V1 archive job (§2.4) | Ratified 2026-10-03 under `D-404`; see §2.4 for the current supplied-fact boundary *(history: "Conservative default.", replaced `D-406`)* |
 | A7 | Bookmarklet | Copy-paste URL form only for Week 1 | Bookmarklet in Week 2–3. |
 
 ### 2.2 Resolved via Three Lines Model
@@ -134,9 +134,9 @@ Business Case v2.1 introduces a Three Lines Model resolution for OD1–OD3. The 
 | A1 | Five-gate linear pipeline | Assumed | N/A | No | — | — | Prototype may proceed as provisional assumption |
 | A2 | Prototype stack | Assumed | **Yes** - Chief Editor: Re-scoped A2 to the provisioned Vercel/Supabase stack to close deviation D4. | No | — | — | Prototype may proceed as provisional assumption |
 | A3 | WordPress auto + LinkedIn manual | Assumed | N/A | No | — | — | Prototype may proceed as provisional assumption |
-| A4 | Simple weighted sum scoring | Assumed | N/A | No | — | — | Prototype may proceed; review after 50+ articles |
+| A4 | Simple weighted sum scoring | Assumed | N/A | No | — | — | Prototype may proceed; review after 50+ articles *(2026-10-04, `D-414`: the review threshold (50) was approved 2026-09-15; the formula itself stays unratified.)* |
 | A5 | In-app notifications only | Assumed | N/A | No | — | — | Prototype may proceed with in-app only |
-| A6 | 90-day auto-archive | Assumed | N/A | No | — | — | Prototype may proceed as provisional assumption |
+| A6 | 90-day first UI-visible boundary; external archive/handoff on a valid supplied fact | Ratified under `D-404`, recorded here by `D-405` *(history: "90-day auto-archive", Assumed, until 2026-10-03)* | N/A | **Yes** | 2026-10-03 | `D-404`, with the Chief Editor's 2026-09-15 act (`B-106`) and `D-381`'s meaning | No automatic archive, disposal or deletion; the application consumes only a supplied external fact |
 | A7 | Copy-paste URL form only | Assumed | N/A | No | — | — | Prototype may proceed with copy-paste form. **URL-only completeness superseded by `CR-14` below, 2026-09-08** — manual URL entry is retained; the URL is not the entire submission, because the intake package also carries exactly one subject topic, source information and a trend-signal description |
 | OD1 | Chief Editor = Chief Journalist? | Resolved (Three Lines Model) | **Yes** — Chief Editor = Line 2, Chief Journalist = Line 1, no float | **No — Provisional-for-PoC (Entry 007, 2026-08-16)** | — | `docs/journal/2026-08-16-entry007-decision-sheet.md` | T6 executor is Line 1 Chief Journalist (agent). T5 executor is Line 2 Senior Journalist (human-primary). Open at Charter level. |
 | OD2 | Agent judgment independence? | Resolved (Three Lines Model) | **Yes** — satisfied by Line separation | **No — Provisional-for-PoC (Entry 007, 2026-08-16)** | — | `docs/journal/2026-08-16-entry007-decision-sheet.md` | Four-eyes enforced at Line boundaries in code; reported as provisionally satisfied, pending OD2, per Charter. Open at Charter level. **If OD2 resolves negatively, Charter OD4 branch ② applies: pre-launch blocker.** |
@@ -597,7 +597,7 @@ Side state:
 
 | # | Item | Description | Target Phase |
 |---|------|-------------|-------------|
-| G1 | Data retention policy | Auto-archive rejected/archived after 90 days; published kept indefinitely | Week 4-6 |
+| G1 | Data retention policy | *(History, superseded 2026-10-03 by `D-404`: "Auto-archive rejected/archived after 90 days; published kept indefinitely".)* Current: see `A6` in §2.4 — external archival on a supplied fact; no application archive job | Week 4-6 |
 | G2 | GDPR/privacy considerations | Articles from social platforms need consent tracking | Phase 2 |
 | G3 | Blueprint versioning | Semantic versioning on blueprint; increment on invariant change | **Executed** — Blueprint is v1.2 with changelog |
 | G4 | Taxonomy change workflow | Chief Editor proposes new topic → review → approval; `evolves_from` and `evolution_notes` required | Week 4-6 |

@@ -1,0 +1,14 @@
+helper 062427d2862b9b20206d49fba8d13a685be69970a0a2d70856dac87780cf009c; ownership 2f14888ceb92f1855e946ae2c6e2da18cb41c612d9e1aa26454e4b202c398228; base eb0aa44; date 2026-10-16
+K1 | s0 | want exit 0 / "S0 working tree clean" | got exit 0 | OK | S0 working tree clean
+K2 | expected | want exit 0 / "inverse check" | got exit 0 | OK | inverse check: undoing the 10 edits gives the three pins; record written before any write
+K2 | apply | want exit 0 / "post-write bytes = intended" | got exit 0 | OK | three files written; post-write bytes = intended; run verify next
+K2 | verify | want exit 0 / "10/10 edits present once" | got exit 0 | OK | verify: three files = expected bytes; 10/10 edits present once, old texts as expected
+K2 | verify-commit 7bb4435 | want exit 0 / "every blob = expected; 10/10 edits" | got exit 0 | OK | E5 applying commit 7bb4435: three paths; every blob = expected; 10/10 edits
+K3 | expected | want exit 0 / "inverse check" | got exit 0 | OK | inverse check: undoing the 10 edits gives the three pins; record written before any write
+K3 | apply | want exit 0 / "CONTROL RUN: edit E12 left out" | got exit 0 | OK | three files written; post-write bytes = intended; run verify next
+K3 | verify | want exit 2 / "E12 (docs/Modular_PRD.md: new 0/1, old 1/0)" | got exit 2 | OK | REFUSE: edits not as expected at working tree: E12 (docs/Modular_PRD.md: new 0/1, old 1/0)
+K3-verify | refusal names E12 only | OK
+K3 | fixture keeps owner TBD | OK
+K3 | verify-commit ec14113 | want exit 2 / "E12 (docs/Modular_PRD.md: new 0/1, old 1/0)" | got exit 2 | OK | REFUSE: edits not as expected at commit ec14113: E12 (docs/Modular_PRD.md: new 0/1, old 1/0)
+K3-verify-commit | refusal names E12 only | OK
+SETUP FAILURE: cannot write /c/CoWork/outputs/lane-a-d439-package-2026-10-16/r2/runs/20261016T094709Z-062427d2862b/results.txt

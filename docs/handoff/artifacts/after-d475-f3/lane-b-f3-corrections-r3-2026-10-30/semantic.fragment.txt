@@ -1,0 +1,6 @@
+function semanticSummary() {
+  const prerequisites=['bindings','inherited-evidence','source-freeze','complete-bytes','fragments','descriptions','communities','git-selection','lifecycle-composition','producer-projections'];
+  const evidence=prerequisites.map(name=>({name,status:R.checks[name]?.status??'not-run',path:OUT?OUT+'/'+name+'.json':null}));
+  const complete=evidence.every(e=>e.status==='pass');
+  return {pendingSemantics:complete?0:null,semanticStatus:complete?'complete-zero-unresolved':'unknown-or-incomplete',semanticEvidence:evidence};
+}

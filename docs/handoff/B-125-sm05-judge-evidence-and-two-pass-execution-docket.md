@@ -4,7 +4,7 @@
 - **Kind:** blocked-on-decision
 - **Phase:** 1
 - **Blocks:** completion of V1-SM05 pre-start readiness, normal GitHub Issue creation, Pass-1 publication, the State-1 PR, selection and State-2 construction
-- **Status:** Open
+- **Status:** Answered
 - **Lane A:** Acknowledged 2026-09-22. Applied Parent 1 only: recorded Judge Clarification 5.1 as
   `D-254` in `V1-DECISION-REGISTER.md` §5.14e79, and propagated it under `D-54` to `V1-BUILD-SPEC.md`,
   `V1-ARTIFACT-INVENTORY.md` and `V1-SM05.md`'s DoR-checklist preamble, stating `Modular_PRD.md` and
@@ -24,9 +24,28 @@
   return to the remediation path rather than creating a duplicate.
 
   **Progress note, 2026-09-24 (`D-256`), not an answer.** The `DOR-R5`/`DOR-R6` row of Parents 2–6 now has its evidence: Panel A11, and the hosted v15 comparison. Walkthrough and review acceptance are still owed. No Issue, branch, PR or selection act has occurred. `Status` stays `Open`.
-- **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Evidence:** `D-252`, `D-253`; `docs/handoff/B-119`–`B-124`; `docs/v1/V1-BUILD-SPEC.md`; `docs/v1/work-packets/V1/V1-SM05.md`; Judge Clarification 5.1 relayed 2026-09-22
-- **Verified-At-Commit:** ef903b38989a9e0fc24806332ed9d86c1f6d27d3
+
+  **Progress note, 2026-09-25 (`D-263`), not an answer.** The Pass-1 base, the Issue, the branch and the State-1 PR are complete (`D-259`–`D-262`). Selection, the work order and State-2 construction remain open. `Status` stays `Open`.
+
+  **Transferred and `Deferred`, 2026-09-26 (`D-268`, commit `947e4e7`; Judge answer Q1, *per backlog tracking*).** Per-parent receipts:
+
+  | Parent | Receipt |
+  |---|---|
+  | 1 — record the governing rule | Applied as `D-254` |
+  | 2 — complete pre-start readiness | Complete: the five operator facts are `S2` baseline only (`D-255`); `DOR-R5`/`DOR-R6` checked (`D-259`) |
+  | 3 — complete Pass 1 on the base branch | Complete: baseline push observed at `f94695b` (`B-122`) |
+  | 4 — normal Issue creation | Complete: Issue #1 (`D-262`; phantom-Issue premise removed by `B-126`) |
+  | 5 — non-empty State-1 branch and PR | Complete: draft PR #2 (`D-262`, `D-263`) |
+  | 6 — selection and construction | **Transferred** to `B-136` Parent 3, then `V1-SM05-FV-001` (Gate 2); `SV-002` §2.2 `P14b` |
+
+  `Status` moves to `Answered` with `Resolution: Deferred` and the `Follow-up-Tier` below; the entry returns under `B-097` when that condition is met. Not independently verified; Lane B's review of these receipts still applies.
+
+  **Lifecycle correction, 2026-09-26 (`D-269`, commit `4e513fd`; Judge Option A, canonical absorption).** The `Deferred` disposition above, with its Gate-2 `B-097` return, is history. This entry is now **`Superseded`** by `D-268` as corrected by `D-269` — terminal, **no return trigger**. The per-parent receipts above stand. Parent 6 (selection and construction) is received by `B-136` Parent 3 (receipt at `ee2e232`) and owned durably by `V1-SM05.md`; `SV-002` §2.2 `P14b`. Absorption completes none of those acts. Not independently verified.
+- **Resolution:** Superseded
+- **Verified-By:** — not independently verified; dispositioned by Lane A
+- **Evidence:** `D-268` per-parent receipts above; previously: `D-252`, `D-253`; `docs/handoff/B-119`–`B-124`; `docs/v1/V1-BUILD-SPEC.md`; `docs/v1/work-packets/V1/V1-SM05.md`; Judge Clarification 5.1 relayed 2026-09-22
+- **Verified-At-Commit:** 4e513fd92316da9bae6b903d221103cf655737a5
+- **Superseded-By:** `D-268` as corrected by `D-269` (Judge Option A, canonical absorption, 2026-09-26)
 
 ## What happened
 
@@ -152,3 +171,11 @@ changed. No Graphify rebuild was required for this handoff-only addition.
 | **Reject** | Claiming a suite pass from Lane C's stopped run | Require completed normal-environment evidence |
 | **Reject** | Requiring an existing-Issue URL on the present evidence, or predicting the future Issue number | Corrected 2026-09-23 (`B-126`) — use normal creation and GitHub's assigned identifier |
 | **Reject** | Creating a duplicate Issue or moving Pass-2 identity propagation onto the base | Preserve one-Issue sequencing and a non-empty State-1 delta |
+
+## Terminal annotation record
+
+- **Current-Resolution:** Superseded
+- **Annotation-Type:** correction
+- **Annotation-Act:** `D-269` (Judge Option A, canonical absorption, 2026-09-26) — `Deferred` corrected to `Superseded`, `Follow-up-Tier` removed; `V1-DECISION-REGISTER.md` §5.14e94
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** 38e3669ed66ad264e7e45ff558cccdf2d1603e0d

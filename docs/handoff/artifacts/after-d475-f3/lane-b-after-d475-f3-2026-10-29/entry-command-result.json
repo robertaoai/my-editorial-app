@@ -1,0 +1,10 @@
+{
+  "command": [
+    "node",
+    "C:/CoWork/outputs/lane-b-after-d475-f3-2026-10-29/entry.mjs"
+  ],
+  "exitCode": 1,
+  "stdout": "",
+  "stderr": "{\n  \"pass\": false,\n  \"error\": \"Error: source or binding findings\\n    at ck (file:///C:/CoWork/outputs/lane-b-after-d475-f3-2026-10-29/gates.mjs:6:51)\\n    at file:///C:/CoWork/outputs/lane-b-after-d475-f3-2026-10-29/entry.mjs:33:2\\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\\n    at async node:internal/modules/esm/loader:643:26\\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)\",\n  \"at\": \"2026-10-29T12:27:27.184Z\"\n}\n",
+  "meaning": "Entry stopped on bindingFindings; no F3 producer-projection validation or K/N check started."
+}

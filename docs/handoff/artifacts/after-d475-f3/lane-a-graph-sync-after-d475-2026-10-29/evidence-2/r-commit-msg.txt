@@ -1,0 +1,11 @@
+handoff(B-136): graph-sync candidate ready at S D-475 22b0a8c - request for Lane B's exact-byte candidate review
+
+Append-only Lane A request R, sole parent D-475. Work 7bd2af2f: prepare exit
+3 (3 pending community names), Lane B-approved answers r1 (89965adf), one
+released resume exit 0 ready (attempt 2); graph df076c7c, manifest 34a4edeb
+(583 files), baseline locus 77af44a digest a51dc92d; fragment parity
+140/140, name binding 0, unresolved 0; freeze bindings unchanged since
+entry; stray work cac590ad frozen. No receipt, annotation, publication or
+push. B-136 stays Open.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>

@@ -41,6 +41,19 @@ fight the gate on its own intended purpose. `G63` and `D-85` both settled the sa
 **a genuinely joint surface should not be attributed to one owner.** `lane-boundary` reports
 unmapped paths in its detail line, so nothing here is invisible.
 
+> **Series ownership — `D-272`, Judge, 2026-09-27.** The directory stays unmapped for crossing detection
+> (`lane-boundary`): an answer written by the receiving lane is never a crossing. Each **series** now has an owner
+> and a receiver:
+>
+> | Series | Raised and owned by | Answered ("taken over") and committed by |
+> |---|---|---|
+> | `B-NNN` | Lane B | **Lane A** — always |
+> | `C-NNN` | Lane C | **Lane B** by default (DevOps depends on the codebase); **Lane A** when the dependency sits on a Lane A surface (`scripts/`, build config, global Project-scope DevOps) or answers a Lane A request |
+>
+> A `C-` entry names its receiver in **`Receiver:`**, and the receiver writes its answer in its own field
+> (`Lane A:` or `Lane B:`). The raiser commits its own entry; the receiver commits its answer. Earlier text in this
+> file that says *Lane A answers every entry* reads through this table.
+
 ## This directory stays writable when your lane is not `Active` — `D-103`
 
 **Exactly one lane is `Active` at a time and only that lane may commit** (`D-101`; the live state
@@ -114,6 +127,21 @@ commit and push **only its own explicit `B-NNN-*.md` or `C-NNN-*.md` entry**:
 
 `Blocked`-lane commit authority is not granted by this section — a `Blocked` lane may still draft
 under the writable-channel rule above, but durable commit/push requires `Eligible` or `Active`.
+
+> **Amended by `D-272`, 2026-09-27 (Judge).** The lane-state condition above is lifted for a lane's **own series**:
+> Lane B commits its own `B-` entries and Lane C its own `C-` entries **whatever their lane state**, including
+> `Blocked`. The **receiving** lane commits its answer in the same way. Everything else in steps 1–6 stands: bind one
+> exact path, stage only it, prove the commit's path set, and run the pre-push proof. The work-product lock outside
+> this directory is unchanged — it governs writes to each lane's owned files (`D-271`).
+
+> **Clarified by `D-385`, 2026-10-02 (Judge).** "The receiving lane commits its answer in the same way" binds
+> **Active Lane A** too. A Lane A answer, acknowledgement or application record in a `B-`/`C-` entry is its own
+> commit with exactly one bound path. It never shares a commit with canonical sources, another entry, or this
+> directory's control files; canonical edits that cite the answer land in their own commit. All lanes share one Git
+> identity and one worktree, so the bound path and the commit message are the only lane evidence a commit carries.
+> **Pushing a range that holds more than one lane's commits** needs the Judge to name that range, a fresh fetch, and
+> the post-push upstream equality check above. A lane-gate control enforcing this is a separate proposal, not part
+> of this clarification.
 
 ## Raising an entry — Lane B and Lane C
 
@@ -256,6 +284,13 @@ costs a red condition; recording an unearned `Verified` costs the meaning of the
 `closure-readiness` (`C-14` check 13) reads those fields and reports the matrix. **There is no
 second backlog file** — that would restate the entries, and restatements drift (`G55`).
 
+**Each header field is a singleton** (`B-116`, `D-375`). `Kind`, `Phase`, `Receiver`, `Status`, `Resolution`,
+`Verified-By`, `Verified-At-Commit`, `Follow-up-Tier` and `Superseded-By` each appear at most once before the first
+`## ` heading, in any letter case (`D-378`): the shared reader is case-insensitive, so `- **status:**` is a duplicate
+of `- **Status:**`. It takes the first match, so a second copy is silently ignored while a different reader may review
+it. Put superseded values in prose. `handoff-response` enforces this. Records below a heading (Return,
+Re-close, Terminal annotation) stay repeatable.
+
 **`Verified-At-Commit` must be a commit that exists.** Hexadecimal, and proven with `git cat-file`
 on a full-history run; `pending` is not a commit. On a shallow CI checkout the check reports a
 **clearly labelled limited** result rather than claiming it verified existence.
@@ -299,6 +334,43 @@ These facts belong in one body record rather than explanatory prose folded into 
 `Verified-At-Commit`. The old terminal disposition stays visible in Git history and in the explicit
 return record; the active header describes only the entry's current state.
 
+### Re-closing a returned entry — `D-364`
+
+A return defined how an entry leaves a terminal state, **not how it takes a disposition again**.
+`B-130` showed the cost: its answer was complete (`D-363`), and the entry could not leave `Open`,
+because a Return record held the header open with nothing to end it. The Judge adopted a
+Re-close record (`D-364` P0a, `D-363` option (a)).
+
+**When the returned work is complete:** keep the `## Return record` exactly as it is, and append
+one `## Re-close record` after it. Then set `Status` to `Answered` and record `Resolution` —
+normally `Applied`, with the dispositioned `Verified-By` form (`D-215`). `Verified` still needs an
+independent actor; the re-close is the answering side's record and verifies nothing.
+
+```markdown
+## Re-close record
+
+- **Reclosed-Return:** <Return-Act and Returned-At-Commit of the episode this completes>
+- **Completion-Condition:** <exact obligation whose completion permits the disposition>
+- **Completion-Evidence:** <accepted act and artifact/section proving each obligation>
+- **Reclose-Act:** <D-364 plus the receiver's dated disposition act and source locus>
+- **Reclosed-At-Commit:** <existing commit read when recording the disposition>
+```
+
+- **One episode each.** A Re-close record completes the Return record immediately before it, and
+  `Reclosed-Return` must cite **both** of that record's identity components: its
+  `Returned-At-Commit`, and its `Return-Act` — every decision ID (`D-NNN`) the act names, or its date
+  when it names no decision (`B-152`, `D-366`). A SHA alone, or the right SHA beside another act,
+  does not bind. A later reopening appends a
+  new Return record and, when that work completes, a new Re-close record. An earlier record never
+  covers a later episode.
+- **The latest episode governs the header.** A latest Return with no Re-close after it keeps the
+  entry `Open` with no `Resolution`; a completed one requires exactly `Answered` and a
+  `Resolution`. `Withdrawn` is not a re-close: a genuine withdrawal is its own disposition.
+- **`Reclosed-At-Commit` is a commit that was read** (`D-214`), not a prediction of the commit
+  being written. It must exist and must come after the `Returned-At-Commit` it completes — a
+  completion cannot predate its return.
+- **Not a new status.** No `Status` or `Resolution` word is added; the header uses the words above.
+
 ### Terminal annotation record — a correction that does NOT reopen scope — `B-113`
 
 Not every post-terminal edit is a return. Audit-field normalization (`D-205`), a correction to the
@@ -329,10 +401,12 @@ work resumed. `No-Scope-Reopened` must read exactly `true` — a record assertin
 in `## Return record` instead, not here with the opposite claim.
 
 **`handoff-response`, `terminal-return` and `channel-docs` enforce this together, and none
-substitutes for the others:** `handoff-response` (check 10) validates a `## Return record`'s and
-every `## Terminal annotation record`'s FORM — all facts present, commits hexadecimal, `Annotation-
-Type` one of the four governed values, `No-Scope-Reopened` literally `true`. It needs no git
-history, so it runs in CI. `terminal-return` (check 18) is the history-aware half: it walks a
+substitutes for the others:** `handoff-response` (check 10) validates every `## Return record`'s,
+`## Re-close record`'s and `## Terminal annotation record`'s FORM, each as its own block — all
+facts present, commits hexadecimal, `Annotation-Type` one of the four governed values,
+`No-Scope-Reopened` literally `true`, each Re-close bound to the Return before it, and the header
+agreeing with the latest episode (`D-364`). It needs no git history, so it runs in CI.
+`terminal-return` also proves each `Reclosed-At-Commit` exists and follows its return. `terminal-return` (check 18) is the history-aware half: it walks a
 file's FULL commit history, one terminal episode at a time — a file enters an episode the moment
 its Resolution first becomes terminal, and every commit inside that episode must be audit-only, or
 named by a Return record (episode ends) or a Terminal annotation record (episode continues) whose
@@ -343,12 +417,16 @@ to exempt a file forever). It SKIPS on a shallow CI checkout, exactly like `sour
 
 ## Answering — Lane A
 
+> **Receiver per series — `D-272`.** For a `B-` entry, and for a `C-` entry whose `Receiver:` is `Lane A`, Lane A
+> fills the `Lane A` line as below. For a `C-` entry whose `Receiver:` is `Lane B`, **Lane B** fills a `Lane B` line
+> with the same dispositions and the same rules. `handoff-response` reads the receiver's field.
+
 Fill the `Lane A` line. The dispositions are `Acknowledged`, `Answered` and `Withdrawn`:
 
 | Disposition | Means |
 |---|---|
 | `Acknowledged` | Seen and queued. **Required immediately** — an unacknowledged entry fails `bun run check`. |
-| `Answered` | Resolved. Say what changed and cite the decision or commit. |
+| `Answered` | Responded; the disposition is recorded separately in `Resolution`. Say what changed and cite the decision or commit. |
 | `Withdrawn` | Not a defect. Say why — a withdrawal with no reason is not a disposition. |
 
 **Acknowledging is not answering.** The check requires acknowledgement so nothing sits unread;

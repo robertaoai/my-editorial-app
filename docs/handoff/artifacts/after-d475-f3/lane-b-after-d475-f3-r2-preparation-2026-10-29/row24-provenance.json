@@ -1,0 +1,18 @@
+{
+  "source": "C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/42f609c0-3f3b-49b0-abf7-f3d587359462.jsonl",
+  "line": 6410,
+  "uuid": "664d1468-91a3-422c-ae7c-6d7d4987a5a4",
+  "type": "user",
+  "sessionId": "42f609c0-3f3b-49b0-abf7-f3d587359462",
+  "retained": "C:/CoWork/outputs/lane-a-git-binding-plan-2026-10-29/INSTRUCTION-R4B.jsonl",
+  "retainedBytes": 3180,
+  "retainedSha256": "ec572be281323d675283f328501af727cf1ea54b10f68adcf655b60e075befb2",
+  "equalToSourceLinePlusLF": true,
+  "line6413": {
+    "type": "last-prompt",
+    "uuid": null,
+    "role": null,
+    "classification": "metadata; not retained correction instruction"
+  },
+  "limit": "byte equality and source readability do not authenticate the speaker or prove uninterrupted past retention"
+}

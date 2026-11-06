@@ -1,0 +1,24 @@
+// Read-only freeze check after the after-D-475 resume, against the entry snapshots. Writes one output (wx).
+import fs from 'fs'; import path from 'path'; import crypto from 'crypto'; import { execFileSync } from 'child_process';
+const REPO = 'C:/robertaoai/my-editorial-app', E1 = 'C:/CoWork/outputs/lane-a-graph-sync-after-d475-2026-10-29/evidence/', E = 'C:/CoWork/outputs/lane-a-graph-sync-after-d475-2026-10-29/evidence-2/', W = 'C:/CoWork/outputs/lane-a-graph-sync-after-d475-2026-10-29/work/';
+const g = (...a) => execFileSync('git', ['-C', REPO, ...a], { encoding: 'utf8' }).replace(/\n$/, '');
+const sha = p => crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
+const F = [], ck = (ok, m) => { if (!ok) F.push(m); }, r = { at: new Date().toISOString() };
+r.head = g('rev-parse', 'HEAD'); r.status = g('status', '--porcelain=v1', '--untracked-files=all'); ck(r.head === '22b0a8ce2fb06c16152fa9490d21aae829a45974' && r.status === '', 'HEAD S, clean');
+r.configEqualEntry = g('config', '--list', '--show-origin') + '\n' === fs.readFileSync(E1 + 'config-entry-20261029T112219Z.txt', 'utf8'); ck(r.configEqualEntry, 'configuration');
+const td = l => l.includes(' refs/codex/turn-diffs/'), pre = fs.readFileSync(E1 + 'refs-entry-20261029T112219Z.txt', 'utf8').split('\n').filter(Boolean), now = g('for-each-ref', '--format=%(objectname) %(refname)').split('\n').filter(Boolean);
+r.refsOutsideTurnDiffsEqual = JSON.stringify(pre.filter(l => !td(l))) === JSON.stringify(now.filter(l => !td(l))); ck(r.refsOutsideTurnDiffsEqual, 'refs outside turn-diffs');
+r.liveGraph = sha('C:/CoWork/myeditorialapp/.graphify/graph.json'); r.receipts = fs.readdirSync('C:/CoWork/myeditorialapp/.graphify-receipts').filter(f => /^release-.+\.json$/.test(f)).length;
+r.lock = fs.existsSync('C:/CoWork/myeditorialapp/.graphify.lock'); r.journal = fs.existsSync('C:/CoWork/myeditorialapp/.graphify-txn.json');
+ck(r.liveGraph === '4c3829a57f1dcc0e45d55fd045ccd56b9cfcb80c1cc3f6032cba4a1bf39a2ac7' && r.receipts === 16 && !r.lock && !r.journal, 'live graph unchanged, no lock/journal');
+const inv = JSON.parse(execFileSync('node', ['C:/CoWork/outputs/lane-a-worktree-coverage-2026-10-24/inventory.mjs', 'C:/robertaoai/my-editorial-app-preflight', 'C:/robertaoai/my-editorial-app-proof'], { encoding: 'utf8' }));
+const acc = JSON.parse(fs.readFileSync('C:/CoWork/outputs/lane-a-worktree-coverage-2026-10-24/inventory.json', 'utf8'));
+const strip = o => JSON.stringify(Object.fromEntries(Object.entries(o.roots).map(([k, v]) => [k, { e: v.exists, i: v.items.map(i => [i.path, i.type, i.size, i.sha256]) }])));
+r.inventoryEqual = strip(inv) === strip(acc); ck(r.inventoryEqual, 'inventory');
+const SD = 'C:/CoWork/outputs/sync-20261028', want = fs.readFileSync('C:/CoWork/outputs/lane-a-q6-record-2026-10-28/stray-sync-20261028-freeze.txt', 'utf8').split('\n').filter(l => /^[0-9a-f]{64}  /.test(l)).map(l => l.split('  ').slice(0, 2).join('  ')).sort();
+const got = []; (function walk(d) { for (const e of fs.readdirSync(d, { withFileTypes: true })) { const p = path.join(d, e.name); if (e.isDirectory()) walk(p); else got.push(sha(p) + '  ' + path.relative(SD, p).replace(/\\/g, '/')); } })(SD); got.sort();
+r.strayEqual = JSON.stringify(got) === JSON.stringify(want); ck(r.strayEqual && got.length === 4306, 'stray work frozen');
+const ST = JSON.parse(fs.readFileSync(W + 'STATE.json', 'utf8')); r.work = { state: ST.state, attempts: ST.attempts, stateSha256: sha(W + 'STATE.json'), answersHash: ST.answersHash, claim: fs.existsSync(W + '.claim') };
+ck(ST.state === 'ready' && ST.attempts === 2 && !r.work.claim, 'work ready, attempt 2, no claim');
+r.candidateVerification = sha(E + 'candidate-verification.json');
+r.findings = F; r.pass = F.length === 0; fs.writeFileSync(E + 'post-resume-freeze.json', JSON.stringify(r, null, 1) + '\n', { flag: 'wx' }); console.log(JSON.stringify(r, null, 1));

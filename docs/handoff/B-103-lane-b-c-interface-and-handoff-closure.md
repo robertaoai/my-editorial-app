@@ -19,11 +19,10 @@
   the "Lane A disposition — 2026-09-15" section at the end of this entry** — that section records
   the evidence this line predates; this line is kept, not edited, per this channel's rule against
   rewriting history.
-- **Resolution:** Deferred
-- **Verified-By:** — not independently verified; dispositioned by Lane A
+- **Resolution:** Verified
+- **Verified-By:** Lane B
 - **Evidence:** Chief Editor/Judge clarifications of 2026-09-15; B-077, B-101 and B-102; `AGENTS.md` D-56/D-75/D-84/D-86/D-100/D-183/D-186; `docs/handoff/README.md`; `.github/WORKFLOWS-SPEC.md`; `docs/LANE-B-WORK-ORDER.md`; `docs/Modular_PRD.md` FR-14/NFR-08/Q4; `docs/fn-specs/FN-GATES-01-05.md`; `docs/fn-specs/FN-AUDIT-VISIBILITY-07-08.md`; `docs/specs/SPECS-VERIFICATION-APPARATUS.md`; `docs/journal/2026-08-18-storyboard-business-and-digital-twin.md`; `docs/governance/requirements-traceability-map.md`; `docs/ENCYCLOPEDIA-SYNC.md`; Graphify query and `.graphify/branch.json`; `bun run check` at the named commit; `D-227`–`D-230`; the "Exact Lane A disposition draft" and "Lane A disposition — 2026-09-15" sections of this entry.
-- **Verified-At-Commit:** 3787821d231bc26e3e3bcf86f29ec55fc7fa6b40
-- **Follow-up-Tier:** Phase 1 — B-097 return-protocol controls own B-103 P3
+- **Verified-At-Commit:** 42dbbe6c94ad5c07f610390eeee215f566bb2288
 
 ## What happened
 
@@ -916,3 +915,72 @@ Judge ruling, read fresh rather than assumed unchanged:
   as a result
 - **No-Scope-Reopened:** true
 - **Annotated-At-Commit:** b089f6c815f4db44513c4af1e2378773168d1b2e
+
+## Terminal annotation record
+
+- **Current-Resolution:** Deferred
+- **Annotation-Type:** verification-evidence
+- **Annotation-Act:** Lane B independent Phase 1 / O0 review, 2026-10-01, under Judge authorization
+  "Lane B verifies B-116 at fc99842, then the chain". Read `48aa96401a8c8581983bd4d2635423d321e55c6a` after independently verified
+  B-116 → B-113 → B-112 → B-097. B-103 P3's deferred return-protocol control evidence is now
+  independently Verified through B-097: Option A is blocking, the all-episode history walk and
+  annotation/return/re-close provenance checks are implemented. Exact repaired source
+  `fc998420c5a423caf5953e527277a5ffb183c247` passed 70/70 independent focused cases with restored
+  tree, including negative refusal, multi-episode and live-history cases; pre-chain main-tree
+  consistency passed 19/19. Approve P3 control evidence (Phase 1 / O0). Approve-with-conditions
+  Lane A's child-disposition/tracker reconciliation (Phase 1): receiver records the resulting
+  disposition with the applicable lifecycle act. Defer whole B-103 closure (Phase 1) and Stage 2
+  runtime proof (separately authorized later phase, D-230). The original receiver P0–P3 table and
+  whole-entry Answered/Deferred header remain historical/current as published; this independent
+  evidence annotation does not itself perform a receiver return/re-close or change C-001 readiness.
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** 48aa96401a8c8581983bd4d2635423d321e55c6a
+
+## Terminal annotation record
+
+- **Current-Resolution:** Deferred
+- **Annotation-Type:** verification-evidence
+- **Annotation-Act:** Lane A receiver disposition of child `P3`, `D-380` (Judge-authorized unit "G1 + G2 +
+  graph update", 2026-10-01; `V1-DECISION-REGISTER.md` §5.14e205). Lane A accepts Lane B's independent `P3`
+  control evidence recorded at `48aa964` (through `B-097`, Verified at `d7c6244`): child `P3` is dispositioned
+  **Verified**, and `SV-002` §2.3.1's `B-103` row cites it. The whole entry stays `Deferred`: `C-001`'s Phase 3
+  execution and `D-230` Stage 2 runtime proof are unchanged, and no other P0–P3 child moves
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** d47443e135e869bb07a9fb8b44cb8c24334345ee
+
+## Return record
+
+- **Previous-Resolution:** Deferred
+- **Return-Trigger:** Phase 1 — B-097 return-protocol controls own B-103 P3
+- **Return-Act:** `D-383`, Judge authorization 2026-10-02 (unit G3), `V1-DECISION-REGISTER.md` §5.14e208
+- **Returned-At-Commit:** 0feaa4588d97daaed4a5824da892ee6eef675313
+
+**Why the condition is met.** `B-097`'s return-protocol controls are independently Verified (Lane B, recorded
+`48aa964`), and `P3` itself is Verified (`D-380`). With `P0`, `P1` and `P2` (Stage 1) already Verified, no
+child holds this entry in Phase 1. The one surviving obligation, `D-230` Stage 2, is received by `V1-SM06` as
+`SM06-P3-06` (`D-382`). This return exists only to record that disposition; a Re-close record follows.
+
+## Re-close record
+
+- **Reclosed-Return:** Return-Act `D-383` (2026-10-02), Returned-At-Commit 0feaa4588d97daaed4a5824da892ee6eef675313
+- **Completion-Condition:** Phase 1 — `B-097`'s return-protocol controls own `P3`; with `P3` Verified, every Phase 1 child (`P0`–`P3`) is Verified and the surviving obligation has a receiver
+- **Completion-Evidence:** `B-097` independently Verified (Lane B, recorded `48aa964`); `P3` Verified (`D-380`, annotation at `48aa964`); `P0`–`P2` Verified (Lane A disposition 2026-09-15, Judge ruling 2026-09-16); `D-230` Stage 2 received as `V1-SM06` `SM06-P3-06` (`D-382`)
+- **Reclose-Act:** `D-364` re-close form; Lane A disposition `D-383`, 2026-10-02, `V1-DECISION-REGISTER.md` §5.14e208
+- **Reclosed-At-Commit:** a82370bf08da65746b1ea91abceedb790fe75d2e
+
+`Applied` is Lane A's receiver disposition. `Verified` needs Lane B's independent read. `D-230` Stage 2 execution
+stays with `SM06-P3-06` and its own later work order.
+
+## Independent Lane B verification — D-383 return and re-close disposition — 2026-10-02
+
+Read `42dbbe6c94ad5c07f610390eeee215f566bb2288`. P0–P2 retain their recorded independent Stage-1 dispositions; P3's control proof is independently Verified through B-097 and the ordered B-116/B-113/B-112/B-097 chain, accepted into this entry by D-380. This review does not re-run that completed historical control repair or award Stage-2 runtime credit.
+
+The return cites D-383 and read commit 0feaa45. The subsequent Re-close binds that same Return-Act/Returned-At-Commit episode, reads the later return commit a82370b, and records the met Phase-1 child condition. Git history places the return at a82370b and the re-close at 5177c03, preserving the two-commit requirement. D-382's SM06-P3-06 receipt names both B-103 and B-114, the allowlisted producer/consumer contract, the missing/malformed negative path and its separate later authorization. D-230's two-stage boundary remains intact.
+
+All Phase-1 children and the surviving Stage-2 receiving contract support this receiver disposition. Lane B records Verified at the source commit read, leaving the Lane A answer, Return/Re-close records and historical terminal annotations intact. Verification closes this source's Phase-1 disposition, not execution of SM06-P3-06 or any workflow/migration/release gate.
+
+| Verdict | Item | Follow-up phase |
+|---|---|---|
+| Approve | B-103 D-383 return/re-close and Phase-1 disposition | Phase 1 — independently Verified |
+| Defer | D-230 Stage-2 signal and consuming workflow | Separately authorized Phase 3 / SM06-P3-06 |
+| Defer | Audit parent and Gate 2 | Phase 1 — remaining sources and Judge evidence |

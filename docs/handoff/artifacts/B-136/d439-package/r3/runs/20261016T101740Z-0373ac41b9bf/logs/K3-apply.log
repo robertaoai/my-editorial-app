@@ -1,0 +1,6 @@
+CONTROL FIXTURE validated: c:/cowork/outputs/lane-a-d439-package-2026-10-16/r3/runs/20261016t101740z-0373ac41b9bf/work/k3 (switches EV_CONTROL,EV_TEST_SKIP); write targets resolve inside it
+packet r9 bound (dfd5c7771e9b); 10 active edits literal in it; date 2026-10-16
+CONTROL RUN: act presence in the Register not checked
+E2a three paths clean and at the pins
+CONTROL RUN: edit E12 left out
+three files written; post-write bytes = intended; run verify next

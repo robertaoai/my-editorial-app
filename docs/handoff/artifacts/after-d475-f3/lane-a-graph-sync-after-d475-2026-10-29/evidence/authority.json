@@ -1,0 +1,32 @@
+[
+ {
+  "file": "JUDGE-AFTER-D475-CYCLE-RELEASE.jsonl",
+  "class": "judge-act (decision text drafted by Lane B on request at B line 15038)",
+  "source": "C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/42f609c0-3f3b-49b0-abf7-f3d587359462.jsonl",
+  "line": 5830,
+  "id": "b5502220-0d06-4ad2-9da3-9e8ddbf11fe5",
+  "timestamp": "2026-10-29T11:21:19.349Z",
+  "bytes": 5557,
+  "sha256": "f02a332835c51ace8b156ed8d5cc0240eed7b5fdd6294625c47c2cf85e9bdf76"
+ },
+ {
+  "file": "LANE-B-D475-RECORDING-REVIEW.jsonl",
+  "class": "independent review (Lane B): approve D-475 recording",
+  "source": "C:/Users/rober_24syk4j/.codex/sessions/2026/10/21/rollout-2026-10-21T03-31-43-01a1450c-56ae-73a2-95c0-6c0d44d45f08_01a15acc-56e0-7801-a238-395e69a0b901.jsonl",
+  "line": 15028,
+  "id": "msg_0cb6cde176463b9f016ae32bb673848191b99e8dd3349c8d50",
+  "timestamp": "2026-10-29T11:19:25.596Z",
+  "bytes": 3505,
+  "sha256": "bd4f5bd9eac6cf91f213c1334d1611bd3f702d3be809efb8d3e2dc15aa331a3d"
+ },
+ {
+  "file": "LANE-B-AFTER-D475-DRAFT-REQUEST.jsonl",
+  "class": "judge drafting request to Lane B (no execution authority)",
+  "source": "C:/Users/rober_24syk4j/.codex/sessions/2026/10/21/rollout-2026-10-21T03-31-43-01a1450c-56ae-73a2-95c0-6c0d44d45f08_01a15acc-56e0-7801-a238-395e69a0b901.jsonl",
+  "line": 15038,
+  "id": "msg_01a18763-4a47-72c2-9543-bcc6685e4c55",
+  "timestamp": "2026-10-29T11:19:53.672Z",
+  "bytes": 1487,
+  "sha256": "89f2eec4d1c1f4e15c5b9fba7866e17fe04b707e39c9759ddd3d1eba46ff4769"
+ }
+]

@@ -1,0 +1,1 @@
+Command: node scripts/graphify/guarded-rebuild.mjs prepare --work C:/CoWork/outputs/lane-a-graph-sync-after-d475-2026-10-29/work | cwd C:/robertaoai/my-editorial-app | start 2026-10-29T11:22:54.890Z end 2026-10-29T11:26:29.469Z | exit 3

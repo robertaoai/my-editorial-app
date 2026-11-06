@@ -1,0 +1,42 @@
+const FIN = { preliminary: {path:null,bytes:null,sha256:null,exit:null,status:'not-attempted'}, finalPreservation:{ok:false,reason:'not proved'} };
+function observedFile(file) {
+  if (!file) return {status:'unavailable',path:null};
+  try { const b=read(file);return {status:'present',path:file,bytes:b.length,sha256:hash(b)}; }
+  catch(e) { return {status:e.code==='ENOENT'?'absent':'unreadable-or-partial',path:file,error:String(e.stack)}; }
+}
+function terminal(exit,completionWrite) {
+  R.exit=exit;R.runtimeStatus=exit===0?'complete-positive-review':'incomplete-or-failed';
+  const p=FIN.preliminary;
+  return {record:'authoritative',exit,verdict:exit===0?'positive F3 review evidence; K/N remain separate':'F3 not accepted',
+    preliminary:{...p,observed:observedFile(p.path),disposition:p.status!=='verified'?'unverified or absent; never authoritative':exit===p.exit?'confirmed':`superseded: preliminary exit ${p.exit}, final exit ${exit}`},
+    completionWrite,finalPreservation:FIN.finalPreservation,result:R,partialFiles:'retain entire output and capture folders'};
+}
+function fallback(exit,phase,error) {
+  process.exitCode=exit;
+  if(error)R.secondaryErrors.push({phase,error:String(error.stack||error)});
+  const record=terminal(exit,{status:'failed or unavailable',observed:observedFile(OUT?OUT+'/child-completion.json':null)});
+  try { fs.writeSync(2,JSON.stringify(record)+'\n'); }
+  catch(e) { R.secondaryErrors.push({phase:'stderr-fallback',error:String(e.stack)});try{fs.writeSync(1,JSON.stringify(terminal(exit,{status:'stderr unavailable; stdout fallback',observed:observedFile(OUT?OUT+'/child-completion.json':null)}))+'\n');}catch{} }
+}
+function finalize() {
+  R.ended=new Date().toISOString();
+  for(const name of REQUIRED)if(!R.checks[name])R.checks[name]={status:'not-run',reason:'prior gate failed or run interrupted'};
+  let code=R.findings.length||REQUIRED.some(k=>R.checks[k].status!=='pass')?2:0;
+  R.runtimeStatus=code===0?'complete-positive-review':'incomplete-or-failed';
+  FIN.preliminary={path:OUT?OUT+'/child-result.json':null,bytes:null,sha256:null,exit:code,status:OUT?'attempting':'unavailable'};
+  try { if(!OUT)throw new Error('output unavailable');Object.assign(FIN.preliminary,write('child-result.json',{record:'preliminary',authoritative:false,exit:code,result:R}),{status:'verified'}); }
+  catch(e) { FIN.preliminary.status='write-or-readback-failed';R.secondaryErrors.push({phase:'preliminary-write',error:String(e.stack)});code=Math.max(code,6); }
+  if(before&&OUT)try { const post=snapshot('post-preliminary');FIN.finalPreservation=preserveCompare(before,post);requireThat(FIN.finalPreservation.ok,'post-preliminary preservation mismatch'); }
+  catch(e) { FIN.finalPreservation={ok:false,error:String(e.stack)};R.secondaryErrors.push({phase:'post-preliminary',error:String(e.stack)});code=Math.max(code,4); }
+  if(!FIN.finalPreservation.ok)code=Math.max(code,4);
+  requireThat(envHash()===START_ENV,'environment changed during finalization');
+  if(OUT)try { write('evidence-manifest.json',{algorithm:'sha256-per-file',files:tree(OUT).details,excludes:['evidence-manifest.json','child-completion.json'],scope:'current attempt; not an execution-packet seal'}); }
+  catch(e) { R.secondaryErrors.push({phase:'evidence-manifest',error:String(e.stack)});code=Math.max(code,6); }
+  if(OUT)try { write('child-completion.json',terminal(code,{status:'proved by existence and read-back',contract:'Authoritative only on exact read-back; fallback supersedes partial file.'}));process.exitCode=code;return; }
+  catch(e) { return fallback(Math.max(code,6),'completion-write-or-readback',e); }
+  fallback(Math.max(code,6),'completion-unavailable',new Error('output unavailable'));
+}
+try { await main(); }
+catch(e){R.findings.push({phase:R.phase,error:String(e.stack)});}
+try { finalize(); }
+catch(e){fallback(6,'finalization',e);}

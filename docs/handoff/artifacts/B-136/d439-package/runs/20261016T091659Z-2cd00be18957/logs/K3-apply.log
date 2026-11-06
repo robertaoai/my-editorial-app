@@ -1,0 +1,5 @@
+packet r9 bound (dfd5c7771e9b); 10 active edits literal in it; date 2026-10-16
+CONTROL RUN: act presence in the Register not checked
+E2a three paths clean and at the pins
+CONTROL RUN: edit E12 left out
+three files written; post-write bytes = intended; run verify next

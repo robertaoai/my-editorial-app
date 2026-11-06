@@ -275,3 +275,9 @@ ordering inside it:
 | Approve-with-conditions | `S11`: `S1` reclassified from resolved to addressed | Phase 1 — `A4` names the first-intake form or the carrying sub-field |
 | Reject | Citing either sample in `A4` while both rows are live and unmarked | Two live versions of one package is the `G55` restatement shape |
 | Reject | An `S5` example that demonstrates only the re-assessment pass | First intake is the normal case and is the one unproven |
+
+## Lane A custody cross-reference — 2026-10-04 (`D-412`)
+
+`B-095.D2b` and `B-095.S5` are received in `B-084`'s A4 unit (its "A4 custody receipts" section, `b1e2f13`), not in
+`GOV-RES-001` (`D-382` item 5). D2b comes before S5. `B-095.D1` closed under `D-411`. `B-095.D3` remains with
+`GR-005`. `B-095` stays Open; receipts are custody, not completion.

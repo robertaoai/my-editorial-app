@@ -1,0 +1,46 @@
+{
+  "schema": "B-157 C reconciliation v1",
+  "revision": "1640ff7bc1b7d1e70ab6a421ced8a054dafda993",
+  "inputs": {
+    "docs/handoff/artifacts/B-156/F3-optionA/F3-optionA-targets.json": "72b1fa21a069e2ba91cc2100072cc5d238b602ffcbff4f4fab72e23f61acf199",
+    "docs/handoff/artifacts/B-156/F3-optionA/F3-oldvalues-1640ff7.json": "8a298c85141e4ddb82836b15e4ec0b632d7b5366694bb16f549f834dc7760637",
+    "docs/handoff/artifacts/B-157/C1/C1-targets.json": "2702b0c377b52e077d71fc184d59e00c0d94d120ac3f70cde8237a62e86714e1",
+    "docs/handoff/artifacts/B-157/C1/F3-oldvalues-1640ff7.json": "3167ae8e63f2beb3678e1a2a1d2094a39c9de625ae2017d8f2fc2bf875285821",
+    "docs/handoff/artifacts/B-157/C2/C2-targets.json": "e17ef212997192b610e8b040f7ab7c9fe0f278e8dcf8341e2f4dae2ad22df7ee",
+    "docs/handoff/artifacts/B-157/C2/F3-oldvalues-1640ff7.json": "576f1518757cca67bdd45ca8c885141ae04b2c48f0df137259f48f401d53b122"
+  },
+  "scriptSha256": "11fbfe2ca51e563070051d152f089365c7929c55a5929d0fc5c218ad7c0584c9",
+  "A": 23,
+  "C1": 18,
+  "C2": 5,
+  "overlap": 0,
+  "unionEqualsA": true,
+  "hashesEqualA": true,
+  "C1ids": [
+    "R1-R3",
+    "R4",
+    "R5",
+    "R6-R7",
+    "R8",
+    "R9",
+    "R10",
+    "R11.description",
+    "R11.source_file",
+    "R11.source_location",
+    "R12.source_file",
+    "R12.source_location",
+    "R12.description",
+    "R13-R15",
+    "R16",
+    "R17",
+    "R18-R19",
+    "R20"
+  ],
+  "C2ids": [
+    "R21-R22",
+    "R23",
+    "R24",
+    "R25",
+    "R29"
+  ]
+}

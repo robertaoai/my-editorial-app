@@ -1,0 +1,13 @@
+helper 36d35fb9797a72c46e7915924d582d8ba07530f424099ddad2cac17263139f16; ownership f3f45d67176b2ff7eb3d729701c823deac7f4e2509ef7c86753630d4e17466ac; base 128e0d4
+C1 | s0 | want exit 0 / "-" | got exit 0 | OK | composed body sha256 c06de4df91742a87ac63cb3d2edde42a1cde34b5f6ea9bc9f8749966c3d6f756
+C2a | s0 | want exit 2 / "not in the reviewed ownership manifest: docs/handoff/X-conflict.md" | got exit 2 | OK | REFUSE: S0 N1 D-438 line not in the reviewed ownership manifest: docs/handoff/X-conflict.md:2
+C2b | s0 | want exit 2 / "not in the reviewed ownership manifest: docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md" | got exit 2 | OK | REFUSE: S0 N1 D-438 line not in the reviewed ownership manifest: docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md:13282
+C2d | s0 | want exit 2 / "not in the reviewed ownership manifest: docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md" | got exit 2 | OK | REFUSE: S0 N1 D-438 line not in the reviewed ownership manifest: docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md:13282
+C2c | s0 | want exit 2 / "S0 D-438 already in Register" | got exit 2 | OK | REFUSE: S0 D-438 already in Register
+C3 | apply | want exit 0 / "-" | got exit 0 | OK | five files written; post-write blobs = expected; inverse check = bound inputs
+C3 | verify-apply 3daa110 | want exit 0 / "five paths, every blob = expected" | got exit 0 | OK | E5 applying commit 3daa110: five paths, every blob = expected
+C4a | apply | want exit 2 / "E2b written docs/Modular_PRD.md" | got exit 2 | OK | REFUSE: E2b written docs/Modular_PRD.md
+C4b | apply | want exit 0 / "-" | got exit 0 | OK | five files written; post-write blobs = expected; inverse check = bound inputs
+C4b | verify-apply e2eab09 | want exit 2 / "E5 blob docs/specs/SPECS-PUBLICATION.md" | got exit 2 | OK | REFUSE: E5 blob docs/specs/SPECS-PUBLICATION.md
+--- wrong: 0
+C5 tampered manifest | s0 | want exit 2 / "ownership manifest hash is not the reviewed value" | got exit 2 | OK | REFUSE: S0 N1 ownership manifest hash is not the reviewed value

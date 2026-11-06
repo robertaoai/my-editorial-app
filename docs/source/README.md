@@ -78,5 +78,8 @@ before a production go-live decision.
   with what closes it
 - `../journal/` — dated build-readiness entries, including the Entry 007 Phase 0 approval and
   the sprint plan
-- `../` (PRD, ARCHITECTURE, DATA_MODEL, …) — the repo's own plan pack. **Not a governing
-  document**; see `../README.md`.
+- [Project PRD](../PRD.md) — the frozen customer requirements baseline, governing under
+  `D-29` and protected by `D-58`; it is not part of the plan pack.
+- The repo plan pack (`ARCHITECTURE.md`, `DATA_MODEL.md`, `AGENTIC_LAYER.md`,
+  `INTELLIGENCE_LAYER.md`, `SECURITY.md`, `TASKS.md`, `TEST_PLAN.md`) is **not governing**.
+  See the [documentation reading guide](../README.md) for authority and reading order.

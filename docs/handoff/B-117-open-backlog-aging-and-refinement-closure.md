@@ -4,16 +4,25 @@
 - **Kind:** spec-defect
 - **Phase:** 1
 - **Blocks:** truthful closure and prioritization of the Phase 1 handoff backlog; no application build, workflow, publication, lane transition or release action
-- **Status:** Open
+- **Status:** Answered
 - **Lane A:** **Acknowledged 2026-09-16, receipt only.** The parent-first grouping (1. Intent/Build
   consumption, 2. B-084 Product-readiness packet, 3. return-protocol chain via B-116, 4. B-071
   umbrella, 5. B-110, 6. B-088) and the Open/Backlog-refinement-complete/Applied/Handoff-complete
   definitions are accepted without change. Per-entry header normalization (§"Lane A follow-up"
   items 2–5) is queued as the next Lane A unit, in this stated order; no other entry's header is
   edited by this acknowledgement.
-- **Verified-By:** — not yet dispositioned; raised by Lane B
+  **Deferred 2026-10-05 (`D-416` item 5), read at `6a1693d`.** The Judge accepted B-117's source-custody reason;
+  Lane B independently reviewed that custody (step R) at `6a1693d`. Every one of the 51 children has a named home
+  (`SV-002` §2.3.2 census). This is custody, not delivery, and not whole-entry verification.
+- **Resolution:** Deferred
+- **Follow-up-Tier:** Phase 1: Lane A completes `GOV-RES-001` `GR-007`'s continuous backlog reconciliation and its
+  final independent review. `GR-009`'s catalog-derived code/check returns only on a separate bounded Lane B
+  configuration work order. `GR-021` keeps `B117-R22`, the target halves of `R44`/`R45`, `R46` and `R48` under `D-171`:
+  a selected packet may take planning custody, but execution needs the hold expressly lifted and a separate bounded
+  authorization. The SM05 halves of `R44`/`R45` stay received under `D-381`
+- **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Evidence:** direct read of all `B-*`/`C-*` handoff headers and their latest Git change at `8b3e68c`; `docs/handoff/README.md` D-100–D-102 lifecycle rules; `handoff-response`/`closure-readiness`; B-094 consolidation; B-116
-- **Verified-At-Commit:** 8b3e68c54c45a78f3263a4932d90126b5c353781
+- **Verified-At-Commit:** 6a1693d21af147d54cd6cf65248190320b92d253
 
 ## What happened
 

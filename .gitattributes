@@ -29,12 +29,16 @@
 # both `Decided` and `Rejected`; a version header appears twice; and a
 # union-duplicated CLAUDE.md slices identically to a clean one, so
 # shared-core-hash PASSES on a file holding two full copies of the rules.
+# (`D-337` retired shared-core-hash; a union merge of a rule file can still
+# duplicate rules, so every rule file — including `GEMINI.md`, added by
+# `D-337` — is listed below.)
 # Later rules win, so these fall back to the default 3-way merge, which
 # writes visible conflict markers — failing closed, not open.
 docs/v1/**/*.md      merge=text
 docs/Modular_PRD.md  merge=text
 CLAUDE.md            merge=text
 AGENTS.md            merge=text
+GEMINI.md            merge=text
 .agents/**/*.md      merge=text
 *.sh text eol=lf
 *.bat text eol=crlf
