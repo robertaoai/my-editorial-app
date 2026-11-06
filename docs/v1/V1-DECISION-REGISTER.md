@@ -31444,3 +31444,42 @@ identifiers: `D-475`, §5.14e298, thirty-fourth.
 | FN-AIG §1 | — unaffected: item 3 selects EV-4 only |
 | **Encyclopedia** | Entry 06 check: EV-4 lands in map §7.1 |
 | **Graphify** | Affected: `D-425` after the last governed change |
+
+## 5.14e301 `D-478` — Handoff Routing by Work Type; `D-272` Receiver Exception and `D-324` Lane B Review Order Superseded Prospectively; J0 L1–L2 Superseded; `C-001`–`C-009` Historical
+
+**Authority: the Judge, directly to Lane A, 2026-11-06**: "I accept the reviewed routing decision package and record its §3 entry as D-478. Item 0 of D-440 and D-441, as amended through D-476 item 8 and D-477, is further amended to permit one further intervening Register entry, this thirty-seventh entry, after D-477 and before the separate TCA r3 (J3) and J-C A1 entries. J1 and J2 keep their identities, text and transfer holds. No further intervening entry is permitted by implication" (retained: session transcript `C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/977c3a29-84c5-4979-8081-065ea3f1b07a.jsonl`, line 4291, record UUID `866e0a69-ec6a-4c21-bb6b-438c2a0422dc`, timestamp 2026-11-06T09:50:56.882Z, 16,694 bytes including the final LF, SHA-256 `7c7ae8a9373b07a384a074bcb7493e61d45b2b98b9972f890c5bdc0a747a8f5c`).
+
+### The decision
+
+1. **Placement.** I permit this entry as the thirty-seventh intervening Register entry, after `D-477` and before the separate TCA r3 (J3) and J-C A1 entries. No further intervening entry is permitted by implication.
+2. **Routing by work type.** Governance and documentation work is owned by Lane A, reviewed at Level 1 by Lane B and at Level 2 by Lane C, and recorded in the relevant B-entry. Application code is owned by Lane B, reviewed at Level 1 by Lane C and at Level 2 by Lane A, and recorded in the relevant C-entry. No routing exception exists.
+3. **`D-272` amended, prospectively.** Items 1, 2 and 5 no longer route a new `C-` entry to Lane A. A new `C-` entry names `Receiver: Lane B`. A Lane A governance dependency or request never opens a `C-` entry. When a code review finds a governance dependency: the code finding stays in its `C-` entry; Lane B raises, or references, the corresponding `B-` entry for Lane A; the two records link to each other; Lane A answers the governance correction in the `B-` entry; Lane B records the effect on its code response in the `C-` entry. A `C-` entry's receiver never changes to Lane A.
+4. **`D-272` item 3 extended: attributed contributions.** The series owner creates an entry and commits its header and its own sections. Any other lane appends only its own attributed section (an answer, a review or a contribution) and commits it as its own one-path commit (`D-385`), whatever its lane state. No lane edits another lane's section. The one-path procedure (README steps 1–6) and independent verification (`D-102`, `D-205`) are unchanged.
+5. **`D-324` J5 amended.** The recorded order for Lane B's work was Level 1 Lane A, then Level 2 Lane C. **It changes** to Level 1 Lane C, then Level 2 Lane A. Lane A's work stays Level 1 Lane B, then Level 2 Lane C. Lane C's implementation work stays Level 1 Lane B, then Level 2 Lane A. No lane reviews or verifies its own work. This assignment creates no exception to item 2.
+6. **J0 L1 and L2 (2026-11-05, B-162) superseded.** L1 — the instruction to file a C-series copy of the `ef30902` receipt — is superseded. No copy existed at `1f0bd35`; none is created. L2 — future Lane C receipts in the C-series — is superseded for governance reviews: Lane C's future governance reviews go in the relevant B-entry. `ef30902` and every later receipt stay as history. B-162's routing item 2 at `1f0bd35` reads through this item.
+7. **`C-001`–`C-009` are historical worklogs.** They were filed under the `D-272` Lane A receiver route. Their bytes, attribution, evidence, identifiers and dispositions are preserved. They are not moved, deleted, rewritten or closed by this entry, and no file among them is edited to repeat this classification. Their route creates no exception for new work.
+8. **Numbering.** No number is reused (`D-306`). Before a new entry is created, the filer checks the complete numbering history: tracked files, Git history, and every citation in `docs/`. At `1f0bd35`, `C-010`, `C-011`, `C-012` and `C-018` are cited and are not free.
+9. **Lane state.** Appending and committing an attributed section in `docs/handoff/` is allowed in any lane state (`D-272` item 3). It grants no implementation, activation, selection or lane transition. A review result grants no whole-entry Verified (`D-102`).
+10. **Phase and knowledge limits.** Governance review is separate from DevOps implementation. Lane B supplies the code and the evidence that a dependent workflow needs (`LANE-B-WORK-ORDER.md` §6). Lane C implements only an authorized workflow against those inputs, after its own release and lane transition. Code-derived knowledge is separate from governance knowledge; each code-derived output names its source revision, generation process and acceptance proof before a workflow depends on it. Historical setup work is not proof that a later workflow dependency is met.
+11. **Enforcement.** `handoff-response` fails a new `C-` entry (number above `C-009`) whose `Receiver:` is not `Lane B`, and still accepts `Receiver: Lane A` on `C-001`–`C-009`. New fixtures prove both: a new entry with `Receiver: Lane A` fails; a historical entry passes. The existing `D-272` receiver fixtures stay.
+12. **Holds.** No unit, graph operation, custody transfer, deletion, lift, selection or lane transition is released. B-136 and B-162 stay Open.
+13. **Level 2 deferred.** Lane C's Level 2 review of this entry and its propagation is deferred until after recording, because this entry changes Lane C's review route. Lane C reviews in the relevant B-entry under item 2, with special attention to items 3 and 5. A Lane C finding is answered by a new amendment. The deferral is for this entry only and creates no precedent.
+14. **Phase Closure routing note.** Lane A adds this dated note below the `docs/v1/V1-PHASE-CLOSURE.md` §5 table, not in any lane-state cell, and changes no lane-state value: "> **Routing note, `D-478`.** The Lane C row's statement that its Route A Level 2 review is filed 'as its own `C-` entry' records the historical `D-272` route (`C-004`, `C-007`). New Lane C governance reviews go in the relevant `B-` entry (`D-478` item 2). No lane-state value changes."
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry |
+| **Build Spec** | Check: line 377 summarizes `D-272`; a dated pointer to this entry. No scope, sequence or DoD change |
+| **Inventory** | — unaffected: no file created or retired |
+| `Modular_PRD.md` | — unaffected: no Product or Project-scope change |
+| `docs/handoff/README.md`, `TEMPLATE.md` | Follow: routing and receiver text (§9 rows M2–M4), applied by unit T3 |
+| `scripts/checks/handoff-response.mjs`, `scripts/fixtures/suites.mjs` | Follow: item 11 (rows M10–M11), applied by unit T3 |
+| `AGENTS.md`, `GEMINI.md` | Follow: review-order and raise-route lines (rows M6–M7), applied by unit T4; `CLAUDE.md` unaffected |
+| FN-AIG, UX spec, `.github/WORKFLOWS-SPEC.md` | Follow: rows M5, M8, M9, applied by unit T4 |
+| `C-001`–`C-009` | — unaffected: classified by item 7, not edited |
+| **Encyclopedia** | — unaffected: `ENCYCLOPEDIA-SYNC.md` cites no handoff, FN-AIG or rule-file section |
+| `docs/v1/V1-PHASE-CLOSURE.md` | Check: dated routing note below the §5 table (M17), only if item 14 is selected |
+| **Graphify** | Affected: `D-425` after the last governed change |
+| Lane C Level 2 review | Deferred to step vii (item 13), after recording and propagation |
