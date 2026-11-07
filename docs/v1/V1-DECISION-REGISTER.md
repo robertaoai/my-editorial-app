@@ -31678,3 +31678,68 @@ It does not run commits 2a or 2b, edit a fragment, run a graph sync, change a ch
 | Application code, workflows, migrations | Unaffected: no implementation changes. Both findings concern governance evidence. |
 | `docs/graph-fragments/` and **Graphify** | Graphify affected: governed drift remains until a separately released guarded cycle (`D-425`). Fragments unaffected by this entry: any node work is that cycle's follow-up. |
 | **Encyclopedia** | Unaffected: Entries 01–06 (four-eyes, resolved vs ratified, newsworthiness, article state, the independent-assurance cluster, `CR-14`) map no concept that these dispositions change |
+
+## 5.14e305 `D-482` — P3-NB Disposition and Lane B Final Review of D-481 and Its B-162 Child; Forty-first Intervening Entry Permitted
+
+**Disposition authority — the Judge, 2026-11-08.** The Judge accepted the D-481 recording outcome with the disclosed one-space variance P3-NB. The complete user issuance is at `C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/4f69bdcf-ad6e-4221-8848-66bedd80b438.jsonl`, line 1299, UUID `e8b69667-6b7b-448c-8967-4d530307fa49`, timestamp `2026-11-07T16:01:37.778Z`, 6,139 bytes including final LF, SHA-256 `a9ec5c730834c3e2a43689edf47070ac8765b1985ddb662ad7f87131e7571971`. This paragraph summarizes that issuance. It is not a quotation of the complete issuance.
+
+**Recording authority.** The Judge's separate instruction, “Judge instruction — record P3-NB as D-482, then file Lane B’s final review”, dated 2026-11-08, authorizes this Register-only recording and the subsequent bounded Lane B filing. Its complete issued user record is retained at `C:/CoWork/outputs/lane-a-p3nb-d482-recording-2026-11-08/authority/recording-instruction.jsonl`. The measured source binding and numbering result follow this entry's tier table.
+
+### The decision
+
+0. **Placement.** Item 0 of D-440 and D-441, as amended through D-481, permits one further intervening Register entry: this forty-first entry, after D-481 and before the separate TCA r3 (J3) and J-C A1 entries. J1 and J2 keep their identities, text and transfer holds. No further intervening entry is permitted by implication.
+
+1. **Exact objects.** D-481 is commit `f8ce184a84a252eb17226880054e437078299b81`, tree `c07cedf1a7ef4a3e09762f42f8dab623edb2b108`, sole parent `0f698eef0716005b419c1b0df42ec670273b6974`. Lane A's B-162 answer is commit `db08e05393255fc34514283d95e6ec9c37726427`, tree `16a13dbb6e0b5ff215926addd7771ae56fbbac75`, sole parent `f8ce184a84a252eb17226880054e437078299b81`. Both commits remain unchanged.
+
+2. **Note A.** Lane B's existing Pass remains. Replacing the placement-permission field included its terminal period and produced the exact issued sentence. No additional variance acceptance is required. Do not reopen this result without new evidence.
+
+3. **P3-NB.** The earlier instruction named `(subject to the Judge's explicit permission)` for removal. Lane A also removed the preceding ASCII space, `0x20`. The resulting label is `Registration sequence.`. The substitution ledger discloses the additional byte removal. No effect on meaning is demonstrated. The Judge accepts the recorded outcome with this variance disclosed. This acceptance does not establish earlier express permission. It supplies no retrospective authority and makes no claim of full earlier compliance. Do not restore the space, amend either commit or replay either unit.
+
+4. **Selected meaning.** Option A for P2-A and Option A for P2-B remain unchanged. D-481's qualifications, evidence limits and holds remain operative. No omitted condition is waived.
+
+5. **Lane B's final review.** Lane B accepted D-481 first, then its B-162 child. The review reports zero open P1, P2 and P3 findings for that package. Source: Codex chat `01a1b676-7cff-76f2-8b9e-de5953a6f5a6`, file `C:/Users/rober_24syk4j/.codex/sessions/2026/11/07/rollout-2026-11-07T22-43-01-01a1b676-7cff-76f2-8b9e-de5953a6f5a6.jsonl`, line 480, assistant message `msg_0a49eda52aa6049d016aef4f4666c087d09f8d3a758a503989`, timestamp `2026-11-07T16:19:12.175Z`, 12,373 bytes including final LF, SHA-256 `a5c4e2027e9838e09a317ddaf029c078e6430551ab23bd103b834b3a316870cd`. Line 479 is its completion event, not a second review. The review concerns the two earlier commits. It does not verify this new entry or its later filing.
+
+6. **Recording route.** Lane A records this entry. Lane B independently reviews the exact recording. Only after the parent passes may Lane B file its own attributed section in the existing B-162 record. D-478 permits that filing in any lane state. No lane change follows. Lane B cannot independently verify its own filing.
+
+7. **Preservation.** Preserve all original messages, authority records, attempt folders, manifests, scripts, outputs, stop records, ledgers, findings and commits. Preserve the historical placeholders and 2028-11-07 submission date. Do not overwrite, repair, reseal, transfer, delete or replay historical evidence. Matching hashes establish retained-byte integrity, not every historical execution claim.
+
+8. **Holds.** Preserve push; propagation/2a/2b; snapshots; release r4 issuance/execution; Lane C review; graph operations; lane changes; U-C; J1/J2 transfers; T3/T4/T4a/T4b; D-434 FR-15; B-162 lift and selection; application work; FN-EXCEPTIONS; evidence portability. B-136, B-158, B-162 and D-439 remain Open. No whole-entry Verified disposition is granted.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| Register | This entry records the accepted variance and the bounded recording route. |
+| B-162 | Follow: Lane B's own attributed filing after independent acceptance of this parent. |
+| Build Spec | Unaffected: no build scope, slot, sequence or DoD changes. The additional placement concerns the Register sequence only. |
+| Inventory | Unaffected: no repository artifact is created, retired or advanced through a product lifecycle. New external evidence records support these bounded units only. |
+| Rule files and checks | Unaffected: no rule text or check behavior changes. The existing D-478 route applies. |
+| Modular_PRD, function specifications and technical specifications | Unaffected: no product behavior, requirement or implementation contract changes. |
+| Application code, workflows and migrations | Unaffected: no implementation change or execution release. |
+| Phase Closure | Unaffected: no lane-state or phase-status change. |
+| Graph fragments and Graphify | Governed drift remains. Any required fragment work and guarded synchronization remain a separately released follow-up. No completed propagation is claimed. |
+| Encyclopedia | Unaffected: the mapped concepts in Entries 01–06 do not change. This entry records an evidence disposition and filing route. |
+
+### Recording evidence
+
+```json
+{
+  "issue_date": "2026-11-08",
+  "instruction_source_path": "C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/fc3f136a-0f1b-4944-bcd6-2e9bafdfd7b8.jsonl",
+  "instruction_source_line": 1093,
+  "instruction_record_id": "ce7a7d22-e767-47fd-bc21-5b7e4024a021",
+  "instruction_timestamp": "2026-11-07T17:02:52.910Z",
+  "instruction_record_bytes_including_lf": 23043,
+  "instruction_record_sha256": "41d2982f9e57ae98a6d95e997092a9dc79fa25f0eab8e34dc512a8920bbf45f7",
+  "instruction_retained_path": "C:/CoWork/outputs/lane-a-p3nb-d482-recording-2026-11-08/authority/recording-instruction.jsonl",
+  "numbering_head": "db08e05393255fc34514283d95e6ec9c37726427",
+  "numbering_identifiers": [
+    "D-482",
+    "5.14e305",
+    "forty-first",
+    "Forty-first"
+  ],
+  "numbering_result": "Clear: 0 tracked-file matches at HEAD, 0 commits in the history of any ref, and 0 Register lines for D-482, 5.14e305, forty-first, Forty-first (Forty-First also searched).",
+  "numbering_evidence_path": "C:/CoWork/outputs/lane-a-p3nb-d482-recording-2026-11-08/preflight/preflight-1.json"
+}
+```
