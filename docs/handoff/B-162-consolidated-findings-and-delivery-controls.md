@@ -2516,3 +2516,20 @@ Release folder C:/CoWork/outputs/lane-a-release-2a-2b-r4-2026-11-07/: manifest 1
 | This Lane B receipt | Approve-with-conditions | Phase 1: required candidate checks and local commit controls; no push. |
 | D-480 recording, propagation, graph work and delivery | Defer | Separate Judge releases, evidence and reviews. |
 | Whole-entry Verified, closure or lane transition | Defer | Existing gates remain; named entries stay Open. |
+
+## Lane A answer — D-480 recording findings P2-A and P2-B (2026-11-07)
+
+**Read revision:** `f8ce184a84a252eb17226880054e437078299b81`. **Findings:** Lane B's Level 1 review of `D-480` recording `0f698eef0716005b419c1b0df42ec670273b6974`, Codex chat `01a1b5ba-5c0e-7053-8445-795db56ce0d9`, `msg_08b0e9a5d7e3f1f1016aef25b4115c87d0adf085d335bec69c`, line 341, 12,793 bytes, SHA-256 `d1b5d53955cb59880e6420502bcac83b33a581c0483b16f3403ce8f19b2a2526`. **Judge selection (2026-11-07):** one selection covering both findings, represented by user message `msg_01a1b634-5b42-7291-8379-e469611ae42b` (line 366, SHA-256 `b1676c1b15f5778d52e75fb8e9e0600c232e761f6118cc9b257c81c655a8c74c`) and by the completion event for item `01a1b634-5b42-7291-8379-e4704e983d11` (line 367, SHA-256 `86bd81a7565feac1518dbba53a0b2e8ccc8570e706d7e2b97f298a1a5101d619`). **Register parent:** `D-481`, `f8ce184a84a252eb17226880054e437078299b81`.
+
+| Finding (Lane A summary; Lane B's wording at line 341 controls) | Judge's selected disposition | Evidence |
+|---|---|---|
+| P2-A: the resume scope was exceeded. The verifier changed beyond the authorized case-insensitive match. | Option A: outcome accepted with a disclosed process variance. No retrospective authority. | Parent item 2. Verifiers: stopped attempt `9a9883065b1b2080485324397a9683ef572ab34d59784f647c04034a2b35c470`; resumed attempt `937afc63a3712d2dbeea87e576764492c4a75967fafe713a995f2325c476d58c`. The match and the new folder were authorized. The resume record is retained for provenance. The type check is a separate, fail-closed change. The clause deletion is a separate disclosed change. On the examined code path it has no demonstrated behavioural effect. Express authority for the deletion was not established in the reviewed records. No demonstrated weakening. No full earlier-compliance claim. Future verifier changes need exact-scope authority. |
+| P2-B: the selected-sentence quotation needs a Judge disposition. | Option A: concise quotation accepted, with the complete issuance retained. | Parent item 3. The excerpt is one exact sentence of issuance §1. The full issuance is line 9398, retained identically at both folders' `authority/issuance-9398.jsonl` paths named in parent item 3 (SHA-256 `527ed9af7045186e7c2d983e699963042943faadf51179796db221e0bd727c98`). The date correction and the resume ruling stay separate. The historical whole Register at `0f698ee` (`7e12589c6bc3ba4d22e739e4fd3e5f4f0c2b528aaae70afebf5b215b938ee01e`) is the prefix to preserve. |
+
+**Status, kept separate:**
+- **Judge accepted:** Option A for both, on 2026-11-07.
+- **Recorded in the Register:** D-481, recorded at commit `f8ce184a84a252eb17226880054e437078299b81`.
+- **Answer filed:** by this section's own commit, under its own release.
+- **Independently verified:** not yet.
+
+This answer stays pending Lane B's acceptance of the parent. Drafting it neither passes it nor files it. Every hold stays. B-136, B-158, B-162 and D-439 stay Open. No whole-entry Verified disposition.
