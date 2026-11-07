@@ -2533,3 +2533,349 @@ Release folder C:/CoWork/outputs/lane-a-release-2a-2b-r4-2026-11-07/: manifest 1
 - **Independently verified:** not yet.
 
 This answer stays pending Lane B's acceptance of the parent. Drafting it neither passes it nor files it. Every hold stays. B-136, B-158, B-162 and D-439 stay Open. No whole-entry Verified disposition.
+
+## Lane B review — D-481 and B-162 final review; D-482 recording verification
+
+This section is Lane B's attributed filing. It preserves the earlier final review as historical text and records the separate review of D-482's recording. Filing this section does not independently verify this filing. B-136, B-158, B-162 and D-439 remain Open. No whole-entry Verified disposition is claimed.
+
+### Filing bindings
+
+```json
+{
+  "resume_authority": {
+    "issuance": {
+      "source_path": "C:/Users/rober_24syk4j/.codex/sessions/2026/11/07/rollout-2026-11-07T22-43-01-01a1b676-7cff-76f2-8b9e-de5953a6f5a6.jsonl",
+      "source_line": 781,
+      "record_id": "msg_01a1b710-df90-7943-994f-65bb3950a652",
+      "role": "user",
+      "timestamp": "2026-11-07T17:31:38.768Z",
+      "raw_record_bytes_including_lf": 1285,
+      "raw_record_sha256": "14aee925c9097fc987e32316ce60b8e9e9815fce50b242c7aef49ed6cec0a718"
+    },
+    "adopted_instruction": {
+      "source_path": "C:/Users/rober_24syk4j/.codex/sessions/2026/11/07/rollout-2026-11-07T22-43-01-01a1b676-7cff-76f2-8b9e-de5953a6f5a6.jsonl",
+      "source_line": 774,
+      "record_id": "msg_0a49eda52aa6049d016aef5fdb035c87d0b1e03ad93213edbd",
+      "role": "assistant",
+      "timestamp": "2026-11-07T17:30:14.660Z",
+      "raw_record_bytes_including_lf": 18994,
+      "raw_record_sha256": "5d9b23455429d253259fd6ef354e7e26e7f79194d8b889e329e8ce404fcc5d83"
+    }
+  },
+  "recording_instruction": {
+    "source_path": "C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/fc3f136a-0f1b-4944-bcd6-2e9bafdfd7b8.jsonl",
+    "source_line": 1093,
+    "record_id": "ce7a7d22-e767-47fd-bc21-5b7e4024a021",
+    "timestamp": "2026-11-07T17:02:52.910Z",
+    "raw_record_bytes_including_lf": 23043,
+    "raw_record_sha256": "41d2982f9e57ae98a6d95e997092a9dc79fa25f0eab8e34dc512a8920bbf45f7"
+  },
+  "earlier_final_review": {
+    "source_path": "C:/Users/rober_24syk4j/.codex/sessions/2026/11/07/rollout-2026-11-07T22-43-01-01a1b676-7cff-76f2-8b9e-de5953a6f5a6.jsonl",
+    "source_line": 480,
+    "record_id": "msg_0a49eda52aa6049d016aef4f4666c087d09f8d3a758a503989",
+    "timestamp": "2026-11-07T16:19:12.175Z",
+    "raw_record_bytes_including_lf": 12373,
+    "raw_record_sha256": "a5c4e2027e9838e09a317ddaf029c078e6430551ab23bd103b834b3a316870cd"
+  },
+  "register_parent": {
+    "entry": "D-482",
+    "commit": "a41238cf94cea9df2ea8cfef65b76e99f4b8ee5b",
+    "tree": "bdacbddf0c73f8e9dcb9448b011b4ddf9d2bc9f8",
+    "sole_parent": "db08e05393255fc34514283d95e6ec9c37726427"
+  },
+  "parent_recording_review": {
+    "source_path": "C:/Users/rober_24syk4j/.codex/sessions/2026/11/07/rollout-2026-11-07T22-43-01-01a1b676-7cff-76f2-8b9e-de5953a6f5a6.jsonl",
+    "source_line": 670,
+    "record_id": "msg_0a49eda52aa6049d016aef5d2a386c87d085445d82f08964fe",
+    "timestamp": "2026-11-07T17:18:35.197Z",
+    "raw_record_bytes_including_lf": 12736,
+    "raw_record_sha256": "26ea8507f761b12c69eca9337543ceb65d29f3dbd226d9b209850a3e77878b39"
+  },
+  "read_revision": "a41238cf94cea9df2ea8cfef65b76e99f4b8ee5b",
+  "filing_date": "2026-11-08",
+  "retained_evidence_path": "C:/CoWork/outputs/lane-b-p3nb-b162-review-filing-resume-01/"
+}
+```
+
+### Earlier final review — verbatim historical text
+
+**Unit 1 passes. With the parent accepted, Unit 2 also passes.** Note A retains its earlier Pass. The Judge accepted P3-NB’s disclosed one-space variance. That acceptance supplies no retrospective authority.
+
+**Package-only open findings: P1 = 0; P2 = 0; P3 = 0.** Durable registration of the new disposition remains pending.
+
+Review surface: **Codex desktop, Lane B, with delegated Codex analysis. No filing surface was used.** This review used reading, hashing and existing Git-object inspection only. No files or Git state were changed. No fetch, checks, tests, replay or graph operation ran.
+
+The actual Judge issuance is the user record at [Claude transcript line 1299](C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/4f69bdcf-ad6e-4221-8848-66bedd80b438.jsonl:1299):
+
+- UUID: `e8b69667-6b7b-448c-8967-4d530307fa49`.
+- Timestamp: `2026-11-07T16:01:37.778Z`.
+- Stated issue date: **2026-11-08**, consistent with Singapore time.
+- Raw record, including final LF: **6,139 bytes**.
+- SHA-256: `a9ec5c730834c3e2a43689edf47070ac8765b1985ddb662ad7f87131e7571971`.
+
+It confirms Note A’s Pass, accepts P3-NB, and authorizes this review. It expressly leaves durable registration pending. The earlier assistant draft and the user-pasted **“DRAFT — NOT ISSUED”** at line 1263 are separate records. Lane A’s worklog is a report, not the Judge’s authority.
+
+The [earlier Lane B recording review, line 748](C:/Users/rober_24syk4j/.codex/sessions/2026/11/07/rollout-2026-11-07T19-17-32-01a1b5ba-5c0e-7053-8445-795db56ce0d9.jsonl:748) remains unchanged: **19,317 bytes**, SHA-256 `5d688995dcb9f84727a5ad0449b722e124e453ba9ddb065431716d7b0da63993`. It recorded Note A as Pass and P3-NB as the sole open finding.
+
+The three retained input records still match their original transcript records byte for byte.
+
+| Input and exact retained path | Original source | Bytes | SHA-256 |
+|---|---|---:|---|
+| [Recording instruction](C:/CoWork/outputs/lane-a-d480-successor2-d481-b162-recording-2026-11-07/authority/issuance.jsonl) | [Claude line 984](C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/4f69bdcf-ad6e-4221-8848-66bedd80b438.jsonl:984), user UUID `046c33d1-0af1-4578-bd50-24f1173983c2` | 13,606 | `0b689d75020395f70c59827acebe2de90915d11f8815368a556c2b44828689aa` |
+| [Approved successor 2](C:/CoWork/outputs/lane-a-d480-successor2-d481-b162-recording-2026-11-07/authority/approved-successor2-9860.jsonl) | [Claude line 9860](C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/977c3a29-84c5-4979-8081-065ea3f1b07a.jsonl:9860), assistant UUID `29e1ea50-b654-4e76-93e0-4e6ef051af83` | 20,915 | `2fc5949f8e12b09f435b19e9e33134f80af202372aff0aebe3cf86652bf4cf9e` |
+| [Lane B proposal approval](C:/CoWork/outputs/lane-a-d480-successor2-d481-b162-recording-2026-11-07/authority/laneB-approval-codex-307.jsonl) | [Codex line 307](C:/Users/rober_24syk4j/.codex/sessions/2026/11/07/rollout-2026-11-07T22-43-01-01a1b676-7cff-76f2-8b9e-de5953a6f5a6.jsonl:307), assistant message `msg_0a49eda52aa6049d016aef3f61c3dc87d0a241dcd9be5a1336` | 14,009 | `0bec1e51a24402ce49df48fc6cd2a5a4ef88be5947b65f63453eccb81df38de7` |
+
+The original Option A selection remains one user act covering both findings. Its user message and completion event are two representations. Assistant options, draft dispositions, proposal approval and recording authority remain distinct.
+
+| Review object | Unit 1 — D-481 parent | Unit 2 — B-162 child |
+|---|---|---|
+| Commit | `f8ce184a84a252eb17226880054e437078299b81` | `db08e05393255fc34514283d95e6ec9c37726427` |
+| Tree | `c07cedf1a7ef4a3e09762f42f8dab623edb2b108` | `16a13dbb6e0b5ff215926addd7771ae56fbbac75` |
+| Sole parent | `0f698eef0716005b419c1b0df42ec670273b6974` | `f8ce184a84a252eb17226880054e437078299b81` |
+| Only changed path | [V1-DECISION-REGISTER.md](C:/robertaoai/my-editorial-app/docs/v1/V1-DECISION-REGISTER.md) | [B-162-consolidated-findings-and-delivery-controls.md](C:/robertaoai/my-editorial-app/docs/handoff/B-162-consolidated-findings-and-delivery-controls.md) |
+| Committed bytes | 2,469,663 | 392,018 |
+| SHA-256 | `cbadf6fbe3f477db4b2ab959c251b08b498da4dfb9bb884790b59737e482cff7` | `9a514718512030fb2678ed49966c18f9003be5e6cdd6c68dc11aaf86bcd59b14` |
+
+**Unit 1 — Pass.** I reviewed the parent before accepting the child.
+
+| Item | Result | Evidence and conclusion |
+|---|---|---|
+| Authority, numbering and placement | Pass | The original issuance authorizes the bounded Register unit, D-481, §5.14e304 and the fortieth placement. Retained inspections support the required starting state and identifier availability. |
+| Note A | Pass retained | The placement field contains the exact issued sentence with one terminal period. No new contrary evidence was found. |
+| Note B / historical P3-NB | Pass on the Judge’s accepted-variance basis | The issued removal text was 44 ASCII bytes. Lane A removed 45 bytes, including the preceding space, `0x20`. The ledger discloses it. The new Judge issuance accepts this exact variance. |
+| Byte fidelity | Pass | The original 2,459,392 Register bytes remain an identical prefix. Only approved-source lines 1, 5 and 9 changed. The retained candidate equals the committed blob. There are zero CR bytes and one final LF. |
+| Selected meanings | Pass | Both Option A dispositions, their qualifications, tier reasons, evidence references and holds remain unchanged. |
+| Authority limits | Pass | Acceptance does not establish earlier express permission for the extra byte. It does not make the earlier execution fully compliant. No retrospective authority is supplied. |
+
+P2-A still discloses the process variance. It distinguishes the authorized match and folder, provenance retention, fail-closed type check and clause deletion. Behavioral conclusions remain bounded. Future verifier changes require authority for their exact scope.
+
+P2-B still accepts the concise excerpt with the complete issuance retained. The original issuance, date correction and resume ruling remain separate. No omitted limit is waived.
+
+The [parent substitution ledger](C:/CoWork/outputs/lane-a-d480-successor2-d481-b162-recording-2026-11-07/unit1/substitution-ledger.json) is **3,618 bytes**, SHA-256 `8a6846e54c8962d1b461793d438a260579de3022f348e8d6d8405803ef8ed55b`.
+
+**Unit 2 — Pass, after Unit 1’s acceptance.**
+
+The child has Unit 1 as its sole parent and changes only B-162. It contains exactly the four permitted substitutions:
+
+1. Answer date: `2026-11-07`.
+2. Read revision: Unit 1’s full commit SHA.
+3. Register parent: D-481 and Unit 1’s full commit SHA.
+4. Register status: D-481 recorded at Unit 1’s full commit SHA.
+
+All **389,004 earlier B-162 bytes** remain an identical prefix. This preserves the entry header, Open status, Lane B’s review and every earlier section. Only Lane A’s attributed answer was appended. No duplicate handoff or C-series copy was created.
+
+Judge acceptance, Register recording, answer filing and independent verification remain separate. The committed answer correctly retains its historical **“Independently verified: not yet”** text. This chat supplies the present review result; it changes no recorded status.
+
+The [child substitution ledger](C:/CoWork/outputs/lane-a-d480-successor2-d481-b162-recording-2026-11-07/unit2/substitution-ledger.json) is **822 bytes**, SHA-256 `cef5b123c858e7c8696e331255016a4f1b09486ba5fa9a0151f399be4accf04b`.
+
+**Retained controls — Pass within the inspected evidence.** Each unit has two complete, sequential check runs. Each run records **19 checks: 18 PASS, docs-drift alone FAIL, zero SKIP, exit 1**. These are accepted outcomes under the separate D-428 grants. They are not full consistency passes.
+
+The retained records and original tool results support:
+
+- Unchanged candidate hashes before and after each check.
+- Checked, staged and committed byte equality.
+- Successful historical pre-staging fetches with the required HEAD and upstream.
+- Required author and committer identity.
+- Hook traces showing `commit-msg` and the gate’s nested `git diff --cached`.
+- Unit 2 starting after Unit 1’s recorded post-commit controls.
+- Clean post-commit states.
+
+No new failed control, retry or alternate route was found. P3-NB remains the disclosed historical variance.
+
+**Evidence preservation — Pass.** All three manifests and all **122 listed members** verify. No missing, duplicate or unlisted member was found. Each manifest excludes only itself.
+
+| Exact manifest | Bytes | Members | SHA-256 |
+|---|---:|---:|---|
+| [Successor 2 recording](C:/CoWork/outputs/lane-a-d480-successor2-d481-b162-recording-2026-11-07/SHA256-MANIFEST.txt) | 6,210 | 64 | `02e4761053087d364ef01a92d90ceed686bd82b22adfdd0908625a67bf1bb497` |
+| [Stopped D-480 attempt](C:/CoWork/outputs/lane-a-d480-recording-2026-11-07/SHA256-MANIFEST.txt) | 982 | 10 | `856bb2a40364992379cefa614855febad636a9d44bd96a7eb78a2095beb2cc47` |
+| [Resumed D-480 attempt](C:/CoWork/outputs/lane-a-d480-recording-resume-2026-11-07/SHA256-MANIFEST.txt) | 4,780 | 48 | `0a019476d14aca7749bd4f1b2187d6073bca5fc301fe0655fbd54e85580b6a9b` |
+
+Historical transcripts, authority records, scripts, outputs, stop records, findings and commits remain preserved. The historical placeholders and **2028-11-07** submission date remain unchanged. No repair, reseal, deletion or replay is required.
+
+Hash agreement proves retained-byte integrity. Execution conclusions also use Git objects, traces and original tool records.
+
+Current local HEAD is Unit 2. The working tree and index are clean. Both working files equal the reviewed committed blobs. Against the cached upstream `4e54628ef6986ac385ed10259a9ec6464d7a65fd`, the outgoing chain remains:
+
+1. `e7e3c6006a7dd9effbcf1f9b9f118fd64e7c910a`
+2. `93c351a9df44fd45f8240b0a997dfe4b18e99d0c`
+3. `0f698eef0716005b419c1b0df42ec670273b6974`
+4. `f8ce184a84a252eb17226880054e437078299b81`
+5. `db08e05393255fc34514283d95e6ec9c37726427`
+
+**Unavailable required evidence: none.** Current server state was not inspected. No fetch was performed, and no present remote-state claim is made.
+
+P3-NB is resolved for this review by the Judge’s acceptance. **Its durable registration and any filing of this review require separate instructions.** No whole-entry closure is claimed.
+
+All holds remain: **push; propagation/2a/2b; snapshots; release r4 issuance/execution; Lane C review; graph operations; lane changes; U-C; J1/J2 transfers; T3/T4/T4a/T4b; D-434 FR-15; B-162 lift and selection; application work; FN-EXCEPTIONS; evidence portability.**
+
+B-136, B-158, B-162 and D-439 remain **Open**. This Pass supplies no filing, recording, execution or push authority.
+
+| Scope | verdict | follow-up phase |
+|---|---|---|
+| D-481 Register recording | **Approve — Pass with the accepted P3-NB variance disclosed** | Phase 1: separate authority for durable registration of the new disposition. |
+| B-162 child filing | **Approve — Pass after parent acceptance** | Phase 1: any filing of this independent review requires separate authority. |
+| Permitted substitutions, including Notes A/B | **Approve — Note A Pass; P3-NB acceptance verified** | Preserve the original ledger, finding and Judge disposition. No historical correction. |
+| Sealed evidence and retained controls | **Approve within the stated evidence limits** | Existing preservation duties remain. |
+| Durable closure, push and all other held work | **Defer** | Separate Judge instructions and existing gates. |
+
+### Independent review of the D-482 recording
+
+**D-482 passes. The parent-review gate is satisfied. B-162 has not been filed.**
+
+**Package-only open findings: P1 = 0; P2 = 0; P3 = 0.**
+
+Review surface: **Codex desktop, Lane B, with delegated Codex analysis. No filing surface was used.** This review used reads, hashes and existing Git-object inspection only. No edits, fetches, checks, tests, commits, replay or graph operations ran.
+
+The Judge’s P3-NB acceptance is now durably recorded by D-482 and independently reviewed. This result does not verify a future B-162 filing or release push.
+
+**Exact review object**
+
+| Item | Verified value |
+|---|---|
+| Commit | `a41238cf94cea9df2ea8cfef65b76e99f4b8ee5b` |
+| Tree | `bdacbddf0c73f8e9dcb9448b011b4ddf9d2bc9f8` |
+| Sole parent | `db08e05393255fc34514283d95e6ec9c37726427` |
+| Only changed path | [V1-DECISION-REGISTER.md](C:/robertaoai/my-editorial-app/docs/v1/V1-DECISION-REGISTER.md) |
+| Author and committer | `robertaoai <241258103+robertaoai@users.noreply.github.com>` |
+| Committed bytes | 2,476,928 |
+| SHA-256 | `02d6ae025c80511632e2af17dcb3beafbb57e6c05ba146eec9a7637959d3d8ca` |
+
+Current HEAD separately matches this commit. The working tree and index are clean.
+
+**Authority and sources — Pass**
+
+The actual recording instruction is the [user record at line 1093](C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/fc3f136a-0f1b-4944-bcd6-2e9bafdfd7b8.jsonl:1093):
+
+- UUID: `ce7a7d22-e767-47fd-bc21-5b7e4024a021`.
+- Timestamp: `2026-11-07T17:02:52.910Z`.
+- Origin: human; role: user; not a sidechain.
+- Singapore issue date: **2026-11-08**.
+
+Its header retains “Proposed issue date”, but the direct user message contains explicit approval and bounded authorization. It has no draft marker. It is distinct from the earlier assistant draft.
+
+The issuance expressly covers D-482’s number and placement, fixed text, generated block, Register-only commit, new D-428 exception and Lane B review.
+
+All three retained records match their original transcript records byte for byte. These bindings include the final LF; they do not describe whole transcript files.
+
+| Source and exact retained file | Bytes | SHA-256 |
+|---|---:|---|
+| Recording issuance, line 1093 — [retained record](C:/CoWork/outputs/lane-a-p3nb-d482-recording-2026-11-08/authority/recording-instruction.jsonl) | 23,043 | `41d2982f9e57ae98a6d95e997092a9dc79fa25f0eab8e34dc512a8920bbf45f7` |
+| Judge disposition, [Claude line 1299](C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/4f69bdcf-ad6e-4221-8848-66bedd80b438.jsonl:1299) — [retained record](C:/CoWork/outputs/lane-a-p3nb-d482-recording-2026-11-08/authority/source-a-disposition-1299.jsonl) | 6,139 | `a9ec5c730834c3e2a43689edf47070ac8765b1985ddb662ad7f87131e7571971` |
+| Lane B final review, [Codex line 480](C:/Users/rober_24syk4j/.codex/sessions/2026/11/07/rollout-2026-11-07T22-43-01-01a1b676-7cff-76f2-8b9e-de5953a6f5a6.jsonl:480) — [retained record](C:/CoWork/outputs/lane-a-p3nb-d482-recording-2026-11-08/authority/source-b-final-review-480.jsonl) | 12,373 | `a5c4e2027e9838e09a317ddaf029c078e6430551ab23bd103b834b3a316870cd` |
+
+The disposition remains user UUID `e8b69667-6b7b-448c-8967-4d530307fa49`. The final review remains assistant message `msg_0a49eda52aa6049d016aef4f4666c087d09f8d3a758a503989`. Codex line 479 is its completion event, not another review.
+
+**Review results**
+
+| Item | Result | Evidence and conclusion |
+|---|---|---|
+| Scope and governing rules | Pass | D-183, D-428, D-478 and the handoff procedure were applied. Historical instructions were inspected, not executed. |
+| Commit identity and ownership | Pass | Exact tree, sole parent, Register-only change and required identity verify. |
+| Starting state and placement | Pass | Retained preflight supports the required HEAD, upstream, clean state and Lane A Active. Placement matches the issued permission. |
+| Numbering | Pass | Retained searches cover tracked files, including docs citations, and all-ref history. No selected identifier matched before recording. |
+| Fixed Register text | Pass | Independent extraction from the issuance matches the committed fixed text exactly. |
+| Generated fields | Pass | All 12 keys, their order, values and serialization match the instruction and evidence. |
+| Meaning and authority limits | Pass | Note A, P3-NB, both Option A selections and all qualifications are preserved. No retrospective authority or full earlier-compliance claim appears. |
+| Retained execution controls | Pass within the evidence limits | Sequential checks, byte equality, fetches, identity, hooks and post-commit controls are supported. |
+| Seals and preservation | Pass | Four manifests and all 158 members verify. |
+| B-162 and filing boundary | Pass | B-162 is unchanged. No filing occurred. Independent verification of a later filing remains separate. |
+
+No correction is required for this recording.
+
+**Fixed text and generated fields — Pass**
+
+The original **2,469,663 Register bytes** remain an identical prefix, with SHA-256 `cbadf6fbe3f477db4b2ab959c251b08b498da4dfb9bb884790b59737e482cff7`.
+
+The entire append matches:
+
+1. One separating LF.
+2. The exact fixed Register text.
+3. The specified evidence heading, with Markdown block separation.
+4. The fenced, two-space JSON object.
+5. One final LF.
+
+The marker-adjacent blank lines delimit the source text. The markers are absent. No unauthorized internal wording, punctuation or whitespace change was found. The final file has zero CR bytes.
+
+| Exact retained file | Bytes | SHA-256 |
+|---|---:|---|
+| [Fixed Register text](C:/CoWork/outputs/lane-a-p3nb-d482-recording-2026-11-08/unit1/fixed-register-text.md) | 6,137 | `2714c54062181e37555fbf16bf7bca16ab01b776cc7f8ff8c4778438306a1903` |
+| [Generated evidence JSON](C:/CoWork/outputs/lane-a-p3nb-d482-recording-2026-11-08/unit1/recording-evidence.json) | 1,089 | `f52c06800fb91e9a44c5fff0ebd5351ffd9efa55ea6112e3e17168581c5cdec4` |
+| [Complete append](C:/CoWork/outputs/lane-a-p3nb-d482-recording-2026-11-08/unit1/append.md) | 7,265 | `aa8b403522c664b4f10ebe052da508c97ce41013c7c32a2d4874886dae1b6ca9` |
+| [Assembly proof](C:/CoWork/outputs/lane-a-p3nb-d482-recording-2026-11-08/unit1/candidate-proof.json) | 1,655 | `03129d1711e121306326c16e716ed9dc460877019bca1d207ae03870ee61a78a` |
+| [Numbering and starting-state evidence](C:/CoWork/outputs/lane-a-p3nb-d482-recording-2026-11-08/preflight/preflight-1.json) | 4,076 | `21519a0544d38fb460161eb7e530575daf9b3e65e8f310b0ce3201b250975ecf` |
+
+The standalone JSON file includes a final LF. Its embedded JSON text is 1,088 bytes before that LF. The proof correctly distinguishes these representations.
+
+Each generated field was checked:
+
+| Fields | Result |
+|---|---|
+| `issue_date` | `2026-11-08`, consistent with the actual issuance. |
+| Seven `instruction_*` fields | Source path, line, ID, timestamp, bytes, hash and retained path match the original user record. |
+| `numbering_head` | Exact required parent: `db08e05393255fc34514283d95e6ec9c37726427`. |
+| `numbering_identifiers` | Exact four-element array from the issuance. |
+| `numbering_result` | Supported by zero tracked matches, zero history matches and zero Register hits. The additional `Forty-First` search is disclosed. |
+| `numbering_evidence_path` | Resolves to the retained preflight file bound above. |
+
+No extra key, invented result or unresolved field appears.
+
+**Retained controls — Pass within the inspected evidence**
+
+Both raw check outputs contain **19 checks: 18 PASS, docs-drift alone FAIL, zero SKIP, exit 1**.
+
+| Run | Start UTC, 2026-11-07 | End UTC |
+|---|---|---|
+| 1 | 17:05:35.876 | 17:08:27.713 |
+| 2 | 17:08:28.398 | 17:10:45.477 |
+
+These are accepted outcomes under the issued D-428 exception. They are **not full consistency passes**.
+
+The retained initial fetch completed at **17:04:17.976Z**. The pre-staging fetch completed at **17:10:58.554Z**, after both checks. Both support the required upstream and HEAD.
+
+The candidate equals the committed blob. Historical staged-byte equality is supported by the commit record and original tool result. Both check runs retain matching before-and-after hashes.
+
+The commit trace shows `commit-msg` and the gate’s nested `git diff --cached --name-only`. Hook and gate blobs are unchanged between parent and child. Original transcript tool results corroborate preflight, assembly, checks, commit and sealing. No failed control, retry or alternate route was found.
+
+**Seals and preservation — Pass**
+
+| Exact manifest | Bytes | Members | SHA-256 |
+|---|---:|---:|---|
+| [D-482 recording](C:/CoWork/outputs/lane-a-p3nb-d482-recording-2026-11-08/SHA256-MANIFEST.txt) | 3,511 | 36 | `13116baf4e6321d2dfecf2b848d3ce21af224faae42bfaec9da95f3c39ca1107` |
+| [Stopped D-480 attempt](C:/CoWork/outputs/lane-a-d480-recording-2026-11-07/SHA256-MANIFEST.txt) | 982 | 10 | `856bb2a40364992379cefa614855febad636a9d44bd96a7eb78a2095beb2cc47` |
+| [Resumed D-480 attempt](C:/CoWork/outputs/lane-a-d480-recording-resume-2026-11-07/SHA256-MANIFEST.txt) | 4,780 | 48 | `0a019476d14aca7749bd4f1b2187d6073bca5fc301fe0655fbd54e85580b6a9b` |
+| [D-481 and child recording](C:/CoWork/outputs/lane-a-d480-successor2-d481-b162-recording-2026-11-07/SHA256-MANIFEST.txt) | 6,210 | 64 | `02e4761053087d364ef01a92d90ceed686bd82b22adfdd0908625a67bf1bb497` |
+
+All **158 members** verify. No missing, duplicate, mismatched or unlisted member was found. Each manifest excludes only itself.
+
+Hash agreement proves retained-byte integrity. Execution conclusions also use original tool records, traces and Git objects.
+
+**B-162 remains unchanged**
+
+[B-162](C:/robertaoai/my-editorial-app/docs/handoff/B-162-consolidated-findings-and-delivery-controls.md) remains **392,018 bytes**, SHA-256 `9a514718512030fb2678ed49966c18f9003be5e6cdd6c68dc11aaf86bcd59b14`. Its header, status, Lane A answer and earlier Lane B sections are preserved. The proposed Lane B evidence folder does not exist.
+
+The parent-review gate is satisfied. The conditional filing authority remains separate from this read-only review. **At your direction, no filing starts now.** This review must be bound before any later filing. Lane B cannot independently verify that filing.
+
+The local outgoing chain against cached upstream `4e54628ef6986ac385ed10259a9ec6464d7a65fd` is:
+
+1. `e7e3c6006a7dd9effbcf1f9b9f118fd64e7c910a`
+2. `93c351a9df44fd45f8240b0a997dfe4b18e99d0c`
+3. `0f698eef0716005b419c1b0df42ec670273b6974`
+4. `f8ce184a84a252eb17226880054e437078299b81`
+5. `db08e05393255fc34514283d95e6ec9c37726427`
+6. `a41238cf94cea9df2ea8cfef65b76e99f4b8ee5b`
+
+**Unavailable required evidence: none.** Current server state was not inspected. No fresh remote-state or push-state claim is made.
+
+All holds remain: **push; propagation/2a/2b; snapshots; release r4 issuance/execution; Lane C review; graph operations; lane changes; U-C; J1/J2 transfers; T3/T4/T4a/T4b; D-434 FR-15; B-162 lift and selection; application work; FN-EXCEPTIONS; evidence portability.**
+
+B-136, B-158, B-162 and D-439 remain **Open**. No whole-entry Verified disposition is supplied.
+
+| Scope | verdict | follow-up phase |
+|---|---|---|
+| D-482 Register recording | **Approve — Pass** | Phase 1: parent acceptance complete for this recording. |
+| Generated fields and sealed evidence | **Approve — Pass** | Preserve exact records and stated evidence limits. |
+| Lane B’s B-162 filing gate | **Satisfied; filing deferred** | Separate filing phase under the issued conditions; no filing during this review. |
+| Independent verification of the later filing | **Defer** | Separate review authority; no self-verification. |
+| Evidence preservation and holds | **Approve — preserved** | Existing duties and gates remain. |
+| Push — last action | **Defer** | Separate authority naming the complete actual outgoing chain. |
