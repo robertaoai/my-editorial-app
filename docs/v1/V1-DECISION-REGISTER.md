@@ -31586,3 +31586,46 @@ identifiers: `D-475`, §5.14e298, thirty-fourth.
 ### What this act does NOT do
 
 It does not select any slot, issue a work order, change lane state, write or apply a migration, lift `D-171` beyond item 5's single `ROUTE-PROD-1` contract, lift the `V1-SM07` block, normalise the `business:T*` stages, open V2, add an FR or AC, edit a held, frozen or behaviour row, run a graph sync, or authorize any push beyond item 10.
+
+## 5.14e303 `D-480` — Named-Path Graph-Coverage Exception for `D-479` Commits 2a and 2b; Thirty-Ninth Intervening Entry Permitted
+
+**Authority: the Judge, directly to Lane A, 2026-11-07**: "I accept Lane B's Level 1 review at receipt `93c351a9df44fd45f8240b0a997dfe4b18e99d0c` and record D-480 from D-480-GRAPH-COVERAGE-EXCEPTION.register-draft.r1.md, SHA-256 `16492096d9722fcb4944bba7d7d4518cb05dfd62195fcc178650685cc2e23f73`." (issuance retained: session transcript `C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/977c3a29-84c5-4979-8081-065ea3f1b07a.jsonl`, line 9398, record UUID `8d289928-17d8-4c44-a011-335965c2f744`, timestamp 2026-11-07T12:56:38.680Z, 8,143 bytes including the final LF, SHA-256 `527ed9af7045186e7c2d983e699963042943faadf51179796db221e0bd727c98`; its stated date "2026-Oct-07" is corrected to 2026-11-07 by the Judge's answer at line 9415 ("2026-11-07 (typo fix)"), record UUID `3b4b8bd9-3cdc-4b03-a9f1-b3860cab25c2`, timestamp 2026-11-07T12:57:03.241Z, 3,270 bytes including the final LF, SHA-256 `2c977fb5677f8e2bb0a9ed825e9e0e09e5b5ea09f7ddfedb40ee96b3a8af0a1d`; resume after a stopped first attempt authorized by the Judge's answer at line 9469 ("Resume in new folder"), record UUID `ee3ab8ea-c4db-4b23-9783-ffe800fbc1a3`, timestamp 2026-11-07T12:59:20.334Z, 3,488 bytes including the final LF, SHA-256 `82b59da7587b5867dd670cb1fb06fe12420718e1a598f165864b4990bbc59621`; retained in `C:/CoWork/outputs/lane-a-d480-recording-resume-2026-11-07/authority/`). **Number, section and ordinal check:** expected identifiers `D-480`, §5.14e303, thirty-ninth. At `93c351a`, none has a tracked occurrence under `docs/v1`, `scripts` or the rule files, apart from review text in handoffs: 13 tracked matches, all in B-162 (the line-2396 review mention and Lane B's D-480 review at `93c351a`); 0 in this Register; history hits in 2 handoff-only commits (`D-478` item 8).
+
+### The decision
+
+0. **Registration sequence.** Item 0 of `D-440` and `D-441`, as amended through `D-476` item 8, `D-477`, `D-478` and `D-479`, is further amended to permit one further intervening Register entry, this thirty-ninth entry, after `D-479` and before the separate TCA r3 (J3) and J-C A1 entries. J1 and J2 keep their identities, text and transfer holds. No further intervening entry is permitted by implication.
+
+1. **The conflict.** `D-479` item 10 requires `docs-drift` as the sole failure for commits 2a and 2b, and `D-428` permits no other failure. `graph-coverage` requires a curated node whose `source_file` equals each included markdown path under `docs/`. Commit 2a moves `docs/v1/work-packets/V1/V1-SM05.md` to `V1-SM07.md`, and commit 2b creates `docs/v1/V1-INTENT-INDEX.md`. At `e7e3c60`, the curated graph has a node for `V1-SM05.md` and none for either new path. A curated node reaches the live graph only through the guarded publication (`D-425`; sync-docs SKILL §7), which runs on committed source. Without this entry, commit 2a cannot pass its checks.
+
+2. **The exception.** For `D-479` commits 2a and 2b only, `graph-coverage` may fail only with these findings:
+   - commits 2a and 2b: `absent from the curated graph: docs/v1/work-packets/V1/V1-SM07.md`;
+   - commit 2b only: `absent from the curated graph: docs/v1/V1-INTENT-INDEX.md`.
+
+   Any other `graph-coverage` finding, and any other failing check except `docs-drift`, stops the attempt. An allowed failure is never reported as a full pass. This follows the named-path form of `D-446` item 9 and `D-471`.
+
+3. **Duration.** The exception ends for each path when a guarded publication under `D-425` gives that path a curated node in the live graph. The curated fragment work (the moved and new nodes, and `frag137.json`) is the `D-479` graph-fragment Follow row. It stays under `D-425` and needs its own release.
+
+4. **Limits.** This entry grants no other `D-428` extension and no general red-check permission. Hooks are never skipped. Every commit keeps two complete checks with full results. It authorizes no commit, push or graph operation by itself; commits 2a and 2b need their own Judge release.
+
+5. **Review route.** Lane B reviews this draft at Level 1 before recording (`D-478` item 2), as its own attributed section in B-162. Lane C reviews it at Level 2.
+
+6. **Holds.** U-C held. J1, J2 transfers held. T3, T4, T4a and T4b held. B-136, B-158, B-162 and D-439 Open. No Verified disposition. Every other hold is unchanged.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry |
+| **Build Spec** | Unaffected: no scope, slot or sequence change |
+| **Inventory** | Unaffected: no artifact created, sequenced or retired |
+| `CLAUDE.md`, `AGENTS.md` | Unaffected: the `D-428` rule text stands; this entry is a named Register exception, as `D-446` and `D-471` were |
+| `scripts/checks/` | Unaffected: no check is changed or skipped |
+| `docs/graph-fragments/` | Unaffected by this entry: the `D-479` Follow row stays under `D-425` |
+| Handoffs, journal, receipts, `docs/v1/evidence/` | Unaffected |
+| `GEMINI.md`, `docs/PRD.md`, Charter, application code, workflows, migrations | Unaffected |
+| **Encyclopedia** | Unaffected: Entries 01 to 06 cover product concepts (`docs/ENCYCLOPEDIA-SYNC.md`); a check exception touches none |
+| **Graphify** | Affected: governed drift and the two named coverage gaps remain until a separately released guarded cycle publishes (`D-425`) |
+
+### What this act does NOT do
+
+It does not run commits 2a or 2b, edit a fragment, run a graph sync, change a check, change lane state, or authorize any push.
