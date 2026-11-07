@@ -31483,3 +31483,106 @@ identifiers: `D-475`, §5.14e298, thirty-fourth.
 | `docs/v1/V1-PHASE-CLOSURE.md` | Check: dated routing note below the §5 table (M17), only if item 14 is selected |
 | **Graphify** | Affected: `D-425` after the last governed change |
 | Lane C Level 2 review | Deferred to step vii (item 13), after recording and propagation |
+
+## 5.14e302 `D-479` — V1 Re-Slot: MMF Defined; Universal DoR/DoD Ratified; `D-247` and `D-243` Amended to the Full Five-Gate and Manual-Publish Outcome; Interface Vocabulary Rule; `EG` Node Catalog Selected for `ROUTE-PROD-1` (`D-171` Released for That Contract); `V1-SM*` Slot Identity Rule; Slots `V1-SM05` to `V1-SM09`; Thirty-Eighth Intervening Entry Permitted
+
+**Authority: the Judge, directly to Lane A, 2026-11-07**: "I issue, by reference, the complete act identified below." (issuance retained: session transcript `C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/977c3a29-84c5-4979-8081-065ea3f1b07a.jsonl`, line 7618, record UUID `84c58cc9-ec29-432b-be14-0ae274b1185d`, timestamp 2026-11-07T10:07:25.058Z, 15,365 bytes including the final LF, SHA-256 `d6a690697958256c4ca9dc0e62deb928e13bf732a58400536aba046c71ba4d81`; delimiter correction "Correction to my issuance at line 7618: backslashes only escaped tags." at line 7891, record UUID `103ef2f1-27e0-4982-a5b8-d0d081a34c5c`, timestamp 2026-11-07T10:18:40.490Z, 827 bytes including the final LF, SHA-256 `7f98e98473a9acd2338aef8859e100f8b68ec19b0a515dd04d6d7c2e7c58c541`; adopted act, bound separately, "Judge act, 2026-11-07. Accept the Lane B deliveries and authorize conditional r8 recording.", which states "Subject to all recording gates, I adopt this exact draft in full:" `D-479-V1-RESLOT.register-draft.r8.md`, 15,726 bytes, SHA-256 `6d9caef2208cd3e2ef6ce7ea191ed12f26994c561b4ae9685c4aff2e4abed544`: line 6784, record UUID `a6d047bd-f19a-4ff1-9b9a-8680e04ce466`, timestamp 2026-11-06T19:05:15.633Z, 29,431 bytes including the final LF, SHA-256 `cc014dc4fba5fce9657a58f434346d0334aa9eb17c0fd2a25dab090ee7fd00b0`, extracted act text 27,822 bytes, SHA-256 `4c7b516617759e11c3700f00ec021de7bde805980caebb3b415283ca7990b5bc`; retained in `C:/CoWork/outputs/lane-a-reslot-r8-recording-2026-11-07/authority/`). **Number, section and ordinal check:** expected identifiers `D-479`, §5.14e302, thirty-eighth. At `4e54628`, none has a tracked occurrence under `docs/v1`, `scripts` or the rule files, apart from proposal text in handoffs: 7 tracked matches, all in B-136 and B-162; 0 in this Register; history hits in 5 handoff-only commits (`D-478` item 8).
+
+### The decision
+
+0. **Registration sequence.** Item 0 of `D-440` and `D-441`, as amended through `D-476` item 8, `D-477` and `D-478`, is further amended to permit one further intervening Register entry, this thirty-eighth entry, after `D-478` and before the separate TCA r3 (J3) and J-C A1 entries. J1 and J2 keep their identities, text and transfer holds. No further intervening entry is permitted by implication.
+
+1. **MMF defined; `B071-R76` closed.** "MMF" means **Minimum Marketable Feature**: a small, self-contained feature that can be developed quickly and that delivers significant value to the user (Agile Alliance glossary). An MMF is not an MVP. Each MMF states a benefit hypothesis (SAFe Feature practice). The earlier quoted phrase "Minimum Markable Feature" is read as "Minimum Marketable Feature". The historical quotation is preserved, not edited.
+
+2. **Universal DoR and DoD ratified.** The "Universal Definition of Ready" and "Universal Definition of Done" tables in `docs/handoff/B-117-open-backlog-aging-and-refinement-closure.md` (lines 240-277 at `4e54628`) become the V1 feature DoR and DoD, by reference. Every V1 slot's DoR and DoD fills those rows and adds its benefit hypothesis. `docs/templates/dor-dod-validation/v1.md` stays the template for governance validation attempts only. It is not a feature DoR.
+
+3. **`D-247` and `D-243` amended: V1 outcome.** V1 delivers the customer's `CR-19` path: log, five editorial gates with logged transitions, final approval, LinkedIn `ManualReady`, manual publish with the live LinkedIn URL, board and audit. The "2+ published" measure is therefore observable in V1. This answers `B-119` ledger row 2 (parent outcome before child slots) and restores the review limb that `B-117`'s slot decision protects. `FR-10` enters V1 for the LinkedIn target only. Exclusions that stand: automated WordPress publication, retry and credentials stay a V2 target; generated AI tagging stays `PBL-11` (`D-194`). **Recorded drift, not changed here:** the frozen PRD says "Chief Journalist approves"; on `ROUTE-PROD-1` the decided target order puts the final decision (`EG5`) with the Chief Editor (`D-175` to `D-178`).
+
+4. **Interface vocabulary rule (Judge, 2026-11-05).**
+   - `transition:T*` symbols, including `T7` and `T11`, are internal process transitions (`CONFIG_LOG.md` `PIPELINE_GATE_COUNT`; `D-414` GR-010). They never appear in the UI or in any human-facing text.
+   - The UI and the human interface use the node names of `FN-GATES-01-05.md` §11 "Editorial node catalog": `EG1` to `EG5`, then **Delivery**. PRD gate labels may be shown with them.
+   - Delivery is the node where the UI offers manual publish (V1) or automated publish (V2).
+   - `business:T1` to `T5` stage records (`FR-15`) are a later derivation that governance has not yet normalised. They are not a V1 UI anchor until a separate normalisation act.
+
+5. **`D-171` released for one contract.** This item is the "fresh, separate build authorization" that `D-171` item 1 requires.
+   - It declares the `EG` catalog target contract landed for V1 on `ROUTE-PROD-1`, and selects it. The contract is the `D-171` item 2 Line/executor matrix, `D-175` to `D-179`, and the `FN-GATES-01-05.md` §11.1 rows that apply to a single-reviewer production route.
+   - On `ROUTE-PROD-1`: `EG4` is `ROLE-CHIEF-EDITORIAL-DESK` alone; `EG5` is `ACCESS-ROLE-CHIEF-EDITOR`, human only, with the blind order of §11.1.
+   - Still held under `D-171`: multi-reviewer routes, `AC-05b`, `AC-07b`, and the §1-10 current order.
+   - `0002`'s `allowed_transitions` encodes the current order. A new migration replaces its T5/T6 executor rows. That migration is Lane B work, named by the `V1-SM05` work order. `0001` and `0002` are not edited.
+   - `FR-04a` and `FR-05a` change lifecycle from `decided_target_held` to selected, for `ROUTE-PROD-1` only. Their requirement text is not edited.
+
+6. **V1 slots, value first.** `D-232`'s MMF-to-slot mapping and `D-260` item 1's `V1-SM05` boundary, including "No later packet is named", are superseded as follows:
+
+   | Slot | MMF | Outcome | Anchors |
+   |---|---|---|---|
+   | `V1-SM05` | `MMF-V1-PIPELINE` | Log; `EG1` to `EG5` on `ROUTE-PROD-1` with logged transitions; return with reason; board (state) | FR-01, 02, 03, 04a (`ROUTE-PROD-1`), 05a, 06, 07, 08 (state); AC-01 to AC-04, AC-05a, AC-06a, AC-07a, AC-09 to AC-12, AC-13 (state), AC-22, AC-NF-01, AC-NF-02, AC-NF-05 |
+   | `V1-SM06` | `MMF-V1-PUBLISH` | Delivery: LinkedIn `ManualReady`, then manual publish with the live URL (item 7); topic and category filters; audit view | FR-08, FR-09 (LinkedIn), FR-10 (LinkedIn); AC-13, AC-14a, AC-16; `D-250` as amended |
+   | `V1-SM07` | `MMF-V1-CORE` (identity kept) | Newsdesk ranking and routing evidence | FR-15; AC-23 to AC-26. DoR blocked until the item 4 normalisation act and the `D-434` lift |
+   | `V1-SM08` | `ENB-V1-RELEASE` (enabler, not an MMF) | Hosted migration, Phase 3 CI, measured success criteria | NFR-01, 02, 04, 07; AC-NF-01 to 05 |
+   | `V1-SM09` | IP iteration (no MMF, no feature DoD) | Buffer, V1 inspect and adapt, freeze decision (`D-203`), V2 backlog ranking | none |
+
+   `MMF-V1-USABLE` is retired; its board and `ManualReady` content moves to `V1-SM05` and `V1-SM06`. The `BLOCKED` packet status (`D-264`, `D-434`) moves with the FR-15 content to `V1-SM07`. The new `V1-SM05` is "Not started; not selected; DoR not written".
+
+   **Slot identity rule (Judge, 2026-11-05: "SM05 is historical; V1-SM05 is not same as SM05").**
+   - The qualified labels `V1-SM05` to `V1-SM09` are live slot identities. This entry re-binds them as in the table above.
+   - Bare identifiers that start `SM05-` or `SM06-` (for example `SM05-N1` to `N6`, `SM05-RV1`/`RV2`, `SM05-F1`, `SM05-X1`, `SM06-P3-01` to `06`) are historical and opaque. They name no slot. They keep their names and now belong to the slot that holds their content (`Modular_PRD.md` §2.5.2, `D-187`, `D-188`).
+   - A record dated before this entry that says `V1-SM05`, `V1-SM06`, or bare `SM05`/`SM06` for a slot, means the binding then in force: `V1-SM05` = the FR-15 evidence slice; `V1-SM06` = board and `ManualReady`.
+   - These records are not edited: handoffs, journal entries, receipts, `SETUP-SPIKE-000` packets, `docs/v1/evidence/`, and the immutable `docs/templates/dor-dod-validation/v1.md`.
+   - `MMF-V1-CORE` keeps its identity.
+
+7. **Manual publish contract (Delivery node, `V1-SM06`).**
+   - **Precondition.** The article is `Approved` (`EG5` final decision recorded) and its LinkedIn target holds a `ManualReady` event.
+   - **Actor.** The Chief Editor (`ACCESS-ROLE-CHIEF-EDITOR`), human only.
+   - **Data entry.** The Chief Editor enters the live LinkedIn post URL and confirms it.
+   - **Validation, all required, no network fetch.** The scheme is `https`. The host is `linkedin.com` or `www.linkedin.com`. The path is a post, a feed update or an article; the `V1-SM06` DoR fixes the exact path patterns against real post URLs. No other publication target already holds the same URL.
+   - **On success.** One `Published` publication event is written for that target, with `actor_type = human` and `published_url` = the entered URL. If it is the article's first live target, the article becomes `Published` in the same transaction, as `0002` already enforces.
+   - **On failure.** The entry is refused with a named reason. No event is written and no state changes.
+   - **Naming.** No new enum value. The UI may label the result "Manually published". The record has the same shape as an automated publish (`US-10`).
+   - **`D-250` amended.** `ManualReady` becomes eligible after the `EG5` final decision (article `Approved`), not after the `business:T5` record. The `ROLE-SENIOR-JOURNALIST` requester rule and the content binding are unchanged.
+   - **`FN-PUBLICATION-09-10-13.md`.** §4.2 behaviour text stands unchanged. Only the §12 current-scope note changes.
+
+8. **Phase 3 custody and timing.** `D-381` is amended: `V1-SM08`, not `V1-SM06`, is the first increment to receive Phase 3 CI work and the hosted migration. Receipts `SM06-P3-01` to `SM06-P3-06` move to `V1-SM08` and keep their IDs. `D-383`'s local-validation rule applies to `V1-SM05`, `V1-SM06` and `V1-SM07`. `D-252`'s stacked-branch terms stay with the content now in `V1-SM07`; the new `V1-SM05` branch is named by its work order.
+
+9. **Builder entry point.** `docs/v1/V1-INTENT-INDEX.md` is created from the reviewed draft as the V1 read-first file. `AGENTS.md` "Before any work" gains one read-order line naming it.
+
+10. **Propagation unit and check route.** One bounded Lane A unit: this entry (commit 1), then the `D-54` pass (commits 2a and 2b). Route: one guarded pre-sync sequence under `D-428`. For each commit: two complete checks, full results retained, `docs-drift` the sole failure, tested, staged and committed bytes equal, hooks never skipped. Lane B Level 1 and Lane C Level 2 review the exact bytes of commits 1, 2a and 2b, each as its own attributed section in `B-162` (`D-478` items 2 and 5). Then one push of commits 1, 2a and 2b, released by the Judge. Graph sync is owed under `D-425` and is released separately.
+
+11. **Holds.** U-C held. J1, J2 transfers held. B-136, B-158, B-162 and D-439 Open. The `D-478` propagation units T3 and T4 stay held. Every other hold is unchanged.
+
+12. **New `V1-SM05` packet and its Inventory row.** This entry creates `docs/v1/work-packets/V1/V1-SM05.md` for `MMF-V1-PIPELINE`, with the status "Not started; not selected; DoR not written". The existing file at that path moves to `V1-SM07.md` first (item 6). `docs/v1/V1-ARTIFACT-INVENTORY.md` gains this row:
+
+    | `docs/v1/work-packets/V1/V1-SM05.md` | `D-479` item 12: MMF checklist, `MMF-V1-PIPELINE` | ✅ **Created <commit 2a date>** |
+
+    The existing row for `docs/v1/work-packets/V1/V1-SM05.md` (`D-240`, `MMF-V1-CORE`) is re-pointed to `V1-SM07.md` under item 6; its `D-240` provenance and creation date are kept.
+
+13. **`B-119` line 2314 (ledger row 2, "Why no `V1-SM07`"). Judge choice: Lane A records only the option the Judge selects and deletes the other.**
+    - (ii) Judge statement (issuance line 7618, Layer 4): "I select option (ii): 'answers B-119 ledger row 2' discharges B-119 line 2314."
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry |
+| **Build Spec** | Follow: applied by the item 10 `D-54` pass (commits 2a and 2b): §1 slot table to `V1-SM05` to `V1-SM09`; dated supersession notes on the `D-232`, `D-243`, `D-247`, `D-260`, `D-381` paragraphs; the S2 hold note gains the item 5 release for `ROUTE-PROD-1` (not rewritten) |
+| **Inventory** | Follow: applied by the item 10 `D-54` pass (commits 2a and 2b): new `V1-INTENT-INDEX.md`; `V1-SM05.md` renamed to `V1-SM07.md` (existing row re-pointed, item 12); new `V1-SM05.md` with the item 12 row; `V1-SM06.md` re-scoped; `V1-SM08.md`, `V1-SM09.md` planned; manifest renamed; Lane B migration listed as planned |
+| `Modular_PRD.md` | Follow: applied by the item 10 `D-54` pass (commits 2a and 2b): §5 and §9 V1-scope notes on FR-04a, FR-05a, FR-10, AC-05a, AC-06a, AC-07a, AC-16; §8.1 dated note. No requirement or acceptance text changes; §10 unaffected |
+| `FN-GATES-01-05.md` | Follow: applied by the item 10 `D-54` pass (commits 2a and 2b): §11 lifecycle note: `ROUTE-PROD-1` contract selected; §1-10 unchanged |
+| `docs/fn-specs/FN-PUBLICATION-09-10-13.md` | Follow: applied by the item 10 `D-54` pass (commits 2a and 2b): §12 current-scope note: `FR-10` LinkedIn limb enters V1; `D-250` eligibility re-anchored; §4.2 unchanged |
+| `requirements-traceability-map.md` | Follow: applied by the item 10 `D-54` pass (commits 2a and 2b): §6.1 rows re-pointed to the new slots |
+| `SPECS-VERIFICATION-APPARATUS.md`, `SPECS-TRANSITION-ENFORCEMENT.md`, `SPECS-PUBLICATION.md`, `FN-MULTI-LANE-AI-GOVERNANCE.md` | Follow: applied by the item 10 `D-54` pass (commits 2a and 2b): slot and scope references only; no behaviour row edited |
+| `scripts/jev/` (`jev.mjs`, `lib.mjs`, `selftest.mjs`, manifest), `scripts/checks/tier-sweep.mjs`, `closure-readiness.mjs`, `scripts/fixtures/graphify-guard.test.mjs`, `suites.mjs` | Follow: applied by the item 10 `D-54` pass (commits 2a and 2b): live qualified `V1-SM05` references re-pointed per item 6's identity rule; receipt file names kept as dated evidence; `jev:selftest` and fixtures pass |
+| `docs/ENCYCLOPEDIA-SYNC.md`, `factory-route-operation-crosswalk.md`, `V1-PHASE-CLOSURE.md` | Follow: applied by the item 10 `D-54` pass (commits 2a and 2b): live qualified slot references re-pointed; dated history unchanged |
+| `.github/WORKFLOWS-SPEC.md` §4 | Follow: applied by the item 10 `D-54` pass (commits 2a and 2b): receipts custody `V1-SM06` to `V1-SM08` |
+| `AGENTS.md` | Follow: applied by the item 10 `D-54` pass (commits 2a and 2b): one read-order line; `rule-budget` passes |
+| Handoffs, journal, receipts, `SETUP-SPIKE-000` packets, `docs/v1/evidence/`, `dor-dod-validation/v1.md` | Unaffected: dated or immutable records, read under item 6's identity rule |
+| `docs/handoff/B-119-agentic-documentation-architecture-safe-mmf-reconciliation.md` | Unaffected: dated record, not edited; item 13 settles line 2314 by reference |
+| `docs/graph-fragments/` | Follow: curated merge in the separately released graph cycle (`D-425`); not edited by this unit |
+| `supabase/migrations/` | Unaffected in this unit: the item 5 migration is Lane B work under a later work order; `0001` and `0002` never edited |
+| `LANE-B-WORK-ORDER.md` | Unaffected: no unit selected |
+| `GEMINI.md`, `CLAUDE.md`, `docs/PRD.md`, Charter, application code, workflows | Unaffected |
+| **Encyclopedia** | Entries 01, 03, 04, 05 and 06 affected: Entry 01 (four-eyes) by the item 5 release; Entry 03 (newsworthiness) by the item 4 status of `business:T*`; Entry 04 (article state vs publication status) by item 7; Entries 05 and 06 by item 6's re-binding of `V1-SM05` and item 3's `D-247` amendment (`ENCYCLOPEDIA-SYNC.md` trigger rows 48–49). Entry 02 unaffected |
+| **Graphify** | Affected: governed drift remains until a separately released guarded cycle publishes and is healthy (`D-425`) |
+
+### What this act does NOT do
+
+It does not select any slot, issue a work order, change lane state, write or apply a migration, lift `D-171` beyond item 5's single `ROUTE-PROD-1` contract, lift the `V1-SM07` block, normalise the `business:T*` stages, open V2, add an FR or AC, edit a held, frozen or behaviour row, run a graph sync, or authorize any push beyond item 10.
