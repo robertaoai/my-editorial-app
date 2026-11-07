@@ -31629,3 +31629,52 @@ It does not select any slot, issue a work order, change lane state, write or app
 ### What this act does NOT do
 
 It does not run commits 2a or 2b, edit a fragment, run a graph sync, change a check, change lane state, or authorize any push.
+
+## 5.14e304 `D-481` — Disposition of Lane B Findings P2-A and P2-B on the `D-480` Recording; Fortieth Intervening Entry Permitted
+
+**Selection authority — the Judge, 2026-11-07, Codex chat `01a1b5ba-5c0e-7053-8445-795db56ce0d9`:** "Judge selects Option A for both P2-A and P2-B. Draft the final disposition and matching Lane A handoff prompt in ASDSTE-100. Preserve all evidence and holds. No edits, commits or push yet." Object: Lane B findings P2-A and P2-B on the `D-480` recording. Action: Option A for each finding, plus drafting of the disposition and handoff. Limits: no edits, commits or push. It grants no recording authority. This one selection covers both findings. It has two representations in `C:/Users/rober_24syk4j/.codex/sessions/2026/11/07/rollout-2026-11-07T19-17-32-01a1b5ba-5c0e-7053-8445-795db56ce0d9.jsonl`: the user message `msg_01a1b634-5b42-7291-8379-e469611ae42b` at line 366 (939 bytes, SHA-256 `b1676c1b15f5778d52e75fb8e9e0600c232e761f6118cc9b257c81c655a8c74c`, 2026-11-07T13:30:46.978Z), and the completion event for item `01a1b634-5b42-7291-8379-e4704e983d11` at line 367 (644 bytes, SHA-256 `86bd81a7565feac1518dbba53a0b2e8ccc8570e706d7e2b97f298a1a5101d619`). The assistant options (line 359, `msg_08b0e9a5d7e3f1f1016aef27306aac87d0878d3da828e32243`) and the assistant disposition draft (line 371, `msg_08b0e9a5d7e3f1f1016aef2816c47c87d0b0ae759ca6246695`) are not Judge issuances.
+
+**Recording authority:** the Judge, 2026-11-07, issued instruction "Judge instruction — record D-480 successor 2: Register parent first, then B-162" (complete issuance retained: session transcript `C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/4f69bdcf-ad6e-4221-8848-66bedd80b438.jsonl`, line 984, record UUID `046c33d1-0af1-4578-bd50-24f1173983c2`, timestamp 2026-11-07T15:26:22.997Z, 13,606 bytes including the final LF, SHA-256 `0b689d75020395f70c59827acebe2de90915d11f8815368a556c2b44828689aa`; copy at `C:/CoWork/outputs/lane-a-d480-successor2-d481-b162-recording-2026-11-07/authority/issuance.jsonl`). Excerpt from its section 1, not the complete issuance: "I authorize Lane A to record the approved successor 2 Register parent as D-481, then file its approved B-162 child answer, as two separate local one-path commits under this instruction." Object: the approved successor 2 parent and child (Claude transcript `C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/977c3a29-84c5-4979-8081-065ea3f1b07a.jsonl`, line 9860, assistant UUID `29e1ea50-b654-4e76-93e0-4e6ef051af83`, 20,915 bytes, SHA-256 `2fc5949f8e12b09f435b19e9e33134f80af202372aff0aebe3cf86652bf4cf9e`), approved as proposed text by Lane B (Codex chat `01a1b676-7cff-76f2-8b9e-de5953a6f5a6`, `msg_0a49eda52aa6049d016aef3f61c3dc87d0a241dcd9be5a1336`, line 307, 14,009 bytes, SHA-256 `0bec1e51a24402ce49df48fc6cd2a5a4ef88be5947b65f63453eccb81df38de7`). Action: record this entry (Unit 1), then file the B-162 child (Unit 2). Limits: two local one-path commits; no push; no other path; no retrospective authority; every hold unchanged. **Number, section and ordinal check:** expected identifiers `D-481`, §5.14e304, fortieth. At `0f698ee`, none has a tracked occurrence (0 tracked matches), 0 in this Register, and none in Git history across all refs (`D-478` item 8). **Placement permission:** Granted by the Judge on 2026-11-07 in section 3 of the recording instruction identified above.
+
+### The decision
+
+0. **Registration sequence.** Item 0 of `D-440` and `D-441`, as amended through `D-476` item 8, `D-477`, `D-478`, `D-479` and `D-480`, is further amended to permit one further intervening Register entry, this fortieth entry, after `D-480` and before the separate TCA r3 (J3) and J-C A1 entries. J1 and J2 keep their identities, text and transfer holds. No further intervening entry is permitted by implication.
+
+1. **Subject and findings.** The `D-480` recording commit `0f698eef0716005b419c1b0df42ec670273b6974`, sole parent `93c351a9df44fd45f8240b0a997dfe4b18e99d0c`. The findings are in Lane B's Level 1 review of that recording: Codex assistant message `msg_08b0e9a5d7e3f1f1016aef25b4115c87d0adf085d335bec69c`, line 341, 12,793 bytes, SHA-256 `d1b5d53955cb59880e6420502bcac83b33a581c0483b16f3403ce8f19b2a2526`. Receipt `93c351a` reviews the earlier `D-480` draft, not this recording. The finding statements below are summaries; Lane B's wording at line 341 controls.
+
+2. **P2-A — Option A: outcome accepted with a disclosed process variance.** The resume authority (Claude transcript line 9469) said the verifier's only change was case-insensitive P1/P2 matching. The verifiers compared are `C:/CoWork/outputs/lane-a-d480-recording-2026-11-07/scripts/01-preflight.cjs` (7,795 bytes, SHA-256 `9a9883065b1b2080485324397a9683ef572ab34d59784f647c04034a2b35c470`) and `C:/CoWork/outputs/lane-a-d480-recording-resume-2026-11-07/scripts/01-preflight.cjs` (7,933 bytes, SHA-256 `937afc63a3712d2dbeea87e576764492c4a75967fafe713a995f2325c476d58c`).
+   - The case-insensitive P1/P2 match was authorized.
+   - The new evidence folder was authorized.
+   - Retaining the resume record (line 9469) supports provenance.
+   - The added user-record type check for the resume record is a separate, fail-closed change.
+   - The deletion of the clause `auth.issuance - 9398 === 0` is a separate change. It stays disclosed. On the examined code path, `auth.issuance` is undefined and the expression is false, so the removal has no demonstrated behavioural effect on that path. Express authority for the deletion was not established in the reviewed records.
+   - The inspected evidence establishes no behavioural weakening.
+   - The earlier execution is not described as fully compliant.
+   - The historical script header and `C:/CoWork/outputs/lane-a-d480-recording-resume-2026-11-07/ATTEMPT-STATUS.md` (1,940 bytes, SHA-256 `da657702a907e126f0aa58c9f79c041901f5f0ff9b9ba2c2e5450bb727646145`) understate the changes. They stay unchanged as history. This item is the explanatory account.
+   - Before any later attempt, Lane A lists every proposed verifier change and obtains authority that covers its exact scope.
+
+3. **P2-B — Option A: concise quotation accepted, with the complete issuance retained.** The existing `D-480` authority field is accepted as a concise quotation.
+   - It is an excerpt: one exact sentence from issuance §1, kept unchanged.
+   - No claim is made that selecting an excerpt was expressly permitted earlier.
+   - The full issuance is Claude transcript line 9398, UUID `8d289928-17d8-4c44-a011-335965c2f744`. Identical retained copies, 8,143 bytes, SHA-256 `527ed9af7045186e7c2d983e699963042943faadf51179796db221e0bd727c98`, are at `C:/CoWork/outputs/lane-a-d480-recording-2026-11-07/authority/issuance-9398.jsonl` and `C:/CoWork/outputs/lane-a-d480-recording-resume-2026-11-07/authority/issuance-9398.jsonl`.
+   - The date correction (line 9415; identical copies at `C:/CoWork/outputs/lane-a-d480-recording-2026-11-07/authority/date-ruling-9415.jsonl` and `C:/CoWork/outputs/lane-a-d480-recording-resume-2026-11-07/authority/date-ruling-9415.jsonl`, 3,270 bytes, SHA-256 `2c977fb5677f8e2bb0a9ed825e9e0e09e5b5ea09f7ddfedb40ee96b3a8af0a1d`) and the resume ruling (line 9469; `C:/CoWork/outputs/lane-a-d480-recording-resume-2026-11-07/authority/resume-authorization-9469.jsonl`, 3,488 bytes, SHA-256 `82b59da7587b5867dd670cb1fb06fe12420718e1a598f165864b4990bbc59621`) stay separate.
+   - No omitted condition or hold is waived. The existing `D-480` bytes stay unchanged. The historical whole Register at `0f698ee` is 2,459,392 bytes, SHA-256 `7e12589c6bc3ba4d22e739e4fd3e5f4f0c2b528aaae70afebf5b215b938ee01e`. Any later append must preserve it as an identical prefix; it is not the whole-file hash after that append.
+
+4. **Limits.** Neither selection supplies retrospective authority. No evidence is changed, repaired, resealed or replayed. Stopped-attempt manifest: `C:/CoWork/outputs/lane-a-d480-recording-2026-11-07/SHA256-MANIFEST.txt`, 982 bytes, SHA-256 `856bb2a40364992379cefa614855febad636a9d44bd96a7eb78a2095beb2cc47`. Resumed-attempt manifest: `C:/CoWork/outputs/lane-a-d480-recording-resume-2026-11-07/SHA256-MANIFEST.txt`, 4,780 bytes, SHA-256 `0a019476d14aca7749bd4f1b2187d6073bca5fc301fe0655fbd54e85580b6a9b`. Matching hashes prove retained-byte integrity, not every historical claim.
+
+5. **Route.** Parent draft approval → separate recording authority → this entry recorded → separately authorized B-162 child filing that cites this entry's commit → independent verification.
+
+6. **Holds.** Push; propagation and commits 2a/2b; snapshots; release r4 issuance and execution; Lane C review; graph operations; lane changes; U-C; J1/J2 transfers; T3/T4/T4a/T4b; D-434 FR-15; B-162 lift and selection; application work; FN-EXCEPTIONS; evidence portability. B-136, B-158, B-162 and D-439 stay Open. No whole-entry Verified disposition.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry |
+| `docs/handoff/B-162-consolidated-findings-and-delivery-controls.md` | Follow: Lane A's attributed answer, filed under a separate release after this entry |
+| **Build Spec** | Unaffected: no scope, slot, sequence or DoD changes. Both dispositions concern the evidence and quotation form of an existing entry. |
+| **Inventory** | Unaffected: no artifact is created, retired or moved through its lifecycle. The evidence folders are external and stay as they are. |
+| Rule files (`AGENTS.md`, `CLAUDE.md`, `GEMINI.md`) and `scripts/checks/` | Unaffected: no rule text or check behaviour changes. The future-verifier rule in item 2 binds Lane A's later attempts through this entry, not through a rule-file edit. |
+| Application code, workflows, migrations | Unaffected: no implementation changes. Both findings concern governance evidence. |
+| `docs/graph-fragments/` and **Graphify** | Graphify affected: governed drift remains until a separately released guarded cycle (`D-425`). Fragments unaffected by this entry: any node work is that cycle's follow-up. |
+| **Encyclopedia** | Unaffected: Entries 01–06 (four-eyes, resolved vs ratified, newsworthiness, article state, the independent-assurance cluster, `CR-14`) map no concept that these dispositions change |
