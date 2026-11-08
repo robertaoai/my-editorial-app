@@ -2879,3 +2879,225 @@ B-136, B-158, B-162 and D-439 remain **Open**. No whole-entry Verified dispositi
 | Independent verification of the later filing | **Defer** | Separate review authority; no self-verification. |
 | Evidence preservation and holds | **Approve — preserved** | Existing duties and gates remain. |
 | Push — last action | **Defer** | Separate authority naming the complete actual outgoing chain. |
+
+## Lane C - independent review of B-162 filing 49db820
+
+Lane C's existing independent review is filed below. This filing does not independently verify itself. B-162 remains Open. No whole-entry Verified disposition is claimed. Push remains held.
+
+### Filing wrapper
+
+1. **Filing date:** 2026-11-08 (Asia/Singapore)
+2. **Reviewer and review surface:** Lane C, Antigravity chat
+3. **Reviewed commit:** 49db8206ca484489880521705d6cb46ee59a9c88
+4. **Review conversation ID:** 734b329b-9c14-47f7-b07d-a636493e2799
+5. **Exact review-message locator and available timestamp:** C:/Users/rober_24syk4j/.gemini/antigravity/brain/734b329b-9c14-47f7-b07d-a636493e2799/.system_generated/logs/transcript_full.jsonl:140 (step index 173), timestamp 2026-11-07T18:26:14Z
+6. **Original source-record binding:** 18,320 raw record bytes including LF, SHA-256 46214b99a6f0691cdf00e586b93182fc3aecc1eafd0850b03b424fe6c24008ae. Availability limit: full untruncated content in 	ranscript_full.jsonl line 140; 	ranscript.jsonl compact record truncates the content field (	runcated_fields: ["content"]).
+7. **Extracted review-text encoding, byte count and SHA-256:** UTF-8, 15,514 bytes (15,513 characters), SHA-256 37d8ce2d03c2af8d5ba3bbe9d6585b70769bce0df1dc38df51ded8c02a8b41a4
+8. **Actual filing-authority locator and binding:** C:/Users/rober_24syk4j/.codex/sessions/2026/11/07/rollout-2026-11-07T22-43-01-01a1b676-7cff-76f2-8b9e-de5953a6f5a6.jsonl:1676, message msg_01a1b792-ab28-7c51-b251-a044e45d9a23, timestamp 2026-11-07T19:53:25.033Z, 1,445 raw record bytes including LF, SHA-256 7fe081cf5d2c596e9a47ce02a53cb16cf6424280138f6272d0d488a92cf9bc86, activating adopted draft at line 1669 (msg_0a49eda52aa6049d016aef75e7d7e087d080793490171477fa, 15,123 raw record bytes, SHA-256 5e7f431e60e630093a8ab251b809f19d864493458959b2325e608da516e0df1b). Authority: Judge approval received in the current conversation for this Lane C review filing, pending durable registration.
+9. **Evidence-folder path:** C:/CoWork/outputs/lane-c-b162-49db820-review-filing-2026-11-08/
+10. **Filing status and independent-verification status:** Lane C's existing independent review is filed below. This filing does not independently verify itself. B-162 remains Open. No whole-entry Verified disposition is claimed. Push remains held.
+
+### Retained review text
+# Lane C Independent Technical Review of B-162 Commit `49db820`
+
+**Review surface:** Lane C (DevOps / Antigravity Chat).  
+**Filing surface:** None. Mode is strictly read-only, chat only. No files, folders, handoffs, or receipts were created or edited. No check was executed, and no git staging, commit, fetch, push, or lane change was performed.
+
+---
+
+## 1. Exact Source Bindings and Authority Distinctions
+
+### 1.1 Transcript Authority Bindings
+Transcript source: `C:/Users/rober_24syk4j/.codex/sessions/2026/11/07/rollout-2026-11-07T22-43-01-01a1b676-7cff-76f2-8b9e-de5953a6f5a6.jsonl`
+
+| Role / Source | Line | Record ID | Timestamp (UTC) | Raw Bytes (with LF) | Full SHA-256 | Result |
+|---|---|---|---|---|---|---|
+| **Judge issuance (current review)** | 1224 | `msg_01a1b735-80d3-77c3-94f7-52756c275344` | 2026-11-07T18:11:39.347Z | 1,278 | `778e53e3782e5e441dfa4d0ece7131bd4e0799fe882991790aead58d45fa88ac` | **Pass** |
+| **Adopted review instruction** | 1217 | `msg_0a49eda52aa6049d016aef6919ce3887d081e498e55fc8de52` | 2026-11-07T18:10:48.374Z | 16,897 | `7b70b71004adac7f902ad975602f5ee2962f6da9638c6a852cedfcce6f110106` | **Pass** |
+| **Continuation issuance (Unit 2 commit)** | 1117 | `msg_01a1b728-e521-7622-96e3-11804f60c563` | 2026-11-07T17:57:53.057Z | 1,315 | `a2bf3ea73fedef05f5cf3b6bc7458f3276e87f666fc432301986b6f73b4699f6` | **Pass** |
+| **Adopted continuation draft** | 1110 | `msg_0a49eda52aa6049d016aef6647c2c887d0b6661e024e3b0450` | 2026-11-07T17:57:27.377Z | 18,083 | `4b748498072616a3fda66265758b1a4b37c68541ead302194ea7d8ec21c02d89` | **Pass** |
+| **Lane B final D-481 review text** | 480 | `msg_0a49eda52aa6049d016aef4f4666c087d09f8d3a758a503989` | 2026-11-07T16:19:12.175Z | 12,373 | `a5c4e2027e9838e09a317ddaf029c078e6430551ab23bd103b834b3a316870cd` | **Pass** |
+| **Lane B D-482 recording review text** | 670 | `msg_0a49eda52aa6049d016aef5d2a386c87d085445d82f08964fe` | 2026-11-07T17:18:35.197Z | 12,736 | `26ea8507f761b12c69eca9337543ceb65d29f3dbd226d9b209850a3e77878b39` | **Pass** |
+
+### 1.2 Authority Distinctions
+- **User issuance vs. assistant draft:** Direct user issuance at line 1117 supplied the execution authority to resume Unit 2, reuse the two runs, fetch, and commit. The assistant draft at line 1110 supplied adopted draft text solely within the bounds activated by that issuance.
+- **Approval vs. execution:** Lane B's approval of filings and reviews did not constitute execution or verification authority by itself.
+- **Commit creation vs. verification:** A successful Git commit does not self-verify; independent verification remains distinct.
+
+---
+
+## 2. Commit, Parent, Tree, and Changed-Path Results
+
+Target inspected: `49db8206ca484489880521705d6cb46ee59a9c88` in repository `C:/robertaoai/my-editorial-app`.
+
+| Item | Expected Value | Observed Value | Result |
+|---|---|---|---|
+| **Commit** | `49db8206ca484489880521705d6cb46ee59a9c88` | `49db8206ca484489880521705d6cb46ee59a9c88` | **Pass** |
+| **Tree** | `1354f65be9317bdd5440bf4aa2e754e335e2b1b1` | `1354f65be9317bdd5440bf4aa2e754e335e2b1b1` | **Pass** |
+| **Sole parent** | `a41238cf94cea9df2ea8cfef65b76e99f4b8ee5b` | `a41238cf94cea9df2ea8cfef65b76e99f4b8ee5b` | **Pass** |
+| **Changed paths** | `docs/handoff/B-162-consolidated-findings-and-delivery-controls.md` | Sole path changed (`git diff-tree --name-status -r` reports `M docs/handoff/B-162...`) | **Pass** |
+| **Committed blob** | `f50c11f03f6daed63a28d38fe673f3e0bf9be013` | `f50c11f03f6daed63a28d38fe673f3e0bf9be013` | **Pass** |
+| **Blob size** | 418,599 bytes | 418,599 bytes | **Pass** |
+| **Blob SHA-256** | `040172c2f5914d6eb7b187d58bffb9cf661464dfe938149ea4dd7f872c2eaa73` | `040172c2f5914d6eb7b187d58bffb9cf661464dfe938149ea4dd7f872c2eaa73` | **Pass** |
+| **Line endings** | Zero CR bytes; exactly one final LF | `crCount: 0`, `endsInLF: true`, `endsInDoubleLF: false` | **Pass** |
+| **Author & Committer** | `robertaoai <241258103+robertaoai@users.noreply.github.com>` | Exactly matches author and committer metadata | **Pass** |
+
+---
+
+## 3. Prefix, Review-Text, Wrapper, and Generated-Field Results
+
+### 3.1 Prefix and Candidate Equality
+- **Original B-162 prefix preservation:** The first 392,018 bytes of committed B-162 are byte-identical to parent commit `a41238c:docs/handoff/B-162-consolidated-findings-and-delivery-controls.md`.
+- **Section 5 Binding Correction:** Prefix SHA-256 verified as:  
+  `9a514718512030fb2678ed49966c18f9003be5e6cdd6c68dc11aaf86bcd59b14` (**Pass**).
+- **Candidate equality:** The committed blob matches the preserved candidate `C:/CoWork/outputs/lane-b-p3nb-b162-review-filing-resume-03/unit2/candidate-b162.md` byte-for-byte (418,599 bytes, SHA-256 `040172c2...`). It also equals the preserved candidates in `resume-01` and `resume-02` (**Pass**).
+- **Unchanged parent contents:** Lane A's section and all earlier Lane B findings in the prefix are unmodified.
+- **Register preservation:** `docs/v1/V1-DECISION-REGISTER.md` was not modified in commit `49db820`: 2,476,928 bytes, SHA-256 `02d6ae025c80511632e2af17dcb3beafbb57e6c05ba146eec9a7637959d3d8ca` (**Pass**).
+
+### 3.2 Review Text Fidelity
+- **Decoded line 480 review:** Embedded verbatim in the append (11,429 characters).
+- **Decoded line 670 review:** Embedded verbatim in the append (11,775 characters).
+- **Wrapper impact:** The wrapper adds structured JSON metadata and subheadings without altering, truncating, or reinterpreting the review verdicts or text.
+
+### 3.3 Generated Fields and Provenance Scope
+The appended JSON block contains the permitted fields:
+- `resume_authority`: Cites preparation issuance at line 781 and draft at line 774. This provenance scope is explicitly permitted by continuation instruction §4 ("The candidate's embedded evidence paths remain preparation provenance. This continuation's authority and execution evidence belong in the new folder. Do not edit the candidate to insert them").
+- `recording_instruction`: Cites Claude project record line 1093.
+- `earlier_final_review`: Cites line 480.
+- `register_parent`: Binds D-482 commit `a41238c`.
+- `parent_recording_review`: Cites line 670.
+- `read_revision`: `a41238cf94cea9df2ea8cfef65b76e99f4b8ee5b`.
+- `filing_date`: `2026-11-08`.
+- `retained_evidence_path`: `C:/CoWork/outputs/lane-b-p3nb-b162-review-filing-resume-01/`.
+- **Execution authority retention:** The current continuation authority (line 1117) and resume-03 evidence path are recorded in `resume-03/authority/` and cited in the commit message body (**Pass**).
+- **No forbidden additions:** No duplicate handoff, C-series copy, or whole-entry Verified disposition was added (**Pass**).
+
+---
+
+## 4. Check-Reuse Authority and Applicability Results
+
+### 4.1 Check-Reuse Authority
+- **Result:** **Pass**.
+- **Evidence:** Judge continuation issuance at line 1117 explicitly directed: *"Resume Unit 2 from the exact preserved candidate, reuse the two retained check runs, perform the fresh pre-staging fetch, and complete the B-162-only commit."* Authority for reuse was therefore bounded and valid.
+
+### 4.2 Check Runs Origin and Metadata Verification
+- **Origin:** Retained from `C:/CoWork/outputs/lane-b-p3nb-b162-review-filing-resume-02/unit2/`.
+- **Run 1:** Start `2026-11-07T17:44:53.073Z`, End `2026-11-07T17:48:02.902Z`, exit code 1.
+- **Run 2:** Start `2026-11-07T17:48:13.846Z`, End `2026-11-07T17:50:54.843Z`, exit code 1.
+- **Metadata and output verification:** Copied records in `resume-03/unit2/check-1.result.json` (2,006 bytes, SHA-256 `b1574104...`) and `check-2.result.json` (2,006 bytes, SHA-256 `0f5ebaec...`) retain identical metadata, timestamps, and stdout/stderr hashes.
+- **Check identities:** Exactly 19 expected check identities verified:  
+  `rule-budget`, `tier-sweep`, `duplicate-ids`, `graph-coverage`, `settings-parse`, `decision-status`, `lane-boundary`, `source-sweep`, `handoff-response`, `phase-manifest`, `config-coupling`, `closure-readiness`, `docs-drift`, `sync-docs-unique`, `lane-state`, `channel-docs`, `retention-policy-coupling`, `terminal-return`, `text-integrity`.
+- **Mapping:** Permitted mapping `sync-docs-uniqueness` -> `sync-docs-unique` verified via `reused-checks/verifier-change.diff` and `mapping-evidence.json`. No unapproved normalization occurred.
+- **Check outcomes:** For both runs, exactly 18 checks passed, 0 skipped, and `docs-drift` was the sole failed check, consistent with the bounded D-428 grant for handoff-only edits without graph sync.
+- **Applicability evaluation:**
+  - Candidate B-162 was byte-identical between resume-02 and commit `49db820`.
+  - Parent commit `a41238c` was unchanged.
+  - As explicitly disclosed in `check-reuse.json` and `STATUS.md`, applicability is bounded to the tracked repository and candidate state; it does not claim proof that every external or untracked environment factor was unchanged. This is correctly documented and not represented as a fresh full consistency run (**Pass, bounded**).
+
+---
+
+## 5. Fetch, Staging, Commit, and Hook Evidence
+
+Inspected records in `C:/CoWork/outputs/lane-b-p3nb-b162-review-filing-resume-03/`:
+
+- **Fresh pre-staging fetch:**
+  - Start record: `fetch/pre-staging/start.json` (361 bytes, SHA-256 `0188b191...`, start `2026-11-07T17:59:48.202Z`).
+  - Result record: `fetch/pre-staging/result.json` (395 bytes, SHA-256 `0b31fc61...`, exit status 0, PID 25204, duration 2.89s, ended `17:59:51.090Z`).
+  - Standard error: `fetch/pre-staging/stderr.txt` (79 bytes, host key notice). Standard output: 0 bytes.
+  - Evaluated before staging: Verified.
+- **Staging preflight:**
+  - `unit2/preflight-pre-commit.json` (1,289 bytes, SHA-256 `ac3af468...`): Index empty before staging; only B-162 modified in working tree; candidate verified.
+- **Commit execution and controls:**
+  - `unit2/commit-run.json` (4,106 bytes, SHA-256 `4a2d4938...`): Command used `core.hooksPath=.githooks`, author/committer `robertaoai <241258103+robertaoai@users.noreply.github.com>`.
+  - Checked, staged, and committed blob: `f50c11f03f6daed63a28d38fe673f3e0bf9be013` (418,599 bytes, SHA-256 `040172c2...`).
+  - Hooks active: `.githooks/commit-msg` (blob `5a09cb6a...`) and `scripts/lane-gate.mjs` (blob `a4d81d44...`) verified unchanged at target commit.
+  - Git execution trace: `unit2/git-trace.txt` proves execution of `.githooks/commit-msg` and nested `git diff --cached --name-only`.
+  - Post-commit state: Clean working tree and index confirmed.
+
+---
+
+## 6. Manifest and Preservation Results
+
+### 6.1 Successful Package Verification
+- Folder: `C:/CoWork/outputs/lane-b-p3nb-b162-review-filing-resume-03/`
+- Manifest path: `C:/CoWork/outputs/lane-b-p3nb-b162-review-filing-resume-03/SHA256-MANIFEST.txt`
+- Manifest size: 3,358 bytes
+- Manifest SHA-256: `13244ef282cffcd1351b94be6b6677c7febf91920ec0a8e44ea8a12782a6eef5`
+- Listed members: 35.
+- On-disk verification: 35 members verified against manifest. Missing: 0, size mismatches: 0, hash mismatches: 0, unlisted files: 0 (**Pass**).
+
+### 6.2 Stopped Attempt Packages Preserved
+All three stopped attempts preserved with exact manifest bytes, member counts, and hashes:
+
+| Stopped Folder | Manifest Bytes | Members | Manifest SHA-256 | Missing / Mismatches | Result |
+|---|---:|---:|---|:---:|---|
+| `lane-b-p3nb-b162-review-filing-2026-11-08/` | 845 | 9 | `46779abc0538bf92d0a1ff2ec358b045249a2c835d6521ad6bcbd4d5c3c3b8c6` | 0 / 0 | **Pass** |
+| `lane-b-p3nb-b162-review-filing-resume-01/` | 3,637 | 37 | `f6024302f3cfdb1b3989b07ea9056ed5116eaba5fa874452e8879ecb34ad0fbd` | 0 / 0 | **Pass** |
+| `lane-b-p3nb-b162-review-filing-resume-02/` | 6,591 | 65 | `cd5a261141643b59892272e6d62735b9d0be97839fcdac462a392a5ce1cb8958` | 0 / 0 | **Pass** |
+
+Stop causes preserved: initial preparation stop in attempt 1; `sync-docs-uniqueness` mapping stop in resume-01; staging-hold stop after checks in resume-02. None rewritten as a pass.
+
+### 6.3 Earlier Sealed Packages Preserved
+
+| Earlier Sealed Folder under `C:/CoWork/outputs/` | Expected Manifest SHA-256 | Observed Manifest SHA-256 | Result |
+|---|---|---|---|
+| `lane-a-d480-recording-2026-11-07/` | `856bb2a40364992379cefa614855febad636a9d44bd96a7eb78a2095beb2cc47` | Exact match | **Pass** |
+| `lane-a-d480-recording-resume-2026-11-07/` | `0a019476d14aca7749bd4f1b2187d6073bca5fc301fe0655fbd54e85580b6a9b` | Exact match | **Pass** |
+| `lane-a-d480-successor2-d481-b162-recording-2026-11-07/` | `02e4761053087d364ef01a92d90ceed686bd82b22adfdd0908625a67bf1bb497` | Exact match | **Pass** |
+| `lane-a-p3nb-d482-recording-2026-11-08/` | `13116baf4e6321d2dfecf2b848d3ce21af224faae42bfaec9da95f3c39ca1107` | Exact match | **Pass** |
+
+---
+
+## 7. Historical Chain and Current Local Observations
+
+### 7.1 Historical Outgoing Chain Retained at Filing
+Upstream basis: `4e54628ef6986ac385ed10259a9ec6464d7a65fd`  
+Seven commits, oldest first:
+1. `e7e3c6006a7dd9effbcf1f9b9f118fd64e7c910a`
+2. `93c351a9df44fd45f8240b0a997dfe4b18e99d0c`
+3. `0f698eef0716005b419c1b0df42ec670273b6974`
+4. `f8ce184a84a252eb17226880054e437078299b81`
+5. `db08e05393255fc34514283d95e6ec9c37726427`
+6. `a41238cf94cea9df2ea8cfef65b76e99f4b8ee5b`
+7. `49db8206ca484489880521705d6cb46ee59a9c88`
+
+### 7.2 Current Local Read-Only Observations
+- Local HEAD in `C:/robertaoai/my-editorial-app`: `49db8206ca484489880521705d6cb46ee59a9c88`.
+- Local remote-tracking branch `origin/features/feature-V1-SM05`: `4e54628ef6986ac385ed10259a9ec6464d7a65fd`.
+- Working tree status: Clean (`git status --porcelain` returns empty).
+- Outgoing commit range (`4e54628..49db820`): Exactly 7 commits matching the historical filing-time list.
+- **Network notice:** This review performed no fetch; remote tracking reflects the local state from the filing fetch.
+
+---
+
+## 8. Package-Only Open P1, P2, and P3 Counts
+
+Inspected across `resume-03` package records and B-162 filing:
+- **Open P1 findings:** 0
+- **Open P2 findings:** 0
+- **Open P3 findings:** 0  
+*(Note B / historical P3-NB was resolved on the accepted-variance basis under Judge issuance for D-481/D-482. No new open defects were identified in this package or filing).*
+
+---
+
+## 9. Required Unverified Items and Unavailable Evidence
+
+- **Unavailable evidence:** None. All required files, directory manifests, Git objects, and transcript lines were locally accessible and verified.
+- **Unverified items:**
+  - Full consistency pass: Check reuse does not claim to be a fresh full consistency pass; it is a bounded reuse of runs from identical candidate and parent states under direct Judge authorization.
+  - Whole-entry status: B-136, B-158, B-162, and D-439 remain Open; no whole-entry closure or verification is claimed.
+
+---
+
+## 10. Acceptance Decision and Governing Verdict Table
+
+All 12 criteria of the Judge's instruction are satisfied. Commit `49db820` faithfully files Lane B's reviews and maintains byte integrity, prefix preservation, and evidence seals without exceeding authorized scope.
+
+| Scope | Verdict | Follow-up phase |
+|---|---|---|
+| B-162 filing at `49db8206ca484489880521705d6cb46ee59a9c88` | **Approve** | Phase 1: accept the exact filing or resolve findings. |
+| Reuse of the two retained check runs | **Approve** | Phase 1: establish bounded authority and applicability. |
+| Sealed evidence and stopped attempts | **Approve** | Preserve all records and evidence limits. |
+| Durable filing of this review | **Defer** | Separate Judge instruction. |
+| Whole-entry closure and other held work | **Defer** | Existing duties and gates remain. |
+| Push, as the last action | **Defer** | Separate authority for the complete outgoing chain after the required gates. |
