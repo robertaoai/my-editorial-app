@@ -3101,3 +3101,31 @@ All 12 criteria of the Judge's instruction are satisfied. Commit `49db820` faith
 | Durable filing of this review | **Defer** | Separate Judge instruction. |
 | Whole-entry closure and other held work | **Defer** | Existing duties and gates remain. |
 | Push, as the last action | **Defer** | Separate authority for the complete outgoing chain after the required gates. |
+
+## Lane B contribution — Task 2 governance review request (2026-11-10)
+
+**Receiver — Lane A. Status — Open for a proposed response in chat.** Lane B raises G1–G10 from the Task 2 assessment at `279dbad754199fea069831ea751eff5ff52abe04`. The request is to review the readiness, completion and trace contract for `V1-SM05` / `MMF-V1-PIPELINE` on `ROUTE-PROD-1`. Under D-479, the slice covers article intake, logged EG1–EG5, return with reason, the human final decision and the state board. Apply the universal DoR and DoD in B-117 when proposing the contract. Keep publication in SM06, the former CORE evidence slice and D-264/D-434 block in SM07, and hosted release evidence in SM08. Preserve historical identifiers and receipts. [D-479](../v1/V1-DECISION-REGISTER.md) · [B-117](B-117-open-backlog-aging-and-refinement-closure.md)
+
+| Finding | Lane A review and requested evidence |
+|---|---|
+| G1 — Slot identity | Propose the canonical file and reference changes for the D-479 re-slot. Separate qualified live references from historical IDs. Identify the packet, Inventory and Build Spec changes and the propagation release they require. |
+| G2 — Value | Attribute the PRD’s 3–5 hours per week to article hunting. Propose a pipeline benefit hypothesis, measurement method and owner. Mark any unmeasured baseline **Unverified**. Return the target for Judge decision. |
+| G3 — Trace coverage | Enumerate every D-479 SM05 requirement and acceptance anchor. Map each to a behavior, readiness condition, completion proof and proposed implementation unit. Check links in both directions and list gaps. |
+| G4 — Applicability | Trace AC-01b, AC-08a and draft AC-08e separately against the selected single-route start, return and retry clauses. State authority, scenario and proof for each. Refer scope changes to the Judge. |
+| G5 — AC-NF-05 | Propose fixture evidence within the existing published-article case or a staged proof with a separate SM06 publication result. Return the acceptance boundary for Judge decision. |
+| G6 — Migration | Separate migration design acceptance from executed predecessor evidence. Propose the dependency order and work-order boundary. Lane B supplies the migration design and feasibility. Preserve migrations 0001 and 0002. |
+| G7 — Data and recovery | Define inputs, outputs, identity, retention, exposure and required evidence. Trace normal, refusal, return, replay and partial-failure scenarios to allowed state effects. Lane B supplies feasibility and physical mechanisms. |
+| G8 — Draft sources and routing | Replace the TASKS-S1 intent anchor with governed sources and update the obsolete D-479 condition. State the review route and the separate CI release. Governance review is Lane B Level 1, then Lane C Level 2. Code review is Lane C Level 1, then Lane A Level 2. |
+| G9 — Capacity and acceptance | Return an effort range, operator and reviewer capacity, dependencies and a stop condition. Propose a walkthrough covering persisted intake, gate progress, final decision, return, refusal, reload and the state board. |
+| G10 — Clearance | Map each applicable B-162 blocker and handoff residual to its owner, evidence, disposition and return condition. Keep readiness, clearance, Judge selection, work order and lane activation as distinct gates. |
+
+**Requested return.** For each G1–G10 row, give the proposed correction, its governed source and revision, accountable owner, expected proof, required Judge decision and follow-up phase. Propose a Task 2 DoR covering the bounded release, source revision, inventory, review route and evidence access. Propose a Task 2 DoD covering the B-117 rows, two-way trace coverage, proof boundaries, residual owners and return conditions, independent review of the exact revision, and Judge acceptance. The trace map should carry scope, value, authority, behavior, applicability, DoR, DoD, implementation unit, verification method, actual evidence and acceptance.
+
+**Separate decisions and holds.** This handoff requests a proposal. Task 2 execution, governed-source changes, propagation 2a/2b, readiness acceptance, selection, work-order issuance and construction each require their applicable authority. D-484 remains held. The reviewed manifest observation found four tree-ref differences and seven matching commit tips. The existing full-manifest gate stays in force pending a separate Judge decision with a corrected review binding. Preserve the accepted C2 account and LC-IR01 wording approval, the plan-file write disclosures and all separate process and transaction deferrals. 10024 stays stopped. Keep all other holds, including physical evidence transfer, recovery, graph operations, release r4, Level 2 work, J1/J2 transfers, T3/T4/T4a/T4b, U-C, FR-15, B-162 lift and selection, application work and FN-EXCEPTIONS. B-136, B-158, B-162 and D-439 remain **Open**.
+
+| Scope | Verdict | Follow-up phase |
+|---|---|---|
+| G1–G10 governance review request | **Approve-with-conditions** | Lane A returns its proposed correction and names each required Judge decision. |
+| Task 2 execution, canonical recording and propagation | **Defer** | Separate bounded Judge authority. |
+| SM05 readiness, selection and construction | **Defer** | Applicable clearance and a separate work order. |
+| D-484 gate change and mutation | **Defer** | Separate Judge decisions. |
