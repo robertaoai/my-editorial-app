@@ -31743,3 +31743,17 @@ It does not run commits 2a or 2b, edit a fragment, run a graph sync, change a ch
   "numbering_evidence_path": "C:/CoWork/outputs/lane-a-p3nb-d482-recording-2026-11-08/preflight/preflight-1.json"
 }
 ```
+
+## 5.14e308 `D-485` — Hook evidence gap for B-162 filing `e85a044`
+
+1. **Placement.** Item 0 of D-440 and D-441, as amended through D-482, permits this one recording in intervening slot 44. The Judge permits recording it immediately after D-482 and before the separate TCA r3 (J3) and J-C A1 entries while slots 42 and 43 remain unfilled. This act preserves the stopped 10024 assignment of D-483, §5.14e306 and slot 42, and the D-484 hold. J1 and J2 retain their identities, text and transfer holds. No other placement follows from this act.
+
+2. **Authority.** The Judge issued the hook-gap disposition in Codex thread `01a1c544-bf94-70b1-895f-644ed0db8e57`, user message `01a1c60b-f55e-75c3-835a-413fd0b58a20`. The copy-paste text is in companion message `msg_07797d8464e9aeae016af3364780dc87d0bff07963482d6160`.
+
+3. **Evidence accepted.** Lines 1667–1668 of Lane A transcript `96404f69-17fe-464f-877c-7ce58606a3fe.jsonl` show that Git was launched with `core.hooksPath=.githooks` and successfully created `e85a0445b6217d0c55c84ee7b755444ec31e5ceb`. Preserve the confirmed one-path scope, exact answer bytes and check results.
+
+4. **Evidence gap.** `commit-msg` invocation and its result remain unverified. No contemporaneous hook receipt was found in the retained records. Carry the gap with the filing review. Full filing verification remains deferred. Do not rerun, amend or recreate the commit to supply historical proof.
+
+5. **Retention and holds.** Retain the evidence in place. Durable retention requires a separate decision. Keep B-162 Open, receiver access open and Unit 5b deferred. Preserve all recorded holds. Keep D-478 propagation and push on their separate release routes.
+
+**Tier applicability (D-54).** This entry records the disposition in the Register only. No other file changes. Graph work retains its separate release.
