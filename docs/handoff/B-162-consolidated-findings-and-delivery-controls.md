@@ -3129,3 +3129,149 @@ All 12 criteria of the Judge's instruction are satisfied. Commit `49db820` faith
 | Task 2 execution, canonical recording and propagation | **Defer** | Separate bounded Judge authority. |
 | SM05 readiness, selection and construction | **Defer** | Applicable clearance and a separate work order. |
 | D-484 gate change and mutation | **Defer** | Separate Judge decisions. |
+
+## Lane A answer — Units 2–4 and Task 2 G5
+
+**Reviewed revision:** `6d09a390f8983a7547c2699e0f85a5a277103f04`.
+
+**Review requested:** Lane B Level 1 review of this exact answer. Filing is a
+separate decision.
+
+**D-183 provenance.** The direct Judge messages below are in Codex thread
+`01a1c544-bf94-70b1-895f-644ed0db8e57`. They confirm B-162 placement for the
+proposed dispositions of Units 2–4, confirm the exact Unit 2 field and comment
+wording, and select option B for Task 2 G5. Durable registration remains
+pending. The assistant-drafted companion messages identify the proposed
+wording and supply no additional authority.
+
+### Unit 2 — Audit fields
+
+**Disposition:** B-162 placement and the exact wording below are confirmed
+in chat. Lane A owns the proposed Phase 1 correction. Application remains
+deferred.
+
+- Direct Judge placement message: `01a1c5ac-3c37-7c80-96da-7db3af82dbed`
+- Direct Judge wording confirmation: `01a1c5c9-001e-7a42-8838-22fd65fb98d5`
+- Companion clarification: `msg_07797d8464e9aeae016af31dcf28c487d0a3ab20fb847949bc`
+
+Limit the correction to the `Verified-By` and `Verified-At-Commit` descriptions
+and audit-field comments in `docs/handoff/TEMPLATE.md`. Cite B-011 and D-215
+as governing history and preserve their recorded dispositions.
+
+Confirmed field line:
+
+```md
+- **Verified-By:** <For entries other than turn reports, follow the form in the SOP's D-215 table for the current position. For Verified, name the independent verifying actor at the start of the value. Omit this field on turn reports.>
+```
+
+Confirmed matching text in the audit-field comment:
+
+```text
+Use the form for the current position in the SOP's D-215 table. For
+Verified, name the independent verifying actor at the start of the value.
+```
+
+Retain the rule that the verifier is independent of the answering side.
+`Verified-At-Commit` names the existing commit read. Omit both fields on turn
+reports. Preserve the field names and D-213 withdrawal note. Leave one blank
+line before that note. Remove original lines 128–130 and retain line 131 as
+the single blank line before “Resolutions.”
+
+After separate application authority, bind the exact diff and the walkthrough
+of all three D-215 positions and a turn report to the applied revision.
+Keep the B-158 U-DC `Resolution` repair in its own scope.
+
+### Unit 3 — Attachment navigation
+
+**Disposition:** B-162 placement confirmed. Lane A owns the proposed Phase 1
+correction. Application remains deferred.
+
+- Direct Judge message: `01a1c5af-01de-7310-ad70-3ead318a5fa0`
+- Companion clarification: `msg_07797d8464e9aeae016af31e7eca6087d08685cf80131783e9`
+
+Limit the proposal to the retained paragraph under “Raising an entry” in
+`docs/handoff/README.md`, the `Evidence` description in
+`docs/handoff/TEMPLATE.md`, and the optional “Supporting detail” section
+immediately before “What you did instead.” Use the wording identified in
+the companion clarification and retained README proposal.
+
+For a turn report, `Evidence` names what the turn produced. For other entries,
+it names the supporting check, test, file or commit and where it can be read.
+The optional section gives the artifact path, section, revision and access
+limit. The parent retains the request, blockers and lifecycle.
+
+After separate application authority, bind the exact diff, applicable channel
+check and B-119 and prospective C-entry walkthroughs to the applied revision.
+Keep artifact creation, Inventory changes, custody, B-158 F04 and Proposal 3
+in their existing scopes.
+
+### Unit 4 — Bounded request
+
+**Disposition:** B-162 placement confirmed. Lane A owns the proposed Phase 1
+correction. Application remains deferred.
+
+- Direct Judge message: `01a1c5b1-7530-76a1-8d58-68a3e2bc64d0`
+- Companion clarification: `msg_07797d8464e9aeae016af31f1c48c087d09528ce896b23dacf`
+
+Limit the proposal to the three placeholders under “What happened,”
+“What you need” and “What you did instead” in `docs/handoff/TEMPLATE.md`.
+Use the wording identified in the companion clarification. Preserve the
+headings, entry-kind comments and Lane C dependency warning. The wording
+must work with or without Unit 3.
+
+Use the audit-field contradiction as the known-defect example. Use Task 2
+G5 (`AC-NF-05`) as the missing-decision example at the reviewed base.
+Record that the Judge selected option B later in chat. Matrix A G5a–G5d
+remain outside this example. After separate application authority, bind
+the exact diff and both walkthroughs to the applied revision.
+
+### Task 2 G5 — Option B for AC-NF-05
+
+**Disposition:** The Judge selected staged proof in chat. Lane A owns the
+acceptance definition. B-162 Task 2 G5 remains the owning finding. Full
+`AC-NF-05` acceptance remains open.
+
+- Direct Judge message: `01a1c5b3-733f-7d41-8a24-b9bc46c0e6b3`
+- Companion decision: `msg_07797d8464e9aeae016af31fa2e7a887d0b8f8a1673b2c3d06`
+
+Use this boundary in the proposed V1-SM05 / MMF-V1-PIPELINE trace. The
+historical CORE packet stays outside this scope.
+
+1. V1-SM05 evidence must show that every gate can be reconstructed from the
+   pipeline log alone. Record the expected and reconstructed gate
+   history, evidence reference and applicable revision.
+2. V1-SM06 supplies separate evidence of actual publication for the same
+   article. Record the publication result, evidence reference and
+   applicable revision. This establishes the published-article
+   precondition. Reconstruction uses only the V1-SM05 log.
+
+Both stages require evidence from their own authorized work. Lane B supplies
+implementation proof under the applicable work orders. V1-SM06 retains
+publication ownership. Preserve the governed criterion and flag unresolved
+coverage questions in the Task 2 trace. Readiness, completion and the other
+G1–G10 dispositions retain their existing scope.
+
+### Access, holds and follow-up
+
+Lane A read the five direct Judge messages and the companion clarifications
+for Units 2–4. Lane A located the G5 companion and has not read its text.
+The G5 disposition cites the direct Judge selection.
+
+Lane A has not opened the complete frozen brief, the intake note or the
+Unit 5a originals: cover 61729, response 84317 and their selected combined
+representation. Lane A read only the title and opening lines of the
+corrected review at thread line 259. Receiver access remains open. Lane A
+draws no conclusion on Unit 5a. Unit 5b remains deferred under its existing
+custody route.
+
+Keep Units 2–4 separate. If an authorized unit changes the shared template,
+bind the later diff to the resulting revision. Preserve Lane B Level 1 and
+Lane C Level 2 under their existing releases. Any authorized filing of this
+answer belongs in a separate one-path B-162 commit under D-385.
+
+Preserve all recorded holds. Keep D-478 T3/T4/T4a/T4b on their separate route.
+Keep D-479 2a/2b and D-484 held, the full-manifest gate in force and 10024
+stopped. Preserve the recorded B-117 disposition and keep B-162 Open.
+
+This answer records the proposed dispositions only. It grants no authority
+to edit, file, register, transfer evidence, execute work, commit or push.
