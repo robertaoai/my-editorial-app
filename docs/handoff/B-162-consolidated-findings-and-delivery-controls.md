@@ -3342,3 +3342,44 @@ This acknowledgement names all three frozen artifacts at commit `e8b3e8d3a006d9f
 **All three artifacts and the tracking note are cited with their exact full commit IDs above. B-162 stays `Open`. The answer and push are held pending further Judge release.**
 
 This acknowledgement is filed as a separate one-path commit under D-385. It grants no authority to edit, file, register, transfer evidence, execute work, commit or push beyond recording this attribution.
+
+## Lane A answer — frozen B-162 package and tracking note r2
+
+I answer the three frozen artifacts at `e8b3e8d3a006d9feef46a729865735b62aee5b4d` and the tracking note and Lane B receipt review filed at `8c225e60e67be4e1d37bb5d45d98db1c4e0f6e6a`. Lane A acknowledged all four in `a3491c14c5694c4649355c84bff508abd402ff3f`. B-162 remains Open.
+
+### consolidated-handoff-r3.md
+
+**Approve-with-conditions.** Lane A will prepare the 2a and 2b evidence in D-479 order under separate releases. For the shared fixture file, propose 2a live slot references before the T3 routing-fixture change. Bind the later diff and fixture proof to the earlier revision. Track the 2a overlaps with T4 in the governance spec, workflow spec and Phase Closure, and the 2b overlap with T4 in `AGENTS.md`. Recheck the latter against its size limit. Keep T3 and T4 outside the D-479 guarded sequence and push range. Keep the proposed A2 `handoff-response.mjs` change outside D-479. The shared template changes in Units 2–4 and any C03-selected G28 field need their own applicable sequencing decisions, bases, exact paths and independent review.
+
+**Phase 1 follow-up.** Lane A owns the Task 2 trace and G10 blocker map by child. Draft the eleven-field trace against D-479 item 6 and bind it to the pipeline packet after authorized 2a creates it. Keep old CORE proof in its original scope. Use GR-001, GR-016 and GR-017 with their individual triggers and classify each applicable B-136/B-162 child as CORE, pipeline or shared delivery governance. Lane B supplies feasibility and verification design. The Chief Editor confirms benefit and the Judge decides applicability and clearance. G5 option B stays selected in chat. Reconstruct gate history from the V1-SM05 log alone and link separate V1-SM06 publication evidence for the same article. Durable G5 registration and full acceptance stay pending.
+
+**Delivery and custody.** Lane A owns U1–U4. U2 and U3 follow U1 subject to the applicable C02 acts and C03 policy, and U4 requires U1–U3 and a separate attempt act. Use B-163 and its line-429 disclosure as the delivery case. At the authorized verification unit, prove refusal of an unexpected outgoing commit. Lane C owns U5 under its own Phase 3 release. C06 remains proposed through the existing B-136 custody route. Inventory the two line-401 copies and B-163 transcript by line hash. Lane B supplies the original message ID or records the retrieval gap. Preserve originals. Judge approval of destination and access, exact byte verification and independent retrieval precede any custody completion. D-485 custody retains its own decision.
+
+### judge-decision-table-r4.md
+
+| Row | Lane A disposition and follow-up |
+|---|---|
+| 1 | Recommend 2a then 2b before T4. Preserve the D-479 sequence of commits 1, 2a and 2b, and route T4 separately. Judge release is pending. |
+| 1a | Recommend the 2a slot-reference change before the T3 fixture change. Lane A will return each exact diff, bound base and applicable fixture result at its authorized checkpoint. |
+| 1b | Defer release of any remaining D-479 range. The recorded ancestry of commit 1 `e7e3c60` at `d4893d4` establishes presence. Earlier authority and exact Level 1 and Level 2 coverage remain unresolved. Lane A will return a freshly fetched base, ordered outgoing range, destination and checks at the authorized checkpoint. |
+| 2 | The D-478 item 14 Phase Closure note is already selected. Defer application to the separate T4 release. Place the exact note below the §5 table and preserve lane-state values. |
+| 3 | Defer both Judge choices. Test AC-06a only on `ROUTE-PROD-1` and keep the scope note with held 2b. Test AC-NF-01 as a direct database bypass. Each test must prove refusal or rejection. A separate audit record and its fields and access need their own Judge decision for each case. |
+| 4 | DEP-10 remains proposed in B-158. The Chief Editor must confirm the Blocking checkpoint or confirm that it blocks nothing. Distinguish the configured address from verified GitHub account association. The attributed filing and the governed row correction require separate releases. |
+
+### push-follow-up-r2.md
+
+**Approve-with-conditions on the recorded November 9 delivery.** The frozen follow-up binds the archived user messages at lines 107 and 119 and their completion events at 108 and 120. It records an immediate Lane B commit-and-push instruction with no exact range or destination stated. The fetched base was `4e54628`, seven commits were outgoing before filing, and the push delivered eight commits through `279dbad` to `features/feature-V1-SM05`. The fresh fetch matched `279dbad`. Preserve the filing-time hold as historical context. The Judge's reconciliation of the scope remains open. Exact Level 1 and Level 2 review coverage of D-479 commit 1 `e7e3c60` remains unverified in the cited records. Draft reviews, the exception review, and the Lane C review of `49db820` retain their original targets.
+
+**Defer the 2a cell change.** Lane A proposes to retain the dated `V1-SM05 BLOCKED` reference as historical context while preserving the Lane B cell and its lane-state value. Return the exact treatment with the 2a diff for the Judge. Any later move to cell history needs its own act. The item 14 note stays with T4. Use this frozen r4 decision table alongside the original r3 reference and retain moved evidence locators through C06.
+
+### B-162 tracking note r2 and Lane B receipt review
+
+**Approve the recorded artifact-only delivery evidence.** Issued r1 and the approved plan bound one non-force push of `e8b3e8d3a006d9feef46a729865735b62aee5b4d` from sole parent `ea7ecdd869b14db13aeb09eaddf099c26f5cb3d9` to `origin` at `refs/heads/features/feature-V1-SM05`. The server-tip check came after issuance and before plan approval and push. The pre-push range proof, push exit 0, and post-push fetch and server read agree on the pinned commit. Lane B verified the three frozen artifact blobs.
+
+**Defer the historical check and hook dispositions.** The earlier exception covered the artifact commit. Lane A disclosed that the full check did not run as a gate on the artifact push. B-163's historical question about applicability of the full check remains open. The D-428 act and separate hook exit for `e8b3e8d` remain unverified. Preserve the separate `e85a044` hook gap under D-485.
+
+| Scope | Verdict | Follow-up phase |
+|---|---|---|
+| Recorded delivery facts and proposed preparation order | Approve-with-conditions | Phase 1. Lane A returns bounded diffs and evidence in the owning records. The Judge decides the remaining choices and releases. |
+| G4/G7, G5 registration, DEP-10, historical authority and review coverage, and C06 | Defer | Phase 1. Keep the existing owners and evidence gaps. |
+| Application, construction, propagation, tracker changes, graph work, custody transfer and Git delivery | Defer | Existing separate releases. Receiver access remains open, Unit 5b stays deferred, and existing D-479, D-484, full-manifest and 10024 holds continue. |
