@@ -3496,3 +3496,29 @@ Session logs (`Z` = UTC, `+08:00` local file mtimes) establish two overlapping C
 | **Tracking note r2 & Lane B receipt review (`8c225e6`)** | **Approve-with-conditions** | **Critically omits that push release r2 remains a draft** ([`B-162:3295`](C:/robertaoai/my-editorial-app/docs/handoff/B-162-consolidated-findings-and-delivery-controls.md:3295) vs [`3377`](C:/robertaoai/my-editorial-app/docs/handoff/B-162-consolidated-findings-and-delivery-controls.md:3377)); omits Nov 11 event timestamps ([`B-162:3287–3293`](C:/robertaoai/my-editorial-app/docs/handoff/B-162-consolidated-findings-and-delivery-controls.md:3287)) and naming held Judge ruling record & Inventory entry ([`B-162:3316`](C:/robertaoai/my-editorial-app/docs/handoff/B-162-consolidated-findings-and-delivery-controls.md:3316)). | Lane A (disclosure supplement), Judge (r2 draft / `B-163` / `D-428` / `D-485`) | **Phase 1**, in next authorized `B-162` correction/tracking pass. |
 | **Answer delivery evidence (`3c7892f`)** | **Approve-with-conditions** | Tip `3c7892f` proven delivered via [`66793a92:29`](C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/66793a92-eb67-4617-85ac-eb195bf7939b.jsonl:29) + live `origin/features/feature-V1-SM05`. Gaps from [`1ac325ff`](C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/1ac325ff-485d-4faa-8aae-c23a460c987b.jsonl:286) collision & receipt loss: synthetic `32 B` [`check.out`](C:/CoWork/outputs/lane-a-b162-answer-2026-11-12/check.out) (original staged check replaced pre-push by [`push-check.out`](C:/CoWork/outputs/lane-a-b162-answer-2026-11-12/push-check.out)), overwritten [`pre-range.json`](C:/CoWork/outputs/lane-a-b162-answer-2026-11-12/pre-range.json), `[up to date]` [`push.out`](C:/CoWork/outputs/lane-a-b162-answer-2026-11-12/push.out), broken null/`matches: false` [`post-proof.json`](C:/CoWork/outputs/lane-a-b162-answer-2026-11-12/post-proof.json), missing `file-answer.ps1` commit-proof JSONs. | Lane A (transcript/receipt retention), Judge (custody & `C06` disposition) | **Phase 1**, under `B-162` / `C06` durable evidence custody and `U1–U4` delivery controls (no receipt edits without Judge act). |
 | **Unresolved holds, edits, status change, further pushes** | **Defer** | Keep `B-162` **Open**; keep answer/receipt edits, `B-158`/`D-425`/`2a`/`2b`/`T3`/`T4`/custody/construction and any further push held. | Judge / respective lane owners | **Existing Phase 1–3 / V2 releases** |
+
+## B-162 artifact delivery under B-136/C06
+
+The 15 B-162 answer-push evidence artifacts were delivered at `31d7abbfa23f7daee16c4831c9d069c9710b8af5` under [`docs/handoff/artifacts/B-162/answer-push-3c7892f/`](artifacts/B-162/answer-push-3c7892f/). Lane B independently retrieved all 15 blobs at that commit and verified their byte counts and SHA-256 against the approved copy map. The 12 whole-file copies and three reconstructed excerpts matched.
+
+[B-136/C06 custody tracking](B-136-multi-lane-governance-canonical-owners-and-state2-gate.md#b-136c06--b-162-artifact-delivery)
+
+- [`filing/check.exit`](artifacts/B-162/answer-push-3c7892f/filing/check.exit)
+- [`filing/commit-msg-trace-excerpt.jsonl`](artifacts/B-162/answer-push-3c7892f/filing/commit-msg-trace-excerpt.jsonl)
+- [`filing/commit.exit`](artifacts/B-162/answer-push-3c7892f/filing/commit.exit)
+- [`later-or-recreated/post-proof.json`](artifacts/B-162/answer-push-3c7892f/later-or-recreated/post-proof.json)
+- [`later-or-recreated/pre-range.json`](artifacts/B-162/answer-push-3c7892f/later-or-recreated/pre-range.json)
+- [`later-or-recreated/push.out`](artifacts/B-162/answer-push-3c7892f/later-or-recreated/push.out)
+- [`later-or-recreated/recreated-commit-id.txt`](artifacts/B-162/answer-push-3c7892f/later-or-recreated/recreated-commit-id.txt)
+- [`later-or-recreated/synthetic-check.out`](artifacts/B-162/answer-push-3c7892f/later-or-recreated/synthetic-check.out)
+- [`procedure/push-answer.ps1.txt`](artifacts/B-162/answer-push-3c7892f/procedure/push-answer.ps1.txt)
+- [`reconciliation.md`](artifacts/B-162/answer-push-3c7892f/reconciliation.md)
+- [`replacement-check/push-check.err`](artifacts/B-162/answer-push-3c7892f/replacement-check/push-check.err)
+- [`replacement-check/push-check.exit`](artifacts/B-162/answer-push-3c7892f/replacement-check/push-check.exit)
+- [`replacement-check/push-check.out`](artifacts/B-162/answer-push-3c7892f/replacement-check/push-check.out)
+- [`transcripts/first-successful-push.jsonl`](artifacts/B-162/answer-push-3c7892f/transcripts/first-successful-push.jsonl)
+- [`transcripts/later-invocation.jsonl`](artifacts/B-162/answer-push-3c7892f/transcripts/later-invocation.jsonl)
+
+**Artifact filing push receipt.** Lane A used the retained `bun run check` for the filing commit (19/19 passed, exit `0`). The destination was `origin`, ref `refs/heads/features/feature-V1-SM05`. The pre-push fetch exited `0` and `FETCH_HEAD` and the remote-tracking ref matched the sole parent `532ada53793956c9fc67896a6cee9d419d826f1d`. The range `532ada53793956c9fc67896a6cee9d419d826f1d..31d7abbfa23f7daee16c4831c9d069c9710b8af5` contained exactly the filing commit. The pinned non-force push ran with hooks enabled and exited `0`, advancing `532ada5..31d7abb`. The post-push fetch exited `0` and both `FETCH_HEAD` and `origin/features/feature-V1-SM05` matched `31d7abbfa23f7daee16c4831c9d069c9710b8af5`.
+
+The earlier B-162 answer push remains covered by the surviving transcript and reconciliation. Its original standalone receipts remain overwritten.

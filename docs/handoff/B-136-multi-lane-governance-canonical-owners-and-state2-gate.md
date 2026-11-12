@@ -25473,3 +25473,11 @@ Bound path: `docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state
 | P7 and P9, P2 findings | Approve-with-conditions | Phase 1. Lane A corrects the tier assessment and authority/placement text before application. |
 | P10, P3 finding | Approve-with-conditions | Phase 1. Correct the change-summary wording in the next proposal revision. |
 | Selection, correction application, graph and Level 2 | Defer | Phase 1. Follow their separate Judge acts and release triggers. |
+
+## B-136/C06 — B-162 artifact delivery
+
+The [B-162 delivered artifact list](B-162-consolidated-findings-and-delivery-controls.md#b-162-artifact-delivery-under-b-136c06) identifies all 15 delivered paths under [`docs/handoff/artifacts/B-162/answer-push-3c7892f/`](artifacts/B-162/answer-push-3c7892f/) at `31d7abbfa23f7daee16c4831c9d069c9710b8af5`. Lane B independently retrieved all 15 committed blobs and verified all 15 byte counts and SHA-256 values against the approved copy map.
+
+**Artifact filing push receipt.** Lane A used the retained `bun run check` for the filing commit (19/19 passed, exit `0`). The destination was `origin`, ref `refs/heads/features/feature-V1-SM05`. The pre-push fetch exited `0` and `FETCH_HEAD` and the remote-tracking ref matched the sole parent `532ada53793956c9fc67896a6cee9d419d826f1d`. The range `532ada53793956c9fc67896a6cee9d419d826f1d..31d7abbfa23f7daee16c4831c9d069c9710b8af5` contained exactly the filing commit. The pinned non-force push ran with hooks enabled and exited `0`, advancing `532ada5..31d7abb`. The post-push fetch exited `0` and both `FETCH_HEAD` and `origin/features/feature-V1-SM05` matched `31d7abbfa23f7daee16c4831c9d069c9710b8af5`.
+
+The earlier B-162 answer push remains covered by the surviving transcript and reconciliation. Its original standalone receipts remain overwritten.
