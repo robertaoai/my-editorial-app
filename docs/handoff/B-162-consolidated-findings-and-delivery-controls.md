@@ -3275,3 +3275,54 @@ stopped. Preserve the recorded B-117 disposition and keep B-162 Open.
 
 This answer records the proposed dispositions only. It grants no authority
 to edit, file, register, transfer evidence, execute work, commit or push.
+
+## B-162 tracking note r2 — artifact-only push
+
+**Phase 1. The Judge released this note for filing. B-162 stays `Open`.**
+
+### Authority and timing
+
+All times below are Singapore time (UTC+8) on Wednesday, 11 November 2026.
+
+| Event | Time |
+|---|---|
+| r1 draft prepared, as reported by the Judge | 10:39 PM |
+| Judge issued r1 | 10:40:28 PM |
+| Lane A read the server tip | 10:40:44 PM |
+| Judge approved the execution plan | 10:41:21 PM |
+| Lane A pushed the artifact commit | 10:41:43 PM |
+
+The server-tip check came after r1 issuance and before plan approval and push. The completed push used issued r1 and the approved plan. Push release r2 remains a draft. [Issued r1](C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/4b52b33f-2c1e-43ff-832b-1f8d5deee97a.jsonl:994) · [Tip check](C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/4b52b33f-2c1e-43ff-832b-1f8d5deee97a.jsonl:1007) · [Plan approval](C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/4b52b33f-2c1e-43ff-832b-1f8d5deee97a.jsonl:1025) · [Push receipt](C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/4b52b33f-2c1e-43ff-832b-1f8d5deee97a.jsonl:1031)
+
+### Delivery evidence
+
+| Item | Recorded result |
+|---|---|
+| Artifact commit | `e8b3e8d3a006d9feef46a729865735b62aee5b4d` |
+| Destination | `refs/heads/features/feature-V1-SM05` on `origin` |
+| Exact outgoing range | `ea7ecdd869b14db13aeb09eaddf099c26f5cb3d9..e8b3e8d3a006d9feef46a729865735b62aee5b4d` |
+| Pre-push proof | Lane A resolved the configured upstream and fetched it. The fetched tip matched the expected tip and the sole parent of the pinned source. The outgoing list contained only the pinned artifact commit. |
+| Push result | One non-force push exited `0`. |
+| Post-push proof | The second fetch exited `0`. At 10:41:59 PM, `FETCH_HEAD`, the tracking ref, and the server ref all matched the pinned source. |
+
+Lane B verified the three added paths and their exact frozen bytes. Lane A’s receipts record the push and the post-push server state. [Lane B review](C:/Users/rober_24syk4j/.codex/sessions/2026/11/11/rollout-2026-11-11T14-46-22-01a1c95b-8cf5-7522-a0bb-99ae87ffa497.jsonl:1844) · [Range proof and push result](C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/4b52b33f-2c1e-43ff-832b-1f8d5deee97a.jsonl:1031) · [Post-push fetch and server read](C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/4b52b33f-2c1e-43ff-832b-1f8d5deee97a.jsonl:1035)
+
+### Open checks and holds
+
+Lane A did not run `bun run check` as a push gate. The earlier `docs-drift` exception covered the local commit only. The Judge still needs to decide whether the full check applies to a push under the existing B-163 question. The D-428 act for the artifact commit and the separate `commit-msg` exit result remain unverified. [B-163 disclosure and open question](C:/robertaoai/my-editorial-app/docs/handoff/B-163-lane-a-push-follow-up.md:68)
+
+Receiver access stays open. Unit 5b stays deferred. Historical push authority scope stays open. Commit 1 review coverage stays unverified. C06 stays proposed. G4/G7 stays open. G5 registration stays pending. DEP-10 stays proposed in B-158.
+
+Recording the Judge ruling, adding the Inventory entry, Lane A acknowledgement, Lane A answer, durable evidence retention, propagation, graph sync, and any further push each require a separate release. After the note is filed and the Judge releases the acknowledgement, Lane A must read the artifacts at `e8b3e8d3a006d9feef46a729865735b62aee5b4d` and cite that full commit ID in its acknowledgement. The acknowledgement and answer each require a separate one-path commit. All other holds stay in force.
+
+| Scope | Verdict | Follow-up phase |
+|---|---|---|
+| Tracking note | **Approve** | Phase 1. Filed under the separate Judge release. |
+| Full check as a push gate | **Defer** | Phase 1. Judge decision under the existing B-163 question. |
+| All other held work | **Defer** | Existing phases and separate releases. |
+
+**Lane B review — B-162 artifact-only push**
+
+Lane B reviewed the retained receipts for commit `e8b3e8d3a006d9feef46a729865735b62aee5b4d`. They show that Lane A resolved the configured upstream, fetched the expected parent, and pushed exactly one commit to `refs/heads/features/feature-V1-SM05` on `origin`. The post-push fetch and server read matched the pinned commit. This finding covers the recorded delivery at the time of the push. [Range and push receipt](C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/4b52b33f-2c1e-43ff-832b-1f8d5deee97a.jsonl:1031) · [Post-push evidence](C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/4b52b33f-2c1e-43ff-832b-1f8d5deee97a.jsonl:1035)
+
+Issued push release r1 and the approved plan are the authority records. The server-tip check came after r1 issuance and before plan approval and push. Lane A did not run `bun run check` as a push gate. Its applicability remains open in B-163. The D-428 act and separate hook exit result for the artifact commit remain unverified. B-162 stays `Open`. [Issued r1](C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/4b52b33f-2c1e-43ff-832b-1f8d5deee97a.jsonl:994) · [Approved plan](C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/4b52b33f-2c1e-43ff-832b-1f8d5deee97a.jsonl:1025) · [B-163](C:/robertaoai/my-editorial-app/docs/handoff/B-163-lane-a-push-follow-up.md:68)
