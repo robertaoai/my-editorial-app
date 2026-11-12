@@ -1,0 +1,2 @@
+C1 | s0 | want exit 0 / "-" | got exit 0 | OK | composed body sha256 c06de4df91742a87ac63cb3d2edde42a1cde34b5f6ea9bc9f8749966c3d6f756
+SETUP FAILURE: fixture commit failed: C2a

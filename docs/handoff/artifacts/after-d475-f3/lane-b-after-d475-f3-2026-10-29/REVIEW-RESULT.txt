@@ -1,0 +1,32 @@
+# After-D-475 formal F3 review — stopped at entry
+
+Verdict: Reject this review attempt at the executable-binding gate. This is not a finding that the candidate bytes are wrong. Full F3 acceptance remains incomplete; K and N were not created.
+
+Exact failed obligation: D-426 PR3a binds Node, Git, their configuration and the CLI at prepare and re-verifies them on every use. guarded-rebuild.mjs bindingFindings (lines 1070 onward) rejects a current Git executable path different from frozen.bindings.git.path. The Judge's current instruction section 2 requires any mismatch to stop the unit, and requires an interrupted/incomplete validation not to count as a pass.
+
+Expected frozen Git: C:\Users\rober_24syk4j\AppData\Local\Programs\Git\mingw64\bin\git.exe
+Actual PATH-resolved Git: C:\Users\rober_24syk4j\AppData\Local\Programs\Git\cmd\git.exe
+Expected SHA-256: cab4c4eea1d869cf9f7be73868dc9a90ad2df1b1b673e5f8c8714a576c25ea96
+Actual SHA-256: 81ef35ae005ca9318018d18e3327578ce939fb99feaad6b2d7c8ab15f3de8db5
+Versions: expected git version 2.54.0.windows.1; actual git version 2.54.0.windows.1
+Both the retained checkout and fresh checkout produced the actual finding: "the git path changed". Matching version text does not meet the path-and-byte binding. See entry-extra.json, entry-failure.json and git-path-diagnostic.json. The recorded guard function returned the same finding for both checkouts; entry.mjs exited 1. No workaround or retry was performed.
+
+Passing read-only observations: HEAD R 71dfbbe7a09f194a9986c1f29d42ad507aec1af7; sole parent S 22b0a8ce2fb06c16152fa9490d21aae829a45974; source tree 7e28fd350438bb6e4b1cb871d75ad9185d44703b; R changes only B-136. Worktree and staging empty. Work 7bd2af2f-82a0-40fc-872c-31009278ff1c remains ready, attempt 2. STATE 1fd1a8885ac5903e4707057cce53e28b9dd8a044131e55dc6bfa8f12341db53e; approved answers 89965adfdaaaddb8d463c2b2644f137f547c85f3cfe2610e068c07c355f97e70; graph df076c7c23af91db3b67b9eaea576c0976bec7bd0f2b844254b687be9a01f557; manifest 34a4edeb9516f11cb36d6d2dcfe1ddac99913dbe0427647f919354c4a9990b13, guard-treeDigest-v1, 583 files. Node, pinned Git file, producer and guard hashes were present and unchanged; the effective Git path separately failed. Source/publication fast-forward rules and refs/configuration matched. Linked inventory matched the accepted inventory; earlier continuity remains unproved. All 4,306 stray-work files matched content and mtime. Live Q6 baseline K 77af44a2fcf84a7e7c05013308cc474e6bfaef41, digest a51dc92d0ee08082c87b871dfe3117d08fd68089851f9372cbd3538bea8eaf4d, 16 receipts, no lock or journal, unchanged. All 53 sealed predecessor files (21 E1, 2 R1, 28 E2, 2 R2) reverified before and after.
+
+Not completed: full producer projections of scene, entities, reconciliation, citations, manifest, embedded bundle and shipped assets; fresh-extraction/selection and final Git merge validation; lifecycle/source-protection checks; renewed fragment parity and member-set/name/pending-semantic review. Prior observations are retained in PRIOR-REVIEW.md, not promoted into completed results here. Its two inherited undescribed nodes remain qualified baseline facts and were not repaired. There is no positive F3 verdict.
+
+No B-050 append or staging occurred. No K/N checks or hooks ran because their F3 prerequisite failed. No prepare, resume, candidate regeneration, publication, fetch, push, amendment, reset, rebase or history rewrite. Final HEAD remains R, its tree is 344d222544d6cc27318d4482df72d3a174cbdf98, and the repository is clean. before/after candidate and B-050 hashes match.
+
+Failure route: return this packet to Lane A for the bounded environment-binding finding. Lane A should determine how the review process can use the exact frozen Git path and executable without changing candidate bytes or frozen bindings, and present a concrete corrected invocation and its source/configuration evidence for release of a fresh full F3 review. Do not relax the guard, overwrite the failed evidence or treat a rerun as this attempt's pass. Any change to the bound producer, source or candidate requires the operative separate authority and fresh review; this packet grants none. K then N remains conditional on a later complete positive F3 review. Lane A's independent K/N verification and fresh inventory remain later, because no K/N exist now.
+
+Coverage remains 61 historically delivered. Only D-475 and R are locally pending; health record prospective. No fresh server claim. Preserve accepted deliveries, F1, all provenance gaps, U-C held, J1/D-440 and J2/D-441 separate and both transfers held, B-136/B-158/D-439 Open, work-r3 held, cac590ad frozen and excluded, and every other hold.
+
+| Item | Verdict | Follow-up phase |
+|---|---|---|
+| Entry executable binding | Reject | Lane A environment-binding diagnosis; fresh review release |
+| Fixed candidate/freeze observations | Approve within measured scope | Preserve packet; no full consistency or F3 claim |
+| Full F3 review | Defer | Lane B after entry mismatch is resolved under released scope |
+| K then separate N | Defer | Only after complete positive F3 review |
+| Independent K/N verification | Defer | Lane A after K/N exist |
+| Publication and push | Defer | Separate release; none performed |
+| Provenance gaps and all holds | Defer — unchanged | Existing checkpoints |

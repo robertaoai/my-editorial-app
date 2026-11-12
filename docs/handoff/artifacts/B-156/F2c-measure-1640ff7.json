@@ -1,0 +1,3163 @@
+{
+  "schema": "B-156 F2c measurement v1",
+  "frozenRevision": "1640ff7bc1b7d1e70ab6a421ced8a054dafda993",
+  "head": "7a4971e7db2159c30c27a78fc638f7acc8b20e3f",
+  "inventorySha256": "dcb86641ef20f5a569a664dbb6493dd9c2db2dbb7a42a17689e2513b4e017769",
+  "scriptSha256": "a8a76056d908ac3a0c72344d008e934f30d682a2de77b374a9d0137e2f608d1d",
+  "liveGraph": {
+    "sha256": "81ab5cd62e6787b0b87d1a69f18331564dc024f9181b798ee54ccfe74c0c487f",
+    "lastAnalyzedHead": "93aa02f4ded4b9e39a9742720ac986b7b593e583",
+    "stale": false
+  },
+  "probes": [
+    "shared-core-hash",
+    "ignoreDuringBuilds",
+    "byte-identical",
+    ".agents/rules/graphify.md",
+    "Stripe",
+    "gstack"
+  ],
+  "paths": 146,
+  "unchangedAtHead": 146,
+  "g3": {
+    "fragments": 139,
+    "detectManifests": 3,
+    "nodes": 581,
+    "edges": 1233,
+    "missingSources": 0,
+    "unresolvedEndpoints": 0,
+    "conflictingIds": 0,
+    "probeHits": 14
+  },
+  "rows": [
+    {
+      "path": "docs/graph-fragments/docs-2026-08-18-fragment.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "5e9646969f551a0d80098d3bb3fdbbfba630b4e9",
+      "headBlob": "5e9646969f551a0d80098d3bb3fdbbfba630b4e9",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 20,
+      "edges": 45,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 66,
+        "inOther": 0,
+        "inLive": 24,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/docs-fragment.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "11d730f273fdaae07a51c0dda9744284e1528ee2",
+      "headBlob": "11d730f273fdaae07a51c0dda9744284e1528ee2",
+      "unchangedAtHead": true,
+      "kind": "detect manifest",
+      "parse": "ok",
+      "keys": [
+        "files",
+        "total_files",
+        "total_words",
+        "needs_graph",
+        "warning",
+        "skipped_sensitive",
+        "graphifyignore_patterns",
+        "git",
+        "scope"
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/docs-fragment2.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "e045a189039c39cb270df971dcefe20f79567957",
+      "headBlob": "e045a189039c39cb270df971dcefe20f79567957",
+      "unchangedAtHead": true,
+      "kind": "detect manifest",
+      "parse": "ok",
+      "keys": [
+        "files",
+        "total_files",
+        "total_words",
+        "needs_graph",
+        "warning",
+        "skipped_sensitive",
+        "graphifyignore_patterns",
+        "git",
+        "scope"
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/docs-fragment4.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "0792bf7d138a68a0ce55d3c3f6f9260bfc18ab8f",
+      "headBlob": "0792bf7d138a68a0ce55d3c3f6f9260bfc18ab8f",
+      "unchangedAtHead": true,
+      "kind": "detect manifest",
+      "parse": "ok",
+      "keys": [
+        "files",
+        "total_files",
+        "total_words",
+        "needs_graph",
+        "warning",
+        "skipped_sensitive",
+        "graphifyignore_patterns",
+        "git",
+        "scope"
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag10.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "3cb852a98adb37dac1f6d1cd79b9bba33ad08f6f",
+      "headBlob": "3cb852a98adb37dac1f6d1cd79b9bba33ad08f6f",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 4,
+      "edges": 11,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 14,
+        "inOther": 8,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag100.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "12e351f8ef1ef489a196ff8fab1ef0a9d9aaec8e",
+      "headBlob": "12e351f8ef1ef489a196ff8fab1ef0a9d9aaec8e",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 1,
+      "edges": 1,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 1,
+        "inOther": 1,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag101.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "36d97049afceb23da56e75944756a860f06a7c15",
+      "headBlob": "36d97049afceb23da56e75944756a860f06a7c15",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 1,
+      "edges": 1,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 1,
+        "inOther": 1,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag102.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "65614b9a1e093ffcd6af14997184a6ffa154ad9a",
+      "headBlob": "65614b9a1e093ffcd6af14997184a6ffa154ad9a",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 4,
+      "edges": 6,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 9,
+        "inOther": 0,
+        "inLive": 3,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag103.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "5d3fa3d4ed9695c271d4b8c1f5d04a1f6ebb6a9d",
+      "headBlob": "5d3fa3d4ed9695c271d4b8c1f5d04a1f6ebb6a9d",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 2,
+      "edges": 3,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 4,
+        "inOther": 2,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag104.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "a672c95605dd2b64668e4fc55086e4060075393b",
+      "headBlob": "a672c95605dd2b64668e4fc55086e4060075393b",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 1,
+      "edges": 2,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 2,
+        "inOther": 1,
+        "inLive": 1,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag105.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "7a947987b8e89b2400de28086469c72a2e983cde",
+      "headBlob": "7a947987b8e89b2400de28086469c72a2e983cde",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 2,
+      "edges": 3,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 4,
+        "inOther": 2,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag106.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "e113345160ba0f78c7e989def18eccfc67307e77",
+      "headBlob": "e113345160ba0f78c7e989def18eccfc67307e77",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 2,
+      "edges": 3,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 4,
+        "inOther": 2,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag107.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "116f4ad008cb68385108740e350de27cf31bbda0",
+      "headBlob": "116f4ad008cb68385108740e350de27cf31bbda0",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 2,
+      "edges": 4,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 5,
+        "inOther": 1,
+        "inLive": 2,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag108.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "269c328ad745a888f70112e03a48214fa2b95fdc",
+      "headBlob": "269c328ad745a888f70112e03a48214fa2b95fdc",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 1,
+      "edges": 3,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 3,
+        "inOther": 2,
+        "inLive": 1,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag109.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "2e349591cb4722526e9e1ee7767463eefa051b2b",
+      "headBlob": "2e349591cb4722526e9e1ee7767463eefa051b2b",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 3,
+      "edges": 5,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 6,
+        "inOther": 2,
+        "inLive": 2,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag11.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "7d5672fe79ba728880d4059faa3de64dc7922f56",
+      "headBlob": "7d5672fe79ba728880d4059faa3de64dc7922f56",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 3,
+      "edges": 10,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 12,
+        "inOther": 6,
+        "inLive": 2,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag110.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "99da11503cf67b92754fe29e1d276545ba0bd3c3",
+      "headBlob": "99da11503cf67b92754fe29e1d276545ba0bd3c3",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 1,
+      "edges": 3,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 3,
+        "inOther": 2,
+        "inLive": 1,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag111.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "4a4922c6d08c8f6c0d071e4d7af22825aab30ddb",
+      "headBlob": "4a4922c6d08c8f6c0d071e4d7af22825aab30ddb",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 1,
+      "edges": 5,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 5,
+        "inOther": 4,
+        "inLive": 1,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag112.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "90a5837f49c3e74af81ffe3ebf584d20bc574e75",
+      "headBlob": "90a5837f49c3e74af81ffe3ebf584d20bc574e75",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 1,
+      "edges": 4,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 4,
+        "inOther": 4,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag113.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "f3b62664e75553f57e0f900de1118af82c5fd7d7",
+      "headBlob": "f3b62664e75553f57e0f900de1118af82c5fd7d7",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 1,
+      "edges": 4,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 4,
+        "inOther": 4,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag114.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "0f99ab168304dd777dd8fac230739036a9ae7985",
+      "headBlob": "0f99ab168304dd777dd8fac230739036a9ae7985",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 1,
+      "edges": 5,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 5,
+        "inOther": 4,
+        "inLive": 1,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag115.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "71d2929606fb039ab574f68d14e141d416ff4cf7",
+      "headBlob": "71d2929606fb039ab574f68d14e141d416ff4cf7",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 1,
+      "edges": 4,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 4,
+        "inOther": 3,
+        "inLive": 1,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag116.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "0b2a822e9374d3b0453f79c8f995c30733f93067",
+      "headBlob": "0b2a822e9374d3b0453f79c8f995c30733f93067",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 2,
+      "edges": 6,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 7,
+        "inOther": 4,
+        "inLive": 1,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag117.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "8d9c764a1962c34a4df5d9b8277f4e691f4448f6",
+      "headBlob": "8d9c764a1962c34a4df5d9b8277f4e691f4448f6",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 1,
+      "edges": 5,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 5,
+        "inOther": 4,
+        "inLive": 1,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag118.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "5f8ebf889f334280e63e4e2d110c41053f3c29bb",
+      "headBlob": "5f8ebf889f334280e63e4e2d110c41053f3c29bb",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 1,
+      "edges": 2,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 2,
+        "inOther": 2,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag119.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "e6238f2e82719e20f57df447d9ea5044040d63ed",
+      "headBlob": "e6238f2e82719e20f57df447d9ea5044040d63ed",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 3,
+      "edges": 2,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 3,
+        "inOther": 1,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag12.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "1bdf4745916d84d1a5ec81212d993fec8f31dc24",
+      "headBlob": "1bdf4745916d84d1a5ec81212d993fec8f31dc24",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 3,
+      "edges": 8,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 10,
+        "inOther": 6,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag120.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "562012246f9ac90bbad43965e91e902d65e4c420",
+      "headBlob": "562012246f9ac90bbad43965e91e902d65e4c420",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 3,
+      "edges": 5,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 7,
+        "inOther": 3,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag121.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "e132a49a96b1e11e841695ceec394c1b7cec2a1d",
+      "headBlob": "e132a49a96b1e11e841695ceec394c1b7cec2a1d",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 2,
+      "edges": 5,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 6,
+        "inOther": 4,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag123.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "b482b7de81369cdd9a7da1c40e4e63b27aaeddf3",
+      "headBlob": "b482b7de81369cdd9a7da1c40e4e63b27aaeddf3",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 1,
+      "edges": 3,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 3,
+        "inOther": 3,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag124.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "52fc7dae65f0d876f86c0fbc988fc08c092c4b1b",
+      "headBlob": "52fc7dae65f0d876f86c0fbc988fc08c092c4b1b",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 1,
+      "edges": 4,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 4,
+        "inOther": 4,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag125.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "17895e26a7a91a7f4fefa91e71843f413f679f43",
+      "headBlob": "17895e26a7a91a7f4fefa91e71843f413f679f43",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 1,
+      "edges": 4,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 4,
+        "inOther": 4,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag126.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "ca9509ffcb9e9b2a109b022df617a311d7f6c2e8",
+      "headBlob": "ca9509ffcb9e9b2a109b022df617a311d7f6c2e8",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 1,
+      "edges": 4,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 4,
+        "inOther": 4,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag127.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "70b2bde4fa504fa004d34c679743288438777d3b",
+      "headBlob": "70b2bde4fa504fa004d34c679743288438777d3b",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 1,
+      "edges": 4,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 4,
+        "inOther": 4,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag128.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "8153d440be06f007c6602ffba9afbad7be7fe4ae",
+      "headBlob": "8153d440be06f007c6602ffba9afbad7be7fe4ae",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 1,
+      "edges": 4,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 4,
+        "inOther": 4,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag129.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "a33b9a1466be6067e1afa60361dcd4189dc4fb56",
+      "headBlob": "a33b9a1466be6067e1afa60361dcd4189dc4fb56",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 1,
+      "edges": 4,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 4,
+        "inOther": 4,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag13.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "e98e9c8eaaf27d30f43d80c49d830035c9a00b76",
+      "headBlob": "e98e9c8eaaf27d30f43d80c49d830035c9a00b76",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 4,
+      "edges": 9,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 13,
+        "inOther": 5,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": [
+        {
+          "node": "ci_that_cannot_fail",
+          "term": "ignoreDuringBuilds"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag130.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "1c5b374c4a8e2e8efa1c6c9f13f3680b108643e5",
+      "headBlob": "1c5b374c4a8e2e8efa1c6c9f13f3680b108643e5",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 1,
+      "edges": 4,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 4,
+        "inOther": 4,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag131.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "2ffbcca36dec059f7bc876c795dd965c37ba0edd",
+      "headBlob": "2ffbcca36dec059f7bc876c795dd965c37ba0edd",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 2,
+      "edges": 5,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 5,
+        "inOther": 5,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag132.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "6a80bf95a5eda34a45eb3492977e17c65e0f9f1e",
+      "headBlob": "6a80bf95a5eda34a45eb3492977e17c65e0f9f1e",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 6,
+      "edges": 20,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 28,
+        "inOther": 9,
+        "inLive": 3,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag133.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "450fac1dd6203a5414197709a62434aa6816a3e4",
+      "headBlob": "450fac1dd6203a5414197709a62434aa6816a3e4",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 1,
+      "edges": 5,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 5,
+        "inOther": 5,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag134.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "0656952200e36d59042beab865a7393bc91a9a9a",
+      "headBlob": "0656952200e36d59042beab865a7393bc91a9a9a",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 2,
+      "edges": 7,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 8,
+        "inOther": 3,
+        "inLive": 3,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": [
+        {
+          "node": "d227_lane_a_single_ownership",
+          "term": "byte-identical"
+        },
+        {
+          "node": "d227_lane_a_single_ownership",
+          "term": ".agents/rules/graphify.md"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag135.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "56cb5b9fc83ef41c1ff8690396c9c26f7044fae1",
+      "headBlob": "56cb5b9fc83ef41c1ff8690396c9c26f7044fae1",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 3,
+      "edges": 8,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 10,
+        "inOther": 6,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag136.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "7deaa20c31ab56751a1624fd5916e5e55369949f",
+      "headBlob": "7deaa20c31ab56751a1624fd5916e5e55369949f",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 1,
+      "edges": 8,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 8,
+        "inOther": 4,
+        "inLive": 4,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag137.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "9dfc89f6576460d3528c31d4b630cbff0e7ebebd",
+      "headBlob": "9dfc89f6576460d3528c31d4b630cbff0e7ebebd",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 13,
+      "edges": 27,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 39,
+        "inOther": 14,
+        "inLive": 1,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag138.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "9c933858b7b4d985c0755b23952f5dfd054aaf11",
+      "headBlob": "9c933858b7b4d985c0755b23952f5dfd054aaf11",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 7,
+      "edges": 16,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 19,
+        "inOther": 13,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag139.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "38ed2706a6f6638f8514c2ff5acf5a4e49c55de5",
+      "headBlob": "38ed2706a6f6638f8514c2ff5acf5a4e49c55de5",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 5,
+      "edges": 7,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 11,
+        "inOther": 3,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag14.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "fe51ebaa8ce51528b4aa13ee975eebadd576c5d9",
+      "headBlob": "fe51ebaa8ce51528b4aa13ee975eebadd576c5d9",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 4,
+      "edges": 9,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 12,
+        "inOther": 6,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag140.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "456a26d26e038cd44e777ee80cf502631c033a53",
+      "headBlob": "456a26d26e038cd44e777ee80cf502631c033a53",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 4,
+      "edges": 10,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 15,
+        "inOther": 3,
+        "inLive": 2,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag141.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "056fe954dfd5d695be54c577d52deb996e42d271",
+      "headBlob": "056fe954dfd5d695be54c577d52deb996e42d271",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 1,
+      "edges": 1,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 1,
+        "inOther": 1,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag142.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "59139bfbbffb88df380aa64e43120eebad1655c5",
+      "headBlob": "59139bfbbffb88df380aa64e43120eebad1655c5",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 1,
+      "edges": 2,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 2,
+        "inOther": 2,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag143.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "f71ffe85d0cc99faadbdd8c46e017c2f1254e9c0",
+      "headBlob": "f71ffe85d0cc99faadbdd8c46e017c2f1254e9c0",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 1,
+      "edges": 2,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 2,
+        "inOther": 2,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag15.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "977f27cb860bcca5d051ce52ba759fa19d72c010",
+      "headBlob": "977f27cb860bcca5d051ce52ba759fa19d72c010",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 4,
+      "edges": 11,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 14,
+        "inOther": 8,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": [
+        {
+          "node": "rule_must_reach_its_subjects",
+          "term": "byte-identical"
+        },
+        {
+          "node": "rule_must_reach_its_subjects",
+          "term": ".agents/rules/graphify.md"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag16.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "991c3796e429e730e0ef29a58ca5206511977323",
+      "headBlob": "991c3796e429e730e0ef29a58ca5206511977323",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 4,
+      "edges": 8,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 11,
+        "inOther": 5,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag17.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "defb993199a21585c4dac3908310021dd28ace7e",
+      "headBlob": "defb993199a21585c4dac3908310021dd28ace7e",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 4,
+      "edges": 10,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 13,
+        "inOther": 7,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag18.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "9cc3f885b016bf9ab8e1599a719f3452ede2a2be",
+      "headBlob": "9cc3f885b016bf9ab8e1599a719f3452ede2a2be",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 4,
+      "edges": 10,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 12,
+        "inOther": 8,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag19.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "80dd85cee4b0a2ca2ec34ee9f79b89bf7f535c6d",
+      "headBlob": "80dd85cee4b0a2ca2ec34ee9f79b89bf7f535c6d",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 4,
+      "edges": 9,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 11,
+        "inOther": 7,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag20.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "f51326fe45885528949a7151130807fd4c8bc45d",
+      "headBlob": "f51326fe45885528949a7151130807fd4c8bc45d",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 4,
+      "edges": 11,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 14,
+        "inOther": 7,
+        "inLive": 1,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag21.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "5a44b5de37cbec726211265747b6a7513ceda052",
+      "headBlob": "5a44b5de37cbec726211265747b6a7513ceda052",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 3,
+      "edges": 9,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 11,
+        "inOther": 7,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag22.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "a0f882bccaea89bc01e8dc8e83f33b2718d8d445",
+      "headBlob": "a0f882bccaea89bc01e8dc8e83f33b2718d8d445",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 5,
+      "edges": 12,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 15,
+        "inOther": 9,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag23.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "126301c4658636fbe61070509feb605ca378a7fc",
+      "headBlob": "126301c4658636fbe61070509feb605ca378a7fc",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 4,
+      "edges": 10,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 13,
+        "inOther": 7,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag24.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "c9cc08fa3c7cc875db5f2d7682fffd48325041ad",
+      "headBlob": "c9cc08fa3c7cc875db5f2d7682fffd48325041ad",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 4,
+      "edges": 13,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 17,
+        "inOther": 9,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag25.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "ac8592b479d8d17478f419f440d163e96d8050e2",
+      "headBlob": "ac8592b479d8d17478f419f440d163e96d8050e2",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 5,
+      "edges": 13,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 16,
+        "inOther": 4,
+        "inLive": 6,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag26.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "54672422f2599f45a8750f2638ac467896110fd2",
+      "headBlob": "54672422f2599f45a8750f2638ac467896110fd2",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 5,
+      "edges": 14,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 19,
+        "inOther": 7,
+        "inLive": 2,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag27.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "c4a5031e2249a47ef89f539be95f5865805db036",
+      "headBlob": "c4a5031e2249a47ef89f539be95f5865805db036",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 7,
+      "edges": 20,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 25,
+        "inOther": 15,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag28.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "be31aa2fa5a77d343053ec50045ac87a041a5b3e",
+      "headBlob": "be31aa2fa5a77d343053ec50045ac87a041a5b3e",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 5,
+      "edges": 14,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 18,
+        "inOther": 10,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag29.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "97c74ce821ec8616cbeec7d1c9a0d30e9db69158",
+      "headBlob": "97c74ce821ec8616cbeec7d1c9a0d30e9db69158",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 5,
+      "edges": 12,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 13,
+        "inOther": 11,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag31.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "7074ba56e973863b6a32b0a11a0c0f906a2823be",
+      "headBlob": "7074ba56e973863b6a32b0a11a0c0f906a2823be",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 4,
+      "edges": 10,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 13,
+        "inOther": 5,
+        "inLive": 2,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag32.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "09e3a3ba628cefa973144eb45d4caffbc31e49b0",
+      "headBlob": "09e3a3ba628cefa973144eb45d4caffbc31e49b0",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 3,
+      "edges": 7,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 9,
+        "inOther": 5,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": [
+        {
+          "node": "g67_preamble_unenforced",
+          "term": "shared-core-hash"
+        },
+        {
+          "node": "g67_preamble_unenforced",
+          "term": "byte-identical"
+        },
+        {
+          "node": "g67_preamble_unenforced",
+          "term": ".agents/rules/graphify.md"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag33.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "1836edb6dfac7656206c8affedaec2be43c7ccd2",
+      "headBlob": "1836edb6dfac7656206c8affedaec2be43c7ccd2",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 4,
+      "edges": 9,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 12,
+        "inOther": 6,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag34.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "29f18adf4bb192fd2af4085db7a8987d18ef4a20",
+      "headBlob": "29f18adf4bb192fd2af4085db7a8987d18ef4a20",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 4,
+      "edges": 8,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 11,
+        "inOther": 5,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag35.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "818d8773c23536e397caa5c262058a8964dd100b",
+      "headBlob": "818d8773c23536e397caa5c262058a8964dd100b",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 4,
+      "edges": 8,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 12,
+        "inOther": 4,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag36.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "2aad1b9016364df4558b13abd8b0a86f4a07197b",
+      "headBlob": "2aad1b9016364df4558b13abd8b0a86f4a07197b",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 4,
+      "edges": 9,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 11,
+        "inOther": 7,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag37.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "f488823aab836f6c8a0c17db100ef032cf3067b9",
+      "headBlob": "f488823aab836f6c8a0c17db100ef032cf3067b9",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 4,
+      "edges": 9,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 10,
+        "inOther": 8,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": [
+        {
+          "node": "g63_closed_on_scoping",
+          "term": "shared-core-hash"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag38.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "175875676abf9dd0c9ab9a2b12911098ee11208e",
+      "headBlob": "175875676abf9dd0c9ab9a2b12911098ee11208e",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 4,
+      "edges": 8,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 10,
+        "inOther": 6,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag39.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "8591c0bd5f9c4881270a2b7cb6bb2ef9f19426c5",
+      "headBlob": "8591c0bd5f9c4881270a2b7cb6bb2ef9f19426c5",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 4,
+      "edges": 8,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 11,
+        "inOther": 4,
+        "inLive": 1,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag40.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "b0313c4de99213b5ca9e7772ee783655155fea4e",
+      "headBlob": "b0313c4de99213b5ca9e7772ee783655155fea4e",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 4,
+      "edges": 9,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 12,
+        "inOther": 6,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag41.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "f14a2254bbc8482d60a93bb328ccc834dfd4f73d",
+      "headBlob": "f14a2254bbc8482d60a93bb328ccc834dfd4f73d",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 5,
+      "edges": 10,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 14,
+        "inOther": 6,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag42.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "43ca9551a048d75658ae708cad948f07896c5a91",
+      "headBlob": "43ca9551a048d75658ae708cad948f07896c5a91",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 6,
+      "edges": 10,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 13,
+        "inOther": 7,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag43.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "a941a2d04e537dd6f2bab6dea77418743a9b0e86",
+      "headBlob": "a941a2d04e537dd6f2bab6dea77418743a9b0e86",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 4,
+      "edges": 9,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 12,
+        "inOther": 6,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag44.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "8eae5d77bfeae6204cd5efd86e94f551c9b77504",
+      "headBlob": "8eae5d77bfeae6204cd5efd86e94f551c9b77504",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 7,
+      "edges": 16,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 22,
+        "inOther": 10,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": [
+        {
+          "node": "tails_propagate_to_nobody",
+          "term": "shared-core-hash"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag45.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "f4445e9c74da0c19bc73a5c809bcc994b568a625",
+      "headBlob": "f4445e9c74da0c19bc73a5c809bcc994b568a625",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 7,
+      "edges": 16,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 22,
+        "inOther": 10,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag46.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "e80c55aea939efe9af3526130c1a81dc753efbbf",
+      "headBlob": "e80c55aea939efe9af3526130c1a81dc753efbbf",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 7,
+      "edges": 16,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 22,
+        "inOther": 10,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag47.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "b8d73a2a2504e9962cccc620343fe0ef06c85125",
+      "headBlob": "b8d73a2a2504e9962cccc620343fe0ef06c85125",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 7,
+      "edges": 16,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 21,
+        "inOther": 11,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": [
+        {
+          "node": "phase_starts_at_first_authorized_change",
+          "term": "Stripe"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag48.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "a0d41b454eec05f09a9e284c8d228edb5c1110df",
+      "headBlob": "a0d41b454eec05f09a9e284c8d228edb5c1110df",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 1,
+      "edges": 3,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 3,
+        "inOther": 3,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag49.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "6ca8ec4aad94b007aaac9232dd313aaa884317e8",
+      "headBlob": "6ca8ec4aad94b007aaac9232dd313aaa884317e8",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 9,
+      "edges": 17,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 23,
+        "inOther": 11,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag5.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "ae95a63703270de6617dacb40ab86d21694cbbb5",
+      "headBlob": "ae95a63703270de6617dacb40ab86d21694cbbb5",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 11,
+      "edges": 25,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 34,
+        "inOther": 13,
+        "inLive": 3,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag50.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "27b5ae698222fc3a8f084874999aa3f9bec763dd",
+      "headBlob": "27b5ae698222fc3a8f084874999aa3f9bec763dd",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 7,
+      "edges": 13,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 18,
+        "inOther": 8,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": [
+        {
+          "node": "poc_flow_is_original_scope",
+          "term": "Stripe"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag51.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "cbd4b74d43205338bd388fd60a9b3cd981355216",
+      "headBlob": "cbd4b74d43205338bd388fd60a9b3cd981355216",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 9,
+      "edges": 17,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 22,
+        "inOther": 12,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag52.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "3a1ebba8facd7fffe43df1fbec3d32e7d9daeb3e",
+      "headBlob": "3a1ebba8facd7fffe43df1fbec3d32e7d9daeb3e",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 6,
+      "edges": 13,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 16,
+        "inOther": 10,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag53.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "709614ad156f796a5e92494035f09190516efdf8",
+      "headBlob": "709614ad156f796a5e92494035f09190516efdf8",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 7,
+      "edges": 14,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 18,
+        "inOther": 10,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag54.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "4038e5e1ebdb9c28163e29f8c3d37ec6e9adc749",
+      "headBlob": "4038e5e1ebdb9c28163e29f8c3d37ec6e9adc749",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 6,
+      "edges": 15,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 19,
+        "inOther": 11,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag55.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "a1c2bc0241df74dc9ab846d1f801967bba1b9813",
+      "headBlob": "a1c2bc0241df74dc9ab846d1f801967bba1b9813",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 8,
+      "edges": 16,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 22,
+        "inOther": 10,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag56.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "5dcdf07aa9f12f815bf97639f17d50aea31e7651",
+      "headBlob": "5dcdf07aa9f12f815bf97639f17d50aea31e7651",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 9,
+      "edges": 13,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 19,
+        "inOther": 7,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag57.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "bbdf4d27e0d727f1097ba6162237d52724b73578",
+      "headBlob": "bbdf4d27e0d727f1097ba6162237d52724b73578",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 6,
+      "edges": 10,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 11,
+        "inOther": 9,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag58.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "cd2876a30135b7e3538e9d7cb99580ebf7c34591",
+      "headBlob": "cd2876a30135b7e3538e9d7cb99580ebf7c34591",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 6,
+      "edges": 10,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 13,
+        "inOther": 7,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag59.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "7c03b9f117e9c29b9ab06dc52419c67f369a614e",
+      "headBlob": "7c03b9f117e9c29b9ab06dc52419c67f369a614e",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 8,
+      "edges": 10,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 14,
+        "inOther": 6,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag6.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "2f3548adf579b7d4104f26f6eff0c000abdaa5a8",
+      "headBlob": "2f3548adf579b7d4104f26f6eff0c000abdaa5a8",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 12,
+      "edges": 32,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 39,
+        "inOther": 24,
+        "inLive": 1,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag60.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "82035f8143593f3f84f4c75dd8d02fa197f33201",
+      "headBlob": "82035f8143593f3f84f4c75dd8d02fa197f33201",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 8,
+      "edges": 10,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 13,
+        "inOther": 7,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag61.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "8f4a74ddf8f31028486334c7c12dabfe80a9e149",
+      "headBlob": "8f4a74ddf8f31028486334c7c12dabfe80a9e149",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 8,
+      "edges": 11,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 14,
+        "inOther": 8,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag62.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "c8442cba35a7af032fa6c8af157aa5fb910e96a2",
+      "headBlob": "c8442cba35a7af032fa6c8af157aa5fb910e96a2",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 8,
+      "edges": 10,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 12,
+        "inOther": 8,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag63.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "0fbbb713286179c76a4c09c24b0c571ca369a60b",
+      "headBlob": "0fbbb713286179c76a4c09c24b0c571ca369a60b",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 10,
+      "edges": 10,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 10,
+        "inOther": 10,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag64.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "f741686a899b4ab74327c3f162ee455d2dce7819",
+      "headBlob": "f741686a899b4ab74327c3f162ee455d2dce7819",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 6,
+      "edges": 9,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 10,
+        "inOther": 8,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag65.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "2040224cbad121c3f5d6a960a93ea9602d1b22fc",
+      "headBlob": "2040224cbad121c3f5d6a960a93ea9602d1b22fc",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 5,
+      "edges": 7,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 10,
+        "inOther": 4,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag66.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "f50a3b563adcb9d13ea969d7aa6330bb4b0b3a11",
+      "headBlob": "f50a3b563adcb9d13ea969d7aa6330bb4b0b3a11",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 6,
+      "edges": 8,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 11,
+        "inOther": 5,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag67.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "92c215878983ba11133bf3f65fa4f2a35c1f50fc",
+      "headBlob": "92c215878983ba11133bf3f65fa4f2a35c1f50fc",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 6,
+      "edges": 8,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 10,
+        "inOther": 6,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag68.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "ac48418a49f45bb945959969c8b4f3792457dea6",
+      "headBlob": "ac48418a49f45bb945959969c8b4f3792457dea6",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 7,
+      "edges": 14,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 19,
+        "inOther": 9,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag69.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "54c902da10d4e3a5b24dc26f7673ad75c798e13d",
+      "headBlob": "54c902da10d4e3a5b24dc26f7673ad75c798e13d",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 7,
+      "edges": 13,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 20,
+        "inOther": 6,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag7.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "f98f11a9ef4cf725a3b9403f04db0a144f0558a4",
+      "headBlob": "f98f11a9ef4cf725a3b9403f04db0a144f0558a4",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 9,
+      "edges": 25,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 36,
+        "inOther": 8,
+        "inLive": 6,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": [
+        {
+          "node": "shared_core_agent_rules",
+          "term": "byte-identical"
+        },
+        {
+          "node": "shared_core_agent_rules",
+          "term": ".agents/rules/graphify.md"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag70.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "f9ad68bda3bb23184f9e61dd8675c5d759cd53c7",
+      "headBlob": "f9ad68bda3bb23184f9e61dd8675c5d759cd53c7",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 6,
+      "edges": 12,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 17,
+        "inOther": 7,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag71.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "a1efff322fa49cbc9cba810b742b479aa3fec893",
+      "headBlob": "a1efff322fa49cbc9cba810b742b479aa3fec893",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 5,
+      "edges": 11,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 16,
+        "inOther": 6,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag72.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "29e8e48a62fb5d9fb9f2df6355d47f75da624b79",
+      "headBlob": "29e8e48a62fb5d9fb9f2df6355d47f75da624b79",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 5,
+      "edges": 10,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 14,
+        "inOther": 6,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag73.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "381fd0baac6c9e985b10eb7dc895b8731eddc8a9",
+      "headBlob": "381fd0baac6c9e985b10eb7dc895b8731eddc8a9",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 5,
+      "edges": 10,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 14,
+        "inOther": 6,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag74.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "5301848ecc3cf985afa6f5a04f154bb41b96166a",
+      "headBlob": "5301848ecc3cf985afa6f5a04f154bb41b96166a",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 6,
+      "edges": 8,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 9,
+        "inOther": 6,
+        "inLive": 1,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag75.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "86b4d9486f0518105beb2ad75c4ee573742d17ec",
+      "headBlob": "86b4d9486f0518105beb2ad75c4ee573742d17ec",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 4,
+      "edges": 8,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 10,
+        "inOther": 6,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag76.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "88f09443c7dddad39680216959278d3896910056",
+      "headBlob": "88f09443c7dddad39680216959278d3896910056",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 6,
+      "edges": 10,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 14,
+        "inOther": 6,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag77.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "3656083efddfb04084b24d5ad6e942cf1485ffdb",
+      "headBlob": "3656083efddfb04084b24d5ad6e942cf1485ffdb",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 5,
+      "edges": 10,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 12,
+        "inOther": 7,
+        "inLive": 1,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag78.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "a05c538b4e04253c6685efbf5d763f6bc0656a46",
+      "headBlob": "a05c538b4e04253c6685efbf5d763f6bc0656a46",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 4,
+      "edges": 6,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 8,
+        "inOther": 3,
+        "inLive": 1,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag79.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "f4b96c404083fd41235cce482975b7d6dae2665a",
+      "headBlob": "f4b96c404083fd41235cce482975b7d6dae2665a",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 6,
+      "edges": 12,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 17,
+        "inOther": 5,
+        "inLive": 2,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag8.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "460edb440c8fc8a5a15acb11cd20ed753a72d7d8",
+      "headBlob": "460edb440c8fc8a5a15acb11cd20ed753a72d7d8",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 4,
+      "edges": 14,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 17,
+        "inOther": 11,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag80.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "3fd004911fff5c5fddcb3252e7dd7d7a0f9467c4",
+      "headBlob": "3fd004911fff5c5fddcb3252e7dd7d7a0f9467c4",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 3,
+      "edges": 6,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 6,
+        "inOther": 6,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag81.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "2609e398ef5d2f6ef2dfb97dd4b72b5b21b52e82",
+      "headBlob": "2609e398ef5d2f6ef2dfb97dd4b72b5b21b52e82",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 3,
+      "edges": 6,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 8,
+        "inOther": 2,
+        "inLive": 2,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag82.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "490fb91a735511a89d3f5bbeb08ca6c6a17966f9",
+      "headBlob": "490fb91a735511a89d3f5bbeb08ca6c6a17966f9",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 2,
+      "edges": 5,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 6,
+        "inOther": 3,
+        "inLive": 1,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag83.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "abeaeef0c4ab1aa9a74aeece2f3b85d73e937026",
+      "headBlob": "abeaeef0c4ab1aa9a74aeece2f3b85d73e937026",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 2,
+      "edges": 2,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 3,
+        "inOther": 1,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag84.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "a010d674b73fac3ce0c313aea634cdfbadc7ed64",
+      "headBlob": "a010d674b73fac3ce0c313aea634cdfbadc7ed64",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 2,
+      "edges": 3,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 4,
+        "inOther": 2,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag85.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "919a6920979c3163d513677d7af7687fd2a90160",
+      "headBlob": "919a6920979c3163d513677d7af7687fd2a90160",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 2,
+      "edges": 3,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 3,
+        "inOther": 3,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag86.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "65f1131a4534305be57e38f6832050889dae5799",
+      "headBlob": "65f1131a4534305be57e38f6832050889dae5799",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 2,
+      "edges": 2,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 2,
+        "inOther": 2,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag87.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "62509c1c063f587aa276d4d734eef4b2a722e126",
+      "headBlob": "62509c1c063f587aa276d4d734eef4b2a722e126",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 2,
+      "edges": 3,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 3,
+        "inOther": 3,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag88.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "83b62f898810456120926da46f283d14a8b8380b",
+      "headBlob": "83b62f898810456120926da46f283d14a8b8380b",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 2,
+      "edges": 3,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 4,
+        "inOther": 2,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag89.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "0c81aa49bf51f890891184c9823d296bb7f44115",
+      "headBlob": "0c81aa49bf51f890891184c9823d296bb7f44115",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 2,
+      "edges": 3,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 3,
+        "inOther": 3,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag9.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "ddd5461e26db5069e61008201cfe29f228efbc89",
+      "headBlob": "ddd5461e26db5069e61008201cfe29f228efbc89",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 3,
+      "edges": 7,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 9,
+        "inOther": 5,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag90.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "0df25e9fc738567c4515365d83dc22a4b285875e",
+      "headBlob": "0df25e9fc738567c4515365d83dc22a4b285875e",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 2,
+      "edges": 4,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 4,
+        "inOther": 4,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag91.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "14c02af6a2ca0f2194018f590c779fe8597f0bf4",
+      "headBlob": "14c02af6a2ca0f2194018f590c779fe8597f0bf4",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 2,
+      "edges": 4,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 4,
+        "inOther": 3,
+        "inLive": 1,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag92.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "e217b562d07a3ae56d23f1095aeb54daa5e73a9d",
+      "headBlob": "e217b562d07a3ae56d23f1095aeb54daa5e73a9d",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 2,
+      "edges": 4,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 4,
+        "inOther": 3,
+        "inLive": 1,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag93.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "5692716a095637c88fafaf1adc8c616d9be23f44",
+      "headBlob": "5692716a095637c88fafaf1adc8c616d9be23f44",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 1,
+      "edges": 2,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 2,
+        "inOther": 2,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag94.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "97dbee981de9125c3d9ba4599d0606d1c7c9e423",
+      "headBlob": "97dbee981de9125c3d9ba4599d0606d1c7c9e423",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 3,
+      "edges": 5,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 6,
+        "inOther": 3,
+        "inLive": 1,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag95.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "185a7e5aa2a31802e4346c0b4c457d046f232494",
+      "headBlob": "185a7e5aa2a31802e4346c0b4c457d046f232494",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 2,
+      "edges": 4,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 5,
+        "inOther": 2,
+        "inLive": 1,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag96.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "736d5e7c0e789b8cef0a5be7fa1e33f58a249d70",
+      "headBlob": "736d5e7c0e789b8cef0a5be7fa1e33f58a249d70",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 2,
+      "edges": 3,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 4,
+        "inOther": 2,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag97.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "72a123a9ff89e425b8a70a62e212c55665d65cea",
+      "headBlob": "72a123a9ff89e425b8a70a62e212c55665d65cea",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 1,
+      "edges": 2,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 2,
+        "inOther": 2,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag98.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "9fca9b585f11f02df78379d3d3e29e9dcb352e79",
+      "headBlob": "9fca9b585f11f02df78379d3d3e29e9dcb352e79",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 2,
+      "edges": 1,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 2,
+        "inOther": 0,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/frag99.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "3b73915dcca2da85ef1858fda31c5d26a933bcb8",
+      "headBlob": "3b73915dcca2da85ef1858fda31c5d26a933bcb8",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 1,
+      "edges": 1,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 1,
+        "inOther": 1,
+        "inLive": 0,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/graph-fragments/v1-fragment.json",
+      "group": "G3",
+      "lane": "A",
+      "frozenBlob": "0bb3110498c759055f17f920f4d5056f8d31245e",
+      "headBlob": "0bb3110498c759055f17f920f4d5056f8d31245e",
+      "unchangedAtHead": true,
+      "kind": "fragment",
+      "parse": "ok",
+      "nodes": 18,
+      "edges": 40,
+      "missingSources": [],
+      "endpoints": {
+        "inOwn": 62,
+        "inOther": 13,
+        "inLive": 5,
+        "unresolved": []
+      },
+      "conflictingIds": [],
+      "probeHits": []
+    },
+    {
+      "path": "docs/v1/work-packets/V1/receipts/V1-SM05-jev-readiness.json",
+      "group": "G4",
+      "lane": "A",
+      "frozenBlob": "6089b6bfdf8ad03035f6000ef89bea05baa763f0",
+      "headBlob": "6089b6bfdf8ad03035f6000ef89bea05baa763f0",
+      "unchangedAtHead": true,
+      "kind": "jev readiness receipt",
+      "evaluatedAt": "31bcf3a2038e29edf0d05c47f32fe60dceebacaf",
+      "mode": "readiness",
+      "packet": "V1-SM05",
+      "results": 320,
+      "ok": 320,
+      "sources": [
+        {
+          "path": "docs/Modular_PRD.md",
+          "recorded": "12e8a1d146b2ce3caf7b4cfedd579e588de3d8091506464c1df0b628adaa5749",
+          "matchesAtEvaluated": true,
+          "matchesAtFrozen": false
+        },
+        {
+          "path": "docs/fn-specs/FN-GATES-01-05.md",
+          "recorded": "ed9b93b93af0dd29750842365a65b62fb0e087cec7e88d46d7243ae1374d76e9",
+          "matchesAtEvaluated": true,
+          "matchesAtFrozen": false
+        },
+        {
+          "path": "docs/v1/work-packets/V1/V1-SM05.md",
+          "recorded": "448ff69e5891a32a6d5af7420104a32618db8394c3883590311915880e6366dc",
+          "matchesAtEvaluated": true,
+          "matchesAtFrozen": false
+        },
+        {
+          "path": "scripts/jev/manifests/V1-SM05.json",
+          "recorded": "bd5cbae1ecf684b745a3f532991baf9f3591b4e27bf48612614749ee724fd5e7",
+          "matchesAtEvaluated": true,
+          "matchesAtFrozen": true
+        }
+      ]
+    },
+    {
+      "path": "docs/handoff/artifacts/B-014/observation-2026-10-03.log",
+      "group": "G5",
+      "lane": "unmapped",
+      "frozenBlob": "15ecd7d39757fad2ddc60989c5a4c707fe09cea9",
+      "headBlob": "15ecd7d39757fad2ddc60989c5a4c707fe09cea9",
+      "unchangedAtHead": true,
+      "kind": "retained evidence",
+      "bytes": 1477,
+      "sha256": "7d773745a56ca9e9d7ca722542f0eb377d1cdb69011f55b7050a077135c37017",
+      "citedBy": [
+        "docs/handoff/artifacts/B-014/observation-2026-10-03-session.md:4:- **Observer:** Lane A (Claude Code). Log: `observation-2026-10-03.log` in this folder."
+      ]
+    },
+    {
+      "path": "docs/handoff/artifacts/B-115/lane-c-b154-review-with-b115-consumer-read-07d931e.txt",
+      "group": "G5",
+      "lane": "unmapped",
+      "frozenBlob": "021a25d13fa00a61c575d43b080b157d62ffc7f9",
+      "headBlob": "021a25d13fa00a61c575d43b080b157d62ffc7f9",
+      "unchangedAtHead": true,
+      "kind": "retained evidence",
+      "bytes": 12168,
+      "sha256": "6aebe93c197aa14f7db237fd13a926e43eddce642311e381866038fb2980a763",
+      "citedBy": [
+        "docs/handoff/B-115-separate-intent-build-and-devops-governance.md:246:  `docs/handoff/artifacts/B-115/lane-c-b154-review-with-b115-consumer-read-07d931e.txt` (S"
+      ]
+    },
+    {
+      "path": "docs/handoff/artifacts/B-131/System_Encyclopedia_V15.txt",
+      "group": "G5",
+      "lane": "unmapped",
+      "frozenBlob": "000db80b3c57f7454cbd00d20fcf01df7ff2a0d5",
+      "headBlob": "000db80b3c57f7454cbd00d20fcf01df7ff2a0d5",
+      "unchangedAtHead": true,
+      "kind": "retained evidence",
+      "bytes": 63504,
+      "sha256": "bc97bebac0f3ac2d3f3d8fed32c3a9cb93684b60f829fee3604b08faf34ace9f",
+      "citedBy": [
+        "docs/handoff/B-131-sm05-r5-r6-independent-review.md:12:  satisfies it. Lane A stored the export at `docs/handoff/artifacts/B-131/System_Encyclopedia_V15.txt` an"
+      ]
+    }
+  ]
+}

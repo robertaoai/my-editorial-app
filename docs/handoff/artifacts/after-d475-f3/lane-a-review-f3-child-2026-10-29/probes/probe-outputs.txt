@@ -1,0 +1,44 @@
+{
+ "nodes": 3614,
+ "withSrc": 3614,
+ "absolute": 0,
+ "backslash": 0,
+ "sample": [
+  "__tests__/build-config.test.ts",
+  "__tests__/s1-schema.test.ts",
+  "__tests__/smoke.test.ts",
+  "app/api/health/route.ts",
+  "app/layout.tsx",
+  "app/page.tsx"
+ ],
+ "registerNodes": 252,
+ "registerWithDesc": 252
+}
+guard functions used: 24 missing exports: []
+ready keys: answersFile,answersSha,caller,files,frozenAt,graphSha256,manifest,selection,staging
+caller keys: branch,gitDirNative,head,mergeBase,rootNative,upstream
+selection keys: brackets,branches,calls,finalObservedAt,ignored,oracle,rules | brackets: rebuild,fresh,finalUpdate | calls: 7 | call[0] keys: i,where,args,start,end,before,after
+frozen keys: baseline,bindings,envNames,pins,snapshot | snapshot keys: branch,config,head,ok,origin,refs,root,upstream
+frozen.snapshot.refs is array: true config is string: string
+graph top keys: directed,multigraph,graph,topology_signature,nodes,links,hyperedges | community_labels: false | graph.community_labels: true | links: true
+baseline community_labels: true
+ANSWERS.json exists: true | missing-desc raw/cand: true true
+attempt-1 graph exists: true
+{
+ "changed": [
+  "docs/handoff/B-050-hook-rebuild-resets-graphify-branch-metadata.md",
+  "docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md",
+  "docs/v1/V1-DECISION-REGISTER.md"
+ ],
+ "fragmentFiles": 140,
+ "counts": {
+  "unchanged-source baseline": 3025,
+  "source commit subject": 5,
+  "inherited undescribed": 2,
+  "curated": 582
+ },
+ "unresolved": 0,
+ "unresolvedSample": [],
+ "mismatches": 0,
+ "mismatchSample": []
+}

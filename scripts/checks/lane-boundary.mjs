@@ -48,7 +48,7 @@ const LANES = [
       p.startsWith(".githooks/") ||
       // `.github/` minus workflows — `CODEOWNERS`, templates — is Lane A's.
       (p.startsWith(".github/") && !isWorkflow(p)) ||
-      /^(CLAUDE|AGENTS)\.md$/.test(p) ||
+      /^(CLAUDE|AGENTS|GEMINI)\.md$/.test(p) ||
       isRootConfig(p),
   },
   {

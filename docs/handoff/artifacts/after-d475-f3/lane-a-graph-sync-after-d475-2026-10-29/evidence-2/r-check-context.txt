@@ -1,0 +1,3 @@
+HEAD 22b0a8ce2fb06c16152fa9490d21aae829a45974; bun run check x2 on R; allowed: docs-drift only
+run 1 | start 2026-10-29T11:57:37Z end 2026-10-29T12:00:49Z | exit 1 | PASS=18 FAIL=1 [docs-drift ] SKIP=0 | candidate before 3468eb237eccdf324007255c7ff1490b6e7397ffecc0cbb172048cdec31be3d2 after 3468eb237eccdf324007255c7ff1490b6e7397ffecc0cbb172048cdec31be3d2
+run 2 | start 2026-10-29T12:00:50Z end 2026-10-29T12:03:56Z | exit 1 | PASS=18 FAIL=1 [docs-drift ] SKIP=0 | candidate before 3468eb237eccdf324007255c7ff1490b6e7397ffecc0cbb172048cdec31be3d2 after 3468eb237eccdf324007255c7ff1490b6e7397ffecc0cbb172048cdec31be3d2

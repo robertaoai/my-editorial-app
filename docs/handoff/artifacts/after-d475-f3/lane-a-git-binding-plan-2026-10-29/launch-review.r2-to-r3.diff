@@ -1,0 +1,105 @@
+diff --git a/launch-review.r2.mjs b/launch-review.r3.mjs
+index c86601b..01db221 100644
+--- a/launch-review.r2.mjs
++++ b/launch-review.r3.mjs
+@@ -1,4 +1,4 @@
+-// PROPOSED — NOT EXECUTED. Revision r2 of launch-review.mjs (plan packet lane-a-git-binding-plan-2026-10-29, Lane A,
++// PROPOSED — NOT EXECUTED. Revision r3 of launch-review.mjs (r3 changes only finalization; r1/r2 kept) (plan packet lane-a-git-binding-plan-2026-10-29, Lane A,
+ // 2026-10-29). Runs only after Lane B reviews this file and the fresh child script by SHA-256 and the Judge releases a
+ // fresh F3 review attempt.
+ //
+@@ -11,10 +11,11 @@
+ // Exit codes: 0 = every gate passed, the child started and exited 0 with no signal or spawn error, the after-snapshot equals
+ // the before-snapshot and the parent PATH is unchanged; 2 = stopped before the child (no child ran); 3 = the child failed
+ // (nonzero or null exit, signal or spawn error); 4 = preservation failed or the after-snapshot could not be taken;
+-// 5 = an internal error. When several apply, the highest code wins; every one is recorded.
++// 5 = an internal error; 6 = a finalization write failed (preliminary or completion record). When several apply, the
++// highest code wins; every one is recorded. The authoritative record is launcher-completion.json (or its stderr fallback).
+ //
+ // PowerShell (reviewed form):
+-//   & 'C:\Program Files\nodejs\node.exe' 'C:\CoWork\outputs\lane-a-git-binding-plan-2026-10-29\launch-review.r2.mjs' --child 'C:\CoWork\outputs\lane-b-after-d475-f3-r2-2026-10-29\entry.mjs' --child-sha256 '<64 hex, fixed at review>' --out 'C:\CoWork\outputs\lane-b-after-d475-f3-r2-2026-10-29\launcher-run-1'
++//   & 'C:\Program Files\nodejs\node.exe' 'C:\CoWork\outputs\lane-a-git-binding-plan-2026-10-29\launch-review.r3.mjs' --child 'C:\CoWork\outputs\lane-b-after-d475-f3-r2-2026-10-29\entry.mjs' --child-sha256 '<64 hex, fixed at review>' --out 'C:\CoWork\outputs\lane-b-after-d475-f3-r2-2026-10-29\launcher-run-1'
+ import fs from 'node:fs'; import path from 'node:path'; import crypto from 'node:crypto'; import { spawnSync, execFileSync } from 'node:child_process'; import { pathToFileURL } from 'node:url';
+ 
+ const REPO = 'C:\\robertaoai\\my-editorial-app';
+@@ -30,7 +31,7 @@ const EXPECT = {
+   manifest: '34a4edeb9516f11cb36d6d2dcfe1ddac99913dbe0427647f919354c4a9990b13', files: 583, answers: '89965adfdaaaddb8d463c2b2644f137f547c85f3cfe2610e068c07c355f97e70',
+ };
+ 
+-const R = { revision: 'r2', at: new Date().toISOString(), phase: 'start', findings: [], error: null, secondaryErrors: [], child: { started: false }, proof: {} };
++const R = { revision: 'r3', at: new Date().toISOString(), phase: 'start', findings: [], error: null, secondaryErrors: [], child: { started: false }, proof: {} };
+ let OUT = null, G = null, CAND = null, snap = null, keep = null, PATHKEY = null;
+ const sha = p => crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
+ const shaText = s => crypto.createHash('sha256').update(s).digest('hex');
+@@ -46,19 +47,47 @@ function exitCode() {
+   if (R.findings.length || !R.child.started) return R.child.started ? 4 : 2;
+   return 0;
+ }
++// r3 finalization. Two records, written once each (exclusive create), never overwritten:
++//   1. launcher-result.json — PRELIMINARY, marked non-authoritative, written before the post-write candidate check;
++//   2. launcher-completion.json — AUTHORITATIVE, written last; it carries the final exit, the preliminary record's hash and
++//      its final disposition ("confirmed" or "superseded"), and every finalization result.
++// If the completion record cannot be written (or no validated output folder exists), the authoritative record is one JSON
++// line on stderr with the same content. The process exit always equals the authoritative record's "exit".
+ function finish() {
+-  R.end = new Date().toISOString(); R.exit = exitCode();
+-  const text = JSON.stringify(R, null, 1) + '\n';
++  R.end = new Date().toISOString();
++  const prelim = exitCode(); R.exitPreliminary = prelim;
++  const fin = R.finalization = { resultWrite: null, postWrite: null, completionWrite: null };
++  let finalExit = prelim; const raise = c => { finalExit = Math.max(finalExit, c); };
++  // 1. Preliminary record, inside the validated output folder only.
++  let prelimSha = null;
+   if (OUT) {
+-    try { fs.writeFileSync(path.join(OUT, 'launcher-result.json'), text, { flag: 'wx' }); }
+-    catch (e) { R.secondaryErrors.push(`result write: ${e.message}`); process.stderr.write(text); }
+-  } else process.stderr.write(text);   // no validated output location: nothing is written anywhere
+-  // The result is written outside every protected root (checked in phase "output"); re-hash the candidate anyway.
++    const text = JSON.stringify({ record: 'preliminary', authoritative: false, authoritativeRecord: 'launcher-completion.json, or the stderr fallback if that file is absent', ...R }, null, 1) + '\n';
++    try { fs.writeFileSync(path.join(OUT, 'launcher-result.json'), text, { flag: 'wx' }); prelimSha = shaText(text); fin.resultWrite = { ok: true, sha256: prelimSha }; }
++    catch (e) { fin.resultWrite = { ok: false, error: String(e.message) }; R.secondaryErrors.push(`result write: ${e.message}`); raise(6); }
++  } else fin.resultWrite = { ok: false, reason: 'no validated output folder; nothing written' };
++  // 2. Post-write candidate check, kept after the result write. A mismatch or an unavailable check is a failure.
+   if (CAND && G) {
+-    try { const m = G.hashTree(CAND); if (G.treeDigest(m) !== EXPECT.manifest) { process.stderr.write('candidate manifest changed after the result write\n'); process.exit(Math.max(R.exit, 4)); } }
+-    catch (e) { process.stderr.write(`post-write candidate check unavailable: ${e.message}\n`); process.exit(Math.max(R.exit, 4)); }
++    try { const m = G.hashTree(CAND), d = G.treeDigest(m), n = Object.keys(m).length;
++      fin.postWrite = d === EXPECT.manifest && n === EXPECT.files && m['graph.json'] === EXPECT.graph ? { ok: true, manifest: d, files: n } : { ok: false, reason: 'candidate changed after the result write', manifest: d, files: n }; }
++    catch (e) { fin.postWrite = { ok: false, unavailable: true, error: String(e.message) }; }
++    if (!fin.postWrite.ok) { R.secondaryErrors.push(`post-write: ${fin.postWrite.reason || 'check unavailable'}`); raise(4); }
++  } else {
++    fin.postWrite = { ok: false, unavailable: true, reason: 'the candidate was never located (stopped before phase "import"); no post-write proof' };
++    if (finalExit === 0) raise(5);   // cannot happen on a correct run; missing proof is never success
+   }
+-  process.exit(R.exit);
++  // 3. Authoritative record.
++  R.exit = finalExit;
++  const disposition = !fin.resultWrite.ok ? 'no preliminary record was written' : finalExit === prelim ? 'confirmed' : `superseded: preliminary exit ${prelim}, final exit ${finalExit}`;
++  const completion = { record: 'authoritative', exit: finalExit, preliminary: { file: OUT ? 'launcher-result.json' : null, written: fin.resultWrite.ok === true, sha256: prelimSha, exit: prelim, disposition }, finalization: fin, result: R };
++  if (OUT) {
++    try { fs.writeFileSync(path.join(OUT, 'launcher-completion.json'), JSON.stringify(completion, null, 1) + '\n', { flag: 'wx' }); fin.completionWrite = { ok: true }; }
++    catch (e) {
++      fin.completionWrite = { ok: false, error: String(e.message) }; R.secondaryErrors.push(`completion write: ${e.message}`);
++      finalExit = Math.max(finalExit, 6); R.exit = finalExit; completion.exit = finalExit; completion.record = 'authoritative (stderr fallback: completion write failed)';
++      process.stderr.write(JSON.stringify(completion) + '\n');
++    }
++  } else { completion.record = 'authoritative (stderr: no validated output folder)'; process.stderr.write(JSON.stringify(completion) + '\n'); }
++  process.exit(finalExit);
+ }
+ 
+ try {
+@@ -182,7 +211,13 @@ try {
+   // error stays in R.error; secondary errors are appended, never substituted.
+   if (R.proof.before && !R.proof.after) { try { afterState(); } catch (e2) { R.secondaryErrors.push(`after-state: ${e2.message}`); } }
+   else if (!R.proof.before) R.proof.after = { unavailable: true, reason: 'no before-snapshot was taken; nothing to compare' };
+-  try { finish(); } catch (e3) { process.stderr.write(JSON.stringify({ original: R.error, finalization: String(e3.message) }) + '\n'); process.exit(5); }
++  try { finish(); } catch (e3) {
++    // finish() itself failed: the authoritative record is this stderr line; it keeps the original error, phase, child status
++    // and every secondary error, and the exit is never lower than 5.
++    const code = Math.max(5, R.exit ?? 0);
++    process.stderr.write(JSON.stringify({ record: 'authoritative (stderr fallback: finalization threw)', exit: code, original: R.error, phase: R.phase, child: R.child, secondaryErrors: R.secondaryErrors, finalizationError: String(e3 && e3.message || e3), finalization: R.finalization ?? null }) + '\n');
++    process.exit(code);
++  }
+ }
+ 
+ function afterState() {

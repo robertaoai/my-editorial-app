@@ -1,0 +1,44 @@
+helper 062427d2862b9b20206d49fba8d13a685be69970a0a2d70856dac87780cf009c; ownership 2f14888ceb92f1855e946ae2c6e2da18cb41c612d9e1aa26454e4b202c398228; base eb0aa44; date 2026-10-16
+K1 | s0 | want exit 0 / "S0 working tree clean" | got exit 0 | OK | S0 working tree clean
+K2 | expected | want exit 0 / "inverse check" | got exit 0 | OK | inverse check: undoing the 10 edits gives the three pins; record written before any write
+K2 | apply | want exit 0 / "post-write bytes = intended" | got exit 0 | OK | three files written; post-write bytes = intended; run verify next
+K2 | verify | want exit 0 / "10/10 edits present once" | got exit 0 | OK | verify: three files = expected bytes; 10/10 edits present once, old texts as expected
+K2 | verify-commit de5c970 | want exit 0 / "every blob = expected; 10/10 edits" | got exit 0 | OK | E5 applying commit de5c970: three paths; every blob = expected; 10/10 edits
+K3 | expected | want exit 0 / "inverse check" | got exit 0 | OK | inverse check: undoing the 10 edits gives the three pins; record written before any write
+K3 | apply | want exit 0 / "CONTROL RUN: edit E12 left out" | got exit 0 | OK | three files written; post-write bytes = intended; run verify next
+K3 | verify | want exit 2 / "E12 (docs/Modular_PRD.md: new 0/1, old 1/0)" | got exit 2 | OK | REFUSE: edits not as expected at working tree: E12 (docs/Modular_PRD.md: new 0/1, old 1/0)
+K3-verify | refusal names E12 only | OK
+K3 | fixture keeps owner TBD | OK
+K3 | verify-commit 3eace29 | want exit 2 / "E12 (docs/Modular_PRD.md: new 0/1, old 1/0)" | got exit 2 | OK | REFUSE: edits not as expected at commit 3eace29: E12 (docs/Modular_PRD.md: new 0/1, old 1/0)
+K3-verify-commit | refusal names E12 only | OK
+K3 | expected record = K2 expected record | OK
+K4 | s0 | want exit 2 / "S0 D-439 already in Register" | got exit 2 | OK | REFUSE: S0 D-439 already in Register
+K5 | s0 | want exit 2 / "not in the reviewed ownership manifest: docs/v1/X-conflict.md" | got exit 2 | OK | REFUSE: S0 D-439 line not in the reviewed ownership manifest: docs/v1/X-conflict.md:2
+K6 | s0 | want exit 2 / "not in the reviewed ownership manifest: docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md" | got exit 2 | OK | REFUSE: S0 D-439 line not in the reviewed ownership manifest: docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md:15097
+K6b | s0 | want exit 2 / "not in the reviewed ownership manifest: docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md" | got exit 2 | OK | REFUSE: S0 D-439 line not in the reviewed ownership manifest: docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md:13533
+K6c | s0 | want exit 2 / "not in the reviewed ownership manifest: docs/handoff/artifacts/B-136/ev-corrections/EV-CORRECTION-PACKET-r1.md" | got exit 2 | OK | REFUSE: S0 D-439 line not in the reviewed ownership manifest: docs/handoff/artifacts/B-136/ev-corrections/EV-CORRECTION-PACKET-r1.md:4
+K6d | s0 | want exit 2 / "S0 working tree not clean" | got exit 2 | OK | REFUSE: S0 working tree not clean (tracked or untracked)
+K6e | s0 | want exit 2 / "reviewed D-439 line missing or changed: docs/handoff/artifacts/B-136/ev-corrections/EV-CORRECTION-PACKET-r1.md" | got exit 2 | OK | REFUSE: S0 reviewed D-439 line missing or changed: docs/handoff/artifacts/B-136/ev-corrections/EV-CORRECTION-PACKET-r1.md
+K7 | s0 | want exit 2 / "not in the reviewed ownership manifest: docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md" | got exit 2 | OK | REFUSE: S0 D-439 line not in the reviewed ownership manifest: docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md:15097
+K8 | s0 | want exit 2 / "ownership manifest hash is not the reviewed value" | got exit 2 | OK | REFUSE: S0 ownership manifest hash is not the reviewed value
+K9 | expected | want exit 0 / "inverse check" | got exit 0 | OK | inverse check: undoing the 10 edits gives the three pins; record written before any write
+K9 | expected | want exit 2 / "expected record exists — refusing to overwrite" | got exit 2 | OK | REFUSE: expected record exists — refusing to overwrite
+K10 | expected | want exit 0 / "inverse check" | got exit 0 | OK | inverse check: undoing the 10 edits gives the three pins; record written before any write
+K10 | apply | want exit 2 / "apply needs the D-439 act in the Register" | got exit 2 | OK | REFUSE: apply needs the D-439 act in the Register
+K11 | expected | want exit 0 / "inverse check" | got exit 0 | OK | inverse check: undoing the 10 edits gives the three pins; record written before any write
+K11 | apply | want exit 2 / "E2b written docs/Modular_PRD.md" | got exit 2 | OK | REFUSE: E2b written docs/Modular_PRD.md
+K12 | expected | want exit 0 / "inverse check" | got exit 0 | OK | inverse check: undoing the 10 edits gives the three pins; record written before any write
+K12 | apply | want exit 0 / "post-write bytes = intended" | got exit 0 | OK | three files written; post-write bytes = intended; run verify next
+K12 | verify-commit 68b6c10 | want exit 2 / "unattributed byte difference at commit" | got exit 2 | OK | REFUSE: unattributed byte difference at commit 68b6c10: docs/source/README.md
+K13a | expected | want exit 0 / "inverse check" | got exit 0 | OK | inverse check: undoing the 10 edits gives the three pins; record written before any write
+K13a | apply | want exit 2 / "no valid disposable-fixture marker" | got exit 2 | OK | REFUSE: control switch EV_CONTROL refused: no valid disposable-fixture marker
+K13a | protected files at pins; tree clean | OK
+K13c | expected | want exit 0 / "inverse check" | got exit 0 | OK | inverse check: undoing the 10 edits gives the three pins; record written before any write
+K13c | apply | want exit 2 / "no valid disposable-fixture marker" | got exit 2 | OK | REFUSE: control switch EV_CONTROL,EV_TEST_SKIP refused: no valid disposable-fixture marker
+K13c | protected files at pins; tree clean | OK
+K13b | apply | want exit 2 / "EV_REPO is the governed checkout" | got exit 2 | OK | REFUSE: control switch EV_CONTROL refused: EV_REPO is the governed checkout
+K13d | apply | want exit 2 / "EV_REPO is the governed checkout" | got exit 2 | OK | REFUSE: control switch EV_TEST_SKIP refused: EV_REPO is the governed checkout
+K13e | apply | want exit 2 / "EV_REPO is the governed checkout" | got exit 2 | OK | REFUSE: control switch EV_TEST_INJECT refused: EV_REPO is the governed checkout
+K13 | governed checkout unchanged (protected files, HEAD, status) | OK
+K13 | no output folder created for refused runs | OK
+--- cases: 42 wrong: 0

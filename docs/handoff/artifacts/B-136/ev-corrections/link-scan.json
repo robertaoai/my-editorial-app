@@ -1,0 +1,612 @@
+{
+  "links": [
+    {
+      "source": "governance/alpha-portfolio-business-continuity-implementation-plan.md",
+      "line": 470,
+      "target": "../PRD.md"
+    },
+    {
+      "source": "governance/alpha-portfolio-business-continuity-implementation-plan.md",
+      "line": 471,
+      "target": "../source/project-charter-v1.md"
+    },
+    {
+      "source": "governance/alpha-portfolio-business-continuity-implementation-plan.md",
+      "line": 472,
+      "target": "../source/README.md"
+    },
+    {
+      "source": "governance/alpha-portfolio-business-continuity-implementation-plan.md",
+      "line": 473,
+      "target": "raci-involvement-matrix.md"
+    },
+    {
+      "source": "governance/alpha-portfolio-business-continuity-implementation-plan.md",
+      "line": 474,
+      "target": "board-proposal-professional-evidence-review-poc.md"
+    },
+    {
+      "source": "governance/alpha-portfolio-business-continuity-implementation-plan.md",
+      "line": 475,
+      "target": "poc-feedback-approval-crosswalk.md"
+    },
+    {
+      "source": "governance/alpha-portfolio-business-continuity-implementation-plan.md",
+      "line": 476,
+      "target": "media-industry-sop-fallback-implementation-plan.md"
+    },
+    {
+      "source": "governance/alpha-portfolio-business-continuity-implementation-plan.md",
+      "line": 477,
+      "target": "requirements-traceability-map.md"
+    },
+    {
+      "source": "governance/board-proposal-professional-evidence-review-poc.md",
+      "line": 9,
+      "target": "alpha-portfolio-business-continuity-implementation-plan.md"
+    },
+    {
+      "source": "governance/media-industry-sop-fallback-implementation-plan.md",
+      "line": 6,
+      "target": "alpha-portfolio-business-continuity-implementation-plan.md"
+    },
+    {
+      "source": "governance/poc-feedback-approval-crosswalk.md",
+      "line": 7,
+      "target": "alpha-portfolio-business-continuity-implementation-plan.md"
+    },
+    {
+      "source": "governance/poc-feedback-approval-crosswalk.md",
+      "line": 15,
+      "target": "board-proposal-professional-evidence-review-poc.md"
+    },
+    {
+      "source": "governance/poc-feedback-approval-crosswalk.md",
+      "line": 15,
+      "target": "media-industry-sop-fallback-implementation-plan.md"
+    },
+    {
+      "source": "governance/poc-feedback-approval-crosswalk.md",
+      "line": 352,
+      "target": "alpha-portfolio-business-continuity-implementation-plan.md"
+    },
+    {
+      "source": "governance/poc-feedback-approval-crosswalk.md",
+      "line": 353,
+      "target": "board-proposal-professional-evidence-review-poc.md"
+    },
+    {
+      "source": "governance/poc-feedback-approval-crosswalk.md",
+      "line": 354,
+      "target": "media-industry-sop-fallback-implementation-plan.md"
+    },
+    {
+      "source": "governance/poc-feedback-approval-crosswalk.md",
+      "line": 355,
+      "target": "requirements-traceability-map.md"
+    },
+    {
+      "source": "governance/poc-feedback-approval-crosswalk.md",
+      "line": 356,
+      "target": "../PRD.md"
+    },
+    {
+      "source": "governance/poc-feedback-approval-crosswalk.md",
+      "line": 357,
+      "target": "../Modular_PRD.md"
+    },
+    {
+      "source": "governance/poc-feedback-approval-crosswalk.md",
+      "line": 358,
+      "target": "../source/project-charter-v1.md"
+    },
+    {
+      "source": "handoff/B-082-v1-sprint-priority-and-intake-routing.md",
+      "line": 58,
+      "target": "B-083-decision-tree-and-judge-authorization-routing.md"
+    },
+    {
+      "source": "handoff/B-083-decision-tree-and-judge-authorization-routing.md",
+      "line": 248,
+      "target": "B-084-d197-manual-intake-specification-reconciliation.md"
+    },
+    {
+      "source": "handoff/B-084-d197-manual-intake-specification-reconciliation.md",
+      "line": 122,
+      "target": "B-086-d200-tool-split-and-handoff-bootstrap-review.md"
+    },
+    {
+      "source": "handoff/B-084-d197-manual-intake-specification-reconciliation.md",
+      "line": 228,
+      "target": "B-085-external-docs-audit-disposition.md"
+    },
+    {
+      "source": "handoff/B-084-d197-manual-intake-specification-reconciliation.md",
+      "line": 241,
+      "target": "../../scripts/checks/source-sweep.mjs"
+    },
+    {
+      "source": "handoff/B-084-d197-manual-intake-specification-reconciliation.md",
+      "line": 241,
+      "target": "../../scripts/check-consistency.mjs"
+    },
+    {
+      "source": "handoff/B-084-d197-manual-intake-specification-reconciliation.md",
+      "line": 251,
+      "target": "B-073-r66-frozen-source-intake-correction-guide.md"
+    },
+    {
+      "source": "handoff/B-084-d197-manual-intake-specification-reconciliation.md",
+      "line": 251,
+      "target": "B-083-decision-tree-and-judge-authorization-routing.md"
+    },
+    {
+      "source": "handoff/B-084-d197-manual-intake-specification-reconciliation.md",
+      "line": 302,
+      "target": "../journal/2026-08-18-storyboard-business-and-digital-twin.md"
+    },
+    {
+      "source": "handoff/B-084-d197-manual-intake-specification-reconciliation.md",
+      "line": 314,
+      "target": "../ENCYCLOPEDIA-SYNC.md"
+    },
+    {
+      "source": "handoff/B-084-d197-manual-intake-specification-reconciliation.md",
+      "line": 507,
+      "target": "B-085-external-docs-audit-disposition.md"
+    },
+    {
+      "source": "handoff/B-084-d197-manual-intake-specification-reconciliation.md",
+      "line": 531,
+      "target": "B-061-lane-b-code-build-readiness-inputs-have-drifted.md"
+    },
+    {
+      "source": "handoff/B-084-d197-manual-intake-specification-reconciliation.md",
+      "line": 533,
+      "target": "B-083-decision-tree-and-judge-authorization-routing.md"
+    },
+    {
+      "source": "handoff/B-084-d197-manual-intake-specification-reconciliation.md",
+      "line": 605,
+      "target": "B-017-handoff-closure-parser-false-green.md"
+    },
+    {
+      "source": "handoff/B-084-d197-manual-intake-specification-reconciliation.md",
+      "line": 606,
+      "target": "B-084-d197-manual-intake-specification-reconciliation.md"
+    },
+    {
+      "source": "handoff/B-084-d197-manual-intake-specification-reconciliation.md",
+      "line": 607,
+      "target": "B-071-b070-options-and-desk-editor-ontology-require-correction.md"
+    },
+    {
+      "source": "handoff/B-084-d197-manual-intake-specification-reconciliation.md",
+      "line": 608,
+      "target": "B-061-lane-b-code-build-readiness-inputs-have-drifted.md"
+    },
+    {
+      "source": "handoff/B-084-d197-manual-intake-specification-reconciliation.md",
+      "line": 616,
+      "target": "B-079-feedback-checklist-semantic-review.md"
+    },
+    {
+      "source": "handoff/B-085-external-docs-audit-disposition.md",
+      "line": 46,
+      "target": "B-084-d197-manual-intake-specification-reconciliation.md#follow-up-review--authority-provenance-and-executable-verification-order--2026-09-08"
+    },
+    {
+      "source": "handoff/B-086-d200-tool-split-and-handoff-bootstrap-review.md",
+      "line": 143,
+      "target": "B-084-d197-manual-intake-specification-reconciliation.md"
+    },
+    {
+      "source": "handoff/B-087-bounded-setup-spike-proposal.md",
+      "line": 36,
+      "target": "B-080-d193-business-routing-and-evidence-review.md"
+    },
+    {
+      "source": "handoff/B-087-bounded-setup-spike-proposal.md",
+      "line": 36,
+      "target": "B-081-reporter-ai-capability-backlog-intake.md"
+    },
+    {
+      "source": "handoff/B-087-bounded-setup-spike-proposal.md",
+      "line": 36,
+      "target": "B-082-v1-sprint-priority-and-intake-routing.md"
+    },
+    {
+      "source": "handoff/B-087-bounded-setup-spike-proposal.md",
+      "line": 37,
+      "target": "B-083-decision-tree-and-judge-authorization-routing.md"
+    },
+    {
+      "source": "handoff/B-087-bounded-setup-spike-proposal.md",
+      "line": 38,
+      "target": "B-084-d197-manual-intake-specification-reconciliation.md"
+    },
+    {
+      "source": "handoff/B-087-bounded-setup-spike-proposal.md",
+      "line": 39,
+      "target": "B-085-external-docs-audit-disposition.md"
+    },
+    {
+      "source": "handoff/B-087-bounded-setup-spike-proposal.md",
+      "line": 40,
+      "target": "B-070-lane-b-work-order-stale-s2-instruction.md"
+    },
+    {
+      "source": "handoff/B-087-bounded-setup-spike-proposal.md",
+      "line": 40,
+      "target": "B-071-b070-options-and-desk-editor-ontology-require-correction.md"
+    },
+    {
+      "source": "handoff/B-087-bounded-setup-spike-proposal.md",
+      "line": 41,
+      "target": "B-086-d200-tool-split-and-handoff-bootstrap-review.md"
+    },
+    {
+      "source": "handoff/B-087-bounded-setup-spike-proposal.md",
+      "line": 42,
+      "target": "B-077-consolidated-handoff-closure-and-failure-pattern.md"
+    },
+    {
+      "source": "handoff/B-087-bounded-setup-spike-proposal.md",
+      "line": 42,
+      "target": "C-001-rename-required-check.md"
+    },
+    {
+      "source": "handoff/B-087-bounded-setup-spike-proposal.md",
+      "line": 188,
+      "target": "../ENCYCLOPEDIA-SYNC.md"
+    },
+    {
+      "source": "handoff/B-087-bounded-setup-spike-proposal.md",
+      "line": 611,
+      "target": "../v1/V1-BUILD-SPEC.md"
+    },
+    {
+      "source": "handoff/B-087-bounded-setup-spike-proposal.md",
+      "line": 611,
+      "target": "../v1/V1-PHASE-CLOSURE.md"
+    },
+    {
+      "source": "handoff/B-087-bounded-setup-spike-proposal.md",
+      "line": 612,
+      "target": "B-059-lb-s1-02-database-verification-turn-report.md"
+    },
+    {
+      "source": "handoff/B-087-bounded-setup-spike-proposal.md",
+      "line": 613,
+      "target": "B-082-v1-sprint-priority-and-intake-routing.md"
+    },
+    {
+      "source": "handoff/B-087-bounded-setup-spike-proposal.md",
+      "line": 618,
+      "target": "../v1/V1-DECISION-REGISTER.md"
+    },
+    {
+      "source": "handoff/B-087-bounded-setup-spike-proposal.md",
+      "line": 620,
+      "target": "B-071-b070-options-and-desk-editor-ontology-require-correction.md"
+    },
+    {
+      "source": "handoff/B-087-bounded-setup-spike-proposal.md",
+      "line": 663,
+      "target": "../fn-specs/FN-PUBLICATION-09-10-13.md"
+    },
+    {
+      "source": "handoff/B-087-bounded-setup-spike-proposal.md",
+      "line": 665,
+      "target": "../modules/M-POC-REQUIREMENTS.md"
+    },
+    {
+      "source": "handoff/B-088-c39-independent-review.md",
+      "line": 39,
+      "target": "B-087-bounded-setup-spike-proposal.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 294,
+      "target": "B-151-sm05-initial-behavior-test-coverage-reconciliation.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 314,
+      "target": "../v1/V1-DECISION-REGISTER.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 337,
+      "target": "../v1/V1-DECISION-REGISTER.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 337,
+      "target": "README.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 337,
+      "target": "TEMPLATE.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 337,
+      "target": "../v1/V1-BUILD-SPEC.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 337,
+      "target": "../v1/V1-ARTIFACT-INVENTORY.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 338,
+      "target": "B-130-c002-agent-instruction-handoff-review.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 338,
+      "target": "B-071-b070-options-and-desk-editor-ontology-require-correction.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 338,
+      "target": "B-097-b071-terminal-return-protocol.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 338,
+      "target": "../../scripts/checks/handoff-response.mjs"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 338,
+      "target": "../../scripts/checks/terminal-return.mjs"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 339,
+      "target": "B-151-sm05-initial-behavior-test-coverage-reconciliation.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 339,
+      "target": "../v1/work-packets/V1/V1-SM05.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 339,
+      "target": "../LANE-B-WORK-ORDER.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 340,
+      "target": "B-126-sm05-phantom-existing-issue-blocker.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 340,
+      "target": "B-132-setup-closure-and-sm05-dor-dod-alignment.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 340,
+      "target": "C-002-route-c-pre-run-access-proof.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 340,
+      "target": "C-007-route-a-r1-level2-review.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 340,
+      "target": "C-008-sv2-u02-combined-report-independent-review.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 340,
+      "target": "C-009-sv2-u02-remediation-triage-review.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 340,
+      "target": "../v1/work-packets/SETUP-SPIKE-000/SV-002.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 341,
+      "target": "B-120-v1-sm05-state-1-readiness-follow-up.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 341,
+      "target": "B-125-sm05-judge-evidence-and-two-pass-execution-docket.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 341,
+      "target": "B-135-d262-state1-handoff-and-open-backlog-audit-correction.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 341,
+      "target": "B-136-multi-lane-governance-canonical-owners-and-state2-gate.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 342,
+      "target": "B-139-sm05-cross-reference-and-version-drift-review.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 342,
+      "target": "B-095-b084-a4-write-set-contradictions.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 342,
+      "target": "B-096-state-metadata-report-separation.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 342,
+      "target": "B-104-t5-historical-target-executor-propagation.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 342,
+      "target": "B-118-v1-newsworthiness-ranking-t5-routing-and-source-raci-correction.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 342,
+      "target": "B-102-lane-a-governance-readiness-and-consumption-contract.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 343,
+      "target": "../Modular_PRD.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 343,
+      "target": "../v1/work-packets/V1/V1-SM06.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 344,
+      "target": "../v1/V1-PHASE-CLOSURE.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 1124,
+      "target": "B-046-graphify-branch-currency-record-reset-to-null.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 1124,
+      "target": "B-050-hook-rebuild-resets-graphify-branch-metadata.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 1125,
+      "target": "B-071-b070-options-and-desk-editor-ontology-require-correction.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 1125,
+      "target": "B-097-b071-terminal-return-protocol.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 1126,
+      "target": "B-102-lane-a-governance-readiness-and-consumption-contract.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 1126,
+      "target": "B-112-terminal-return-conflates-annotations-with-reopened-work.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 1127,
+      "target": "B-113-b112-partial-repair-leaves-b097-unenforced.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 1127,
+      "target": "B-116-option-a-audit-record-false-green.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 1128,
+      "target": "B-120-v1-sm05-state-1-readiness-follow-up.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 1128,
+      "target": "B-125-sm05-judge-evidence-and-two-pass-execution-docket.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 1129,
+      "target": "B-141-sv002-u04-mapping-feasibility-review.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 1129,
+      "target": "B-142-e4-intake-contract-and-sm05-evidence-verification.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 1258,
+      "target": "B-095-b084-a4-write-set-contradictions.md"
+    },
+    {
+      "source": "handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "line": 1259,
+      "target": "B-096-state-metadata-report-separation.md"
+    },
+    {
+      "source": "handoff/B-151-sm05-initial-behavior-test-coverage-reconciliation.md",
+      "line": 36,
+      "target": "../v1/work-packets/V1/V1-SM05.md"
+    },
+    {
+      "source": "handoff/B-151-sm05-initial-behavior-test-coverage-reconciliation.md",
+      "line": 38,
+      "target": "B-150-premature-closure-audit-and-residual-transfer-plan.md"
+    },
+    {
+      "source": "handoff/B-151-sm05-initial-behavior-test-coverage-reconciliation.md",
+      "line": 47,
+      "target": "../fn-specs/FN-GATES-01-05.md"
+    },
+    {
+      "source": "handoff/B-151-sm05-initial-behavior-test-coverage-reconciliation.md",
+      "line": 48,
+      "target": "B-137-b085-step3-packet-unapplied-residual-clauses.md"
+    },
+    {
+      "source": "handoff/B-151-sm05-initial-behavior-test-coverage-reconciliation.md",
+      "line": 48,
+      "target": "../v1/work-packets/SETUP-SPIKE-000/SV-002.md"
+    },
+    {
+      "source": "handoff/B-151-sm05-initial-behavior-test-coverage-reconciliation.md",
+      "line": 48,
+      "target": "../LANE-B-WORK-ORDER.md"
+    },
+    {
+      "source": "handoff/B-152-u1-reclose-header-and-return-act-enforcement.md",
+      "line": 32,
+      "target": "B-150-premature-closure-audit-and-residual-transfer-plan.md"
+    },
+    {
+      "source": "handoff/B-156-setup-traceability-audit-and-progressive-baseline-plan.md",
+      "line": 19,
+      "target": "#b156-investigation-chain"
+    },
+    {
+      "source": "v1/work-packets/V1/V1-SM05.md",
+      "line": 7,
+      "target": "../SETUP-SPIKE-000/SV-001.md"
+    },
+    {
+      "source": "v1/work-packets/V1/V1-SM05.md",
+      "line": 8,
+      "target": "../SETUP-SPIKE-000/SV-002.md"
+    }
+  ],
+  "issues": [],
+  "unresolvedCodeReferences": [
+    {
+      "source": "graph-fragments/README.md",
+      "line": 111,
+      "target": "./.graphify/graph.json"
+    }
+  ]
+}

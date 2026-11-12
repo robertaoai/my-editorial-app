@@ -1,0 +1,2 @@
+$ node scripts/check-consistency.mjs
+error: script "check" exited with code 1

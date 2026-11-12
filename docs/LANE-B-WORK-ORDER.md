@@ -13,9 +13,7 @@
 > answered; and §2.3's verification list is **generated from the files** instead of naming a
 > ten-entry set that is no longer the queue.
 
-**You do not need to read the decision register.** `D-86` is binding: governance reaches you as a
-**flag, not a document**. This file is where Lane A writes down what the flags mean and what is
-already provisioned, so that the register stays Lane A's problem.
+**Read `docs/v1/V1-BUILD-SPEC.md` and `docs/v1/V1-DECISION-REGISTER.md` before your first action (`AGENTS.md`).** You read them for authority; Lane A maintains them. Under `D-86`, governance reaches you as a **flag**: fix the code it names, or raise a handoff if the fix is outside your lane. This file records what the flags mean and what is already provisioned.
 
 **Why it sits in `docs/`.** Your surfaces are `app/`, `lib/`, `components/`, `supabase/`,
 `__tests__/` — Lane A cannot write there. `docs/` is Lane A's. This is the same arrangement
@@ -36,7 +34,7 @@ heading is what a reader acts on. **The heading is gone.**
 |---|---|
 | **`Active` means you may commit.** | Exactly one lane may, and only while §5 says it is you |
 | **`Blocked` means another lane is running.** | You may still **read anything**, and you may still **write in `docs/handoff/`** — that carve-out exists so reporting is never blocked (`D-103` §5.1) |
-| **`Eligible` means nominated as next holder, not yet executing work product.** | It **may coexist with the `Active` lane** — that pairing IS the offer. No work-product commit is permitted; `D-184` separately permits committing and pushing **only your own single handoff entry** under `docs/handoff/README.md`. Promotion to `Active` follows `D-156` |
+| **`Eligible` means nominated as next holder, not yet executing work product.** | It **may coexist with the `Active` lane** — that pairing IS the offer. No work-product commit is permitted; `D-184` separately permits committing and pushing **only your own single handoff entry** under `docs/handoff/README.md`. *Amended by `D-272`, 2026-09-27: you commit your own `B-` entries whatever your lane state, and you are also the **receiver** of `C-` entries whose `Receiver:` is `Lane B` — you write and commit their `Lane B:` answer by the same one-entry procedure.* Promotion to `Active` follows `D-156` |
 | **Phase 1 is still open.** | It closes last (`D-99`). Lane A leaving `Active` is not Phase 1 closing |
 | **`main` is not your problem.** | No agent deploys. `main` lagging the working branch is expected |
 
@@ -96,8 +94,7 @@ which is the governed form of both.
 
 **Two things deliberately NOT in your scope, so you do not invent them:**
 
-- **`C-31`** — whether retention on `articles` varies by final status. **Open, and it does not block
-  you.** Do not add a `retention_class` column; if you think one is needed, **raise it**.
+- **`C-31` — closed by re-tiering under `D-116`.** The retention question is not an open S1 construction condition. Read the Project retention policy through the canonical sources cited by `docs/Modular_PRD.md` §6.3. Read the product's absence-display behaviour in `AC-12a`, under `D-381`/`D-404`. Do not add a `retention_class` column without a separately authorized requirement; raise the need if one is found.
 - **`G85` — WITHDRAWN and DONE. Nothing here is owed** (`D-118`, raised by you as `B-042`). This
   entry told you the seven publication values were listed nowhere and asked you to derive them.
   **That was wrong**: they are in `v1-build-readiness-addendum.md` §231 and `blueprint.md`
@@ -335,7 +332,7 @@ bun run check
 
 **`config-coupling` and `lane-boundary` are the checks with opinions about you:**
 
-- **`config-coupling`** — red now, green when §2.1 is done. That is your definition of done.
+- **`config-coupling`** — checks configuration declarations against their authoritative records. Read the current check result. S0 completion is recorded in §2.1; this check does not define a later unit's DoD.
 - **`lane-boundary`** — reports a crossing if a commit touches more than one lane's surfaces.
   It **reports**, it does not forbid (`D-83`). If it names Lane A surfaces in your commit, you
   have touched something that is not yours — split it and raise a handoff for the rest.
@@ -458,3 +455,10 @@ technical child: one MMF holds several children and one business outcome. Push l
 evidence; a green child test is never release authority. Your evidence reaches Lane C only through §6.
 If the MMF you were handed has no outcome, acceptance boundary or DoR evidence, that is a
 `blocked-on-decision` entry, not a gap to fill by guessing.
+
+**Scoped amendment for xDD units (`D-443`, 2026-10-19).** Inside an authorized `TB-1` or `TB-2` unit only, where you are
+`Active`, the push language above is amended as `docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md` §11 states: in `TB-1` you
+commit and push each Red behavioural test when every gate passes; in `TB-2` you push a Red → Green component only after
+its accepted integration evidence. The gates are in `docs/specs/SPECS-VERIFICATION-APPARATUS.md` §17.1. Outside such a
+unit, the `B-114` push language above stands. This amendment starts no unit and permits no current push: each unit needs
+its own Register act, work order and `Active` lane.

@@ -1,0 +1,7 @@
+E1 manifest r6 inputs bound (4 files)
+A1–A10 old/new pairs occur literally in packet r2
+S0 seven bound blobs equal
+S0 A1–A10 exactly once, only in target (77 files)
+S0 N1 r2: D-438 not registered; 26 reference(s), all in IR-owned content
+S0 bound paths clean
+composed body sha256 c06de4df91742a87ac63cb3d2edde42a1cde34b5f6ea9bc9f8749966c3d6f756

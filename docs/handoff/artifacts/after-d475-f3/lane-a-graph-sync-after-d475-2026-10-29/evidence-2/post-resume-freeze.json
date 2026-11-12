@@ -1,0 +1,23 @@
+{
+ "at": "2026-10-29T11:56:49.000Z",
+ "head": "22b0a8ce2fb06c16152fa9490d21aae829a45974",
+ "status": "",
+ "configEqualEntry": true,
+ "refsOutsideTurnDiffsEqual": true,
+ "liveGraph": "4c3829a57f1dcc0e45d55fd045ccd56b9cfcb80c1cc3f6032cba4a1bf39a2ac7",
+ "receipts": 16,
+ "lock": false,
+ "journal": false,
+ "inventoryEqual": true,
+ "strayEqual": true,
+ "work": {
+  "state": "ready",
+  "attempts": 2,
+  "stateSha256": "1fd1a8885ac5903e4707057cce53e28b9dd8a044131e55dc6bfa8f12341db53e",
+  "answersHash": "89965adfdaaaddb8d463c2b2644f137f547c85f3cfe2610e068c07c355f97e70",
+  "claim": false
+ },
+ "candidateVerification": "4369433559afa4dc14cb669448ae9e8c747f672bc2d9a063062c1799b9b8e2ab",
+ "findings": [],
+ "pass": true
+}

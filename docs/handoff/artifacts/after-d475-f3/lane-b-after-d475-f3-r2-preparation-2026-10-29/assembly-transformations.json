@@ -1,0 +1,58 @@
+{
+  "body": [
+    {
+      "from": "function run(exe,args,cwd,label,timeout=60000) {",
+      "to": "function run(exe,args,cwd,label,timeout=60000,expectedStatus=0) {"
+    },
+    {
+      "from": "res.status===0 && !res.signal",
+      "to": "res.status===expectedStatus && !res.signal"
+    },
+    {
+      "from": "function validateBindings() {",
+      "to": "let neutralIndex=0;\nconst CONFIG_QUERIES = {\n  effective(checkout, gitPath, env) {\n    requireThat(same(env,ENV),'config query environment');\n    return {status:0,signal:null,error:null,stdout:run(gitPath,['-C',checkout,'config','--list','--show-origin'],checkout,'effective-config').toString('utf8')};\n  },\n  outside(gitPath, env) {\n    requireThat(same(env,ENV),'neutral config environment');\n    const dir=OUT+'/scratch/neutral-'+(++neutralIndex);requireThat(!fs.existsSync(dir),'neutral scratch exists');fs.mkdirSync(dir);\n    const result=run(gitPath,['-C',dir,'rev-parse','--is-inside-work-tree'],dir,'neutral-not-repo',60000,128);\n    requireThat(result.length===0,'unexpected neutral rev-parse stdout');\n    const rec=R.commands.at(-1);requireThat(/not a git repository/i.test(read(rec.stderr.path).toString()),'neutral refusal has unexpected reason');\n    return {status:0,signal:null,error:null,stdout:run(gitPath,['-C',dir,'config','--list','--show-origin'],dir,'outside-config').toString('utf8')};\n  }\n};\nfunction validateBindings() {"
+    },
+    {
+      "from": "G.bindingFindings(b,{checkout:cwd,env:ENV})",
+      "to": "G.bindingFindings(b,{checkout:cwd,env:ENV,queries:CONFIG_QUERIES})"
+    },
+    {
+      "from": "const selection=ST.ready.selection;requireThat",
+      "to": "const runRecord=J(A+'/evidence-2/resume.out');\n    requireThat(runRecord.outcome==='ready'&&runRecord.exit===0&&runRecord.workId===EXPECT.workId&&same(runRecord.ready,ST.ready),'recorded resume output differs');\n    const selection=ST.ready.selection;requireThat"
+    }
+  ],
+  "projectionWorker": {
+    "source": "C:/robertaoai/my-editorial-app/scripts/graphify/guarded-rebuild.mjs",
+    "originalSha256": "b732fa43946c0cf55e657675834e39ee5507396e9290296a82825299a64441f3",
+    "changes": [
+      {
+        "from": "cpSync, existsSync, mkdtempSync, readdirSync, readFileSync, rmSync",
+        "to": "cpSync, existsSync, readdirSync, readFileSync, writeFileSync"
+      },
+      {
+        "from": "import { tmpdir } from \"node:os\";",
+        "to": "// Scratch comes exclusively from the fixed child output; no temporary-directory environment change."
+      },
+      {
+        "from": "const T = mkdtempSync(join(tmpdir(), \"guard-manifest-\"));",
+        "to": "const T = o.scratch;"
+      },
+      {
+        "from": "cpSync(studio, T, { recursive: true });",
+        "to": "cpSync(studio, T, { recursive: true, errorOnExist: true, force: false });\n      writeFileSync(join(T, \"../manifest-original.json\"), readFileSync(join(T, \"workspace-manifest.json\")), { flag: \"wx\" });"
+      },
+      {
+        "from": "} finally { rmSync(T, { recursive: true, force: true }); }",
+        "to": "} finally { /* preserve scratch including partial producer output on every outcome */ }"
+      },
+      {
+        "from": "for (const rel of existsSync(onto) ? list(onto) : []) if (!INPUTS.has(rel)) f.push(\"unclassified export input: ontology/\" + rel);",
+        "to": "for (const rel of existsSync(onto) ? list(onto) : []) {\n    if (!INPUTS.has(rel)) f.push(\"unclassified export input: ontology/\" + rel);\n    J(join(onto,rel)); // malformed optional JSON must not become a producer empty fallback\n  }\n  if (has(\"scene-hierarchies.json\")) f.push(\"unexpected hierarchy output for this fixed no-profile candidate\");"
+      },
+      {
+        "from": "process.stdout.write(JSON.stringify({ findings: f, summary }));",
+        "to": "process.stdout.write(JSON.stringify({ findings: f, summary,\n completed:f.length?[]:[\"graph\",\"scene\",\"entities\",\"reconciliation\",\"citations\",\"manifest\",\"embedded-bundle\",\"shipped-assets\"] }));\nprocess.exitCode=f.length?2:0;"
+      }
+    ]
+  }
+}

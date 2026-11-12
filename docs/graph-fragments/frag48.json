@@ -8,8 +8,6 @@
       "source_file": "docs/handoff/B-005-untracked-sync-docs-skill.md",
       "source_location": "B-005",
       "description": "Lane B found an untracked skill file outside the reviewed commit that contradicted the governing lane map, and refused to treat it as closure evidence. Answered by removing it as a divergent duplicate and repairing the tracked original.",
-      "community": 49,
-      "community_name": "Phase Closure and Critique",
       "source_url": null,
       "captured_at": null,
       "author": null,

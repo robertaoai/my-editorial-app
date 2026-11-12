@@ -1,0 +1,23 @@
+{
+  "nodes": [
+    {
+      "id": "d468_rejected_draft_evidence",
+      "label": "Rejected D-468 Draft (Historical Evidence, No Authority)",
+      "file_type": "document",
+      "source_file": "docs/v1/evidence/d468-rejected-draft-2026-10-26.md",
+      "source_location": "whole file",
+      "description": "The exact pre-commit text of D-468 (11,239 bytes, SHA-256 c963c591), transferred from the untracked tmp/d468-entry.md into docs/v1/evidence/ by D-471 item 8. Rejected historical draft evidence: its fabricated locators, duplicate Q2 registration, wrong exit-3 claim and unmet proof claims are superseded by D-470. It carries no authority and is never cited as authority."
+    }
+  ],
+  "edges": [
+    {
+      "source": "d468_rejected_draft_evidence",
+      "target": "v1_decision_register",
+      "relation": "references",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/evidence/d468-rejected-draft-2026-10-26.md",
+      "source_location": "whole file",
+      "weight": 1
+    }
+  ]
+}

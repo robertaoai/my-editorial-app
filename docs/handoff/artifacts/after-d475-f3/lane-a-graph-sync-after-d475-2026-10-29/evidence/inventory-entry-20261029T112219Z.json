@@ -1,0 +1,56 @@
+{
+ "startedUtc": "2026-10-29T11:22:46.550Z",
+ "roots": {
+  "C:/robertaoai/my-editorial-app-preflight": {
+   "exists": true,
+   "items": [
+    {
+     "path": ".agents/skills",
+     "type": "dir",
+     "mtimeUtc": "2026-09-29T02:42:45.417Z",
+     "birthtimeUtc": "2026-09-29T02:42:45.415Z"
+    },
+    {
+     "path": ".agents/skills/sync-docs",
+     "type": "dir",
+     "mtimeUtc": "2026-09-29T02:42:45.420Z",
+     "birthtimeUtc": "2026-09-29T02:42:45.417Z"
+    },
+    {
+     "path": ".agents/skills/sync-docs/SKILL.md",
+     "type": "file",
+     "mtimeUtc": "2026-09-29T02:42:45.421Z",
+     "birthtimeUtc": "2026-09-29T02:42:45.420Z",
+     "size": 7441,
+     "sha256": "a72a1aca8122f28bcf19f5f8f370f61bc2cab09e4d20a9140932e29d4edcb0f9"
+    }
+   ]
+  },
+  "C:/robertaoai/my-editorial-app-proof": {
+   "exists": true,
+   "items": [
+    {
+     "path": ".agents/skills",
+     "type": "dir",
+     "mtimeUtc": "2026-10-14T15:49:18.874Z",
+     "birthtimeUtc": "2026-10-14T15:49:18.873Z"
+    },
+    {
+     "path": ".agents/skills/sync-docs",
+     "type": "dir",
+     "mtimeUtc": "2026-10-14T15:49:18.891Z",
+     "birthtimeUtc": "2026-10-14T15:49:18.874Z"
+    },
+    {
+     "path": ".agents/skills/sync-docs/SKILL.md",
+     "type": "file",
+     "mtimeUtc": "2026-10-14T15:49:18.891Z",
+     "birthtimeUtc": "2026-10-14T15:49:18.891Z",
+     "size": 7841,
+     "sha256": "0d18d886aa050ad276b61f1c6f97268995e52d137bdf517e4f17bd592eec187c"
+    }
+   ]
+  }
+ },
+ "endedUtc": "2026-10-29T11:22:46.563Z"
+}

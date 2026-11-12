@@ -4,14 +4,36 @@
 - **Kind:** spec-defect
 - **Phase:** 1
 - **Blocks:** independent verification of B-113, B-112 and B-097; B-103 P3 closure
-- **Status:** Open
-- **Lane A:** **Acknowledged 2026-09-16, receipt only.** The parent-first table and items 1–6 under
+- **Status:** Answered
+- **Lane A:** **Answered 2026-10-01 (`D-375`, applied at `e1e3b29`), read at `87aa3f5`.** Items 2–6 were applied as one
+  bounded Lane A unit, after the `B-150` ledger found the unit had never been applied:
+  - **(2)** `B-113` keeps one `Verified-At-Commit`, `284b4ae`: the commit that records the complete Option A
+    packet (`27efc2d`, `0d2cc2b`). `0d2cc2b` and `3368753` are kept as prose history.
+  - **(3)** `B-112`'s placeholder is filled with `d80167b` and the fixture-mock follow-up `9afbb9b`, taken from its own
+    correction note. Its anchor moves from `3368753`, an unrelated `B-115` commit, to `284b4ae`.
+  - **(4)** `B-097`'s anchor moves from `389d22a`, which predated Option A, to `284b4ae`, so its header and body name
+    one review point.
+  - **(5)** `handoff-response` now fails when `Kind`, `Phase`, `Receiver`, `Status`, `Resolution`, `Verified-By`,
+    `Verified-At-Commit`, `Follow-up-Tier` or `Superseded-By` repeats before the first `## ` heading (fences
+    stripped). The SOP states the rule. It found a third live instance, `B-071`'s pre-return audit pair, which is
+    now prose.
+  - **(6)** `bun run check` passes 19/19. `bun run fixtures` on a clean tree at `e1e3b29` exits 0, with every
+    fixture behaving as intended, including the cardinality cases, and the tree restored.
+  `B-113`, `B-112` and `B-097` stay `Applied`. **Item 7:** Lane B verifies in order: `B-113`, then `B-112`, then `B-097`,
+  then `B-103` P3. Disposition: `Applied`.
+  *Earlier receipt:* **Acknowledged 2026-09-16, receipt only.** The parent-first table and items 1–6 under
   "What Lane A needs to do" are accepted as the next Lane A unit. `B-113`, `B-112` and `B-097` stay
   `Applied` until that correction lands and Lane B independently verifies in the stated order
   (`B-113` → `B-112` → `B-097` → `B-103` P3). No header field is edited by this acknowledgement.
-- **Verified-By:** — not yet dispositioned; raised by Lane B
+  **Repair for Lane B's `38c1cb4` finding, 2026-10-01 (`D-378`, `fc99842`).** The singleton matcher was case-sensitive
+  while `field()` is not, so a mixed-case duplicate passed. It now uses `gmi`. Fixtures add a mixed-case, reversed-order,
+  differing-value duplicate for each of the nine singletons. No live duplicate was newly flagged. Check 19/19; fixtures
+  exit 0 on a clean tree. `Verified-At-Commit` moves from `e1e3b29` to `fc99842`, the one review point for Lane B.
+  Order unchanged: `B-116`, then `B-113` → `B-112` → `B-097` → `B-103` P3.
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), independent Phase 1 O0 review, 2026-10-01
 - **Evidence:** direct read of B-112/B-113/B-097 at `284b4ae`; `bun run check` 18/18; `bun run fixtures` 143/143 with the working tree restored; Graphify governed-intent baseline `0d2cc2b` and excluded-only handoff advance to `284b4ae`
-- **Verified-At-Commit:** 284b4ae87b7d80fc246d8832ecc038682f076c9a
+- **Verified-At-Commit:** fc998420c5a423caf5953e527277a5ffb183c247
 
 ## What happened
 
@@ -102,3 +124,70 @@ Graphify state or deployment state.
 | Reject | Independent verification at `284b4ae` | Audit record is internally contradictory despite green suites |
 | Defer | B-103 P3 and whole-entry closure | After B-113, B-112 and B-097 are independently Verified in order |
 | Defer | B-114/B-115 governed propagation | Separate Lane A Intent/Build/DevOps chain; do not combine it with this evidence repair |
+
+## Independent O0 review — D-375 is applied but not complete — Lane B — 2026-10-01
+
+**Read:** `62bc0cfa327e8d168708d44f6b224603a1715805`; executable probe baseline `20b4e0bb0d9bbfd75afb86e39e8e6d81e87612de`.
+Judge authorization: "Lane B verifies O0. Phase 1". No receiver answer or owned checker is edited here.
+
+**Completed:** the four concrete record repairs reproduce correctly: B-113 has one header anchor;
+B-112 has no live placeholder; B-097 uses the Option A read point; B-071's obsolete audit pair is prose.
+The five new exact-case/fenced/body cardinality fixtures pass. Those accomplishments are retained.
+
+**Blocking gap — item 5 still produces a false green.** `handoff-fields.mjs` reads names with `mi`
+(case-insensitive), while `handoff-response.mjs` counts singleton names with `gm` (case-sensitive).
+The independent probe against B-001's real header confirms: unchanged baseline is green; adding
+a second exact-case Status fails; adding a second lowercase `status` is green; adding a second
+lowercase `verified-at-commit` is green. In each case the reader still accepts the field vocabulary.
+Files were restored. This is a parser-equivalence defect, not an assertion that any existing live
+handoff actually contains these mixed-case duplicates.
+
+**Evidence:** external `C:/CoWork/outputs/handoff-review-2026-10-01/o0-case-probe.json`
+and `o0-case-probe.mjs`; real checker lines 681–683 and shared field reader lines 43–54.
+The full existing fixture run in an isolated linked worktree restored its tree and passed 258/259;
+the one suite exception was ENOTDIR for `.git/lane-gate-fixture`, before its lane-gate cases ran.
+That portability limitation is separate from the deterministic false-green probe; it is not evidence
+that lane-crossing refusal semantics fail. No whole-suite pass is claimed from that run.
+
+### Draft repair for Lane A — existing correction owner, no duplicate handoff
+
+1. Count the nine header singleton names with the same case-insensitive semantics as `field()`;
+   the smallest change is `gm` → `gmi` in the cardinality matcher. Preserve horizontal whitespace,
+   fence exclusion, first-heading boundary and repeatable body records.
+2. Add refusal cases for mixed-case duplicates of all nine names, including reversed order and
+   differing values. Keep exact-case refusal and fenced/body positive controls. Success means
+   every reader-recognized duplicate is refused, regardless of order or casing.
+3. Apply as a bounded Phase 1 Lane A unit after the Judge's Register act; run the corrected fixtures
+   and consistency suite on a suitable clean checkout. If using linked worktrees, resolve Git's
+   administrative directory for the fixture scratch area rather than assuming `.git` is a directory.
+4. Return evidence here. Lane B verifies B-116's repair, then B-113 → B-112 → B-097 → B-103 P3.
+   Do not set those downstream entries Verified from the unchanged green suite.
+
+| Decision | Verdict | Follow-up phase / condition |
+|---|---|---|
+| D-375 concrete record corrections and existing five cardinality fixtures | Approve | Phase 1 — retain proof and chronology |
+| B-116 item 5 / whole correction-unit independent closure | Reject | Phase 1 — matcher/reader equivalence and mixed-case refusal proof required |
+| Downstream B-113 → B-112 → B-097 → B-103 P3 verification | Defer | Phase 1 — after the bounded B-116 repair is independently verified |
+| Software construction | Defer | Authorized Phase 2 — Gate 2, work order and Lane B Active |
+
+## Independent Lane B verification — D-378 repair — 2026-10-01
+
+Judge authorization: "Lane B verifies B-116 at fc99842, then the chain. Phase 1 / O0".
+Main-tree read: `8bd159fda6814425823328def3e52f01d69ddb2f`; independently tested source: `fc998420c5a423caf5953e527277a5ffb183c247`.
+The source anchor in the header names that tested repair, not this recording commit.
+
+The singleton cardinality matcher now uses the same case-insensitive field semantics as the reader.
+All nine singleton fields reject a mixed-case duplicate in reversed order with differing values.
+Fenced examples and repeated body fields remain valid. This resolves the previously recorded
+false-green finding within D-378's bounded repair; historical rejection text remains historical.
+
+Independent disposable-clone evidence: 70/70 focused cases passed (14 singleton, 8 return form,
+8 annotation form, 8 episode boundaries, 32 terminal-return decisions), restored tree confirmed.
+Main-tree consistency: 19/19 checks passed at the read above. Negative cases proved refusal,
+not just acceptance of an already healthy tree. No application build or runtime proof is claimed.
+
+| Decision | Verdict | Follow-up phase |
+|---|---|---|
+| B-116 bounded repair and independent closure | Approve | Phase 1 / O0 — Verified at the tested source |
+| Dependent B-113 → B-112 → B-097 → B-103 P3 | Defer | Phase 1 / O0 — independently record each dependency in that order |
+| Whole O0, tracker reconciliation and Gate 2 | Defer | Phase 1 — separate ledger, receiving and Judge evidence required |

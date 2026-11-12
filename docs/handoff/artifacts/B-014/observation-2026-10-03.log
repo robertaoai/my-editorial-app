@@ -1,0 +1,29 @@
+# GR-012 observation log (D-400)
+start: 2026-10-03 10:49:26 SGT | window: 60 min | poll: 2s | roots: .claude, .agents, .codex, .github | checkout: C:/robertaoai/my-editorial-app
+HEAD: a81e2bb
+## baseline (20 entries)
+  .agents  dir
+  .agents/skills  dir
+  .agents/skills/sync-docs  dir
+  .agents/workflows  dir
+  .agents/workflows/graphify.md  file 315B sha256:9271b63a0d9407d1
+  .claude  dir
+  .claude/settings.json  file 1897B sha256:07dfdd02b75558e6
+  .claude/skills  dir
+  .claude/skills/sync-docs  dir
+  .claude/skills/sync-docs/SKILL.md  file 8800B sha256:213fe7f02ba7c1c0
+  .codex  dir
+  .codex/hooks.json  file 218B sha256:123313824d5e7a64
+  .github  dir
+  .github/ISSUE_TEMPLATE  dir
+  .github/ISSUE_TEMPLATE/v1-mmf.md  file 3026B sha256:11493299c9fe53d0
+  .github/PULL_REQUEST_TEMPLATE  dir
+  .github/PULL_REQUEST_TEMPLATE/v1-mmf.md  file 4663B sha256:a948a42da21cbf70
+  .github/WORKFLOWS-SPEC.md  file 9754B sha256:4ac4f3ef2310a8f9
+  .github/workflows  dir
+  .github/workflows/ci.yml  file 1815B sha256:7c394e99ea30930f
+  .agents/skills/sync-docs present: true
+  candidate processes: Antigravity.exe, ChatGPT.exe, Code.exe, claude.exe, codex-code-mode-host.exe, codex-computer-use-swift.exe, codex-windows-sandbox-service.exe, codex.exe, git.exe, node.exe, node_repl.exe
+## changes
+## end: 2026-10-03 11:20:26 SGT | STOPPED EARLY by the Judge (D-401); window 10:49:26 to stop, not the commissioned 60 min | 0 change(s)
+  .agents/skills/sync-docs at end: 0 entr(ies)

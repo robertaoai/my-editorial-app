@@ -15,14 +15,16 @@
   rather than restating a second version. No governed source, check behavior, or B-097/B-112
   disposition changes until that choice is made. Graphify not rebuilt: nothing governed changed in
   this answer.
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified; dispositioned by Lane A
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), independent Phase 1 O0 review, 2026-10-01
 - **Evidence:** Chief Editor selected Option A (this entry's own "Judge clarification" section);
   Option A fully implemented at `27efc2d`/`0d2cc2b` — see B-097's "Chief Editor Option A applied in
   full, 2026-09-16"; `bun run check` 18/18, `terminal-return` 75/75 clean; `bun run fixtures`
-  143/143; Graphify synced at `0d2cc2b`
-- **Verified-At-Commit:** 0d2cc2bd5ea08097d055135337e08b82bda9f581
-- **Verified-At-Commit:** 33687530f36a0bd3fdd1b06f625404cb9efdf827
+  143/143; Graphify synced at `0d2cc2b`. *Audit anchor made single on 2026-10-01 (`B-116` item 2, `D-375`). The
+  header had carried two `Verified-At-Commit` fields: `0d2cc2b` (the Option A implementation) and `3368753` (an
+  unrelated `B-115` commit read at the time). The one review point is now `284b4ae`, the commit that records the
+  complete Option A packet (`27efc2d`, `0d2cc2b`, and the recorded answers in `B-097` and this entry).*
+- **Verified-At-Commit:** 8b6099f0d9011d594072f1815ed3c43fc51b0a0f
 
 ## What happened
 
@@ -306,3 +308,23 @@ for `Deferred`, and the Option A/B question it named is now answered), `Verified
 advanced to the commit this update reads. This entry's own `Status: Answered` stands; `Applied` is
 deliberately not terminal until an independent reviewer confirms it (`D-102`) — that review, for
 this entry, `B-112`, and transitively `B-097`, remains outstanding and is not self-recorded here.
+
+## Independent Lane B verification — enforcement chain — 2026-10-01
+
+Judge-authorized Phase 1 / O0 chain review. Read `8b6099f0d9011d594072f1815ed3c43fc51b0a0f` after B-116's independent verification.
+Lane A's applied answer and historical findings are preserved. The D-378 repair at
+`fc998420c5a423caf5953e527277a5ffb183c247` removes the outstanding duplicate-field false green.
+The current terminal-return control walks every terminal episode, distinguishes audit/annotation
+from resumed work, checks return/re-close provenance and includes the working-copy preview.
+The report-only/partial-enforcement descriptions earlier in this entry describe superseded states.
+
+Independent evidence: 70/70 focused singleton/return/annotation/episode/history cases passed on
+the exact repaired source, including negative refusal cases and the real-history walk; 19/19
+main-tree consistency checks passed at `8bd159fda6814425823328def3e52f01d69ddb2f` before this chain.
+The six classified historical cases retain their explicit provenance; no fictional return is created.
+
+| Decision | Verdict | Follow-up phase |
+|---|---|---|
+| B-113's bounded enforcement defect after verified B-116 repair | Approve | Phase 1 / O0 — independently Verified |
+| B-112 → B-097 → B-103 P3 | Defer | Phase 1 / O0 — ordered independent records next |
+| Whole B-071/B-150, residual backlog and Gate 2 | Defer | Phase 1 — their own child/receiving/ledger obligations remain |

@@ -1,0 +1,133 @@
+{
+  "schema": "B-157 C1 target manifest v1",
+  "derivedFrom": "B-156 F3-optionA/F3-optionA-targets.json (ae728bd)",
+  "repairIds": "R1-R20",
+  "targets": [
+    {
+      "id": "R1-R3",
+      "kind": "lines",
+      "path": "docs/specs/SPECS-VERIFICATION-APPARATUS.md",
+      "from": 96,
+      "to": 105
+    },
+    {
+      "id": "R4",
+      "kind": "field",
+      "path": "docs/graph-fragments/frag13.json",
+      "node": "ci_that_cannot_fail",
+      "field": "description"
+    },
+    {
+      "id": "R5",
+      "kind": "lines",
+      "path": "docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md",
+      "from": 177,
+      "to": 179
+    },
+    {
+      "id": "R6-R7",
+      "kind": "lines",
+      "path": "docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md",
+      "from": 213,
+      "to": 214
+    },
+    {
+      "id": "R8",
+      "kind": "lines",
+      "path": "docs/Modular_PRD.md",
+      "from": 883,
+      "to": 883
+    },
+    {
+      "id": "R9",
+      "kind": "lines",
+      "path": "docs/specs/SPECS-MULTI-LANE-AI-GOVERNANCE.md",
+      "from": 106,
+      "to": 107
+    },
+    {
+      "id": "R10",
+      "kind": "lines",
+      "path": "GEMINI.md",
+      "from": 13,
+      "to": 13
+    },
+    {
+      "id": "R11.description",
+      "kind": "field",
+      "path": "docs/graph-fragments/frag7.json",
+      "node": "shared_core_agent_rules",
+      "field": "description"
+    },
+    {
+      "id": "R11.source_file",
+      "kind": "field",
+      "path": "docs/graph-fragments/frag7.json",
+      "node": "shared_core_agent_rules",
+      "field": "source_file"
+    },
+    {
+      "id": "R11.source_location",
+      "kind": "field",
+      "path": "docs/graph-fragments/frag7.json",
+      "node": "shared_core_agent_rules",
+      "field": "source_location"
+    },
+    {
+      "id": "R12.source_file",
+      "kind": "field",
+      "path": "docs/graph-fragments/frag15.json",
+      "node": "rule_must_reach_its_subjects",
+      "field": "source_file"
+    },
+    {
+      "id": "R12.source_location",
+      "kind": "field",
+      "path": "docs/graph-fragments/frag15.json",
+      "node": "rule_must_reach_its_subjects",
+      "field": "source_location"
+    },
+    {
+      "id": "R12.description",
+      "kind": "field",
+      "path": "docs/graph-fragments/frag15.json",
+      "node": "rule_must_reach_its_subjects",
+      "field": "description"
+    },
+    {
+      "id": "R13-R15",
+      "kind": "lines",
+      "path": ".github/WORKFLOWS-SPEC.md",
+      "from": 46,
+      "to": 58
+    },
+    {
+      "id": "R16",
+      "kind": "lines",
+      "path": ".github/WORKFLOWS-SPEC.md",
+      "from": 77,
+      "to": 79
+    },
+    {
+      "id": "R17",
+      "kind": "lines",
+      "path": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+      "from": 69,
+      "to": 69
+    },
+    {
+      "id": "R18-R19",
+      "kind": "lines",
+      "path": "GEMINI.md",
+      "from": 31,
+      "to": 35
+    },
+    {
+      "id": "R20",
+      "kind": "lines",
+      "path": ".github/WORKFLOWS-SPEC.md",
+      "from": 34,
+      "to": 37
+    }
+  ]
+}

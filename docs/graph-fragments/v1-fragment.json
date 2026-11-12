@@ -6,9 +6,7 @@
       "file_type": "document",
       "source_file": "docs/v1/V1-DECISION-REGISTER.md",
       "source_location": "",
-      "description": "Operative record of what is decided for v1: decisions with their tier-applicability tables, the conditions register, the gap disposition table and the supersession map. Wins over any derived tier that contradicts it (D-58). No tally is restated here; the file itself is the count.",
-      "community": 30,
-      "community_name": "V1 Operative Set"
+      "description": "Operative record of what is decided for v1: decisions with their tier-applicability tables, the conditions register, the gap disposition table and the supersession map. Wins over any derived tier that contradicts it (D-58). No tally is restated here; the file itself is the count."
     },
     {
       "id": "v1_build_spec",
@@ -16,9 +14,7 @@
       "file_type": "document",
       "source_file": "docs/v1/V1-BUILD-SPEC.md",
       "source_location": "",
-      "description": "Operative sequenced plan for v1. Quotes the customer's CR-19 scenario unchanged and states that V1 is V1-SM05 and V1-SM06, ending at the bounded LinkedIn ManualReady outcome, so it satisfies CR-19 only partially (D-247). V1-SM05 is a limited Route-1 evidence slice with no transition:T* execution claim; V1-SM06 adds board visibility and ManualReady (D-249, D-250). SETUP-SPIKE-000 is transfer mapped, closure pending (D-248). Also carries the pre-build sequence, the parallel POC track, the out-of-scope list and the standing invariants.",
-      "community": 30,
-      "community_name": "V1 Operative Set"
+      "description": "Operative sequenced plan for v1. Quotes the customer's CR-19 scenario unchanged and states that V1 is V1-SM05 and V1-SM06, ending at the bounded LinkedIn ManualReady outcome, so it satisfies CR-19 only partially (D-247). V1-SM05 is a limited Route-1 evidence slice with no transition:T* execution claim; V1-SM06 adds board visibility and ManualReady (D-249, D-250). SETUP-SPIKE-000 is transfer mapped, closure pending (D-248). Also carries the pre-build sequence, the parallel POC track, the out-of-scope list and the standing invariants."
     },
     {
       "id": "v1_artifact_inventory",
@@ -26,9 +22,7 @@
       "file_type": "document",
       "source_file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
       "source_location": "",
-      "description": "Every file the v1 plan assumes will exist, its phase, and whether it exists today, verified by filesystem check rather than by reading the plan. Defines gaps G25 through G31.",
-      "community": 30,
-      "community_name": "V1 Operative Set"
+      "description": "Every file the v1 plan assumes will exist, its phase, and whether it exists today, verified by filesystem check rather than by reading the plan. Defines gaps G25 through G31."
     },
     {
       "id": "operative_set_frozen_rule",
@@ -36,9 +30,7 @@
       "file_type": "concept",
       "source_file": "docs/v1/V1-DECISION-REGISTER.md",
       "source_location": "section 6.1",
-      "description": "No fourth v1 document may be created. New findings are absorbed into whichever of the three operative documents owns the question. The rule exists because its failure already occurred twice: the consolidated register fell six gaps behind while six new analysis documents were written around it, and the artifact inventory omitted G30 one turn after G30 was proposed.",
-      "community": 30,
-      "community_name": "V1 Operative Set"
+      "description": "No fourth v1 document may be created. New findings are absorbed into whichever of the three operative documents owns the question. The rule exists because its failure already occurred twice: the consolidated register fell six gaps behind while six new analysis documents were written around it, and the artifact inventory omitted G30 one turn after G30 was proposed."
     },
     {
       "id": "gap_disposition_table",
@@ -46,9 +38,7 @@
       "file_type": "concept",
       "source_file": "docs/v1/V1-DECISION-REGISTER.md",
       "source_location": "section 5.1",
-      "description": "Maps every G and GA identifier to its disposition and phase. Added after a completeness challenge found 16 of 40 IDs had no trace in the operative set. Supersession must transfer traceability, not destroy it. Tally: 6 closed, 2 escalated to counsel, 1 unowned, remainder open against a named phase.",
-      "community": 30,
-      "community_name": "V1 Operative Set"
+      "description": "Maps every G and GA identifier to its disposition and phase. Added after a completeness challenge found 16 of 40 IDs had no trace in the operative set. Supersession must transfer traceability, not destroy it. Tally: 6 closed, 2 escalated to counsel, 1 unowned, remainder open against a named phase."
     },
     {
       "id": "four_payload_agent_file_edit",
@@ -56,9 +46,7 @@
       "file_type": "concept",
       "source_file": "docs/v1/V1-DECISION-REGISTER.md",
       "source_location": "section 2.1",
-      "description": "A7, G5, D-15, and D-20 all modify the two files every agent reads first. They are one edit with four payloads: repoint off the stale plan pack, cover AGENTS.md, name docs/v1 as operative, and state the output contract. Opening those files four separate times is four chances to leave them inconsistent.",
-      "community": 30,
-      "community_name": "V1 Operative Set"
+      "description": "A7, G5, D-15, and D-20 all modify the two files every agent reads first. They are one edit with four payloads: repoint off the stale plan pack, cover AGENTS.md, name docs/v1 as operative, and state the output contract. Opening those files four separate times is four chances to leave them inconsistent."
     },
     {
       "id": "output_contract_d20",
@@ -66,9 +54,7 @@
       "file_type": "concept",
       "source_file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
       "source_location": "G30",
-      "description": "Every analysis response ends with an Approve, Approve-with-conditions, Defer, or Reject table in house vocabulary, each condition naming its follow-up phase, rationale kept in the linked document. Placed in CLAUDE.md and AGENTS.md because both Claude and Codex edit this repository and a convention held in one session's memory never reaches the other.",
-      "community": 30,
-      "community_name": "V1 Operative Set"
+      "description": "Every analysis response ends with an Approve, Approve-with-conditions, Defer, or Reject table in house vocabulary, each condition naming its follow-up phase, rationale kept in the linked document. Placed in CLAUDE.md and AGENTS.md because both Claude and Codex edit this repository and a convention held in one session's memory never reaches the other."
     },
     {
       "id": "g11_agent_arbitration_unowned",
@@ -76,9 +62,7 @@
       "file_type": "concept",
       "source_file": "docs/v1/V1-DECISION-REGISTER.md",
       "source_location": "section 5.1",
-      "description": "At least two agents co-edit docs/ with no arbitration rule and no forcing function to detect a conflicting concurrent edit. D-20 partially mitigates by placing the output contract where both agents read it, but authority on a conflicting edit remains undecided. The only gap with no owner.",
-      "community": 30,
-      "community_name": "V1 Operative Set"
+      "description": "At least two agents co-edit docs/ with no arbitration rule and no forcing function to detect a conflicting concurrent edit. D-20 partially mitigates by placing the output contract where both agents read it, but authority on a conflicting edit remains undecided. The only gap with no owner."
     },
     {
       "id": "t0_execution_runbook",
@@ -86,9 +70,7 @@
       "file_type": "document",
       "source_file": "docs/journal/2026-08-18-t0-execution-runbook.md",
       "source_location": "",
-      "description": "Step-by-step procedure for the six T0 documentation fixes: exact target file and text, version and changelog discipline per file, and a grep-level verification pass. Retained as the executable working procedure rather than superseded.",
-      "community": 28,
-      "community_name": "Sprint Readiness and Board Approvals"
+      "description": "Step-by-step procedure for the six T0 documentation fixes: exact target file and text, version and changelog discipline per file, and a grep-level verification pass. Retained as the executable working procedure rather than superseded."
     },
     {
       "id": "storyboard_business_digital_twin",
@@ -96,9 +78,7 @@
       "file_type": "document",
       "source_file": "docs/journal/2026-08-18-storyboard-business-and-digital-twin.md",
       "source_location": "",
-      "description": "Both lanes walked panel by panel with the data flow at each: MVP discovery to publication across T1 to T11, and the POC client-commissioned lane. Shows the gaps as missing panels and missing records rather than abstract register rows.",
-      "community": 28,
-      "community_name": "Sprint Readiness and Board Approvals"
+      "description": "Both lanes walked panel by panel with the data flow at each: MVP discovery to publication across T1 to T11, and the POC client-commissioned lane. Shows the gaps as missing panels and missing records rather than abstract register rows."
     },
     {
       "id": "raci_human_vs_digital_twin",
@@ -106,9 +86,7 @@
       "file_type": "document",
       "source_file": "docs/journal/2026-08-18-raci-human-vs-digital-twin.md",
       "source_location": "",
-      "description": "Compares the supplied eight-role human newsroom RACI against the five virtual agents of the digital twin. Establishes that human roles hold Accountable and agents hold Responsible, so with one natural person all accountability collapses to the Chief Editor. Defines G19 and G20; withdraws G21.",
-      "community": 28,
-      "community_name": "Sprint Readiness and Board Approvals"
+      "description": "Compares the supplied eight-role human newsroom RACI against the five virtual agents of the digital twin. Establishes that human roles hold Accountable and agents hold Responsible, so with one natural person all accountability collapses to the Chief Editor. Defines G19 and G20; withdraws G21."
     },
     {
       "id": "retraction_as_publication",
@@ -116,9 +94,7 @@
       "file_type": "document",
       "source_file": "docs/journal/2026-08-18-retraction-as-publication.md",
       "source_location": "",
-      "description": "A correction or retraction is editorial content that must be verified and published in its own right, so it re-enters the same five gates rather than needing a separate post-publication lane. Defines the notice-as-article model, adds Expression of Concern to the remedy ladder, and reshapes FR-13.",
-      "community": 29,
-      "community_name": "Audit Retention and Disposal Model"
+      "description": "A correction or retraction is editorial content that must be verified and published in its own right, so it re-enters the same five gates rather than needing a separate post-publication lane. Defines the notice-as-article model, adds Expression of Concern to the remedy ladder, and reshapes FR-13."
     },
     {
       "id": "publication_transaction_record",
@@ -126,9 +102,7 @@
       "file_type": "document",
       "source_file": "docs/journal/2026-08-18-publication-transaction-record.md",
       "source_location": "",
-      "description": "Every publication act writes a transaction record regardless of execution path. Establishes pub_target and platform_type as orthogonal axes rather than duplicates, and adds GRC completeness evidence as a third justification for TR-DM-03. Defines G24.",
-      "community": 29,
-      "community_name": "Audit Retention and Disposal Model"
+      "description": "Every publication act writes a transaction record regardless of execution path. Establishes pub_target and platform_type as orthogonal axes rather than duplicates, and adds GRC completeness evidence as a third justification for TR-DM-03. Defines G24."
     },
     {
       "id": "board_decision_sheet",
@@ -136,9 +110,7 @@
       "file_type": "document",
       "source_file": "docs/journal/2026-08-18-board-decision-sheet.md",
       "source_location": "",
-      "description": "One-line verdict per pending Board item in house vocabulary: 32 Approve, 9 Approve with conditions, 1 Defer, 0 Reject. Rationale deliberately excluded and left in the linked checklist.",
-      "community": 28,
-      "community_name": "Sprint Readiness and Board Approvals"
+      "description": "One-line verdict per pending Board item in house vocabulary: 32 Approve, 9 Approve with conditions, 1 Defer, 0 Reject. Rationale deliberately excluded and left in the linked checklist."
     },
     {
       "id": "notice_as_article_model",
@@ -146,9 +118,7 @@
       "file_type": "concept",
       "source_file": "docs/journal/2026-08-18-retraction-as-publication.md",
       "source_location": "section 3",
-      "description": "A correction or retraction notice is an ordinary article record carrying a notice type and a reference to the article it addresses. It runs the same five gates, inherits its publication targets from the original, and the original is never edited — its superseded status is derived. No new article states are required.",
-      "community": 29,
-      "community_name": "Audit Retention and Disposal Model"
+      "description": "A correction or retraction notice is an ordinary article record carrying a notice type and a reference to the article it addresses. It runs the same five gates, inherits its publication targets from the original, and the original is never edited — its superseded status is derived. No new article states are required."
     },
     {
       "id": "expression_of_concern",
@@ -156,9 +126,7 @@
       "file_type": "concept",
       "source_file": "docs/journal/2026-08-18-retraction-as-publication.md",
       "source_location": "section 2",
-      "description": "A temporary public warning issued while a serious claim is under active investigation and not yet resolved. The post-publication equivalent of Hold, absent from the existing remedy ladder. Without it the only honest options are premature retraction or silence. New public-facing editorial act requiring Board approval under condition C-10.",
-      "community": 29,
-      "community_name": "Audit Retention and Disposal Model"
+      "description": "A temporary public warning issued while a serious claim is under active investigation and not yet resolved. The post-publication equivalent of Hold, absent from the existing remedy ladder. Without it the only honest options are premature retraction or silence. New public-facing editorial act requiring Board approval under condition C-10."
     },
     {
       "id": "mirror_the_spread_boundary",
@@ -166,9 +134,7 @@
       "file_type": "concept",
       "source_file": "docs/journal/2026-08-18-publication-transaction-record.md",
       "source_location": "section 5",
-      "description": "The obligation to mirror a correction covers every channel the business published to, evidenced by the publication transaction record. Third-party amplification is explicitly outside it. Unstated, the rule reads as an unbounded duty that cannot be discharged, cannot be evidenced, and would fail an audit precisely because it was promised.",
-      "community": 29,
-      "community_name": "Audit Retention and Disposal Model"
+      "description": "The obligation to mirror a correction covers every channel the business published to, evidenced by the publication transaction record. Third-party amplification is explicitly outside it. Unstated, the rule reads as an unbounded duty that cannot be discharged, cannot be evidenced, and would fail an audit precisely because it was promised."
     },
     {
       "id": "human_a_agent_r_layering",
@@ -176,9 +142,7 @@
       "file_type": "concept",
       "source_file": "docs/journal/2026-08-18-raci-human-vs-digital-twin.md",
       "source_location": "section 2",
-      "description": "The human newsroom roles and the digital twin's virtual agents describe different layers of one model, not competing models. Human roles hold Accountable; the five phase-gate agents hold Responsible. With one natural person every human accountability collapses to the Chief Editor, so the invariant-A framing is correct for v1.",
-      "community": 28,
-      "community_name": "Sprint Readiness and Board Approvals"
+      "description": "The human newsroom roles and the digital twin's virtual agents describe different layers of one model, not competing models. Human roles hold Accountable; the five phase-gate agents hold Responsible. With one natural person every human accountability collapses to the Chief Editor, so the invariant-A framing is correct for v1."
     }
   ],
   "edges": [

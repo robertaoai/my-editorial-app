@@ -1,0 +1,23 @@
+{
+  "nodes": [
+    {
+      "id": "agent_rules_reference",
+      "label": "Agent rules reference (verbatim pre-D-324 rule text, on demand)",
+      "file_type": "document",
+      "source_file": "docs/governance/agent-rules-reference.md",
+      "source_location": "whole document",
+      "description": "On-demand reference holding, word for word, the pre-refactor AGENTS.md text that D-324 moved out of the automatically loaded rule files (D-337). No tool loads it automatically; the operative rules are AGENTS.md, CLAUDE.md and GEMINI.md, and the Register decides conflicts."
+    }
+  ],
+  "edges": [
+    {
+      "source": "agent_rules_reference",
+      "target": "v1_decision_register",
+      "relation": "part_of",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "D-337",
+      "weight": 1
+    }
+  ]
+}

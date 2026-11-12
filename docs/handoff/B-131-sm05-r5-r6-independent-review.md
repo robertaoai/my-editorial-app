@@ -14,6 +14,7 @@
   are reconciled. Reading note: the Verdict's `Reject` row refers to a direct read of the **hosted page**, which
   did not happen; the export review did, and is the Option 2 evidence. `Verified` remains Lane B's to record.
 - **Resolution:** Applied
+  **Judge acceptance, 2026-09-27 (`D-288`, `f377424`).** The Judge explicitly accepted this entry's Lane A disposition (the 2026-09-24 `DOR-R5`/`R6` application), on Lane B's independent evidence in `B-142` item 5. That closes its `SV-002` §2.3 return. The header fields below are left as they are: acceptance is not independent verification, so no `Verified-By` is written.
 - **Verified-By:** — not independently verified; dispositioned by Lane A (normalized 2026-09-24, `D-261`)
 - **Evidence:** Judge approval supplied 2026-09-24 (`W1 Accept`, `W2 Accept`, `W3 Accept`); commit `17523ceb70c742b13b05e7b05c366af0fd0b30be`; `D-256`; storyboard Panel A11; `V1-SM05.md`; `FN-GATES-01-05.md` §4.1–§4.3; `requirements-traceability-map.md` §6.3/§6.4; `factory-route-operation-crosswalk.md` §§3–4.2; `ENCYCLOPEDIA-SYNC.md`; user-supplied Lane C C-003 review; user-supplied Encyclopedia v15 export reviewed directly 2026-09-24, SHA-256 `BC97BEBAC0F3AC2D3F3D8FED32C3A9CB93684B60F829FEE3604B08FAF34ACE9F`; Graphify synchronized to the commit below
 - **Verified-At-Commit:** 17523ceb70c742b13b05e7b05c366af0fd0b30be

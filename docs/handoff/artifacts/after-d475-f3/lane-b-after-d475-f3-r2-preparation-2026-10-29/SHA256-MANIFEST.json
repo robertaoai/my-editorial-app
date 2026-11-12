@@ -1,0 +1,273 @@
+{
+  "kind": "external-preparation-manifest",
+  "algorithm": "SHA-256",
+  "status": "plan only; runtime validation not executed",
+  "selfExcluded": "SHA256-MANIFEST.json",
+  "executionPacketSealed": false,
+  "entries": [
+    {
+      "path": "C:/CoWork/outputs/lane-a-git-binding-plan-2026-10-29/INSTRUCTION-R4B.jsonl",
+      "role": "preserved input",
+      "bytes": 3180,
+      "sha256": "ec572be281323d675283f328501af727cf1ea54b10f68adcf655b60e075befb2"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-a-git-binding-plan-2026-10-29/launch-review.r4.mjs",
+      "role": "preserved input",
+      "bytes": 21015,
+      "sha256": "1906c92a8db4b59e1eb28492fd5bf628deb641954fc2195e409fb0a7525ba462"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-a-git-binding-plan-2026-10-29/PLAN.r4b.md",
+      "role": "preserved input",
+      "bytes": 14395,
+      "sha256": "a840e9f8731f0692aa24a608a25fe7c5b39bb3736ba57f13379b2c46d64a54ed"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-a-graph-sync-after-d475-2026-10-29/evidence-2/resume.out",
+      "role": "preserved input",
+      "bytes": 28743,
+      "sha256": "7678ff4507ef1f837037c21ce96031640a7bbfcef294ad5987bad8036ae26112"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-a-graph-sync-after-d475-2026-10-29/evidence-2/resume.txt",
+      "role": "preserved input",
+      "bytes": 341,
+      "sha256": "a93687f918a7f58cab2c189e8217dea097e9068d16e9297cca22d0f4e8b59094"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-a-graph-sync-after-d475-2026-10-29/evidence-2/SHA256-MANIFEST-E2.txt",
+      "role": "preserved input",
+      "bytes": 2457,
+      "sha256": "844333e78fdec36b3bb43bc70d8abfd12c4840ea308233268696011f398e42f8"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-a-graph-sync-after-d475-2026-10-29/evidence/answers-proposed.r1.json",
+      "role": "preserved input",
+      "bytes": 527,
+      "sha256": "89965adfdaaaddb8d463c2b2644f137f547c85f3cfe2610e068c07c355f97e70"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-a-graph-sync-after-d475-2026-10-29/evidence/SHA256-MANIFEST-E1.txt",
+      "role": "preserved input",
+      "bytes": 1891,
+      "sha256": "4f3e3d83a29b29b03fdadc7d0f1058dd2f98fab67812bdd2c2d355a708bc1ce0"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-a-graph-sync-after-d475-2026-10-29/reviews-1/SHA256-MANIFEST-R1.txt",
+      "role": "preserved input",
+      "bytes": 192,
+      "sha256": "10940428c3d1da3c24857c875eaaa817f5785393842a967d78cde849234c65f9"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-a-graph-sync-after-d475-2026-10-29/reviews-2/SHA256-MANIFEST-R2.txt",
+      "role": "preserved input",
+      "bytes": 184,
+      "sha256": "4a78d04fd33da09698bf75ef0c8fb2dc8640d86390b7b4dfb6b63f8004905501"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-a-graph-sync-after-d475-2026-10-29/work/PENDING.json",
+      "role": "preserved input",
+      "bytes": 398,
+      "sha256": "3facc021bff19adb4a672e50bddd4bea0a8b67bec1ce33e97fef5d82025383e4"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-a-graph-sync-after-d475-2026-10-29/work/STATE.json",
+      "role": "preserved input",
+      "bytes": 38333,
+      "sha256": "1fd1a8885ac5903e4707057cce53e28b9dd8a044131e55dc6bfa8f12341db53e"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-a-q6-record-2026-10-28/stray-sync-20261028-freeze.txt",
+      "role": "preserved input",
+      "bytes": 772651,
+      "sha256": "e065435ed153f7997d070258d5bc1d1836e0f33b2cfc473f0453e7d02353c00e"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-a-worktree-coverage-2026-10-24/inventory.json",
+      "role": "preserved input",
+      "bytes": 1484,
+      "sha256": "3e32d008558c76fca15ac98e7e17a7b2a20e40e0d3fd2485dc85b837c55674e4"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-b-after-d475-f3-2026-10-29/SHA256-MANIFEST.txt",
+      "role": "preserved input",
+      "bytes": 3012,
+      "sha256": "597cbc03e15d1bd0c9c6c1d80de4965d8270f86e4bd97a795ff37ef1a8cff130"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-b-after-d475-f3-r2-2026-10-29/entry.mjs",
+      "role": "new child draft; execution packet deliberately unsealed",
+      "bytes": 52288,
+      "sha256": "6f07293ae714cf702365c545a1a9f2e720c008ccb8d8b8f96909467bb7db6cd3"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-b-after-d475-f3-r2-preparation-2026-10-29/assemble-draft.mjs",
+      "role": "new preparation artifact",
+      "bytes": 8300,
+      "sha256": "561e9f63529a9f9e018702f364c467ccc9af6c6f68d8bc7acd8e93b6cb7880ea"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-b-after-d475-f3-r2-preparation-2026-10-29/assembly-transformations.json",
+      "role": "new preparation artifact",
+      "bytes": 4062,
+      "sha256": "452d5f880826a463bce22a3560e9e1a78962c3902f50a6190d981185f4d557a1"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-b-after-d475-f3-r2-preparation-2026-10-29/child-binding.json",
+      "role": "new preparation artifact",
+      "bytes": 177,
+      "sha256": "f90506361ebbd52789ee323151dc934afb594b4e1ba914d366a5262670305e8b"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-b-after-d475-f3-r2-preparation-2026-10-29/child-body.draft.mjs",
+      "role": "new preparation artifact",
+      "bytes": 36151,
+      "sha256": "ee34d0df4a401a73e0ee9873c665c095560f8887c1a664ed1a0c98f8e66c138d"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-b-after-d475-f3-r2-preparation-2026-10-29/HANDOFF.md",
+      "role": "new preparation artifact",
+      "bytes": 2297,
+      "sha256": "c0a1c6cabb005a75a03dd6fc4853ad7aca567bf0e20b1037f458e87c4a7a6f02"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-b-after-d475-f3-r2-preparation-2026-10-29/input-bindings.json",
+      "role": "new preparation artifact",
+      "bytes": 5190,
+      "sha256": "b88cd29ba787ebfdcd3a72408dac56228cfb50088d2cb33608355f880695ee2e"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-b-after-d475-f3-r2-preparation-2026-10-29/INVOCATION.ps1.txt",
+      "role": "new preparation artifact",
+      "bytes": 2382,
+      "sha256": "b652758dbdcea0bee31ffa07374eb61d7d5726f531456d5096c980b74fb0ef53"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-b-after-d475-f3-r2-preparation-2026-10-29/preparation-after.json",
+      "role": "new preparation artifact",
+      "bytes": 2528766,
+      "sha256": "a22aba48ee2b4708e536a7c2b21ed2b1a7566be7f513421b9d505ddaefa33333"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-b-after-d475-f3-r2-preparation-2026-10-29/preparation-before.json",
+      "role": "new preparation artifact",
+      "bytes": 2528766,
+      "sha256": "1884d83a3ca3846e7fe1b15cb5e52b70ee552c33122fa7644742c9e4a7af74a2"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-b-after-d475-f3-r2-preparation-2026-10-29/preparation-final-check.json",
+      "role": "new preparation artifact",
+      "bytes": 281,
+      "sha256": "c92e626da21153e5f2dfe8fc2f0a9da3cec51b403c178214fa743e43008b0542"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-b-after-d475-f3-r2-preparation-2026-10-29/PREPARATION-PLAN.md",
+      "role": "new preparation artifact",
+      "bytes": 20070,
+      "sha256": "ac173073e5d668de38263fbb76b0e7ef0e04219397bb0f9a7aa42dae74427294"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-b-after-d475-f3-r2-preparation-2026-10-29/preparation-preservation.json",
+      "role": "new preparation artifact",
+      "bytes": 4636,
+      "sha256": "40d4b907a96a0dc665231590b7ae9b0491e80cf5a341e8004f8497126defb67d"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-b-after-d475-f3-r2-preparation-2026-10-29/PREPARATION-REVIEW-RECEIPT.md",
+      "role": "new preparation artifact",
+      "bytes": 5393,
+      "sha256": "36e551eab78540a0a7c06972b7051e93cade231e6a1f4541ced2d587a1028853"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-b-after-d475-f3-r2-preparation-2026-10-29/producer-worker.draft.mjs",
+      "role": "new preparation artifact",
+      "bytes": 9161,
+      "sha256": "9c6771f6cd059530d153db719a3771da061ef1a3f23df3d964cda6528557964a"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-b-after-d475-f3-r2-preparation-2026-10-29/row24-provenance.json",
+      "role": "new preparation artifact",
+      "bytes": 786,
+      "sha256": "52818413e0f3317fb30c87e6b4d9962e04769e91acb1234d2fe2d8a3f7dab4db"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-b-after-d475-f3-r2-preparation-2026-10-29/syntax-checks.json",
+      "role": "new preparation artifact",
+      "bytes": 1176,
+      "sha256": "97f63c1ac3351e6e0899324017ad6edb819962e19e6d7e4b24b4cd439fdfddcb"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-b-after-d475-f3-r2-preparation-2026-10-29/verify-preparation.mjs",
+      "role": "new preparation artifact",
+      "bytes": 5358,
+      "sha256": "05ee3306c09eb0c4a4ffef5e03f692bc0edf648beea0072b31be373901f3c9cd"
+    },
+    {
+      "path": "C:/robertaoai/my-editorial-app/.claude/skills/sync-docs/SKILL.md",
+      "role": "preserved input",
+      "bytes": 13255,
+      "sha256": "74b649796c686a4b3be51bbc50db5229f19a173be22b72c41ff6efbf27992694"
+    },
+    {
+      "path": "C:/robertaoai/my-editorial-app/AGENTS.md",
+      "role": "preserved input",
+      "bytes": 3626,
+      "sha256": "aed0cd5256296e0e0cf319fd69d39c147992d0e0e89837af0cd3a845dcae2555"
+    },
+    {
+      "path": "C:/robertaoai/my-editorial-app/docs/governance/agent-rules-reference.md",
+      "role": "preserved input",
+      "bytes": 32898,
+      "sha256": "5935d4b3cd5d24e112c8bce6825be63916788d2131dd4b56ae34085d08bcafb1"
+    },
+    {
+      "path": "C:/robertaoai/my-editorial-app/docs/graph-fragments/README.md",
+      "role": "preserved input",
+      "bytes": 19501,
+      "sha256": "2cd70f546433c6b65bb66142ba36dcd475ffcd950788c345b778561c065a59f0"
+    },
+    {
+      "path": "C:/robertaoai/my-editorial-app/docs/handoff/B-050-hook-rebuild-resets-graphify-branch-metadata.md",
+      "role": "preserved input",
+      "bytes": 734947,
+      "sha256": "5d3a95038c49a3f1987ee0cee743e63f50f91b7ceb15b9f5b936360a3890894b"
+    },
+    {
+      "path": "C:/robertaoai/my-editorial-app/docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md",
+      "role": "preserved input",
+      "bytes": 2162282,
+      "sha256": "3468eb237eccdf324007255c7ff1490b6e7397ffecc0cbb172048cdec31be3d2"
+    },
+    {
+      "path": "C:/robertaoai/my-editorial-app/docs/LANE-B-WORK-ORDER.md",
+      "role": "preserved input",
+      "bytes": 32207,
+      "sha256": "a81b8e003c2789321fcd9216a6b2073665dda1cf9c6f4c231b0ae9c72894a354"
+    },
+    {
+      "path": "C:/robertaoai/my-editorial-app/docs/v1/V1-BUILD-SPEC.md",
+      "role": "preserved input",
+      "bytes": 91460,
+      "sha256": "2b0a69af128dd86091a774e529bfb2fc6c764852cc837efe36ca9ce896fedd89"
+    },
+    {
+      "path": "C:/robertaoai/my-editorial-app/docs/v1/V1-DECISION-REGISTER.md",
+      "role": "preserved input",
+      "bytes": 2373303,
+      "sha256": "42b0d82f9757c052f0ef011880f49f5e396b22339c6750d3ea35a66e8974b327"
+    },
+    {
+      "path": "C:/robertaoai/my-editorial-app/docs/v1/V1-PHASE-CLOSURE.md",
+      "role": "preserved input",
+      "bytes": 101398,
+      "sha256": "f5b5237c15c1c017c4e98150cb3fde8c241c91672ed2a1c64f66c93c04a9e28e"
+    },
+    {
+      "path": "C:/robertaoai/my-editorial-app/scripts/graphify/guarded-rebuild.mjs",
+      "role": "preserved input",
+      "bytes": 168062,
+      "sha256": "4b0d7fb2195376bfb407ac400aedd03ca399c14df7690eea7ffc7b4beadb4f0f"
+    }
+  ]
+}

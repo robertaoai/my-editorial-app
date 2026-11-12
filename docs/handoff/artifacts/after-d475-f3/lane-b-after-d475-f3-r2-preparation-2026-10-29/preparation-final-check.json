@@ -1,0 +1,11 @@
+{
+  "childBindingUnchanged": true,
+  "launcherHash": "1906c92a8db4b59e1eb28492fd5bf628deb641954fc2195e409fb0a7525ba462",
+  "executionPacketFiles": [
+    "entry.mjs"
+  ],
+  "runtimeOutputAbsent": true,
+  "provenanceCorrect": true,
+  "syntaxPass": true,
+  "preservationPass": true
+}
