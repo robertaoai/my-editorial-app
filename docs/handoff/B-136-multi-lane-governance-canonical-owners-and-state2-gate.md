@@ -25481,3 +25481,13 @@ The [B-162 delivered artifact list](B-162-consolidated-findings-and-delivery-con
 **Artifact filing push receipt.** Lane A used the retained `bun run check` for the filing commit (19/19 passed, exit `0`). The destination was `origin`, ref `refs/heads/features/feature-V1-SM05`. The pre-push fetch exited `0` and `FETCH_HEAD` and the remote-tracking ref matched the sole parent `532ada53793956c9fc67896a6cee9d419d826f1d`. The range `532ada53793956c9fc67896a6cee9d419d826f1d..31d7abbfa23f7daee16c4831c9d069c9710b8af5` contained exactly the filing commit. The pinned non-force push ran with hooks enabled and exited `0`, advancing `532ada5..31d7abb`. The post-push fetch exited `0` and both `FETCH_HEAD` and `origin/features/feature-V1-SM05` matched `31d7abbfa23f7daee16c4831c9d069c9710b8af5`.
 
 The earlier B-162 answer push remains covered by the surviving transcript and reconciliation. Its original standalone receipts remain overwritten.
+
+### Lane C Level 2 filing delivery for B-162
+
+The [B-162 delivery note](B-162-consolidated-findings-and-delivery-controls.md#lane-c-level-2-filing-delivery-under-b-136c06) records the delivered one-path Lane C filing `c551f753a87b73007091ea2ee355afbe3c65c902` and its sole parent `d0613eb40dfa07973480e8ddf146b590823d31ad`. Lane B independently approved the filing and exact-range delivery at Codex session `01a1cee2-9c90-7e91-8d0a-3660f2736877`, line 4944, message `msg_04bfb55c7639c3e1016af5f8518a2c87d0aa063d29d218e99c`.
+
+**Receipt and authority locators.** The corrected filing receipt is 7,502 bytes with SHA-256 `0a9d868bdbee4dbb61ec6bb4775bd1be1755e5884b92669d622eccb2ab41d242`. The B-162 note records the machine-local transcript locator and line hashes for the filing, receipt-correction, and push releases at lines 407, 435, and 473. The original receipt remains preserved. [Corrected receipt](C:/CoWork/outputs/lane-c-b162-c06-tracking-l2-review-2026-11-13/filing-receipt-corrected.md)
+
+**Verified push.** The pre-push fetch matched the sole parent. The pinned non-force push of the single filing commit to `origin/features/feature-V1-SM05` exited `0` using the retained 19/19 check. Both post-push refs and Lane B's direct origin query matched `c551f753a87b73007091ea2ee355afbe3c65c902`. [Pre-push proof](C:/CoWork/outputs/lane-c-b162-c06-tracking-l2-review-push-2026-11-13/pre-range.json) · [Execution log](C:/CoWork/outputs/lane-c-b162-c06-tracking-l2-review-push-2026-11-13/push-run.jsonl) · [Post-push proof](C:/CoWork/outputs/lane-c-b162-c06-tracking-l2-review-push-2026-11-13/post-proof.json)
+
+B-162 remains **Open**. The evidence locators are machine-local, and durable retention and custody transfer remain held. The historical `3c7892f` answer-push receipt gap remains recorded.
