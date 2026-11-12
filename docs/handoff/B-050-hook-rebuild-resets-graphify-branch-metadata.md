@@ -8182,3 +8182,36 @@ No install, transfer, prepare, resume, publication, fetch, push or manual/force 
 - **Annotation-Act:** D-474 items 4-5 and the Judge direct K/N act at Lane A session 42f609c0-3f3b-49b0-abf7-f3d587359462 line 5050, uuid e5e3c218-40b4-47e1-b823-1020c1c8e178, 2026-10-28T16:52:22.143Z. Retained verbatim at C:/CoWork/outputs/lane-b-d474-kn-2026-10-29/JUDGE-KN-RELEASE.jsonl (SHA-256 9e79842b24d437606d7d88860376be16a59367588b4bb7e15979c2a747273439), with authority-provenance.json; approval received, pending durable registration outside the six-commit range. Independently recorded by Codex (Lane B). This separate record-only annotation covers K 77af44a2fcf84a7e7c05013308cc474e6bfaef41, sole parent R 971b789e3131fdd93a4f68e20a0a8934fdb9b07f, source S/Q6 ddf0b922f72f8dc54f41ac19698df80691fcd6a1, tree 20f414950b810a2614db8c49c2cb4c44976799a0, work 8ecb2368-cfc0-4137-a890-b231b5cdc9e9, ready attempt 2 at C:/CoWork/outputs/lane-a-graph-sync-q6-2026-10-28/work/attempt-2/staging, graph 4c3829a57f1dcc0e45d55fd045ccd56b9cfcb80c1cc3f6032cba4a1bf39a2ac7, manifest a51dc92d0ee08082c87b871dfe3117d08fd68089851f9372cbd3538bea8eaf4d (guard-treeDigest-v1, 583 files), baseline receipt fa0c9efcdd2e7b1dd7a7c64ca59fbbc0cfdada4f / 130c05770a7963e192ebf400a5126d8619d2908b0c2181ddf02941f5c2ee3824. It adds no acceptance record, reopens no scope and leaves B-050 terminal header, Resolution and Lane A answer unchanged. K has two complete checks and full proof retained. N requires two fresh complete checks with terminal-return clear; only docs-drift may fail. Preserve verified S2 packaging and all historical retention, linked-byte continuity and provenance gaps. Lane A remains Active; no lock transfers. Lane B delivers K and N for Lane A independent verification and fresh inventory. Later gated publication cites K, never N. Preserve 55 historical deliveries; D-473 -> Q6 -> R -> K -> N remain pending only as created; H6 prospective; six-commit range subject to Git verification; no fresh server claim. No install, transfer, fetch, prepare, resume, publication, push or manual/force fallback. U-C held; J1/D-440 and J2/D-441 separate, both transfers held; B-136, B-158 and D-439 Open; work-r3, frozen cac590ad and all other holds unchanged. Required identity and actual commit-msg hook trace apply.
 - **No-Scope-Reopened:** true
 - **Annotated-At-Commit:** 77af44a2fcf84a7e7c05013308cc474e6bfaef41
+
+## Terminal annotation record
+
+- **Current-Resolution:** Verified
+- **Annotation-Type:** verification-evidence
+- **Annotation-Act:** The Judge's direct revised one-path B-050 filing release in Codex chat 01a1cee2-9c90-7e91-8d0a-3660f2736877 authorizes this covering record and exact Lane B F3 acceptance block for work df0530b9-734c-4359-9d72-f76bdf7844fb. Lane B independently reviewed the staged graph and verified its manifest and graph digest. This records verification evidence within the existing terminal episode. Publication remains held.
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** 8c225e60e67be4e1d37bb5d45d98db1c4e0f6e6a
+
+### F3 acceptance record
+```json
+{
+  "kind": "graphify-f3-acceptance",
+  "version": 1,
+  "disposition": "Accept",
+  "scope": "F3 publication",
+  "reviewer": "Lane B",
+  "workId": "df0530b9-734c-4359-9d72-f76bdf7844fb",
+  "graphSha256": "a60e29c0b8f08fc31adc1bba13d8038a95da6777f4baa0f15fa6a22c22cc3eb2",
+  "manifest": {
+    "algorithm": "guard-treeDigest-v1",
+    "digest": "41be21285a4cb8ba52d9bdd62c11a7f247fcee39b5f308fd96b8bc3e5981d748",
+    "files": 583
+  },
+  "analyzedSource": "8c225e60e67be4e1d37bb5d45d98db1c4e0f6e6a",
+  "baseline": {
+    "releaseLocus": "77af44a2fcf84a7e7c05013308cc474e6bfaef41",
+    "algorithm": "guard-treeDigest-v1",
+    "digest": "a51dc92d0ee08082c87b871dfe3117d08fd68089851f9372cbd3538bea8eaf4d"
+  },
+  "pendingSemantics": 0
+}
+```
