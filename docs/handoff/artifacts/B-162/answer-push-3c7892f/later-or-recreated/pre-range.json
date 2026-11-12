@@ -1,0 +1,9 @@
+{
+  "fetchHead": "3c7892fac79d37e41bd8eec2dd4b63c126f19cf8",
+  "tracking": "3c7892fac79d37e41bd8eec2dd4b63c126f19cf8",
+  "upstream": "origin/features/feature-V1-SM05",
+  "parent": "a3491c14c5694c4649355c84bff508abd402ff3f",
+  "outgoing": [
+    "3c7892fac79d37e41bd8eec2dd4b63c126f19cf8"
+  ]
+}
