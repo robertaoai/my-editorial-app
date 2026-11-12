@@ -3326,3 +3326,19 @@ Recording the Judge ruling, adding the Inventory entry, Lane A acknowledgement, 
 Lane B reviewed the retained receipts for commit `e8b3e8d3a006d9feef46a729865735b62aee5b4d`. They show that Lane A resolved the configured upstream, fetched the expected parent, and pushed exactly one commit to `refs/heads/features/feature-V1-SM05` on `origin`. The post-push fetch and server read matched the pinned commit. This finding covers the recorded delivery at the time of the push. [Range and push receipt](C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/4b52b33f-2c1e-43ff-832b-1f8d5deee97a.jsonl:1031) · [Post-push evidence](C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/4b52b33f-2c1e-43ff-832b-1f8d5deee97a.jsonl:1035)
 
 Issued push release r1 and the approved plan are the authority records. The server-tip check came after r1 issuance and before plan approval and push. Lane A did not run `bun run check` as a push gate. Its applicability remains open in B-163. The D-428 act and separate hook exit result for the artifact commit remain unverified. B-162 stays `Open`. [Issued r1](C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/4b52b33f-2c1e-43ff-832b-1f8d5deee97a.jsonl:994) · [Approved plan](C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/4b52b33f-2c1e-43ff-832b-1f8d5deee97a.jsonl:1025) · [B-163](C:/robertaoai/my-editorial-app/docs/handoff/B-163-lane-a-push-follow-up.md:68)
+## Lane A Frozen Artifacts Acknowledgement (B-162)
+
+**Acknowledgement of three frozen artifacts and tracking note r2, filed under Judge release.**
+
+The Judge issued the revised acknowledgement release in Codex chat 01a1cee2-9c90-7e91-8d0a-3660f2736877: "I issue the revised acknowledgement release. Lane A, read all three frozen artifacts at e8b3e8d and the tracking note at 8c225e6. File one B-162-only acknowledgement citing both full commit IDs. Keep B-162 Open and hold the answer and push."
+
+This acknowledgement names all three frozen artifacts at commit `e8b3e8d3a006d9feef46a729865735b62aee5b4d` and the tracking note r2 at commit `8c225e60e67be4e1d37bb5d45d98db1c4e0f6e6a`:
+
+1. **consolidated-handoff-r3.md** ? Lane B consolidated response to the r4 worklog, r3. Full commit ID: `e8b3e8d3a006d9feef46a729865735b62aee5b4d`
+2. **judge-decision-table-r4.md** ? Judge decision table r4, frozen consolidated Lane A handoff r3. Full commit ID: `e8b3e8d3a006d9feef46a729865735b62aee5b4d`
+3. **push-follow-up-r2.md** ? Lane B follow-up to Lane A, B-162 push evidence and source corrections, r2. Full commit ID: `e8b3e8d3a006d9feef46a729865735b62aee5b4d`
+4. **Tracking note r2** ? Artifact-only push tracking note. Full commit ID: `8c225e60e67be4e1d37bb5d45d98db1c4e0f6e6a`
+
+**All three artifacts and the tracking note are cited with their exact full commit IDs above. B-162 stays `Open`. The answer and push are held pending further Judge release.**
+
+This acknowledgement is filed as a separate one-path commit under D-385. It grants no authority to edit, file, register, transfer evidence, execute work, commit or push beyond recording this attribution.
