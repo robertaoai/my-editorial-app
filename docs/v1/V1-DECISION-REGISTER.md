@@ -31757,3 +31757,33 @@ It does not run commits 2a or 2b, edit a fragment, run a graph sync, change a ch
 5. **Retention and holds.** Retain the evidence in place. Durable retention requires a separate decision. Keep B-162 Open, receiver access open and Unit 5b deferred. Preserve all recorded holds. Keep D-478 propagation and push on their separate release routes.
 
 **Tier applicability (D-54).** This entry records the disposition in the Register only. No other file changes. Graph work retains its separate release.
+
+## 5.14e309 `D-486` — R5 Baseline-Promotion Entry Prerequisite for `V1-SM08`
+
+**R5 decision authority.** The Judge selected the offered `V1-SM08 entry` option. The selection is retained in the [Claude transcript at line 517](C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/0a769cd7-c5e3-48a6-ac3f-abf60867e2f9.jsonl:517), record `7562b699-6d95-4dee-98f1-cfa54ad7ec15`, timestamp `2026-11-12T19:06:48.413Z` (2026-11-13 local, UTC+08:00), 6,537 bytes including LF, SHA-256 `63641b507efc373d3304042f80602fa31a6ae90e19c3eb859abf04a3cf708571`. The Judge's tool response selects the offered label. The [assistant's offer at line 516](C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/0a769cd7-c5e3-48a6-ac3f-abf60867e2f9.jsonl:516), record `c45c18b0-1044-4389-bd06-9f7d1afc67df`, contains the exact option wording (7,504 bytes including LF, SHA-256 `dbf0ab8a9c8664a82209d7d0b7370e66a6fe217f089b21440c014238facbef33`).
+
+**Recording authority.** This entry relies on the Judge's separate issuance of “Judge release — Record R5 and preserve the verified r7 patch inputs,” which binds this exact entry by SHA-256. Retain the complete issued user record and its stable locator with the [recording receipt](C:/CoWork/outputs/lane-a-d486-recording-d8db2da/recording-receipt.md).
+
+**Number, section and ordinal check (`D-478` item 8).** At `d8db2da71ceb79cc9ade330b524b6ffc6c3edd96`, Lane A found zero tracked occurrences, including citations in `docs/`, and zero history matches across refs for `D-486`, `5.14e309`, `slot 45` and the forty-fifth ordinal. Recheck before recording and retain the result.
+
+### The decision
+
+0. **Placement.** Item 0 of D-440 and D-441, as amended through D-482 and by D-485 item 1, is further amended to permit this one intervening entry, `D-486`, §5.14e309, slot 45, immediately after D-485 and before the separate TCA r3 (J3) and J-C A1 entries. Slots 42 and 43 remain unfilled. Preserve the stopped 10024 assignment of D-483 (§5.14e306, slot 42) and the D-484 hold. J1 and J2 retain their identities, text and transfer holds. This permission is limited to this placement.
+
+1. **R5.** The separately accepted baseline-promotion PR is an entry prerequisite for `V1-SM08`, after the accepted local DoD of the slot it promotes. The baseline-promotion PR stays immediately before hosted work. This amends D-383's former `V1-SM06` entry binding. D-383's local-validation rule continues to apply to `V1-SM05`, `V1-SM06` and `V1-SM07` under D-479 item 8.
+
+2. **Custody.** D-479 item 8 places Phase 3 CI and the hosted migration in `V1-SM08` and preserves receipt IDs `SM06-P3-01` through `SM06-P3-06`. Phase 3 and hosted execution require separate work authority.
+
+3. **Scope and holds.** This act records R5 in the Register only. D-479 `2a`, `2b` and both execution snapshots remain held. Row 1b, including the November 9 delivery authority, `e7e3c60` review coverage and any future push, remains on its separate Judge route. Preserve the D-478 `T3`/`T4`/`T4a`/`T4b` holds and all D-481/D-482 holds, including filing, answer edits, receipt repair, held reviews, graph work, custody and evidence portability, U-C, J1/J2 transfers, lane changes, FR-15 lift, selection, FN-EXCEPTIONS and construction. Release r4 issuance and execution stay held. The full-manifest gate remains in force, receiver access remains open and Unit 5b remains deferred. B-136, B-158, B-162 and D-439 remain Open. This entry grants no whole-entry Verified disposition.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| Register | ✅ R5 recorded by this entry. |
+| `.github/WORKFLOWS-SPEC.md` §4 and `docs/v1/work-packets/V1/V1-SM06.md` | Follow under separately released `2a`. Cite R5 in the entry-gate and custody wording. |
+| `docs/v1/work-packets/V1/V1-SM07.md` | Follow under separately released `2a`. Preserve the moved D-383 history and point readers to the current D-486 entry rule. |
+| `docs/v1/V1-BUILD-SPEC.md` and `docs/v1/V1-INTENT-INDEX.md` | Follow under separately released `2b`. Cite R5 in the D-381 note and the entry sequence. |
+| Inventory | Unaffected by R5. D-479 Inventory changes retain their own propagation scope. |
+| `Modular_PRD`, function and technical specs, Phase Closure, rule files, checks and Encyclopedia | Unaffected by this entry. |
+| Graphify and graph fragments | Graphify is affected by governed drift. Any fragment work and guarded synchronization require a separate D-425 release. |
