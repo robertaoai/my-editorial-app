@@ -3716,3 +3716,1102 @@ Lane C filed its Phase 1 Level 2 review of `8d594fac558265d64de918ec236688ea58a9
 **Verified delivery.** The pre-push fetch exited `0` with both refs at `8d594fac558265d64de918ec236688ea58a904b4`. The outgoing range `8d594fac558265d64de918ec236688ea58a904b4..c5e51cb8ee46ecae071a70448135d71d31c96d1d` contained only the filing commit. The pinned non-force push to `origin/features/feature-V1-SM05` ran once with hooks enabled and exited `0`, using the retained passing check. The post-push fetch exited `0`. Both fetched refs and Lane B's direct query of origin returned `c5e51cb8ee46ecae071a70448135d71d31c96d1d`. [Pre-push proof](C:/CoWork/outputs/lane-c-b162-8d594fa-tracking-l2-review-push-2026-11-13/pre-range.json) · [Push receipt](C:/CoWork/outputs/lane-c-b162-8d594fa-tracking-l2-review-push-2026-11-13/push-receipt.jsonl) · [Post-push proof](C:/CoWork/outputs/lane-c-b162-8d594fa-tracking-l2-review-push-2026-11-13/post-proof.json)
 
 B-162 remains **Open**. The evidence locators are machine-local. The earlier `3c7892f` answer push still relies on the surviving transcript and reconciliation because its 11 original standalone push receipts were overwritten. Answer edits, receipt repairs, custody transfer, and further pushes remain held.
+
+## Lane B contribution — Task 2 Phase 1 reconciliation (2026-11-25)
+
+**Receiver:** Lane A. **State:** Local working-tree draft for decision. **B-162:** Open. This contribution gives the proposed gov/docs solution, the evidence map and the verification design. Lane A owns the governed edits and returns its intent verdicts. D-487 staging stays held. Gate 2 stays unclaimed. The draft has no custody, commit, push, selection, activation or implementation effect. [Task 2 request][task2-request] · [Lane A answer][lane-a-answer] · [D-478][d478]
+
+### What happened
+
+D-479 assigns the single-reviewer pipeline to SM05, publication to SM06 and the former CORE packet to SM07. The committed Build Spec and Inventory still use the earlier mapping. The rev2 2a draft omits three paths. The r5 review patch points one directory above the intended evidence folder. A slot move with the current checker path would cause an unintended legacy Gate 2 claim. [D-479][d479] · [Build Spec and Inventory proposal](#3-exact-reference-corrections-for-lane-a)
+
+### What you need
+
+| Lane A decision | Return for review now |
+|---|---|
+| **1. Confirm the correction scope.** Follow CORE to SM07, retain the held scope, restore the three omitted paths in 2a and correct the pipeline evidence pointer. | Give each G1-G10 verdict and its intent. Return the exact proposed diff with source locators and pending inputs marked. Bind the ten 2b pre-images to verified 2a at the authorized checkpoint. |
+| **2. Confirm the readiness and proof contract.** Keep SM05 local reconstruction and SM06 publication evidence for the same article. Keep legacy Gate 2 with CORE and bring forward the separate pipeline trigger and fixture. | Return one trace row per applicable anchor, the exact SM05/SM06 entry and exit wording, and each child disposition. Identify decisions and releases due from the Judge. |
+| **3. Confirm the review and evidence package.** Use the five r5 pins for Git and the seven-file package for Request B. | Acknowledge the exact draft read. Identify the review surface, evidence gaps, owner and return condition. Lane B Level 1 and Lane C Level 2 review the exact applied governance revisions after the applicable release. |
+
+### What you did instead
+
+Lane B measured the evidence, checked both legacy claim triggers in memory, and recorded the proposed changes here. The Git package and its retrieval receipt remain pending. The governed edits, tracker update and pipeline trigger remain on their separate release routes. Review can start with the current draft. Apply each change only at its authorized checkpoint.
+
+**Lane A return format:** Finding ID | governing clause and revision | intent verdict | reason | exact accepted diff or evidence gap | acceptance test | owner and return condition. State which draft bytes you reviewed. Start with [G1-G10](#4-lane-a-decisions-and-acceptance-tests). Use the sections below for the exact pins and transaction order.
+
+### 1. Observed state and correction scope
+
+- Local branch features/feature-V1-SM05 was clean before drafting. HEAD 30db8d51140c0e46700f96bb9f018e6e40b93cbc. Tree 0b558d2a51f17eff755dfd7fba51bed37548f9ae. Cached upstream d8db2da71ceb79cc9ade330b524b6ffc6c3edd96. The prior published-branch check resolved the same upstream commit. Refresh the server tip at the authorized delivery checkpoint.
+- The B-162 pre-image is blob e18e3fb671a8438af79e160d49c52d0f1b02ae11, 536,091 bytes, SHA-256 ba0db8cda2ef95632cad2978720f02777eef9f60031130420b52ba959497b85d. Rebind the actual parent and pre-image before filing. The published record contains the original G1-G10 request, G5 answer and historical delivery receipts. The five r5 paths and new retrieval receipt are pending. The earlier C06 receipt covers the 15 files under answer-push-3c7892f/ at 31d7abbfa23f7daee16c4831c9d069c9710b8af5. [Prior C06 receipt][c06]
+- D-479 items 5-6 select article intake, logged EG1-EG5, return with reason, human final decision and the state board on ROUTE-PROD-1 in SM05. Publication belongs to SM06. Former CORE and its block belong to SM07. Hosted release work belongs to SM08. At the observed HEAD, the file at V1-SM05.md still holds CORE. The slot move and Intent Index are pending. Preserve dated IDs, D-240/D-259 provenance and the original receipt scopes. [D-479][d479] · [CORE packet][core] · [B-117 DoR and DoD][b117]
+
+### 2. Evidence and custody map
+
+S is C:\Users\rober_24syk4j\.claude\projects\C--robertaoai-my-editorial-app\d39b55f9-a96c-4090-a72c-58db4e22d033.jsonl. W is C:\Users\rober_24syk4j\.codex\attachments\ef5554bf-b7e4-452a-8c6e-b3cbbccea4b1\Pasted text.txt. Both are provenance locators. The earlier preparation reproduced the five r5 payloads in memory. Keep their recorded UTF-8 bytes and LF endings.
+
+Lane A owns the Task 2 reference package under a pending B-136/C06 custody release. Each row is revision r5. Every destination is vacant at the observed revision. No matching destination blob exists for reuse. C is the future full delivery commit. Every path after C: is the exact repo-relative destination. All five rows await custody release, transfer and independent Git retrieval.
+
+| B-162 item | Source kind, locator and extraction boundary | Bytes | Raw SHA-256 | Future raw Git read |
+|---|---|---:|---|---|
+| G1-G10 answer | Excerpt. S:1277, between the separator and shell footer. The fenced body in S:1319, decoded lines 148-167, matches. Retain both source locators and copy once. | 8,820 | 0c3aa01a288d162f22c2beb5a362402f539bb23d673c66660525e32201b50768 | C:docs/handoff/artifacts/B-162/task2-v1-sm05/r5/answer-r5.md |
+| G3-G5 trace | Reconstruction. S:1077 here-string body, with two substitutions at S:1256. Result at S:1261. | 7,873 | 8581f5ff246c12964ff95eec561909933d49109d7d8882f9e8bcdfcd33c4820b | C:docs/handoff/artifacts/B-162/task2-v1-sm05/r5/trace-r5.md |
+| G3/G9/G10 DoR and DoD | Reconstruction. S:1086 here-string body, with five substitutions at S:1256. Result at S:1261. | 5,025 | b48a6d62db8a6fec78e03f912f406607ac2e0ae1d6abe86a4432896157f65547 | C:docs/handoff/artifacts/B-162/task2-v1-sm05/r5/dor-dod-r5.md |
+| G10 child map | Excerpt. S:1267, between the separator and shell footer. The fenced body in S:1319, decoded lines 172-213, matches. Retain both source locators and copy once. | 6,494 | b045fa91cd63d3690783a52f5fa57ac35396f7b1d249a18a5f4bc1599f7fb793 | C:docs/handoff/artifacts/B-162/task2-v1-sm05/r5/g10-map-r5.md |
+| Custody manifest | Reconstruction. S:1276-1277 and 1319, four lines ordered answer, dor-dod, g10-map, trace. Use two spaces between hash and filename and one LF per line. | 317 | 433fa99cfe0b21694a191cb00871bdd5235a62ac356da26a5529874e94cead7f | C:docs/handoff/artifacts/B-162/task2-v1-sm05/r5/SHA256SUMS |
+
+The Git package contains five files and 28,529 bytes. Request B adds two scratch review patches for seven files and 158,631 bytes. Its export is absent at both C:\CoWork\outputs\D-479-Task2-r5-review-export and C:\CoWork\output\D-479-Task2-r5-review-export. Keep the roots separate. The B-158 repair file in the singular root is outside this scope. All eight cited standalone patch copies differ from the required Request B pins. The table gives literal suffixes under C:\CoWork\outputs\. Equal copies share a row and retain both paths. Lane A uses the pinned derivations below as the Request B export source under its own release.
+
+| Excluded source suffixes | Bytes per file | Raw SHA-256 |
+|---|---:|---|
+| D-479-r7-patch-inputs-d8db2da\2a.patch | 82351 | cab10600a2d424d1c1cb7b167475ae18e08736f9710a0d56836ac8e115c8f52e |
+| D-479-r7-patch-inputs-d8db2da\2b.patch | 39952 | 2b33a963f891248db8cc02a5deb59e167504def253ca0aca0fb35ad2f267aed5 |
+| D-479-r7-rebound\30db8d51140c0e46700f96bb9f018e6e40b93cbc\2a.patch and D-479-r7-rebound\30db8d51140c0e46700f96bb9f018e6e40b93cbc-rev2\2a.patch | 82341 | 34fb8368c66b4e75599d5fcfec1bb68ba1810e16412b6005c772f919293b2e1d |
+| D-479-r7-rebound\30db8d51140c0e46700f96bb9f018e6e40b93cbc\2b.patch | 39884 | 95cf477bd365d7d559812c589123e492cd62810f163a28dac259ec310bfd8869 |
+| D-479-r7-rebound\30db8d51140c0e46700f96bb9f018e6e40b93cbc-rev2\2b.patch and D-479-r7-prereq-drafts-21-30db8d51140c0e46700f96bb9f018e6e40b93cbc\validation\scratch-2b.patch | 43073 | 43530dad7c88079534e99972bacfb26b8ea84d35b781c6f1a92209f7bbf350fc |
+| D-479-r7-prereq-drafts-21-30db8d51140c0e46700f96bb9f018e6e40b93cbc\validation\scratch-2a-on-P.patch | 83297 | a5aba0d1acd01d38a4b0137efbc698f6f63648ffcd54601293401697ed7d7bf4 |
+
+Use these exact Request B derivations under their own release:
+
+| File | Provenance | Bytes | Raw SHA-256 |
+|---|---|---:|---|
+| 2a.patch | S:1286-1287, reproduced in the earlier preparation. | 86,955 | 41b7f9311b240fed7fe30c879292329aae9c243dae14b068b3dae27ae554585d |
+| 2b.patch | S:1159 and C:\Users\rober_24syk4j\.claude\projects\C--robertaoai-my-editorial-app\3f63f9ba-04cd-4cbf-82b6-5a05f708987a.jsonl:454, reproduced in the earlier preparation. | 43,147 | f6b3c36bd4c4cf7cf62246b419b76aa1f7196ef579c1ebd9de445ff5742b1d9c |
+
+At the released copy checkpoint, resolve each destination inside `docs/handoff/artifacts/B-162/task2-v1-sm05/r5/`. Verify its source byte count and raw SHA-256 again before any write. Reuse an exact matching committed blob. If an existing destination differs, preserve it and stop that path. Compare the approved source with the destination, staged bytes and committed blob at each applicable checkpoint. Stop on a path, byte, parent or range mismatch. Keep both Request B review patches on their released route. Include them in Git only if the release names them. A change to the r5 bytes requires a separately pinned successor folder.
+
+### 3. Exact reference corrections for Lane A
+
+Use the following replacements or insertions in the authorized candidate. C is the full reference-package delivery commit. C2A and C2B are the respective reviewed governance commits. C06 is the separately committed custody record. RET is the independent Git retrieval receipt. All five are pending in this scope. Record exact full IDs and paths when each checkpoint supplies them.
+
+| Owner, unit and exact path or section | Current reference | Proposed reference and acceptance |
+|---|---|---|
+| Lane A, 2a. docs/v1/work-packets/V1/V1-SM05.md, pipeline intent paragraph in S:1286 | docs/handoff/artifacts/B-162/task2-v1-sm05/answer-r5.md | Replace that pointer with C:docs/handoff/artifacts/B-162/task2-v1-sm05/r5/answer-r5.md. Preserve the pinned answer SHA-256. Add “Scope and anchors: D-479 items 5-6. DoR and DoD: B-117 lines 240-277. Bind the accepted Task 2 contract after the Judge accepts it.” Verify the pointer from the C2A packet to C. |
+| Lane A, 2b. docs/v1/V1-INTENT-INDEX.md, draft §3 SM05 provenance cell | TASKS-S1 DoD | Replace with “Historical provenance: TASKS-S1 DoD. Governing scope: D-479 items 5-6. DoR and DoD: B-117 lines 240-277.” Target C2B. Preserve the historical entry in §1. |
+| Lane A, 2a. docs/v1/V1-ARTIFACT-INVENTORY.md, D-240 CORE and former USABLE rows | CORE points to V1-SM05.md. SM06 names MMF-V1-USABLE. | In the CORE row replace docs/v1/work-packets/V1/V1-SM05.md with docs/v1/work-packets/V1/V1-SM07.md. Keep the creation date 2026-09-17. Insert the D-479 item 12 SM05 pipeline row with the actual 2a date. Replace the live SM06 MMF with MMF-V1-PUBLISH and retain a dated note that MMF-V1-USABLE was retired. Keep planned SM08/SM09 and the new migration marked planned. |
+| Lane A, 2a/2b. docs/v1/V1-BUILD-SPEC.md, §1 and D-232/D-243/D-247/D-260/D-381 notes | The live table names SM05 CORE and SM06 USABLE. The old live boundary ends at ManualReady. | Use the literal V1-BUILD-SPEC.md hunks in C:\CoWork\outputs\D-479-r7-prereq-drafts-21-30db8d51140c0e46700f96bb9f018e6e40b93cbc\validation\scratch-2a-on-P.patch and scratch-2b.patch as the proposal basis. Replace the dated live-outcome and R5 sentences in the 2b hunk with these literals: “The V1 outcome selected by D-479 is article intake, five logged editorial gates, human final approval, LinkedIn ManualReady, manual LinkedIn publication, board and audit.” “The separately accepted baseline-promotion PR is an entry prerequisite for V1-SM08 after the accepted local DoD of the slot it promotes (D-486 item 1).” Preserve the earlier paragraphs as dated history and label the selected outcome as planned. Lane A returns exact line anchors and final diff. |
+| Lane A, 2a. docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md §10, line 281 | “refactor, lane transition or V1-SM05 selection; those remain SV-002 units and Judge acts.” | Replace with “refactor, lane transition or V1-SM07 (MMF-V1-CORE, formerly V1-SM05) selection; those remain SV-002 units and Judge acts. Pipeline V1-SM05 selection requires a separate Judge act. The legacy Gate 2 check follows the FR-15 packet. The pipeline trigger and fixture require their own design and release.” |
+| Lane A, 2a. docs/specs/SPECS-TRANSITION-ENFORCEMENT.md §10, after line 239 | The 2026-10-15 note names the former V1-SM05. | Append “Slot note [V1], D-479 item 6: V1-SM05 in the 2026-10-15 note means the FR-15 slice, now V1-SM07. D-479 item 5 selects the pipeline transition contract for ROUTE-PROD-1. Execution requires its own work order.” |
+| Lane A, 2a. docs/specs/SPECS-VERIFICATION-APPARATUS.md §18.2, after line 546 | The dated apparatus DoD pins the former V1-SM05 manifest. | Append “Slot note [V1], D-479 item 6: the manifest pinned here moved with the FR-15 packet to scripts/jev/manifests/V1-SM07.json. The 2026-09-24 result remains with that dated scope.” |
+| Lane A, 2a. scripts/checks/closure-readiness.mjs and scripts/fixtures/suites.mjs, legacy packet path and claim reason | HEAD uses V1-SM05 for the path and reason. Rev2 changes both to V1-SM07. Both patches omit the fixture. The existing fixture changes the current BLOCKED marker and leaves the earlier marker that the parser still reads. | Carry the rev2 SM07 path and reason into the successor. Return the parser and fixture disposition in §5. Prove that current CORE status governs the legacy packet trigger and a change only to new SM05 leaves it unchanged. Bind the fixture pre-image after the prerequisite. Route the Q11 pipeline trigger and fixture through their own release. |
+| Lane A, C06/T1-r5. B-136 C06 section and Lane A's proposed tracking append in B-162 | Existing C06 section covers 15 earlier files. The S:1148 T1 template uses unversioned r4 pointers. | C06 cites C:docs/handoff/artifacts/B-162/task2-v1-sm05/r5/SHA256SUMS and the Task 2 request commit. T1 uses the five exact C:path locators above and RET. Cite the C06 section once it is committed, under its own release. Use the verified P1 commit for the stopped-run manifest only if it is in the approved P1 inventory. Keep C06 and B-162 as separately attributed scopes. |
+| Lane A, row 1b. Frozen Lane A answer at B-162:3364 and frozen table | The frozen row already covers both ancestry relationships and leaves authority and review coverage open. | Keep both relationships in row 1b. Bind e7e3c6006a7dd9effbcf1f9b9f118fd64e7c910a and the historical tip d4893d46c8e5fd01c54d78da08709bd6bd8696c7 in the release evidence. Return the earlier authority and exact commit 1 Level 1/2 evidence. Keep B-163's full-check question open. [Row 1b][row1b] · [B-163][b163] |
+
+Compare both candidate path sets against every D-479 tier row before release. For each governed path or tier, give the owning unit and exact diff, the preceding or later unit and its own evidence, or the source and reason for no edit. Bind each overlapping later edit to the actual preceding revision. Retain historical D-479 and D-480 draft reviews, B-163 delivery, and the earlier 15-file C06 receipt within their original scopes. [D-479 tier table][d479] [D-480][d480] [D-486][d486]
+
+| Tier check due | Rev2 state | Lane A resolution |
+|---|---|---|
+| Three specifications named in this section | Both patches omit them. | Restore all three under G1 in 2a. Verify the exact hunks and dated history in the resulting tree. |
+| `scripts/fixtures/suites.mjs` | Both patches omit it. The prerequisite changes nine tier-sweep cases. | Propose the legacy Gate 2 fixture in 2a. Bind its pre-image to the verified prerequisite. Keep T3 fixtures on their own route. See §5. |
+| `docs/governance/factory-route-operation-crosswalk.md` §4.1 | Both patches omit it. Lines 240-245 include a dated D-232 slot reference and a route sentence. | Propose a dated note after §4.1 item 1 in 2a: `D-479 slot note [V1]: The V1-SM05 label in this dated D-233 passage denotes the former slot. Its FR-15 packet is now V1-SM07. The live V1-SM05 pipeline uses ROUTE-PROD-1 under D-479 item 5. The D-233 actor and operation rules retain their scope.` Return the exact hunk or a clause-based no-edit disposition. |
+| `scripts/jev/lib.mjs`, `scripts/jev/selftest.mjs`, `scripts/fixtures/graphify-guard.test.mjs` | Both patches omit them. The Jev matches include `SM05-N1`. The graph fixture matches include the branch name `features/feature-V1-SM05`. | Preserve those IDs. Check live path behavior across the manifest move. Give an exact diff or evidence for each no-edit disposition. Retain Jev self-test, fixture and rule-budget results at the applicable checkpoint. |
+| Encyclopedia entries 01, 03, 04, 05 and 06, and the graph | 2b includes `docs/ENCYCLOPEDIA-SYNC.md`. The Register calls for downstream treatment. | Return the disposition and trigger for each affected entry. Entry 02 is unaffected under D-479. Apply D-425 separately for fragments and graph publication. |
+
+#### Bind the patch sources
+
+R is C:\CoWork\outputs\D-479-r7-rebound\30db8d51140c0e46700f96bb9f018e6e40b93cbc-rev2. P is C:\CoWork\outputs\D-479-r7-prereq-drafts-21-30db8d51140c0e46700f96bb9f018e6e40b93cbc. Both roots supply draft evidence. The Request B pins in §2 identify a separate pair of scratch review patches. Use the released inventory to select the bytes for the applicable unit.
+
+| Disk source | Bytes | Raw SHA-256 | Use |
+|---|---:|---|---|
+| R\2a.patch | 82,341 | 34fb8368c66b4e75599d5fcfec1bb68ba1810e16412b6005c772f919293b2e1d | Rebound rev2 draft with ten diff blocks. The three restorations above belong in a pinned successor. |
+| R\2b.patch | 43,073 | 43530dad7c88079534e99972bacfb26b8ea84d35b781c6f1a92209f7bbf350fc | Rebound rev2 draft. P\validation\scratch-2b.patch has the same bytes. The Request B 2b patch has a different pin. |
+| P\validation\scratch-2a-on-P.patch | 83,297 | a5aba0d1acd01d38a4b0137efbc698f6f63648ffcd54601293401697ed7d7bf4 | Draft source for the Build Spec and Inventory hunks. Compare the successor against the released parent. |
+| P\prereq-tier-sweep-21.diff | 8,473 | 8521bd8ef288a71532dabb1df36ec730152294f2f96d27045c298287bb2bafb3 | Separate two-file prerequisite. Bind the nine named tier-sweep fixtures in the applicable release. |
+
+The prerequisite changes scripts/checks/tier-sweep.mjs from 6c6ee24e9cc2c288698a0cfce08370fe533be78b to draft result 011265631eccd98ab68457079cf6051c03710fee, and scripts/fixtures/suites.mjs from 8326802a886a4dd90b867a2a4adb4e186d49ac97 to draft result 266a1bc5acde7970518af3dfca00dee80da4a694. Both pre-images match the observed HEAD. Keep any live-reference fixture change at its released checkpoint. Keep the T3 routing fixtures, handoff-response.mjs and the Jev manifest alias outside the prerequisite. [R1 proposal, item 3][task2-r1]
+
+#### Ten 2b pre-images
+
+Draft source: C:\CoWork\outputs\D-479-r7-rebound\30db8d51140c0e46700f96bb9f018e6e40b93cbc-rev2\ledger-2b.json, 5,139 bytes, SHA-256 ac313d02a4bb5190cde474180fe213f9917dbf197461a18562167f81ef8a9c74. Draft input tree cb70db9c54e835bcd6facdc6dd81d49bb811f57e. The actual C2A does not yet exist. Compare all ten rows against verified C2A and rebind any authorized successor byte change before 2b. These are draft inputs. Seven blobs match the observed HEAD. The Intent Index is absent. The Inventory HEAD blob is 125ec651470218eb3c3cc1ccd5a534e9a5dd64a2 and the Build Spec HEAD blob is d8f09bacb4412fa25a69f2bf05c0d1dc3c012a9e. The diff headers in the draft 2a patch bind their two post-images below.
+
+| 2b path | Draft pre-image |
+|---|---|
+| AGENTS.md | d875aa93c8e11665192552f36d4f92cbf7ef1bc7 |
+| docs/ENCYCLOPEDIA-SYNC.md | f90d02e0b6a92eef0bab8533ca4a90467b0d4ff4 |
+| docs/Modular_PRD.md | 6c1e9b07811590a320c4c583104aecb618ed3a6e |
+| docs/fn-specs/FN-GATES-01-05.md | b3016b93b8d7ffca286329dccc2d243479b6328d |
+| docs/fn-specs/FN-PUBLICATION-09-10-13.md | 77c72595df45c2bdd23ccadbbd2aca55b5cb9e33 |
+| docs/specs/SPECS-PUBLICATION.md | 018d0955afb18cb524958f57f6b5cd930faca90c |
+| docs/v1/V1-ARTIFACT-INVENTORY.md | Draft 2a post-image 9e500971df94126262d78819811ae651ff475164 |
+| docs/v1/V1-BUILD-SPEC.md | Draft 2a post-image 909c63bd01cf685ceb1f7b8a1c2e32c0876c393a |
+| docs/v1/V1-INTENT-INDEX.md | Absent |
+| docs/v1/V1-PHASE-CLOSURE.md | a96e5c1c4c6497ac2034ed47a490d19b7f9110b5 |
+
+### 4. Lane A decisions and acceptance tests
+
+Lane A returns Approve, Approve-with-conditions, Defer or Reject per row, with the governed clause and revision, reason, accepted scope, test and return condition. Lane B supplies feasibility and proof design. The Judge decides applicability, readiness acceptance and clearance. Preserve the five r5 files as frozen evidence and use a pinned successor for any change to their text.
+
+| Key | Gap, correction and affected source | Acceptance and return |
+|---|---|---|
+| G1 | D-479 items 6, 9-10 and 12. Live references still use the former slots. Review the §3 successor with the three restorations and §5 legacy parser and fixture correction. | Resolve packet, manifest and evidence pointers at the exact revisions. Verify the real tracker stays unclaimed. In fixtures, prove both legacy claim reasons with earlier status text preserved and prove pipeline SM05 isolation. Compare all ten 2b inputs against verified 2a. Return exact 2a and 2b receipts. |
+| G2 | PRD line 4 and D-479 items 1 and 3. The article-hunting estimate gives no pipeline baseline. In the pipeline packet bind Chief Editor's review hypothesis, targets and a log-based measure. | Q3 names the target and owner. Return gate completeness, reasonless returns and elapsed time from the first accepted run. |
+| G3 | D-479 item 6 and B-117 lines 240-277. R5 needs one agreed proof boundary per anchor and an AC-22 F4 binding per EG. Update the trace and DoD in a successor. | Use the 24-anchor trace below. Require zero unmapped anchors and zero orphan units. Each selected test has a failing-first case, a passing result and an exact evidence locator. |
+| G4 | Modular PRD §9 and FN-GATES §11.1. Bind AC-01b, AC-08a and draft AC-08e by their separate authority. Keep the sibling-report limb outside the single-review case unless ruled. | Return Q4/Q5 per scenario. Test logged EW start with skip refusal and the reasoned return with the applicable rerun. Add exact/conflicting retry tests only if the draft rule is adopted. |
+| G5 | B-162 G5, AC-NF-05 and D-479 item 7. The SM06 prerequisite at baseline refers to the former CORE SM05 packet. A proposed pipeline-SM05 DoD prerequisite for SM06 would form a cycle if pipeline SM05 exit also required actual SM06 publication. Bind both packets and the trace under Q6/Q12. | Proposed SM05 exit: “Retain accepted proof that each gate can be reconstructed from the SM05 log alone.” Proposed SM06 entry and completion: “Bind the accepted SM05 log-reconstruction receipt. Record actual publication for the same article at SM06 completion.” Apply after Q6/Q12. Full AC-NF-05 acceptance requires both receipts. D-486 places the baseline-promotion prerequisite at SM08. |
+| G6 | D-479 item 5. Put the approved migration design and exact executor-row scope in the pipeline packet. A later Lane B work order must name the new migration. Preserve 0001 and 0002. | Return the forward-only design and disposable replay plan. Later proof shows one EG4 reviewer, human EG5 and seal, reveal, decision in that order. |
+| G7 | AC-02/02a, AC-06a, AC-09/10 and AC-NF-01/02. Correct the trace to use surface duplicate refusal and escalation on the next attempt after the same-state return limit. Keep agent and direct-write refusals distinct. | Test same day, next day and permitted manual trigger. Test blank reason, reasoned return, rollback, replay and immutable history. Q7 names any separate refusal record and its readers. |
+| G8 | D-479 item 9 and D-478 items 2, 4-5. Correct pipeline and Index pointers. Keep TASKS-S1 as dated provenance. The alleged obsolete condition lacks an exact source. | Verify each reference at its stated revision. Lane B returns the exact obsolete clause or the scoped retrieval gap. Lane B reviews applied governance at Level 1, then Lane C at Level 2. Keep the CI release separate. |
+| G9 | B-117 estimate and capacity row. Current effort remains unverified. Bind operator, reviewer capacity, estimate and stop conditions in the packet. | Walk through persisted intake, gate progress, final decision, return, refusal, reload and board at the implementation revision. Stop on an executor, blind-order or log-integrity defect. |
+| G10 | SV-002 §2.3.1, D-364 and GOV-RES-001. Resolve B-158 O5, missing B-162/B-163 and stale derivation under the protected-path Q2 act. Q11 selects a separate pipeline trigger and fixture. Exact design/placement remains open. | Return the child map, pin the current derivation, keep the real tracker unclaimed and prove both legacy triggers plus pipeline isolation. B-151's planning-only receipt at 17008c84ef2dafcc4e8ebe21f5afed9ac20ad239 leaves database proof open. Resolve its FR-01 intake applicability against FN-GATES §4.6 rules 2 and 6 and preserve each individual GR trigger. |
+
+#### Proof design for the 24 anchors
+
+This grouped map guides review. Lane A returns an eleven-field trace with one row per applicable anchor. Record future execution evidence as due, and identify the owner and return condition.
+
+| Scope anchors | Readiness input and verification | Completion evidence |
+|---|---|---|
+| FR-01, AC-01, AC-02 | Intake, actor and duplicate rules. Verify persisted intake, same-day refusal at the surface, next-day acceptance and the manual trigger. | Article, entry-state row, actor and case results. |
+| FR-02, FR-03, AC-03, AC-04 | Source, trend, adaptation, target and checklist. Verify both transitions and required fields. | Separate rows and persisted draft fields. |
+| FR-04a, FR-05a, AC-05a, AC-06a, AC-07a | Single reviewer, human final authority and blind order. Test the join, agent refusal and early reveal. | One sealed review, one join, ordered EG5 evidence and refusal results. |
+| FR-06, AC-09, AC-10 | Reason and configured limit. Test reasoned return, blank reason and the attempt after the limit. | Reason, state and escalation results. |
+| FR-07, AC-11, AC-12, AC-NF-02 | Append-only history and required fields. Test one row per change and database refusal of edits and deletes. | Complete rows and mutation-refusal results. |
+| FR-08 state, AC-13 state | State board scope. Verify state filter, empty state and reload. | Persisted state and observed board results. |
+| AC-22 | Name the F4 evidence or governed disposition for each gate. Test present, missing and placeholder evidence. | Gate-by-gate enforcement results. |
+| AC-NF-01 | Direct-write boundary and Q6 allocation. Attempt a direct anonymous database state update. | Rejection at the required local or later hosted checkpoint. |
+| AC-NF-05 | One article ID and agreed Q6/Q12 allocation. Test log reconstruction and link actual publication. | SM05 and SM06 receipts for the same article. |
+
+#### Gate 2 and stage boundaries
+
+- The generic tracker-claim fixture already exists at scripts/fixtures/suites.mjs:1832. An in-memory probe against the current tracker and a BLOCKED packet produced the tracker reason for an explicit claim. The real tracker returned no claim.
+- The generic packet-status fixture exists at scripts/fixtures/suites.mjs:1833. A prior local simulation with the new pipeline status on the legacy SM05 path produced the packet reason and four tracker findings. The 2a integration test is due. Prove the legacy checker reads CORE at SM07, that leaving BLOCKED there triggers the packet reason, and that changing only new SM05 leaves the legacy claim unchanged. Use the Q11 release for the separate pipeline trigger.
+- At a test claim, check unclosed non-SM05 rows, missing live entries, unreferenced children, invalid rows and stale or unprovable derivation. Check required SM05 child receipts separately. The current checker reports an unreceived SM05 row without failing on that fact.
+- Task 2 document acceptance requires the bound trace, evidence access, exact document reviews and Judge acceptance. Feature readiness, Gate 2 clearance, selection, work order and activation each need their own checkpoint. Feature DoD needs authorized implementation proof. [Gate 2 tracker][gate2] · [Checker][claim-check] · [B-117][b117]
+
+#### Child return conditions
+
+| Item | Owner and trigger | Return evidence |
+|---|---|---|
+| B-158 O5 | Judge and independent reviewer, under D-364 items 4 and 9. | An independent verification or the Judge's recorded acceptance with a reason. The row concerns intake and routing. Receiving units keep their own completion conditions. |
+| B-162 and B-163 | Lane A, after a Q2 act names the protected SV-002 path. | Classify each missing row by actual scope and bind its disposition. Keep both handoff histories. Record the fresh derivation revision and rerun the claim checks against it. |
+| B-151 O2 | Lane B traces FR-01 against FN-GATES §4.6 rules 2 and 6. Judge assigns the remaining database proof. | Retain the planning-only receipt. Keep the four dated intake cases with CORE. If the Judge assigns any database proof to pipeline scope, return the exact case IDs and proof owner. |
+| GR-001 and GR-003 | B-104's owner verifies each trigger. GR-001 returns on B-104's return or packet selection for the target A4 journey. GR-003 follows the separate fallout/GRC trigger outside ROUTE-PROD-1. | Cite the triggering act, the bounded propagation and its independent review where due. |
+| GR-016 and GR-017 | Judge rules separately on the exact Units 1/2 correction for GR-016 and on the bounded catalog correction for GR-017 after target meaning is settled. | Return the individual rulings and scope, with the accepted correction and independent proof when selected. |
+| GR-007 | Existing B-077, B-117 and B-118.RH4 owners reconcile their source transactions. | Record each key and its source-specific receipt. Apply the individual legacy review and independent closure rule. |
+
+Sources for each trigger are in [SV-002][gate2], [GOV-RES-001][gov-res] and the [B-151 receipt][b151]. S:800 records the separate Q2 act choice and the Q11 trigger-and-fixture choice. Lane A returns the proposed Q11 design, placement and test cases for decision.
+
+### 5. Release and return
+
+The [issued D-487 recording act, record 2114][task2-d487-act] section 4 reserves P1 for a separate backup release after verified D-487. Use the verified 136-path, 2,618,029-byte candidate in the P1 inventory reconciliation below. W's earlier 2,618,073-byte total has no matching row list in the checked sources and cannot bind P1. Bind actor, access, paths and bytes, actual parent and destination. Name the five r5 pins in the exact custody scope if P1 carries them. Request B has its own release.
+
+Under the P1 release, compare approved, staged and committed bytes. Retain checks and hook evidence. Make one manual evidence commit and record its full ID and sole parent. At the push checkpoint in the same task, obtain fresh strict SSH and a separate fetch of `origin/features/feature-V1-SM05`. Record the remote tip and every outgoing commit in order, including the evidence commit and D-486 and D-487 if present. Require authority for the exact range, destination and any permitted push check failure. The D-428 recording allowance applies to recording only. Make one non-force push after the binding and checks pass. Stop on a range mismatch or uncovered commit or finding. Confirm the delivered tip and retain the push receipt. [Issued act, §4][task2-d487-act] [B-163][b163]
+
+After delivery, have an independent reviewer retrieve each raw blob at `<full delivery commit>:<repo-relative path>`. For each row, record the reviewer, tested commit and path, actual size and SHA-256, and match verdict. If delivery stops after commit, return local only, the full commit and the blocker. After verified P1, retain the order in S:1319: chat retrieval evidence, separately released Lane A T1-r5, Lane B attributed receipt, then separately released F1 filing. T1 can cite the chat retrieval evidence at its release. Cite the committed C06 only after its own record exists. Bind the actual filing parent and pre-image. Keep the filings after P1 and outside its range. Report the evidence delivery commit, governance correction commits and filing commit with their own IDs. [Handoff delivery rules][handoff-sop]
+
+#### Bind the checks and release
+
+The frozen rev2 issuance draft at C:\CoWork\outputs\Lane-A-rebound-r7-rev2-Judge-issuance-frozen-draft.md gives the old date, 2026-11-13 in Singapore, and bases 2a directly on D-486. Prepare a successor that starts 2a after verified D-487 and the verified prerequisite. Return each unit's actual parent or parent dependency, input and result trees, actual Singapore-local date and the separate Git timestamp binding where required. Refresh affected patch pins, ledgers, replay evidence and manifest. Retain the ten 2a and two 2b date sites. Preserve historical dates. A 2a date or byte change requires both patch pins and both tree pairs to be verified again. A 2b-only change starts from the same verified 2a result. Stop on any mismatch and return the successor for approval.
+
+Preserve this unstaged append through the authorized D-487 clean-worktree checkpoint. Before staging D-487, require the bound D-486 HEAD and tree, empty index and clean worktree, Lane A Active, clear numbering and the correct identity and hook. Verify the Register prefix, append and resulting bytes. Require Lane B Level 1 on the exact append and Register result before staging. [Issued act, §§1-3][task2-d487-act]
+
+The prerequisite waits for verified D-487, exact D-481 authority and a separate release that binds the prerequisite bytes. Keep the governed sequence D-487, prerequisite, 2a, 2b, T3, then T4. Keep P1 and the evidence filings on their separate route above. Retain earlier commit 1 authority and review coverage under row 1b.
+
+| Checkpoint | Required result and stop rule |
+|---|---|
+| Two-path prerequisite | Its own release may allow only the exact `bun run fixtures` miss below with exit 1. Every other fixture must behave as intended. Record the miss as a failure. Stop on a changed or additional miss or hook failure. Run the separate `bun run check` gate with 19 results, zero skips and only the D-428 finding expressly bound to the actual base. [R1 proposal, item 4][task2-r1] |
+| Released 2a and 2b | Require full fixture passes on the applicable pinned revisions and a passing `bun run jev:selftest`. Retain two complete sequential source checks per commit, 19 results each and zero skips. Retain hook evidence. Prove equality of tested, staged and committed bytes. Bind D-428 docs-drift to the actual release and base. D-480 names `absent from the curated graph: docs/v1/work-packets/V1/V1-SM07.md` at 2a and 2b and `absent from the curated graph: docs/v1/V1-INTENT-INDEX.md` at 2b only. Each allowance ends when its curated node is published under D-425. [D-479 item 10][d479] [D-480 items 2-4][d480] |
+| D-487 source-sweep provision | Use only after recording and verification and only for an expressly covered run. Match the R1 item 5 finding for docs/governance/requirements-traceability-map.md at the abbreviation that Git prints for that run. The four snapshot runs are S2A prediction and negative, which name S2A, and S2B prediction and negative, which also name S2A. The other two runs are the 2b source checks with 2b uncommitted, which name actual committed 2a. Both 2a source checks must show zero source-sweep findings. Record the tested HEAD, full commit named by the finding and printed abbreviation. A negative run adds exactly the expected text-integrity finding and restores the bytes exactly. Stop on extra, missing or misplaced findings or a skip. [R1 proposal, items 5-6][task2-r1] |
+
+**Exact prerequisite fixture output**
+
+```text
+MISS  gate2: SM05 status no longer BLOCKED — counts as a claim and fails — no finding matching "no longer reads BLOCKED"
+```
+
+Match the full line. It has two spaces after `MISS`, two em dashes, and straight double quotes. R1 item 4 records 296/297 at D-486 and 305/306 at scratch P `3e6017bb92e85373bb91851ae9cb18e5fe6cd284`. Those counts apply to their own runs. [R1 proposal, item 4][task2-r1]
+
+**G1 successor fixture correction**
+
+At HEAD `30db8d51140c0e46700f96bb9f018e6e40b93cbc`, `scripts/fixtures/suites.mjs:1930-1935` replaces one BLOCKED marker in the packet bound by the checker. The status paragraph has a current and an earlier marker. `sm05Blocked` reads the whole paragraph. The in-memory probe found two markers initially and one after the fixture mutation. Neither state produced a claim. Changing both markers for diagnosis produced the legacy packet reason. The rev2 2a patch moves the path and reason to SM07 and preserves both markers in the moved CORE packet.
+
+Propose that the legacy check read the explicit current status from the CORE packet. In the 2a fixture, change the current CORE status from BLOCKED and preserve the earlier status text. Require the SM07 packet reason. Verify that an explicit tracker claim gives the tracker reason. Change only pipeline SM05 and verify the legacy result stays unclaimed with CORE blocked. Restore the fixture bytes and require a full fixture pass. Return the exact parser and test hunks for approval of the successor. Keep the prerequisite's historical allowance and the Q11 pipeline trigger on their own releases.
+
+**Exact source-sweep finding for the named runs**
+
+```text
+docs/governance/requirements-traceability-map.md (<%h>) changed after the register last moved — propagation unverified. Record a decision, even if the decision is that no tier is affected.
+```
+
+Resolve `<%h>` using `git log -1 --format=%h -- docs/governance/requirements-traceability-map.md` in the tested repository. Record the full tested HEAD, the full commit named by the finding and the printed abbreviation. The negative run retains its baseline, adds the one bound text-integrity finding and restores the exact bytes. [R1 proposal, items 5-6][task2-r1]
+
+Report each permitted finding as a failure in its evidence. Stop on an unallowed finding or a byte, parent or range mismatch. Lane B Level 1 and Lane C Level 2 identify the exact applicable governance revisions. Retain each receipt in its own attributed section. After verified 2b, R2 requires its own Register act. The source-sweep provision ends when that record closes the traceability-map propagation. Any later push requires its own exact-range release.
+
+#### Release binding review
+
+**D-487 first checkpoint.** The issued act covers one local Register-only commit by Lane A. The observed HEAD is `30db8d51140c0e46700f96bb9f018e6e40b93cbc`, tree `0b558d2a51f17eff755dfd7fba51bed37548f9ae`. Lane A was Active. The index was empty and this draft was the only working-tree change. `core.hooksPath` was unset and the default `commit-msg` was absent. The tracked `.githooks/commit-msg` exists. Lane A must bind the effective hook and retain actual invocation evidence. Bind the draft preservation and recovery procedure before the clean-tree preflight. Run the D-478 numbering check across refs at preflight. Staging stays held pending exact independent Level 1 and the required preflight. [D-487 act, sections 1-3][task2-d487-act] [D-478][d478]
+
+| Register evidence | Bytes | Raw SHA-256 | Git blob where bound |
+|---|---:|---|---|
+| D-486 prefix | 2,483,263 | `c1aeee37f80dab4e2b64118d409202c15d5f0832da5f0574fa03ea3f55fe8e21` | `c3f9e2a8a25a9dca181ab8f37ef50d8ef05f28b6` |
+| R1 append | 9,810 | `8b3f0d926395e3646411e7c0ade889a5ac0ede3e06ec7b9738fbce752e7b5a02` | Pinned raw file |
+| Concatenated Register | 2,493,073 | `e4495dff737d23a366b7acea9e05572de068731d34fce97b5a6b7e0457b08e04` | `978c455223b32f3c03e5aa2fac70eb67a432fb54` |
+
+Lane B verified the three LF byte bindings in memory. The human decision at record 1925 is `f94f1e10-be55-4f9d-a08e-1f82b84372cc`, 2026-11-13T17:54:12.818Z, 11,010 bytes with LF, SHA-256 `021f5b747cc77971d0d88ad8fb2232bbff93732c1dc6a17a96d1e5903fac3ca2`. The human recording act at record 2114 is `739dbf89-1e47-478e-a84d-c3a1a9894d54`, 2026-11-13T18:35:57.584Z, 9,851 bytes with LF, SHA-256 `972507a0ef8a241ba98a66db12ea5385c8428aa99b9168c33f621d9925a406d6`. Use this evidence for the binding report. The attributed independent Level 1 receipt and preflight are due. [D-487 act][task2-d487-act]
+
+##### P1 inventory reconciliation
+
+Lane B rebuilt and verified a candidate of **136 distinct paths and 2,618,029 raw bytes**. The [candidate row inventory][task2-p1-candidate] has 57,301 bytes and SHA-256 `aa9894f2debbaa16509a2d563939864f825c79b5dd2bf0312464c841c42b777f`. Each row names the source or extraction boundary, destination, byte count and SHA-256. This file is the local review map outside the sealed sources. The map itself is outside the 136-path custody payload. [Pre-ruling row inventory][task2-pre-ruling]
+
+| Inventory step | Paths | Raw bytes | Evidence |
+|---|---:|---:|---|
+| Retained seven-set inventory | 128 | 2,456,639 | All rows matched. The retained list is 22,375 bytes, SHA-256 `120b6cfadd42bd5b45315d4737f0bce4faceaabac694e57dab61ef551e5afad8`. [Retained inventory][task2-backup-inventory] |
+| Add the R1-append snapshot | 129 | 2,573,275 | Add one `r1-append/validation/live-after.json` of 116,636 bytes. The earlier two snapshots are separate rows with different hashes. O:2079 and O:2093 name the added set. |
+| Include the three R1 seal files | 132 | 2,600,176 | Add `backup-inventory.json` (22,375), `BACKUP-PROPOSAL.md` (3,584) and `SHA256SUMS` (942) in `r1-append/`. The entire pre-ruling inventory is 51,538 bytes, SHA-256 `c4f6467b615a91e689208124c3d5cc9ef9c9199428b29e0d44e1e8014b623de0`. All 132 source hashes match. |
+| Apply the three pins-only inputs | 130 | 2,575,362 | Subtract `issuance-658.jsonl` (7,062), `gate-answers-783.jsonl` (7,945) and `disposition-1925.jsonl` (11,010) from the candidate. Keep their sealed originals. Add 1,203-byte `transcript-pins.md`, SHA-256 `f4f3b50075548cfb67bb19f6bea0320c4d103551b9ee3a70f409754e900ad995`. |
+| Add the stopped-run manifest | 131 | 2,589,500 | Add 14,138-byte `d479-r7-stop3/SHA256SUMS`, SHA-256 `96d18f918cff87cf5644a7b855eab84a9986ab3081e1dbb4f64032e871d5d1ad`. It covers the 130 payload rows. |
+| Add five Task 2 r5 paths | 136 | **2,618,029** | Rebuilt all five files in memory and matched the pins in section 2. Add 28,529 bytes. S:1276-1277 also gives `2,601,832 - 12,332 + 28,529`. S:1319 confirms the total. |
+
+**Added source row.** The literal source is `C:\CoWork\outputs\D-479-R1-append-30db8d51140c0e46700f96bb9f018e6e40b93cbc\validation\live-after.json`. The exact destination is `docs/handoff/artifacts/B-162/d479-r7-stop3/r1-append/validation/live-after.json`. SHA-256 `f9915c55cd137fb6f78d0f06489dad535a5593d6d2c59bca981a17c027528f07`. The 116,636-byte snapshots in `prereq-drafts-19` and `prereq-drafts-21` retain their separate hashes `bbec52cd5318c8ffeddde17fe859627279bf6a278551b5cbf5dbe77712bd427a` and `8b8f59f7641c9863bcc479f31efeae737994796ff8c32be40f72bc2c4ea760f0`. O is the D-487 act transcript already named in section 5.
+
+**The 44-byte discrepancy.** W:168 cites 2,618,073 bytes as an earlier total. W carries the same five r5 pins and no row list for its total. Its figure would require a stopped-run subtotal of 2,589,544 bytes. The verified 131-path subtotal is 2,589,500 bytes. No checked source identifies a historical row that accounts for the difference. Reject W's scalar for release and retain it as provenance. Use the exact 136 rows and 2,618,029 bytes for the current candidate. If a later release identifies new bytes, produce a separately pinned successor inventory.
+
+**Proof and release.** The human record at [BK-2 to BK-4][task2-p1-rulings] selects pins only for all three originals. Its companion record 868 selects the same custody commit for the earlier r2 package. Carry both as decision inputs. Require the Judge to bind exact r5 inclusion with BK-1 and BK-5 through BK-9 as applicable. The D-487 recording evidence folder was outside the pre-ruling inventory and is outside this candidate. Keep Request B patches on their existing route.
+
+Both top-level manifests matched in memory: 130 stopped-run entries and four r5 entries. The sealed `rev2-execution-E/SHA256-MANIFEST.txt` has 35 matches and two pins-only omissions. Its rows include byte counts. The sealed `r1-append/SHA256SUMS` has nine matches and one pins-only omission. The only omissions are the three named transcript copies. Preserve these seals. Use their original formats and allow only the named omissions under the release. The 136 destinations were vacant at HEAD and in the worktree. Git attributes disable normalization for each candidate. The 22 candidate Markdown files passed the control-character check. Recheck the paths and raw bytes against the released inventory at copy, stage, commit and independent retrieval.
+
+##### P1 release and readback decision sheet
+
+| Item | Required decision or receipt |
+|---|---|
+| Historical total | Pin W at 20,941 bytes, SHA-256 `62878e6faf1a31fb699486d76a269346e026d025a41fd819cd0870bafda865cf`, line 168. It is the sole occurrence of 2,618,073 in W, S, O and the BK decision transcript reviewed here. Reject that figure as release evidence. Reopen historical attribution only if an exact historical row map and its source pins are found. Ask the Judge to carry this disposition with the inventory decision. |
+| Exact r5 custody | Ask the Judge to approve Lane A's copy and one manual evidence commit for the 136-row map, 57,301 bytes, SHA-256 `aa9894f2debbaa16509a2d563939864f825c79b5dd2bf0312464c841c42b777f`. Expressly name `answer-r5.md`, `trace-r5.md`, `dor-dod-r5.md`, `g10-map-r5.md` and `SHA256SUMS` under `docs/handoff/artifacts/B-162/task2-v1-sm05/r5/`, using the raw pins in section 2. Retain the three originals under the pins-only selection. Bind reviewer access to both the approved map and the delivered branch under B-136/C06. Request B and the D-487-recording evidence folder remain outside this map. |
+| First gate for P1 | Before D-487 staging, require a fresh preflight and the exact D-487 Level 1 Pass in the same inspectable Work rollout with `originator: "codex_work_desktop"`. Bind the two original records and pins to the observed D-486 parent. After verified D-487, obtain the separate backup release naming the actual full D-487 ID as sole parent, the map, BK-8 review receipts, actor, hook route and check coverage. Complete BK-8 reviews at the Judge's named checkpoint. If a review filing would change the parent or range, stop for a revised release. Keep affected B-162 filings outside P1. [Judge Work hand-back][task2-p1-work] |
+| Exact P1 range | The cached upstream is `d8db2da71ceb79cc9ade330b524b6ffc6c3edd96`. The only observed local outgoing commit against that cache is D-486 `30db8d51140c0e46700f96bb9f018e6e40b93cbc`. If the fresh tip is unchanged and the released parent chain is intact, the expected outgoing order is D-486, actual D-487, actual P1 evidence commit. Obtain fresh strict SSH and a separate fetch. Return the full tip, full ordered list, actual evidence commit's sole parent, approved changed-path comparison and destination `refs/heads/features/feature-V1-SM05` on `origin`. The Judge must expressly bind those values and any measured failure at the push checkpoint. Use one non-force push in the same authorized task. If stopped after commit, report local only with its full ID and blocker. |
+| Independent retrieval | After the push and fresh remote-tip proof, Lane B retrieves the delivered commit in an independently populated clean checkout under the approved access route. Compare the checkout's fetched ref evidence with the delivery receipt and confirm the exact commit is reachable. Verify the evidence commit's sole parent and that its changed paths equal the approved set. Verify the map pin and read all 136 raw blobs. Return the original review locator, observed ref and tip, full commit and tree, map hash, per-path result and the top-level and sealed manifest dispositions in chat before T1-r5. |
+
+**Readback command.** In the independent checkout, set `B162_P1_DELIVERY_COMMIT` to the delivered full commit and `B162_P1_INVENTORY` to the approved local JSON map. Supply the following JavaScript to Node on standard input in module mode. It reads Git objects without fetching. Exit 0 means all 136 raw byte counts and hashes match. Return every Missing or Mismatch result and hold dependent filing. The command checks blobs. The reviewer supplies independent remote, parent and changed-path evidence separately.
+
+```javascript
+import { readFileSync } from "node:fs";
+import { createHash } from "node:crypto";
+import { execFileSync } from "node:child_process";
+const hash = bytes => createHash("sha256").update(bytes).digest("hex");
+function readBack(commit, rows) {
+  if (!/^[a-f0-9]{40}$/.test(commit)) throw Error("Use the full delivery commit ID.");
+  const env = { ...process.env, GIT_OPTIONAL_LOCKS: "0", GIT_NO_LAZY_FETCH: "1" };
+  const git = (args, options = {}) => execFileSync("git", args, {
+    env, maxBuffer: 8 * 1024 * 1024, stdio: ["pipe", "pipe", "ignore"], ...options
+  });
+  const verified = git(["rev-parse", "--verify", commit + "^{commit}"]).toString().trim();
+  if (verified !== commit) throw Error("The delivery commit is unavailable.");
+  const seen = new Set();
+  for (const row of rows) {
+    const path = row.destination;
+    if (typeof path !== "string" || !path.startsWith("docs/handoff/artifacts/B-162/") ||
+        /[\\:\x00-\x1f\x7f]/.test(path) || path.split("/").some(p => !p || p === "." || p === "..") ||
+        seen.has(path.toLowerCase()) || !Number.isSafeInteger(row.bytes) || row.bytes < 0 ||
+        !/^[a-f0-9]{64}$/.test(row.sha256)) throw Error("Invalid or duplicate inventory row.");
+    seen.add(path.toLowerCase());
+  }
+  const specs = rows.map(row => commit + ":" + row.destination);
+  const out = git(["cat-file", "--batch"], { input: specs.join("\n") + "\n" });
+  let cursor = 0;
+  const results = rows.map((row, i) => {
+    const end = out.indexOf(10, cursor);
+    if (end < 0) throw Error("Incomplete Git header.");
+    const header = out.toString("utf8", cursor, end);
+    cursor = end + 1;
+    const expected = { bytes: row.bytes, sha256: row.sha256 };
+    const locator = specs[i];
+    if (header === locator + " missing") return { locator, verdict: "Missing", expected };
+    const match = /^([a-f0-9]{40}) blob (\d+)$/.exec(header);
+    if (!match) throw Error("Expected a raw Git blob at " + locator);
+    const bytes = Number(match[2]);
+    if (!Number.isSafeInteger(bytes) || cursor + bytes >= out.length || out[cursor + bytes] !== 10) {
+      throw Error("Incomplete Git blob at " + locator);
+    }
+    const sha256 = hash(out.subarray(cursor, cursor + bytes));
+    cursor += bytes + 1;
+    return {
+      locator, blob: match[1], bytes, sha256, expected,
+      verdict: bytes === expected.bytes && sha256 === expected.sha256 ? "Match" : "Mismatch"
+    };
+  });
+  if (cursor !== out.length) throw Error("Unexpected trailing Git output.");
+  return results;
+}
+const commit = process.env.B162_P1_DELIVERY_COMMIT;
+const approvedMap = readFileSync(process.env.B162_P1_INVENTORY);
+const inventorySha256 = hash(approvedMap);
+if (approvedMap.length !== 57301 ||
+    inventorySha256 !== "aa9894f2debbaa16509a2d563939864f825c79b5dd2bf0312464c841c42b777f") {
+  throw Error("The inventory differs from the candidate pin.");
+}
+const { rows } = JSON.parse(approvedMap);
+if (rows.length !== 136 || rows.reduce((sum, row) => sum + row.bytes, 0) !== 2618029) {
+  throw Error("Inventory totals differ.");
+}
+const results = readBack(commit, rows);
+const matches = results.filter(row => row.verdict === "Match").length;
+console.log(JSON.stringify({ commit, inventorySha256, matches, results }, null, 2));
+process.exitCode = matches === rows.length ? 0 : 1;
+```
+
+**Proof of the command's readback method.** The historical C06 control at `31d7abbfa23f7daee16c4831c9d069c9710b8af5` gave 15 matches against its recorded map. A deliberately altered expected hash returned Mismatch. The current P1 probe at `30db8d51140c0e46700f96bb9f018e6e40b93cbc` gave zero matches and 136 missing. The independent P1 delivery receipt is due.
+
+| Action | Release state | Required return |
+|---|---|---|
+| D-487 local Register recording | Issued to Lane A. Staging held. | Return the authority binding, byte-preservation proof for this draft, clean state, numbering, effective hook and independent Level 1. Bind the D-428 baseline. After recording, return both complete checks, the hook receipt and the full commit and tree for independent confirmation and Level 2. |
+| P1 stopped-run backup | Verified candidate: 136 paths and 2,618,029 bytes. Separate release due after verified D-487. | Bind the candidate inventory, the recorded pins-only selections, exact r5 inclusion, custody and access, BK-8 and check coverage. Use the verified D-487 commit as the proposed sole parent under S:1319. Bind the full outgoing range at the fresh push checkpoint. |
+| Request B export | Separate release due. | Bind Lane A, seven source pins including two review-only patches, scratch destination and Lane B access. Lane B returns the byte count and SHA-256 for each file. |
+| B-136/C06 Task 2 Git custody | Separate scope due. | Bind Lane A, five exact r5 paths and pins, reader access and the actual parent. If P1 carries them, name them expressly in its final inventory and custody release. The prior C06 receipt covers the earlier 15 paths. |
+| Prerequisite, 2a and 2b | Each action held. | After verified D-487, bind D-481 authority and the exact two-file prerequisite. Lane A returns G1-G10 intent verdicts and the successor diff, paths, parents, trees, dates, pins and checks. Reflect the actual commits that precede each unit, including P1 and filings if that order is released. Verify 2a and the ten 2b inputs before 2b. Keep Q2, Q11, snapshots and R2 on their own acts. |
+| T1-r5, Lane B receipt and F1 | Separate one-path releases due after verified P1. | After independent retrieval in chat, resolve the six C, one P and one R slots in T1-r5. Bind each filing's named actor, exact append, actual parent, B-162 pre-image and expected result. Bind push scope separately. Lane A owns T1-r5. Lane B files only its own receipt under its release. |
+| P2 governed delivery | Separate exact-range release due. | After verified 2b, bind the separate R2 act and exact Lane B and Lane C review receipts. Keep commit 1 coverage under row 1b. Bind each ordered outgoing commit, fresh remote proof, destination and applicable push checks. |
+
+| Scope | Verdict | Follow-up phase |
+|---|---|---|
+| Source identities, proposed reference edits and readiness-to-proof design | Approve-with-conditions | Phase 1. Lane A returns exact successor bytes, intent verdicts and the remaining Judge decisions. |
+| Custody, P1, 2a/2b, attributed filing and Gate 2 | Defer | Phase 1. Use the separate releases and exact review checkpoints. Keep B-162 Open, D-487 staging held, Gate 2 unclaimed and existing holds in force. |
+| Feature implementation and DoD | Defer | Phase 2. Follow accepted readiness, clearance, selection, work order and activation. |
+
+[task2-request]: https://github.com/robertaoai/my-editorial-app/blob/6d09a390f8983a7547c2699e0f85a5a277103f04/docs/handoff/B-162-consolidated-findings-and-delivery-controls.md#L3105
+[lane-a-answer]: https://github.com/robertaoai/my-editorial-app/blob/3c7892fac79d37e41bd8eec2dd4b63c126f19cf8/docs/handoff/B-162-consolidated-findings-and-delivery-controls.md#L3346
+[d478]: https://github.com/robertaoai/my-editorial-app/blob/581847d94713c1e420b5097d4caa03c86e8e909b/docs/v1/V1-DECISION-REGISTER.md#L31448
+[d479]: https://github.com/robertaoai/my-editorial-app/commit/e7e3c6006a7dd9effbcf1f9b9f118fd64e7c910a
+[d480]: https://github.com/robertaoai/my-editorial-app/blob/d8db2da71ceb79cc9ade330b524b6ffc6c3edd96/docs/v1/V1-DECISION-REGISTER.md#L31590
+[d486]: https://github.com/robertaoai/my-editorial-app/blob/30db8d51140c0e46700f96bb9f018e6e40b93cbc/docs/v1/V1-DECISION-REGISTER.md#L31761
+[core]: https://github.com/robertaoai/my-editorial-app/blob/d8db2da71ceb79cc9ade330b524b6ffc6c3edd96/docs/v1/work-packets/V1/V1-SM05.md
+[b117]: https://github.com/robertaoai/my-editorial-app/blob/4e54628ef6986ac385ed10259a9ec6464d7a65fd/docs/handoff/B-117-open-backlog-aging-and-refinement-closure.md#L240
+[c06]: https://github.com/robertaoai/my-editorial-app/commit/d0613eb40dfa07973480e8ddf146b590823d31ad
+[row1b]: https://github.com/robertaoai/my-editorial-app/blob/e8b3e8d3a006d9feef46a729865735b62aee5b4d/docs/handoff/artifacts/B-162/judge-decision-table-r4.md#L9
+[b163]: https://github.com/robertaoai/my-editorial-app/blob/ea7ecdd869b14db13aeb09eaddf099c26f5cb3d9/docs/handoff/B-163-lane-a-push-follow-up.md#L70
+[gate2]: https://github.com/robertaoai/my-editorial-app/blob/d8db2da71ceb79cc9ade330b524b6ffc6c3edd96/docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md#L178
+[claim-check]: ../../scripts/checks/closure-readiness.mjs
+[gov-res]: ../v1/work-packets/SETUP-SPIKE-000/GOV-RES-001.md
+[b151]: https://github.com/robertaoai/my-editorial-app/commit/17008c84ef2dafcc4e8ebe21f5afed9ac20ad239
+[handoff-sop]: README.md
+[task2-r1]: <C:/CoWork/outputs/D-479-R1-append-30db8d51140c0e46700f96bb9f018e6e40b93cbc/R1-append.md>
+[task2-backup-inventory]: <C:/CoWork/outputs/D-479-R1-append-30db8d51140c0e46700f96bb9f018e6e40b93cbc/backup-inventory.json>
+[task2-pre-ruling]: <C:/CoWork/outputs/lane-a-d479-evidence-backup-inventory-30db8d51140c0e46700f96bb9f018e6e40b93cbc/backup-inventory-pre-ruling.json>
+[task2-p1-rulings]: <C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/3f63f9ba-04cd-4cbf-82b6-5a05f708987a.jsonl:727>
+[task2-p1-work]: <C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/3f63f9ba-04cd-4cbf-82b6-5a05f708987a.jsonl:641>
+[task2-p1-candidate]: <C:/Users/rober_24syk4j/AppData/Local/Temp/B-162-P1-Task2-r5-inventory-candidate.json>
+[task2-d487-act]: <C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/539c12be-a61a-402c-98fa-3516e9aca97f.jsonl:2114>
+
+## Lane B proposal review - Task 2 R1-R8 (2026-11-25)
+
+**Receiver:** Lane A. **Reviewer:** Lane B, Codex. **State:** Unstaged working-tree proposal review. **B-162:** Open. Lane A can use these findings for candidate refinement. Exact review of Lane A's Diff 1 and Diff 2, the D-487 Work Level 1 receipt, and formal reviews of applied governance each have their own evidence.
+
+### Reviewed inputs
+
+| Input | Exact binding |
+|---|---|
+| Local governance baseline | HEAD `30db8d51140c0e46700f96bb9f018e6e40b93cbc`, tree `0b558d2a51f17eff755dfd7fba51bed37548f9ae`. Cached upstream `d8db2da71ceb79cc9ade330b524b6ffc6c3edd96`. The index was empty. The only worktree change was this handoff. |
+| Lane B draft read by Lane A | 594,944 bytes, SHA-256 `646a39d848bcc55922333b3714de954286e5019426d7cfeef7d8f700e136169b` before this append. The committed B-162 prefix is blob `e18e3fb671a8438af79e160d49c52d0f1b02ae11`, 536,091 bytes. |
+| Lane A worklogs | Two worklogs supplied in the task conversation. The second describes Diff 1 and Diff 2 as the last chat return. Their original record locator and exact patch pins remain due. Worklog W is a separate 20,941-byte source with SHA-256 `62878e6faf1a31fb699486d76a269346e026d025a41fd819cd0870bafda865cf` at the W locator in section 2. The checked W, S and `3f63f9ba-04cd-4cbf-82b6-5a05f708987a` transcript did not supply those exact successor bytes. |
+| Rev2 comparison | `C:\CoWork\outputs\D-479-r7-rebound\30db8d51140c0e46700f96bb9f018e6e40b93cbc-rev2\2a.patch`, 82,341 bytes, raw SHA-256 `34fb8368c66b4e75599d5fcfec1bb68ba1810e16412b6005c772f919293b2e1d`. Read the moved CORE status from this patch for the diagnostic. |
+| Git source objects | At the reviewed HEAD: `scripts/checks/closure-readiness.mjs` blob `fa135445d366a67be08b6b7a46307b67baa76c65`; `scripts/fixtures/harness.mjs` blob `43a4dd39004a6eef899fb7c44f29a8abe284c513`; `scripts/jev/lib.mjs` blob `0517fda1c5a34e115991444e34241774247d5343`; `docs/Modular_PRD.md` blob `6c1e9b07811590a320c4c583104aecb618ed3a6e`. Use `git cat-file blob <full commit>:<path>` to verify committed inputs. |
+
+### Findings for Lane A
+
+| ID | Verdict and governing clause | Observed result | Lane A correction, test and return |
+|---|---|---|---|
+| R1 | Approve-with-conditions. D-479 tier row 31573. | The pinned rev2 patch moves CORE to SM07. In memory, a change to the current status in that moved paragraph leaves the dated BLOCKED marker. The current parser still sees BLOCKED and the unclaimed tracker produces no claim. | Carry the SM07 path and reason in the proposed 2a diff. Return Diff 1's exact bytes. Bind the released 2a fixture pass to the successor bytes. The in-memory test proved the mechanism and used no full fixture run. |
+| R2 | Defer. D-479 tier row 31573 limits the stated slot re-point. The current-status parser behavior needs an express Judge scope ruling. | An in-memory call to `fixture()` at `scripts/fixtures/harness.mjs:131` recorded `ok: false` and `setup threw: diagnostic`. It returned before `restore()` ran. | Return the exact Diff 2 regex and fixture hunks. Validate setup before writing or roll back a partial write inside `mutate()`. Test the moved status paragraph with the current marker changed and dated BLOCKED text preserved. Require the SM07 claim reason. Prove explicit tracker claim and pipeline-only isolation. Obtain the scope decision and run the full released 2a fixture suite. |
+| R3 | Approve-with-conditions. D-479 tier row 31572. | The three restorations are the slot and scope reference proposals in section 3. | Return exact 2a hunks for `docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md` section 10, `docs/specs/SPECS-TRANSITION-ENFORCEMENT.md` section 10 and `docs/specs/SPECS-VERIFICATION-APPARATUS.md` section 18.2. Preserve dated references and verify the resulting packet and manifest pointers. |
+| R4 | Approve-with-conditions. D-479 tier row 31574. | The crosswalk's dated D-233 passage retains its original slot meaning. | Return the dated section 4.1 note proposed in section 3, or a clause-based reason for no edit. Verify the live slot and the retained meaning of the dated passage. |
+| R5 | Approve-with-conditions. D-479 item 10. | Seven of the ten draft 2b input blobs match HEAD. The Intent Index is absent. Inventory `9e500971df94126262d78819811ae651ff475164` and Build Spec `909c63bd01cf685ceb1f7b8a1c2e32c0876c393a` match draft 2a post-images. | Change the worklog's description of the two post-images to draft. Return the full verified 2a commit and tree, then verify all ten 2b inputs against it. Stop on any mismatch. |
+| R6 | Approve-with-conditions. D-29 and D-261 Product-intent parity. | At the bound Product blob, `findRows()` found zero rows for AC-22 and AC-01b, three each for FR-01/02/03/06/07/08, and one each for FR-04a and FR-05a. Held tags occur on some Product rows. AC-01/03/04 each occur in Product and the FN-GATES chain. | Replace the unqualified claim about every FR with the exact tested ID set. Give the approved canonical homes and decisions for the cross-tier mappings. State the F13 cases and compare them with the existing held-row and cross-tier self-tests. Run the required Jev checks at the released checkpoint. |
+| R7 | Approve the deferral. D-479 item 12. | The proposed pipeline SM05 packet starts with DoR not written. | Keep G2/G6/G7/G9 content changes on the Task 2 authority route. Return the governing decision and the exact successor scope before adding them. |
+| R8 | Approve-with-conditions. B-162 G4-G9 and the applicable Q decisions. | Lane B proof inputs remain due. | Return G4 proof cases under Q4/Q5, the G6 migration design for the authorized executor scope, G7 mechanisms and failure cases, G8 verified locators or bounded gaps, and a G9 estimate tied to accepted test scope. Give the owner and return condition per input. |
+
+### Review, filing and release checkpoints
+
+- Use the proposal review for refinement now. Return the original Lane A candidate locator, the raw byte count and SHA-256 of each diff, the base and exact changed paths. Bind any replacement hunk again. Keep G1 parser behavior deferred until expressly released.
+- State the review search boundary. Use: No exact review receipt for the identified candidate was found in the records searched. Keep the issued D-487 Work receipt and refreshed preflight on their own route. [Issued D-487 act][task2-d487-act]
+- Prepare a one-path filing release for Lane B's exact attributed review when its scope and source evidence are bound. Name the actor, correct append bytes, actual parent, committed pre-image, expected result, checks and effective hook. Retain the 19 check results with zero skips where the filing gate applies. Carry only the findings expressly allowed for that attempt. Bind an actual hook invocation. Lane A coordinates. Lane B owns its review. [D-478][d478] [Handoff rules][handoff-sop]
+- A filing on the current tip would change the required D-486 parent of D-487. A filing between verified D-487 and P1 would change the required sole parent of the evidence commit. A changed sequence needs the applicable new parent and outgoing-range bindings. Keep the proposal review on its independent filing route. Keep the S:1319 T1-r5, Lane B P1 retrieval receipt and F1 sequence after verified P1 and outside the P1 range. Their proposed P2 range remains subject to an exact delivery release. [P1 and B-162 release and return](#5-release-and-return) [B-163][b163]
+- After authorized application, Lane B reviews each exact governance revision at Level 1. Lane C follows at Level 2. Keep D-479 commit 1 review coverage under row 1b. Preserve Task 2 document acceptance, feature readiness and implementation proof as separate checkpoints. [D-479][d479] [Row 1b][row1b]
+
+| Scope | Verdict | Follow-up phase |
+|---|---|---|
+| Scoped proposal findings | Approve | Phase 1. Lane A uses R1-R8 to refine the candidate. |
+| Exact Diff 1 and Diff 2 review | Approve-with-conditions | Phase 1. Return both pinned diffs and the parser scope decision. |
+| Independent review filing and delivery | Defer | Phase 1. Bind the exact one-path release and compatible placement. Bind push authority separately. |
+| D-487 staging, P1-dependent filings and gov/docs application | Defer | Phase 1. Preserve the Work and release gates. Keep B-162 Open and all existing holds in force. |
+| Gate 2 and implementation | Defer | Phase 2. Keep Gate 2 unclaimed and return the required decisions and proof. |
+
+## Lane B one-path filing and delivery decision (2026-11-25)
+
+**Receiver:** Lane A. **Actor for the Lane B filing:** Lane B. **State:** Local draft for decision. **B-162:** Open. This section binds the current inputs for a manual commit and push at an approved checkpoint. The R1-R8 proposal review is available for Lane A refinement now.
+
+### Authority and current blocker
+
+D-184 grants standing handoff commit and push authority. D-272 item 3 applies it to a lane's own series in any lane state. D-478 items 4 and 9 apply the attributed one-path route. D-385 binds one exact path per commit. The handoff SOP already records the D-272 amendment below the earlier eligibility wording. Use its one-path and pre-push checks. Lane B files its attributed review and contribution. Lane A files its own answer under its applicable release. [Decision Register](../v1/V1-DECISION-REGISTER.md) [Handoff SOP][handoff-sop]
+
+D-486 item 3 carries the applicable filing and review holds. No release for these exact Lane B filing bytes or their delivery range was found in the cited records reviewed at this checkpoint. The issued D-487 act at record 2114 binds D-486 as sole parent for the local Register recording. A filing on the current tip would move HEAD off that parent. A filing inserted between verified D-487 and P1 would change P1's proposed sole parent. Obtain a compatible placement and the applicable parent and range authority before staging. [Issued D-487 act][task2-d487-act]
+
+| Binding | Observed value or decision due |
+|---|---|
+| Literal one-file path | `docs/handoff/B-162-consolidated-findings-and-delivery-controls.md` |
+| Current base | Branch `features/feature-V1-SM05`. HEAD `30db8d51140c0e46700f96bb9f018e6e40b93cbc`, tree `0b558d2a51f17eff755dfd7fba51bed37548f9ae`. Index empty before this draft update. This filing has no approved parent at the observed state. |
+| Committed pre-image at observed HEAD | Blob `e18e3fb671a8438af79e160d49c52d0f1b02ae11`, 536,091 bytes, SHA-256 `ba0db8cda2ef95632cad2978720f02777eef9f60031130420b52ba959497b85d`. Recheck the actual parent pre-image before staging. |
+| Prior working draft | 603,404 bytes, SHA-256 `1f504a7a16712bf69fa31a2c78d51e6bb898ec5bec07a8d4f052a5f4709425b6` before this section. The prior additions contain the Lane B Phase 1 reconciliation and R1-R8 proposal review. Preserve the current draft and bind its new pin before any authorized clean-tree preparation. |
+| Proposed append scope | Request one Lane B filing for the exact combined suffix of this local draft: the Task 2 Phase 1 reconciliation, the Task 2 R1-R8 proposal review, and this one-path filing and delivery decision. This is a scope proposal for the Judge. The reconciliation supplies the paths, sections and cited link definitions used by the later review. A review-only filing on the current pre-image needs the required references supplied in its own approved bytes. |
+| Candidate binding at the released checkpoint | Preserve the pinned combined draft. Compare the actual parent and B-162 pre-image before using it. If a later parent has changed the file, verify which named sections it already carries and bind the exact remaining append and resulting bytes to that parent before staging. Keep separately released receipts in their own commits. |
+| Proposed push destination | Remote `origin`, ref `refs/heads/features/feature-V1-SM05`. Cached tip `d8db2da71ceb79cc9ade330b524b6ffc6c3edd96`. The only observed outgoing commit against that cache is D-486 `30db8d51140c0e46700f96bb9f018e6e40b93cbc`. Fresh remote evidence is due at the released checkpoint. |
+
+### Manual transaction at the released checkpoint
+
+1. Record the release locator, the authorized Lane B append, the actual parent and pre-image, the expected resulting bytes and SHA-256, the one exact path and the applicable checks. Keep the index empty before staging. Require an effective hook route and retain actual invocation evidence. The tracked `.githooks/commit-msg` exists and the default hook was absent at the observed checkpoint.
+2. Stage only the released path and verify that the staged bytes equal the authorized result. Make one manual commit for that released append. Verify its full commit, sole parent, changed path and raw blob. Stop on any byte, path, parent, hook or required-check mismatch. Use only findings expressly covered by the filing authority.
+3. Continue to the push checkpoint in the same task when authorized. Obtain fresh strict SSH and a separate fetch where this delivery route requires them. Apply the handoff SOP pre-push proof. Under its ordinary route the fresh upstream equals the filing's parent and the filing is the sole outgoing commit. If the current cached tip were confirmed and a filing were made on D-486, the range would contain D-486 plus the filing. The Judge must expressly authorize every outgoing commit in an accumulated range, the push actor, destination and applicable check coverage. Rebind at the checkpoint if the actual range differs. [Handoff SOP][handoff-sop] [B-163][b163]
+4. Make the authorized non-force push as the final repository write once checks and authority match. Verify the resulting remote tip and have the receiver retrieve the raw handoff at `<full filing commit>:docs/handoff/B-162-consolidated-findings-and-delivery-controls.md`. Compare the byte count and SHA-256 with the approved result. If the task stops after a local commit, return local only, the full commit ID and the exact blocker.
+
+Keep the independent proposal review available for Lane A refinement during the hold. Keep the planned T1-r5, P1 retrieval receipt and F1 filings after verified P1 and outside its range. S:1319 proposes including their commits in P2. Earlier delivery requires its own approved placement and exact range. Keep the D-487 Work receipt, P1, governed application and exact Level 1 and Level 2 reviews on their existing routes.
+
+| Scope | Verdict | Follow-up phase |
+|---|---|---|
+| Standing authority and one-path transaction preparation | Approve | Phase 1. Use the recorded scope and existing SOP. |
+| Current Lane B filing and push | Defer | Phase 1. Obtain the exact append release, compatible parent and push authority for the fresh range. |
+| D-487, P1 and gov/docs | Defer | Phase 1. Keep B-162 Open, D-487 staging held and existing holds in force. |
+| Gate 2 and feature execution | Defer | Phase 2. Keep Gate 2 unclaimed. |
+
+## Lane B review of Lane A's filing proposal (2026-11-25)
+
+**Receiver:** Lane A. **Reviewer:** Lane B. **State:** Local proposal review. **Verdict:** Approve-with-conditions for refinement. This review covers the Lane A filing worklog supplied in chat. The proposed filing remains held before commit. It needs an issued release and a compatible checkpoint. The pending D-487 Work receipt remains on its own route.
+
+### Baseline and scope
+
+- Reviewed HEAD `30db8d51140c0e46700f96bb9f018e6e40b93cbc`, tree `0b558d2a51f17eff755dfd7fba51bed37548f9ae`. The index was empty. B-162 was the sole modified path.
+- The reviewed three-section draft was 609,809 bytes, SHA-256 `04cb681fa001219e997e6db09457e724f5cc734e1f7dbfdcff124531cccb9e26`. Its original three-section append was 73,718 bytes, SHA-256 `604e9d1b75319d16da789723244e1401c7a3f608ea875513b1c1fcd404fc7fbc`. The committed pre-image was blob `e18e3fb671a8438af79e160d49c52d0f1b02ae11`, 536,091 bytes, SHA-256 `ba0db8cda2ef95632cad2978720f02777eef9f60031130420b52ba959497b85d`.
+- This review is a separate attributed append. The proposed three-section filing remains the earlier exact byte range. Include this review in a combined filing only if the issued release names the expanded scope and binds its result. Preserve the original filing proposal as a pinned prefix of this working draft.
+
+### Corrections for Lane A
+
+| Item | Finding | Required correction and return |
+|---|---|---|
+| Filing placement | Verified P1 is the checkpoint in Lane A's proposed route. A different placement would need an exact Judge decision. D-487 still names D-486 as sole parent. P1 still uses verified D-487 as its proposed sole parent. | Treat post-P1 as the proposed placement. Name the exact ordinal relative to T1-r5, the Lane B P1 retrieval receipt and F1. Preserve their S:1319 order and separate releases. If this filing directly follows verified P1, bind P1 as its parent. If another filing comes first, bind the actual intervening parent and rebind the B-162 pre-image and result. [Issued act][task2-d487-act] [P1 and B-162 release and return](#5-release-and-return) |
+| Release and parent | The text headed Release for you to issue is a proposal. The current worklog defers the actual parent until staging. | Return the issued Judge locator, scope, actual full parent, committed pre-image, exact append and expected result before staging. Recompute the candidate if the actual pre-image changed. Preserve all other attributed sections. The one-path check applies to the index and the commit. [D-478][d478] [Handoff SOP][handoff-sop] |
+| Draft preservation | The issued D-487 preflight needs a clean worktree. The proposed restore after P1 assumes B-162 stays at the earlier pre-image. | Under the applicable preservation authority, bind a vacant destination outside the repository and verify the pinned saved copy before restoring the tracked file for preflight. Before any later reinstatement, compare the actual B-162 pre-image. If filings changed it, preserve both and bind only the intended append to the current file. Keep the D-487 Work receipt and preflight evidence on the issued route. [Issued act][task2-d487-act] |
+| Effective hook | The default commit-msg hook was absent and core.hooksPath was unset in this checkout. The tracked project hook exists. The worklog assumes that installing it in persistent config is required. `hooks:install` would write Git config. | Bind the effective hook route for the exact attempt. An invocation-scoped `git -c core.hooksPath=.githooks` is a candidate if the release and runner accept it. Preserve proof that the hook actually ran and passed. Keep any persistent config change on its applicable authority. [Handoff SOP][handoff-sop] |
+| Required checks | The worklog specifies 19/19 and also anticipates an allowed docs-drift finding. The read-only current-tree diagnostic returned one docs-drift finding, naming analyzed `8c225e6` and HEAD `30db8d5`. The filing parent does not yet exist. | Require all 19 results with zero skips where this filing check applies. Record the measured findings at the actual checkpoint. Require a pass or express scope-specific authority for the exact finding. The issued D-487 recording allowance does not cover the filing or push. Keep any D-425 sync on its own release. [B-163][b163] |
+| Push and readback | The cached range includes D-486. A future one-commit push depends on fresh equality between the upstream and actual filing parent. | At the released checkpoint, Lane B binds fresh strict SSH, separate fetch, actual full ordered outgoing commits, named push actor and destination `origin`, `refs/heads/features/feature-V1-SM05`. Stop on an uncovered commit or finding. Make one non-force push when authorized. Lane A verifies the remote tip and reads back the exact full filing commit and B-162 path. Match the approved raw size and SHA-256. [Handoff SOP][handoff-sop] [B-163][b163] |
+
+### Lane A hand-back
+
+Return one corrected decision sheet with the proposed filing order, original release locator or exact release gap, actual parent and byte bindings when known, effective hook, measured check conditions and independent readback. Keep the exact original three-section candidate available for decision. Use the local proposal review for refinement while filing waits. Report held before commit, local only with the full commit and blocker, or delivered and verified.
+
+| Scope | Verdict | Follow-up phase |
+|---|---|---|
+| Lane A filing proposal and corrections | Approve-with-conditions | Phase 1. Return the corrected sheet and obtain the exact placement decision. |
+| Lane B filing and push | Defer | Phase 1. Bind the released append, parent and actual outgoing range. |
+| D-487, P1 and gov/docs | Defer | Phase 1. Preserve the issued routes and holds. B-162 stays Open. |
+| Gate 2 and implementation | Defer | Phase 2. Keep Gate 2 unclaimed. |
+
+### Corrected filing decision and pre-staging check (2026-11-25)
+
+**Actor:** Lane B files the single B-162 path. Lane A coordinates placement and independently verifies delivery. **State:** Held before commit. The observed branch is `features/feature-V1-SM05` at D-486 `30db8d51140c0e46700f96bb9f018e6e40b93cbc`. The Register has no D-487 heading at this HEAD. No P1 custody files are committed under the proposed stopped-run and r5 paths at this HEAD. The cached upstream is `d8db2da71ceb79cc9ade330b524b6ffc6c3edd96`. An actual released filing parent remains due.
+
+| Decision | Exact proposal and evidence due |
+|---|---|
+| Filing order | For the independent three-section Lane B filing, propose the first slot immediately after verified P1 and its independent raw retrieval in chat, before T1-r5. This proposal requires a Judge placement decision. Preserve the relative S:1319 order of T1-r5, the P1 retrieval receipt and F1. If the Judge assigns this filing as F1 or places it after another handoff commit, use the actual preceding commit and pre-image. Keep the P1 and governed delivery ranges on their applicable releases. [P1 and B-162 release and return](#5-release-and-return) |
+| Actual parent and authority | Lane A returns the issued release locator, using the record ID, timestamp and exact instruction. Lane B verifies the named full parent against current HEAD before staging. The proposed immediate post-P1 parent must be the verified P1 evidence commit with its delivery and retrieval proof. After any intervening filing, bind its full actual commit and obtain the applicable revised release. Preserve the issued D-486 sole parent for D-487 and the verified D-487 sole parent for P1. [D-487 act][task2-d487-act] |
+| Exact content | Keep the original 609,809-byte three-section candidate at SHA-256 `04cb681fa001219e997e6db09457e724f5cc734e1f7dbfdcff124531cccb9e26`. Its append is 73,718 bytes at SHA-256 `604e9d1b75319d16da789723244e1401c7a3f608ea875513b1c1fcd404fc7fbc`. Its expected result blob is `8ec806f9167471bc394ef42676fc2faa17f29b4b` only against pre-image `e18e3fb671a8438af79e160d49c52d0f1b02ae11` (536,091 bytes). Bind the raw pre-image, exact authorized append, resulting size, SHA-256 and blob to the actual parent. Include neither this review nor this decision sheet in that candidate unless the release names them and binds new bytes. |
+| Preserve the local draft | Propose `C:/CoWork/outputs/B-162-D487-preservation-20261125.md` for the saved full working draft. The parent directory exists and the proposed path was vacant at this check. Obtain the applicable preservation authority and confirm access. Verify the saved size and SHA-256 against the current full working draft before restoring the committed pre-image for D-487 preflight. If the pre-image changes later, retain both versions and compose only the released append on the actual parent. Preserve the original three-section candidate independently of the full draft's later bytes. |
+| Hook and checks | Bind the effective `.githooks/commit-msg` route and its invocation evidence. An invocation-scoped `core.hooksPath` is a candidate if allowed for the attempt. Record all 19 check results with zero skips where the check applies. Measure findings at the released parent. Obtain exact filing or push coverage for each permitted finding. The D-487 recording allowance covers the issued recording only. D-425 synchronization has its own release. [Handoff SOP][handoff-sop] [B-163][b163] |
+| Push and independent return | Verify the staged and committed one-path sets and raw bytes. Retain the full commit, sole parent, blob, checks and hook result. Obtain fresh strict SSH and a separate fetch at the released checkpoint. Bind every actual outgoing commit, push actor, destination `origin` and `refs/heads/features/feature-V1-SM05`, and any permitted push finding. Make the authorized non-force push. Lane A verifies the remote tip and reads the exact raw blob at `<full filing commit>:docs/handoff/B-162-consolidated-findings-and-delivery-controls.md`. Return the observed bytes, SHA-256 and match verdict. |
+
+**Before staging.** Record the issued release locator and verify its approved parent and byte bindings. Set the six `B162_APPROVED_*` values from that release. Supply the code below to Node with `node --input-type=module -` using standard input. The check compares the actual checkout with the supplied release values and writes no Git objects. A match supports pre-staging proof. The issued release supplies authority.
+
+```javascript
+import { readFileSync } from "node:fs";
+import { execFileSync } from "node:child_process";
+import { createHash } from "node:crypto";
+
+const path = "docs/handoff/B-162-consolidated-findings-and-delivery-controls.md";
+const env = { ...process.env, GIT_OPTIONAL_LOCKS: "0", GIT_NO_LAZY_FETCH: "1" };
+const git = (...args) => execFileSync("git", args, { env, stdio: ["ignore", "pipe", "ignore"] });
+const sha256 = bytes => createHash("sha256").update(bytes).digest("hex");
+const requireMatch = (ok, message) => { if (!ok) throw new Error(message); };
+
+try {
+  const parent = env.B162_APPROVED_PARENT ?? "";
+  const preimage = env.B162_APPROVED_PREIMAGE_BLOB ?? "";
+  const appendHash = env.B162_APPROVED_APPEND_SHA256 ?? "";
+  const resultHash = env.B162_APPROVED_RESULT_SHA256 ?? "";
+  const appendBytes = env.B162_APPROVED_APPEND_BYTES ?? "";
+  const resultBytes = env.B162_APPROVED_RESULT_BYTES ?? "";
+
+  requireMatch(/^[a-f0-9]{40}$/.test(parent), "Bind the full parent in the issued release.");
+  requireMatch(/^[a-f0-9]{40}$/.test(preimage), "Bind the committed pre-image blob.");
+  requireMatch(/^[a-f0-9]{64}$/.test(appendHash) && /^[a-f0-9]{64}$/.test(resultHash),
+    "Bind the append and result hashes.");
+  requireMatch(/^[1-9][0-9]*$/.test(appendBytes) && /^[1-9][0-9]*$/.test(resultBytes),
+    "Bind the append and result byte counts.");
+  requireMatch(git("rev-parse", "HEAD").toString().trim() === parent,
+    "HEAD differs from the released parent.");
+  requireMatch(git("diff", "--cached", "--name-only").length === 0, "The index is not empty.");
+  requireMatch(git("rev-parse", parent + ":" + path).toString().trim() === preimage,
+    "The parent pre-image differs from the release.");
+
+  const prior = git("cat-file", "blob", parent + ":" + path);
+  const result = readFileSync(path);
+  const append = result.subarray(prior.length);
+  requireMatch(result.subarray(0, prior.length).equals(prior), "The committed prefix changed.");
+  requireMatch(String(append.length) === appendBytes && sha256(append) === appendHash,
+    "The append differs from the release.");
+  requireMatch(String(result.length) === resultBytes && sha256(result) === resultHash,
+    "The result differs from the release.");
+  requireMatch(git("rev-parse", "HEAD").toString().trim() === parent,
+    "HEAD changed during the check.");
+  console.log(JSON.stringify({ path, parent, preimage, appendBytes, appendHash, resultBytes, resultHash }));
+} catch (error) {
+  console.error("Hold before staging. " + String(error.message).split("\n", 1)[0]);
+  process.exitCode = 1;
+}
+```
+
+Report held before commit if a binding fails. Report local only with the full commit and blocker if delivery stops after commit. Report delivered and verified after remote-tip and raw-blob checks pass. Keep B-162 Open, D-487 staging held and Gate 2 unclaimed.
+
+## Lane B supplemental D-487 numbering history check (2026-11-25)
+
+**Receiver:** Lane A. **Reviewer:** Lane B. **State:** Local supplemental evidence. **B-162:** Open. This check supplies the all-ref history evidence missing from the original review record. The original review and later output-breach disclosure retain their own scopes.
+
+### Evidence and result
+
+- Governing sources: D-478 item 8, Register line 31461, and the issued D-487 act section 1, record 2114. The issued act binds the exact allocation `D-487`, section `5.14e310`, slot `46`, and the forty-sixth ordinal after D-486. Use the issued placement. [Decision Register](../v1/V1-DECISION-REGISTER.md) [Issued D-487 act][task2-d487-act]
+- Observed HEAD `30db8d51140c0e46700f96bb9f018e6e40b93cbc`, tree `0b558d2a51f17eff755dfd7fba51bed37548f9ae`. The repository reported `false` for shallow status. The ordered manifest of 17 local refs, emitted by `git for-each-ref --sort=refname "--format=%(objectname) %(refname)"`, had SHA-256 `f0a8382637e751b832f4282f83dde9e1c49e90e8602c009c329552cc883f75b2`. The same manifest matched before and after the sweep.
+- Original Lane B Pass: `C:/Users/rober_24syk4j/.codex/sessions/2026/11/25/rollout-2026-11-25T20-37-00-01a212b5-92ee-77e3-a54a-b69e7cbe8c13.jsonl`, line 284, 2,904 bytes including LF, SHA-256 `c924c74d09680211a25693bea931a78a16c615285954cea1a189fa6a63f49f20`. That record confirms placement but does not expose the all-ref history sweep. Retain its line 305 disclosure with SHA-256 `e3580b3d80a661a113f750e89ef98e704a6e4b836178cf0667e133e31e152ffb` and obtain the applicable disposition separately.
+
+| Search scope | Result |
+|---|---|
+| All committed tracked paths at HEAD | Zero matching paths. |
+| Committed citations under `docs/` at HEAD | Zero matching paths. |
+| Tracked working-tree paths | One path, this B-162 draft. Its 623,062-byte pre-check version, SHA-256 `6433af87d4773f02a770f8ee29bf7ef3fd1a7e5bc51b2103228cc712046a8d1d`, had 35 lines citing `D-487` and zero lines matching section, slot or ordinal. Those references concern the pending act. The draft contains no allocation heading for `5.14e310`. |
+| Commit messages reachable across local refs | Zero matching commits. |
+| Tracked file diff history reachable across local refs | Zero matching commits. The sweep covered all tracked paths, roots and merge-parent diffs. |
+
+Search case-insensitively for the exact identifiers with token boundaries. Include `46th` and the hyphenated and space-separated ordinal forms. Set `GIT_OPTIONAL_LOCKS=0` and `GIT_NO_LAZY_FETCH=1`. The comparison used the following commands, with `PATTERN` set to this extended regular expression:
+
+```text
+(^|[^[:alnum:]_])D-487([^[:alnum:]_]|$)|(^|[^[:digit:]])5\.14e310([^[:digit:]]|$)|(^|[^[:alnum:]_])slot[[:space:]]+46([^[:alnum:]_]|$)|(^|[^[:alnum:]_])(forty[-[:space:]]sixth|46th)([^[:alnum:]_]|$)
+```
+
+```text
+git grep -l -I -i -E <PATTERN> HEAD -- .
+git grep -l -I -i -E <PATTERN> HEAD -- docs
+git grep -l -I -i -E <PATTERN> -- .
+git log --all --regexp-ignore-case --extended-regexp --grep=<PATTERN> --format=%H
+git log --all --full-history --root -m --no-renames --no-ext-diff --no-textconv --regexp-ignore-case -G <PATTERN> --format=%H -- .
+```
+
+### Lane A return
+
+Bind this dated supplemental check with the original verdict and disclosure. Record it as later evidence. Recheck numbering and placement against the actual HEAD, local refs and clean worktree in the refreshed D-487 preflight required by the issued act. Stop on any competing allocation or changed binding. Keep B-162 Open, D-487 staging held and Gate 2 unclaimed. Retain the pending P1, B-162 filing and gov/docs releases on their existing routes.
+
+### Lane B audit follow-up on numbering evidence (2026-11-25)
+
+The audit reproduced the zero results for commit messages and commit diff history. It also searched the ref names, annotated tag text, tracked pathnames, and names in commit diffs. Each of these searches returned zero matches. The same 17-ref inventory contains nine commit tips, two annotated tags and six direct tree refs. The commit walks do not search the direct tree refs.
+
+For each ref, resolve the root tree with `git rev-parse --verify <ref>^{tree}`. Search its file bytes with `git grep -l -a -i -E <PATTERN> <tree> -- .`, and check the paths from `git ls-tree -r --name-only <tree>`. Use the identifier pattern above. For names, also check space, underscore and hyphen between the words in the slot and ordinal forms. Check annotated tag text with `git cat-file tag <tag-object>`. For names in commits, inspect `git log --all --full-history --root -m --no-renames --format= --name-only -- .`. Git grep exit 1 is an empty result. Stop on other nonzero results.
+
+One direct tree contains one matching path. [B-162 uses of D-487](B-162-consolidated-findings-and-delivery-controls.md) are retrievable in this local repository as `00ea998743d40665428f6b06319503d6a818fe81:docs/handoff/B-162-consolidated-findings-and-delivery-controls.md`. The blob `a9569d2694559e15e8c950533672efe7bf925b78` matches the 623,062-byte pre-check draft pin above. Lines 3722 through 4265 contain 35 citations to the pending act. No line contains the new section, slot or ordinal. The Register blob in that tree is the D-486 prefix `c3f9e2a8a25a9dca181ab8f37ef50d8ef05f28b6`. This match is a draft snapshot. The audit found no competing allocation in the observed local refs.
+
+#### Receipt and validation references
+
+| Reference | Result |
+|---|---|
+| [D-478 item 8 and D-486 placement](../v1/V1-DECISION-REGISTER.md), lines 31461 and 31771 | Verified at the full D-486 commit above. The Register prefix has one D-486 heading. The pinned 9,810-byte append adds one D-487 allocation heading. The combined Register is 2,493,073 bytes, SHA-256 `e4495dff737d23a366b7acea9e05572de068731d34fce97b5a6b7e0457b08e04`, blob `978c455223b32f3c03e5aa2fac70eb67a432fb54`. |
+| [Issued D-487 act][task2-d487-act], section 1, record 2114 | Original user record verified at 9,851 bytes including LF, SHA-256 `972507a0ef8a241ba98a66db12ea5385c8428aa99b9168c33f621d9925a406d6`. |
+| [D-487 receipt-route amendment][task2-d487-receipt-amendment], line 1981 | Original user record verified at 3,951 bytes including LF, SHA-256 `09016f7151abfa0e23d0aae96ae644238460f60b8ee1b2a270e8cf67e39921e0`. |
+| [Original review rollout][task2-d487-review-rollout], lines 1, 284 and 305 | The metadata shows Codex Desktop and no fork. The Pass and the later output-breach disclosure match the pins above. The historical verdict establishes placement. This separate audit provides the additional local ref evidence. Lane A still binds the receipt and the applicable disclosure disposition. |
+| [Text integrity](../../scripts/checks/text-integrity.mjs) and [handoff response](../../scripts/checks/handoff-response.mjs) | Launching the modules alone did not run their checks. This audit invoked both exported `run()` functions. They returned zero findings. `git diff --check` also passed. |
+
+Lane A can use this local record for read-only review. For draft preservation, use the full successor draft pin from the audit return. Retain the 609,809-byte three-section candidate on its existing route. File this additional text only under a release that binds its bytes and destination. D-487 staging, P1, B-162 filing and gov/docs application retain their existing conditions.
+
+[task2-d487-receipt-amendment]: <C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/f50d3849-4a8c-4e72-89d0-92ca9ce7ceb4.jsonl:1981>
+[task2-d487-review-rollout]: <C:/Users/rober_24syk4j/.codex/sessions/2026/11/25/rollout-2026-11-25T20-37-00-01a212b5-92ee-77e3-a54a-b69e7cbe8c13.jsonl>
+
+## Lane B follow-up to Lane A's Task 2 worklog (2026-11-25)
+
+**Receiver:** Lane A. **State:** Local proposal evidence. **B-162:** Open. This follow-up answers [Lane A worklog record 2156][task2-lane-a-numbering-return] and supplies draft corrections and test design for the next read-only candidate return. Lane A owns the gov/docs candidate and its intent decisions. This section carries no execution or filing release. [D-478 items 2, 4 and 5][d478] [Handoff procedure][handoff-sop]
+
+### Receipt and evidence corrections
+
+Use [the numbering history supplement](#lane-b-supplemental-d-487-numbering-history-check-2026-11-25) at line 4267 and [the audit follow-up](#lane-b-audit-follow-up-on-numbering-evidence-2026-11-25) at line 4303. The worklog's reference to line 4339 exceeded the pinned file. The 630,740-byte draft ended at line 4324 and has SHA-256 `3d10db0abfe061016b44b1ec40ad322e6626245e7986876561465eb6edf15f73`. It is an exact prefix of this draft. The 609,809-byte filing candidate remains a separate exact prefix, SHA-256 `04cb681fa001219e997e6db09457e724f5cc734e1f7dbfdcff124531cccb9e26`. Use the new full-draft pin from the Lane B return for preservation. Rebind the release to the actual bytes before any clearing or filing.
+
+The checks used HEAD `30db8d51140c0e46700f96bb9f018e6e40b93cbc`, tree `0b558d2a51f17eff755dfd7fba51bed37548f9ae`, and the existing local refs. The current pathname search checked 1,354 entries from `git ls-files` and found zero identifier matches. The 17-ref sweep and the draft snapshot remain later evidence. Repeat the sweep at the refreshed preflight. [D-486][d486] [D-478 item 8][d478]
+
+| Source record | Bytes including LF | Full raw SHA-256 |
+|---|---:|---|
+| [Issued act][task2-d487-act], 2114 | 9,851 | `972507a0ef8a241ba98a66db12ea5385c8428aa99b9168c33f621d9925a406d6` |
+| [Receipt-route amendment][task2-d487-receipt-amendment], 1981 | 3,951 | `09016f7151abfa0e23d0aae96ae644238460f60b8ee1b2a270e8cf67e39921e0` |
+| [Codex Desktop rollout][task2-d487-review-rollout], session metadata at line 1 | 22,616 | `2368a58022af3aa4ed9259fc36871ff3df1440f634e7198b5fc64375154816ab` |
+| Same rollout, technical Pass at line 284 | 2,904 | `c924c74d09680211a25693bea931a78a16c615285954cea1a189fa6a63f49f20` |
+| Same rollout, output-breach disclosure at line 305 | 1,777 | `e3580b3d80a661a113f750e89ef98e704a6e4b836178cf0667e133e31e152ffb` |
+| [Lane A worklog][task2-lane-a-numbering-return], 2156 | 12,971 | `bfde80cac43d82c7ad1a58d88216396c5c9b7cf89000d2db5a64ef801b07ae1e` |
+
+The exact rollout ID search in 83 local Lane A project transcripts yielded zero records before the review prompt. The assertion at rollout line 64 and Lane A's later read establish the assertion and later access. A timely original Lane A access record remains due for this receipt. Lane A can use such a record if found, obtain a Judge ruling on the current receipt, or use a fresh independent review after recording access under the amendment. Preserve line 305 and bind its applicable disposition separately. Before staging, Lane A returns the qualifying receipt and refreshed preflight with the D-486 parent and tree, authorized draft preservation, empty index and clean worktree, Lane A Active, numbering, correct identity, effective hook, D-428 drift baseline, and exact Register prefix, append and result pins.
+
+### G1 and R1–R5 candidate corrections
+
+The following proposed text uses the observed D-486 pre-images. All four spec and crosswalk changes belong to Lane A, unit 2a, under D-479 items 6 and 10, tier rows 31572–31574. Rebind the exact hunks to the actual parent. Compare the resulting pointers and preserve the dated source statements. [D-479][d479] [Earlier reference proposals](#3-exact-reference-corrections-for-lane-a)
+
+| Path, section and full D-486 blob | Current text or anchor | Proposed 2a hunk and test |
+|---|---|---|
+| [docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md](../fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md), §10 line 281, `2e059cda838c88a7ee9a31b6bb70c6958b1b33a9` | `refactor, lane transition or V1-SM05 selection; those remain SV-002 units and Judge acts.` | Replace line 281 with `refactor, lane transition or V1-SM07 (MMF-V1-CORE, formerly V1-SM05) selection; those remain SV-002 units and Judge acts. Pipeline V1-SM05 selection requires a separate Judge act.` Keep the existing Markdown code spans for IDs. Verify CORE points to SM07 and both selection controls remain. |
+| [docs/specs/SPECS-TRANSITION-ENFORCEMENT.md](../specs/SPECS-TRANSITION-ENFORCEMENT.md), §10 after line 239, `ed4b00ba038a54a8e692231e06c473747472b90f` | The 2026-10-15 note says `This note admits no transition execution into V1-SM05 and authorizes no schema work.` | Append `Slot note [V1], D-479 item 6. V1-SM05 in the 2026-10-15 note denotes the FR-15 slice, now V1-SM07. D-479 item 5 selects the pipeline transition contract for ROUTE-PROD-1. Execution requires its own work order.` Verify the dated note and schema boundary. |
+| [docs/specs/SPECS-VERIFICATION-APPARATUS.md](../specs/SPECS-VERIFICATION-APPARATUS.md), §18.2 after line 546, `299605718120121c4917eedfd3390df308de7683` | The apparatus DoD ends with `the V1-SM05 manifest is pinned. Met 2026-09-24.` | Append `Slot note [V1], D-479 item 6. The manifest pinned here moves with the FR-15 packet to scripts/jev/manifests/V1-SM07.json. The 2026-09-24 result retains its dated scope.` Resolve the manifest at verified 2a. |
+| [docs/governance/factory-route-operation-crosswalk.md](../governance/factory-route-operation-crosswalk.md), §4.1 after item 1, `b7ac3ef2e255edcb7198b8f8103e2d43c4fcabd0` | Line 241 cites D-232's dated slot assignment. Lines 245–246 give the Route-1 and Reporter rule. | Append `D-479 slot note [V1]. The D-232 slot-assignment citation in the introduction to §4.1 retains its dated meaning. The former FR-15 packet is now V1-SM07. The live pipeline slot is V1-SM05 on ROUTE-PROD-1 under D-479 item 5. Apply the D-233 actor and operation rules within their stated scope.` Verify both the history and the live route. Lane A may instead return a clause-based no-edit disposition. |
+
+For R1, the exact substitution in `scripts/checks/closure-readiness.mjs` lines 174 and 255 is `V1-SM05` to `V1-SM07` in the packet path and the packet claim reason. Keep the exported symbol name for the proposed two-line diff. Preserve draft R1 findings. For R2, the current matcher at lines 245–248 tests the whole status paragraph. The successor proposal must read the explicit current status. Lane A returns the exact parser and fixture hunks and the behavior for a missing or malformed current status for the Judge's scope decision. Bind the fixture pre-image to the verified prerequisite. Validate fixture setup before mutation or restore partial writes inside setup. [Checker][claim-check] [Lane B R1–R8](#lane-b-proposal-review---task-2-r1-r8-2026-11-25)
+
+| Gate 2 case for G1 | Exact input and expected result |
+|---|---|
+| Explicit tracker claim | Keep current CORE SM07 BLOCKED. Use a fixture tracker with ``claimed: at `abc1234```. Require the tracker reason ``§2.3.1 reads "claimed: at `abc1234`"``. The pure case starts at `scripts/fixtures/suites.mjs:1832` and the integration case at 1924 on D-486. |
+| CORE packet claim | Keep the fixture tracker unclaimed. Change only the explicit current status in moved CORE SM07 from BLOCKED. Preserve the dated BLOCKED text. Require the exact packet reason `` `V1-SM07` no longer reads BLOCKED ``. The D-486 pure and integration starting points are 1833 and 1931. |
+| Pipeline isolation | Keep the fixture tracker unclaimed and current CORE SM07 BLOCKED. Change only pipeline SM05 status. Require the legacy reason to remain null and preserve the baseline legacy result. Test the separate pipeline trigger only under Q11. |
+
+Use the fixture cases against the exact released 2a revision. Restore fixture bytes and require full fixture and applicable Jev checks. The prerequisite's literal single-failure allowance above applies only to its own released run. The real tracker stays unclaimed. Give Q2 protection, Q11 design and row 1b coverage their existing return paths. [Release checks](#bind-the-checks-and-release) [Gate 2 tracker][gate2] [Row 1b][row1b]
+
+For R5, the [ten-row 2b map](#ten-2b-pre-images) already gives every exact repository path and full expected blob. Lane B verified the seven HEAD matches and the absent Intent Index. The two draft post-images remain Inventory `9e500971df94126262d78819811ae651ff475164` and Build Spec `909c63bd01cf685ceb1f7b8a1c2e32c0876c393a`. Their D-486 blobs are `125ec651470218eb3c3cc1ccd5a534e9a5dd64a2` and `d8f09bacb4412fa25a69f2bf05c0d1dc3c012a9e`. The rev2 patch and ledger pins in section 3 match. Lane A returns all ten actual results at `<full verified 2a commit>:<repo-relative path>`, using explicit absence for the new Intent Index. Record the 2a tree and enforce 2a/2b adjacency. Stop on any mismatch before 2b.
+
+### G2–G10 decisions and Lane B proof inputs
+
+Use the [existing G1–G10 table](#4-lane-a-decisions-and-acceptance-tests) for each governing clause and scope. Return a separate intent verdict on each row. Use the pinned r5 trace and DoR/DoD as the proposal baseline. Any text change goes into a separately pinned successor. The five Git evidence paths and the seven-file Request B export retain their own routes. [Evidence map](#2-evidence-and-custody-map) [B-117 DoR and DoD][b117]
+
+| Key | Lane B input for the fill | Lane A or Judge return |
+|---|---|---|
+| G2 | Measure gate-log completeness, reasonless returns, and elapsed time from persisted intake to human final decision on the first accepted run. | Under Q3, bind the Chief Editor's hypothesis, target, unit of measure and owner in the authorized pipeline packet. |
+| G3 | One proof boundary per anchor. For AC-22, give each EG its expected F4 evidence or an explicit governed disposition. The R6 Jev counts show a source resolution gap for AC-22 and AC-01b. Use the exact tested ID set and compare F13 against existing held-row and cross-tier cases. | Return canonical homes, the successor trace and DoD pins, and an eleven-field trace with zero unmapped anchors and zero orphan units. Bind a failing-first and passing case with an exact evidence locator per selected test. |
+| G4 | Q4/Q5 cases: logged EW entry succeeds, skip from the preceding state refuses and leaves state unchanged, reasoned return persists its reason and enters the approved rerun. If the draft AC-08e retry rule is selected, add exact replay and conflicting retry cases with distinct expectations. | Rule on AC-01b, AC-08a and the conditional AC-08e cases. Keep the sibling-report limb on its separate decision. Record each applicable owner and expected artifact. |
+| G5 | Keep the two linked receipts for one article. SM05 exit proves log-only reconstruction of all gates. SM06 entry consumes that receipt. SM06 completion proves actual publication. | Under Q6/Q12, record both packet and trace changes, and show the cycle is absent. Retain the SM08 baseline-promotion prerequisite under D-486. |
+| G6 | Proposed forward-only migration design. Bound the executor rows to ROUTE-PROD-1. Preserve 0001 and 0002. In a disposable replay of the released design, prove one EG4 reviewer, human EG5, and seal, reveal, then decision. Include a rollback and replay case with the row set and log order checked after each. | Select the exact executor rows and proof boundary under D-479 item 5. Bind any later migration to its own work order before implementation. |
+| G7 | Independently test same-day surface duplicate refusal, next-day acceptance, permitted manual intake, agent refusal, direct-write refusal, blank reason, reasoned return, next-attempt escalation after the return limit, rollback, replay and immutable history. Compare persisted state and logs for each. | Bind failure behavior and the exact cases. Use Q7 for any separate refusal record and reader scope. |
+| G8 | Lane B verified the current CORE packet at `30db8d51140c0e46700f96bb9f018e6e40b93cbc:docs/v1/work-packets/V1/V1-SM05.md` and the absent Intent Index at the same commit. The prior Task 2 record gives no exact locator for the alleged obsolete condition. | Cite the actual SM07 packet and new SM05 at verified 2a, the Intent Index at verified 2b, and delivered evidence at its full delivery commit. Retain TASKS-S1 provenance. Return the obsolete clause and revision or keep the scoped gap open. |
+| G9 | Estimate against named accepted cases. Walk through persisted intake, five gates, human decision, return, refusals, reload and board. Stop on actor, blind-order or log-integrity defects. The accepted test scope and operator/reviewer capacity are still due, so a duration is unbound. | Chief Editor and Lane A bind operator and reviewer capacity and the estimate basis. Lane B returns the estimate against that scope. |
+| G10 | Use the separate child receipts below. Keep explicit tracker, current CORE status and pipeline isolation cases independent. | Under Q2, bind the protected SV-002 update and current derivation. Under Q11, return the pipeline trigger, placement and fixture as a separate proposal. Require the two legacy claim tests and pipeline isolation for the released 2a. |
+
+### Per-anchor readiness, test and completion input for G3
+
+This expands the grouped proof design in section 4. Each expected proof is due at the applicable authorized implementation revision. Lane A carries these inputs into the eleven-field trace with the anchor's governing source, executor, exact verification locator and receipt due. Use the same article ID for evidence that spans stages.
+
+| Anchor | Readiness input | Verification case | Completion proof due |
+|---|---|---|---|
+| FR-01 | Intake operation and actor | Create a permitted intake and reload | Article and entry-state row |
+| AC-01 | Approved actor and trigger scope | Run the permitted manual trigger and verify the actor | Trigger result and recorded actor |
+| AC-02 | Daily duplicate rule | Refuse same-day duplicate and accept next-day intake | Surface refusal and persisted rows |
+| FR-02 | Source and trend fields | Verify the authorized source-to-trend stage | Stage row with required fields |
+| FR-03 | Draft and adaptation fields | Advance a valid draft and reject a missing required field | Draft stage row and persisted fields |
+| AC-03 | Source and trend field rules | Omit and then supply the required inputs | Named refusal and accepted record |
+| AC-04 | Adaptation, target and checklist | Fail each required input case and pass the complete case | Stage results and persisted checklist |
+| FR-04a | One EG4 reviewer and join | Run the authorized review and verify one join | Reviewer, sealed review and join row |
+| FR-05a | Human EG5 executor | Run the authorized human final decision | Human actor and final state |
+| AC-05a | Approved single-reviewer scope | Attempt an extra reviewer and verify one accepted review | Review count and refusal result |
+| AC-06a | Human-only final authority | Attempt agent final decision and verify refusal | Agent refusal and separate human decision |
+| AC-07a | Seal, reveal and decision order | Attempt early reveal and then complete the valid sequence | Refusal and ordered gate evidence |
+| FR-06 | Return path and reason | Record a reasoned return and enter the approved rerun | Reason and rerun state row |
+| AC-09 | Required return reason | Reject blank reason and accept a reasoned return | Refusal and persisted reason |
+| AC-10 | Agreed same-state return limit | Attempt the next return after the limit | Escalation and state result |
+| FR-07 | Append-only stage history | Run a stage change and query one new history row | Stage change and history row |
+| AC-11 | Log field contract | Verify the history row's required fields | Complete history row tied to the article |
+| AC-12 | Mutation and delete boundary | Attempt edits and deletes in the authorized disposable case | Refusal results and unchanged history |
+| AC-NF-02 | Audit integrity | Reload history and reconcile rows to state transitions | Persisted audit and zero unexplained rows |
+| FR-08 state | State-board scope | Open and reload the board after a persisted transition | Board state linked to the persisted article |
+| AC-13 state | Filter and empty state | Apply the state filter and query an empty result | Observed filter and empty-state results |
+| AC-22 | F4 evidence or decision per EG | Test present, missing and placeholder F4 evidence at each gate | Gate-by-gate enforcement results or scoped decisions |
+| AC-NF-01 | Scope decision for direct writes | Attempt the authorized anonymous direct update in the allocated environment | Rejection and unchanged state at the applicable checkpoint |
+| AC-NF-05 | Same article and Q6/Q12 allocation | Reconstruct SM05 from its log and link SM06 actual publication | Two accepted receipts bound to one article |
+
+Keep Task 2 document acceptance tied to the reviewed trace, exact evidence access and Judge acceptance. Feature readiness and Gate 2 depend on the applicable readiness checks and child receipts. Implementation completion depends on the authorized proof above. Carry the [G10 child return table](#child-return-conditions) forward by individual key: B-158 O5, B-162, B-163, B-151 O2, GR-001, GR-003, GR-016, GR-017, and GR-007 with its three source transactions. A test claim must report missing live entries, unclosed non-pipeline rows, invalid or unreferenced rows, and stale or unprovable derivation. Confirm the required pipeline child receipts separately. [Gate 2 tracker][gate2] [GOV-RES-001][gov-res] [B-151][b151]
+
+### Disposition
+
+| Scope | Verdict | Follow-up phase |
+|---|---|---|
+| Locators, receipt pins and local numbering evidence | Approve | Phase 1. Lane A cites this follow-up and repeats the numbering check at the refreshed preflight. |
+| G1–G10 candidate and proof design | Approve-with-conditions | Phase 1. Lane A returns exact successor hunks, intent verdicts, exact pre-images, proof locators and owner-specific due evidence. The Judge decides R2 scope and separate Q routes. |
+| D-487, P1 and attributed filing | Defer | At the existing release checkpoints. Bind the qualifying receipt, preservation and preflight. File only the authorized append on the verified parent and verify the delivered raw blob independently. |
+| Gov/docs application and Gate 2 | Defer | At the released governance units. Lane B reviews the exact applied revision at Level 1, then Lane C reviews it at Level 2. Keep B-162 Open, D-487 staging held, Gate 2 unclaimed and all other holds in force. |
+
+[task2-lane-a-numbering-return]: <C:/Users/rober_24syk4j/.claude/projects/C--robertaoai-my-editorial-app/f50d3849-4a8c-4e72-89d0-92ca9ce7ceb4.jsonl:2156>
+
+## Lane B handoff to Lane A - Task 2 executive summary (2026-11-25)
+
+**Phase 1. Open.** Lane A can start the read-only gov/docs candidate review for V1-SM05 / MMF-V1-PIPELINE on ROUTE-PROD-1. This is Lane B's contribution to the existing B-162 entry. Use [the handoff template](TEMPLATE.md) and [the answering procedure](README.md#answering--lane-a) for the receiver's return.
+
+### What happened
+
+Lane B checked Lane A's worklog, corrected the numbering evidence, and supplied exact reference proposals, ten 2b input expectations, three Gate 2 test expectations, and proof design for 24 anchors. At D-486 `30db8d51140c0e46700f96bb9f018e6e40b93cbc`, the five r5 Git paths were absent. The current handoff is a local working draft. [Lane A worklog][task2-lane-a-numbering-return] [Detailed Lane B follow-up](#lane-b-follow-up-to-lane-as-task-2-worklog-2026-11-25) [Evidence map](#2-evidence-and-custody-map)
+
+### What you need
+
+1. **Start here.** Confirm access to this draft, record its observed size and raw SHA-256, and compare them with the delivery note for this summary. Cite that pin in your return. Review the [exact G1 changes](#g1-and-r1r5-candidate-corrections), the [G2-G10 decisions](#g2g10-decisions-and-lane-b-proof-inputs), and the [per-anchor proof inputs](#per-anchor-readiness-test-and-completion-input-for-g3). Keep commit 1 under row 1b and the three rev2 omissions under G1 in 2a.
+2. **Return one row per affected G item.** Give the governing clause and revision, intent verdict and reason, exact path and section, current and proposed text, accepted diff scope, test and expected result, owner and return condition. Return any changed candidate with its own pin. Link each anchor to its DoR, verification case and DoD proof or due receipt. Record document acceptance, feature readiness and implementation proof separately.
+3. **Bind the transaction before each released action.**
+
+| Route | Checkpoint and return |
+|---|---|
+| D-487 | Bind the timely access evidence or applicable Judge ruling, and the disclosure disposition. A fresh review may use the amended route after Lane A records prior access. Before staging, bind the qualifying Pass, authorized draft preservation, effective hook and refreshed preflight to D-486. [Receipt evidence](#receipt-and-evidence-corrections) |
+| P1 and evidence | After verified D-487, use the separate P1 release and exact inventory and range. Include the five r5 paths only under exact custody authority. Keep the seven-file Request B export separate. Confirm delivery and verify each raw Git blob independently. [P1 decision sheet](#p1-release-and-readback-decision-sheet) |
+| B-162 filing | At the authorized post-P1 checkpoint, Lane B files its own exact append. Bind actual parent, pre-image, result, path set and push range. The 609,809-byte candidate and this full working draft have separate pins. Return the full filing commit and independent readback. [Filing binds](#corrected-filing-decision-and-pre-staging-check-2026-11-25) |
+| Gov/docs | Lane A applies separate released units. Bind the prerequisite, 2a and 2b to actual parents and trees. Verify all ten 2b inputs against verified 2a before 2b. Keep parser scope, Q2 and Q11 on their own routes. Lane B reviews the exact applied revision at Level 1, then Lane C at Level 2. [Release sequence](#5-release-and-return) |
+
+### What you did instead
+
+Lane B recorded local proposals and evidence. Lane A can refine the candidate now. Keep B-162 Open, D-487 staging held, Gate 2 unclaimed and the other holds in force.
+
+| Scope | Verdict | Follow-up phase |
+|---|---|---|
+| Lane A read-only review | Approve | Phase 1. Start with the pinned local draft and return the item-level decisions. |
+| Exact candidate and tests | Approve-with-conditions | Phase 1. Lane A supplies pinned hunks and tests. The Judge rules on the open scope items. |
+| Recording, transfer, filing and application | Defer | Use each route's release and verify its resulting evidence. |
+
+## Lane B review of Lane A's external Task 2 return r1 (2026-11-25)
+
+**Phase 1. B-162 Open.** Lane A read the 653,479-byte B-162 draft and returned candidate changes in scratch evidence. This is Lane B's scoped review of that external proposal. The gov/docs application, filing and exact applied-commit reviews are separate checkpoints.
+
+### What happened
+
+Lane B read the artifacts directly from `C:\CoWork\outputs\B-162-Task2-LaneA-return-r1-30db8d5\`. All six raw files match Lane A's reported pins. The manifest lists five payloads. Its own hash was checked separately. The observed Git baseline remains D-486 `30db8d51140c0e46700f96bb9f018e6e40b93cbc`, tree `0b558d2a51f17eff755dfd7fba51bed37548f9ae`. The index was empty. B-162 was the only modified repository path.
+
+| External source path under the root above | Bytes | Raw SHA-256 | Review state |
+|---|---:|---|---|
+| [return.md][task2-lane-a-r1-return] | 31,893 | `2c49388d90f927c9e2028b4b313c6b15e3f03e1ab63574c9d8f5b61ffd57083d` | G1-G10 read-only proposal |
+| [trace-24.md][task2-lane-a-r1-trace] | 10,446 | `5f9c88f1d551a5c404a7f214d0b07e3a9d789acfb7d34c3e43bca5f7caf277d8` | Proposed r6 trace |
+| `hunks\2a-successor-g1-docs.diff` | 4,242 | `11e2f2a6e5e2705c6e9f867b45775eb25ef77aafd38a68d5413d5d2e1ed71b05` | Four scratch hunks |
+| `hunks\2a-successor-gate2-option-P.diff` | 5,321 | `0921d4ac941f35e11fb26a9c6be55652fe6abbe464504236005820d3dc6d6d28` | Parser and fixture proposal |
+| `hunks\2a-successor-gate2-option-F.diff` | 892 | `b1ae46a9a573af0c9e6ba50c9f807cacd06f9955dbd5cd7b45f8827b5e081f0f` | Fixture-only comparison |
+| `SHA256SUMS` | 462 | `81132cc6815aca32dd6d419d3c7086f1b3421368dc080060a509b52e7b9231ec` | Manifest verified locally |
+
+Keep these locators as provenance. Return r1 and trace r6 retain their draft status. Any repository custody proposal for them needs an exact destination, release, delivery commit and raw readback. Keep this package separate from the five r5 Git files and the seven-file Request B export. [Existing evidence map](#2-evidence-and-custody-map)
+
+### What Lane A needs to return
+
+| Finding and source | Lane B review | Lane A return |
+|---|---|---|
+| **G1/R3–R4.** D-479 tier rows 31572 and 31574. Return §3.1 and the four-path docs delta. | The four hunks match their draft pre-images in memory. Accept the shorter FN-MULTI §10 text. Preserve the dated statements in Transition §10 and Verification §18.2. Keep the crosswalk note scoped to the dated D-232 citation and the old slot use in the route sentence. Preserve the Route-1 Reporter rule. | Carry the three omissions in 2a under G1. Bind the four paths and hunks to the actual parent. Confirm packet and manifest targets. Keep commit 1 under row 1b. |
+| **G1/R2.** D-479 tier row 31573. Return F-e and §3.2. | Correct F-e: the scratch 2a-on-P packet **moves** the dated D-264 clause outside the status paragraph at patch lines 545–552. Rev2 leaves it inside. The earlier 306/306 result covers its scratch revision. It does not prove the rev2 successor. The old parser still reports no claim when only current status changes in rev2. | Record the placement difference and retain the earlier receipt's original scope. Preserve the dated text in the selected successor. |
+| **R2 choice.** Option P and Option F. | Prefer the Option P direction for a Judge scope decision. On the rev2 packet, the Option P parser recognizes a well-formed current change with the dated BLOCKED text kept. If the explicit marker is present but its status token lacks the opening backtick, P falls back to the whole paragraph and suppresses the claim. Option F changes both markers in the fixture and leaves the real current-only false negative. | Return a pinned P successor with an explicit result for a valid current marker, no explicit marker, and malformed or multiple explicit markers. Obtain the Judge's scope and behavior ruling before 2a. Treat F as a comparison. It fails the current-only acceptance case. |
+| **2a actual fixture pre-image.** Option P/F headers versus the prerequisite. | Both drafts use `scripts/fixtures/suites.mjs` at HEAD blob `8326802a886a4dd90b867a2a4adb4e186d49ac97`. The draft prerequisite produces `266a1bc5acde7970518af3dfca00dee80da4a694`. Replaying P's hunks over that prerequisite in memory produces `f12a0ea732a6da62089e7a483f4e700b5ec40815`, distinct from the P solo draft blob `6def0f14baae3fefdab0ac08e42dfaeac1ec9365`. | Rebuild the combined 2a patch, pre-images, trees, ledgers and pins on the verified prerequisite. Repeat the explicit tracker, current CORE status, and pipeline-only cases. Require the exact tracker and SM07 reasons and the baseline unclaimed result for pipeline isolation. Run full fixtures and applicable release checks on the pinned successor. Verify all ten 2b inputs against actual 2a before 2b. |
+| **G3/G4/G7.** Trace r6 rows 9, 10, 17 and 21. | Accept Lane A's correction of Lane B's earlier AC-01 proposal. AC-01 proves Reporter execution and separate supplier attribution. AC-02 owns the surface duplicate refusal, next-day acceptance and the unblocked manual trigger. AC-10 escalation is on the next attempt after the same-state limit. AC-22 needs present, missing and placeholder F4 cases per EG. Trace fields 8 and 10 are declared as shared values. | Retain the corrected rows and bind the per-EG evidence under Judge authority. Carry the owner and evidence locator or due condition per anchor when binding the final trace. Keep Q4/Q5, the exact G6 executor rows and the accepted test scope and capacity for G9 as separate inputs. |
+| **G8/G10.** Return §§4 and 7. | The Task 2 answer pointer is a transcript proposal with no delivered target. B-151 O2 has a planning-only receipt. FN-GATES §4.6 rules 2–3 describe admission and the reference pair. Rule 6 and the dated `SM05-IN1`–`IN4` case IDs stay with CORE. | Before applying the pointer, name the authorized owning unit, C06 scope and full delivery commit and verify the raw blob. If the target is still due when 2a is bound, carry the pointer as an explicit later dependency. Obtain the Judge's disposition on rules 2–3 for pipeline FR-01 with new case IDs if selected. Keep Q2 and Q11 independent. |
+
+The in-memory replay checked hunk contexts, object IDs and selected pure functions. It supplies proposal evidence. Full fixture execution, hooks, protected-path changes, and exact applied-commit governance reviews are due at their own checkpoints. Keep Q3, Q6/Q12 and Q7 on their existing decision routes. [Lane A return][task2-lane-a-r1-return] [D-479][d479] [Release and return](#5-release-and-return)
+
+### Disposition
+
+| Scope | Verdict | Follow-up phase |
+|---|---|---|
+| External r1 candidate and scoped Lane A readback | Approve-with-conditions | Phase 1. Lane A returns the corrected claim about the scratch receipt, selected and pinned R2 successor, and post-prerequisite bindings. |
+| F as completion of the current-only acceptance case | Reject | Before the 2a scope decision. Its live false negative remains. |
+| Gov/docs implementation of the proposed edits | Defer | Before 2a. Bind the Judge ruling, actual prerequisite, combined patch and evidence. Lane B Level 1 and Lane C Level 2 follow on the exact applied revision. |
+| D-487, P1, filing and Gate 2 | Defer | At each authorized checkpoint. B-162 stays Open, D-487 staging held, Gate 2 unclaimed, and all other holds remain in force. |
+
+[task2-lane-a-r1-return]: <C:/CoWork/outputs/B-162-Task2-LaneA-return-r1-30db8d5/return.md>
+[task2-lane-a-r1-trace]: <C:/CoWork/outputs/B-162-Task2-LaneA-return-r1-30db8d5/trace-24.md>
+
+## Lane B hand-back for receipt wording and 2a parent binding (2026-11-25)
+
+**Phase 1. B-162 Open.** Lane A can correct its successor proposal now. The actual parent binding waits for the authorized predecessor. This section supplies the exact wording and return fields for the findings in the [Lane B review above](#lane-b-review-of-lane-as-external-task-2-return-r1-2026-11-25). Preserve the original r1 return and historical receipts. [Handoff procedure][handoff-sop]
+
+### What happened
+
+Lane B verified the retained fixture outputs and validation summary in the draft prerequisite work folder. Each output reports `306/306 fixtures behaved as intended` at line 372. The validation summary and the R1 proposal identify the scratch commits. The local repository could not resolve those scratch commits as Git objects. Use the file receipts as historical evidence. [R1 proposal, items 4–5][task2-r1]
+
+| Retained source | Recorded scratch commit and tree | File bytes and raw SHA-256 |
+|---|---|---|
+| [S2A-fixtures.txt][task2-s2a-fixture-receipt] | `4f01166d6f6e8a5841322f0738cbdc3f0a75d4fb`, tree `a9339ef4c1b2275a6585016dcc366676be441402` | 34,652 B, `613de7a65e15e098af3464c3cba23c4fab480ac05dc444794a0c26f82a61ac32` |
+| [S2B-fixtures.txt][task2-s2b-fixture-receipt] | `82b65358893aca4d2a300078a7149350d67eb3a1`, tree `0c9800271090e68d0ae1b48e58f8bef4da4574d8` | 34,652 B, `c9241944c76adca087a9e4655a9c17ace64f598edf49d03ad708ab27aa9d6ceb` |
+| [validation-summary.json][task2-scratch-validation-summary] | Recorded IDs and trees above. The scratch prerequisite is `3e6017bb92e85373bb91851ae9cb18e5fe6cd284`, tree `31cba2f68ff7439a8ba27c21e64ab54f17c41924`. | 6,915 B, `b11f6a74ddf0e8d281cc8d64b9d6d7598006ae059fc7263213d47e3402a125f8` |
+
+### What Lane A needs
+
+**Replace F-e in the successor to [return.md][task2-lane-a-r1-return], §2, and carry the same scope into §3.2. Use this wording:**
+
+> The retained S2A and S2B fixture outputs report 306/306 for their scratch revisions. The scratch 2a-on-prerequisite patch, lines 545–552, keeps the dated D-264 BLOCKED text in a separate Status history paragraph outside the legacy parser's Status paragraph. Rev2 keeps the dated marker within the Status paragraph. On rev2, the unchanged parser still reads BLOCKED after only the current marker changes. This is a known false negative. Retain the scratch receipts under their original scope. Require a fresh full fixture pass and both legacy claim reasons and pipeline isolation on the exact released 2a successor.
+
+**Use this wording for the R2 verdict beside §3.2:**
+
+> Recommend the Option P direction, subject to the Judge's scope and status-parsing ruling and a pinned successor. The current draft detects a well-formed current-status change with the dated marker retained. An explicit marker with a missing opening backtick still falls through to the whole-paragraph reading. The successor must test and state the results for a valid current marker, no explicit marker, a malformed explicit marker and multiple explicit markers. Option F is comparison evidence. Its scratch probe leaves the current-only false negative. Full fixtures for either option on the released 2a revision remain due.
+
+**Use this wording for the D-487 checkpoint in §8:**
+
+> Act 2114 issues the Register-only recording to Lane A against D-486 as sole parent. The amendment at record 1981 governs the Codex Desktop receipt route. Lane B's original technical Pass and later disclosure retain their separate scopes. Record original timely access evidence or the Judge's applicable disposition, and record the disclosure disposition. If using a fresh review, confirm access to its original rollout before the review starts. Keep staging held until the qualifying receipt, authorized draft preservation and refreshed preflight are bound. Recompute the full B-162 draft pin before binding preservation. The prior 653,479-byte value identifies the draft read for r1.
+
+### Bind the proposed patch now and the actual parent at release
+
+Use D-479 item 10 and tier rows 31572–31574 for 2a. D-481 item 6 carries the propagation hold. The recorded D-481 parent and child recording act does not release this prerequisite or 2a. Track the actual order of released commits. An intervening commit requires the applicable parent disposition and new bindings for each affected unit. [D-479][d479] [Issued D-487 act][task2-d487-act] [Release and return](#5-release-and-return)
+
+| Unit | Status at the observed branch | Lane A evidence due |
+|---|---|---|
+| D-487 Register-only recording | Held. HEAD is D-486 `30db8d51140c0e46700f96bb9f018e6e40b93cbc`, tree `0b558d2a51f17eff755dfd7fba51bed37548f9ae`. | After the recording release conditions pass, return the full D-487 commit, sole parent, result tree, Register blob and required review and check records. |
+| Two-file prerequisite | Draft only. The scratch prerequisite is historical evidence. | After verified D-487, record the exact unit release, actual approved parent and tree, two pre-images, exact patch pin, result tree and both committed blobs. Record any intervening authorized unit and the parent decision. |
+| 2a | Actual parent and result are pending. If the governed units are adjacent, the verified prerequisite is the 2a parent. | Bind the actual approved parent and tree before staging. Rebuild the combined patch using the released prerequisite result, the authorized 2a scope and the selected R2 successor. Return the exact path ledger, input and result trees, raw patch pin and tests. |
+| 2b | Actual 2a is pending. | Require verified 2a as sole parent and test all ten paths from the [2b input map](#ten-2b-pre-images) against that commit before any 2b write. Record explicit absence for the Intent Index. Stop on a changed pre-image or an intervening commit. |
+
+For the 2a release sheet, fill these fields from the issued release and observed Git objects. Keep unavailable values as `Pending` with their checkpoint and owner. The four docs hunks in the r1 package and the option patches keep their exact external pins as proposal evidence.
+
+| Field | Required value |
+|---|---|
+| Release and actor | Judge locator, record time and exact scope; Lane A as the authorized actor; applicable R2 ruling; whether the Task 2 answer pointer has a delivered target and an authorized owning unit. |
+| Base | Approved full parent commit, actual HEAD, parent tree, index and worktree state, and actual approved order. Read using `git --no-optional-locks status`, `git rev-parse HEAD`, and `git rev-parse <parent>^{tree}` with `GIT_OPTIONAL_LOCKS=0` and `GIT_NO_LAZY_FETCH=1`. Confirm HEAD equals the released parent before staging. |
+| Patch and paths | Exact repository-relative paths with operation, pre-image and result object IDs per path. Resolve each current pre-image with `git ls-tree --full-tree <parent> -- <path>`. Distinguish absence from a lookup error. Read raw bytes using `git cat-file blob <parent>:<path>` when a blob exists. Record exact patch byte count, raw SHA-256, expected result tree, and authority for any changed scope. |
+| Fixture and checker integration | The scratch HEAD fixture pre-image `8326802a886a4dd90b867a2a4adb4e186d49ac97` and solo P result `6def0f14baae3fefdab0ac08e42dfaeac1ec9365` are proposal pins. The draft prerequisite changes the fixture blob to `266a1bc5acde7970518af3dfca00dee80da4a694`. The in-memory combined example `f12a0ea732a6da62089e7a483f4e700b5ec40815` is a diagnostic. Resolve the actual fixture pre-image at the released parent and pin the selected combined result there. Option P's checker hunk starts after rev2's path and reason re-point. Record the combined checker change against the actual 2a parent. |
+| Tests, stop and readback | Retain the exact tracker reason, the CORE SM07 packet reason for a current-status-only change, and the unchanged legacy result for pipeline-only change. Run full fixtures and applicable Jev and release checks on the pinned revision. Stop on an unallowed failure, hook, path, byte, parent or tree mismatch. Where D-480 applies, report named exceptions as failures within the release. Verify the sole parent, result tree and tested, staged and committed bytes. Return those IDs for Lane B Level 1 and Lane C Level 2 on the applied revision. |
+
+### What Lane B did instead
+
+Lane B checked the retained files, the quoted R1 and Register scope, and the current Git baseline. Lane A can use the wording and fill the draft fields now. Keep B-162 Open, D-487 staging held, Gate 2 unclaimed and all other holds in force.
+
+| Scope | Verdict | Follow-up phase |
+|---|---|---|
+| Receipt wording and draft fields | Approve | Phase 1. Lane A applies the wording to its successor proposal and cites these source pins. |
+| Option P and combined 2a preparation | Approve-with-conditions | Before 2a. Resolve R2 and prepare the pinned successor with the full test expectations. |
+| Option F as acceptance of the current-only test | Reject | Before 2a. Preserve as comparison evidence. |
+| Actual parent, execution and filing | Defer | At each applicable release. Lane A supplies the actual commit and tree evidence. |
+
+[task2-s2a-fixture-receipt]: <C:/CoWork/outputs/D-479-r7-prereq-drafts-21-30db8d51140c0e46700f96bb9f018e6e40b93cbc/validation/S2A-fixtures.txt>
+[task2-s2b-fixture-receipt]: <C:/CoWork/outputs/D-479-r7-prereq-drafts-21-30db8d51140c0e46700f96bb9f018e6e40b93cbc/validation/S2B-fixtures.txt>
+[task2-scratch-validation-summary]: <C:/CoWork/outputs/D-479-r7-prereq-drafts-21-30db8d51140c0e46700f96bb9f018e6e40b93cbc/validation/validation-summary.json>
+
+## Lane B corrective action index for the 389/440 review (2026-11-25)
+
+**Phase 1. B-162 Open.** The prior review lost 51 points across seven attributes. This index shows the correction, its source and the evidence still due. Use it with the [receipt wording and parent-binding hand-back](#lane-b-hand-back-for-receipt-wording-and-2a-parent-binding-2026-11-25). The earlier grade records the state of that review.
+
+### What happened
+
+| Review item | Gap in the previous review | Correction available in B-162 |
+|---|---|---|
+| 10. Receipt correction, 12/20 | Lane A had the finding but no exact replacement text. | [Replacement wording](#what-lane-a-needs) for return §2 F-e and §3.2. State that the scratch patch preserves the dated D-264 text outside the parsed Status paragraph and rev2 keeps it inside. Scope each 306/306 result to its scratch revision. |
+| 11. Scratch receipt pins, 10/20 | The count lacked exact raw pins for the two logs. | The [hand-back receipt table](#lane-b-hand-back-for-receipt-wording-and-2a-parent-binding-2026-11-25) pins the 34,652-byte [S2A log][task2-s2a-fixture-receipt] and [S2B log][task2-s2b-fixture-receipt], the full commit and tree IDs recorded in the [validation summary][task2-scratch-validation-summary], and the source scope. Both fixture totals are at line 372. |
+| 12. Scratch Git access, 12/20 | Local retrieval of the scratch commits was unreported. | `git cat-file -e <scratch-id>^{commit}` returned 128 for S2A, S2B and the scratch prerequisite in this checkout, with lazy fetch disabled. Cite the retained files and recorded IDs. The two fixture totals are independently readable as files here. |
+| 13. D-487 wording, 12/20 | The hold was stated without ready-to-use wording for the amended receipt and disclosure. | [D-487 replacement wording](#what-lane-a-needs) for return §8 cites the [issued act][task2-d487-act] and its [receipt-route amendment][task2-d487-receipt-amendment]. Retain the original technical Pass, timely access evidence or the applicable Judge disposition, and the later disclosure as separate records. |
+| 17. Actual parent, 12/20 | The instruction did not say when the parent becomes bindable or how to verify it. | [Checkpoint table](#bind-the-proposed-patch-now-and-the-actual-parent-at-release). Bind the actual approved 2a parent after the verified prerequisite and the authorized ordering are known. Verify actual HEAD against that full commit before staging. |
+| 19. Binding fields, 12/20 | Lane A had no return form for pre-images, byte pins, expected tree, checks and readback. | Follow the release-sheet fields in the [parent-binding section](#bind-the-proposed-patch-now-and-the-actual-parent-at-release). Use the return form below. |
+| 20. Ten 2b inputs, 19/20 | The stop rule for a parent mismatch was implicit. | Require verified 2a as the sole parent. Before any 2b write, compare the HEAD and tree with the approved 2a, resolve all ten paths including the absent Intent Index, and stop on a mismatch or intervening commit. [Ten 2b inputs](#ten-2b-pre-images) |
+
+### What Lane A needs
+
+1. **Return the corrected proposal now.** Use the three quoted replacements in the hand-back. Cite the scratch log pins and r1 source. Prepare the combined 2a proposal and the corrected Option P test expectations. Label the parent and result bindings `Pending` while the approved objects are due.
+2. **Resolve authority before execution.** The Judge rules on R2. Lane A binds the qualifying D-487 receipt, authorized draft preservation and refreshed preflight. After verified D-487, bind the separate two-file prerequisite release and verify its result. Track any intervening released commit and obtain the applicable parent decision.
+3. **Bind and verify at the released checkpoint.** Read HEAD and each pre-image from the approved parent. Rebuild and pin the combined 2a patch on that base. Run the required checks and verify the result under the release. Use the verified 2a commit for all ten 2b input checks. Return the exact applied revision for Lane B Level 1 and Lane C Level 2. [D-479 item 10][d479] [Release route](#5-release-and-return)
+
+| Lane A return record | Current value or evidence to enter |
+|---|---|
+| Proposal and wording | Cite r1 and name the successor revision, exact paths, patch bytes and SHA-256. Include the three revised passages or point to their exact locations within the successor. |
+| Authority and ordering | Record the actual Judge locator, authorized actor, covered R2 behavior and exact unit order. If a release is due, give its owner and checkpoint. |
+| Parent and pre-images | Observed branch baseline is D-486 `30db8d51140c0e46700f96bb9f018e6e40b93cbc`, tree `0b558d2a51f17eff755dfd7fba51bed37548f9ae`. The prerequisite and 2a parent are pending. At release record the approved parent, actual HEAD, parent tree and each path's pre-image. |
+| Result and tests | At release record the patch pin, expected and actual result tree, changed paths, full check outputs, effective hook and tested/staged/committed byte comparison. Retain both legacy claim results and the pipeline-only isolation result. |
+| 2b gate | At the released checkpoint record the full verified 2a commit and tree, actual pre-write HEAD and all ten per-path results. Return `Stop` if the parent, tree or any input differs. After 2b recording check its sole parent again. |
+
+### What Lane B did instead
+
+Lane B rechecked the historical log, summary and scratch patch pins and the Git baseline. The documentation corrections are available for Lane A's read-only use. B-162 stays Open, D-487 staging held, Gate 2 unclaimed, and the other holds in force.
+
+| Scope | Verdict | Follow-up phase |
+|---|---|---|
+| Seven documented handoff gaps | Approve | Phase 1. Use the linked wording, evidence and return form. |
+| Lane A successor proposal | Approve-with-conditions | Phase 1. Return the exact corrected proposal; obtain the applicable Judge ruling before execution. |
+| Actual parent, application, custody and filing | Defer | At each authorized checkpoint. Supply and verify the actual objects and scoped release. |
+
+## Lane B cross-check of Lane A's r2 candidate (2026-11-25)
+
+**Phase 1. B-162 Open.** The handoff and Lane A r2 supply enough evidence for a Judge scope decision and a corrected successor proposal. Actual gov/docs application remains held. This is candidate review evidence. Lane B Level 1 and Lane C Level 2 on the exact applied governance revisions remain due. [D-478][d478] [D-479][d479] [Lane A r2 return][task2-lane-a-r2-return]
+
+### What happened
+
+Lane B compared the three quoted passages in the 676,750-byte B-162 draft with r2. F-e, R2 and the D-487 checkpoint match byte for byte at B-162 lines 4523, 4527 and 4531 and r2 lines 32, 90 and 133. The S2A and S2B fixture receipts remain evidence for their own scratch revisions. [Prior hand-back](#lane-b-hand-back-for-receipt-wording-and-2a-parent-binding-2026-11-25)
+
+The external source root is `C:\CoWork\outputs\B-162-Task2-LaneA-return-r2-30db8d5\`. Lane B verified the five manifest entries, recomputed the manifest pin, and read the package in place. These paths supply provenance and candidate review access.
+
+| Source | Raw bytes | SHA-256 |
+|---|---:|---|
+| [return-r2.md][task2-lane-a-r2-return] | 23,371 | `bcbc743cbdbbb0e8599b2849abc298b36d902c61c90a6281fc453e6e3bc1ba99` |
+| [combined-2a.patch][task2-lane-a-r2-patch] | 92,789 | `a87747608e288c414144ad8eb6121eaf54a769fa99ad36dadf4786ddaea78bb9` |
+| [ledger-2a.json][task2-lane-a-r2-ledger] | 3,559 | `56e99f8738e6948ce92709e75a07fc0a20b55830e94a1b5428d349a84fc91547` |
+| `p2-delta-from-r1-option-P.diff` | 4,016 | `e409d9022b9050247c41e4afd1db011230ddd985712a82da7152eb9986a8b841` |
+| `option-F-comparison.diff` | 958 | `79bab763c0cf922175bff07fc87b8bcb02c202e7576f939b10158263984f8c15` |
+| `SHA256SUMS` | 432 | `7b374c3366ba0c909e87820f79759d8fcac4efdbcdeaccb84b554a394ee38029` |
+
+Lane B independently replayed the three draft patches in memory against the full file map at D-486 `30db8d51140c0e46700f96bb9f018e6e40b93cbc`, tree `0b558d2a51f17eff755dfd7fba51bed37548f9ae`. The draft prerequisite tree is `66fbef892f2f12aa3aa391a1396e05ee5bc6cfe5`. The combined draft 2a yields `8453a74886346e4f6b11d599fa754787ea599807`, with 15/15 ledger rows matching. All ten 2b expectations match that draft tree, including the absent Intent Index. The draft rev2 2b patch replays to tree `426f842e7bfccbe426cbd5de06f1e9ff5d011f38`. The recorded historical scratch prerequisite tree `31cba2f68ff7439a8ba27c21e64ab54f17c41924` differs. Its exact tree delta remains unverified in this checkout. Keep both tree identities and bind later work to the actual approved parent. [Ten 2b inputs](#ten-2b-pre-images)
+
+### What Lane A needs
+
+| Review item | Independent result | Correction or return condition |
+|---|---|---|
+| R2, r2 §3.2, checker `2e144044755cbf59fe64ade5f6e72ffdcac8c576` | Nine existing pure tests pass. With the dated marker kept, a well-formed current change gives the SM07 packet reason. A missing opening backtick and multiple markers also give that reason. Two further probes still give no claim: a current BLOCKED description with no closing backtick before the dated clause, and the current token `BLOCKED?`. The matcher accepts the BLOCKED prefix without requiring a valid complete status span and token boundary. | Bind the accepted marker grammar and add both negative cases to the next pinned successor. Require malformed explicit markers to produce the agreed restrictive result. Validate the current marker independently of any later backticks. Return the exact checker and fixture pins for review before applying. |
+| R2, r2 §4, zero-marker choice | Removing the current marker and keeping only dated BLOCKED still gives no claim under c1. The mechanism and consequence are disclosed. Option F also retains the current-status-only false negative. | Ask the Judge to choose c1 with that residual expressly recorded, c2 for the scoped legacy CORE packet, or a separate parser unit. Prefer rejecting ambiguous CORE status and require proof that c2 preserves the intended scope. If c2 is selected, update the no-marker fixture and repin. Retain F as comparison evidence; it fails the current-only acceptance case. Keep Q2 and Q11 separate. |
+| 2a release sheet, r2 §6 | The statement that absence is expected only for the new SM07 packet misses the destination of the manifest rename. The ledger preserves the rename source. | Resolve the pre-image of `scripts/jev/manifests/V1-SM05.json` at the approved parent and require `scripts/jev/manifests/V1-SM07.json` absent there. Also require the new SM07 packet absent. Verify both resulting destinations and the removal of the old manifest at 2a. Keep other pre-images bound to their exact parent paths. |
+| Release and evidence, r2 §§5–7 | The draft trees and pinned external artifacts are usable for candidate review. The live branch is still D-486. The R2 ruling, qualifying D-487 receipt and disclosure disposition, authorized preservation, refreshed preflight, and separate prerequisite release and result remain due. | Repin the full B-162 draft before authorized preservation. Bind the actual approved parent and any authorized intervening commit. Rebuild and pin the successor under the release. Run full fixtures and applicable checks on those exact bytes, verify result and hook, and resolve all ten 2b inputs against actual verified 2a before 2b. Stop on any mismatch. |
+
+Retain the G1 omissions and crosswalk under 2a, commit 1 coverage under row 1b, and the Task 2 answer pointer as a later dependency until the exact released Git target and owning unit exist. Keep r2 and its manifest intact. Any successor has its own pin. [Parent binding](#bind-the-proposed-patch-now-and-the-actual-parent-at-release) [Release and return](#5-release-and-return)
+
+### What Lane B did instead
+
+Lane B verified source bytes, patch contexts, full tree IDs and selected pure results without writing Git objects. The replay did not run integration fixtures. Keep the external review package on its existing route. B-162 remains Open, D-487 staging held, Gate 2 unclaimed and all other holds in force.
+
+| Scope | Verdict | Follow-up phase |
+|---|---|---|
+| Handoff wording and draft replay | Approve | Phase 1. Lane A cites the verified r2 package and the independently reproduced draft evidence. |
+| P2 behavior and release sheet | Approve-with-conditions | Before 2a. Correct the marker cases and rename pre-image rule, obtain the Judge's disposition and pin the successor. |
+| Option F as acceptance of the current-only case | Reject | Retain as comparison evidence. |
+| Application, filing and exact-commit review | Defer | At the existing release checkpoints. Bind and test the actual parent and revisions. |
+
+[task2-lane-a-r2-return]: <C:/CoWork/outputs/B-162-Task2-LaneA-return-r2-30db8d5/return-r2.md>
+[task2-lane-a-r2-patch]: <C:/CoWork/outputs/B-162-Task2-LaneA-return-r2-30db8d5/combined-2a.patch>
+[task2-lane-a-r2-ledger]: <C:/CoWork/outputs/B-162-Task2-LaneA-return-r2-30db8d5/ledger-2a.json>
+
+## Lane A action sheet for SM05 gov/docs and readiness (2026-11-25)
+
+**Phase 1. B-162 Open.** Start here for the pipeline `V1-SM05` on `ROUTE-PROD-1`. This is Lane B's troubleshooting and verification input. Lane A owns the canonical gov/docs proposal and application. The Judge owns scope, acceptance, clearance, selection and release. Use the [r2 cross-check](#lane-b-cross-check-of-lane-as-r2-candidate-2026-11-25) for the exact candidate pins, test findings and rename rule.
+
+### What happened
+
+- **Application stopped before 2a.** The branch is still D-486 `30db8d51140c0e46700f96bb9f018e6e40b93cbc`, tree `0b558d2a51f17eff755dfd7fba51bed37548f9ae`. Lane A's pinned r2 is an external draft. D-486 item 3 retains the 2a/2b holds. D-487 was issued, with qualifying receipt, applicable disclosure disposition, draft preservation and refreshed preflight still due. The two-file prerequisite, its actual result and the approved 2a parent are pending. [D-486][d486] [D-487 hand-back](#lane-b-hand-back-for-receipt-wording-and-2a-parent-binding-2026-11-25)
+- **The canonical packet is still CORE.** The committed `docs/v1/work-packets/V1/V1-SM05.md` is `MMF-V1-CORE`. The SM07 packet, Intent Index and all five Task 2 r5 Git paths are absent at this baseline. D-479 items 6 and 12 put the CORE move and a new pipeline stub in 2a. The pipeline DoR and DoD content needs its own accepted Task 2 scope and authority. Keep the answer pointer due until its Git target and authorized owning unit exist. [Current packet](../v1/work-packets/V1/V1-SM05.md) [D-479 items 6, 9, 10 and 12][d479] [Git delivery map](#2-evidence-and-custody-map)
+- **The live tracker reports open work.** At this baseline `closure-readiness` returned zero findings with the real tracker unclaimed. Its report showed 107 rows, one unclosed non-SM05 row, two unlisted live entries and a stale derivation at `e129915aff1c6074df36fdad68052f3244ac90a3`. Zero unreceived SM05 rows, zero unreferenced children and zero invalid rows are the current checker counts. An in-memory claim probe produced four failures: B-158 O5 unclosed, B-162 unlisted, B-163 unlisted, and stale derivation. The probe changed no tracker or packet file. [Tracker rules and rows][gate2] [Checker][claim-check]
+
+### What Lane A needs to return now
+
+Return **two bounded proposals** while application is held. Give a governing clause and revision, intent verdict, exact proposed text or diff, owner, acceptance test and return condition for every affected item. Use the [handoff template](TEMPLATE.md) and preserve the earlier r2 bytes.
+
+| Proposal | Lane A's next output | Acceptance condition |
+|---|---|---|
+| **G1 and gov/docs application candidate** | Correct the pinned r2 parser and fixtures for missing closing backtick and `BLOCKED?`. Give the Judge the revised R2 parser question with the exact grammar, scope and absent-marker choices. State whether malformed input raises the existing packet-claim check or its own error. Correct the rename preflight to check the old manifest blob and both destination absences, for the new manifest and new SM07 packet. Keep the three rev2 omissions and crosswalk in 2a and commit 1 coverage in row 1b. | Show the exact tracker reason, current-status-only SM07 reason with the dated marker unchanged, pipeline-only isolation, and the agreed results for malformed, multiple and absent markers. R2 scope, full fixtures and other release checks remain due on the pinned successor. Option F remains comparison evidence. [Parser and rename findings](#lane-b-cross-check-of-lane-as-r2-candidate-2026-11-25) |
+| **G2–G10 and the canonical feature packet** | Draft the feature readiness and completion sections for the new pipeline `V1-SM05.md`, with a companion 24-anchor trace and a per-child G10 decision table. Give exact current and proposed passages for the pipeline packet and the SM06 entry/exit dependency. For G8, give each reference's target or mark it due with its owner and checkpoint. Track Q2 and Q11 as separate proposed units. | Cover every B-117 row, each applicable anchor and each live child; give a reason for each N/A. Mark claims, test results and receipts as due until observed. Keep the five r5 artifacts on the exact C06 route, any changed trace on a pinned successor route, and Request B on its own release. [G1–G10 return](#4-lane-a-decisions-and-acceptance-tests) [Lane A Task 2 ownership][lane-a-answer] |
+
+### Feature DoR and DoD evidence
+
+D-479 item 2 adopts the B-117 rows and adds the benefit hypothesis. Write the feature contract in the pipeline packet when authorized. Use the immutable governance-validation template only to create a separately authorized attempt record with its own identity and template digest. Keep the former CORE checklists and receipts with the CORE scope. [B-117 feature rows][b117] [Validation-attempt template](../templates/dor-dod-validation/v1.md) [D-479 item 2][d479]
+
+| Feature DoR rows | Lane A output |
+|---|---|
+| Intent/MMF and benefit; user journey; scope | Bind the Chief Editor's Q3 benefit hypothesis, owner and measures. Give the normal and revision/failure journey and delivery path. Bind the 24 D-479 anchors for log, EG1–EG5, reasoned return and state board on ROUTE-PROD-1. Keep actual publication in SM06 and FR-15/AC-23–AC-26 with CORE SM07. |
+| Dependency order; ownership | Return the exact child map, authorizing acts, receiving packet or future attempt, owners and independent reviewers. Retain the G5 split: SM05 proves gate reconstruction from its own log; SM06 provides separate actual publication proof for the same article under Q6/Q12. This removes a circular entry dependency. |
+| Data and state; verification design; DoD definition | Bind G6 executor rows and migration boundary. Preserve `0001` and `0002`; a future work order names the new migration. Bind G4 cases under Q4/Q5, AC-22 evidence per gate, G7 refusal and audit rules under applicable decisions, and the eleven-field test trace. State expected red, green, regression and exact future receipt per applicable anchor. Define DoD evidence before selection. |
+| Estimate and capacity; priority-change condition | Give effort and operator/reviewer capacity against named cases. State the evidence that would split, defer or stop the item. Keep G9 estimate due while scope or capacity is unbound. |
+
+Define all ten B-117 DoD proof areas in the draft: authorized scope, normal and recovery behavior, persistence and audit, UI, verification results, security and data boundaries, applicable cross-lane evidence, traceability, independent review and Judge acceptance. Lane A owns the pre-build definitions. Lane B produces implementation evidence for the selected child after selection, bounded work order and activation. Hosted proof, Phase 3 and baseline promotion stay on their own routes. D-486 places baseline-promotion entry at SM08 after accepted local DoD for the slot it promotes. [B-117 completion rows][b117] [D-486][d486]
+
+### Gate 2 and the construction boundary
+
+1. **Fix the clearance inputs under their own authority.** Lane A returns a Q2 protected-path proposal for `SV-002` §2.3.1, with each missing B-162/B-163 parent and child classified by exact scope and Basis. Resolve B-158 O5 from independent verification or the Judge's individual acceptance with reason. Pin a current derivation after the relevant dispositions. Preserve the individual GR triggers and the B-151 planning receipt; obtain the intake applicability decision and a receiving row for the remaining proof. Treat each pipeline-scoped receipt as a manual check even when the checker reports zero. [Tracker][gate2] [Child return table](#child-return-conditions) [GOV-RES-001][gov-res] [B-158](B-158-consolidated-documentation-review.md) [B-163][b163]
+2. **Verify the tracker and triggers before asking for clearance.** Close non-SM05 rows by verification or a recorded Judge reason. Receive applicable SM05 obligations into the canonical DoR-to-DoD contract or its governed attempt child. Verify both legacy triggers and pipeline isolation on the released checker. Route the separate pipeline trigger and fixture through Q11. Run the claimed-mode check on the released candidate with exact evidence and check the required SM05 receipts by hand. The actual claim remains held for the Judge. [D-364 items 4–7](../v1/V1-DECISION-REGISTER.md) [Gate 2 rules][gate2]
+3. **Return separate boundary evidence for selection.** Task 2 document acceptance, feature DoR acceptance, Gate 2 clearance and the applicable unblock, Judge selection, the bounded D-242 work order, and Lane B activation each have distinct evidence. D-254 places accepted DoR before normal Issue and branch creation. State 1 presents readiness. At the authorized boundary Lane A records the unrun feature attempt shell using the accepted template pin, and Phase Closure §5 records Lane B Active before State 2. Then Lane B starts the selected test-first build under the work order. The live §5 still shows Lane A Active and Lane B Eligible. [B-136 Parents 4–5](B-136-multi-lane-governance-canonical-owners-and-state2-gate.md) [Issue template](../../.github/ISSUE_TEMPLATE/v1-mmf.md) [PR template](../../.github/PULL_REQUEST_TEMPLATE/v1-mmf.md) [Phase Closure §5](../v1/V1-PHASE-CLOSURE.md) [Lane B work order](../LANE-B-WORK-ORDER.md)
+
+### What Lane B did instead
+
+Lane B verified the committed packet identity and missing Git targets, and ran the Gate 2 diagnostic against the current tracker in memory. Use the r2 return plus the two proposals above to advance the work in parallel. After verified D-487, keep the prerequisite, 2a and 2b on their separately released sequence. Bind any intervening authorized commit as part of the actual parent decision. Keep P1, evidence custody and filing on their own routes. The R2 parser scope decision comes before 2a; the separately governed R2 Register act after verified 2b closes the source-sweep provision. Lane B Level 1 and Lane C Level 2 review the exact applied governance revisions. Keep B-162 Open, D-487 staging held, Gate 2 unclaimed and all other holds in force. [Parent binding](#bind-the-proposed-patch-now-and-the-actual-parent-at-release) [Release and return](#5-release-and-return)
+
+| Scope | Verdict | Follow-up phase |
+|---|---|---|
+| Read-only gov/docs, feature packet and clearance drafting | Approve | Phase 1. Lane A returns both bounded proposals and the named Judge decisions. |
+| Corrected 2a candidate and pipeline DoR/DoD definitions | Approve-with-conditions | Phase 1. Bind the parser choice, exact proposal pins, applicable packet scope, tests and Git evidence. |
+| Execution, Gate 2, selection and construction | Defer | Use the applicable recording, clearance, selection, work-order and activation checkpoints. |
+
+## Lane B priority handoff to Lane A (2026-11-25)
+
+**Phase 1. B-162 Open. Local review draft.** Correct 2a first. Draft the pipeline feature packet in parallel. Return both proposals for review using the B-162 answer format. [Handoff template](TEMPLATE.md) · [Answer procedure](README.md#answering--lane-a)
+
+### What happened
+
+The committed D-486 tree still has FR-15/CORE at `V1-SM05.md`. The new SM07 packet and manifest and the five proposed r5 Git artifacts are absent. Lane A r2 is an external draft. The scratch replay and pure tests cover the pinned candidates. Integration proof for the corrected successor is due. [D-486][d486] · [r2 cross-check](#lane-b-cross-check-of-lane-as-r2-candidate-2026-11-25)
+
+### What you need
+
+1. **Correct 2a.** Lane A revises `scripts/checks/closure-readiness.mjs`, `scripts/fixtures/suites.mjs` and the rename ledger in the proposal. P2 misses a closing-backtick error and accepts the BLOCKED prefix in `BLOCKED?`. Test both cases. Ask the Judge to rule on R2 parser scope and absent-marker behavior. Present c1 with the dated-only false negative, c2 that triggers the claim for missing status on legacy CORE, or a separate parser unit. Prove the tracker and current CORE SM07 claim reasons with the dated marker intact. Verify the agreed malformed, multiple and absent-marker results and pipeline-only isolation. At the approved parent, verify the ledger's old `scripts/jev/manifests/V1-SM05.json` blob and both absences: `scripts/jev/manifests/V1-SM07.json` and `docs/v1/work-packets/V1/V1-SM07.md`. D-486 has both absences and old blob `b39719e90a460f150c1ab4d930ad51cd3aca4cd8`. At 2a verify both destinations and old manifest removal. Keep the G1 omissions and crosswalk in 2a and commit 1 in row 1b. Repin the patch and ledger. Apply only after verified D-487, the separately released and verified two-file prerequisite, and 2a authority on the actual parent. Run full fixtures and applicable Jev checks. Verify all ten 2b inputs against actual 2a. [Draft r2][task2-lane-a-r2-return] · [G1 corrections](#g1-and-r1r5-candidate-corrections) · [2b inputs](#ten-2b-pre-images)
+
+2. **Draft the feature DoR and DoD.** Lane A drafts the future `docs/v1/work-packets/V1/V1-SM05.md` for `MMF-V1-PIPELINE` on `ROUTE-PROD-1` and the G5 entry and exit terms in `V1-SM06.md`. Fill every B-117 row. Give the benefit hypothesis and measures for Chief Editor confirmation under Q3. Trace all 24 anchors both ways using the eleven Task 2 fields. Map each child to its receipt or name the owner and return condition. Explain each N/A. Require zero orphan units and an exact reviewed document revision. SM05 proves gate reconstruction. SM06 proves actual publication for the same article. Mark future implementation proof due. Apply feature text under accepted Task 2 scope and authority. Bind r5 custody before adding a Git answer pointer. Use the governance template only for a separately authorized validation attempt. [B-117 rows][b117] · [D-479][d479] · [24-anchor trace](#per-anchor-readiness-test-and-completion-input-for-g3) · [Child map](#child-return-conditions) · [Governance validation-attempt template](../templates/dor-dod-validation/v1.md)
+
+3. **Prepare Gate 2 decisions.** At D-486, `closure-readiness` reports 107 rows with the `SV-002.md` §2.3.1 claim at `no`. The draft claimed-mode probe found four blockers. [Live tracker][gate2] · [Claim checker][claim-check]
+
+   | Finding | Clearing evidence and owner |
+   |---|---|
+   | B-158 O5 unclosed | Lane A cites an independent `Verified-By` at an existing commit or the Judge's individual intake and routing acceptance with reason under D-364 items 4 and 9. |
+   | B-162 unlisted | Lane A adds the exact parent and applicable child keys under Q2. Give scope and Basis. Cite independent verification or a Judge reason for each non-SM05 row, and a DoR-to-DoD receipt for each SM05 obligation. |
+   | B-163 unlisted | Lane A applies the same Q2 checks to B-163's own parent and applicable children. Return their individual closure evidence or receipts. |
+   | Stale derivation | Lane A replaces `e129915aff1c6074df36fdad68052f3244ac90a3` under Q2 with a pinned derivation current against the latest disposition. |
+
+   Q2 needs a Judge act naming the protected `docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md` path. Q11 selected a separate pipeline trigger and fixture. Lane A returns its design, placement and tests for separate release. Keep the actual claim at `no`. For clearance, verify both legacy triggers, pipeline isolation and the released Q11 trigger. Run claimed-mode validation and check receipts manually in O0–O5 order. Preserve the B-151 planning receipt and the individual GR return conditions. [D-364 items 4–9][priority-d364] · [Child map](#child-return-conditions)
+
+4. **Record the construction checkpoints.** The Judge accepts the exact feature DoR under D-254, records Gate 2 clearance and the applicable unblock, and selects the specific pipeline child. Record each decision separately. The Judge authorizes the bounded D-242 work order. Lane A records its scope, paths and DoD proof. Phase Closure §5 records Lane B Active before State 2 construction. Lane B chooses the xDD method for the authorized child. Lane A is currently Active and Lane B is Eligible. [Phase Closure §5](../v1/V1-PHASE-CLOSURE.md#5-phase-register) · [Work order §7](../LANE-B-WORK-ORDER.md#7-build-governance-and-choosing-a-method--d-242)
+
+### What you did instead
+
+Lane B prepared the priority review. Lane A returns one row per affected G item with the exact target and source revision, intent verdict, proposed diff, owner, acceptance test and release dependency. Lane B Level 1 and Lane C Level 2 review the exact applied gov/docs revisions. Keep D-486 as the issued sole parent of D-487 and verified D-487 as sole parent of separately released P1. File after verified P1 delivery and independent retrieval under the applicable filing release. Bind the actual placement, sole parent, pre-image, append, result and ordered push range. Keep B-162 Open, D-487 staging held, Gate 2 unclaimed and all other holds in force. [D-478][d478] · [Issued D-487 act][task2-d487-act] · [Filing checkpoint](#corrected-filing-decision-and-pre-staging-check-2026-11-25)
+
+| Scope | Verdict | Follow-up phase |
+|---|---|---|
+| Lane A parallel proposal review | Approve | Phase 1. Start with 2a and the feature packet. |
+| Corrected 2a, feature packet and clearance inputs | Approve-with-conditions | Phase 1. Return the pinned proposals, Judge decisions and test evidence. |
+| Option F for the current CORE status case | Reject | Phase 1. Retain it as comparison evidence. |
+| Filing, application, Gate 2 claim and construction | Defer | Phase 1 releases and clearance, then Phase 2 work order and activation. |
+
+[priority-d364]: https://github.com/robertaoai/my-editorial-app/blob/30db8d51140c0e46700f96bb9f018e6e40b93cbc/docs/v1/V1-DECISION-REGISTER.md#L24171
+
+## Lane B delivery brief for Lane A (2026-11-25)
+
+**Phase 1. B-162 Open. Start here for the current handoff.** Lane A can review the local draft now. Lane B files its own attributed append after the placement and push range are bound. [Handoff template](TEMPLATE.md) | [One-path procedure](README.md#committing-and-pushing-your-own-entry--d-183-d-184)
+
+### What happened
+
+Lane B verified the priority handoff and its byte bindings. HEAD is still D-486, the issued sole parent of D-487. The cached upstream is one commit behind. The proposed B-162 filing parent is verified P1 after delivery and independent retrieval, before T1-r5. That placement and actual parent are due. [Priority details](#lane-b-priority-handoff-to-lane-a-2026-11-25) | [Issued D-487 act][task2-d487-act] | [Filing checkpoint](#corrected-filing-decision-and-pre-staging-check-2026-11-25)
+
+### What you need
+
+| Lane A work | Return |
+|---|---|
+| **Correct 2a now in the proposal** | Add the missing-closing-backtick and `BLOCKED?` cases. Put the absent-marker choice to the Judge. Check the old manifest blob and both new path absences at the actual parent. Return the pinned patch, tests and ledger. Keep 2b gated on all ten verified 2a inputs. [r2 cross-check](#lane-b-cross-check-of-lane-as-r2-candidate-2026-11-25) |
+| **Draft the pipeline packet in parallel** | Fill the B-117 DoR and DoD rows, benefit hypothesis, 24-anchor trace and child receipt map. Keep feature proof due until observed. [Feature readiness and proof](#feature-dor-and-dod-evidence) |
+| **Prepare clearance decisions** | Return closure evidence for B-158 O5, exact Q2 scope and Basis for B-162 and B-163, and a current tracker derivation. Keep Q11's pipeline trigger and fixture separate. Retain separate evidence for DoR acceptance, Gate 2 clearance, selection, work order and activation. [Gate 2 and construction](#gate-2-and-the-construction-boundary) |
+
+Lane A returns one row per affected G item with the governing clause, exact proposed text or diff, intent verdict, owner, test and open dependency. Cite the full draft size and SHA-256 in the delivery note for this brief.
+
+### What Lane B did instead
+
+Lane B prepared the local brief and checked the transaction. The proposed filing covers the full attributed suffix against the actual approved parent's B-162 pre-image. Recompute the pin after this addition. Keep the earlier 609,809-byte candidate and 701,467-byte draft as exact prefixes.
+
+| Delivery gate | Required evidence before proceeding |
+|---|---|
+| Parent and placement | Verify D-487, the separately released P1 and its delivery and retrieval. Bind the Judge's filing placement, actual sole parent, pre-image, full append and result. A changed order requires revised parent and range bindings. |
+| Hook and checks | Git's default commit-message hook is absent here. The tracked `.githooks/commit-msg` resolves under invocation-scoped `core.hooksPath=.githooks`. Use that route if accepted for the attempt and verify actual invocation. Run the required checks on the released revision. Bind any allowed finding to the filing or push it covers. |
+| Push and readback | Use a runner with Git write access. After the one-path commit, use fresh strict SSH and a separate fetch. For the proposed route, the fresh tip equals verified P1 and the filing is the sole outgoing commit. Push once without force to `origin` and `refs/heads/features/feature-V1-SM05`. Fetch after pushing and give Lane A the full commit, literal path and raw result pin for independent readback. |
+
+| Scope | Verdict | Follow-up phase |
+|---|---|---|
+| Lane A review and draft preparation | Approve | Phase 1, now. Return the corrected 2a proposal and feature packet. |
+| Filing and push | Defer | At the exact authorized checkpoint, make the commit and push in one task and obtain Lane A readback. |
+| Gate 2 and construction | Defer | At their respective clearance and selection checkpoints. Keep B-162 Open, D-487 staging held, Gate 2 unclaimed and the other holds in force. |
+
+## Lane B priority update for Lane A (2026-11-26)
+
+### What happened
+
+Lane B verified the 705,484-byte draft. Lane A’s r2 remains a proposal, and its worklog leaves the D-487 receipt decisions and staging held. [Delivery brief](#lane-b-delivery-brief-for-lane-a-2026-11-25) · [Lane A r2 return][task2-lane-a-r2-return] · [Lane A worklog, record 2156][task2-lane-a-numbering-return]
+
+### What you need
+
+| First action | Owner and acceptance test | Decision still due |
+|---|---|---|
+| Correct the 2a parser and add regressions for a missing closing backtick and `BLOCKED?`. | Lane A returns a pinned patch, ledger and test expectations. Both malformed cases must produce the agreed restrictive result. Preserve the dated marker, detect a current-only CORE change and verify pipeline isolation. At the actual approved parent, bind the old `scripts/jev/manifests/V1-SM05.json` blob and prove both `scripts/jev/manifests/V1-SM07.json` and `docs/v1/work-packets/V1/V1-SM07.md` are absent. [r2 parser and rename findings](#lane-b-cross-check-of-lane-as-r2-candidate-2026-11-25) | Judge decides absent-marker behavior and parser scope before 2a. |
+| Draft the pipeline `V1-SM05` DoR and DoD in parallel. | Lane A returns each B-117 row, the benefit hypothesis, a 24-anchor trace and a child receipt map with owners and checkpoints. Mark feature test results, receipts and independent acceptance due until observed. Keep the feature contract in the pipeline packet and use the validation template for a separately authorized attempt. [B-117 rows][b117] · [Feature DoR and DoD evidence](#feature-dor-and-dod-evidence) | Judge binds the benefit hypothesis, outstanding feature scope and applicable evidence before DoR acceptance. |
+| Prepare Gate 2 clearance evidence. Start with B-158 O5 and the two unlisted rows. | Lane A returns independent verification or reasoned Judge acceptance for O5, exact Q2 scope and Basis for B-162 and B-163, and a current tracker derivation under authorized scope. Verify the claimed-mode candidate and applicable receipts. Keep Q11’s pipeline trigger and fixture separate. Record DoR acceptance, clearance, selection, work order and activation as separate checkpoints. [Tracker §2.3.1][gate2] · [Gate 2 and the construction boundary](#gate-2-and-the-construction-boundary) | Judge decides Q2 scope and Gate 2 clearance on their respective routes. |
+
+### What you did instead
+
+Lane B appended this local update and prepared the pins for a proposed early review delivery. Filing to `refs/heads/handoff/b-162-priority` requires a direct Judge release for these bytes. Gov/docs application stays on Lane A’s released route. Preserve the governed feature branch, D-487 and P1 sequence, and later governed filing. B-162 stays Open, D-487 staging stays held, Gate 2 stays unclaimed, and all other holds stay in force.
+
+## Proposed superseding Judge decision for B-162 feature-branch delivery (2026-11-26)
+
+**Draft for Judge adoption.** This Lane B record is a proposal. An issued Judge decision must cite the exact result and candidate commit pins returned with this draft.
+
+### Proposed decision
+
+1. I authorize Lane B to make one manual B-162 commit and one non-force push to `origin` at `refs/heads/features/feature-V1-SM05`. This supersedes the post-P1 filing placement for these exact B-162 bytes. The published base must be `d8db2da71ceb79cc9ade330b524b6ffc6c3edd96`. The ordered outgoing range is existing Lane A commit `30db8d51140c0e46700f96bb9f018e6e40b93cbc` (D-486), then the exact Lane B child identified by the adopted pins. This grants publication of the existing D-486 commit in that range. The sole new commit changes only `docs/handoff/B-162-consolidated-findings-and-delivery-controls.md`, whose pre-image at D-486 is 536,091 bytes, blob `e18e3fb671a8438af79e160d49c52d0f1b02ae11`. Adopting the pins binds the append, full result, blob, tree and candidate commit. The early feature-branch filing satisfies delivery of these exact bytes once Lane A independently reads them back. [D-486][d486] · [One-path procedure][handoff-sop]
+
+2. Before staging, confirm D-486 as `HEAD`, the pre-image and result pins, and an empty index. Use the evidenced `.githooks/commit-msg` route with invocation-scoped `core.hooksPath=.githooks`. Run `bun run check` on the exact candidate with graph evidence present and zero skips. For this filing and this push only, I permit `docs-drift` as the sole finding if the graph analyzed `8c225e60e67be4e1d37bb5d45d98db1c4e0f6e6a` and the only changed governed path reported is `docs/v1/V1-DECISION-REGISTER.md`. Retain the complete check and hook output. Require the staged file, committed file, sole parent, tree and commit ID to match. Prove the remote base by fresh strict SSH and a separate fetch. Require exactly the two adopted commit IDs in the stated order before pushing. Stop on any mismatch, uncovered finding or hook failure. After pushing, fetch and require the feature tip to equal the full B-162 commit. Give Lane A the full commit, literal path, raw size and SHA-256 for independent readback. [D-486][d486] · [One-path procedure][handoff-sop]
+
+3. D-487 retains D-486 as its sole parent under the issued act. When its existing recording conditions are met, Lane A can record it from a detached checkout of D-486, without creating another branch. The early B-162 commit and D-487 will then be siblings. The feature ref at B-162 cannot fast-forward to D-487 or to a P1 commit descended only from D-487. Any later non-force integration requires a separately authorized merge that retains both histories, with the exact merge parents, result and ordered outgoing range bound. If P1 must retain D-487 as its own sole parent, preserve that relationship before integration and bind P1's publication and readback checkpoint in that later decision. If the Judge requires linear history on the feature branch, keep the original post-P1 filing slot. [Issued D-487 act][task2-d487-act] · [Receipt-route amendment][task2-d487-receipt-amendment] · [Prior filing checkpoint](#corrected-filing-decision-and-pre-staging-check-2026-11-25)
+
+4. Keep B-162 Open, D-487 staging held until its issued conditions are met, Gate 2 unclaimed, and all other holds in force. Gov/docs application remains on Lane A's released route. This decision covers the feature ref only.
+
+### Exact candidate construction
+
+Use the pinned result tree, D-486 as sole parent and a single LF-terminated message, `handoff(B-162): file Lane B delivery and proposed placement record`. For both author and committer use `robertaoai <241258103+robertaoai@users.noreply.github.com>` with Git date `1795624608 +0800`, the fixed candidate timestamp. The candidate hash describes a standard unsigned commit object. Retain the actual filing and push timestamps in the delivery evidence.
+
+| Scope | Verdict | Follow-up phase |
+|---|---|---|
+| Publish D-486 followed by B-162 | Approve-with-conditions (proposed) | Phase 1. Issue the direct decision with the full pins, then complete the checked one-path filing and two-commit push. |
+| D-487, P1 and later integration | Defer | Existing recording and delivery checkpoints. Bind a separate integration route if the early filing is adopted. |
