@@ -945,6 +945,63 @@ exhaustively traced against every historical run); the fixture suite's coverage 
 shape was tested); and everything outside the `D-121`–`D-124` chain, which `D-93` rule 1 requires
 be a separate turn from whatever comes next.
 
+### 6.1g Seventh to ninth critic passes — Lane A, 2026-11-26, against the B-162 gov/docs proposal packages r5–r7 (source B-162 at `7f4efa2`)
+
+**Lane A acting as critic, each pass in a separate turn from the turn that drafted the package
+(`D-93` rule 1), against the pinned package bytes and the governing clauses re-read at
+`7f4efa20ddc67d33bebd9fcd117e4a9a800d74a0`, not the drafting summaries (rule 2).** Independence
+caveat, stated rather than implied: the critic is the same agent that drafted each package, in a
+later turn. **This is evidence of proposal review only.** It does not close Phase 1, apply any
+gov/docs text, record the Judge's FR-01 scope decision, or prove any implementation; each stays on
+its own release route.
+
+The packages are pinned proposal folders outside the repository, each with its own `SHA256SUMS`.
+The return locator is the record number and uuid of the critic's return in session transcript
+`80a97b21-4baf-4c39-b1a2-59a18984e1a1.jsonl`.
+
+| Pass | Package and manifest pin | Return locator | Findings | Rejects | Verdicts |
+|---|---|---|---:|---:|---|
+| r5 | `B-162-gov-docs-r5-7f4efa2`, `SHA256SUMS` 332 bytes, `e3e65a38e37b1ef5a65dbb7804b97a8035f2e7e275b7dfbebaeec19ad9bf1c28` | record 600, uuid `a2c520d2-fc7b-451d-bb99-359aba311ffa` | 7 (F43–F49) | 0 | All three proposals Approve-with-conditions |
+| r6 | `B-162-gov-docs-r6-7f4efa2`, `SHA256SUMS` 332 bytes, `84f8f62cc87dc4a28268b7325018bd0e7e01f36ccfe79de2d228fb56a9acf0d2` | record 720, uuid `4fff3954-614f-44c8-9099-15bc56ce9e81` | 1 new (F50) | 0 | Trace (`ac01-ac02.md`) and custody (`r5-custody.md`) Approve; FR-01 cases (`b151-o2-decision-and-cases.md`) Approve-with-conditions |
+| r7 | `B-162-gov-docs-r7-7f4efa2`, `SHA256SUMS` 332 bytes, `9f1a6dc290e837c28ad1627c0024c7b484a2f6908ef88b97d53a44a9afa4bfb3` | record 844, uuid `0080a468-b75e-41e6-a0c6-ee17dac38fdb` | 0 new defects | 0 | All three proposals Approve |
+
+| # | Pass | File and clause | Finding | Status |
+|---|---|---|---|---|
+| **F43** | r5 | `b151-o2-decision-and-cases.md`, `PL-FR01-MD1` and its governing-text line | MD1 cited FN-GATES §4.6 rule 5 and asserted "never shown as URL confirmed live", beyond the Judge's decision that only rules 2 and 3 apply to pipeline FR-01 | **Addressed in r6** — MD1 asserts rule 2 admission and the rule 3 pair only; rule 5 kept as the existing safeguard outside MD1's assertions |
+| **F44** | r5 | Same file, correction to the older child map | Only B-162 line 3885 was named; line 3854 also reads "rules 2 and 6" | **Addressed in r6** — both lines cited as history; the successor uses rules 2 and 3 for pipeline FR-01 |
+| **F45** | r5 | Same file, `PL-FR01-MD3` | No case for the cross-form duplicate: a URL intake followed by otherwise admissible Markdown from the **same submitter**, on the **same day**, with the **same normalized original URL**. FN-GATES §3.1 behaviour 1 (line 141) scopes the guard to same submitter, same brief and same day, and §4.6 rule 3 anchors it on the source URL "for `.md` intakes as for URL intakes" | **Addressed in r6** — `PL-FR01-MD4` added; its setup was then bound explicitly to submitter **S**, day **D** and normalized URL **U** in r7 (F50) |
+| **F46** | r5 | `ac01-ac02.md`, `AC-01.N` Then | FN-GATES §3.1 requires the named validation failure to identify the component; the case omitted it | **Addressed in r6** — the failure must identify the missing or invalid component |
+| **F47** | r5 | `ac01-ac02.md`, AC-02 brief identity | FN-GATES §3.1 behaviour 1 still says "hash of key fields"; the proposal follows `D-133` (source reference alone) and did not flag the difference | **Addressed in r6** as a flag; the §3.1 wording correction stays **due** on a separately scoped route, since `D-479`'s 2a/2b pass leaves FN-GATES §§1–10 unchanged |
+| **F48** | r5 | `r5-custody.md`, due condition 3 | B-162 line 3898 requires the retrieval record to name the reviewer; it was omitted | **Addressed in r6** — reviewer, commit, path, bytes, SHA-256 and verdict per file |
+| **F49** | r5 | `r5-custody.md`, due condition 2 | Line 3898's rule for a delivery that stops after commit (local only, full commit, blocker) was not carried | **Addressed in r6** — the stop report added |
+| **F50** | r6 | `b151-o2-decision-and-cases.md`, `PL-FR01-MD4` Given / When | No antecedent for "the same submitter on the same day", so the case could be built as `D-131`'s different-submitter control | **Addressed in r7** — line 28 binds both intakes to submitter **S**, day **D** and normalized URL **U**; the `D-131` control kept outside MD4 |
+
+**r7 found zero new defects, and under rule 3 that is reported here as a finding in its own right,
+not as a numbered defect: the defect count stays at zero.** The risk is a check that cannot fail.
+What r7 checked: all four pins and LF endings; the two carried files byte-identical to r6; the r6
+to r7 diff limited to the header, MD4, the control paragraph and the corrected row; `D-131` item 3;
+and the carry-forward of F43–F49. One observation was considered and dismissed: the Judge's MD4
+text says "otherwise admissible Markdown" without r6's "(it meets every rule 2 input)"; the
+wording is the Judge's own, and rule 2 and MD1 define admissibility.
+
+**Across the three passes: 8 findings (F43–F50), 0 rejects.** Every finding drew a condition and
+none a reject, so the reject count, this mechanism's health metric, stays at zero.
+
+**Register clauses examined.** Each pass reviewed the governing clauses the proposals cite,
+including these Register clauses, re-read at `7f4efa2`: r5, `D-133` (the brief hash on the
+normalized source reference); r6, `D-93` (the critic discipline) and `D-479`'s FN-GATES tier row
+(§§1–10 unchanged by its 2a/2b pass); r7, `D-131` item 3 (the different-submitter control). These
+were reviews of those clauses for the proposals. They neither record nor amend anything: formal
+recording of the Judge's FR-01 scope decision stays on its separate release route.
+
+**What these passes did not examine** (rule 4): any implementation, since none exists; any
+repository application of the proposals, which is unreleased; and the bytes of the five r5 custody
+artifacts beyond their pins. Not examined is not the same as sound.
+
+B-162 stays Open, Gate 2 unclaimed and D-487 staging held with D-486 as its required sole parent.
+P1, r5 custody, formal FR-01 decision recording, gov/docs application and every other hold stay on
+their existing routes.
+
 ### 6.2 What the critic pass did not find
 
 **Withdrawn 2026-08-22 as critic-pass finding `F16`.** This section read: *"Nothing about the
