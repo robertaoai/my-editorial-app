@@ -4845,3 +4845,34 @@ Lane B compared the committed review with the governing Product and FN-GATES cla
 ### What you did instead
 
 Lane B recorded the review corrections and custody dependencies. Lane A returns the pinned successor and exact acceptance tests before gov/docs application. Keep B-162 Open, D-487 staging held with D-486 as its required sole parent, P1 and r5 custody on their issued routes, and Gate 2 unclaimed. All other holds remain in force.
+
+## Lane A independent readback receipt for 06cc6a3 (2026-11-26)
+
+**Phase 1. B-162 Open. Receipt only.** Lane A read back the Lane B filing at `06cc6a331af21fc680ff3b588241356ba5c0727d` independently. The result is a match. This receipt confirms the bytes only. It does not answer, accept or apply any G item. [Lane B gov/docs review corrections](#lane-b-govdocs-review-corrections-and-pending-r5-evidence-2026-11-26)
+
+### Readback result
+
+| Field | Expected | Observed | Result |
+|---|---|---|---|
+| `origin` tip of `refs/heads/features/feature-V1-SM05` | `06cc6a331af21fc680ff3b588241356ba5c0727d` | `06cc6a331af21fc680ff3b588241356ba5c0727d` | Match |
+| Path | `docs/handoff/B-162-consolidated-findings-and-delivery-controls.md` | same path; Git blob `2f9dd92602b3a2f5404c9a87564e9e26a2762c4b` | Match |
+| Raw size | 716,576 bytes | 716,576 bytes | Match |
+| Raw SHA-256 | `fc24523764c3f4213f9b87944d8e20a0e153cef9a6110980a6b510c29c6bbaf9` | `fc24523764c3f4213f9b87944d8e20a0e153cef9a6110980a6b510c29c6bbaf9` | Match |
+
+**Method.** `git ls-remote origin refs/heads/features/feature-V1-SM05` read the remote tip directly. The tip equals the filing commit, so it is reachable from `origin`. Lane A then read the raw blob with `git cat-file blob <commit>:<path>`, which does not check anything out, so line endings are untouched. It measured the blob with `git cat-file -s` and `wc -c`, and hashed it with `sha256sum`. Git objects are content-addressed, so the local object store returns the same bytes as `origin`.
+
+**Earlier readback, now recorded.** Lane A also read back the previous filing, `1c9dad762eeebd965715ecaef9f199628fe61895`, with the same method. That result was returned only in chat. `origin` reported it as the tip. Its blob measured 712,708 bytes with SHA-256 `80577e27af51bc26e3058c72841ceb1a11e33c17d1bee69117b74c2ba0c6e02d`, which matched its delivery pins.
+
+### Release basis for this commit
+
+The Judge released this receipt commit and its single push directly in chat on 2026-11-26. No Register entry grants it, and the Lane B proposed decision above was never recorded and covers Lane B's filing only. Under this release, `docs-drift` may be the sole finding for this one commit and push, and only for drift limited to `docs/v1/V1-DECISION-REGISTER.md` against the graph's analyzed head `8c225e60e67be4e1d37bb5d45d98db1c4e0f6e6a`. Every other check must pass, hooks run, and the full check and hook output is retained outside the repository. An allowed `docs-drift` finding is not a full pass.
+
+### Holds
+
+B-162 stays Open. D-487 staging stays held with D-486 as its required sole parent. P1 and r5 custody stay on their issued routes. Gate 2 stays unclaimed, and all other holds stay in force. The gov/docs corrections for AC-01 and AC-02, B-151 O2 and r5 custody are prepared as pinned proposals outside the repository, for their existing release routes.
+
+| Scope | Verdict | Follow-up phase |
+|---|---|---|
+| Readback of `06cc6a3` and `1c9dad7` | Match (observed) | Complete. Lane B reads this receipt commit back independently. |
+| This receipt and the gov/docs proposals | For the critic | Phase 1 critic pass, in a separate turn. |
+| D-487, P1, r5 custody and gov/docs application | Defer | Their existing release checkpoints. |
