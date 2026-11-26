@@ -4815,3 +4815,33 @@ Use the pinned result tree, D-486 as sole parent and a single LF-terminated mess
 |---|---|---|
 | Publish D-486 followed by B-162 | Approve-with-conditions (proposed) | Phase 1. Issue the direct decision with the full pins, then complete the checked one-path filing and two-commit push. |
 | D-487, P1 and later integration | Defer | Existing recording and delivery checkpoints. Bind a separate integration route if the early filing is adopted. |
+
+## Lane B gov/docs review corrections and pending r5 evidence (2026-11-26)
+
+**Phase 1. B-162 Open.** Lane A uses these corrections in the next pinned gov/docs proposal. The earlier trace and review remain as history. Judge scope decisions and released application stay on their existing routes. [G1–G10 acceptance table](#4-lane-a-decisions-and-acceptance-tests)
+
+### What happened
+
+Lane B compared the committed review with the governing Product and FN-GATES clauses. Two older rows conflict with the later r1 review. At feature commit `1c9dad762eeebd965715ecaef9f199628fe61895`, the five r5 custody paths were still absent from Git. [Older trace](#per-anchor-readiness-test-and-completion-input-for-g3) · [Later r1 review](#lane-b-review-of-lane-as-external-task-2-return-r1-2026-11-25) · [Evidence and custody map](#2-evidence-and-custody-map)
+
+### What you need
+
+1. **G3/G4/G7, AC-01 and AC-02.** Lane A corrects the successor trace. AC-01 verifies that the Reporter agent logs a valid URL with one subject topic and a trend signal supplied by the Chief Editor. Prove entry-state creation and a transition row with the Reporter executor, Line 1 assignment, agent ID and timestamp, with the supplier recorded separately. AC-02 verifies same-submitter, same-brief, same-day refusal at the surface with a reason, next-day acceptance, and the permitted manual trigger. Return the two separately keyed cases and evidence locators or due conditions. [Product AC-01 and AC-02 at lines 1091–1092](https://github.com/robertaoai/my-editorial-app/blob/1c9dad762eeebd965715ecaef9f199628fe61895/docs/Modular_PRD.md#L1091-L1092)
+
+2. **G10, B-151 O2.** Lane A routes the applicability of FN-GATES §4.6 rules **2 (admission) and 3 (reference pair)** to the Judge for pipeline FR-01. Rule 6 and the dated `SM05-IN1`–`SM05-IN4` cases stay with the former CORE scope, now `V1-SM07`. Retain the planning-only receipt. If pipeline applicability is approved, return separately keyed pipeline cases, the database proof owner and the receipt location or due checkpoint. [FN-GATES §4.6 and dated fixtures](https://github.com/robertaoai/my-editorial-app/blob/1c9dad762eeebd965715ecaef9f199628fe61895/docs/fn-specs/FN-GATES-01-05.md#L415-L449) · [B-151 planning receipt][b151] · [Child return conditions](#child-return-conditions)
+
+3. **G8/G10, r5 custody.** Lane A uses the source records and extraction boundaries in the existing custody map. Under the separate B-136/C06 release, deliver these five exact paths beneath `docs/handoff/artifacts/B-162/task2-v1-sm05/r5/`:
+
+   | File | Bytes | Raw SHA-256 |
+   |---|---:|---|
+   | `answer-r5.md` | 8,820 | `0c3aa01a288d162f22c2beb5a362402f539bb23d673c66660525e32201b50768` |
+   | `trace-r5.md` | 7,873 | `8581f5ff246c12964ff95eec561909933d49109d7d8882f9e8bcdfcd33c4820b` |
+   | `dor-dod-r5.md` | 5,025 | `b48a6d62db8a6fec78e03f912f406607ac2e0ae1d6abe86a4432896157f65547` |
+   | `g10-map-r5.md` | 6,494 | `b045fa91cd63d3690783a52f5fa57ac35396f7b1d249a18a5f4bc1599f7fb793` |
+   | `SHA256SUMS` | 317 | `433fa99cfe0b21694a191cb00871bdd5235a62ac356da26a5529874e94cead7f` |
+
+   Return the full delivery commit, C06 receipt and independent raw retrieval of all five paths at that commit. Bind the permanent Task 2 answer pointer in its authorized owning unit after that readback. Keep the seven-file Request B export on its separate route. [Exact source and destination map](#2-evidence-and-custody-map) · [Proposed pointer and owner](#3-exact-reference-corrections-for-lane-a)
+
+### What you did instead
+
+Lane B recorded the review corrections and custody dependencies. Lane A returns the pinned successor and exact acceptance tests before gov/docs application. Keep B-162 Open, D-487 staging held with D-486 as its required sole parent, P1 and r5 custody on their issued routes, and Gate 2 unclaimed. All other holds remain in force.
