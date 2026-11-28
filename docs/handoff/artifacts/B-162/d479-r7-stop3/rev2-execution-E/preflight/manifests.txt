@@ -1,0 +1,8 @@
+lane-prompts-v1-sm05-r7-2026-11-06 manifest=677ddb99a3792455c975e5518590579f61a458edab131b896d05adb474455d79 members=26 bad=0
+lane-prompts-v1-sm05-r8-2026-11-07 manifest=f0b0ab2dc69688cf040c83e7d7aa718db88cf565cf1876fd215376cddbfe3139 members=14 bad=0
+lane-a-release-2a-2b-r4-2026-11-07 manifest=9a203c40678a3943c50008e4944198ae19c7c9abf2afdd256a8cf0e156f416be members=2 bad=0
+rev2 manifest 1662 e1fd1937f05e084da2dcc2b5ec1e50f802051238b3c6c8392f61c2bb687be767
+rev2 members=10 bad=0 unlisted=0
+verification SHA256SUMS 657 7e2965874786b8bf73e41e862879919ec8f8ba5317e5f281d5ce9bf4d4959e69 members-ok=8
+b86b135fb2895d7978afc5915d81f26e7a6ab4e06b7fc2ed3fe9468e1ab2dc45 */c/CoWork/outputs/lane-prompts-v1-sm05-r7-2026-11-06/V1-INTENT-INDEX.draft.r5.md
+dce17dc30ea1287fb7ed160d8a7aed6ffe67e4f77074e1c58a364935132b1135 */c/CoWork/outputs/lane-prompts-v1-sm05-r7-2026-11-06/V1-MMF-DOR-DOD.draft.r5.md

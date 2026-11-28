@@ -1,0 +1,29 @@
+{
+  "path": "docs/v1/work-packets/V1/V1-SM05.md",
+  "line": 4,
+  "old": "Not started",
+  "new": "Notundefined started",
+  "check": "text-integrity",
+  "expected": "docs/v1/work-packets/V1/V1-SM05.md:4: spliced \"undefined\" after \"t\" — a script wrote an undefined value into the text (`D-380`, `D-381`); rewrite the line from its source",
+  "baseline": [
+    {
+      "name": "graph-coverage",
+      "findings": [
+        "absent from the curated graph: docs/v1/work-packets/V1/V1-SM07.md"
+      ]
+    },
+    {
+      "name": "source-sweep",
+      "findings": [
+        "docs/governance/requirements-traceability-map.md (4f01166) changed after the register last moved — propagation unverified. Record a decision, even if the decision is that no tier is affected."
+      ]
+    },
+    {
+      "name": "docs-drift",
+      "findings": [
+        "graph is STALE — last analyzed 8c225e6, HEAD is 4f01166; 13 governed-intent path(s) changed without a later analysis: .github/WORKFLOWS-SPEC.md, docs/governance/requirements-traceability-map.md, docs/v1/V1-ARTIFACT-INVENTORY.md, docs/v1/V1-BUILD-SPEC.md, docs/v1/V1-DECISION-REGISTER.md …and 8 more. Sync through the guarded procedure: `node scripts/graphify/guarded-rebuild.mjs prepare`, then Lane B's acceptance record, then `publish --review` (or `recover` when a transaction journal exists). Never run a raw rebuild against the live state (`D-425`)."
+      ]
+    }
+  ],
+  "recordedAt": "2026-11-13T17:12:44.676Z"
+}

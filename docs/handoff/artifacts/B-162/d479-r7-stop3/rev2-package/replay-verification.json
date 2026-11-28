@@ -1,0 +1,208 @@
+{
+  "base": "30db8d51140c0e46700f96bb9f018e6e40b93cbc",
+  "parent": "d8db2da71ceb79cc9ade330b524b6ffc6c3edd96",
+  "baseTree": "0b558d2a51f17eff755dfd7fba51bed37548f9ae",
+  "upstream": "d8db2da71ceb79cc9ade330b524b6ffc6c3edd96",
+  "divergence": "1\t0",
+  "laneC": {
+    "transcript": "C:/Users/rober_24syk4j/.gemini/antigravity/brain/790c876f-ad8c-4bed-b173-b8a792d4775f/.system_generated/logs/transcript_full.jsonl",
+    "line": 27,
+    "timestamp": "2026-11-13T10:57:48Z",
+    "record_type": "PLANNER_RESPONSE",
+    "terminator": "LF",
+    "stored": {
+      "file": "level2-pass-30db8d5-27.jsonl",
+      "bytes": 6604,
+      "sha256": "75431a1f60543b2e23b576450ef5c8986ab4ad9b59460e8d5ed5847e89f9a1fd"
+    },
+    "decoded": {
+      "file": "level2-pass-30db8d5-27.md",
+      "bytes": 6189,
+      "sha256": "de7a98133ca1ea1240b69ada0b956cb9fc4d5cb608d06c0d6499c9d19160de50"
+    }
+  },
+  "originalInputs": [
+    {
+      "file": "2a.patch",
+      "bytes": 82351,
+      "sha256": "cab10600a2d424d1c1cb7b167475ae18e08736f9710a0d56836ac8e115c8f52e"
+    },
+    {
+      "file": "2b.patch",
+      "bytes": 39952,
+      "sha256": "2b33a963f891248db8cc02a5deb59e167504def253ca0aca0fb35ad2f267aed5"
+    },
+    {
+      "file": "RELEASE-2A-2B.r7-final.md",
+      "bytes": 9956,
+      "sha256": "5c0ad4da4f1b924b9e3271dc25c26f586019b72645e47ce8f201f99a17850a90"
+    },
+    {
+      "file": "cover-note.md",
+      "bytes": 1254,
+      "sha256": "76d5a0093c6d4845b1deff9d3d4d4a86bf62d06894cc3a8fd9ec7bf01f142bc5"
+    },
+    {
+      "file": "ledger-2a.json",
+      "bytes": 20142,
+      "sha256": "490d83a1d89e9f25da9b3c3d1c47d102c1194900e1c0468170f87452bf4ba4e1"
+    },
+    {
+      "file": "ledger-2b.json",
+      "bytes": 9396,
+      "sha256": "b311a9e41aca0492f387aebae444988c5c12cd6b41f9796d236779e8d5c76124"
+    },
+    {
+      "file": "index-vs-draft-r5.diff",
+      "bytes": 11892,
+      "sha256": "3af755684a5bd281248bc49235c0c3f8d27a32c8c4b2f19fd76bc179fda3efca"
+    }
+  ],
+  "historicalTrees": [
+    "060ac4de4d35caf18920d335499c7c2a199d1257",
+    "06560108bf1f6fc12c382f34b9a8ae8be1c8114c"
+  ],
+  "replay": [
+    {
+      "unit": "2a",
+      "from": "0b558d2a51f17eff755dfd7fba51bed37548f9ae",
+      "to": "cb70db9c54e835bcd6facdc6dd81d49bb811f57e",
+      "patch": {
+        "bytes": 82341,
+        "sha256": "34fb8368c66b4e75599d5fcfec1bb68ba1810e16412b6005c772f919293b2e1d"
+      },
+      "files": 11,
+      "applyCheckExit": 0,
+      "applyExit": 0
+    },
+    {
+      "unit": "2b",
+      "from": "cb70db9c54e835bcd6facdc6dd81d49bb811f57e",
+      "to": "1fcc621e265f2587a2dd2741db8476fe4f99afd8",
+      "patch": {
+        "bytes": 43073,
+        "sha256": "43530dad7c88079534e99972bacfb26b8ea84d35b781c6f1a92209f7bbf350fc"
+      },
+      "files": 10,
+      "applyCheckExit": 0,
+      "applyExit": 0
+    }
+  ],
+  "index": {
+    "bytes": 6924,
+    "sha256": "ab3edcef833ac9d119b3d9e85986a8160e110a42f076d566ccbfdae6230921b9"
+  },
+  "newSm05": {
+    "bytes": 2757,
+    "sha256": "128c1a153726709280aceae4e7b1312d92612e3193fa398a8cb143e509c27676"
+  },
+  "proposedSingaporeDates": {
+    "2a": "2026-11-13",
+    "2b": "2026-11-13"
+  },
+  "dateSites": {
+    "2a": [
+      [
+        "docs/v1/work-packets/V1/V1-SM05.md",
+        "**Created:** "
+      ],
+      [
+        "docs/v1/work-packets/V1/V1-SM05.md",
+        "Until "
+      ],
+      [
+        "docs/v1/work-packets/V1/V1-SM06.md",
+        "**Re-scoped "
+      ],
+      [
+        "docs/v1/work-packets/V1/V1-SM06.md",
+        "**Custody moved "
+      ],
+      [
+        "docs/v1/work-packets/V1/V1-SM07.md",
+        "**Moved "
+      ],
+      [
+        "docs/v1/V1-ARTIFACT-INVENTORY.md",
+        "; moved "
+      ],
+      [
+        "docs/v1/V1-ARTIFACT-INVENTORY.md",
+        "**Created "
+      ],
+      [
+        "docs/v1/V1-ARTIFACT-INVENTORY.md",
+        "; re-scoped "
+      ],
+      [
+        "docs/v1/V1-ARTIFACT-INVENTORY.md",
+        "moved by `D-479` item 6 on "
+      ],
+      [
+        "docs/v1/V1-ARTIFACT-INVENTORY.md",
+        "Commit 2a, "
+      ]
+    ],
+    "2b": [
+      [
+        "docs/v1/V1-ARTIFACT-INVENTORY.md",
+        "**Created "
+      ],
+      [
+        "docs/v1/V1-ARTIFACT-INVENTORY.md",
+        "Commit 2b, "
+      ]
+    ]
+  },
+  "sourceStatus": "Clean. Source refs and index checked for equality after the review.",
+  "reviewedAtUtc": "2026-11-13T12:48:44.016Z",
+  "reviewMethod": "Sequential git apply --cached --check and git apply --cached in an isolated index and object store with the source object store as a read-only alternate. No commits.",
+  "phaseClosure": {
+    "before": {
+      "mode": "100644",
+      "blob": "a96e5c1c4c6497ac2034ed47a490d19b7f9110b5",
+      "bytes": 101398,
+      "sha256": "f5b5237c15c1c017c4e98150cb3fde8c241c91672ed2a1c64f66c93c04a9e28e"
+    },
+    "after": {
+      "mode": "100644",
+      "blob": "bdc025fb0f9abcade35346121e490c6202a7fcf7",
+      "bytes": 101739,
+      "sha256": "3f54d3e36697f8fa57c233fd0c1efd6c46cdfe271d281ab9e43c67b405bdcf25"
+    },
+    "exactNoteAtLine": 386,
+    "onlyDeltaFromOriginal2bResult": "docs/v1/V1-PHASE-CLOSURE.md",
+    "originalBytesReproducedByRemovingNoteAndBlankLine": true,
+    "laneStateMethod": "Ran the repository checker in memory against each exact Phase Closure blob.",
+    "laneState": [
+      {
+        "label": "baseline",
+        "tree": "cb70db9c54e835bcd6facdc6dd81d49bb811f57e",
+        "input": {
+          "bytes": 101398,
+          "sha256": "f5b5237c15c1c017c4e98150cb3fde8c241c91672ed2a1c64f66c93c04a9e28e"
+        },
+        "result": {
+          "name": "lane-state",
+          "findings": [],
+          "detail": "3 lane row(s); Active: A; Eligible (nominated): B"
+        }
+      },
+      {
+        "label": "revised",
+        "tree": "1fcc621e265f2587a2dd2741db8476fe4f99afd8",
+        "input": {
+          "bytes": 101739,
+          "sha256": "3f54d3e36697f8fa57c233fd0c1efd6c46cdfe271d281ab9e43c67b405bdcf25"
+        },
+        "result": {
+          "name": "lane-state",
+          "findings": [],
+          "detail": "3 lane row(s); Active: A; Eligible (nominated): B"
+        }
+      }
+    ]
+  },
+  "verification": "Drafter self-check. Lane A verification of the assembled package remains due. Independent reviews retain their existing routes.",
+  "dateStatus": "Frozen review values only. Judge confirmation or replacement is pending separately for 2a and 2b."
+}

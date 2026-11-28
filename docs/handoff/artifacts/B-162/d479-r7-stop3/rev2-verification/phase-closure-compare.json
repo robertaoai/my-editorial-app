@@ -1,0 +1,49 @@
+{
+  "before": {
+    "blob": "a96e5c1c4c6497ac2034ed47a490d19b7f9110b5",
+    "bytes": 101398,
+    "sha256": "f5b5237c15c1c017c4e98150cb3fde8c241c91672ed2a1c64f66c93c04a9e28e"
+  },
+  "after": {
+    "blob": "bdc025fb0f9abcade35346121e490c6202a7fcf7",
+    "bytes": 101739,
+    "sha256": "3f54d3e36697f8fa57c233fd0c1efd6c46cdfe271d281ab9e43c67b405bdcf25"
+  },
+  "sourceOfNote": {
+    "file": "C:/CoWork/outputs/Lane-A-rebound-r7-Judge-disposition-frozen.md",
+    "sha256": "6e5cc715f2bf0b8fa229c1cddc1ca0b1bf061aaa71d0286105862369913b5038"
+  },
+  "lines1to385Equal": true,
+  "table380to384": [
+    {
+      "line": 380,
+      "equal": true,
+      "sha256": "9ec56edeed42c834784a09f010bd2c0d4b2e4ffa09d588322aeee796ec5aab6a"
+    },
+    {
+      "line": 381,
+      "equal": true,
+      "sha256": "d681e50112a1d6b47485ebb54a167a7f4ddb6957b6ada678b5b27f63a4a5ea59"
+    },
+    {
+      "line": 382,
+      "equal": true,
+      "sha256": "32ef6f61a0c7acf59599cbdb7667bb1ce2803f52e965541bfc83e529fdf5b293"
+    },
+    {
+      "line": 383,
+      "equal": true,
+      "sha256": "03c6f6a08d04480888e9c7bdb957344a6f33c774f5081076bd88caeacda6b52c"
+    },
+    {
+      "line": 384,
+      "equal": true,
+      "sha256": "7866b495c9448fc3bde395775ff73869b3a816bce0e6725e3216588f1c506e09"
+    }
+  ],
+  "laneBCellLine383Equal": true,
+  "line386EqualsDispositionNote": true,
+  "line387Blank": true,
+  "restEqualShiftedBy2": true,
+  "noCR": true
+}

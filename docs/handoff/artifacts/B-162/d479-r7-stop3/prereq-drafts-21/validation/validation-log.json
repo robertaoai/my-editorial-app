@@ -1,0 +1,496 @@
+{
+  "log": [
+    {
+      "step": "baseline",
+      "at": "2026-11-13T16:50:30.809Z",
+      "tag": "B0-D486",
+      "head": "30db8d51140c0e46700f96bb9f018e6e40b93cbc",
+      "exit": 1,
+      "summary": "296/297 fixtures behaved as intended",
+      "misses": [
+        "MISS  gate2: SM05 status no longer BLOCKED — counts as a claim and fails — no finding matching \"no longer reads BLOCKED\""
+      ],
+      "reslot": [],
+      "gate2": "MISS  gate2: SM05 status no longer BLOCKED — counts as a claim and fails — no finding matching \"no longer reads BLOCKED\""
+    },
+    {
+      "step": "P",
+      "at": "2026-11-13T16:50:45.327Z",
+      "R1": "37e58e8463ebc7d3d461786ec9c542ef7a287665",
+      "P": "3e6017bb92e85373bb91851ae9cb18e5fe6cd284",
+      "diffPaths": [
+        "scripts/checks/tier-sweep.mjs",
+        "scripts/fixtures/suites.mjs"
+      ],
+      "diff": {
+        "bytes": 8473,
+        "sha256": "8521bd8ef288a71532dabb1df36ec730152294f2f96d27045c298287bb2bafb3"
+      }
+    },
+    {
+      "step": "P-results",
+      "at": "2026-11-13T17:01:24.751Z",
+      "fixtures": {
+        "tag": "P",
+        "head": "3e6017bb92e85373bb91851ae9cb18e5fe6cd284",
+        "exit": 1,
+        "summary": "305/306 fixtures behaved as intended",
+        "misses": [
+          "MISS  gate2: SM05 status no longer BLOCKED — counts as a claim and fails — no finding matching \"no longer reads BLOCKED\""
+        ],
+        "reslot": [
+          "ok    tier-sweep re-slot: before the move, a routed claim is checked against the original V1-SM05.md — stays green",
+          "ok    tier-sweep re-slot: after the move, a routed claim is checked against V1-SM07.md — stays green",
+          "ok    tier-sweep re-slot: after the move, a routed claim missing from V1-SM07.md fails — fails as intended",
+          "ok    tier-sweep re-slot: new packet present but V1-SM07.md missing fails closed — fails as intended",
+          "ok    tier-sweep re-slot: a current claim stays on the new V1-SM05.md — fails as intended",
+          "ok    tier-sweep re-slot: a pre-D-479 claim outside the twenty-one is not routed — fails as intended",
+          "ok    tier-sweep re-slot: a D-255 citation in the new V1-SM05.md does not mask its absence from V1-SM07.md — fails as intended",
+          "ok    tier-sweep re-slot: a D-383 citation in the new V1-SM05.md does not mask its absence from V1-SM07.md — fails as intended",
+          "ok    tier-sweep re-slot: a two-target routed row still checks its other target — fails as intended"
+        ],
+        "gate2": "MISS  gate2: SM05 status no longer BLOCKED — counts as a claim and fails — no finding matching \"no longer reads BLOCKED\""
+      },
+      "check": {
+        "statuses": [
+          "PASS rule-budget",
+          "PASS tier-sweep",
+          "PASS duplicate-ids",
+          "PASS graph-coverage",
+          "PASS settings-parse",
+          "PASS decision-status",
+          "PASS lane-boundary",
+          "PASS source-sweep",
+          "PASS handoff-response",
+          "PASS phase-manifest",
+          "PASS config-coupling",
+          "PASS closure-readiness",
+          "FAIL docs-drift",
+          "PASS sync-docs-unique",
+          "PASS lane-state",
+          "PASS channel-docs",
+          "PASS retention-policy-coupling",
+          "PASS terminal-return",
+          "PASS text-integrity"
+        ],
+        "problems": []
+      },
+      "selftest": {
+        "exit": 0
+      },
+      "minimal": {
+        "tag": "P",
+        "state": "post",
+        "findings": [],
+        "detail": "848 tier claims verified"
+      }
+    },
+    {
+      "step": "S2A-results",
+      "at": "2026-11-13T17:15:29.774Z",
+      "S2A": "4f01166d6f6e8a5841322f0738cbdc3f0a75d4fb",
+      "trace": {
+        "full": "4f01166d6f6e8a5841322f0738cbdc3f0a75d4fb",
+        "h": "4f01166"
+      },
+      "fixtures": {
+        "tag": "S2A",
+        "head": "4f01166d6f6e8a5841322f0738cbdc3f0a75d4fb",
+        "exit": 0,
+        "summary": "306/306 fixtures behaved as intended",
+        "misses": [],
+        "reslot": [
+          "ok    tier-sweep re-slot: before the move, a routed claim is checked against the original V1-SM05.md — stays green",
+          "ok    tier-sweep re-slot: after the move, a routed claim is checked against V1-SM07.md — stays green",
+          "ok    tier-sweep re-slot: after the move, a routed claim missing from V1-SM07.md fails — fails as intended",
+          "ok    tier-sweep re-slot: new packet present but V1-SM07.md missing fails closed — fails as intended",
+          "ok    tier-sweep re-slot: a current claim stays on the new V1-SM05.md — fails as intended",
+          "ok    tier-sweep re-slot: a pre-D-479 claim outside the twenty-one is not routed — fails as intended",
+          "ok    tier-sweep re-slot: a D-255 citation in the new V1-SM05.md does not mask its absence from V1-SM07.md — fails as intended",
+          "ok    tier-sweep re-slot: a D-383 citation in the new V1-SM05.md does not mask its absence from V1-SM07.md — fails as intended",
+          "ok    tier-sweep re-slot: a two-target routed row still checks its other target — fails as intended"
+        ],
+        "gate2": "ok    gate2: SM05 status no longer BLOCKED — counts as a claim and fails — fails as intended"
+      },
+      "selftest": {
+        "exit": 0
+      },
+      "prediction": {
+        "statuses": [
+          "PASS rule-budget",
+          "PASS tier-sweep",
+          "PASS duplicate-ids",
+          "FAIL graph-coverage",
+          "PASS settings-parse",
+          "PASS decision-status",
+          "PASS lane-boundary",
+          "FAIL source-sweep",
+          "PASS handoff-response",
+          "PASS phase-manifest",
+          "PASS config-coupling",
+          "PASS closure-readiness",
+          "FAIL docs-drift",
+          "PASS sync-docs-unique",
+          "PASS lane-state",
+          "PASS channel-docs",
+          "PASS retention-policy-coupling",
+          "PASS terminal-return",
+          "PASS text-integrity"
+        ],
+        "problems": [],
+        "sourceSweep": {
+          "status": "FAIL",
+          "findings": [
+            "docs/governance/requirements-traceability-map.md (4f01166) changed after the register last moved — propagation unverified. Record a decision, even if the decision is that no tier is affected."
+          ]
+        }
+      },
+      "negative": {
+        "tag": "S2A",
+        "ok": true,
+        "restored": true,
+        "observed": [
+          {
+            "name": "graph-coverage",
+            "findings": [
+              "absent from the curated graph: docs/v1/work-packets/V1/V1-SM07.md"
+            ]
+          },
+          {
+            "name": "source-sweep",
+            "findings": [
+              "docs/governance/requirements-traceability-map.md (4f01166) changed after the register last moved — propagation unverified. Record a decision, even if the decision is that no tier is affected."
+            ]
+          },
+          {
+            "name": "docs-drift",
+            "findings": [
+              "graph is STALE — last analyzed 8c225e6, HEAD is 4f01166; 13 governed-intent path(s) changed without a later analysis: .github/WORKFLOWS-SPEC.md, docs/governance/requirements-traceability-map.md, docs/v1/V1-ARTIFACT-INVENTORY.md, docs/v1/V1-BUILD-SPEC.md, docs/v1/V1-DECISION-REGISTER.md …and 8 more. Sync through the guarded procedure: `node scripts/graphify/guarded-rebuild.mjs prepare`, then Lane B's acceptance record, then `publish --review` (or `recover` when a transaction journal exists). Never run a raw rebuild against the live state (`D-425`)."
+            ]
+          },
+          {
+            "name": "text-integrity",
+            "findings": [
+              "docs/v1/work-packets/V1/V1-SM05.md:4: spliced \"undefined\" after \"t\" — a script wrote an undefined value into the text (`D-380`, `D-381`); rewrite the line from its source"
+            ]
+          }
+        ],
+        "expectedSet": [
+          {
+            "name": "graph-coverage",
+            "findings": [
+              "absent from the curated graph: docs/v1/work-packets/V1/V1-SM07.md"
+            ]
+          },
+          {
+            "name": "source-sweep",
+            "findings": [
+              "docs/governance/requirements-traceability-map.md (4f01166) changed after the register last moved — propagation unverified. Record a decision, even if the decision is that no tier is affected."
+            ]
+          },
+          {
+            "name": "docs-drift",
+            "findings": [
+              "graph is STALE — last analyzed 8c225e6, HEAD is 4f01166; 13 governed-intent path(s) changed without a later analysis: .github/WORKFLOWS-SPEC.md, docs/governance/requirements-traceability-map.md, docs/v1/V1-ARTIFACT-INVENTORY.md, docs/v1/V1-BUILD-SPEC.md, docs/v1/V1-DECISION-REGISTER.md …and 8 more. Sync through the guarded procedure: `node scripts/graphify/guarded-rebuild.mjs prepare`, then Lane B's acceptance record, then `publish --review` (or `recover` when a transaction journal exists). Never run a raw rebuild against the live state (`D-425`)."
+            ]
+          },
+          {
+            "name": "text-integrity",
+            "findings": [
+              "docs/v1/work-packets/V1/V1-SM05.md:4: spliced \"undefined\" after \"t\" — a script wrote an undefined value into the text (`D-380`, `D-381`); rewrite the line from its source"
+            ]
+          }
+        ],
+        "sourceSweep": {
+          "status": "FAIL",
+          "findings": [
+            "docs/governance/requirements-traceability-map.md (4f01166) changed after the register last moved — propagation unverified. Record a decision, even if the decision is that no tier is affected."
+          ]
+        },
+        "head": "4f01166d6f6e8a5841322f0738cbdc3f0a75d4fb"
+      },
+      "minimal": {
+        "tag": "S2A",
+        "state": "post",
+        "findings": [],
+        "detail": "848 tier claims verified"
+      }
+    },
+    {
+      "step": "S2B-results",
+      "at": "2026-11-13T17:29:04.976Z",
+      "S2B": "82b65358893aca4d2a300078a7149350d67eb3a1",
+      "trace": {
+        "full": "4f01166d6f6e8a5841322f0738cbdc3f0a75d4fb",
+        "h": "4f01166"
+      },
+      "fixtures": {
+        "tag": "S2B",
+        "head": "82b65358893aca4d2a300078a7149350d67eb3a1",
+        "exit": 0,
+        "summary": "306/306 fixtures behaved as intended",
+        "misses": [],
+        "reslot": [
+          "ok    tier-sweep re-slot: before the move, a routed claim is checked against the original V1-SM05.md — stays green",
+          "ok    tier-sweep re-slot: after the move, a routed claim is checked against V1-SM07.md — stays green",
+          "ok    tier-sweep re-slot: after the move, a routed claim missing from V1-SM07.md fails — fails as intended",
+          "ok    tier-sweep re-slot: new packet present but V1-SM07.md missing fails closed — fails as intended",
+          "ok    tier-sweep re-slot: a current claim stays on the new V1-SM05.md — fails as intended",
+          "ok    tier-sweep re-slot: a pre-D-479 claim outside the twenty-one is not routed — fails as intended",
+          "ok    tier-sweep re-slot: a D-255 citation in the new V1-SM05.md does not mask its absence from V1-SM07.md — fails as intended",
+          "ok    tier-sweep re-slot: a D-383 citation in the new V1-SM05.md does not mask its absence from V1-SM07.md — fails as intended",
+          "ok    tier-sweep re-slot: a two-target routed row still checks its other target — fails as intended"
+        ],
+        "gate2": "ok    gate2: SM05 status no longer BLOCKED — counts as a claim and fails — fails as intended"
+      },
+      "selftest": {
+        "exit": 0
+      },
+      "prediction": {
+        "statuses": [
+          "PASS rule-budget",
+          "PASS tier-sweep",
+          "PASS duplicate-ids",
+          "FAIL graph-coverage",
+          "PASS settings-parse",
+          "PASS decision-status",
+          "PASS lane-boundary",
+          "FAIL source-sweep",
+          "PASS handoff-response",
+          "PASS phase-manifest",
+          "PASS config-coupling",
+          "PASS closure-readiness",
+          "FAIL docs-drift",
+          "PASS sync-docs-unique",
+          "PASS lane-state",
+          "PASS channel-docs",
+          "PASS retention-policy-coupling",
+          "PASS terminal-return",
+          "PASS text-integrity"
+        ],
+        "problems": [],
+        "sourceSweep": {
+          "status": "FAIL",
+          "findings": [
+            "docs/governance/requirements-traceability-map.md (4f01166) changed after the register last moved — propagation unverified. Record a decision, even if the decision is that no tier is affected."
+          ]
+        }
+      },
+      "negative": {
+        "tag": "S2B",
+        "ok": true,
+        "restored": true,
+        "observed": [
+          {
+            "name": "graph-coverage",
+            "findings": [
+              "absent from the curated graph: docs/v1/V1-INTENT-INDEX.md",
+              "absent from the curated graph: docs/v1/work-packets/V1/V1-SM07.md"
+            ]
+          },
+          {
+            "name": "source-sweep",
+            "findings": [
+              "docs/governance/requirements-traceability-map.md (4f01166) changed after the register last moved — propagation unverified. Record a decision, even if the decision is that no tier is affected."
+            ]
+          },
+          {
+            "name": "docs-drift",
+            "findings": [
+              "graph is STALE — last analyzed 8c225e6, HEAD is 82b6535; 21 governed-intent path(s) changed without a later analysis: .github/WORKFLOWS-SPEC.md, AGENTS.md, docs/ENCYCLOPEDIA-SYNC.md, docs/Modular_PRD.md, docs/fn-specs/FN-GATES-01-05.md …and 16 more. Sync through the guarded procedure: `node scripts/graphify/guarded-rebuild.mjs prepare`, then Lane B's acceptance record, then `publish --review` (or `recover` when a transaction journal exists). Never run a raw rebuild against the live state (`D-425`)."
+            ]
+          },
+          {
+            "name": "text-integrity",
+            "findings": [
+              "docs/v1/V1-INTENT-INDEX.md:1: spliced \"undefined\" after \"t\" — a script wrote an undefined value into the text (`D-380`, `D-381`); rewrite the line from its source"
+            ]
+          }
+        ],
+        "expectedSet": [
+          {
+            "name": "graph-coverage",
+            "findings": [
+              "absent from the curated graph: docs/v1/V1-INTENT-INDEX.md",
+              "absent from the curated graph: docs/v1/work-packets/V1/V1-SM07.md"
+            ]
+          },
+          {
+            "name": "source-sweep",
+            "findings": [
+              "docs/governance/requirements-traceability-map.md (4f01166) changed after the register last moved — propagation unverified. Record a decision, even if the decision is that no tier is affected."
+            ]
+          },
+          {
+            "name": "docs-drift",
+            "findings": [
+              "graph is STALE — last analyzed 8c225e6, HEAD is 82b6535; 21 governed-intent path(s) changed without a later analysis: .github/WORKFLOWS-SPEC.md, AGENTS.md, docs/ENCYCLOPEDIA-SYNC.md, docs/Modular_PRD.md, docs/fn-specs/FN-GATES-01-05.md …and 16 more. Sync through the guarded procedure: `node scripts/graphify/guarded-rebuild.mjs prepare`, then Lane B's acceptance record, then `publish --review` (or `recover` when a transaction journal exists). Never run a raw rebuild against the live state (`D-425`)."
+            ]
+          },
+          {
+            "name": "text-integrity",
+            "findings": [
+              "docs/v1/V1-INTENT-INDEX.md:1: spliced \"undefined\" after \"t\" — a script wrote an undefined value into the text (`D-380`, `D-381`); rewrite the line from its source"
+            ]
+          }
+        ],
+        "sourceSweep": {
+          "status": "FAIL",
+          "findings": [
+            "docs/governance/requirements-traceability-map.md (4f01166) changed after the register last moved — propagation unverified. Record a decision, even if the decision is that no tier is affected."
+          ]
+        },
+        "head": "82b65358893aca4d2a300078a7149350d67eb3a1"
+      },
+      "minimal": {
+        "tag": "S2B",
+        "state": "post",
+        "findings": [],
+        "detail": "848 tier claims verified"
+      }
+    },
+    {
+      "step": "SRC-2a-precommit",
+      "at": "2026-11-13T17:34:19.818Z",
+      "runs": [
+        {
+          "head": "3e6017bb92e85373bb91851ae9cb18e5fe6cd284",
+          "statuses": [
+            "PASS rule-budget",
+            "PASS tier-sweep",
+            "PASS duplicate-ids",
+            "FAIL graph-coverage",
+            "PASS settings-parse",
+            "PASS decision-status",
+            "PASS lane-boundary",
+            "PASS source-sweep",
+            "PASS handoff-response",
+            "PASS phase-manifest",
+            "PASS config-coupling",
+            "PASS closure-readiness",
+            "FAIL docs-drift",
+            "PASS sync-docs-unique",
+            "PASS lane-state",
+            "PASS channel-docs",
+            "PASS retention-policy-coupling",
+            "PASS terminal-return",
+            "PASS text-integrity"
+          ],
+          "problems": [],
+          "sourceSweep": {
+            "status": "PASS",
+            "findings": []
+          }
+        },
+        {
+          "head": "3e6017bb92e85373bb91851ae9cb18e5fe6cd284",
+          "statuses": [
+            "PASS rule-budget",
+            "PASS tier-sweep",
+            "PASS duplicate-ids",
+            "FAIL graph-coverage",
+            "PASS settings-parse",
+            "PASS decision-status",
+            "PASS lane-boundary",
+            "PASS source-sweep",
+            "PASS handoff-response",
+            "PASS phase-manifest",
+            "PASS config-coupling",
+            "PASS closure-readiness",
+            "FAIL docs-drift",
+            "PASS sync-docs-unique",
+            "PASS lane-state",
+            "PASS channel-docs",
+            "PASS retention-policy-coupling",
+            "PASS terminal-return",
+            "PASS text-integrity"
+          ],
+          "problems": [],
+          "sourceSweep": {
+            "status": "PASS",
+            "findings": []
+          }
+        }
+      ]
+    },
+    {
+      "step": "SRC-2b",
+      "at": "2026-11-13T17:39:28.323Z",
+      "C2A": "bb9dfdcaa5a13f72fed59717c802271a616fa049",
+      "trace": {
+        "full": "bb9dfdcaa5a13f72fed59717c802271a616fa049",
+        "h": "bb9dfdc"
+      },
+      "runs": [
+        {
+          "head": "bb9dfdcaa5a13f72fed59717c802271a616fa049",
+          "statuses": [
+            "PASS rule-budget",
+            "PASS tier-sweep",
+            "PASS duplicate-ids",
+            "FAIL graph-coverage",
+            "PASS settings-parse",
+            "PASS decision-status",
+            "PASS lane-boundary",
+            "FAIL source-sweep",
+            "PASS handoff-response",
+            "PASS phase-manifest",
+            "PASS config-coupling",
+            "PASS closure-readiness",
+            "FAIL docs-drift",
+            "PASS sync-docs-unique",
+            "PASS lane-state",
+            "PASS channel-docs",
+            "PASS retention-policy-coupling",
+            "PASS terminal-return",
+            "PASS text-integrity"
+          ],
+          "problems": [],
+          "sourceSweep": {
+            "status": "FAIL",
+            "findings": [
+              "docs/governance/requirements-traceability-map.md (bb9dfdc) changed after the register last moved — propagation unverified. Record a decision, even if the decision is that no tier is affected."
+            ]
+          }
+        },
+        {
+          "head": "bb9dfdcaa5a13f72fed59717c802271a616fa049",
+          "statuses": [
+            "PASS rule-budget",
+            "PASS tier-sweep",
+            "PASS duplicate-ids",
+            "FAIL graph-coverage",
+            "PASS settings-parse",
+            "PASS decision-status",
+            "PASS lane-boundary",
+            "FAIL source-sweep",
+            "PASS handoff-response",
+            "PASS phase-manifest",
+            "PASS config-coupling",
+            "PASS closure-readiness",
+            "FAIL docs-drift",
+            "PASS sync-docs-unique",
+            "PASS lane-state",
+            "PASS channel-docs",
+            "PASS retention-policy-coupling",
+            "PASS terminal-return",
+            "PASS text-integrity"
+          ],
+          "problems": [],
+          "sourceSweep": {
+            "status": "FAIL",
+            "findings": [
+              "docs/governance/requirements-traceability-map.md (bb9dfdc) changed after the register last moved — propagation unverified. Record a decision, even if the decision is that no tier is affected."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "step": "done",
+      "at": "2026-11-13T17:39:29.023Z",
+      "flags": []
+    }
+  ],
+  "flags": []
+}

@@ -1,0 +1,69 @@
+{
+  "manifest": {
+    "bytes": 1662,
+    "sha256": "e1fd1937f05e084da2dcc2b5ec1e50f802051238b3c6c8392f61c2bb687be767"
+  },
+  "members": [
+    {
+      "file": "2a.patch",
+      "bytes": 82341,
+      "sha256": "34fb8368c66b4e75599d5fcfec1bb68ba1810e16412b6005c772f919293b2e1d",
+      "match": true
+    },
+    {
+      "file": "2b.patch",
+      "bytes": 43073,
+      "sha256": "43530dad7c88079534e99972bacfb26b8ea84d35b781c6f1a92209f7bbf350fc",
+      "match": true
+    },
+    {
+      "file": "RELEASE-2A-2B.r7-rebound.UNISSUED.md",
+      "bytes": 17751,
+      "sha256": "bd480a24b3836cd3afe9bcb269ad4d34a06277dcea85afc952a49328313530db",
+      "match": true
+    },
+    {
+      "file": "V1-INTENT-INDEX.md",
+      "bytes": 6924,
+      "sha256": "ab3edcef833ac9d119b3d9e85986a8160e110a42f076d566ccbfdae6230921b9",
+      "match": true
+    },
+    {
+      "file": "cover-note.md",
+      "bytes": 4394,
+      "sha256": "904b29abef160e158cf03936d8e1dd5b76ec2eb185d320230f05c3de62219939",
+      "match": true
+    },
+    {
+      "file": "index-vs-draft-r5.diff",
+      "bytes": 11954,
+      "sha256": "aaa87c87b2ccc40b0f7a22c6fd609860764f12842b6935e297449faf513b5da8",
+      "match": true
+    },
+    {
+      "file": "ledger-2a.json",
+      "bytes": 5318,
+      "sha256": "f24aba9f4fa209557ac63a681a6ed65b35d6aed52e64e2cda561cde42501f33e",
+      "match": true
+    },
+    {
+      "file": "ledger-2b.json",
+      "bytes": 5139,
+      "sha256": "ac313d02a4bb5190cde474180fe213f9917dbf197461a18562167f81ef8a9c74",
+      "match": true
+    },
+    {
+      "file": "remote-observation.json",
+      "bytes": 495,
+      "sha256": "d260ec6822a6e30d54cdc20097ffd22c03edf0fa2f50403ebb66e345032ca35d",
+      "match": true
+    },
+    {
+      "file": "replay-verification.json",
+      "bytes": 6338,
+      "sha256": "570d1de670e9f9a5600dd0d94991e86c289be336ddd175b5c49855215ee119fe",
+      "match": true
+    }
+  ],
+  "unlisted": []
+}

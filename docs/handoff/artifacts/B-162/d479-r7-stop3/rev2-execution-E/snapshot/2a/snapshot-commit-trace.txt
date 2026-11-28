@@ -1,0 +1,79 @@
+# exit 0
+## stdout
+[detached HEAD b77629c] SNAPSHOT — test artifact; not for the source branch
+ 10 files changed, 390 insertions(+), 267 deletions(-)
+ create mode 100644 docs/v1/work-packets/V1/V1-SM07.md
+ rename scripts/jev/manifests/{V1-SM05.json => V1-SM07.json} (99%)
+
+## stderr
+21:36:20.699461 exec-cmd.c:266          trace: resolved executable dir: C:/Users/rober_24syk4j/AppData/Local/Programs/Git/mingw64/bin
+21:36:20.730025 common-init.c:57                  version 2.54.0.windows.1
+21:36:20.730025 common-init.c:58                  start git -C C:/CoWork/outputs/lane-a-d479-2a-2b-r7-30db8d51140c0e46700f96bb9f018e6e40b93cbc/snapshot/clone -c core.hooksPath=.githooks commit -F C:/CoWork/outputs/lane-a-d479-2a-2b-r7-30db8d51140c0e46700f96bb9f018e6e40b93cbc/snapshot/2a/snapshot-message.txt
+21:36:20.795591 compat/win32/trace2_win32_process_info.c:190 cmd_ancestry node.exe <- bash.exe <- bash.exe <- bash.exe <- claude.exe <- claude.exe <- explorer.exe
+21:36:20.806206 repository.c:262                  worktree C:/CoWork/outputs/lane-a-d479-2a-2b-r7-30db8d51140c0e46700f96bb9f018e6e40b93cbc/snapshot/clone
+21:36:20.810902 git.c:502               trace: built-in: git commit -F C:/CoWork/outputs/lane-a-d479-2a-2b-r7-30db8d51140c0e46700f96bb9f018e6e40b93cbc/snapshot/2a/snapshot-message.txt
+21:36:20.810902 git.c:503                         cmd_name commit (commit)
+21:36:20.895526 run-command.c:1565      run_processes_parallel: preparing to run up to 1 tasks
+21:36:20.895526 run-command.c:740                 child_start[0] .githooks/commit-msg .git/COMMIT_EDITMSG
+21:36:20.895526 run-command.c:673       trace: run_command: GIT_EDITOR=: GIT_INDEX_FILE=.git/index .githooks/commit-msg .git/COMMIT_EDITMSG
+21:36:20.895526 run-command.c:934       trace: start_command: .githooks/commit-msg .git/COMMIT_EDITMSG
+21:36:21.400876 run-command.c:996                 child_exit[0] pid:5740 code:0 elapsed:0.502890
+21:36:21.400876 run-command.c:1593      run_processes_parallel: done
+21:36:21.444833 run-command.c:740                 child_start[1] git maintenance run --auto --no-quiet --detach
+21:36:21.444833 run-command.c:673       trace: run_command: git maintenance run --auto --no-quiet --detach
+21:36:21.444833 run-command.c:934       trace: start_command: git maintenance run --auto --no-quiet --detach
+21:36:21.471036 exec-cmd.c:266          trace: resolved executable dir: C:/Users/rober_24syk4j/AppData/Local/Programs/Git/mingw64/libexec/git-core
+21:36:21.513491 common-init.c:57                  version 2.54.0.windows.1
+21:36:21.513491 common-init.c:58                  start git maintenance run --auto --no-quiet --detach
+21:36:21.572453 compat/win32/trace2_win32_process_info.c:190 cmd_ancestry git.exe <- node.exe <- bash.exe <- bash.exe <- bash.exe <- claude.exe <- claude.exe <- explorer.exe
+21:36:21.578085 repository.c:262                  worktree C:/CoWork/outputs/lane-a-d479-2a-2b-r7-30db8d51140c0e46700f96bb9f018e6e40b93cbc/snapshot/clone
+21:36:21.579814 git.c:502               trace: built-in: git maintenance run --auto --no-quiet --detach
+21:36:21.579814 git.c:503                         cmd_name maintenance (commit/maintenance)
+21:36:21.599382 run-command.c:740                 child_start[0] git repack -d -l --geometric=2 --write-midx
+21:36:21.599382 run-command.c:673       trace: run_command: git repack -d -l --geometric=2 --write-midx
+21:36:21.599382 run-command.c:934       trace: start_command: git repack -d -l --geometric=2 --write-midx
+21:36:21.624258 exec-cmd.c:266          trace: resolved executable dir: C:/Users/rober_24syk4j/AppData/Local/Programs/Git/mingw64/libexec/git-core
+21:36:21.669176 common-init.c:57                  version 2.54.0.windows.1
+21:36:21.669176 common-init.c:58                  start git repack -d -l --geometric=2 --write-midx
+21:36:21.749173 compat/win32/trace2_win32_process_info.c:190 cmd_ancestry git.exe <- git.exe <- node.exe <- bash.exe <- bash.exe <- bash.exe <- claude.exe <- claude.exe <- explorer.exe
+21:36:21.752776 repository.c:262                  worktree C:/CoWork/outputs/lane-a-d479-2a-2b-r7-30db8d51140c0e46700f96bb9f018e6e40b93cbc/snapshot/clone
+21:36:21.754800 git.c:502               trace: built-in: git repack -d -l --geometric=2 --write-midx
+21:36:21.754800 git.c:503                         cmd_name repack (commit/maintenance/repack)
+21:36:21.768919 run-command.c:740                 child_start[0] git pack-objects --local --delta-base-offset --honor-pack-keep .git/objects/pack/.tmp-24388-pack --keep-true-parents --non-empty --stdin-packs --unpacked
+21:36:21.768919 run-command.c:673       trace: run_command: git pack-objects --local --delta-base-offset --honor-pack-keep .git/objects/pack/.tmp-24388-pack --keep-true-parents --non-empty --stdin-packs --unpacked
+21:36:21.768919 run-command.c:934       trace: start_command: git pack-objects --local --delta-base-offset --honor-pack-keep .git/objects/pack/.tmp-24388-pack --keep-true-parents --non-empty --stdin-packs --unpacked
+21:36:21.798542 exec-cmd.c:266          trace: resolved executable dir: C:/Users/rober_24syk4j/AppData/Local/Programs/Git/mingw64/libexec/git-core
+21:36:21.844503 common-init.c:57                  version 2.54.0.windows.1
+21:36:21.844503 common-init.c:58                  start git pack-objects --local --delta-base-offset --honor-pack-keep .git/objects/pack/.tmp-24388-pack --keep-true-parents --non-empty --stdin-packs --unpacked
+21:36:21.911707 compat/win32/trace2_win32_process_info.c:190 cmd_ancestry git.exe <- git.exe <- git.exe <- node.exe <- bash.exe <- bash.exe <- bash.exe <- claude.exe <- claude.exe <- explorer.exe <- (truncated)
+21:36:21.911707 repository.c:262                  worktree C:/CoWork/outputs/lane-a-d479-2a-2b-r7-30db8d51140c0e46700f96bb9f018e6e40b93cbc/snapshot/clone
+21:36:21.919865 git.c:502               trace: built-in: git pack-objects --local --delta-base-offset --honor-pack-keep .git/objects/pack/.tmp-24388-pack --keep-true-parents --non-empty --stdin-packs --unpacked
+21:36:21.919865 git.c:503                         cmd_name pack-objects (commit/maintenance/repack/pack-objects)
+21:36:27.743085 git.c:784                         exit elapsed:5.947024 code:0
+21:36:27.743085 trace2/tr2_tgt_normal.c:372       counter fsync/hardware-flush value:3
+21:36:27.743085 trace2/tr2_tgt_normal.c:128       atexit elapsed:5.947073 code:0
+21:36:27.766190 run-command.c:996                 child_exit[0] pid:18448 code:0 elapsed:5.997764
+21:36:27.771121 run-command.c:740                 child_start[1] git multi-pack-index write --stdin-packs --no-progress --preferred-pack=pack-99a663878b84c743d974efb72e169d4a99867ad6.pack --refs-snapshot=C:/CoWork/outputs/lane-a-d479-2a-2b-r7-30db8d51140c0e46700f96bb9f018e6e40b93cbc/snapshot/clone/.git/objects/bitmap-ref-tips_jGpVFo
+21:36:27.771121 run-command.c:673       trace: run_command: git multi-pack-index write --stdin-packs --no-progress --preferred-pack=pack-99a663878b84c743d974efb72e169d4a99867ad6.pack --refs-snapshot=C:/CoWork/outputs/lane-a-d479-2a-2b-r7-30db8d51140c0e46700f96bb9f018e6e40b93cbc/snapshot/clone/.git/objects/bitmap-ref-tips_jGpVFo
+21:36:27.771121 run-command.c:934       trace: start_command: git multi-pack-index write --stdin-packs --no-progress --preferred-pack=pack-99a663878b84c743d974efb72e169d4a99867ad6.pack --refs-snapshot=C:/CoWork/outputs/lane-a-d479-2a-2b-r7-30db8d51140c0e46700f96bb9f018e6e40b93cbc/snapshot/clone/.git/objects/bitmap-ref-tips_jGpVFo
+21:36:27.796820 exec-cmd.c:266          trace: resolved executable dir: C:/Users/rober_24syk4j/AppData/Local/Programs/Git/mingw64/libexec/git-core
+21:36:27.831439 common-init.c:57                  version 2.54.0.windows.1
+21:36:27.831439 common-init.c:58                  start git multi-pack-index write --stdin-packs --no-progress --preferred-pack=pack-99a663878b84c743d974efb72e169d4a99867ad6.pack --refs-snapshot=C:/CoWork/outputs/lane-a-d479-2a-2b-r7-30db8d51140c0e46700f96bb9f018e6e40b93cbc/snapshot/clone/.git/objects/bitmap-ref-tips_jGpVFo
+21:36:27.893744 compat/win32/trace2_win32_process_info.c:190 cmd_ancestry git.exe <- git.exe <- git.exe <- node.exe <- bash.exe <- bash.exe <- bash.exe <- claude.exe <- claude.exe <- explorer.exe <- (truncated)
+21:36:27.902593 repository.c:262                  worktree C:/CoWork/outputs/lane-a-d479-2a-2b-r7-30db8d51140c0e46700f96bb9f018e6e40b93cbc/snapshot/clone
+21:36:27.904600 git.c:502               trace: built-in: git multi-pack-index write --stdin-packs --no-progress --preferred-pack=pack-99a663878b84c743d974efb72e169d4a99867ad6.pack --refs-snapshot=C:/CoWork/outputs/lane-a-d479-2a-2b-r7-30db8d51140c0e46700f96bb9f018e6e40b93cbc/snapshot/clone/.git/objects/bitmap-ref-tips_jGpVFo
+21:36:27.904600 git.c:503                         cmd_name multi-pack-index (commit/maintenance/repack/multi-pack-index)
+21:36:27.907855 builtin/multi-pack-index.c:171    cmd_mode write
+21:36:27.930201 git.c:784                         exit elapsed:0.137336 code:0
+21:36:27.930201 trace2/tr2_tgt_normal.c:372       counter fsync/hardware-flush value:1
+21:36:27.930201 trace2/tr2_tgt_normal.c:128       atexit elapsed:0.137378 code:0
+21:36:27.938854 run-command.c:996                 child_exit[1] pid:24944 code:0 elapsed:0.167057
+21:36:28.295701 git.c:784                         exit elapsed:6.677552 code:0
+21:36:28.295701 trace2/tr2_tgt_normal.c:128       atexit elapsed:6.677968 code:0
+21:36:28.308760 run-command.c:996                 child_exit[0] pid:24388 code:0 elapsed:6.707752
+21:36:28.311555 git.c:784                         exit elapsed:6.839767 code:0
+21:36:28.311555 trace2/tr2_tgt_normal.c:128       atexit elapsed:6.839801 code:0
+21:36:28.316462 run-command.c:996                 child_exit[1] pid:23052 code:0 elapsed:6.874074
+21:36:28.343184 git.c:784                         exit elapsed:7.640099 code:0
+21:36:28.343184 trace2/tr2_tgt_normal.c:372       counter fsync/hardware-flush value:12
+21:36:28.343184 trace2/tr2_tgt_normal.c:128       atexit elapsed:7.640137 code:0

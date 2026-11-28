@@ -1,0 +1,166 @@
+{
+  "base": "30db8d51140c0e46700f96bb9f018e6e40b93cbc",
+  "files": [
+    {
+      "path": ".github/WORKFLOWS-SPEC.md",
+      "status": "M",
+      "before": {
+        "mode": "100644",
+        "blob": "1e6dc25f811b85ebaa0e408eec05757ebc1cbe80",
+        "bytes": 10163,
+        "sha256": "088d5cf9284f18c305e40bdb567ab6c86a89f28b8e54c13554580d653fcf3592"
+      },
+      "after": {
+        "mode": "100644",
+        "blob": "018a25bbd03deb56197d7267d6766668ab2e7d63",
+        "bytes": 10299,
+        "sha256": "c09ba6d69fac992b5eb7e8c18d54d93bea04d1565935783e5ae54a5a40fffecc"
+      }
+    },
+    {
+      "path": "docs/governance/requirements-traceability-map.md",
+      "status": "M",
+      "before": {
+        "mode": "100644",
+        "blob": "53fcb80e2f4d17807f8061bcc93d29c0f6401dde",
+        "bytes": 44944,
+        "sha256": "40885712fd27b87523900bae1e997a67a5cab9d904863476f003886afe83acc2"
+      },
+      "after": {
+        "mode": "100644",
+        "blob": "761e989d88a21cd9d71dfa336909cfa64b899469",
+        "bytes": 46910,
+        "sha256": "fbfaebdc21c930fa1c71248c059a8c57ee2b0f90f4451ac1dac45cbee18c7948"
+      }
+    },
+    {
+      "path": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+      "status": "M",
+      "before": {
+        "mode": "100644",
+        "blob": "125ec651470218eb3c3cc1ccd5a534e9a5dd64a2",
+        "bytes": 69721,
+        "sha256": "d68b111744a03cdbc961913ec4c4dc5961efbdfc5724bc3898e09a61704c2f19"
+      },
+      "after": {
+        "mode": "100644",
+        "blob": "9e500971df94126262d78819811ae651ff475164",
+        "bytes": 71259,
+        "sha256": "202bdba67bbcb73465696d4734b5379f2d3e1a62749e3695c988fe69747c8d49"
+      }
+    },
+    {
+      "path": "docs/v1/V1-BUILD-SPEC.md",
+      "status": "M",
+      "before": {
+        "mode": "100644",
+        "blob": "d8f09bacb4412fa25a69f2bf05c0d1dc3c012a9e",
+        "bytes": 91460,
+        "sha256": "2b0a69af128dd86091a774e529bfb2fc6c764852cc837efe36ca9ce896fedd89"
+      },
+      "after": {
+        "mode": "100644",
+        "blob": "909c63bd01cf685ceb1f7b8a1c2e32c0876c393a",
+        "bytes": 92217,
+        "sha256": "5b6a76b9a57b1fee75fa35899f45fd5c661a6f6a660ed49c0774a47ec62501f4"
+      }
+    },
+    {
+      "path": "docs/v1/work-packets/V1/V1-SM05.md",
+      "status": "M",
+      "before": {
+        "mode": "100644",
+        "blob": "bc87630e27d13f5c5cb6c2cb90c3355aba4e9986",
+        "bytes": 24114,
+        "sha256": "c97310fd888170291ed1983b2ba02e0345bee4f1e663147320213d4293959593"
+      },
+      "after": {
+        "mode": "100644",
+        "blob": "5d0c95ddc7a4cd1707314971c16d268a811e6311",
+        "bytes": 2757,
+        "sha256": "128c1a153726709280aceae4e7b1312d92612e3193fa398a8cb143e509c27676"
+      }
+    },
+    {
+      "path": "docs/v1/work-packets/V1/V1-SM06.md",
+      "status": "M",
+      "before": {
+        "mode": "100644",
+        "blob": "213f1761a450fb1deac86b16f6a268fd5024e57d",
+        "bytes": 9972,
+        "sha256": "6eaa0314fcbe70668774bf80e606b80ef4320dd2b4cb90f7307edd68a5afc6b5"
+      },
+      "after": {
+        "mode": "100644",
+        "blob": "68c9e82fec2ea4b7f25e3eb99e1aae878908058d",
+        "bytes": 12230,
+        "sha256": "fcfeb97ef67d11fddf2d7bcba2f3dd7033944ddc89f45450507c998d79cf6a88"
+      }
+    },
+    {
+      "path": "docs/v1/work-packets/V1/V1-SM07.md",
+      "status": "A",
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "blob": "cb4b7a47ee44859307cd24996ce0279e82f36274",
+        "bytes": 24796,
+        "sha256": "349db5b9aea67608f13806582e88ecb636fec9efa7fe696c9f17edd33efbd319"
+      }
+    },
+    {
+      "path": "scripts/checks/closure-readiness.mjs",
+      "status": "M",
+      "before": {
+        "mode": "100644",
+        "blob": "fa135445d366a67be08b6b7a46307b67baa76c65",
+        "bytes": 27550,
+        "sha256": "28ba883b45641bebe3c52869355d1cf2526b11887f72d34b9dd81393f395927c"
+      },
+      "after": {
+        "mode": "100644",
+        "blob": "a328c7fdc20b6437d5c3ac27a486803208308a50",
+        "bytes": 27550,
+        "sha256": "3c2344928425cfdb60ac92bb5a98d51447ec5fc91aa92584de91256e4db9503d"
+      }
+    },
+    {
+      "path": "scripts/jev/jev.mjs",
+      "status": "M",
+      "before": {
+        "mode": "100644",
+        "blob": "6c6d994cbaf927a11bfdc46888ffe388d14cd19f",
+        "bytes": 2086,
+        "sha256": "c5bc60614ec1c0831bd527185fd20bc5549bd94f3cced387ff35819e5e7143b1"
+      },
+      "after": {
+        "mode": "100644",
+        "blob": "a73046a2a21254d701cc24d9a82d378b1a746c6a",
+        "bytes": 2086,
+        "sha256": "2ea5efe2d53ed199d62b4e3be48de9401c17927e5223cf349d1761f0b57448b3"
+      }
+    },
+    {
+      "path": "scripts/jev/manifests/V1-SM05.json",
+      "status": "D",
+      "before": {
+        "mode": "100644",
+        "blob": "b39719e90a460f150c1ab4d930ad51cd3aca4cd8",
+        "bytes": 13043,
+        "sha256": "bd5cbae1ecf684b745a3f532991baf9f3591b4e27bf48612614749ee724fd5e7"
+      },
+      "after": null
+    },
+    {
+      "path": "scripts/jev/manifests/V1-SM07.json",
+      "status": "A",
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "blob": "b50dfa7d9bcec0053b2132745f8dc8def8e79f75",
+        "bytes": 13043,
+        "sha256": "caf6bbc50568a8b2fbfc4605f6b083d785521eb0f2124bd5cfd4dc89398ec7a3"
+      }
+    }
+  ]
+}

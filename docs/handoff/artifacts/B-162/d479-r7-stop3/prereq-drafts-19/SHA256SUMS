@@ -1,0 +1,16 @@
+09c1bf330199f437f612febd14a900716f5ae7fe59cee9c26aec8659b86ad516  ./REGISTER-DRAFT-R1-routing-and-source-sweep.md
+11cb7080bddefeb4aab4642b8c62f57f9863c425ecc505bc41adfef9e05b84d5  ./REGISTER-DRAFT-R2-closure.md
+0e58de5c53dd77a02b477d37824db67567d3eb6cda2a15b0c5c69cdb0a8bd04b  ./ROUTING-MAP.md
+2a84ea1992ee598021e8f5719b8fef7071a4516925a3724d28830cab7b2203f3  ./prereq-tier-sweep.diff
+01c0c93009b4621de11679b2fc100dedb50a95bb3fc66ea68e49460c7f330d3b  ./scripts/make-prereq.cjs
+566d8860d102936ae32050d40db2e67bdf1e8f619fc41891aa56524233a02b86  ./scripts/routing-map.cjs
+a5eca6d9513b0659c15d99c92d8b01a4cb06b093d79fd910a2374c89f084c135  ./scripts/validate.cjs
+7da045cfd52df2e31213be36d7830047f81f61b16a085a16cff5f3a3926ccfe6  ./validation/P-check.txt
+052f26ed427d2b92f8bd2f4215711477352ad95410c885e2c351b045c3276d8c  ./validation/P-fixtures.txt
+18feaaef707670054d158d93d21fbba402fef4d8f653c06837b317f8bf077fd9  ./validation/P-jev-selftest.txt
+4ce043f4c5207b52591ee3a4dfebc581a9ffd851d756a30bfb306012a95a44a9  ./validation/P-results.json
+2a84ea1992ee598021e8f5719b8fef7071a4516925a3724d28830cab7b2203f3  ./validation/P.diff
+bbec52cd5318c8ffeddde17fe859627279bf6a278551b5cbf5dbe77712bd427a  ./validation/live-after.json
+1a54ec407cc7597dce8a0f10162950a83395b4a86adfc935d42e159b5a244c5e  ./validation/live-before.json
+26db04bde8d7272ba2c4f4a98590d3ad6047ac3310b43b3aba84baef6cd702a8  ./validation/run.out
+a32ba3c93d84f0dea52ef3de02d03ee848178151616fa5241f15ee7ec3f46ea2  ./validation/validation-log.json

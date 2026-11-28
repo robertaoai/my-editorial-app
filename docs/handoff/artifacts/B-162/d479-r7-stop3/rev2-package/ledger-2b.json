@@ -1,0 +1,161 @@
+{
+  "fromTree": "cb70db9c54e835bcd6facdc6dd81d49bb811f57e",
+  "toTree": "1fcc621e265f2587a2dd2741db8476fe4f99afd8",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "status": "M",
+      "before": {
+        "mode": "100644",
+        "blob": "d875aa93c8e11665192552f36d4f92cbf7ef1bc7",
+        "bytes": 3626,
+        "sha256": "aed0cd5256296e0e0cf319fd69d39c147992d0e0e89837af0cd3a845dcae2555"
+      },
+      "after": {
+        "mode": "100644",
+        "blob": "74123cd30ae82baedacbd7e88d37f0a1bb9ace2e",
+        "bytes": 3798,
+        "sha256": "24a51099890348babc085be2d11290825b0a75e689338cc41b410cbc9be95307"
+      }
+    },
+    {
+      "path": "docs/ENCYCLOPEDIA-SYNC.md",
+      "status": "M",
+      "before": {
+        "mode": "100644",
+        "blob": "f90d02e0b6a92eef0bab8533ca4a90467b0d4ff4",
+        "bytes": 12570,
+        "sha256": "a612ee32971fbea4d010dc5d93a07cf60f693d6f639d948ba58fb03c2fe13313"
+      },
+      "after": {
+        "mode": "100644",
+        "blob": "25508e6a32021e063c017b141c56d7be4192f59c",
+        "bytes": 13636,
+        "sha256": "e43635567bbeec6eadbed4344ec8516f2e0aa8270986234ca1817f32221111f5"
+      }
+    },
+    {
+      "path": "docs/Modular_PRD.md",
+      "status": "M",
+      "before": {
+        "mode": "100644",
+        "blob": "6c1e9b07811590a320c4c583104aecb618ed3a6e",
+        "bytes": 190745,
+        "sha256": "f0662388b0b1354a9c9e532ddc545b6c76c1d64260d0bcaf47c81d5297645cf6"
+      },
+      "after": {
+        "mode": "100644",
+        "blob": "e8da5735a7ea3419f143f70b766bef8c12a8a42d",
+        "bytes": 192792,
+        "sha256": "b6d7083f284ffa59837e9664315368d0fd22379fde356792c279ad0a3d5d6545"
+      }
+    },
+    {
+      "path": "docs/fn-specs/FN-GATES-01-05.md",
+      "status": "M",
+      "before": {
+        "mode": "100644",
+        "blob": "b3016b93b8d7ffca286329dccc2d243479b6328d",
+        "bytes": 57654,
+        "sha256": "ba349b40f3f1280415841a58f72cd9a613c73bc8e062e26254323f6cf0daba9a"
+      },
+      "after": {
+        "mode": "100644",
+        "blob": "5bb5793d5409e695de590f261e66c2b1b634f1ca",
+        "bytes": 58208,
+        "sha256": "3cab584ab3f80850d0e8692a3e7b67e995ddb03f91dc07c69ad6187185263e9b"
+      }
+    },
+    {
+      "path": "docs/fn-specs/FN-PUBLICATION-09-10-13.md",
+      "status": "M",
+      "before": {
+        "mode": "100644",
+        "blob": "77c72595df45c2bdd23ccadbbd2aca55b5cb9e33",
+        "bytes": 18089,
+        "sha256": "93e8ed6543acaeacb03b27d9d744eb1c9fc98ed52535ae8fc1aff5a245350779"
+      },
+      "after": {
+        "mode": "100644",
+        "blob": "1eea9145765902f0416e3bbc615cb078b4ae3a71",
+        "bytes": 19596,
+        "sha256": "317ee2d0fd328d5d3f3a5b32347bf7d0226d318584d4752bd6a37375c526fa68"
+      }
+    },
+    {
+      "path": "docs/specs/SPECS-PUBLICATION.md",
+      "status": "M",
+      "before": {
+        "mode": "100644",
+        "blob": "018d0955afb18cb524958f57f6b5cd930faca90c",
+        "bytes": 10389,
+        "sha256": "5670dbe34f1b59a5e251f0c226cbdb0e611a15f07094b955ee09f1bec6170850"
+      },
+      "after": {
+        "mode": "100644",
+        "blob": "99b46a07ab0d89e1c0e3d05b5a9325ec457451aa",
+        "bytes": 10422,
+        "sha256": "1ca056db51f58b1af62daadc2c8feb05374426153f65fa47ffc13f10e86d41be"
+      }
+    },
+    {
+      "path": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+      "status": "M",
+      "before": {
+        "mode": "100644",
+        "blob": "9e500971df94126262d78819811ae651ff475164",
+        "bytes": 71259,
+        "sha256": "202bdba67bbcb73465696d4734b5379f2d3e1a62749e3695c988fe69747c8d49"
+      },
+      "after": {
+        "mode": "100644",
+        "blob": "9b2ec867d52a0ec98410bc01c5fa3e50d2ea67a7",
+        "bytes": 71471,
+        "sha256": "24bc0d258c711442bcd1509f2be17e7cf204223edaada65cd16a0f17a628a16f"
+      }
+    },
+    {
+      "path": "docs/v1/V1-BUILD-SPEC.md",
+      "status": "M",
+      "before": {
+        "mode": "100644",
+        "blob": "909c63bd01cf685ceb1f7b8a1c2e32c0876c393a",
+        "bytes": 92217,
+        "sha256": "5b6a76b9a57b1fee75fa35899f45fd5c661a6f6a660ed49c0774a47ec62501f4"
+      },
+      "after": {
+        "mode": "100644",
+        "blob": "a7ce1b083c7d34258407e3f2943202dd5d5abe46",
+        "bytes": 95373,
+        "sha256": "88890e75fed8bc8253c0e416646b6f4ca2dfabcae928c22f63595df14190312f"
+      }
+    },
+    {
+      "path": "docs/v1/V1-INTENT-INDEX.md",
+      "status": "A",
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "blob": "cd8186b87063ecf92732139ed1866583f7ef8257",
+        "bytes": 6924,
+        "sha256": "ab3edcef833ac9d119b3d9e85986a8160e110a42f076d566ccbfdae6230921b9"
+      }
+    },
+    {
+      "path": "docs/v1/V1-PHASE-CLOSURE.md",
+      "status": "M",
+      "before": {
+        "mode": "100644",
+        "blob": "a96e5c1c4c6497ac2034ed47a490d19b7f9110b5",
+        "bytes": 101398,
+        "sha256": "f5b5237c15c1c017c4e98150cb3fde8c241c91672ed2a1c64f66c93c04a9e28e"
+      },
+      "after": {
+        "mode": "100644",
+        "blob": "bdc025fb0f9abcade35346121e490c6202a7fcf7",
+        "bytes": 101739,
+        "sha256": "3f54d3e36697f8fa57c233fd0c1efd6c46cdfe271d281ab9e43c67b405bdcf25"
+      }
+    }
+  ]
+}

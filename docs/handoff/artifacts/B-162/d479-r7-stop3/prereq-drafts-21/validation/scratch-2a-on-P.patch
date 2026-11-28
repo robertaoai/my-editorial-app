@@ -1,0 +1,862 @@
+diff --git a/.github/WORKFLOWS-SPEC.md b/.github/WORKFLOWS-SPEC.md
+index 1e6dc25f811b85ebaa0e408eec05757ebc1cbe80..018a25bbd03deb56197d7267d6766668ab2e7d63 100644
+--- a/.github/WORKFLOWS-SPEC.md
++++ b/.github/WORKFLOWS-SPEC.md
+@@ -65,12 +65,13 @@ tallies from four documents after they drifted; `bun run check` prints the total
+ ## 4. Queued items
+ 
+ **Receiving packet (`D-381`, 2026-10-02).** These items, with `C-001`/`B-016`'s `C-24` and `C-25`, are received by
+-`V1-SM06` as `SM06-P3-02`–`05` — the first increment to carry Phase 3 CI work. Receipt is custody, not a work
++`V1-SM08` as `SM06-P3-02`–`05` — the first increment to carry Phase 3 CI work (custody moved from `V1-SM06` by
++`D-479` item 8; the receipt IDs are kept). Receipt is custody, not a work
+ order: nothing below runs before a separately authorized Phase 3 work order and lane act. The existing `ci.yml`
+ job is unchanged. The `D-230` Stage 2 workflow (§8's evidence contract, exercised for real) is `SM06-P3-06`
+-(`D-382`). **Timing (`D-383`):** the existing CI keeps running on every push, but its result is not a `V1-SM05` DoD
+-prerequisite; `V1-SM05` DoD is met by local validation. None of these items starts before `V1-SM06` entry, which
+-requires a separately accepted baseline-promotion PR.
++(`D-382`). **Timing (`D-383`, applied by `D-479` item 8):** the existing CI keeps running on every push, but its result
++is not a DoD prerequisite for `V1-SM05`, `V1-SM06` or `V1-SM07`; their DoD is met by local validation. None of these
++items starts before `V1-SM08` entry, which requires a separately accepted baseline-promotion PR (`D-486`).
+ 
+ ### `C-Q1` — `fetch-depth: 0`, so `source-sweep` runs in CI
+ 
+diff --git a/docs/governance/requirements-traceability-map.md b/docs/governance/requirements-traceability-map.md
+index 53fcb80e2f4d17807f8061bcc93d29c0f6401dde..761e989d88a21cd9d71dfa336909cfa64b899469 100644
+--- a/docs/governance/requirements-traceability-map.md
++++ b/docs/governance/requirements-traceability-map.md
+@@ -213,7 +213,7 @@ Business Charter  ── NOT SUPPLIED (FB-07) ──▶ PRD.md  (customer, ancho
+ > are `V1-SM05` (`MMF-V1-CORE`) and `V1-SM06` (`MMF-V1-USABLE`), both `Not started`. The qualified
+ > destinations are also recorded in `V1-BUILD-SPEC.md` §1 and `Modular_PRD.md` §8.1.
+ 
+-### 6.1 `V1-SM05`/`V1-SM06` row-level journey — DoR draft, not construction authorization `[V1]` (`D-232`, `B-117`)
++### 6.1 V1 slot row-level journey — DoR draft, not construction authorization `[V1]` (`D-232`, `B-117`; re-slotted `D-479`)
+ 
+ **Source of record for the route/accountability facts below:** `docs/governance/factory-route-operation-crosswalk.md`
+ Sheet 1 — `ROUTE-PROD-1`: `ROLE-REPORTER` = R, `ROLE-DESK-EDITOR` = A, verified. **`ROLE-DESK-EDITOR`
+@@ -223,17 +223,27 @@ here.
+ 
+ | Step | Business route/accountability | Gate executor (target) | CR/FR/AC anchor | Slot | Evidence contract |
+ |---:|---|---|---|---|---|
+-| 1 | Chief Editor prepares the source package outside the system | No transition | `CR-09`; `FR-15`/`AC-23` (`SM05-N1`); `AC-02` | `V1-SM05` | Manual record accepted by the UI — precondition for step 2 |
+-| 2a | `ROUTE-PROD-1` fixed for `V1-SM05` (no route chooser); Sheet 1 records Reporter `R`, Desk Editor `A` | Senior Journalist emits `EW`-start; no gate advances (`B-071` Round 56) | `CR-10` (route context, not itself an FR) | `V1-SM05` | **`UJ1` resolved** — order is: accepted manual record → Senior Journalist `EW` → `OP-PITCH` route classification → T1. Chief Editor does not execute `EW`/T1; Senior Journalist trigger does not complete T1 |
+-| 2b | `OP-PITCH` records and completes the Route-1 classification | `OP-PITCH`'s own completion evidence; `EW` is its **entry trigger**, not the other way round (`factory-route-operation-crosswalk.md` §3.2 stage table) | `CR-10` | `V1-SM05` | Logged pitch: topic, trend signal, route classification — precedes T1. **`OP-PITCH`'s executor is resolved for Route-1**: Reporter, per the business judgment stage that selects it (`factory-route-operation-crosswalk.md` §4.1, `D-233`) — Sheet 2's source multi-`R` row is preserved, not overwritten |
+-| 3 | Reporter performs the responsible intake work | Reporter executes `transition:T1` (target); `V1-SM05` records `business:T1` only | `FR-15`/`AC-23` (`SM05-N2`); `FR-01` is the transition target, not this slice's acceptance (`D-261`) | `V1-SM05` (business record) | — |
+-| 4 | Desk Editor remains route-accountable; not a gate executor | Investigator executes `transition:T2`/`T3` (target); `V1-SM05` records `business:T2`/`T3` only | `FR-15`/`AC-23` (`SM05-N3`/`SM05-N4`); `FR-02` is the transition target only (`D-261`) | `V1-SM05` (business record) | — |
+-| 5 | Route accountability unchanged | Journalist executes `transition:T4` (target); `V1-SM05` records `business:T4` only | `FR-15`/`AC-23` (`SM05-N5`); `FR-03` is the transition target only (`D-261`) | `V1-SM05` (business record) | — |
+-| 6 | Desk Editor `A` remains distinct from the T5 reviewer | Chief Editorial Desk executes `transition:T5` (target, held `D-171`); `V1-SM05` records the `business:T5` ranking and routing record only | `FR-15`/`AC-23` (`SM05-N6`), `AC-25` for the display; `FR-04` display provenance only (`D-261`); `FR-04a`/`AC-05a`/`AC-06a` held (`D-260`) | `V1-SM05` (business record) | **`UJ2` resolved** — observable evidence is the work-order/route record's audit projection (`route_id`, `raci_scope=factory_route`, route `R`, route `A`), append-only; not a gate, button, or T5-style sign-off. `OP-FINAL-SIGNOFF`'s accepted A-only contract (`D-233`, `factory-route-operation-crosswalk.md` §4.1) is separate from this route-accountability evidence and does not backfill it |
+-| 7 | Human Chief Editor is the final judgment owner, not Sheet 1's Desk Editor | Chief Editor executes `transition:T6` (target) | `FR-04`, `CR-12` | **Held — `D-171`** (`D-260`); no packet named | — |
+-| 8 | Same route/accountability record persists through correction | Revision returns only the affected `business:T*` scope | `FR-15`/`AC-24` (`SM05-RV1`/`SM05-RV2`); `CR-11` context only (`D-261`) — `FR-07`/`AC-11`/`AC-12` (transition-row audit) move with the transition increment (`D-260`) | `V1-SM05` (business record) | — |
+-| 9 | Route completion visible on the board | Board reads state/topic/category/audit | `CR-13`, `FR-08`, `AC-13` | `V1-SM06` | — |
+-| 10 | Publication delivery does not redefine editorial accountability | Approved content becomes `ManualReady` | `CR-12`, `FR-09`/`FR-10`, `AC-14`–`AC-16` | `V1-SM06` | — |
++| 1 | Chief Editor prepares the source package outside the system | No transition | `CR-09`; `FR-15`/`AC-23` (`SM05-N1`); `AC-02` | `V1-SM05` (log, `FR-01`/`AC-02`); `V1-SM07` (`FR-15` record) | Manual record accepted by the UI — precondition for step 2 |
++| 2a | `ROUTE-PROD-1` fixed for `V1-SM05` and `V1-SM07` (no route chooser); Sheet 1 records Reporter `R`, Desk Editor `A` | Senior Journalist emits `EW`-start; no gate advances (`B-071` Round 56) | `CR-10` (route context, not itself an FR) | `V1-SM05`; `V1-SM07` | **`UJ1` resolved** — order is: accepted manual record → Senior Journalist `EW` → `OP-PITCH` route classification → T1. Chief Editor does not execute `EW`/T1; Senior Journalist trigger does not complete T1 |
++| 2b | `OP-PITCH` records and completes the Route-1 classification | `OP-PITCH`'s own completion evidence; `EW` is its **entry trigger**, not the other way round (`factory-route-operation-crosswalk.md` §3.2 stage table) | `CR-10` | `V1-SM07` | Logged pitch: topic, trend signal, route classification — precedes T1. **`OP-PITCH`'s executor is resolved for Route-1**: Reporter, per the business judgment stage that selects it (`factory-route-operation-crosswalk.md` §4.1, `D-233`) — Sheet 2's source multi-`R` row is preserved, not overwritten |
++| 3 | Reporter performs the responsible intake work | On `ROUTE-PROD-1`, Reporter executes `EG1` in `V1-SM05` (selected, `D-479` item 5; held under `D-171` for other routes); `V1-SM07` records `business:T1` only | `FR-15`/`AC-23` (`SM05-N2`); `FR-01` is the transition target, not this slice's acceptance (`D-261`) | `V1-SM05` (`EG1`); `V1-SM07` (business record) | — |
++| 4 | Desk Editor remains route-accountable; not a gate executor | On `ROUTE-PROD-1`, Investigator executes `EG2` in `V1-SM05` (selected, `D-479` item 5; held under `D-171` for other routes); `V1-SM07` records `business:T2`/`T3` only | `FR-15`/`AC-23` (`SM05-N3`/`SM05-N4`); `FR-02` is the transition target only (`D-261`) | `V1-SM05` (`EG2`); `V1-SM07` (business record) | — |
++| 5 | Route accountability unchanged | On `ROUTE-PROD-1`, Journalist executes `EG3` in `V1-SM05` (selected, `D-479` item 5; held under `D-171` for other routes); `V1-SM07` records `business:T4` only | `FR-15`/`AC-23` (`SM05-N5`); `FR-03` is the transition target only (`D-261`) | `V1-SM05` (`EG3`); `V1-SM07` (business record) | — |
++| 6 | Desk Editor `A` remains distinct from the T5 reviewer | On `ROUTE-PROD-1`, Chief Editorial Desk alone executes `EG4` in `V1-SM05` (selected, `D-479` item 5); held under `D-171` for other routes; `V1-SM07` records the `business:T5` ranking and routing record only | `FR-15`/`AC-23` (`SM05-N6`), `AC-25` for the display; `FR-04` display provenance only (`D-261`); `FR-04a`/`AC-05a`/`AC-06a` selected for `ROUTE-PROD-1` in `V1-SM05` (`D-479` item 5; earlier held, `D-260`) | `V1-SM05` (`EG4`, `ROUTE-PROD-1`); `V1-SM07` (business record) | **`UJ2` resolved** — observable evidence is the work-order/route record's audit projection (`route_id`, `raci_scope=factory_route`, route `R`, route `A`), append-only; not a gate, button, or T5-style sign-off. `OP-FINAL-SIGNOFF`'s accepted A-only contract (`D-233`, `factory-route-operation-crosswalk.md` §4.1) is separate from this route-accountability evidence and does not backfill it |
++| 7 | Human Chief Editor is the final judgment owner, not Sheet 1's Desk Editor | On `ROUTE-PROD-1`, the Chief Editor executes `EG5`, human only, with the blind order, in `V1-SM05` (selected, `D-479` item 5); held under `D-171` for other routes | `FR-04`, `CR-12` | `V1-SM05` (`EG5`, `ROUTE-PROD-1`, `D-479` item 5); other routes held (`D-171`) | — |
++| 8 | Same route/accountability record persists through correction | Revision returns only the affected `business:T*` scope | `FR-15`/`AC-24` (`SM05-RV1`/`SM05-RV2`); `CR-11` context only (`D-261`) — `FR-07`/`AC-11`/`AC-12` (transition-row audit) move with the transition increment (`D-260`) | `V1-SM07` (business record); `V1-SM05` (return with reason, `FR-06`/`FR-07`) | — |
++| 9 | Route completion visible on the board | Board reads state/topic/category/audit | `CR-13`, `FR-08`, `AC-13` | `V1-SM05` (board, state); `V1-SM06` (topic and category filters, audit view) | — |
++| 10 | Publication delivery does not redefine editorial accountability | Delivery: after the `EG5` final decision, the LinkedIn target becomes eligible for `ManualReady` (sole requester `ROLE-SENIOR-JOURNALIST`); the Chief Editor then confirms the live LinkedIn URL (`D-479` item 7) | `CR-12`, `FR-09`/`FR-10`, `AC-14`–`AC-16` | `V1-SM06` (Delivery) | — |
++
++**Re-slot — `D-479` item 6 (decided 2026-11-07).** The Slot column follows the five-slot binding. The retained CORE
++evidence — the business-record rows (`FR-15`, the `SM05-*` scenarios) — belongs to `V1-SM07`. The selected
++`ROUTE-PROD-1` pipeline — `EG1` to `EG5`, with `EG4` the Chief Editorial Desk alone and `EG5` the Chief Editor, human
++only — belongs to `V1-SM05` (items 5 and 6); every other route stays held under `D-171`. The board reads state in
++`V1-SM05` and filters by topic and category in `V1-SM06`. Delivery is `V1-SM06`: the LinkedIn target becomes eligible
++for `ManualReady` after the `EG5` final decision, then the Chief Editor confirms the live LinkedIn URL (item 7). In
++the dated paragraphs and tables below, `V1-SM05` means the `FR-15` evidence slice, now `V1-SM07`, and `V1-SM06` means
++board and `ManualReady`; their quotation of step 10 ("Approved content becomes `ManualReady`") is the wording before
++this re-slot. `Modular_PRD.md` §9 is unchanged.
+ 
+ **Option A — `D-260`, 2026-09-24 (Judge).** Rows 3–8 previously assigned technical gate execution to `V1-SM05`,
+ contradicting §6.3's statement that the slice claims no `transition:T*` execution. They now say what `V1-SM05`
+diff --git a/docs/v1/V1-ARTIFACT-INVENTORY.md b/docs/v1/V1-ARTIFACT-INVENTORY.md
+index 125ec651470218eb3c3cc1ccd5a534e9a5dd64a2..9e500971df94126262d78819811ae651ff475164 100644
+--- a/docs/v1/V1-ARTIFACT-INVENTORY.md
++++ b/docs/v1/V1-ARTIFACT-INVENTORY.md
+@@ -89,15 +89,19 @@
+ | `docs/v1/work-packets/SETUP-SPIKE-000/S2.md` | `D-240` — sprint MMF checklist | ✅ **Created 2026-09-17** |
+ | `docs/v1/work-packets/SETUP-SPIKE-000/S3.md` | `D-240` — sprint MMF checklist | ✅ **Created 2026-09-17** |
+ | `docs/v1/work-packets/SETUP-SPIKE-000/S4.md` | `D-240` — sprint MMF checklist | ✅ **Created 2026-09-17** |
+-| `docs/v1/work-packets/V1/V1-SM05.md` | `D-240` — MMF checklist, `MMF-V1-CORE` | ✅ **Created 2026-09-17** |
+-| `docs/v1/work-packets/V1/V1-SM06.md` | `D-240` — MMF checklist, `MMF-V1-USABLE` | ✅ **Created 2026-09-17** |
++| `docs/v1/work-packets/V1/V1-SM07.md` | `D-240` — MMF checklist, `MMF-V1-CORE`; moved from `V1-SM05.md` by `D-479` item 6 | ✅ **Created 2026-09-17**; moved 2026-11-13 |
++| `docs/v1/work-packets/V1/V1-SM05.md` | `D-479` item 12: MMF checklist, `MMF-V1-PIPELINE` | ✅ **Created 2026-11-13** |
++| `docs/v1/work-packets/V1/V1-SM06.md` | `D-240` — MMF checklist; re-scoped to `MMF-V1-PUBLISH` by `D-479` item 6 (`MMF-V1-USABLE` retired) | ✅ **Created 2026-09-17**; re-scoped 2026-11-13 |
++| `docs/v1/work-packets/V1/V1-SM08.md` | `D-479` item 6 — planned enabler work packet for `ENB-V1-RELEASE`; receives `SM06-P3-01`–`06` (item 8) | ⏳ **Planned — not created** |
++| `docs/v1/work-packets/V1/V1-SM09.md` | `D-479` item 6 — planned IP iteration work packet (no MMF, no feature DoD) | ⏳ **Planned — not created** |
++| `supabase/migrations/` — new migration replacing the current-order executor rows of `0002`'s `allowed_transitions` | `D-479` item 5 — Lane B work, named by the `V1-SM05` work order; `0001` and `0002` are not edited | ⏳ **Planned — not created** |
+ | `docs/graph-fragments/restore-docs-layer.js` | `D-246` — replays docs-layer nodes by id from a dated graph backup after a rebuild dropped them; overwrites nothing | ✅ **Created 2026-09-20** |
+ | `docs/graph-fragments/frag137.json` | `D-246` — curated nodes for documents and decisions created after the last backup (work packets, SPECS index files, `D-242`–`D-246`) | ✅ **Created 2026-09-20** |
+ | `docs/graph-fragments/frag138.json` | `D-247`–`D-251` — curated nodes for the five decisions, and corrected descriptions for `FR-09`, `FR-10` and `D-244` | ✅ **Created 2026-09-21** |
+ | `.github/PULL_REQUEST_TEMPLATE/v1-mmf.md` | `D-245` — reusable one-MMF pull-request template; selects nothing, grants no authority | ✅ **Created 2026-09-20** |
+ | `.github/ISSUE_TEMPLATE/v1-mmf.md` | `D-259` — post-DoR Issue template for one V1 MMF; records a complete DoR, never creates one (`D-254`); grants no authority | ✅ **Created 2026-09-24** |
+ | `scripts/jev/lib.mjs`, `scripts/jev/jev.mjs`, `scripts/jev/selftest.mjs` | `D-259` — Jev System One, two-checkpoint evidence evaluator (`SPECS-VERIFICATION-APPARATUS.md` §18.2); outside `bun run check`; `bun run jev` / `bun run jev:selftest` | ✅ **Created 2026-09-24.** Self-test runs in throwaway temp repositories; every negative fixture fires its named rule |
+-| `scripts/jev/manifests/V1-SM05.json` | `D-259` — `V1-SM05` scope manifest: DoR rows and row-hash-pinned behaviours | ✅ **Created 2026-09-24**; re-pinned by `D-260` to the Option A scope (held `T5`/`T6` rows out, `FN-GATES` §4.4 scenarios in) |
++| `scripts/jev/manifests/V1-SM07.json` | `D-259` — `V1-SM07` (formerly `V1-SM05`) scope manifest: DoR rows and row-hash-pinned behaviours; moved by `D-479` item 6 on 2026-11-13 | ✅ **Created 2026-09-24**; re-pinned by `D-260` to the Option A scope (held `T5`/`T6` rows out, `FN-GATES` §4.4 scenarios in) |
+ | `docs/v1/work-packets/V1/receipts/` | `D-259` — Jev readiness receipts for V1 packets; evidence only | ✅ **Created 2026-09-24** with `V1-SM05-jev-readiness.json` — first receipt `fail` (the `AC-05a`/`AC-06a` scope finding, kept in git history at `e805fb9`); **replaced 2026-09-24 by a passing receipt after `D-260`**, same path |
+ | `docs/handoff/artifacts/B-131/System_Encyclopedia_V15.txt` | `D-259`, `B-131` — Chief Editor-supplied export of hosted Encyclopedia v15; SHA-256 `bc97bebac0f3ac2d3f3d8fed32c3a9cb93684b60f829fee3604b08faf34ace9f`, matching `B-131` | ✅ **Added 2026-09-24.** Evidence attachment, not an entry — same treatment as `artifacts/B-119/` |
+ | `docs/graph-fragments/frag139.json` | `D-264` — curated nodes for `D-264`, the v1 template, `SV-001`, `SV-002` and the `SV2-U03` evaluation | ✅ **Created 2026-09-25** |
+@@ -598,6 +602,13 @@ README. Every file keeps its inventory row and status.
+ **`D-436` (2026-10-13) — no file added or retired, stated explicitly.** One sentence in
+ `FN-MULTI-LANE-AI-GOVERNANCE.md` changes in place; the file keeps its inventory row and status.
+ 
++**`D-479` (decided 2026-11-07) — files moved, added, re-scoped and planned.** Commit 2a, 2026-11-13:
++`docs/v1/work-packets/V1/V1-SM05.md` moves to `V1-SM07.md`, and `scripts/jev/manifests/V1-SM05.json` moves to
++`V1-SM07.json`, with the `FR-15` scope and the `BLOCKED` status. Their rows keep their `D-240`/`D-259` provenance and
++creation dates. A new `V1-SM05.md` is created for `MMF-V1-PIPELINE` (item 12). `V1-SM06.md` is re-scoped to
++`MMF-V1-PUBLISH`. `V1-SM08.md`, `V1-SM09.md` and the Lane B executor migration are planned, not created. The receipt
++`V1-SM05-jev-readiness.json` keeps its name as dated evidence.
++
+ ## Temporary / Draft Artifacts
+ 
+ | Artifact | Purpose | Status |
+diff --git a/docs/v1/V1-BUILD-SPEC.md b/docs/v1/V1-BUILD-SPEC.md
+index d8f09bacb4412fa25a69f2bf05c0d1dc3c012a9e..909c63bd01cf685ceb1f7b8a1c2e32c0876c393a 100644
+--- a/docs/v1/V1-BUILD-SPEC.md
++++ b/docs/v1/V1-BUILD-SPEC.md
+@@ -24,12 +24,19 @@ meaning unchanged** — they predate the namespace split and are not renumbered
+ `OD1`–`OD3`; S5's Line 3/`FR-11` portion is governed directly by `D-57`, not `OD3` or `OD4`
+ (`D-168`, `D-169`) — only its degraded-mode portion depends on `Q1`'s production half (`OD3`).
+ 
+-### V1 functional increments — `V1-SM05` / `V1-SM06` (`D-232`)
++### V1 slots — `V1-SM05` to `V1-SM09` (`D-479`; earlier `D-232`)
+ 
+ | Qualified ID | MMF | Status | Meaning |
+ |---|---|---|---|
+-| `V1-SM05` | `MMF-V1-CORE` | Not started; not selected. **`BLOCKED`** (packet status, `D-264`; updated `D-434`): `SV-002` accepted; lifting the block requires a separate Judge decision. *Earlier (`D-264`): `SETUP-SPIKE-000` attempt `SV-002` open.* | First working-software increment — a **limited Route-1 evidence slice** (`D-249`): it records and displays accepted business-stage, role, task and evidence facts and does not claim `transition:T*` execution |
+-| `V1-SM06` | `MMF-V1-USABLE` | Not started; not selected | Second increment — **board/audit visibility and the bounded LinkedIn `ManualReady` event** (`D-243`, `D-249`); it creates no `Published` state, no automated WordPress delivery and no live-URL confirmation. Also the first increment to receive Phase 3 CI work and the hosted migration, as a separate Project allocation (`D-381`) |
++| `V1-SM05` | `MMF-V1-PIPELINE` | Not started; not selected; DoR not written | Log; `EG1` to `EG5` on `ROUTE-PROD-1` with logged transitions; return with reason; board (state) (`D-479` item 6) |
++| `V1-SM06` | `MMF-V1-PUBLISH` | Not started; not selected | Delivery: after the `EG5` final decision the LinkedIn target becomes eligible for `ManualReady` (sole requester `ROLE-SENIOR-JOURNALIST`), then the Chief Editor confirms the live LinkedIn URL (`D-479` item 7); topic and category filters; audit view |
++| `V1-SM07` | `MMF-V1-CORE` (identity kept) | Not started; not selected. **`BLOCKED`** (packet status, `D-264`; updated `D-434`; moved with the `FR-15` content by `D-479` item 6): `SV-002` accepted; lifting the block requires a separate Judge decision | Newsdesk ranking and routing evidence (`FR-15`; `AC-23` to `AC-26`). DoR blocked until the `business:T*` normalisation act and the `D-434` lift |
++| `V1-SM08` | `ENB-V1-RELEASE` (enabler, not an MMF) | Planned enabler work packet; no packet file yet | Hosted migration, Phase 3 CI and measured success criteria; receives `SM06-P3-01` to `SM06-P3-06` (`D-479` item 8) |
++| `V1-SM09` | IP iteration (no MMF, no feature DoD) | Planned; no packet file yet | Buffer, V1 inspect and adapt, freeze decision (`D-203`), V2 backlog ranking |
++
++**Reading rule (`D-479` item 6, decided 2026-11-07).** Text in this file dated before 2026-11-07 that says `V1-SM05`,
++`V1-SM06`, or bare `SM05`/`SM06` for a slot means the binding then in force: `V1-SM05` = the `FR-15` evidence slice,
++now `V1-SM07`; `V1-SM06` = board and `ManualReady`. Dated text is not rewritten.
+ 
+ **Current boundary and partial `CR-19` (`D-247`–`D-251`, 2026-09-21).** V1 is `V1-SM05` and `V1-SM06` and
+ **ends at the bounded LinkedIn target-level `ManualReady` outcome.** **It satisfies the customer's `CR-19` scenario
+diff --git a/docs/v1/work-packets/V1/V1-SM05.md b/docs/v1/work-packets/V1/V1-SM05.md
+index bc87630e27d13f5c5cb6c2cb90c3355aba4e9986..291fc26c8a8922037cfe76906f21af5ef4713331 100644
+--- a/docs/v1/work-packets/V1/V1-SM05.md
++++ b/docs/v1/work-packets/V1/V1-SM05.md
+@@ -1,256 +1,65 @@
+-# Work packet — `V1` / `V1-SM05` (`MMF-V1-CORE`)
++# Work packet — `V1` / `V1-SM05` (`MMF-V1-PIPELINE`)
+ 
+-**Created:** 2026-09-17 (`D-240`, `docs/handoff/B-118`). **Owner:** Lane B (build), Lane A (tracking).
+-**Status:** Not started; not selected (`D-232`). **Current, 2026-10-12 (`D-434`): `BLOCKED — SV-002 accepted; not selected; feature DoR/DoD not yet run; construction not authorized.`** *Earlier, 2026-09-25 (`D-264`): `BLOCKED — SETUP-SPIKE-000 validation
+-attempt SV-002 open; not selected; feature DoR/DoD not yet run; construction not authorized.`* This is a packet status,
+-not a lane state. The checked `DOR-R1`–`DOR-R7` rows below are the completed **pre-selection handoff validation**,
+-recorded as attempt `SV-001` ([SV-001](../SETUP-SPIKE-000/SV-001.md)); they are not an executed feature DoR. The block is
+-tracked in `SV-002` ([SV-002](../SETUP-SPIKE-000/SV-002.md)). The first feature run, `V1-SM05-FV-001`, is created after
+-selection and runs only once Lane B has written behavioural test code.
++**Created:** 2026-11-13 (`D-479` item 12, decided 2026-11-07). **Owner:** Lane B (build), Lane A (tracking).
++**Status:** Not started; not selected; DoR not written.
+ 
+-**Durable-owner receipt, 2026-09-26 (`D-269`, Judge Option A).** This packet receives, as their long-term owner, the
+-obligations absorbed from `docs/handoff/B-120` Parent 5 and `docs/handoff/B-125` Parent 6: the Judge's selection of
+-`V1-SM05`, the `D-242` State-2 work order, Lane B activation, and construction evidenced by `V1-SM05-FV-001`. Both
+-source entries are `Superseded`, terminal, with no return trigger; `docs/handoff/B-136` Parent 3 holds the transition
+-receipt. **Acceptance proof:** the Judge's recorded selection and work order, then `V1-SM05-FV-001`'s feature DoD and
+-the Judge's acceptance. **Gate condition:** only after `SV-002` is accepted and the block is lifted. Nothing here is
+-complete; the status above is unchanged.
++**This file is the MMF checklist only.** Scope narrative stays in `V1-BUILD-SPEC.md` §1 and
++`requirements-traceability-map.md` §6.1, the owners of those facts. This packet tracks readiness and evidence against
++them. It grants no build authority.
+ 
+-**This file is the MMF checklist only.** Scope narrative, DoR consolidation and cross-references stay
+-in `V1-BUILD-SPEC.md` §1's `DOR-R1`–`DOR-R6` table and `requirements-traceability-map.md` §6.1/§6.3/
+-§6.4 — the owners of those facts. This packet tracks readiness and evidence against them, not a
+-restatement.
++**Not the earlier packet at this path.** Until 2026-11-13 this path held the `MMF-V1-CORE` packet. That packet moved to
++`V1-SM07.md` with its `FR-15` scope and `BLOCKED` status (`D-479` items 6 and 12). Records dated before `D-479` that
++cite `V1-SM05` mean that packet (`D-479` item 6).
+ 
+ ## Requirement / decision anchors
+ 
+-First working-software increment — a **limited Route-1 evidence slice** (`D-249`), fixed to `ROUTE-PROD-1`
+-(`D-232`): it records and displays accepted business-stage, role, task and evidence facts and **does not claim
+-`transition:T*` execution**. It satisfies the customer's `CR-19` scenario **only partially** (`D-247`); the five-gate
+-execution and Chief Journalist approval it names are neither admitted here nor assigned a destination. **Product owner (`D-261`): `US-15`/`FR-15`, `AC-23`–`AC-26`** (`Modular_PRD.md` §4/§5/§9.1), elaborated by `FN-GATES-01-05.md`
+-§4.3/§4.4; `CR-09` (intake) and `CR-19` (partial) as direct customer anchors; `AC-02` (surface duplicate refusal, `FR-01`); `D-233` (`OP-PITCH`/
+-`OP-DRAFT`/`OP-FINAL-SIGNOFF` contracts), `D-236`–`D-239` (source-RACI corrections, role-identity
+-split, ranking/UI-assistance boundary).
++`MMF-V1-PIPELINE` (`D-479` item 6): log; `EG1` to `EG5` on `ROUTE-PROD-1` with logged transitions; return with
++reason; board (state).
+ 
+-**Option A boundary (`D-260`, 2026-09-24, Judge).** This packet is the evidence slice of `business:T1`–`T5`
+-stage, task and evidence records. Technical `transition:T5` review bundles and `transition:T6` approval gates —
+-`FR-04a`/`FR-05a`, `AC-05a`/`AC-06a` — are **not** in it: they stay held under `D-171`, unchanged in
+-`Modular_PRD.md` §9, and no later packet is named for them. `AC-11`/`AC-12` (transition-row audit) are likewise
+-outside it; this packet's append-only history is proven by `SM05-RV1`/`SM05-RV2`.
++- **FR:** FR-01, FR-02, FR-03, FR-04a (`ROUTE-PROD-1`), FR-05a, FR-06, FR-07, FR-08 (state).
++- **AC:** AC-01 to AC-04, AC-05a, AC-06a, AC-07a, AC-09 to AC-12, AC-13 (state), AC-22, AC-NF-01, AC-NF-02,
++  AC-NF-05.
++- **Route contract (`D-479` item 5):** the `EG` catalog target contract on `ROUTE-PROD-1`, released from `D-171` for
++  this contract only. `EG4` is `ROLE-CHIEF-EDITORIAL-DESK` alone. `EG5` is `ACCESS-ROLE-CHIEF-EDITOR`, human only,
++  with the blind order of `FN-GATES-01-05.md` §11.1. Multi-reviewer routes, `AC-05b`, `AC-07b` and the current order
++  stay held.
++- **Interface vocabulary (`D-479` item 4):** the UI shows `EG1` to `EG5` and Delivery, never `T*`.
+ 
+-**Added by `D-244` (2026-09-20) — display anchors.** The non-enforcing Line/RACI and route-context display
+-moves here from `SETUP-SPIKE-000/S2`, citing `FR-04` (accountable review) and `FR-05` (independence
+-classification) **as display provenance only, not implementation acceptance (`D-261`)**, with `SEC-01` and the applicable RACI source. `D-239` still excludes enforcement, and the
+-held `S2` RPC/`T6` scope is **not** imported. Encyclopedia review set: Entries 01, 05 and 06.
++## Access entitlement and evidence boundary (`D-251`)
+ 
+-## Rank
+-
+-`V1-SM05` precedes `V1-SM06` — the evidence slice before board visibility and the bounded `ManualReady` event.
+-
+-## Branch, PR and migration boundary (`D-252`, 2026-09-22)
+-
+-The `V1-SM05` branch and pull request are **stacked**: based on and targeting
+-`docs/journal-2026-08-16`, not `main`; baseline promotion to `main` is a separate, later act,
+-pending acceptance of this packet's DoD. **"Migration" means application to the persistent hosted
+-Supabase environment**; the local-PostgreSQL run used for mechanical verification is a disposable
+-replay, not a migration. `supabase/migrations/0002_s1_editorial_schema.sql` is an existing
+-setup-prepared candidate, allocated to this packet — its prior setup status earns no `V1`
+-feature-construction credit. Construction under this packet is **local-only**; hosted `0002`
+-migration and Supabase A02 follow only after this packet's DoD is accepted **and** a separate
+-baseline-promotion PR is accepted. The readiness pull request is **two-state**: State 1 presents
+-readiness only — Judge selection, the work order and Lane B activation precede State 2
+-(implementation). Local and Supabase A01 receipts are `SETUP-SPIKE-000/S2` baseline evidence only
+-(`D-255`, 2026-09-23): they are not readiness evidence for this packet and do not satisfy final `D-251`
+-production classification, which stays open for a post-promotion A02. Push authorization and the
+-stacked-integration method are **not** decided by this note.
+-
+-**Version boundary (`D-381`, 2026-10-02).** This packet is **Phase 2 code construction with local
+-validation**; it has no hosted migration and no Phase 3 CI change. The hosted `0002` migration, the A02 receipt
+-and the transferred Phase 3 CI work are received by `V1-SM06` (`SM06-P3-01`–`05`), in the order above. **Local
+-verification is not waived:** the disposable local PostgreSQL replay of `0002` and the failing-first and passing
+-evidence of `V1-SM05-FV-001` remain this packet's DoD obligations. Gate 2 stays a pre-entry clearance check and
+-cannot require any `V1-SM06` execution. Existing repository CI and this packet's DoD evidence line are unchanged.
++`EG5` on `ROUTE-PROD-1` is executed under `ACCESS-ROLE-CHIEF-EDITOR` (`D-251`, the access identifier formerly named
++`ROLE-CHIEF-EDITOR`; `D-479` item 5). It is a natural-person access entitlement plus gate-execution eligibility with a
++human executor required. It is never a source-RACI fact by itself and transfers no editorial accountability (`D-238`,
++`D-251`). **Evidence boundary.** The `D-251` stored-value compatibility child stays owned in `docs/handoff/B-119`. The
++A01 receipts are `SETUP-SPIKE-000/S2` baseline evidence only and satisfy no DoR or DoD row of this packet (`D-255`).
++Final `D-251` classification follows the post-promotion A02 receipt (`SM06-P3-01`), which is Phase 3 hosted work
++received by `V1-SM08` (`D-479` item 8). This packet claims no `D-251` evidence of its own.
+ 
+-**DoD timing (`D-383`, Judge ruling 2026-10-02: "Accept local validation alone for SM05 DoD").** The DoD item
+-"Evidence recorded" is met by a **local** run: typecheck, lint and tests, the full local consistency run, the
+-disposable local PostgreSQL replay of `0002`, and `V1-SM05-FV-001`'s failing-first and passing evidence. A
+-push-triggered CI result is **not** a prerequisite for this packet's DoD. Existing CI is not disabled: it keeps
+-running on pushes (`AC-NF-03`), but its result is not an SM05 DoD gate. After DoD acceptance, the separately accepted
+-baseline-promotion PR is `V1-SM06`'s entry prerequisite (`D-383`).
+-
+-## Issue / branch / PR traceability (`D-253`, 2026-09-22)
++## Rank
+ 
+-- **Branch, approved:** `features/feature-V1-SM05`, created by native Git branching from the
+-  verified pushed remote tip of `docs/journal-2026-08-16` (no ZIP-packaged initialization).
+-- **GitHub Issue:** created from completed DoR evidence (`R2`–`R6`, an accepted `R6` deferral
+-  counting as complete; **`R7` added 2026-09-24, `D-259`** — the Issue waits on it too) from
+-  `.github/ISSUE_TEMPLATE/v1-mmf.md` (`D-259`) — Issue number/URL recorded here once it exists; external tracking, no
+-  repository file (`V1-ARTIFACT-INVENTORY.md`, `D-253`). **Recorded 2026-09-25 (`D-262`): Issue #1,
+-  `https://github.com/robertaoai/my-editorial-app/issues/1`**, created after `DOR-R1`–`DOR-R7` were all
+-  checked — the normal `D-254` path, no remediation.
+-- **Branch created (`D-262`, 2026-09-25):** native Git branch at `9b2ddf3`, equal to the pushed
+-  `origin/docs/journal-2026-08-16` tip and pushed as `origin/features/feature-V1-SM05`.
+-- **State-1 PR:** documentation-only; DoD gates acceptance and merge. **Opened 2026-09-25 as draft
+-  PR #2, `https://github.com/robertaoai/my-editorial-app/pull/2`** (`D-262`, Judge authorization under
+-  `D-253`), base `docs/journal-2026-08-16`, head `features/feature-V1-SM05`, linked to Issue #1. Stays
+-  State 1 until Judge selection, the `D-242` work order and Lane B activation.
++First V1 slot. `V1-SM06` follows: Delivery needs articles that reach the `EG5` final decision.
+ 
+ ## Dependencies
+ 
+-`DOR-R1`–`DOR-R7` (`V1-BUILD-SPEC.md` §1; `DOR-R7` added by `D-259`, 2026-09-24) must each reach their
+-completion evidence before this packet is buildable. `DOR-R2`/`DOR-R4` are resolved as application-selection rules, and their failure/replay
+-detail is drafted at `FN-GATES-01-05.md` §4.3 (`D-249`); `DOR-R5` and `DOR-R6` were checked 2026-09-24 (`D-259`) on the
+-review evidence recorded below; `DOR-R7` was checked by `D-260`, reopened by `D-261` and re-checked on a receipt passing Product-intent parity at `719e72b`.
+-**Every DoR row is checked.**
++- A new Lane B migration replaces the `allowed_transitions` executor rows that `0002` encodes for the current order.
++  This packet's work order names it. `0001` and `0002` are not edited (`D-479` item 5).
++- This packet's branch is named by its work order (`D-479` item 8). `D-252`'s stacked-branch terms stay with
++  `V1-SM07`.
++- `D-383`'s local-validation rule applies: the DoD is met by local validation (`D-479` item 8).
+ 
+ ## DoR checklist
+ 
+-**Gate, stated explicitly (`D-254`, 2026-09-22).** Every row below must be checked or explicitly
+-Judge-deferred before this packet's GitHub Issue and feature branch carry any readiness, selection,
+-work-order, lane-transfer or construction authority. An Issue created before that point is remediated
+-by updating it, never by treating its existence as readiness (`D-254`). No `V1-SM05` Issue exists as of
+-2026-09-23 (`docs/handoff/B-126`), so the normal post-DoR creation path applies. **Followed 2026-09-25
+-(`D-262`):** Issue #1 was created after every row below was checked.
+-
+-**Scope, stated explicitly (`D-255`, 2026-09-23; amended `D-259`, 2026-09-24).** This packet's readiness is exactly `DOR-R1`–`DOR-R7`;
+-`D-259` added `DOR-R7` by Judge ruling.
+-The former identity-compatibility row was removed — A01 is `SETUP-SPIKE-000/S2` baseline evidence only —
+-and no replacement identity gate is substituted.
+-
+-**Checkbox meaning, restated 2026-09-22 (`docs/handoff/B-121` Parent 1).** A box is checked only once
+-Lane B's feasibility review has **accepted** the drafted contract — a drafted-but-unreviewed contract
+-is evidence available for review, not evidence the review has passed. `DOR-R2`–`DOR-R4` were unchecked
+-pending that review; Lane B's feasibility acceptance (`docs/handoff/B-123`, 2026-09-22) closed the
+-review for all three, so they are checked below.
+-
+-- [x] `DOR-R1` — pre-`T1` record and event contract (schema-neutral contract named)
+-- [x] `DOR-R2` — `OP-PITCH` atomic contract (rule resolved; failure/replay/idempotency drafted
+-      2026-09-21 at `FN-GATES-01-05.md` §4.3, `D-249`, identity terms added 2026-09-22; Lane B
+-      feasibility accepted `docs/handoff/B-123`)
+-- [x] `DOR-R3` — `EW` refusal/retry contract (drafted at `FN-GATES-01-05.md` §4.3, identity terms
+-      added 2026-09-22; Lane B feasibility accepted `docs/handoff/B-123`)
+-- [x] `DOR-R4` — required Route-1 operation contracts (`OP-DRAFT`/`OP-FINAL-SIGNOFF`/`OP-COPY-EDIT`
+-      resolved; `OP-DRAFT` executor/repeat-dispatch behaviour drafted at `FN-GATES-01-05.md` §4.3 —
+-      **`OP-COPY-EDIT` and `OP-FINAL-SIGNOFF` execution are explicitly deferred, contract-review only**
+-      (`docs/handoff/B-121` Parent 3); Lane B feasibility accepted the bounded contract-review scope,
+-      `docs/handoff/B-123`)
+-- [x] `DOR-R5` — UI and target visual contract (storyboard Panel A11 authored 2026-09-24, `D-256`; Chief
+-      Editor walkthrough `W1`–`W3` Accept and Lane B/C review accepted, recorded in Panel A11.5, `D-259`)
+-- [x] `DOR-R6` — Encyclopedia review (Entries 01/05/06 compared and republished as v15, `D-256`; Lane B read
+-      the v15 export directly under the Judge's Option 2, `docs/handoff/B-131`, `D-259`)
+-- [x] `DOR-R7` — Jev System One readiness receipt passes for this packet (`D-259`; checked by `D-260` at `9be84bb`, reopened
+-      and **re-checked by `D-261`** on a receipt passing scope and Product-intent parity at clean commit `719e72b`; manifest
+-      `scripts/jev/manifests/V1-SM05.json`, receipt `docs/v1/work-packets/V1/receipts/V1-SM05-jev-readiness.json`)
+-
+-**DoR evidence status (`D-245`, 2026-09-20).** DoR is **defined, not complete**: a box is checked only where
+-current evidence supports it, and an unchecked box names what it still needs. **Current fact, 2026-09-25 (`D-263`) — the
+-sentence above is history:** DoR is **complete**. `DOR-R1`–`DOR-R7` are all checked (`D-259`–`D-261`), and Issue #1
+-was created after that (`D-262`). Selection, the work order and construction have not started.
+-
+-| Item | Current evidence | What it still needs |
+-|---|---|---|
+-| `DOR-R1` | Checked above; contract named in `V1-BUILD-SPEC.md` §1 and `FN-GATES-01-05.md` §3.0 | — |
+-| `DOR-R2` | Executor rule resolved (`D-233`, crosswalk §4.1); failure/replay contract and replay/attempt identity terms at `FN-GATES-01-05.md` §4.3 (`D-249`); Lane B feasibility accepted `docs/handoff/B-123` | — |
+-| `DOR-R3` | Refusal/retry scenarios and legitimate-new-work identity terms at `FN-GATES-01-05.md` §4.3; Lane B feasibility accepted `docs/handoff/B-123` | — |
+-| `DOR-R4` | `OP-DRAFT`/`OP-COPY-EDIT` resolved; `OP-FINAL-SIGNOFF` accepted (`D-233`, `D-236`–`D-238`); `OP-DRAFT` failure/replay at §4.3 — `OP-COPY-EDIT`/`OP-FINAL-SIGNOFF` execution explicitly deferred, contract-review boundary only (`docs/handoff/B-121` Parent 3); Lane B feasibility accepted the bounded scope `docs/handoff/B-123` | — |
+-| `DOR-R5` | Storyboard Panel A11 (`D-256`). **Accepted 2026-09-24 (`D-259`):** Chief Editor `W1`/`W2`/`W3` Accept on both walks; Lane B feasibility `docs/handoff/B-131` Parent 1; Lane C review, supplied by the Judge 2026-09-24 and recorded in `D-259` (not a handoff entry; *corrected 2026-09-28, `D-306`:* it was cited as "C-003", a number later given to the unrelated `docs/handoff/C-003`); all recorded in Panel A11.5, with the `W2` downstream-evidence rule written into Panel A11.2 | — |
+-| `DOR-R6` | Compared and republished as v15 (`D-256`). **Confirmed 2026-09-24 (`D-259`, Option 2):** Lane B read the v15 export directly (`docs/handoff/B-131`); export stored at `docs/handoff/artifacts/B-131/System_Encyclopedia_V15.txt`, SHA-256 `bc97bebac0f3ac2d3f3d8fed32c3a9cb93684b60f829fee3604b08faf34ace9f`. Entry 04 stays deferred to `V1-SM06` | — |
+-| `DOR-R7` | **Added (`D-259`); closed (`D-260`, receipt at `9be84bb`); reopened (`D-261`).** `B-134` showed the `D-260` receipt proved agreement among the lower tiers only: the §4.4 scenarios had no `Modular_PRD` owner and `AC-01` carried two meanings. `D-261` adds `FR-15`/`AC-23`–`AC-26`, anchors every §4.3/§4.4 row to them, drops `AC-01`, and adds Product-intent parity to Jev | — **Met:** receipt `pass`, evaluated at clean commit `719e72b` (`D-261` Commit A). **Re-issued 2026-10-01 (`D-373`):** `pass`, 320/320 rules, at clean commit `31bcf3a`, after the four intake behaviours `SM05-IN1`–`IN4` were pinned and "Intake source fixtures" joined `failingFirstRequired`/`negativeRequired` (`D-364` item 10) |
+-
+-### DoR → DoD map (`D-259`, 2026-09-24)
+-
+-Each DoR row names the existing DoD obligation(s) that prove it and the evidence class fixed before the
+-Issue. **Recorded once here; it adds no DoD row.** Lane B still chooses the exact xDD method per child
+-(`D-242`). Jev readiness mode reads this table (`DOR-R7`).
+-
+-| DoR row | DoD obligation | Evidence class |
+-|---|---|---|
+-| `DOR-R1` | Behaviour, by namespace; Acceptance cases pass against the real database; Intake source fixtures; Persistence | Database integration and contract evidence |
+-| `DOR-R2` | Behaviour, by namespace; Refusal and replay | Atomicity, replay and idempotency evidence |
+-| `DOR-R3` | Refusal and replay; Exclusions verified absent | Negative/refusal and legitimate-retry evidence |
+-| `DOR-R4` | Behaviour, by namespace; Refusal and replay; Exclusions verified absent | Contract/integration evidence for admitted operations; absence evidence for deferred execution |
+-| `DOR-R5` | Display, not enforcement; Accepted-contract traceability; Persistence | UI walkthrough and record-to-visible-fact traceability |
+-| `DOR-R6` | Accepted-contract traceability; Partial-`CR-19` disclosure | Final vocabulary and artifact-currency review |
+-| `DOR-R7` | Evidence recorded | Jev readiness receipt, then Jev completion receipt for the same pinned scope |
++Not written. The DoR fills the universal Definition of Ready rows in
++`docs/handoff/B-117-open-backlog-aging-and-refinement-closure.md` (lines 240–277 at `4e54628`) and adds this MMF's
++benefit hypothesis (`D-479` items 1 and 2).
+ 
+ ## DoD checklist
+ 
+-**Defined 2026-09-20 (`D-245`) — not complete, not reviewed.** Independent feasibility review by Lane B and
+-Judge acceptance of the business outcome are each **pending** and recorded separately; neither selects this
+-MMF nor authorizes construction. DoD is met only by working behaviour and evidence, never by opening or
+-merging a pull request.
+-
+-- [ ] **Behaviour, by namespace.** On `ROUTE-PROD-1`: an accepted manual record leads, through the Senior
+-      Journalist `EW` trigger and `OP-PITCH` classification, to the **`business:T*` judgment records** and the V1
+-      **`EG*` task/evidence records** — each labelled with its namespace — ending in the `business:T5`
+-      newsworthiness ranking and routing record (`FR-15`, `AC-23`–`AC-26`, `D-261`; `FR-01`–`FR-04` are not this packet's
+-      acceptance — `FR-01` only through `AC-02`, `FR-04` only as display provenance). **No criterion here
+-      promises technical `transition:T*` state execution**
+-- [ ] **Acceptance cases pass against the real database:** `AC-02`, `SM05-N1`, `SM05-N2`,
+-      `SM05-N3`, `SM05-N4`, `SM05-N5`, `SM05-N6`, `SM05-RV1`, `SM05-RV2`, `SM05-F1`, `SM05-X1` (`D-260`;
+-      held technical `T5`/`T6` rows are outside this packet — Option A boundary above), each with its recorded method rationale (`D-242`) and failing-first evidence, or an honest characterization
+-- [ ] **Intake source fixtures:** four intake source cases: the three fixtures of `FN-GATES-01-05.md` §4.6 rule 6 plus the `D-288` refusal case (wording normalized by `D-289`) (`D-222`, worded under the pair
+-      model by `D-285`) pass against the real database. (1) A valid URL passes. (2) An admitted Markdown representation
+-      whose original URL is recorded but cannot be reached passes. (3) No source reference of any kind fails with the
+-      named validation failure. (4) A Markdown representation with **no original URL** is refused at admission
+-      (§4.6 rule 2, `D-285`; added `D-288` from `B-142`). Each case needs its own distinct artifact and failing-first
+-      evidence; one generic passing item does not satisfy this row (`D-287`, `D-288`)
+-- [ ] **Refusal and replay:** the `DOR-R2`–`DOR-R4` cases pass — a duplicate `EW` or pitch creates no second
+-      completion, and missing or unaccepted intake advances nothing
+-- [ ] **Display, not enforcement:** source-RACI and Line context are displayed with provenance; the Final
+-      Sign-Off external-tracking reminder is displayed and not executed
+-- [ ] **Accepted-contract traceability:** the implemented normal and revision journeys, visible
+-      facts and matching data flow conform to the authoritative `DOR-R5` artifact accepted before
+-      selection; every displayed fact traces to its governed record/event. The accepted `DOR-R6`
+-      Encyclopedia disposition remains current at final verification, with no stale vocabulary in
+-      user-facing or reviewer-facing descriptions. An accepted R6 deferral is verified as a deferral,
+-      not represented as completed hosted synchronization. *(Added 2026-09-24 from `docs/handoff/B-127`
+-      Parent 3, accepted by `D-256`.)*
+-- [ ] **Persistence:** every control and form writes to the database and the UI reflects it; no dead button
+-- [ ] **Exclusions verified absent:** no `OP-FINAL-SIGNOFF` enforcement, `T6`, article `Published` state,
+-      Line 3 workflow, external-GRC exchange, WordPress path or `transition:T*` execution claim
+-- [ ] **Partial-`CR-19` disclosure** appears wherever this slice is described to a user or reviewer
+-- [ ] **Evidence recorded:** typecheck, lint and tests pass; the full local consistency run (including the
+-      checks CI skips) passes; migration safe-failure and secret-handling impact are stated. Lane B runs
+-      Jev completion mode while still `Active` and attaches a `ready-for-independent-review` receipt to its
+-      handover report (`D-259`) — the receipt is evidence, not closure
+-- [ ] **Independent verification:** an actor who did not build it confirms the above; the Judge accepts
+-      the business outcome. **Lane A is that actor (`D-259`)**: after the lock returns it re-runs Jev
+-      completion mode and runs the customer-acceptance harness (`scripts/acceptance/`); the Judge then
+-      accepts, and only then does the PR follow its merge act — merge is not DoD (`D-245`)
+-
+-## Received from handoffs (`D-379`, 2026-10-01)
+-
+-**Why this section exists.** `D-364` item 5 requires every SM05-scoped handoff obligation to be received into this
+-packet's DoR→DoD **with a receipt** before Gate 2. The `B-150` ledger (`SV-002` §2.3.2, batch 3) found that the
+-readiness handoffs dispositioned before Issue #1 mostly reached this packet only through rows citing other entries.
+-Each line below names the anchor in this packet that already carries the obligation. **This adds no DoR row and no
+-DoD obligation, and changes no scope.** A receipt records where an obligation lives, not that it is built or
+-verified. The `SV-002` §2.3.1 rows read `received` only after Lane B's independent verification of this list.
+-
+-| Source | SM05 obligation received | Anchor in this packet |
+-|---|---|---|
+-| `B-084` | FB-05/G105 intake: the duplicate-brief guard and source reference | DoD "Acceptance cases pass against the real database" (`AC-02`) and DoD "Intake source fixtures"; `DOR-R1` |
+-| `B-095` | Its SM05 children only: `D2a` (intake wording) and `D4` (Encyclopedia Entry 06) | `AC-02`/`SM05-N1` and `DOR-R6` (`SV-002` §3.3, `D-289`). The non-SM05 `D1`/`D2b`/`D3`/`S5` are not received here |
+-| `B-096` | Its SM05 children only: `S15` (the working-metadata contract, FN-GATES §4.5) and `TR-DM-01`'s Gate 1B part (`Modular_PRD` `TR-DM-07`, `D-283`) | `SM05-N1` (`SV-002` §3.3, `D-289`). `TR-DM-01`'s Gate 2 part, the physical store and its real-database proof, belongs to the `D-242` work order. Validation is local only; hosted migration remains with `SM06-P3-01` (`D-252`, `D-381`). `GA1`/`S16` are not received here |
+-| `B-104` | Its SM05 child only: `O1` (the `business:T5` ranking by `ROLE-CHIEF-EDITORIAL-DESK` on `ROUTE-PROD-1`) | `SM05-N6` (`SV-002` §3.3, `D-289`). `O2`–`O4` are received in `GOV-RES-001` as `GR-001`–`GR-003`. `GR-001` and `GR-003` target scope remains held under `D-171`. `GR-002`'s historical-provenance labelling has no hold; historical transition implementation remains held. Receipt is not independent clearance or execution completion (`D-380`) |
+-| `B-118` | The `business:T5` ranking and routing model this packet was created from | Packet header (`D-240`); `FR-15`/`AC-23`–`AC-26` (`D-261`); `SM05-N6`. The `RH` children are not received here |
+-| `B-121` | `DOR-R2`–`DOR-R4`: intake, executor and the `OP-DRAFT` failure/replay boundary | `DOR-R4` (Parent 3) and DoD "Refusal and replay" |
+-| `B-124` | SM05 DoR identity readiness, superseded by `D-255` | Readiness stated as exactly `DOR-R1`–`DOR-R7` (`D-255`; `DOR-R7` added by `D-259`) |
+-| `B-126` | The post-DoR Issue workflow | "Issue / branch / PR traceability" (Issue #1, `D-262`) |
+-| `B-127` | DoR→DoD traceability | The DoR → DoD map (`D-259`) and DoD "Accepted-contract traceability" |
+-| `B-128` | The `DOR-R5`/`DOR-R6` closure instructions and identity-readiness evidence | `DOR-R5` (Panel A11) and `DOR-R6` (Encyclopedia v15) |
+-| `B-132` | The remaining readiness decisions and the Issue/branch/State-1 PR sequence | The DoR → DoD map (`D-259`) and "Issue / branch / PR traceability" (`D-262`) |
+-| `B-133` | A valid passing `DOR-R7` receipt | `DOR-R7` (`D-261`; re-issued `D-373`) |
+-
+-Already received elsewhere, and only cited here:
+-- `B-071` `R204`/`R205` (`SM05-N1`/`N2`/`N4`/`N6`/`F1`);
+-- `B-120`/`B-125` and `B-136` `P14a`/`P14b` (the durable-owner receipt, `D-269`);
+-- `B-131` (`DOR-R5`/`R6`; Judge acceptance `D-288`);
+-- `B-151` (`SM05-IN1`–`IN4`, `D-373`).
++Not written. The DoD fills the universal Definition of Done rows in the same `B-117` table (`D-479` item 2).
+ 
+ ## Owner / lane
+ 
+-Lane B builds; Lane A tracks and does not cross into `app/`, `lib/`, `components/`, `supabase/`.
++Lane B builds; Lane A tracks.
+ 
+ ## Artifact paths
+ 
+@@ -262,4 +71,4 @@ None yet.
+ 
+ ## Terminal disposition
+ 
+-Open. Not started; not selected.
++Open. Not started; not selected; DoR not written.
+diff --git a/docs/v1/work-packets/V1/V1-SM06.md b/docs/v1/work-packets/V1/V1-SM06.md
+index 213f1761a450fb1deac86b16f6a268fd5024e57d..68c9e82fec2ea4b7f25e3eb99e1aae878908058d 100644
+--- a/docs/v1/work-packets/V1/V1-SM06.md
++++ b/docs/v1/work-packets/V1/V1-SM06.md
+@@ -1,14 +1,29 @@
+-# Work packet — `V1` / `V1-SM06` (`MMF-V1-USABLE`)
++# Work packet — `V1` / `V1-SM06` (`MMF-V1-PUBLISH`)
+ 
+ **Created:** 2026-09-17 (`D-240`, `docs/handoff/B-118`). **Owner:** Lane B (build), Lane A (tracking).
+ **Status:** Not started; not selected (`D-232`).
+ 
++**Re-scoped 2026-11-13 under `D-479` items 3, 6, 7 and 8 (decided 2026-11-07).** This packet is now `MMF-V1-PUBLISH`.
++`MMF-V1-USABLE` is retired, and its board content moved to `V1-SM05`. Text below dated before 2026-11-07 reads
++`V1-SM05` as the `FR-15` evidence slice, now `V1-SM07`, and this packet as board and `ManualReady` (`D-479` item 6).
++The DoR and DoD for the re-scoped MMF are not written (`D-479` item 2); the earlier lists below are kept as history.
++
+ **This file is the MMF checklist only.** Scope narrative stays in `V1-BUILD-SPEC.md` and
+ `requirements-traceability-map.md` §6.1's journey table (steps 9–10) — the owners of those facts.
+ 
+ ## Requirement / decision anchors
+ 
+-Second increment — **board/audit visibility plus the bounded LinkedIn `ManualReady` event** (`D-249`); it creates no
++**Current scope (`D-479` items 6 and 7, decided 2026-11-07).** The Delivery node. After the `EG5` final decision
++(article `Approved`), the article's LinkedIn target becomes eligible for `ManualReady`. `ROLE-SENIOR-JOURNALIST` stays
++the sole authorized requester, and readiness binds to the exact accepted content (`D-250` as amended). The Chief Editor
++(`ACCESS-ROLE-CHIEF-EDITOR`, human only) then enters and confirms the live LinkedIn post URL. On success, one
++`Published` publication event is written for that target, and the article becomes `Published` in the same transaction
++if this is its first live target. Topic and category filters; audit view. Anchors: `FR-08`, `FR-09` (LinkedIn),
++`FR-10` (LinkedIn); `AC-13`, `AC-14a`, `AC-16`; `D-250` as amended by `D-479` item 7. Behaviour:
++`FN-PUBLICATION-09-10-13.md` §4.2 and §12. Automated WordPress publication, retry and credentials stay a V2 target
++(`D-243`); generated AI tagging stays `PBL-11` (`D-194`). Encyclopedia review set: Entry 04.
++
++**Earlier scope (`D-243`, `D-247`, `D-249`; 2026-09-20 to 2026-11-07), kept as history.** Second increment — **board/audit visibility plus the bounded LinkedIn `ManualReady` event** (`D-249`); it creates no
+ `Published` state, no automated WordPress delivery and no live-URL confirmation, and it satisfies the customer's
+ `CR-19` scenario **only partially** (`D-247`). `CR-13`, `FR-08`, `AC-13` (board
+ visibility), `CR-12`, `FR-09`/`FR-10`, `AC-14`–`AC-16` (publication delivery). `D-239`'s V1 boundary
+@@ -21,8 +36,9 @@ backlog item, not this packet's work (`D-243`, `D-244`). Board/filter visibility
+ 
+ ## Rank
+ 
+-Follows `V1-SM05` — depends on the evidence slice existing before board and `ManualReady` readiness have
+-anything real to show.
++Follows `V1-SM05`: Delivery needs articles that reach the `EG5` final decision (`D-479` item 6). *Earlier: follows
++`V1-SM05` — depends on the evidence slice existing before board and `ManualReady` readiness have anything real to
++show.*
+ 
+ ## Dependencies
+ 
+@@ -36,6 +52,12 @@ below keeps `ACCESS-ROLE-CHIEF-EDITOR` distinct from the sole requester `ROLE-SE
+ 
+ ## Phase 3 receipts — CI delivery assurance and hosted migration (`D-381`, 2026-10-02)
+ 
++**Custody moved 2026-11-13 under `D-479` item 8 (decided 2026-11-07).** These receipts now belong to planned
++`V1-SM08`, the first increment to carry Phase 3 CI work and the hosted migration. They keep their IDs and criteria and
++stay in this table until `V1-SM08.md` exists; in the table, "this packet" means `V1-SM08`. The separately accepted
++baseline-promotion PR is `V1-SM08`'s entry prerequisite (`D-486`). The text below is
++dated 2026-10-02.
++
+ **Why this section exists.** The Judge directed that `V1-SM05` is Phase 2 code construction with local
+ validation and no hosted migration, and that **`V1-SM06` is the first increment to carry Phase 3 CI work and the
+ hosted migration**. `D-252` already made `V1-SM05` local-only, but the later hosted steps and the Phase 3 CI work
+@@ -62,7 +84,7 @@ the MMF integration report and the human final push — is already received by `
+ unchanged; under `D-383` that line is met by local validation alone. Execution of every row needs a separately
+ authorized Phase 3 work order and lane act.
+ 
+-## DoR checklist
++## DoR checklist — earlier (`D-245`, 2026-09-20), superseded by `D-479` items 2, 3 and 7
+ 
+ - [ ] `V1-SM05` reaches its DoD
+ - [ ] **Entry prerequisite (`D-383`):** a separately accepted baseline-promotion PR, after `V1-SM05`'s accepted DoD.
+@@ -80,7 +102,7 @@ authorized Phase 3 work order and lane act.
+ confirmation against the cited requirement text. Two `ManualReady` children are decided by `D-250`; the third is
+ decided at behaviour level and waits on Lane B's mechanism. No box is checked without current evidence.
+ 
+-## DoD checklist
++## DoD checklist — earlier (`D-245`, 2026-09-20), superseded by `D-479` items 2, 3 and 7
+ 
+ **Defined 2026-09-20 (`D-245`) — not complete, not reviewed.** Lane B's feasibility review and Judge
+ acceptance of the business outcome are each **pending** and recorded separately. This packet **cannot be
+diff --git a/docs/v1/work-packets/V1/V1-SM07.md b/docs/v1/work-packets/V1/V1-SM07.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..e9385a89370b1993b7289b63aea13c428c6ea2b7
+--- /dev/null
++++ b/docs/v1/work-packets/V1/V1-SM07.md
+@@ -0,0 +1,275 @@
++# Work packet — `V1` / `V1-SM07` (`MMF-V1-CORE`)
++
++**Moved 2026-11-13 under `D-479` items 6 and 12 (decided 2026-11-07).** This packet was
++`docs/v1/work-packets/V1/V1-SM05.md`. It moved here with its `FR-15` scope and its `BLOCKED` packet status;
++`MMF-V1-CORE` keeps its identity. Text below dated before 2026-11-07 that says `V1-SM05` means this packet, and
++`V1-SM06` means the board and `ManualReady` packet (`D-479` item 6). The branch `features/feature-V1-SM05`, the
++receipt file names, bare `SM05-*` IDs and the run ID `V1-SM05-FV-001` keep their names. Phase 3 custody is now planned
++`V1-SM08` (item 8), and `D-252`'s stacked-branch terms below stay with this packet.
++See `D-486` for the current `V1-SM08` entry prerequisite.
++
++**Created:** 2026-09-17 (`D-240`, `docs/handoff/B-118`). **Owner:** Lane B (build), Lane A (tracking).
++**Status:** Not started; not selected (`D-232`). **Current, 2026-10-12 (`D-434`): `BLOCKED — SV-002 accepted; not selected; feature DoR/DoD not yet run; construction not authorized.`** This is a packet status,
++not a lane state. The checked `DOR-R1`–`DOR-R7` rows below are the completed **pre-selection handoff validation**,
++recorded as attempt `SV-001` ([SV-001](../SETUP-SPIKE-000/SV-001.md)); they are not an executed feature DoR. The block is
++tracked in `SV-002` ([SV-002](../SETUP-SPIKE-000/SV-002.md)). The first feature run, `V1-SM05-FV-001`, is created after
++selection and runs only once Lane B has written behavioural test code.
++
++**Status history (moved out of the Status paragraph under `D-479`; wording unchanged).** *Earlier, 2026-09-25 (`D-264`): `BLOCKED — SETUP-SPIKE-000 validation
++attempt SV-002 open; not selected; feature DoR/DoD not yet run; construction not authorized.`*
++
++**Durable-owner receipt, 2026-09-26 (`D-269`, Judge Option A).** This packet receives, as their long-term owner, the
++obligations absorbed from `docs/handoff/B-120` Parent 5 and `docs/handoff/B-125` Parent 6: the Judge's selection of
++`V1-SM05`, the `D-242` State-2 work order, Lane B activation, and construction evidenced by `V1-SM05-FV-001`. Both
++source entries are `Superseded`, terminal, with no return trigger; `docs/handoff/B-136` Parent 3 holds the transition
++receipt. **Acceptance proof:** the Judge's recorded selection and work order, then `V1-SM05-FV-001`'s feature DoD and
++the Judge's acceptance. **Gate condition:** only after `SV-002` is accepted and the block is lifted. Nothing here is
++complete; the status above is unchanged.
++
++**This file is the MMF checklist only.** Scope narrative, DoR consolidation and cross-references stay
++in `V1-BUILD-SPEC.md` §1's `DOR-R1`–`DOR-R6` table and `requirements-traceability-map.md` §6.1/§6.3/
++§6.4 — the owners of those facts. This packet tracks readiness and evidence against them, not a
++restatement.
++
++## Requirement / decision anchors
++
++First working-software increment — a **limited Route-1 evidence slice** (`D-249`), fixed to `ROUTE-PROD-1`
++(`D-232`): it records and displays accepted business-stage, role, task and evidence facts and **does not claim
++`transition:T*` execution**. It satisfies the customer's `CR-19` scenario **only partially** (`D-247`); the five-gate
++execution and Chief Journalist approval it names are neither admitted here nor assigned a destination. **Product owner (`D-261`): `US-15`/`FR-15`, `AC-23`–`AC-26`** (`Modular_PRD.md` §4/§5/§9.1), elaborated by `FN-GATES-01-05.md`
++§4.3/§4.4; `CR-09` (intake) and `CR-19` (partial) as direct customer anchors; `AC-02` (surface duplicate refusal, `FR-01`); `D-233` (`OP-PITCH`/
++`OP-DRAFT`/`OP-FINAL-SIGNOFF` contracts), `D-236`–`D-239` (source-RACI corrections, role-identity
++split, ranking/UI-assistance boundary).
++
++**Option A boundary (`D-260`, 2026-09-24, Judge).** This packet is the evidence slice of `business:T1`–`T5`
++stage, task and evidence records. Technical `transition:T5` review bundles and `transition:T6` approval gates —
++`FR-04a`/`FR-05a`, `AC-05a`/`AC-06a` — are **not** in it: they stay held under `D-171`, unchanged in
++`Modular_PRD.md` §9, and no later packet is named for them. `AC-11`/`AC-12` (transition-row audit) are likewise
++outside it; this packet's append-only history is proven by `SM05-RV1`/`SM05-RV2`.
++
++**Added by `D-244` (2026-09-20) — display anchors.** The non-enforcing Line/RACI and route-context display
++moves here from `SETUP-SPIKE-000/S2`, citing `FR-04` (accountable review) and `FR-05` (independence
++classification) **as display provenance only, not implementation acceptance (`D-261`)**, with `SEC-01` and the applicable RACI source. `D-239` still excludes enforcement, and the
++held `S2` RPC/`T6` scope is **not** imported. Encyclopedia review set: Entries 01, 05 and 06.
++
++## Rank
++
++`V1-SM05` precedes `V1-SM06` — the evidence slice before board visibility and the bounded `ManualReady` event.
++
++## Branch, PR and migration boundary (`D-252`, 2026-09-22)
++
++The `V1-SM05` branch and pull request are **stacked**: based on and targeting
++`docs/journal-2026-08-16`, not `main`; baseline promotion to `main` is a separate, later act,
++pending acceptance of this packet's DoD. **"Migration" means application to the persistent hosted
++Supabase environment**; the local-PostgreSQL run used for mechanical verification is a disposable
++replay, not a migration. `supabase/migrations/0002_s1_editorial_schema.sql` is an existing
++setup-prepared candidate, allocated to this packet — its prior setup status earns no `V1`
++feature-construction credit. Construction under this packet is **local-only**; hosted `0002`
++migration and Supabase A02 follow only after this packet's DoD is accepted **and** a separate
++baseline-promotion PR is accepted. The readiness pull request is **two-state**: State 1 presents
++readiness only — Judge selection, the work order and Lane B activation precede State 2
++(implementation). Local and Supabase A01 receipts are `SETUP-SPIKE-000/S2` baseline evidence only
++(`D-255`, 2026-09-23): they are not readiness evidence for this packet and do not satisfy final `D-251`
++production classification, which stays open for a post-promotion A02. Push authorization and the
++stacked-integration method are **not** decided by this note.
++
++**Version boundary (`D-381`, 2026-10-02).** This packet is **Phase 2 code construction with local
++validation**; it has no hosted migration and no Phase 3 CI change. The hosted `0002` migration, the A02 receipt
++and the transferred Phase 3 CI work are received by `V1-SM06` (`SM06-P3-01`–`05`), in the order above. **Local
++verification is not waived:** the disposable local PostgreSQL replay of `0002` and the failing-first and passing
++evidence of `V1-SM05-FV-001` remain this packet's DoD obligations. Gate 2 stays a pre-entry clearance check and
++cannot require any `V1-SM06` execution. Existing repository CI and this packet's DoD evidence line are unchanged.
++
++**DoD timing (`D-383`, Judge ruling 2026-10-02: "Accept local validation alone for SM05 DoD").** The DoD item
++"Evidence recorded" is met by a **local** run: typecheck, lint and tests, the full local consistency run, the
++disposable local PostgreSQL replay of `0002`, and `V1-SM05-FV-001`'s failing-first and passing evidence. A
++push-triggered CI result is **not** a prerequisite for this packet's DoD. Existing CI is not disabled: it keeps
++running on pushes (`AC-NF-03`), but its result is not an SM05 DoD gate. After DoD acceptance, the separately accepted
++baseline-promotion PR is `V1-SM06`'s entry prerequisite (`D-383`).
++
++## Issue / branch / PR traceability (`D-253`, 2026-09-22)
++
++- **Branch, approved:** `features/feature-V1-SM05`, created by native Git branching from the
++  verified pushed remote tip of `docs/journal-2026-08-16` (no ZIP-packaged initialization).
++- **GitHub Issue:** created from completed DoR evidence (`R2`–`R6`, an accepted `R6` deferral
++  counting as complete; **`R7` added 2026-09-24, `D-259`** — the Issue waits on it too) from
++  `.github/ISSUE_TEMPLATE/v1-mmf.md` (`D-259`) — Issue number/URL recorded here once it exists; external tracking, no
++  repository file (`V1-ARTIFACT-INVENTORY.md`, `D-253`). **Recorded 2026-09-25 (`D-262`): Issue #1,
++  `https://github.com/robertaoai/my-editorial-app/issues/1`**, created after `DOR-R1`–`DOR-R7` were all
++  checked — the normal `D-254` path, no remediation.
++- **Branch created (`D-262`, 2026-09-25):** native Git branch at `9b2ddf3`, equal to the pushed
++  `origin/docs/journal-2026-08-16` tip and pushed as `origin/features/feature-V1-SM05`.
++- **State-1 PR:** documentation-only; DoD gates acceptance and merge. **Opened 2026-09-25 as draft
++  PR #2, `https://github.com/robertaoai/my-editorial-app/pull/2`** (`D-262`, Judge authorization under
++  `D-253`), base `docs/journal-2026-08-16`, head `features/feature-V1-SM05`, linked to Issue #1. Stays
++  State 1 until Judge selection, the `D-242` work order and Lane B activation.
++
++## Dependencies
++
++`DOR-R1`–`DOR-R7` (`V1-BUILD-SPEC.md` §1; `DOR-R7` added by `D-259`, 2026-09-24) must each reach their
++completion evidence before this packet is buildable. `DOR-R2`/`DOR-R4` are resolved as application-selection rules, and their failure/replay
++detail is drafted at `FN-GATES-01-05.md` §4.3 (`D-249`); `DOR-R5` and `DOR-R6` were checked 2026-09-24 (`D-259`) on the
++review evidence recorded below; `DOR-R7` was checked by `D-260`, reopened by `D-261` and re-checked on a receipt passing Product-intent parity at `719e72b`.
++**Every DoR row is checked.**
++
++## DoR checklist
++
++**Gate, stated explicitly (`D-254`, 2026-09-22).** Every row below must be checked or explicitly
++Judge-deferred before this packet's GitHub Issue and feature branch carry any readiness, selection,
++work-order, lane-transfer or construction authority. An Issue created before that point is remediated
++by updating it, never by treating its existence as readiness (`D-254`). No `V1-SM05` Issue exists as of
++2026-09-23 (`docs/handoff/B-126`), so the normal post-DoR creation path applies. **Followed 2026-09-25
++(`D-262`):** Issue #1 was created after every row below was checked.
++
++**Scope, stated explicitly (`D-255`, 2026-09-23; amended `D-259`, 2026-09-24).** This packet's readiness is exactly `DOR-R1`–`DOR-R7`;
++`D-259` added `DOR-R7` by Judge ruling.
++The former identity-compatibility row was removed — A01 is `SETUP-SPIKE-000/S2` baseline evidence only —
++and no replacement identity gate is substituted.
++
++**Checkbox meaning, restated 2026-09-22 (`docs/handoff/B-121` Parent 1).** A box is checked only once
++Lane B's feasibility review has **accepted** the drafted contract — a drafted-but-unreviewed contract
++is evidence available for review, not evidence the review has passed. `DOR-R2`–`DOR-R4` were unchecked
++pending that review; Lane B's feasibility acceptance (`docs/handoff/B-123`, 2026-09-22) closed the
++review for all three, so they are checked below.
++
++- [x] `DOR-R1` — pre-`T1` record and event contract (schema-neutral contract named)
++- [x] `DOR-R2` — `OP-PITCH` atomic contract (rule resolved; failure/replay/idempotency drafted
++      2026-09-21 at `FN-GATES-01-05.md` §4.3, `D-249`, identity terms added 2026-09-22; Lane B
++      feasibility accepted `docs/handoff/B-123`)
++- [x] `DOR-R3` — `EW` refusal/retry contract (drafted at `FN-GATES-01-05.md` §4.3, identity terms
++      added 2026-09-22; Lane B feasibility accepted `docs/handoff/B-123`)
++- [x] `DOR-R4` — required Route-1 operation contracts (`OP-DRAFT`/`OP-FINAL-SIGNOFF`/`OP-COPY-EDIT`
++      resolved; `OP-DRAFT` executor/repeat-dispatch behaviour drafted at `FN-GATES-01-05.md` §4.3 —
++      **`OP-COPY-EDIT` and `OP-FINAL-SIGNOFF` execution are explicitly deferred, contract-review only**
++      (`docs/handoff/B-121` Parent 3); Lane B feasibility accepted the bounded contract-review scope,
++      `docs/handoff/B-123`)
++- [x] `DOR-R5` — UI and target visual contract (storyboard Panel A11 authored 2026-09-24, `D-256`; Chief
++      Editor walkthrough `W1`–`W3` Accept and Lane B/C review accepted, recorded in Panel A11.5, `D-259`)
++- [x] `DOR-R6` — Encyclopedia review (Entries 01/05/06 compared and republished as v15, `D-256`; Lane B read
++      the v15 export directly under the Judge's Option 2, `docs/handoff/B-131`, `D-259`)
++- [x] `DOR-R7` — Jev System One readiness receipt passes for this packet (`D-259`; checked by `D-260` at `9be84bb`, reopened
++      and **re-checked by `D-261`** on a receipt passing scope and Product-intent parity at clean commit `719e72b`; manifest
++      `scripts/jev/manifests/V1-SM05.json`, receipt `docs/v1/work-packets/V1/receipts/V1-SM05-jev-readiness.json`)
++
++**DoR evidence status (`D-245`, 2026-09-20).** DoR is **defined, not complete**: a box is checked only where
++current evidence supports it, and an unchecked box names what it still needs. **Current fact, 2026-09-25 (`D-263`) — the
++sentence above is history:** DoR is **complete**. `DOR-R1`–`DOR-R7` are all checked (`D-259`–`D-261`), and Issue #1
++was created after that (`D-262`). Selection, the work order and construction have not started.
++
++| Item | Current evidence | What it still needs |
++|---|---|---|
++| `DOR-R1` | Checked above; contract named in `V1-BUILD-SPEC.md` §1 and `FN-GATES-01-05.md` §3.0 | — |
++| `DOR-R2` | Executor rule resolved (`D-233`, crosswalk §4.1); failure/replay contract and replay/attempt identity terms at `FN-GATES-01-05.md` §4.3 (`D-249`); Lane B feasibility accepted `docs/handoff/B-123` | — |
++| `DOR-R3` | Refusal/retry scenarios and legitimate-new-work identity terms at `FN-GATES-01-05.md` §4.3; Lane B feasibility accepted `docs/handoff/B-123` | — |
++| `DOR-R4` | `OP-DRAFT`/`OP-COPY-EDIT` resolved; `OP-FINAL-SIGNOFF` accepted (`D-233`, `D-236`–`D-238`); `OP-DRAFT` failure/replay at §4.3 — `OP-COPY-EDIT`/`OP-FINAL-SIGNOFF` execution explicitly deferred, contract-review boundary only (`docs/handoff/B-121` Parent 3); Lane B feasibility accepted the bounded scope `docs/handoff/B-123` | — |
++| `DOR-R5` | Storyboard Panel A11 (`D-256`). **Accepted 2026-09-24 (`D-259`):** Chief Editor `W1`/`W2`/`W3` Accept on both walks; Lane B feasibility `docs/handoff/B-131` Parent 1; Lane C review, supplied by the Judge 2026-09-24 and recorded in `D-259` (not a handoff entry; *corrected 2026-09-28, `D-306`:* it was cited as "C-003", a number later given to the unrelated `docs/handoff/C-003`); all recorded in Panel A11.5, with the `W2` downstream-evidence rule written into Panel A11.2 | — |
++| `DOR-R6` | Compared and republished as v15 (`D-256`). **Confirmed 2026-09-24 (`D-259`, Option 2):** Lane B read the v15 export directly (`docs/handoff/B-131`); export stored at `docs/handoff/artifacts/B-131/System_Encyclopedia_V15.txt`, SHA-256 `bc97bebac0f3ac2d3f3d8fed32c3a9cb93684b60f829fee3604b08faf34ace9f`. Entry 04 stays deferred to `V1-SM06` | — |
++| `DOR-R7` | **Added (`D-259`); closed (`D-260`, receipt at `9be84bb`); reopened (`D-261`).** `B-134` showed the `D-260` receipt proved agreement among the lower tiers only: the §4.4 scenarios had no `Modular_PRD` owner and `AC-01` carried two meanings. `D-261` adds `FR-15`/`AC-23`–`AC-26`, anchors every §4.3/§4.4 row to them, drops `AC-01`, and adds Product-intent parity to Jev | — **Met:** receipt `pass`, evaluated at clean commit `719e72b` (`D-261` Commit A). **Re-issued 2026-10-01 (`D-373`):** `pass`, 320/320 rules, at clean commit `31bcf3a`, after the four intake behaviours `SM05-IN1`–`IN4` were pinned and "Intake source fixtures" joined `failingFirstRequired`/`negativeRequired` (`D-364` item 10) |
++
++### DoR → DoD map (`D-259`, 2026-09-24)
++
++Each DoR row names the existing DoD obligation(s) that prove it and the evidence class fixed before the
++Issue. **Recorded once here; it adds no DoD row.** Lane B still chooses the exact xDD method per child
++(`D-242`). Jev readiness mode reads this table (`DOR-R7`).
++
++| DoR row | DoD obligation | Evidence class |
++|---|---|---|
++| `DOR-R1` | Behaviour, by namespace; Acceptance cases pass against the real database; Intake source fixtures; Persistence | Database integration and contract evidence |
++| `DOR-R2` | Behaviour, by namespace; Refusal and replay | Atomicity, replay and idempotency evidence |
++| `DOR-R3` | Refusal and replay; Exclusions verified absent | Negative/refusal and legitimate-retry evidence |
++| `DOR-R4` | Behaviour, by namespace; Refusal and replay; Exclusions verified absent | Contract/integration evidence for admitted operations; absence evidence for deferred execution |
++| `DOR-R5` | Display, not enforcement; Accepted-contract traceability; Persistence | UI walkthrough and record-to-visible-fact traceability |
++| `DOR-R6` | Accepted-contract traceability; Partial-`CR-19` disclosure | Final vocabulary and artifact-currency review |
++| `DOR-R7` | Evidence recorded | Jev readiness receipt, then Jev completion receipt for the same pinned scope |
++
++## DoD checklist
++
++**Defined 2026-09-20 (`D-245`) — not complete, not reviewed.** Independent feasibility review by Lane B and
++Judge acceptance of the business outcome are each **pending** and recorded separately; neither selects this
++MMF nor authorizes construction. DoD is met only by working behaviour and evidence, never by opening or
++merging a pull request.
++
++- [ ] **Behaviour, by namespace.** On `ROUTE-PROD-1`: an accepted manual record leads, through the Senior
++      Journalist `EW` trigger and `OP-PITCH` classification, to the **`business:T*` judgment records** and the V1
++      **`EG*` task/evidence records** — each labelled with its namespace — ending in the `business:T5`
++      newsworthiness ranking and routing record (`FR-15`, `AC-23`–`AC-26`, `D-261`; `FR-01`–`FR-04` are not this packet's
++      acceptance — `FR-01` only through `AC-02`, `FR-04` only as display provenance). **No criterion here
++      promises technical `transition:T*` state execution**
++- [ ] **Acceptance cases pass against the real database:** `AC-02`, `SM05-N1`, `SM05-N2`,
++      `SM05-N3`, `SM05-N4`, `SM05-N5`, `SM05-N6`, `SM05-RV1`, `SM05-RV2`, `SM05-F1`, `SM05-X1` (`D-260`;
++      held technical `T5`/`T6` rows are outside this packet — Option A boundary above), each with its recorded method rationale (`D-242`) and failing-first evidence, or an honest characterization
++- [ ] **Intake source fixtures:** four intake source cases: the three fixtures of `FN-GATES-01-05.md` §4.6 rule 6 plus the `D-288` refusal case (wording normalized by `D-289`) (`D-222`, worded under the pair
++      model by `D-285`) pass against the real database. (1) A valid URL passes. (2) An admitted Markdown representation
++      whose original URL is recorded but cannot be reached passes. (3) No source reference of any kind fails with the
++      named validation failure. (4) A Markdown representation with **no original URL** is refused at admission
++      (§4.6 rule 2, `D-285`; added `D-288` from `B-142`). Each case needs its own distinct artifact and failing-first
++      evidence; one generic passing item does not satisfy this row (`D-287`, `D-288`)
++- [ ] **Refusal and replay:** the `DOR-R2`–`DOR-R4` cases pass — a duplicate `EW` or pitch creates no second
++      completion, and missing or unaccepted intake advances nothing
++- [ ] **Display, not enforcement:** source-RACI and Line context are displayed with provenance; the Final
++      Sign-Off external-tracking reminder is displayed and not executed
++- [ ] **Accepted-contract traceability:** the implemented normal and revision journeys, visible
++      facts and matching data flow conform to the authoritative `DOR-R5` artifact accepted before
++      selection; every displayed fact traces to its governed record/event. The accepted `DOR-R6`
++      Encyclopedia disposition remains current at final verification, with no stale vocabulary in
++      user-facing or reviewer-facing descriptions. An accepted R6 deferral is verified as a deferral,
++      not represented as completed hosted synchronization. *(Added 2026-09-24 from `docs/handoff/B-127`
++      Parent 3, accepted by `D-256`.)*
++- [ ] **Persistence:** every control and form writes to the database and the UI reflects it; no dead button
++- [ ] **Exclusions verified absent:** no `OP-FINAL-SIGNOFF` enforcement, `T6`, article `Published` state,
++      Line 3 workflow, external-GRC exchange, WordPress path or `transition:T*` execution claim
++- [ ] **Partial-`CR-19` disclosure** appears wherever this slice is described to a user or reviewer
++- [ ] **Evidence recorded:** typecheck, lint and tests pass; the full local consistency run (including the
++      checks CI skips) passes; migration safe-failure and secret-handling impact are stated. Lane B runs
++      Jev completion mode while still `Active` and attaches a `ready-for-independent-review` receipt to its
++      handover report (`D-259`) — the receipt is evidence, not closure
++- [ ] **Independent verification:** an actor who did not build it confirms the above; the Judge accepts
++      the business outcome. **Lane A is that actor (`D-259`)**: after the lock returns it re-runs Jev
++      completion mode and runs the customer-acceptance harness (`scripts/acceptance/`); the Judge then
++      accepts, and only then does the PR follow its merge act — merge is not DoD (`D-245`)
++
++## Received from handoffs (`D-379`, 2026-10-01)
++
++**Why this section exists.** `D-364` item 5 requires every SM05-scoped handoff obligation to be received into this
++packet's DoR→DoD **with a receipt** before Gate 2. The `B-150` ledger (`SV-002` §2.3.2, batch 3) found that the
++readiness handoffs dispositioned before Issue #1 mostly reached this packet only through rows citing other entries.
++Each line below names the anchor in this packet that already carries the obligation. **This adds no DoR row and no
++DoD obligation, and changes no scope.** A receipt records where an obligation lives, not that it is built or
++verified. The `SV-002` §2.3.1 rows read `received` only after Lane B's independent verification of this list.
++
++| Source | SM05 obligation received | Anchor in this packet |
++|---|---|---|
++| `B-084` | FB-05/G105 intake: the duplicate-brief guard and source reference | DoD "Acceptance cases pass against the real database" (`AC-02`) and DoD "Intake source fixtures"; `DOR-R1` |
++| `B-095` | Its SM05 children only: `D2a` (intake wording) and `D4` (Encyclopedia Entry 06) | `AC-02`/`SM05-N1` and `DOR-R6` (`SV-002` §3.3, `D-289`). The non-SM05 `D1`/`D2b`/`D3`/`S5` are not received here |
++| `B-096` | Its SM05 children only: `S15` (the working-metadata contract, FN-GATES §4.5) and `TR-DM-01`'s Gate 1B part (`Modular_PRD` `TR-DM-07`, `D-283`) | `SM05-N1` (`SV-002` §3.3, `D-289`). `TR-DM-01`'s Gate 2 part, the physical store and its real-database proof, belongs to the `D-242` work order. Validation is local only; hosted migration remains with `SM06-P3-01` (`D-252`, `D-381`). `GA1`/`S16` are not received here |
++| `B-104` | Its SM05 child only: `O1` (the `business:T5` ranking by `ROLE-CHIEF-EDITORIAL-DESK` on `ROUTE-PROD-1`) | `SM05-N6` (`SV-002` §3.3, `D-289`). `O2`–`O4` are received in `GOV-RES-001` as `GR-001`–`GR-003`. `GR-001` and `GR-003` target scope remains held under `D-171`. `GR-002`'s historical-provenance labelling has no hold; historical transition implementation remains held. Receipt is not independent clearance or execution completion (`D-380`) |
++| `B-118` | The `business:T5` ranking and routing model this packet was created from | Packet header (`D-240`); `FR-15`/`AC-23`–`AC-26` (`D-261`); `SM05-N6`. The `RH` children are not received here |
++| `B-121` | `DOR-R2`–`DOR-R4`: intake, executor and the `OP-DRAFT` failure/replay boundary | `DOR-R4` (Parent 3) and DoD "Refusal and replay" |
++| `B-124` | SM05 DoR identity readiness, superseded by `D-255` | Readiness stated as exactly `DOR-R1`–`DOR-R7` (`D-255`; `DOR-R7` added by `D-259`) |
++| `B-126` | The post-DoR Issue workflow | "Issue / branch / PR traceability" (Issue #1, `D-262`) |
++| `B-127` | DoR→DoD traceability | The DoR → DoD map (`D-259`) and DoD "Accepted-contract traceability" |
++| `B-128` | The `DOR-R5`/`DOR-R6` closure instructions and identity-readiness evidence | `DOR-R5` (Panel A11) and `DOR-R6` (Encyclopedia v15) |
++| `B-132` | The remaining readiness decisions and the Issue/branch/State-1 PR sequence | The DoR → DoD map (`D-259`) and "Issue / branch / PR traceability" (`D-262`) |
++| `B-133` | A valid passing `DOR-R7` receipt | `DOR-R7` (`D-261`; re-issued `D-373`) |
++
++Already received elsewhere, and only cited here:
++- `B-071` `R204`/`R205` (`SM05-N1`/`N2`/`N4`/`N6`/`F1`);
++- `B-120`/`B-125` and `B-136` `P14a`/`P14b` (the durable-owner receipt, `D-269`);
++- `B-131` (`DOR-R5`/`R6`; Judge acceptance `D-288`);
++- `B-151` (`SM05-IN1`–`IN4`, `D-373`).
++
++## Owner / lane
++
++Lane B builds; Lane A tracks and does not cross into `app/`, `lib/`, `components/`, `supabase/`.
++
++## Artifact paths
++
++Not yet created — no code exists for this MMF.
++
++## Test / evidence links
++
++None yet.
++
++## Terminal disposition
++
++Open. Not started; not selected.
+diff --git a/scripts/checks/closure-readiness.mjs b/scripts/checks/closure-readiness.mjs
+index fa135445d366a67be08b6b7a46307b67baa76c65..a328c7fdc20b6437d5c3ac27a486803208308a50 100644
+--- a/scripts/checks/closure-readiness.mjs
++++ b/scripts/checks/closure-readiness.mjs
+@@ -171,7 +171,7 @@ function commitExists(sha) {
+ // only: item 5's receipts are reviewed, not parsed, and failing on them would
+ // exceed the bound item 7 authorized.
+ export const TRACKER_PATH = "docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md";
+-export const SM05_PATH = "docs/v1/work-packets/V1/V1-SM05.md";
++export const SM05_PATH = "docs/v1/work-packets/V1/V1-SM07.md";
+ const TRACKER_HEADING = /^#{3,4}\s+2\.3\.1\s+Gate 2 tracker\b/m;
+ 
+ /** The §2.3.1 tracker, or `null` when the section is absent. Pure. */
+@@ -252,7 +252,7 @@ export function sm05Blocked(text) {
+ export function gate2Claimed(tracker, blocked) {
+   const lineClaim = tracker && tracker.claim !== null && !/^(no|—|-|none)?$/i.test(tracker.claim);
+   if (lineClaim) return `§2.3.1 reads "claimed: ${tracker.claim}"`;
+-  if (!blocked) return "`V1-SM05` no longer reads BLOCKED";
++  if (!blocked) return "`V1-SM07` no longer reads BLOCKED";
+   return null;
+ }
+ 
+diff --git a/scripts/jev/jev.mjs b/scripts/jev/jev.mjs
+index 6c6d994cbaf927a11bfdc46888ffe388d14cd19f..a73046a2a21254d701cc24d9a82d378b1a746c6a 100644
+--- a/scripts/jev/jev.mjs
++++ b/scripts/jev/jev.mjs
+@@ -1,8 +1,8 @@
+ // Jev System One CLI (`D-259`). See `lib.mjs` for what a receipt does and does not mean.
+ //
+-//   bun run jev readiness  --manifest scripts/jev/manifests/V1-SM05.json [--out <receipt.json>]
+-//   bun run jev completion --manifest scripts/jev/manifests/V1-SM05.json --evidence <evidence.json> [--out <receipt.json>]
+-//   bun run jev pins       --manifest scripts/jev/manifests/V1-SM05.json
++//   bun run jev readiness  --manifest scripts/jev/manifests/V1-SM07.json [--out <receipt.json>]
++//   bun run jev completion --manifest scripts/jev/manifests/V1-SM07.json --evidence <evidence.json> [--out <receipt.json>]
++//   bun run jev pins       --manifest scripts/jev/manifests/V1-SM07.json
+ //
+ // Exit 0 only when every deterministic rule holds. Only failures are printed in
+ // full; the receipt carries every result.
+diff --git a/scripts/jev/manifests/V1-SM05.json b/scripts/jev/manifests/V1-SM07.json
+similarity index 99%
+rename from scripts/jev/manifests/V1-SM05.json
+rename to scripts/jev/manifests/V1-SM07.json
+index b39719e90a460f150c1ab4d930ad51cd3aca4cd8..b50dfa7d9bcec0053b2132745f8dc8def8e79f75 100644
+--- a/scripts/jev/manifests/V1-SM05.json
++++ b/scripts/jev/manifests/V1-SM07.json
+@@ -1,6 +1,6 @@
+ {
+-  "packet": "V1-SM05",
+-  "packetPath": "docs/v1/work-packets/V1/V1-SM05.md",
++  "packet": "V1-SM07",
++  "packetPath": "docs/v1/work-packets/V1/V1-SM07.md",
+   "authority": "D-259, D-260, D-261",
+   "dorRows": [
+     "DOR-R1",

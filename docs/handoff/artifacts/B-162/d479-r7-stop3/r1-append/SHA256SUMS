@@ -1,0 +1,10 @@
+54bcacee821877453a8446538099a13db539f97cbb01324a85dd907864841892  ./BACKUP-PROPOSAL.md
+8b3f0d926395e3646411e7c0ade889a5ac0ede3e06ec7b9738fbce752e7b5a02  ./R1-append.md
+021f5b747cc77971d0d88ad8fb2232bbff93732c1dc6a17a96d1e5903fac3ca2  ./authority/disposition-1925.jsonl
+120b6cfadd42bd5b45315d4737f0bce4faceaabac694e57dab61ef551e5afad8  ./backup-inventory.json
+ceb312641911ec784ea23107dfa19425aac3cbbe6a238de62d75eb08014e2c3f  ./scripts/backup-inventory.cjs
+2010694bb278f34cc9a625ffc00c5ae8411a49f78f4ffa6dda711a7751f06214  ./validation/R1-check.txt
+f9915c55cd137fb6f78d0f06489dad535a5593d6d2c59bca981a17c027528f07  ./validation/live-after.json
+c5335f5a6922c1c4cff1db8c16280f4600573e853881e31351f2ed76ff21f3c8  ./validation/numbering-recheck.txt
+133485630237235d87d1cdc5f9303d68b3c9e6a6f7bb6c393aaf4d7326e43d89  ./validation/remote-tip-ls-remote.txt
+de4d04e3fa60dfe86d4c1d55e53766c3601dfed440af5cf4969118ad4748bb8e  ./validation/scratch-R1.txt

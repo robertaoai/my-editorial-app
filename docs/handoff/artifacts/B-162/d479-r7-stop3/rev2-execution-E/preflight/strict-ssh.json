@@ -1,0 +1,11 @@
+﻿{
+    "command":  "git -c \u0027core.sshCommand=C:/Windows/System32/OpenSSH/ssh.exe -o UserKnownHostsFile=~/.ssh/known_hosts -o StrictHostKeyChecking=yes -o UpdateHostKeys=no -o BatchMode=yes\u0027 ls-remote --exit-code origin refs/heads/features/feature-V1-SM05",
+    "shell":  "PowerShell 5.1",
+    "GIT_SSH_COMMAND":  "",
+    "started_utc":  "2026-11-13T13:29:21.2097979Z",
+    "ended_utc":  "2026-11-13T13:29:24.0921470Z",
+    "exit":  0,
+    "stdout":  "d8db2da71ceb79cc9ade330b524b6ffc6c3edd96\trefs/heads/features/feature-V1-SM05",
+    "known_hosts_sha256_before":  "1BFEE67FB2681B5E202A65CC88AD139E0E75FB068E4C59713BA6CEA252E900C6",
+    "known_hosts_sha256_after":  "1BFEE67FB2681B5E202A65CC88AD139E0E75FB068E4C59713BA6CEA252E900C6"
+}

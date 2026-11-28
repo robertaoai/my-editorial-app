@@ -1,0 +1,1 @@
+SNAPSHOT — test artifact; not for the source branch

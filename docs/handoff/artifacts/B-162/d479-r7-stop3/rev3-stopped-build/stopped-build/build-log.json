@@ -1,0 +1,13 @@
+[
+  {
+    "step": "2a-candidate",
+    "at": "2026-11-13T14:07:38.026Z",
+    "sha": "91fbc747db99e84ddcca0564bf79dff0f726e8ea",
+    "tree": "4facb707b955143e8b18e4205344c1c87a98ec0b"
+  },
+  {
+    "step": "STOP",
+    "at": "2026-11-13T14:23:58.106Z",
+    "error": "STOP: 2a fixtures: 295/297 fixtures behaved as intended       MISS  tier-sweep: the live register, unmutated — unexpected finding: row 18857: D-253 marked ✅ for \"**`docs/v1/work-packets/V1/V1-SM05.md`**\" but absent from docs/v1/work-packets/V1/V1-SM05.md |       MISS  tier-sweep: a decision cited only as part of a range is not treated as absent — unexpected finding: row 18857: D-253 marked ✅ for \"**`docs/v1/work-packets/V1/V1-SM05.md`**\" but absent from docs/v1/work-packets/V1/V1-SM05.md"
+  }
+]

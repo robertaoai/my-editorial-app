@@ -1,0 +1,59 @@
+{
+  "label": "2a",
+  "head": "91fbc747db99e84ddcca0564bf79dff0f726e8ea",
+  "tree": "4facb707b955143e8b18e4205344c1c87a98ec0b",
+  "fixtures": {
+    "exit": 1,
+    "behaved": "295/297",
+    "misses": [
+      "      MISS  tier-sweep: the live register, unmutated — unexpected finding: row 18857: D-253 marked ✅ for \"**`docs/v1/work-packets/V1/V1-SM05.md`**\" but absent from docs/v1/work-packets/V1/V1-SM05.md",
+      "      MISS  tier-sweep: a decision cited only as part of a range is not treated as absent — unexpected finding: row 18857: D-253 marked ✅ for \"**`docs/v1/work-packets/V1/V1-SM05.md`**\" but absent from docs/v1/work-packets/V1/V1-SM05.md"
+    ],
+    "gate2Line": "      ok    gate2: SM05 status no longer BLOCKED — counts as a claim and fails — fails as intended"
+  },
+  "selftest": {
+    "exit": 0
+  },
+  "check": {
+    "exit": 1,
+    "inventory": 19,
+    "fails": [
+      {
+        "name": "tier-sweep",
+        "findings": [
+          "row 18857: D-253 marked ✅ for \"**`docs/v1/work-packets/V1/V1-SM05.md`**\" but absent from docs/v1/work-packets/V1/V1-SM05.md",
+          "row 18903: D-254 marked ✅ for \"**`docs/v1/work-packets/V1/V1-SM05.md`**\" but absent from docs/v1/work-packets/V1/V1-SM05.md",
+          "row 19017: D-256 marked ✅ for \"**`docs/v1/work-packets/V1/V1-SM05.md`**\" but absent from docs/v1/work-packets/V1/V1-SM05.md",
+          "row 19174: D-259 marked ✅ for \"**`docs/v1/work-packets/V1/V1-SM05.md`**\" but absent from docs/v1/work-packets/V1/V1-SM05.md",
+          "row 19236: D-260 marked ✅ for \"**`docs/v1/work-packets/V1/V1-SM05.md`**\" but absent from docs/v1/work-packets/V1/V1-SM05.md",
+          "row 19290: D-261 marked ✅ for \"**`docs/v1/work-packets/V1/V1-SM05.md`**\" but absent from docs/v1/work-packets/V1/V1-SM05.md",
+          "row 19342: D-262 marked ✅ for \"**`docs/v1/work-packets/V1/V1-SM05.md`**\" but absent from docs/v1/work-packets/V1/V1-SM05.md",
+          "row 19377: D-263 marked ✅ for \"**`docs/v1/work-packets/V1/V1-SM05.md`**\" but absent from docs/v1/work-packets/V1/V1-SM05.md",
+          "row 19447: D-264 marked ✅ for \"**`docs/v1/work-packets/V1/V1-SM05.md`**\" but absent from docs/v1/work-packets/V1/V1-SM05.md",
+          "row 19836: D-269 marked ✅ for \"**`docs/v1/work-packets/V1/V1-SM05.md`**\" but absent from docs/v1/work-packets/V1/V1-SM05.md",
+          "row 20756: D-287 marked ✅ for \"**`docs/v1/work-packets/V1/V1-SM05.md`**\" but absent from docs/v1/work-packets/V1/V1-SM05.md",
+          "row 20807: D-288 marked ✅ for \"**`docs/v1/work-packets/V1/V1-SM05.md`**\" but absent from docs/v1/work-packets/V1/V1-SM05.md",
+          "row 20857: D-289 marked ✅ for \"**`docs/v1/work-packets/V1/V1-SM05.md`**\" but absent from docs/v1/work-packets/V1/V1-SM05.md",
+          "row 21678: D-306 marked ✅ for \"**`docs/v1/work-packets/V1/V1-SM05.md`**\" but absent from docs/v1/work-packets/V1/V1-SM05.md",
+          "row 24812: D-373 marked ✅ for \"**`docs/v1/work-packets/V1/V1-SM05.md`**\" but absent from docs/v1/work-packets/V1/V1-SM05.md",
+          "row 25095: D-379 marked ✅ for \"**`docs/v1/work-packets/V1/V1-SM05.md`**\" but absent from docs/v1/work-packets/V1/V1-SM05.md",
+          "row 25137: D-380 marked ✅ for \"**`docs/v1/work-packets/V1/V1-SM05.md`**\" but absent from docs/v1/work-packets/V1/V1-SM05.md",
+          "row 25219: D-381 marked ✅ for \"**`docs/v1/work-packets/V1/V1-SM05.md`**\" but absent from docs/v1/work-packets/V1/V1-SM05.md"
+        ]
+      },
+      {
+        "name": "source-sweep",
+        "findings": [
+          "docs/governance/requirements-traceability-map.md (91fbc74) changed after the register last moved — propagation unverified. Record a decision, even if the decision is that no tier is affected."
+        ]
+      }
+    ],
+    "tierSweep": "FAIL"
+  },
+  "problems": [
+    "FAIL tier-sweep: [\"row 18857: D-253 marked ✅ for \\\"**`docs/v1/work-packets/V1/V1-SM05.md`**\\\" but absent from docs/v1/work-packets/V1/V1-SM05.md\",\"row 18903: D-254 marked ✅ for \\\"**`docs/v1/work-packets/V1/V1-SM05.md`**\\\" but absent from docs/v1/work-packets/V1/V1-SM05.md\",\"row 19017: D-256 marked ✅ for \\\"**`docs/v1/work-packets/V1/V1-SM05.md`**\\\" but absent from docs/v1/work-packets/V1/V1-SM05.md\",\"row 19174: D-259 marked ✅ for \\\"**`docs/v1/work-packets/V1/V1-SM05.md`**\\\" but absent from docs/v1/work-packets/V1/V1-SM05.md\",\"row 19236: D-260 marked ✅ for \\\"**`docs/v1/work-packets/V1/V1-SM05.md`**\\\" but absent from docs/v1/work-packets/V1/V1-SM05.md\",\"row 19290: D-261 marked ✅ for \\\"**`docs/v1/work-packets/V1/V1-SM05.md`**\\\" but absent from docs/v1/work-packets/V1/V1-SM05.md\",\"row 19342: D-262 marked ✅ for \\\"**`docs/v1/work-packets/V1/V1-SM05.md`**\\\" but absent from docs/v1/work-packets/V1/V1-SM05.md\",\"row 19377: D-263 marked ✅ for \\\"**`docs/v1/work-packets/V1/V1-SM05.md`**\\\" but absent from docs/v1/work-packets/V1/V1-SM05.md\",\"row 19447: D-264 marked ✅ for \\\"**`docs/v1/work-packets/V1/V1-SM05.md`**\\\" but absent from docs/v1/work-packets/V1/V1-SM05.md\",\"row 19836: D-269 marked ✅ for \\\"**`docs/v1/work-packets/V1/V1-SM05.md`**\\\" but absent from docs/v1/work-packets/V1/V1-SM05.md\",\"row 20756: D-287 marked ✅ for \\\"**`docs/v1/work-packets/V1/V1-SM05.md`**\\\" but absent from docs/v1/work-packets/V1/V1-SM05.md\",\"row 20807: D-288 marked ✅ for \\\"**`docs/v1/work-packets/V1/V1-SM05.md`**\\\" but absent from docs/v1/work-packets/V1/V1-SM05.md\",\"row 20857: D-289 marked ✅ for \\\"**`docs/v1/work-packets/V1/V1-SM05.md`**\\\" but absent from docs/v1/work-packets/V1/V1-SM05.md\",\"row 21678: D-306 marked ✅ for \\\"**`docs/v1/work-packets/V1/V1-SM05.md`**\\\" but absent from docs/v1/work-packets/V1/V1-SM05.md\",\"row 24812: D-373 marked ✅ for \\\"**`docs/v1/work-packets/V1/V1-SM05.md`**\\\" but absent from docs/v1/work-packets/V1/V1-SM05.md\",\"row 25095: D-379 marked ✅ for \\\"**`docs/v1/work-packets/V1/V1-SM05.md`**\\\" but absent from docs/v1/work-packets/V1/V1-SM05.md\",\"row 25137: D-380 marked ✅ for \\\"**`docs/v1/work-packets/V1/V1-SM05.md`**\\\" but absent from docs/v1/work-packets/V1/V1-SM05.md\",\"row 25219: D-381 marked ✅ for \\\"**`docs/v1/work-packets/V1/V1-SM05.md`**\\\" but absent from docs/v1/work-packets/V1/V1-SM05.md\"]",
+    "SKIP graph-coverage",
+    "FAIL source-sweep: [\"docs/governance/requirements-traceability-map.md (91fbc74) changed after the register last moved — propagation unverified. Record a decision, even if the decision is that no tier is affected.\"]",
+    "SKIP docs-drift"
+  ]
+}
