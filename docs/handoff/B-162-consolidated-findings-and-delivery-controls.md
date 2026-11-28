@@ -4876,3 +4876,34 @@ B-162 stays Open. D-487 staging stays held with D-486 as its required sole paren
 | Readback of `06cc6a3` and `1c9dad7` | Match (observed) | Complete. Lane B reads this receipt commit back independently. |
 | This receipt and the gov/docs proposals | For the critic | Phase 1 critic pass, in a separate turn. |
 | D-487, P1, r5 custody and gov/docs application | Defer | Their existing release checkpoints. |
+
+## Lane A recording and delivery receipt for D-487 b356575 (2026-11-28)
+
+**Phase 1. B-162 Open. Receipt only.** Lane A recorded D-487 and delivered it to the feature branch. This receipt binds the recording, the two independent reviews, the delivery and the independent remote readback for exact commit `b3565757753bf0ce7a0735e48fb699b10936a9c9`. It changes no entry status and answers no G item. [Issued D-487 act][task2-d487-act] · [Receipt-route amendment][task2-d487-receipt-amendment]
+
+### Authority
+
+The Option B amendment rebinds act 2114 §§1–3 and amendment 1981 to sole parent `f9fab6083481af44c6a1b97cfce10d8cdc2ca14e` and parent tree `0cb72dd593d70c103d1485a1626693b7de102d2a`. Its §4 binds the recording checks and its §5 the receipt and delivery route. It is the Lane A transcript record at `899ea0ae-0edb-432d-bfdc-783d8aaf41ac.jsonl:1873` (`a8b8a610-1a95-40e6-af07-5c16204e127a`, 7,377 bytes, SHA-256 `1097b539b3771bbd3f3027bd7de4328df3dbdacd3692ef71dd0e0892be76a565`). The separate Judge decision at Codex rollout `01a21e56-6d9a-7cb0-9e59-9f5681b15229` line 13 (1,340 bytes, `aeea8f684aa7627bc2033cc0b5d41c9a5ba4bce3bc59b765d3b9a0fae24828c1`) retains rollout `01a212b5` line 305 as the historical output-breach disclosure and line 284 as supporting evidence only. The Judge released recording at line 1160 (1,964 bytes, `6eb8895ffef8639d1925d86b45dde55d2beffbe2eb38f09b46e771885f3dba23`) and the push at line 1972 (1,980 bytes, `444b3a34fba9ebf36759539bf74326e9e266113e4d069062c8751aed7110d697`) of that rollout.
+
+### Evidence
+
+| Step | Actor | Source record | Bytes | Raw SHA-256 | Result |
+|---|---|---|---:|---|---|
+| Recording | Lane A, Claude Code | Lane A transcript `899ea0ae…:2324` (`d9931856-3819-48c4-acaa-98c012236da0`); evidence `C:/CoWork/outputs/D-487-OptionB-recording-f9fab60/SHA256SUMS` (14 files) | 5,918; manifest 1,217 | `08d13cd732c12f031bd4f93873ff7cff468cdd3a865bedde1b90bcaafd5d4463`; manifest `0e24e3dfbe76558cfd63de77290b5070096c55a21b90b22884cd344dfad82a69` | One commit, sole parent `f9fab60…`, tree `bab0de4958531744d4eb5bed13dafd18071e150c`, one path `docs/v1/V1-DECISION-REGISTER.md`, blob `978c455223b32f3c03e5aa2fac70eb67a432fb54` |
+| Level 1 confirmation | Lane B, Codex Desktop | Rollout `01a21854-88e9-70f1-b108-63c16b7dc4ac` line 348, `msg_02f2f532ce9c9099016b09e066649487d0acf31b42c88ccea4` | 5,538 | `e370e2fdeab43c103298a75e53c086e2fc5ceaf09a323b46345977269b3486de` | Pass on the exact commit |
+| Level 2 review | Lane C, Antigravity | Conversation `2f3ff784-b457-4998-869e-e1525c4737d6` (`.db`), PASS marker at zero-based offset 1186861 and named commit at 1186927 | 1,605,632 | `0d46df9bd84158ad1ea865f00d59e29a20e990523308c429e538df28a835787d` | Pass on the exact commit |
+| Delivery | Lane A, Claude Code | Lane A transcript `899ea0ae…:2413` (`a16020e0-39b7-4553-b8a6-5676a6666cf2`); evidence `C:/CoWork/outputs/D-487-delivery-b356575/SHA256SUMS` (6 files) | 6,108; manifest 477 | `d52dcdbda4617bcdc84035228470c878af77052d51888339e4215a305b8083b0`; manifest `3c38f0376ba12fb88b17896162d69cc25c019128dfb13382eb595f3310d9f81a` | One non-force push of `b356575` to `refs/heads/features/feature-V1-SM05`; tip `f9fab60…` before, `b356575…` after |
+| Remote readback | Lane B, Codex | Rollout `01a21e56…` line 2223, `ctco_01a21eb3-267b-7413-a883-4648fd6503c3`, observed 2026-11-27T20:29:45.432Z | 1,286 | `6f12578bfe9e6d7766140ed8fbdac8f5ecf5271dda265cb4dcfde474e508fa55` | Match: GitHub blob at `b356575…:docs/v1/V1-DECISION-REGISTER.md` is `978c4552…`, 2,493,073 bytes, SHA-256 `e4495dff737d23a366b7acea9e05572de068731d34fce97b5a6b7e0457b08e04` |
+
+**Recording checks.** Both `bun run check` runs gave 19 results, zero skips and exit 1. The only failure was the Option B §4 allowance: `docs-drift` against analyzed `8c225e60e67be4e1d37bb5d45d98db1c4e0f6e6a` with governed paths `docs/v1/V1-DECISION-REGISTER.md` and `docs/v1/V1-PHASE-CLOSURE.md`. The staged run read `stale: analyzed 8c225e6 vs HEAD f9fab60` and `register at 30db8d5`; the post-commit run read `vs HEAD b356575` and `register at b356575`. The allowed failure is recorded as a failure, not a pass. Trace2 shows `git -c core.hooksPath=.githooks commit`, with `.githooks/commit-msg` started and exiting 0.
+
+**Delivery checks.** A fresh strict-SSH `ls-remote` read `f9fab60…` twice before the push. The outgoing range was exactly `b356575…`. A separate `ls-remote` after the push read `b356575…`.
+
+### Holds
+
+B-162 stays Open and Gate 2 stays unclaimed. P1, the prerequisite, 2a, 2b and every other filing remain on their own releases.
+
+| Scope | Verdict | Follow-up phase |
+|---|---|---|
+| D-487 recording, reviews, delivery and readback | Recorded (observed) | Complete. An independent lane reads this receipt commit back. |
+| P1, prerequisite, 2a, 2b and other filings | Defer | Their existing release checkpoints. |
