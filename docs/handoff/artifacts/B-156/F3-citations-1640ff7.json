@@ -1,0 +1,341 @@
+{
+  "schema": "B-156 F3 current-text citations v1",
+  "frozenRevision": "1640ff7bc1b7d1e70ab6a421ced8a054dafda993",
+  "packet": "F3-F6-packet-r1.md",
+  "rows": [
+    {
+      "id": "R1-R3",
+      "path": "docs/specs/SPECS-VERIFICATION-APPARATUS.md",
+      "result": "quoted current text",
+      "ownership": "",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/specs/SPECS-VERIFICATION-APPARATUS.md",
+          "line": 96,
+          "needle": "currently reads:"
+        },
+        {
+          "kind": "line",
+          "file": "docs/specs/SPECS-VERIFICATION-APPARATUS.md",
+          "line": 100,
+          "needle": "eslint: { ignoreDuringBuilds: true },"
+        },
+        {
+          "kind": "line",
+          "file": "docs/specs/SPECS-VERIFICATION-APPARATUS.md",
+          "line": 103,
+          "needle": "told to ignore both"
+        },
+        {
+          "kind": "line",
+          "file": "docs/specs/SPECS-VERIFICATION-APPARATUS.md",
+          "line": 105,
+          "needle": "The flags stay as they are"
+        }
+      ]
+    },
+    {
+      "id": "R4",
+      "path": "docs/graph-fragments/frag13.json",
+      "result": "quoted current text",
+      "ownership": "",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/frag13.json",
+          "line": 18,
+          "needle": "ci_that_cannot_fail"
+        }
+      ]
+    },
+    {
+      "id": "R5-R7",
+      "path": "docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md",
+      "result": "quoted current text",
+      "ownership": "",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md",
+          "line": 177,
+          "needle": "the three rule files are refactored"
+        },
+        {
+          "kind": "line",
+          "file": "docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md",
+          "line": 213,
+          "needle": "The three rule files keep a byte-identical shared core"
+        },
+        {
+          "kind": "line",
+          "file": "docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md",
+          "line": 214,
+          "needle": "size check at the refactor commit"
+        }
+      ]
+    },
+    {
+      "id": "R8",
+      "path": "docs/Modular_PRD.md",
+      "result": "quoted current text",
+      "ownership": "",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/Modular_PRD.md",
+          "line": 883,
+          "needle": "After the `SV2-U02` report; `shared-core-hash`"
+        }
+      ]
+    },
+    {
+      "id": "R9",
+      "path": "docs/specs/SPECS-MULTI-LANE-AI-GOVERNANCE.md",
+      "result": "quoted current text",
+      "ownership": "",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/specs/SPECS-MULTI-LANE-AI-GOVERNANCE.md",
+          "line": 106,
+          "needle": "`scripts/checks/shared-core-hash.mjs`"
+        }
+      ]
+    },
+    {
+      "id": "R10,R18,R19",
+      "path": "GEMINI.md",
+      "result": "quoted current text",
+      "ownership": "",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "GEMINI.md",
+          "line": 13,
+          "needle": "identical in all three agents' rule files"
+        },
+        {
+          "kind": "line",
+          "file": "GEMINI.md",
+          "line": 31,
+          "needle": "`graph-coverage`, `docs-drift` and"
+        },
+        {
+          "kind": "line",
+          "file": "GEMINI.md",
+          "line": 32,
+          "needle": "`source-sweep` skip in CI because of what they read"
+        },
+        {
+          "kind": "line",
+          "file": "GEMINI.md",
+          "line": 34,
+          "needle": "`TC6` disables the type and lint gates at"
+        }
+      ]
+    },
+    {
+      "id": "R11",
+      "path": "docs/graph-fragments/frag7.json",
+      "result": "quoted current text",
+      "ownership": "",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/frag7.json",
+          "line": 57,
+          "needle": "shared_core_agent_rules"
+        }
+      ]
+    },
+    {
+      "id": "R12",
+      "path": "docs/graph-fragments/frag15.json",
+      "result": "quoted current text",
+      "ownership": "",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/frag15.json",
+          "line": 44,
+          "needle": "rule_must_reach_its_subjects"
+        }
+      ]
+    },
+    {
+      "id": "R13-R16,R20",
+      "path": ".github/WORKFLOWS-SPEC.md",
+      "result": "quoted current text",
+      "ownership": "",
+      "citations": [
+        {
+          "kind": "line",
+          "file": ".github/WORKFLOWS-SPEC.md",
+          "line": 46,
+          "needle": "`graph-coverage`, `docs-drift` and `source-sweep` cannot run"
+        },
+        {
+          "kind": "line",
+          "file": ".github/WORKFLOWS-SPEC.md",
+          "line": 55,
+          "needle": "They differ by exactly these"
+        },
+        {
+          "kind": "line",
+          "file": ".github/WORKFLOWS-SPEC.md",
+          "line": 56,
+          "needle": "three."
+        },
+        {
+          "kind": "line",
+          "file": ".github/WORKFLOWS-SPEC.md",
+          "line": 34,
+          "needle": "`TC6` sets `ignoreBuildErrors` and"
+        },
+        {
+          "kind": "line",
+          "file": ".github/WORKFLOWS-SPEC.md",
+          "line": 35,
+          "needle": "`ignoreDuringBuilds`, so a build stays green on broken types"
+        }
+      ]
+    },
+    {
+      "id": "R17",
+      "path": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+      "result": "quoted current text",
+      "ownership": "",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 69,
+          "needle": "those three SKIP and the rest run"
+        }
+      ]
+    },
+    {
+      "id": "R21-R22",
+      "path": ".gitattributes",
+      "result": "quoted current text",
+      "ownership": "",
+      "citations": [
+        {
+          "kind": "line",
+          "file": ".gitattributes",
+          "line": 37,
+          "needle": "AGENTS.md            merge=text"
+        },
+        {
+          "kind": "line",
+          "file": ".gitattributes",
+          "line": 30,
+          "needle": "union-duplicated CLAUDE.md slices identically"
+        },
+        {
+          "kind": "line",
+          "file": ".gitattributes",
+          "line": 31,
+          "needle": "shared-core-hash PASSES"
+        }
+      ]
+    },
+    {
+      "id": "R23,R25",
+      "path": "docs/v1/V1-BUILD-SPEC.md",
+      "result": "quoted current text",
+      "ownership": "",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-BUILD-SPEC.md",
+          "line": 660,
+          "needle": "this DoD phrase is NOT yet earned"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-BUILD-SPEC.md",
+          "line": 531,
+          "needle": "the shared-core hash, the `D-54` tier sweep, the §5.1 duplicate scan, and `missing.js`"
+        }
+      ]
+    },
+    {
+      "id": "R24",
+      "path": "docs/v1/V1-DECISION-REGISTER.md",
+      "result": "quoted current text",
+      "ownership": "",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 2983,
+          "needle": "Closes when a disposable PostgreSQL"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-PHASE-CLOSURE.md",
+          "line": 430,
+          "needle": "is satisfied"
+        }
+      ]
+    },
+    {
+      "id": "R26-R28",
+      "path": "scripts/checks/lane-boundary.mjs",
+      "result": "quoted current text",
+      "ownership": "",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "scripts/checks/lane-boundary.mjs",
+          "line": 58,
+          "needle": "(app|lib|components)"
+        }
+      ]
+    },
+    {
+      "id": "R29",
+      "path": "docs/graph-fragments/README.md",
+      "result": "quoted current text",
+      "ownership": "",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 111,
+          "needle": "`merge6.js` is retained for history but hard-codes an absolute path"
+        }
+      ]
+    },
+    {
+      "id": "P1",
+      "path": ".github/workflows/ci.yml",
+      "result": "quoted current text",
+      "ownership": "",
+      "citations": [
+        {
+          "kind": "line",
+          "file": ".github/workflows/ci.yml",
+          "line": 4,
+          "needle": "sets `ignoreBuildErrors` and `ignoreDuringBuilds` in `next.config.ts`"
+        }
+      ]
+    },
+    {
+      "id": "P2",
+      "path": ".env.example",
+      "result": "quoted current text",
+      "ownership": "",
+      "citations": [
+        {
+          "kind": "line",
+          "file": ".env.example",
+          "line": 8,
+          "needle": "used for redirect URLs"
+        }
+      ]
+    }
+  ]
+}

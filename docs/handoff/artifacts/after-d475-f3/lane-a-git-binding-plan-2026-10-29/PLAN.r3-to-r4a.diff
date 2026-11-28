@@ -1,0 +1,78 @@
+diff --git a/PLAN.r3.md b/PLAN.r4a.md
+index 2a747cd..0e7444e 100644
+--- a/PLAN.r3.md
++++ b/PLAN.r4a.md
+@@ -1,11 +1,23 @@
+-# Git binding fix plan r3 for the fresh after-D-475 F3 review (plan only; nothing executed)
++# Git binding fix plan r4a for the fresh after-D-475 F3 review (plan only; nothing executed)
+ 
+-Revision r3 of `PLAN.r2.md` (unchanged; `PLAN.md` also unchanged). Instructions: `INSTRUCTION-R2.jsonl` (Lane A line 6135) and `INSTRUCTION-R3.jsonl` (this revision). r3 changes only finalization (§1a); the R1 exit rules, the R2 environment and the PowerShell call operator and quoting are unchanged. Baseline: HEAD R
++Revision r4a of `PLAN.r4.md` (one correction to matrix row 24; `PLAN.r4.md` unchanged), itself revision r4 of `PLAN.r3.md` (unchanged; `PLAN.md` and `PLAN.r2.md` also unchanged). Instructions: `INSTRUCTION-R2.jsonl` (Lane A line 6135), `INSTRUCTION-R3.jsonl` (line 6212) and `INSTRUCTION-R4.jsonl` (this revision). r4 changes only the authoritative completion record (§1b); the r3 finalization in §1a, the R1 exit rules, the R2 environment, the output protections and the PowerShell call operator and quoting are unchanged. Baseline: HEAD R
+ `71dfbbe7a09f194a9986c1f29d42ad507aec1af7`; source S `22b0a8ce2fb06c16152fa9490d21aae829a45974`; work
+ `7bd2af2f-82a0-40fc-872c-31009278ff1c`, ready STATE `1fd1a888…`; candidate graph `df076c7c…`, manifest `34a4edeb…`
+ (583 files); approved answers `89965adf…`. The diagnosis in `PLAN.md` §1 stands unchanged.
+ 
+-## 1a. What r3 changes (R3 finalization)
++## 1b. What r4 changes (completion-record consistency)
++
++| Gap in r3 | r4 behaviour (`launch-review.r4.mjs`) |
++|---|---|
++| A completion-write failure raised the exit to 6 but kept a disposition computed from the earlier exit, so it could say "confirmed" for preliminary 0 → final 6 | `dispositionOf(final)` is evaluated every time the record is built, from the **final** exit. The stderr fallback rebuilds the record with the raised exit, so its disposition reads `superseded: preliminary exit P, final exit F` |
++| A successful write set `completionWrite.ok` after serialization, so the saved file said `completionWrite: null` | The record carries `completionWrite: { status: "proved by existence and read-back", contract }`. A file cannot prove its own write; the contract says the file is authoritative only if it exists with exactly the serialized bytes. The launcher reads it back after writing. A failed write, a failed read-back or a byte mismatch gives exit 6 and the stderr fallback with `completionWrite: { status: "failed", error }`, which then supersedes any partial file |
++
++Every authoritative record (file or stderr) is built by one function, so its `exit`, `preliminary.disposition` and
++`R.exit` are set from the same final value that `process.exit` uses. The original error, phase, child outcome and every
++secondary error stay in `result`. Neither record is overwritten (`wx`); a partial completion file is named in the
++fallback and is not authoritative.
++
++## 1a. What r3 changed (R3 finalization, kept)
+ 
+ In r2, `finish()` serialized the result and computed the exit before finalization ended. A failed result write printed the
+ earlier text without the write error and could exit 0; a failed or unavailable post-write candidate check exited nonzero
+@@ -40,14 +52,14 @@ finalization write failed**; the highest wins.
+ **PowerShell (reviewed form).** The call operator runs the quoted executable; single quotes keep every path literal.
+ 
+ ```
+-& 'C:\Program Files\nodejs\node.exe' 'C:\CoWork\outputs\lane-a-git-binding-plan-2026-10-29\launch-review.r3.mjs' --child 'C:\CoWork\outputs\lane-b-after-d475-f3-r2-2026-10-29\entry.mjs' --child-sha256 '<64 hex>' --out 'C:\CoWork\outputs\lane-b-after-d475-f3-r2-2026-10-29\launcher-run-1'
++& 'C:\Program Files\nodejs\node.exe' 'C:\CoWork\outputs\lane-a-git-binding-plan-2026-10-29\launch-review.r4.mjs' --child 'C:\CoWork\outputs\lane-b-after-d475-f3-r2-2026-10-29\entry.mjs' --child-sha256 '<64 hex>' --out 'C:\CoWork\outputs\lane-b-after-d475-f3-r2-2026-10-29\launcher-run-1'
+ ```
+ 
+ **Git Bash (separately labelled; not the reviewed form).** The launcher builds the same child environment from either parent,
+ but only the PowerShell form above is proposed for release.
+ 
+ ```
+-'/c/Program Files/nodejs/node.exe' 'C:/CoWork/outputs/lane-a-git-binding-plan-2026-10-29/launch-review.r3.mjs' --child 'C:/CoWork/outputs/lane-b-after-d475-f3-r2-2026-10-29/entry.mjs' --child-sha256 '<64 hex>' --out 'C:/CoWork/outputs/lane-b-after-d475-f3-r2-2026-10-29/launcher-run-1'
++'/c/Program Files/nodejs/node.exe' 'C:/CoWork/outputs/lane-a-git-binding-plan-2026-10-29/launch-review.r4.mjs' --child 'C:/CoWork/outputs/lane-b-after-d475-f3-r2-2026-10-29/entry.mjs' --child-sha256 '<64 hex>' --out 'C:/CoWork/outputs/lane-b-after-d475-f3-r2-2026-10-29/launcher-run-1'
+ ```
+ 
+ **Fixed, still to be produced before an execution release (execution DoR incomplete):**
+@@ -63,8 +75,9 @@ The launcher passes the child no arguments by default; any `-- <args>` form must
+ 
+ ## 3. Stop and failure route
+ 
+-Any nonzero exit: keep `launcher-result.json` (or its stderr copy) and every log, change nothing, return to Lane A with the
+-recorded phase and findings. Do not retry by changing guard rules, STATE, candidate bytes or bindings; a stopped or failed
++Any nonzero exit: keep the authoritative record (`launcher-completion.json` if it exists and its read-back passed, otherwise
++the structured stderr line), the preliminary `launcher-result.json` when present, any partial completion file, the child's
++packet and every log; change nothing; return to Lane A with the recorded phase, findings and secondary errors. Do not retry by changing guard rules, STATE, candidate bytes or bindings; a stopped or failed
+ attempt is never a pass. Residual risk from `PLAN.md` §2 stands: if Lane B's shell makes Git report a different
+ configuration file, `bindingFindings` stops the launcher, and that is a finding, not a reason to relax a rule.
+ 
+@@ -75,7 +88,7 @@ The authoritative evidence for every row from 4 onward is `launcher-completion.j
+ 
+ | # | Condition | Planned validation | DoD evidence | Owner |
+ |---|---|---|---|---|
+-| 1 | Revised launcher reviewed by exact bytes | Lane B reads `launch-review.r3.mjs` and the r2-to-r3 diffs | Review naming its SHA-256 | Lane B |
++| 1 | Revised launcher reviewed by exact bytes | Lane B reads `launch-review.r4.mjs` and the r3-to-r4 diffs | Review naming its SHA-256 | Lane B |
+ | 2 | Child script and packet fixed | Lane B creates the packet and `entry.mjs` | Script SHA-256 bound in the release; packet unsealed | Lane B |
+ | 3 | Execution release | — | Judge act naming launcher SHA-256, child SHA-256 and output folder | Judge |
+ | 4 | Invalid output destination | Phase `output`: relative, existing, outside the packet, inside a protected root, sealed packet, link in the parent | Exit 2 with the finding; nothing written outside the packet | Lane B (runs) |
+@@ -95,4 +108,7 @@ The authoritative evidence for every row from 4 onward is `launcher-completion.j
+ | 18 | Post-write candidate mismatch | Digest, file count or graph differs after the result write | Exit 4; `finalization.postWrite.ok` false with the observed values; preliminary disposition `superseded` | Lane B |
+ | 19 | Post-write check unavailable | Candidate hashing throws after the result write | Exit 4; `postWrite.unavailable` true with the error; never success | Lane B |
+ | 20 | Original error, then a finalization error | A child or internal error, then a failed completion write or a throwing `finish()` | Stderr record keeps `original`, `phase`, `child` and every secondary error plus the finalization error; exit at least 5 (or 6) | Lane B |
+-| 21 | Record and exit agree | Compare the process exit with `exit` in the authoritative record in each case above | Equal in every case; preliminary hash and disposition present whenever it was written | Lane B |
++| 21 | Record and exit agree (any case) | Compare the process exit with `exit` in the authoritative record in each case above | Equal in every case; preliminary hash and disposition present whenever it was written | Lane B |
++| 22 | Successful child, preservation and completion write | Every gate passes, child exit 0, preservation proved, post-write check passes, completion written and read back | Exit 0; `launcher-completion.json` with `record: "authoritative"`, `exit: 0`, `completionWrite.status: "proved by existence and read-back"`, `preliminary.written: true`, `preliminary.exit: 0`, `preliminary.disposition: "confirmed"`, `finalization.postWrite.ok: true`; `launcher-result.json` marked preliminary; no stderr record | Lane B |
++| 23 | Preliminary exit 0, then completion-write failure | As row 22 until the completion write fails (or its read-back fails) | Exit 6; stderr record with `exit: 6`, `completionWrite.status: "failed"` and the error, `preliminary.exit: 0`, `preliminary.disposition: "superseded: preliminary exit 0, final exit 6"`, the write error in `result.secondaryErrors`; `launcher-result.json` kept | Lane B |
++| 24 | Earlier nonzero exit, then completion-write failure | For example child failure (3) or post-write mismatch (4), then a failed completion write | Exit 6; stderr record with `exit: 6`, `preliminary.exit` equal to the code computed before finalization (for example 3); a later post-write failure raises the pre-completion exit to 4 but never changes `preliminary.exit`, `preliminary.disposition: "superseded: preliminary exit P, final exit 6"`, the child outcome in `result.child`, `finalization.postWrite` as recorded, and both failures in `result.secondaryErrors` | Lane B |

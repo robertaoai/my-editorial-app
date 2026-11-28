@@ -1,0 +1,333 @@
+diff --git a/AGENTS.md b/AGENTS.md
+index d875aa93c8e11665192552f36d4f92cbf7ef1bc7..74123cd30ae82baedacbd7e88d37f0a1bb9ace2e 100644
+--- a/AGENTS.md
++++ b/AGENTS.md
+@@ -10,6 +10,8 @@ Where anything conflicts, `docs/v1/V1-DECISION-REGISTER.md` decides (`D-58`).
+ - Authority: the frozen `docs/PRD.md`, Charter and `0001_init.sql`; then the Register; then
+   `docs/Modular_PRD.md` → `docs/fn-specs/` → `docs/specs/` (`D-29`). Read `docs/v1/V1-BUILD-SPEC.md`
+   and the Register first.
++- For V1 slot work, open `docs/v1/V1-INTENT-INDEX.md` first (`D-479` item 9). It maps each slot to its sources,
++  grants no authority and leaves the order above unchanged.
+ - An Approve verdict is not permission. Execution needs the Judge's Register act, a bounded unit
+   and the `Active` lane (`D-183`, `D-186`). The Judge is the user (`D-158`).
+ - Every analysis ends with an Approve / Approve-with-conditions / Defer / Reject table that names
+diff --git a/docs/ENCYCLOPEDIA-SYNC.md b/docs/ENCYCLOPEDIA-SYNC.md
+index f90d02e0b6a92eef0bab8533ca4a90467b0d4ff4..25508e6a32021e063c017b141c56d7be4192f59c 100644
+--- a/docs/ENCYCLOPEDIA-SYNC.md
++++ b/docs/ENCYCLOPEDIA-SYNC.md
+@@ -48,6 +48,16 @@ deferred**, entry by entry, rather than left implicit:
+ | **05** | `D-247`/`D-249`: V1 satisfies `CR-19` only partially; `V1-SM05` claims no `transition:T*` execution | ~~Deferred~~ **Discharged 2026-09-24** — as Entry 01 (`D-256`, `D-259`) |
+ | **06** | `D-249`: `V1-SM05` is a limited evidence slice; its review set includes this entry | ~~Deferred~~ **Discharged 2026-09-24** — as Entry 01 (`D-256`, `D-259`) |
+ 
++**Flags — `D-479` (decided 2026-11-07).** The hosted artifact was **not** read, compared or republished by this pass,
++and this ledger is **not** publication evidence. External Encyclopedia work has its own route. Entry 02 is unaffected.
++
++| Entry | New trigger (`D-479`) | Hosted comparison |
++|---|---|---|
++| **01** | Item 5: `D-171` released for the `EG` catalog contract on `ROUTE-PROD-1`; `EG4` is the Chief Editorial Desk alone and `EG5` is the Chief Editor, human only | Not compared |
++| **03** | Item 4: the `business:T*` stages (`FR-15`) are not yet normalised and are not a V1 UI anchor | Not compared |
++| **04** | Item 7: after the `EG5` final decision the LinkedIn target becomes eligible for `ManualReady`; manual publish with the live LinkedIn URL writes a `Published` event and, for the first live target, promotes the article | Not compared; the existing `V1-SM06` deferral above stands |
++| **05**, **06** | Item 6 re-binds `V1-SM05` (the evidence slice is now `V1-SM07`); item 3 amends `D-247`, so V1 delivers the full `CR-19` path | Not compared |
++
+ **Findings section (`AF-01`…`AF-11`) and the Judge decision guide are reviewed opportunistically**
+ alongside whichever entry they're attached to — they are not separately tracked here. `AF-01` was
+ resolved and reclassified in the same v13 pass that updated Entry 01, from the same trigger
+diff --git a/docs/Modular_PRD.md b/docs/Modular_PRD.md
+index 6c1e9b07811590a320c4c583104aecb618ed3a6e..e8da5735a7ea3419f143f70b766bef8c12a8a42d 100644
+--- a/docs/Modular_PRD.md
++++ b/docs/Modular_PRD.md
+@@ -580,13 +580,13 @@ This means **no KPI in §3.2 can be judged before S1 completes**, and the north-
+ | `FR-03` | Draft the editorial adaptation with a completed meaning-invariance checklist and ≥1 publication target | P0 | O-01 | US-03 | AC-04 | Line 1 | S1 | — |
+ | `FR-04` ⚠ `[historical_current_documented_held]` | T5 review is executed by a Line 2 human; agent contribution is metadata, never the executor | P0 | O-03 | US-04 | AC-05, AC-06 | Line 2 | S2 | **OD1**. **Not build-authorized** (`D-171`); target is `FR-04a` below (`D-179`) |
+ | `FR-05` ⚠ `[historical_current_documented_held]` | Classify every transition's independence as `satisfied`, `not_applicable`, or `override_not_four_eyes`; never silently treat an override as compliant | P0 | O-03 | US-05 | AC-07, AC-08 | Line 2 | S2 | **OD2**. **Not build-authorized** (`D-171`); target is `FR-05a` below (`D-179`) |
+-| `FR-04a` `[decided_target_held]` | `T5`'s required reviewer(s) are route-dependent: `ROLE-CHIEF-EDITORIAL-DESK` alone (`ROUTE-PROD-1`), `ROLE-CHIEF-JOURNALIST` alone (`ROUTE-PROD-2`/`PROD-3`), or both in parallel (fallout/GRC routes) sealed into one non-judgment bundle join; agent contribution is never `T6`'s executor | P0 | O-03 | US-04a | AC-05a, AC-05b | `T5`: Line 1 (`not_applicable` — no Line crossing); `T6`: Line 2 | S2 (target; `D-171` hold) | `D-175`, `D-177` |
+-| `FR-05a` `[decided_target_held]` | Classify `T6`'s crossing as `satisfied` (the only genuine target-order Line crossing); refuse an agent at `T6`; require every route-required `T5` review sealed, with the human's own preliminary disposition sealed before the bundle is revealed | P0 | O-03 | US-05a | AC-06a, AC-07a, AC-07b | Line 2 | S2 (target; `D-171` hold) | `D-172`, `D-175`, `D-177` |
++| `FR-04a` `[decided_target_held]` | `T5`'s required reviewer(s) are route-dependent: `ROLE-CHIEF-EDITORIAL-DESK` alone (`ROUTE-PROD-1`), `ROLE-CHIEF-JOURNALIST` alone (`ROUTE-PROD-2`/`PROD-3`), or both in parallel (fallout/GRC routes) sealed into one non-judgment bundle join; agent contribution is never `T6`'s executor | P0 | O-03 | US-04a | AC-05a, AC-05b | `T5`: Line 1 (`not_applicable` — no Line crossing); `T6`: Line 2 | S2 (target; `D-171` hold) | `D-175`, `D-177`. **V1 current scope (`D-479` item 5, decided 2026-11-07):** selected for `ROUTE-PROD-1` only, in `V1-SM05`; on that route `EG4` is `ROLE-CHIEF-EDITORIAL-DESK` alone. Other routes and `AC-05b` stay held under `D-171`. Requirement text unchanged |
++| `FR-05a` `[decided_target_held]` | Classify `T6`'s crossing as `satisfied` (the only genuine target-order Line crossing); refuse an agent at `T6`; require every route-required `T5` review sealed, with the human's own preliminary disposition sealed before the bundle is revealed | P0 | O-03 | US-05a | AC-06a, AC-07a, AC-07b | Line 2 | S2 (target; `D-171` hold) | `D-172`, `D-175`, `D-177`. **V1 current scope (`D-479` item 5, decided 2026-11-07):** selected for `ROUTE-PROD-1` only, in `V1-SM05`; `EG5` is `ACCESS-ROLE-CHIEF-EDITOR`, human only, with the blind order of `FN-GATES-01-05.md` §11.1. `AC-07b` stays held under `D-171`. Requirement text unchanged |
+ | `FR-06` | Return an article to a prior state with a mandatory reason; auto-escalate at the return limit | P0 | O-01, O-02 | US-06 | AC-09, AC-10, AC-08a (target scoped-return, `[decided_target_held]`, `D-180`) | Line 1/2 | S1 | — |
+ | `FR-07` | Write an append-only transition record before every state change, carrying executor identity, Line, timestamp, and reason | P0 | O-02 | US-07 | AC-11, AC-12 | Line 1 | S1 | — |
+ | `FR-08` | Present a board grouped by state and filterable on every `BOARD_FILTER_DIMENSIONS` value | P0 | O-05 | US-08 | AC-13 | Line 1 | S3 | — |
+ | `FR-09` | On approval, publish to WordPress or mark a target ManualReady with formatted content; per-target status | P0 | O-04 | US-09 | AC-14, AC-15, AC-14a (target, `[decided_target_held]`, `D-180`) | Line 1 | S4 | **V1 current scope (`D-243`/`D-244`):** LinkedIn target-level `ManualReady` only, in `V1-SM06`; automated WordPress is a V2 target. `[V1]` origin retained |
+-| `FR-10` | Confirm a manual publish by entering a live URL; article becomes Published on the first live target | P1 | O-02, O-04 | US-10 | AC-16, AC-16a (target, `[decided_target_held]`, `D-180`) | Line 2 | S4 | **V1 current scope (`D-243`):** runtime confirmation and `Published` promotion are a V2 target, outside V1. `[V1]` origin retained; no `[V1→V2]` marker while no V2 build exists (`D-178`) |
++| `FR-10` | Confirm a manual publish by entering a live URL; article becomes Published on the first live target | P1 | O-02, O-04 | US-10 | AC-16, AC-16a (target, `[decided_target_held]`, `D-180`) | Line 2 | S4 | **V1 current scope (`D-243`):** runtime confirmation and `Published` promotion are a V2 target, outside V1. `[V1]` origin retained; no `[V1→V2]` marker while no V2 build exists (`D-178`). **Amended (`D-479` items 3 and 7, decided 2026-11-07):** the deferral above is superseded for the LinkedIn target only. In `V1-SM06` the Chief Editor enters and confirms the live LinkedIn URL; on success one `Published` event is written for that target, and the article becomes `Published` in the same transaction if this is its first live target. Automated WordPress publication, retry and credentials stay a V2 target |
+ | `FR-11` ⚠ | Trigger a Line 3 audit on defined risk conditions; Line 3 reports independently | P1 | O-03 | US-11 | AC-17 | Line 3 | S5 | **Not built in v1 (`D-57`); governed directly by `D-57`, not `OD3` or `OD4`** (`D-168`) |
+ | `FR-12` | Operate in degraded mode when the Chief Editor is absent beyond the configured threshold | P1 | O-01 | US-12 | AC-18 | Line 1 | S5 | — |
+ | `FR-13` | Force immediate retraction on an external regulatory or court order, bypassing normal revision | P1 | O-01 | US-13 | AC-19 | Line 2 | S5 | — |
+@@ -1051,6 +1051,12 @@ real, scheduled work: its sequence and gates live in `docs/v1/V1-BUILD-SPEC.md`
+ > **Setup continues — 2026-09-25 (`D-264`), superseding the root closure above.** `SETUP-SPIKE-000` remains open as the
+ > container for validation attempt `SV-002`, while `S2`–`S4` stay terminally deferred. `V1-SM05` is **`BLOCKED`** (a
+ > packet status) until `SV-002` is accepted and the Judge lifts the block. No FR/AC/NFR changes and no tier opens.
++>
++> **V1 re-slot (`D-479` item 6, decided 2026-11-07).** `V1` now has five slots: `V1-SM05` `MMF-V1-PIPELINE`, `V1-SM06`
++> `MMF-V1-PUBLISH`, `V1-SM07` `MMF-V1-CORE`, `V1-SM08` `ENB-V1-RELEASE` and `V1-SM09` (IP iteration);
++> `docs/v1/V1-BUILD-SPEC.md` §1 holds the table. `MMF-V1-USABLE` is retired. Text above dated before this note reads
++> `V1-SM05` as the `FR-15` evidence slice, now `V1-SM07`, and `V1-SM06` as board and `ManualReady`. The rows below keep
++> their history. No FR, AC or NFR changes.
+ 
+ | Sprint | Theme | Objective | FRs | TRs / NFRs | ACs | Priority | Status |
+ |---|---|---|---|---|---|---|---|
+@@ -1098,10 +1104,10 @@ real, scheduled work: its sequence and gates live in `docs/v1/V1-BUILD-SPEC.md`
+ | `AC-06` ⚠ `[historical]` | FR-04 | AT-016 | An article is at `Drafted` | **An agent attempts T5** | **The transition is refused.** Line 2 is human-primary. *This is the case the committed seed data currently violates* (X4). **Not build-authorized** (`D-171`) |
+ | `AC-07` `[historical]` | FR-05 | AT-017 | An article is at `Reviewed` | A Chief Journalist agent executes T6 | State becomes `Approved`; **`line_separation_status = 'satisfied'`** at the Line 2 → Line 1 boundary. *(`Q11` closed: the VALUE `satisfied` was never retired — `D-97` kept it. Only the column name changed, `D-111`.)* **Not build-authorized** (`D-171`) |
+ | `AC-08` `[historical]` | FR-05 | AT-018, AT-043 | An article is at `Reviewed` | The Chief Editor executes T6, a Line 1 gate | The transition is allowed but recorded `event_type = HumanOverride`; **`line_separation_status = 'override_not_four_eyes'`**. *(`Q11` closed: the value survives `D-97`; `identity_assurance` records WHO, separately, and does not replace this classification.)* It is never counted toward `G-02`. **Not build-authorized** (`D-171`) |
+-| `AC-05a` `[decided_target_held]` | FR-04a | — | An article completes `T4` on `ROUTE-PROD-1` | Chief Editorial Desk executes `T5` | `T5_review_sealed` recorded for that one required reviewer; `T5_review_bundle_sealed` join completes `T5` with no second reviewer required |
++| `AC-05a` `[decided_target_held]` | FR-04a | — | An article completes `T4` on `ROUTE-PROD-1` | Chief Editorial Desk executes `T5` | `T5_review_sealed` recorded for that one required reviewer; `T5_review_bundle_sealed` join completes `T5` with no second reviewer required. **V1 current scope (`D-479` item 5, decided 2026-11-07):** in `V1-SM05` on `ROUTE-PROD-1` (`EG4`). Criterion text unchanged; `AC-05b` stays held |
+ | `AC-05b` `[decided_target_held]` | FR-04a | — | An article completes `T4` on a fallout/GRC route | Both Chief Editorial Desk and Chief Journalist execute `T5` in parallel | Two separately attributable `T5_review_sealed` events exist before `T5_review_bundle_sealed`; neither review is discarded; the join chooses no winner and holds no `A` |
+-| `AC-06a` `[decided_target_held]` | FR-05a | — | An article's required `T5` review set is sealed | **An agent attempts T6** | **The transition is refused.** `T6` is human-primary under the target order — the canary moves from `T5` (`AC-06`) to `T6` |
+-| `AC-07a` `[decided_target_held]` | FR-05a | — | An article's required `T5` review set is sealed | The Chief Editor reviews | `EG5_preliminary_disposition_sealed` is recorded **before** `T5_review_bundle_revealed_to_EG5`; a bundle revealed first fails the blind-order proof |
++| `AC-06a` `[decided_target_held]` | FR-05a | — | An article's required `T5` review set is sealed | **An agent attempts T6** | **The transition is refused.** `T6` is human-primary under the target order — the canary moves from `T5` (`AC-06`) to `T6`. **V1 current scope (`D-479` item 5, decided 2026-11-07):** in `V1-SM05`, for `ROUTE-PROD-1` only (`EG5`, human only). Criterion text unchanged |
++| `AC-07a` `[decided_target_held]` | FR-05a | — | An article's required `T5` review set is sealed | The Chief Editor reviews | `EG5_preliminary_disposition_sealed` is recorded **before** `T5_review_bundle_revealed_to_EG5`; a bundle revealed first fails the blind-order proof. **V1 current scope (`D-479` item 5, decided 2026-11-07):** in `V1-SM05` on `ROUTE-PROD-1`. Criterion text unchanged; `AC-07b` stays held |
+ | `AC-07b` `[decided_target_held]` | FR-05a | — | Two `T5` reports disagree | The Chief Editor records `T6` | Both reports remain visible and unaltered; `EG5_final_decision_recorded` is the only resolution — no automatic winner, no silent merge |
+ | `AC-08a` `[decided_target_held]` | **`FR-06` (corrected 2026-09-02, `D-180`, `B068-R50` — was misattached to `FR-05a`; this is return/rerun behavior, `FR-06`'s domain, not independence classification)** | — | The Chief Editor returns work at `T6` | Return scope is recorded | A single-reviewer defect reruns only that reviewer against the unchanged sibling report; a shared-evidence defect invalidates the bundle and reruns every required `T5` review; prior versions remain retrievable, never presented as current |
+ | `AC-09` | FR-06 | AT-013 | An article is in any active state | A return is attempted with an empty reason | The write is rejected: reason is mandatory |
+@@ -1112,7 +1118,7 @@ real, scheduled work: its sequence and gates live in `docs/v1/V1-BUILD-SPEC.md`
+ | `AC-13` | FR-08 | AT-050…AT-053 | `SUCCESS_ARTICLES_LOGGED_MIN` articles span states, topics, categories, and Lines | The Chief Editor filters on each dimension | Only matching articles show; a no-match filter shows an explicit empty state |
+ | `AC-14` | FR-09 | AT-020 | An article is `Approved` with a WordPress target | The publication job runs | The post is created; `published_url` is stored; the target is `Published`; the article becomes `Published`. **V1 current scope (`D-243`):** WordPress automation is a V2 target; this criterion is outside V1. `[V1]` origin retained |
+ | `AC-15` | FR-09 | AT-021, AT-023 | An article has WordPress and LinkedIn targets and WordPress succeeds while LinkedIn does not | The job completes | WordPress is `Published`, LinkedIn is `Failed` or `ManualReady`, **both statuses held simultaneously**, article `Published`. **Not representable today** (TC2). **V1 current scope (`D-243`):** outside V1 — only the LinkedIn `ManualReady` event is in scope. `[V1]` origin retained |
+-| `AC-16` | FR-10 | AT-022 | A target is `ManualReady` | The Chief Editor enters a live `published_url` and confirms | That target becomes `Published`; if it is the first live target, the article becomes `Published`; the confirmation is audited identically to an automated publish. **V1 current scope (`D-243`):** this criterion is a V2-target item, outside V1; `[V1]` origin retained |
++| `AC-16` | FR-10 | AT-022 | A target is `ManualReady` | The Chief Editor enters a live `published_url` and confirms | That target becomes `Published`; if it is the first live target, the article becomes `Published`; the confirmation is audited identically to an automated publish. **V1 current scope (`D-243`):** this criterion is a V2-target item, outside V1; `[V1]` origin retained. **Amended (`D-479` items 3 and 7, decided 2026-11-07):** in V1 for the LinkedIn target, in `V1-SM06`; the entered URL must pass item 7's validation, and no network fetch is made |
+ | `AC-14a` `[decided_target_held]` | FR-09 | — | Delivery is about to execute | Any attempt to alter editorial judgment, reason, route evidence, or authority record occurs during Delivery | The mutation is refused; Delivery consumes the approved immutable `T6` disposition and executes the target outcome only (`FN-PUBLICATION-09-10-13.md` §11 owns the full rule) |
+ | `AC-16a` `[decided_target_held]` | FR-10 | — | A route requires external acceptance (fallout/GRC) | A manual publish confirm is attempted | Delivery/confirmation is blocked until `external_acceptance_or_mandate_record` exists (`FN-EXCEPTIONS-06-11-12.md` §11.2 owns the trigger/acceptance record shapes). **V1 current scope (`D-243`):** the confirm action is a V2-target item; the held rule is unchanged |
+ | `AC-17` ⚠ | FR-11 | AT-044, AT-074 | A Line 3 trigger condition fires | Line 3 completes its audit | `event_type = Line3Audit`, `line_assignment = Line3`, finding and recommendation recorded, with **unrestricted read access to relevant evidence and an independent reporting/authority path Lines 1/2 cannot control** (`D-166`). **Not built in v1** — governed directly by `D-57`, not `OD3` or `OD4` (`D-168`) |
+diff --git a/docs/fn-specs/FN-GATES-01-05.md b/docs/fn-specs/FN-GATES-01-05.md
+index b3016b93b8d7ffca286329dccc2d243479b6328d..5bb5793d5409e695de590f261e66c2b1b634f1ca 100644
+--- a/docs/fn-specs/FN-GATES-01-05.md
++++ b/docs/fn-specs/FN-GATES-01-05.md
+@@ -549,6 +549,8 @@ current behaviour.
+ 
+ > **Namespace note `[V1]`, 2026-10-04 (`D-414`, GR-010).** The `EG1`–`EG5` nodes below are held technical-catalog context. They are not V1 `EG` task/evidence records (§4.4–§4.6), and a shared label is not identity or execution evidence.
+ 
++> **Lifecycle note `[V1]` (`D-479` item 5, decided 2026-11-07).** The `D-171` hold is released for one contract: the single-reviewer production route `ROUTE-PROD-1`. On that route `EG4` is `ROLE-CHIEF-EDITORIAL-DESK` alone, and `EG5` is `ACCESS-ROLE-CHIEF-EDITOR`, human only, with the blind order of §11.1. That contract is selected for `V1-SM05`. The lifecycle column below stays `decided_target_held` for every other route; multi-reviewer routes, `AC-05b`, `AC-07b` and the current order of Sections 1–10 stay held. Sections 1–10 are unchanged.
++
+ | Node | Transition mapping (held technical `transition:T*`, `D-414`) | Target executor role (`ROLE-*`, see `raci-involvement-matrix.md` §8) | Lifecycle |
+ |---|---|---|---|
+ | `EG1` | `T1` | `ROLE-REPORTER` | `decided_target_held` |
+diff --git a/docs/fn-specs/FN-PUBLICATION-09-10-13.md b/docs/fn-specs/FN-PUBLICATION-09-10-13.md
+index 77c72595df45c2bdd23ccadbbd2aca55b5cb9e33..1eea9145765902f0416e3bbc615cb078b4ae3a71 100644
+--- a/docs/fn-specs/FN-PUBLICATION-09-10-13.md
++++ b/docs/fn-specs/FN-PUBLICATION-09-10-13.md
+@@ -201,6 +201,25 @@ never a direct Delivery-stage edit.
+ component or framework choice belongs here (`SPECS` and an authorized Lane B refinement own those).
+ This section is a **current-scope note** for §4.1 and §4.2, whose `[V1]` origin is unchanged.
+ 
++**Amended (`D-479` items 3 and 7, decided 2026-11-07) — current scope.** Where this note and the text below differ,
++this note controls; the text below is kept as history.
++
++- After the `EG5` final decision (article `Approved`), the LinkedIn target becomes eligible for `ManualReady`; it no
++  longer waits for the `business:T5` record. `ROLE-SENIOR-JOURNALIST` stays the sole authorized requester, and the
++  content binding is unchanged (`D-250` as amended).
++- `FR-10` enters V1 for the LinkedIn target only, in `V1-SM06`, at the Delivery node. The Chief Editor
++  (`ACCESS-ROLE-CHIEF-EDITOR`, human only) enters and confirms the live LinkedIn post URL for a target that holds a
++  `ManualReady` event.
++- Validation, all required, with no network fetch: the scheme is `https`; the host is `linkedin.com` or
++  `www.linkedin.com`; the path is a post, a feed update or an article, and the `V1-SM06` DoR fixes the exact patterns;
++  no other publication target holds the same URL.
++- On success, one `Published` publication event is written for that target, with `actor_type = human` and
++  `published_url` set to the entered URL. If this is the article's first live target, the article becomes `Published`
++  in the same transaction. On failure, the entry is refused with a named reason; no event is written and no state
++  changes.
++- No new enum value. The UI may label the result "Manually published".
++- Automated WordPress publication, retry and credentials stay a V2 target. §4.2's behaviour text is unchanged.
++
+ **What V1 delivers.** After the `business:T5` Chief Editorial Desk ranking/routing record completes,
+ the system may record that the article's **LinkedIn** target is ready for a human to post manually, as a
+ target-level **`ManualReady`** event. It is a publication event, not an article state: it never marks
+diff --git a/docs/specs/SPECS-PUBLICATION.md b/docs/specs/SPECS-PUBLICATION.md
+index 018d0955afb18cb524958f57f6b5cd930faca90c..99b46a07ab0d89e1c0e3d05b5a9325ec457451aa 100644
+--- a/docs/specs/SPECS-PUBLICATION.md
++++ b/docs/specs/SPECS-PUBLICATION.md
+@@ -6,7 +6,7 @@
+ **Authorized by:** `D-143` — rules `Q3` (publish path) and `Q5` (retry scheduler)
+ **Source behaviour:** `FN-PUBLICATION-09-10-13.md` §4 (`FR-09`, `NFR-05`)
+ **Original allocation:** `SETUP-SPIKE-000/S4` — terminally deferred, closed without DoD credit (`D-258`).
+-**Current disposition:** Automated WordPress publication and retry are a V2-target backlog item (`D-243`, `D-244`); no V2 build or implementation is authorized. This document keeps the future automated-path decisions `D-143`/`D-146`. Current V1 publication scope is the bounded LinkedIn target-level `ManualReady` event in `V1-SM06`, governed by `FN-PUBLICATION-09-10-13.md` §12. The `[V1]` section markers below record origin, not current delivery allocation.
++**Current disposition:** Automated WordPress publication and retry are a V2-target backlog item (`D-243`, `D-244`); no V2 build or implementation is authorized. This document keeps the future automated-path decisions `D-143`/`D-146`. Current V1 publication scope is LinkedIn target-level `ManualReady` and manual confirmation with the live LinkedIn URL in `V1-SM06`, governed by `FN-PUBLICATION-09-10-13.md` §12. The `[V1]` section markers below record origin, not current delivery allocation.
+ 
+ ---
+ 
+diff --git a/docs/v1/V1-ARTIFACT-INVENTORY.md b/docs/v1/V1-ARTIFACT-INVENTORY.md
+index 9e500971df94126262d78819811ae651ff475164..9b2ec867d52a0ec98410bc01c5fa3e50d2ea67a7 100644
+--- a/docs/v1/V1-ARTIFACT-INVENTORY.md
++++ b/docs/v1/V1-ARTIFACT-INVENTORY.md
+@@ -95,6 +95,7 @@
+ | `docs/v1/work-packets/V1/V1-SM08.md` | `D-479` item 6 — planned enabler work packet for `ENB-V1-RELEASE`; receives `SM06-P3-01`–`06` (item 8) | ⏳ **Planned — not created** |
+ | `docs/v1/work-packets/V1/V1-SM09.md` | `D-479` item 6 — planned IP iteration work packet (no MMF, no feature DoD) | ⏳ **Planned — not created** |
+ | `supabase/migrations/` — new migration replacing the current-order executor rows of `0002`'s `allowed_transitions` | `D-479` item 5 — Lane B work, named by the `V1-SM05` work order; `0001` and `0002` are not edited | ⏳ **Planned — not created** |
++| `docs/v1/V1-INTENT-INDEX.md` | `D-479` item 9 — V1 read-first navigation map; grants no build authority | ✅ **Created 2026-11-13** |
+ | `docs/graph-fragments/restore-docs-layer.js` | `D-246` — replays docs-layer nodes by id from a dated graph backup after a rebuild dropped them; overwrites nothing | ✅ **Created 2026-09-20** |
+ | `docs/graph-fragments/frag137.json` | `D-246` — curated nodes for documents and decisions created after the last backup (work packets, SPECS index files, `D-242`–`D-246`) | ✅ **Created 2026-09-20** |
+ | `docs/graph-fragments/frag138.json` | `D-247`–`D-251` — curated nodes for the five decisions, and corrected descriptions for `FR-09`, `FR-10` and `D-244` | ✅ **Created 2026-09-21** |
+@@ -607,7 +608,8 @@ README. Every file keeps its inventory row and status.
+ `V1-SM07.json`, with the `FR-15` scope and the `BLOCKED` status. Their rows keep their `D-240`/`D-259` provenance and
+ creation dates. A new `V1-SM05.md` is created for `MMF-V1-PIPELINE` (item 12). `V1-SM06.md` is re-scoped to
+ `MMF-V1-PUBLISH`. `V1-SM08.md`, `V1-SM09.md` and the Lane B executor migration are planned, not created. The receipt
+-`V1-SM05-jev-readiness.json` keeps its name as dated evidence.
++`V1-SM05-jev-readiness.json` keeps its name as dated evidence. Commit 2b, 2026-11-13: `docs/v1/V1-INTENT-INDEX.md` is
++created (item 9).
+ 
+ ## Temporary / Draft Artifacts
+ 
+diff --git a/docs/v1/V1-BUILD-SPEC.md b/docs/v1/V1-BUILD-SPEC.md
+index 909c63bd01cf685ceb1f7b8a1c2e32c0876c393a..a7ce1b083c7d34258407e3f2943202dd5d5abe46 100644
+--- a/docs/v1/V1-BUILD-SPEC.md
++++ b/docs/v1/V1-BUILD-SPEC.md
+@@ -24,6 +24,10 @@ meaning unchanged** — they predate the namespace split and are not renumbered
+ `OD1`–`OD3`; S5's Line 3/`FR-11` portion is governed directly by `D-57`, not `OD3` or `OD4`
+ (`D-168`, `D-169`) — only its degraded-mode portion depends on `Q1`'s production half (`OD3`).
+ 
++**Superseded in part (`D-479` item 6, decided 2026-11-07).** `V1` now has five slots, `V1-SM05` to `V1-SM09` (table
++below). The sentences above that end `V1`'s functional milestone at `V1-SM06` and say `V1` has no functional Sprint 3
++or Sprint 4 are history. The `S5`/`S6` labels keep their meaning.
++
+ ### V1 slots — `V1-SM05` to `V1-SM09` (`D-479`; earlier `D-232`)
+ 
+ | Qualified ID | MMF | Status | Meaning |
+@@ -46,6 +50,12 @@ customer's statement and stays unchanged. The `ManualReady` contract — eligibi
+ requester `ROLE-SENIOR-JOURNALIST`, content binding, refusal and replay — is `D-250`; the physical mechanism is
+ Lane B's, later. Natural-person access is `ACCESS-ROLE-CHIEF-EDITOR` (`D-251`).
+ 
++**Superseded (`D-479` item 3, amending `D-247`, decided 2026-11-07).** V1 now delivers the customer's `CR-19` path:
++log, five editorial gates with logged transitions, final approval, LinkedIn `ManualReady`, manual publish with the
++live LinkedIn URL, board and audit. The paragraph above is history. Automated WordPress publication, retry and
++credentials stay a V2 target, and generated AI tagging stays `PBL-11`. Recorded drift, not changed: the frozen PRD says
++"Chief Journalist approves", but on `ROUTE-PROD-1` the final decision (`EG5`) is the Chief Editor's.
++
+ **Stacked-PR boundary and migration semantics (`D-252`, 2026-09-22).** The `V1-SM05` branch and
+ pull request are **stacked**: based on and targeting `docs/journal-2026-08-16`, not `main`;
+ baseline promotion to `main` remains pending until `V1-SM05` development DoD is accepted, as its
+@@ -77,6 +87,13 @@ CI result is not a DoD prerequisite. `AC-NF-03` still describes CI running on ev
+ running. The chain is: accepted local `V1-SM05` DoD → separately accepted baseline-promotion PR (`V1-SM06`'s entry
+ prerequisite) → `V1-SM06` entry → separately authorized Phase 3 CI and hosted work.
+ 
++**Amended (`D-479` item 8, decided 2026-11-07).** `V1-SM08`, not `V1-SM06`, is the first increment to receive Phase 3
++CI work and the hosted migration. Receipts `SM06-P3-01` to `SM06-P3-06` move to `V1-SM08` and keep their IDs; until
++`V1-SM08.md` exists they stay in `V1-SM06.md`'s receipt table under that custody. `D-383`'s local-validation rule
++applies to `V1-SM05`, `V1-SM06` and `V1-SM07`. The separately accepted baseline-promotion PR is `V1-SM08`'s entry
++prerequisite (`D-486`). `D-252`'s stacked-branch terms above stay with the content
++now in `V1-SM07`; the new `V1-SM05` branch is named by its work order.
++
+ **State-1 lifecycle, branch name and sequencing (`D-253`, 2026-09-22).** The State-1 readiness PR is
+ **documentation-only**: no implementation change, and DoD gates acceptance and merge rather than
+ review approval alone. The approved feature branch is `features/feature-V1-SM05`, created by
+@@ -115,6 +132,12 @@ conditions and the Judge lifts the block. `SV-001` is the completed pre-selectio
+ success-drift baseline, not a feature DoR/DoD run. Every validation attempt pins the reusable, result-free template
+ `docs/templates/dor-dod-validation/v1.md` by SHA-256, and future setup closure follows `D-264`'s transfer invariant.
+ 
++**Amended (`D-479` items 3 and 7, decided 2026-11-07).** `FR-10` enters V1 for the LinkedIn target only. `V1-SM06`
++carries Delivery: after the `EG5` final decision the LinkedIn target becomes eligible for `ManualReady`, then the Chief
++Editor confirms the live LinkedIn URL (`FN-PUBLICATION-09-10-13.md` §12). The statements above that `V1-SM06` carries
++only `ManualReady` and that live-URL confirmation is a V2 target are history. Automated WordPress publication, retry
++and credentials stay a V2 target.
++
+ **`D-266` (2026-09-26) — `SV-002` sequence.** Loader runs `SV2-U02-A` (Claude Code, independent), `-B` (parent) and
+ `-C` (child) come **before** any rule-file or parity-check edit. The rule files are then refactored atomically to the
+ binding targets (`AGENTS.md` < 6,000 characters; `CLAUDE.md` < 300 lines; skills < 12,000 characters). `ripwire`: while
+@@ -461,6 +484,11 @@ behaviour. Jev's scope parity now covers every ID shape. `DOR-R7` is checked on
+ receipt evaluated at a clean commit; **every `V1-SM05` DoR row is now checked.** Issue, push, branch and
+ State-1 PR remain separately authorized acts (`D-253`).
+ 
++**Superseded in part (`D-479` items 5 and 6, decided 2026-11-07).** This paragraph's `V1-SM05` is the `FR-15`
++evidence slice, now `V1-SM07`. `FR-04a`/`FR-05a`, `AC-05a`/`AC-06a`/`AC-07a` and `AC-11`/`AC-12` now belong to the new
++`V1-SM05`, for `ROUTE-PROD-1` only, so "no later packet is named" no longer holds. Multi-reviewer routes, `AC-05b` and
++`AC-07b` stay held under `D-171`.
++
+ **`D-261` — Product owner for the slice; `DOR-R7` reopened, then re-closed (2026-09-24).** `docs/handoff/B-134`
+ showed the `D-260` receipt proved only that the lower tiers agree with each other: the §4.4 scenarios had no
+ `Modular_PRD` owner, and `AC-01` carried two meanings. `Modular_PRD.md` now owns the slice as `US-15`/`FR-15`
+@@ -726,6 +754,14 @@ so a rule about when a lane may begin belongs in the reader's line of sight.
+ > replaces `EA` · consuming gates refuse on missing required operation evidence, not on operation title ·
+ > a route may not be enabled while any of its required/triggered operations has an unresolved executor,
+ > accountability, or atomic-completion contract (`D-177`, `B068-R40`).
++>
++> **Released for one contract (`D-479` item 5, decided 2026-11-07).** This is the fresh, separate build authorization
++> that `D-171` item 1 requires, for one contract only: the `EG` catalog target contract on `ROUTE-PROD-1`, selected for
++> V1 in `V1-SM05` (the `D-171` item 2 matrix, `D-175`–`D-179`, and the `FN-GATES-01-05.md` §11.1 single-reviewer
++> rows). On that route `EG4` is `ROLE-CHIEF-EDITORIAL-DESK` alone, and `EG5` is `ACCESS-ROLE-CHIEF-EDITOR`, human
++> only, with §11.1's blind order. The hold above stands for multi-reviewer routes, `AC-05b`, `AC-07b` and the current
++> order. A new Lane B migration, named by the `V1-SM05` work order, replaces the `allowed_transitions` executor rows
++> that `0002` encodes for the current order; `0001` and `0002` are not edited.
+ 
+ Actor context on every action · four-eyes evaluator behind `FOUR_EYES_MODE` · **T5 is Line 2, human-executed** · **blind first pass at T5** — Line 2 records its disposition *before* the Line 1 recommendation is revealed, without which agreement cannot be distinguished from anchoring · T6 validates against T5's recorded fields, not a boolean · **T6→T5 return rate logged distinctly** · `EmergencyBypass` as `event_type` · hard block on one identity holding both Line 1 and Line 2 roles (`SEC-01`).
+ 
+diff --git a/docs/v1/V1-INTENT-INDEX.md b/docs/v1/V1-INTENT-INDEX.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..cd8186b87063ecf92732139ed1866583f7ef8257
+--- /dev/null
++++ b/docs/v1/V1-INTENT-INDEX.md
+@@ -0,0 +1,63 @@
++# V1 Intent Index
++
++**Status:** Recorded by `D-479` items 6 and 9 (Register §5.14e302, decided 2026-11-07). This file is the read-first navigation map for V1 slot work. It grants no build authority: selection, a work order and the `Active` lane are still required (`D-183`, `D-186`). Where this file and a governed source differ, the source decides (`D-58`).
++
++## 1. Lexicon
++
++| Term | Meaning |
++|---|---|
++| MMF | Minimum Marketable Feature: a small, self-contained feature that can be developed quickly and that delivers significant value to the user (Agile Alliance glossary). Not an MVP. Each MMF states a benefit hypothesis (`D-479` item 1). |
++| Enabler | Work that makes MMFs possible or releasable, with no direct user value of its own (SAFe term). |
++| IP iteration | Innovation and Planning iteration: a buffer iteration with no feature work and no feature DoD (SAFe). |
++| Slot | A live V1 sprint label, `V1-SM05` to `V1-SM09` (`D-479` item 6). `SM` is an opaque label (`B-117:1409`). Bare `SM05-*` and `SM06-*` IDs are historical and name no slot. |
++| Dated record | A record dated before `D-479` that says `V1-SM05` or `V1-SM06` means the binding then in force: `V1-SM05` = the `FR-15` evidence slice, now `V1-SM07`; `V1-SM06` = board and `ManualReady` (`D-479` item 6). |
++| `EG1` to `EG5`, Delivery | The editorial nodes of `FN-GATES-01-05.md` §11. The UI uses these names (`D-479` item 4). |
++| `T*` | Internal process transitions. Never shown in the UI or in human-facing text (`D-479` item 4). |
++| Manual publish | At the Delivery node, the Chief Editor enters and confirms the live LinkedIn post URL for a target that holds a `ManualReady` event (`FR-10`, LinkedIn only, `D-479` item 7). |
++| `TASKS-S1` to `S4` | Historical provenance only: the four sprints in `docs/TASKS.md`, which is not authoritative (`D5`). |
++| `PRD-S0` to `S6` | The sprint rows in `docs/Modular_PRD.md` §8.1. Different content from `TASKS-S*`. |
++
++## 2. Read order for a builder
++
++The authority order in `AGENTS.md` "Before any work" governs. This file is read first for navigation only; it adds no authority and changes none of that order.
++
++1. This file, to find your slot.
++2. `docs/v1/V1-BUILD-SPEC.md` and the Register, as `AGENTS.md` requires. In the Register, read `D-479` and each decision named in your row.
++3. Your slot's governed packet, `docs/v1/work-packets/V1/<slot>.md`. `V1-SM08` and `V1-SM09` have no packet file yet.
++4. The universal DoR and DoD: `docs/handoff/B-117-open-backlog-aging-and-refinement-closure.md`, lines 240–277 at `4e54628` (`D-479` item 2). Your packet's DoR and DoD fill those rows and add the benefit hypothesis.
++5. The fn-spec sections named in your row.
++
++## 3. Index
++
++| Slot | MMF | Status | User outcome | PRD V1 bullet | `TASKS.md` (historical provenance) | FR | AC | Fn-spec |
++|---|---|---|---|---|---|---|---|---|
++| `V1-SM05` | `MMF-V1-PIPELINE` | Not started; not selected; DoR not written | Paste a source. See it on the board by state. Move it through `EG1` to `EG5` on `ROUTE-PROD-1`; each move is logged. The Chief Editor makes the final decision at `EG5`. Return it with a reason. | Log article; five-gate pipeline; every transition logged; approval; board (state) | `TASKS-S1` DoD | FR-01, FR-02, FR-03, FR-04a (`ROUTE-PROD-1`), FR-05a, FR-06, FR-07, FR-08 (state) | AC-01 to AC-04, AC-05a, AC-06a, AC-07a, AC-09 to AC-12, AC-13 (state), AC-22, AC-NF-01, AC-NF-02, AC-NF-05 | `FN-GATES-01-05` §11; `FN-EXCEPTIONS-06-11-12`; `FN-AUDIT-VISIBILITY-07-08` |
++| `V1-SM06` | `MMF-V1-PUBLISH` | Not started; not selected | Delivery: after the `EG5` final decision (article `Approved`), the article's LinkedIn target becomes eligible for `ManualReady`. `ROLE-SENIOR-JOURNALIST` is the sole requester, and readiness binds to the exact accepted content. The Chief Editor posts it and enters the live LinkedIn URL. A valid URL writes one `Published` event for that target; if this is the article's first live target, the article becomes `Published` in the same transaction. Filter by topic and category. Read the audit view. | Publish or mark LinkedIn-ready; board filters | `TASKS-S2` DoD, less WordPress (`D-243`) and less generated AI tagging (`D-194`) | FR-08, FR-09 (LinkedIn), FR-10 (LinkedIn) | AC-13, AC-14a, AC-16; `D-250` as amended by `D-479` item 7 | `FN-PUBLICATION-09-10-13` §4.2, §12 |
++| `V1-SM07` | `MMF-V1-CORE` (identity kept) | `BLOCKED` (packet status, `D-434`); not selected | Record newsdesk ranking and routing evidence for each commission | None (enrichment) | None | FR-15 | AC-23 to AC-26 | `FN-GATES-01-05` (FR-15 part) |
++| `V1-SM08` | `ENB-V1-RELEASE` (enabler, not an MMF) | Planned enabler work packet; no packet file yet | V1 runs on hosted Supabase, Phase 3 CI is in place, and the PRD success criteria are measured. | Success Criteria | None | NFR-01, NFR-02, NFR-04, NFR-07 | AC-NF-01 to AC-NF-05; receipts `SM06-P3-01` to `SM06-P3-06` (`D-479` item 8) | `SPECS-VERIFICATION-APPARATUS` |
++| `V1-SM09` | IP iteration (no MMF, no feature DoD) | Planned; no packet file yet | Buffer, V1 inspect and adapt, freeze decision (`D-203`), V2 backlog ranking | None | None | None | None | None |
++
++## 4. Retired or outside V1
++
++| Item | Disposition |
++|---|---|
++| `MMF-V1-USABLE` | Retired (`D-479` item 6). Its board content moves to `V1-SM05`; its `ManualReady` content moves to `V1-SM06`. |
++| Automated WordPress publication, retry and credentials | V2 target (`D-243`), unchanged. `FR-10` enters V1 for the LinkedIn target only (`D-479` item 3). |
++| Generated AI tagging at the Reporter gate | Stays `PBL-11` (`D-194`, `D-479` item 3). V1 keeps the manual contract. |
++| FR-11, FR-12, FR-13, FR-14 | Outside V1, unchanged. |
++| `TASKS-S3` (auth lock-down), `TASKS-S4` (insights) | Historical provenance; outside V1. The PRD has a single account and no login wall. |
++
++## 5. Decisions
++
++| Decision | State |
++|---|---|
++| MMF means Minimum Marketable Feature; `B071-R76` closed | Recorded, `D-479` item 1 |
++| Universal DoR and DoD from `B-117` | Recorded, `D-479` item 2 |
++| `D-232` mapping and `D-260` item 1 boundary superseded; `MMF-V1-USABLE` retired; slots `V1-SM05` to `V1-SM09` | Recorded, `D-479` item 6 |
++| `D-171` released for the `EG` catalog contract on `ROUTE-PROD-1` | Recorded, `D-479` item 5 |
++| `D-243` and `D-250` amended: `FR-10` LinkedIn manual publish in V1; the LinkedIn target becomes eligible for `ManualReady` after the `EG5` final decision | Recorded, `D-479` items 3 and 7 |
++| Phase 3 CI and the hosted migration move to `V1-SM08` | Recorded, `D-479` item 8 |
++| The separately accepted baseline-promotion PR is `V1-SM08`'s entry prerequisite | `D-486` |
++| Normalise the `business:T*` stages (`FR-15`) | Pending: needed before the `V1-SM07` DoR (`D-479` item 4) |
++| Lift the `V1-SM07` `BLOCKED` packet status (`D-434`) | Pending: needed before the `V1-SM07` DoR |
++| Select a slot, write its DoR, issue its work order | Pending: `D-479` selects no slot |
+diff --git a/docs/v1/V1-PHASE-CLOSURE.md b/docs/v1/V1-PHASE-CLOSURE.md
+index a96e5c1c4c6497ac2034ed47a490d19b7f9110b5..bdc025fb0f9abcade35346121e490c6202a7fcf7 100644
+--- a/docs/v1/V1-PHASE-CLOSURE.md
++++ b/docs/v1/V1-PHASE-CLOSURE.md
+@@ -383,6 +383,8 @@ handover is the moment that becomes a gap**, not a theoretical one.
+ | **B** | **2 — Application** | **`Eligible`**. Nominated by the Chief Editor on 2026-09-28 (`D-311`), so Lane B can file its Level 1 review of `SV2-U02-A-R1` (`D-310`) as its own `B-` entry. This is the SELECTION step only: offered the lock, **not executing**, beside the lane holding the lock (Lane A) under `D-156`. It grants no lock transfer and no code change; construction stays unauthorized (`V1-SM05` `BLOCKED`). Earlier nominations: `D-274` (completed in `B-143`), moved to Lane C by `D-296` | **Robert Tan, 2026-09-28 — nominated `Eligible` (`D-311`)** | — | Standing project approval | — |
+ | **C** | **3 — CI/CD** | **`Blocked`** on the Lane A run (`D-156`): the selection moved to Lane B (`D-311`). Its `D-296` nomination is complete: receipts `C-003`, `C-005`, `C-006` and Level 2 review `C-004`. Lane C keeps its own-series commit right (`D-272`), so its Route A Level 2 review (`D-310`) is still filed as its own `C-` entry after Lane B's. Item-level blockers `C-18`, `C-24`, `C-25` for `C-Q2` stay work conditions, not lock state (`B-033`) | — not selected (`D-296` nomination moved to Lane B by `D-311`) | — | Standing project approval | — |
+ 
++> **Slot note, `D-479`.** The Lane B row's "`V1-SM05` `BLOCKED`" records the slot binding in force at its 2026-09-28 nomination: the `FR-15` evidence slice, now `V1-SM07`, which keeps the `BLOCKED` status (`D-479` item 6). The new `V1-SM05` (`MMF-V1-PIPELINE`) is not selected. Construction stays unauthorized. No lane-state value changes.
++
+ > **Lane C state-cell history, moved here 2026-09-28 (`D-311`).** Until this date the Lane C row read: `Eligible`. Nominated by the Chief Editor on 2026-09-27 (`D-296`), so Lane C can file the `SV2-U02-C-R1` receipt, its own committed `C-` entry with `Receiver: Lane A` (`D-272`), for Lane A's Level 1 review, and review Routes A and B at Level 2. This is the SELECTION step only: offered the lock, not executing, beside the lane holding the lock (Lane A, row above) under `D-156`. It grants no lock transfer and no `.github/workflows/` change. Item-level blockers `C-18`, `C-24` and `C-25` for `C-Q2` stay work conditions, not lock state (`B-033`). Earlier nomination: `D-273` (Route C access proof), completed in `C-002`. Selected: Robert Tan, 2026-09-27 — nominated `Eligible` (`D-296`)
+ 
+ > **Lane B state-cell history, moved here 2026-09-27 (`D-296`).** Until this date the Lane B row read: **`Eligible`** — nominated by the Chief Editor, 2026-09-27 (`D-274`), so Lane B can review Lane A's readiness corrections (`SV-002` at `1b8c5e5`, `2a3bf4b`; `B-138`, `B-139`) and update its handoff entries. The SELECTION step only: offered the lock, **not executing**; beside the lane holding the lock (Lane A, row above) under `D-156`. Earlier nominations: `D-159`/`D-161` (history below the table), moved to Lane C by `D-273`, returned here

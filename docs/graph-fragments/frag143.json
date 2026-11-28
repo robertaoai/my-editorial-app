@@ -1,0 +1,32 @@
+{
+  "nodes": [
+    {
+      "id": "gr_012_013_spec",
+      "label": "GR-012/GR-013 Specifications, Delivered and Verified (fixture isolation; sync-docs writer)",
+      "file_type": "document",
+      "source_file": "docs/v1/work-packets/SETUP-SPIKE-000/GR-012-013-SPEC.md",
+      "source_location": "whole file",
+      "description": "Created as the D-393 specification for disposable fixture isolation and the sync-docs investigation. GR-013/P4a was delivered under D-397; B-155's F1 failures were repaired under D-398 and D-399. Fixtures run in distinct HEAD-pinned worktrees with baseline restore and physical-containment, hard-link and file-identity refusals; check-then-write keeps its stated non-atomic race boundary. GR-012/P4b was commissioned under D-400; the canonical procedure reflects D-337 and governed-intent exclusions. D-401 accepts no writer observed during the explicitly shortened 31-minute window and recorded triggers, without claiming eradication. Lane B independently verified both at 6bc0e99 (B-014 d0afbce, B-021 ea29e04, B-155 fcb63a0), recorded under D-402. GOV-RES-001 carries residual fulfillment; SV-002 carries review accounting and source clearance. These Phase 1 units confer no SM05 construction authority."
+    }
+  ],
+  "edges": [
+    {
+      "source": "gr_012_013_spec",
+      "target": "gov_res_001_packet",
+      "relation": "part_of",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/work-packets/SETUP-SPIKE-000/GR-012-013-SPEC.md",
+      "source_location": "header",
+      "weight": 1
+    },
+    {
+      "source": "gr_012_013_spec",
+      "target": "v1_decision_register",
+      "relation": "references",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e218",
+      "weight": 1
+    }
+  ]
+}

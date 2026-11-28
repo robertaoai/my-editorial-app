@@ -1,0 +1,67 @@
+{
+  "revision": "1640ff7bc1b7d1e70ab6a421ced8a054dafda993",
+  "method": "git ls-tree -r --name-only <rev>; git grep -F -l -e <path> <rev> -- docs (Markdown hits only, self excluded); lane from scripts/checks/lane-boundary.mjs classify; phase manifest = backticked path in docs/v1/V1-PHASE-CLOSURE.md at <rev>",
+  "totalTracked": 486,
+  "groups": {
+    "G1 outside docs/": 73,
+    "G2 executables in docs/graph-fragments/": 6,
+    "G3 curated JSON in docs/graph-fragments/": 142,
+    "G4 other JSON under docs/": 1,
+    "G5 log and text under docs/": 3,
+    "G6 other non-Markdown under docs/": 0
+  },
+  "candidates": 225,
+  "included": 223,
+  "excluded": 2,
+  "byOrder": {
+    "1": 6,
+    "2": 2,
+    "3": 6,
+    "4": 65,
+    "5": 146
+  },
+  "byLane": {
+    "unmapped": 6,
+    "B": 17,
+    "A": 201,
+    "C": 1
+  },
+  "byClass": {
+    "metadata": 2,
+    "application implementation": 8,
+    "configuration": 13,
+    "control (check or gate)": 24,
+    "verification (product test)": 4,
+    "tooling implementation": 8,
+    "verification (tooling test)": 6,
+    "agent instruction": 5,
+    "channel template or spec": 3,
+    "workflow": 1,
+    "application configuration": 2,
+    "control data": 1,
+    "schema": 2,
+    "curated source data": 142,
+    "retained evidence": 4
+  },
+  "byUseCase": {
+    "project setup": 14,
+    "product codebase": 18,
+    "governance/docs": 38,
+    "knowledgebase": 150,
+    "product interface": 5
+  },
+  "byMention": {
+    "no mention": 131,
+    "handoff-only mention": 9,
+    "governing-doc mention": 85
+  },
+  "unmappedLane": [
+    ".onlyaiapp",
+    ".env.example",
+    "middleware.ts",
+    "docs/handoff/artifacts/B-014/observation-2026-10-03.log",
+    "docs/handoff/artifacts/B-115/lane-c-b154-review-with-b115-consumer-read-07d931e.txt",
+    "docs/handoff/artifacts/B-131/System_Encyclopedia_V15.txt"
+  ],
+  "reconciled": true
+}

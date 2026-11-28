@@ -1,0 +1,418 @@
+{
+  "schema": "B-156 F3 verification v1",
+  "frozenRevision": "1640ff7bc1b7d1e70ab6a421ced8a054dafda993",
+  "head": "19d68587391e830d526b4f7a0b35d6654dddb90c",
+  "citationsSha256": "df6171d2e13e1f1fffd2b982abfc3f35f213090f7da407e464c6d3e7187bd173",
+  "scriptSha256": "3396b206f0b10301fcdde1aa34fc87af4e0f8ed5605c48c3415ff9298db3f97d",
+  "verifierSha256": "4aca7c1ea49a6939a5421d1649b5d398a38a8afdb9e8001c78b505b71f04ecb6",
+  "paths": 17,
+  "citations": 33,
+  "unchangedAtHead": 17,
+  "failures": 0,
+  "byResult": {
+    "quoted current text": 17
+  },
+  "rows": [
+    {
+      "path": "docs/specs/SPECS-VERIFICATION-APPARATUS.md",
+      "result": "quoted current text",
+      "ownership": "",
+      "frozenBlob": "6b5a8fdbd067bd715751a78046875f60996328e4",
+      "headBlob": "6b5a8fdbd067bd715751a78046875f60996328e4",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/specs/SPECS-VERIFICATION-APPARATUS.md",
+          "line": 96,
+          "needle": "currently reads:",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/specs/SPECS-VERIFICATION-APPARATUS.md",
+          "line": 100,
+          "needle": "eslint: { ignoreDuringBuilds: true },",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/specs/SPECS-VERIFICATION-APPARATUS.md",
+          "line": 103,
+          "needle": "told to ignore both",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/specs/SPECS-VERIFICATION-APPARATUS.md",
+          "line": 105,
+          "needle": "The flags stay as they are",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag13.json",
+      "result": "quoted current text",
+      "ownership": "",
+      "frozenBlob": "e98e9c8eaaf27d30f43d80c49d830035c9a00b76",
+      "headBlob": "e98e9c8eaaf27d30f43d80c49d830035c9a00b76",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/frag13.json",
+          "line": 18,
+          "needle": "ci_that_cannot_fail",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md",
+      "result": "quoted current text",
+      "ownership": "",
+      "frozenBlob": "9a8dfc15d88c83ee125f2d7dc50c265efbfce32d",
+      "headBlob": "9a8dfc15d88c83ee125f2d7dc50c265efbfce32d",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md",
+          "line": 177,
+          "needle": "the three rule files are refactored",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md",
+          "line": 213,
+          "needle": "The three rule files keep a byte-identical shared core",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md",
+          "line": 214,
+          "needle": "size check at the refactor commit",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "docs/Modular_PRD.md",
+      "result": "quoted current text",
+      "ownership": "",
+      "frozenBlob": "b0c3029758616b30ff80136a2866fef6d56be2d3",
+      "headBlob": "b0c3029758616b30ff80136a2866fef6d56be2d3",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/Modular_PRD.md",
+          "line": 883,
+          "needle": "After the `SV2-U02` report; `shared-core-hash`",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "docs/specs/SPECS-MULTI-LANE-AI-GOVERNANCE.md",
+      "result": "quoted current text",
+      "ownership": "",
+      "frozenBlob": "a06aba9be1c5951c89c60c20d9a7b7e41c3f9cdc",
+      "headBlob": "a06aba9be1c5951c89c60c20d9a7b7e41c3f9cdc",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/specs/SPECS-MULTI-LANE-AI-GOVERNANCE.md",
+          "line": 106,
+          "needle": "`scripts/checks/shared-core-hash.mjs`",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "GEMINI.md",
+      "result": "quoted current text",
+      "ownership": "",
+      "frozenBlob": "ad4c15657667ab20d52cc5d7f9d6abd64f500757",
+      "headBlob": "ad4c15657667ab20d52cc5d7f9d6abd64f500757",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "GEMINI.md",
+          "line": 13,
+          "needle": "identical in all three agents' rule files",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "GEMINI.md",
+          "line": 31,
+          "needle": "`graph-coverage`, `docs-drift` and",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "GEMINI.md",
+          "line": 32,
+          "needle": "`source-sweep` skip in CI because of what they read",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "GEMINI.md",
+          "line": 34,
+          "needle": "`TC6` disables the type and lint gates at",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag7.json",
+      "result": "quoted current text",
+      "ownership": "",
+      "frozenBlob": "f98f11a9ef4cf725a3b9403f04db0a144f0558a4",
+      "headBlob": "f98f11a9ef4cf725a3b9403f04db0a144f0558a4",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/frag7.json",
+          "line": 57,
+          "needle": "shared_core_agent_rules",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag15.json",
+      "result": "quoted current text",
+      "ownership": "",
+      "frozenBlob": "977f27cb860bcca5d051ce52ba759fa19d72c010",
+      "headBlob": "977f27cb860bcca5d051ce52ba759fa19d72c010",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/frag15.json",
+          "line": 44,
+          "needle": "rule_must_reach_its_subjects",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": ".github/WORKFLOWS-SPEC.md",
+      "result": "quoted current text",
+      "ownership": "",
+      "frozenBlob": "1d050d755ff6c6744ddc05fb5b1dc88d885e0f85",
+      "headBlob": "1d050d755ff6c6744ddc05fb5b1dc88d885e0f85",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": ".github/WORKFLOWS-SPEC.md",
+          "line": 46,
+          "needle": "`graph-coverage`, `docs-drift` and `source-sweep` cannot run",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": ".github/WORKFLOWS-SPEC.md",
+          "line": 55,
+          "needle": "They differ by exactly these",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": ".github/WORKFLOWS-SPEC.md",
+          "line": 56,
+          "needle": "three.",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": ".github/WORKFLOWS-SPEC.md",
+          "line": 34,
+          "needle": "`TC6` sets `ignoreBuildErrors` and",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": ".github/WORKFLOWS-SPEC.md",
+          "line": 35,
+          "needle": "`ignoreDuringBuilds`, so a build stays green on broken types",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+      "result": "quoted current text",
+      "ownership": "",
+      "frozenBlob": "71d1c75c9f66bc26b18a8517d66b03f1670e4cb3",
+      "headBlob": "71d1c75c9f66bc26b18a8517d66b03f1670e4cb3",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 69,
+          "needle": "those three SKIP and the rest run",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": ".gitattributes",
+      "result": "quoted current text",
+      "ownership": "",
+      "frozenBlob": "76592f4f4059b7636f725a07698e9acf17a81733",
+      "headBlob": "76592f4f4059b7636f725a07698e9acf17a81733",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": ".gitattributes",
+          "line": 37,
+          "needle": "AGENTS.md            merge=text",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": ".gitattributes",
+          "line": 30,
+          "needle": "union-duplicated CLAUDE.md slices identically",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": ".gitattributes",
+          "line": 31,
+          "needle": "shared-core-hash PASSES",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "docs/v1/V1-BUILD-SPEC.md",
+      "result": "quoted current text",
+      "ownership": "",
+      "frozenBlob": "16aca1036a28023d7aba2589a767fcecbcef651b",
+      "headBlob": "16aca1036a28023d7aba2589a767fcecbcef651b",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-BUILD-SPEC.md",
+          "line": 660,
+          "needle": "this DoD phrase is NOT yet earned",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-BUILD-SPEC.md",
+          "line": 531,
+          "needle": "the shared-core hash, the `D-54` tier sweep, the §5.1 duplicate scan, and `missing.js`",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "docs/v1/V1-DECISION-REGISTER.md",
+      "result": "quoted current text",
+      "ownership": "",
+      "frozenBlob": "0c879a196a4a5f4538a6b1fb628965d3d44f3c01",
+      "headBlob": "0c879a196a4a5f4538a6b1fb628965d3d44f3c01",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 2983,
+          "needle": "Closes when a disposable PostgreSQL",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-PHASE-CLOSURE.md",
+          "line": 430,
+          "needle": "is satisfied",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "scripts/checks/lane-boundary.mjs",
+      "result": "quoted current text",
+      "ownership": "",
+      "frozenBlob": "276f83406519a2692a7d3bbb51e666127f157d84",
+      "headBlob": "276f83406519a2692a7d3bbb51e666127f157d84",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "scripts/checks/lane-boundary.mjs",
+          "line": 58,
+          "needle": "(app|lib|components)",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/README.md",
+      "result": "quoted current text",
+      "ownership": "",
+      "frozenBlob": "016c8e02ec5816a6e1150b7a333490aa647782ab",
+      "headBlob": "016c8e02ec5816a6e1150b7a333490aa647782ab",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 111,
+          "needle": "`merge6.js` is retained for history but hard-codes an absolute path",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "result": "quoted current text",
+      "ownership": "",
+      "frozenBlob": "90dff7d1d58fb0a73897ffe88422d8ef425f5be8",
+      "headBlob": "90dff7d1d58fb0a73897ffe88422d8ef425f5be8",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": ".github/workflows/ci.yml",
+          "line": 4,
+          "needle": "sets `ignoreBuildErrors` and `ignoreDuringBuilds` in `next.config.ts`",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": ".env.example",
+      "result": "quoted current text",
+      "ownership": "",
+      "frozenBlob": "43861d09a2a5a268c74a2e0925f576beb369a884",
+      "headBlob": "43861d09a2a5a268c74a2e0925f576beb369a884",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": ".env.example",
+          "line": 8,
+          "needle": "used for redirect URLs",
+          "outcome": "pass"
+        }
+      ]
+    }
+  ]
+}

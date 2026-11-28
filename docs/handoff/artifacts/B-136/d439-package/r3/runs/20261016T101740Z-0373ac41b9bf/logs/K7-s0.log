@@ -1,0 +1,4 @@
+packet r9 bound (dfd5c7771e9b); 10 active edits literal in it; date 2026-10-16
+S0 D-439 not in Register; three pins equal
+S0 10 targets: each exactly once, only in its own file (77 governed files searched)
+REFUSE: S0 D-439 line not in the reviewed ownership manifest: docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md:15142

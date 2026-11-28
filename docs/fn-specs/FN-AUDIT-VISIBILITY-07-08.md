@@ -3,7 +3,7 @@
 **Date:** 2026-08-19
 **Tier:** `Fn_Specs` — third tier of `D-29`.
 **Status:** Draft. Planning only — no build authorized.
-**Source:** `Modular_PRD` §5 (`FR-07`, `FR-08`), §6 (`AC-11`–`AC-13`), `US-07`, `US-08`.
+**Source:** `Modular_PRD` §5 (`FR-07`, `FR-08`), §9.1 (`AC-11`–`AC-13`), `US-07`, `US-08`.
 **Sprints:** `FR-07` → S1 · `FR-08` → S3.
 
 ---
@@ -110,12 +110,14 @@ A recorded negative leaves the article `Reviewed` with reasons and authorizes no
 |---|---|---|---|
 | `AC-11` | Any transition occurs | It completes | **Exactly one** row precedes the state change, carrying article, executor, type, Line, timestamp, reason |
 | `AC-12` ⚙ | A transition row exists | UPDATE or DELETE is attempted, **including with the anon key** | The **database** refuses. **Fails today** — `0001` grants `for all using (true)` |
-| `AC-12a` `[V1]` | Records for a period have been archived or disposed of under policy | The audit surface is opened for that period | It states that records **existed and are no longer retrievable**, names the **policy and version**, the **period**, and the **archive location** if one was taken. **It never renders absence as "nothing happened"** (`G41`). **⬆ Parent row is `Modular_PRD` `AC-12a` (`D-116`)** — this criterion was written here with **no creating decision and no upstream row**, which is `G89`; the parent now carries the two-limb split and the `C-32` dependency, and this row elaborates the surface behaviour only |
+| `AC-12a` `[V1]` | An applicable record is outside the current view **and a valid supplied external archive/handoff fact** exists for it | The audit surface is opened for that period | It states that the record **existed and is not shown here**, and names the **policy and version**, the **period** and the **destination**. With missing or invalid evidence, or elapsed time alone, archival or disposal is **not established** and the last proved state remains. Archived records stay externally retrievable; disposal is a separate external case with no V1 disposal act *(corrected `[V1]` 2026-10-03, `D-405`; it read "existed and are no longer retrievable")*. **It never renders absence as "nothing happened"** (`G41`). **⬆ Parent row is `Modular_PRD` `AC-12a` (`D-116`)** — this criterion was written here with **no creating decision and no upstream row**, which is `G89`; the parent now carries the two-limb split and the `C-32` dependency, and this row elaborates the surface behaviour only |
 | `AC-13` | `SUCCESS_ARTICLES_LOGGED_MIN` articles span states, topics, categories and Lines | The Chief Editor filters on each dimension | Each filter returns the correct subset |
 
 **`AC-12` ⚙ is an infrastructure criterion, not a product one (`D-39`).** It tests a database grant-and-policy decision. `TC1` records that the client holds the same key the server does, so **the product has no layer at which to enforce it** — attempting to satisfy it in application code produces an advisory check mistaken for a control. Marked ⚙ throughout to denote infrastructure ownership.
 
-**`AC-12a` is the product's canary in its place.** The product's duty is not to prevent deletion; it is to **stay honest once deletion has happened**. An audit surface that renders an archived period as an empty list has turned lawful disposal into apparent evidence that nothing occurred — which is worse than showing nothing at all, because it reads as a finding.
+**`AC-12a` is the product's canary in its place `[V1]`.** `AC-12a` makes the existence of an externally archived record visible when the record is absent from the current view. On a valid supplied archive or handoff fact, the audit surface names the policy and version, period and destination; the archived record remains retrievable externally. Missing or invalid evidence and elapsed time alone establish neither archival nor disposal, so the last proved state remains. V1 performs no archival, disposal or deletion *(rewritten `D-406`, Lane B's draft at `7395fde`)*.
+
+*History, broader external context (before `D-406`):* "The product's duty is not to prevent deletion; it is to **stay honest once deletion has happened**. An audit surface that renders an archived period as an empty list has turned lawful disposal into apparent evidence that nothing occurred — which is worse than showing nothing at all, because it reads as a finding." That described disposal by an external process, which has no V1 act. It is not a V1 deletion requirement or test; its point survives as `G41`: absence is never rendered as "nothing happened".
 
 ## 6. Edge cases `[V1]`
 
@@ -133,7 +135,7 @@ A recorded negative leaves the article `Reviewed` with reasons and authorizes no
 | Dependency | Nature | Status |
 |---|---|---|
 | `TR-DM-02` `workflow_transitions` extensions | **Blocking** — `actor_id`, `line_assignment`, `event_type` absent (`TC4`, `X5`) | S1 |
-| `Q11` field naming | Names the independence field this record carries | **Open**, S1 window |
+| `Q11` field naming | Names the structural Line-separation field this record carries | **Decided** — shape `D-97`, name `D-111`: `workflow_transitions.line_separation_status`, a column in the `0002` migration candidate. Schema evidence only; hosted behaviour and cognitive independence are UNVERIFIED. *Corrected 2026-10-22 (B-159 SR3-02): this row earlier read "Names the independence field this record carries · **Open**, S1 window".* |
 | Revoke UPDATE/DELETE | `AC-12` cannot pass without it | S1 |
 | `D-07` `on delete restrict` | Protects the record from cascade | S1 window |
 | `BOARD_FILTER_DIMENSIONS` | Config value | S0 |
@@ -165,4 +167,4 @@ row precedence · exactly-one-row · which fields the record carries · the four
 
 ## 10. Scope limits `[V1]`
 
-Closes no Open Decision. Authorizes no code, schema, or migration. `AC-12` is recorded as **failing today** and is not resolved here. Field names remain proposals pending `Q11`.
+Closes no Open Decision. Authorizes no code, schema, or migration. `AC-12` is recorded as **failing today** and is not resolved here. `Q11` is decided: the structural field is `workflow_transitions.line_separation_status` (`D-97`, `D-111`). This closes no Charter-level Open Decision and establishes no hosted verification. *Corrected 2026-10-22 (B-159 SR3-02): the last sentence earlier read "Field names remain proposals pending `Q11`."*

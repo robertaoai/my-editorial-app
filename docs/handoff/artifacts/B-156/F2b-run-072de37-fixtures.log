@@ -1,0 +1,365 @@
+$ node scripts/fixtures/run.mjs
+
+  fixtures: 6 uncommitted path(s) in your checkout are NOT tested.
+  The run uses commit 072de37; your files are left exactly as they are.
+
+  fixtures: pinned 072de37 in a disposable worktree (C:\Users\rober_24syk4j\AppData\Local\Temp\fixtures-WUyuNf\wt)
+  input  .graphify/graph.json  sha256 81ab5cd62e67
+  input  .graphify/branch.json  sha256 87885a25801c
+
+ok    handoff metadata and closure fields (`D-102`) — 41/41
+      ok    handoff: the live entries, unmutated — stays green
+      ok    handoff: blank Kind directly above another field — fails as intended
+      ok    handoff: blank Phase — fails as intended
+      ok    handoff: Phase names no row in the register — fails as intended
+      ok    handoff: an unread entry is COUNTED open, not merely reported — detail reports "7 open"
+      ok    handoff: an ABSENT Lane A line is malformed, not merely blank — fails as intended
+      ok    handoff: a C- entry with no Receiver is malformed (D-272) — fails as intended
+      ok    handoff: a C- entry may only name Lane A or Lane B as Receiver (D-272) — fails as intended
+      ok    handoff: a C- entry routed to Lane B is read from the Lane B field, not Lane A (D-272) — fails as intended
+      ok    handoff: a C- entry answered by its Lane B receiver passes (D-272) — stays green
+      ok    handoff: a turn-report is excluded from the unresolved count — detail reports "6 still carry NO resolution; 5 turn report(s)"
+      ok    handoff: a turn-report naming NO run — fails as intended
+      ok    handoff: a turn-report whose run is BLANK — fails as intended
+      ok    handoff: a turn-report minting a run the phase record never assigned — fails as intended
+      ok    handoff: two canonical turn-reports naming one run — fails as intended
+      ok    handoff: a turn-report carrying a blank Resolution — fails as intended
+      ok    handoff: a turn-report carrying a blank Verified-By — fails as intended
+      ok    handoff: a turn-report carrying a blank Verified-At-Commit — fails as intended
+      ok    handoff: a turn-report keeps a FILLED Evidence line — stays green
+      ok    handoff: a turn-report whose Evidence is blank — fails as intended
+      ok    handoff: the same entry as a finding IS counted unresolved — detail reports "7 still carry NO resolution"
+      ok    closure: Verified-At-Commit is not hexadecimal — fails as intended
+      ok    closure: a well-formed SHA that does not exist — fails as intended
+      ok    closure: Verified-By is the answering side — fails as intended
+      ok    closure C-39 accept: B-044's live Verified-By — stays green
+      ok    closure C-39 accept: B-058's live Verified-By — stays green
+      ok    closure C-39 accept: B-078's live Verified-By — stays green
+      ok    closure C-39 accept: B-079's live Verified-By — stays green
+      ok    closure C-39 accept: B-080's live Verified-By — stays green
+      ok    closure C-39 accept: B-081's live Verified-By — stays green
+      ok    closure C-39 accept: B-082's live Verified-By — stays green
+      ok    closure C-39 accept: B-083's live Verified-By — stays green
+      ok    closure C-39 accept: B-085's live Verified-By — stays green
+      ok    closure C-39 reject: "Lane A" — fails as intended
+      ok    closure C-39 reject: "reviewed by Lane A" — fails as intended
+      ok    closure C-39 reject: "verified by Lane A" — fails as intended
+      ok    closure C-39 reject: "— not yet dispositioned; raised by Lane B" — fails as intended
+      ok    closure C-39 reject: "— not yet dispositioned; raised by Lane C" — fails as intended
+      ok    closure C-39 reject: "Claude Cowork" — fails as intended
+      ok    closure: Verified-At-Commit reads pending — fails as intended
+      ok    closure: malformed Resolution while NO phase is closed — fails as intended
+
+ok    return record form (`B-097`) — 8/8
+      ok    return record: complete shape, terminal header cleared — passes — stays green
+      ok    return record: an illustrative fenced EXAMPLE is not a live return — stays green
+      ok    return record: missing Return-Trigger (field absent, not merely blank) — fails as intended
+      ok    return record: blank Return-Act — fails as intended
+      ok    return record: blank Previous-Resolution — fails as intended
+      ok    return record: Returned-At-Commit is not hexadecimal — fails as intended
+      ok    return record: retained terminal Resolution beside an active return — fails as intended
+      ok    return record: invented `Returned` status instead of `Open` — fails as intended
+
+ok    terminal annotation record form (`B-113`) — 8/8
+      ok    terminal annotation: complete shape, terminal header untouched — passes — stays green
+      ok    terminal annotation: an illustrative fenced EXAMPLE is not a live annotation — stays green
+      ok    terminal annotation: missing Annotation-Act (field absent, not merely blank) — fails as intended
+      ok    terminal annotation: blank Current-Resolution — fails as intended
+      ok    terminal annotation: Annotation-Type outside the four governed values — fails as intended
+      ok    terminal annotation: No-Scope-Reopened is false — belongs in a Return record instead — fails as intended
+      ok    terminal annotation: Annotated-At-Commit is not hexadecimal — fails as intended
+      ok    terminal annotation: two records on one file are each validated independently — fails as intended
+
+ok    re-close record and Verified-By header rule (`D-364` U1) — 33/33
+      ok    re-close: return then complete re-close, Answered/Applied — passes — stays green
+      ok    re-close: two full cycles, each re-close citing its own return — passes — stays green
+      ok    re-close: completed and independently Verified by Lane B — passes (B-152 item 1) — stays green
+      ok    re-close: date-only Return-Act (B-071's shape) cited by its date — passes — stays green
+      ok    re-close: act token on a wrapped continuation line of Reclosed-Return — passes — stays green
+      ok    re-close F1: completed episode with Status Withdrawn (B-152) — fails as intended
+      ok    re-close F2: Reclosed-Return names only the SHA (B-152) — fails as intended
+      ok    re-close F2: right SHA beside a different act (B-152) — fails as intended
+      ok    re-close F2: right act, SHA missing (B-152) — fails as intended
+      ok    re-close F2: date-only act not cited by its date — fails as intended
+      ok    re-close F2: Return-Act names no decision and no date — fails as intended
+      ok    re-close: open return, no re-close, Open header — still passes (B-130 today) — stays green
+      ok    re-close: an illustrative fenced EXAMPLE is not a live re-close — stays green
+      ok    re-close: an old re-close does not cover a later reopening — Answered header fails — fails as intended
+      ok    re-close: no Return record before it — fails as intended
+      ok    re-close: two re-closes for one return episode — fails as intended
+      ok    re-close: Reclosed-Return cites a different commit — fails as intended
+      ok    re-close: blank Completion-Evidence — fails as intended
+      ok    re-close: missing Reclose-Act (field absent, not merely blank) — fails as intended
+      ok    re-close: Reclosed-At-Commit is not hexadecimal — fails as intended
+      ok    re-close: completed episode but Status still Open — fails as intended
+      ok    re-close: completed episode but no Resolution — fails as intended
+      ok    header rule: an entry with no Verified-By line — fails as intended
+      ok    header rule: Answered beside the raised pre-disposition Verified-By (U4-G8) — fails as intended
+      ok    re-close: re-closed entry marked Verified by Lane A — closure-readiness rejects it — fails as intended
+      ok    re-close history: completion read after its return — no finding — no finding
+      ok    re-close history: Reclosed-At-Commit is not a commit — fails as intended
+      ok    re-close history: Returned-At-Commit is not a commit — fails as intended
+      ok    re-close history: completion predates its return — fails as intended
+      ok    re-close history: completion read at the return commit itself — fails as intended
+      ok    re-close history: second episode binds to the LATEST return, not the first — fails as intended
+      ok    re-close history: two ordered episodes — no finding — no finding
+      ok    re-close history: fenced example is not a live record — no finding
+
+ok    singleton header cardinality (`B-116` item 5, `D-375`) — 14/14
+      ok    cardinality: a second header Verified-At-Commit (the B-113 shape) FAILS — fails as intended
+      ok    cardinality: a second header Status FAILS — fails as intended
+      ok    cardinality: a stale Verified-By pair in the header (the B-071 shape) FAILS — fails as intended
+      ok    cardinality: a fenced example repeating header fields stays green — stays green
+      ok    cardinality: the same field repeated BELOW a ## heading stays green — stays green
+      ok    cardinality: a mixed-case duplicate of Kind, reversed order and differing value, FAILS (D-378) — fails as intended
+      ok    cardinality: a mixed-case duplicate of Phase, reversed order and differing value, FAILS (D-378) — fails as intended
+      ok    cardinality: a mixed-case duplicate of Receiver, reversed order and differing value, FAILS (D-378) — fails as intended
+      ok    cardinality: a mixed-case duplicate of Status, reversed order and differing value, FAILS (D-378) — fails as intended
+      ok    cardinality: a mixed-case duplicate of Resolution, reversed order and differing value, FAILS (D-378) — fails as intended
+      ok    cardinality: a mixed-case duplicate of Verified-By, reversed order and differing value, FAILS (D-378) — fails as intended
+      ok    cardinality: a mixed-case duplicate of Verified-At-Commit, reversed order and differing value, FAILS (D-378) — fails as intended
+      ok    cardinality: a mixed-case duplicate of Follow-up-Tier, reversed order and differing value, FAILS (D-378) — fails as intended
+      ok    cardinality: a mixed-case duplicate of Superseded-By, reversed order and differing value, FAILS (D-378) — fails as intended
+
+ok    terminal-return history-aware detection (`B-097`) — 32/32
+      ok    currentEpisodeStart: never terminal — -1 — start=-1
+      ok    currentEpisodeStart: one transition into terminal — finds it — start=1
+      ok    currentEpisodeStart: terminal from the very first step (prior is null, not Open) — start=0
+      ok    currentEpisodeStart: Verified -> Applied -> Verified — finds the MOST RECENT entry, not the first — start=2
+      ok    walkEpisodes: already terminal, touched again, not covered — FLAGS that commit — violations=["c2"]
+      ok    walkEpisodes: the commit that MADE it terminal is not itself flagged — violations=[]
+      ok    walkEpisodes: audit-only step — does not flag — violations=[]
+      ok    walkEpisodes: covered by a matching citation — does not flag — violations=[]
+      ok    walkEpisodes: multi-cycle — an old episode's citation does not cover a later, separate episode — violations=["c5"]
+      ok    isAuditOnlyDiff: a bare Verified-By line, nothing else — audit-only — isAuditOnlyDiff=true
+      ok    isAuditOnlyDiff: Verified-By AND Verified-At-Commit both changed — still audit-only — isAuditOnlyDiff=true
+      ok    isAuditOnlyDiff: a real prose line beside an audit line — NOT audit-only (B-017 shape) — isAuditOnlyDiff=false
+      ok    isAuditOnlyDiff: an empty diff is NOT trusted as audit-only (nothing to classify) — isAuditOnlyDiff=false
+      ok    isRecordOnlyDiff: adding a complete Terminal annotation record, nothing else — record-only (the real B-004 shape) — isRecordOnlyDiff=true
+      ok    isRecordOnlyDiff: adding a Return record, nothing else — also record-only — isRecordOnlyDiff=true
+      ok    isRecordOnlyDiff: a field value wraps onto continuation lines (the real B-017 shape) — still record-only — isRecordOnlyDiff=true
+      ok    isRecordOnlyDiff: content BEFORE any record heading — NOT record-only — isRecordOnlyDiff=false
+      ok    isRecordOnlyDiff: a DIFFERENT heading after the record — scope creep, NOT record-only — isRecordOnlyDiff=false
+      ok    isRecordOnlyDiff: an unrecognized bullet-field name inside the block — NOT record-only — isRecordOnlyDiff=false
+      ok    isRecordOnlyDiff: removes a line — a record-only commit adds, it does not remove — isRecordOnlyDiff=false
+      ok    isRecordOnlyDiff: an empty diff is NOT trusted as record-only (nothing to classify) — isRecordOnlyDiff=false
+      ok    resolutionAfterDiff: an added Resolution line changes the value — resolution=Superseded
+      ok    resolutionAfterDiff: a diff that never touches Resolution carries the prior value forward — resolution=Deferred
+      ok    resolutionAfterDiff: a removed-line-only diff ends the disposition — the former stated gap, closed by D-368 — resolution=null
+      ok    coveredCommits: a Return record's Returned-At-Commit is covered — covered=["abc1234"]
+      ok    coveredCommits: a Terminal annotation record's Annotated-At-Commit is covered — covered=["def5678"]
+      ok    coveredCommits: several Terminal annotation records each contribute their own citation — covered=["aaa1111","bbb2222"]
+      ok    coveredCommits: a fenced illustrative example contributes nothing — covered=[]
+      ok    coveredCommits: a placeholder value is not a citation — covered=[]
+      ok    terminal-return: diffAt passes shas and a forward-slash path as separate inert arguments — argument array confirmed
+      ok    terminal-return: fileHistory normalizes backslashes, requests --reverse, and passes the path as ONE inert argument — argument array confirmed, path normalized
+      ok    terminal-return: the live repository, unmutated — runs against real history, does not skip — 128 file(s) with at least one terminal episode walked in full; 128 clean, 0 with an uncovered step; 10 return/re-close record(s) proven against history (D-364)
+
+ok    terminal-return episode boundaries and preview (`D-368`) — 8/8
+      ok    resolutionAfterDiff: a diff deleting Resolution ends the disposition — = null
+      ok    resolutionAfterDiff: diff metadata `--- a/x` is not a removed Resolution — = "Deferred"
+      ok    episode: Deferred -> returned (deleted) -> Verified starts a NEW episode at the verification — = 2
+      ok    episode: the return and verification commits are not flagged as uncovered work — = ""
+      ok    episode: genuine substantive work after the terminal disposition is still flagged — = "d"
+      ok    preview: Open -> Applied -> pending Verified does not resurrect the old episode — = ""
+      ok    preview: the committed verification agrees with its preview — = true
+      ok    preview: an uncommitted substantive edit to a terminal entry is flagged as the WORKTREE step — = "WORKTREE"
+
+ok    Gate 2 mode: report always, fail only under a claim (`D-364` U2, `D-367`) — 39/39
+      ok    gate2: the live tracker parses — rows, derivation commit, unclaimed — = true
+      ok    gate2: the live SM05 packet still reads BLOCKED — = true
+      ok    gate2: unclaimed + BLOCKED is no claim — = null
+      ok    gate2: a claim line is a claim — = "string"
+      ok    gate2: SM05 leaving BLOCKED is a claim — = "string"
+      ok    gate2: NO claim, unclosed non-SM05 row — report only, no failure — = 0
+      ok    gate2: claim + unclosed non-SM05 row FAILS — = true
+      ok    gate2: claim + stale derivation FAILS even when every row is closed — = true
+      ok    gate2: claim + all closed + current derivation passes — = 0
+      ok    gate2: claim + a live unverified entry missing from the tracker FAILS — = true
+      ok    gate2: claim + open row whose header is now independently Verified — closed, passes — = 0
+      ok    gate2: claim + SM05 row not received — reported, not failed (item 7's bound) — = 0
+      ok    gate2: claim + unprovable currency FAILS rather than passing silently — = true
+      ok    gate2 U2-F2: parsed Scope "nonSM05" under a claim FAILS as unclassifiable — = true
+      ok    gate2 U2-F2: parsed Scope "" under a claim FAILS as unclassifiable — = true
+      ok    gate2 U2-F2: an invalid row while UNCLAIMED is reported, not failed — = true
+      ok    gate2 U2-F2: `received` on a non-SM05 row is invalid under a claim — = true
+      ok    gate2 U2-F1: SM05 child received, non-SM05 sibling open — the sibling FAILS under a claim — = true
+      ok    gate2 U2-F1: a §3.3 child with no tracker row FAILS under a claim — = true
+      ok    gate2 U2-F1: a child row whose Scope disagrees with §3.3 is invalid — = true
+      ok    gate2 U2-F1: children of a Verified entry need no row — = 0
+      ok    gate2 U2-F3: `B-130 (B-104.O2)` with an unrelated Verified owner FAILS under a claim and leaves B-104.O2 unreferenced — = true
+      ok    gate2 U2-F3: `B-130 (B-104.O2)` with an unverified owner FAILS under a claim and leaves B-104.O2 unreferenced — = true
+      ok    gate2 U2-F3: the valid parent/child row passes when closed — = 0
+      ok    gate2 U2-F3: an unknown child key is invalid even under a Verified owner — = true
+      ok    gate2 U2-F3: an §2.2 preparation label such as `(P15)` is not a child identity error — = 0
+      ok    gate2 D-372: `B-130 (P999)` under an unrelated Verified owner FAILS under a claim — = true
+      ok    gate2 D-372: composite `B-130 (P14a/P999)` under an unrelated Verified owner FAILS under a claim — = true
+      ok    gate2 D-372: the exact composite `B-136 (P14a/P14b)` passes — = 0
+      ok    gate2 D-372: the bare family name `(P14)` is not an §2.2 key — = true
+      ok    gate2 D-372: unknown label + malformed Scope — the identity error persists under a Verified owner — = true
+      ok    gate2 D-372: an unknown label while UNCLAIMED is reported, not failed — = true
+      ok    gate2 D-372: §2.2 labels are read from the live table (P14a, P11-G1, P16 known; P14 not) — = true
+      ok    gate2 U2-F3: a wrong-parent row while UNCLAIMED is reported, not failed — = true
+      ok    gate2: the live §3.3 matrix parses with parents and scopes — = true
+      ok    gate2: the live tracker has no invalid row and no unreferenced child — = true
+      ok    gate2: the live repository, unclaimed — closure-readiness stays green and reports — detail reports "Gate 2 not claimed — reporting only"
+      ok    gate2: claim line recorded on the live tracker — unclosed rows fail — fails as intended
+      ok    gate2: SM05 status no longer BLOCKED — counts as a claim and fails — fails as intended
+
+ok    tier sweep fallback (`G98`, raised as `B-054`) — 7/7
+      ok    tier-sweep: the live register, unmutated — stays green
+      ok    tier-sweep: Tier | Disposition shape now parsed (shape 2) — fails as intended
+      ok    tier-sweep: Tier | Applicability unmapped label still flagged (shape 2) — fails as intended
+      ok    tier-sweep: Tier | Disposition prefers its own section's decision over an incidental ID (preferSection) — fails as intended
+      ok    tier-sweep: a decision cited only as part of a range is not treated as absent — stays green
+      ok    tier-sweep: a claimed tier edit whose decision never landed there — fails as intended
+      ok    tier-sweep: a checkmarked row before any decision heading exists — fails as intended
+
+ok    retention policy coupling (`D-134`) — 6/6
+      ok    retention-policy-coupling: the live corpus, unmutated — stays green
+      ok    retention-policy-coupling: version disagreement across tiers (2) — fails as intended
+      ok    retention-policy-coupling: archive directly defined as delete (4) — fails as intended
+      ok    retention-policy-coupling: a period copied into the Blueprint uncited (5) — fails as intended
+      ok    retention-policy-coupling: Build Spec gates S1 on C-32 as a dependency (7) — fails as intended
+      ok    retention-policy-coupling: AC-12a with no D-116 citation anywhere (8) — fails as intended
+
+ok    phase-scoped closure gating (`D-102`) — 3/3
+      ok    phase scope: an OPEN Phase 1 entry fails Phase 1 closure — fails as intended
+      ok    phase scope: an OPEN Phase 3 entry does NOT fail Phase 1 closure — scoped correctly
+      ok    phase scope: a terminal Phase 1 entry stops blocking — B-017 silenced while the manufactured B-999 blocker keeps the gate live
+
+ok    sync-docs uniqueness (`D-102`) — 4/4
+      ok    sync-docs: the live repository, unmutated — stays green
+      ok    sync-docs: an UNTRACKED duplicate runbook — fails as intended
+      ok    sync-docs: the canonical runbook deleted from disk — fails as intended
+      ok    sync-docs: the canonical triple omits CLAUDE.md — fails as intended
+
+ok    baseline-aware restore (`D-396`, `GR-013`) — 5/5
+      ok    restore: a directory absent at start is absent after (G13-2) — removed
+      ok    restore: a directory empty at start stays, empty (G13-3) — kept, empty
+      ok    restore: user content and a user's own file are untouched (G13-4) — bytes preserved
+      ok    restore: a created directory holding foreign content is refused, not deleted — refused, content kept
+      ok    restore: a path outside the target is refused — snapshot: ../outside-the-target is outside the fixture target
+
+ok    physical containment of restore (`D-398`, `B-155` F1) — 15/15
+      ok    containment: ordinary contained paths restore cleanly (positive control) — restored
+      ok    containment: the root as a managed path restores cleanly — root kept
+      ok    containment: ancestor already a junction at capture is refused — refused, outside unchanged — snapshot: C:\Users\rober_24syk4j\AppData\Local\Temp\fixtures-WUyuNf\wt\.fixture-containmen
+      ok    containment: ancestor replaced by a junction after capture is refused before any write (B-155 F1) — refused, outside unchanged — restore refused before any write: C:\Users\rober_24syk4j\AppData\Local\Temp\fixtures-WUyuN
+      ok    containment: a baseline file replaced by a junction is refused — refused, outside unchanged — restore refused before any write: C:\Users\rober_24syk4j\AppData\Local\Temp\fixtures-WUyuN
+      ok    containment: an allowed root replaced by a junction is refused — refused, outside unchanged — restore refused before any write: C:\Users\rober_24syk4j\AppData\Local\Temp\fixtures-WUyuN
+      ok    containment: an allowed root replaced by a file is refused — refused, outside unchanged — restore refused before any write: C:\Users\rober_24syk4j\AppData\Local\Temp\fixtures-WUyuN
+      ok    containment: an absent descendant under a later junction is refused before delete — refused, outside unchanged — restore refused before any write: C:\Users\rober_24syk4j\AppData\Local\Temp\fixtures-WUyuN
+      ok    containment: an ordinary directory substituted under the same name is refused — refused, outside unchanged — restore refused before any write: C:\Users\rober_24syk4j\AppData\Local\Temp\fixtures-WUyuN
+      ok    containment: a hard-linked file is refused at capture — refused, outside unchanged — snapshot: C:\Users\rober_24syk4j\AppData\Local\Temp\fixtures-WUyuNf\wt\.fixture-containmen
+      ok    containment: a file replaced by a hard link after capture is refused before any write — refused, outside unchanged — restore refused before any write: C:\Users\rober_24syk4j\AppData\Local\Temp\fixtures-WUyuN
+      ok    containment: an ordinary file replaced under the same name is refused — refused, outside unchanged — restore refused before any write: C:\Users\rober_24syk4j\AppData\Local\Temp\fixtures-WUyuN
+      ok    containment: a singly linked file edited in place restores (positive control) — restored
+      ok    containment: a deleted baseline file is recreated through unchanged parents (positive control) — recreated
+      ok    containment: a path outside every root has no record and is refused — refused, outside unchanged — snapshot: C:\Users\rober_24syk4j\AppData\Local\Temp\fixtures-WUyuNf\wt\.fixture-containmen
+
+ok    lane state (`D-103`) — 8/8
+      ok    lane-state: the live register, unmutated — stays green
+      ok    lane-state: TWO lanes are Active (A + B) — fails as intended
+      ok    lane-state: ONE Eligible beside Active is the nomination (B offered while A runs) — stays green
+      ok    lane-state: TWO lanes are Eligible (B + C) — fails as intended
+      ok    lane-state: NO lane is Active — every lane Eligible — fails as intended
+      ok    lane-state: NO lane is Active — A steps out with others Blocked — fails as intended
+      ok    lane-state: C carries a state outside the four — fails as intended
+      ok    lane-state: C is Blocked naming nothing it is blocked on — fails as intended
+
+ok    channel documentation (`D-104`) — 6/6
+      ok    channel-docs: the live documents, unmutated — stays green
+      ok    channel-docs: README drops a resolution the check implements — fails as intended
+      ok    channel-docs: template drops a resolution the check implements — fails as intended
+      ok    channel-docs: template declares a field no check reads — fails as intended
+      ok    channel-docs: template drops a field the checks read — fails as intended
+      ok    channel-docs: a prose tally returns — fails as intended
+
+ok    lane crossing declaration (`D-105`) — 3/3
+      ok    lane-gate: declaration IN the trailer block — exit 0, message names it
+      ok    lane-gate: declaration separated by a blank line — the `d6d406a` shape — exit 1, message names it
+      ok    lane-gate: no declaration at all — exit 1, message names it
+
+ok    lane-boundary tool-crossing retirement (`D-227`, applied by `D-228`) — 5/5
+      ok    lane-boundary: docs/ only classifies as Lane A (positive control) — byLane=A
+      ok    lane-boundary: app/ only classifies as Lane B (positive control) — byLane=B
+      ok    lane-boundary: docs/ + app/ still reports an A+B lane crossing — byLane=A+B
+      ok    lane-boundary: docs/ + scripts/ — the former A-cowork+A-code shape — is Lane A only, no sub-classification — byLane=A, bySub present=false
+      ok    lane-boundary: .agents/rules/graphify.md + docs/graph-fragments/*.json — the former exact-file exceptions — carry no sub-classification either — byLane=A, bySub present=false
+
+ok    governed-intent exclusion matcher (`D-231`) — 5/5
+      ok    governed-intent: a handoff-only advance is excluded-only (passes) — excludedOnly=true, governed=[]
+      ok    governed-intent: graphify scratch output is also excluded — excludedOnly=true, governed=[]
+      ok    governed-intent: a governed-doc advance is NOT excluded-only (fails) — excludedOnly=false, governed=["docs/Modular_PRD.md"]
+      ok    governed-intent: a mixed handoff+governed advance is NOT excluded-only (fails) — excludedOnly=false, governed=["docs/Modular_PRD.md"]
+      ok    governed-intent: no changed paths at all is excluded-only (the matching-analysis case passes) — excludedOnly=true, governed=[]
+
+ok    graph-coverage manifest and exact source-path evidence (`D-246`) — 11/11
+      ok    graph-coverage: every manifest path is excluded from coverage — not excluded: []
+      ok    graph-coverage: every manifest path remains visible to docs-drift — hidden from drift: []
+      ok    graph-coverage: the manifest holds exact paths, never a glob — glob characters in: []
+      ok    graph-coverage: the canonical storyboard and the traceability map stay coverage-required — storyboard excluded=false, traceability excluded=false
+      ok    graph-coverage: a lookalike of a manifest journal is not excluded (no prefix or suffix matching) — a path that only resembles a manifest entry must stay coverage-required
+      ok    graph-coverage: a mixed handoff + manifest-journal advance still marks the graph stale — excludedOnly=false, governed=["docs/journal/2026-08-18-audit-model-and-remediation-plan.md"]
+      ok    graph-coverage: a live source citing a manifest journal fails closed and names both paths — [{"path":"docs/journal/2026-08-18-audit-model-and-remediation-plan.md","citedBy":"docs/Modular_PRD.md"}]
+      ok    graph-coverage: a citation from another journal or the handoff worklog is not a violation — []
+      ok    graph-coverage: a document is covered only by a node whose source_file equals its path — missing=["docs/README.md"]
+      ok    graph-coverage: excluded classes never appear as missing — missing=["docs/README.md"]
+      ok    graph-coverage: source paths normalize to forward slashes — docs/a/b.md
+
+ok    graph-coverage fragment derived-field rule (`D-408`) — 4/4
+      ok    derived fields: a fragment without clustering fields passes — []
+      ok    derived fields: community and community_name are each refused, naming fragment and node — ["fragB.json: node \"b\" declares graphify-derived field \"community\" (D-213, D-408)","fragB.json: node \"b\" declares graphify-derived field \"community_name\" (D-213, D-408)"]
+      ok    derived fields: community_name alone is refused — ["fragC.json: node \"c\" declares graphify-derived field \"community_name\" (D-213, D-408)"]
+      ok    derived fields: a detect manifest (no nodes array) is not a fragment and is ignored — manifest must not be read as a fragment
+
+ok    docs-drift argument safety (`B-109`) — 3/3
+      ok    docs-drift: getChangedPaths calls git with an argument array, not a shell string — argument array confirmed
+      ok    docs-drift: a shell-metacharacter analyzed value is passed as ONE inert argument — argument array confirmed
+      ok    docs-drift: a real unreachable-commit failure still propagates (fail-closed, not swallowed here) — argument array confirmed
+
+ok    config coupling (`C-17`, raised as `B-024`) — 4/4
+      ok    config-coupling: the live pair, unmutated — stays green
+      ok    config-coupling: an authoritative row with no declaration — fails as intended
+      ok    config-coupling: a declaration with no authoritative row — fails as intended
+      ok    config-coupling: a §7.2 derived view needs no declaration — stays green
+
+ok    reopens-phase (`C-19`, raised as `B-025`) — 4/4
+      ok    C-19: the live entries carry no Reopens-Phase — stays green
+      ok    C-19: Reopens-Phase names a phase that never closed — fails as intended
+      ok    C-19: Reopens-Phase names no phase at all — fails as intended
+      ok    C-19: Reopens-Phase names a phase not in the register — fails as intended
+
+ok    fixture retry resilience (`D-139`, raised against this session's own run) — 4/4
+      ok    withRetry: a transient error clearing within budget succeeds — succeeded on attempt 3
+      ok    withRetry: a persistent transient error still fails, bounded — threw after 4 attempt(s), not masked
+      ok    withRetry: a non-transient error fails on the first attempt, never retried — failed immediately, no retry spent on a real error
+      ok    withRetry: the transient set names EBUSY/UNKNOWN, excludes ENOENT — set is exactly the observed transient class
+
+ok    text integrity (`D-297`, the `B-140` recurrence) — 11/11
+      ok    text-integrity: the live corpus, unmutated — stays green
+      ok    text-integrity: CRLF line endings are not a finding — stays green
+      ok    text-integrity: an intact drive path is not a finding — stays green
+      ok    text-integrity: a bare carriage return inside a path (the B-140 shape) — fails as intended
+      ok    text-integrity: another control character — fails as intended
+      ok    text-integrity: a drive path that lost its separators, no control character — fails as intended
+      ok    text-integrity: a spliced undefined after a heading (the D-380 shape, rule 3 from D-381) — fails as intended
+      ok    text-integrity: prose that says undefined is not a finding — stays green
+      ok    text-integrity: docs/handoff/ may quote a spliced undefined as evidence — stays green
+      ok    text-integrity: docs/handoff/ may quote a lost-separator path as evidence — stays green
+      ok    text-integrity: docs/handoff/ is NOT exempt from the control-character rule — fails as intended
+
+ok    rule budget and single core (`D-324`, applied by `D-337`) — 6/6
+      ok    rule-budget: the live rule files, unmutated — stays green
+      ok    rule-budget: AGENTS.md over the 5,400-character working ceiling — fails as intended
+      ok    rule-budget: CLAUDE.md without its @AGENTS.md line — fails as intended
+      ok    rule-budget: CLAUDE.md importing a file that does not exist (the silent D-327 drop) — fails as intended
+      ok    rule-budget: a copy of the shared core in GEMINI.md — fails as intended
+      ok    rule-budget: a rule inside an HTML comment — fails as intended
+
+  297/297 fixtures behaved as intended
+  target restored: yes
+
+  disposable worktree removed; your checkout was not written
+

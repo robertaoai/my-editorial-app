@@ -1,0 +1,16 @@
+{
+ "base": {
+  "bytes": 2156951,
+  "sha256": "c6f7715af0c060d52c9f844090d87e3d207f4c9b30bc6af1100407784e99c106"
+ },
+ "append": {
+  "bytes": 5331,
+  "sha256": "ef340c801774aa50a3985d0b3b017a4e77e284175d4fbcc3e4fe079e7dfd48b7"
+ },
+ "candidate": {
+  "bytes": 2162282,
+  "sha256": "3468eb237eccdf324007255c7ff1490b6e7397ffecc0cbb172048cdec31be3d2"
+ },
+ "exactPrefix": true,
+ "byteEqual": true
+}

@@ -1,0 +1,2141 @@
+{
+  "schema": "B-156 F2b citations v4",
+  "frozenRevision": "1640ff7bc1b7d1e70ab6a421ced8a054dafda993",
+  "inventory": "F1-candidates-1640ff7-r2.tsv (F1 revision 2, Verified by Lane B at 0a63ea5)",
+  "measurement": "F2b-measure-1640ff7.json",
+  "vocabulary": [
+    "supported agreement",
+    "difference",
+    "missing support",
+    "unknown",
+    "disputed"
+  ],
+  "note": "Verified with F2a-verify-r2.mjs's exported verify() through F2b-verify.mjs; the accepted F2a verifier is not modified.",
+  "rows": [
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "__tests__/build-config.test.ts",
+      "assessmentGroup": "P6 product-facing setup source",
+      "result": "supported agreement",
+      "residual": "setup evidence (Build Spec §1); no SM05 credit",
+      "ownership": "Lane B (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 6661,
+          "needle": "__tests__/build-config.test.ts"
+        }
+      ],
+      "obligation": "R3/C-33/S0: the test's stated scope",
+      "locus": "not inspected",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 retrospective setup snapshot: content review before any claim that consumes this row"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "__tests__/s1-schema.test.ts",
+      "assessmentGroup": "P6 product-facing setup source",
+      "result": "supported agreement as a static migration-contract test",
+      "residual": "C-33: asserts on migration text; the PostgreSQL test is F2a row 8",
+      "ownership": "Lane B (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 2965,
+          "needle": "__tests__/s1-schema.test.ts"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 2965,
+          "needle": "asserts on migration TEXT"
+        }
+      ],
+      "obligation": "R3/C-33/S0: the test's stated scope",
+      "locus": "not inspected",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 retrospective setup snapshot: content review before any claim that consumes this row"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "__tests__/smoke.test.ts",
+      "assessmentGroup": "P6 product-facing setup source",
+      "result": "supported agreement",
+      "residual": "",
+      "ownership": "Lane B (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 3346,
+          "needle": "__tests__/smoke.test.ts"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 63,
+          "needle": "`__tests__/smoke.test.ts`"
+        }
+      ],
+      "obligation": "R3/C-33/S0: the test's stated scope",
+      "locus": "not inspected",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 retrospective setup snapshot: content review before any claim that consumes this row"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": ".agents/workflows/graphify.md",
+      "assessmentGroup": "P1 agent instructions",
+      "result": "supported agreement",
+      "residual": "no individual inventory row; D-426 names it among changed-in-place files",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 3911,
+          "needle": ".agents/workflows/graphify.md"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 564,
+          "needle": ".agents/workflows/graphify.md"
+        }
+      ],
+      "obligation": "D-426: agent workflow without raw graph-writer routes",
+      "locus": "not inspected",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 retrospective setup snapshot: content review before any claim that consumes this row"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": ".claude/settings.json",
+      "assessmentGroup": "P1 agent instructions",
+      "result": "supported agreement",
+      "residual": "settings-parse proves it parses, not that each hook is correct",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 263,
+          "needle": ".claude/settings.json"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 263,
+          "needle": "covered by no `C-14` check"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/check-consistency.mjs",
+          "line": 18,
+          "needle": "./checks/settings-parse.mjs"
+        }
+      ],
+      "obligation": "G66: shared agent settings, parseable",
+      "locus": "not inspected",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 retrospective setup snapshot: content review before any claim that consumes this row"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": ".claude/skills/sync-docs/SKILL.md",
+      "assessmentGroup": "P1 agent instructions",
+      "result": "supported agreement",
+      "residual": "sync-docs-uniqueness proves one canonical copy, not procedure correctness",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 56,
+          "needle": "`.claude/skills/sync-docs/SKILL.md`"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 4040,
+          "needle": ".claude/skills/sync-docs/SKILL.md"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/check-consistency.mjs",
+          "line": 27,
+          "needle": "./checks/sync-docs-uniqueness.mjs"
+        }
+      ],
+      "obligation": "D-54/D-425: the one canonical sync runbook",
+      "locus": "not inspected",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 retrospective setup snapshot: content review before any claim that consumes this row"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": ".codex/hooks.json",
+      "assessmentGroup": "P1 agent instructions",
+      "result": "supported agreement",
+      "residual": "the behaviour of `graphify hook-check` was not executed here",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 20987,
+          "needle": ".codex/hooks.json"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 20987,
+          "needle": "configuration, not instructions"
+        }
+      ],
+      "obligation": "D-426 P6: hook configuration only",
+      "locus": "whole file",
+      "semantic": "assessed: agreement (one PreToolUse/Bash hook running `graphify hook-check`; its runtime behaviour not executed)",
+      "owner": "Lane A",
+      "returnPoint": "none for the inspected locus"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": ".gitattributes",
+      "assessmentGroup": "P2 root build config",
+      "result": "supported agreement",
+      "residual": "",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 260,
+          "needle": ".gitattributes"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 260,
+          "needle": "`.gitattributes` set"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 4228,
+          "needle": "build config (`package.json`, `tsconfig.json`, `eslint.config.mjs`, `next.config.ts`, `.gitattributes`, `.gitignore`)"
+        },
+        {
+          "kind": "line",
+          "file": ".gitattributes",
+          "line": 36,
+          "needle": "CLAUDE.md            merge=text"
+        },
+        {
+          "kind": "line",
+          "file": ".gitattributes",
+          "line": 31,
+          "needle": "shared-core-hash PASSES"
+        }
+      ],
+      "obligation": "G63/D-84: union merge for append-only text; 3-way merge for current-value files",
+      "locus": "whole file",
+      "semantic": "assessed: DIFFERENCE — current-value scoping lists CLAUDE.md and AGENTS.md as merge=text, but not GEMINI.md (created later by D-337; `git check-attr` reports merge: union). The comment's shared-core-hash rationale is history (D-337).",
+      "owner": "Lane A",
+      "returnPoint": "F3 repair draft at the owning tier"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": ".githooks/commit-msg",
+      "assessmentGroup": "P4 controls",
+      "result": "supported agreement",
+      "residual": "active only where `core.hooksPath` is set by the `prepare` script",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 47,
+          "needle": "`.githooks/commit-msg`"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 2944,
+          "needle": ".githooks/commit-msg"
+        },
+        {
+          "kind": "line",
+          "file": "package.json",
+          "line": 14,
+          "needle": "core.hooksPath .githooks"
+        }
+      ],
+      "obligation": "D-88: run lane-gate from tracked hooks",
+      "locus": "whole file",
+      "semantic": "assessed: agreement with D-88",
+      "owner": "Lane A",
+      "returnPoint": "none for the inspected locus"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": ".github/ISSUE_TEMPLATE/v1-mmf.md",
+      "assessmentGroup": "P3 channel templates and spec",
+      "result": "supported agreement",
+      "residual": "",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 98,
+          "needle": "`.github/ISSUE_TEMPLATE/v1-mmf.md`"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 19144,
+          "needle": ".github/ISSUE_TEMPLATE/v1-mmf.md"
+        }
+      ],
+      "obligation": "D-254/D-259: V1 MMF issue template",
+      "locus": "not inspected",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 retrospective setup snapshot: content review before any claim that consumes this row"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": ".github/PULL_REQUEST_TEMPLATE/v1-mmf.md",
+      "assessmentGroup": "P3 channel templates and spec",
+      "result": "supported agreement",
+      "residual": "",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 97,
+          "needle": "`.github/PULL_REQUEST_TEMPLATE/v1-mmf.md`"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 18258,
+          "needle": ".github/PULL_REQUEST_TEMPLATE/v1-mmf.md"
+        }
+      ],
+      "obligation": "D-245: V1 MMF PR template",
+      "locus": "not inspected",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 retrospective setup snapshot: content review before any claim that consumes this row"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": ".github/WORKFLOWS-SPEC.md",
+      "assessmentGroup": "P3 channel templates and spec",
+      "result": "supported agreement",
+      "residual": "",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 40,
+          "needle": "`.github/WORKFLOWS-SPEC.md`"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 4802,
+          "needle": ".github/WORKFLOWS-SPEC.md"
+        },
+        {
+          "kind": "line",
+          "file": ".github/WORKFLOWS-SPEC.md",
+          "line": 46,
+          "needle": "`graph-coverage`, `docs-drift` and `source-sweep` cannot run"
+        },
+        {
+          "kind": "line",
+          "file": ".github/WORKFLOWS-SPEC.md",
+          "line": 35,
+          "needle": "`ignoreDuringBuilds`"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/checks/terminal-return.mjs",
+          "line": 401,
+          "needle": "needs fetch-depth: 0"
+        }
+      ],
+      "obligation": "D-92/D-84: Lane C work order; current verification and SKIP contract",
+      "locus": "§2 L34-L37; §3 L46-L56",
+      "semantic": "assessed: DIFFERENCE — (R2) §3 says only graph-coverage, docs-drift and source-sweep skip in CI, but terminal-return also skips a shallow clone; (R3) §2 says TC6 sets ignoreDuringBuilds, which next.config.ts no longer sets",
+      "owner": "Lane A",
+      "returnPoint": "F3 repair draft at the owning tier"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": ".github/workflows/ci.yml",
+      "assessmentGroup": "P3 channel templates and spec",
+      "result": "supported agreement (recorded); current host result unknown",
+      "residual": "Lane C surface: the host run, skipped checks and step order need Lane C review in F6; Lane A did not run CI",
+      "ownership": "Lane C (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 3162,
+          "needle": ".github/workflows/ci.yml"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 64,
+          "needle": "`ci.yml` runs install, typecheck, lint, test and `bun run check`"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 69,
+          "needle": "those three SKIP and the rest run"
+        },
+        {
+          "kind": "line",
+          "file": ".github/workflows/ci.yml",
+          "line": 4,
+          "needle": "`ignoreDuringBuilds`"
+        },
+        {
+          "kind": "line",
+          "file": ".github/workflows/ci.yml",
+          "line": 22,
+          "needle": "actions/checkout@v4"
+        }
+      ],
+      "obligation": "R3/D-70: install, typecheck, lint, test, check as separate steps",
+      "locus": "L3-L5 comment; L22 checkout",
+      "semantic": "assessed: DIFFERENCE — (R3) the comment says TC6 sets ignoreDuringBuilds; (R2) default `actions/checkout@v4` depth means terminal-return also skips. Lane C surface: repair is a Lane C proposal; host output needs Lane C review",
+      "owner": "Lane A",
+      "returnPoint": "F3 repair draft at the owning tier"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": ".gitignore",
+      "assessmentGroup": "P2 root build config",
+      "result": "supported agreement",
+      "residual": "",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 304,
+          "needle": ".gitignore"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 4228,
+          "needle": "build config (`package.json`, `tsconfig.json`, `eslint.config.mjs`, `next.config.ts`, `.gitattributes`, `.gitignore`)"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 66,
+          "needle": "`.gitignore` entries for `supabase/.temp/`"
+        }
+      ],
+      "obligation": "D-120/D-297/D-324: ignore runtime, graph and scratch state; track migrations and config",
+      "locus": "whole file",
+      "semantic": "assessed: agreement (D-120 Supabase state, D-297 graph symlink, D-324 scratch)",
+      "owner": "Lane A",
+      "returnPoint": "none for the inspected locus"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "AGENTS.md",
+      "assessmentGroup": "P1 agent instructions",
+      "result": "supported agreement",
+      "residual": "rule-budget measures size, import and one core copy, not the correctness of each rule",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 46,
+          "needle": "AGENTS.md"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 19,
+          "needle": "`AGENTS.md` within the 5,400-character"
+        }
+      ],
+      "obligation": "D-324/D-337: the one shared rule core",
+      "locus": "whole file",
+      "semantic": "assessed: agreement with D-337 (no lane tail, no copy elsewhere)",
+      "owner": "Lane A",
+      "returnPoint": "none for the inspected locus"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "app/page.tsx",
+      "assessmentGroup": "P6 product-facing setup source",
+      "result": "no setup support located; product requirement not yet built",
+      "residual": "template page (`vibe-stack-supabase`); the demo-first homepage requirement belongs to SM05 (B-127), not to this setup audit; fixtures use the path only as a lane sample (suites.mjs L799)",
+      "ownership": "Lane B (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "app/page.tsx",
+          "line": 5,
+          "needle": "vibe-stack-supabase"
+        },
+        {
+          "kind": "line",
+          "file": "docs/governance/agent-rules-reference.md",
+          "line": 122,
+          "needle": "The homepage IS the working app"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/fixtures/suites.mjs",
+          "line": 799,
+          "needle": "app/page.tsx"
+        }
+      ],
+      "obligation": "Product (SM05): demo-first homepage; no setup obligation located",
+      "locus": "L1-L15",
+      "semantic": "assessed: no setup obligation; template page; product scope (SM05)",
+      "owner": "Lane A",
+      "returnPoint": "none for the inspected locus"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "bun.lockb",
+      "assessmentGroup": "P2 root build config",
+      "result": "supported agreement",
+      "residual": "historical D-64 evidence only; present dependency resolution not claimed (F1-R1)",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 65,
+          "needle": "`bun.lockb`"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 304,
+          "needle": "bun.lockb"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 304,
+          "needle": "regenerated `bun.lockb`"
+        }
+      ],
+      "obligation": "D-64/G59: frozen dependency resolution",
+      "locus": "not inspected",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 retrospective setup snapshot: content review before any claim that consumes this row"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "CLAUDE.md",
+      "assessmentGroup": "P1 agent instructions",
+      "result": "supported agreement",
+      "residual": "rule-budget verifies the @AGENTS.md import only",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 46,
+          "needle": "CLAUDE.md"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 19,
+          "needle": "rule-budget.mjs"
+        },
+        {
+          "kind": "line",
+          "file": "CLAUDE.md",
+          "line": 1,
+          "needle": "@AGENTS.md"
+        }
+      ],
+      "obligation": "D-324/D-337: import @AGENTS.md plus Lane A tail only",
+      "locus": "L1 import and Lane A tail",
+      "semantic": "assessed: agreement with D-337 (`@AGENTS.md` import at L1)",
+      "owner": "Lane A",
+      "returnPoint": "none for the inspected locus"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "eslint.config.mjs",
+      "assessmentGroup": "P2 root build config",
+      "result": "supported agreement",
+      "residual": "",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 68,
+          "needle": "`eslint.config.mjs`"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 259,
+          "needle": "eslint.config.mjs"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 4228,
+          "needle": "build config (`package.json`, `tsconfig.json`, `eslint.config.mjs`, `next.config.ts`, `.gitattributes`, `.gitignore`)"
+        }
+      ],
+      "obligation": "D-66: flat config, next/core-web-vitals",
+      "locus": "whole file",
+      "semantic": "assessed: agreement with D-66",
+      "owner": "Lane A",
+      "returnPoint": "none for the inspected locus"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "GEMINI.md",
+      "assessmentGroup": "P1 agent instructions",
+      "result": "supported agreement",
+      "residual": "Lane C rule file; Lane C reviews its own tail in F6",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 21,
+          "needle": "`GEMINI.md`"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 19458,
+          "needle": "GEMINI.md"
+        },
+        {
+          "kind": "line",
+          "file": "GEMINI.md",
+          "line": 4,
+          "needle": "never copies the shared core"
+        },
+        {
+          "kind": "line",
+          "file": "GEMINI.md",
+          "line": 13,
+          "needle": "identical in all three agents' rule files"
+        },
+        {
+          "kind": "line",
+          "file": "GEMINI.md",
+          "line": 4,
+          "needle": "never copies the shared core"
+        }
+      ],
+      "obligation": "D-337/D-325: Lane C tail only, no shared-core copy",
+      "locus": "whole file (L1-L52)",
+      "semantic": "assessed: DIFFERENCE — (a) L13 says everything above it is the shared core, identical in all three rule files, which contradicts D-337 and the file's own L4; (b) the SKIP rule names only graph-coverage, docs-drift and source-sweep (F2b-R2); (c) it says TC6 disables the type and lint gates at build (F2b-R3). Other lines agree (Lane C scope, dependency route, deployment by GitHub, graph-currency rule)",
+      "owner": "Lane A",
+      "returnPoint": "F3 repair draft; Lane C reviews in F6 (its rule file); governed path, so application needs a guarded sync"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "lib/config/build-config.ts",
+      "assessmentGroup": "P6 product-facing setup source",
+      "result": "supported agreement",
+      "residual": "setup evidence (Build Spec §1); §5A no-defect accepted (F2a.1); no SM05 credit",
+      "ownership": "Lane B (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 57,
+          "needle": "`lib/config/build-config.ts`"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 3286,
+          "needle": "lib/config/build-config.ts"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/check-consistency.mjs",
+          "line": 24,
+          "needle": "./checks/config-coupling.mjs"
+        }
+      ],
+      "obligation": "D-94/D-161: CONFIG_LOG coupling",
+      "locus": "not inspected",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 retrospective setup snapshot: content review before any claim that consumes this row"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "lib/config/flags.ts",
+      "assessmentGroup": "P6 product-facing setup source",
+      "result": "supported agreement",
+      "residual": "",
+      "ownership": "Lane B (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 58,
+          "needle": "`lib/config/flags.ts`"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 4636,
+          "needle": "lib/config/flags.ts"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/check-consistency.mjs",
+          "line": 24,
+          "needle": "./checks/config-coupling.mjs"
+        }
+      ],
+      "obligation": "D-94/D-161: CONFIG_LOG coupling",
+      "locus": "not inspected",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 retrospective setup snapshot: content review before any claim that consumes this row"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "lib/supabase/middleware.ts",
+      "assessmentGroup": "P6 product-facing setup source",
+      "result": "supported agreement with the recorded TC6 type fix",
+      "residual": "no redirect (F2a row 15); file-level intent is template origin, still unknown",
+      "ownership": "Lane B (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 2140,
+          "needle": "lib/supabase/middleware.ts"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 2140,
+          "needle": "lib/supabase/middleware.ts"
+        }
+      ],
+      "obligation": "TC1/TC6 records; no login wall",
+      "locus": "L10-L42 (control flow)",
+      "semantic": "assessed: agreement with the no-login-wall rule (no redirect; pass-through when unconfigured)",
+      "owner": "Lane A",
+      "returnPoint": "none for the inspected locus"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "lib/supabase/server.ts",
+      "assessmentGroup": "P6 product-facing setup source",
+      "result": "supported agreement with the recorded TC1 state",
+      "residual": "anon key only; the first privileged path is TR-API-03 (S4, not built)",
+      "ownership": "Lane B (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 2140,
+          "needle": "lib/supabase/server.ts"
+        },
+        {
+          "kind": "line",
+          "file": "lib/supabase/server.ts",
+          "line": 9,
+          "needle": "NEXT_PUBLIC_SUPABASE_ANON_KEY"
+        },
+        {
+          "kind": "line",
+          "file": "docs/journal/2026-08-16-sprint-plan.md",
+          "line": 138,
+          "needle": "No privileged write path exists"
+        }
+      ],
+      "obligation": "TC1/TC6 records; no login wall",
+      "locus": "L1-L9",
+      "semantic": "assessed: agreement with TC1 (anon key only)",
+      "owner": "Lane A",
+      "returnPoint": "none for the inspected locus"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "next.config.ts",
+      "assessmentGroup": "P2 root build config",
+      "result": "supported agreement with a recorded open question",
+      "residual": "TC6 is narrowed, not resolved; Q6 stays Open (a governed open question, not a setup defect)",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 1604,
+          "needle": "next.config.ts"
+        },
+        {
+          "kind": "line",
+          "file": "next.config.ts",
+          "line": 11,
+          "needle": "TC6 is narrowed, not resolved"
+        },
+        {
+          "kind": "line",
+          "file": "docs/Modular_PRD.md",
+          "line": 1179,
+          "needle": "Open"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 4228,
+          "needle": "build config (`package.json`, `tsconfig.json`, `eslint.config.mjs`, `next.config.ts`, `.gitattributes`, `.gitignore`)"
+        }
+      ],
+      "obligation": "TC6 narrowed (D-154/B-058); Q6 open",
+      "locus": "whole file",
+      "semantic": "assessed: agreement — TypeScript suppression stays; the ESLint property was removed (L8-L10); TC6 narrowed; Q6 Open",
+      "owner": "Lane A",
+      "returnPoint": "none for the inspected locus"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "package.json",
+      "assessmentGroup": "P2 root build config",
+      "result": "supported agreement",
+      "residual": "each runner script was matched to its governing source; dependency versions are F5 baseline data",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 257,
+          "needle": "package.json"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 4228,
+          "needle": "build config (`package.json`, `tsconfig.json`, `eslint.config.mjs`, `next.config.ts`, `.gitattributes`, `.gitignore`)"
+        },
+        {
+          "kind": "line",
+          "file": "package.json",
+          "line": 12,
+          "needle": "\"check\": \"node scripts/check-consistency.mjs\""
+        },
+        {
+          "kind": "line",
+          "file": "package.json",
+          "line": 14,
+          "needle": "core.hooksPath .githooks"
+        },
+        {
+          "kind": "line",
+          "file": "package.json",
+          "line": 15,
+          "needle": "scripts/fixtures/run.mjs"
+        },
+        {
+          "kind": "line",
+          "file": "package.json",
+          "line": 17,
+          "needle": "scripts/jev/selftest.mjs"
+        },
+        {
+          "kind": "line",
+          "file": "package.json",
+          "line": 18,
+          "needle": "supabase start"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 304,
+          "needle": "supabase@^2.116.0"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 304,
+          "needle": "`G108`b — `eslint-config-next` is still pinned `^15.0.0`"
+        }
+      ],
+      "obligation": "D-86/D-84: dependencies and runner scripts",
+      "locus": "scripts, dependencies, devDependencies, packageManager",
+      "semantic": "assessed: agreement — runner scripts match their sources; Stripe absent (X8/D-121); next@^16.3.3 and supabase@^2.116.0 match G108a/D-157; packageManager bun@1.1.30 matches D-64. Inventory L66 'verified 2.115.0' is a dated 2026-08-25 record. KNOWN RETAINED GAP G108b (Register L304; retained by D-157): eslint-config-next@^15.0.0 beside next@^16.3.3; manifest versions are observed, compatibility remains unresolved (lint passing is not evidence the pairing is supported)",
+      "owner": "Lane A",
+      "returnPoint": "F5 dependency baseline carries the existing G108b gap (owner Lane A); no compatibility decision is made here",
+      "changedIn": "r4"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "postcss.config.mjs",
+      "assessmentGroup": "P2 root build config",
+      "result": "supported agreement",
+      "residual": "the Tailwind pipeline links F2a row 3 (app/globals.css) to the toolchain; product intent for that file stays unknown",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 14734,
+          "needle": "postcss.config.mjs"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 14734,
+          "needle": "`postcss.config.mjs`"
+        }
+      ],
+      "obligation": "D-84 (Lane A repo config): Tailwind pipeline",
+      "locus": "whole file",
+      "semantic": "assessed: agreement (Tailwind 4 PostCSS plugin; links F2a row 3)",
+      "owner": "Lane A",
+      "returnPoint": "none for the inspected locus"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "scripts/check-consistency.mjs",
+      "assessmentGroup": "P4 controls",
+      "result": "supported agreement",
+      "residual": "a green suite is bounded apparatus evidence; it did not detect F2a-R1",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 3347,
+          "needle": "scripts/check-consistency.mjs"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 69,
+          "needle": "Concurrent-edit detection check"
+        },
+        {
+          "kind": "line",
+          "file": "docs/specs/SPECS-MULTI-LANE-AI-GOVERNANCE.md",
+          "line": 106,
+          "needle": "scripts/checks/shared-core-hash.mjs"
+        }
+      ],
+      "obligation": "C-14/G11 (D-58, D-70): run the check suite",
+      "locus": "imports L14-L32",
+      "semantic": "assessed: agreement with D-337 (runs rule-budget; no shared-core-hash). Governing-text DIFFERENCE (AG-1): SPECS-MULTI-LANE §5 L106 still lists shared-core-hash.mjs as built",
+      "owner": "Lane A",
+      "returnPoint": "F3 repair draft at the owning tier"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "scripts/checks/channel-docs.mjs",
+      "assessmentGroup": "P4 controls",
+      "result": "supported agreement",
+      "residual": "",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 27,
+          "needle": "`scripts/checks/channel-docs.mjs`"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/check-consistency.mjs",
+          "line": 29,
+          "needle": "./checks/channel-docs.mjs"
+        }
+      ],
+      "obligation": "C-14: the check's stated contract (inventory row or aggregate L69)",
+      "locus": "not inspected",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 retrospective setup snapshot: content review before any claim that consumes this row"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "scripts/checks/closure-readiness.mjs",
+      "assessmentGroup": "P4 controls",
+      "result": "supported agreement",
+      "residual": "",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 32,
+          "needle": "`scripts/checks/closure-readiness.mjs`"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 13623,
+          "needle": "scripts/checks/closure-readiness.mjs"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/check-consistency.mjs",
+          "line": 25,
+          "needle": "./checks/closure-readiness.mjs"
+        }
+      ],
+      "obligation": "C-14: the check's stated contract (inventory row or aggregate L69)",
+      "locus": "not inspected",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 retrospective setup snapshot: content review before any claim that consumes this row"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "scripts/checks/config-coupling.mjs",
+      "assessmentGroup": "P4 controls",
+      "result": "supported agreement",
+      "residual": "",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 37,
+          "needle": "`scripts/checks/config-coupling.mjs`"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/check-consistency.mjs",
+          "line": 24,
+          "needle": "./checks/config-coupling.mjs"
+        }
+      ],
+      "obligation": "C-14: the check's stated contract (inventory row or aggregate L69)",
+      "locus": "not inspected",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 retrospective setup snapshot: content review before any claim that consumes this row"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "scripts/checks/decision-status.mjs",
+      "assessmentGroup": "P4 controls",
+      "result": "supported agreement",
+      "residual": "no individual inventory row; covered by the aggregate C-14 row",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 262,
+          "needle": "scripts/checks/decision-status.mjs"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 69,
+          "needle": "Concurrent-edit detection check"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/check-consistency.mjs",
+          "line": 19,
+          "needle": "./checks/decision-status.mjs"
+        }
+      ],
+      "obligation": "C-14: the check's stated contract (inventory row or aggregate L69)",
+      "locus": "not inspected",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 retrospective setup snapshot: content review before any claim that consumes this row"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "scripts/checks/docs-drift.mjs",
+      "assessmentGroup": "P4 controls",
+      "result": "supported agreement",
+      "residual": "no individual inventory row; covered by the aggregate C-14 row; SKIPs in CI",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 3939,
+          "needle": "scripts/checks/docs-drift.mjs"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 69,
+          "needle": "Concurrent-edit detection check"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/check-consistency.mjs",
+          "line": 26,
+          "needle": "./checks/docs-drift.mjs"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 17156,
+          "needle": "`scripts/checks/docs-drift.mjs`"
+        }
+      ],
+      "obligation": "C-14: the check's stated contract (inventory row or aggregate L69)",
+      "locus": "not inspected",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 retrospective setup snapshot: content review before any claim that consumes this row"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "scripts/checks/duplicate-ids.mjs",
+      "assessmentGroup": "P4 controls",
+      "result": "supported agreement",
+      "residual": "no individual inventory row and no Register path mention; covered by the aggregate C-14 row",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 69,
+          "needle": "Concurrent-edit detection check"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/check-consistency.mjs",
+          "line": 16,
+          "needle": "./checks/duplicate-ids.mjs"
+        }
+      ],
+      "obligation": "C-14: the check's stated contract (inventory row or aggregate L69)",
+      "locus": "not inspected",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 retrospective setup snapshot: content review before any claim that consumes this row"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "scripts/checks/governed-intent.mjs",
+      "assessmentGroup": "P4 controls",
+      "result": "supported agreement",
+      "residual": "shared library, not a check of its own",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 51,
+          "needle": "`scripts/checks/governed-intent.mjs`"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 17109,
+          "needle": "scripts/checks/governed-intent.mjs"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/checks/docs-drift.mjs",
+          "line": 43,
+          "needle": "./governed-intent.mjs"
+        }
+      ],
+      "obligation": "C-14: the check's stated contract (inventory row or aggregate L69)",
+      "locus": "not inspected",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 retrospective setup snapshot: content review before any claim that consumes this row"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "scripts/checks/graph-coverage.mjs",
+      "assessmentGroup": "P4 controls",
+      "result": "supported agreement",
+      "residual": "no individual inventory row; covered by the aggregate C-14 row; SKIPs in CI",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 17156,
+          "needle": "scripts/checks/graph-coverage.mjs"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 69,
+          "needle": "Concurrent-edit detection check"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/check-consistency.mjs",
+          "line": 17,
+          "needle": "./checks/graph-coverage.mjs"
+        }
+      ],
+      "obligation": "C-14: the check's stated contract (inventory row or aggregate L69)",
+      "locus": "not inspected",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 retrospective setup snapshot: content review before any claim that consumes this row"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "scripts/checks/handoff-fields.mjs",
+      "assessmentGroup": "P4 controls",
+      "result": "supported agreement",
+      "residual": "shared parser library, not a check of its own",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 30,
+          "needle": "`scripts/checks/handoff-fields.mjs`"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 273,
+          "needle": "scripts/checks/handoff-fields.mjs"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/checks/handoff-response.mjs",
+          "line": 80,
+          "needle": "./handoff-fields.mjs"
+        }
+      ],
+      "obligation": "C-14: the check's stated contract (inventory row or aggregate L69)",
+      "locus": "not inspected",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 retrospective setup snapshot: content review before any claim that consumes this row"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "scripts/checks/handoff-response.mjs",
+      "assessmentGroup": "P4 controls",
+      "result": "supported agreement",
+      "residual": "",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 46,
+          "needle": "`scripts/checks/handoff-response.mjs`"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 4601,
+          "needle": "scripts/checks/handoff-response.mjs"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/check-consistency.mjs",
+          "line": 22,
+          "needle": "./checks/handoff-response.mjs"
+        }
+      ],
+      "obligation": "C-14: the check's stated contract (inventory row or aggregate L69)",
+      "locus": "not inspected",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 retrospective setup snapshot: content review before any claim that consumes this row"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "scripts/checks/lane-boundary.mjs",
+      "assessmentGroup": "P4 controls",
+      "result": "supported agreement",
+      "residual": "its lane map leaves 3 root paths unmapped (F2a.5); the Register lane table expects unmapped paths to be reported",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 50,
+          "needle": "`scripts/checks/lane-boundary.mjs`"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 266,
+          "needle": "scripts/checks/lane-boundary.mjs"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/check-consistency.mjs",
+          "line": 20,
+          "needle": "./checks/lane-boundary.mjs"
+        }
+      ],
+      "obligation": "C-14: the check's stated contract (inventory row or aggregate L69)",
+      "locus": "not inspected",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 retrospective setup snapshot: content review before any claim that consumes this row"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "scripts/checks/lane-state.mjs",
+      "assessmentGroup": "P4 controls",
+      "result": "supported agreement",
+      "residual": "",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 28,
+          "needle": "`scripts/checks/lane-state.mjs`"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 10428,
+          "needle": "scripts/checks/lane-state.mjs"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/check-consistency.mjs",
+          "line": 28,
+          "needle": "./checks/lane-state.mjs"
+        }
+      ],
+      "obligation": "C-14: the check's stated contract (inventory row or aggregate L69)",
+      "locus": "not inspected",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 retrospective setup snapshot: content review before any claim that consumes this row"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "scripts/checks/phase-manifest.mjs",
+      "assessmentGroup": "P4 controls",
+      "result": "supported agreement",
+      "residual": "",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 38,
+          "needle": "`scripts/checks/phase-manifest.mjs`"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/check-consistency.mjs",
+          "line": 23,
+          "needle": "./checks/phase-manifest.mjs"
+        }
+      ],
+      "obligation": "C-14: the check's stated contract (inventory row or aggregate L69)",
+      "locus": "not inspected",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 retrospective setup snapshot: content review before any claim that consumes this row"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "scripts/checks/retention-policy-coupling.mjs",
+      "assessmentGroup": "P4 controls",
+      "result": "supported agreement",
+      "residual": "",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 17,
+          "needle": "`scripts/checks/retention-policy-coupling.mjs`"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 8771,
+          "needle": "scripts/checks/retention-policy-coupling.mjs"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/check-consistency.mjs",
+          "line": 30,
+          "needle": "./checks/retention-policy-coupling.mjs"
+        }
+      ],
+      "obligation": "C-14: the check's stated contract (inventory row or aggregate L69)",
+      "locus": "not inspected",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 retrospective setup snapshot: content review before any claim that consumes this row"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "scripts/checks/rule-budget.mjs",
+      "assessmentGroup": "P4 controls",
+      "result": "supported agreement",
+      "residual": "",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 19,
+          "needle": "`scripts/checks/rule-budget.mjs`"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 23141,
+          "needle": "scripts/checks/rule-budget.mjs"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/check-consistency.mjs",
+          "line": 14,
+          "needle": "./checks/rule-budget.mjs"
+        },
+        {
+          "kind": "line",
+          "file": "docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md",
+          "line": 213,
+          "needle": "`shared-core-hash` check"
+        },
+        {
+          "kind": "line",
+          "file": "docs/Modular_PRD.md",
+          "line": 883,
+          "needle": "`shared-core-hash`"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 19,
+          "needle": "`CLAUDE.md` under 300 lines"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/checks/rule-budget.mjs",
+          "line": 1,
+          "needle": "Replaces `shared-core-hash.mjs`"
+        }
+      ],
+      "obligation": "C-14: the check's stated contract (inventory row or aggregate L69)",
+      "locus": "whole file (run(), constants, all eight tests)",
+      "semantic": "assessed: agreement with every Inventory L19 obligation (AGENTS.md <= 5,400 chars and < 24,000 B; CLAUDE.md < 300 lines; GEMINI.md < 24,000 B; resolving @AGENTS.md import; one core copy; no HTML comment; no live lane-state row; the V1-PHASE-CLOSURE §5 pointer). Limit: the one-copy test compares only lines of 60+ characters. Governing-text DIFFERENCE (AG-1): FN AIG-06.C1 L213 and Modular_PRD L883 still name shared-core-hash",
+      "owner": "Lane A",
+      "returnPoint": "F3 repair draft (AG-1 governing text); the 60-character limit goes to F4 as a stated instrument limit"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "scripts/checks/settings-parse.mjs",
+      "assessmentGroup": "P4 controls",
+      "result": "supported agreement",
+      "residual": "no individual inventory row; covered by the aggregate C-14 row",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 263,
+          "needle": "scripts/checks/settings-parse.mjs"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 69,
+          "needle": "Concurrent-edit detection check"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/check-consistency.mjs",
+          "line": 18,
+          "needle": "./checks/settings-parse.mjs"
+        }
+      ],
+      "obligation": "C-14: the check's stated contract (inventory row or aggregate L69)",
+      "locus": "not inspected",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 retrospective setup snapshot: content review before any claim that consumes this row"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "scripts/checks/source-sweep.mjs",
+      "assessmentGroup": "P4 controls",
+      "result": "supported agreement",
+      "residual": "SKIPs in CI (needs full history)",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 49,
+          "needle": "`scripts/checks/source-sweep.mjs`"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/check-consistency.mjs",
+          "line": 21,
+          "needle": "./checks/source-sweep.mjs"
+        }
+      ],
+      "obligation": "C-14: the check's stated contract (inventory row or aggregate L69)",
+      "locus": "not inspected",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 retrospective setup snapshot: content review before any claim that consumes this row"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "scripts/checks/sync-docs-uniqueness.mjs",
+      "assessmentGroup": "P4 controls",
+      "result": "supported agreement",
+      "residual": "",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 31,
+          "needle": "`scripts/checks/sync-docs-uniqueness.mjs`"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/check-consistency.mjs",
+          "line": 27,
+          "needle": "./checks/sync-docs-uniqueness.mjs"
+        }
+      ],
+      "obligation": "C-14: the check's stated contract (inventory row or aggregate L69)",
+      "locus": "not inspected",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 retrospective setup snapshot: content review before any claim that consumes this row"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "scripts/checks/text-integrity.mjs",
+      "assessmentGroup": "P4 controls",
+      "result": "supported agreement",
+      "residual": "",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 18,
+          "needle": "`scripts/checks/text-integrity.mjs`"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 21191,
+          "needle": "scripts/checks/text-integrity.mjs"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/check-consistency.mjs",
+          "line": 32,
+          "needle": "./checks/text-integrity.mjs"
+        }
+      ],
+      "obligation": "C-14: the check's stated contract (inventory row or aggregate L69)",
+      "locus": "not inspected",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 retrospective setup snapshot: content review before any claim that consumes this row"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "scripts/checks/tier-sweep.mjs",
+      "assessmentGroup": "P4 controls",
+      "result": "supported agreement",
+      "residual": "no individual inventory row; covered by the aggregate C-14 row; G65: presence, not correctness",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 265,
+          "needle": "scripts/checks/tier-sweep.mjs"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 69,
+          "needle": "Concurrent-edit detection check"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/check-consistency.mjs",
+          "line": 15,
+          "needle": "./checks/tier-sweep.mjs"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 262,
+          "needle": "verifies a decision *arrived* in a tier"
+        }
+      ],
+      "obligation": "C-14: the check's stated contract (inventory row or aggregate L69)",
+      "locus": "not inspected",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 retrospective setup snapshot: content review before any claim that consumes this row"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "scripts/fixtures/graphify-guard.test.mjs",
+      "assessmentGroup": "P5 tooling",
+      "result": "supported agreement",
+      "residual": "",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 53,
+          "needle": "`scripts/fixtures/graphify-guard.test.mjs`"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 27193,
+          "needle": "scripts/fixtures/graphify-guard.test.mjs"
+        }
+      ],
+      "obligation": "D-106 and later: negative fixtures and guard tests",
+      "locus": "not inspected",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 retrospective setup snapshot: content review before any claim that consumes this row"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "scripts/fixtures/harness.mjs",
+      "assessmentGroup": "P5 tooling",
+      "result": "supported agreement",
+      "residual": "covered by the aggregate fixtures row",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 9530,
+          "needle": "scripts/fixtures/harness.mjs"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 25,
+          "needle": "`scripts/fixtures/`"
+        }
+      ],
+      "obligation": "D-106 and later: negative fixtures and guard tests",
+      "locus": "not inspected",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 retrospective setup snapshot: content review before any claim that consumes this row"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "scripts/fixtures/run.mjs",
+      "assessmentGroup": "P5 tooling",
+      "result": "supported agreement",
+      "residual": "covered by the aggregate fixtures row",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 2902,
+          "needle": "scripts/fixtures/run.mjs"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 25,
+          "needle": "`scripts/fixtures/`"
+        },
+        {
+          "kind": "line",
+          "file": "package.json",
+          "line": 15,
+          "needle": "scripts/fixtures/run.mjs"
+        }
+      ],
+      "obligation": "D-106 and later: negative fixtures and guard tests",
+      "locus": "not inspected",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 retrospective setup snapshot: content review before any claim that consumes this row"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "scripts/fixtures/suites.mjs",
+      "assessmentGroup": "P5 tooling",
+      "result": "supported agreement",
+      "residual": "covered by the aggregate fixtures row",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 319,
+          "needle": "scripts/fixtures/suites.mjs"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 25,
+          "needle": "`scripts/fixtures/`"
+        }
+      ],
+      "obligation": "D-106 and later: negative fixtures and guard tests",
+      "locus": "not inspected",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 retrospective setup snapshot: content review before any claim that consumes this row"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "scripts/graphify/guarded-rebuild.mjs",
+      "assessmentGroup": "P5 tooling",
+      "result": "supported agreement",
+      "residual": "",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 52,
+          "needle": "`scripts/graphify/guarded-rebuild.mjs`"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 27192,
+          "needle": "scripts/graphify/guarded-rebuild.mjs"
+        }
+      ],
+      "obligation": "D-418, D-425 to D-429: the guarded graph route",
+      "locus": "not inspected",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 retrospective setup snapshot: content review before any claim that consumes this row"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "scripts/jev/jev.mjs",
+      "assessmentGroup": "P5 tooling",
+      "result": "supported agreement",
+      "residual": "product-interface tooling; outside `bun run check`; earns no SM05 credit",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 99,
+          "needle": "`scripts/jev/jev.mjs`"
+        }
+      ],
+      "obligation": "D-259/D-260: Jev two-checkpoint evaluator",
+      "locus": "not inspected",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 retrospective setup snapshot: content review before any claim that consumes this row"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "scripts/jev/lib.mjs",
+      "assessmentGroup": "P5 tooling",
+      "result": "supported agreement",
+      "residual": "product-interface tooling; earns no SM05 credit",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 99,
+          "needle": "`scripts/jev/lib.mjs`"
+        }
+      ],
+      "obligation": "D-259/D-260: Jev two-checkpoint evaluator",
+      "locus": "not inspected",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 retrospective setup snapshot: content review before any claim that consumes this row"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "scripts/jev/manifests/V1-SM05.json",
+      "assessmentGroup": "P5 tooling",
+      "result": "supported agreement (identity and decision); row semantics are product scope",
+      "residual": "scenario parity with the SM05 packet belongs to B-134/B-127; F2b does not repeat it",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 100,
+          "needle": "`scripts/jev/manifests/V1-SM05.json`"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 20739,
+          "needle": "scripts/jev/manifests/V1-SM05.json"
+        }
+      ],
+      "obligation": "D-259/D-260: Jev two-checkpoint evaluator",
+      "locus": "not inspected",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 retrospective setup snapshot: content review before any claim that consumes this row"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "scripts/jev/selftest.mjs",
+      "assessmentGroup": "P5 tooling",
+      "result": "supported agreement",
+      "residual": "",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 99,
+          "needle": "`scripts/jev/selftest.mjs`"
+        },
+        {
+          "kind": "line",
+          "file": "package.json",
+          "line": 17,
+          "needle": "scripts/jev/selftest.mjs"
+        }
+      ],
+      "obligation": "D-259/D-260: Jev two-checkpoint evaluator",
+      "locus": "not inspected",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 retrospective setup snapshot: content review before any claim that consumes this row"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "scripts/lane-gate.mjs",
+      "assessmentGroup": "P4 controls",
+      "result": "supported agreement",
+      "residual": "",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 26,
+          "needle": "`scripts/lane-gate.mjs`"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 2875,
+          "needle": "scripts/lane-gate.mjs"
+        },
+        {
+          "kind": "line",
+          "file": ".githooks/commit-msg",
+          "line": 9,
+          "needle": "node scripts/lane-gate.mjs"
+        }
+      ],
+      "obligation": "D-88/D-105: Lane-Crossing trailer gate",
+      "locus": "not inspected",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 retrospective setup snapshot: content review before any claim that consumes this row"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "supabase/config.toml",
+      "assessmentGroup": "P6 product-facing setup source",
+      "result": "supported agreement",
+      "residual": "",
+      "ownership": "Lane B (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 8011,
+          "needle": "supabase/config.toml"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 66,
+          "needle": "`supabase/config.toml` stay TRACKED"
+        }
+      ],
+      "obligation": "D-120 and S1 records: local stack contract and schema",
+      "locus": "not inspected",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 retrospective setup snapshot: content review before any claim that consumes this row"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "supabase/migrations/0001_init.sql",
+      "assessmentGroup": "P6 product-facing setup source",
+      "result": "frozen authority: identity only",
+      "residual": "it is authority, so it is not assessed against itself; F5 uses it as the schema anchor",
+      "ownership": "Lane B (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 74,
+          "needle": "`supabase/migrations/0001_init.sql`"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 2492,
+          "needle": "supabase/migrations/0001_init.sql"
+        }
+      ],
+      "obligation": "Frozen authority (identity only)",
+      "locus": "not inspected",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 retrospective setup snapshot: content review before any claim that consumes this row"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "supabase/migrations/0002_s1_editorial_schema.sql",
+      "assessmentGroup": "P6 product-facing setup source",
+      "result": "supported agreement",
+      "residual": "PostgreSQL behaviour verified through F2a row 8 (B-044 at cf51724); DEP-05 limit stays",
+      "ownership": "Lane B (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 61,
+          "needle": "`supabase/migrations/0002_s1_editorial_schema.sql`"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 8640,
+          "needle": "supabase/migrations/0002_s1_editorial_schema.sql"
+        }
+      ],
+      "obligation": "D-120 and S1 records: local stack contract and schema",
+      "locus": "not inspected",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 retrospective setup snapshot: content review before any claim that consumes this row"
+    },
+    {
+      "order": 4,
+      "slice": "F2b",
+      "group": "G1",
+      "path": "tsconfig.json",
+      "assessmentGroup": "P2 root build config",
+      "result": "supported agreement",
+      "residual": "",
+      "ownership": "Lane A (mapped)",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 4228,
+          "needle": "tsconfig.json"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 4228,
+          "needle": "build config (`package.json`, `tsconfig.json`, `eslint.config.mjs`, `next.config.ts`, `.gitattributes`, `.gitignore`)"
+        }
+      ],
+      "obligation": "D-84: TypeScript config; `@/*` alias",
+      "locus": "whole file",
+      "semantic": "assessed: agreement (strict, noEmit for `tsc --noEmit` typecheck, `@/*` alias, Next plugin); no further obligation located",
+      "owner": "Lane A",
+      "returnPoint": "none: whole file inspected"
+    }
+  ],
+  "revisedFrom": "F2b-citations-1640ff7-r3.json (23fb0b5), answering Lane B 752f7cd: package row linked to G108b/D-157; only the row with changedIn r4 differs",
+  "fields": {
+    "result": "role-level result from revision 1 (unchanged)",
+    "semantic": "assessed: agreement | assessed: DIFFERENCE | unassessed",
+    "obligation": "the applicable obligation",
+    "locus": "implementation locus inspected",
+    "owner": "answering owner",
+    "returnPoint": "where an unassessed or different row returns"
+  },
+  "semanticTally": {
+    "unassessed": 43,
+    "agreement": 13,
+    "difference": 6
+  }
+}

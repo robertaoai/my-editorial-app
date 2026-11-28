@@ -1,0 +1,163 @@
+{
+  "schema": "B-156 F2a citations v1",
+  "frozenRevision": "1640ff7bc1b7d1e70ab6a421ced8a054dafda993",
+  "inventory": "F1-candidates-1640ff7-r2.tsv (F1 revision 2, Verified by Lane B at 0a63ea5)",
+  "vocabulary": ["supported agreement", "difference", "missing support", "unknown", "disputed"],
+  "checkKinds": {
+    "line": "the file at the frozen revision has the needle on the stated line",
+    "absent": "git grep -E finds no match for the pattern in the stated pathspecs at the frozen revision (exit 1, empty stderr)",
+    "noFile": "the path does not exist at the frozen revision"
+  },
+  "rows": [
+    {
+      "order": 1, "slice": "F2a", "group": "G1", "path": ".onlyaiapp",
+      "result": "missing support", "ownership": "unknown",
+      "citations": [
+        { "kind": "absent", "pattern": "OnlyAIApp|\\.onlyaiapp", "pathspecs": ["docs", ":!docs/handoff"] }
+      ]
+    },
+    {
+      "order": 1, "slice": "F2a", "group": "G1", "path": "app/api/health/route.ts",
+      "result": "missing support", "ownership": "Lane B (mapped)",
+      "citations": [
+        { "kind": "absent", "pattern": "api/health", "pathspecs": ["docs", ":!docs/handoff"] },
+        { "kind": "absent", "pattern": "api/health", "pathspecs": ["app", "lib", "components", "__tests__", "scripts", ".github"] }
+      ]
+    },
+    {
+      "order": 1, "slice": "F2a", "group": "G1", "path": "app/globals.css",
+      "result": "missing support", "ownership": "Lane B (mapped)",
+      "citations": [
+        { "kind": "absent", "pattern": "globals\\.css", "pathspecs": ["docs", ":!docs/handoff"] }
+      ]
+    },
+    {
+      "order": 1, "slice": "F2a", "group": "G1", "path": "app/layout.tsx",
+      "result": "missing support", "ownership": "Lane B (mapped)",
+      "citations": [
+        { "kind": "line", "file": "app/layout.tsx", "line": 5, "needle": "vibe-stack-supabase" },
+        { "kind": "line", "file": "docs/v1/V1-DECISION-REGISTER.md", "line": 3969, "needle": "vibe-stack-supabase" },
+        { "kind": "line", "file": "docs/governance/agent-rules-reference.md", "line": 387, "needle": "template boilerplate" }
+      ]
+    },
+    {
+      "order": 1, "slice": "F2a", "group": "G1", "path": "lib/supabase/client.ts",
+      "result": "supported agreement (AC-NF-04, code reading); verification unknown", "ownership": "Lane B (mapped)",
+      "citations": [
+        { "kind": "line", "file": "docs/Modular_PRD.md", "line": 1135, "needle": "AC-NF-04" },
+        { "kind": "line", "file": "lib/supabase/client.ts", "line": 6, "needle": "NEXT_PUBLIC_SUPABASE_ANON_KEY" },
+        { "kind": "absent", "pattern": "lib/supabase/client", "pathspecs": ["app", "lib", "components", "__tests__", "middleware.ts"] }
+      ]
+    },
+    {
+      "order": 1, "slice": "F2a", "group": "G1", "path": "supabase/.gitignore",
+      "result": "supported agreement (D-120 act output; no path-level intent)", "ownership": "Lane B (mapped)",
+      "citations": [
+        { "kind": "line", "file": "docs/LANE-B-WORK-ORDER.md", "line": 122, "needle": "supabase init" },
+        { "kind": "line", "file": "docs/v1/V1-BUILD-SPEC.md", "line": 657, "needle": "is Lane B's act" },
+        { "kind": "line", "file": "AGENTS.md", "line": 21, "needle": "anywhere in the repository" },
+        { "kind": "line", "file": "supabase/.gitignore", "line": 6, "needle": ".env.keys" }
+      ]
+    },
+    {
+      "order": 2, "slice": "F2a", "group": "G1", "path": "scripts/checks/terminal-return.mjs",
+      "result": "supported agreement; missing support at the Artifact Inventory tier", "ownership": "Lane A (mapped)",
+      "citations": [
+        { "kind": "line", "file": "docs/Modular_PRD.md", "line": 879, "needle": "terminal-return" },
+        { "kind": "line", "file": "docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md", "line": 205, "needle": "AIG-02.C2" },
+        { "kind": "line", "file": "docs/specs/SPECS-MULTI-LANE-AI-GOVERNANCE.md", "line": 107, "needle": "terminal-return.mjs" },
+        { "kind": "line", "file": "docs/handoff/README.md", "line": 409, "needle": "history-aware half" },
+        { "kind": "line", "file": "docs/v1/V1-DECISION-REGISTER.md", "line": 24287, "needle": "terminal-return" },
+        { "kind": "absent", "pattern": "terminal-return", "pathspecs": ["docs/v1/V1-ARTIFACT-INVENTORY.md"] }
+      ]
+    },
+    {
+      "order": 2, "slice": "F2a", "group": "G1", "path": "supabase/tests/database/s1_transition_enforcement.test.sql",
+      "result": "supported agreement (intent, implementation, verification); difference between governing tiers", "ownership": "Lane B (mapped)",
+      "citations": [
+        { "kind": "line", "file": "docs/v1/V1-DECISION-REGISTER.md", "line": 2962, "needle": "C-33" },
+        { "kind": "line", "file": "docs/v1/V1-DECISION-REGISTER.md", "line": 2983, "needle": "Closes when a disposable PostgreSQL" },
+        { "kind": "line", "file": "docs/LANE-B-WORK-ORDER.md", "line": 128, "needle": "eight-case contract" },
+        { "kind": "line", "file": "docs/v1/V1-PHASE-CLOSURE.md", "line": 430, "needle": "is satisfied" },
+        { "kind": "line", "file": "docs/v1/V1-BUILD-SPEC.md", "line": 660, "needle": "NOT yet earned" },
+        { "kind": "line", "file": "docs/handoff/B-044-s1-trigger-has-static-not-postgres-test.md", "line": 10, "needle": "Verified" },
+        { "kind": "line", "file": "supabase/tests/database/s1_transition_enforcement.test.sql", "line": 4, "needle": "plan(30)" }
+      ]
+    },
+    {
+      "order": 3, "slice": "F2a", "group": "G2", "path": "docs/graph-fragments/merge6.js",
+      "result": "supported agreement (retained history); not on the guarded route", "ownership": "Lane A (mapped)",
+      "citations": [
+        { "kind": "line", "file": "docs/graph-fragments/README.md", "line": 111, "needle": "merge6.js` is retained for history" },
+        { "kind": "line", "file": "docs/graph-fragments/merge7.js", "line": 6, "needle": "Supersedes merge6.js" },
+        { "kind": "line", "file": "docs/graph-fragments/merge6.js", "line": 4, "needle": "./.graphify/graph.json" },
+        { "kind": "absent", "pattern": "merge6", "pathspecs": ["scripts"] }
+      ]
+    },
+    {
+      "order": 3, "slice": "F2a", "group": "G2", "path": "docs/graph-fragments/merge7.js",
+      "result": "supported agreement", "ownership": "Lane A (mapped)",
+      "citations": [
+        { "kind": "line", "file": "docs/graph-fragments/README.md", "line": 111, "needle": "reference merge script" },
+        { "kind": "line", "file": "docs/governance/agent-rules-reference.md", "line": 179, "needle": "merge7.js" },
+        { "kind": "line", "file": "scripts/graphify/guarded-rebuild.mjs", "line": 1350, "needle": "merge7.js" }
+      ]
+    },
+    {
+      "order": 3, "slice": "F2a", "group": "G2", "path": "docs/graph-fragments/missing.js",
+      "result": "difference (Build Spec role vs README / D-246 role)", "ownership": "Lane A (mapped)",
+      "citations": [
+        { "kind": "line", "file": "docs/graph-fragments/README.md", "line": 177, "needle": "remains as a reference report" },
+        { "kind": "line", "file": "docs/v1/V1-BUILD-SPEC.md", "line": 531, "needle": "`missing.js` — is verification apparatus" },
+        { "kind": "noFile", "path": "scripts/checks/shared-core-hash.mjs" }
+      ]
+    },
+    {
+      "order": 3, "slice": "F2a", "group": "G2", "path": "docs/graph-fragments/prune-stale-symbols.js",
+      "result": "supported agreement", "ownership": "Lane A (mapped)",
+      "citations": [
+        { "kind": "line", "file": "docs/v1/V1-ARTIFACT-INVENTORY.md", "line": 54, "needle": "D-421" },
+        { "kind": "line", "file": "docs/graph-fragments/README.md", "line": 138, "needle": "after the restore and before the merges" },
+        { "kind": "line", "file": "scripts/graphify/guarded-rebuild.mjs", "line": 1346, "needle": "prune-stale-symbols.js" }
+      ]
+    },
+    {
+      "order": 3, "slice": "F2a", "group": "G2", "path": "docs/graph-fragments/prune-stale-symbols.test.mjs",
+      "result": "supported agreement; run evidence at the frozen revision unknown", "ownership": "Lane A (mapped)",
+      "citations": [
+        { "kind": "line", "file": "docs/v1/V1-ARTIFACT-INVENTORY.md", "line": 55, "needle": "prune-stale-symbols.test.mjs" },
+        { "kind": "line", "file": "package.json", "line": 11, "needle": "\"test\": \"bun test\"" }
+      ]
+    },
+    {
+      "order": 3, "slice": "F2a", "group": "G2", "path": "docs/graph-fragments/restore-docs-layer.js",
+      "result": "supported agreement", "ownership": "Lane A (mapped)",
+      "citations": [
+        { "kind": "line", "file": "docs/v1/V1-ARTIFACT-INVENTORY.md", "line": 94, "needle": "D-246" },
+        { "kind": "line", "file": "docs/v1/V1-DECISION-REGISTER.md", "line": 18351, "needle": "restore-docs-layer.js" },
+        { "kind": "line", "file": "docs/graph-fragments/README.md", "line": 123, "needle": "restore-docs-layer.js" },
+        { "kind": "line", "file": "scripts/graphify/guarded-rebuild.mjs", "line": 1343, "needle": "restore-docs-layer.js" }
+      ]
+    },
+    {
+      "order": 4, "slice": "F2a", "group": "G1", "path": "middleware.ts",
+      "result": "missing support (file intent); supported agreement (no-login-wall constraint)", "ownership": "proposed Lane B (classifier gap)",
+      "citations": [
+        { "kind": "line", "file": "docs/Modular_PRD.md", "line": 642, "needle": "no login wall" },
+        { "kind": "line", "file": "docs/governance/agent-rules-reference.md", "line": 122, "needle": "no login wall in v1" },
+        { "kind": "line", "file": "docs/Modular_PRD.md", "line": 1176, "needle": "Decided (`D-143`" },
+        { "kind": "line", "file": "docs/journal/2026-08-16-sprint-plan.md", "line": 69, "needle": "middleware.ts" },
+        { "kind": "absent", "pattern": "redirect", "pathspecs": ["lib/supabase/middleware.ts", "middleware.ts"] }
+      ]
+    },
+    {
+      "order": 4, "slice": "F2a", "group": "G1", "path": ".env.example",
+      "result": "supported agreement (TR-API-03 statement, X8/NG-03 removal, no secrets)", "ownership": "proposed Lane B (classifier gap)",
+      "citations": [
+        { "kind": "line", "file": "docs/Modular_PRD.md", "line": 639, "needle": "declared in `.env.example`" },
+        { "kind": "line", "file": "docs/governance/agent-rules-reference.md", "line": 426, "needle": "NG-03" },
+        { "kind": "line", "file": "AGENTS.md", "line": 21, "needle": "anywhere in the repository" }
+      ]
+    }
+  ]
+}

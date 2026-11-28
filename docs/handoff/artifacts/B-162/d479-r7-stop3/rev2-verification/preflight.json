@@ -1,0 +1,15 @@
+{
+  "pre": {
+    "observedAtUtc": "2026-11-13T12:58:01.417Z",
+    "head": "30db8d51140c0e46700f96bb9f018e6e40b93cbc",
+    "headTree": "0b558d2a51f17eff755dfd7fba51bed37548f9ae",
+    "upstream": "d8db2da71ceb79cc9ade330b524b6ffc6c3edd96",
+    "aheadBehind": "1\t0",
+    "porcelain": "",
+    "evidenceRootAbsent": true
+  },
+  "post": {
+    "porcelain": "",
+    "head": "30db8d51140c0e46700f96bb9f018e6e40b93cbc"
+  }
+}

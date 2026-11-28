@@ -4,7 +4,7 @@
 - **Kind:** blocked-on-decision
 - **Phase:** 1
 - **Blocks:** final V1-SM05 Issue creation, feature-branch creation, State-1 draft PR, Judge selection and State-2 construction
-- **Status:** Open
+- **Status:** Answered
 - **Lane A:** Acknowledged 2026-09-22. Content verified against `D-252`/`D-253` and the current
   `V1-BUILD-SPEC.md`/`V1-ARTIFACT-INVENTORY.md`/`V1-SM05.md` state — accurate. Parent 2's
   feature-branch row is correctly closed by `D-253`; Parents 1, 2 (remaining four rows), 3, 4 and 5
@@ -30,9 +30,27 @@
   creation.
 
   **Progress note, 2026-09-24 (`D-256`), not an answer.** `DOR-R5` is authored (Panel A11) and `DOR-R6` is compared and republished; both await review. Issue, branch, State-1 PR and selection stay sequenced behind full DoR acceptance (`D-254`). `Status` stays `Open`.
-- **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Evidence:** `D-252`, `D-253`; `docs/handoff/B-119-agentic-documentation-architecture-safe-mmf-reconciliation.md`; `docs/v1/V1-BUILD-SPEC.md`; `docs/v1/V1-ARTIFACT-INVENTORY.md`; `docs/v1/work-packets/V1/V1-SM05.md`; Lane C independent review dated 2026-09-22
-- **Verified-At-Commit:** a6368a36225504eadd24f391337de68e7b76f11f
+
+  **Progress note, 2026-09-25 (`D-263`), not an answer.** DoR `R1`–`R7` complete; Issue #1, `features/feature-V1-SM05` and draft State-1 PR #2 exist (`D-262`). Selection, the `D-242` work order, Lane B activation and construction remain open. `Status` stays `Open`.
+
+  **Transferred and `Deferred`, 2026-09-26 (`D-268`, commit `947e4e7`; Judge answer Q1, *per backlog tracking*).** Per-parent receipts:
+
+  | Parent | Receipt |
+  |---|---|
+  | 1 — Chief Editor operator attestation | Transferred: removed as a `V1-SM05` gate and kept as `SETUP-SPIKE-000/S2` baseline provenance (`D-255`, `B-129`); no `V1-SM05` work remains |
+  | 2 — boundary docket | Closed: integration mode, advisory dual sign-off and raw-capture disposition decided (`D-253`; dated correction via `B-122`, observed at `f94695b`) |
+  | 3 — complete the `V1-SM05` DoR | Complete: `DOR-R1`–`DOR-R7` checked (`D-259`–`D-261`), now the Gate 1A attempt `SV-001` (`D-264`) |
+  | 4 — external GitHub lifecycle | Complete: Issue #1, `features/feature-V1-SM05`, draft PR #2 (`D-262`, `D-263`) |
+  | 5 — selection and construction | **Transferred** to `B-136` Parent 3, then `V1-SM05-FV-001` (Gate 2); `SV-002` §2.2 `P14a` |
+
+  `Status` moves to `Answered` with `Resolution: Deferred` and the `Follow-up-Tier` below; the entry returns under `B-097` when that condition is met. Not independently verified; Lane B's review of these receipts still applies.
+
+  **Lifecycle correction, 2026-09-26 (`D-269`, commit `4e513fd`; Judge Option A, canonical absorption).** The `Deferred` disposition above, with its Gate-2 `B-097` return, is history. This entry is now **`Superseded`** by `D-268` as corrected by `D-269` — terminal, **no return trigger**. The per-parent receipts above stand. Parent 5 (selection and construction) is received by `B-136` Parent 3 (receipt at `ee2e232`) and owned durably by `V1-SM05.md`; `SV-002` §2.2 `P14a`. Absorption completes none of those acts. Not independently verified.
+- **Resolution:** Superseded
+- **Verified-By:** — not independently verified; dispositioned by Lane A
+- **Evidence:** `D-268` per-parent receipts above; previously: `D-252`, `D-253`; `docs/handoff/B-119-agentic-documentation-architecture-safe-mmf-reconciliation.md`; `docs/v1/V1-BUILD-SPEC.md`; `docs/v1/V1-ARTIFACT-INVENTORY.md`; `docs/v1/work-packets/V1/V1-SM05.md`; Lane C independent review dated 2026-09-22
+- **Verified-At-Commit:** 4e513fd92316da9bae6b903d221103cf655737a5
+- **Superseded-By:** `D-268` as corrected by `D-269` (Judge Option A, canonical absorption, 2026-09-26)
 
 ## What happened
 
@@ -166,3 +184,11 @@ documents, create the Issue or branch, open the PR, migrate Supabase, or begin S
 | **Defer** | V1-SM05 construction | After selection, work order and Lane B activation |
 | **Reject** | ZIP-based branch initialization; rewriting anchored receipts; deleting raw captures without authority | Preserve native Git history and evidence boundaries |
 
+
+## Terminal annotation record
+
+- **Current-Resolution:** Superseded
+- **Annotation-Type:** correction
+- **Annotation-Act:** `D-269` (Judge Option A, canonical absorption, 2026-09-26) — `Deferred` corrected to `Superseded`, `Follow-up-Tier` removed; `V1-DECISION-REGISTER.md` §5.14e94
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** adce86146aa46ae17946ac48b93c483c72225568

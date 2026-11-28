@@ -1,0 +1,37 @@
+# bun run check — S2B-prediction
+# cwd C:/Users/rober_24syk4j/AppData/Local/Temp/claude/e52f6e3650175a89/539c12be-a61a-402c-98fa-3516e9aca97f/scratchpad/prereq21/CLx
+# HEAD 82b65358893aca4d2a300078a7149350d67eb3a1 tree 0c9800271090e68d0ae1b48e58f8bef4da4574d8
+# status ""
+# started 2026-11-13T17:23:58.935Z
+# ended 2026-11-13T17:26:31.563Z
+# exit 1
+## stdout
+  PASS  rule-budget        AGENTS.md 3788 chars / 3798 B (ceiling 5400); CLAUDE.md 47 lines, imports @AGENTS.md; GEMINI.md 3641 B; one core copy
+  PASS  tier-sweep         848 tier claims verified
+  PASS  duplicate-ids      122 rows, 122 distinct IDs
+  FAIL  graph-coverage     65 markdown files under docs/ require a node of their own, 2 absent (docs/handoff/ and graphify scratch and the coverage-only manifest (D-246) excluded); 0 fragment derived-field finding(s)
+        absent from the curated graph: docs/v1/V1-INTENT-INDEX.md
+        absent from the curated graph: docs/v1/work-packets/V1/V1-SM07.md
+  PASS  settings-parse     1 file(s) parse clean: .claude/settings.json
+  PASS  decision-status    13 §10 rows vs 11 listed, 6 decided; 107 gap rows vs 18 closure claims
+  PASS  lane-boundary      HEAD commit: lane surfaces touched — A
+  FAIL  source-sweep       15 governing doc(s), 3 frozen pinned; register at 37e58e8
+        docs/governance/requirements-traceability-map.md (4f01166) changed after the register last moved — propagation unverified. Record a decision, even if the decision is that no tier is affected.
+  PASS  handoff-response   169 entries: 8 open, 161 answered, 0 withdrawn; 8 still carry NO resolution; 4 turn report(s) excluded from that count (G84); 5 return record(s) (B-097); 5 re-close record(s) (D-364); 58 terminal annotation record(s) (B-113)
+  PASS  phase-manifest     38 manifest path(s) verified, 9 exclusion(s) declared
+  PASS  config-coupling    50 authoritative row(s), 2 derived, 54 declaration(s) in lib/config/
+  PASS  closure-readiness  no phase claims closure — reporting only; applied 25, deferred 7, open 8, superseded 10, turn-report 4, verified 115; 115 verification commit(s) proven to exist; Gate 2 not claimed — reporting only: tracker at e129915aff1c6074df36fdad68052f3244ac90a3 (stale), 107 row(s), 1 non-SM05 unclosed, 0 SM05 not received, 2 live entries unlisted, 0 §3.3 child(ren) unreferenced, 0 row(s) invalid
+  FAIL  docs-drift         stale: analyzed 8c225e6 vs HEAD 82b6535
+        graph is STALE — last analyzed 8c225e6, HEAD is 82b6535; 21 governed-intent path(s) changed without a later analysis: .github/WORKFLOWS-SPEC.md, AGENTS.md, docs/ENCYCLOPEDIA-SYNC.md, docs/Modular_PRD.md, docs/fn-specs/FN-GATES-01-05.md …and 16 more. Sync through the guarded procedure: `node scripts/graphify/guarded-rebuild.mjs prepare`, then Lane B's acceptance record, then `publish --review` (or `recover` when a transaction journal exists). Never run a raw rebuild against the live state (`D-425`).
+  PASS  sync-docs-unique   canonical .claude/skills/sync-docs/SKILL.md; no duplicates across .claude, .agents, .codex, .github
+  PASS  lane-state         3 lane row(s); Active: A; Eligible (nominated): B
+  PASS  channel-docs       4 channel doc(s) [.github/WORKFLOWS-SPEC.md, docs/LANE-B-WORK-ORDER.md, docs/handoff/README.md, docs/handoff/TEMPLATE.md]; 5 resolution(s), 31 template field(s), 28 read by checks, 3 human-only
+  PASS  retention-policy-coupling 4/4 required tiers present; RET-EDITORIAL coupling checked across 4 tiers
+  PASS  terminal-return    132 file(s) with at least one terminal episode walked in full; 132 clean, 0 with an uncovered step; 10 return/re-close record(s) proven against history (D-364)
+  PASS  text-integrity     348 markdown file(s): no control character; no drive path missing its separator; no spliced "undefined" (docs/handoff/ exempt from the path and splice rules only)
+
+3 of 19 consistency checks FAILED.
+
+## stderr
+$ node scripts/check-consistency.mjs
+error: script "check" exited with code 1

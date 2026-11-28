@@ -1,0 +1,68 @@
+{
+ "ok": true,
+ "flags": [],
+ "matrix": [
+  {
+   "run": "S2A prediction",
+   "testedCommit": "4f01166d6f6e8a5841322f0738cbdc3f0a75d4fb",
+   "namedCommit": "4f01166d6f6e8a5841322f0738cbdc3f0a75d4fb",
+   "printedH": "4f01166",
+   "finding": [
+    "docs/governance/requirements-traceability-map.md (4f01166) changed after the register last moved — propagation unverified. Record a decision, even if the decision is that no tier is affected."
+   ],
+   "status": "FAIL"
+  },
+  {
+   "run": "S2A negative test",
+   "testedCommit": "4f01166d6f6e8a5841322f0738cbdc3f0a75d4fb",
+   "namedCommit": "4f01166d6f6e8a5841322f0738cbdc3f0a75d4fb",
+   "printedH": "4f01166",
+   "finding": [
+    "docs/governance/requirements-traceability-map.md (4f01166) changed after the register last moved — propagation unverified. Record a decision, even if the decision is that no tier is affected."
+   ],
+   "status": "FAIL"
+  },
+  {
+   "run": "S2B prediction",
+   "testedCommit": "82b65358893aca4d2a300078a7149350d67eb3a1",
+   "namedCommit": "4f01166d6f6e8a5841322f0738cbdc3f0a75d4fb",
+   "printedH": "4f01166",
+   "finding": [
+    "docs/governance/requirements-traceability-map.md (4f01166) changed after the register last moved — propagation unverified. Record a decision, even if the decision is that no tier is affected."
+   ],
+   "status": "FAIL"
+  },
+  {
+   "run": "S2B negative test",
+   "testedCommit": "82b65358893aca4d2a300078a7149350d67eb3a1",
+   "namedCommit": "4f01166d6f6e8a5841322f0738cbdc3f0a75d4fb",
+   "printedH": "4f01166",
+   "finding": [
+    "docs/governance/requirements-traceability-map.md (4f01166) changed after the register last moved — propagation unverified. Record a decision, even if the decision is that no tier is affected."
+   ],
+   "status": "FAIL"
+  },
+  {
+   "run": "2b source check 1 (2b uncommitted)",
+   "testedCommit": "bb9dfdcaa5a13f72fed59717c802271a616fa049",
+   "namedCommit": "bb9dfdcaa5a13f72fed59717c802271a616fa049",
+   "printedH": "bb9dfdc",
+   "finding": [
+    "docs/governance/requirements-traceability-map.md (bb9dfdc) changed after the register last moved — propagation unverified. Record a decision, even if the decision is that no tier is affected."
+   ],
+   "status": "FAIL"
+  },
+  {
+   "run": "2b source check 2 (2b uncommitted)",
+   "testedCommit": "bb9dfdcaa5a13f72fed59717c802271a616fa049",
+   "namedCommit": "bb9dfdcaa5a13f72fed59717c802271a616fa049",
+   "printedH": "bb9dfdc",
+   "finding": [
+    "docs/governance/requirements-traceability-map.md (bb9dfdc) changed after the register last moved — propagation unverified. Record a decision, even if the decision is that no tier is affected."
+   ],
+   "status": "FAIL"
+  }
+ ]
+}
+exit 0
+Sat Nov 14 01:39:29 MPST 2026

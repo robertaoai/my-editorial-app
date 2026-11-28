@@ -1,0 +1,42 @@
+{
+ "state": "ready",
+ "workId": "7bd2af2f-82a0-40fc-872c-31009278ff1c",
+ "source": "22b0a8ce2fb06c16152fa9490d21aae829a45974",
+ "baseline": {
+  "releaseLocus": "77af44a2fcf84a7e7c05013308cc474e6bfaef41",
+  "algorithm": "guard-treeDigest-v1",
+  "digest": "a51dc92d0ee08082c87b871dfe3117d08fd68089851f9372cbd3538bea8eaf4d",
+  "files": 583
+ },
+ "readyManifest": "34a4edeb9516f11cb36d6d2dcfe1ddac99913dbe0427647f919354c4a9990b13",
+ "readyGraph": "df076c7c23af91db3b67b9eaea576c0976bec7bd0f2b844254b687be9a01f557",
+ "graphSha256": "df076c7c23af91db3b67b9eaea576c0976bec7bd0f2b844254b687be9a01f557",
+ "treeDigest": {
+  "root": "C:/CoWork/outputs/lane-a-graph-sync-after-d475-2026-10-29/work/attempt-2/staging",
+  "files": 583,
+  "digest": "34a4edeb9516f11cb36d6d2dcfe1ddac99913dbe0427647f919354c4a9990b13",
+  "graph": "df076c7c23af91db3b67b9eaea576c0976bec7bd0f2b844254b687be9a01f557"
+ },
+ "nodes": 3614,
+ "links": 7548,
+ "communities": 177,
+ "labels": 177,
+ "duplicateLabels": 0,
+ "answeredNamePresent": true,
+ "nameBindingFindings": 0,
+ "nodeLabelMismatches": 0,
+ "undescribed": 2,
+ "undescribedNotInBaseline": [],
+ "missingDescFile": "[]",
+ "parity": {
+  "fragments": 140,
+  "exact": 140,
+  "diffs": []
+ },
+ "branch": {
+  "lastAnalyzedHead": "22b0a8ce2fb06c16152fa9490d21aae829a45974",
+  "stale": false
+ },
+ "graphMatches": true,
+ "manifestMatches": true
+}

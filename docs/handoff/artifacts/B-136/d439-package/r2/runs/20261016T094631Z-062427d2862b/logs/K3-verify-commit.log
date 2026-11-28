@@ -1,0 +1,3 @@
+packet r9 bound (dfd5c7771e9b); 10 active edits literal in it; date 2026-10-16
+DIFF commit a740ca4 docs/Modular_PRD.md: blob 6149f0fdee4be889d11c5fcd6978f908b82db934 expected 93eb1e824cf596d64f187a3c90d7930b9bc8a4c5
+REFUSE: edits not as expected at commit a740ca4: E12 (docs/Modular_PRD.md: new 0/1, old 1/0)

@@ -1,0 +1,2021 @@
+{
+  "schema": "B-156 F2b verification v1",
+  "frozenRevision": "1640ff7bc1b7d1e70ab6a421ced8a054dafda993",
+  "head": "e7bdd29b924bef3d9ed52966133f0a063e89ae22",
+  "citationsSha256": "614e1fdb8c56c0c565e4c67ceb914973ff6f4617cbf68eab954a8f80c3ad4bc1",
+  "scriptSha256": "b7cded2ac980adb8693959c1058e6864bde6467c86f459028db19bf6aabe62c1",
+  "verifierSha256": "4aca7c1ea49a6939a5421d1649b5d398a38a8afdb9e8001c78b505b71f04ecb6",
+  "paths": 62,
+  "citations": 170,
+  "unchangedAtHead": 62,
+  "failures": 0,
+  "byResult": {
+    "supported agreement": 54,
+    "supported agreement as a static migration-contract test": 1,
+    "supported agreement (recorded); current host result unknown": 1,
+    "no setup support located; product requirement not yet built": 1,
+    "supported agreement with the recorded TC6 type fix": 1,
+    "supported agreement with the recorded TC1 state": 1,
+    "supported agreement with a recorded open question": 1,
+    "supported agreement (identity and decision); row semantics are product scope": 1,
+    "frozen authority: identity only": 1
+  },
+  "rows": [
+    {
+      "path": "__tests__/build-config.test.ts",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane B (mapped)",
+      "frozenBlob": "a233e5f21a0a79f95c7ea1a5e757c4d4115fc27f",
+      "headBlob": "a233e5f21a0a79f95c7ea1a5e757c4d4115fc27f",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 6661,
+          "needle": "__tests__/build-config.test.ts",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "__tests__/s1-schema.test.ts",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement as a static migration-contract test",
+      "ownership": "Lane B (mapped)",
+      "frozenBlob": "0bd0375973522d90d8a6a8f90c07abadc251c0b1",
+      "headBlob": "0bd0375973522d90d8a6a8f90c07abadc251c0b1",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 2965,
+          "needle": "__tests__/s1-schema.test.ts",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 2965,
+          "needle": "asserts on migration TEXT",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "__tests__/smoke.test.ts",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane B (mapped)",
+      "frozenBlob": "0c53dd5f686e2ac45249dccec6de255384b755a7",
+      "headBlob": "0c53dd5f686e2ac45249dccec6de255384b755a7",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 3346,
+          "needle": "__tests__/smoke.test.ts",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 63,
+          "needle": "`__tests__/smoke.test.ts`",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": ".agents/workflows/graphify.md",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "b0b831bef16fe944677898138b234f9b5405cb7e",
+      "headBlob": "b0b831bef16fe944677898138b234f9b5405cb7e",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 3911,
+          "needle": ".agents/workflows/graphify.md",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 564,
+          "needle": ".agents/workflows/graphify.md",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": ".claude/settings.json",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "9f304f33136f95bfd5d93250458eb5c2110b7519",
+      "headBlob": "9f304f33136f95bfd5d93250458eb5c2110b7519",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 263,
+          "needle": ".claude/settings.json",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 263,
+          "needle": "covered by no `C-14` check",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/check-consistency.mjs",
+          "line": 18,
+          "needle": "./checks/settings-parse.mjs",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": ".claude/skills/sync-docs/SKILL.md",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "521a98dd6d0029c4e8a49dc6903fa3d6dc1f0c31",
+      "headBlob": "521a98dd6d0029c4e8a49dc6903fa3d6dc1f0c31",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 56,
+          "needle": "`.claude/skills/sync-docs/SKILL.md`",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 4040,
+          "needle": ".claude/skills/sync-docs/SKILL.md",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/check-consistency.mjs",
+          "line": 27,
+          "needle": "./checks/sync-docs-uniqueness.mjs",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": ".codex/hooks.json",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "f905deab9ccf7f89a89cdb0468d084aecff70cee",
+      "headBlob": "f905deab9ccf7f89a89cdb0468d084aecff70cee",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 20987,
+          "needle": ".codex/hooks.json",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 20987,
+          "needle": "configuration, not instructions",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": ".gitattributes",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "76592f4f4059b7636f725a07698e9acf17a81733",
+      "headBlob": "76592f4f4059b7636f725a07698e9acf17a81733",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 260,
+          "needle": ".gitattributes",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 260,
+          "needle": "`.gitattributes` set",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 4228,
+          "needle": "build config (`package.json`, `tsconfig.json`, `eslint.config.mjs`, `next.config.ts`, `.gitattributes`, `.gitignore`)",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": ".gitattributes",
+          "line": 36,
+          "needle": "CLAUDE.md            merge=text",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": ".gitattributes",
+          "line": 31,
+          "needle": "shared-core-hash PASSES",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": ".githooks/commit-msg",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "5a09cb6a5a1a0c120403d94de9fb5871283a3ffd",
+      "headBlob": "5a09cb6a5a1a0c120403d94de9fb5871283a3ffd",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 47,
+          "needle": "`.githooks/commit-msg`",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 2944,
+          "needle": ".githooks/commit-msg",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "package.json",
+          "line": 14,
+          "needle": "core.hooksPath .githooks",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/v1-mmf.md",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "3f78c40a2adf8f04ce95d09f1c69b8896266460c",
+      "headBlob": "3f78c40a2adf8f04ce95d09f1c69b8896266460c",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 98,
+          "needle": "`.github/ISSUE_TEMPLATE/v1-mmf.md`",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 19144,
+          "needle": ".github/ISSUE_TEMPLATE/v1-mmf.md",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": ".github/PULL_REQUEST_TEMPLATE/v1-mmf.md",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "7720f46665bcdd16138e8965639358c70df4be45",
+      "headBlob": "7720f46665bcdd16138e8965639358c70df4be45",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 97,
+          "needle": "`.github/PULL_REQUEST_TEMPLATE/v1-mmf.md`",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 18258,
+          "needle": ".github/PULL_REQUEST_TEMPLATE/v1-mmf.md",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": ".github/WORKFLOWS-SPEC.md",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "1d050d755ff6c6744ddc05fb5b1dc88d885e0f85",
+      "headBlob": "1d050d755ff6c6744ddc05fb5b1dc88d885e0f85",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 40,
+          "needle": "`.github/WORKFLOWS-SPEC.md`",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 4802,
+          "needle": ".github/WORKFLOWS-SPEC.md",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": ".github/WORKFLOWS-SPEC.md",
+          "line": 46,
+          "needle": "`graph-coverage`, `docs-drift` and `source-sweep` cannot run",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": ".github/WORKFLOWS-SPEC.md",
+          "line": 35,
+          "needle": "`ignoreDuringBuilds`",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/checks/terminal-return.mjs",
+          "line": 401,
+          "needle": "needs fetch-depth: 0",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement (recorded); current host result unknown",
+      "ownership": "Lane C (mapped)",
+      "frozenBlob": "90dff7d1d58fb0a73897ffe88422d8ef425f5be8",
+      "headBlob": "90dff7d1d58fb0a73897ffe88422d8ef425f5be8",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 3162,
+          "needle": ".github/workflows/ci.yml",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 64,
+          "needle": "`ci.yml` runs install, typecheck, lint, test and `bun run check`",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 69,
+          "needle": "those three SKIP and the rest run",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": ".github/workflows/ci.yml",
+          "line": 4,
+          "needle": "`ignoreDuringBuilds`",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": ".github/workflows/ci.yml",
+          "line": 22,
+          "needle": "actions/checkout@v4",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": ".gitignore",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "2e23c6242f16f6d0feea5f4462004e462c1e94fe",
+      "headBlob": "2e23c6242f16f6d0feea5f4462004e462c1e94fe",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 304,
+          "needle": ".gitignore",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 4228,
+          "needle": "build config (`package.json`, `tsconfig.json`, `eslint.config.mjs`, `next.config.ts`, `.gitattributes`, `.gitignore`)",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 66,
+          "needle": "`.gitignore` entries for `supabase/.temp/`",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "AGENTS.md",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "262ca3722150dc130f81028770b7b2a1c70cc2c1",
+      "headBlob": "262ca3722150dc130f81028770b7b2a1c70cc2c1",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 46,
+          "needle": "AGENTS.md",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 19,
+          "needle": "`AGENTS.md` within the 5,400-character",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "app/page.tsx",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "no setup support located; product requirement not yet built",
+      "ownership": "Lane B (mapped)",
+      "frozenBlob": "59503ef1573ea14354fb233011a30c4c494688da",
+      "headBlob": "59503ef1573ea14354fb233011a30c4c494688da",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "app/page.tsx",
+          "line": 5,
+          "needle": "vibe-stack-supabase",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/governance/agent-rules-reference.md",
+          "line": 122,
+          "needle": "The homepage IS the working app",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/fixtures/suites.mjs",
+          "line": 799,
+          "needle": "app/page.tsx",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "bun.lockb",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "fe54bc5a7104c6d7e4e70500381b5fc7920513e4",
+      "headBlob": "fe54bc5a7104c6d7e4e70500381b5fc7920513e4",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 65,
+          "needle": "`bun.lockb`",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 304,
+          "needle": "bun.lockb",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 304,
+          "needle": "regenerated `bun.lockb`",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "CLAUDE.md",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "e5e7b631d0f7a7e11591769bfff882ad23826315",
+      "headBlob": "e5e7b631d0f7a7e11591769bfff882ad23826315",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 46,
+          "needle": "CLAUDE.md",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 19,
+          "needle": "rule-budget.mjs",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "CLAUDE.md",
+          "line": 1,
+          "needle": "@AGENTS.md",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "eslint.config.mjs",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "6bc0f3dc4c7a16bb9cc969d915fa5518871f0477",
+      "headBlob": "6bc0f3dc4c7a16bb9cc969d915fa5518871f0477",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 68,
+          "needle": "`eslint.config.mjs`",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 259,
+          "needle": "eslint.config.mjs",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 4228,
+          "needle": "build config (`package.json`, `tsconfig.json`, `eslint.config.mjs`, `next.config.ts`, `.gitattributes`, `.gitignore`)",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "GEMINI.md",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "ad4c15657667ab20d52cc5d7f9d6abd64f500757",
+      "headBlob": "ad4c15657667ab20d52cc5d7f9d6abd64f500757",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 21,
+          "needle": "`GEMINI.md`",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 19458,
+          "needle": "GEMINI.md",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "GEMINI.md",
+          "line": 4,
+          "needle": "never copies the shared core",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "lib/config/build-config.ts",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane B (mapped)",
+      "frozenBlob": "e0268deb561be4088be14240a438da1ca2a76ca1",
+      "headBlob": "e0268deb561be4088be14240a438da1ca2a76ca1",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 57,
+          "needle": "`lib/config/build-config.ts`",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 3286,
+          "needle": "lib/config/build-config.ts",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/check-consistency.mjs",
+          "line": 24,
+          "needle": "./checks/config-coupling.mjs",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "lib/config/flags.ts",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane B (mapped)",
+      "frozenBlob": "dc431e17138b32afb5bbb0efb5cc765ecb61c790",
+      "headBlob": "dc431e17138b32afb5bbb0efb5cc765ecb61c790",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 58,
+          "needle": "`lib/config/flags.ts`",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 4636,
+          "needle": "lib/config/flags.ts",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/check-consistency.mjs",
+          "line": 24,
+          "needle": "./checks/config-coupling.mjs",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "lib/supabase/middleware.ts",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement with the recorded TC6 type fix",
+      "ownership": "Lane B (mapped)",
+      "frozenBlob": "974c0120d7402e5f188b6f6749914e628b534b8d",
+      "headBlob": "974c0120d7402e5f188b6f6749914e628b534b8d",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 2140,
+          "needle": "lib/supabase/middleware.ts",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 2140,
+          "needle": "lib/supabase/middleware.ts",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "lib/supabase/server.ts",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement with the recorded TC1 state",
+      "ownership": "Lane B (mapped)",
+      "frozenBlob": "6d8d40474639edde312e270e4d7da59fef846e24",
+      "headBlob": "6d8d40474639edde312e270e4d7da59fef846e24",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 2140,
+          "needle": "lib/supabase/server.ts",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "lib/supabase/server.ts",
+          "line": 9,
+          "needle": "NEXT_PUBLIC_SUPABASE_ANON_KEY",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/journal/2026-08-16-sprint-plan.md",
+          "line": 138,
+          "needle": "No privileged write path exists",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "next.config.ts",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement with a recorded open question",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "f43b45a418c356af3547e9f8a847ef2c7531e9df",
+      "headBlob": "f43b45a418c356af3547e9f8a847ef2c7531e9df",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 1604,
+          "needle": "next.config.ts",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "next.config.ts",
+          "line": 11,
+          "needle": "TC6 is narrowed, not resolved",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/Modular_PRD.md",
+          "line": 1179,
+          "needle": "Open",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 4228,
+          "needle": "build config (`package.json`, `tsconfig.json`, `eslint.config.mjs`, `next.config.ts`, `.gitattributes`, `.gitignore`)",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "package.json",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "2a0a4fbc401590572a37bb96996718d382f11b67",
+      "headBlob": "2a0a4fbc401590572a37bb96996718d382f11b67",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 257,
+          "needle": "package.json",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 4228,
+          "needle": "build config (`package.json`, `tsconfig.json`, `eslint.config.mjs`, `next.config.ts`, `.gitattributes`, `.gitignore`)",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "package.json",
+          "line": 12,
+          "needle": "\"check\": \"node scripts/check-consistency.mjs\"",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "package.json",
+          "line": 14,
+          "needle": "core.hooksPath .githooks",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "package.json",
+          "line": 15,
+          "needle": "scripts/fixtures/run.mjs",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "package.json",
+          "line": 17,
+          "needle": "scripts/jev/selftest.mjs",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "package.json",
+          "line": 18,
+          "needle": "supabase start",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "postcss.config.mjs",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "61e36849cf7cfa9f1f71b4a3964a4953e3e243d3",
+      "headBlob": "61e36849cf7cfa9f1f71b4a3964a4953e3e243d3",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 14734,
+          "needle": "postcss.config.mjs",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 14734,
+          "needle": "`postcss.config.mjs`",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "scripts/check-consistency.mjs",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "0ca4ab6a3de739e834d0c7c6e1f460dee2ff0146",
+      "headBlob": "0ca4ab6a3de739e834d0c7c6e1f460dee2ff0146",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 3347,
+          "needle": "scripts/check-consistency.mjs",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 69,
+          "needle": "Concurrent-edit detection check",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/specs/SPECS-MULTI-LANE-AI-GOVERNANCE.md",
+          "line": 106,
+          "needle": "scripts/checks/shared-core-hash.mjs",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "scripts/checks/channel-docs.mjs",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "ba13bfd04aec7eb1b5a0ad29e1cb52bbf595c90b",
+      "headBlob": "ba13bfd04aec7eb1b5a0ad29e1cb52bbf595c90b",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 27,
+          "needle": "`scripts/checks/channel-docs.mjs`",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/check-consistency.mjs",
+          "line": 29,
+          "needle": "./checks/channel-docs.mjs",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "scripts/checks/closure-readiness.mjs",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "fa135445d366a67be08b6b7a46307b67baa76c65",
+      "headBlob": "fa135445d366a67be08b6b7a46307b67baa76c65",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 32,
+          "needle": "`scripts/checks/closure-readiness.mjs`",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 13623,
+          "needle": "scripts/checks/closure-readiness.mjs",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/check-consistency.mjs",
+          "line": 25,
+          "needle": "./checks/closure-readiness.mjs",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "scripts/checks/config-coupling.mjs",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "c8644dbe5d3176d51f6a13ebb095a20cfa95c935",
+      "headBlob": "c8644dbe5d3176d51f6a13ebb095a20cfa95c935",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 37,
+          "needle": "`scripts/checks/config-coupling.mjs`",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/check-consistency.mjs",
+          "line": 24,
+          "needle": "./checks/config-coupling.mjs",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "scripts/checks/decision-status.mjs",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "8f175b2f6b83cac522c992fbefb1fd95c67792fb",
+      "headBlob": "8f175b2f6b83cac522c992fbefb1fd95c67792fb",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 262,
+          "needle": "scripts/checks/decision-status.mjs",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 69,
+          "needle": "Concurrent-edit detection check",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/check-consistency.mjs",
+          "line": 19,
+          "needle": "./checks/decision-status.mjs",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "scripts/checks/docs-drift.mjs",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "571247b33729dad44a8c5c6e9bf586aca4658114",
+      "headBlob": "571247b33729dad44a8c5c6e9bf586aca4658114",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 3939,
+          "needle": "scripts/checks/docs-drift.mjs",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 69,
+          "needle": "Concurrent-edit detection check",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/check-consistency.mjs",
+          "line": 26,
+          "needle": "./checks/docs-drift.mjs",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 17156,
+          "needle": "`scripts/checks/docs-drift.mjs`",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "scripts/checks/duplicate-ids.mjs",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "0ce81bf1ecefea52a1f810b1a03529d24be6a41d",
+      "headBlob": "0ce81bf1ecefea52a1f810b1a03529d24be6a41d",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 69,
+          "needle": "Concurrent-edit detection check",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/check-consistency.mjs",
+          "line": 16,
+          "needle": "./checks/duplicate-ids.mjs",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "scripts/checks/governed-intent.mjs",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "4cd717ebf31af8afcdba1871900a4e49d58bbd74",
+      "headBlob": "4cd717ebf31af8afcdba1871900a4e49d58bbd74",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 51,
+          "needle": "`scripts/checks/governed-intent.mjs`",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 17109,
+          "needle": "scripts/checks/governed-intent.mjs",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/checks/docs-drift.mjs",
+          "line": 43,
+          "needle": "./governed-intent.mjs",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "scripts/checks/graph-coverage.mjs",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "1f20e5600066cdf50b00a626905d2e5ae6f38141",
+      "headBlob": "1f20e5600066cdf50b00a626905d2e5ae6f38141",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 17156,
+          "needle": "scripts/checks/graph-coverage.mjs",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 69,
+          "needle": "Concurrent-edit detection check",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/check-consistency.mjs",
+          "line": 17,
+          "needle": "./checks/graph-coverage.mjs",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "scripts/checks/handoff-fields.mjs",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "55a5e3130d6dc6c884fb8a32c4e5695db871db78",
+      "headBlob": "55a5e3130d6dc6c884fb8a32c4e5695db871db78",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 30,
+          "needle": "`scripts/checks/handoff-fields.mjs`",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 273,
+          "needle": "scripts/checks/handoff-fields.mjs",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/checks/handoff-response.mjs",
+          "line": 80,
+          "needle": "./handoff-fields.mjs",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "scripts/checks/handoff-response.mjs",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "11868167dadd10260603998e942fe9314eeb4cfc",
+      "headBlob": "11868167dadd10260603998e942fe9314eeb4cfc",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 46,
+          "needle": "`scripts/checks/handoff-response.mjs`",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 4601,
+          "needle": "scripts/checks/handoff-response.mjs",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/check-consistency.mjs",
+          "line": 22,
+          "needle": "./checks/handoff-response.mjs",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "scripts/checks/lane-boundary.mjs",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "276f83406519a2692a7d3bbb51e666127f157d84",
+      "headBlob": "276f83406519a2692a7d3bbb51e666127f157d84",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 50,
+          "needle": "`scripts/checks/lane-boundary.mjs`",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 266,
+          "needle": "scripts/checks/lane-boundary.mjs",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/check-consistency.mjs",
+          "line": 20,
+          "needle": "./checks/lane-boundary.mjs",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "scripts/checks/lane-state.mjs",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "0bc7caa1d4104b6da38bd4f45b06303c9fd25afb",
+      "headBlob": "0bc7caa1d4104b6da38bd4f45b06303c9fd25afb",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 28,
+          "needle": "`scripts/checks/lane-state.mjs`",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 10428,
+          "needle": "scripts/checks/lane-state.mjs",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/check-consistency.mjs",
+          "line": 28,
+          "needle": "./checks/lane-state.mjs",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "scripts/checks/phase-manifest.mjs",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "d1aa71a96b9c462629b1d8ec17ea8db0de0654bf",
+      "headBlob": "d1aa71a96b9c462629b1d8ec17ea8db0de0654bf",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 38,
+          "needle": "`scripts/checks/phase-manifest.mjs`",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/check-consistency.mjs",
+          "line": 23,
+          "needle": "./checks/phase-manifest.mjs",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "scripts/checks/retention-policy-coupling.mjs",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "bf5935b26d751b825deecdfa7b5d93aa2063282f",
+      "headBlob": "bf5935b26d751b825deecdfa7b5d93aa2063282f",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 17,
+          "needle": "`scripts/checks/retention-policy-coupling.mjs`",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 8771,
+          "needle": "scripts/checks/retention-policy-coupling.mjs",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/check-consistency.mjs",
+          "line": 30,
+          "needle": "./checks/retention-policy-coupling.mjs",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "scripts/checks/rule-budget.mjs",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "205620ef80344123c3084329086052f1751d1d6d",
+      "headBlob": "205620ef80344123c3084329086052f1751d1d6d",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 19,
+          "needle": "`scripts/checks/rule-budget.mjs`",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 23141,
+          "needle": "scripts/checks/rule-budget.mjs",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/check-consistency.mjs",
+          "line": 14,
+          "needle": "./checks/rule-budget.mjs",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md",
+          "line": 213,
+          "needle": "`shared-core-hash` check",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/Modular_PRD.md",
+          "line": 883,
+          "needle": "`shared-core-hash`",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "scripts/checks/settings-parse.mjs",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "e3393e24caf24f9365034fe6d38052022141211e",
+      "headBlob": "e3393e24caf24f9365034fe6d38052022141211e",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 263,
+          "needle": "scripts/checks/settings-parse.mjs",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 69,
+          "needle": "Concurrent-edit detection check",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/check-consistency.mjs",
+          "line": 18,
+          "needle": "./checks/settings-parse.mjs",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "scripts/checks/source-sweep.mjs",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "c05c08dd83cd560faee7fa7a55599d8ba4e75b8e",
+      "headBlob": "c05c08dd83cd560faee7fa7a55599d8ba4e75b8e",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 49,
+          "needle": "`scripts/checks/source-sweep.mjs`",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/check-consistency.mjs",
+          "line": 21,
+          "needle": "./checks/source-sweep.mjs",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "scripts/checks/sync-docs-uniqueness.mjs",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "cbfa5b227b2c1b61ec30fb3eb27382e2d2750fff",
+      "headBlob": "cbfa5b227b2c1b61ec30fb3eb27382e2d2750fff",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 31,
+          "needle": "`scripts/checks/sync-docs-uniqueness.mjs`",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/check-consistency.mjs",
+          "line": 27,
+          "needle": "./checks/sync-docs-uniqueness.mjs",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "scripts/checks/text-integrity.mjs",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "636b83890722a0e6c1cc4fb1dbef9dc28f4b89ab",
+      "headBlob": "636b83890722a0e6c1cc4fb1dbef9dc28f4b89ab",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 18,
+          "needle": "`scripts/checks/text-integrity.mjs`",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 21191,
+          "needle": "scripts/checks/text-integrity.mjs",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/check-consistency.mjs",
+          "line": 32,
+          "needle": "./checks/text-integrity.mjs",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "scripts/checks/tier-sweep.mjs",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "6c6ee24e9cc2c288698a0cfce08370fe533be78b",
+      "headBlob": "6c6ee24e9cc2c288698a0cfce08370fe533be78b",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 265,
+          "needle": "scripts/checks/tier-sweep.mjs",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 69,
+          "needle": "Concurrent-edit detection check",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "scripts/check-consistency.mjs",
+          "line": 15,
+          "needle": "./checks/tier-sweep.mjs",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 262,
+          "needle": "verifies a decision *arrived* in a tier",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "scripts/fixtures/graphify-guard.test.mjs",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "ede52a6022ba92ed6718c7394bb17f6086b9dd47",
+      "headBlob": "ede52a6022ba92ed6718c7394bb17f6086b9dd47",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 53,
+          "needle": "`scripts/fixtures/graphify-guard.test.mjs`",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 27193,
+          "needle": "scripts/fixtures/graphify-guard.test.mjs",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "scripts/fixtures/harness.mjs",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "43a4dd39004a6eef899fb7c44f29a8abe284c513",
+      "headBlob": "43a4dd39004a6eef899fb7c44f29a8abe284c513",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 9530,
+          "needle": "scripts/fixtures/harness.mjs",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 25,
+          "needle": "`scripts/fixtures/`",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "scripts/fixtures/run.mjs",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "62e35dde4a6301f68606b60e437d2e5a0ed6ec21",
+      "headBlob": "62e35dde4a6301f68606b60e437d2e5a0ed6ec21",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 2902,
+          "needle": "scripts/fixtures/run.mjs",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 25,
+          "needle": "`scripts/fixtures/`",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "package.json",
+          "line": 15,
+          "needle": "scripts/fixtures/run.mjs",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "scripts/fixtures/suites.mjs",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "8326802a886a4dd90b867a2a4adb4e186d49ac97",
+      "headBlob": "8326802a886a4dd90b867a2a4adb4e186d49ac97",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 319,
+          "needle": "scripts/fixtures/suites.mjs",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 25,
+          "needle": "`scripts/fixtures/`",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "scripts/graphify/guarded-rebuild.mjs",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "f06a531d1cc4aa9d28a38f27a8ae8268a265c005",
+      "headBlob": "f06a531d1cc4aa9d28a38f27a8ae8268a265c005",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 52,
+          "needle": "`scripts/graphify/guarded-rebuild.mjs`",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 27192,
+          "needle": "scripts/graphify/guarded-rebuild.mjs",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "scripts/jev/jev.mjs",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "6c6d994cbaf927a11bfdc46888ffe388d14cd19f",
+      "headBlob": "6c6d994cbaf927a11bfdc46888ffe388d14cd19f",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 99,
+          "needle": "`scripts/jev/jev.mjs`",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "scripts/jev/lib.mjs",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "0517fda1c5a34e115991444e34241774247d5343",
+      "headBlob": "0517fda1c5a34e115991444e34241774247d5343",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 99,
+          "needle": "`scripts/jev/lib.mjs`",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "scripts/jev/manifests/V1-SM05.json",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement (identity and decision); row semantics are product scope",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "b39719e90a460f150c1ab4d930ad51cd3aca4cd8",
+      "headBlob": "b39719e90a460f150c1ab4d930ad51cd3aca4cd8",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 100,
+          "needle": "`scripts/jev/manifests/V1-SM05.json`",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 20739,
+          "needle": "scripts/jev/manifests/V1-SM05.json",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "scripts/jev/selftest.mjs",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "41e4aa20ed56cc4628b34b4fe7267865b413bc92",
+      "headBlob": "41e4aa20ed56cc4628b34b4fe7267865b413bc92",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 99,
+          "needle": "`scripts/jev/selftest.mjs`",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "package.json",
+          "line": 17,
+          "needle": "scripts/jev/selftest.mjs",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "scripts/lane-gate.mjs",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "a4d81d446e7faeb351c93b6f6891835d89eb098c",
+      "headBlob": "a4d81d446e7faeb351c93b6f6891835d89eb098c",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 26,
+          "needle": "`scripts/lane-gate.mjs`",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 2875,
+          "needle": "scripts/lane-gate.mjs",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": ".githooks/commit-msg",
+          "line": 9,
+          "needle": "node scripts/lane-gate.mjs",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "supabase/config.toml",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane B (mapped)",
+      "frozenBlob": "6d8b806125fb708f8d63eeb2bb86c2357fbc73da",
+      "headBlob": "6d8b806125fb708f8d63eeb2bb86c2357fbc73da",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 8011,
+          "needle": "supabase/config.toml",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 66,
+          "needle": "`supabase/config.toml` stay TRACKED",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "supabase/migrations/0001_init.sql",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "frozen authority: identity only",
+      "ownership": "Lane B (mapped)",
+      "frozenBlob": "091837367c9ffb02613069bb252f7c7697a5cd84",
+      "headBlob": "091837367c9ffb02613069bb252f7c7697a5cd84",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 74,
+          "needle": "`supabase/migrations/0001_init.sql`",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 2492,
+          "needle": "supabase/migrations/0001_init.sql",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "supabase/migrations/0002_s1_editorial_schema.sql",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane B (mapped)",
+      "frozenBlob": "4ee6fa1c9a4bb3ee0c9e6acd081d0a18b1c1ddc3",
+      "headBlob": "4ee6fa1c9a4bb3ee0c9e6acd081d0a18b1c1ddc3",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 61,
+          "needle": "`supabase/migrations/0002_s1_editorial_schema.sql`",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 8640,
+          "needle": "supabase/migrations/0002_s1_editorial_schema.sql",
+          "outcome": "pass"
+        }
+      ]
+    },
+    {
+      "path": "tsconfig.json",
+      "slice": "F2b",
+      "group": "G1",
+      "order": 4,
+      "result": "supported agreement",
+      "ownership": "Lane A (mapped)",
+      "frozenBlob": "0c6690833bba671e3cf83a9d5be688bd8ace7811",
+      "headBlob": "0c6690833bba671e3cf83a9d5be688bd8ace7811",
+      "unchangedAtHead": true,
+      "checks": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 4228,
+          "needle": "tsconfig.json",
+          "outcome": "pass"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 4228,
+          "needle": "build config (`package.json`, `tsconfig.json`, `eslint.config.mjs`, `next.config.ts`, `.gitattributes`, `.gitignore`)",
+          "outcome": "pass"
+        }
+      ]
+    }
+  ]
+}

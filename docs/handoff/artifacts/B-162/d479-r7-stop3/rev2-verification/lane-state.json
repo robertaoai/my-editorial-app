@@ -1,0 +1,38 @@
+{
+  "method": "git archive of each tree into scratch; node imports scripts/checks/lane-state.mjs from that tree and calls run() with cwd = tree root",
+  "results": [
+    {
+      "label": "baseline",
+      "tree": "cb70db9c54e835bcd6facdc6dd81d49bb811f57e",
+      "phaseClosure": {
+        "bytes": 101398,
+        "sha256": "f5b5237c15c1c017c4e98150cb3fde8c241c91672ed2a1c64f66c93c04a9e28e"
+      },
+      "exit": 0,
+      "stderr": "",
+      "result": {
+        "name": "lane-state",
+        "findings": [],
+        "detail": "3 lane row(s); Active: A; Eligible (nominated): B"
+      }
+    },
+    {
+      "label": "revised",
+      "tree": "1fcc621e265f2587a2dd2741db8476fe4f99afd8",
+      "phaseClosure": {
+        "bytes": 101739,
+        "sha256": "3f54d3e36697f8fa57c233fd0c1efd6c46cdfe271d281ab9e43c67b405bdcf25"
+      },
+      "exit": 0,
+      "stderr": "",
+      "result": {
+        "name": "lane-state",
+        "findings": [],
+        "detail": "3 lane row(s); Active: A; Eligible (nominated): B"
+      }
+    }
+  ],
+  "preExistingFindings": [],
+  "newFindings": [],
+  "detailUnchanged": true
+}

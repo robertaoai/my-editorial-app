@@ -35,7 +35,9 @@ const TIERS = [
   { match: "modular_prd", files: ["docs/Modular_PRD.md"] },
   { match: "specs-verification", files: ["docs/specs/SPECS-VERIFICATION-APPARATUS.md"] },
   { match: "sprint plan", files: ["docs/journal/2026-08-16-sprint-plan.md"] },
-  { match: "agent files", files: ["CLAUDE.md", "AGENTS.md", ".agents/rules/graphify.md"] },
+  // `D-337`: the pre-refactor rule-file text lives verbatim in the reference; historical "Agent files"
+  // claims are verified there. Claims about the live files name each file by path.
+  { match: "agent files", files: ["docs/governance/agent-rules-reference.md"] },
   // `G92`, `D-118`. **Unmapped since this check was written**, and invisible
   // because the column only fails on a ✅ — every prior decision wrote
   // "— unaffected" there, which the sweep skips by design. The FIRST tick

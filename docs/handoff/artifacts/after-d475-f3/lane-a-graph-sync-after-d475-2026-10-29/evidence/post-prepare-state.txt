@@ -1,0 +1,6 @@
+HEAD 22b0a8ce2fb06c16152fa9490d21aae829a45974 status-bytes 0
+config equal to entry snapshot: yes
+refs outside turn-diffs equal to entry: yes
+STATE pending 7bd2af2f-82a0-40fc-872c-31009278ff1c 1 sha256 d2589f8e595caac225686fa60bd5f45bac9a868816ec92ce391d1ed182fb6a39
+PENDING sha256 3facc021bff19adb4a672e50bddd4bea0a8b67bec1ce33e97fef5d82025383e4
+live graph 4c3829a57f1dcc0e45d55fd045ccd56b9cfcb80c1cc3f6032cba4a1bf39a2ac7 receipts 16

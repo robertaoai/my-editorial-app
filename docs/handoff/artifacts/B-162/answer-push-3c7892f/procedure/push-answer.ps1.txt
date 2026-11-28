@@ -1,0 +1,26 @@
+$ErrorActionPreference='Stop'
+$PSNativeCommandUseErrorActionPreference=$false
+Set-Location C:/robertaoai/my-editorial-app
+$d='C:/CoWork/outputs/lane-a-b162-answer-2026-11-12'
+$h='3c7892fac79d37e41bd8eec2dd4b63c126f19cf8'
+$b='a3491c14c5694c4649355c84bff508abd402ff3f'
+$ref='refs/heads/features/feature-V1-SM05'
+$up='origin/features/feature-V1-SM05'
+if((Get-Content "$d/commit-id.txt") -cne $h -or (Get-Content "$d/check.exit") -ne '0' -or -not (Select-String -LiteralPath "$d/push-check.out" -Pattern '19/19 consistency checks passed.' -SimpleMatch)){throw 'Retained check mismatch'}
+if((git rev-parse HEAD) -cne $h -or (git show -s --format=%P $h) -cne $b -or (git rev-parse --abbrev-ref --symbolic-full-name '@{upstream}') -cne $up -or (git --no-optional-locks status --porcelain)){throw 'Local binding mismatch'}
+if(Test-Path "$d/push.exit"){throw 'Push receipt already exists'}
+git fetch origin $ref 1> "$d/pre-fetch.out" 2> "$d/pre-fetch.err"
+$rc=$LASTEXITCODE; $rc|Set-Content "$d/pre-fetch.exit"
+if($rc){throw 'Pre-push fetch failed'}
+$f=git rev-parse FETCH_HEAD; $t=git rev-parse $up; $range=@(git rev-list "$b..$h")
+@{upstream=$up;fetchHead=$f;tracking=$t;parent=$b;outgoing=$range}|ConvertTo-Json|Set-Content "$d/pre-range.json"
+if($f -cne $b -or $t -cne $b -or $range.Count -ne 1 -or $range[0] -cne $h){throw 'Pre-push range mismatch'}
+git -c core.hooksPath=.githooks push --porcelain origin "${h}:$ref" 1> "$d/push.out" 2> "$d/push.err"
+$rc=$LASTEXITCODE; $rc|Set-Content "$d/push.exit"
+if($rc){throw 'Push failed'}
+git fetch origin $ref 1> "$d/post-fetch.out" 2> "$d/post-fetch.err"
+$rc=$LASTEXITCODE; $rc|Set-Content "$d/post-fetch.exit"
+if($rc){throw 'Post-fetch failed; verification incomplete'}
+$f=git rev-parse FETCH_HEAD; $t=git rev-parse $up
+@{remote='origin';destination=$ref;fetchHead=$f;tracking=$t;source=$h;matches=($f -ceq $h -and $t -ceq $h)}|ConvertTo-Json|Tee-Object -FilePath "$d/post-proof.json"
+if($f -cne $h -or $t -cne $h){throw 'Remote tip mismatch; verification incomplete'}

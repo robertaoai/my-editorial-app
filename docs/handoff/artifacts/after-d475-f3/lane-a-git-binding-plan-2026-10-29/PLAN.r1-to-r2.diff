@@ -1,0 +1,144 @@
+diff --git a/PLAN.md b/PLAN.r2.md
+index e7c8fdb..300006b 100644
+--- a/PLAN.md
++++ b/PLAN.r2.md
+@@ -1,88 +1,69 @@
+-# Git binding fix plan for the fresh after-D-475 F3 review (plan only; nothing executed)
++# Git binding fix plan r2 for the fresh after-D-475 F3 review (plan only; nothing executed)
+ 
+-Baseline: HEAD R `71dfbbe7a09f194a9986c1f29d42ad507aec1af7`, source S `22b0a8ce2fb06c16152fa9490d21aae829a45974`, tree
+-`7e28fd350438bb6e4b1cb871d75ad9185d44703b`; work `7bd2af2f-82a0-40fc-872c-31009278ff1c`, ready STATE `1fd1a888…`; candidate graph
+-`df076c7c…`, manifest `34a4edeb…` (583 files); approved answers `89965adf…`. Lane B's failed packet
+-`C:/CoWork/outputs/lane-b-after-d475-f3-2026-10-29/` (35/35 entries verified read-only, manifest `597cbc03…`) stays unchanged.
++Revision r2 of `PLAN.md` (unchanged). Instruction: `INSTRUCTION-R2.jsonl` (Lane A line 6135, `ccfa76f8…`). Baseline: HEAD R
++`71dfbbe7a09f194a9986c1f29d42ad507aec1af7`; source S `22b0a8ce2fb06c16152fa9490d21aae829a45974`; work
++`7bd2af2f-82a0-40fc-872c-31009278ff1c`, ready STATE `1fd1a888…`; candidate graph `df076c7c…`, manifest `34a4edeb…`
++(583 files); approved answers `89965adf…`. The diagnosis in `PLAN.md` §1 stands unchanged.
+ 
+-## 1. Diagnosis
++## 1. What r2 changes
+ 
+-- The guard freezes Git at prepare as "the git the child resolves on its sanitized PATH" (`executableBindings`,
+-  `guarded-rebuild.mjs` 1036–1066) and re-checks it on use by path, bytes and version (`bindingFindings`, 1070 onward). Both
+-  resolve with `resolveOnPath("git", env)` (953–966): the first PATH entry, `.com` before `.exe`, where `env` defaults to
+-  `sanitizedEnv(process.env)`, the environment of the process that runs the guard.
+-- Lane A ran `prepare` and the resume from the Git Bash tool. In that environment PATH entry 2 is
+-  `…\Git\mingw64\bin`, before `…\Git\cmd` (entry 32); the frozen environment names include `HOME` and `MSYSTEM`. So the guard
+-  froze `…\Git\mingw64\bin\git.exe` (`cab4c4ee…`).
+-- Lane B's review ran from a Windows shell whose PATH reaches `…\Git\cmd` first. `…\Git\cmd\git.exe` (`81ef35ae…`) is Git
+-  for Windows' launcher; it reports the same version text but is a different file. `bindingFindings` therefore returned "the
+-  git path changed" for both checkouts, and Lane B's entry stopped. **The guard behaved correctly.** The candidate, STATE and
+-  bindings are not at fault; the review process's PATH order is.
+-- One more resolution fact: on Windows, Node's process launcher (libuv) searches the child's working folder **before** PATH.
+-  The guard checks only the checkouts for a shadowing `git`; the launcher below also checks the working folder.
++| Finding | r1 | r2 (`launch-review.r2.mjs`) |
++|---|---|---|
++| **R1** child failure | Exit 0 whenever bindings were preserved, even if the child failed | Exit 0 only if every gate passed **and** the child exited 0, with no signal and no spawn error, **and** preservation is proved. Child failure → 3 (a spawn error with no process is still 3); preservation failure or unavailable after-snapshot → 4; internal error → 5; stop before the child → 2. Highest code wins; the child result is recorded separately |
++| **R2** one environment | Validated with sanitized `genv`, launched the child with unsanitized `env` | One frozen object `ENV` = parent env with exactly one `PATH` key, frozen Git directory first, the rest in order, then the guard's `sanitizedEnv`. The same object is used for resolution, `--version`, configuration queries, `bindingFindings`, both snapshots and the child spawn; its digest is taken at build and again at spawn and must be equal |
++| **R3** output and failures | Created `--out` without checks; no structured error handling | Before any write: absolute `--out`, new, inside the fixed fresh packet, parent without links, not inside the repository, work/candidate tree, live graph, frozen stray work or a sealed packet. Phases are recorded; the original error, phase, child status and secondary errors are kept; the after-snapshot is attempted whenever a before-snapshot exists, and missing proof is recorded as not proved. The result goes only to the validated folder (or stderr when none exists); the candidate is re-hashed after the result is written |
++| Child bytes | Any script | `--child` must be inside the fresh packet, a regular file with no link, and its SHA-256 must equal `--child-sha256` |
+ 
+-## 2. Proposal: one child-only launcher
++## 2. Exact invocation (planned)
+ 
+-`launch-review.mjs` in this packet (**proposed, not executed**). It wraps exactly one fresh Lane B F3 review script and
+-nothing else; K and N stay a separate later unit.
+-
+-**Exact invocation (planned).** From any shell, working folder irrelevant to the parent:
++**PowerShell (reviewed form).** The call operator runs the quoted executable; single quotes keep every path literal.
+ 
+ ```
+-"C:\Program Files\nodejs\node.exe" C:/CoWork/outputs/lane-a-git-binding-plan-2026-10-29/launch-review.mjs --child <Lane B's fresh F3 entry script> --out <new absent folder inside Lane B's fresh attempt packet>
++& 'C:\Program Files\nodejs\node.exe' 'C:\CoWork\outputs\lane-a-git-binding-plan-2026-10-29\launch-review.r2.mjs' --child 'C:\CoWork\outputs\lane-b-after-d475-f3-r2-2026-10-29\entry.mjs' --child-sha256 '<64 hex>' --out 'C:\CoWork\outputs\lane-b-after-d475-f3-r2-2026-10-29\launcher-run-1'
+ ```
+ 
+-The child runs as `spawnSync(<frozen node>, [<child script>, …], { cwd: "C:/robertaoai/my-editorial-app", env: <child env>, stdio: "inherit", shell: false })`.
+-
+-**Environment construction (child only).** Copy the parent environment; require exactly one key that matches `PATH`
+-case-insensitively (stop otherwise); drop every PATH-variant key; set one key `PATH` = the frozen Git directory
+-`C:\Users\rober_24syk4j\AppData\Local\Programs\Git\mingw64\bin`, then every existing PATH entry in its existing order, minus
+-duplicates of that one directory. All other variables pass unchanged; the guard's own `sanitizedEnv` still removes the Git
+-redirect variables inside the child. The parent's environment, the user and machine PATH, profiles and Git configuration are
+-not touched; the parent PATH hash is recorded before and after. No alias, shim, wrapper, replacement binary or link.
+-
+-**One environment for everything.** The child inherits this environment, so the guard (default `sanitizedEnv(process.env)`)
+-and every bare `git` the review script spawns resolve the same file.
++**Git Bash (separately labelled; not the reviewed form).** The launcher builds the same child environment from either parent,
++but only the PowerShell form above is proposed for release.
+ 
+-**Gates before the child starts** (any failure writes `launcher-result.json` and exits 2; no child runs):
++```
++'/c/Program Files/nodejs/node.exe' 'C:/CoWork/outputs/lane-a-git-binding-plan-2026-10-29/launch-review.r2.mjs' --child 'C:/CoWork/outputs/lane-b-after-d475-f3-r2-2026-10-29/entry.mjs' --child-sha256 '<64 hex>' --out 'C:/CoWork/outputs/lane-b-after-d475-f3-r2-2026-10-29/launcher-run-1'
++```
+ 
+-| # | Gate |
+-|---|---|
+-| L1 | STATE SHA-256 = `1fd1a888…`, state `ready`, attempt 2, work ID `7bd2af2f…`; bindings read from STATE, not from constants |
+-| L2 | The launcher runs under the frozen Node: path `C:\Program Files\nodejs\node.exe`, SHA-256 `9a4eb5f1…`, `v24.18.0` |
+-| L3 | The frozen `git.exe` exists with SHA-256 `cab4c4ee…` and version `git version 2.54.0.windows.1`; no `git.com` beside it |
+-| L4 | Exactly one PATH key in the parent; the child has exactly one, with the frozen Git directory first |
+-| L5 | No `git.com`, `git.exe` or `git` in the working folder; the first PATH hit (`.com` before `.exe`) is the frozen file: path, bytes and version equal |
+-| L6 | The guard's own `bindingFindings(STATE bindings, { checkout, env })` returns **zero** for `attempt-2/gen/checkout` and `attempt-2/gen/fresh`. This includes node, git path, bytes and version, the Git configuration outside the checkout, each checkout's effective configuration, tool pins and the shipped studio files |
+-| L7 | Before-snapshot equals the reviewed values: HEAD R, clean, nothing staged, STATE, answers, candidate 583 files, manifest and graph |
++**Fixed, still to be produced before an execution release (execution DoR incomplete):**
+ 
+-**After the child** (exit 3 if any differs; the child's exit code is recorded separately): HEAD, status, staging, B-050,
+-STATE, answers, the candidate file map, manifest and graph, configuration, refs outside `refs/codex/turn-diffs/`, live graph,
+-receipt count, lock and journal all equal the before-snapshot, and the parent PATH hash is unchanged.
++| Item | Value | State |
++|---|---|---|
++| Fresh review packet | `C:\CoWork\outputs\lane-b-after-d475-f3-r2-2026-10-29` (constant `FRESH` in the launcher), directly under `C:\CoWork\outputs`, unsealed at launch | **Does not exist yet**; Lane B creates it |
++| Child script | `…\lane-b-after-d475-f3-r2-2026-10-29\entry.mjs` | **Not written yet**; Lane B writes it with the full F3 review |
++| Child SHA-256 | `<64 hex>` | **Placeholder**; fixed when Lane B's script is reviewed |
++| Output folder | `…\lane-b-after-d475-f3-r2-2026-10-29\launcher-run-1` | Must not exist at launch |
+ 
+-**Residual risk (stated, not fixed).** The frozen configuration digests were taken in the Git Bash environment. If a variable
+-that Git reads (for example `HOME`) differs in Lane B's shell so that `config --list --show-origin` reports another file,
+-L6 fails and the launcher stops. That is a binding finding to report, not a reason to relax a rule.
++The launcher passes the child no arguments by default; any `-- <args>` form must also be fixed at review.
+ 
+-## 3. Failure route
++## 3. Stop and failure route
+ 
+-Any stop: keep `launcher-result.json` and every log, change nothing, and return the packet to Lane A with the failing gate.
+-Do not retry by changing guard rules, STATE, candidate bytes or bindings, and do not count a stopped attempt as a pass. A
+-change to the bound producer, source or candidate needs separate authority and a fresh review.
++Any nonzero exit: keep `launcher-result.json` (or its stderr copy) and every log, change nothing, return to Lane A with the
++recorded phase and findings. Do not retry by changing guard rules, STATE, candidate bytes or bindings; a stopped or failed
++attempt is never a pass. Residual risk from `PLAN.md` §2 stands: if Lane B's shell makes Git report a different
++configuration file, `bindingFindings` stops the launcher, and that is a finding, not a reason to relax a rule.
+ 
+-## 4. DoR → planned validation → DoD evidence
++## 4. DoR → planned validation → DoD evidence (all planned; syntax check confirms parsing only)
+ 
+-| # | DoR | Planned validation | DoD evidence | Owner |
++| # | Condition | Planned validation | DoD evidence | Owner |
+ |---|---|---|---|---|
+-| 1 | Diagnosis accepted | Lane B reviews §1 against the guard source and its failed packet | Lane B's review naming this packet's manifest | Lane B |
+-| 2 | Launcher reviewed by exact bytes | Lane B reads `launch-review.mjs` in full | Review naming its SHA-256 | Lane B |
+-| 3 | Release for a fresh F3 attempt | — | Judge act naming the launcher SHA-256 and Lane B's fresh attempt folder | Judge |
+-| 4 | Fresh attempt folder and script | Lane B writes a fresh folder; earlier packet untouched | Lane B's manifest; old packet still 35/35 | Lane B |
+-| 5 | Executable binding | Gates L1–L6 | `launcher-result.json`: zero findings, resolved path, bytes and version equal the frozen values | Lane B (runs the launcher) |
+-| 6 | Protected bindings unchanged | Gate L7 plus the after-snapshot | Before = after for every listed binding; parent PATH hash unchanged | Lane B |
+-| 7 | Remaining boundary | The review script's own entry and final gates: configuration, permitted refs, linked inventory `3e32d008…`, live Q6 state, frozen `cac590ad` | The review packet's gate files | Lane B |
+-| 8 | Full F3 review | All required producer projections and remaining F3 checks | Lane B's complete positive F3 review. **A corrected binding alone is not F3 acceptance** | Lane B |
+-| 9 | K, then separate N | Only after row 8 | Commits with their checks and commit proof | Lane B |
+-| 10 | Independent K/N verification | After row 9 | Lane A's verification packet with fresh inventory | Lane A |
+-
+-All rows are **planned**; none is executed.
++| 1 | Revised launcher reviewed by exact bytes | Lane B reads `launch-review.r2.mjs` and both diffs | Review naming its SHA-256 | Lane B |
++| 2 | Child script and packet fixed | Lane B creates the packet and `entry.mjs` | Script SHA-256 bound in the release; packet unsealed | Lane B |
++| 3 | Execution release | — | Judge act naming launcher SHA-256, child SHA-256 and output folder | Judge |
++| 4 | Invalid output destination | Phase `output`: relative, existing, outside the packet, inside a protected root, sealed packet, link in the parent | Exit 2 with the finding; nothing written outside the packet | Lane B (runs) |
++| 5 | Unreadable or wrong inputs | Phases `args`, `child-file`, `state`, `import`, `node`: missing or unreadable files, bad JSON, wrong STATE, wrong child bytes, guard import failure | Exit 2 (gate) or 5 (exception) with phase, original error and secondary errors | Lane B |
++| 6 | Environment equality | Phase `env`: one `PATH` key, frozen Git first; digest at build = digest at spawn; the same object for every query and the spawn | `launcher-result.json` `env` block | Lane B |
++| 7 | Executable binding | Phases `git`, `bindings`: no shadow in the working folder; resolved path, bytes, version = frozen; guard `bindingFindings` zero for both checkouts | Zero findings recorded | Lane B |
++| 8 | Before-snapshot | Phase `before` equals the reviewed values | `proof.before` | Lane B |
++| 9 | Child failure | Nonzero or null exit | Exit 3; `child.status` recorded | Lane B |
++| 10 | Child signal | Termination signal | Exit 3; `child.signal` recorded | Lane B |
++| 11 | Spawn failure | `spawnSync` error, with or without a process | Exit 3; `child.error`, `processCreated` recorded | Lane B |
++| 12 | After-snapshot failure | Snapshot throws, or an internal error after the before-snapshot | `proof.after.unavailable`; preservation "not proved"; exit 4 (or 5) | Lane B |
++| 13 | Preservation | After = before for HEAD, status, staging, B-050, STATE, answers, candidate map/manifest/graph, configuration, refs outside turn-diffs, live graph/receipts/lock/journal; parent PATH unchanged; candidate re-hashed after the result write | `proof.preservation.ok` true | Lane B |
++| 14 | Remaining boundary | The child's own gates: linked inventory `3e32d008…`, frozen `cac590ad` | The child packet's gate files | Lane B |
++| 15 | Full F3 review | All producer projections and remaining F3 checks | Lane B's complete positive review. **A corrected binding is not F3 acceptance** | Lane B |
++| 16 | K, then separate N | Only after row 15 | Commits with checks and commit proof | Lane B |

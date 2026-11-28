@@ -1159,3 +1159,14 @@ completion of blocker 1.
 | Approve | Parent-first blocker order, B-102/B-103 gating Action 4 | Phase 1 — sequence unchanged |
 | Approve-with-conditions | Folding B-104/D-181 roles into blocker 6 | Phase 1 — only after B-104's citation correction and applied two-view text |
 | Defer | Exact Action 4 packet drafting | Blocker 1 completion first |
+
+## A4 custody receipts — `B-095.D2b` and `B-095.S5`, 2026-10-04 (`D-412`)
+
+Received by Lane A in `B-084`'s A4 unit, per `D-382` item 5 (undecided Product scope stays with `A4`, not with
+`GOV-RES-001`). Drafted by Lane B in `B-154` (`a1eea14`) and accepted by the Judge under `D-412`. This is custody
+only: no field matrix is chosen, no sample is classified, and nothing is built. `B-084` keeps its current disposition.
+
+| Source key | Remaining scope | Hold | Return trigger | Completion criterion and refusal example |
+|---|---|---|---|---|
+| `B-095.D2b` (`SV-002` §3.3) | The remaining A4 required/optional field matrix, including the first-intake trend description. Already decided: manual source reference/information, exactly one subject topic, and the trend description (`D-194`/`D-197`) | Undecided Product scope, held under `D-171` | The Judge selects the bounded A4 contract/write set. `B-095` S11's first-intake form and S9's live-package reconciliation come before the matrix is finalized | The Chief Editor accepts a literal matrix: namespaces, first-intake and reassessment behaviour, nullable attribution, tags and deadline status. The dependent clauses agree and are independently reviewed. **Refuses:** a missing or empty mandatory input; conflating source and commission audiences; a sample placeholder raised to a gate requirement |
+| `B-095.S5` (`SV-002` §3.3) | The one-article normal-and-revision A4 acceptance example. The intake and revision samples are two bounded evidence sources, not one proven run | Held under `D-171`; the publication-reaching journey is excluded by `SM05-X1` | The Judge selects the bounded A4 journey **after** D2b and the route/executor prerequisites (`GR-001`/`GR-003`) | One same article shows first intake, normal review, both revision reasons, the return target, the appended reassessment, resubmission and the intended LinkedIn ManualReady endpoint. **Refuses:** a two-article stitched example; a delta-only first intake; silent sample reclassification; ManualReady described as published |

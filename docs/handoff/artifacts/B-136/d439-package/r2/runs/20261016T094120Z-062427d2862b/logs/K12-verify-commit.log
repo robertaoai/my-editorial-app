@@ -1,0 +1,3 @@
+packet r9 bound (dfd5c7771e9b); 10 active edits literal in it; date 2026-10-16
+DIFF commit 68b6c10 docs/source/README.md: blob 0dad7b15c1377a125c362d5c4d5f773bb2837967 expected 0b2504577f978d2d52313a66fef90788eeb03777
+REFUSE: unattributed byte difference at commit 68b6c10: docs/source/README.md

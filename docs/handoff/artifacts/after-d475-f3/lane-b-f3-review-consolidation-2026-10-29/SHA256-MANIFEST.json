@@ -1,0 +1,71 @@
+{
+  "kind": "plan-only-consolidated-review",
+  "reviewedBaseline": "71dfbbe7a09f194a9986c1f29d42ad507aec1af7",
+  "targetExecution": "none",
+  "earlierProbeResults": "attributed to Lane A; not rerun",
+  "verifiedPreparationEntries": 44,
+  "verifiedLaneAReviewEntries": 7,
+  "selfExcluded": "SHA256-MANIFEST.json",
+  "entries": [
+    {
+      "path": "C:/Users/rober_24syk4j/.codex/attachments/e5aea936-b24c-433b-bce2-eb8c65470d04/Pasted text.txt",
+      "bytes": 11592,
+      "sha256": "3fd8fe55711835c03c74c4e20291929a0567394ea824ee9aec3e83ef337134dd"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-a-review-f3-child-2026-10-29/REVIEW.md",
+      "bytes": 11702,
+      "sha256": "272bcfe595896c06d3e0e30f080ab33367a33e4782061cc8791c1f35cac7acba"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-a-review-f3-child-2026-10-29/SHA256-MANIFEST.txt",
+      "bytes": 645,
+      "sha256": "4e9b756f55dbfc41633f36f2203d0c76be2c3266bc118a6f8d83168869c38c3c"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-a-review-f3-child-2026-10-29/probes/powershell-capture-test.txt",
+      "bytes": 432,
+      "sha256": "926be88241315844c4b4c576b31920c324da8dc263b771b522308bdef791cd7d"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-b-after-d475-f3-r2-2026-10-29/entry.mjs",
+      "bytes": 52288,
+      "sha256": "6f07293ae714cf702365c545a1a9f2e720c008ccb8d8b8f96909467bb7db6cd3"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-b-after-d475-f3-r2-preparation-2026-10-29/INVOCATION.ps1.txt",
+      "bytes": 2382,
+      "sha256": "b652758dbdcea0bee31ffa07374eb61d7d5726f531456d5096c980b74fb0ef53"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-b-after-d475-f3-r2-preparation-2026-10-29/SHA256-MANIFEST.json",
+      "bytes": 11288,
+      "sha256": "f10b6db9ba25118242db3825a2efc16add503e84c285b63361674d1de80102cb"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-a-git-binding-plan-2026-10-29/launch-review.r4.mjs",
+      "bytes": 21015,
+      "sha256": "1906c92a8db4b59e1eb28492fd5bf628deb641954fc2195e409fb0a7525ba462"
+    },
+    {
+      "path": "C:/robertaoai/my-editorial-app/docs/handoff/TEMPLATE.md",
+      "bytes": 9558,
+      "sha256": "fda8a400ca3f37ba591eb04f0a77698b7ee6ad4ec6818e2a0fd597649f7ed0ea"
+    },
+    {
+      "path": "C:/robertaoai/my-editorial-app/docs/handoff/README.md",
+      "bytes": 44240,
+      "sha256": "b5dac37b81fcb7faf1ada5d829282de58bef6cfbe081dff1cb923d084c720b40"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-b-f3-review-consolidation-2026-10-29/HANDOFF-DRAFT.md",
+      "bytes": 16702,
+      "sha256": "fd6965ad1b5ee5baf3c318e6946775ce3998079368caf29b7a0234b46c575ac4"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-b-f3-review-consolidation-2026-10-29/NEXT-RESPONSE.txt",
+      "bytes": 4829,
+      "sha256": "db771b20379737571fd4c0da3589220b66cdd7ccafe14164252e158f61e34caa"
+    }
+  ]
+}

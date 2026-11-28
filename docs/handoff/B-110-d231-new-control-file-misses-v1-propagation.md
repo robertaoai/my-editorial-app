@@ -27,10 +27,10 @@
   landing atomically with it. Graphify curated-node addition and rebuild follow this commit, not
   before it, per this entry's own item 7 ordering. Terminal verification pending Lane B's
   independent review.
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified; dispositioned by Lane A
+- **Resolution:** Verified
+- **Verified-By:** Lane B
 - **Evidence:** `D-54` in `AGENTS.md`; commit `c53412ba414841b45c90c9b66bee03d89761fe8d` creates `scripts/checks/governed-intent.mjs`; `docs/v1/V1-BUILD-SPEC.md` and `docs/v1/V1-ARTIFACT-INVENTORY.md` contain no D-231 propagation at that commit; propagation applied at `b5fbdfe`/`2d6cc93`; Lane B's independent review below names the two-edge residual
-- **Verified-At-Commit:** 02fe8b6498268c8026cbc0271c9ef0b0c72c9b18
+- **Verified-At-Commit:** 42dbbe6c94ad5c07f610390eeee215f566bb2288
 
 ## What happened
 
@@ -152,3 +152,41 @@ two explicit cross-reference edges above.
 | Approve-with-conditions | B-110 terminal disposition | Phase 1 — expose the Build Spec and Inventory relationships in exact-label graph evidence |
 | Reject | Claiming `frag136.json` already carries those two direct relationships | They are absent from its edge list |
 | Defer | Product and implementation work | Unaffected, separately authorized |
+
+
+## Terminal annotation record
+
+- **Current-Resolution:** Applied
+- **Annotation-Type:** verification-evidence
+- **Annotation-Act:** Judge-authorized independent Phase 1 review, 2026-10-02; the Lane B review below records the unmet completion condition
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** 224528ce1686a17ff617e5cdf6999f5e031a955e
+
+## Lane B independent re-review — two curated references still absent — 2026-10-02
+
+Read `224528ce1686a17ff617e5cdf6999f5e031a955e` (D-382). The Judge explicitly requested independent verification of B-110. The already-applied Register / Build Spec / Inventory propagation remains valid, and the focused governed-intent exclusion and argument-safety fixtures pass **8/8**. The full consistency run passes **19/19**; Graphify reports current at 224528c. These results do not discharge this entry's remaining graph relationship condition.
+
+Exact-label `graphify explain "D-231: graph-coverage and docs-drift Share a Governed-Intent Exclusion Matcher"` resolves curated node `d231_governed_intent_exclusion_matcher`, rather than a similarly named commit. It exposes the Register, matcher, graph-coverage, docs-drift, getChangedPaths and D-230 relationships, plus an extracted D-246 relationship. It still exposes **neither required direct reference** to `docs/v1/V1-BUILD-SPEC.md` nor `docs/v1/V1-ARTIFACT-INVENTORY.md`. Independent inspection of `docs/graph-fragments/frag136.json` and `.graphify/graph.json` agrees: the curated source edge list has no target node for either document. Indirect reachability via the Register does not meet the existing explicit direct-reference condition.
+
+**Draft Lane A fix, parent first:** reuse the existing Build Spec and Inventory document nodes; add two curated `references` edges from the D-231 node in frag136 with D-231/B-110 provenance. Apply through Lane A's bounded governance/graph unit, preserve and re-merge all curated fragments, then rerun exact-label explain and the consistency checks. Accept only when both document relationships are present in the curated fragment and merged graph and exposed by exact-label explain. Alternatively, changing the direct-reference contract requires an explicit corrected receiver answer and governing rationale; a healthy freshness flag cannot silently change it.
+
+No receiver answer, header status/resolution, verification anchor or canonical graph is changed by this review. **B-110 remains Applied, not Verified.** D-382 correctly leaves its independent verification pending; do not treat B-102's applied-parent readiness as proof that this residual is closed.
+
+| Verdict | Subject / condition | Follow-up phase |
+|---|---|---|
+| Approve | Existing D-54 propagation and control behavior; current focused 8/8 and consistency 19/19 evidence | Phase 1 preserved proof |
+| Reject | B-110 terminal verification: two required direct curated references remain absent | Phase 1 Lane A correction, then independent re-review |
+| Defer | Source clearance relying on that verification; implementation or graph application by Lane B | Phase 1 receiver act; separately authorized later work |
+
+## Independent Lane B verification — D-383 direct references repaired — 2026-10-02
+
+Read `42dbbe6c94ad5c07f610390eeee215f566bb2288`, under the Judge's request to resolve Lane A's outstanding Lane B reviews. The earlier rejection was correct at its earlier baseline; D-383 repaired the two missing edges. Independently inspected frag136 and the merged graph: both contain direct `references` edges from `d231_governed_intent_exclusion_matcher` to `v1_build_spec` and `v1_artifact_inventory`. Exact-full-label Graphify explain exposes both document relationships. Register, Build Spec invariant 11 and the matcher Inventory row preserve the already-reviewed D-54 propagation.
+
+The pure governed-intent exclusion and Git argument-safety fixture groups pass 8/8 in this review, including governed/mixed-change refusal and unreachable-commit propagation. No file mutation was needed to run these cases. Graph extraction is pinned to the read HEAD. The full consistency result is reported in B-153 with its receiver-acknowledgement limitation; no clean whole-tree claim is inferred from the focused cases.
+
+The remaining completion condition is met. Lane B independently promotes this entry to Verified at the source commit read. The Lane A answer and historical rejected review remain unchanged; this is verification, not reopened implementation scope. Lane A may consume this header as B-110's source-clearance evidence and continue B-102's dependent verification. No Gate 2, runtime or release proof is granted.
+
+| Verdict | Item | Follow-up phase |
+|---|---|---|
+| Approve | B-110 correction and direct-reference completion | Phase 1 — independently Verified; existing tracker derives closure from the header |
+| Defer | Audit-parent completion, Gate 2 and construction | Phase 1 source/accounting reconciliation; separately authorized Phase 2/3 |

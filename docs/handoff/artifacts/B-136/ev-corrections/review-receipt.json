@@ -1,0 +1,1685 @@
+{
+  "input": "C:/git/my-editorial-app/docs_context_for_claude.txt",
+  "inputSha256": "506e859a55fe104f97ae022aed0a878ecadad21baa0fd538803212d2ea28f1e3",
+  "checkoutCommit": "4b4b5c02126c1377240c06e55c283feeaa59024c",
+  "includedEntries": 278,
+  "matchingCheckoutEntries": 276,
+  "comparison": "Included UTF-8 text normalized for line endings/enclosing whitespace; not proof of export completeness.",
+  "entries": [
+    {
+      "path": "docs/AGENTIC_LAYER.md",
+      "bundleLine": 2,
+      "normalizedSha256": "d4ef4bd7597a47f16a3d733e1eae9d101a22e4e98a2131884264b2cffc9bb7b9",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "bundleLine": 48,
+      "normalizedSha256": "ca4abff4d3cac5841d607b212421c1cc6fa182873f99bae927b5aa8b25d50cc8",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/CONFIG_LOG.md",
+      "bundleLine": 109,
+      "normalizedSha256": "f305a7febaf59f90dc3a5d54098436e8b32e8896828dcbb96283df4cdc1526b4",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/DATA_MODEL.md",
+      "bundleLine": 309,
+      "normalizedSha256": "67172b57326a5e2aabd55cdbff95f745722f9a6d3ab959fe4265312ec28a0719",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/DECISION_LOG.md",
+      "bundleLine": 381,
+      "normalizedSha256": "c565bc5b115ebbb741854d3da0f887ba38f68eb257720c9dd4b3bd29e33710b1",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/ENCYCLOPEDIA-SYNC.md",
+      "bundleLine": 493,
+      "normalizedSha256": "49461acaa31ff8a74835bc184cf6db94998db9ea57ce8fee87a329b758ad7bd6",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/INTELLIGENCE_LAYER.md",
+      "bundleLine": 559,
+      "normalizedSha256": "9a15acd6e066b7445c84008b877a1be7789d7f207290a559a1983a9da9a43013",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/LANE-B-WORK-ORDER.md",
+      "bundleLine": 666,
+      "normalizedSha256": "4a1bea0342b155140b04480a8c99d2855408f77c4a3412262e54f31fd831a3a0",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/Modular_PRD.md",
+      "bundleLine": 1129,
+      "normalizedSha256": "97d6950f186ee70ac8b5bfe4ec7356ffaa2880059348079b6360483293f0e921",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/PRD.md",
+      "bundleLine": 2358,
+      "normalizedSha256": "294d8e891ce5e5898fa7fb54338f8e194822db84d688638278e2e622594fd2d2",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/README.md",
+      "bundleLine": 2392,
+      "normalizedSha256": "ae52f812ea4c59780a0c65a9a8bbbecb3164a970f34b32e11f526f7e66fa278f",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/SECURITY.md",
+      "bundleLine": 2537,
+      "normalizedSha256": "16e84fa197cfe69e1bd11c714bfcf275f72498953443e3e256e28c67da5bde78",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/TASKS.md",
+      "bundleLine": 2568,
+      "normalizedSha256": "9d01d3a53280417f1365b9f4f3dc150ded0d1aeb1b0b9f24248b359db1925556",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/TEST_PLAN.md",
+      "bundleLine": 2629,
+      "normalizedSha256": "5869351da8d76d7984d31d8099b2d699c3ec74ba6028dac5283e83330679b0d6",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/.graphify/.graphify_uncached.txt",
+      "bundleLine": 2662,
+      "normalizedSha256": "6d56cbbba08a308a3bcca87516fe9062411b25acb7dd42be6548d7c7ea5ad86e",
+      "checkoutMatch": null
+    },
+    {
+      "path": "docs/.graphify/GRAPH_REPORT.md",
+      "bundleLine": 2686,
+      "normalizedSha256": "bbf3f3597b0f71255b516972612e873acf0bce2866ba15e1e9706dc8c08e915c",
+      "checkoutMatch": null
+    },
+    {
+      "path": "docs/fn-specs/FN-AUDIT-VISIBILITY-07-08.md",
+      "bundleLine": 2794,
+      "normalizedSha256": "39c0037edce1e8eaa24884579a0bdb2e53978123e23cce1f3c9999d59bfe83b4",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/fn-specs/FN-EXCEPTIONS-06-11-12.md",
+      "bundleLine": 2967,
+      "normalizedSha256": "ef3e3519697cfc375694bec2b3b1978c702c9ea128432b6676f08035caa9d433",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/fn-specs/FN-GATES-01-05.md",
+      "bundleLine": 3153,
+      "normalizedSha256": "d5931cf92810ceee4bb7b5aebc6c1ede47c392278e803c4a13042a384835db9f",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md",
+      "bundleLine": 3751,
+      "normalizedSha256": "430b5160e2900b71a87a1320638522480e8af59c744c544b92a6a33d4fc99731",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/fn-specs/FN-POC-ENGAGEMENT-01-13.md",
+      "bundleLine": 4035,
+      "normalizedSha256": "23380bcb9c7dc32c08951beeae396e761d3e547fc92776236dc07e2a07a5ae47",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/fn-specs/FN-PUBLICATION-09-10-13.md",
+      "bundleLine": 4226,
+      "normalizedSha256": "4decbe4b8cebe20b70df2ae506952f36e1316c8ada7c9b31038f57237a63e61e",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/governance/agent-rules-reference.md",
+      "bundleLine": 4459,
+      "normalizedSha256": "8cc3684a1c727f620e609bb86e3d496d7455f241307d92725af6af6a0d6e0096",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/governance/alpha-portfolio-business-continuity-implementation-plan.md",
+      "bundleLine": 4929,
+      "normalizedSha256": "36d61b18ab5593ac059cf6223d621a7698569bb296320dd2298e1f142dae9bde",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/governance/board-proposal-professional-evidence-review-poc.md",
+      "bundleLine": 5424,
+      "normalizedSha256": "f55c924040c140a43b10d3db1477835b808d90fe1d0b5d4cd76705455fd04fd3",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/governance/factory-route-operation-crosswalk.md",
+      "bundleLine": 6315,
+      "normalizedSha256": "500552bac15faefc26f3e5de4dea75a8ff65f4d42315d850938d9b99749be9c0",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/governance/media-industry-sop-fallback-implementation-plan.md",
+      "bundleLine": 6688,
+      "normalizedSha256": "108300de73fed240f5fea56df9acc8c403580ff5a70832d6ceb82aa6c8a91c93",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/governance/poc-feedback-approval-crosswalk.md",
+      "bundleLine": 7027,
+      "normalizedSha256": "cecff64a8f14244867e6e050908060e45dedd8dbafa49e94f7d00027e6c55e44",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/governance/provisional-deviation-register.md",
+      "bundleLine": 7390,
+      "normalizedSha256": "6b2a00aeaf8bb2482981657397b25fd68c80573372dc50fd0b32e15d721fcb58",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/governance/raci-involvement-matrix.md",
+      "bundleLine": 7527,
+      "normalizedSha256": "6a912cd39645359f0d298dcfda251946aa3d81fc43f202fdd0841b0cdc44f035",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/governance/requirements-scope-knowledge-graph.md",
+      "bundleLine": 7937,
+      "normalizedSha256": "b3efe9772dc3533c0dabc261426197b05fd754453539142364e4ac35e487cfad",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/governance/requirements-traceability-map.md",
+      "bundleLine": 8039,
+      "normalizedSha256": "fa0844f4ce343947b0900ca18da3c19c9c69533e3f978c8376918ae8046ccaf5",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/graph-fragments/README.md",
+      "bundleLine": 8484,
+      "normalizedSha256": "06a27fea45eff87bc83ba7e547cf90755a22d4ea4be6f7f8382e25cca88f15ca",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-001-s0-completion-boundary.md",
+      "bundleLine": 8717,
+      "normalizedSha256": "98d91e8013812d2c94baeb1e79478e39b528150e3eda70edec17656e0f33f5ed",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-002-config-log-missing-values.md",
+      "bundleLine": 8767,
+      "normalizedSha256": "20a182a6e053e2373baa6cb9dfa515e3d338472f3db371eaa34e525edd87d1f8",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-003-stripe-package-removal.md",
+      "bundleLine": 8817,
+      "normalizedSha256": "c6d02efda397b84ce8746c82048465737b91970f8dce954beba33dac5d81001b",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-004-failure-derived-phase-criteria.md",
+      "bundleLine": 8854,
+      "normalizedSha256": "cbee8aa3b3988c25b0d4a621d217cddd130ba779164a1b960db433eee7874d97",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-005-untracked-sync-docs-skill.md",
+      "bundleLine": 8922,
+      "normalizedSha256": "45f34994149837c24cd6c5b8743b03fc5030cc3de1d9eb0e33d69f0e0b5876c6",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-006-d94-resubmission-closure-defects.md",
+      "bundleLine": 8964,
+      "normalizedSha256": "cd5ad40252bc76515c545973db058789daa9e9f70f279294e9e672f8e33a6ace",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-007-config-log-code-coupling.md",
+      "bundleLine": 9029,
+      "normalizedSha256": "06205d3514d32d3495daac2373caadd2b2fb72f080f73e940bf63690c3c96ec2",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-008-classify-later-poc-model.md",
+      "bundleLine": 9076,
+      "normalizedSha256": "eca2d4e0023b61b2460013e0201d6b268d32812abe023cbdbee9bc3ec50550f3",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-009-q11-sequence-and-product-row.md",
+      "bundleLine": 9138,
+      "normalizedSha256": "0d5f3ce419731dd4ef8161f0fb163b61678833e50a9193ad121b790de3261fc2",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-010-phase-controls-and-mutable-tallies.md",
+      "bundleLine": 9182,
+      "normalizedSha256": "b13bfa63d954f8920b3ef5f3351cf5d111b3c80c236b9caa21ce7beecf3c7c71",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-011-d100-operating-model-propagation.md",
+      "bundleLine": 9236,
+      "normalizedSha256": "6c86aef5d5e6bc378690c576709b2a5d387ece37e283324de2d87386a6c1b09c",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-012-q11-build-spec-drift.md",
+      "bundleLine": 11003,
+      "normalizedSha256": "a64965aa480e5b619eb5931c312d77bf3c72f32eb07b9f90385602bbde2dcc23",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-013-d101-separate-turn-critic-findings.md",
+      "bundleLine": 11060,
+      "normalizedSha256": "cea958e267350e4e971f67ab50a36bd5f54313dbd3559f4bd40da8ab0abc5103",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-014-b005-sync-skill-recurrence.md",
+      "bundleLine": 11158,
+      "normalizedSha256": "43762722451d12368706859da7dfc53067e835a8e5bdca8b0b56ed97cd6ed882",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-015-c18-required-check-transition.md",
+      "bundleLine": 11284,
+      "normalizedSha256": "7dfe7e387f41f3a3ecfa70f48841e85bfdd0ef4e4d3fa8d50b0a6ac3b4cc4702",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-016-lane-c-required-check-transition-defects.md",
+      "bundleLine": 11375,
+      "normalizedSha256": "4484a7524c331b80873c5311e0aabe06e9a6e1507951cf72b97ae1a57fedb40f",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-017-handoff-closure-parser-false-green.md",
+      "bundleLine": 11470,
+      "normalizedSha256": "1e914f03f53acd2d42a127156986289f270a6dc0a929958c0130932fdc262b4a",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-018-sync-docs-uniqueness-check-false-green.md",
+      "bundleLine": 11586,
+      "normalizedSha256": "7cbb930bc9f29dc889717054b531223bac4bb07ea542b02a6e417b4cb8c867f2",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-019-chief-editor-selection-not-applied.md",
+      "bundleLine": 11648,
+      "normalizedSha256": "2815aa9728f222f3985775301f1d5111b0ad6639bc99135705617e2b0d75f6af",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-020-config-values-have-no-success-oracle.md",
+      "bundleLine": 11719,
+      "normalizedSha256": "879791377c125700361e836773302a937fcdd5e3efab19436e6815716ce9eb47",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-021-fixture-runner-has-no-concurrency-boundary.md",
+      "bundleLine": 11782,
+      "normalizedSha256": "9fb63ab4690f452c706ca2faaab5980ba5909a0eaf3c9afbabcf6af555e36ab8",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-022-lane-b-d106-readiness-review-turn-report.md",
+      "bundleLine": 11906,
+      "normalizedSha256": "1872dc1d2e2620b0ee2e4fff95344e9976d6d961077bb89aa639314aa6ea7f5f",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-023-separate-lane-lock-from-work-readiness.md",
+      "bundleLine": 11955,
+      "normalizedSha256": "40566bdec9783ea12726c9caf01a37485d2ead772516e95096112af9753b5244",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-024-config-coupling-negative-proof-missing.md",
+      "bundleLine": 12082,
+      "normalizedSha256": "52fcea63b577fbd30319950f544cda4472805f455151177c8d06ca19471ab97d",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-025-c19-negative-proof-missing.md",
+      "bundleLine": 12142,
+      "normalizedSha256": "ee1f11099ceace630cb9af0dce5689b6f69c1ba1d27bf50ab09d9063ef31f421",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-026-lane-b-active-s0-turn-report.md",
+      "bundleLine": 12194,
+      "normalizedSha256": "d8beb66c10160de3561b41444d13d59d48dbe47c9e98715bb7e9db44a6641e2c",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-027-template-restates-stale-lane-state.md",
+      "bundleLine": 12276,
+      "normalizedSha256": "165701a08070ebcc7d0ee68b349d4ea452a3cc3e7ef45194a26491f54c7f52ec",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-028-boundary-ownership-prevents-return.md",
+      "bundleLine": 12332,
+      "normalizedSha256": "68c11cf67061605981b08906c7138f9ac0b6be7a2205e5f359dab9199dd7352c",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-029-s1-decision-window-blocks-phase-completion.md",
+      "bundleLine": 12415,
+      "normalizedSha256": "d06b5c6c502afd87789782b16d759f1454cb741bd7d2875e9bbe84622f7f2909",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-030-index-worktree-split-would-commit-stale-packet.md",
+      "bundleLine": 12475,
+      "normalizedSha256": "f7add751be561dc387a948f3a9607a4285f6883706352872da5c208b7571a1dc",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-031-lane-b-takeover-completion-guide.md",
+      "bundleLine": 12537,
+      "normalizedSha256": "0a2e0565515c9cca0e49aafa3863330958b3f74a03141fbc961d0fe4e9819186",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-032-separate-state-control-from-report-data.md",
+      "bundleLine": 12717,
+      "normalizedSha256": "55274a311c40c7a2ebaca342d115abc0905bd12a2f1348fdd03e30544d200592",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-033-return-control-to-lane-a-without-lane-c-crossing.md",
+      "bundleLine": 12967,
+      "normalizedSha256": "cfcb0655f0d5e4e10953e4960fe8721b8b9651fdde8d55fca467eade6afe2749",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-034-lane-b-eligible-state-not-recorded.md",
+      "bundleLine": 13132,
+      "normalizedSha256": "da716525eacd95e77f0e3d321b671c97bbd62014df54c870e016f3f243b8ca78",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-035-lane-b-work-order-is-stale.md",
+      "bundleLine": 13185,
+      "normalizedSha256": "b775a8fd7f6d0daacfebc582d707cb89aaec6feb988934c01c33cc578aa80015",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-036-s1-window-still-lists-open-items.md",
+      "bundleLine": 13246,
+      "normalizedSha256": "af07c6a53c270e2b0ebf3bd3189faa5dfd3478b3f26a631bdd78a3518304b4ab",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-037-answered-handoffs-lack-terminal-dispositions.md",
+      "bundleLine": 13322,
+      "normalizedSha256": "54114a0fcf243ae845c251437f18f7c48dee2fe81416e29f07189811189c3a65",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-038-judge-selected-lane-b-active.md",
+      "bundleLine": 13385,
+      "normalizedSha256": "7cb59581269fbcc0bb6dc52c49d028476f7a95dadfa2c736b29ea0e3de28632c",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-039-c32-business-retention-policy-decision-packet.md",
+      "bundleLine": 13443,
+      "normalizedSha256": "e272271153789c664ba4a5453039d9bc33b0ecc84a2de01310d86db73a14704e",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-040-c32-docs-and-checks-application-runbook.md",
+      "bundleLine": 13656,
+      "normalizedSha256": "9e008fa35778c255103f77a0b3f9e6401c45f22612cb9b93269bf790ecdfa3d1",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-041-graphify-current-head-is-not-portable.md",
+      "bundleLine": 13921,
+      "normalizedSha256": "7a6eaf151a1f8dcd40b4cf5f2ec9391c6540664a204d22c78dd5c62bf9d1f777",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-042-publication-event-vocabulary-governed-sync.md",
+      "bundleLine": 13993,
+      "normalizedSha256": "7836d668d5d404fd33d9ba058f04425ae0880b78708bab2b4027a1c3d2531882",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-043-s1-schema-draft-turn-report.md",
+      "bundleLine": 14031,
+      "normalizedSha256": "d45f4590db2c0710dc566139bbff4430641ec55652ce1ce24b45d3bd884742a1",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-044-s1-trigger-has-static-not-postgres-test.md",
+      "bundleLine": 14073,
+      "normalizedSha256": "7c64c1c24bf2311371d8320a0a939dd939c51e9676334054e68a0ee2a8f179d1",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-045-sprint-boundary-procedure-restates-retired-report-kind.md",
+      "bundleLine": 14173,
+      "normalizedSha256": "2332ed4d001ee602fb9b8a5a32481e3f1520a6a6d20598b90aec194176f57140",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-046-graphify-branch-currency-record-reset-to-null.md",
+      "bundleLine": 14216,
+      "normalizedSha256": "8da0110fb9847f91fdb6fe64d91fbe19069af585295bb444abfe26158f5f2393",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-047-lane-b-to-lane-a-transfer-readiness-turn-report.md",
+      "bundleLine": 14285,
+      "normalizedSha256": "a87caba3e9324edb152707555fa8b34a91efeba91befede30018650954aa791d",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-048-build-spec-restates-removed-url-index.md",
+      "bundleLine": 14324,
+      "normalizedSha256": "26f9ea745cc492be3e0d82e26c2dbeffe9714f5349401efc422c1689bfe1db22",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-049-work-order-reopens-withdrawn-g85.md",
+      "bundleLine": 14369,
+      "normalizedSha256": "f511781583b42f77ef88ff0ab24b1f3f8e111213c7930a5639bf571ae52340c4",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-050-hook-rebuild-resets-graphify-branch-metadata.md",
+      "bundleLine": 14413,
+      "normalizedSha256": "6371ab1f335ac54a0faad2d87bcf0591fa7b9606a1fb1455e1e8329f2a4eb22d",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-051-retrospective-turn-report-conversion-left-closure-fields.md",
+      "bundleLine": 22134,
+      "normalizedSha256": "3404be2b3b2b6c802d9f78734c0e08bbede05c63053add54833f1a3c309f2dcf",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-052-c28-remains-open-after-qualifying-turn-report.md",
+      "bundleLine": 22192,
+      "normalizedSha256": "3f718b4c7f58012630668c5d24575c510a9d2074048af6d1d4045005fe2b4caf",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-053-two-turn-reports-for-one-lb-s1-01-run.md",
+      "bundleLine": 22246,
+      "normalizedSha256": "b150e857ee02a9d7c31ef540a6cba6dd34903093d6b2d3acba340c566ccf108c",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-054-d123-claims-phase-closure-propagation-not-applied.md",
+      "bundleLine": 22303,
+      "normalizedSha256": "dc2e897c5a037aa0f4647b738512ab391f73b4b10aac1d2592cbaa8c2acff149",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-055-turn-report-run-field-is-required-only-in-prose.md",
+      "bundleLine": 22353,
+      "normalizedSha256": "d7e6f40e6130c2876ecbedb2f8bd16bd059b7d92692f57a00a4a3c1ef525153c",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-056-turn-report-closure-field-omission-is-unenforced.md",
+      "bundleLine": 22404,
+      "normalizedSha256": "16d46831ebf81b3fecd6b73e4729190cc1ae109de86e222792664c00b6829004",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-057-b040-application-left-closure-metadata-blank.md",
+      "bundleLine": 22456,
+      "normalizedSha256": "d78e9784d2b8e484d4dab447840a2dab14deae2cd1313d8164ad9683afa5cad1",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-058-next-16-invalidates-next-config-eslint-field.md",
+      "bundleLine": 22509,
+      "normalizedSha256": "a1a3aba8ef3d42ae91a9dc1e1f5fcdbf1f784c950d11e04a46204033900c03aa",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-059-lb-s1-02-database-verification-turn-report.md",
+      "bundleLine": 22552,
+      "normalizedSha256": "202802ac6f12258bec4cb0806c830d0a0390175cf6e0c484245906fbfb845fde",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-060-gap-9-run-approval-not-applied.md",
+      "bundleLine": 22609,
+      "normalizedSha256": "552b53ebb27887cbe1ae4b2411fc653e02128ae6ac2b753715d9363397f23366",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-061-lane-b-code-build-readiness-inputs-have-drifted.md",
+      "bundleLine": 22675,
+      "normalizedSha256": "afa093eea4b805bcc6886ece9f5c2387122263ae2bb85dfe031bfd735ea70c46",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-062-d163-raci-source-contradicts-q12-rationale.md",
+      "bundleLine": 22833,
+      "normalizedSha256": "231e243ec9c18473fd99edabf6a6b18e20d2b127c01f950d79660d15b1d4b06c",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-063-d164-s2-packet-maps-the-wrong-requirement.md",
+      "bundleLine": 22898,
+      "normalizedSha256": "1c476650360ffbba1a42ea0a613fa7e923b72c6672a7c7bea0ce2d2c239fd998",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-064-s2-action-has-no-transactional-database-path.md",
+      "bundleLine": 22965,
+      "normalizedSha256": "fc3b86247e24b3140c51d513985a03ecb5fd623b50a2feccb72cb9e7e83238e5",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-065-sec-06-2026-iia-reanchor-and-d165-verification.md",
+      "bundleLine": 23029,
+      "normalizedSha256": "1b51740ba4abff2d7b8b657caed973afb6c6ff1fd7c1d63b492b572046b1bfff",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-066-d167-confuses-od4-with-line3.md",
+      "bundleLine": 23258,
+      "normalizedSha256": "7af5c142767a3f7ee56e51a569b1bd22d67ca502413b70e9d115a92d29ed8bff",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-067-d168-propagation-and-control-owner-remain-incomplete.md",
+      "bundleLine": 23471,
+      "normalizedSha256": "737f06a15f8fa24d2e570f5c5345d568cb9907fb114730210537b435ccd2fc06",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-068-persona-line-raci-od4-and-grc-axes-are-conflated.md",
+      "bundleLine": 23645,
+      "normalizedSha256": "d480545db12b0b35ac79454e41838f58b258c3a97a5c26b2827975c77ae90bfc",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-069-d170-t5-t6-current-anchor.md",
+      "bundleLine": 25664,
+      "normalizedSha256": "5a2acf9c947d9b0fb28a9e42ec076f412f99f89b8992740828ec94b419ad3b83",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-070-lane-b-work-order-stale-s2-instruction.md",
+      "bundleLine": 25806,
+      "normalizedSha256": "fa115aad96a3de1fc66be9090ba80f387a3c397986e24e35d27989453282d4e8",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-071-b070-options-and-desk-editor-ontology-require-correction.md",
+      "bundleLine": 25976,
+      "normalizedSha256": "7cb7398da553a8f75dad85c05e2f83b73a1b683b5155d32b0d5fb8d3619f3cd2",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-072-handoff-only-commit-authority-is-ambiguous.md",
+      "bundleLine": 34498,
+      "normalizedSha256": "88e2c0defc3bad9acf28e84ad6ad4232fac7cb578bdca324dba7992b3b94c7c9",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-073-r66-frozen-source-intake-correction-guide.md",
+      "bundleLine": 36528,
+      "normalizedSha256": "8ac6d087e37de3707914231134e923a84a1e5f1066580b8201650726d06d3bf7",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-074-r67-d186-r21-lifecycle-correction-guide.md",
+      "bundleLine": 36654,
+      "normalizedSha256": "35ae374d30b1046a00a5d0285bd10d97d9fef226a27ab22d744e46668ba5fca6",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-075-r68-b072-lifecycle-metadata-correction-guide.md",
+      "bundleLine": 36770,
+      "normalizedSha256": "05e7ecf2239208a894a8e32159bc457be7f1ba8a662efc000e566a355aa9aca5",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-076-r66-r68-independent-review-lifecycle-contract.md",
+      "bundleLine": 36938,
+      "normalizedSha256": "6401910f270ae45e309805c792fca1774f8d5f6cb3a33926b3e108fe8793d914",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-077-consolidated-handoff-closure-and-failure-pattern.md",
+      "bundleLine": 37055,
+      "normalizedSha256": "ac49de33663e426ea360e1e00c63150d07ab40d4c9d345fa91aa9686b7f6e39e",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-078-documentation-audit-follow-through.md",
+      "bundleLine": 41351,
+      "normalizedSha256": "e89061c1bbfa4cf7776f95c985a457da8b676b127826c575898c80b5b6385c49",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-079-feedback-checklist-semantic-review.md",
+      "bundleLine": 42018,
+      "normalizedSha256": "b548ae09177a2e5092181d081206dda2f9a9de8017328992760fb5f0b0c2199e",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-080-d193-business-routing-and-evidence-review.md",
+      "bundleLine": 42329,
+      "normalizedSha256": "479ae09a19e0b218d97c8513088856bfc81c7a791d7d8b81470ad1af55ce617c",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-081-reporter-ai-capability-backlog-intake.md",
+      "bundleLine": 42870,
+      "normalizedSha256": "11572565ecb64b3ef3cfd8ebda032ec112fa7d941c80cb86bd6c94de57a7881f",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-082-v1-sprint-priority-and-intake-routing.md",
+      "bundleLine": 43475,
+      "normalizedSha256": "85ddd6ff73ca6abf623ccbda1af03ec278a42683c819852250d3f5ee5ebdad4d",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-083-decision-tree-and-judge-authorization-routing.md",
+      "bundleLine": 43682,
+      "normalizedSha256": "f88a02a9a8ced217d0f25b601862f9b097a6c2fdb0cb18af01f366b395b3eb9f",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-084-d197-manual-intake-specification-reconciliation.md",
+      "bundleLine": 43948,
+      "normalizedSha256": "92a383d41fc01f717b11ae4874279a877bc7e92c18a247f694f398b770169509",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-085-external-docs-audit-disposition.md",
+      "bundleLine": 45122,
+      "normalizedSha256": "c457ac3bd4a77b329e62d8c5328485c5f050fb01acc4fc1bb229235f2bfe0261",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-086-d200-tool-split-and-handoff-bootstrap-review.md",
+      "bundleLine": 45479,
+      "normalizedSha256": "c98c1b1f0bb853b7ae2eae683674d047a4f159909fe468866a19a5661f6dd986",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-087-bounded-setup-spike-proposal.md",
+      "bundleLine": 45759,
+      "normalizedSha256": "77ccbbc0e33cf64938dd04e6d5c3279698a68d569950d28539116775e540ec78",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-088-c39-independent-review.md",
+      "bundleLine": 46444,
+      "normalizedSha256": "fa8a935cff3ac1023e144c18acfe301f2d7e0e23138755417af2c9defa3bc155",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-089-b087-lane-a-answer-review.md",
+      "bundleLine": 46611,
+      "normalizedSha256": "e06aa6e82509f3bbf070422a7a285d2f2d44177c8247cd03c809e44adafc27c0",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-090-b084-b087-tracking-boundary.md",
+      "bundleLine": 46739,
+      "normalizedSha256": "2c295d9f4f590307b3e21e11a622ed196dfdb09d4c23f26fdb569766fa9403f3",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-091-j4-planning-only-boundary.md",
+      "bundleLine": 46839,
+      "normalizedSha256": "b461d8c80fb0343288276583f222038ef5433b20e301700380c777033c112ddc",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-092-b087-closure-evidence-sequence.md",
+      "bundleLine": 46933,
+      "normalizedSha256": "e6feb26c926c13e449dea813893428d18e11da30749a09fcd9bc9c2cae4042b2",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-093-b092-execution-record-review.md",
+      "bundleLine": 47147,
+      "normalizedSha256": "e04a88153a5043a783241aa5bfcb14226e146c94569e27d9c5011de4c025c61c",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-094-chief-editor-remaining-phase1-decisions.md",
+      "bundleLine": 47304,
+      "normalizedSha256": "4a5e48b09af1dda0d6fff33ecd53d098a9013250d278713a6e01855a04caab03",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-095-b084-a4-write-set-contradictions.md",
+      "bundleLine": 48253,
+      "normalizedSha256": "b8f4882c66e737e536109f61eb78153cc9bbb2211f2e7b163171e3dfe2dc42e4",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-096-state-metadata-report-separation.md",
+      "bundleLine": 48538,
+      "normalizedSha256": "2998c240ed612560a9d53f448bdc74261453ca0a8ffaee2d0ffec7a324465c06",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-097-b071-terminal-return-protocol.md",
+      "bundleLine": 48717,
+      "normalizedSha256": "a93fbd11b7a3dcc475d70983047fa4be70331bceca68984644426469ec0fde1a",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-098-sprint-baseline-and-spike-status-reconciliation.md",
+      "bundleLine": 49198,
+      "normalizedSha256": "e0004c63fadf2f912a0b7d93e49b2e41aca110f7fc2728b534ade7ea240bffec",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-099-lane-a-application-boundary-and-lifecycle-evidence.md",
+      "bundleLine": 49403,
+      "normalizedSha256": "69fc2390dd53e3fcda293fa4027e741d523b8070d06f22d4383c049a4724a84c",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-100-lane-a-applied-batch-lifecycle-review.md",
+      "bundleLine": 49613,
+      "normalizedSha256": "a731ca6c2d62650a10dba1d81309ae391b1bcea3071206263b4fe6c9257a0f32",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-101-b100-commit-anchor-and-residual-lifecycle-review.md",
+      "bundleLine": 49840,
+      "normalizedSha256": "affe5e9464a50ff35015c95b43956dbfba8594988513a854ad655a1c12a58b2e",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-102-lane-a-governance-readiness-and-consumption-contract.md",
+      "bundleLine": 50150,
+      "normalizedSha256": "d3a4120d36bc035644285bc66bf86da35f9e29c7a006b25bca45d03c0e40fcbe",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-103-lane-b-c-interface-and-handoff-closure.md",
+      "bundleLine": 51514,
+      "normalizedSha256": "627ca2f53ba1dceea7e0080afeeab501d81fe8d7ab841615fcefaf18a4f77070",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-104-t5-historical-target-executor-propagation.md",
+      "bundleLine": 52503,
+      "normalizedSha256": "6e3a1839c2b554cf852a87986b7c69fb295430d878c50138b815f00e54fa4e3f",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-106-a4-a6-config-ratification.md",
+      "bundleLine": 52657,
+      "normalizedSha256": "c2af8958f04e64cb55d2fec8ab3811f57d684a5ec0f546ad0a51b8ac90479b01",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-107-phase-scope-fixture-borrows-terminal-entries.md",
+      "bundleLine": 53148,
+      "normalizedSha256": "eb927d14d89c041d58830c3535d88e2c934854392f3c8b98fe1a7ac3e0ce917c",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-108-handoff-fields-fixture-hardcodes-open-count.md",
+      "bundleLine": 53255,
+      "normalizedSha256": "ec918c9b9e2a0a562c1de019ca97ce520f89189c7d2a6ea9cb875bb658a6bbb5",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-109-docs-drift-shell-interpolates-graph-head.md",
+      "bundleLine": 53348,
+      "normalizedSha256": "a440b25f3163ac7a2ddf550457a4da2925e8a9913d8a97e9ca32addec33dbeb6",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-110-d231-new-control-file-misses-v1-propagation.md",
+      "bundleLine": 53453,
+      "normalizedSha256": "833c6fb9fd399c36056cf7e8534001095dcd063e852a983d6439ae20e81d7860",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-111-b103-p2-noncanonical-child-disposition.md",
+      "bundleLine": 53648,
+      "normalizedSha256": "55d0bd3d23190f77282e1657d6acf8b3522da2b1f7b25fbc59499e02ed60a07b",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-112-terminal-return-conflates-annotations-with-reopened-work.md",
+      "bundleLine": 53782,
+      "normalizedSha256": "ef9f34dd6a3e69605bc08d794cf591a65fff4658d5ecdf7cbd45d5d0757ac233",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-113-b112-partial-repair-leaves-b097-unenforced.md",
+      "bundleLine": 53943,
+      "normalizedSha256": "9cc4d3acb2c26b7414011fa7812fba50c800ff8b6c8afcd348d98acd7de86447",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-114-mmf-test-first-atomic-commit-and-human-push.md",
+      "bundleLine": 54276,
+      "normalizedSha256": "28344a01a9043c9464024e50a004161f35267ce14a5aab983ede79f4add4a1fe",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-115-separate-intent-build-and-devops-governance.md",
+      "bundleLine": 54548,
+      "normalizedSha256": "2041842e87906b949285b41349d024f242a3569d259916e53844593c5e6c479e",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-116-option-a-audit-record-false-green.md",
+      "bundleLine": 54856,
+      "normalizedSha256": "e576aa93b36980eda479581e445adfc7b482d2d5cdb68d116e212768a7127c58",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-117-open-backlog-aging-and-refinement-closure.md",
+      "bundleLine": 55052,
+      "normalizedSha256": "8a53f6a63002c2f49c1c01fc2d2b8bb55091bc78ffe554086d2cbb681a76bfac",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-118-v1-newsworthiness-ranking-t5-routing-and-source-raci-correction.md",
+      "bundleLine": 58880,
+      "normalizedSha256": "11111a67715e5d02a9f320b5615431fde8d3c783bad82ad4302dd0b56fc4b6ef",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-119-agentic-documentation-architecture-safe-mmf-reconciliation.md",
+      "bundleLine": 59472,
+      "normalizedSha256": "5645ebd6b6ea5bfcb6d3ae9147acb5410f76f7710e19a443959d079de8c7b055",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-120-v1-sm05-state-1-readiness-follow-up.md",
+      "bundleLine": 64519,
+      "normalizedSha256": "e2494e27c43aff914aec2eba9cd513951b0cde743d8853d394819eb698597389",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-121-sm05-r2-r4-feasibility-contract-gaps.md",
+      "bundleLine": 64716,
+      "normalizedSha256": "7df30e78ceadea60dfced2f3ba1ebdb1cd9b871dbe4dade72e39f14889f6eed6",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-122-b120-push-docket-stale-after-remote-sync.md",
+      "bundleLine": 64843,
+      "normalizedSha256": "752bee42c8ad958a57f01859cfb2649ace76ebb5f253da9b8a9965b0473756d8",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-123-sm05-r2-r4-feasibility-acceptance.md",
+      "bundleLine": 64938,
+      "normalizedSha256": "76a6db39017bf092ea728f267a665b42a67a47f34b129e51a8bc7a938eb63d9b",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-124-sm05-identity-compatibility-readiness-deadlock.md",
+      "bundleLine": 65019,
+      "normalizedSha256": "f6d8e14f1a170229b0c9057a89698e0584d0cfa4ec1cedb70a2bf345f5a1d73d",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-125-sm05-judge-evidence-and-two-pass-execution-docket.md",
+      "bundleLine": 65151,
+      "normalizedSha256": "bdc3382666f30a0dc27c55cc3f32bb081f48a0b22822f5f9501dadacc0e6dae4",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-126-sm05-phantom-existing-issue-blocker.md",
+      "bundleLine": 65335,
+      "normalizedSha256": "c047dadafb2824fb138edc8167f4748a37996398a87485bfaf1d4c41b42a747b",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-127-sm05-mmf-transfer-and-xdd-traceability.md",
+      "bundleLine": 65452,
+      "normalizedSha256": "930356d5d343e7b1e4578b1797ea258e72b57ed1d727b370ac1ff075a5111ad4",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-128-sm05-r5-r6-and-database-lifecycle-clarification.md",
+      "bundleLine": 65576,
+      "normalizedSha256": "be92d86c207845aaa273c648c0554a713a99562918ee1c5bddb7c7a3490f47c6",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-129-a01-operator-facts-setup-s2-baseline-only.md",
+      "bundleLine": 65756,
+      "normalizedSha256": "5213c2118015b27bd9d010760c06402cda827419ab0fb50a75f7b509a8ac984e",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-130-c002-agent-instruction-handoff-review.md",
+      "bundleLine": 65893,
+      "normalizedSha256": "23d224891925e890a704edb04bf78aa927a45f1c6e6cab95c8ffe16b7390a085",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-131-sm05-r5-r6-independent-review.md",
+      "bundleLine": 66199,
+      "normalizedSha256": "0a8428aaaa39ca609b7d768568f1eb8afa5490450a08f163c0860711b19f856b",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-132-setup-closure-and-sm05-dor-dod-alignment.md",
+      "bundleLine": 66294,
+      "normalizedSha256": "98429eabf6c6a326d201a5c0ab994c88a5356d41823af02d583e97b0a207fcc1",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-133-sm05-option-a-scope-and-jev-readiness.md",
+      "bundleLine": 66652,
+      "normalizedSha256": "6abb5ed55376cb102deb783f554a153323bd4ed91ec9762a4bc51bc1b4b96864",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-134-sm05-product-anchor-and-jev-intent-parity.md",
+      "bundleLine": 66823,
+      "normalizedSha256": "f4ae9d644057040a92df7f52a832c54fb491e5e547d04651bc09aa5b11057dee",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-135-d262-state1-handoff-and-open-backlog-audit-correction.md",
+      "bundleLine": 66995,
+      "normalizedSha256": "cf36e028971a45dfc8b930b29954985eb2f1a7512866f3627c489df8a92d9ba4",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md",
+      "bundleLine": 67137,
+      "normalizedSha256": "fdf31b183ca45cb2c6fa6a9104119839c2ce3ef6b8b8624a825a1dd3fa03c272",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-137-b085-step3-packet-unapplied-residual-clauses.md",
+      "bundleLine": 80556,
+      "normalizedSha256": "a8c0194e6d166affceda4d6d22b329988c109b81c1e3fbfc98131562d9e3a305",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-138-sv002-context-and-backlog-gate-review.md",
+      "bundleLine": 80762,
+      "normalizedSha256": "a040a0ecc09e4ceb36c628095bea22bb2ac1606d19da00eba0cac7a3a720a5f8",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-139-sm05-cross-reference-and-version-drift-review.md",
+      "bundleLine": 81256,
+      "normalizedSha256": "fc2c80c5d99f48caa5f3b19ce4adbf984d9653a2492d1f749c2b44cc31f3d865",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-140-sv002-route-c-access-path-corruption.md",
+      "bundleLine": 81637,
+      "normalizedSha256": "ce60e747bec228d574d3c28b1dfb6a7320e0bd3fa265986551f1125cafc20ec8",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-141-sv002-u04-mapping-feasibility-review.md",
+      "bundleLine": 81682,
+      "normalizedSha256": "94f5e46b19bb67bc37cdfec3b10cd8017b2afc2f2ff9510abc8248c9d0e84f24",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-142-e4-intake-contract-and-sm05-evidence-verification.md",
+      "bundleLine": 81807,
+      "normalizedSha256": "02faebe11ef682b20fd782f0fe8f3e2522e7bb2bfd562d3ffd347aadcadc99b6",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-143-sv2-route-b-r1-loader-measurement.md",
+      "bundleLine": 81932,
+      "normalizedSha256": "921242dd79ad8d57921b54db8d379d03d18c6b0c8c4596d5555b0389748d2984",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-144-route-c-handoff-state-after-d305.md",
+      "bundleLine": 82043,
+      "normalizedSha256": "3001dc43230c24082870d21bc8e6762c752f2668f7184a1c1e6f3af389fff363",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-145-route-c-r2-level2-review.md",
+      "bundleLine": 82114,
+      "normalizedSha256": "2e7fd57d97f4716d0a2e483cff59c7caae78ff875ce058c1627808eeffefcdb0",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-146-route-a-r1-level1-review.md",
+      "bundleLine": 82194,
+      "normalizedSha256": "df8f881a28a29f01a7f6f9a20c8cc6485c8931f812dda08d0b48516d222a2f96",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-147-sv2-u02-combined-report-and-c008-review.md",
+      "bundleLine": 82279,
+      "normalizedSha256": "e1b384832e5a71411fcd2fc78d27d1c6056f0a17b1d5979fe805e03d46c87c40",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-148-sv2-u02-remediation-decision-triage.md",
+      "bundleLine": 82425,
+      "normalizedSha256": "8dff515196e16ad7e67dc3183b067c667d233e7326f73728e506c84c53941e21",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md",
+      "bundleLine": 82501,
+      "normalizedSha256": "41b6809d6bc2597a83078cba4bd4210162c043d2f8d612678ba7ba7216304608",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-151-sm05-initial-behavior-test-coverage-reconciliation.md",
+      "bundleLine": 86430,
+      "normalizedSha256": "c5b5d85ccc7dfdf8c3c7b6ba683a69f77176bf7b4115dc970e602f915ee09d07",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-152-u1-reclose-header-and-return-act-enforcement.md",
+      "bundleLine": 86525,
+      "normalizedSha256": "67141bb97062905519d0155d0df3ad11c2b21ad0bb32e78c6d74ab980f8041d4",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-153-independent-census-review-and-parent-first-follow-up.md",
+      "bundleLine": 86617,
+      "normalizedSha256": "4f240242395358b7002b0ba1457a5cd0f80955b6d7297a1a0ef3af1d7880cfbc",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-154-consolidated-parent-first-artifact-and-closure-plan.md",
+      "bundleLine": 86909,
+      "normalizedSha256": "cf175df4ef01946ee8644aa7aa495d99061a8894177e937cf59ee71ddbf863b2",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-155-gr013-containment-verification-and-gr015-refusal-scope.md",
+      "bundleLine": 95529,
+      "normalizedSha256": "fefbc5e5ee2c87ff4447eb92f134ccf9220ece93d17629196f688711ebdbafed",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-156-setup-traceability-audit-and-progressive-baseline-plan.md",
+      "bundleLine": 95725,
+      "normalizedSha256": "463042b1d6563d93fb0951677de98e0c5c3e2cf8c4d45a6c933baa4fb19c9bcf",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/B-157-option-a-versus-c-decision-contract.md",
+      "bundleLine": 98892,
+      "normalizedSha256": "7648b8b52b87adfc732970b500d42dfdae2bf1034b254d22d7b74c661925b0ed",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/C-001-rename-required-check.md",
+      "bundleLine": 99231,
+      "normalizedSha256": "a012edd8fab3b25b53437b011444085942eb88c8d8f95f11a9c4ff961c5f6e32",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/C-002-route-c-pre-run-access-proof.md",
+      "bundleLine": 99363,
+      "normalizedSha256": "f2f9de79d2fe68317dd2d6b92b51bf818968dcc1aad46aa2a95d285c61e5a1e4",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/C-003-sv2-route-c-r1-loader-measurement.md",
+      "bundleLine": 99429,
+      "normalizedSha256": "498f3191ce0755978260461e118568119d1a028dcb4f7e9b9602edcc9e250036",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/C-004-route-b-level2-review.md",
+      "bundleLine": 99592,
+      "normalizedSha256": "af24b54dcbfc3afb6912f7175bfb3db6856853199d44ea9313b189035b66499e",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/C-005-sv2-route-c-r2-loader-measurement.md",
+      "bundleLine": 99651,
+      "normalizedSha256": "44edcec74f6c32585d9518ad00ce13a3e751a5875a9720360e14ce61deb6adbb",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/C-006-route-c-loader-diagnostic-reconciliation.md",
+      "bundleLine": 99844,
+      "normalizedSha256": "42296380c19a30f14b3e425c433959101c5beccab2d8bbb193a5f8b7b97f5ff8",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/C-007-route-a-r1-level2-review.md",
+      "bundleLine": 99899,
+      "normalizedSha256": "774fcf79ba49025abe2d41a6bcee6de944eed3e9889f923c52d508d341b2f843",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/C-008-sv2-u02-combined-report-independent-review.md",
+      "bundleLine": 99987,
+      "normalizedSha256": "49cc21f6511414393b1c8d3ef5a1aeaf3286b9d40d3f2e27638540db1e3abc1d",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/C-009-sv2-u02-remediation-triage-review.md",
+      "bundleLine": 100213,
+      "normalizedSha256": "a319d94f7f893c22e00c194a0887ce02ff8c1df4215c5ad2d0f9159d82abf9fe",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/README.md",
+      "bundleLine": 100271,
+      "normalizedSha256": "28a3b4669407f4ff2f4cc7cfe332a7a7baf516511354e76232d5bce141b2172e",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/TEMPLATE.md",
+      "bundleLine": 100922,
+      "normalizedSha256": "f7965af5934353a06c09d41932d50d15929ffd5c46408ba6efd52e8edd2dcdf4",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/artifacts/B-014/observation-2026-10-03-session.md",
+      "bundleLine": 101072,
+      "normalizedSha256": "c4ccee8fd07e65beaec2afaa0a4f4d4456c3e2627b9d41289426b31812181f10",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/artifacts/B-115/lane-c-b154-review-with-b115-consumer-read-07d931e.txt",
+      "bundleLine": 101123,
+      "normalizedSha256": "900396a8d1f7e44c9d556c25609e6aa8773f96ec41e49a5332b696e11ddb2031",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/artifacts/B-119/D251-MANUAL-RUN-RECEIPT-V2.md",
+      "bundleLine": 101276,
+      "normalizedSha256": "47ec0e0be6791c57f584475c30cc4714fafcf2b4d343e7ed6d3eeff7fc6265b9",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/artifacts/B-119/D251-MANUAL-RUN-RECEIPT-V3.md",
+      "bundleLine": 101348,
+      "normalizedSha256": "0272f0261ffad739cec600bd955385ad5263ef2d5485b2a6d570ee412d38c1fc",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/artifacts/B-119/D251-MANUAL-RUN-RECEIPT-V4.md",
+      "bundleLine": 101442,
+      "normalizedSha256": "f31d045584d500d95ecc0a737991f39935a200b266513fc30becc761cf5d9534",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/artifacts/B-119/D251-MANUAL-RUN-RECEIPT-V5-LOCAL-A01.md",
+      "bundleLine": 101543,
+      "normalizedSha256": "4ad99908f3fc79f704feb9c60878cbe5da34556b242015e55548c56dd965ae78",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/artifacts/B-119/D251-MANUAL-RUN-RECEIPT-V5-SUPABASE-A01.md",
+      "bundleLine": 101764,
+      "normalizedSha256": "b0177c10bb9baf4fadb151d7630609035cbd218f94744416e6fa27a8415689b9",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/artifacts/B-119/D251-MANUAL-RUN-RECEIPT-V5.md",
+      "bundleLine": 101951,
+      "normalizedSha256": "479c65df8d92628e47db302c5a77207575c333beea09e201c89513e738946f8a",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/artifacts/B-119/D251-MANUAL-RUN-RECEIPT.md",
+      "bundleLine": 102050,
+      "normalizedSha256": "d0efc2db045dbc3e1b65f37889dcfdc8e3d2a94d4d83281c13c8a5237759c7ed",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/artifacts/B-119/PREFLIGHT-D251-CANDIDATE-COLUMNS-V1.sql.md",
+      "bundleLine": 102100,
+      "normalizedSha256": "fb6338112d2e32939f8dd8e8428c98762a67bf95269efc62885f8dbedc8fa31f",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/artifacts/B-119/PREFLIGHT-D251-CANDIDATE-COLUMNS-V2.sql.md",
+      "bundleLine": 102145,
+      "normalizedSha256": "265bdd51d0e1ae3d33d0c2d6b66b3b37edc4d09e9b4af8c64198e307ce7d1d50",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/artifacts/B-119/PREFLIGHT-D251-CANDIDATE-COLUMNS-V3.sql.md",
+      "bundleLine": 102222,
+      "normalizedSha256": "1b9fcbb16d8bf14faa68f0e3767baa5058c9051395a5f9e446f5c06454d7fa62",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/artifacts/B-119/PREFLIGHT-D251-CANDIDATE-COLUMNS-V4.sql.md",
+      "bundleLine": 102368,
+      "normalizedSha256": "6e223ee3121a2adf9604196eecb866cae83de22555fcc4a3e24dd968220ec70c",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/artifacts/B-119/PREFLIGHT-D251-CANDIDATE-COLUMNS-V5.sql.md",
+      "bundleLine": 102518,
+      "normalizedSha256": "4f222e0e4491f036b9ffcdf425c43f0d981a1a9aaf05897ef6d2f7c5eb701da8",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/artifacts/B-119/QRY-D251-STORED-VALUE-ASSESSMENT-V3.sql.md",
+      "bundleLine": 102668,
+      "normalizedSha256": "21bfc3a2adad47560c06d4df77b3dc8119848e804b125603de829e3c5552b1ac",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/artifacts/B-119/QRY-D251-STORED-VALUE-ASSESSMENT-V4.sql.md",
+      "bundleLine": 102799,
+      "normalizedSha256": "364976a2a1fbf513c08177aff8c8eff6af61a6945c9e61b00dfb204ea2cfd2c1",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/artifacts/B-119/QRY-D251-STORED-VALUE-ASSESSMENT-V5.sql.md",
+      "bundleLine": 102847,
+      "normalizedSha256": "8fac62db6af95265ae723c9b17b9d6401a79ab38a312b4b6768834de3c28fb01",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/artifacts/B-119/QRY-D251-STORED-VALUE-ASSESSMENT-V6.sql.md",
+      "bundleLine": 102953,
+      "normalizedSha256": "311beaa8f45eb925bc983f6edba8adbaf6c376d4e5ef670e321fee6841fa60b2",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/artifacts/B-119/QRY-D251-STORED-VALUE-ASSESSMENT-V7.sql.md",
+      "bundleLine": 103061,
+      "normalizedSha256": "8c577cc68a23bb5d8244b99ba559a368df8b88bbcedcbd7015aed8ac6dd5554e",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/artifacts/B-131/System_Encyclopedia_V15.txt",
+      "bundleLine": 103168,
+      "normalizedSha256": "5a17793ae44ec4f8164efce1ac141633ed93367136fde5814e35012e5be8f532",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/artifacts/B-136/ir-application/IR-APPLICATION-ACT-r5.md",
+      "bundleLine": 103600,
+      "normalizedSha256": "a25a8d33d711c4bcf3fa09ecef31d96a0f502f6a33ecda7da7b164100ae32efa",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/artifacts/B-136/ir-application/IR-CORRECTION-PACKET-r2.md",
+      "bundleLine": 103780,
+      "normalizedSha256": "6164b65f44ac76154c5881adf82559b38d1d91146668756fab57bb52f14cc382",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/artifacts/B-136/ir-application/IR-D438-REGISTER-BODY-r3.md",
+      "bundleLine": 103890,
+      "normalizedSha256": "b31a4e0d365b31fcc655e8cab373f1346e8b167334d63f0f1f0cd59744378a8f",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/artifacts/B-136/ir-application/IR-ROUTE-A-r4.md",
+      "bundleLine": 103939,
+      "normalizedSha256": "575dd1a1afe5682d3125cd6ec735883f49a03857bc44bcdb72ef2af4683b9fd9",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/artifacts/B-136/ir-application/IR-ROUTE-B-r4.md",
+      "bundleLine": 104037,
+      "normalizedSha256": "fd09c7d64aca6e3b5d9c0b5e2a741528b7935fc39f1e72a2fa039c447a2da7c5",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/artifacts/B-136/ir-application/LANE-B-CHAT-REVIEW-310af2f.md",
+      "bundleLine": 104085,
+      "normalizedSha256": "ebeb42bd1e06955510cc5c4545ac06a316c6bcbd75819d05e806d87c25eeccc7",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/artifacts/B-136/ir-application/LANE-B-SUPPLIED-AUDIT-1c0635b.md",
+      "bundleLine": 104099,
+      "normalizedSha256": "006b3484948021e16d8e7e56f817192cd5466c8f2b72a42490a490ea0d939696",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/artifacts/B-136/ir-application/LANE-B-SUPPLIED-AUDIT-983eb30.md",
+      "bundleLine": 104118,
+      "normalizedSha256": "e3199ba4607265e19edad0cc881794ca59b4dfd4d63d31d0eadf01f04f02de46",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/artifacts/B-156/F3-F6-packet-r1.md",
+      "bundleLine": 104166,
+      "normalizedSha256": "32fed9c9fc3fd1f7c1076eab71f9bb97fe65bc9c1530925af1eddb52a6c8b9a2",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/artifacts/B-156/F3-F6-packet-r2.md",
+      "bundleLine": 104399,
+      "normalizedSha256": "c931cdc45987341253eb6fc14d8300f0eb2ae7cb564fd7809de51a5b46947e87",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/handoff/artifacts/B-156/F3-F6-packet-r3.md",
+      "bundleLine": 104585,
+      "normalizedSha256": "3d71c7d52294423ab14b6925f0078d1d8e17ba8add4d48429edfc46b054f9114",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/journal/2026-08-16-entry006.md",
+      "bundleLine": 104699,
+      "normalizedSha256": "c2e185afc44b4fcf3139cf753c608b23a65a26e80d199bc7b839ac783b0a9a19",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/journal/2026-08-16-entry007-decision-sheet.md",
+      "bundleLine": 104923,
+      "normalizedSha256": "c703b7aebad371438349952dd3ea9622ad69b9d35492ec79838040a6459940db",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/journal/2026-08-16-sprint-plan.md",
+      "bundleLine": 105000,
+      "normalizedSha256": "e275d4dcdd90e0af73a1a3111f0c5b2658233f222d440848066814179687c88d",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/journal/2026-08-18-audit-model-and-remediation-plan.md",
+      "bundleLine": 105549,
+      "normalizedSha256": "31ac72c4ebcc89a511f8b0b828a7b52eaf4bfb0aae82e14389ac08e8d3c435cf",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/journal/2026-08-18-board-decision-sheet.md",
+      "bundleLine": 105816,
+      "normalizedSha256": "4bbd2b54743dfea46ba5e37b23c15d1c510d0437a2760368a88f9c2b1c384775",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/journal/2026-08-18-board-packet-checklist.md",
+      "bundleLine": 105926,
+      "normalizedSha256": "cbefe4c1e6c7c8e4c695593a6d75086987e895ffa989bb882d95873911e52856",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/journal/2026-08-18-consolidated-gaps-and-open-questions.md",
+      "bundleLine": 106122,
+      "normalizedSha256": "4ea725a26a9b940ee62941c3bd6f02eb73f09d769563ae65d21eea179fecf96d",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/journal/2026-08-18-first-engagement-lock-in.md",
+      "bundleLine": 106383,
+      "normalizedSha256": "8946a21b2a12eab97b7c15176af569d98224650f42f9c09db8e27cae403b7085",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/journal/2026-08-18-poc-charter-separation-and-revenue-model.md",
+      "bundleLine": 106451,
+      "normalizedSha256": "cb8c605d16c00332b396200fe99526dc3a465db09265ec2aa127b6570de5abb1",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/journal/2026-08-18-publication-transaction-record.md",
+      "bundleLine": 106557,
+      "normalizedSha256": "ab3c04957b9567a3e99e21093eedc78a119c0c197c3400f06c5ca275c46a61fd",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/journal/2026-08-18-raci-human-vs-digital-twin.md",
+      "bundleLine": 106674,
+      "normalizedSha256": "183556bd65786b5a5b25bbea3b09d53334482377f620589ca2fc9fbada4d36bc",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/journal/2026-08-18-retraction-as-publication.md",
+      "bundleLine": 106948,
+      "normalizedSha256": "30704ec8eff4788e2f7a6d3f4c8737722a1a57df17a19e1d6a0972ac8eaccf0f",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/journal/2026-08-18-sprint-readiness-consolidated.md",
+      "bundleLine": 107053,
+      "normalizedSha256": "048436ddd24258257ba4bcc0eaa1ffe6a05042b1e0248a89368de0cc641639cb",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/journal/2026-08-18-storyboard-business-and-digital-twin.md",
+      "bundleLine": 107251,
+      "normalizedSha256": "910391720c19e507fa7d5832504cceaacf2831eea2d348805cfd84a25acd61bf",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/journal/2026-08-18-t0-execution-runbook.md",
+      "bundleLine": 107878,
+      "normalizedSha256": "e8ca968a2df37bb56e0141756ab41068dae7443fc6067aab359cb373853896a3",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/journal/2026-08-18-transition-intent-vocabulary.md",
+      "bundleLine": 108082,
+      "normalizedSha256": "1efd466b9f234b048987fc0a31f36f28aba8c06675560bdcd027a7707f2e85aa",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/journal/2026-08-19-t1-execution-runbook.md",
+      "bundleLine": 108215,
+      "normalizedSha256": "7ed569e37ac78aa88056698bdc9cda6ec5ac8ddca5b9c1c5cbe09ce1dd219fd5",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/modules/M-MVP-REQUIREMENTS.md",
+      "bundleLine": 108402,
+      "normalizedSha256": "bc2c8d7f246f116c5724b9d55660ad69856c7da71a4819ee2e7c1e05033fd22e",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/modules/M-POC-REQUIREMENTS.md",
+      "bundleLine": 108468,
+      "normalizedSha256": "691902a90cef5cbea65c903ff311f9c2977cd550fe65ef2849a755cd9a330483",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/source/blueprint.md",
+      "bundleLine": 108649,
+      "normalizedSha256": "e5d5a802dce78cdfd375345667054100200eb08404f543dd70648df1e1ef1602",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/source/business-case.md",
+      "bundleLine": 109944,
+      "normalizedSha256": "5cdcb868d888401a278bb7712e0ccee086865137ecef8aba9093194ac58f5c88",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/source/project-charter-v1.md",
+      "bundleLine": 110344,
+      "normalizedSha256": "527743ba10590f72072db4ac5a9df79d6e1e2d11c9c125231ab51d93bb0e539e",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/source/README.md",
+      "bundleLine": 110417,
+      "normalizedSha256": "bb77cc90242c91f1cdef647d621fa90b51305c241a0c03eefe23157b8c07849d",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/source/v1-build-readiness-addendum.md",
+      "bundleLine": 110502,
+      "normalizedSha256": "59e54fc5e6fd36796f5074ca45511bf66e71ae1b52606f2b5103d6732527798f",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/specs/README.md",
+      "bundleLine": 111316,
+      "normalizedSha256": "cbded0a1f8d1e091b3ab85cc4929a1a09bcce1994c18f6280800d769bb9b8cef",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/specs/SPECS-MULTI-LANE-AI-GOVERNANCE.md",
+      "bundleLine": 111348,
+      "normalizedSha256": "afb9e0d143fbcb80318c8561d7c0fda2cf0443eaf817f0f648f5f14741a9b8b8",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/specs/SPECS-PUBLICATION.md",
+      "bundleLine": 111521,
+      "normalizedSha256": "349631dfea970b19b22aeb36b511e89e85cfd2e97481f8cacd5b82f8e517dfb8",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/specs/SPECS-TRANSITION-ENFORCEMENT.md",
+      "bundleLine": 111638,
+      "normalizedSha256": "d7f211c86ef08e9dcd694d1c38158fa45055741ceb79b22558f99fa00236de75",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/specs/SPECS-VERIFICATION-APPARATUS.md",
+      "bundleLine": 111880,
+      "normalizedSha256": "a128b70def674eb99f2d4dc11c70a9868545b99b58874d01259f7af7b455a880",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/specs/ux/UX-MULTI-LANE-AI-GOVERNANCE.md",
+      "bundleLine": 112425,
+      "normalizedSha256": "0bcd92b655f5501d8ade5dd988deec5b5ff5f2afe3a54b547979da9c98b2a62c",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/templates/dor-dod-validation/v1.md",
+      "bundleLine": 112536,
+      "normalizedSha256": "228b9d0e7481c0a3aac1b8d2724a24aeeff8c30dabee5d3c4ab27dec5439392d",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/v1/README.md",
+      "bundleLine": 112655,
+      "normalizedSha256": "6aee0bc622a8bb6a80b74a06f8cadeb33ebd590fd08d38d9ae57d8951a970ae9",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+      "bundleLine": 112701,
+      "normalizedSha256": "772aa6c746db0c5896f529b63a7927ce60788c846dcb1f60c4eef44c0c39ae07",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/v1/V1-B071-CORRECTIVE-PLAN.md",
+      "bundleLine": 113308,
+      "normalizedSha256": "a0ca5000f8fde5f3d275b9df37ed51c6c55ae414719e7b3f4926eaf7f65ac6a9",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/v1/V1-BUILD-SPEC.md",
+      "bundleLine": 116699,
+      "normalizedSha256": "ea832c75eab5c44ec906f6742803969b5b8b29191ceec1c3e2680420e36f2b41",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/v1/V1-DECISION-REGISTER.md",
+      "bundleLine": 117577,
+      "normalizedSha256": "d2c1fd754244ec5aab2b29b277cbb16c7af9f8785feb62994ec77c5f35746fca",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/v1/V1-PHASE-CLOSURE.md",
+      "bundleLine": 146025,
+      "normalizedSha256": "0c7b76d0564155805c1f0a6e8f57e76039dc4d51ffed690ba03dff91ff3d1ec5",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/v1/drafts/README.md",
+      "bundleLine": 147297,
+      "normalizedSha256": "e43a4178e3891ea53305308e10096019e2fb76b7d6345b06f1317c57243e04d8",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/v1/work-packets/SETUP-SPIKE-000/GOV-RES-001.md",
+      "bundleLine": 147359,
+      "normalizedSha256": "4333a0fb40b102b5a609c5911de8f960c3c6c233597725c8c8a9d294c4503ef5",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/v1/work-packets/SETUP-SPIKE-000/GR-012-013-SPEC.md",
+      "bundleLine": 147416,
+      "normalizedSha256": "a350ed92bdd1b2bb38e3932e6f7c2bcf8261eab91aa50e2ecf5cf9a8f62b0f85",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/v1/work-packets/SETUP-SPIKE-000/S2.md",
+      "bundleLine": 147581,
+      "normalizedSha256": "3901b863ddb0f72f781545148faf0fdc0e4d5e53113671adf0cd19ff7342aa0c",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/v1/work-packets/SETUP-SPIKE-000/S3.md",
+      "bundleLine": 147661,
+      "normalizedSha256": "aef0555e2141f9709bf46647628aaf45821ff6bccdec139feab3e04edaae6934",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/v1/work-packets/SETUP-SPIKE-000/S4.md",
+      "bundleLine": 147727,
+      "normalizedSha256": "c1b35ecf8737e72f0429926a5aad293f38712b4e58b36a2f83b0a97e15801cc3",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/v1/work-packets/SETUP-SPIKE-000/SV-001.md",
+      "bundleLine": 147802,
+      "normalizedSha256": "bc0ed03c7a990115074325a046e2e0d40833b7345c27a9b8f60de290f3760360",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md",
+      "bundleLine": 147840,
+      "normalizedSha256": "dcbb9b422a1c13bc0056e971fce26faa2448ae2d35a870cdfa04e3dc147ccd11",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/v1/work-packets/SETUP-SPIKE-000/SV2-U03-code-navigation-evaluation.md",
+      "bundleLine": 149790,
+      "normalizedSha256": "6805f1100096643f5d952270ff9789aa995a11b55977733fe24c3242da67c92d",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/v1/work-packets/V1/V1-SM05.md",
+      "bundleLine": 149852,
+      "normalizedSha256": "9f27849b0413caacf1a4dad03d589c7f677539dbf877e63823b31f7c14dd65d0",
+      "checkoutMatch": true
+    },
+    {
+      "path": "docs/v1/work-packets/V1/V1-SM06.md",
+      "bundleLine": 150120,
+      "normalizedSha256": "5634c8e390083839ce3465bc2ba0d3c9623500ec09e56c88bb88483cab202732",
+      "checkoutMatch": true
+    }
+  ],
+  "linkScan": {
+    "occurrences": 120,
+    "issues": [],
+    "limit": "Static inline Markdown links with file targets and heading anchors; not a rendered-browser or external-URL check."
+  },
+  "priorFindings": "IR-1–IR-5 source corrections present under D-438; independent delivery verification recorded in B-136. This audit does not verify graph publication, controls, or full unit closure.",
+  "consistencyGate": "bun run check could not start: CouldntReadCurrentDirectory; no passing-gate claim."
+}

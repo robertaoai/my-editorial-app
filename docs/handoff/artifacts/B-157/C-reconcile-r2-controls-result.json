@@ -1,0 +1,74 @@
+{
+  "schema": "B-157 C reconciliation r2 controls v1",
+  "arms": 6,
+  "passed": 6,
+  "results": [
+    {
+      "arm": "valid",
+      "expectedExit": 0,
+      "exit": 0,
+      "outputWritten": true,
+      "ok": true,
+      "messages": [
+        "C reconciliation r2 ok: C1 18 + C2 5 = A 23; one binding per target; locators match; every value re-hashed and equal to A at 1640ff7"
+      ]
+    },
+    {
+      "arm": "overlap (one C2 target also in C1)",
+      "expectedExit": 2,
+      "exit": 2,
+      "outputWritten": false,
+      "ok": true,
+      "messages": [
+        "C reconciliation r2 STOPPED: 1 failure(s); nothing written.",
+        "  - overlap: R21-R22"
+      ]
+    },
+    {
+      "arm": "full value altered, stored hash unchanged (Lane B AC2-R1 case 1)",
+      "expectedExit": 2,
+      "exit": 2,
+      "outputWritten": false,
+      "ok": true,
+      "messages": [
+        "C reconciliation r2 STOPPED: 2 failure(s); nothing written.",
+        "  - C1 R1-R3: recomputed SHA-256 of the value differs from the stored hash",
+        "  - C1 R1-R3: recomputed value hash differs from A's"
+      ]
+    },
+    {
+      "arm": "one binding duplicated, another omitted, same count (Lane B AC2-R1 case 2)",
+      "expectedExit": 2,
+      "exit": 2,
+      "outputWritten": false,
+      "ok": true,
+      "messages": [
+        "C reconciliation r2 STOPPED: 2 failure(s); nothing written.",
+        "  - C1: duplicate binding for R1-R3",
+        "  - C1: no binding for target R4"
+      ]
+    },
+    {
+      "arm": "binding locator differs from its target",
+      "expectedExit": 2,
+      "exit": 2,
+      "outputWritten": false,
+      "ok": true,
+      "messages": [
+        "C reconciliation r2 STOPPED: 1 failure(s); nothing written.",
+        "  - C1 R1-R3: binding locator differs from its manifest target"
+      ]
+    },
+    {
+      "arm": "value and stored hash both altered consistently (differs from A)",
+      "expectedExit": 2,
+      "exit": 2,
+      "outputWritten": false,
+      "ok": true,
+      "messages": [
+        "C reconciliation r2 STOPPED: 1 failure(s); nothing written.",
+        "  - C2 R21-R22: recomputed value hash differs from A's"
+      ]
+    }
+  ]
+}

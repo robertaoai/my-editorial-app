@@ -1,0 +1,41 @@
+$ node scripts/jev/selftest.mjs
+readiness
+  PASS  positive fixture passes
+  PASS  missing DoR checkbox
+  PASS  DoR row absent from the map
+  PASS  DoR row mapped twice
+  PASS  map names an unknown DoD obligation
+  PASS  evidence class left empty
+  PASS  empty When cell
+  PASS  source row edited after pinning
+  PASS  pinned ID missing from source
+  PASS  held source row without a Judge disposition
+  PASS  ID pinned but not listed in the packet's DoD
+  PASS  ID listed in DoD but never pinned
+  PASS  non-AC scenario ID on a wrapped DoD line, never pinned
+  PASS  decision/DoR references are not behaviours
+intent parity
+  PASS  positive intent fixture passes
+  PASS  scenario with no Product anchor
+  PASS  held Product acceptance used as build acceptance
+  PASS  held Product requirement used as owner
+  PASS  acceptance row owned by a different requirement
+  PASS  anchor disposition not active
+  PASS  Product row edited after pinning
+  PASS  scenario row does not name its Product acceptance
+  PASS  one ID with two rows and no mapping
+  PASS  one ID with two rows and a recorded mapping passes
+completion
+  PASS  positive fixture is ready for independent review
+  PASS  a DoD obligation with no evidence
+  PASS  refusal evidence with no negative item
+  PASS  acceptance case with no failing-first run
+  PASS  a result that is not pass
+  PASS  an ID outside the pinned scope
+  PASS  a test file that does not name the scenario it proves
+  PASS  an artifact that does not exist
+  PASS  artifact edited after its recorded revision
+  PASS  readiness receipt altered after it was issued
+  PASS  scope manifest changed since readiness
+
+jev selftest: every case behaved as named

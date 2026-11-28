@@ -1,0 +1,189 @@
+{
+  "method": "git apply --cached --check, then git apply --cached, in a new isolated index and object store; repo objects as read-only alternate; no commit, no working-tree write",
+  "units": [
+    {
+      "unit": "2a",
+      "from": "0b558d2a51f17eff755dfd7fba51bed37548f9ae",
+      "to": "cb70db9c54e835bcd6facdc6dd81d49bb811f57e",
+      "expected": "cb70db9c54e835bcd6facdc6dd81d49bb811f57e",
+      "applyCheckExit": 0,
+      "applyExit": 0,
+      "patch": {
+        "bytes": 82341,
+        "sha256": "34fb8368c66b4e75599d5fcfec1bb68ba1810e16412b6005c772f919293b2e1d"
+      },
+      "reexport": {
+        "bytes": 82341,
+        "sha256": "34fb8368c66b4e75599d5fcfec1bb68ba1810e16412b6005c772f919293b2e1d",
+        "equalsPackagePatch": true
+      }
+    },
+    {
+      "unit": "2b",
+      "from": "cb70db9c54e835bcd6facdc6dd81d49bb811f57e",
+      "to": "1fcc621e265f2587a2dd2741db8476fe4f99afd8",
+      "expected": "1fcc621e265f2587a2dd2741db8476fe4f99afd8",
+      "applyCheckExit": 0,
+      "applyExit": 0,
+      "patch": {
+        "bytes": 43073,
+        "sha256": "43530dad7c88079534e99972bacfb26b8ea84d35b781c6f1a92209f7bbf350fc"
+      },
+      "reexport": {
+        "bytes": 43073,
+        "sha256": "43530dad7c88079534e99972bacfb26b8ea84d35b781c6f1a92209f7bbf350fc",
+        "equalsPackagePatch": true
+      }
+    }
+  ],
+  "ledgers": [
+    {
+      "unit": "2a",
+      "fromTree": true,
+      "toTree": true,
+      "files": [
+        {
+          "path": ".github/WORKFLOWS-SPEC.md",
+          "status": "M",
+          "before": "ok",
+          "after": "ok"
+        },
+        {
+          "path": "docs/governance/requirements-traceability-map.md",
+          "status": "M",
+          "before": "ok",
+          "after": "ok"
+        },
+        {
+          "path": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "status": "M",
+          "before": "ok",
+          "after": "ok"
+        },
+        {
+          "path": "docs/v1/V1-BUILD-SPEC.md",
+          "status": "M",
+          "before": "ok",
+          "after": "ok"
+        },
+        {
+          "path": "docs/v1/work-packets/V1/V1-SM05.md",
+          "status": "M",
+          "before": "ok",
+          "after": "ok"
+        },
+        {
+          "path": "docs/v1/work-packets/V1/V1-SM06.md",
+          "status": "M",
+          "before": "ok",
+          "after": "ok"
+        },
+        {
+          "path": "docs/v1/work-packets/V1/V1-SM07.md",
+          "status": "A",
+          "before": "absent ok",
+          "after": "ok"
+        },
+        {
+          "path": "scripts/checks/closure-readiness.mjs",
+          "status": "M",
+          "before": "ok",
+          "after": "ok"
+        },
+        {
+          "path": "scripts/jev/jev.mjs",
+          "status": "M",
+          "before": "ok",
+          "after": "ok"
+        },
+        {
+          "path": "scripts/jev/manifests/V1-SM05.json",
+          "status": "D",
+          "before": "ok",
+          "after": "absent ok"
+        },
+        {
+          "path": "scripts/jev/manifests/V1-SM07.json",
+          "status": "A",
+          "before": "absent ok",
+          "after": "ok"
+        }
+      ],
+      "pathSetEqual": true
+    },
+    {
+      "unit": "2b",
+      "fromTree": true,
+      "toTree": true,
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "status": "M",
+          "before": "ok",
+          "after": "ok"
+        },
+        {
+          "path": "docs/ENCYCLOPEDIA-SYNC.md",
+          "status": "M",
+          "before": "ok",
+          "after": "ok"
+        },
+        {
+          "path": "docs/Modular_PRD.md",
+          "status": "M",
+          "before": "ok",
+          "after": "ok"
+        },
+        {
+          "path": "docs/fn-specs/FN-GATES-01-05.md",
+          "status": "M",
+          "before": "ok",
+          "after": "ok"
+        },
+        {
+          "path": "docs/fn-specs/FN-PUBLICATION-09-10-13.md",
+          "status": "M",
+          "before": "ok",
+          "after": "ok"
+        },
+        {
+          "path": "docs/specs/SPECS-PUBLICATION.md",
+          "status": "M",
+          "before": "ok",
+          "after": "ok"
+        },
+        {
+          "path": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "status": "M",
+          "before": "ok",
+          "after": "ok"
+        },
+        {
+          "path": "docs/v1/V1-BUILD-SPEC.md",
+          "status": "M",
+          "before": "ok",
+          "after": "ok"
+        },
+        {
+          "path": "docs/v1/V1-INTENT-INDEX.md",
+          "status": "A",
+          "before": "absent ok",
+          "after": "ok"
+        },
+        {
+          "path": "docs/v1/V1-PHASE-CLOSURE.md",
+          "status": "M",
+          "before": "ok",
+          "after": "ok"
+        }
+      ],
+      "pathSetEqual": true
+    }
+  ],
+  "original2b": {
+    "patch": "C:/CoWork/outputs/D-479-r7-rebound/30db8d51140c0e46700f96bb9f018e6e40b93cbc/2b.patch",
+    "sha256": "95cf477bd365d7d559812c589123e492cd62810f163a28dac259ec310bfd8869",
+    "tree": "496eab1f6ef4b02df9e5ff3a226d45ea5f3493c8"
+  },
+  "deltaVsOriginal2b": ":100644 100644 a96e5c1c4c6497ac2034ed47a490d19b7f9110b5 bdc025fb0f9abcade35346121e490c6202a7fcf7 M\tdocs/v1/V1-PHASE-CLOSURE.md"
+}

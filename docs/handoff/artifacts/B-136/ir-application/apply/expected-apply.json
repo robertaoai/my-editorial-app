@@ -1,0 +1,22 @@
+{
+  "docs/Modular_PRD.md": {
+    "blob": "8dcaedc82729a6968a23f340103ce3ce9f70d108",
+    "sha256": "2934270790db96b505a8e5f87f075326748155e6fd1891a17b6ef40347c78516"
+  },
+  "docs/v1/work-packets/V1/V1-SM05.md": {
+    "blob": "63f9ea154d21190268c60ce5064aed1bc4082077",
+    "sha256": "fecb291cd2196026ac23fedb294ac4568b4b4a400fa36e1405d88f17a9d7211f"
+  },
+  "docs/specs/SPECS-TRANSITION-ENFORCEMENT.md": {
+    "blob": "dfadd24b82b4ca2b9add098d9dc94752276f1ee7",
+    "sha256": "256b9a323bd2301c043ffcb32623d3d342f36f90b75817f02cc8ebd672cf6c4f"
+  },
+  "docs/specs/SPECS-PUBLICATION.md": {
+    "blob": "918436c355df7b1188cb4649768217a4df34d496",
+    "sha256": "b8b3cbeb10b621734f9441944af9029c6bd5c0f2c34725f0a46fdcf14083ce77"
+  },
+  "docs/v1/V1-ARTIFACT-INVENTORY.md": {
+    "blob": "0bf84758ea59c2f13ebe1a77f054a24dc5bb720c",
+    "sha256": "a9e96b5b8d3b4a0cda082ad5daa0d3737f69c23addaec3e1aac5178e8228cf0a"
+  }
+}

@@ -1,0 +1,3 @@
+harness 0de787af5bd86e53c9bec101352e438b9b36ebc35d5abcde16707a8bff234abf; helper 36d35fb9797a72c46e7915924d582d8ba07530f424099ddad2cac17263139f16; ownership f3f45d67176b2ff7eb3d729701c823deac7f4e2509ef7c86753630d4e17466ac
+T4-fixture-commit-failure | exit 3 (want 3) | case lines 1 | verdict lines 0 (want 0) | logs: C1-s0.log | results tail: SETUP FAILURE: fixture commit failed: C2a
+T5-evidence-write-failure | exit 3 (want 3) | case lines 0 | verdict lines 0 (want 0) | logs: C1-s0.log | results tail: helper 36d35fb9797a72c46e7915924d582d8ba07530f424099ddad2cac17263139f16; ownership f3f45d67176b2ff7eb3d729701c823deac7f4e2509ef7c86753630d4e17466ac; base 128e0d4

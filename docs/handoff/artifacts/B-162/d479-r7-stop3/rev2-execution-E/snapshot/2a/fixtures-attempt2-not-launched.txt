@@ -1,0 +1,7 @@
+# bun run fixtures, cwd C:/CoWork/outputs/lane-a-d479-2a-2b-r7-30db8d51140c0e46700f96bb9f018e6e40b93cbc/snapshot/clone, candidate b77629c511dea60ba8f0e403821f38f5c9754009 tree cb70db9c54e835bcd6facdc6dd81d49bb811f57e, TMP=TEMP=C:\CoWork\outputs\lane-a-d479-2a-2b-r7-30db8d51140c0e46700f96bb9f018e6e40b93cbc\snapshot\tmp
+# started 2026-11-13T13:40:39.593Z
+# ended 2026-11-13T13:40:39.604Z
+# exit null
+## stdout
+
+## stderr

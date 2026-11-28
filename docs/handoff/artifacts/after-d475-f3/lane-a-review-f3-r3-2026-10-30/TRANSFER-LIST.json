@@ -1,0 +1,1568 @@
+{
+ "destinationRoot": "docs/handoff/artifacts/after-d475-f3/",
+ "excluded": "lane-a-graph-sync-after-d475-2026-10-29/work/** except STATE.json and PENDING.json; this list and its packet manifest (self)",
+ "summary": {
+  "files": 171,
+  "bytes": 6774997,
+  "laneA": 103,
+  "laneB": 68,
+  "withCR": [
+   "docs/handoff/artifacts/after-d475-f3/lane-a-review-f3-child-2026-10-29/probes/ps-argv-test.js",
+   "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-2026-10-29/graph-query.exit.txt",
+   "docs/handoff/artifacts/after-d475-f3/lane-b-f3-review-consolidation-2026-10-29/SHA256-MANIFEST.json",
+   "docs/handoff/artifacts/after-d475-f3/lane-b-f3-corrections-r3-2026-10-30/SHA256-MANIFEST.json",
+   "docs/handoff/artifacts/after-d475-f3/lane-b-f3-corrections-r3-2026-10-30/verification.json"
+  ],
+  "over1MB": [
+   [
+    "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-r2-preparation-2026-10-29/preparation-after.json",
+    2528766
+   ],
+   [
+    "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-r2-preparation-2026-10-29/preparation-before.json",
+    2528766
+   ]
+  ]
+ },
+ "rows": [
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence/JUDGE-AFTER-D475-CYCLE-RELEASE.jsonl",
+   "bytes": 5557,
+   "sha256": "f02a332835c51ace8b156ed8d5cc0240eed7b5fdd6294625c47c2cf85e9bdf76",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence/JUDGE-AFTER-D475-CYCLE-RELEASE.jsonl"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence/LANE-B-AFTER-D475-DRAFT-REQUEST.jsonl",
+   "bytes": 1487,
+   "sha256": "89f2eec4d1c1f4e15c5b9fba7866e17fe04b707e39c9759ddd3d1eba46ff4769",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence/LANE-B-AFTER-D475-DRAFT-REQUEST.jsonl"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence/LANE-B-D475-RECORDING-REVIEW.jsonl",
+   "bytes": 3505,
+   "sha256": "bd4f5bd9eac6cf91f213c1334d1611bd3f702d3be809efb8d3e2dc15aa331a3d",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence/LANE-B-D475-RECORDING-REVIEW.jsonl"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence/SHA256-MANIFEST-E1.txt",
+   "bytes": 1891,
+   "sha256": "4f3e3d83a29b29b03fdadc7d0f1058dd2f98fab67812bdd2c2d355a708bc1ce0",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence/SHA256-MANIFEST-E1.txt"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence/answers-proposed.r1.json",
+   "bytes": 527,
+   "sha256": "89965adfdaaaddb8d463c2b2644f137f547c85f3cfe2610e068c07c355f97e70",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence/answers-proposed.r1.json"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence/answers-provenance.r1.json",
+   "bytes": 1977,
+   "sha256": "e955cec833daed86355ba943cedd43cac639d932accd85a95acbf54b4ddb0b7e",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence/answers-provenance.r1.json"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence/answers.mjs",
+   "bytes": 3590,
+   "sha256": "daf9e031f8a665fe62766fa097f5d277914e58daa8817eb27e26ec894f5db05b",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence/answers.mjs"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence/authority.json",
+   "bytes": 1505,
+   "sha256": "c84a3cb772bba1d729966fe65b09c228d1a97b794fe1c67a416a458fcb345158",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence/authority.json"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence/config-entry-20261029T112219Z.txt",
+   "bytes": 2439,
+   "sha256": "44eee60a0b74f7b3b3ec587778fd9f4678c3ce8397b6b34456d1b2b9f9a29710",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence/config-entry-20261029T112219Z.txt"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence/entry-gates-20261029T112219Z.json",
+   "bytes": 6905,
+   "sha256": "5e2ffe0118da7b0bd5f543cf80d1a7d31d4ec2fff939ceca8afb8a6f0d01a586",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence/entry-gates-20261029T112219Z.json"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence/entry-gates.mjs",
+   "bytes": 9040,
+   "sha256": "2ee96fd6bfe3c071bffcdb1ca8abc9ef09815ff433b24f285204a3593fedd74a",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence/entry-gates.mjs"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence/inventory-entry-20261029T112219Z.json",
+   "bytes": 1484,
+   "sha256": "346e5506af07bf2f436dee1cdfe9fa252340974f5f7aa6611c8e9f7a632f3482",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence/inventory-entry-20261029T112219Z.json"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence/make-answers.mjs",
+   "bytes": 1449,
+   "sha256": "eea9891380d9ae75ac20fb3d72b7bbeb4e615b8473c2d7a14839d0def3cddd22",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence/make-answers.mjs"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence/make-entry-gates.mjs",
+   "bytes": 3229,
+   "sha256": "1da9098700f20416fc33cb27c8a953e825675972268f66ffceb9d7ce429c35ad",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence/make-entry-gates.mjs"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence/pending-analysis.json",
+   "bytes": 10918,
+   "sha256": "a7213eb4a7adec1b5b0f5ede524c82ca4df811943e136995aeccb352e6be0950",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence/pending-analysis.json"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence/pending-analysis.mjs",
+   "bytes": 2635,
+   "sha256": "a90abe0d1b21907c19b7cd77e4dd135a8d27053d8e02ac8572e214b1b6cffa98",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence/pending-analysis.mjs"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence/post-prepare-state.txt",
+   "bytes": 434,
+   "sha256": "8d41cd9ba997ab52b0c964c393fa9f17eb333b43fac67edd3c81522f3579cdf5",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence/post-prepare-state.txt"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence/prepare.err",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence/prepare.err"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence/prepare.out",
+   "bytes": 517,
+   "sha256": "697a554c38a1ff0d8aa24e06b67064db72ce8e9a4bb6333fee7d939ecfc94025",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence/prepare.out"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence/prepare.txt",
+   "bytes": 237,
+   "sha256": "e632cda4cc40e491e8aa4c46c293699a6f9e603afbfde1ad2450262c795fef0a",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence/prepare.txt"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence/refs-entry-20261029T112219Z.txt",
+   "bytes": 1987,
+   "sha256": "e432a6f7be65b26adb5eae5f6c401f436691f56630d0558a25eb1ef8568b315b",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence/refs-entry-20261029T112219Z.txt"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence/refs-post-prepare.txt",
+   "bytes": 1987,
+   "sha256": "e432a6f7be65b26adb5eae5f6c401f436691f56630d0558a25eb1ef8568b315b",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence/refs-post-prepare.txt"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence-2/APPEND-B136-AFTER-D475-REQUEST.md",
+   "bytes": 5331,
+   "sha256": "ef340c801774aa50a3985d0b3b017a4e77e284175d4fbcc3e4fe079e7dfd48b7",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence-2/APPEND-B136-AFTER-D475-REQUEST.md"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence-2/SHA256-MANIFEST-E2.txt",
+   "bytes": 2457,
+   "sha256": "844333e78fdec36b3bb43bc70d8abfd12c4840ea308233268696011f398e42f8",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence-2/SHA256-MANIFEST-E2.txt"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence-2/candidate-verification.json",
+   "bytes": 1353,
+   "sha256": "4369433559afa4dc14cb669448ae9e8c747f672bc2d9a063062c1799b9b8e2ab",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence-2/candidate-verification.json"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence-2/config-preresume-20261029T113229Z.txt",
+   "bytes": 2439,
+   "sha256": "44eee60a0b74f7b3b3ec587778fd9f4678c3ce8397b6b34456d1b2b9f9a29710",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence-2/config-preresume-20261029T113229Z.txt"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence-2/inventory-preresume-20261029T113229Z.json",
+   "bytes": 1484,
+   "sha256": "fb7edc6ec55d163356e0e371042d0bd5ead5a23f42819ac601dd34d24bd14e46",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence-2/inventory-preresume-20261029T113229Z.json"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence-2/make-preresume-gates.mjs",
+   "bytes": 3736,
+   "sha256": "fc2e92a97ec69b8cea87331e27c1caca8fd5aae85d80e21a3116024705192e3c",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence-2/make-preresume-gates.mjs"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence-2/post-resume-freeze.json",
+   "bytes": 714,
+   "sha256": "f04d044958a0a51a160ff753ecf0bb575c1e47e5b8331f16777aeb940a8e6e2d",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence-2/post-resume-freeze.json"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence-2/post-resume-freeze.mjs",
+   "bytes": 3895,
+   "sha256": "5d0a66c7be76b223f6a960d5813ea8ef53b099cd71143ca884fd5f3cab63baba",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence-2/post-resume-freeze.mjs"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence-2/preresume-gates-20261029T113229Z.json",
+   "bytes": 7193,
+   "sha256": "6237b7f01660d3cbb7c9f9ce7ba02d52b63ae7b00c7a8a1654567595507f59fc",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence-2/preresume-gates-20261029T113229Z.json"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence-2/preresume-gates.mjs",
+   "bytes": 9667,
+   "sha256": "7fd8c4bdd897e7f3af84434b211add6ab81890e18bf495f693388d41b8e4d445",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence-2/preresume-gates.mjs"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence-2/r-append-proof.json",
+   "bytes": 391,
+   "sha256": "b58d5f68f6d600c9bfa04c6940d3b37119d08730413e8d9a8c62d9bd36aa7254",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence-2/r-append-proof.json"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence-2/r-append.mjs",
+   "bytes": 1594,
+   "sha256": "2979b9c405c2670995e64ddb39b07d438d00134903a4b3f462511f1acf5f1528",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence-2/r-append.mjs"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence-2/r-check-context.txt",
+   "bytes": 619,
+   "sha256": "ac54a11a5436f9a5412060fa339e99c44fb047c30e5fd5b48c17c2653cb1b346",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence-2/r-check-context.txt"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence-2/r-check-run1.err",
+   "bytes": 78,
+   "sha256": "9215bc8c7480e73df4bd48495978175916a5076054bc1f2ca0e75ef501480af6",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence-2/r-check-run1.err"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence-2/r-check-run1.log",
+   "bytes": 3154,
+   "sha256": "03064d03b0a6042e63e464277021d36396b5960bc075fbf91b56ec0128244794",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence-2/r-check-run1.log"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence-2/r-check-run2.err",
+   "bytes": 78,
+   "sha256": "9215bc8c7480e73df4bd48495978175916a5076054bc1f2ca0e75ef501480af6",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence-2/r-check-run2.err"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence-2/r-check-run2.log",
+   "bytes": 3154,
+   "sha256": "03064d03b0a6042e63e464277021d36396b5960bc075fbf91b56ec0128244794",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence-2/r-check-run2.log"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence-2/r-commit-command.txt",
+   "bytes": 188,
+   "sha256": "71a74b3941aa7fa2c9668322721f63d13a7b4c33f00892a1a4cde5b5d4afd8b9",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence-2/r-commit-command.txt"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence-2/r-commit-git-trace.log",
+   "bytes": 1399,
+   "sha256": "a84622c99cff3ca4e9f641251c240943b25c8eb83db140a2964f0ffbbd97a67b",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence-2/r-commit-git-trace.log"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence-2/r-commit-msg.txt",
+   "bytes": 636,
+   "sha256": "3d325f064a0a341493fb90185552326a80666caf5e9119802a509456a606fe9c",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence-2/r-commit-msg.txt"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence-2/r-commit-proof.txt",
+   "bytes": 868,
+   "sha256": "647f5746cab741ba17b047627c6af0405b1aa48b6866165c2c7208fd311089a6",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence-2/r-commit-proof.txt"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence-2/r-commit.out",
+   "bytes": 182,
+   "sha256": "9f4778cc4a8ae75657078793aaaf620f4e2457b6ff990648424ba60485eab842",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence-2/r-commit.out"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence-2/r-stage.txt",
+   "bytes": 227,
+   "sha256": "f84d2af56806d325038232c0a665f523cec5c6c46711ed8e1959223cbbf13c87",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence-2/r-stage.txt"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence-2/refs-post-resume.txt",
+   "bytes": 1987,
+   "sha256": "ec4a74548e361a2b1dd9ed39ec7d92c0fb3f93fc0f467504222c2c9143f29ae3",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence-2/refs-post-resume.txt"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence-2/refs-preresume-20261029T113229Z.txt",
+   "bytes": 1987,
+   "sha256": "4034d48c5127eee435759bf4c32080364249420fb23bf0f76cc7554af0da013c",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence-2/refs-preresume-20261029T113229Z.txt"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence-2/resume.err",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence-2/resume.err"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence-2/resume.out",
+   "bytes": 28743,
+   "sha256": "7678ff4507ef1f837037c21ce96031640a7bbfcef294ad5987bad8036ae26112",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence-2/resume.out"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence-2/resume.txt",
+   "bytes": 341,
+   "sha256": "a93687f918a7f58cab2c189e8217dea097e9068d16e9297cca22d0f4e8b59094",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence-2/resume.txt"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "evidence-2/verify-candidate.mjs",
+   "bytes": 2954,
+   "sha256": "b5addab1daf50dd95babc61866992648abead41adeb0ed6627048413465334f6",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/evidence-2/verify-candidate.mjs"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "reviews-1/JUDGE-RESUME-RELEASE.jsonl",
+   "bytes": 4809,
+   "sha256": "08ab4ba0ee3e168df1455c0bb4eca8576037fd7c9c40eb9ab3090830a2ab93df",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/reviews-1/JUDGE-RESUME-RELEASE.jsonl"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "reviews-1/LANE-B-PREPARE-ANSWERS-REVIEW.md",
+   "bytes": 2990,
+   "sha256": "61a8e66604b13f614d62a3e77a6e723ccafbd3b53fa4079cf8a6a4a4e37d47a0",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/reviews-1/LANE-B-PREPARE-ANSWERS-REVIEW.md"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "reviews-1/SHA256-MANIFEST-R1.txt",
+   "bytes": 192,
+   "sha256": "10940428c3d1da3c24857c875eaaa817f5785393842a967d78cde849234c65f9",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/reviews-1/SHA256-MANIFEST-R1.txt"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "reviews-2/JUDGE-KN-RELEASE.jsonl",
+   "bytes": 5170,
+   "sha256": "6a11a2597dbf37acc29475fc66cffa57d336a2c9c8a5eaef80907cb8a8dc2028",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/reviews-2/JUDGE-KN-RELEASE.jsonl"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "reviews-2/LANE-B-CANDIDATE-R-REVIEW.md",
+   "bytes": 3375,
+   "sha256": "dae6836248e38204686663fd779376f5c396806ace61c27302af4beacf943171",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/reviews-2/LANE-B-CANDIDATE-R-REVIEW.md"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "reviews-2/SHA256-MANIFEST-R2.txt",
+   "bytes": 184,
+   "sha256": "4a78d04fd33da09698bf75ef0c8fb2dc8640d86390b7b4dfb6b63f8004905501",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/reviews-2/SHA256-MANIFEST-R2.txt"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "work/STATE.json",
+   "bytes": 38333,
+   "sha256": "1fd1a8885ac5903e4707057cce53e28b9dd8a044131e55dc6bfa8f12341db53e",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/work/STATE.json"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-graph-sync-after-d475-2026-10-29",
+   "rel": "work/PENDING.json",
+   "bytes": 398,
+   "sha256": "3facc021bff19adb4a672e50bddd4bea0a8b67bec1ce33e97fef5d82025383e4",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-graph-sync-after-d475-2026-10-29/work/PENDING.json"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-git-binding-plan-2026-10-29",
+   "rel": "INSTRUCTION-R2.jsonl",
+   "bytes": 5886,
+   "sha256": "ccfa76f819a7f3bd23cec337ecc809b9ff560ba1d9f94b32b248e955a7a8b8a4",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-git-binding-plan-2026-10-29/INSTRUCTION-R2.jsonl"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-git-binding-plan-2026-10-29",
+   "rel": "INSTRUCTION-R3.jsonl",
+   "bytes": 4922,
+   "sha256": "778b9d87d35bc18f2d39523f3040809e6aafbc172333e1f5d6ec36eabe6a07a6",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-git-binding-plan-2026-10-29/INSTRUCTION-R3.jsonl"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-git-binding-plan-2026-10-29",
+   "rel": "INSTRUCTION-R4.jsonl",
+   "bytes": 4520,
+   "sha256": "acaebfaf25c9bf08a325909dce8e400c2493d47e197af8965ec31e20d8d2b3f8",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-git-binding-plan-2026-10-29/INSTRUCTION-R4.jsonl"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-git-binding-plan-2026-10-29",
+   "rel": "INSTRUCTION-R4B.jsonl",
+   "bytes": 3180,
+   "sha256": "ec572be281323d675283f328501af727cf1ea54b10f68adcf655b60e075befb2",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-git-binding-plan-2026-10-29/INSTRUCTION-R4B.jsonl"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-git-binding-plan-2026-10-29",
+   "rel": "JUDGE-ACT-AND-TASK.jsonl",
+   "bytes": 5315,
+   "sha256": "84df29ef1ffdc89b2ee935f8cc811fa552050eaaf9fafe49ec0f56395ab668e7",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-git-binding-plan-2026-10-29/JUDGE-ACT-AND-TASK.jsonl"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-git-binding-plan-2026-10-29",
+   "rel": "PLAN.md",
+   "bytes": 7568,
+   "sha256": "b237e4a9cbeb267a1e807cf7b3cc97456534dbafb7b7d5134c7ff4fbe04dcc57",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-git-binding-plan-2026-10-29/PLAN.md"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-git-binding-plan-2026-10-29",
+   "rel": "PLAN.r1-to-r2.diff",
+   "bytes": 15060,
+   "sha256": "4d44f287f5d1608bfd68821044a8b2508c8ecddd726051e93b272a1a42af523b",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-git-binding-plan-2026-10-29/PLAN.r1-to-r2.diff"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-git-binding-plan-2026-10-29",
+   "rel": "PLAN.r2-to-r3.diff",
+   "bytes": 7800,
+   "sha256": "8b07a5628d4dd8a4480d4f368dd7d8d556948483b886c1098bf130daf882f49d",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-git-binding-plan-2026-10-29/PLAN.r2-to-r3.diff"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-git-binding-plan-2026-10-29",
+   "rel": "PLAN.r2.md",
+   "bytes": 7285,
+   "sha256": "c165217f5c5e9b314246f486142bc93b13375bb57918a7e31eec5a63b83ff7dc",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-git-binding-plan-2026-10-29/PLAN.r2.md"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-git-binding-plan-2026-10-29",
+   "rel": "PLAN.r3-to-r4.diff",
+   "bytes": 9526,
+   "sha256": "3bc1b5df06658c3127e0a74371c7eed74900de97ed1beb4c69c9dfcbb71456e8",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-git-binding-plan-2026-10-29/PLAN.r3-to-r4.diff"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-git-binding-plan-2026-10-29",
+   "rel": "PLAN.r3-to-r4a.diff",
+   "bytes": 9694,
+   "sha256": "9b368001a8d46b6416892c9fd40722d2c9c99d57774b1d3bcf6165dea12e912e",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-git-binding-plan-2026-10-29/PLAN.r3-to-r4a.diff"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-git-binding-plan-2026-10-29",
+   "rel": "PLAN.r3.md",
+   "bytes": 10820,
+   "sha256": "9f706c6bfa6e75e7e93c940f2b9b6fa5274992cc0b4bfda7a677adabfbea627e",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-git-binding-plan-2026-10-29/PLAN.r3.md"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-git-binding-plan-2026-10-29",
+   "rel": "PLAN.r4-to-r4a.diff",
+   "bytes": 3957,
+   "sha256": "f2de41bdfe6f31cd37892385f138498a6ec975d8c4884f9a6e3d8144778863b5",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-git-binding-plan-2026-10-29/PLAN.r4-to-r4a.diff"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-git-binding-plan-2026-10-29",
+   "rel": "PLAN.r4.md",
+   "bytes": 14068,
+   "sha256": "31f1ec50ac22d8c15873067ce9e17de4914deb860d8867090366a255aa251051",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-git-binding-plan-2026-10-29/PLAN.r4.md"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-git-binding-plan-2026-10-29",
+   "rel": "PLAN.r4a-to-r4b.diff",
+   "bytes": 4286,
+   "sha256": "330244a210562add8200b5ba30e99e9714a78f4ff85747c38ce3c06fa894d8d9",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-git-binding-plan-2026-10-29/PLAN.r4a-to-r4b.diff"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-git-binding-plan-2026-10-29",
+   "rel": "PLAN.r4a.md",
+   "bytes": 14234,
+   "sha256": "11e8a08e77333eaaa5a911661753da1d93c73772495580566ecc9402130632f8",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-git-binding-plan-2026-10-29/PLAN.r4a.md"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-git-binding-plan-2026-10-29",
+   "rel": "PLAN.r4b.md",
+   "bytes": 14395,
+   "sha256": "a840e9f8731f0692aa24a608a25fe7c5b39bb3736ba57f13379b2c46d64a54ed",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-git-binding-plan-2026-10-29/PLAN.r4b.md"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-git-binding-plan-2026-10-29",
+   "rel": "SHA256-MANIFEST.r2.txt",
+   "bytes": 542,
+   "sha256": "db495d86448882ec494c402e9735cbf5cf0da394a8d25fef66249d1f9ac0e74d",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-git-binding-plan-2026-10-29/SHA256-MANIFEST.r2.txt"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-git-binding-plan-2026-10-29",
+   "rel": "SHA256-MANIFEST.r3.txt",
+   "bytes": 720,
+   "sha256": "e61013ba94d87b386dc6f6ac261c7aa3935fe69c827537b38373d8e9a95f9bcc",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-git-binding-plan-2026-10-29/SHA256-MANIFEST.r3.txt"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-git-binding-plan-2026-10-29",
+   "rel": "SHA256-MANIFEST.r4.txt",
+   "bytes": 812,
+   "sha256": "6068ab8dc01c84676500a5b2ebfc7e1b920028fdfdee655f2c7072fa5392d7c1",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-git-binding-plan-2026-10-29/SHA256-MANIFEST.r4.txt"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-git-binding-plan-2026-10-29",
+   "rel": "SHA256-MANIFEST.r4a.txt",
+   "bytes": 443,
+   "sha256": "23ea69fc562ab03a35b0881156da8da8392c0751b90d6c99aad1779ded6606bc",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-git-binding-plan-2026-10-29/SHA256-MANIFEST.r4a.txt"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-git-binding-plan-2026-10-29",
+   "rel": "SHA256-MANIFEST.r4b.txt",
+   "bytes": 714,
+   "sha256": "bf911b3d494f2bf94a325204a7c702ccbf77a78b7317ad8db2aada62e4a5dff0",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-git-binding-plan-2026-10-29/SHA256-MANIFEST.r4b.txt"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-git-binding-plan-2026-10-29",
+   "rel": "SHA256-MANIFEST.txt",
+   "bytes": 262,
+   "sha256": "a01787c562178768f9e9dd11b7db3ee0efa0f59e3ee7d4363d0af8b8712af99e",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-git-binding-plan-2026-10-29/SHA256-MANIFEST.txt"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-git-binding-plan-2026-10-29",
+   "rel": "launch-review.mjs",
+   "bytes": 10048,
+   "sha256": "e7c56349e09174cb04803586176ae1439a3b3f4a820e378924efecaa22a8afce",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-git-binding-plan-2026-10-29/launch-review.mjs"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-git-binding-plan-2026-10-29",
+   "rel": "launch-review.r1-to-r2.diff",
+   "bytes": 26031,
+   "sha256": "fba6d49f0ee82f77c03722b26a9fb0740f7f583674b2378b5b374958bd3f2764",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-git-binding-plan-2026-10-29/launch-review.r1-to-r2.diff"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-git-binding-plan-2026-10-29",
+   "rel": "launch-review.r2-to-r3.diff",
+   "bytes": 9064,
+   "sha256": "b79f9fbbbb4563dfe476a5d919e376345fbbd255c01642db745b565024c62412",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-git-binding-plan-2026-10-29/launch-review.r2-to-r3.diff"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-git-binding-plan-2026-10-29",
+   "rel": "launch-review.r2.mjs",
+   "bytes": 15929,
+   "sha256": "888359ce168836abc7bc03224f2a41a75b32efdc3b6ba902c5438fb19675493e",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-git-binding-plan-2026-10-29/launch-review.r2.mjs"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-git-binding-plan-2026-10-29",
+   "rel": "launch-review.r3-to-r4.diff",
+   "bytes": 7297,
+   "sha256": "8342494249bfbeb7e6e64057ab837c82df5be4d25707359ddda82e3acdb950e5",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-git-binding-plan-2026-10-29/launch-review.r3-to-r4.diff"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-git-binding-plan-2026-10-29",
+   "rel": "launch-review.r3.mjs",
+   "bytes": 19471,
+   "sha256": "a93eddfef6934c112c8796d8ecd59687e0939767978d0c506735cc4b09ce3ab8",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-git-binding-plan-2026-10-29/launch-review.r3.mjs"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-git-binding-plan-2026-10-29",
+   "rel": "launch-review.r4.mjs",
+   "bytes": 21015,
+   "sha256": "1906c92a8db4b59e1eb28492fd5bf628deb641954fc2195e409fb0a7525ba462",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-git-binding-plan-2026-10-29/launch-review.r4.mjs"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-git-binding-plan-2026-10-29",
+   "rel": "make-plan-r3.mjs",
+   "bytes": 5385,
+   "sha256": "03df33ac765e215e05bf2e0fd923810e5f2fd8b26ece316ffb3a89a3a9711bfb",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-git-binding-plan-2026-10-29/make-plan-r3.mjs"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-git-binding-plan-2026-10-29",
+   "rel": "make-plan-r4.mjs",
+   "bytes": 5846,
+   "sha256": "64e88f74570464ac26d923a16d54ade4941cd81d721d046fd33e81fb7b5af331",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-git-binding-plan-2026-10-29/make-plan-r4.mjs"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-git-binding-plan-2026-10-29",
+   "rel": "make-plan-r4a.mjs",
+   "bytes": 1194,
+   "sha256": "8df2e0fd9312f864b4de72c6e60f533b8cc6f0c10aaa552030200c08963006db",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-git-binding-plan-2026-10-29/make-plan-r4a.mjs"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-git-binding-plan-2026-10-29",
+   "rel": "make-plan-r4b.mjs",
+   "bytes": 1176,
+   "sha256": "1f7acb6f153db92484f466f777cd8c91584ceb484ae3ce9c489318a96f4dd8ca",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-git-binding-plan-2026-10-29/make-plan-r4b.mjs"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-review-f3-child-2026-10-29",
+   "rel": "REVIEW.md",
+   "bytes": 11702,
+   "sha256": "272bcfe595896c06d3e0e30f080ab33367a33e4782061cc8791c1f35cac7acba",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-review-f3-child-2026-10-29/REVIEW.md"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-review-f3-child-2026-10-29",
+   "rel": "SHA256-MANIFEST.txt",
+   "bytes": 645,
+   "sha256": "4e9b756f55dbfc41633f36f2203d0c76be2c3266bc118a6f8d83168869c38c3c",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-review-f3-child-2026-10-29/SHA256-MANIFEST.txt"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-review-f3-child-2026-10-29",
+   "rel": "probes/powershell-capture-test.txt",
+   "bytes": 432,
+   "sha256": "926be88241315844c4b4c576b31920c324da8dc263b771b522308bdef791cd7d",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-review-f3-child-2026-10-29/probes/powershell-capture-test.txt"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-review-f3-child-2026-10-29",
+   "rel": "probes/probe-deps.mjs",
+   "bytes": 2426,
+   "sha256": "cef22d9368307e489bd486b99cb63b230641405968772142b4cf1065b1452775",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-review-f3-child-2026-10-29/probes/probe-deps.mjs"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-review-f3-child-2026-10-29",
+   "rel": "probes/probe-desc.mjs",
+   "bytes": 2898,
+   "sha256": "f55b95043a406aca86a884ef719dad7039276b8335ea057dd07495d0946abb86",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-review-f3-child-2026-10-29/probes/probe-desc.mjs"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-review-f3-child-2026-10-29",
+   "rel": "probes/probe-outputs.txt",
+   "bytes": 1593,
+   "sha256": "987f9a9e58d5e66fb7db52dc776517408c552155a2f160e4f5a66bf4b3b73540",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-review-f3-child-2026-10-29/probes/probe-outputs.txt"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-review-f3-child-2026-10-29",
+   "rel": "probes/probe-src.mjs",
+   "bytes": 865,
+   "sha256": "14d6088d69a66cef63f30de00ecd8bd8b533d907b900f283fd160c5be8c87dbf",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-review-f3-child-2026-10-29/probes/probe-src.mjs"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-review-f3-child-2026-10-29",
+   "rel": "probes/ps-argv-test.js",
+   "bytes": 52,
+   "sha256": "b75aa754d04ff01b20862733012953b6b303fc80dca490a564af9bd5601d6b79",
+   "cr": true,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-review-f3-child-2026-10-29/probes/ps-argv-test.js"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-review-f3-r3-2026-10-30",
+   "rel": "REVIEW-R3.md",
+   "bytes": 6512,
+   "sha256": "b9e2b16afc8370de41b34c6ce0ae176709f5bf30d78f493aaa489bdbd5026c39",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-review-f3-r3-2026-10-30/REVIEW-R3.md"
+  },
+  {
+   "lane": "A",
+   "packet": "lane-a-review-f3-r3-2026-10-30",
+   "rel": "make-transfer-list.mjs",
+   "bytes": 2799,
+   "sha256": "607d9d17c2788473b8b2982cc6a0b51e369b2f3b3c6fbfd6d92f2b358b757f54",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-a-review-f3-r3-2026-10-30/make-transfer-list.mjs"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-2026-10-29",
+   "rel": "B050-unchanged-at-R.bin",
+   "bytes": 734947,
+   "sha256": "5d3a95038c49a3f1987ee0cee743e63f50f91b7ceb15b9f5b936360a3890894b",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-2026-10-29/B050-unchanged-at-R.bin"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-2026-10-29",
+   "rel": "BOUND-PATH.txt",
+   "bytes": 67,
+   "sha256": "049f282521f04182baa44fa89acda9bf2e767ef4eba2933b7b21ade3e06f6b44",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-2026-10-29/BOUND-PATH.txt"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-2026-10-29",
+   "rel": "JUDGE-CYCLE-RELEASE.jsonl",
+   "bytes": 5557,
+   "sha256": "f02a332835c51ace8b156ed8d5cc0240eed7b5fdd6294625c47c2cf85e9bdf76",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-2026-10-29/JUDGE-CYCLE-RELEASE.jsonl"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-2026-10-29",
+   "rel": "JUDGE-INSTRUCTION.txt",
+   "bytes": 4337,
+   "sha256": "b917927688691d6d9718a2a0cdb57b10574ccf973d0211e925396eb4c4019b56",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-2026-10-29/JUDGE-INSTRUCTION.txt"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-2026-10-29",
+   "rel": "PRIOR-JUDGE-KN-RELEASE.jsonl",
+   "bytes": 5170,
+   "sha256": "6a11a2597dbf37acc29475fc66cffa57d336a2c9c8a5eaef80907cb8a8dc2028",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-2026-10-29/PRIOR-JUDGE-KN-RELEASE.jsonl"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-2026-10-29",
+   "rel": "PRIOR-REVIEW.md",
+   "bytes": 3375,
+   "sha256": "dae6836248e38204686663fd779376f5c396806ace61c27302af4beacf943171",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-2026-10-29/PRIOR-REVIEW.md"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-2026-10-29",
+   "rel": "REVIEW-RESULT.txt",
+   "bytes": 5340,
+   "sha256": "970727415bc6dcaa384e00b0e204e54c3d73b9d9acaa837104c1bc61a81b5d12",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-2026-10-29/REVIEW-RESULT.txt"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-2026-10-29",
+   "rel": "SEAL.json",
+   "bytes": 197,
+   "sha256": "d1e47522ee6e116dcf1827fd313e8ab176378aecff33592328e938571485dfaf",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-2026-10-29/SEAL.json"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-2026-10-29",
+   "rel": "SHA256-MANIFEST.txt",
+   "bytes": 3012,
+   "sha256": "597cbc03e15d1bd0c9c6c1d80de4965d8270f86e4bd97a795ff37ef1a8cff130",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-2026-10-29/SHA256-MANIFEST.txt"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-2026-10-29",
+   "rel": "STATE-ready-copy.json",
+   "bytes": 38333,
+   "sha256": "1fd1a8885ac5903e4707057cce53e28b9dd8a044131e55dc6bfa8f12341db53e",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-2026-10-29/STATE-ready-copy.json"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-2026-10-29",
+   "rel": "after-state-proof.json",
+   "bytes": 1495,
+   "sha256": "d09a3daf6f08f47e2778d5f278686e4682945cd9d26d34d3d2866a6d5318a6af",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-2026-10-29/after-state-proof.json"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-2026-10-29",
+   "rel": "approved-answers-copy.json",
+   "bytes": 527,
+   "sha256": "89965adfdaaaddb8d463c2b2644f137f547c85f3cfe2610e068c07c355f97e70",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-2026-10-29/approved-answers-copy.json"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-2026-10-29",
+   "rel": "candidate-file-map.json",
+   "bytes": 74536,
+   "sha256": "498606006ea678b5773f2f7a54751e9078142b6b0b4e709aaea5a1e547ca2927",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-2026-10-29/candidate-file-map.json"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-2026-10-29",
+   "rel": "entry-command-result.json",
+   "bytes": 757,
+   "sha256": "d4f20164edd57cea23a480b913c9d3b2098c5dccbf08fe6bb23716c31d9bb2ca",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-2026-10-29/entry-command-result.json"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-2026-10-29",
+   "rel": "entry-config.txt",
+   "bytes": 2439,
+   "sha256": "44eee60a0b74f7b3b3ec587778fd9f4678c3ce8397b6b34456d1b2b9f9a29710",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-2026-10-29/entry-config.txt"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-2026-10-29",
+   "rel": "entry-extra.json",
+   "bytes": 818,
+   "sha256": "334c0dfd73c27ab2326dc1f0f3c46a40b9a2912ccf94172d2c8cb6dc4ec04796",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-2026-10-29/entry-extra.json"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-2026-10-29",
+   "rel": "entry-failure.json",
+   "bytes": 478,
+   "sha256": "f2b7ed9c76fc5f4d85cab3ae3f5b6b22a7e30bde87feaa36f0b9082e1b766c70",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-2026-10-29/entry-failure.json"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-2026-10-29",
+   "rel": "entry-gates-result.json",
+   "bytes": 1171,
+   "sha256": "ee219a7c3701e7f84a6982bd07010f3e02d17d5f5074143ad4e9824e84886694",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-2026-10-29/entry-gates-result.json"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-2026-10-29",
+   "rel": "entry-gates.json",
+   "bytes": 1171,
+   "sha256": "ee219a7c3701e7f84a6982bd07010f3e02d17d5f5074143ad4e9824e84886694",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-2026-10-29/entry-gates.json"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-2026-10-29",
+   "rel": "entry-inventory.json",
+   "bytes": 895,
+   "sha256": "a8c4456082bb995d7e2f8807308e5691c4082aa88b3e1f3c5edd4d9cd095d51b",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-2026-10-29/entry-inventory.json"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-2026-10-29",
+   "rel": "entry-refs.txt",
+   "bytes": 2115,
+   "sha256": "d7b82b1d403c4b29a18eea735536fb79052f4ecd35bd2bd8ae1f7fcc77ac5ab6",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-2026-10-29/entry-refs.txt"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-2026-10-29",
+   "rel": "entry.mjs",
+   "bytes": 2809,
+   "sha256": "fd7b894d6e2d27bc13c0573b4efdda1bc208395f2778ae4da2eb73c03b8c5066",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-2026-10-29/entry.mjs"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-2026-10-29",
+   "rel": "final-config.txt",
+   "bytes": 2439,
+   "sha256": "44eee60a0b74f7b3b3ec587778fd9f4678c3ce8397b6b34456d1b2b9f9a29710",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-2026-10-29/final-config.txt"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-2026-10-29",
+   "rel": "final-gates.json",
+   "bytes": 1171,
+   "sha256": "aab670a7ece28c5a352eb4729c09930a1e9ea19706c55db8000e6772d2f6d18a",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-2026-10-29/final-gates.json"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-2026-10-29",
+   "rel": "final-inventory.json",
+   "bytes": 895,
+   "sha256": "a8c4456082bb995d7e2f8807308e5691c4082aa88b3e1f3c5edd4d9cd095d51b",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-2026-10-29/final-inventory.json"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-2026-10-29",
+   "rel": "final-refs.txt",
+   "bytes": 2115,
+   "sha256": "d7b82b1d403c4b29a18eea735536fb79052f4ecd35bd2bd8ae1f7fcc77ac5ab6",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-2026-10-29/final-refs.txt"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-2026-10-29",
+   "rel": "finalize-failure.mjs",
+   "bytes": 10212,
+   "sha256": "8a375bb2c08eaaa67455f47ed3a518a596576419c679798a90e724aa1715e930",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-2026-10-29/finalize-failure.mjs"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-2026-10-29",
+   "rel": "gates.mjs",
+   "bytes": 6820,
+   "sha256": "a8b0864e64b64005411606dbb69271eeb80af815583dbbc638a80d55e9a9a4b0",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-2026-10-29/gates.mjs"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-2026-10-29",
+   "rel": "git-path-diagnostic.json",
+   "bytes": 1620,
+   "sha256": "cbe436f88b1b746e5158a0012d3bb0d1d3c49579510e30d9ecc575fd06e7fa0e",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-2026-10-29/git-path-diagnostic.json"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-2026-10-29",
+   "rel": "graph-query.exit.txt",
+   "bytes": 3,
+   "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+   "cr": true,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-2026-10-29/graph-query.exit.txt"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-2026-10-29",
+   "rel": "graph-query.stderr.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-2026-10-29/graph-query.stderr.txt"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-2026-10-29",
+   "rel": "graph-query.stdout.txt",
+   "bytes": 1838,
+   "sha256": "e123d084bd8095af7da3425e376278c88a95af454c4db89ed007f35fbcb0314d",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-2026-10-29/graph-query.stdout.txt"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-2026-10-29",
+   "rel": "inherited-seals-final.json",
+   "bytes": 941,
+   "sha256": "8dea1c3c54861b0c39ee39d998779160ca21fa4f90b7504a32be25df50e3219e",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-2026-10-29/inherited-seals-final.json"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-2026-10-29",
+   "rel": "inherited-seals.json",
+   "bytes": 18224,
+   "sha256": "18d6de4e32f6726d478cb760dd286f144c716e18c0a6f623d0a014c499f9fd32",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-2026-10-29/inherited-seals.json"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-2026-10-29",
+   "rel": "provenance.json",
+   "bytes": 1828,
+   "sha256": "d4b4568d616c54e59b15bbef1f48ccb0ac36476b65f548f1b627823d91f433f8",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-2026-10-29/provenance.json"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-2026-10-29",
+   "rel": "script-provenance.json",
+   "bytes": 1825,
+   "sha256": "77d1867b01aff72581e7a2f474979af2662812b9294b08be02e7edefd9bf955d",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-2026-10-29/script-provenance.json"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-2026-10-29",
+   "rel": "setup.mjs",
+   "bytes": 2140,
+   "sha256": "69f5902b8cb41bcdb81924cf12ca5294690165ac09f34104217da216965b2b7a",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-2026-10-29/setup.mjs"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-r2-preparation-2026-10-29",
+   "rel": "HANDOFF.md",
+   "bytes": 2297,
+   "sha256": "c0a1c6cabb005a75a03dd6fc4853ad7aca567bf0e20b1037f458e87c4a7a6f02",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-r2-preparation-2026-10-29/HANDOFF.md"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-r2-preparation-2026-10-29",
+   "rel": "INVOCATION.ps1.txt",
+   "bytes": 2382,
+   "sha256": "b652758dbdcea0bee31ffa07374eb61d7d5726f531456d5096c980b74fb0ef53",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-r2-preparation-2026-10-29/INVOCATION.ps1.txt"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-r2-preparation-2026-10-29",
+   "rel": "PREPARATION-PLAN.md",
+   "bytes": 20070,
+   "sha256": "ac173073e5d668de38263fbb76b0e7ef0e04219397bb0f9a7aa42dae74427294",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-r2-preparation-2026-10-29/PREPARATION-PLAN.md"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-r2-preparation-2026-10-29",
+   "rel": "PREPARATION-REVIEW-RECEIPT.md",
+   "bytes": 5393,
+   "sha256": "36e551eab78540a0a7c06972b7051e93cade231e6a1f4541ced2d587a1028853",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-r2-preparation-2026-10-29/PREPARATION-REVIEW-RECEIPT.md"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-r2-preparation-2026-10-29",
+   "rel": "SHA256-MANIFEST.json",
+   "bytes": 11288,
+   "sha256": "f10b6db9ba25118242db3825a2efc16add503e84c285b63361674d1de80102cb",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-r2-preparation-2026-10-29/SHA256-MANIFEST.json"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-r2-preparation-2026-10-29",
+   "rel": "assemble-draft.mjs",
+   "bytes": 8300,
+   "sha256": "561e9f63529a9f9e018702f364c467ccc9af6c6f68d8bc7acd8e93b6cb7880ea",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-r2-preparation-2026-10-29/assemble-draft.mjs"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-r2-preparation-2026-10-29",
+   "rel": "assembly-transformations.json",
+   "bytes": 4062,
+   "sha256": "452d5f880826a463bce22a3560e9e1a78962c3902f50a6190d981185f4d557a1",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-r2-preparation-2026-10-29/assembly-transformations.json"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-r2-preparation-2026-10-29",
+   "rel": "child-binding.json",
+   "bytes": 177,
+   "sha256": "f90506361ebbd52789ee323151dc934afb594b4e1ba914d366a5262670305e8b",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-r2-preparation-2026-10-29/child-binding.json"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-r2-preparation-2026-10-29",
+   "rel": "child-body.draft.mjs",
+   "bytes": 36151,
+   "sha256": "ee34d0df4a401a73e0ee9873c665c095560f8887c1a664ed1a0c98f8e66c138d",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-r2-preparation-2026-10-29/child-body.draft.mjs"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-r2-preparation-2026-10-29",
+   "rel": "input-bindings.json",
+   "bytes": 5190,
+   "sha256": "b88cd29ba787ebfdcd3a72408dac56228cfb50088d2cb33608355f880695ee2e",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-r2-preparation-2026-10-29/input-bindings.json"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-r2-preparation-2026-10-29",
+   "rel": "preparation-after.json",
+   "bytes": 2528766,
+   "sha256": "a22aba48ee2b4708e536a7c2b21ed2b1a7566be7f513421b9d505ddaefa33333",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-r2-preparation-2026-10-29/preparation-after.json"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-r2-preparation-2026-10-29",
+   "rel": "preparation-before.json",
+   "bytes": 2528766,
+   "sha256": "1884d83a3ca3846e7fe1b15cb5e52b70ee552c33122fa7644742c9e4a7af74a2",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-r2-preparation-2026-10-29/preparation-before.json"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-r2-preparation-2026-10-29",
+   "rel": "preparation-final-check.json",
+   "bytes": 281,
+   "sha256": "c92e626da21153e5f2dfe8fc2f0a9da3cec51b403c178214fa743e43008b0542",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-r2-preparation-2026-10-29/preparation-final-check.json"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-r2-preparation-2026-10-29",
+   "rel": "preparation-preservation.json",
+   "bytes": 4636,
+   "sha256": "40d4b907a96a0dc665231590b7ae9b0491e80cf5a341e8004f8497126defb67d",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-r2-preparation-2026-10-29/preparation-preservation.json"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-r2-preparation-2026-10-29",
+   "rel": "producer-worker.draft.mjs",
+   "bytes": 9161,
+   "sha256": "9c6771f6cd059530d153db719a3771da061ef1a3f23df3d964cda6528557964a",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-r2-preparation-2026-10-29/producer-worker.draft.mjs"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-r2-preparation-2026-10-29",
+   "rel": "row24-provenance.json",
+   "bytes": 786,
+   "sha256": "52818413e0f3317fb30c87e6b4d9962e04769e91acb1234d2fe2d8a3f7dab4db",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-r2-preparation-2026-10-29/row24-provenance.json"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-r2-preparation-2026-10-29",
+   "rel": "syntax-checks.json",
+   "bytes": 1176,
+   "sha256": "97f63c1ac3351e6e0899324017ad6edb819962e19e6d7e4b24b4cd439fdfddcb",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-r2-preparation-2026-10-29/syntax-checks.json"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-r2-preparation-2026-10-29",
+   "rel": "verify-preparation.mjs",
+   "bytes": 5358,
+   "sha256": "05ee3306c09eb0c4a4ffef5e03f692bc0edf648beea0072b31be373901f3c9cd",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-r2-preparation-2026-10-29/verify-preparation.mjs"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-r2-2026-10-29",
+   "rel": "entry.mjs",
+   "bytes": 52288,
+   "sha256": "6f07293ae714cf702365c545a1a9f2e720c008ccb8d8b8f96909467bb7db6cd3",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-r2-2026-10-29/entry.mjs"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-after-d475-f3-r2-2026-10-29",
+   "rel": "entry.r3.mjs",
+   "bytes": 53630,
+   "sha256": "52ff2b33ab9d743a4345f45172de2028639200c6d3fc601c1a980cd51cd340c6",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-after-d475-f3-r2-2026-10-29/entry.r3.mjs"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-f3-review-consolidation-2026-10-29",
+   "rel": "HANDOFF-DRAFT.md",
+   "bytes": 16702,
+   "sha256": "fd6965ad1b5ee5baf3c318e6946775ce3998079368caf29b7a0234b46c575ac4",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-f3-review-consolidation-2026-10-29/HANDOFF-DRAFT.md"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-f3-review-consolidation-2026-10-29",
+   "rel": "NEXT-RESPONSE.txt",
+   "bytes": 4829,
+   "sha256": "db771b20379737571fd4c0da3589220b66cdd7ccafe14164252e158f61e34caa",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-f3-review-consolidation-2026-10-29/NEXT-RESPONSE.txt"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-f3-review-consolidation-2026-10-29",
+   "rel": "SHA256-MANIFEST.json",
+   "bytes": 2904,
+   "sha256": "1847ede321e2c97e86b02318a1d2c933d06eb750ba15169e726c9279191ec393",
+   "cr": true,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-f3-review-consolidation-2026-10-29/SHA256-MANIFEST.json"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-f3-corrections-r3-2026-10-30",
+   "rel": "HANDOFF.md",
+   "bytes": 8905,
+   "sha256": "44c05c4f101094e18672394d9a9d14a633b3e4882829645f88d9f5fcf9c5c8a7",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-f3-corrections-r3-2026-10-30/HANDOFF.md"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-f3-corrections-r3-2026-10-30",
+   "rel": "INVOCATION.ps1.txt",
+   "bytes": 1764,
+   "sha256": "f3d38cc755bd14d3c51e8bc265dc430ea7b93431e15786dda87f7d4fba225833",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-f3-corrections-r3-2026-10-30/INVOCATION.ps1.txt"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-f3-corrections-r3-2026-10-30",
+   "rel": "SHA256-MANIFEST.json",
+   "bytes": 3214,
+   "sha256": "8cde0d4e6090a8cebefd76bf7dbdf6d5e802e067fa35ac798390d6a4d6d0a4df",
+   "cr": true,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-f3-corrections-r3-2026-10-30/SHA256-MANIFEST.json"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-f3-corrections-r3-2026-10-30",
+   "rel": "capture.r3.mjs",
+   "bytes": 4086,
+   "sha256": "bbb00be10f46b95e809ab994673ce94e3f1d71ffdb83086f7a54bb0d96715952",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-f3-corrections-r3-2026-10-30/capture.r3.mjs"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-f3-corrections-r3-2026-10-30",
+   "rel": "finalization.fragment.txt",
+   "bytes": 3863,
+   "sha256": "5d64e252400753fe8d7f42e030aa78d63a90bd381f58863e45ac4860aa4be451",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-f3-corrections-r3-2026-10-30/finalization.fragment.txt"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-f3-corrections-r3-2026-10-30",
+   "rel": "invoke.r3.ps1",
+   "bytes": 1764,
+   "sha256": "f3d38cc755bd14d3c51e8bc265dc430ea7b93431e15786dda87f7d4fba225833",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-f3-corrections-r3-2026-10-30/invoke.r3.ps1"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-f3-corrections-r3-2026-10-30",
+   "rel": "semantic.fragment.txt",
+   "bytes": 554,
+   "sha256": "85bb21e5c5ffba54cf39fd357c29b2f0ea18c74a894a57b525a5ee7875f31ba3",
+   "cr": false,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-f3-corrections-r3-2026-10-30/semantic.fragment.txt"
+  },
+  {
+   "lane": "B",
+   "packet": "lane-b-f3-corrections-r3-2026-10-30",
+   "rel": "verification.json",
+   "bytes": 648,
+   "sha256": "6aa7064a9c5f6e1c06ecea14625863fa539849b8bebb95d937641cdf947084a6",
+   "cr": true,
+   "dest": "docs/handoff/artifacts/after-d475-f3/lane-b-f3-corrections-r3-2026-10-30/verification.json"
+  }
+ ]
+}

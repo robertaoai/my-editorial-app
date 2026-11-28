@@ -2,6 +2,18 @@
 
 Read this before building from anything in this folder.
 
+## Where each current fact lives
+
+| Fact | Owner |
+|---|---|
+| Authority order | `AGENTS.md` (`D-29`, `D-58`) |
+| Lane state | `docs/v1/V1-PHASE-CLOSURE.md` §5 |
+| Scope, sequence and holds | `docs/v1/V1-BUILD-SPEC.md` |
+| Decisions | `docs/v1/V1-DECISION-REGISTER.md` |
+| Current packets | `docs/v1/work-packets/V1/` |
+| Configuration | `docs/CONFIG_LOG.md` |
+| Handoff procedure and open work | `docs/handoff/README.md`; generate the live state with `bun run check` |
+
 ## Two different kinds of document live here
 
 | Folder | What it is | Authority |

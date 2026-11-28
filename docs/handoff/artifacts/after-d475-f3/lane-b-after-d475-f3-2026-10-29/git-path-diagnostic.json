@@ -1,0 +1,31 @@
+{
+  "at": "2026-10-29T12:29:59.387Z",
+  "method": "Same PATH-key lookup, directory order and .com/.exe order as guarded-rebuild.mjs resolveOnPath (lines 953-966). Read-only versions and SHA-256; PATH not changed.",
+  "expectedFrozen": {
+    "path": "C:\\Users\\rober_24syk4j\\AppData\\Local\\Programs\\Git\\mingw64\\bin\\git.exe",
+    "sha256": "cab4c4eea1d869cf9f7be73868dc9a90ad2df1b1b673e5f8c8714a576c25ea96",
+    "version": "git version 2.54.0.windows.1"
+  },
+  "expectedOnDisk": {
+    "path": "C:\\Users\\rober_24syk4j\\AppData\\Local\\Programs\\Git\\mingw64\\bin\\git.exe",
+    "realPath": "C:\\Users\\rober_24syk4j\\AppData\\Local\\Programs\\Git\\mingw64\\bin\\git.exe",
+    "sha256": "cab4c4eea1d869cf9f7be73868dc9a90ad2df1b1b673e5f8c8714a576c25ea96",
+    "version": "git version 2.54.0.windows.1"
+  },
+  "actualResolved": {
+    "path": "C:\\Users\\rober_24syk4j\\AppData\\Local\\Programs\\Git\\cmd\\git.exe",
+    "realPath": "C:\\Users\\rober_24syk4j\\AppData\\Local\\Programs\\Git\\cmd\\git.exe",
+    "sha256": "81ef35ae005ca9318018d18e3327578ce939fb99feaad6b2d7c8ab15f3de8db5",
+    "version": "git version 2.54.0.windows.1"
+  },
+  "candidates": [
+    "C:\\Users\\rober_24syk4j\\AppData\\Local\\Programs\\Git\\cmd\\git.exe",
+    "C:\\Users\\rober_24syk4j\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\git\\cmd\\git.exe"
+  ],
+  "pathsEqual": false,
+  "bytesEqual": false,
+  "entryFailures": [
+    "the git path changed"
+  ],
+  "note": "The candidate and frozen files were not modified. No attempt was made to change PATH, substitute a binding, or retry validation after the mismatch."
+}

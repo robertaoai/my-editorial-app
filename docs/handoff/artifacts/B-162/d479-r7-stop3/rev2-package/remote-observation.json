@@ -1,0 +1,13 @@
+{
+  "method": "GitHub connector commit lookup by branch",
+  "repository": "robertaoai/my-editorial-app",
+  "branch": "features/feature-V1-SM05",
+  "sha": "d8db2da71ceb79cc9ade330b524b6ffc6c3edd96",
+  "commitUrl": "https://github.com/robertaoai/my-editorial-app/commit/d8db2da71ceb79cc9ade330b524b6ffc6c3edd96",
+  "localTrackingSha": "d8db2da71ceb79cc9ade330b524b6ffc6c3edd96",
+  "strictSshAttempt": {
+    "result": "DNS resolution failed",
+    "exit": 255,
+    "knownHostsUnchanged": true
+  }
+}

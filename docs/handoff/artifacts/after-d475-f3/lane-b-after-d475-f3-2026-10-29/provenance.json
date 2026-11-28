@@ -1,0 +1,31 @@
+{
+  "judgeInstruction": {
+    "source": "Direct human user message in this Codex chat, 2026-10-29; opening: Lane B — complete the formal F3 candidate review after D-475.",
+    "file": "JUDGE-INSTRUCTION.txt",
+    "sha256": "b917927688691d6d9718a2a0cdb57b10574ccf973d0211e925396eb4c4019b56",
+    "capture": "Manual content transcription; not claimed as a byte-identical raw transcript export."
+  },
+  "inheritedCopies": [
+    {
+      "copy": "PRIOR-REVIEW.md",
+      "source": "C:/CoWork/outputs/lane-a-graph-sync-after-d475-2026-10-29/reviews-2/LANE-B-CANDIDATE-R-REVIEW.md",
+      "sha256": "dae6836248e38204686663fd779376f5c396806ace61c27302af4beacf943171",
+      "exactCopy": true
+    },
+    {
+      "copy": "PRIOR-JUDGE-KN-RELEASE.jsonl",
+      "source": "C:/CoWork/outputs/lane-a-graph-sync-after-d475-2026-10-29/reviews-2/JUDGE-KN-RELEASE.jsonl",
+      "sha256": "6a11a2597dbf37acc29475fc66cffa57d336a2c9c8a5eaef80907cb8a8dc2028",
+      "exactCopy": true
+    },
+    {
+      "copy": "JUDGE-CYCLE-RELEASE.jsonl",
+      "source": "C:/CoWork/outputs/lane-a-graph-sync-after-d475-2026-10-29/evidence/JUDGE-AFTER-D475-CYCLE-RELEASE.jsonl",
+      "sha256": "f02a332835c51ace8b156ed8d5cc0240eed7b5fdd6294625c47c2cf85e9bdf76",
+      "exactCopy": true
+    }
+  ],
+  "graphifySkill": "C:/Users/rober_24syk4j/AppData/Roaming/npm/node_modules/@sentropic/graphify/src/skills/skill-codex.md",
+  "graphQuery": "Read-only orientation on pinned candidate; no memory write because the explicit candidate/freeze instruction overrides the generic skill memory step.",
+  "limitations": "External evidence is outside Git preservation. Existing manifest-retention, linked-file continuity, D-473 historical-proof defects and unavailable original D-472 instruction source remain qualified. No continuity is inferred from present byte equality."
+}

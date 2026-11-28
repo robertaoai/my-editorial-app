@@ -1,0 +1,3191 @@
+{
+  "schema": "B-156 F2c citations v1",
+  "frozenRevision": "1640ff7bc1b7d1e70ab6a421ced8a054dafda993",
+  "inventory": "F1-candidates-1640ff7-r2.tsv (Verified at 0a63ea5)",
+  "measurement": "F2c-measure-1640ff7.json",
+  "vocabulary": [
+    "supported agreement",
+    "difference",
+    "missing support",
+    "unknown",
+    "disputed"
+  ],
+  "semanticTally": {
+    "unassessed": 130,
+    "assessed: agreement": 7,
+    "difference found": 3,
+    "partially assessed, no difference": 6
+  },
+  "rows": [
+    {
+      "path": "docs/graph-fragments/docs-2026-08-18-fragment.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 20 nodes, 45 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/docs-fragment.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "assessed: agreement — a detect manifest kept as a historical input, not a mergeable fragment",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §4 L101-L104 (B-093 P2): kept as historical inputs; skip when merging and claiming parity",
+      "locus": "top-level keys",
+      "semantic": "assessed: agreement",
+      "owner": "Lane A",
+      "returnPoint": "none: whole role inspected",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 101,
+          "needle": "Three rows are detect manifests"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/docs-fragment2.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "assessed: agreement — a detect manifest kept as a historical input, not a mergeable fragment",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §4 L101-L104 (B-093 P2): kept as historical inputs; skip when merging and claiming parity",
+      "locus": "top-level keys",
+      "semantic": "assessed: agreement",
+      "owner": "Lane A",
+      "returnPoint": "none: whole role inspected",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 101,
+          "needle": "Three rows are detect manifests"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/docs-fragment4.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "assessed: agreement — a detect manifest kept as a historical input, not a mergeable fragment",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §4 L101-L104 (B-093 P2): kept as historical inputs; skip when merging and claiming parity",
+      "locus": "top-level keys",
+      "semantic": "assessed: agreement",
+      "owner": "Lane A",
+      "returnPoint": "none: whole role inspected",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 101,
+          "needle": "Three rows are detect manifests"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag10.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 4 nodes, 11 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag100.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 1 nodes, 1 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag101.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 1 nodes, 1 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag102.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 4 nodes, 6 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag103.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 2 nodes, 3 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag104.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 1 nodes, 2 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag105.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 2 nodes, 3 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag106.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 2 nodes, 3 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag107.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 2 nodes, 4 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag108.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 1 nodes, 3 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag109.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 3 nodes, 5 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag11.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 3 nodes, 10 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag110.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 1 nodes, 3 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag111.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 1 nodes, 5 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag112.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 1 nodes, 4 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag113.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 1 nodes, 4 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag114.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 1 nodes, 5 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag115.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 1 nodes, 4 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag116.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 2 nodes, 6 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag117.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 1 nodes, 5 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag118.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 1 nodes, 2 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag119.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 3 nodes, 2 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag12.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 3 nodes, 8 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag120.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 3 nodes, 5 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag121.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 2 nodes, 5 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag123.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 1 nodes, 3 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag124.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 1 nodes, 4 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag125.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 1 nodes, 4 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag126.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 1 nodes, 4 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag127.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 1 nodes, 4 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag128.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 1 nodes, 4 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag129.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 1 nodes, 4 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag13.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 4 nodes, 9 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "node ci_that_cannot_fail (1 of 4)",
+      "semantic": "partially assessed (1 of 4 nodes): DIFFERENCE with the implementation: says next.config.ts sets ignoreDuringBuilds; next.config.ts L8-L10 records its removal. The node faithfully repeats its source, SPECS-VERIFICATION-APPARATUS §4.1 L96-L100 ('currently reads ... ignoreDuringBuilds: true'), which is itself stale: a new governing-text difference in a [V1] section (F2b-R3 family)",
+      "owner": "Lane A",
+      "returnPoint": "F3 repair draft for this node (curated fragment edit = governed change, guarded sync); remaining nodes: F5 curated-layer baseline",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        },
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/frag13.json",
+          "line": 18,
+          "needle": "ci_that_cannot_fail"
+        },
+        {
+          "kind": "line",
+          "file": "docs/specs/SPECS-VERIFICATION-APPARATUS.md",
+          "line": 96,
+          "needle": "currently reads"
+        },
+        {
+          "kind": "line",
+          "file": "docs/specs/SPECS-VERIFICATION-APPARATUS.md",
+          "line": 100,
+          "needle": "ignoreDuringBuilds: true"
+        },
+        {
+          "kind": "line",
+          "file": "next.config.ts",
+          "line": 8,
+          "needle": "removed for Next 16"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag130.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 1 nodes, 4 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag131.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 2 nodes, 5 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag132.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 6 nodes, 20 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag133.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 1 nodes, 5 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag134.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 2 nodes, 7 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "node d227_lane_a_single_ownership (1 of 2)",
+      "semantic": "partially assessed (1 of 2 nodes): agreement as dated history of D-227's propagation (before D-337)",
+      "owner": "Lane A",
+      "returnPoint": "remaining nodes: F5 curated-layer baseline",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        },
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/frag134.json",
+          "line": 4,
+          "needle": "d227_lane_a_single_ownership"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag135.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 3 nodes, 8 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag136.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 1 nodes, 8 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag137.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 13 nodes, 27 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag138.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 7 nodes, 16 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag139.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 5 nodes, 7 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag14.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 4 nodes, 9 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag140.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 4 nodes, 10 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag141.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 1 nodes, 1 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag142.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 1 nodes, 2 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag143.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 1 nodes, 2 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag15.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 4 nodes, 11 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "node rule_must_reach_its_subjects (1 of 4)",
+      "semantic": "partially assessed (1 of 4 nodes): agreement as history (records where D-58 landed at the time); DIFFERENCE in locus: 'CLAUDE.md shared core, arbitration' no longer resolves (CLAUDE.md holds no 'shared core' text)",
+      "owner": "Lane A",
+      "returnPoint": "F3 repair draft for this node (curated fragment edit = governed change, guarded sync); remaining nodes: F5 curated-layer baseline",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        },
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/frag15.json",
+          "line": 44,
+          "needle": "rule_must_reach_its_subjects"
+        },
+        {
+          "kind": "absent",
+          "pattern": "shared core",
+          "pathspecs": [
+            "CLAUDE.md"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag16.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 4 nodes, 8 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag17.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 4 nodes, 10 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag18.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 4 nodes, 10 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag19.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 4 nodes, 9 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag20.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 4 nodes, 11 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag21.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 3 nodes, 9 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag22.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 5 nodes, 12 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag23.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 4 nodes, 10 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag24.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 4 nodes, 13 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag25.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 5 nodes, 13 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag26.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 5 nodes, 14 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag27.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 7 nodes, 20 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag28.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 5 nodes, 14 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag29.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 5 nodes, 12 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag31.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 4 nodes, 10 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag32.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 3 nodes, 7 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "node g67_preamble_unenforced (1 of 3)",
+      "semantic": "partially assessed (1 of 3 nodes): agreement as dated history with Register G67 (L264, Closed 2026-08-21); the node does not mark that shared-core-hash is now retired (D-337)",
+      "owner": "Lane A",
+      "returnPoint": "remaining nodes: F5 curated-layer baseline",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        },
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/frag32.json",
+          "line": 18,
+          "needle": "g67_preamble_unenforced"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 264,
+          "needle": "`G67`"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag33.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 4 nodes, 9 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag34.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 4 nodes, 8 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag35.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 4 nodes, 8 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag36.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 4 nodes, 9 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag37.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 4 nodes, 9 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "node g63_closed_on_scoping (1 of 4)",
+      "semantic": "partially assessed (1 of 4 nodes): agreement as dated history with Register G63 (L260)",
+      "owner": "Lane A",
+      "returnPoint": "remaining nodes: F5 curated-layer baseline",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        },
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/frag37.json",
+          "line": 44,
+          "needle": "g63_closed_on_scoping"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 260,
+          "needle": "`G63`"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag38.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 4 nodes, 8 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag39.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 4 nodes, 8 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag40.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 4 nodes, 9 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag41.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 5 nodes, 10 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag42.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 6 nodes, 10 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag43.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 4 nodes, 9 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag44.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 7 nodes, 16 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "node tails_propagate_to_nobody (1 of 7)",
+      "semantic": "partially assessed (1 of 7 nodes): agreement with Register G73 (L270) as recorded; G73's continued relevance after D-337 is not assessed here",
+      "owner": "Lane A",
+      "returnPoint": "remaining nodes: F5 curated-layer baseline",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        },
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/frag44.json",
+          "line": 70,
+          "needle": "tails_propagate_to_nobody"
+        },
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-DECISION-REGISTER.md",
+          "line": 270,
+          "needle": "`G73`"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag45.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 7 nodes, 16 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag46.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 7 nodes, 16 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag47.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 7 nodes, 16 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "node phase_starts_at_first_authorized_change (1 of 7)",
+      "semantic": "partially assessed (1 of 7 nodes): agreement (43c51ce started Phase 2 with build-config, a test and the Stripe removal; consistent with §5B and F2a.1)",
+      "owner": "Lane A",
+      "returnPoint": "remaining nodes: F5 curated-layer baseline",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        },
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/frag47.json",
+          "line": 31,
+          "needle": "phase_starts_at_first_authorized_change"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag48.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 1 nodes, 3 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag49.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 9 nodes, 17 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag5.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 11 nodes, 25 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag50.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 7 nodes, 13 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "node poc_flow_is_original_scope (1 of 7)",
+      "semantic": "partially assessed (1 of 7 nodes): agreement: 'practical rather than permanent' matches the V1-exclusion versus Project distinction (2251b4a; NG-03; PBL-02)",
+      "owner": "Lane A",
+      "returnPoint": "remaining nodes: F5 curated-layer baseline",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        },
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/frag50.json",
+          "line": 44,
+          "needle": "poc_flow_is_original_scope"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag51.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 9 nodes, 17 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag52.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 6 nodes, 13 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag53.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 7 nodes, 14 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag54.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 6 nodes, 15 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag55.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 8 nodes, 16 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag56.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 9 nodes, 13 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag57.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 6 nodes, 10 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag58.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 6 nodes, 10 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag59.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 8 nodes, 10 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag6.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 12 nodes, 32 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag60.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 8 nodes, 10 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag61.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 8 nodes, 11 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag62.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 8 nodes, 10 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag63.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 10 nodes, 10 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag64.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 6 nodes, 9 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag65.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 5 nodes, 7 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag66.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 6 nodes, 8 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag67.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 6 nodes, 8 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag68.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 7 nodes, 14 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag69.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 7 nodes, 13 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag7.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 9 nodes, 25 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "node shared_core_agent_rules (1 of 9)",
+      "semantic": "partially assessed (1 of 9 nodes): DIFFERENCE: states as current that one byte-identical core is carried by CLAUDE.md, AGENTS.md and .agents/rules/graphify.md and that all three change together. D-337 retired that model (one core in AGENTS.md; CLAUDE.md imports it; .agents/rules/graphify.md retired). Its source locus 'CLAUDE.md ## graphify shared core' no longer exists (CLAUDE.md holds no 'shared core' text)",
+      "owner": "Lane A",
+      "returnPoint": "F3 repair draft for this node (curated fragment edit = governed change, guarded sync); remaining nodes: F5 curated-layer baseline",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        },
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/frag7.json",
+          "line": 57,
+          "needle": "shared_core_agent_rules"
+        },
+        {
+          "kind": "absent",
+          "pattern": "shared core",
+          "pathspecs": [
+            "CLAUDE.md"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag70.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 6 nodes, 12 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag71.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 5 nodes, 11 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag72.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 5 nodes, 10 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag73.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 5 nodes, 10 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag74.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 6 nodes, 8 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag75.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 4 nodes, 8 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag76.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 6 nodes, 10 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag77.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 5 nodes, 10 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag78.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 4 nodes, 6 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag79.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 6 nodes, 12 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag8.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 4 nodes, 14 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag80.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 3 nodes, 6 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag81.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 3 nodes, 6 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag82.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 2 nodes, 5 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag83.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 2 nodes, 2 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag84.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 2 nodes, 3 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag85.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 2 nodes, 3 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag86.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 2 nodes, 2 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag87.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 2 nodes, 3 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag88.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 2 nodes, 3 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag89.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 2 nodes, 3 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag9.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 3 nodes, 7 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag90.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 2 nodes, 4 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag91.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 2 nodes, 4 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag92.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 2 nodes, 4 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag93.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 1 nodes, 2 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag94.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 3 nodes, 5 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag95.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 2 nodes, 4 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag96.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 2 nodes, 3 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag97.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 1 nodes, 2 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag98.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 2 nodes, 1 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/frag99.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 1 nodes, 1 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/graph-fragments/v1-fragment.json",
+      "group": "G3",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: structure ok; 18 nodes, 40 edges; source files tracked: all; endpoints resolved: all; conflicting ids: none",
+      "ownership": "Lane A (mapped)",
+      "obligation": "graph-fragments README §1/§4: curated meaning, faithful to its cited source",
+      "locus": "not inspected at node level",
+      "semantic": "unassessed",
+      "owner": "Lane A",
+      "returnPoint": "F5 curated-layer baseline: node-level source review before any claim that consumes this fragment",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/graph-fragments/README.md",
+          "line": 18,
+          "needle": "Hand-authored fragments merged in by script"
+        }
+      ]
+    },
+    {
+      "path": "docs/v1/work-packets/V1/receipts/V1-SM05-jev-readiness.json",
+      "group": "G4",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: evaluated at 31bcf3a; 320/320 results ok; every recorded source hash matches at the evaluated revision; 3 of 4 differ at 1640ff7 (docs/Modular_PRD.md, docs/fn-specs/FN-GATES-01-05.md, docs/v1/work-packets/V1/V1-SM05.md)",
+      "ownership": "Lane A (mapped)",
+      "obligation": "D-259/D-260: a readiness receipt is dated evidence for its evaluated revision",
+      "locus": "whole receipt (header, sources, results)",
+      "semantic": "assessed: agreement as retained evidence for 31bcf3a. Limit: three sources changed after 31bcf3a, so the receipt is not readiness evidence at 1640ff7; any current DOR-R7 claim needs a new evaluation (product scope, SM05; no SM05 credit here)",
+      "owner": "Lane A",
+      "returnPoint": "F5 product-interface baseline records the evaluated-revision limit",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+          "line": 101,
+          "needle": "Jev readiness receipts for V1 packets; evidence only"
+        }
+      ]
+    },
+    {
+      "path": "docs/handoff/artifacts/B-014/observation-2026-10-03.log",
+      "group": "G5",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: 1477 bytes, sha256 7d773745a56c…; named by docs/handoff/artifacts/B-014/observation-2026-10-03-session.md:4",
+      "ownership": "Lane unmapped (D-90 handoff artifact)",
+      "obligation": "D-90 handoff artifact: retained evidence with its original limits",
+      "locus": "identity and citing record",
+      "semantic": "assessed: agreement as retained evidence (cited by its handoff record; its hash is recorded in governing records). Its content is evidence, not current authority",
+      "owner": "Lane A",
+      "returnPoint": "none: retained evidence; its limits stay with its citing record",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/handoff/artifacts/B-014/observation-2026-10-03-session.md",
+          "line": 4,
+          "needle": "observation-2026-10-03.log"
+        }
+      ]
+    },
+    {
+      "path": "docs/handoff/artifacts/B-115/lane-c-b154-review-with-b115-consumer-read-07d931e.txt",
+      "group": "G5",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: 12168 bytes, sha256 6aebe93c197a…; named by docs/handoff/B-115-separate-intent-build-and-devops-governance.md:246",
+      "ownership": "Lane unmapped (D-90 handoff artifact)",
+      "obligation": "D-90 handoff artifact: retained evidence with its original limits",
+      "locus": "identity and citing record",
+      "semantic": "assessed: agreement as retained evidence (cited by its handoff record; its hash is recorded in governing records). Its content is evidence, not current authority",
+      "owner": "Lane A",
+      "returnPoint": "none: retained evidence; its limits stay with its citing record",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/handoff/B-115-separate-intent-build-and-devops-governance.md",
+          "line": 246,
+          "needle": "lane-c-b154-review-with-b115-consumer-read-07d931e.txt"
+        }
+      ]
+    },
+    {
+      "path": "docs/handoff/artifacts/B-131/System_Encyclopedia_V15.txt",
+      "group": "G5",
+      "slice": "F2c",
+      "order": 5,
+      "result": "measured: 63504 bytes, sha256 bc97bebac0f3…; named by docs/handoff/B-131-sm05-r5-r6-independent-review.md:12",
+      "ownership": "Lane unmapped (D-90 handoff artifact)",
+      "obligation": "D-90 handoff artifact: retained evidence with its original limits",
+      "locus": "identity and citing record",
+      "semantic": "assessed: agreement as retained evidence (cited by its handoff record; its hash is recorded in governing records). Its content is evidence, not current authority",
+      "owner": "Lane A",
+      "returnPoint": "none: retained evidence; its limits stay with its citing record",
+      "citations": [
+        {
+          "kind": "line",
+          "file": "docs/handoff/B-131-sm05-r5-r6-independent-review.md",
+          "line": 12,
+          "needle": "System_Encyclopedia_V15.txt"
+        }
+      ]
+    }
+  ]
+}

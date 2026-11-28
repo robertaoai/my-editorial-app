@@ -1,0 +1,26 @@
+{
+  "publicationSource": {
+    "ok": true,
+    "findings": [],
+    "publicationHead": "71dfbbe7a09f194a9986c1f29d42ad507aec1af7"
+  },
+  "bindingFindings": [
+    "the git path changed"
+  ],
+  "freshBindingFindings": [
+    "the git path changed"
+  ],
+  "baseline": {
+    "releaseLocus": "77af44a2fcf84a7e7c05013308cc474e6bfaef41",
+    "algorithm": "guard-treeDigest-v1",
+    "digest": "a51dc92d0ee08082c87b871dfe3117d08fd68089851f9372cbd3538bea8eaf4d",
+    "files": 583
+  },
+  "receiptCount": 16,
+  "runtime": {
+    "runtime": "typescript"
+  },
+  "rParents": "71dfbbe7a09f194a9986c1f29d42ad507aec1af7 22b0a8ce2fb06c16152fa9490d21aae829a45974",
+  "rPaths": "docs/handoff/B-136-multi-lane-governance-canonical-owners-and-state2-gate.md",
+  "bunSha256": "b8359896a96f945977bb193f2e9a3a8a2676b1659e4e6e7ab44fb8f70be9df06"
+}

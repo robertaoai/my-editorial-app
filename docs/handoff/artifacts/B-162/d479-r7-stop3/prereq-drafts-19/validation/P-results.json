@@ -1,0 +1,61 @@
+{
+  "tag": "P",
+  "head": "48f8f751d097491cfa8168a348c7c61adb873d85",
+  "tree": "55fd9860bf1035e41e7fe2fb9c361593c69a4b15",
+  "fixtures": {
+    "exit": 1,
+    "behaved": "302/304 fixtures behaved as intended",
+    "misses": [
+      "      MISS  gate2: SM05 status no longer BLOCKED — counts as a claim and fails — no finding matching \"no longer reads BLOCKED\"",
+      "      MISS  tier-sweep re-slot: after the move, a routed claim is checked against V1-SM07.md — unexpected finding: row 18950: D-255 marked ✅ for \"**`docs/v1/work-packets/V1/V1-SM05.md`**\" but absent from docs/v1/work-packets/V1/V1-SM05.md"
+    ],
+    "reslot": [
+      "      ok    tier-sweep re-slot: before the move, a routed claim is checked against the original V1-SM05.md — stays green",
+      "      MISS  tier-sweep re-slot: after the move, a routed claim is checked against V1-SM07.md — unexpected finding: row 18950: D-255 marked ✅ for \"**`docs/v1/work-packets/V1/V1-SM05.md`**\" but absent from docs/v1/work-packets/V1/V1-SM05.md",
+      "      ok    tier-sweep re-slot: after the move, a routed claim missing from V1-SM07.md fails — fails as intended",
+      "      ok    tier-sweep re-slot: new packet present but V1-SM07.md missing fails closed — fails as intended",
+      "      ok    tier-sweep re-slot: a current claim stays on the new V1-SM05.md — fails as intended",
+      "      ok    tier-sweep re-slot: a claim outside the nineteen is not routed, and other targets keep their check — fails as intended",
+      "      ok    tier-sweep re-slot: a two-target routed row still checks its other target — fails as intended"
+    ],
+    "gate2": "      MISS  gate2: SM05 status no longer BLOCKED — counts as a claim and fails — no finding matching \"no longer reads BLOCKED\""
+  },
+  "selftest": {
+    "exit": 0
+  },
+  "check": {
+    "exit": 1,
+    "inventory": 19,
+    "statuses": [
+      "PASS rule-budget",
+      "PASS tier-sweep",
+      "PASS duplicate-ids",
+      "PASS graph-coverage",
+      "PASS settings-parse",
+      "PASS decision-status",
+      "PASS lane-boundary",
+      "PASS source-sweep",
+      "PASS handoff-response",
+      "PASS phase-manifest",
+      "PASS config-coupling",
+      "PASS closure-readiness",
+      "FAIL docs-drift",
+      "PASS sync-docs-unique",
+      "PASS lane-state",
+      "PASS channel-docs",
+      "PASS retention-policy-coupling",
+      "PASS terminal-return",
+      "PASS text-integrity"
+    ],
+    "fails": [
+      {
+        "name": "docs-drift",
+        "findings": [
+          "graph is STALE — last analyzed 8c225e6, HEAD is 48f8f75; 3 governed-intent path(s) changed without a later analysis: docs/v1/V1-DECISION-REGISTER.md, scripts/checks/tier-sweep.mjs, scripts/fixtures/suites.mjs. Sync through the guarded procedure: `node scripts/graphify/guarded-rebuild.mjs prepare`, then Lane B's acceptance record, then `publish --review` (or `recover` when a transaction journal exists). Never run a raw rebuild against the live state (`D-425`)."
+        ]
+      }
+    ]
+  },
+  "allowed": {},
+  "problems": []
+}

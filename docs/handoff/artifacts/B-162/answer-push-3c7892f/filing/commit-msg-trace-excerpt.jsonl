@@ -1,0 +1,2 @@
+{"event":"child_start","sid":"20261112T132308.897922Z-H3f09e8f7-P0000105c","thread":"main","time":"2026-11-12T13:23:09.053472Z","file":"run-command.c","line":740,"child_id":0,"child_class":"hook","hook_name":"commit-msg","use_shell":false,"argv":[".githooks/commit-msg",".git/COMMIT_EDITMSG"]}
+{"event":"child_exit","sid":"20261112T132308.897922Z-H3f09e8f7-P0000105c","thread":"main","time":"2026-11-12T13:23:09.700859Z","file":"run-command.c","line":996,"child_id":0,"pid":31496,"code":0,"t_rel":0.647478}

@@ -380,8 +380,16 @@ handover is the moment that becomes a gap**, not a theoretical one.
 | Lane | Phase | State | Selected | Closed | Judge | Reopened by |
 |:---:|---|---|---|:---:|---|---|
 | **A** | **1 — Orchestration** | **`Active`** — holds the lock **by default** (`D-156`): `LB-S1-02` completed naming no successor, and there is no no-`Active` state to rest in. Not self-selection — the rule names the default holder. Closes last (`D-99`). Condition 1 met; **2 NOT met** — `Applied` entries await their raiser (`C-26`); **3 NOT met** — §6.1c; **5 waits on Lanes B and C**; 4 is the Judge's | Robert Tan, 2026-08-27 — released the lock (`D-142`), the fifth Sprint boundary. Filed its own turn report per `D-138` | — | Robert Tan — **`DEFER`** 2026-08-22, §6.6 | **n/a — never closed** |
-| **B** | **2 — Application** | **`Eligible`** — nominated by the Chief Editor at the seventh boundary (`D-159`, 2026-08-30): the SELECTION step, offered the lock but **not yet executing**. Legal beside the lane currently holding the lock (Lane A, row above) under `D-156` — that pairing IS the offer; that lock is not released by this nomination alone. **The Chief Editor approved the transition to holding the lock on the same day, and Lane B declined it** — no code execution was ready — remaining `Eligible` (`D-161`). Its review-only turn, `LB-S1-03`, verified `B-058` and Phase-2 `B-044` without holding the lock. **`LB-S1-02` COMPLETED**, reported by `B-059`. Its S1 claim is accepted narrowly: **local PostgreSQL unit-tested; live hosted anon-key behaviour unverified under `DEP-05`.** `C-33` is satisfied — the trigger now has a database-executed test, not only a static one, closing the gap `B-044` opened. Run `LB-S1-01` **completed** — `0002_s1_editorial_schema.sql` drafted with contract tests at `d826b53`. **Its completion and handover are reported by `B-047`, the sole canonical turn report for this run** (`D-123`); **`B-043` is the schema work evidence**, superseded by `B-047` and not a second handover (`D-124`, raised as `B-054`). **Its S1 claim is deliberately narrow**: the trigger has a **static contract test, not a database-executed one** (`B-044`), so the DoD phrase *"trigger written and unit-tested"* is **NOT yet earned** and is carried as **`C-33`** — `LB-S1-02` continues against it | **Robert Tan, 2026-08-27 — into `Active` (`D-142`)**, the fifth Sprint boundary. Lane A's run `LA-P1-04` completed and released the lock; the Chief Editor then selected Lane B. **Latest selection act: Robert Tan, 2026-08-30 — nominated `Eligible` (`D-159`); the approved transition to `Active` was declined (`D-161`)** — the `D-142` entry above is history, not the current state (reconciled 2026-09-24, `D-259`) | — | Standing project approval | — |
-| **C** | **3 — CI/CD** | **`Blocked`** on the Lane A run (`D-156`). **A row carries ONE state**: its own item-level blockers — `C-18`, `C-24`, `C-25` for `C-Q2`, with `C-Q1` ready — are work conditions and live in those conditions, not in the lock column (`B-033`) | — not selected | — | Standing project approval | — |
+| **B** | **2 — Application** | **`Eligible`**. Nominated by the Chief Editor on 2026-09-28 (`D-311`), so Lane B can file its Level 1 review of `SV2-U02-A-R1` (`D-310`) as its own `B-` entry. This is the SELECTION step only: offered the lock, **not executing**, beside the lane holding the lock (Lane A) under `D-156`. It grants no lock transfer and no code change; construction stays unauthorized (`V1-SM05` `BLOCKED`). Earlier nominations: `D-274` (completed in `B-143`), moved to Lane C by `D-296` | **Robert Tan, 2026-09-28 — nominated `Eligible` (`D-311`)** | — | Standing project approval | — |
+| **C** | **3 — CI/CD** | **`Blocked`** on the Lane A run (`D-156`): the selection moved to Lane B (`D-311`). Its `D-296` nomination is complete: receipts `C-003`, `C-005`, `C-006` and Level 2 review `C-004`. Lane C keeps its own-series commit right (`D-272`), so its Route A Level 2 review (`D-310`) is still filed as its own `C-` entry after Lane B's. Item-level blockers `C-18`, `C-24`, `C-25` for `C-Q2` stay work conditions, not lock state (`B-033`) | — not selected (`D-296` nomination moved to Lane B by `D-311`) | — | Standing project approval | — |
+
+> **Lane C state-cell history, moved here 2026-09-28 (`D-311`).** Until this date the Lane C row read: `Eligible`. Nominated by the Chief Editor on 2026-09-27 (`D-296`), so Lane C can file the `SV2-U02-C-R1` receipt, its own committed `C-` entry with `Receiver: Lane A` (`D-272`), for Lane A's Level 1 review, and review Routes A and B at Level 2. This is the SELECTION step only: offered the lock, not executing, beside the lane holding the lock (Lane A, row above) under `D-156`. It grants no lock transfer and no `.github/workflows/` change. Item-level blockers `C-18`, `C-24` and `C-25` for `C-Q2` stay work conditions, not lock state (`B-033`). Earlier nomination: `D-273` (Route C access proof), completed in `C-002`. Selected: Robert Tan, 2026-09-27 — nominated `Eligible` (`D-296`)
+
+> **Lane B state-cell history, moved here 2026-09-27 (`D-296`).** Until this date the Lane B row read: **`Eligible`** — nominated by the Chief Editor, 2026-09-27 (`D-274`), so Lane B can review Lane A's readiness corrections (`SV-002` at `1b8c5e5`, `2a3bf4b`; `B-138`, `B-139`) and update its handoff entries. The SELECTION step only: offered the lock, **not executing**; beside the lane holding the lock (Lane A, row above) under `D-156`. Earlier nominations: `D-159`/`D-161` (history below the table), moved to Lane C by `D-273`, returned here
+
+> **Lane B Selected-cell history, moved here 2026-09-27 (`D-274`).** Until this date it read: **Robert Tan, 2026-08-27 — into `Active` (`D-142`)**, the fifth Sprint boundary. Lane A's run `LA-P1-04` completed and released the lock; the Chief Editor then selected Lane B. **Latest selection act: Robert Tan, 2026-08-30 — nominated `Eligible` (`D-159`); the approved transition to `Active` was declined (`D-161`)** — the `D-142` entry above is history, not the current state (reconciled 2026-09-24, `D-259`)
+>
+> **Lane B state-cell history, moved here 2026-09-27 (`D-273`).** Until this date the Lane B row read: **`Eligible`** — nominated by the Chief Editor at the seventh boundary (`D-159`, 2026-08-30): the SELECTION step, offered the lock but **not yet executing**. Legal beside the lane currently holding the lock (Lane A, row above) under `D-156` — that pairing IS the offer; that lock is not released by this nomination alone. **The Chief Editor approved the transition to holding the lock on the same day, and Lane B declined it** — no code execution was ready — remaining `Eligible` (`D-161`). Its review-only turn, `LB-S1-03`, verified `B-058` and Phase-2 `B-044` without holding the lock. **`LB-S1-02` COMPLETED**, reported by `B-059`. Its S1 claim is accepted narrowly: **local PostgreSQL unit-tested; live hosted anon-key behaviour unverified under `DEP-05`.** `C-33` is satisfied — the trigger now has a database-executed test, not only a static one, closing the gap `B-044` opened. Run `LB-S1-01` **completed** — `0002_s1_editorial_schema.sql` drafted with contract tests at `d826b53`. **Its completion and handover are reported by `B-047`, the sole canonical turn report for this run** (`D-123`); **`B-043` is the schema work evidence**, superseded by `B-047` and not a second handover (`D-124`, raised as `B-054`). **Its S1 claim is deliberately narrow**: the trigger has a **static contract test, not a database-executed one** (`B-044`), so the DoD phrase *"trigger written and unit-tested"* is **NOT yet earned** and is carried as **`C-33`** — `LB-S1-02` continues against it
 
 > **Fourth Sprint boundary — 2026-08-25 (`D-118`, raised as `B-047`). TWO events, recorded as two.**
 > **(1)** Lane B's run `LB-S1-01` **completed** and released the lock — reported by the outgoing
@@ -691,9 +699,10 @@ rather than claimed.
 
 | Path | Delivers |
 |---|---|
-| `CLAUDE.md` | Lane A rule file + shared core + critic discipline |
-| `AGENTS.md` | Lane B rule file + shared core + Lane B entry point |
-| `.agents/rules/graphify.md` | Lane C rule file + shared core + Lane C entry point |
+| `CLAUDE.md` | Lane A rule file: imports `@AGENTS.md`, adds critic discipline *(`D-337`)* |
+| `AGENTS.md` | The single shared core, plus the Codex (Lane B) section *(`D-337`)* |
+| `GEMINI.md` | Lane C rule file, delivered to both Antigravity surfaces *(`D-337`; replaces the retired `.agents/rules/graphify.md`)* |
+| `docs/governance/agent-rules-reference.md` | Verbatim pre-refactor rule text, on demand *(`D-337`)* |
 | `.github/WORKFLOWS-SPEC.md` | Lane C's work order |
 | `.claude/skills/sync-docs/SKILL.md` | The `D-54` propagation procedure |
 | `.claude/settings.json` | Session hooks (`D-81`) |
@@ -704,7 +713,7 @@ rather than claimed.
 | Path | Delivers |
 |---|---|
 | `scripts/check-consistency.mjs` | The runner |
-| `scripts/checks/shared-core-hash.mjs` | Rule-file core + preamble identity |
+| `scripts/checks/rule-budget.mjs` | Rule-file sizes, import integrity, one core copy *(`D-337`; replaces `shared-core-hash.mjs`)* |
 | `scripts/checks/tier-sweep.mjs` | `D-54` arrival, register → tiers |
 | `scripts/checks/source-sweep.mjs` | The inverse — governing docs → tiers (`G70`) |
 | `scripts/checks/duplicate-ids.mjs` | §5.1 ID collisions |
@@ -936,6 +945,63 @@ exhaustively traced against every historical run); the fixture suite's coverage 
 shape was tested); and everything outside the `D-121`–`D-124` chain, which `D-93` rule 1 requires
 be a separate turn from whatever comes next.
 
+### 6.1g Seventh to ninth critic passes — Lane A, 2026-11-26, against the B-162 gov/docs proposal packages r5–r7 (source B-162 at `7f4efa2`)
+
+**Lane A acting as critic, each pass in a separate turn from the turn that drafted the package
+(`D-93` rule 1), against the pinned package bytes and the governing clauses re-read at
+`7f4efa20ddc67d33bebd9fcd117e4a9a800d74a0`, not the drafting summaries (rule 2).** Independence
+caveat, stated rather than implied: the critic is the same agent that drafted each package, in a
+later turn. **This is evidence of proposal review only.** It does not close Phase 1, apply any
+gov/docs text, record the Judge's FR-01 scope decision, or prove any implementation; each stays on
+its own release route.
+
+The packages are pinned proposal folders outside the repository, each with its own `SHA256SUMS`.
+The return locator is the record number and uuid of the critic's return in session transcript
+`80a97b21-4baf-4c39-b1a2-59a18984e1a1.jsonl`.
+
+| Pass | Package and manifest pin | Return locator | Findings | Rejects | Verdicts |
+|---|---|---|---:|---:|---|
+| r5 | `B-162-gov-docs-r5-7f4efa2`, `SHA256SUMS` 332 bytes, `e3e65a38e37b1ef5a65dbb7804b97a8035f2e7e275b7dfbebaeec19ad9bf1c28` | record 600, uuid `a2c520d2-fc7b-451d-bb99-359aba311ffa` | 7 (F43–F49) | 0 | All three proposals Approve-with-conditions |
+| r6 | `B-162-gov-docs-r6-7f4efa2`, `SHA256SUMS` 332 bytes, `84f8f62cc87dc4a28268b7325018bd0e7e01f36ccfe79de2d228fb56a9acf0d2` | record 720, uuid `4fff3954-614f-44c8-9099-15bc56ce9e81` | 1 new (F50) | 0 | Trace (`ac01-ac02.md`) and custody (`r5-custody.md`) Approve; FR-01 cases (`b151-o2-decision-and-cases.md`) Approve-with-conditions |
+| r7 | `B-162-gov-docs-r7-7f4efa2`, `SHA256SUMS` 332 bytes, `9f1a6dc290e837c28ad1627c0024c7b484a2f6908ef88b97d53a44a9afa4bfb3` | record 844, uuid `0080a468-b75e-41e6-a0c6-ee17dac38fdb` | 0 new defects | 0 | All three proposals Approve |
+
+| # | Pass | File and clause | Finding | Status |
+|---|---|---|---|---|
+| **F43** | r5 | `b151-o2-decision-and-cases.md`, `PL-FR01-MD1` and its governing-text line | MD1 cited FN-GATES §4.6 rule 5 and asserted "never shown as URL confirmed live", beyond the Judge's decision that only rules 2 and 3 apply to pipeline FR-01 | **Addressed in r6** — MD1 asserts rule 2 admission and the rule 3 pair only; rule 5 kept as the existing safeguard outside MD1's assertions |
+| **F44** | r5 | Same file, correction to the older child map | Only B-162 line 3885 was named; line 3854 also reads "rules 2 and 6" | **Addressed in r6** — both lines cited as history; the successor uses rules 2 and 3 for pipeline FR-01 |
+| **F45** | r5 | Same file, `PL-FR01-MD3` | No case for the cross-form duplicate: a URL intake followed by otherwise admissible Markdown from the **same submitter**, on the **same day**, with the **same normalized original URL**. FN-GATES §3.1 behaviour 1 (line 141) scopes the guard to same submitter, same brief and same day, and §4.6 rule 3 anchors it on the source URL "for `.md` intakes as for URL intakes" | **Addressed in r6** — `PL-FR01-MD4` added; its setup was then bound explicitly to submitter **S**, day **D** and normalized URL **U** in r7 (F50) |
+| **F46** | r5 | `ac01-ac02.md`, `AC-01.N` Then | FN-GATES §3.1 requires the named validation failure to identify the component; the case omitted it | **Addressed in r6** — the failure must identify the missing or invalid component |
+| **F47** | r5 | `ac01-ac02.md`, AC-02 brief identity | FN-GATES §3.1 behaviour 1 still says "hash of key fields"; the proposal follows `D-133` (source reference alone) and did not flag the difference | **Addressed in r6** as a flag; the §3.1 wording correction stays **due** on a separately scoped route, since `D-479`'s 2a/2b pass leaves FN-GATES §§1–10 unchanged |
+| **F48** | r5 | `r5-custody.md`, due condition 3 | B-162 line 3898 requires the retrieval record to name the reviewer; it was omitted | **Addressed in r6** — reviewer, commit, path, bytes, SHA-256 and verdict per file |
+| **F49** | r5 | `r5-custody.md`, due condition 2 | Line 3898's rule for a delivery that stops after commit (local only, full commit, blocker) was not carried | **Addressed in r6** — the stop report added |
+| **F50** | r6 | `b151-o2-decision-and-cases.md`, `PL-FR01-MD4` Given / When | No antecedent for "the same submitter on the same day", so the case could be built as `D-131`'s different-submitter control | **Addressed in r7** — line 28 binds both intakes to submitter **S**, day **D** and normalized URL **U**; the `D-131` control kept outside MD4 |
+
+**r7 found zero new defects, and under rule 3 that is reported here as a finding in its own right,
+not as a numbered defect: the defect count stays at zero.** The risk is a check that cannot fail.
+What r7 checked: all four pins and LF endings; the two carried files byte-identical to r6; the r6
+to r7 diff limited to the header, MD4, the control paragraph and the corrected row; `D-131` item 3;
+and the carry-forward of F43–F49. One observation was considered and dismissed: the Judge's MD4
+text says "otherwise admissible Markdown" without r6's "(it meets every rule 2 input)"; the
+wording is the Judge's own, and rule 2 and MD1 define admissibility.
+
+**Across the three passes: 8 findings (F43–F50), 0 rejects.** Every finding drew a condition and
+none a reject, so the reject count, this mechanism's health metric, stays at zero.
+
+**Register clauses examined.** Each pass reviewed the governing clauses the proposals cite,
+including these Register clauses, re-read at `7f4efa2`: r5, `D-133` (the brief hash on the
+normalized source reference); r6, `D-93` (the critic discipline) and `D-479`'s FN-GATES tier row
+(§§1–10 unchanged by its 2a/2b pass); r7, `D-131` item 3 (the different-submitter control). These
+were reviews of those clauses for the proposals. They neither record nor amend anything: formal
+recording of the Judge's FR-01 scope decision stays on its separate release route.
+
+**What these passes did not examine** (rule 4): any implementation, since none exists; any
+repository application of the proposals, which is unreleased; and the bytes of the five r5 custody
+artifacts beyond their pins. Not examined is not the same as sound.
+
+B-162 stays Open, Gate 2 unclaimed and D-487 staging held with D-486 as its required sole parent.
+P1, r5 custody, formal FR-01 decision recording, gov/docs application and every other hold stay on
+their existing routes.
+
 ### 6.2 What the critic pass did not find
 
 **Withdrawn 2026-08-22 as critic-pass finding `F16`.** This section read: *"Nothing about the
@@ -1028,7 +1094,7 @@ a placeholder `flags.ts` that Lane B correctly refused (`B-002`).
 | Handoff closure matrix | **12 entries: 10 `Verified`, 2 `Superseded`, 0 `Open`, 0 merely `Answered`** — derived by check 13, not hand-maintained |
 | Graph | rebuilt and re-merged; `docs-drift` synced |
 | Graph portability | **`portable-check` non-zero on gitignored build output only** — see §6.4a |
-| Lane state | A `Active` · B `Eligible` · C `Blocked` on `C-18` / `Eligible` for `C-Q1` |
+| Lane state | **Not recorded in this snapshot.** Live lane state lives only in §5 (`D-156`). *(`D-340`, 2026-09-29: the 2026-08-24 value was removed because an agent read it as current state, `D-339` R6. It is preserved in git history, at `aac6675` and earlier.)* |
 
 **Condition 3's evidence is `§6.1b`, the second critic pass, plus this pass's own findings** —
 which are recorded in the register at `§5.14bi` rather than here, because **this pass was work,

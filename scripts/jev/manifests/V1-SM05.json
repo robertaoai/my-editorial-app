@@ -324,14 +324,84 @@
           "AC-25": "3028b369086953857edfab58510f4717a11a718bd94841d6aa7287a9b8e0457e"
         }
       }
+    },
+    {
+      "id": "SM05-IN1",
+      "source": "docs/fn-specs/FN-GATES-01-05.md",
+      "dod": "Intake source fixtures",
+      "rowHash": "f8b81503b3c872497b9dcd240a906a9ef07560eceb6f51e141cdb8e485d784fa",
+      "productAnchor": {
+        "source": "docs/Modular_PRD.md",
+        "requirement": "FR-15",
+        "acceptance": [
+          "AC-23"
+        ],
+        "disposition": "active",
+        "rowHashes": {
+          "AC-23": "e9a493c201d99cdd5f0005d66e9937f7b832459f00113e9cb10b1408ef2eab44"
+        }
+      }
+    },
+    {
+      "id": "SM05-IN2",
+      "source": "docs/fn-specs/FN-GATES-01-05.md",
+      "dod": "Intake source fixtures",
+      "rowHash": "8a7d4dd360dfd3f1b916d67d63c2e9c88805eeddbc0338e0c6d39416ad140c39",
+      "productAnchor": {
+        "source": "docs/Modular_PRD.md",
+        "requirement": "FR-15",
+        "acceptance": [
+          "AC-23"
+        ],
+        "disposition": "active",
+        "rowHashes": {
+          "AC-23": "e9a493c201d99cdd5f0005d66e9937f7b832459f00113e9cb10b1408ef2eab44"
+        }
+      }
+    },
+    {
+      "id": "SM05-IN3",
+      "source": "docs/fn-specs/FN-GATES-01-05.md",
+      "dod": "Intake source fixtures",
+      "rowHash": "62ecd32cca69d2ecea980ca0a85f0e733a0a572aab807219af2400d77b78f8f1",
+      "productAnchor": {
+        "source": "docs/Modular_PRD.md",
+        "requirement": "FR-15",
+        "acceptance": [
+          "AC-26"
+        ],
+        "disposition": "active",
+        "rowHashes": {
+          "AC-26": "144a66bebcafa0844a87122d3b9a648c61ec694b394e2adef86c8b46fc81b05f"
+        }
+      }
+    },
+    {
+      "id": "SM05-IN4",
+      "source": "docs/fn-specs/FN-GATES-01-05.md",
+      "dod": "Intake source fixtures",
+      "rowHash": "c663b325aa3a944a38ff6b1ab9973a758891d8bfd8e30803e3f16779c267c732",
+      "productAnchor": {
+        "source": "docs/Modular_PRD.md",
+        "requirement": "FR-15",
+        "acceptance": [
+          "AC-26"
+        ],
+        "disposition": "active",
+        "rowHashes": {
+          "AC-26": "144a66bebcafa0844a87122d3b9a648c61ec694b394e2adef86c8b46fc81b05f"
+        }
+      }
     }
   ],
   "negativeRequired": [
     "Refusal and replay",
-    "Exclusions verified absent"
+    "Exclusions verified absent",
+    "Intake source fixtures"
   ],
   "failingFirstRequired": [
-    "Acceptance cases pass against the real database"
+    "Acceptance cases pass against the real database",
+    "Intake source fixtures"
   ],
   "completionExempt": [
     "Independent verification"

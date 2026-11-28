@@ -4,7 +4,7 @@
 - **Kind:** spec-defect
 - **Phase:** 1
 - **Blocks:** truthful configuration readiness for the two named values; no unrelated planning or build work
-- **Status:** Open
+- **Status:** Answered
 - **Lane A:** **Acknowledged 2026-09-15 at read commit `ebd3c29`** (per Lane B's report; not
   independently git-verified from this session). The Chief Editor's direct decision-tree act is
   accepted as recorded: `SCORING_REVIEW_THRESHOLD_ARTICLES = 50` (A4) and
@@ -24,8 +24,55 @@
 
   No governed source, Product, Fn_Spec, storyboard, schema, workflow, runtime configuration
   metadata or Graphify action is taken by this acknowledgement.
-- **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Verified-At-Commit:** ae5548c4a6f51dc3b5b1df9343769fa47f33cc00
+  **Product intake receipt 2026-10-01 (`D-374`).** The Judge classified this entry as Product. Its receipt sits beside
+  the owning `Modular_PRD.md` rows (the retention section, and `RK-05`), with no new capability and no value change.
+  The `A6` collision (90 days versus `D-134`'s 5 years) awaits the Register arbitration act this entry already
+  requires. This entry stays `Open`.
+  **Answered 2026-10-03, read at `50ed6b3`.** Lane A receives Lane B's applied-diff review of `D-404` (read
+  `eed4f4e`; tightened `4ea25dd`). **Accepted:** the core supplied-fact, 90-day correction is supported, and
+  whole-entry completion is not. **Accepted as Lane A's own defects in `D-404`:**
+  - the Business Case `A6` validation row reads "Ratified" in its Category cell beside `Ratified? No`;
+  - the Business Case line 269 blanket still says A1–A7 are unratified;
+  - the auto-archive labels are not marked as history;
+  - DECISION_LOG's dated note does not yet plainly date the "empty table" prose as pre-`D-404`. The event row
+    itself was left intact, as the append-only rule requires.
+
+  **Accepted as remaining propagation:** the Addendum §2.4 `A6` log row; Blueprint rows 71 and 122, with the
+  period cited from the Business Case (`4ea25dd`); FN-AUDIT `AC-12a` and its explanatory paragraph. These need
+  the Judge's bounded act before Lane A applies them (`D-183`/`D-186`); the drafted packet is in `B-154`. The
+  storyboard, UML/data-flow and traceability inspection, and the Encyclopedia Entry 02 comparison after the
+  Addendum commit, follow it. A4, OD1–OD3 and the runtime metadata are unaffected. No Resolution is recorded;
+  `B-106` stays Open.
+  **Answered again 2026-10-03 (`D-406`), read at `7395fde`.** Lane A receives Lane B's independent `D-405` review
+  (read `c0a925c`). **Accepted as supported:** the Addendum §2.4 `A6` receipt; the Business Case `Ratified?`
+  mirror; DECISION_LOG's intact event row and dated prose; the Blueprint citation; and `AC-12a`'s three normative
+  cases. **Accepted as conditions:**
+  - the FN-AUDIT §5 paragraph still leads with deletion and disposal;
+  - the Addendum §2.1 `A6` rationale still reads "Conservative default".
+
+  The Judge approved that two-source wording correction (Act 1, `D-406`), and Lane A applies Lane B's drafted
+  text in its own commit. Lane B reviews that diff here. **Accepted limit:** Lane B did not inspect every Mermaid
+  page, so `D-405`'s inspection keeps its own limit. Encyclopedia Entry 02 is compared after the Addendum commit
+  and recorded in `D-406`; any update or republication is its own act. The runtime-metadata child stays with a
+  later Lane B unit. No Resolution is recorded; `B-106` stays Open.
+  **Answered again 2026-10-03, read at `87c9891`.** Lane A receives Lane B's scoped review of `D-406`'s wording
+  (`8d56ef9`). **Accepted:** both source edits are supported, and `D-54` is recorded. **Accepted limit:** Lane B
+  did not open the hosted Encyclopedia page, so the Entry 02 no-update result stands as Lane A's own versioned
+  receipt, not a second verification. The optional annotation needs its own act. The runtime `UNRATIFIED` metadata,
+  the executed `AC-12a` cases and graph currency stay with their owners. No Resolution is recorded; `B-106` stays
+  Open.
+  **Deferred 2026-10-05 (`D-418` item 2), read at `d86b354`.** The Judge accepted B-106's individual O4 custody reason
+  in Lane B's text (`9f8a872` D2). Each remaining child keeps a named owner and trigger. This is custody, not delivery,
+  and it verifies nothing.
+- **Resolution:** Deferred
+- **Follow-up-Tier:** (a) the two-path Lane B metadata unit (`lib/config/build-config.ts`, `__tests__/build-config.test.ts`:
+  registry `RATIFIED` with citations and limitations; values 90 and 50 unchanged; no new consumer) returns only on a
+  named Judge work order and Lane B `Active`; (b) executed `AC-12a` behavior and refusal evidence stays with Product
+  retention/`AC-12a` → `FN-AUDIT-VISIBILITY-07-08` §5, returning on a selected consuming implementation unit; (c) the
+  A4 scoring formula and weights stay unratified at their Product owner, returning on their own ratification or
+  selection; (d) Encyclopedia Entry 02's no-update result keeps its recorded operator/version limit (`D-406`)
+- **Verified-By:** — not independently verified; dispositioned by Lane A
+- **Verified-At-Commit:** d86b35484a0fdcb9c51c266b2a5d63ab5003c2c8
 - **Evidence:** Chief Editor's 2026-09-15 direct act; `CONFIG_LOG.md` §2; `DECISION_LOG.md` §§1–3; `lib/config/build-config.ts`; Register `D-134`, `D-135`, `D-198`; `B-085` G-3 disposition.
 
 ## What happened
@@ -331,3 +378,111 @@ the failure mode.
 | Approve | Cause of the earlier missing append recorded as unknown, not race-diagnosed | Current pass — standing record corrected |
 | Approve | One-entry-per-commit plus post-commit read as the standing control | Applies regardless of cause |
 | Defer | A4/A6 governed-source application and Graphify | Existing Judge act and verification conditions, unchanged |
+
+## Lane A application — `A6` arbitration recorded, `D-381` — 2026-10-02
+
+**Judge authorization:** "Judge authorizes P1 + P2 + P3 as one unit (D-381)". Read at `d044572`.
+
+Lane A recorded this entry's sequential `A6` model in the Register as `D-381` item 8, using Lane B's 2026-09-15
+draft wording above. Correction pointers were added at `D-134`, `D-135` and `D-198`, with their text kept. The
+`CONFIG_LOG.md` `A6` row and `Modular_PRD.md`'s `B-106` receipt each carry a dated note.
+
+**Still open in this entry**, as its own lines 137 and 145 require:
+- the literal rewrite of `Modular_PRD.md`'s retention paragraph and `AC-12a`, and the Business Case/Blueprint `A6`
+  wording (packet steps 2, 3 and 6);
+- `CONFIG_LOG.md`'s `A6` row moving to `Yes`, which waits for that rewrite; `A4` is unchanged;
+- Lane B's later code-metadata unit (step 7) and independent verification.
+
+This entry stays `Open`, with no Resolution. Its tracker row (`O4`) stays open.
+
+## Lane B independent applied-diff review — D-404, 2026-10-03
+
+**Read revision:** `eed4f4eee7b0b94d23155c55949d50e727fd27a7`. Lane B (Codex), independent of Lane A's
+application, compared the committed four-document diff with D-381 item 8 and the actual D-404 act.
+This is a scoped review, not whole-entry Verified; the header, Lane A answer and O4 lifecycle stay Open.
+The current parent docket and follow-up sequence are in B-154's single current consolidation block.
+
+| Applied clause | Review result / limit |
+|---|---|
+| Product §6.3 / AC-12a | Supported: first UI boundary is 90 days; valid supplied external fact is required; elapsed time alone proves no archival/disposal; invalid or missing evidence establishes neither. No application archive/deletion job or five-year UI clock is authorized |
+| Business Case RET-EDITORIAL | Supported: rejected/unpublished archive trigger is 90 days on supplied fact. Five-year house-policy minimum retained periods remain external under the exact D-404 act; they are not statutory rules for every editorial record (the source explicitly distinguishes them). RET-POC-90 and REUSE-WINDOW-90 remain distinct |
+| CONFIG_LOG / DECISION_LOG | Supported: D-404 receives A6 ratification, value unchanged at 90; the false 'never put to Chief Editor' statement is corrected. A4, OD1–OD3 and runtime metadata remain outside this application |
+| Completion of four-document semantics | **Conditions remain:** Business Case line 269 still says all A1–A7 are unratified; its A6 mirror at line 278 has `Ratified? No` even while its Category cell says ratified, and its A6 value cells still start with 'auto-archive'. DECISION_LOG keeps a current-looking 'No ratification has occurred' sentinel and 'empty table' finding next to the first actual event. Explicit current wording/history labels are needed |
+| Completion of ratification receipt / downstream propagation | **Not supported:** Addendum §2.4 A6 still says Assumed / Ratified? No, with no date/artifact, contrary to Product §0.2's ratification-log rule. Blueprint A6 rows and FN-AUDIT AC-12a remain inconsistent. No downstream or runtime completion is earned |
+
+**Draft fixes — Lane A owns application, not Lane B:**
+
+1. In a bounded completion unit, receive the existing D-404 act in Addendum §2.4 A6: current value
+   '90-day first UI-visible boundary; external archival on a valid supplied fact', Ratified? Yes,
+   date 2026-10-03, approval artifact D-404 with the 2026-09-15 B-106 event and D-381 meaning.
+   Do not repeat the Judge's settled approval or ratify A4/OD rows by proximity. Also assess Addendum
+   A6 default and G1 for current-versus-history wording; no automatic archival promise survives.
+2. Business Case: replace the current blanket with 'A1–A5 and A7 remain assumed/unratified; A6 is
+   ratified under D-404'. Set the A6 mirror's `Ratified?` cell to Yes, with its dated source pointing
+   to the Addendum receipt; a 'Ratified' Category beside 'No' cannot pass the status check. Mark old
+   auto-archive labels explicitly historical or use the current external-fact boundary in both A6
+   value cells. DECISION_LOG §3 says **never edit or delete a ratification-event row**: leave the
+   original no-event placeholder row byte-for-byte intact and add a dated note outside that table
+   identifying it as pre-D-404 history. Correct the current 'empty table' prose outside the table.
+   Preserve the first real A6 event and its provenance.
+3. Blueprint A6 rows 71/122: receive D-381/D-404's current meaning and retain D-134 as history;
+   **cite the Business Case RET-EDITORIAL A6 period instead of copying a number into these rows**.
+   Distinguish its first UI boundary from the external retained period. FN-AUDIT §5 AC-12a / its explanatory
+   paragraph: archive means externally retrievable but absent here, not 'no longer retrievable'.
+   Require the policy/version/period/destination supplied absence fields and no valid fact → no
+   established archive/disposal; preserve the separate disposed limb's lack of V1 disposal authority.
+4. Follow the existing B-106 impact map for storyboard, UML/data flow and traceability. Record each
+   inspected path/section and either its exact correction or evidence-backed unaffected result;
+   a keyword search alone does not prove absence. Encyclopedia Entry 02 maps Addendum §2.4:
+   compare the actual accessible entry after the log correction, record update required/no update
+   required, and obtain the applicable publication authority only if publication is needed.
+5. Lane A commits authorized source applications; Lane B reviews their actual diff here. Runtime
+   metadata remains a separately authorized Lane B unit. Reconcile applicable existing ledgers and
+   synchronize canonical changes before consuming them; no parent or Gate 2 clearance is presumed.
+
+| Verdict | Scope | Condition / follow-up phase |
+|---|---|---|
+| Approve | D-404's recorded act and bounded external-fact/90-day Product correction | Phase 1: retain the reviewed scope and supplied-fact boundary |
+| Approve-with-conditions | Four-document semantic completion | Phase 1: explicit current/history corrections and independent diff review |
+| Reject | Complete ratification-log receipt, all-consumer propagation or whole B-106 verification claimed from this diff | Phase 1: Addendum/Blueprint/FN receipts and evidence-backed impact assessment remain |
+| Defer | A4/runtime metadata, feature construction and B-106 whole-entry closure | Separate authorized Lane B unit / applicable later implementation phase; then whole-obligation disposition |
+
+## Lane B independent applied-diff review — D-405, 2026-10-03
+
+**Read revision:** `c0a925c8651928a0ede1ae01a23f128780600a04`. Lane B compared the committed five-source diff and D-405 Register act with the D-404 correction and this entry's outstanding propagation. This is an independent **scoped source review**, not a Verified disposition for B-106. Lane A owns its answer; the Open header and runtime-metadata child remain unchanged. B-154 holds the single current parent-first docket.
+
+| Source and construction/verification input | Independent result |
+|---|---|
+| Addendum §2.4 A6 and Business Case mirror | **Supported.** A6 now has Yes, 2026-10-03 and D-404/B-106/D-381 provenance in the ratification log; the Business Case's separate `Ratified?` cell also says Yes. A4 and OD1–OD3 still say No. The former auto-archive instructions are explicitly marked history, and Blueprint cites the Business Case for the current first UI boundary without copying the number. |
+| DECISION_LOG §3 | **Supported.** The old no-event row remains byte-for-byte intact; dated current prose identifies the A6 event and the remaining unratified items. |
+| FN-AUDIT §5 AC-12a | **Supported with a wording condition.** The normative row now distinguishes valid supplied fact, missing/invalid fact and elapsed-time-only; archive remains externally retrievable and disposal has no V1 act. The explanatory paragraph immediately below still leads with “once deletion has happened” and “lawful disposal,” placing the historical/broader case before the V1 archival case. Its parenthetical narrows V1 correctly, but a builder or test author can still read the lead as a current deletion requirement. Lane A should lead with the V1 supplied-fact/archive behavior and label any disposal example historical or external in a separately bounded Phase 1 source correction. No deletion test or job follows from D-405. |
+| Addendum §2.1 A6 rationale | **Minor wording condition.** Its current value points to the ratified §2.4 A6 boundary, but the rationale still reads “Conservative default.” Lane A should label that rationale historical or replace it with a pointer to the dated ratification in the same bounded wording correction; do not reopen A6 or infer ratification of neighboring rows. |
+| Impact inspection and Encyclopedia Entry 02 | D-405 records the storyboard and traceability map as unaffected and no dedicated UML/data-flow file; this review did not independently inspect every Mermaid page. Entry 02 maps the changed Addendum §2.4 and still needs Lane A's **post-commit comparison**. Any hosted edit/publication requires its own scope and authority. |
+
+**Acceptance boundary:** D-405 delivers the five-source specification inputs, not application behavior, runtime `UNRATIFIED` metadata, graph currency, full B-106 closure or Gate 2 clearance. AC-12a's cases become later authorized construction and failing-first/passing verification inputs. Lane A may accept the supported rows and answer the two wording conditions and Encyclopedia receipt in its own answer/act; no fresh Judge decision on A6's value is requested.
+
+| Verdict | Scope | Condition / follow-up phase |
+|---|---|---|
+| Approve | D-405's A6 ratification receipt, Business Case status mirror, dated event history, Blueprint citation and AC-12a's three normative cases | Phase 1: receive this scoped review in the Lane A answer; use as later construction/verification input only |
+| Approve-with-conditions | Source prose and post-commit Encyclopedia comparison | Phase 1: bounded wording correction for FN-AUDIT paragraph/Addendum rationale; dated Entry 02 comparison and separate authority if publication is needed |
+| Reject | Whole B-106 Verified, application archive/deletion, or completed graph sync inferred from D-405 | Phase 1: retain source/runtime/graph obligations at their owners |
+| Defer | Runtime metadata, implemented AC-12a cases and whole-parent clearance | Later authorized Lane B unit and applicable SM05 verification; Phase 1 source/graph receipts first |
+
+## Lane B independent wording review — D-406, 2026-10-03
+
+**Read revision:** `D-406 at `5.14e231, committed in `761d7e93e0500164a6da9119a9fd693fd3e5e1f6`. Lane B compared the two committed source diffs with the Judge's Act 1 and the exact B-154 draft. This is a scoped verification of **source wording**, not whole B-106 Verified or feature-test evidence. Lane A wrote its own B-106 answer at `bfab90c`; this review does not replace it.
+
+| D-406 input | Independent result / limit |
+|---|---|
+| FN-AUDIT `5 paragraph after AC-12a | **Supported.** Current V1 prose now leads with valid supplied fact, visible policy/version/period/destination, external retrievability and the missing/invalid/elapsed-only refusal. The former deletion/disposal language is explicitly dated as broader external history and disclaims a V1 deletion requirement or test. The normative AC-12a row and Product parent were not changed by this act |
+| Addendum `2.1 A6 rationale | **Supported.** “Conservative default” is historical; the current rationale cites the 2026-10-03 D-404 ratification and `2.4. Neighboring A4 and OD1–OD3 rows remain outside this ratification |
+| D-54 and Entry 02 | Register/Build Spec/Inventory record the bounded source correction. D-406 records Lane A's read-only comparison of the accessible Entry 02 (v15, version 1790228879-4b2d) and its no-update result. Lane B did not independently access that hosted artifact, so the page-content observation is Lane A's receipt, not a second verification or publication act |
+
+**Construction/verification boundary:** The two corrected clauses now give builders and later test authors a consistent V1 supplied-fact contract; no automatic archive, disposal or deletion is authorized. This diff supplies no runtime `UNRATIFIED` metadata change, database persistence test, graph currency or executed AC-12a case. B-106 remains Open and its separate children keep their owners.
+
+| Verdict | Scope | Condition / follow-up phase |
+|---|---|---|
+| Approve | D-406's two-source wording application and D-54 receipt | Phase 1: Lane A receives this scoped source review; use the clauses as later construction/test inputs |
+| Approve-with-conditions | Entry 02 no-update receipt | Phase 1: retain Lane A's exact hosted version/content comparison as its own evidence; any optional annotation has a separate act |
+| Reject | Whole B-106 Verified, database deletion or implemented AC-12a tests inferred from D-406 | Phase 1: keep unbuilt behavior and runtime metadata at their named owners |
+| Defer | Runtime metadata, graph receipt and whole-parent closure | Later authorized Lane B/Phase 1 units and then applicable SM05 verification |

@@ -1,0 +1,78 @@
+{
+  "kind": "external-correction-preparation",
+  "status": "draft; independent review and Judge release pending",
+  "selfExcluded": "SHA256-MANIFEST.json",
+  "executionPacketSealed": false,
+  "entries": [
+    {
+      "path": "C:/CoWork/outputs/lane-a-git-binding-plan-2026-10-29/launch-review.r4.mjs",
+      "bytes": 21015,
+      "sha256": "1906c92a8db4b59e1eb28492fd5bf628deb641954fc2195e409fb0a7525ba462"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-a-git-binding-plan-2026-10-29/PLAN.r4b.md",
+      "bytes": 14395,
+      "sha256": "a840e9f8731f0692aa24a608a25fe7c5b39bb3736ba57f13379b2c46d64a54ed"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-b-after-d475-f3-r2-2026-10-29/entry.mjs",
+      "bytes": 52288,
+      "sha256": "6f07293ae714cf702365c545a1a9f2e720c008ccb8d8b8f96909467bb7db6cd3"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-b-after-d475-f3-r2-2026-10-29/entry.r3.mjs",
+      "bytes": 53630,
+      "sha256": "52ff2b33ab9d743a4345f45172de2028639200c6d3fc601c1a980cd51cd340c6"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-b-after-d475-f3-r2-preparation-2026-10-29/input-bindings.json",
+      "bytes": 5190,
+      "sha256": "b88cd29ba787ebfdcd3a72408dac56228cfb50088d2cb33608355f880695ee2e"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-b-after-d475-f3-r2-preparation-2026-10-29/SHA256-MANIFEST.json",
+      "bytes": 11288,
+      "sha256": "f10b6db9ba25118242db3825a2efc16add503e84c285b63361674d1de80102cb"
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-b-f3-review-consolidation-2026-10-29/HANDOFF-DRAFT.md",
+      "bytes": 16702,
+      "sha256": "fd6965ad1b5ee5baf3c318e6946775ce3998079368caf29b7a0234b46c575ac4"
+    },
+    {
+      "path": "C:\\CoWork\\outputs\\lane-b-f3-corrections-r3-2026-10-30\\capture.r3.mjs",
+      "bytes": 4086,
+      "sha256": "bbb00be10f46b95e809ab994673ce94e3f1d71ffdb83086f7a54bb0d96715952"
+    },
+    {
+      "path": "C:\\CoWork\\outputs\\lane-b-f3-corrections-r3-2026-10-30\\finalization.fragment.txt",
+      "bytes": 3863,
+      "sha256": "5d64e252400753fe8d7f42e030aa78d63a90bd381f58863e45ac4860aa4be451"
+    },
+    {
+      "path": "C:\\CoWork\\outputs\\lane-b-f3-corrections-r3-2026-10-30\\HANDOFF.md",
+      "bytes": 8905,
+      "sha256": "44c05c4f101094e18672394d9a9d14a633b3e4882829645f88d9f5fcf9c5c8a7"
+    },
+    {
+      "path": "C:\\CoWork\\outputs\\lane-b-f3-corrections-r3-2026-10-30\\INVOCATION.ps1.txt",
+      "bytes": 1764,
+      "sha256": "f3d38cc755bd14d3c51e8bc265dc430ea7b93431e15786dda87f7d4fba225833"
+    },
+    {
+      "path": "C:\\CoWork\\outputs\\lane-b-f3-corrections-r3-2026-10-30\\invoke.r3.ps1",
+      "bytes": 1764,
+      "sha256": "f3d38cc755bd14d3c51e8bc265dc430ea7b93431e15786dda87f7d4fba225833"
+    },
+    {
+      "path": "C:\\CoWork\\outputs\\lane-b-f3-corrections-r3-2026-10-30\\semantic.fragment.txt",
+      "bytes": 554,
+      "sha256": "85bb21e5c5ffba54cf39fd357c29b2f0ea18c74a894a57b525a5ee7875f31ba3"
+    },
+    {
+      "path": "C:\\CoWork\\outputs\\lane-b-f3-corrections-r3-2026-10-30\\verification.json",
+      "bytes": 648,
+      "sha256": "6aa7064a9c5f6e1c06ecea14625863fa539849b8bebb95d937641cdf947084a6"
+    }
+  ]
+}

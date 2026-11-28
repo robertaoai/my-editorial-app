@@ -1,0 +1,42 @@
+{
+  "schema": "B-157 C2 target manifest v1",
+  "derivedFrom": "B-156 F3-optionA/F3-optionA-targets.json (ae728bd)",
+  "repairIds": "R21-R25, R29",
+  "targets": [
+    {
+      "id": "R21-R22",
+      "kind": "lines",
+      "path": ".gitattributes",
+      "from": 27,
+      "to": 38
+    },
+    {
+      "id": "R23",
+      "kind": "lines",
+      "path": "docs/v1/V1-BUILD-SPEC.md",
+      "from": 660,
+      "to": 665
+    },
+    {
+      "id": "R24",
+      "kind": "lines",
+      "path": "docs/v1/V1-DECISION-REGISTER.md",
+      "from": 2983,
+      "to": 2986
+    },
+    {
+      "id": "R25",
+      "kind": "lines",
+      "path": "docs/v1/V1-BUILD-SPEC.md",
+      "from": 531,
+      "to": 531
+    },
+    {
+      "id": "R29",
+      "kind": "lines",
+      "path": "docs/graph-fragments/README.md",
+      "from": 111,
+      "to": 111
+    }
+  ]
+}

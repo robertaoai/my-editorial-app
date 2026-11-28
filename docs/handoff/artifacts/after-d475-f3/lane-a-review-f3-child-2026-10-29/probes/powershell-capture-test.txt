@@ -1,0 +1,4 @@
+PowerShell 5.1.26100.9711 test (scratch, harmless Node one-liner), 2026-10-29:
+argv forwarding: ["--child","C:\CoWork\x y\entry.mjs","--child-sha256","abc","--out","C:\o","--","--out","C:/CoWork/f3-run-1"]
+EAP=Stop + 2> file, child writes stderr and exits 3: LASTEXITCODE not captured (empty); caught error = first stderr line; stderr file empty; stdout file starts EF BB BF (re-encoded).
+EAP=Stop, no stderr: exit code 0 captured.

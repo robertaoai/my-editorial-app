@@ -1,0 +1,28 @@
+[
+  {
+    "step": "base",
+    "at": "2026-11-13T13:36:17.675Z",
+    "base": "30db8d51140c0e46700f96bb9f018e6e40b93cbc",
+    "tree": "0b558d2a51f17eff755dfd7fba51bed37548f9ae"
+  },
+  {
+    "step": "apply",
+    "at": "2026-11-13T13:36:17.970Z",
+    "patch": "C:/CoWork/outputs/D-479-r7-rebound/30db8d51140c0e46700f96bb9f018e6e40b93cbc-rev2/2a.patch",
+    "bytes": 82341,
+    "sha256": "34fb8368c66b4e75599d5fcfec1bb68ba1810e16412b6005c772f919293b2e1d",
+    "checkExit": 0,
+    "applyExit": 0
+  },
+  {
+    "step": "ledger",
+    "at": "2026-11-13T13:36:20.671Z",
+    "paths": 11,
+    "equalsPackageLedger": true
+  },
+  {
+    "step": "STOP",
+    "at": "2026-11-13T13:36:28.347Z",
+    "error": "STOP: hook trace missing for snapshot commit"
+  }
+]

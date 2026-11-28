@@ -1,0 +1,312 @@
+bun test v1.1.30 (7996d06b)
+
+__tests__\build-config.test.ts:
+(pass) S0 build configuration > every registered value carries a CONFIG_LOG citation
+(pass) S0 build configuration > every provisional value names the open decision governing it
+(pass) S0 build configuration > UNSET values fail loudly and route to the Chief Editor
+(pass) S0 build configuration > route assignments match CONFIG_LOG §6 exactly
+(pass) S0 build configuration > every stored Phase 0 flag is disabled
+(pass) S0 build configuration > every newly implemented stored flag carries a CONFIG_LOG citation
+(pass) S0 build configuration > four-eyes flags are derived from their governing values
+
+__tests__\s1-schema.test.ts:
+(pass) S1 editorial schema migration > uses the governed ten-state lifecycle and a total no-default backfill
+(pass) S1 editorial schema migration > stores Q11 and executor provenance as typed columns
+(pass) S1 editorial schema migration > corrects the legacy T5 seed to human-primary with agent assistance
+(pass) S1 editorial schema migration > makes every governed evidence table insert/read-only twice
+(pass) S1 editorial schema migration > models publication state as the seven governed append-only event types
+(pass) S1 editorial schema migration > keeps allowed transitions effective-dated and rejects default-allow logic
+(pass) S1 editorial schema migration > requires one preceding same-transaction audit row
+(pass) S1 editorial schema migration > keeps automated T7 and human-confirmed T11 as distinct publish rules
+(pass) S1 editorial schema migration > rejects the specific bypass Logged to Drafted
+(pass) S1 editorial schema migration > does not introduce the deferred articles retention class
+(pass) S1 editorial schema migration > allows separate commissions to reuse the same source URL
+(pass) S1 editorial schema migration > does not modify or recreate the frozen baseline migration [16.00ms]
+
+__tests__\smoke.test.ts:
+(pass) the test runner executes and TypeScript compiles
+
+docs\graph-fragments\prune-stale-symbols.test.mjs:
+(pass) prune-stale-symbols (D-421) > retires only code nodes absent from the fresh extraction and not curated
+(pass) prune-stale-symbols (D-421) > a concept, commit or any non-code node is never a candidate, even when absent from fresh
+(pass) prune-stale-symbols (D-421) > a fragment-declared code node absent from fresh is refused, not retired
+(pass) prune-stale-symbols (D-421) > pruning removes the nodes and every incident link, nothing else
+(pass) prune-stale-symbols (D-421) > no qualifying node: a no-op that leaves the graph unchanged
+(pass) prune completion is verified, not printed (D-423) > an ordinary run reports completion only after the persisted graph is verified [47.00ms]
+(pass) prune completion is verified, not printed (D-423) > a dry run leaves the graph bytes equal and claims nothing
+(pass) prune completion is verified, not printed (D-423) > a failed write exits nonzero with no completion claim [16.00ms]
+(pass) prune completion is verified, not printed (D-423) > persisted bytes that still hold a planned id fail verification
+(pass) prune completion is verified, not printed (D-423) > selection, fragment refusal and the commit binding are unchanged [46.00ms]
+
+scripts\fixtures\graphify-guard.test.mjs:
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > refuses file%253A%252F%252Fserver%252Fshare%252Fleak [16.00ms]
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > refuses {"path":"file%253A%252F%252Fserver%252Fshare%252Fleak"}
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > refuses C:%25252Frobertaoai%25252Fmy-editorial-app-copy%25252Fleak
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > refuses C:%25252525%2Fx
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > foreign raw depth 0: refused — file://server/share/leak [15.00ms]
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > foreign quoted depth 0: refused — file://server/share/leak
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > foreign raw depth 1: refused — file://server/share/leak
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > foreign quoted depth 1: refused — file://server/share/leak
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > foreign raw depth 2: refused — file://server/share/leak
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > foreign quoted depth 2: refused — file://server/share/leak
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > foreign raw depth 3: refused — file://server/share/leak
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > foreign quoted depth 3: refused — file://server/share/leak
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > foreign raw depth 4: refused — file://server/share/leak
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > foreign quoted depth 4: refused — file://server/share/leak
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > foreign raw depth 0: refused — C:/robertaoai/my-editorial-app-copy/leak
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > foreign quoted depth 0: refused — C:/robertaoai/my-editorial-app-copy/leak
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > foreign raw depth 1: refused — C:/robertaoai/my-editorial-app-copy/leak
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > foreign quoted depth 1: refused — C:/robertaoai/my-editorial-app-copy/leak
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > foreign raw depth 2: refused — C:/robertaoai/my-editorial-app-copy/leak
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > foreign quoted depth 2: refused — C:/robertaoai/my-editorial-app-copy/leak
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > foreign raw depth 3: refused — C:/robertaoai/my-editorial-app-copy/leak
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > foreign quoted depth 3: refused — C:/robertaoai/my-editorial-app-copy/leak
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > foreign raw depth 4: refused — C:/robertaoai/my-editorial-app-copy/leak
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > foreign quoted depth 4: refused — C:/robertaoai/my-editorial-app-copy/leak
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > foreign raw depth 0: refused — \\server\share\leak
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > foreign quoted depth 0: refused — \\server\share\leak
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > foreign raw depth 1: refused — \\server\share\leak
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > foreign quoted depth 1: refused — \\server\share\leak
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > foreign raw depth 2: refused — \\server\share\leak
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > foreign quoted depth 2: refused — \\server\share\leak
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > foreign raw depth 3: refused — \\server\share\leak
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > foreign quoted depth 3: refused — \\server\share\leak
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > foreign raw depth 4: refused — \\server\share\leak
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > foreign quoted depth 4: refused — \\server\share\leak
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > foreign raw depth 0: refused — C:/CoWork/outputs/run/x
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > foreign quoted depth 0: refused — C:/CoWork/outputs/run/x
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > foreign raw depth 1: refused — C:/CoWork/outputs/run/x
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > foreign quoted depth 1: refused — C:/CoWork/outputs/run/x
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > foreign raw depth 2: refused — C:/CoWork/outputs/run/x
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > foreign quoted depth 2: refused — C:/CoWork/outputs/run/x
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > foreign raw depth 3: refused — C:/CoWork/outputs/run/x
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > foreign quoted depth 3: refused — C:/CoWork/outputs/run/x
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > foreign raw depth 4: refused — C:/CoWork/outputs/run/x
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > foreign quoted depth 4: refused — C:/CoWork/outputs/run/x
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > inroot raw depth 0: passes — C:/robertaoai/my-editorial-app/docs/x.md
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > inroot quoted depth 0: passes — C:/robertaoai/my-editorial-app/docs/x.md
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > inroot raw depth 1: passes — C:/robertaoai/my-editorial-app/docs/x.md
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > inroot quoted depth 1: passes — C:/robertaoai/my-editorial-app/docs/x.md
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > inroot raw depth 2: passes — C:/robertaoai/my-editorial-app/docs/x.md
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > inroot quoted depth 2: passes — C:/robertaoai/my-editorial-app/docs/x.md
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > inroot raw depth 3: passes — C:/robertaoai/my-editorial-app/docs/x.md
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > inroot quoted depth 3: passes — C:/robertaoai/my-editorial-app/docs/x.md
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > inroot raw depth 4: refused — C:/robertaoai/my-editorial-app/docs/x.md
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > inroot quoted depth 4: refused — C:/robertaoai/my-editorial-app/docs/x.md
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > inroot raw depth 0: passes — file:///C:/robertaoai/my-editorial-app/docs
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > inroot quoted depth 0: passes — file:///C:/robertaoai/my-editorial-app/docs
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > inroot raw depth 1: passes — file:///C:/robertaoai/my-editorial-app/docs
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > inroot quoted depth 1: passes — file:///C:/robertaoai/my-editorial-app/docs
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > inroot raw depth 2: passes — file:///C:/robertaoai/my-editorial-app/docs
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > inroot quoted depth 2: passes — file:///C:/robertaoai/my-editorial-app/docs
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > inroot raw depth 3: passes — file:///C:/robertaoai/my-editorial-app/docs
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > inroot quoted depth 3: passes — file:///C:/robertaoai/my-editorial-app/docs
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > inroot raw depth 4: refused — file:///C:/robertaoai/my-editorial-app/docs
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > inroot quoted depth 4: refused — file:///C:/robertaoai/my-editorial-app/docs
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > web raw depth 0: passes — https://example.com/a/b
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > web quoted depth 0: passes — https://example.com/a/b
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > web raw depth 1: passes — https://example.com/a/b
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > web quoted depth 1: passes — https://example.com/a/b
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > web raw depth 2: passes — https://example.com/a/b
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > web quoted depth 2: passes — https://example.com/a/b
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > web raw depth 3: passes — https://example.com/a/b
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > web quoted depth 3: passes — https://example.com/a/b
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > web raw depth 4: passes — https://example.com/a/b
+(pass) canonical path validation (v4 condition 1) > one bounded decoding policy through the PUBLIC scanner (F1-R3, D-420) > web quoted depth 4: passes — https://example.com/a/b
+(pass) canonical path validation (v4 condition 1) > encoding left after the decode limit is refused, not read as 'no path'
+(pass) canonical path validation (v4 condition 1) > refuses "C:\\CoWork\\x\\y"
+(pass) canonical path validation (v4 condition 1) > refuses "C:/git/my-editorial-app/docs"
+(pass) canonical path validation (v4 condition 1) > refuses "C:/robertaoai/my-editorial-app-copy/leak"
+(pass) canonical path validation (v4 condition 1) > refuses "D:/robertaoai/my-editorial-app/leak"
+(pass) canonical path validation (v4 condition 1) > refuses "C:/robertaoai/my-editorial-app/../../../CoWork/outputs/clone/x"
+(pass) canonical path validation (v4 condition 1) > refuses "file://server/share/x"
+(pass) canonical path validation (v4 condition 1) > refuses "file:///C%3A%2FCoWork%2Foutputs%2Fclone%2Fx"
+(pass) canonical path validation (v4 condition 1) > refuses "\\\\server\\share\\x"
+(pass) canonical path validation (v4 condition 1) > refuses "C:%5Crobertaoai%5Cmy-editorial-app-copy"
+(pass) canonical path validation (v4 condition 1) > refuses "C:/CoWork/outputs/run/clone-01/.graphify"
+(pass) canonical path validation (v4 condition 1) > refuses "C:/../../x"
+(pass) canonical path validation (v4 condition 1) > allows "C:\robertaoai\my-editorial-app"
+(pass) canonical path validation (v4 condition 1) > allows "C:\\robertaoai\\my-editorial-app\\docs"
+(pass) canonical path validation (v4 condition 1) > allows "C:/robertaoai/my-editorial-app/docs/x.md"
+(pass) canonical path validation (v4 condition 1) > allows "C:/robertaoai/my-editorial-app/docs/../scripts/x.mjs"
+(pass) canonical path validation (v4 condition 1) > allows "file:///C:/robertaoai/my-editorial-app/docs"
+(pass) canonical path validation (v4 condition 1) > allows https://reuters.com/a
+(pass) canonical path validation (v4 condition 1) > allows ({file:o,count:i.length})
+(pass) canonical path validation (v4 condition 1) > refuses \\server\share\leak
+(pass) canonical path validation (v4 condition 1) > refuses //server/share/leak
+(pass) canonical path validation (v4 condition 1) > refuses file:/C:/robertaoai/my-editorial-app/docs
+(pass) canonical path validation (v4 condition 1) > refuses file:garbage
+(pass) canonical path validation (v4 condition 1) > allows see the file: section
+(pass) canonical path validation (v4 condition 1) > allows a `file:` URI
+(pass) canonical path validation (v4 condition 1) > allows https://example.com/a/b
+(pass) canonical path validation (v4 condition 1) > allows x=a//b; // comment
+(pass) canonical path validation (v4 condition 1) > allows { file:loader, mode:1 }
+(pass) canonical path validation (v4 condition 1) > refuses {"path":"C:/robertaoai/my-editorial-app/a b/../../../CoWork/outputs/leak"}
+(pass) canonical path validation (v4 condition 1) > refuses file%3A%2F%2Fserver%2Fshare%2Fleak
+(pass) canonical path validation (v4 condition 1) > allows {"path":"C:/robertaoai/my-editorial-app/a b/file"}
+(pass) canonical path validation (v4 condition 1) > refuses {"path":"C:\\robertaoai\\my-editorial-app\\a b\\..\\..\\..\\CoWork\\outputs\\leak"}
+(pass) canonical path validation (v4 condition 1) > refuses C:/robertaoai/my-editorial-app/a/../../../CoWork/outputs/leak
+(pass) canonical path validation (v4 condition 1) > refuses "file%3A%2F%2Fserver%2Fshare%2Fleak"
+(pass) canonical path validation (v4 condition 1) > refuses %5C%5Cserver%5Cshare%5Cleak
+(pass) canonical path validation (v4 condition 1) > refuses C:%252Frobertaoai%252F..%252F..
+(pass) canonical path validation (v4 condition 1) > allows https%3A%2F%2Fexample.com%2Fa
+(pass) canonical path validation (v4 condition 1) > allows {"url":"https://example.com/a b/c"}
+(pass) canonical path validation (v4 condition 1) > an undecodable escape is malformed, never 'no path'
+(pass) containment against the live target > alias, contains and inside are refused; a sibling is allowed
+(pass) containment against the live target > an alias through a directory link is refused
+(pass) lifecycle records (raw null refused before rebinding) > a valid record passes
+(pass) lifecycle records (raw null refused before rebinding) > the B-050 raw-null write is refused even beside stale:false
+(pass) lifecycle records (raw null refused before rebinding) > wrong head, branch, root, stale flag and schema are refused
+(pass) lifecycle records (raw null refused before rebinding) > a missing record is refused
+(pass) transaction journal and the docs-drift order (R5) > the journal sits beside a link's target, even when the target is missing
+(pass) transaction journal and the docs-drift order (R5) > no journal, a valid journal and a malformed journal are distinguished [47.00ms]
+(pass) transaction journal and the docs-drift order (R5) > journal plus MISSING live path: a finding, not the absent-state SKIP
+(pass) transaction journal and the docs-drift order (R5) > a journal at stage verified is still a finding until the receipt removes it [16.00ms]
+(pass) transaction journal and the docs-drift order (R5) > no local state and no journal: the existing CI skip is kept
+(pass) transaction journal and the docs-drift order (R5) > ordinary local state: no transaction finding in this repository
+(pass) entry point > running the guard with any verb but prepare, publish or recover refuses (D-425) [187.00ms]
+(pass) F2 publication on fixture targets (steps 6–7) > refuses anything not declared a fixture, and the real live target even when declared [1672.00ms]
+(pass) F2 publication on fixture targets (steps 6–7) > a valid run publishes exactly the reviewed bytes, writes a receipt, clears journal and lock [1672.00ms]
+(pass) F2 publication on fixture targets (steps 6–7) > staging that is not the reviewed bytes, or a changed baseline, is refused before any mutation [1078.00ms]
+(pass) F2 publication on fixture targets (steps 6–7) > a held publication lock refuses a second publisher [63.00ms]
+(pass) F2 publication on fixture targets (steps 6–7) > an exception after mutation is rolled back by the OWNER, keeping its lock until done [640.00ms]
+(pass) F2 termination at each boundary, then restart recovery (abrupt-termination boundary) > killed after-prepared: the journal blocks health; a dead-owner recovery gives aborted-live-unchanged; a valid run follows [2688.00ms]
+(pass) F2 termination at each boundary, then restart recovery (abrupt-termination boundary) > killed after-rename-old: the journal blocks health; a dead-owner recovery gives restored; a valid run follows [3125.00ms]
+(pass) F2 termination at each boundary, then restart recovery (abrupt-termination boundary) > killed after-old-moved: the journal blocks health; a dead-owner recovery gives restored; a valid run follows [3500.00ms]
+(pass) F2 termination at each boundary, then restart recovery (abrupt-termination boundary) > killed after-rename-new: the journal blocks health; a dead-owner recovery gives rolled-back; a valid run follows [2672.00ms]
+(pass) F2 termination at each boundary, then restart recovery (abrupt-termination boundary) > killed after-new-in-place: the journal blocks health; a dead-owner recovery gives rolled-back; a valid run follows [2953.00ms]
+(pass) F2 termination at each boundary, then restart recovery (abrupt-termination boundary) > killed after-verified: the journal blocks health; a dead-owner recovery gives completed-release; a valid run follows [2406.00ms]
+(pass) F2 termination at each boundary, then restart recovery (abrupt-termination boundary) > killed after-receipt: the journal blocks health; a dead-owner recovery gives completed-release; a valid run follows [2438.00ms]
+(pass) F2 exclusive create under the RUNNING runtime (Bun 1.1.30 Windows defect, D-423) > createExclusive refuses an existing file and never overwrites it [15.00ms]
+(pass) F2 ownership: live owner, peers, concurrent recoverers > a peer is refused while the publishing owner is alive; the owner then completes [16906.00ms]
+(pass) F2 ownership: live owner, peers, concurrent recoverers > two recoverers: the second is refused while the first holds the exclusive token [18204.00ms]
+(pass) F2 ownership: live owner, peers, concurrent recoverers > a failed restore keeps the journal (non-health); a later recovery succeeds [1703.00ms]
+(pass) F2 ownership: live owner, peers, concurrent recoverers > a receipt failure at verified is recovery-required, then completed by recovery [1687.00ms]
+(pass) F2 ownership: live owner, peers, concurrent recoverers > a malformed journal, a lock without a journal, and an unknown owner each need evidenced recovery [141.00ms]
+(pass) F2 source snapshot and isolated checkout (R4/PC6) > detached HEAD and a dirty tree are refused; a ref or config change invalidates the snapshot [3719.00ms]
+(pass) F2 source snapshot and isolated checkout (R4/PC6) > the disposable checkout carries the caller's origin and exactly its ref map [4281.00ms]
+(pass) F2 generation refuses before rebinding (raw null, tool failure, no-op) > raw null metadata after the rebuild is refused, never rebound [4000.00ms]
+(pass) F2 generation refuses before rebinding (raw null, tool failure, no-op) > a tool failure (Git unavailable inside the tool) is refused [5375.00ms]
+(pass) F2 generation refuses before rebinding (raw null, tool failure, no-op) > a rebuild that writes nothing is a refused no-op, even with valid-looking metadata [4234.00ms]
+(pass) F2 community names: reused only for identical member sets; unique or pending > identical member set reuses its name; a changed set is pending; a duplicate supplied name is pending [16.00ms]
+(pass) F2 community names: reused only for identical member sets; unique or pending > an operator answer keyed by member-set hash survives community renumbering
+(pass) F2 community names: reused only for identical member sets; unique or pending > an integer-keyed answer never binds: a renumbered community stays pending (D-424 R2)
+(pass) F2 composition (step 4): refuses rather than repairs; frozen bytes are reproducible > a valid candidate composes: caller identity rebound, heads kept, provenance retained, disposable paths gone [469.00ms]
+(pass) F2 composition (step 4): refuses rather than repairs; frozen bytes are reproducible > identical inputs and frozen time give an identical manifest [750.00ms]
+(pass) F2 composition (step 4): refuses rather than repairs; frozen bytes are reproducible > an unclassified file, a pending semantic file, a fragment-field mismatch or a name mismatch is refused [1281.00ms]
+(pass) F2 composition (step 4): refuses rather than repairs; frozen bytes are reproducible > D424-R1a: staging equal to, inside, above or linked to the bound source refuses before any write [2750.00ms]
+(pass) F2 composition (step 4): refuses rather than repairs; frozen bytes are reproducible > raw null in the candidate is refused before any rebinding [281.00ms]
+(pass) F2 composition (step 4): refuses rather than repairs; frozen bytes are reproducible > a disposable path in a promoted file is refused [297.00ms]
+(pass) D-424 R1: one fixture boundary for publish, recover and compose > the live ancestor and live-as-staging are refused before any write [62.00ms]
+(pass) D-424 R1: one fixture boundary for publish, recover and compose > an alias of the live target through a link is refused in any role [32.00ms]
+(pass) D-424 R1: one fixture boundary for publish, recover and compose > a missing root, or a runtime path outside the declared root, is refused [47.00ms]
+(pass) D-424 R1: one fixture boundary for publish, recover and compose > recover refuses without a root, on the live target, and on journal paths outside the root [62.00ms]
+(pass) D-424 R1: one fixture boundary for publish, recover and compose > compose checks the boundary before reading or deleting anything [47.00ms]
+(pass) D-424 R3: every declared edge field is compared > altered confidence or omitted declared metadata is refused; extra saved fields and key order are not [31.00ms]
+(pass) D-424 R3: every declared edge field is compared > parallel relations match by declared content, each saved edge once [31.00ms]
+(pass) D-424 R3: every declared edge field is compared > D424-R3a: a complete assignment is found whatever the order; insufficient or changed edges still refuse [47.00ms]
+(pass) D-424 R4: publish re-checks the source under its lock > a HEAD change between snapshot and publication is refused before any journal [2297.00ms]
+(pass) D-424 R4: publish re-checks the source under its lock > a ref change between snapshot and publication is refused before any journal [2110.00ms]
+(pass) D-424 R4: publish re-checks the source under its lock > a config change between snapshot and publication is refused before any journal [2218.00ms]
+(pass) D-424 R4: publish re-checks the source under its lock > an unavailable source is refused, and the journal binds the snapshot's HEAD [985.00ms]
+(pass) D-424 G-D423-1: a changed symbol's description is pending, not replayed > unchanged files replay; a changed file's symbol is pending until answered [1984.00ms]
+(pass) D-424 G-D423-1: a changed symbol's description is pending, not replayed > an unprovable baseline commit leaves every file-backed symbol pending [1250.00ms]
+(pass) D-425 F3-R1a: the acceptance record (schema, then the commit that introduces it) > a canonical, exactly-keyed, typed record parses
+(pass) D-425 F3-R1a: the acceptance record (schema, then the commit that introduces it) > extra, reordered, nested-extra, non-object, duplicate, wrong-type, wrong-literal, placeholder and non-canonical records refuse
+(pass) D-425 F3-R1a: the acceptance record (schema, then the commit that introduces it) > only the record the review commit itself introduces is accepted; inherited, duplicated, quoted, prose-only and out-of-range records refuse [4953.00ms]
+(pass) D-425 F3-R2: the publication source rule (handoff-only fast-forward) > a handoff-only fast-forward passes and records the publication HEAD [2703.00ms]
+(pass) D-425 F3-R2: the publication source rule (handoff-only fast-forward) > code, mixed, dirty, config, other-ref and non-fast-forward changes refuse [12797.00ms]
+(pass) D-425 F3-R6: baseline selection (bootstrap, then the release chain) > the bootstrap matches; a changed live map refuses [31.00ms]
+(pass) D-425 F3-R6: baseline selection (bootstrap, then the release chain) > ambiguous receipts and a broken chain refuse [32.00ms]
+(pass) D-425 F3-R3/R3a/R3b: work states and commands > fresh → pending → resume → ready → committed review → publish → published; the next baseline follows the chain [11375.00ms]
+(pass) D-425 F3-R3/R3a/R3b: work states and commands > a record that does not match the work folder refuses and the folder stays ready [9250.00ms]
+(pass) D-425 F3-R3/R3a/R3b: work states and commands > publish from fresh, pending or failed refuses; changed answers after ready and a changed source before resume fail [16093.00ms]
+(pass) D-425 F3-R3/R3a/R3b: work states and commands > preparing: alive and unknown owners refuse with the work unchanged; a proved-dead owner fails once; a held claim refuses [10844.00ms]
+(pass) D-425 F3-R3/R3a/R3b: work states and commands > a prepare killed mid-run (real termination) is classified failed on the next entry, never resumed [5344.00ms]
+(pass) D-425 F3-R4/R4a: outcomes and messages > an entry refusal leaves a peer's journal and lock byte-equal [10984.00ms]
+(pass) D-425 F3-R4/R4a: outcomes and messages > an owned failure restores (exit 6, verified); a blocked restore is recovery-required (exit 5) with evidence kept [23938.00ms]
+(pass) D-425 F3-R4/R4a: outcomes and messages > a receipt failure after verified is completed by recovery with the journal's original acceptance [11140.00ms]
+(pass) D-425 F3-R4/R4a: outcomes and messages > every outcome keeps its own exit code
+(pass) D-425 F3-R5: no instruction routes around the guard > docs-drift, SKILL section 9 and README section 4 name the guarded procedure, never a raw live rebuild [16.00ms]
+(pass) D-425 F3-C1: the work-root preflight refuses before any write or generation > work inside the source tree, its .git, the live target, outside the disposable root, or through a link alias refuses; nothing is created and generation is never called [2203.00ms]
+(pass) D-425 F3-C1: the work-root preflight refuses before any write or generation > resume and publish run the same preflight before taking the claim [1313.00ms]
+(pass) D-425 F3-C2: the caller's trusted repository and live target bind the work folder > a STATE naming another source, or an identical-baseline copy as target, refuses before any claim [10484.00ms]
+(pass) D-425 F3-C3: resume verifies the installed tool again and hands its CLI to generation > prepare and resume both reach generation with the verified CLI; an unavailable pin fails resume before generation [10547.00ms]
+(pass) D-425 F3-C3: resume verifies the installed tool again and hands its CLI to generation > the default resume path verifies the real pins and passes a CLI string (never undefined) to the generation bridge [7531.00ms]
+(pass) D-425 F3-C4: the actual staging bytes are checked before reviewed is written > staging altered after review refuses, keeps ready and leaves the live state unchanged [8922.00ms]
+(pass) D-426 PR2a: baseline capture under the publication lock > a held lock refuses the first prepare: no resumable state, no generation, the peer's lock byte-equal; a later prepare proceeds [6578.00ms]
+(pass) D-426 PR2a: baseline capture under the publication lock > a held lock refuses a resume: the prior pending record is restored byte for byte, never failed; a later resume proceeds [9641.00ms]
+(pass) D-426 PR2a: baseline capture under the publication lock > a copy or hash failure fails the attempt (exit 4) and releases the lock; the live state is unchanged [7062.00ms]
+(pass) D-426 PR2a: baseline capture under the publication lock > killed after-capture-lock: the capture lock stays; dead-owner recovery releases only it, with a receipt; a retry succeeds [10719.00ms]
+(pass) D-426 PR2a: baseline capture under the publication lock > killed after-capture-copy: the capture lock stays; dead-owner recovery releases only it, with a receipt; a retry succeeds [10859.00ms]
+(pass) D-426 PR2a: baseline capture under the publication lock > an alive or unknown owner, a malformed binding or a changed live state leaves the capture lock untouched (exit 5) [719.00ms]
+(pass) D-426 PR2a: baseline capture under the publication lock > competing recoverers: a held recovery token refuses and the dead owner's capture lock stays byte-equal [31.00ms]
+(pass) D-426 PR3a: the selection oracle reproduces the pinned rules > default and current always; other heads only within 30 days of the selection time; 200 commits; repo key from origin
+(pass) D-426 PR3a: the selection oracle reproduces the pinned rules > revision 5: a stable bracket passes; unordered, invalid or cutoff-crossing brackets refuse
+(pass) D-426 PR3b: both extraction branches against the oracle and the producer merge > valid control: an old baseline membership outside the new window is carried and passes; brackets and observed_at are recorded separately [7454.00ms]
+(pass) D-426 PR3b: both extraction branches against the oracle and the producer merge > revision 5: a cutoff crossing on either call refuses through the bracket, even though observed_at exists [16328.00ms]
+(pass) D-426 PR3b: both extraction branches against the oracle and the producer merge > the fresh branch: an omitted or invented membership, or an extra branch or commit, refuses with an unchanged lifecycle HEAD [25078.00ms]
+(pass) D-426 PR3b: both extraction branches against the oracle and the producer merge > the rebuild branch: an omitted carried membership, an invented historical membership or a changed carried node refuses [24547.00ms]
+(pass) D-426 PR3b: both extraction branches against the oracle and the producer merge > raw null or no graph on the fresh branch refuses before the prune [13343.00ms]
+(pass) D-426 PR3a: executable bindings are verified before every tool call > a changed git or node binary or version refuses before the tool runs; valid bindings pass [33938.00ms]
+(pass) D-426 PR3a: executable bindings are verified before every tool call > the checkout's effective Git configuration is frozen at prepare: tampering before the first use or between uses refuses; a shadowing git refuses [10062.00ms]
+(pass) D-426 PR3a: executable bindings are verified before every tool call > the child argv must equal a template frozen at prepare, expanded for the candidate state
+(pass) D-426 PR3a: executable bindings are verified before every tool call > resume fails when a binding changed since prepare; prepare freezes the bindings without environment values [2485.00ms]
+(pass) D-426 PR3b: the model against the REAL pinned producer (fidelity anchor) > from-empty equals the oracle; after a branch is retired, the rebuild equals the producer merge and carries it [15984.00ms]
+(pass) D-426 PR4b: derived artifacts by their producer projections > valid control: the real default export passes, scene-only bundle and an optional present:false entry included [7531.00ms]
+(pass) D-426 PR4b: derived artifacts by their producer projections > scene: a wrong color value with unchanged keys, a wrong derived weight and a flipped weak flag each refuse [2875.00ms]
+(pass) D-426 PR4b: derived artifacts by their producer projections > entities and citations: a wrong structured description or citation with unchanged ids refuses [4094.00ms]
+(pass) D-426 PR4b: derived artifacts by their producer projections > reconciliation: a wrong record refuses, and a malformed queue refuses instead of the producer's empty fallback [2094.00ms]
+(pass) D-426 PR4b: derived artifacts by their producer projections > vendor, manifest and bundle: changed shipped bytes, a wrong manifest hash and a stale embedded scene with unchanged counts refuse [3172.00ms]
+(pass) D-426 PR4b: derived artifacts by their producer projections > inventory: an unknown promoted file, an unclassified input, a changed graph copy or a missing derived file refuses [4187.00ms]
+(pass) D-426 PR4b: derived artifacts by their producer projections > the shipped studio files are bound with the executable bindings and re-verified on use [1735.00ms]
+(pass) D-426 PR4b: derived artifacts by their producer projections > fidelity anchor: the guard validator accepts a copy of the real released live studio [80265.00ms]
+(pass) D-426 PR5a: proveRepeat — B0 baseline, R1 release, C2 disposable candidate > valid control: C2 equals R1; B0 and R1 are recorded as distinct identities; nothing is published or reset [11594.00ms]
+(pass) D-426 PR5a: proveRepeat — B0 baseline, R1 release, C2 disposable candidate > a declared volatile field may differ; an undeclared field in the same file stops the repeat [14219.00ms]
+(pass) D-426 PR5a: proveRepeat — B0 baseline, R1 release, C2 disposable candidate > failing repeats: an altered retained byte, and the same id with a wrong description, relation or member binding [18625.00ms]
+(pass) D-426 PR5a: proveRepeat — B0 baseline, R1 release, C2 disposable candidate > a changed input packet, binding, selection or live release stops before comparison: never a repeat pass [16734.00ms]
+(pass) D-426 PR5a: proveRepeat — B0 baseline, R1 release, C2 disposable candidate > an unpublished or packet-less work folder is refused [16594.00ms]
+(pass) D-426 PR5a: proveRepeat — B0 baseline, R1 release, C2 disposable candidate > repeatComparison: graph serialization alone is not a difference; raw hashes stay separate evidence [31.00ms]
+(pass) D-426 PR5a: proveRepeat — B0 baseline, R1 release, C2 disposable candidate > D-429 A4 valid: equal counts need no transient; the one-file difference passes in each direction when explained [25438.00ms]
+(pass) D-426 PR5a: proveRepeat — B0 baseline, R1 release, C2 disposable candidate > D-429 A4 refusals: unexplained count, transient without origin, non-cache difference, AST-cache cardinality, a disagreeing count copy, missing evidence [23422.00ms]
+(pass) D-426 PR5a: proveRepeat — B0 baseline, R1 release, C2 disposable candidate > D-429 Option B: a first run whose packet lacks the D-429 evidence is refused before any generation [9343.00ms]
+(pass) D-426 PR5a: proveRepeat — B0 baseline, R1 release, C2 disposable candidate > D-429 A3: corruption introduced during composition refuses the candidate before its manifest is frozen [21844.00ms]
+(pass) D-426 PR1: operative instructions route only through the guarded procedure > no operative instruction file routes a raw rebuild or update against the live state [16.00ms]
+(pass) D-426 PR1: operative instructions route only through the guarded procedure > negative proof: the audit finds the raw routes the rule files carried before PR1 (55168f4) [156.00ms]
+(pass) D-426 PR1: operative instructions route only through the guarded procedure > the rule files keep the currency check and carry the accepted PR1 replacement; the workflow routes to prepare
+(pass) D-426 PR1: operative instructions route only through the guarded procedure > the archive: one historical sentence in the framing header; the verbatim body is unchanged
+(pass) D-426 PR1: operative instructions route only through the guarded procedure > G-F3-8 (SKILL §7, README §5) and G-F3-9 (SKILL §9) are applied word for word from their accepted source commits [141.00ms]
+(pass) D-426 G5: an unreadable Git configuration fails closed > configDigest: only a clean success yields a digest; every failure class is unreadable
+(pass) D-426 G5: an unreadable Git configuration fails closed > the equal-failure case: two identical failed reads had equal pre-G5 digests; now neither is a value
+(pass) D-426 G5: an unreadable Git configuration fails closed > real reads: the outside and checkout queries succeed; a missing checkout really exits 128 and is unreadable [3578.00ms]
+(pass) D-426 G5: an unreadable Git configuration fails closed > probe capture: every failure class refuses prepare-time binding; nothing is frozen; the probe is removed [12281.00ms]
+(pass) D-426 G5: an unreadable Git configuration fails closed > pre-call: a failed read before the first call refuses with the producer uncalled; before a later call it refuses before that call [42672.00ms]
+(pass) D-427: repeat-provenance amendment A-PR5a-1 > valid control: two real runs differ only in the three leaves, and the exact policy accepts them; raw evidence is retained [15344.00ms]
+(pass) D-427: repeat-provenance amendment A-PR5a-1 > source identity and graph content: a changed source_hash, source_id, adapter or any graph field refuses [2343.00ms]
+(pass) D-427: repeat-provenance amendment A-PR5a-1 > observation bindings: outside its bracket, invalid, equal, backward or missing a bracket refuses [2094.00ms]
+(pass) D-427: repeat-provenance amendment A-PR5a-1 > dependent artifacts: a studio graph unlike its root, a wrong manifest graph hash or another manifest field refuses [1703.00ms]
+(pass) D-427 R1/R2: complete bundles and real calendar instants are required on both runs > a complete valid pair passes (control) [47.00ms]
+(pass) D-427 R1/R2: complete bundles and real calendar instants are required on both runs > D427-R1: a missing studio bundle on R1, on C2 or on both refuses; so do a missing, malformed or array-less manifest, never throwing [109.00ms]
+(pass) D-427 R1/R2: complete bundles and real calendar instants are required on both runs > D427-R2: impossible calendar instants refuse even inside the parser's normalized bracket [282.00ms]
+(pass) D-427 R1/R2: complete bundles and real calendar instants are required on both runs > D427-R2: valid instants pass, leap days and offsets included, and ordering compares actual instants [125.00ms]
+(pass) D-427 R2: early ISO years convert to their actual instant, with no century remap > years 0000, 0001, 0099 and 0100 and early leap days convert exactly; a non-leap century day refuses
+(pass) D-427 R2: early ISO years convert to their actual instant, with no century remap > an offset moves an early instant across a year boundary; modern instants are unchanged
+(pass) D-427 R2: early ISO years convert to their actual instant, with no century remap > the comparator places early instants in their real century: the true bracket passes, the remapped one refuses [62.00ms]
+(pass) D-429: final-writer observation, per-call selection, final state, exact ignored-count transient > A1: the final observation is the final update's, inside its bracket, unchanged afterwards
+(pass) D-429: final-writer observation, per-call selection, final state, exact ignored-count transient > A2: a later call's selection is checked at both of its ends against the rebuild's oracle
+(pass) D-429: final-writer observation, per-call selection, final state, exact ignored-count transient > A4 per call: a rewritten scope must report its pre-call Git proxy; an unrewritten scope is not checked
+(pass) D-429: final-writer observation, per-call selection, final state, exact ignored-count transient > A4 packet: the transient counts only when fill-missing wrote it (absent before, present after) and it is still present
+(pass) D-429: final-writer observation, per-call selection, final state, exact ignored-count transient > A4 across runs: equal counts need nothing; a one-file difference needs the exact transient, equal non-cache paths and AST cardinality
+(pass) D-429: final-writer observation, per-call selection, final state, exact ignored-count transient > A4 copies: both copies of the producer's count must equal the validated count [31.00ms]
+(pass) D-429: final-writer observation, per-call selection, final state, exact ignored-count transient > A3 on staging: observation, bindings, final Git merge and both count copies; a valid candidate passes [63.00ms]
+(pass) D-429: final-writer observation, per-call selection, final state, exact ignored-count transient > G1 helper: both per-call proxy lists are required whether or not the scope was rewritten
+(pass) D-429 G1/G2: refusals through generateCandidate's wiring > valid control: generation reaches every call and returns the D-429 packet [21250.00ms]
+(pass) D-429 G1/G2: refusals through generateCandidate's wiring > A1 wiring: an observation outside the final update's bracket, or changed by a later call, refuses [42516.00ms]
+(pass) D-429 G1/G2: refusals through generateCandidate's wiring > A2 wiring: a later call whose selection crosses the cutoff refuses at that call [9375.00ms]
+(pass) D-429 G1/G2: refusals through generateCandidate's wiring > G1 wiring: a later call without its post-call Git proxy refuses, though the scope was not rewritten [19484.00ms]
+(pass) D-429 G1/G2: refusals through generateCandidate's wiring > A3 and A4 wiring: a late Git change and a disagreeing count copy each refuse at the end of generation [42687.00ms]
+
+ 296 pass
+ 0 fail
+ 1219 expect() calls
+Ran 296 tests across 5 files. [944.69s]

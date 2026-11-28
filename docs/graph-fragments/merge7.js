@@ -42,6 +42,10 @@ function validateFragment(frag, fragName, knownIds) {
   const nodeIds = new Set();
   const byId = new Map();
   for (const n of frag.nodes) {
+    // D-213 / D-407 / D-408: a clustering result is a graphify-derived duplicate, never fragment content.
+    for (const f of ['community', 'community_name']) {
+      if (f in n) throw new Error(`${fragName}: node "${n.id}" declares derived field "${f}" — clustering is graphify-owned (D-213, D-408); remove it from the fragment`);
+    }
     const prior = byId.get(n.id);
     if (prior && JSON.stringify(prior) !== JSON.stringify(n)) {
       throw new Error(`${fragName}: node "${n.id}" defined twice with conflicting fields`);
@@ -128,11 +132,8 @@ function buildCandidate(g, frag) {
     }
   }
 
-  candidate.graph = candidate.graph || {};
-  candidate.graph.community_labels = candidate.graph.community_labels || {};
-  candidate.graph.community_labels['28'] = 'V1 Functional Specifications';
-  candidate.graph.community_labels['29'] = 'Data Lifecycle and Compliance';
-  candidate.graph.community_labels['30'] = 'Tooling Provenance and Graph Durability';
+  // D-408 (packet of D-407): community labels are graphify-derived. This used to pin names on ids 28-30,
+  // which re-imposed stale labels on whatever graphify re-clustered into those ids (Route 1, D-406).
 
   return { candidate, addedN, updatedN, addedE, updatedE };
 }

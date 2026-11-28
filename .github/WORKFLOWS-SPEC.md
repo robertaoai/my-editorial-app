@@ -31,8 +31,9 @@ report.
 | `bun test` | bun's built-in runner |
 | `bun run check` | the `C-14` consistency apparatus |
 
-**`bun run build` is not a verification gate.** `TC6` sets `ignoreBuildErrors` and
-`ignoreDuringBuilds`, so a build stays green on broken types. **A CI job that runs only
+**`bun run build` is not a verification gate.** `TC6` sets `ignoreBuildErrors`, and
+`next build` never runs lint (the `ignoreDuringBuilds` line was removed for Next 16, `B-058`), so a build
+stays green on broken types and unlinted code. **A CI job that runs only
 `next build` would pass with broken types and unlinted code** — it did exactly that while ten
 real type errors sat in `lib/supabase/`. Typecheck and lint stay **separate steps**.
 
@@ -43,17 +44,18 @@ something nobody else can run: green CI that checks something no local run repro
 
 ## 3. The SKIP contract — read this before touching `bun run check`
 
-**`graph-coverage`, `docs-drift` and `source-sweep` cannot run in a default CI checkout, and the reason is what they read, not their
-number.**
+**`graph-coverage`, `docs-drift`, `source-sweep` and `terminal-return` cannot run in a default CI checkout, and the reason is what
+they read, not their number.**
 
 | Check | Why it skips in CI |
 |---|---|
 | `graph-coverage` | reads `.graphify/`, which is **gitignored** — a fresh checkout has no input |
 | `docs-drift` | same |
 | `source-sweep` | needs **per-file history**; `actions/checkout@v4` clones at depth 1 |
+| `terminal-return` | walks **per-file history** of handoff entries; at depth 1 it reports SKIP (`scripts/checks/terminal-return.mjs`, the shallow-clone branch) |
 
-**A CI total below the local total is correct, not a regression.** They differ by exactly these
-three. **Do not "fix" a SKIP by making the check pass vacuously** — a check that cannot fail is
+**A CI total below the local total is correct, not a regression.** They differ by the checks that this
+table names, and only for the reason each row gives. **Do not "fix" a SKIP by making the check pass vacuously** — a check that cannot fail is
 worse than no check, and this repository has a named failure mode for it
 (`probe_that_cannot_fail`).
 
@@ -62,13 +64,22 @@ tallies from four documents after they drifted; `bun run check` prints the total
 
 ## 4. Queued items
 
+**Receiving packet (`D-381`, 2026-10-02).** These items, with `C-001`/`B-016`'s `C-24` and `C-25`, are received by
+`V1-SM06` as `SM06-P3-02`–`05` — the first increment to carry Phase 3 CI work. Receipt is custody, not a work
+order: nothing below runs before a separately authorized Phase 3 work order and lane act. The existing `ci.yml`
+job is unchanged. The `D-230` Stage 2 workflow (§8's evidence contract, exercised for real) is `SM06-P3-06`
+(`D-382`). **Timing (`D-383`):** the existing CI keeps running on every push, but its result is not a `V1-SM05` DoD
+prerequisite; `V1-SM05` DoD is met by local validation. None of these items starts before `V1-SM06` entry, which
+requires a separately accepted baseline-promotion PR.
+
 ### `C-Q1` — `fetch-depth: 0`, so `source-sweep` runs in CI
 
 **Change:** add `with: fetch-depth: 0` to the `Checkout` step in `ci.yml`.
 
 **Why:** `source-sweep` (`G70`) compares each governing document's last-commit date against its
 derived tiers. At depth 1 that history does not exist, so the check reports SKIP and the
-source-side of `D-54` propagation is unverified on every merge.
+source-side of `D-54` propagation is unverified on every merge. The same depth also makes
+`terminal-return` SKIP; `fetch-depth: 0` lets both run.
 
 **Cost, stated:** a full clone is slower. Accepted — the alternative is a governance check that
 never runs on the only gate that blocks a merge.
@@ -115,6 +126,12 @@ A Lane C item is done when:
 `blocked-on-decision` | `finding`, then stop. **The directory belongs to no lane**, so writing
 there is not a crossing. Lane A must acknowledge every open entry; `bun run check` fails on one
 left unread. **Acknowledging is not answering** — a queue is expected.
+
+> **Amended by `D-272`, 2026-09-27 (Judge).** Your `C-` entries are yours: commit them yourself, **whatever your lane
+> state**, by the one-entry procedure in `docs/handoff/README.md`. Name the answering lane in **`Receiver:`** —
+> **`Lane B`** by default (DevOps depends on the codebase, and §7 routes signal gaps there), **`Lane A`** when the
+> dependency sits on a Lane A surface (`scripts/`, `bun run check`, build config) or you are answering a Lane A request.
+> The receiver, not always Lane A, acknowledges and answers.
 
 **Never edit:** `docs/PRD.md`, `docs/source/project-charter-v1.md`,
 `supabase/migrations/0001_init.sql`. **Never put secrets in a workflow file** — use repository

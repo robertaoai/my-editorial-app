@@ -8,8 +8,6 @@
       "source_file": "docs/handoff/B-032-separate-state-control-from-report-data.md",
       "source_location": "Required repair item 3",
       "description": "A handoff entry's required repair listed several concrete actions, most of which were completed and cited as evidence, and one of which named a specific document row by id and was never touched, so the entry's overall Applied resolution read as complete while one of its own named items quietly was not.",
-      "community": 8,
-      "community_name": "Decision Register",
       "source_url": null,
       "captured_at": null,
       "author": null,

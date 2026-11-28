@@ -1,0 +1,26 @@
+{
+  "pass": true,
+  "seals": [
+    {
+      "path": "C:/CoWork/outputs/lane-a-graph-sync-after-d475-2026-10-29/evidence/SHA256-MANIFEST-E1.txt",
+      "sha256": "4f3e3d83a29b29b03fdadc7d0f1058dd2f98fab67812bdd2c2d355a708bc1ce0",
+      "files": 21
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-a-graph-sync-after-d475-2026-10-29/reviews-1/SHA256-MANIFEST-R1.txt",
+      "sha256": "10940428c3d1da3c24857c875eaaa817f5785393842a967d78cde849234c65f9",
+      "files": 2
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-a-graph-sync-after-d475-2026-10-29/evidence-2/SHA256-MANIFEST-E2.txt",
+      "sha256": "844333e78fdec36b3bb43bc70d8abfd12c4840ea308233268696011f398e42f8",
+      "files": 28
+    },
+    {
+      "path": "C:/CoWork/outputs/lane-a-graph-sync-after-d475-2026-10-29/reviews-2/SHA256-MANIFEST-R2.txt",
+      "sha256": "4a78d04fd33da09698bf75ef0c8fb2dc8640d86390b7b4dfb6b63f8004905501",
+      "files": 2
+    }
+  ],
+  "files": 53
+}

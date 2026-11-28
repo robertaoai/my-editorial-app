@@ -1,0 +1,27 @@
+# PLANNED ONLY. Do not run without independent exact-byte approval and Judge execution release.
+# This is a text draft, not an automatically executed launcher wrapper.
+$ErrorActionPreference = 'Stop'
+$capturePath = 'C:/CoWork/outputs/lane-b-after-d475-f3-r2-2026-10-29/capture-run-1'
+$launcherOutput = 'C:/CoWork/outputs/lane-b-after-d475-f3-r2-2026-10-29/launcher-run-1'
+$childOutput = 'C:/CoWork/outputs/lane-b-after-d475-f3-r2-2026-10-29/f3-run-1'
+foreach ($newPath in @($capturePath, $launcherOutput, $childOutput)) {
+    if (Test-Path -LiteralPath $newPath) { throw "Output already exists: $newPath" }
+}
+New-Item -ItemType Directory -Path $capturePath -ErrorAction Stop | Out-Null
+$startedUtc = [DateTime]::UtcNow.ToString('o')
+$launcherExit = $null
+$hostError = $null
+try {
+    & 'C:\Program Files\nodejs\node.exe' 'C:\CoWork\outputs\lane-a-git-binding-plan-2026-10-29\launch-review.r4.mjs' --child 'C:\CoWork\outputs\lane-b-after-d475-f3-r2-2026-10-29\entry.mjs' --child-sha256 '6f07293ae714cf702365c545a1a9f2e720c008ccb8d8b8f96909467bb7db6cd3' --out 'C:\CoWork\outputs\lane-b-after-d475-f3-r2-2026-10-29\launcher-run-1' -- --out 'C:/CoWork/outputs/lane-b-after-d475-f3-r2-2026-10-29/f3-run-1' 1> "$capturePath/stdout.log" 2> "$capturePath/stderr.log"
+    $launcherExit = $LASTEXITCODE
+} catch {
+    $hostError = $_.ToString()
+} finally {
+    $captureRecord = [ordered]@{ startedUtc = $startedUtc; endedUtc = [DateTime]::UtcNow.ToString('o'); launcherExit = $launcherExit; hostError = $hostError; completeCapture = ($null -ne $launcherExit -and $null -eq $hostError); format = 'PowerShell text capture; retain structured stderr JSON and all partial files' }
+    $captureBytes = [Text.Encoding]::UTF8.GetBytes(($captureRecord | ConvertTo-Json -Depth 5) + "`n")
+    $captureStream = [IO.File]::Open("$capturePath/host-result.json", [IO.FileMode]::CreateNew, [IO.FileAccess]::Write, [IO.FileShare]::None)
+    try { $captureStream.Write($captureBytes, 0, $captureBytes.Length) } finally { $captureStream.Dispose() }
+}
+if ($null -ne $hostError -or $null -eq $launcherExit) { throw 'Incomplete host capture: retain everything; no retry or F3 acceptance.' }
+if ($launcherExit -ne 0) { throw "Launcher failed with exit $launcherExit. Preserve all evidence and return for review." }
+# Exit 0 is only an execution result. Independent review of child/launcher records remains required.

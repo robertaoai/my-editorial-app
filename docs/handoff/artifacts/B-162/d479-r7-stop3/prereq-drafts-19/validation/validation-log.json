@@ -1,0 +1,21 @@
+[
+  {
+    "step": "P",
+    "at": "2026-11-13T15:30:27.304Z",
+    "sha": "48f8f751d097491cfa8168a348c7c61adb873d85",
+    "tree": "55fd9860bf1035e41e7fe2fb9c361593c69a4b15",
+    "diff": {
+      "bytes": 7853,
+      "sha256": "2a84ea1992ee598021e8f5719b8fef7071a4516925a3724d28830cab7b2203f3"
+    },
+    "paths": [
+      "scripts/checks/tier-sweep.mjs",
+      "scripts/fixtures/suites.mjs"
+    ]
+  },
+  {
+    "step": "STOP",
+    "at": "2026-11-13T15:41:34.596Z",
+    "error": "STOP: P fixtures: 302/304 fixtures behaved as intended       MISS  gate2: SM05 status no longer BLOCKED — counts as a claim and fails — no finding matching \"no longer reads BLOCKED\" |       MISS  tier-sweep re-slot: after the move, a routed claim is checked against V1-SM07.md — unexpected finding: row 18950: D-255 marked ✅ for \"**`docs/v1/work-packets/V1/V1-SM05.md`**\" but absent from docs/v1/work-packets/V1/V1-SM05.md"
+  }
+]

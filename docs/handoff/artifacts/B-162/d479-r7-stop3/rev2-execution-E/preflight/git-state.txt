@@ -1,0 +1,17 @@
+started 2026-11-13T13:29:58Z ended 2026-11-13T13:30:02Z exit 0
+origin/features/feature-V1-SM05=d8db2da71ceb79cc9ade330b524b6ffc6c3edd96
+FETCH_HEAD=d8db2da71ceb79cc9ade330b524b6ffc6c3edd96
+HEAD=30db8d51140c0e46700f96bb9f018e6e40b93cbc tree=0b558d2a51f17eff755dfd7fba51bed37548f9ae branch=features/feature-V1-SM05
+aheadBehind=1 0
+localAboveUpstream=30db8d51140c0e46700f96bb9f018e6e40b93cbc 
+parent30db8d5=d8db2da71ceb79cc9ade330b524b6ffc6c3edd96 parents=30db8d51140c0e46700f96bb9f018e6e40b93cbc d8db2da71ceb79cc9ade330b524b6ffc6c3edd96
+anc 0f698ee^=93c351a9df44fd45f8240b0a997dfe4b18e99d0c 93c351a^=e7e3c6006a7dd9effbcf1f9b9f118fd64e7c910a
+isAnc e7e3c60->0f698ee yes
+isAnc 0f698ee->d8db2da yes
+0f698ee paths: docs/v1/V1-DECISION-REGISTER.md 
+93c351a paths: docs/handoff/B-162-consolidated-findings-and-delivery-controls.md 
+30db8d5 paths: docs/v1/V1-DECISION-REGISTER.md 
+D480 in register at 0f698ee: 1
+porcelain=[]
+index-entries=1354 diff-cached=[]
+LaneA: 1
